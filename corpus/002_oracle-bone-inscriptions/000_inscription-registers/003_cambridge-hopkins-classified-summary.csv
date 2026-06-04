@@ -1,0 +1,26 @@
+summary_row_id,source_id,evidence_download_id,group_number,group_label_en,period_i_count,period_ii_count,period_iii_count,period_iv_count,period_v_count,total_count,group_label_zh,summary_kind,review_status,updated_at
+cam-hopkins-summary-001,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,1,ancestors,30,29,7,9,12,87,祖、父、妣、母、兄、子、帚,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-002,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,2,hou and po,4,1,-,-,-,5,侯、伯,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-003,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,3,diviners and names,33,6,1,3,-,43,贞人及人(或国族)名,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-004,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,4,royal activities,12,16,1,-,-,29,王事活动,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-005,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,5,offices and punishments,5,-,-,2,-,7,职官、刑罚,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-006,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,6,warfare,48,3,-,4,5,60,战争,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-007,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,7,geography,5,-,-,-,6,11,地理,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-008,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,8,tribute,1,-,-,-,-,1,贡纳,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-009,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,9,agriculture,11,-,-,1,-,12,农业,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-010,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,10,hunting,6,4,17,2,21,50,田猎,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-011,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,11,animal husbandry,-,3,1,1,-,5,畜牧,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-012,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,12,astronomy and calendar,8,2,1,-,12,23,天文、历法,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-013,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,13,meteorology,4,2,3,3,4,16,气象,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-014,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,14,architecture,16,2,1,-,-,19,建筑,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-015,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,15,birth and disease,1,1,-,-,-,2,生育、疾病,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-016,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,16,"gods, ancestors and spirits",18,2,-,2,-,22,上帝、先公和其它神□,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-017,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,17,sacrifices,20,36,9,3,2,70,祭祀,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-018,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,18,divinatory techniques,17,3,5,-,1,26,卜法,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-019,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,19,dreams and portents,13,22,6,6,30,77,吉凶梦幻,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-020,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,20,other,9,2,1,1,1,14,其它,classified_table_group,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-total-periods,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,TOTALS,period totals,261,134,53,37,94,579,分期合计,classified_table_total,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-shih-tsu,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,SHIH_TSU,Shih tsu,,,,,,21,□祖,ancestor_subgroup,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-tzu-tsu,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,TZU_TSU,Tzu tsu,,,,,,7,子祖,ancestor_subgroup,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-wu-tsu,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,WU_TSU,Wu tsu,,,,,,2,午祖,ancestor_subgroup,reviewed_metadata_only,2026-06-04
+cam-hopkins-summary-grand-total,src-cambridge-hopkins,dl-cambridge-hopkins-finding-list,GRAND_TOTAL,grand total,,,,,,609,总计,classified_table_grand_total,reviewed_metadata_only,2026-06-04

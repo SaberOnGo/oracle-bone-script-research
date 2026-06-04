@@ -63,6 +63,14 @@ OBIMD_SUBCHARACTER_GLYPH_STAGING = (
     "corpus/003_graphemic-components/000_component-registers/"
     "003_obimd-subcharacter-glyph-staging.csv"
 )
+CAMBRIDGE_HOPKINS_CROSSWALK_STAGING = (
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/"
+    "002_cambridge-hopkins-crosswalk-staging.csv"
+)
+CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY = (
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/"
+    "003_cambridge-hopkins-classified-summary.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -190,6 +198,8 @@ REQUIRED_PATHS = [
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
+    CAMBRIDGE_HOPKINS_CROSSWALK_STAGING,
+    CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -427,6 +437,12 @@ def check_source_registers(root: Path) -> list[str]:
     obimd_subchar_glyph_rows, obimd_subchar_glyph_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_GLYPH_STAGING
     )
+    cambridge_crosswalk_rows, cambridge_crosswalk_issues = _read_csv_rows(
+        root / CAMBRIDGE_HOPKINS_CROSSWALK_STAGING
+    )
+    cambridge_summary_rows, cambridge_summary_issues = _read_csv_rows(
+        root / CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -440,6 +456,8 @@ def check_source_registers(root: Path) -> list[str]:
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
+        + cambridge_crosswalk_issues
+        + cambridge_summary_issues
         + log_issues
         + large_issues
     )
@@ -697,6 +715,78 @@ def check_source_registers(root: Path) -> list[str]:
             f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} subcharacter UID set must match "
             f"{OBIMD_SUBCHARACTER_MAIN_STAGING}"
         )
+
+    if len(cambridge_crosswalk_rows) != 612:
+        issues.append(
+            f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} should contain exactly 612 crosswalk rows"
+        )
+    missing_cul_count = 0
+    missing_chalfant_count = 0
+    missing_heji_count = 0
+    for row in cambridge_crosswalk_rows:
+        candidate_id = row.get("candidate_inscription_crosswalk_id", "")
+        if not candidate_id.startswith("cam-hopkins-crosswalk-"):
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} candidate ID must use "
+                f"cam-hopkins-crosswalk-*: {candidate_id}"
+            )
+        if row.get("source_id") != "src-cambridge-hopkins":
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} row must reference src-cambridge-hopkins: "
+                f"{candidate_id}"
+            )
+        if row.get("evidence_download_id") != "dl-cambridge-hopkins-finding-list":
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} row must cite "
+                f"dl-cambridge-hopkins-finding-list: {candidate_id}"
+            )
+        if row.get("project_import_status") != "dataset_candidate_not_promoted":
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} row must stay "
+                f"dataset_candidate_not_promoted: {candidate_id}"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} row not reviewed_metadata_only: "
+                f"{candidate_id}"
+            )
+        y_ref = row.get("yingguo_ref_id", "")
+        if not y_ref:
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} row missing y ref: {candidate_id}")
+        if row.get("has_missing_cul_ref") == "true":
+            missing_cul_count += 1
+        if row.get("has_missing_chalfant_ref") == "true":
+            missing_chalfant_count += 1
+        if row.get("has_missing_heji_ref") == "true":
+            missing_heji_count += 1
+    if cambridge_crosswalk_rows and (missing_cul_count, missing_chalfant_count, missing_heji_count) != (6, 171, 316):
+        issues.append(
+            f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} missing-reference counts changed"
+        )
+
+    if len(cambridge_summary_rows) != 25:
+        issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} should contain exactly 25 rows")
+    cambridge_group_rows = [
+        row for row in cambridge_summary_rows if row.get("summary_kind") == "classified_table_group"
+    ]
+    if len(cambridge_group_rows) != 20:
+        issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} should contain 20 group rows")
+    grand_total_rows = [
+        row for row in cambridge_summary_rows
+        if row.get("summary_kind") == "classified_table_grand_total"
+    ]
+    if not grand_total_rows or grand_total_rows[0].get("total_count") != "609":
+        issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} grand total must be 609")
+    for row in cambridge_summary_rows:
+        if row.get("source_id") != "src-cambridge-hopkins":
+            issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} row must reference src-cambridge-hopkins")
+        if row.get("evidence_download_id") != "dl-cambridge-hopkins-finding-list":
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} row must cite "
+                f"dl-cambridge-hopkins-finding-list"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} row not reviewed_metadata_only")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

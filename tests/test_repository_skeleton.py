@@ -172,6 +172,47 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len({row["source_main_character_uid"] for row in main_rows}), 1730)
         self.assertEqual(len({row["glyph_codepoint"] for row in glyph_rows}), 41686)
 
+    def test_cambridge_hopkins_crosswalk_preserves_official_references(self) -> None:
+        crosswalk_path = (
+            repo_root()
+            / "corpus/002_oracle-bone-inscriptions/000_inscription-registers/"
+            / "002_cambridge-hopkins-crosswalk-staging.csv"
+        )
+        summary_path = (
+            repo_root()
+            / "corpus/002_oracle-bone-inscriptions/000_inscription-registers/"
+            / "003_cambridge-hopkins-classified-summary.csv"
+        )
+        with crosswalk_path.open("r", encoding="utf-8-sig", newline="") as file:
+            crosswalk_rows = list(csv.DictReader(file))
+        with summary_path.open("r", encoding="utf-8-sig", newline="") as file:
+            summary_rows = list(csv.DictReader(file))
+        self.assertEqual(len(crosswalk_rows), 612)
+        self.assertEqual(crosswalk_rows[0]["yingguo_ref_id"], "y1")
+        self.assertEqual(crosswalk_rows[0]["cul_ref_id"], "45")
+        self.assertEqual(crosswalk_rows[0]["chalfant_ref_id"], "459")
+        self.assertEqual(crosswalk_rows[0]["heji_ref_id"], "39502")
+        self.assertEqual(crosswalk_rows[-1]["yingguo_ref_id"], "ybu04")
+        self.assertEqual(
+            {row["project_import_status"] for row in crosswalk_rows},
+            {"dataset_candidate_not_promoted"},
+        )
+        self.assertEqual(sum(1 for row in crosswalk_rows if row["has_missing_cul_ref"] == "true"), 6)
+        self.assertEqual(sum(1 for row in crosswalk_rows if row["has_missing_chalfant_ref"] == "true"), 171)
+        self.assertEqual(sum(1 for row in crosswalk_rows if row["has_missing_heji_ref"] == "true"), 316)
+        self.assertEqual(
+            sum(1 for row in crosswalk_rows if row["yingguo_ref_id"] == "y2402"),
+            2,
+        )
+        self.assertEqual(len(summary_rows), 25)
+        group_rows = [row for row in summary_rows if row["summary_kind"] == "classified_table_group"]
+        self.assertEqual(len(group_rows), 20)
+        grand_total = [
+            row for row in summary_rows
+            if row["summary_kind"] == "classified_table_grand_total"
+        ][0]
+        self.assertEqual(grand_total["total_count"], "609")
+
 
 if __name__ == "__main__":
     unittest.main()

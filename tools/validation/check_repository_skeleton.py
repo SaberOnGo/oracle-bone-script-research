@@ -73,6 +73,10 @@ HUST_OBC_CANDIDATE_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "005_hust-obc-candidate-graph-edges.jsonl"
 )
+OBIMD_COMPONENT_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "006_obimd-component-graph-edges.jsonl"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -253,6 +257,7 @@ REQUIRED_PATHS = [
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     HUST_OBC_SOURCE_CATEGORY_STAGING,
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
+    OBIMD_COMPONENT_GRAPH_EDGES,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -272,6 +277,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
+    "tools/003_graph-generation/build_obimd_component_graph_edges.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -510,11 +516,21 @@ def _read_jsonl_rows(path: Path) -> tuple[list[dict[str, object]], list[str]]:
 def check_relationship_graph_edges(root: Path) -> list[str]:
     issues: list[str] = []
     edge_rows, edge_issues = _read_jsonl_rows(root / HUST_OBC_CANDIDATE_GRAPH_EDGES)
+    obimd_edge_rows, obimd_edge_issues = _read_jsonl_rows(root / OBIMD_COMPONENT_GRAPH_EDGES)
     source_category_rows, source_category_issues = _read_csv_rows(root / HUST_OBC_SOURCE_CATEGORY_STAGING)
     validation_rows, validation_issues = _read_csv_rows(root / HUST_OBC_VALIDATION_CLASS_STAGING)
+    obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
+        root / OBIMD_SUBCHARACTER_MAIN_STAGING
+    )
+    obimd_subchar_glyph_rows, obimd_subchar_glyph_issues = _read_csv_rows(
+        root / OBIMD_SUBCHARACTER_GLYPH_STAGING
+    )
     issues.extend(edge_issues)
+    issues.extend(obimd_edge_issues)
     issues.extend(source_category_issues)
     issues.extend(validation_issues)
+    issues.extend(obimd_subchar_main_issues)
+    issues.extend(obimd_subchar_glyph_issues)
 
     if len(edge_rows) != 3562:
         issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} should contain exactly 3562 edges")
@@ -599,6 +615,81 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
         issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} class-to-category edge sequence changed")
     if edge_rows and compact_edge_rows[1781:] != expected_label_edges:
         issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} category-to-label edge sequence changed")
+
+    if len(obimd_edge_rows) != 44433:
+        issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} should contain exactly 44433 edges")
+
+    obimd_required_fields = required_fields
+    obimd_edge_ids: set[str] = set()
+    obimd_edge_type_counts: dict[str, int] = {}
+    for row in obimd_edge_rows:
+        edge_id = str(row.get("edge_id", ""))
+        if not obimd_required_fields.issubset(row):
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge missing required fields: {edge_id}")
+        if edge_id in obimd_edge_ids:
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} duplicate edge_id: {edge_id}")
+        obimd_edge_ids.add(edge_id)
+        edge_type = str(row.get("edge_type", ""))
+        obimd_edge_type_counts[edge_type] = obimd_edge_type_counts.get(edge_type, 0) + 1
+        if row.get("confidence_level") != "high":
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge must stay high confidence metadata edge: {edge_id}")
+        if row.get("source_ids") != ["src-obimd"]:
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge must reference only src-obimd: {edge_id}")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge must stay reviewed: {edge_id}")
+        note = str(row.get("evidence_note", ""))
+        if "not" not in note.lower():
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge evidence note must preserve caution: {edge_id}")
+
+    expected_obimd_type_counts = {
+        "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER": 2747,
+        "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT": 41686,
+    }
+    if obimd_edge_rows and obimd_edge_type_counts != expected_obimd_type_counts:
+        issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge type counts changed")
+
+    subcandidate_by_uid = {
+        row.get("source_subcharacter_uid", ""): row.get("candidate_subcharacter_id", "")
+        for row in obimd_subchar_main_rows
+    }
+    expected_obimd_sub_main_edges: list[dict[str, object]] = []
+    for index, row in enumerate(obimd_subchar_main_rows, start=1):
+        expected_obimd_sub_main_edges.append(
+            {
+                "edge_id": f"edge-obimd-sub-main-{index:06d}",
+                "source_node_id": row.get("candidate_subcharacter_id", ""),
+                "edge_type": "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER",
+                "target_node_id": row.get("main_character_external_ref_id", ""),
+            }
+        )
+    expected_obimd_sub_glyph_edges: list[dict[str, object]] = []
+    for index, row in enumerate(obimd_subchar_glyph_rows, start=1):
+        sub_uid = row.get("source_subcharacter_uid", "")
+        if sub_uid not in subcandidate_by_uid:
+            issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} glyph edge source UID missing: {sub_uid}")
+        target_codepoints = row.get("glyph_codepoint_uplus", "").lower().replace("+", "").replace(";", "-")
+        expected_obimd_sub_glyph_edges.append(
+            {
+                "edge_id": f"edge-obimd-sub-glyph-{index:06d}",
+                "source_node_id": subcandidate_by_uid.get(sub_uid, ""),
+                "edge_type": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT",
+                "target_node_id": f"obimd-glyph-codepoint-{target_codepoints}",
+            }
+        )
+
+    compact_obimd_edge_rows = [
+        {
+            "edge_id": row.get("edge_id"),
+            "source_node_id": row.get("source_node_id"),
+            "edge_type": row.get("edge_type"),
+            "target_node_id": row.get("target_node_id"),
+        }
+        for row in obimd_edge_rows
+    ]
+    if obimd_edge_rows and compact_obimd_edge_rows[:2747] != expected_obimd_sub_main_edges:
+        issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} subcharacter-to-main edge sequence changed")
+    if obimd_edge_rows and compact_obimd_edge_rows[2747:] != expected_obimd_sub_glyph_edges:
+        issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} subcharacter-to-glyph edge sequence changed")
 
     return issues
 

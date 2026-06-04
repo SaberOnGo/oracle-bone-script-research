@@ -55,6 +55,15 @@ def load_hust_obc_candidate_graph_edges_module():
     return module
 
 
+def load_obimd_component_graph_edges_module():
+    path = repo_root() / "tools/003_graph-generation/build_obimd_component_graph_edges.py"
+    spec = importlib.util.spec_from_file_location("build_obimd_component_graph_edges", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -463,6 +472,66 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[2]["target_node_id"], "hust-obc-ocr-label-u3401")
         self.assertIn("not a formal oracle-character identity claim", rows[0]["evidence_note"])
         self.assertIn("not accepted paleographic readings", rows[2]["evidence_note"])
+
+    def test_obimd_component_graph_edges_preserve_component_and_glyph_mappings(self) -> None:
+        path = repo_root() / "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"
+        rows = [
+            json.loads(line)
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(rows), 44433)
+        self.assertEqual(
+            Counter(row["edge_type"] for row in rows),
+            Counter(
+                {
+                    "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER": 2747,
+                    "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT": 41686,
+                }
+            ),
+        )
+        self.assertEqual(rows[0]["edge_id"], "edge-obimd-sub-main-000001")
+        self.assertEqual(rows[0]["source_node_id"], "obimd-sub-cand-000001")
+        self.assertEqual(rows[0]["target_node_id"], "obimd-main-p8w7ujqanz")
+        self.assertEqual(rows[2746]["edge_id"], "edge-obimd-sub-main-002747")
+        self.assertEqual(rows[2746]["source_node_id"], "obimd-sub-cand-002747")
+        self.assertEqual(rows[2746]["target_node_id"], "obimd-main-bt5y2iq3kp")
+        self.assertEqual(rows[2747]["edge_id"], "edge-obimd-sub-glyph-000001")
+        self.assertEqual(rows[2747]["source_node_id"], "obimd-sub-cand-000001")
+        self.assertEqual(rows[2747]["target_node_id"], "obimd-glyph-codepoint-u65e5-uf0000")
+        self.assertEqual(rows[-1]["edge_id"], "edge-obimd-sub-glyph-041686")
+        self.assertEqual(rows[-1]["source_node_id"], "obimd-sub-cand-002747")
+        self.assertEqual(rows[-1]["target_node_id"], "obimd-glyph-codepoint-uff9e1")
+        self.assertEqual({tuple(row["source_ids"]) for row in rows}, {("src-obimd",)})
+        self.assertEqual({row["confidence_level"] for row in rows}, {"high"})
+        self.assertEqual({row["review_status"] for row in rows}, {"reviewed"})
+
+    def test_obimd_component_graph_edges_builder_keeps_external_main_refs(self) -> None:
+        module = load_obimd_component_graph_edges_module()
+        rows = module.build_edges(
+            [],
+            [
+                {
+                    "candidate_subcharacter_id": "obimd-sub-cand-000001",
+                    "source_subcharacter_uid": "sub-uid-a",
+                    "source_main_character_uid": "main-uid-not-in-main-table",
+                    "main_character_external_ref_id": "obimd-main-main-uid-not-in-main-table",
+                }
+            ],
+            [
+                {
+                    "source_subcharacter_uid": "sub-uid-a",
+                    "glyph_codepoint_uplus": "U+65E5;U+F0000",
+                }
+            ],
+        )
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["edge_type"], "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER")
+        self.assertEqual(rows[0]["target_node_id"], "obimd-main-main-uid-not-in-main-table")
+        self.assertEqual(rows[1]["edge_type"], "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT")
+        self.assertEqual(rows[1]["target_node_id"], "obimd-glyph-codepoint-u65e5-uf0000")
+        self.assertIn("not a formal component analysis", rows[0]["evidence_note"])
+        self.assertIn("private-use code points", rows[1]["evidence_note"])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

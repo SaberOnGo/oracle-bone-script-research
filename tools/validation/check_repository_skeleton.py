@@ -69,6 +69,10 @@ HUST_OBC_SOURCE_CATEGORY_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "008_hust-obc-source-category-staging.csv"
 )
+HUST_OBC_OBS_CHAR_PROMOTION_QUEUE = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "009_hust-obc-obs-char-promotion-review-queue.csv"
+)
 HUST_OBC_CANDIDATE_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "005_hust-obc-candidate-graph-edges.jsonl"
@@ -272,6 +276,7 @@ REQUIRED_PATHS = [
     HUST_OBC_VALIDATION_CLASS_STAGING,
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     HUST_OBC_SOURCE_CATEGORY_STAGING,
+    HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
     EVOBC_EVOLUTION_GRAPH_EDGES,
@@ -295,6 +300,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_evobc_evolution_staging.py",
     "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py",
     "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
+    "tools/002_corpus-import/build_hust_obc_obs_char_promotion_queue.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
@@ -1063,6 +1069,9 @@ def check_source_registers(root: Path) -> list[str]:
     hust_source_category_rows, hust_source_category_issues = _read_csv_rows(
         root / HUST_OBC_SOURCE_CATEGORY_STAGING
     )
+    hust_promotion_queue_rows, hust_promotion_queue_issues = _read_csv_rows(
+        root / HUST_OBC_OBS_CHAR_PROMOTION_QUEUE
+    )
     obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_MAIN_STAGING
@@ -1103,6 +1112,7 @@ def check_source_registers(root: Path) -> list[str]:
         + hust_validation_issues
         + hust_label_crosswalk_issues
         + hust_source_category_issues
+        + hust_promotion_queue_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
@@ -1498,6 +1508,92 @@ def check_source_registers(root: Path) -> list[str]:
         issues.append(
             f"{HUST_OBC_SOURCE_CATEGORY_STAGING} must link back to every HUST validation candidate class"
         )
+
+    if len(hust_promotion_queue_rows) != 1588:
+        issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} should contain exactly 1588 rows")
+    queue_candidate_ids: set[str] = set()
+    queue_suggested_ids: set[str] = set()
+    queue_multi_component_count = 0
+    all_character_index_rows, all_character_index_issues = _read_csv_rows(
+        root / "corpus/001_oracle-characters/000_character-registers/001_all-oracle-characters-index.csv"
+    )
+    issues.extend(all_character_index_issues)
+    if all_character_index_rows:
+        issues.append(
+            "001_all-oracle-characters-index.csv must stay empty while HUST promotion queue is unreviewed"
+        )
+    source_category_row_ids = {row.get("source_category_row_id", "") for row in hust_source_category_rows}
+    for index, row in enumerate(hust_promotion_queue_rows, start=1):
+        queue_id = row.get("promotion_queue_id", "")
+        expected_queue_id = f"hust-obc-obs-char-promo-{index:06d}"
+        if queue_id != expected_queue_id:
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} queue ID sequence changed: {queue_id}")
+        suggested_id = row.get("suggested_oracle_character_id", "")
+        if suggested_id != f"obs-char-{index:06d}":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} suggested obs-char ID changed: {queue_id}")
+        if suggested_id in queue_suggested_ids:
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} duplicate suggested obs-char ID: {suggested_id}")
+        queue_suggested_ids.add(suggested_id)
+        candidate_id = row.get("candidate_class_id", "")
+        queue_candidate_ids.add(candidate_id)
+        if candidate_id not in hust_validation_candidate_ids:
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} references unknown candidate: {candidate_id}")
+        if row.get("source_id") != "src-hust-obc":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} row must reference src-hust-obc: {queue_id}")
+        if row.get("candidate_label_crosswalk_id", "") not in label_crosswalk_ids:
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} crosswalk link missing: {queue_id}")
+        for source_category_row_id in row.get("source_category_row_ids", "").split(";"):
+            if source_category_row_id and source_category_row_id not in source_category_row_ids:
+                issues.append(
+                    f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} source category row missing: "
+                    f"{source_category_row_id}"
+                )
+        member_count = row.get("source_category_member_count", "")
+        member_ids = [value for value in row.get("source_category_row_ids", "").split(";") if value]
+        if not member_count.isdigit() or int(member_count) != len(member_ids):
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} member count mismatch: {queue_id}")
+        component_count = row.get("label_component_count", "")
+        label = row.get("source_modern_label_candidate", "")
+        if not component_count.isdigit() or int(component_count) != len(label):
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} label component count mismatch: {queue_id}")
+        if row.get("has_multi_component_label") == "true":
+            queue_multi_component_count += 1
+        elif row.get("has_multi_component_label") != "false":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} invalid multi-component flag: {queue_id}")
+        if row.get("suggested_decipherment_status") != "unknown_until_cross_source_review":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} must keep unknown suggested status: {queue_id}")
+        if row.get("assignment_status") != "reserved_candidate_not_assigned":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} must stay reserved_candidate_not_assigned: {queue_id}")
+        if row.get("promotion_status") != "needs_cross_source_review":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} must stay needs_cross_source_review: {queue_id}")
+        if row.get("rights_status") != "source_marked_risk_noted":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} row must stay source_marked_risk_noted: {queue_id}")
+        if row.get("review_status") != "needs_review":
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} row must stay needs_review: {queue_id}")
+        if "not assigned" not in row.get("caution", ""):
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} caution must preserve not-assigned warning: {queue_id}")
+    if hust_promotion_queue_rows and queue_candidate_ids != hust_validation_candidate_ids:
+        issues.append(
+            f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} candidate_class_id set must match "
+            f"{HUST_OBC_VALIDATION_CLASS_STAGING}"
+        )
+    if hust_promotion_queue_rows and queue_suggested_ids != {
+        f"obs-char-{index:06d}" for index in range(1, 1589)
+    }:
+        issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} suggested obs-char range must be 000001..001588")
+    if hust_promotion_queue_rows and queue_multi_component_count != 173:
+        issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} multi-component label count must be 173")
+    if hust_promotion_queue_rows:
+        first_queue_row = hust_promotion_queue_rows[0]
+        last_queue_row = hust_promotion_queue_rows[-1]
+        if first_queue_row.get("suggested_bucket_directory") != (
+            "001_000001-000100_obs-char-bucket_oracle-characters"
+        ):
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} first bucket changed")
+        if last_queue_row.get("suggested_bucket_directory") != (
+            "016_001501-001600_obs-char-bucket_oracle-characters"
+        ):
+            issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} last bucket changed")
 
     if len(obimd_main_rows) != 3936:
         issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} should contain exactly 3936 candidate rows")

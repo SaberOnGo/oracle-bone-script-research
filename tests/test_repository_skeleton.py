@@ -48,6 +48,15 @@ def load_hust_obc_source_category_module():
     return module
 
 
+def load_hust_obc_obs_char_promotion_queue_module():
+    path = repo_root() / "tools/002_corpus-import/build_hust_obc_obs_char_promotion_queue.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_obs_char_promotion_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_candidate_graph_edges_module():
     path = repo_root() / "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_graph_edges", path)
@@ -447,6 +456,85 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["is_part_of_multi_category_class"], "true")
         self.assertEqual(rows[1]["source_category_id"], "0012")
         self.assertEqual(rows[1]["source_modern_label_codepoint"], "U+3402")
+
+    def test_hust_obc_obs_char_promotion_queue_preserves_review_boundary(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "009_hust-obc-obs-char-promotion-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 1588)
+        self.assertEqual(rows[0]["promotion_queue_id"], "hust-obc-obs-char-promo-000001")
+        self.assertEqual(rows[0]["suggested_oracle_character_id"], "obs-char-000001")
+        self.assertEqual(
+            rows[0]["suggested_bucket_directory"],
+            "001_000001-000100_obs-char-bucket_oracle-characters",
+        )
+        self.assertEqual(rows[0]["candidate_class_id"], "obs-cand-000001")
+        self.assertEqual(rows[0]["source_modern_label_codepoints"], "U+2E80")
+        self.assertEqual(rows[10]["source_category_member_count"], "3")
+        self.assertEqual(
+            rows[10]["source_category_row_ids"],
+            "hust-obc-src-cat-0011;hust-obc-src-cat-0012;hust-obc-src-cat-0013",
+        )
+        self.assertEqual(rows[12]["source_category_member_count"], "2")
+        self.assertEqual(rows[-1]["promotion_queue_id"], "hust-obc-obs-char-promo-001588")
+        self.assertEqual(rows[-1]["suggested_oracle_character_id"], "obs-char-001588")
+        self.assertEqual(
+            rows[-1]["suggested_bucket_directory"],
+            "016_001501-001600_obs-char-bucket_oracle-characters",
+        )
+        self.assertEqual(rows[-1]["source_modern_label_codepoints"], "U+3AEB")
+        self.assertEqual(sum(1 for row in rows if row["has_multi_component_label"] == "true"), 173)
+        self.assertEqual({row["assignment_status"] for row in rows}, {"reserved_candidate_not_assigned"})
+        self.assertEqual({row["promotion_status"] for row in rows}, {"needs_cross_source_review"})
+        self.assertEqual({row["review_status"] for row in rows}, {"needs_review"})
+
+    def test_hust_obc_obs_char_promotion_queue_builder_assigns_reserved_ids_only(self) -> None:
+        module = load_hust_obc_obs_char_promotion_queue_module()
+        rows = module.build_rows(
+            [
+                {
+                    "candidate_class_id": "obs-cand-000011",
+                    "source_id": "src-hust-obc",
+                    "primary_external_ref_id": "hust-obc-cat-0011_0012",
+                    "source_category_id": "0011_0012",
+                    "validation_class_id": "10",
+                    "reported_decipherment_scope": "deciphered_dataset_category",
+                }
+            ],
+            [
+                {
+                    "candidate_label_crosswalk_id": "hust-obc-label-xwalk-0001",
+                    "candidate_class_id": "obs-cand-000011",
+                    "source_category_id_padded": "00011;00012",
+                    "source_modern_label_candidate": "\u3401\u3402",
+                    "source_modern_label_codepoints": "U+3401;U+3402",
+                    "label_component_count": "2",
+                    "has_multi_component_label": "true",
+                }
+            ],
+            [
+                {
+                    "source_category_row_id": "hust-obc-src-cat-0011",
+                    "linked_candidate_class_id": "obs-cand-000011",
+                    "source_category_id": "0011",
+                },
+                {
+                    "source_category_row_id": "hust-obc-src-cat-0012",
+                    "linked_candidate_class_id": "obs-cand-000011",
+                    "source_category_id": "0012",
+                },
+            ],
+        )
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["suggested_oracle_character_id"], "obs-char-000001")
+        self.assertEqual(rows[0]["source_category_member_count"], "2")
+        self.assertEqual(rows[0]["assignment_status"], "reserved_candidate_not_assigned")
+        self.assertEqual(rows[0]["suggested_decipherment_status"], "unknown_until_cross_source_review")
+        self.assertIn("not assigned", rows[0]["caution"])
 
     def test_hust_obc_candidate_graph_edges_preserve_metadata_relationships(self) -> None:
         path = repo_root() / "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"

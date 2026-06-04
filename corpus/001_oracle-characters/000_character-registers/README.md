@@ -13,6 +13,7 @@ Current registers:
 - `006_obimd-main-character-staging.csv`: OBIMD main-character UID staging index with 3,936 dataset candidate main characters. These rows preserve UID/codepoint/transcription metadata for review and do not assign formal `obs-char-*` IDs.
 - `007_hust-obc-validation-label-crosswalk-staging.csv`: HUST-OBC validation-class to OCR-label crosswalk with 1,588 dataset label candidates. These labels are useful for lookup but are not accepted oracle-character readings.
 - `008_hust-obc-source-category-staging.csv`: HUST-OBC source-category staging index with 1,781 dataset category labels expanded from the 1,588 validation classes. These rows are lower-level dataset references, not formal project character IDs.
+- `009_hust-obc-obs-char-promotion-review-queue.csv`: review queue with 1,588 HUST-OBC candidate classes and suggested `obs-char-*` IDs. These IDs are reserved suggestions only and are not formal assignments until cross-source review.
 
 简体中文：
 索引文件用于登记所有甲骨字记录及其来源映射。
@@ -27,3 +28,4 @@ Current registers:
 - `006_obimd-main-character-staging.csv`：OBIMD main-character UID 暂存索引，包含 3,936 个数据集候选主字。该表保留 UID、codepoint 和 transcription metadata 以供复核，不分配正式 `obs-char-*` ID。
 - `007_hust-obc-validation-label-crosswalk-staging.csv`：HUST-OBC validation class 到 OCR label 的交叉暂存表，包含 1,588 个数据集标签候选。这些标签可用于检索，但不是已接受的甲骨文字释读。
 - `008_hust-obc-source-category-staging.csv`：HUST-OBC source category 暂存索引，把 1,588 个 validation class 展开为 1,781 个数据集类别标签。这些行是更底层的数据集引用，不是正式本项目甲骨单字 ID。
+- `009_hust-obc-obs-char-promotion-review-queue.csv`：包含 1,588 个 HUST-OBC candidate class 的提升复核队列，并给出建议 `obs-char-*` ID。这些 ID 只是保留建议，经过跨来源复核前不是正式分配。

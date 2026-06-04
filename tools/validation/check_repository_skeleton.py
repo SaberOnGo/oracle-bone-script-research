@@ -102,6 +102,10 @@ AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "003_ai-agent-relationship-graph-context-pack.json"
 )
+AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "004_ai-agent-hust-obc-bucket-review-route-pack.json"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -289,6 +293,7 @@ REQUIRED_PATHS = [
     RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
     RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY,
     AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
+    AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -314,6 +319,7 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
     "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -1057,6 +1063,93 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         if required_snippet not in rules_zh:
             issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
+
+    route_path = root / AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK
+    try:
+        route_pack = json.loads(route_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return issues + [f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} invalid JSON: {exc.msg}"]
+
+    if route_pack.get("context_pack_id") != "ai-context-hust-obc-bucket-review-001":
+        issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} context_pack_id changed")
+    if route_pack.get("status") != "reviewed_metadata_only":
+        issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} status must stay reviewed_metadata_only")
+    if route_pack.get("updated_at") != "2026-06-04":
+        issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} updated_at changed")
+    if route_pack.get("generated_from") != [HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY]:
+        issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} generated_from changed")
+
+    route_coverage = route_pack.get("coverage", {})
+    expected_route_coverage = {
+        "bucket_count": 16,
+        "candidate_count": 1588,
+        "multi_component_label_count": 173,
+        "source_category_row_count": 1781,
+        "route_file_count_per_bucket": 5,
+        "source_route_requirement_count": 6,
+        "evidence_gap_type_count": 9,
+    }
+    for key, value in expected_route_coverage.items():
+        if route_coverage.get(key) != value:
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} coverage {key} changed")
+    source_route_requirements = route_pack.get("source_route_requirements", [])
+    source_route_ids = {row.get("source_id", "") for row in source_route_requirements}
+    expected_source_route_ids = {
+        "src-hust-obc",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-obimd",
+        "src-evobc",
+        "src-ihp-oracle-rubbings",
+    }
+    if source_route_ids != expected_source_route_ids:
+        issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} source route set changed")
+    bucket_routes = route_pack.get("bucket_routes", [])
+    if not isinstance(bucket_routes, list) or len(bucket_routes) != 16:
+        issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} must contain 16 bucket routes")
+    else:
+        first_route = bucket_routes[0]
+        last_route = bucket_routes[-1]
+        if first_route.get("bucket_summary_id") != "hust-obc-bucket-summary-001":
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} first bucket route changed")
+        if first_route.get("candidate_count") != 100:
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} first bucket count changed")
+        if first_route.get("assignment_status") != "reserved_candidate_not_assigned":
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} first bucket assignment status changed")
+        first_route_files = first_route.get("route_files", [])
+        for required_route_file in [
+            HUST_OBC_CANDIDATE_GRAPH_EDGES,
+            OBIMD_COMPONENT_GRAPH_EDGES,
+            EVOBC_EVOLUTION_GRAPH_EDGES,
+            SOURCE_INDEX,
+        ]:
+            if required_route_file not in first_route_files:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} first route missing file: "
+                    f"{required_route_file}"
+                )
+        if last_route.get("bucket_summary_id") != "hust-obc-bucket-summary-016":
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} last bucket route changed")
+        if last_route.get("candidate_count") != 88:
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} last bucket count changed")
+    route_rules = " ".join(route_pack.get("agent_use_rules", []))
+    route_rules_zh = " ".join(route_pack.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "routing HUST-OBC bucket review",
+        "Open the bucket manifest",
+        "reserved candidates",
+        "doc/public/user_research",
+    ]:
+        if required_snippet not in route_rules:
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} missing agent rule: {required_snippet}")
+    for required_snippet in [
+        "HUST-OBC 分桶复核",
+        "必须打开 bucket manifest",
+        "只是保留候选",
+        "doc/public/user_research",
+    ]:
+        if required_snippet not in route_rules_zh:
+            issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} missing Chinese agent rule: {required_snippet}")
 
     return issues
 

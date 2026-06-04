@@ -111,6 +111,15 @@ def load_relationship_graph_context_pack_module():
     return module
 
 
+def load_hust_obc_bucket_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_bucket_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -999,6 +1008,81 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["top_degree_nodes"][0]["node_id"], "node-a")
         self.assertIn("does not contain decipherment claims", data["purpose"])
         self.assertIn("Open the cited CSV/JSONL source rows", data["agent_use_rules"][1])
+
+    def test_ai_agent_hust_obc_bucket_review_route_pack_preserves_batch_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "004_ai-agent-hust-obc-bucket-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["context_pack_id"], "ai-context-hust-obc-bucket-review-001")
+        self.assertEqual(data["status"], "reviewed_metadata_only")
+        self.assertEqual(data["coverage"]["bucket_count"], 16)
+        self.assertEqual(data["coverage"]["candidate_count"], 1588)
+        self.assertEqual(data["coverage"]["multi_component_label_count"], 173)
+        self.assertEqual(data["coverage"]["source_category_row_count"], 1781)
+        self.assertEqual(data["coverage"]["source_route_requirement_count"], 6)
+        self.assertEqual(data["coverage"]["evidence_gap_type_count"], 9)
+        source_ids = {row["source_id"] for row in data["source_route_requirements"]}
+        self.assertTrue(
+            {
+                "src-hust-obc",
+                "src-xiaoxuetang-jiaguwen",
+                "src-xiaoxuetang-obm",
+                "src-obimd",
+                "src-evobc",
+                "src-ihp-oracle-rubbings",
+            }.issubset(source_ids)
+        )
+        self.assertEqual(len(data["bucket_routes"]), 16)
+        first_route = data["bucket_routes"][0]
+        self.assertEqual(first_route["bucket_summary_id"], "hust-obc-bucket-summary-001")
+        self.assertEqual(first_route["candidate_count"], 100)
+        self.assertEqual(first_route["assignment_status"], "reserved_candidate_not_assigned")
+        self.assertIn("source_provenance", first_route["evidence_gap_types"])
+        self.assertIn("primary_inscription_context", first_route["evidence_gap_types"])
+        self.assertIn(
+            "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+            first_route["route_files"],
+        )
+        self.assertEqual(data["bucket_routes"][-1]["bucket_summary_id"], "hust-obc-bucket-summary-016")
+        self.assertEqual(data["bucket_routes"][-1]["candidate_count"], 88)
+        self.assertIn("reserved candidates", " ".join(data["agent_use_rules"]))
+        self.assertIn("doc/public/user_research", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_hust_obc_bucket_review_route_pack_builder_keeps_draft_boundary(self) -> None:
+        module = load_hust_obc_bucket_review_route_pack_module()
+        data = module.build_route_pack(
+            [
+                {
+                    "bucket_summary_id": "hust-obc-bucket-summary-001",
+                    "bucket_number": "001",
+                    "bucket_directory": "001_000001-000100_obs-char-bucket_oracle-characters",
+                    "manifest_path": (
+                        "corpus/001_oracle-characters/"
+                        "001_000001-000100_obs-char-bucket_oracle-characters/"
+                        "000_hust-obc-promotion-bucket-manifest.csv"
+                    ),
+                    "suggested_oracle_character_id_start": "obs-char-000001",
+                    "suggested_oracle_character_id_end": "obs-char-000100",
+                    "promotion_queue_id_start": "hust-obc-obs-char-promo-000001",
+                    "promotion_queue_id_end": "hust-obc-obs-char-promo-000100",
+                    "candidate_class_id_start": "obs-cand-000001",
+                    "candidate_class_id_end": "obs-cand-000100",
+                    "row_count": "100",
+                    "multi_component_label_count": "10",
+                    "source_category_row_count": "111",
+                    "assignment_status_set": "reserved_candidate_not_assigned",
+                    "review_status_set": "needs_review",
+                    "required_next_review": "compare_xiaoxuetang_obm_obimd_evobc_and_primary_inscription_context",
+                }
+            ]
+        )
+        self.assertEqual(data["coverage"]["candidate_count"], 100)
+        self.assertEqual(data["bucket_routes"][0]["assignment_status"], "reserved_candidate_not_assigned")
+        self.assertIn("does not contain decipherment claims", data["purpose"])
+        self.assertIn("doc/public/user_research", data["bucket_routes"][0]["agent_batch_steps"][3])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

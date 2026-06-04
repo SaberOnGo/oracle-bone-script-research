@@ -1,5 +1,6 @@
 import unittest
 import csv
+import importlib.util
 
 from tools.validation.check_repository_skeleton import (
     check_bilingual_markers,
@@ -13,6 +14,15 @@ from tools.validation.check_repository_skeleton import (
     check_tracked_temp_artifacts,
     repo_root,
 )
+
+
+def load_download_source_manifest_module():
+    path = repo_root() / "tools/002_corpus-import/download_source_manifest.py"
+    spec = importlib.util.spec_from_file_location("download_source_manifest", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
 
 
 class RepositorySkeletonTests(unittest.TestCase):
@@ -92,12 +102,69 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("heji_range=1-41956", text)
         self.assertIn("old_catalog_book_abbrev_count=90", text)
         self.assertIn("holding_abbrev_count=211", text)
+        self.assertIn("old_catalog_book_abbrev_rows_staged=90", text)
+        self.assertIn("holding_abbrev_rows_staged=211", text)
         self.assertIn("digitized_searchable_records=21556", text)
         self.assertIn("collection_number_cross_reference", text)
         self.assertIn("site_policy_required", text)
         self.assertEqual(
             {row["review_status"] for row in rows},
             {"reviewed_metadata_only"},
+        )
+
+    def test_obm_abbreviation_staging_preserves_appendix_boundaries(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "012_obm-abbreviation-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 301)
+        by_kind = {}
+        for row in rows:
+            by_kind.setdefault(row["abbreviation_kind"], []).append(row)
+        self.assertEqual(len(by_kind["old_catalog_book_abbreviation"]), 90)
+        self.assertEqual(len(by_kind["holding_abbreviation"]), 211)
+        self.assertEqual(by_kind["old_catalog_book_abbreviation"][0]["source_abbreviation"], "鐵")
+        self.assertEqual(by_kind["old_catalog_book_abbreviation"][0]["source_label"], "鐵雲藏龜")
+        self.assertEqual(by_kind["holding_abbreviation"][0]["source_abbreviation"], "八木")
+        self.assertEqual(by_kind["holding_abbreviation"][-1]["source_abbreviation"], "簠拓")
+        self.assertEqual(
+            {row["evidence_download_id"] for row in by_kind["old_catalog_book_abbreviation"]},
+            {"dl-xxt-obm-appendix01"},
+        )
+        self.assertEqual(
+            {row["evidence_download_id"] for row in by_kind["holding_abbreviation"]},
+            {"dl-xxt-obm-appendix02"},
+        )
+        self.assertEqual(
+            {row["rights_status"] for row in rows},
+            {"metadata_only_until_verified"},
+        )
+        self.assertEqual(
+            {row["project_import_status"] for row in rows},
+            {"abbreviation_metadata_not_promoted"},
+        )
+        self.assertEqual(
+            {row["review_status"] for row in rows},
+            {"reviewed_metadata_only"},
+        )
+
+    def test_download_source_manifest_can_merge_targeted_log_rows(self) -> None:
+        module = load_download_source_manifest_module()
+        existing_rows = [
+            {"download_id": "dl-a", "status": "old-a"},
+            {"download_id": "dl-b", "status": "old-b"},
+        ]
+        updated_rows = [
+            {"download_id": "dl-b", "status": "new-b"},
+            {"download_id": "dl-c", "status": "new-c"},
+        ]
+        merged = module.merge_log_rows(existing_rows, updated_rows)
+        self.assertEqual(
+            [(row["download_id"], row["status"]) for row in merged],
+            [("dl-a", "old-a"), ("dl-b", "new-b"), ("dl-c", "new-c")],
         )
 
     def test_external_prefixes_cover_staging_id_families(self) -> None:

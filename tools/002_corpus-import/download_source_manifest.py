@@ -168,6 +168,31 @@ def read_manifest(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(file))
 
 
+def read_existing_log(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        return list(csv.DictReader(file))
+
+
+def merge_log_rows(existing_rows: list[dict[str, str]], updated_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    updated_by_id = {row["download_id"]: row for row in updated_rows}
+    merged: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for row in existing_rows:
+        download_id = row.get("download_id", "")
+        if download_id in updated_by_id:
+            merged.append(updated_by_id[download_id])
+            seen.add(download_id)
+        else:
+            merged.append(row)
+    for row in updated_rows:
+        download_id = row["download_id"]
+        if download_id not in seen:
+            merged.append(row)
+    return merged
+
+
 def write_log(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as file:
@@ -181,6 +206,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST))
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     parser.add_argument("--log", default=str(DEFAULT_LOG))
+    parser.add_argument(
+        "--download-id",
+        action="append",
+        default=[],
+        help="Download only this manifest ID and merge it into the existing log; repeatable.",
+    )
     args = parser.parse_args(argv)
 
     root = repo_root()
@@ -189,11 +220,27 @@ def main(argv: list[str] | None = None) -> int:
     log_path = root / args.log
 
     rows = read_manifest(manifest)
-    results = [download_one(row, output_dir, root) for row in rows]
+    if args.download_id:
+        requested_ids = set(args.download_id)
+        rows_by_id = {row["download_id"]: row for row in rows}
+        missing_ids = sorted(requested_ids - set(rows_by_id))
+        if missing_ids:
+            print(f"unknown download_id(s): {', '.join(missing_ids)}", file=sys.stderr)
+            return 2
+        rows = [row for row in rows if row["download_id"] in requested_ids]
+
+    run_results = [download_one(row, output_dir, root) for row in rows]
+    results = run_results
+    if args.download_id:
+        results = merge_log_rows(read_existing_log(log_path), run_results)
     write_log(log_path, results)
 
-    ok_count = sum(row["status"].startswith("downloaded") for row in results)
-    print(f"downloaded_or_reached={ok_count} total={len(results)} log={log_path.relative_to(root)}")
+    run_count = len(rows)
+    ok_count = sum(row["status"].startswith("downloaded") for row in run_results)
+    print(
+        f"downloaded_or_reached={ok_count} run={run_count} "
+        f"total_log_rows={len(results)} log={log_path.relative_to(root)}"
+    )
     return 0
 
 

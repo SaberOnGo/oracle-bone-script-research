@@ -34,6 +34,8 @@ Do not add general news sites, entertainment sites, unsourced popular articles, 
 - `010_downloaded-metadata-profile.csv`：从已下载小型 metadata 中抽取的已复核概要指标。
 - `011_core-institutional-access-profile.csv`: official field, scale, and access-boundary profile for core institutional sources.
 - `011_core-institutional-access-profile.csv`：核心机构来源的官方字段、规模和访问边界 profile。
+- `012_obm-abbreviation-staging.csv`: browser-reviewed OBM appendix abbreviation staging for old catalog books and rubbing/holding sources.
+- `012_obm-abbreviation-staging.csv`：经浏览器复核的 OBM 附录简称暂存表，用于旧著录书和拓本/现藏来源简称。
 
 Derived staging indexes built from logged downloads are stored in their subject corpus areas, not in this source-register directory. For example, EVOBC evolution-chain metadata is staged under `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`.
 

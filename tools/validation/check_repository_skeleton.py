@@ -52,6 +52,10 @@ CORE_INSTITUTIONAL_ACCESS_PROFILE = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "011_core-institutional-access-profile.csv"
 )
+OBM_ABBREVIATION_STAGING = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "012_obm-abbreviation-staging.csv"
+)
 HUST_OBC_VALIDATION_CLASS_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "005_hust-obc-validation-class-staging.csv"
@@ -231,6 +235,7 @@ REQUIRED_PATHS = [
     SOURCE_PACKAGE_FILE_MANIFEST,
     DOWNLOADED_METADATA_PROFILE,
     CORE_INSTITUTIONAL_ACCESS_PROFILE,
+    OBM_ABBREVIATION_STAGING,
     HUST_OBC_VALIDATION_CLASS_STAGING,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
@@ -491,6 +496,7 @@ def check_source_registers(root: Path) -> list[str]:
     package_file_rows, package_file_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
     metadata_profile_rows, metadata_profile_issues = _read_csv_rows(root / DOWNLOADED_METADATA_PROFILE)
     core_access_rows, core_access_issues = _read_csv_rows(root / CORE_INSTITUTIONAL_ACCESS_PROFILE)
+    obm_abbreviation_rows, obm_abbreviation_issues = _read_csv_rows(root / OBM_ABBREVIATION_STAGING)
     hust_validation_rows, hust_validation_issues = _read_csv_rows(
         root / HUST_OBC_VALIDATION_CLASS_STAGING
     )
@@ -530,6 +536,7 @@ def check_source_registers(root: Path) -> list[str]:
         + package_file_issues
         + metadata_profile_issues
         + core_access_issues
+        + obm_abbreviation_issues
         + hust_validation_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
@@ -675,6 +682,8 @@ def check_source_registers(root: Path) -> list[str]:
         "heji_range=1-41956",
         "old_catalog_book_abbrev_count=90",
         "holding_abbrev_count=211",
+        "old_catalog_book_abbrev_rows_staged=90",
+        "holding_abbrev_rows_staged=211",
         "digitized_searchable_records=21556",
         "collection_number_cross_reference",
         "site_policy_required",
@@ -684,6 +693,47 @@ def check_source_registers(root: Path) -> list[str]:
                 f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} missing expected access fact: "
                 f"{required_snippet}"
             )
+
+    if len(obm_abbreviation_rows) != 301:
+        issues.append(f"{OBM_ABBREVIATION_STAGING} should contain exactly 301 abbreviation rows")
+    obm_abbreviation_counts: dict[str, int] = {}
+    obm_abbreviation_ids: set[str] = set()
+    expected_obm_download_ids = {
+        "old_catalog_book_abbreviation": "dl-xxt-obm-appendix01",
+        "holding_abbreviation": "dl-xxt-obm-appendix02",
+    }
+    for row in obm_abbreviation_rows:
+        row_id = row.get("abbrev_row_id", "")
+        kind = row.get("abbreviation_kind", "")
+        download_id = row.get("evidence_download_id", "")
+        if not row_id.startswith(("obm-oldcat-abbrev-", "obm-holding-abbrev-")):
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row ID has wrong prefix: {row_id}")
+        if row_id in obm_abbreviation_ids:
+            issues.append(f"{OBM_ABBREVIATION_STAGING} duplicate row ID: {row_id}")
+        obm_abbreviation_ids.add(row_id)
+        obm_abbreviation_counts[kind] = obm_abbreviation_counts.get(kind, 0) + 1
+        if row.get("source_id") != "src-xiaoxuetang-obm":
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row must reference src-xiaoxuetang-obm: {row_id}")
+        if download_id != expected_obm_download_ids.get(kind, ""):
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row has wrong appendix download id: {row_id}")
+        if download_id not in log_ids:
+            issues.append(f"{OBM_ABBREVIATION_STAGING} references missing download log id: {download_id}")
+        if row.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row must stay metadata_only_until_verified: {row_id}")
+        if row.get("project_import_status") != "abbreviation_metadata_not_promoted":
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row must stay abbreviation_metadata_not_promoted: {row_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row not reviewed_metadata_only: {row_id}")
+        if not row.get("browser_verified_url", "").startswith("https://xiaoxue.iis.sinica.edu.tw/obm/Home/Appendix"):
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row must cite official OBM appendix URL: {row_id}")
+        if not row.get("source_abbreviation", "") or not row.get("source_label", ""):
+            issues.append(f"{OBM_ABBREVIATION_STAGING} row missing abbreviation or label: {row_id}")
+    expected_obm_counts = {
+        "old_catalog_book_abbreviation": 90,
+        "holding_abbreviation": 211,
+    }
+    if obm_abbreviation_rows and obm_abbreviation_counts != expected_obm_counts:
+        issues.append(f"{OBM_ABBREVIATION_STAGING} abbreviation kind counts changed")
 
     if len(hust_validation_rows) != 1588:
         issues.append(

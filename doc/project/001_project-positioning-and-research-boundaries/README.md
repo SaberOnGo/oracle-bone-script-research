@@ -1,4 +1,4 @@
-# Project Positioning And Research Boundaries / 项目定位与研究边界
+﻿# Project Positioning And Research Boundaries / 项目定位与研究边界
 
 English:
 Oracle Bone Script Research is an open research infrastructure project: a knowledge base, knowledge graph, and AI Agent framework for evidence-based oracle bone script research.
@@ -16,7 +16,7 @@ It is not an automatic decipherment model. AI Agent outputs are drafts and hypot
 - 已有学术研究放在 `research/`。
 - User and AI Agent drafts belong under `doc/public/user_research/`.
 - 用户和 AI Agent 草稿放在 `doc/public/user_research/`。
-- Structured records belong under `data/`.
-- 结构化资料放在 `data/`。
+- Corpus records belong under `corpus/`.
+- 语料记录放在 `corpus/`。
 - Source mapping and naming rules belong under `project_registry/`.
 - 来源映射和命名规则放在 `project_registry/`。

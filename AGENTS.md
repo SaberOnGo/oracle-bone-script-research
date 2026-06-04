@@ -1,4 +1,4 @@
-# Public Agent Instructions / 公共 Agent 指令
+﻿# Public Agent Instructions / 公共 Agent 指令
 
 This file is the mandatory entry point for AI agents working from a downloaded copy of this repository.
 
@@ -24,8 +24,8 @@ This file is the mandatory entry point for AI agents working from a downloaded c
 - Use the project ID plus one short external reference ID in paths. Store the complete source trail in metadata and `project_registry/`.
 - 路径中使用本项目 ID 加一个简短外部来源 ID；完整来源链写入 metadata 和 `project_registry/`。
 
-- Do not download or commit external oracle bone images, scans, paper PDFs, or large datasets until rights and source policy are explicitly documented.
-- 在权利状态和来源政策明确前，不要下载或提交外部甲骨图片、扫描件、论文 PDF 或大型数据集。
+- External oracle bone images, scans, paper PDFs, and large research corpora may be downloaded or committed when research needs them, but every item must include source provenance, rights status, and a visible risk note.
+- 研究需要时，可以下载或提交外部甲骨图片、扫描件、论文 PDF 或大型研究资料；但每项资料都必须注明来源、权利状态和显式风险提示。
 
 ## Required Reading / 必读文件
 
@@ -39,15 +39,15 @@ For repository-wide work, read these first:
 - `project_registry/001_repository-structure-and-naming-rules/README.md`
 - `project_registry/002_project-id-to-source-reference-map/README.md`
 - `doc/project/001_project-positioning-and-research-boundaries/README.md`
-- `doc/project/002_data-rights-and-source-policy/README.md`
-- `doc/project/003_data-model-and-id-system/README.md`
+- `doc/project/002_source-rights-and-provenance-policy/README.md`
+- `doc/project/003_record-model-and-id-system/README.md`
 - `skills/README.md`
 
-For data curation, also read:
+For corpus and record curation, also read:
 
-资料整理任务还要读取：
+语料和记录整理任务还要读取：
 
-- `skills/oracle-character-data-curation/SKILL.md`
+- `skills/oracle-character-record-curation/SKILL.md`
 - `skills/source-provenance-review/SKILL.md`
 - `schemas/README.md`
 

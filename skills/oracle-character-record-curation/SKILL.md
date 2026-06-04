@@ -1,24 +1,24 @@
----
-name: oracle-character-data-curation
+﻿---
+name: oracle-character-record-curation
 description: Use when creating or updating structured oracle bone script character records, glyph variant notes, component breakdowns, inscription occurrences, or character source references in this repository.
 ---
 
-# Oracle Character Data Curation / 甲骨单字资料整理
+# Oracle Character Record Curation / 甲骨单字记录整理
 
 ## Use This Skill When / 何时使用
 
 English:
-Use this skill before creating or editing `obs-char-*` records under `data/001_oracle-characters/`.
+Use this skill before creating or editing `obs-char-*` records under `corpus/001_oracle-characters/`.
 
 简体中文：
-在创建或编辑 `data/001_oracle-characters/` 下的 `obs-char-*` 记录前使用本 skill。
+在创建或编辑 `corpus/001_oracle-characters/` 下的 `obs-char-*` 记录前使用本 skill。
 
 ## Required Reading / 必读
 
 - `AGENTS.md`
 - `project_registry/001_repository-structure-and-naming-rules/README.md`
 - `project_registry/002_project-id-to-source-reference-map/README.md`
-- `doc/project/003_data-model-and-id-system/README.md`
+- `doc/project/003_record-model-and-id-system/README.md`
 - `schemas/001_character-record-schema/character-record.schema.json`
 
 ## Workflow / 工作流

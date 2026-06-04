@@ -32,7 +32,7 @@ The project focuses on:
 
 ## Current Stage
 
-The repository is currently in skeleton stage. It contains project rules, repository layout, source-provenance policy, basic skills, schemas, and validation tools. It does not download or include external oracle bone datasets yet.
+The repository is currently in skeleton stage. It contains project rules, repository layout, source-provenance policy, basic skills, schemas, and validation tools. It does not include external oracle bone corpora yet.
 
 ## Important Entry Points
 
@@ -41,8 +41,9 @@ The repository is currently in skeleton stage. It contains project rules, reposi
 - `doc/project/`: project policies and research design.
 - `doc/public/user_research/`: user and AI Agent research drafts.
 - `research/`: existing published scholarship notes and bibliographic records.
+- `corpus/`: oracle character, inscription, component, correspondence, provenance, graph, and statistics records.
 - `skills/`: reusable AI Agent workflows.
-- `schemas/`: machine-readable data contracts.
+- `schemas/`: machine-readable record contracts.
 - `tools/`: validation, import, and generation scripts.
 - `tests/`: tests for repository rules and scripts.
 
@@ -61,8 +62,8 @@ python tools/validation/check_repository_skeleton.py
 python -m unittest discover -s tests -v
 ```
 
-## Data Policy
+## Source And Risk Policy
 
-The public GitHub repository should prefer metadata, schemas, indexes, public documentation, and rights-clear sample data. Rights-unclear scans, paper PDFs, large image sets, or commercial publication extracts should not be committed until the project has explicit rights documentation.
+External oracle bone images, scans, paper PDFs, large image sets, and research corpora may be downloaded or committed when they are useful for research. Every committed item must include source provenance, rights status, and a visible risk note, so humans and AI Agents can trace where the material came from and judge reuse risk.
 
-公开 GitHub 仓库优先保存 metadata、schema、索引、公开文档和权利清楚的样例数据。权利不明的扫描图、论文 PDF、大规模图片和商业出版物整理文本，在权利说明明确前不应提交。
+研究需要时，可以下载或提交外部甲骨图片、扫描件、论文 PDF、大规模图片集和研究语料。每个提交的资料项都必须注明来源、权利状态和显式风险提示，方便人类和 AI Agent 追溯出处并判断复用风险。

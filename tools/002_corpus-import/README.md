@@ -1,4 +1,4 @@
-# Data Import Tools / 数据导入工具
+# Corpus Import Tools / 语料导入工具
 
 English:
 Future import scripts will convert repository source files into PostgreSQL or other query stores.

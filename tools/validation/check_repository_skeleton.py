@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Validate the repository skeleton for Oracle Bone Script Research."""
 
 from __future__ import annotations
@@ -15,13 +15,13 @@ REQUIRED_PATHS = [
     ".gitignore",
     "doc/README.md",
     "doc/project/001_project-positioning-and-research-boundaries/README.md",
-    "doc/project/002_data-rights-and-source-policy/README.md",
-    "doc/project/003_data-model-and-id-system/README.md",
+    "doc/project/002_source-rights-and-provenance-policy/README.md",
+    "doc/project/003_record-model-and-id-system/README.md",
     "doc/project/004_oracle-bone-script-research-methods/README.md",
     "doc/project/005_ai-agent-research-assistant-design/README.md",
     "doc/public/user_plan/README.md",
-    "doc/public/user_plan/001_project-architecture-and-data-organization-plan.zh-CN.md",
-    "doc/public/user_plan/001_project-architecture-and-data-organization-plan.en.md",
+    "doc/public/user_plan/001_project-architecture-and-corpus-organization-plan.zh-CN.md",
+    "doc/public/user_plan/001_project-architecture-and-corpus-organization-plan.en.md",
     "doc/public/user_research/README.md",
     "project_registry/README.md",
     "project_registry/001_repository-structure-and-naming-rules/README.md",
@@ -32,11 +32,11 @@ REQUIRED_PATHS = [
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
     "research/README.md",
     "skills/README.md",
-    "skills/oracle-character-data-curation/SKILL.md",
+    "skills/oracle-character-record-curation/SKILL.md",
     "skills/source-provenance-review/SKILL.md",
     "skills/ai-agent-evidence-pack-review/SKILL.md",
     "schemas/README.md",
-    "data/README.md",
+    "corpus/README.md",
     "tools/git/check_commit_messages.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
@@ -56,6 +56,15 @@ FORBIDDEN_PATH_PARTS = [
     "deciphered_ren",
     "ma-馬",
     "ren-人",
+]
+
+FORBIDDEN_TOP_LEVEL_DIRS = ["data", "knowledge_base"]
+
+FORBIDDEN_TEXT_SNIPPETS = [
+    "Do not download or commit external oracle bone images",
+    "在权利状态和来源政策明确前，不要下载或提交外部甲骨图片",
+    "Rights-unclear scans, paper PDFs, large image sets, or commercial publication extracts should not be committed",
+    "权利不明的扫描图、论文 PDF、大规模图片和商业出版物整理文本，在权利说明明确前不应提交",
 ]
 
 
@@ -96,12 +105,38 @@ def check_forbidden_paths(root: Path) -> list[str]:
     return issues
 
 
+def check_forbidden_top_level_dirs(root: Path) -> list[str]:
+    issues: list[str] = []
+    for dirname in FORBIDDEN_TOP_LEVEL_DIRS:
+        if (root / dirname).exists():
+            issues.append(f"forbidden top-level directory: {dirname}")
+    return issues
+
+
+def check_forbidden_policy_text(root: Path) -> list[str]:
+    issues: list[str] = []
+    for path in root.rglob("*"):
+        if ".git" in path.parts or not path.is_file():
+            continue
+        if path == Path(__file__).resolve():
+            continue
+        if path.suffix.lower() not in {".md", ".txt", ".py"}:
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for snippet in FORBIDDEN_TEXT_SNIPPETS:
+            if snippet in text:
+                issues.append(f"forbidden old policy text in {path.relative_to(root)}")
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
     issues.extend(check_required_paths(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))
+    issues.extend(check_forbidden_top_level_dirs(root))
+    issues.extend(check_forbidden_policy_text(root))
 
     if issues:
         print("FAIL repository skeleton")

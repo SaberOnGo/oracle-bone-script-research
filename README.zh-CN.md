@@ -41,6 +41,7 @@ Democratizing access to oracle bone script research with AI agents.
 - `doc/project/`：项目政策和研究设计。
 - `doc/public/user_research/`：普通用户和 AI Agent 的研究草稿。
 - `research/`：已有学术研究、已发表观点和书目记录。
+- `corpus/`：甲骨字、卜辞、构件、字形对应、出处、图谱和统计记录。
 - `skills/`：AI Agent 可复用工作流。
 - `schemas/`：机器可校验的数据结构。
 - `tools/`：校验、导入和生成脚本。
@@ -61,8 +62,8 @@ python tools/validation/check_repository_skeleton.py
 python -m unittest discover -s tests -v
 ```
 
-## 数据政策
+## 来源与风险政策
 
-公开 GitHub 仓库优先保存 metadata、schema、索引、公开文档和权利清楚的样例数据。权利不明的扫描图、论文 PDF、大规模图片和商业出版物整理文本，在权利说明明确前不应提交。
+研究需要时，可以下载或提交外部甲骨图片、扫描件、论文 PDF、大规模图片集和研究语料。每个提交的资料项都必须注明来源、权利状态和显式风险提示，方便人类和 AI Agent 追溯出处并判断复用风险。
 
-The public GitHub repository should prefer metadata, schemas, indexes, public documentation, and rights-clear sample data. Rights-unclear scans, paper PDFs, large image sets, or commercial publication extracts should not be committed until rights are documented.
+External oracle bone images, scans, paper PDFs, large image sets, and research corpora may be downloaded or committed when they are useful for research. Every committed item must include source provenance, rights status, and a visible risk note, so humans and AI Agents can trace where the material came from and judge reuse risk.

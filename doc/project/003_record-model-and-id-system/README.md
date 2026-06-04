@@ -1,4 +1,4 @@
-# Data Model And ID System / 数据模型与 ID 体系
+# Record Model And ID System / 记录模型与 ID 体系
 
 English:
 The repository uses project-local stable IDs plus short external reference IDs. The local ID gives stable repository identity; the external ID provides provenance and links to existing catalogs or databases.

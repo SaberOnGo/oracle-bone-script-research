@@ -34,21 +34,16 @@ desktop.ini
 *.tmp
 *.bak
 
-# Large or rights-unclear local research assets / 大型或权利未确认的本地资料
+# Local-only private research assets / 本地私有研究资料
+# External research materials may be committed when their source, rights status,
+# and risk note are recorded. Use these folders only for material that must stay local.
+# 外部研究材料可在注明来源、权利状态和风险提示后提交。以下目录仅用于必须留在本地的资料。
 local_private_data/
 private_data/
-raw_downloads/
-raw_assets/
-large_assets/
-*.pdf
-*.epub
-*.zip
-*.7z
-*.rar
 
 # Generated outputs / 生成产物
 output/
 dist/
 build/
 database/generated/
-data/generated/
+corpus/generated/

@@ -1,4 +1,4 @@
-# User Plans / 用户规划
+﻿# User Plans / 用户规划
 
 English:
 This directory stores user-facing planning drafts. A Chinese draft may have an English companion file when a full line-by-line bilingual document would be too large for early planning.
@@ -8,5 +8,5 @@ This directory stores user-facing planning drafts. A Chinese draft may have an E
 
 ## Current Draft / 当前草案
 
-- Chinese: `001_project-architecture-and-data-organization-plan.zh-CN.md`
-- English companion: `001_project-architecture-and-data-organization-plan.en.md`
+- Chinese: `001_project-architecture-and-corpus-organization-plan.zh-CN.md`
+- English companion: `001_project-architecture-and-corpus-organization-plan.en.md`

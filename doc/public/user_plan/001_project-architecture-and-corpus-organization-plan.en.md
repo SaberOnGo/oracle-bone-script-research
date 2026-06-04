@@ -1,6 +1,6 @@
-# Oracle Bone Script Research Project Architecture Plan
+﻿# Oracle Bone Script Research Project Architecture Plan
 
-> Status: English companion summary for the Chinese planning draft. The authoritative discussion draft is `001_project-architecture-and-data-organization-plan.zh-CN.md`.
+> Status: English companion summary for the Chinese planning draft. The authoritative discussion draft is `001_project-architecture-and-corpus-organization-plan.zh-CN.md`.
 
 ## Positioning
 
@@ -34,7 +34,7 @@ Complete source references should live in metadata and `project_registry/`, not 
 - `doc/public/user_research/`: user and AI Agent drafts.
 - `research/`: existing published scholarship and bibliographic notes.
 - `skills/`: reusable AI Agent workflows.
-- `schemas/`: data contracts.
+- `schemas/`: record contracts.
 - `tools/`: validation, import, and generation scripts.
 - `tests/`: repository checks.
 
@@ -46,4 +46,4 @@ AI Agent output belongs under `doc/public/user_research/` until reviewed. Existi
 
 Phase 0 establishes repository rules, bilingual entry documents, ID policy, source provenance registry, rights policy, schemas, basic skills, validation scripts, and tests.
 
-Phase 1 should add a small sample set only. The project should not download external data or commit rights-unclear images in the skeleton stage.
+Phase 1 should add a small sample set only. External oracle bone materials may be downloaded or committed when useful for research, but every item must include source provenance, rights status, and a visible risk note.

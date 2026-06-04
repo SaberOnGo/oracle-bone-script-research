@@ -1,6 +1,6 @@
-# Oracle Bone Script Research Project Architecture Plan
+﻿# Oracle Bone Script Research Project Architecture Plan
 
-> Status: discussion draft. This document is only for project planning. Do not implement the directory structure, data schema, database, or scripts until the owner confirms the architecture.
+> Status: discussion draft. This document is only for project planning. Do not implement the directory structure, record schema, database, or scripts until the owner confirms the architecture.
 
 ## 1. 项目定位
 
@@ -109,7 +109,7 @@ From high-barrier scholarship to evidence-based public research powered by AI ag
 建议后续区分：
 
 - GitHub public repository: 代码、schema、索引、说明文档、可公开数据。
-- Local private data folder: 未确认授权的大图、扫描件、论文 PDF、个人整理材料。
+- Local private material folder: 明确不准备提交到 GitHub 的本地私有大图、扫描件、论文 PDF、个人整理材料。
 - Generated database: 由结构化文件导入 PostgreSQL/SQLite/Neo4j 等检索系统。
 
 ### 2.3 文件系统作为人工维护入口，数据库作为检索和推理入口
@@ -169,7 +169,7 @@ oracle-bone-script-research/
     004_graph-edge-schema/
     005_asset-metadata-schema/
 
-  data/
+  corpus/
     001_oracle-characters/
     002_oracle-bone-inscriptions/
     003_graphemic-components/
@@ -205,7 +205,7 @@ oracle-bone-script-research/
 
   database/
     001_postgresql-schema/
-    002_seed-data/
+    002_seed-corpus/
     003_migrations/
 
   apps/
@@ -225,7 +225,7 @@ oracle-bone-script-research/
 - `license/`: 代码、数据、图片、论文引用、第三方来源的授权和使用边界说明。
 - `project_registry/`: 根目录级项目注册表，集中说明项目结构、命名规则、本项目 ID 与外部来源 ID 的映射、资料引用来源和中英文术语。它是人类和 AI Agent 追溯数据来源的第一入口。
 - `schemas/`: 每类结构化文件的字段规范。
-- `data/`: 人工维护的核心资料。
+- `corpus/`: 人工维护的核心资料。
 - `research/`: 已有学术研究、已发表观点、专家释读史、论文索引和严谨文献摘录。这里不同于 `doc/public/user_research/`，不能随意写入未经复核的 AI 假说。
 - `skills/`: 面向 AI Agent 和贡献者的可复用工作流说明。
 - `tools/`: 后续用于校验、导入、生成统计和构建 AI Agent 上下文包的脚本。
@@ -286,7 +286,7 @@ project_registry/
 
 ```csv
 project_id,record_type,canonical_path,primary_external_ref_id,all_external_ref_ids,source_ids,rights_status,review_status,updated_at
-obs-char-000001,oracle_character,data/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/001_obs-char-000001_xxt-jgw-0001_oracle-character,xxt-jgw-0001,"xxt-jgw-0001;unicode-u99ac","src-xiaoxuetang-jiaguwen;src-unicode",metadata_only_until_verified,draft,2026-06-04
+obs-char-000001,oracle_character,corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/001_obs-char-000001_xxt-jgw-0001_oracle-character,xxt-jgw-0001,"xxt-jgw-0001;unicode-u99ac","src-xiaoxuetang-jiaguwen;src-unicode",metadata_only_until_verified,draft,2026-06-04
 ```
 
 这样文件名/目录名可以保持短而自说明，完整引用来源则集中保存在 `project_registry/` 与各资料包 metadata 中。
@@ -316,13 +316,13 @@ obs-char-000001,oracle_character,data/001_oracle-characters/001_000001-000100_ob
 建议把所有甲骨单字资料放在：
 
 ```text
-data/001_oracle-characters/
+corpus/001_oracle-characters/
 ```
 
 下面按每 100 个甲骨字分桶：
 
 ```text
-data/001_oracle-characters/
+corpus/001_oracle-characters/
   000_character-registers/
     001_all-oracle-characters-index.csv
     002_deciphered-oracle-characters-index.csv
@@ -672,7 +672,7 @@ component_notes: "此字整体象形，暂不强拆为左右/上下构件。"
 推荐目录：
 
 ```text
-data/002_oracle-bone-inscriptions/
+corpus/002_oracle-bone-inscriptions/
   000_inscription-registers/
     001_all-inscriptions-index.csv
     002_inscription-source-index.csv
@@ -732,7 +732,7 @@ source_ids:
 推荐目录：
 
 ```text
-data/003_graphemic-components/
+corpus/003_graphemic-components/
   000_component-registers/
     001_all-components-index.csv
     002_component-family-index.csv
@@ -769,7 +769,7 @@ obs-comp-000001_person-form_graphemic-component/
 推荐目录：
 
 ```text
-data/004_bronze-seal-modern-correspondences/
+corpus/004_bronze-seal-modern-correspondences/
   000_correspondence-registers/
     001_all-correspondences-index.csv
     002_oracle-to-bronze-index.csv
@@ -807,7 +807,7 @@ evolution-chain-000001_xxt-jgw-0001/
 推荐目录：
 
 ```text
-data/005_excavation-sites-periods-and-batches/
+corpus/005_excavation-sites-periods-and-batches/
   001_periods/
   002_excavation-sites/
   003_pits-and-batches/
@@ -831,7 +831,7 @@ data/005_excavation-sites-periods-and-batches/
 推荐目录：
 
 ```text
-data/006_research-sources-and-bibliography/
+corpus/006_research-sources-and-bibliography/
   000_source-registers/
     001_all-sources-index.csv
     002_primary-catalogs-index.csv
@@ -876,7 +876,7 @@ notes: ""
 推荐目录：
 
 ```text
-data/008_relationship-graph/
+corpus/008_relationship-graph/
   001_graph-node-types.md
   002_graph-edge-types.md
   003_graph-nodes.jsonl
@@ -962,7 +962,7 @@ Hypothesis OPPOSED_BY Evidence
 推荐目录：
 
 ```text
-data/009_statistics-and-derived-features/
+corpus/009_statistics-and-derived-features/
   001_character-occurrence-statistics/
   002_character-cooccurrence-statistics/
   003_topic-distribution-statistics/
@@ -1102,8 +1102,8 @@ AI Agent 输出应固定包含：
 - `README.zh-CN.md`
 - `LICENSE`
 - `doc/project/001_project-positioning-and-research-boundaries/`
-- `doc/project/002_data-rights-and-source-policy/`
-- `doc/project/003_data-model-and-id-system/`
+- `doc/project/002_source-rights-and-provenance-policy/`
+- `doc/project/003_record-model-and-id-system/`
 - `doc/public/user_research/`
 - `project_registry/001_repository-structure-and-naming-rules/`
 - `project_registry/002_project-id-to-source-reference-map/`
@@ -1130,9 +1130,9 @@ AI Agent 输出应固定包含：
 
 创建：
 
-- `data/001_oracle-characters/`
-- `data/002_oracle-bone-inscriptions/`
-- `data/003_graphemic-components/`
+- `corpus/001_oracle-characters/`
+- `corpus/002_oracle-bone-inscriptions/`
+- `corpus/003_graphemic-components/`
 
 产出：
 
@@ -1145,7 +1145,7 @@ AI Agent 输出应固定包含：
 
 创建：
 
-- `tools/001_data-validation/`
+- `tools/001_corpus-validation/`
 
 产出：
 
@@ -1159,7 +1159,7 @@ AI Agent 输出应固定包含：
 创建：
 
 - `database/001_postgresql-schema/`
-- `tools/002_data-import/`
+- `tools/002_corpus-import/`
 
 产出：
 
@@ -1170,8 +1170,8 @@ AI Agent 输出应固定包含：
 
 创建：
 
-- `data/008_relationship-graph/`
-- `data/009_statistics-and-derived-features/`
+- `corpus/008_relationship-graph/`
+- `corpus/009_statistics-and-derived-features/`
 - `tools/003_graph-generation/`
 - `tools/004_statistics-generation/`
 

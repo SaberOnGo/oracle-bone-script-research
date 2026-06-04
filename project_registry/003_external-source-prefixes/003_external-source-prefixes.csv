@@ -5,9 +5,15 @@ heji,src-jiaguwen-heji,Collection of Oracle Bone Inscriptions,甲骨文合集,Pl
 ihp-rub,src-ihp-oracle-rubbings,IHP Oracle Bones Rubbings Database,史語所甲骨文拓片資料庫,Rubbing or collection-number provenance from IHP digital archive.,史語所數位典藏拓片或館藏號來源。
 ihp-mus,src-ihp-museum-oracle-bones,IHP Museum Oracle Bones Collection,史語所歷史文物陳列館甲骨藏品,Museum collection object reference.,博物館藏品引用。
 yqw,src-yinqi-wenyuan,Yinqi Wenyuan Oracle Bones Corpus,殷契文渊,Integrated scholarly platform reference; use with rights caution.,綜合研究平台引用；注意權利狀態。
+obid,src-obid-ancientbooks,Yinxu Oracle Bone Inscriptions Database,殷墟甲骨文数据库,Professional/commercial database reference; use with access and rights caution.,專業/商業資料庫引用；注意訪問與權利狀態。
+thu-ob,src-tsinghua-oracle-bones,Tsinghua University Library Oracle Bones,清华大学图书馆甲骨藏品,Library collection-level provenance reference.,圖書館藏品級來源引用。
+cul-hopkins,src-cambridge-hopkins,Cambridge Hopkins Oracle Bones Finding List,剑桥大学图书馆 Hopkins 甲骨清单,Cambridge University Library collection and finding-list reference.,劍橋大學圖書館藏品與清單引用。
+bm-oa,src-british-museum-oracle-bone,British Museum oracle-bone object record,British Museum 甲骨藏品记录,British Museum object registration reference.,British Museum 藏品登記引用。
+si-nmaa,src-smithsonian-nmaa-oracle-bone,Smithsonian National Museum of Asian Art oracle bone,Smithsonian 亚洲艺术博物馆甲骨藏品,Smithsonian accession/EDAN/IIIF reference.,Smithsonian 登錄號、EDAN 與 IIIF 引用。
 hust-obc,src-hust-obc,HUST-OBC Dataset,HUST-OBC 甲骨文字數據集,Peer-reviewed AI dataset reference for deciphered and undeciphered OBC image classes.,同行評審 AI 數據集引用，用於已釋與未釋甲骨字圖像類別。
 obimd,src-obimd,OBIMD Multi-modal Dataset,OBIMD 甲骨文多模態數據集,Peer-reviewed multimodal dataset reference for images, annotations, sentence groups and reading order.,同行評審多模態數據集引用，用於圖像、標註、句組和閱讀順序。
 open-oracle,src-open-oracle,Open-Oracle Project Repository,Open-Oracle 項目倉庫,Research project hub and dataset index reference.,研究項目入口與數據集索引引用。
+evobc,src-evobc,EVOBC Evolution Dataset,EVOBC 字形演化数据集,Evolution-chain dataset reference across historical script stages.,跨历史文字阶段的字形演化数据集引用。
 oracle-mnist,src-oracle-mnist,Oracle-MNIST Dataset,Oracle-MNIST 數據集,Small AI benchmark dataset reference.,小型 AI 基準數據集引用。
 gbedobc,src-gbedobc,GBEDOBC Dataset,GBEDOBC 字形演化數據集,Graph-based character evolution dataset reference.,基於圖的字形演化數據集引用。
 nlc-ob,src-nlc-oracle-world,National Library of China Oracle Bone Resources,中國國家圖書館甲骨資源,National-library source reference pending stable endpoint confirmation.,國家圖書館來源引用，待確認穩定入口。

@@ -7,12 +7,18 @@ import argparse
 import csv
 import hashlib
 import re
+import ssl
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
+
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional local dependency
+    certifi = None
 
 
 DEFAULT_MANIFEST = Path(
@@ -64,19 +70,29 @@ def classify_payload(data: bytes, content_type: str | None) -> str:
     return "downloaded"
 
 
+def ssl_context() -> ssl.SSLContext:
+    if certifi:
+        return ssl.create_default_context(cafile=certifi.where())
+    return ssl.create_default_context()
+
+
 def download_one(row: dict[str, str], output_dir: Path, root: Path) -> dict[str, str]:
     download_id = row["download_id"]
     url = row["url"]
     max_bytes = int(row.get("max_bytes") or "31457280")
     timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     headers = {
-        "User-Agent": "oracle-bone-script-research/0.1 source provenance downloader",
-        "Accept": "*/*",
+        "User-Agent": (
+            "Mozilla/5.0 (compatible; oracle-bone-script-research/0.1; "
+            "+https://github.com/SaberOnGo/oracle-bone-script-research)"
+        ),
+        "Accept": "text/html,application/pdf,text/markdown,text/plain,application/json,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
     }
 
     try:
         request = Request(url, headers=headers)
-        with urlopen(request, timeout=30) as response:
+        with urlopen(request, timeout=30, context=ssl_context()) as response:
             http_status = str(response.status)
             content_type = response.headers.get("Content-Type")
             data = response.read(max_bytes + 1)

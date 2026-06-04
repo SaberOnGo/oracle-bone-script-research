@@ -27,6 +27,10 @@ OPEN_ORACLE_STRATEGY_REVIEW = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "005_open-oracle-strategy-review.md"
 )
+AUTHORITATIVE_SOURCE_EXPANSION_NOTES = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "006_authoritative-source-expansion-notes.md"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -34,6 +38,11 @@ ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-ihp-oracle-rubbings",
     "src-ihp-museum-oracle-bones",
     "src-yinqi-wenyuan",
+    "src-obid-ancientbooks",
+    "src-tsinghua-oracle-bones",
+    "src-cambridge-hopkins",
+    "src-british-museum-oracle-bone",
+    "src-smithsonian-nmaa-oracle-bone",
 }
 
 ADOPTED_PROJECT_INDEX_SOURCE_IDS = {
@@ -58,6 +67,7 @@ REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
 
 REQUIRED_ROOT_GITIGNORE_PATTERNS = [
     "tmp/*",
+    "doc/public/user_prompt/",
     "**/_tmp/",
     "**/tmp/",
     "**/temp/",
@@ -138,6 +148,7 @@ REQUIRED_PATHS = [
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "004_first-stage-source-adoption-notes.md",
     OPEN_ORACLE_STRATEGY_REVIEW,
+    AUTHORITATIVE_SOURCE_EXPANSION_NOTES,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -172,6 +183,10 @@ FORBIDDEN_TEXT_SNIPPETS = [
     "Rights-unclear scans, paper PDFs, large image sets, or commercial publication extracts should not be committed",
     "权利不明的扫描图、论文 PDF、大规模图片和商业出版物整理文本，在权利说明明确前不应提交",
 ]
+
+LOCAL_ONLY_UNTRACKED_PATH_PREFIXES = (
+    "doc/public/user_prompt/",
+)
 
 
 def repo_root() -> Path:
@@ -224,6 +239,8 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
     for path in root.rglob("*"):
         if ".git" in path.parts or not path.is_file():
             continue
+        if _is_local_only_untracked_path(path, root):
+            continue
         if path == Path(__file__).resolve():
             continue
         if path.suffix.lower() not in {".md", ".txt", ".py"}:
@@ -237,6 +254,11 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
 
 def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
+
+
+def _is_local_only_untracked_path(path: Path, root: Path) -> bool:
+    relative_path = _relative_posix(path, root)
+    return any(relative_path.startswith(prefix) for prefix in LOCAL_ONLY_UNTRACKED_PATH_PREFIXES)
 
 
 def _tracked_files(root: Path) -> list[str]:

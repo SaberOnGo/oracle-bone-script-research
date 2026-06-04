@@ -100,6 +100,25 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(metrics[("src-evobc", "class_count")], "13714")
         self.assertEqual(metrics[("src-evobc", "image_reference_count")], "229170")
 
+    def test_hust_obc_validation_staging_has_1588_candidate_classes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "005_hust-obc-validation-class-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 1588)
+        self.assertEqual(rows[0]["candidate_class_id"], "obs-cand-000001")
+        self.assertEqual(rows[0]["source_category_id"], "0001")
+        self.assertEqual(rows[0]["validation_class_id"], "0")
+        self.assertEqual(rows[-1]["source_category_id"], "1781")
+        self.assertEqual(rows[-1]["validation_class_id"], "1587")
+        self.assertEqual(
+            {row["project_import_status"] for row in rows},
+            {"dataset_candidate_not_promoted"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

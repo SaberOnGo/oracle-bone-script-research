@@ -47,6 +47,10 @@ DOWNLOADED_METADATA_PROFILE = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "010_downloaded-metadata-profile.csv"
 )
+HUST_OBC_VALIDATION_CLASS_STAGING = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "005_hust-obc-validation-class-staging.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -170,6 +174,7 @@ REQUIRED_PATHS = [
     IMPORT_READINESS_NOTES,
     SOURCE_PACKAGE_FILE_MANIFEST,
     DOWNLOADED_METADATA_PROFILE,
+    HUST_OBC_VALIDATION_CLASS_STAGING,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -397,6 +402,9 @@ def check_source_registers(root: Path) -> list[str]:
     field_map_rows, field_map_issues = _read_csv_rows(root / SOURCE_FIELD_MAP)
     package_file_rows, package_file_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
     metadata_profile_rows, metadata_profile_issues = _read_csv_rows(root / DOWNLOADED_METADATA_PROFILE)
+    hust_validation_rows, hust_validation_issues = _read_csv_rows(
+        root / HUST_OBC_VALIDATION_CLASS_STAGING
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -406,6 +414,7 @@ def check_source_registers(root: Path) -> list[str]:
         + field_map_issues
         + package_file_issues
         + metadata_profile_issues
+        + hust_validation_issues
         + log_issues
         + large_issues
     )
@@ -499,6 +508,51 @@ def check_source_registers(root: Path) -> list[str]:
             )
     if len(metadata_profile_rows) < 15:
         issues.append(f"{DOWNLOADED_METADATA_PROFILE} should contain at least 15 metadata profile rows")
+
+    if len(hust_validation_rows) != 1588:
+        issues.append(
+            f"{HUST_OBC_VALIDATION_CLASS_STAGING} should contain exactly 1588 candidate rows"
+        )
+    validation_class_ids: set[int] = set()
+    for row in hust_validation_rows:
+        candidate_class_id = row.get("candidate_class_id", "")
+        if not candidate_class_id.startswith("obs-cand-"):
+            issues.append(
+                f"{HUST_OBC_VALIDATION_CLASS_STAGING} candidate ID must use obs-cand-*: "
+                f"{candidate_class_id}"
+            )
+        if row.get("source_id") != "src-hust-obc":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_CLASS_STAGING} row must reference src-hust-obc: "
+                f"{candidate_class_id}"
+            )
+        if row.get("evidence_download_id") != "dl-hust-obc-validation-label":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_CLASS_STAGING} row must cite dl-hust-obc-validation-label: "
+                f"{candidate_class_id}"
+            )
+        if row.get("project_import_status") != "dataset_candidate_not_promoted":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_CLASS_STAGING} row must stay dataset_candidate_not_promoted: "
+                f"{candidate_class_id}"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_CLASS_STAGING} row not reviewed_metadata_only: "
+                f"{candidate_class_id}"
+            )
+        validation_id = row.get("validation_class_id", "")
+        if not validation_id.isdigit():
+            issues.append(
+                f"{HUST_OBC_VALIDATION_CLASS_STAGING} validation_class_id not numeric: "
+                f"{candidate_class_id}"
+            )
+        else:
+            validation_class_ids.add(int(validation_id))
+    if validation_class_ids and validation_class_ids != set(range(1588)):
+        issues.append(
+            f"{HUST_OBC_VALIDATION_CLASS_STAGING} validation_class_id range must be 0..1587"
+        )
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

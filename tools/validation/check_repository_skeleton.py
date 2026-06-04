@@ -73,6 +73,7 @@ HUST_OBC_OBS_CHAR_PROMOTION_QUEUE = (
     "corpus/001_oracle-characters/000_character-registers/"
     "009_hust-obc-obs-char-promotion-review-queue.csv"
 )
+HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME = "000_hust-obc-promotion-bucket-manifest.csv"
 HUST_OBC_CANDIDATE_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "005_hust-obc-candidate-graph-edges.jsonl"
@@ -301,6 +302,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py",
     "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
     "tools/002_corpus-import/build_hust_obc_obs_char_promotion_queue.py",
+    "tools/002_corpus-import/build_hust_obc_promotion_bucket_manifests.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
@@ -337,6 +339,29 @@ FORBIDDEN_TEXT_SNIPPETS = [
     "Rights-unclear scans, paper PDFs, large image sets, or commercial publication extracts should not be committed",
     "权利不明的扫描图、论文 PDF、大规模图片和商业出版物整理文本，在权利说明明确前不应提交",
 ]
+
+
+def hust_obc_promotion_bucket_directories() -> list[str]:
+    directories = []
+    for bucket_number in range(1, 17):
+        bucket_start = (bucket_number - 1) * 100 + 1
+        bucket_end = bucket_start + 99
+        directories.append(
+            f"{bucket_number:03d}_{bucket_start:06d}-{bucket_end:06d}"
+            "_obs-char-bucket_oracle-characters"
+        )
+    return directories
+
+
+def hust_obc_promotion_bucket_manifest_paths() -> list[str]:
+    return [
+        "corpus/001_oracle-characters/"
+        f"{bucket_directory}/{HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME}"
+        for bucket_directory in hust_obc_promotion_bucket_directories()
+    ]
+
+
+REQUIRED_PATHS.extend(hust_obc_promotion_bucket_manifest_paths())
 
 RAW_USER_PROMPT_ARCHIVE_PATH_PREFIXES = (
     "doc/public/user_prompt/",
@@ -1512,6 +1537,7 @@ def check_source_registers(root: Path) -> list[str]:
     if len(hust_promotion_queue_rows) != 1588:
         issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} should contain exactly 1588 rows")
     queue_candidate_ids: set[str] = set()
+    queue_ids: set[str] = set()
     queue_suggested_ids: set[str] = set()
     queue_multi_component_count = 0
     all_character_index_rows, all_character_index_issues = _read_csv_rows(
@@ -1528,6 +1554,7 @@ def check_source_registers(root: Path) -> list[str]:
         expected_queue_id = f"hust-obc-obs-char-promo-{index:06d}"
         if queue_id != expected_queue_id:
             issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} queue ID sequence changed: {queue_id}")
+        queue_ids.add(queue_id)
         suggested_id = row.get("suggested_oracle_character_id", "")
         if suggested_id != f"obs-char-{index:06d}":
             issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} suggested obs-char ID changed: {queue_id}")
@@ -1594,6 +1621,60 @@ def check_source_registers(root: Path) -> list[str]:
             "016_001501-001600_obs-char-bucket_oracle-characters"
         ):
             issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} last bucket changed")
+
+    bucket_manifest_queue_ids: set[str] = set()
+    for bucket_number, bucket_directory in enumerate(
+        hust_obc_promotion_bucket_directories(),
+        start=1,
+    ):
+        manifest_relative_path = (
+            "corpus/001_oracle-characters/"
+            f"{bucket_directory}/{HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME}"
+        )
+        bucket_rows, bucket_issues = _read_csv_rows(root / manifest_relative_path)
+        issues.extend(bucket_issues)
+        bucket_start = (bucket_number - 1) * 100 + 1
+        bucket_end = min(bucket_start + 99, 1588)
+        expected_count = bucket_end - bucket_start + 1
+        if len(bucket_rows) != expected_count:
+            issues.append(
+                f"{manifest_relative_path} should contain exactly {expected_count} rows"
+            )
+        for bucket_row_index, row in enumerate(bucket_rows, start=1):
+            global_index = bucket_start + bucket_row_index - 1
+            queue_id = row.get("promotion_queue_id", "")
+            expected_queue_id = f"hust-obc-obs-char-promo-{global_index:06d}"
+            if queue_id != expected_queue_id:
+                issues.append(f"{manifest_relative_path} queue ID sequence changed: {queue_id}")
+            bucket_manifest_queue_ids.add(queue_id)
+            expected_bucket_row_id = (
+                f"hust-obc-bucket-{bucket_number:03d}-row-{bucket_row_index:03d}"
+            )
+            if row.get("bucket_manifest_row_id", "") != expected_bucket_row_id:
+                issues.append(
+                    f"{manifest_relative_path} bucket row ID changed: "
+                    f"{row.get('bucket_manifest_row_id', '')}"
+                )
+            if row.get("suggested_oracle_character_id", "") != f"obs-char-{global_index:06d}":
+                issues.append(f"{manifest_relative_path} suggested obs-char ID changed: {queue_id}")
+            if row.get("suggested_bucket_directory", "") != bucket_directory:
+                issues.append(f"{manifest_relative_path} bucket directory mismatch: {queue_id}")
+            if row.get("source_id") != "src-hust-obc":
+                issues.append(f"{manifest_relative_path} row must reference src-hust-obc: {queue_id}")
+            if row.get("suggested_decipherment_status") != "unknown_until_cross_source_review":
+                issues.append(f"{manifest_relative_path} must keep unknown suggested status: {queue_id}")
+            if row.get("assignment_status") != "reserved_candidate_not_assigned":
+                issues.append(f"{manifest_relative_path} must stay reserved_candidate_not_assigned: {queue_id}")
+            if row.get("promotion_status") != "needs_cross_source_review":
+                issues.append(f"{manifest_relative_path} must stay needs_cross_source_review: {queue_id}")
+            if row.get("rights_status") != "source_marked_risk_noted":
+                issues.append(f"{manifest_relative_path} row must stay source_marked_risk_noted: {queue_id}")
+            if row.get("review_status") != "needs_review":
+                issues.append(f"{manifest_relative_path} row must stay needs_review: {queue_id}")
+            if "not assigned" not in row.get("caution", ""):
+                issues.append(f"{manifest_relative_path} caution must preserve not-assigned warning: {queue_id}")
+    if hust_promotion_queue_rows and bucket_manifest_queue_ids != queue_ids:
+        issues.append("HUST-OBC bucket manifests must cover the full promotion queue exactly once")
 
     if len(obimd_main_rows) != 3936:
         issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} should contain exactly 3936 candidate rows")

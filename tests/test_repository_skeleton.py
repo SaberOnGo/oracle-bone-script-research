@@ -57,6 +57,15 @@ def load_hust_obc_obs_char_promotion_queue_module():
     return module
 
 
+def load_hust_obc_promotion_bucket_manifests_module():
+    path = repo_root() / "tools/002_corpus-import/build_hust_obc_promotion_bucket_manifests.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_promotion_bucket_manifests", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_candidate_graph_edges_module():
     path = repo_root() / "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_graph_edges", path)
@@ -535,6 +544,90 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["assignment_status"], "reserved_candidate_not_assigned")
         self.assertEqual(rows[0]["suggested_decipherment_status"], "unknown_until_cross_source_review")
         self.assertIn("not assigned", rows[0]["caution"])
+
+    def test_hust_obc_promotion_bucket_manifests_cover_full_queue(self) -> None:
+        base = repo_root() / "corpus/001_oracle-characters"
+        rows_by_queue_id = {}
+        bucket_counts = []
+        for bucket_number in range(1, 17):
+            bucket_start = (bucket_number - 1) * 100 + 1
+            bucket_end = bucket_start + 99
+            bucket_directory = (
+                f"{bucket_number:03d}_{bucket_start:06d}-{bucket_end:06d}"
+                "_obs-char-bucket_oracle-characters"
+            )
+            path = base / bucket_directory / "000_hust-obc-promotion-bucket-manifest.csv"
+            with path.open("r", encoding="utf-8-sig", newline="") as file:
+                rows = list(csv.DictReader(file))
+            bucket_counts.append(len(rows))
+            self.assertEqual(
+                rows[0]["bucket_manifest_row_id"],
+                f"hust-obc-bucket-{bucket_number:03d}-row-001",
+            )
+            self.assertEqual(rows[0]["suggested_bucket_directory"], bucket_directory)
+            for row in rows:
+                rows_by_queue_id[row["promotion_queue_id"]] = row
+
+        self.assertEqual(bucket_counts[:15], [100] * 15)
+        self.assertEqual(bucket_counts[15], 88)
+        self.assertEqual(len(rows_by_queue_id), 1588)
+        self.assertEqual(
+            set(rows_by_queue_id),
+            {f"hust-obc-obs-char-promo-{index:06d}" for index in range(1, 1589)},
+        )
+        self.assertEqual(
+            rows_by_queue_id["hust-obc-obs-char-promo-000001"]["suggested_oracle_character_id"],
+            "obs-char-000001",
+        )
+        self.assertEqual(
+            rows_by_queue_id["hust-obc-obs-char-promo-001588"]["suggested_bucket_directory"],
+            "016_001501-001600_obs-char-bucket_oracle-characters",
+        )
+        self.assertEqual(
+            {row["assignment_status"] for row in rows_by_queue_id.values()},
+            {"reserved_candidate_not_assigned"},
+        )
+        self.assertEqual(
+            {row["review_status"] for row in rows_by_queue_id.values()},
+            {"needs_review"},
+        )
+
+    def test_hust_obc_promotion_bucket_manifest_builder_partitions_rows(self) -> None:
+        module = load_hust_obc_promotion_bucket_manifests_module()
+        queue_rows = [
+            {
+                "promotion_queue_id": "hust-obc-obs-char-promo-000001",
+                "suggested_oracle_character_id": "obs-char-000001",
+                "suggested_bucket_directory": "001_000001-000100_obs-char-bucket_oracle-characters",
+                "assignment_status": "reserved_candidate_not_assigned",
+            },
+            {
+                "promotion_queue_id": "hust-obc-obs-char-promo-000101",
+                "suggested_oracle_character_id": "obs-char-000101",
+                "suggested_bucket_directory": "002_000101-000200_obs-char-bucket_oracle-characters",
+                "assignment_status": "reserved_candidate_not_assigned",
+            },
+        ]
+        manifests = module.build_bucket_manifests(queue_rows)
+        self.assertEqual(
+            sorted(manifests),
+            [
+                "001_000001-000100_obs-char-bucket_oracle-characters",
+                "002_000101-000200_obs-char-bucket_oracle-characters",
+            ],
+        )
+        self.assertEqual(
+            manifests["001_000001-000100_obs-char-bucket_oracle-characters"][0][
+                "bucket_manifest_row_id"
+            ],
+            "hust-obc-bucket-001-row-001",
+        )
+        self.assertEqual(
+            manifests["002_000101-000200_obs-char-bucket_oracle-characters"][0][
+                "bucket_manifest_row_id"
+            ],
+            "hust-obc-bucket-002-row-001",
+        )
 
     def test_hust_obc_candidate_graph_edges_preserve_metadata_relationships(self) -> None:
         path = repo_root() / "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"

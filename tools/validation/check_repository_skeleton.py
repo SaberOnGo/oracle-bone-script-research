@@ -73,6 +73,10 @@ HUST_OBC_OBS_CHAR_PROMOTION_QUEUE = (
     "corpus/001_oracle-characters/000_character-registers/"
     "009_hust-obc-obs-char-promotion-review-queue.csv"
 )
+HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "010_hust-obc-promotion-bucket-review-summary.csv"
+)
 HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME = "000_hust-obc-promotion-bucket-manifest.csv"
 HUST_OBC_CANDIDATE_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
@@ -278,6 +282,7 @@ REQUIRED_PATHS = [
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     HUST_OBC_SOURCE_CATEGORY_STAGING,
     HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+    HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY,
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
     EVOBC_EVOLUTION_GRAPH_EDGES,
@@ -1097,6 +1102,9 @@ def check_source_registers(root: Path) -> list[str]:
     hust_promotion_queue_rows, hust_promotion_queue_issues = _read_csv_rows(
         root / HUST_OBC_OBS_CHAR_PROMOTION_QUEUE
     )
+    hust_bucket_summary_rows, hust_bucket_summary_issues = _read_csv_rows(
+        root / HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY
+    )
     obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_MAIN_STAGING
@@ -1138,6 +1146,7 @@ def check_source_registers(root: Path) -> list[str]:
         + hust_label_crosswalk_issues
         + hust_source_category_issues
         + hust_promotion_queue_issues
+        + hust_bucket_summary_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
@@ -1623,6 +1632,7 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{HUST_OBC_OBS_CHAR_PROMOTION_QUEUE} last bucket changed")
 
     bucket_manifest_queue_ids: set[str] = set()
+    bucket_manifest_rows_by_directory: dict[str, list[dict[str, str]]] = {}
     for bucket_number, bucket_directory in enumerate(
         hust_obc_promotion_bucket_directories(),
         start=1,
@@ -1633,6 +1643,7 @@ def check_source_registers(root: Path) -> list[str]:
         )
         bucket_rows, bucket_issues = _read_csv_rows(root / manifest_relative_path)
         issues.extend(bucket_issues)
+        bucket_manifest_rows_by_directory[bucket_directory] = bucket_rows
         bucket_start = (bucket_number - 1) * 100 + 1
         bucket_end = min(bucket_start + 99, 1588)
         expected_count = bucket_end - bucket_start + 1
@@ -1675,6 +1686,104 @@ def check_source_registers(root: Path) -> list[str]:
                 issues.append(f"{manifest_relative_path} caution must preserve not-assigned warning: {queue_id}")
     if hust_promotion_queue_rows and bucket_manifest_queue_ids != queue_ids:
         issues.append("HUST-OBC bucket manifests must cover the full promotion queue exactly once")
+
+    if len(hust_bucket_summary_rows) != 16:
+        issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} should contain exactly 16 rows")
+    summary_bucket_directories: set[str] = set()
+    total_summary_rows = 0
+    total_summary_multi_component = 0
+    total_summary_source_category_rows = 0
+    for bucket_number, row in enumerate(hust_bucket_summary_rows, start=1):
+        bucket_directory = row.get("bucket_directory", "")
+        summary_bucket_directories.add(bucket_directory)
+        bucket_rows = bucket_manifest_rows_by_directory.get(bucket_directory, [])
+        expected_summary_id = f"hust-obc-bucket-summary-{bucket_number:03d}"
+        if row.get("bucket_summary_id", "") != expected_summary_id:
+            issues.append(
+                f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} summary ID changed: "
+                f"{row.get('bucket_summary_id', '')}"
+            )
+        if row.get("bucket_number", "") != f"{bucket_number:03d}":
+            issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} bucket number changed")
+        expected_bucket_directory = hust_obc_promotion_bucket_directories()[bucket_number - 1]
+        if bucket_directory != expected_bucket_directory:
+            issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} bucket directory changed")
+        expected_manifest_path = (
+            "corpus/001_oracle-characters/"
+            f"{bucket_directory}/{HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME}"
+        )
+        if row.get("manifest_path", "") != expected_manifest_path:
+            issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} manifest path changed")
+        if not bucket_rows:
+            continue
+        expected_row_count = len(bucket_rows)
+        expected_multi_component = sum(
+            1 for bucket_row in bucket_rows if bucket_row.get("has_multi_component_label") == "true"
+        )
+        expected_single_component = sum(
+            1 for bucket_row in bucket_rows if bucket_row.get("has_multi_component_label") == "false"
+        )
+        expected_multi_source_category = sum(
+            1
+            for bucket_row in bucket_rows
+            if bucket_row.get("source_category_member_count", "").isdigit()
+            and int(bucket_row["source_category_member_count"]) > 1
+        )
+        expected_source_category_rows = sum(
+            int(bucket_row["source_category_member_count"])
+            for bucket_row in bucket_rows
+            if bucket_row.get("source_category_member_count", "").isdigit()
+        )
+        expected_values = {
+            "suggested_oracle_character_id_start": bucket_rows[0].get("suggested_oracle_character_id", ""),
+            "suggested_oracle_character_id_end": bucket_rows[-1].get("suggested_oracle_character_id", ""),
+            "promotion_queue_id_start": bucket_rows[0].get("promotion_queue_id", ""),
+            "promotion_queue_id_end": bucket_rows[-1].get("promotion_queue_id", ""),
+            "candidate_class_id_start": bucket_rows[0].get("candidate_class_id", ""),
+            "candidate_class_id_end": bucket_rows[-1].get("candidate_class_id", ""),
+            "row_count": str(expected_row_count),
+            "single_component_label_count": str(expected_single_component),
+            "multi_component_label_count": str(expected_multi_component),
+            "multi_source_category_candidate_count": str(expected_multi_source_category),
+            "source_category_row_count": str(expected_source_category_rows),
+            "source_id_set": "src-hust-obc",
+            "assignment_status_set": "reserved_candidate_not_assigned",
+            "promotion_status_set": "needs_cross_source_review",
+            "suggested_decipherment_status_set": "unknown_until_cross_source_review",
+            "rights_status_set": "source_marked_risk_noted",
+            "review_status_set": "needs_review",
+            "required_next_review": "compare_xiaoxuetang_obm_obimd_evobc_and_primary_inscription_context",
+            "ai_agent_batch_action": (
+                "review_manifest_rows_against_xiaoxuetang_obm_obimd_evobc_and_primary_inscription_context"
+            ),
+        }
+        for field, expected_value in expected_values.items():
+            if row.get(field, "") != expected_value:
+                issues.append(
+                    f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} {field} mismatch: "
+                    f"{row.get('bucket_summary_id', '')}"
+                )
+        if "not assigned" not in row.get("caution", ""):
+            issues.append(
+                f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} caution must preserve not-assigned warning: "
+                f"{row.get('bucket_summary_id', '')}"
+            )
+        if not row.get("row_count", "").isdigit():
+            issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} row_count not numeric")
+        else:
+            total_summary_rows += int(row["row_count"])
+        if row.get("multi_component_label_count", "").isdigit():
+            total_summary_multi_component += int(row["multi_component_label_count"])
+        if row.get("source_category_row_count", "").isdigit():
+            total_summary_source_category_rows += int(row["source_category_row_count"])
+    if hust_bucket_summary_rows and summary_bucket_directories != set(hust_obc_promotion_bucket_directories()):
+        issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} bucket set changed")
+    if hust_bucket_summary_rows and total_summary_rows != 1588:
+        issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} total row count must be 1588")
+    if hust_bucket_summary_rows and total_summary_multi_component != 173:
+        issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} multi-component total must be 173")
+    if hust_bucket_summary_rows and total_summary_source_category_rows != 1781:
+        issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} source-category total must be 1781")
 
     if len(obimd_main_rows) != 3936:
         issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} should contain exactly 3936 candidate rows")

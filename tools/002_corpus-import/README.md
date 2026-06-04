@@ -17,7 +17,7 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 
 `build_hust_obc_obs_char_promotion_queue.py` creates the reserved-only HUST-OBC promotion review queue with suggested `obs-char-*` IDs. The output is a review queue, not a formal character assignment.
 
-`build_hust_obc_promotion_bucket_manifests.py` partitions that promotion queue into 100-ID bucket manifests under `corpus/001_oracle-characters/` so reviewers and AI Agents can process the 1,588 candidates in smaller batches.
+`build_hust_obc_promotion_bucket_manifests.py` partitions that promotion queue into 100-ID bucket manifests under `corpus/001_oracle-characters/` and writes `010_hust-obc-promotion-bucket-review-summary.csv` so reviewers and AI Agents can process the 1,588 candidates in smaller batches.
 
 简体中文：
 未来导入脚本会把仓库源文件转换到 PostgreSQL 或其他查询存储中。
@@ -36,4 +36,4 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 
 `build_hust_obc_obs_char_promotion_queue.py` 会创建 HUST-OBC 提升复核队列，并给出保留建议性质的 `obs-char-*` ID。该输出只是复核队列，不是正式甲骨字分配。
 
-`build_hust_obc_promotion_bucket_manifests.py` 会把该提升队列按 100 个 ID 一组切分到 `corpus/001_oracle-characters/` 下的 bucket manifest，方便复核者和 AI Agent 分批处理 1,588 个候选。
+`build_hust_obc_promotion_bucket_manifests.py` 会把该提升队列按 100 个 ID 一组切分到 `corpus/001_oracle-characters/` 下的 bucket manifest，并写出 `010_hust-obc-promotion-bucket-review-summary.csv`，方便复核者和 AI Agent 分批处理 1,588 个候选。

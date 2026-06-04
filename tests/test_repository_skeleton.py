@@ -592,6 +592,36 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"needs_review"},
         )
 
+    def test_hust_obc_promotion_bucket_summary_routes_review_batches(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "010_hust-obc-promotion-bucket-review-summary.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 16)
+        self.assertEqual(rows[0]["bucket_summary_id"], "hust-obc-bucket-summary-001")
+        self.assertEqual(rows[0]["suggested_oracle_character_id_start"], "obs-char-000001")
+        self.assertEqual(rows[0]["suggested_oracle_character_id_end"], "obs-char-000100")
+        self.assertEqual(rows[0]["row_count"], "100")
+        self.assertEqual(rows[0]["multi_component_label_count"], "10")
+        self.assertEqual(rows[0]["source_category_row_count"], "111")
+        self.assertEqual(rows[-1]["bucket_summary_id"], "hust-obc-bucket-summary-016")
+        self.assertEqual(rows[-1]["suggested_oracle_character_id_start"], "obs-char-001501")
+        self.assertEqual(rows[-1]["suggested_oracle_character_id_end"], "obs-char-001588")
+        self.assertEqual(rows[-1]["row_count"], "88")
+        self.assertEqual(sum(int(row["row_count"]) for row in rows), 1588)
+        self.assertEqual(sum(int(row["multi_component_label_count"]) for row in rows), 173)
+        self.assertEqual(sum(int(row["source_category_row_count"]) for row in rows), 1781)
+        self.assertEqual({row["source_id_set"] for row in rows}, {"src-hust-obc"})
+        self.assertEqual(
+            {row["assignment_status_set"] for row in rows},
+            {"reserved_candidate_not_assigned"},
+        )
+        self.assertEqual({row["review_status_set"] for row in rows}, {"needs_review"})
+        self.assertIn("not assigned", rows[0]["caution"])
+
     def test_hust_obc_promotion_bucket_manifest_builder_partitions_rows(self) -> None:
         module = load_hust_obc_promotion_bucket_manifests_module()
         queue_rows = [
@@ -599,12 +629,20 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "promotion_queue_id": "hust-obc-obs-char-promo-000001",
                 "suggested_oracle_character_id": "obs-char-000001",
                 "suggested_bucket_directory": "001_000001-000100_obs-char-bucket_oracle-characters",
+                "candidate_class_id": "obs-cand-000001",
+                "source_id": "src-hust-obc",
+                "has_multi_component_label": "false",
+                "source_category_member_count": "1",
                 "assignment_status": "reserved_candidate_not_assigned",
             },
             {
                 "promotion_queue_id": "hust-obc-obs-char-promo-000101",
                 "suggested_oracle_character_id": "obs-char-000101",
                 "suggested_bucket_directory": "002_000101-000200_obs-char-bucket_oracle-characters",
+                "candidate_class_id": "obs-cand-000101",
+                "source_id": "src-hust-obc",
+                "has_multi_component_label": "true",
+                "source_category_member_count": "2",
                 "assignment_status": "reserved_candidate_not_assigned",
             },
         ]
@@ -628,6 +666,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             ],
             "hust-obc-bucket-002-row-001",
         )
+        summary_rows = module.build_bucket_summary_rows(manifests, module.DEFAULT_OUTPUT_ROOT)
+        self.assertEqual(len(summary_rows), 2)
+        self.assertEqual(summary_rows[0]["bucket_summary_id"], "hust-obc-bucket-summary-001")
+        self.assertEqual(summary_rows[0]["row_count"], "1")
+        self.assertEqual(summary_rows[0]["suggested_oracle_character_id_start"], "obs-char-000001")
+        self.assertEqual(summary_rows[1]["bucket_summary_id"], "hust-obc-bucket-summary-002")
+        self.assertEqual(summary_rows[1]["manifest_path"], (
+            "corpus/001_oracle-characters/"
+            "002_000101-000200_obs-char-bucket_oracle-characters/"
+            "000_hust-obc-promotion-bucket-manifest.csv"
+        ))
 
     def test_hust_obc_candidate_graph_edges_preserve_metadata_relationships(self) -> None:
         path = repo_root() / "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"

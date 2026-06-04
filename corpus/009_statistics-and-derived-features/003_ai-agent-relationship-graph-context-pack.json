@@ -1,0 +1,308 @@
+{
+  "agent_use_rules": [
+    "Use this pack only as a routing and coverage summary.",
+    "Open the cited CSV/JSONL source rows before making any research claim.",
+    "Treat HUST-OBC, OBIMD, and EVOBC rows as dataset metadata until cross-source review.",
+    "Do not present OCR labels, component links, glyph code points, or evolution category links as accepted readings."
+  ],
+  "agent_use_rules_zh": [
+    "本上下文包只作为检索路由和覆盖范围摘要使用。",
+    "提出任何研究判断前，必须打开被引用的 CSV/JSONL 来源行。",
+    "HUST-OBC、OBIMD 和 EVOBC 记录在跨来源复核前都只是数据集元数据。",
+    "不得把 OCR 标签、构件链接、glyph codepoint 或演化 category 关系写成已接受释读。"
+  ],
+  "context_pack_id": "ai-context-relationship-graph-001",
+  "coverage": {
+    "edge_type_count": 6,
+    "graph_file_count": 3,
+    "graph_files": [
+      "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+      "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
+    ],
+    "node_count": 65039,
+    "source_count": 3,
+    "top_node_limit": 20,
+    "total_edge_count": 99674
+  },
+  "generated_from": [
+    "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv",
+    "corpus/009_statistics-and-derived-features/002_relationship-graph-node-degree-summary.csv"
+  ],
+  "purpose": "Entry-point context for AI Agents before deeper graph or source lookup; supports evidence-first retrieval and does not contain decipherment claims.",
+  "purpose_zh": "供 AI Agent 深入检索图谱或来源表前使用的入口上下文；支持先证据后推理，不包含释读结论。",
+  "source_summaries": [
+    {
+      "edge_count": 51679,
+      "edge_types": [
+        {
+          "edge_count": 26378,
+          "edge_type": "EVOBC_CATEGORY_HAS_ERA_CODE",
+          "unique_source_node_count": 13712,
+          "unique_target_node_count": 6
+        },
+        {
+          "edge_count": 25301,
+          "edge_type": "EVOBC_CATEGORY_HAS_SOURCE_CODE",
+          "unique_source_node_count": 13712,
+          "unique_target_node_count": 8
+        }
+      ],
+      "graph_files": [
+        "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
+      ],
+      "label": "EVOBC evolution category metadata",
+      "source_id": "src-evobc"
+    },
+    {
+      "edge_count": 3562,
+      "edge_types": [
+        {
+          "edge_count": 1781,
+          "edge_type": "HAS_HUST_OBC_OCR_LABEL_CANDIDATE",
+          "unique_source_node_count": 1781,
+          "unique_target_node_count": 1781
+        },
+        {
+          "edge_count": 1781,
+          "edge_type": "HAS_HUST_OBC_SOURCE_CATEGORY",
+          "unique_source_node_count": 1588,
+          "unique_target_node_count": 1781
+        }
+      ],
+      "graph_files": [
+        "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"
+      ],
+      "label": "HUST-OBC dataset metadata",
+      "source_id": "src-hust-obc"
+    },
+    {
+      "edge_count": 44433,
+      "edge_types": [
+        {
+          "edge_count": 41686,
+          "edge_type": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT",
+          "unique_source_node_count": 2747,
+          "unique_target_node_count": 41686
+        },
+        {
+          "edge_count": 2747,
+          "edge_type": "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER",
+          "unique_source_node_count": 2747,
+          "unique_target_node_count": 1730
+        }
+      ],
+      "graph_files": [
+        "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"
+      ],
+      "label": "OBIMD component and glyph metadata",
+      "source_id": "src-obimd"
+    }
+  ],
+  "status": "reviewed_metadata_only",
+  "title": "Relationship Graph Coverage Context Pack",
+  "title_zh": "关系图谱覆盖范围上下文包",
+  "top_degree_nodes": [
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 10158,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:10158",
+      "node_id": "evobc-code-008",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 10158
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 9147,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_ERA_CODE:9147",
+      "node_id": "evobc-code-003",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 9147
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 7222,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_ERA_CODE:7222",
+      "node_id": "evobc-code-005",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 7222
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 6656,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:6656",
+      "node_id": "evobc-code-012",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 6656
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 3452,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_ERA_CODE:3452",
+      "node_id": "evobc-code-002",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 3452
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 2890,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_ERA_CODE:2890",
+      "node_id": "evobc-code-006",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 2890
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 2040,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:2040",
+      "node_id": "evobc-code-010",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 2040
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1905,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_ERA_CODE:1905",
+      "node_id": "evobc-code-004",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1905
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1905,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:1905",
+      "node_id": "evobc-code-011",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1905
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1762,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_ERA_CODE:1762",
+      "node_id": "evobc-code-001",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1762
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1202,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:1202",
+      "node_id": "evobc-code-009",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1202
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1143,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:1143",
+      "node_id": "evobc-code-014",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1143
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1119,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:1119",
+      "node_id": "evobc-code-007",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1119
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "in_degree": 1078,
+      "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:1078",
+      "node_id": "evobc-code-013",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-evobc",
+      "total_degree": 1078
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obimd-sub-cand-001527",
+      "out_degree": 453,
+      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:452;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 453
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obimd-sub-cand-001929",
+      "out_degree": 378,
+      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:377;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 378
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obimd-sub-cand-000574",
+      "out_degree": 278,
+      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:277;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 278
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obimd-sub-cand-000451",
+      "out_degree": 227,
+      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:226;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 227
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obimd-sub-cand-002368",
+      "out_degree": 215,
+      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:214;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 215
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obimd-sub-cand-001669",
+      "out_degree": 195,
+      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:194;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 195
+    }
+  ],
+  "updated_at": "2026-06-04"
+}

@@ -89,6 +89,10 @@ RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "002_relationship-graph-node-degree-summary.csv"
 )
+AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "003_ai-agent-relationship-graph-context-pack.json"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -273,6 +277,7 @@ REQUIRED_PATHS = [
     EVOBC_EVOLUTION_GRAPH_EDGES,
     RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
     RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY,
+    AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -295,6 +300,7 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
+    "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -927,6 +933,94 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
         for key, value in expected_last.items():
             if node_degree_rows[-1].get(key) != value:
                 issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} last row {key} changed")
+
+    return issues
+
+
+def check_ai_context_packs(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK
+    try:
+        context_pack = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return [f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} invalid JSON: {exc.msg}"]
+
+    if context_pack.get("context_pack_id") != "ai-context-relationship-graph-001":
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} context_pack_id changed")
+    if context_pack.get("status") != "reviewed_metadata_only":
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} status must stay reviewed_metadata_only")
+    if context_pack.get("updated_at") != "2026-06-04":
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} updated_at changed")
+    generated_from = context_pack.get("generated_from", [])
+    if generated_from != [
+        RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
+        RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY,
+    ]:
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} generated_from changed")
+
+    coverage = context_pack.get("coverage", {})
+    expected_coverage = {
+        "graph_file_count": 3,
+        "source_count": 3,
+        "edge_type_count": 6,
+        "total_edge_count": 99674,
+        "node_count": 65039,
+        "top_node_limit": 20,
+    }
+    for key, value in expected_coverage.items():
+        if coverage.get(key) != value:
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} coverage {key} changed")
+    expected_graph_files = [
+        HUST_OBC_CANDIDATE_GRAPH_EDGES,
+        OBIMD_COMPONENT_GRAPH_EDGES,
+        EVOBC_EVOLUTION_GRAPH_EDGES,
+    ]
+    if coverage.get("graph_files") != expected_graph_files:
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} graph file list changed")
+
+    source_summaries = context_pack.get("source_summaries", [])
+    if not isinstance(source_summaries, list) or len(source_summaries) != 3:
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} must contain 3 source summaries")
+    else:
+        edge_counts_by_source = {
+            row.get("source_id"): row.get("edge_count")
+            for row in source_summaries
+        }
+        if edge_counts_by_source != {
+            "src-evobc": 51679,
+            "src-hust-obc": 3562,
+            "src-obimd": 44433,
+        }:
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} source edge counts changed")
+
+    top_nodes = context_pack.get("top_degree_nodes", [])
+    if not isinstance(top_nodes, list) or len(top_nodes) != 20:
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} must contain 20 top nodes")
+    else:
+        first_node = top_nodes[0]
+        if first_node.get("node_id") != "evobc-code-008":
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} first top node changed")
+        if first_node.get("total_degree") != 10158:
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} first top node degree changed")
+        if first_node.get("incoming_edge_type_counts") != "EVOBC_CATEGORY_HAS_SOURCE_CODE:10158":
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} first top node edge count changed")
+
+    rules = " ".join(context_pack.get("agent_use_rules", []))
+    rules_zh = " ".join(context_pack.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "routing and coverage summary",
+        "Open the cited CSV/JSONL source rows",
+        "Do not present OCR labels",
+    ]:
+        if required_snippet not in rules:
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} missing agent rule: {required_snippet}")
+    for required_snippet in [
+        "只作为检索路由",
+        "必须打开被引用的 CSV/JSONL 来源行",
+        "不得把 OCR 标签",
+    ]:
+        if required_snippet not in rules_zh:
+            issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
 
     return issues
 
@@ -1834,6 +1928,7 @@ def main() -> int:
     issues.extend(check_source_registers(root))
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
+    issues.extend(check_ai_context_packs(root))
 
     if issues:
         print("FAIL repository skeleton")

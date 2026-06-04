@@ -10,6 +10,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_policy_text,
     check_forbidden_paths,
     check_forbidden_top_level_dirs,
+    check_ai_context_packs,
     check_required_paths,
     check_relationship_graph_edges,
     check_relationship_graph_statistics,
@@ -83,6 +84,15 @@ def load_relationship_graph_statistics_module():
     return module
 
 
+def load_relationship_graph_context_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py"
+    spec = importlib.util.spec_from_file_location("build_relationship_graph_context_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -116,6 +126,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_relationship_graph_statistics(self) -> None:
         self.assertEqual(check_relationship_graph_statistics(repo_root()), [])
+
+    def test_ai_context_packs(self) -> None:
+        self.assertEqual(check_ai_context_packs(repo_root()), [])
 
     def test_source_field_map_covers_first_stage_sources(self) -> None:
         path = (
@@ -702,6 +715,60 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_node["node-a"]["out_degree"], "2")
         self.assertEqual(by_node["node-b"]["in_degree"], "1")
         self.assertEqual(by_node["node-c"]["incoming_edge_type_counts"], "RELATES_TO:1")
+
+    def test_ai_agent_relationship_graph_context_pack_preserves_routing_summary(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "003_ai-agent-relationship-graph-context-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["context_pack_id"], "ai-context-relationship-graph-001")
+        self.assertEqual(data["status"], "reviewed_metadata_only")
+        self.assertEqual(data["coverage"]["total_edge_count"], 99674)
+        self.assertEqual(data["coverage"]["node_count"], 65039)
+        self.assertEqual(data["coverage"]["source_count"], 3)
+        self.assertEqual(data["coverage"]["edge_type_count"], 6)
+        by_source = {row["source_id"]: row for row in data["source_summaries"]}
+        self.assertEqual(by_source["src-hust-obc"]["edge_count"], 3562)
+        self.assertEqual(by_source["src-obimd"]["edge_count"], 44433)
+        self.assertEqual(by_source["src-evobc"]["edge_count"], 51679)
+        self.assertEqual(data["top_degree_nodes"][0]["node_id"], "evobc-code-008")
+        self.assertEqual(data["top_degree_nodes"][0]["total_degree"], 10158)
+        self.assertIn("routing and coverage summary", " ".join(data["agent_use_rules"]))
+        self.assertIn("不得把 OCR 标签", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_relationship_graph_context_pack_builder_keeps_cautions(self) -> None:
+        module = load_relationship_graph_context_pack_module()
+        edge_summary_rows = [
+            {
+                "graph_file": "example.jsonl",
+                "source_id": "src-hust-obc",
+                "edge_type": "HAS_TEST_EDGE",
+                "edge_count": "2",
+                "unique_source_node_count": "1",
+                "unique_target_node_count": "2",
+            }
+        ]
+        node_degree_rows = [
+            {
+                "node_id": "node-a",
+                "total_degree": "2",
+                "out_degree": "2",
+                "in_degree": "0",
+                "outgoing_edge_type_counts": "HAS_TEST_EDGE:2",
+                "incoming_edge_type_counts": "",
+                "source_ids": "src-hust-obc",
+                "graph_files": "example.jsonl",
+            }
+        ]
+        data = module.build_context_pack(edge_summary_rows, node_degree_rows, top_node_limit=1)
+        self.assertEqual(data["coverage"]["total_edge_count"], 2)
+        self.assertEqual(data["coverage"]["top_node_limit"], 1)
+        self.assertEqual(data["source_summaries"][0]["label"], "HUST-OBC dataset metadata")
+        self.assertEqual(data["top_degree_nodes"][0]["node_id"], "node-a")
+        self.assertIn("does not contain decipherment claims", data["purpose"])
+        self.assertIn("Open the cited CSV/JSONL source rows", data["agent_use_rules"][1])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

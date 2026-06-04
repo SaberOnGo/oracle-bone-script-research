@@ -12,6 +12,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_top_level_dirs,
     check_required_paths,
     check_relationship_graph_edges,
+    check_relationship_graph_statistics,
     check_root_gitignore_patterns,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -73,6 +74,15 @@ def load_evobc_evolution_graph_edges_module():
     return module
 
 
+def load_relationship_graph_statistics_module():
+    path = repo_root() / "tools/004_statistics-generation/build_relationship_graph_statistics.py"
+    spec = importlib.util.spec_from_file_location("build_relationship_graph_statistics", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -103,6 +113,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_relationship_graph_edges(self) -> None:
         self.assertEqual(check_relationship_graph_edges(repo_root()), [])
+
+    def test_relationship_graph_statistics(self) -> None:
+        self.assertEqual(check_relationship_graph_statistics(repo_root()), [])
 
     def test_source_field_map_covers_first_stage_sources(self) -> None:
         path = (
@@ -612,6 +625,83 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[3]["edge_id"], "edge-evobc-cat-source-00001-07")
         self.assertIn("category_image_reference_count=37", rows[0]["evidence_note"])
         self.assertIn("not an accepted paleographic correspondence", rows[0]["evidence_note"])
+
+    def test_relationship_graph_edge_type_summary_preserves_current_edge_totals(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "001_relationship-graph-edge-type-summary.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 6)
+        by_edge_type = {row["edge_type"]: row for row in rows}
+        self.assertEqual(by_edge_type["HAS_HUST_OBC_SOURCE_CATEGORY"]["edge_count"], "1781")
+        self.assertEqual(by_edge_type["HAS_HUST_OBC_SOURCE_CATEGORY"]["unique_source_node_count"], "1588")
+        self.assertEqual(by_edge_type["OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT"]["edge_count"], "41686")
+        self.assertEqual(by_edge_type["OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER"]["unique_target_node_count"], "1730")
+        self.assertEqual(by_edge_type["EVOBC_CATEGORY_HAS_ERA_CODE"]["edge_count"], "26378")
+        self.assertEqual(by_edge_type["EVOBC_CATEGORY_HAS_SOURCE_CODE"]["unique_target_node_count"], "8")
+        self.assertEqual(sum(int(row["edge_count"]) for row in rows), 99674)
+        self.assertEqual({row["generated_from"] for row in rows}, {"relationship_graph_jsonl"})
+
+    def test_relationship_graph_node_degree_summary_preserves_degree_totals(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "002_relationship-graph-node-degree-summary.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 65039)
+        self.assertEqual(sum(int(row["out_degree"]) for row in rows), 99674)
+        self.assertEqual(sum(int(row["in_degree"]) for row in rows), 99674)
+        self.assertEqual(rows[0]["node_id"], "evobc-code-008")
+        self.assertEqual(rows[0]["total_degree"], "10158")
+        self.assertEqual(rows[0]["incoming_edge_type_counts"], "EVOBC_CATEGORY_HAS_SOURCE_CODE:10158")
+        self.assertEqual(rows[1]["node_id"], "evobc-code-003")
+        self.assertEqual(rows[1]["total_degree"], "9147")
+        self.assertEqual(rows[-1]["node_id"], "obs-cand-001588")
+        self.assertEqual(rows[-1]["outgoing_edge_type_counts"], "HAS_HUST_OBC_SOURCE_CATEGORY:1")
+        self.assertEqual({row["generated_from"] for row in rows}, {"relationship_graph_jsonl"})
+
+    def test_relationship_graph_statistics_builder_summarizes_small_graph(self) -> None:
+        module = load_relationship_graph_statistics_module()
+        rows = [
+            {
+                "edge_id": "edge-a",
+                "source_node_id": "node-a",
+                "edge_type": "RELATES_TO",
+                "target_node_id": "node-b",
+                "confidence_level": "high",
+                "source_ids": ["src-test"],
+                "review_status": "reviewed",
+            },
+            {
+                "edge_id": "edge-b",
+                "source_node_id": "node-a",
+                "edge_type": "RELATES_TO",
+                "target_node_id": "node-c",
+                "confidence_level": "high",
+                "source_ids": ["src-test"],
+                "review_status": "reviewed",
+            },
+        ]
+        original_reader = module.read_jsonl_edges
+        try:
+            module.read_jsonl_edges = lambda _path: rows
+            graph_files = [module.Path("example.jsonl")]
+            edge_summary = module.build_edge_type_summary(graph_files, repo_root())
+            degree_summary = module.build_node_degree_summary(graph_files, repo_root())
+        finally:
+            module.read_jsonl_edges = original_reader
+        self.assertEqual(edge_summary[0]["edge_count"], "2")
+        self.assertEqual(edge_summary[0]["unique_source_node_count"], "1")
+        self.assertEqual(edge_summary[0]["unique_target_node_count"], "2")
+        by_node = {row["node_id"]: row for row in degree_summary}
+        self.assertEqual(by_node["node-a"]["out_degree"], "2")
+        self.assertEqual(by_node["node-b"]["in_degree"], "1")
+        self.assertEqual(by_node["node-c"]["incoming_edge_type_counts"], "RELATES_TO:1")
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

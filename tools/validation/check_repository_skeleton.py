@@ -81,6 +81,14 @@ EVOBC_EVOLUTION_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "007_evobc-evolution-graph-edges.jsonl"
 )
+RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "001_relationship-graph-edge-type-summary.csv"
+)
+RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "002_relationship-graph-node-degree-summary.csv"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -263,6 +271,8 @@ REQUIRED_PATHS = [
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
     EVOBC_EVOLUTION_GRAPH_EDGES,
+    RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
+    RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -284,6 +294,7 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
+    "tools/004_statistics-generation/build_relationship_graph_statistics.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -786,6 +797,136 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     ]
     if evobc_edge_rows and compact_evobc_edge_rows != expected_evobc_edges:
         issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge sequence changed")
+
+    return issues
+
+
+def check_relationship_graph_statistics(root: Path) -> list[str]:
+    issues: list[str] = []
+    edge_summary_rows, edge_summary_issues = _read_csv_rows(
+        root / RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY
+    )
+    node_degree_rows, node_degree_issues = _read_csv_rows(
+        root / RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY
+    )
+    issues.extend(edge_summary_issues)
+    issues.extend(node_degree_issues)
+
+    if len(edge_summary_rows) != 6:
+        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} should contain exactly 6 rows")
+    if len(node_degree_rows) != 65039:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} should contain exactly 65039 rows")
+
+    expected_edge_counts = {
+        (
+            "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+            "src-hust-obc",
+            "HAS_HUST_OBC_OCR_LABEL_CANDIDATE",
+        ): ("1781", "1781", "1781"),
+        (
+            "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+            "src-hust-obc",
+            "HAS_HUST_OBC_SOURCE_CATEGORY",
+        ): ("1781", "1588", "1781"),
+        (
+            "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+            "src-obimd",
+            "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT",
+        ): ("41686", "2747", "41686"),
+        (
+            "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+            "src-obimd",
+            "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER",
+        ): ("2747", "2747", "1730"),
+        (
+            "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+            "src-evobc",
+            "EVOBC_CATEGORY_HAS_ERA_CODE",
+        ): ("26378", "13712", "6"),
+        (
+            "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+            "src-evobc",
+            "EVOBC_CATEGORY_HAS_SOURCE_CODE",
+        ): ("25301", "13712", "8"),
+    }
+    observed_edge_counts = {}
+    total_edge_count = 0
+    for row in edge_summary_rows:
+        key = (row.get("graph_file", ""), row.get("source_id", ""), row.get("edge_type", ""))
+        observed_edge_counts[key] = (
+            row.get("edge_count", ""),
+            row.get("unique_source_node_count", ""),
+            row.get("unique_target_node_count", ""),
+        )
+        edge_count = row.get("edge_count", "")
+        if edge_count.isdigit():
+            total_edge_count += int(edge_count)
+        else:
+            issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} edge_count not numeric: {key}")
+        if row.get("generated_from") != "relationship_graph_jsonl":
+            issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} generated_from changed: {key}")
+        if row.get("updated_at") != "2026-06-04":
+            issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} updated_at changed: {key}")
+        if not row.get("review_status_counts", "").startswith("reviewed:"):
+            issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} review status not reviewed-only: {key}")
+        if not row.get("confidence_level_counts", "").startswith("high:"):
+            issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} confidence not high-only: {key}")
+    if observed_edge_counts != expected_edge_counts:
+        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} edge count summary changed")
+    if total_edge_count != 99674:
+        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} total edge count should be 99674")
+
+    total_out_degree = 0
+    total_in_degree = 0
+    for row in node_degree_rows:
+        node_id = row.get("node_id", "")
+        if row.get("generated_from") != "relationship_graph_jsonl":
+            issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} generated_from changed: {node_id}")
+        if row.get("updated_at") != "2026-06-04":
+            issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} updated_at changed: {node_id}")
+        out_degree = row.get("out_degree", "")
+        in_degree = row.get("in_degree", "")
+        total_degree = row.get("total_degree", "")
+        if not out_degree.isdigit() or not in_degree.isdigit() or not total_degree.isdigit():
+            issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} non-numeric degree: {node_id}")
+            continue
+        out_value = int(out_degree)
+        in_value = int(in_degree)
+        total_value = int(total_degree)
+        if total_value != out_value + in_value:
+            issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total degree mismatch: {node_id}")
+        total_out_degree += out_value
+        total_in_degree += in_value
+    if total_out_degree != 99674:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total out-degree should be 99674")
+    if total_in_degree != 99674:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total in-degree should be 99674")
+
+    if node_degree_rows:
+        expected_first = {
+            "node_degree_row_id": "graph-node-degree-000001",
+            "node_id": "evobc-code-008",
+            "total_degree": "10158",
+            "out_degree": "0",
+            "in_degree": "10158",
+            "incoming_edge_type_counts": "EVOBC_CATEGORY_HAS_SOURCE_CODE:10158",
+            "source_ids": "src-evobc",
+        }
+        for key, value in expected_first.items():
+            if node_degree_rows[0].get(key) != value:
+                issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} first row {key} changed")
+        expected_last = {
+            "node_degree_row_id": "graph-node-degree-065039",
+            "node_id": "obs-cand-001588",
+            "total_degree": "1",
+            "out_degree": "1",
+            "in_degree": "0",
+            "outgoing_edge_type_counts": "HAS_HUST_OBC_SOURCE_CATEGORY:1",
+            "source_ids": "src-hust-obc",
+        }
+        for key, value in expected_last.items():
+            if node_degree_rows[-1].get(key) != value:
+                issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} last row {key} changed")
 
     return issues
 
@@ -1692,6 +1833,7 @@ def main() -> int:
     issues.extend(check_tracked_temp_artifacts(root))
     issues.extend(check_source_registers(root))
     issues.extend(check_relationship_graph_edges(root))
+    issues.extend(check_relationship_graph_statistics(root))
 
     if issues:
         print("FAIL repository skeleton")

@@ -1,0 +1,7 @@
+﻿summary_row_id,graph_file,source_id,edge_type,edge_count,unique_source_node_count,unique_target_node_count,review_status_counts,confidence_level_counts,generated_from,updated_at
+graph-edge-type-summary-001,corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl,src-hust-obc,HAS_HUST_OBC_OCR_LABEL_CANDIDATE,1781,1781,1781,reviewed:1781,high:1781,relationship_graph_jsonl,2026-06-04
+graph-edge-type-summary-002,corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl,src-hust-obc,HAS_HUST_OBC_SOURCE_CATEGORY,1781,1588,1781,reviewed:1781,high:1781,relationship_graph_jsonl,2026-06-04
+graph-edge-type-summary-003,corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl,src-obimd,OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT,41686,2747,41686,reviewed:41686,high:41686,relationship_graph_jsonl,2026-06-04
+graph-edge-type-summary-004,corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl,src-obimd,OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER,2747,2747,1730,reviewed:2747,high:2747,relationship_graph_jsonl,2026-06-04
+graph-edge-type-summary-005,corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl,src-evobc,EVOBC_CATEGORY_HAS_ERA_CODE,26378,13712,6,reviewed:26378,high:26378,relationship_graph_jsonl,2026-06-04
+graph-edge-type-summary-006,corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl,src-evobc,EVOBC_CATEGORY_HAS_SOURCE_CODE,25301,13712,8,reviewed:25301,high:25301,relationship_graph_jsonl,2026-06-04

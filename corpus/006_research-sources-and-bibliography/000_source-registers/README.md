@@ -1,0 +1,22 @@
+# Source Registers / 来源登记表
+
+English:
+This directory records authoritative or research-grade source systems before any oracle bone data is imported. The first stage prioritizes official institutional databases, museum/library systems, peer-reviewed datasets, and project pages maintained by named research teams.
+
+Do not add general news sites, entertainment sites, unsourced popular articles, or unaudited hobbyist collections as adopted sources. If such a site appears in a scholarly dataset's provenance, mark it as `source_under_review` and cross-check it against stronger sources before using it.
+
+简体中文：
+本目录在导入甲骨文资料前先登记权威或研究级来源系统。第一阶段优先采纳官方机构数据库、博物馆/图书馆系统、同行评审数据集，以及由明确研究团队维护的项目页面。
+
+不要把一般新闻网站、娱乐网站、无来源科普文章或未经审计的民间整理站作为正式采纳来源。如果某类网站出现在学术数据集的来源链中，应标记为 `source_under_review`，并先与更强来源交叉核验。
+
+## Files / 文件
+
+- `001_all-sources-index.csv`: adopted and candidate source systems.
+- `001_all-sources-index.csv`：已采纳和候选来源系统。
+- `002_authoritative-online-source-inventory.csv`: authority tier and first-stage action.
+- `002_authoritative-online-source-inventory.csv`：权威等级和第一阶段动作。
+- `003_source-download-manifest.csv`: approved lightweight source pages for logged download.
+- `003_source-download-manifest.csv`：批准进行日志化下载的轻量来源页面。
+- `004_first-stage-source-adoption-notes.md`: human-readable adoption decision notes.
+- `004_first-stage-source-adoption-notes.md`：人类可读的来源采纳决策说明。

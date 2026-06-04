@@ -1,5 +1,15 @@
 prefix,source_id,label_en,label_zh,notes_en,notes_zh
 xxt-jgw,src-xiaoxuetang-jiaguwen,Xiaoxuetang Oracle Bone Script Database,小學堂甲骨文資料庫,Oracle character number or page-linked source reference.,甲骨文字號或页面关联来源引用。
+xxt-obm,src-xiaoxuetang-obm,Xiaoxuetang Heji Material Source Table,小學堂甲骨文合集材料來源表,Heji material source table reference.,《甲骨文合集材料來源表》引用。
 heji,src-jiaguwen-heji,Collection of Oracle Bone Inscriptions,甲骨文合集,Plate or inscription source number; not a universal character ID.,图版或卜辞来源号；不是通用单字 ID。
+ihp-rub,src-ihp-oracle-rubbings,IHP Oracle Bones Rubbings Database,史語所甲骨文拓片資料庫,Rubbing or collection-number provenance from IHP digital archive.,史語所數位典藏拓片或館藏號來源。
+ihp-mus,src-ihp-museum-oracle-bones,IHP Museum Oracle Bones Collection,史語所歷史文物陳列館甲骨藏品,Museum collection object reference.,博物館藏品引用。
+yqw,src-yinqi-wenyuan,Yinqi Wenyuan Oracle Bones Corpus,殷契文渊,Integrated scholarly platform reference; use with rights caution.,綜合研究平台引用；注意權利狀態。
+hust-obc,src-hust-obc,HUST-OBC Dataset,HUST-OBC 甲骨文字數據集,Peer-reviewed AI dataset reference for deciphered and undeciphered OBC image classes.,同行評審 AI 數據集引用，用於已釋與未釋甲骨字圖像類別。
+obimd,src-obimd,OBIMD Multi-modal Dataset,OBIMD 甲骨文多模態數據集,Peer-reviewed multimodal dataset reference for images, annotations, sentence groups and reading order.,同行評審多模態數據集引用，用於圖像、標註、句組和閱讀順序。
+open-oracle,src-open-oracle,Open-Oracle Project Repository,Open-Oracle 項目倉庫,Research project hub and dataset index reference.,研究項目入口與數據集索引引用。
+oracle-mnist,src-oracle-mnist,Oracle-MNIST Dataset,Oracle-MNIST 數據集,Small AI benchmark dataset reference.,小型 AI 基準數據集引用。
+gbedobc,src-gbedobc,GBEDOBC Dataset,GBEDOBC 字形演化數據集,Graph-based character evolution dataset reference.,基於圖的字形演化數據集引用。
+nlc-ob,src-nlc-oracle-world,National Library of China Oracle Bone Resources,中國國家圖書館甲骨資源,National-library source reference pending stable endpoint confirmation.,國家圖書館來源引用，待確認穩定入口。
 oldcat,src-old-catalogs,Older catalog references,旧著录来源,Old catalog source reference prefix.,旧著录来源前缀。
 unicode,src-unicode,Unicode,Unicode,Modern character code when a reliable modern correspondence exists.,存在可靠现代字对应时使用的 Unicode 编码。

@@ -8,6 +8,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_top_level_dirs,
     check_required_paths,
     check_root_gitignore_patterns,
+    check_source_registers,
     check_tracked_temp_artifacts,
     repo_root,
 )
@@ -37,6 +38,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_tracked_temp_artifacts_absent(self) -> None:
         self.assertEqual(check_tracked_temp_artifacts(repo_root()), [])
+
+    def test_source_registers(self) -> None:
+        self.assertEqual(check_source_registers(repo_root()), [])
 
 
 if __name__ == "__main__":

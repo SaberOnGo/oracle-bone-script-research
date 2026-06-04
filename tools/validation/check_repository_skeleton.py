@@ -12,6 +12,25 @@ from pathlib import Path
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
 SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
+SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
+SOURCE_INVENTORY = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "002_authoritative-online-source-inventory.csv"
+)
+SOURCE_DOWNLOAD_MANIFEST = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "003_source-download-manifest.csv"
+)
+SOURCE_DOWNLOAD_LOG = "project_registry/006_large-source-register/002_source-download-log.csv"
+LARGE_SOURCE_REGISTER = "project_registry/006_large-source-register/001_large-source-register.csv"
+
+ADOPTED_PROFESSIONAL_SOURCE_IDS = {
+    "src-xiaoxuetang-jiaguwen",
+    "src-xiaoxuetang-obm",
+    "src-ihp-oracle-rubbings",
+    "src-ihp-museum-oracle-bones",
+    "src-yinqi-wenyuan",
+}
 
 REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
     "apps",
@@ -96,6 +115,7 @@ REQUIRED_PATHS = [
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
     "project_registry/006_large-source-register/README.md",
     "project_registry/006_large-source-register/001_large-source-register.csv",
+    SOURCE_DOWNLOAD_LOG,
     "research/README.md",
     "skills/README.md",
     "skills/oracle-character-record-curation/SKILL.md",
@@ -103,9 +123,16 @@ REQUIRED_PATHS = [
     "skills/ai-agent-evidence-pack-review/SKILL.md",
     "schemas/README.md",
     "corpus/README.md",
+    "corpus/006_research-sources-and-bibliography/000_source-registers/README.md",
+    SOURCE_INDEX,
+    SOURCE_INVENTORY,
+    SOURCE_DOWNLOAD_MANIFEST,
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "004_first-stage-source-adoption-notes.md",
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
+    "tools/002_corpus-import/download_source_manifest.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -296,6 +323,65 @@ def check_tracked_temp_artifacts(root: Path) -> list[str]:
     return issues
 
 
+def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
+    issues: list[str] = []
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        reader = csv.DictReader(file)
+        if not reader.fieldnames:
+            return [], [f"{path.name} has no header"]
+        rows = []
+        for line_number, row in enumerate(reader, start=2):
+            if None in row:
+                issues.append(f"{path.relative_to(repo_root())}:{line_number} has extra CSV columns")
+            rows.append({key: (value or "") for key, value in row.items() if key is not None})
+    return rows, issues
+
+
+def check_source_registers(root: Path) -> list[str]:
+    issues: list[str] = []
+    source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
+    inventory_rows, inventory_issues = _read_csv_rows(root / SOURCE_INVENTORY)
+    manifest_rows, manifest_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_MANIFEST)
+    log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
+    issues.extend(source_issues + inventory_issues + manifest_issues + log_issues + large_issues)
+
+    source_ids = {row.get("source_id", "") for row in source_rows}
+    missing_adopted = sorted(ADOPTED_PROFESSIONAL_SOURCE_IDS - source_ids)
+    for source_id in missing_adopted:
+        issues.append(f"missing adopted professional source: {source_id}")
+
+    source_by_id = {row.get("source_id", ""): row for row in source_rows}
+    for source_id in sorted(ADOPTED_PROFESSIONAL_SOURCE_IDS):
+        row = source_by_id.get(source_id)
+        if not row:
+            continue
+        if not row.get("adoption_status", "").startswith("adopted_"):
+            issues.append(f"{SOURCE_INDEX} source not marked adopted: {source_id}")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{SOURCE_INDEX} source not reviewed: {source_id}")
+
+    inventory_source_ids = {row.get("source_id", "") for row in inventory_rows}
+    for source_id in sorted(source_ids - inventory_source_ids):
+        issues.append(f"{SOURCE_INVENTORY} missing source_id: {source_id}")
+
+    manifest_ids = {row.get("download_id", "") for row in manifest_rows}
+    log_ids = {row.get("download_id", "") for row in log_rows}
+    for source_id in sorted({row.get("source_id", "") for row in manifest_rows} - source_ids):
+        issues.append(f"{SOURCE_DOWNLOAD_MANIFEST} references unknown source_id: {source_id}")
+    for download_id in sorted(manifest_ids - log_ids):
+        issues.append(f"{SOURCE_DOWNLOAD_LOG} missing download_id from manifest: {download_id}")
+    for row in log_rows:
+        local_temp_path = row.get("local_temp_path", "")
+        if local_temp_path and not local_temp_path.startswith("tmp/"):
+            issues.append(f"{SOURCE_DOWNLOAD_LOG} local_temp_path must stay under tmp/: {local_temp_path}")
+
+    for row in large_rows:
+        if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":
+            issues.append(f"{LARGE_SOURCE_REGISTER} not-downloaded package should not claim file_size_bytes")
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
@@ -307,6 +393,7 @@ def main() -> int:
     issues.extend(check_file_size_limits(root))
     issues.extend(check_root_gitignore_patterns(root))
     issues.extend(check_tracked_temp_artifacts(root))
+    issues.extend(check_source_registers(root))
 
     if issues:
         print("FAIL repository skeleton")

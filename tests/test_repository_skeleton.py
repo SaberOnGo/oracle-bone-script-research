@@ -1,6 +1,8 @@
 import unittest
 import csv
 import importlib.util
+import json
+from collections import Counter
 
 from tools.validation.check_repository_skeleton import (
     check_bilingual_markers,
@@ -9,6 +11,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_paths,
     check_forbidden_top_level_dirs,
     check_required_paths,
+    check_relationship_graph_edges,
     check_root_gitignore_patterns,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -43,6 +46,15 @@ def load_hust_obc_source_category_module():
     return module
 
 
+def load_hust_obc_candidate_graph_edges_module():
+    path = repo_root() / "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_graph_edges", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -70,6 +82,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
+
+    def test_relationship_graph_edges(self) -> None:
+        self.assertEqual(check_relationship_graph_edges(repo_root()), [])
 
     def test_source_field_map_covers_first_stage_sources(self) -> None:
         path = (
@@ -388,6 +403,66 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["is_part_of_multi_category_class"], "true")
         self.assertEqual(rows[1]["source_category_id"], "0012")
         self.assertEqual(rows[1]["source_modern_label_codepoint"], "U+3402")
+
+    def test_hust_obc_candidate_graph_edges_preserve_metadata_relationships(self) -> None:
+        path = repo_root() / "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"
+        rows = [
+            json.loads(line)
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(rows), 3562)
+        self.assertEqual(
+            Counter(row["edge_type"] for row in rows),
+            Counter(
+                {
+                    "HAS_HUST_OBC_SOURCE_CATEGORY": 1781,
+                    "HAS_HUST_OBC_OCR_LABEL_CANDIDATE": 1781,
+                }
+            ),
+        )
+        self.assertEqual(rows[0]["edge_id"], "edge-hust-obc-class-src-cat-0001")
+        self.assertEqual(rows[0]["source_node_id"], "obs-cand-000001")
+        self.assertEqual(rows[0]["target_node_id"], "hust-obc-src-cat-0001")
+        self.assertEqual(rows[1780]["edge_id"], "edge-hust-obc-class-src-cat-1781")
+        self.assertEqual(rows[1780]["source_node_id"], "obs-cand-001588")
+        self.assertEqual(rows[1780]["target_node_id"], "hust-obc-src-cat-1781")
+        self.assertEqual(rows[1781]["edge_id"], "edge-hust-obc-src-cat-label-0001")
+        self.assertEqual(rows[1781]["source_node_id"], "hust-obc-src-cat-0001")
+        self.assertEqual(rows[1781]["target_node_id"], "hust-obc-ocr-label-u2e80")
+        self.assertEqual(rows[-1]["edge_id"], "edge-hust-obc-src-cat-label-1781")
+        self.assertEqual(rows[-1]["target_node_id"], "hust-obc-ocr-label-u3aeb")
+        self.assertEqual({tuple(row["source_ids"]) for row in rows}, {("src-hust-obc",)})
+        self.assertEqual({row["confidence_level"] for row in rows}, {"high"})
+        self.assertEqual({row["review_status"] for row in rows}, {"reviewed"})
+
+    def test_hust_obc_candidate_graph_edges_builder_keeps_dataset_boundary(self) -> None:
+        module = load_hust_obc_candidate_graph_edges_module()
+        rows = module.build_edges(
+            [
+                {"candidate_class_id": "obs-cand-000011"},
+            ],
+            [
+                {
+                    "source_category_row_id": "hust-obc-src-cat-0011",
+                    "linked_candidate_class_id": "obs-cand-000011",
+                    "source_modern_label_codepoint": "U+3401",
+                },
+                {
+                    "source_category_row_id": "hust-obc-src-cat-0012",
+                    "linked_candidate_class_id": "obs-cand-000011",
+                    "source_modern_label_codepoint": "U+3402",
+                },
+            ],
+        )
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["edge_id"], "edge-hust-obc-class-src-cat-0001")
+        self.assertEqual(rows[0]["source_node_id"], "obs-cand-000011")
+        self.assertEqual(rows[0]["target_node_id"], "hust-obc-src-cat-0011")
+        self.assertEqual(rows[2]["edge_type"], "HAS_HUST_OBC_OCR_LABEL_CANDIDATE")
+        self.assertEqual(rows[2]["target_node_id"], "hust-obc-ocr-label-u3401")
+        self.assertIn("not a formal oracle-character identity claim", rows[0]["evidence_note"])
+        self.assertIn("not accepted paleographic readings", rows[2]["evidence_note"])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

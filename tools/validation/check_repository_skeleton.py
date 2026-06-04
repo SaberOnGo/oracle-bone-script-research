@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import sys
 import csv
+import json
 import subprocess
 from pathlib import Path
 
@@ -67,6 +68,10 @@ HUST_OBC_VALIDATION_LABEL_CROSSWALK = (
 HUST_OBC_SOURCE_CATEGORY_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "008_hust-obc-source-category-staging.csv"
+)
+HUST_OBC_CANDIDATE_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "005_hust-obc-candidate-graph-edges.jsonl"
 )
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
@@ -247,6 +252,7 @@ REQUIRED_PATHS = [
     HUST_OBC_VALIDATION_CLASS_STAGING,
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     HUST_OBC_SOURCE_CATEGORY_STAGING,
+    HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -265,6 +271,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py",
     "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
+    "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -478,6 +485,122 @@ def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
                 issues.append(f"{path.relative_to(repo_root())}:{line_number} has extra CSV columns")
             rows.append({key: (value or "") for key, value in row.items() if key is not None})
     return rows, issues
+
+
+def _read_jsonl_rows(path: Path) -> tuple[list[dict[str, object]], list[str]]:
+    issues: list[str] = []
+    rows: list[dict[str, object]] = []
+    with path.open("r", encoding="utf-8") as file:
+        for line_number, line in enumerate(file, start=1):
+            stripped = line.strip()
+            if not stripped:
+                continue
+            try:
+                value = json.loads(stripped)
+            except json.JSONDecodeError as exc:
+                issues.append(f"{path.relative_to(repo_root())}:{line_number} invalid JSON: {exc.msg}")
+                continue
+            if not isinstance(value, dict):
+                issues.append(f"{path.relative_to(repo_root())}:{line_number} must be a JSON object")
+                continue
+            rows.append(value)
+    return rows, issues
+
+
+def check_relationship_graph_edges(root: Path) -> list[str]:
+    issues: list[str] = []
+    edge_rows, edge_issues = _read_jsonl_rows(root / HUST_OBC_CANDIDATE_GRAPH_EDGES)
+    source_category_rows, source_category_issues = _read_csv_rows(root / HUST_OBC_SOURCE_CATEGORY_STAGING)
+    validation_rows, validation_issues = _read_csv_rows(root / HUST_OBC_VALIDATION_CLASS_STAGING)
+    issues.extend(edge_issues)
+    issues.extend(source_category_issues)
+    issues.extend(validation_issues)
+
+    if len(edge_rows) != 3562:
+        issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} should contain exactly 3562 edges")
+
+    required_fields = {
+        "edge_id",
+        "source_node_id",
+        "edge_type",
+        "target_node_id",
+        "confidence_level",
+        "source_ids",
+        "evidence_note",
+        "review_status",
+    }
+    edge_ids: set[str] = set()
+    edge_type_counts: dict[str, int] = {}
+    for row in edge_rows:
+        edge_id = str(row.get("edge_id", ""))
+        if not required_fields.issubset(row):
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} edge missing required fields: {edge_id}")
+        if edge_id in edge_ids:
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} duplicate edge_id: {edge_id}")
+        edge_ids.add(edge_id)
+        edge_type = str(row.get("edge_type", ""))
+        edge_type_counts[edge_type] = edge_type_counts.get(edge_type, 0) + 1
+        if row.get("confidence_level") != "high":
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} edge must stay high confidence metadata edge: {edge_id}")
+        if row.get("source_ids") != ["src-hust-obc"]:
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} edge must reference only src-hust-obc: {edge_id}")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} edge must stay reviewed: {edge_id}")
+        note = str(row.get("evidence_note", ""))
+        if "not" not in note.lower():
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} edge evidence note must preserve caution: {edge_id}")
+
+    expected_type_counts = {
+        "HAS_HUST_OBC_SOURCE_CATEGORY": 1781,
+        "HAS_HUST_OBC_OCR_LABEL_CANDIDATE": 1781,
+    }
+    if edge_rows and edge_type_counts != expected_type_counts:
+        issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} edge type counts changed")
+
+    validation_candidate_ids = {row.get("candidate_class_id", "") for row in validation_rows}
+    expected_class_edges: list[dict[str, object]] = []
+    expected_label_edges: list[dict[str, object]] = []
+    for index, row in enumerate(source_category_rows, start=1):
+        candidate_id = row.get("linked_candidate_class_id", "")
+        if candidate_id not in validation_candidate_ids:
+            issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} source category links unknown candidate: {candidate_id}")
+        source_category_row_id = row.get("source_category_row_id", "")
+        expected_class_edges.append(
+            {
+                "edge_id": f"edge-hust-obc-class-src-cat-{index:04d}",
+                "source_node_id": candidate_id,
+                "edge_type": "HAS_HUST_OBC_SOURCE_CATEGORY",
+                "target_node_id": source_category_row_id,
+            }
+        )
+        label_node_id = (
+            "hust-obc-ocr-label-"
+            f"{row.get('source_modern_label_codepoint', '').lower().replace('+', '')}"
+        )
+        expected_label_edges.append(
+            {
+                "edge_id": f"edge-hust-obc-src-cat-label-{index:04d}",
+                "source_node_id": source_category_row_id,
+                "edge_type": "HAS_HUST_OBC_OCR_LABEL_CANDIDATE",
+                "target_node_id": label_node_id,
+            }
+        )
+
+    compact_edge_rows = [
+        {
+            "edge_id": row.get("edge_id"),
+            "source_node_id": row.get("source_node_id"),
+            "edge_type": row.get("edge_type"),
+            "target_node_id": row.get("target_node_id"),
+        }
+        for row in edge_rows
+    ]
+    if edge_rows and compact_edge_rows[:1781] != expected_class_edges:
+        issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} class-to-category edge sequence changed")
+    if edge_rows and compact_edge_rows[1781:] != expected_label_edges:
+        issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} category-to-label edge sequence changed")
+
+    return issues
 
 
 def _parse_compact_counts(value: str) -> dict[str, int]:
@@ -1381,6 +1504,7 @@ def main() -> int:
     issues.extend(check_root_gitignore_patterns(root))
     issues.extend(check_tracked_temp_artifacts(root))
     issues.extend(check_source_registers(root))
+    issues.extend(check_relationship_graph_edges(root))
 
     if issues:
         print("FAIL repository skeleton")

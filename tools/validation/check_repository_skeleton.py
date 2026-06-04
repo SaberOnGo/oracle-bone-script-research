@@ -48,6 +48,10 @@ DOWNLOADED_METADATA_PROFILE = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "010_downloaded-metadata-profile.csv"
 )
+CORE_INSTITUTIONAL_ACCESS_PROFILE = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "011_core-institutional-access-profile.csv"
+)
 HUST_OBC_VALIDATION_CLASS_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "005_hust-obc-validation-class-staging.csv"
@@ -226,6 +230,7 @@ REQUIRED_PATHS = [
     IMPORT_READINESS_NOTES,
     SOURCE_PACKAGE_FILE_MANIFEST,
     DOWNLOADED_METADATA_PROFILE,
+    CORE_INSTITUTIONAL_ACCESS_PROFILE,
     HUST_OBC_VALIDATION_CLASS_STAGING,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
@@ -485,6 +490,7 @@ def check_source_registers(root: Path) -> list[str]:
     field_map_rows, field_map_issues = _read_csv_rows(root / SOURCE_FIELD_MAP)
     package_file_rows, package_file_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
     metadata_profile_rows, metadata_profile_issues = _read_csv_rows(root / DOWNLOADED_METADATA_PROFILE)
+    core_access_rows, core_access_issues = _read_csv_rows(root / CORE_INSTITUTIONAL_ACCESS_PROFILE)
     hust_validation_rows, hust_validation_issues = _read_csv_rows(
         root / HUST_OBC_VALIDATION_CLASS_STAGING
     )
@@ -523,6 +529,7 @@ def check_source_registers(root: Path) -> list[str]:
         + field_map_issues
         + package_file_issues
         + metadata_profile_issues
+        + core_access_issues
         + hust_validation_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
@@ -634,6 +641,49 @@ def check_source_registers(root: Path) -> list[str]:
             )
     if len(metadata_profile_rows) < 15:
         issues.append(f"{DOWNLOADED_METADATA_PROFILE} should contain at least 15 metadata profile rows")
+
+    core_access_sources = {row.get("source_id", "") for row in core_access_rows}
+    expected_core_access_sources = {
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-ihp-oracle-rubbings",
+    }
+    missing_core_access_sources = sorted(expected_core_access_sources - core_access_sources)
+    for source_id in missing_core_access_sources:
+        issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} missing core source: {source_id}")
+    for row in core_access_rows:
+        profile_id = row.get("profile_id", "")
+        source_id = row.get("source_id", "")
+        download_id = row.get("evidence_download_id", "")
+        if not profile_id.startswith("source-access-"):
+            issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} profile ID must use source-access-*: {profile_id}")
+        if source_id not in source_ids:
+            issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} references unknown source_id: {source_id}")
+        if download_id not in log_ids:
+            issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} references missing download log id: {download_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} row not reviewed_metadata_only: {profile_id}")
+        if not row.get("official_url", "").startswith("https://"):
+            issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} official_url must be HTTPS: {profile_id}")
+    if len(core_access_rows) < 15:
+        issues.append(f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} should contain at least 15 access profile rows")
+    core_access_text = " ".join(" ".join(row.values()) for row in core_access_rows)
+    for required_snippet in [
+        "character_heads=2548",
+        "glyph_forms=24701",
+        "jiaguwen_bian_primary_basis",
+        "heji_range=1-41956",
+        "old_catalog_book_abbrev_count=90",
+        "holding_abbrev_count=211",
+        "digitized_searchable_records=21556",
+        "collection_number_cross_reference",
+        "site_policy_required",
+    ]:
+        if required_snippet not in core_access_text:
+            issues.append(
+                f"{CORE_INSTITUTIONAL_ACCESS_PROFILE} missing expected access fact: "
+                f"{required_snippet}"
+            )
 
     if len(hust_validation_rows) != 1588:
         issues.append(

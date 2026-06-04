@@ -53,6 +53,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             rows = list(csv.DictReader(file))
         source_ids = {row["source_id"] for row in rows}
         expected = {
+            "src-xiaoxuetang-jiaguwen",
+            "src-xiaoxuetang-obm",
+            "src-ihp-oracle-rubbings",
             "src-hust-obc",
             "src-obimd",
             "src-evobc",
@@ -61,7 +64,41 @@ class RepositorySkeletonTests(unittest.TestCase):
             "src-tsinghua-oracle-bones",
         }
         self.assertTrue(expected.issubset(source_ids))
-        self.assertGreaterEqual(len(rows), 20)
+        self.assertGreaterEqual(len(rows), 30)
+
+    def test_core_institutional_access_profile_preserves_main_source_contracts(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "011_core-institutional-access-profile.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertGreaterEqual(len(rows), 15)
+        by_source = {}
+        for row in rows:
+            by_source.setdefault(row["source_id"], []).append(row)
+        self.assertTrue(
+            {
+                "src-xiaoxuetang-jiaguwen",
+                "src-xiaoxuetang-obm",
+                "src-ihp-oracle-rubbings",
+            }.issubset(by_source)
+        )
+        text = " ".join(" ".join(row.values()) for row in rows)
+        self.assertIn("character_heads=2548", text)
+        self.assertIn("glyph_forms=24701", text)
+        self.assertIn("jiaguwen_bian_primary_basis", text)
+        self.assertIn("heji_range=1-41956", text)
+        self.assertIn("old_catalog_book_abbrev_count=90", text)
+        self.assertIn("holding_abbrev_count=211", text)
+        self.assertIn("digitized_searchable_records=21556", text)
+        self.assertIn("collection_number_cross_reference", text)
+        self.assertIn("site_policy_required", text)
+        self.assertEqual(
+            {row["review_status"] for row in rows},
+            {"reviewed_metadata_only"},
+        )
 
     def test_external_prefixes_cover_staging_id_families(self) -> None:
         path = (

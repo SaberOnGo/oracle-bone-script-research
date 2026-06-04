@@ -60,6 +60,10 @@ HUST_OBC_VALIDATION_CLASS_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "005_hust-obc-validation-class-staging.csv"
 )
+HUST_OBC_VALIDATION_LABEL_CROSSWALK = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "007_hust-obc-validation-label-crosswalk-staging.csv"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -237,6 +241,7 @@ REQUIRED_PATHS = [
     CORE_INSTITUTIONAL_ACCESS_PROFILE,
     OBM_ABBREVIATION_STAGING,
     HUST_OBC_VALIDATION_CLASS_STAGING,
+    HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -252,6 +257,7 @@ REQUIRED_PATHS = [
     "tools/git/check_commit_messages.py",
     "tools/002_corpus-import/download_source_manifest.py",
     "tools/002_corpus-import/build_evobc_evolution_staging.py",
+    "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
@@ -500,6 +506,9 @@ def check_source_registers(root: Path) -> list[str]:
     hust_validation_rows, hust_validation_issues = _read_csv_rows(
         root / HUST_OBC_VALIDATION_CLASS_STAGING
     )
+    hust_label_crosswalk_rows, hust_label_crosswalk_issues = _read_csv_rows(
+        root / HUST_OBC_VALIDATION_LABEL_CROSSWALK
+    )
     obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_MAIN_STAGING
@@ -538,6 +547,7 @@ def check_source_registers(root: Path) -> list[str]:
         + core_access_issues
         + obm_abbreviation_issues
         + hust_validation_issues
+        + hust_label_crosswalk_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
@@ -778,6 +788,91 @@ def check_source_registers(root: Path) -> list[str]:
     if validation_class_ids and validation_class_ids != set(range(1588)):
         issues.append(
             f"{HUST_OBC_VALIDATION_CLASS_STAGING} validation_class_id range must be 0..1587"
+        )
+
+    if len(hust_label_crosswalk_rows) != 1588:
+        issues.append(
+            f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} should contain exactly 1588 label rows"
+        )
+    label_crosswalk_ids: set[str] = set()
+    label_crosswalk_candidate_ids: set[str] = set()
+    label_crosswalk_validation_ids: set[int] = set()
+    multi_component_label_count = 0
+    for row in hust_label_crosswalk_rows:
+        crosswalk_id = row.get("candidate_label_crosswalk_id", "")
+        candidate_id = row.get("candidate_class_id", "")
+        if not crosswalk_id.startswith("hust-obc-label-xwalk-"):
+            issues.append(
+                f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row ID must use "
+                f"hust-obc-label-xwalk-*: {crosswalk_id}"
+            )
+        if crosswalk_id in label_crosswalk_ids:
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} duplicate row ID: {crosswalk_id}")
+        label_crosswalk_ids.add(crosswalk_id)
+        label_crosswalk_candidate_ids.add(candidate_id)
+        if row.get("source_id") != "src-hust-obc":
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row must reference src-hust-obc: {crosswalk_id}")
+        if row.get("evidence_download_id_validation") != "dl-hust-obc-validation-label":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row must cite "
+                f"dl-hust-obc-validation-label: {crosswalk_id}"
+            )
+        if row.get("evidence_download_id_id_to_chinese") != "dl-hust-obc-ocr-id-to-chinese":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row must cite "
+                f"dl-hust-obc-ocr-id-to-chinese: {crosswalk_id}"
+            )
+        if row.get("evidence_download_id_validation", "") not in log_ids:
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} validation download id missing in log")
+        if row.get("evidence_download_id_id_to_chinese", "") not in log_ids:
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} ID_to_Chinese download id missing in log")
+        source_category_id = row.get("source_category_id", "")
+        padded_ids = row.get("source_category_id_padded", "").split(";")
+        category_parts = source_category_id.split("_") if source_category_id else []
+        if len(category_parts) != len(padded_ids):
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} padded ID count mismatch: {crosswalk_id}")
+        for category_part, padded_id in zip(category_parts, padded_ids):
+            if padded_id != category_part.zfill(5):
+                issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} padded ID mismatch: {crosswalk_id}")
+        label = row.get("source_modern_label_candidate", "")
+        label_codepoints = row.get("source_modern_label_codepoints", "")
+        if not label or not label_codepoints:
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} missing label or codepoints: {crosswalk_id}")
+        expected_codepoints = ";".join(f"U+{ord(character):04X}" for character in label)
+        if label_codepoints != expected_codepoints:
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} codepoint sequence mismatch: {crosswalk_id}")
+        component_count = row.get("label_component_count", "")
+        if not component_count.isdigit():
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} label_component_count not numeric: {crosswalk_id}")
+        elif int(component_count) != len(label):
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} component count mismatch: {crosswalk_id}")
+        if row.get("has_multi_component_label") == "true":
+            multi_component_label_count += 1
+        elif row.get("has_multi_component_label") != "false":
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} invalid multi-component flag: {crosswalk_id}")
+        validation_id = row.get("validation_class_id", "")
+        if validation_id.isdigit():
+            label_crosswalk_validation_ids.add(int(validation_id))
+        else:
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} validation_class_id not numeric: {crosswalk_id}")
+        if row.get("project_import_status") != "dataset_label_candidate_not_promoted":
+            issues.append(
+                f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row must stay "
+                f"dataset_label_candidate_not_promoted: {crosswalk_id}"
+            )
+        if row.get("rights_status") != "source_marked_risk_noted":
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row must stay source_marked_risk_noted: {crosswalk_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} row not reviewed_metadata_only: {crosswalk_id}")
+    if hust_label_crosswalk_rows and label_crosswalk_validation_ids != set(range(1588)):
+        issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} validation_class_id range must be 0..1587")
+    if hust_label_crosswalk_rows and multi_component_label_count != 173:
+        issues.append(f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} multi-component label count must be 173")
+    hust_validation_candidate_ids = {row.get("candidate_class_id", "") for row in hust_validation_rows}
+    if hust_label_crosswalk_rows and label_crosswalk_candidate_ids != hust_validation_candidate_ids:
+        issues.append(
+            f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} candidate_class_id set must match "
+            f"{HUST_OBC_VALIDATION_CLASS_STAGING}"
         )
 
     if len(obimd_main_rows) != 3936:

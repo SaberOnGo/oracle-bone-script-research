@@ -25,6 +25,15 @@ def load_download_source_manifest_module():
     return module
 
 
+def load_hust_obc_label_crosswalk_module():
+    path = repo_root() / "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_validation_label_crosswalk", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -231,6 +240,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             rows = list(csv.DictReader(file))
         metrics = {(row["source_id"], row["profile_metric"]): row["profile_value"] for row in rows}
         self.assertEqual(metrics[("src-hust-obc", "validation_label_count")], "1588")
+        self.assertEqual(metrics[("src-hust-obc", "validation_label_crosswalk_count")], "1588")
+        self.assertEqual(metrics[("src-hust-obc", "validation_label_single_component_count")], "1415")
+        self.assertEqual(metrics[("src-hust-obc", "validation_label_multi_component_count")], "173")
         self.assertEqual(metrics[("src-obimd", "main_character_uid_count")], "3936")
         self.assertEqual(metrics[("src-evobc", "class_count")], "13714")
         self.assertEqual(metrics[("src-evobc", "image_reference_count")], "229170")
@@ -253,6 +265,62 @@ class RepositorySkeletonTests(unittest.TestCase):
             {row["project_import_status"] for row in rows},
             {"dataset_candidate_not_promoted"},
         )
+
+    def test_hust_obc_validation_label_crosswalk_preserves_1588_label_candidates(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "007_hust-obc-validation-label-crosswalk-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 1588)
+        self.assertEqual(rows[0]["candidate_label_crosswalk_id"], "hust-obc-label-xwalk-0001")
+        self.assertEqual(rows[0]["candidate_class_id"], "obs-cand-000001")
+        self.assertEqual(rows[0]["source_category_id"], "0001")
+        self.assertEqual(rows[0]["source_category_id_padded"], "00001")
+        self.assertEqual(rows[0]["source_modern_label_candidate"], "\u2e80")
+        self.assertEqual(rows[0]["source_modern_label_codepoints"], "U+2E80")
+        self.assertEqual(rows[10]["source_category_id"], "0011_0012_0013")
+        self.assertEqual(rows[10]["source_category_id_padded"], "00011;00012;00013")
+        self.assertEqual(rows[10]["label_component_count"], "3")
+        self.assertEqual(rows[10]["has_multi_component_label"], "true")
+        self.assertEqual(rows[-1]["candidate_label_crosswalk_id"], "hust-obc-label-xwalk-1588")
+        self.assertEqual(rows[-1]["candidate_class_id"], "obs-cand-001588")
+        self.assertEqual(rows[-1]["source_category_id"], "1781")
+        self.assertEqual(rows[-1]["source_modern_label_candidate"], "\u3aeb")
+        self.assertEqual(rows[-1]["source_modern_label_codepoints"], "U+3AEB")
+        self.assertEqual(
+            sum(1 for row in rows if row["has_multi_component_label"] == "true"),
+            173,
+        )
+        self.assertEqual(
+            {row["project_import_status"] for row in rows},
+            {"dataset_label_candidate_not_promoted"},
+        )
+        self.assertEqual(
+            {row["review_status"] for row in rows},
+            {"reviewed_metadata_only"},
+        )
+
+    def test_hust_obc_label_crosswalk_builder_pads_source_ids(self) -> None:
+        module = load_hust_obc_label_crosswalk_module()
+        rows = module.build_rows(
+            [
+                {
+                    "candidate_class_id": "obs-cand-000001",
+                    "source_category_id": "0011_0012",
+                    "validation_class_id": "10",
+                }
+            ],
+            {"00011": "\u3401", "00012": "\u3402"},
+        )
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["source_category_id_padded"], "00011;00012")
+        self.assertEqual(rows[0]["source_modern_label_candidate"], "\u3401\u3402")
+        self.assertEqual(rows[0]["source_modern_label_codepoints"], "U+3401;U+3402")
+        self.assertEqual(rows[0]["label_component_count"], "2")
+        self.assertEqual(rows[0]["has_multi_component_label"], "true")
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

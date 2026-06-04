@@ -63,6 +63,29 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(expected.issubset(source_ids))
         self.assertGreaterEqual(len(rows), 20)
 
+    def test_source_package_manifest_covers_large_metadata_boundaries(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "009_source-package-file-manifest.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        file_names = {row["file_name"] for row in rows}
+        expected = {
+            "HUST-OBC.zip",
+            "data.json",
+            "facsimile.zip",
+            "rubbing.zip",
+            "Main-character.json",
+            "List_of_EVOBC.json",
+        }
+        self.assertTrue(expected.issubset(file_names))
+        for row in rows:
+            file_size = int(row["file_size_bytes"])
+            if file_size >= 40 * 1024 * 1024:
+                self.assertEqual(row["commit_policy"], "do_not_commit_regular_git")
+
 
 if __name__ == "__main__":
     unittest.main()

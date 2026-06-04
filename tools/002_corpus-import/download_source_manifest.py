@@ -47,9 +47,11 @@ def repo_root() -> Path:
 def safe_filename(download_id: str, url: str, content_type: str | None) -> str:
     parsed = urlparse(url)
     suffix = Path(parsed.path).suffix.lower()
-    if suffix not in {".html", ".htm", ".md", ".pdf", ".txt", ".csv", ".json"}:
+    if suffix not in {".html", ".htm", ".md", ".pdf", ".txt", ".csv", ".json", ".xlsx"}:
         if content_type and "pdf" in content_type:
             suffix = ".pdf"
+        elif content_type and "json" in content_type:
+            suffix = ".json"
         elif content_type and "markdown" in content_type:
             suffix = ".md"
         else:

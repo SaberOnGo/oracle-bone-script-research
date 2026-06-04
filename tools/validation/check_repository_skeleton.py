@@ -39,6 +39,10 @@ IMPORT_READINESS_NOTES = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "008_first-stage-import-readiness-notes.md"
 )
+SOURCE_PACKAGE_FILE_MANIFEST = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "009_source-package-file-manifest.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -160,6 +164,7 @@ REQUIRED_PATHS = [
     AUTHORITATIVE_SOURCE_EXPANSION_NOTES,
     SOURCE_FIELD_MAP,
     IMPORT_READINESS_NOTES,
+    SOURCE_PACKAGE_FILE_MANIFEST,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -385,6 +390,7 @@ def check_source_registers(root: Path) -> list[str]:
     inventory_rows, inventory_issues = _read_csv_rows(root / SOURCE_INVENTORY)
     manifest_rows, manifest_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_MANIFEST)
     field_map_rows, field_map_issues = _read_csv_rows(root / SOURCE_FIELD_MAP)
+    package_file_rows, package_file_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -392,6 +398,7 @@ def check_source_registers(root: Path) -> list[str]:
         + inventory_issues
         + manifest_issues
         + field_map_issues
+        + package_file_issues
         + log_issues
         + large_issues
     )
@@ -448,6 +455,28 @@ def check_source_registers(root: Path) -> list[str]:
     ]
     if len(reviewed_field_maps) < 20:
         issues.append(f"{SOURCE_FIELD_MAP} should contain at least 20 reviewed metadata field maps")
+
+    large_source_ids = {row.get("source_package_id", "") for row in large_rows}
+    for row in package_file_rows:
+        source_id = row.get("source_id", "")
+        package_id = row.get("source_package_id", "")
+        download_id = row.get("download_id", "")
+        file_size = row.get("file_size_bytes", "")
+        commit_policy = row.get("commit_policy", "")
+        if source_id not in source_ids:
+            issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} references unknown source_id: {source_id}")
+        if package_id not in large_source_ids:
+            issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} references unknown source_package_id: {package_id}")
+        if download_id and download_id not in log_ids:
+            issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} references missing download log id: {download_id}")
+        if file_size and file_size.isdigit() and int(file_size) >= HARD_FILE_LIMIT_BYTES:
+            if commit_policy != "do_not_commit_regular_git":
+                issues.append(
+                    f"{SOURCE_PACKAGE_FILE_MANIFEST} large file must be do_not_commit_regular_git: "
+                    f"{row.get('package_file_id', '')}"
+                )
+    if len(package_file_rows) < 10:
+        issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} should contain at least 10 package file rows")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

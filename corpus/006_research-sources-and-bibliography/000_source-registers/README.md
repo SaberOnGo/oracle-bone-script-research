@@ -28,3 +28,5 @@ Do not add general news sites, entertainment sites, unsourced popular articles, 
 - `007_source-field-map.csv`：用于导入规划的来源字段到本项目字段映射。
 - `008_first-stage-import-readiness-notes.md`: first-stage import readiness decisions.
 - `008_first-stage-import-readiness-notes.md`：第一阶段导入准备决策说明。
+- `009_source-package-file-manifest.csv`: file-level manifest for raw packages and small metadata files.
+- `009_source-package-file-manifest.csv`：原始包和小型 metadata 文件的文件级清单。

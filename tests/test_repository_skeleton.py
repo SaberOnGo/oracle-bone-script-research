@@ -213,6 +213,39 @@ class RepositorySkeletonTests(unittest.TestCase):
         ][0]
         self.assertEqual(grand_total["total_count"], "609")
 
+    def test_institutional_collection_provenance_staging_preserves_source_facts(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+            / "001_institutional-collection-provenance-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(
+            set(by_source),
+            {
+                "src-tsinghua-oracle-bones",
+                "src-ihp-oracle-rubbings",
+                "src-ihp-museum-oracle-bones",
+                "src-cambridge-hopkins",
+            },
+        )
+        self.assertIn("over 1,750", by_source["src-tsinghua-oracle-bones"]["holding_count_statement"])
+        self.assertIn("1,495", by_source["src-tsinghua-oracle-bones"]["inscribed_count_statement"])
+        self.assertIn("Hu Houxuan", by_source["src-tsinghua-oracle-bones"]["named_provenance_people"])
+        self.assertIn("over 40,000", by_source["src-ihp-oracle-rubbings"]["holding_count_statement"])
+        self.assertIn("21,556", by_source["src-ihp-oracle-rubbings"]["digitized_record_count_statement"])
+        self.assertIn("more than 25,000", by_source["src-ihp-museum-oracle-bones"]["holding_count_statement"])
+        self.assertIn("Hsiao-tun Village", by_source["src-ihp-museum-oracle-bones"]["excavation_or_source_context"])
+        self.assertIn("grand total 609", by_source["src-cambridge-hopkins"]["holding_count_statement"])
+        self.assertIn("50 bones", by_source["src-cambridge-hopkins"]["digitized_record_count_statement"])
+        self.assertEqual(
+            {row["review_status"] for row in rows},
+            {"reviewed_metadata_only"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -71,6 +71,10 @@ CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY = (
     "corpus/002_oracle-bone-inscriptions/000_inscription-registers/"
     "003_cambridge-hopkins-classified-summary.csv"
 )
+COLLECTION_PROVENANCE_STAGING = (
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+    "001_institutional-collection-provenance-staging.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -200,6 +204,7 @@ REQUIRED_PATHS = [
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
     CAMBRIDGE_HOPKINS_CROSSWALK_STAGING,
     CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY,
+    COLLECTION_PROVENANCE_STAGING,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -443,6 +448,9 @@ def check_source_registers(root: Path) -> list[str]:
     cambridge_summary_rows, cambridge_summary_issues = _read_csv_rows(
         root / CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY
     )
+    collection_provenance_rows, collection_provenance_issues = _read_csv_rows(
+        root / COLLECTION_PROVENANCE_STAGING
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -458,6 +466,7 @@ def check_source_registers(root: Path) -> list[str]:
         + obimd_subchar_glyph_issues
         + cambridge_crosswalk_issues
         + cambridge_summary_issues
+        + collection_provenance_issues
         + log_issues
         + large_issues
     )
@@ -787,6 +796,46 @@ def check_source_registers(root: Path) -> list[str]:
             )
         if row.get("review_status") != "reviewed_metadata_only":
             issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} row not reviewed_metadata_only")
+
+    if len(collection_provenance_rows) != 4:
+        issues.append(f"{COLLECTION_PROVENANCE_STAGING} should contain exactly 4 rows")
+    expected_collection_sources = {
+        "src-tsinghua-oracle-bones",
+        "src-ihp-oracle-rubbings",
+        "src-ihp-museum-oracle-bones",
+        "src-cambridge-hopkins",
+    }
+    collection_sources = {row.get("source_id", "") for row in collection_provenance_rows}
+    if collection_sources != expected_collection_sources:
+        issues.append(f"{COLLECTION_PROVENANCE_STAGING} source set changed")
+    for row in collection_provenance_rows:
+        source_id = row.get("source_id", "")
+        download_id = row.get("evidence_download_id", "")
+        if source_id not in source_ids:
+            issues.append(f"{COLLECTION_PROVENANCE_STAGING} references unknown source_id: {source_id}")
+        if download_id not in log_ids:
+            issues.append(f"{COLLECTION_PROVENANCE_STAGING} references missing download log id: {download_id}")
+        if row.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{COLLECTION_PROVENANCE_STAGING} row must stay metadata_only_until_verified")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{COLLECTION_PROVENANCE_STAGING} row not reviewed_metadata_only")
+    collection_text = " ".join(
+        " ".join(row.values()) for row in collection_provenance_rows
+    )
+    for required_snippet in [
+        "over 1,750",
+        "1,495",
+        "over 40,000",
+        "21,556",
+        "more than 25,000",
+        "grand total 609",
+        "50 bones",
+    ]:
+        if required_snippet not in collection_text:
+            issues.append(
+                f"{COLLECTION_PROVENANCE_STAGING} missing expected collection fact: "
+                f"{required_snippet}"
+            )
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

@@ -12,6 +12,7 @@ from pathlib import Path
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
 SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
+EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
 SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
 SOURCE_INVENTORY = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
@@ -93,6 +94,18 @@ ADOPTED_PROJECT_INDEX_SOURCE_IDS = {
     "src-open-oracle",
 }
 
+REQUIRED_EXTERNAL_PREFIXES = {
+    "cam-hopkins-y",
+    "cam-hopkins-c",
+    "cam-hopkins-h",
+    "cam-hopkins-j",
+    "hust-obc-cat",
+    "obimd-main",
+    "obimd-sub",
+    "obimd-glyph-link",
+    "collection-prov",
+}
+
 REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
     "apps",
     "corpus",
@@ -171,7 +184,7 @@ REQUIRED_PATHS = [
     "project_registry/README.md",
     "project_registry/001_repository-structure-and-naming-rules/README.md",
     "project_registry/002_project-id-to-source-reference-map/README.md",
-    "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv",
+    EXTERNAL_SOURCE_PREFIXES,
     "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
     "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
@@ -426,6 +439,7 @@ def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
 
 def check_source_registers(root: Path) -> list[str]:
     issues: list[str] = []
+    prefix_rows, prefix_issues = _read_csv_rows(root / EXTERNAL_SOURCE_PREFIXES)
     source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
     inventory_rows, inventory_issues = _read_csv_rows(root / SOURCE_INVENTORY)
     manifest_rows, manifest_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_MANIFEST)
@@ -454,7 +468,8 @@ def check_source_registers(root: Path) -> list[str]:
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
-        source_issues
+        prefix_issues
+        + source_issues
         + inventory_issues
         + manifest_issues
         + field_map_issues
@@ -472,6 +487,14 @@ def check_source_registers(root: Path) -> list[str]:
     )
 
     source_ids = {row.get("source_id", "") for row in source_rows}
+    prefix_values = [row.get("prefix", "") for row in prefix_rows]
+    duplicate_prefixes = sorted(
+        prefix for prefix in set(prefix_values) if prefix and prefix_values.count(prefix) > 1
+    )
+    for prefix in duplicate_prefixes:
+        issues.append(f"{EXTERNAL_SOURCE_PREFIXES} duplicate prefix: {prefix}")
+    for prefix in sorted(REQUIRED_EXTERNAL_PREFIXES - set(prefix_values)):
+        issues.append(f"{EXTERNAL_SOURCE_PREFIXES} missing required staging prefix: {prefix}")
     missing_adopted = sorted(ADOPTED_PROFESSIONAL_SOURCE_IDS - source_ids)
     for source_id in missing_adopted:
         issues.append(f"missing adopted professional source: {source_id}")

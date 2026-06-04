@@ -63,6 +63,32 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(expected.issubset(source_ids))
         self.assertGreaterEqual(len(rows), 20)
 
+    def test_external_prefixes_cover_staging_id_families(self) -> None:
+        path = (
+            repo_root()
+            / "project_registry/003_external-source-prefixes/"
+            / "003_external-source-prefixes.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        prefixes = {row["prefix"]: row for row in rows}
+        expected = {
+            "cam-hopkins-y",
+            "cam-hopkins-c",
+            "cam-hopkins-h",
+            "cam-hopkins-j",
+            "hust-obc-cat",
+            "obimd-main",
+            "obimd-sub",
+            "obimd-glyph-link",
+            "collection-prov",
+        }
+        self.assertTrue(expected.issubset(prefixes))
+        self.assertEqual(prefixes["hust-obc-cat"]["source_id"], "src-hust-obc")
+        self.assertEqual(prefixes["obimd-main"]["source_id"], "src-obimd")
+        self.assertEqual(prefixes["cam-hopkins-j"]["source_id"], "src-cambridge-hopkins")
+        self.assertIn("not an accepted oracle-character ID", prefixes["hust-obc-cat"]["notes_en"])
+
     def test_source_package_manifest_covers_large_metadata_boundaries(self) -> None:
         path = (
             repo_root()

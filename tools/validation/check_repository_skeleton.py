@@ -106,6 +106,10 @@ AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "004_ai-agent-hust-obc-bucket-review-route-pack.json"
 )
+AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -294,6 +298,7 @@ REQUIRED_PATHS = [
     RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY,
     AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
     AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
+    AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -320,6 +325,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
     "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -1150,6 +1156,110 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         if required_snippet not in route_rules_zh:
             issues.append(f"{AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK} missing Chinese agent rule: {required_snippet}")
+
+    request_rows, request_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE
+    )
+    issues.extend(request_issues)
+    if len(request_rows) != 1588:
+        issues.append(
+            f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} should contain exactly 1588 rows"
+        )
+    request_multi_component_count = 0
+    request_bucket_numbers: set[str] = set()
+    required_sections = {
+        "character_or_unknown_glyph_id",
+        "source_references_and_asset_metadata",
+        "full_inscription_context",
+        "neighboring_characters",
+        "component_breakdown_and_variant_notes",
+        "excavation_period_and_catalog_provenance",
+        "bronze_seal_or_modern_comparanda",
+        "supporting_evidence",
+        "opposing_evidence",
+        "open_questions_and_next_checks",
+    }
+    required_gap_types = {
+        "source_provenance",
+        "primary_inscription_context",
+        "neighboring_characters",
+        "component_breakdown",
+        "variant_chain",
+        "bronze_seal_modern_correspondence",
+        "cooccurrence_distribution",
+        "supporting_evidence",
+        "opposing_evidence",
+    }
+    required_route_source_ids = {
+        "src-hust-obc",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-obimd",
+        "src-evobc",
+        "src-ihp-oracle-rubbings",
+    }
+    for index, row in enumerate(request_rows, start=1):
+        request_id = row.get("evidence_request_id", "")
+        if request_id != f"hust-obc-evidence-request-{index:06d}":
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} request ID sequence changed: "
+                f"{request_id}"
+            )
+        if row.get("route_pack_id") != "ai-context-hust-obc-bucket-review-001":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} route pack ID changed: {request_id}")
+        if row.get("promotion_queue_id") != f"hust-obc-obs-char-promo-{index:06d}":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} promotion queue link changed: {request_id}")
+        if row.get("suggested_oracle_character_id") != f"obs-char-{index:06d}":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} suggested obs-char changed: {request_id}")
+        expected_bucket_number = f"{((index - 1) // 100) + 1:03d}"
+        request_bucket_numbers.add(row.get("bucket_number", ""))
+        if row.get("bucket_number") != expected_bucket_number:
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} bucket number changed: {request_id}")
+        if row.get("bucket_summary_id") != f"hust-obc-bucket-summary-{int(expected_bucket_number):03d}":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} bucket summary link changed: {request_id}")
+        draft_output_path = row.get("draft_output_path", "")
+        if not draft_output_path.startswith("doc/public/user_research/001_ai-agent-evidence-packs/hust-obc/"):
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} draft path outside user_research: {request_id}")
+        if draft_output_path.startswith("research/"):
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} draft path must not use research/: {request_id}")
+        if not draft_output_path.endswith("_evidence-pack-draft.json"):
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} draft path suffix changed: {request_id}")
+        if row.get("draft_status") != "not_started":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} draft status changed: {request_id}")
+        if row.get("assignment_status") != "reserved_candidate_not_assigned":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} assignment status changed: {request_id}")
+        if row.get("promotion_status") != "needs_cross_source_review":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} promotion status changed: {request_id}")
+        if row.get("review_status") != "needs_evidence_pack":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} review status changed: {request_id}")
+        if "not be treated as a decipherment result" not in row.get("caution", ""):
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} caution changed: {request_id}")
+        if row.get("updated_at") != "2026-06-04":
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} updated_at changed: {request_id}")
+        if row.get("has_multi_component_label") == "true":
+            request_multi_component_count += 1
+        route_files = set(filter(None, row.get("route_files", "").split(";")))
+        for required_file in [
+            HUST_OBC_CANDIDATE_GRAPH_EDGES,
+            OBIMD_COMPONENT_GRAPH_EDGES,
+            EVOBC_EVOLUTION_GRAPH_EDGES,
+            SOURCE_INDEX,
+        ]:
+            if required_file not in route_files:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} missing route file: "
+                    f"{required_file}"
+                )
+        if set(filter(None, row.get("source_route_requirement_ids", "").split(";"))) != required_route_source_ids:
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} source route requirements changed: {request_id}")
+        if set(filter(None, row.get("evidence_gap_types", "").split(";"))) != required_gap_types:
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} evidence gap types changed: {request_id}")
+        if set(filter(None, row.get("required_evidence_pack_sections", "").split(";"))) != required_sections:
+            issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} required sections changed: {request_id}")
+    if request_rows and request_multi_component_count != 173:
+        issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} multi-component total must be 173")
+    if request_rows and request_bucket_numbers != {f"{index:03d}" for index in range(1, 17)}:
+        issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} bucket set changed")
 
     return issues
 

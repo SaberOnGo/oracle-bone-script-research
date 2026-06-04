@@ -120,6 +120,15 @@ def load_hust_obc_bucket_review_route_pack_module():
     return module
 
 
+def load_hust_obc_candidate_evidence_pack_request_queue_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_evidence_pack_request_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -1083,6 +1092,91 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["bucket_routes"][0]["assignment_status"], "reserved_candidate_not_assigned")
         self.assertIn("does not contain decipherment claims", data["purpose"])
         self.assertIn("doc/public/user_research", data["bucket_routes"][0]["agent_batch_steps"][3])
+
+    def test_ai_agent_hust_obc_candidate_evidence_request_queue_covers_all_candidates(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 1588)
+        self.assertEqual(rows[0]["evidence_request_id"], "hust-obc-evidence-request-000001")
+        self.assertEqual(rows[0]["route_pack_id"], "ai-context-hust-obc-bucket-review-001")
+        self.assertEqual(rows[0]["promotion_queue_id"], "hust-obc-obs-char-promo-000001")
+        self.assertEqual(rows[0]["bucket_summary_id"], "hust-obc-bucket-summary-001")
+        self.assertEqual(rows[0]["draft_status"], "not_started")
+        self.assertTrue(rows[0]["draft_output_path"].startswith("doc/public/user_research/"))
+        self.assertIn("primary_inscription_context", rows[0]["evidence_gap_types"])
+        self.assertIn("full_inscription_context", rows[0]["required_evidence_pack_sections"])
+        self.assertIn(
+            "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+            rows[0]["route_files"],
+        )
+        self.assertEqual(rows[-1]["evidence_request_id"], "hust-obc-evidence-request-001588")
+        self.assertEqual(rows[-1]["suggested_oracle_character_id"], "obs-char-001588")
+        self.assertEqual(rows[-1]["bucket_summary_id"], "hust-obc-bucket-summary-016")
+        self.assertEqual(
+            rows[-1]["draft_output_path"],
+            "doc/public/user_research/001_ai-agent-evidence-packs/hust-obc/"
+            "016_001501-001600_obs-char-bucket/"
+            "016_obs-char-001588_hust-obc-cat-1781_evidence-pack-draft.json",
+        )
+        self.assertEqual(sum(1 for row in rows if row["has_multi_component_label"] == "true"), 173)
+        self.assertEqual({row["assignment_status"] for row in rows}, {"reserved_candidate_not_assigned"})
+        self.assertEqual({row["promotion_status"] for row in rows}, {"needs_cross_source_review"})
+        self.assertEqual({row["review_status"] for row in rows}, {"needs_evidence_pack"})
+        self.assertTrue(all(not row["draft_output_path"].startswith("research/") for row in rows))
+        self.assertTrue(all("not be treated as a decipherment result" in row["caution"] for row in rows))
+
+    def test_ai_agent_hust_obc_candidate_evidence_request_queue_builder_keeps_boundaries(self) -> None:
+        module = load_hust_obc_candidate_evidence_pack_request_queue_module()
+        route_pack = {
+            "context_pack_id": "ai-context-hust-obc-bucket-review-001",
+            "source_route_requirements": [
+                {"source_id": "src-hust-obc"},
+                {"source_id": "src-obimd"},
+            ],
+            "bucket_routes": [
+                {
+                    "bucket_directory": "001_000001-000100_obs-char-bucket_oracle-characters",
+                    "bucket_summary_id": "hust-obc-bucket-summary-001",
+                    "manifest_path": (
+                        "corpus/001_oracle-characters/"
+                        "001_000001-000100_obs-char-bucket_oracle-characters/"
+                        "000_hust-obc-promotion-bucket-manifest.csv"
+                    ),
+                    "route_files": ["manifest.csv", "graph.jsonl"],
+                    "evidence_gap_types": ["source_provenance", "opposing_evidence"],
+                }
+            ],
+        }
+        rows = module.build_request_rows(
+            [
+                {
+                    "promotion_queue_id": "hust-obc-obs-char-promo-000001",
+                    "suggested_oracle_character_id": "obs-char-000001",
+                    "suggested_bucket_directory": "001_000001-000100_obs-char-bucket_oracle-characters",
+                    "candidate_class_id": "obs-cand-000001",
+                    "primary_external_ref_id": "hust-obc-cat-0001",
+                    "source_category_id": "0001",
+                    "source_modern_label_codepoints": "U+2E80",
+                    "has_multi_component_label": "false",
+                    "source_category_member_count": "1",
+                    "assignment_status": "reserved_candidate_not_assigned",
+                    "promotion_status": "needs_cross_source_review",
+                }
+            ],
+            route_pack,
+        )
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["evidence_request_id"], "hust-obc-evidence-request-000001")
+        self.assertEqual(rows[0]["draft_status"], "not_started")
+        self.assertEqual(rows[0]["review_status"], "needs_evidence_pack")
+        self.assertTrue(rows[0]["draft_output_path"].startswith("doc/public/user_research/"))
+        self.assertIn("source_references_and_asset_metadata", rows[0]["required_evidence_pack_sections"])
+        self.assertIn("not be treated as a decipherment result", rows[0]["caution"])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

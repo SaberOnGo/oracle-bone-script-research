@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SaberOnGo/oracle-bone-script-research/schemas/graph-edge.schema.json",
+  "title": "Relationship Graph Edge",
+  "type": "object",
+  "required": ["edge_id", "source_node_id", "edge_type", "target_node_id", "confidence_level", "source_ids", "review_status"],
+  "properties": {
+    "edge_id": {"type": "string"},
+    "source_node_id": {"type": "string"},
+    "edge_type": {"type": "string"},
+    "target_node_id": {"type": "string"},
+    "confidence_level": {"enum": ["low", "medium", "high", "unknown"]},
+    "source_ids": {"type": "array", "items": {"type": "string"}},
+    "evidence_note": {"type": ["string", "null"]},
+    "review_status": {"enum": ["draft", "needs_review", "reviewed", "deprecated"]}
+  }
+}

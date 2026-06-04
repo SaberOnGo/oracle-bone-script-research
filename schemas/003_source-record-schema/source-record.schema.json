@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SaberOnGo/oracle-bone-script-research/schemas/source-record.schema.json",
+  "title": "Source Record",
+  "type": "object",
+  "required": ["source_id", "source_type", "title", "rights_status", "review_status"],
+  "properties": {
+    "source_id": {"type": "string"},
+    "source_type": {"type": "string"},
+    "title": {"type": "string"},
+    "url": {"type": ["string", "null"]},
+    "rights_status": {"type": "string"},
+    "citation": {"type": ["string", "null"]},
+    "review_status": {"enum": ["draft", "needs_review", "reviewed", "deprecated"]}
+  }
+}

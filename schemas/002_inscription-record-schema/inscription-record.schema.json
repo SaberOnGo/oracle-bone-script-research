@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SaberOnGo/oracle-bone-script-research/schemas/inscription-record.schema.json",
+  "title": "Oracle Bone Inscription Record",
+  "type": "object",
+  "required": ["inscription_id", "record_type", "primary_external_ref_id", "source_ids", "review_status"],
+  "properties": {
+    "inscription_id": {"type": "string", "pattern": "^obi-[0-9]{6}$"},
+    "record_type": {"const": "oracle_bone_inscription"},
+    "primary_external_ref_id": {"type": "string"},
+    "source_ids": {"type": "array", "items": {"type": "string"}},
+    "period_ids": {"type": "array", "items": {"type": "string"}},
+    "topic_ids": {"type": "array", "items": {"type": "string"}},
+    "review_status": {"enum": ["draft", "needs_review", "reviewed", "deprecated"]}
+  }
+}

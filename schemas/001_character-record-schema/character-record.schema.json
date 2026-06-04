@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SaberOnGo/oracle-bone-script-research/schemas/character-record.schema.json",
+  "title": "Oracle Character Record",
+  "type": "object",
+  "required": [
+    "oracle_character_id",
+    "record_type",
+    "preferred_directory_name",
+    "primary_external_ref_id",
+    "decipherment_status",
+    "external_references",
+    "review_status"
+  ],
+  "properties": {
+    "oracle_character_id": {
+      "type": "string",
+      "pattern": "^obs-char-[0-9]{6}$"
+    },
+    "record_type": {
+      "const": "oracle_character"
+    },
+    "preferred_directory_name": {
+      "type": "string"
+    },
+    "primary_external_ref_id": {
+      "type": "string"
+    },
+    "decipherment_status": {
+      "enum": ["deciphered", "undeciphered", "disputed", "unknown"]
+    },
+    "modern_character": {
+      "type": ["string", "null"]
+    },
+    "liding_character": {
+      "type": ["string", "null"]
+    },
+    "external_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["external_ref_id", "source_id", "id_type", "external_value"],
+        "properties": {
+          "external_ref_id": {"type": "string"},
+          "source_id": {"type": "string"},
+          "id_type": {"type": "string"},
+          "external_value": {"type": "string"},
+          "url": {"type": ["string", "null"]},
+          "note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "review_status": {
+      "enum": ["draft", "needs_review", "reviewed", "deprecated"]
+    }
+  }
+}

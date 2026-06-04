@@ -1,0 +1,5 @@
+prefix,source_id,label_en,label_zh,notes_en,notes_zh
+xxt-jgw,src-xiaoxuetang-jiaguwen,Xiaoxuetang Oracle Bone Script Database,小學堂甲骨文資料庫,Oracle character number or page-linked source reference.,甲骨文字號或页面关联来源引用。
+heji,src-jiaguwen-heji,Collection of Oracle Bone Inscriptions,甲骨文合集,Plate or inscription source number; not a universal character ID.,图版或卜辞来源号；不是通用单字 ID。
+oldcat,src-old-catalogs,Older catalog references,旧著录来源,Old catalog source reference prefix.,旧著录来源前缀。
+unicode,src-unicode,Unicode,Unicode,Modern character code when a reliable modern correspondence exists.,存在可靠现代字对应时使用的 Unicode 编码。

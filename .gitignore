@@ -1,0 +1,54 @@
+# Python / Python 运行产物
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments / 虚拟环境
+.venv/
+venv/
+env/
+
+# Local configuration / 本地配置
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+
+# OS and editor files / 系统与编辑器文件
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Temporary copies / 临时副本
+* - 副本.*
+* - Copy.*
+*.tmp
+*.bak
+
+# Large or rights-unclear local research assets / 大型或权利未确认的本地资料
+local_private_data/
+private_data/
+raw_downloads/
+raw_assets/
+large_assets/
+*.pdf
+*.epub
+*.zip
+*.7z
+*.rar
+
+# Generated outputs / 生成产物
+output/
+dist/
+build/
+database/generated/
+data/generated/

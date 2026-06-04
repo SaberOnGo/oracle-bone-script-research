@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SaberOnGo/oracle-bone-script-research/schemas/asset-metadata.schema.json",
+  "title": "Asset Metadata",
+  "type": "object",
+  "required": ["asset_id", "asset_type", "local_file", "related_external_ref_ids", "source_id", "rights_status", "review_status"],
+  "properties": {
+    "asset_id": {"type": "string", "pattern": "^asset-[0-9]{6}$"},
+    "asset_type": {"type": "string"},
+    "local_file": {"type": "string"},
+    "related_project_ids": {"type": "array", "items": {"type": "string"}},
+    "related_external_ref_ids": {"type": "array", "items": {"type": "string"}},
+    "source_id": {"type": "string"},
+    "source_url": {"type": ["string", "null"]},
+    "rights_status": {"type": "string"},
+    "review_status": {"enum": ["draft", "needs_review", "reviewed", "deprecated"]}
+  }
+}

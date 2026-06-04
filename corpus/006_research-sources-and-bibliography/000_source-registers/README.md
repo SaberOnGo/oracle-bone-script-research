@@ -20,3 +20,11 @@ Do not add general news sites, entertainment sites, unsourced popular articles, 
 - `003_source-download-manifest.csv`：批准进行日志化下载的轻量来源页面。
 - `004_first-stage-source-adoption-notes.md`: human-readable adoption decision notes.
 - `004_first-stage-source-adoption-notes.md`：人类可读的来源采纳决策说明。
+- `005_open-oracle-strategy-review.md`: reviewed strategy note for Open-Oracle as a project index.
+- `005_open-oracle-strategy-review.md`：Open-Oracle 作为项目索引的方法评审说明。
+- `006_authoritative-source-expansion-notes.md`: second-pass professional source expansion notes.
+- `006_authoritative-source-expansion-notes.md`：第二轮专业来源扩展说明。
+- `007_source-field-map.csv`: source-to-project field map for import planning.
+- `007_source-field-map.csv`：用于导入规划的来源字段到本项目字段映射。
+- `008_first-stage-import-readiness-notes.md`: first-stage import readiness decisions.
+- `008_first-stage-import-readiness-notes.md`：第一阶段导入准备决策说明。

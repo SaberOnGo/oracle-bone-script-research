@@ -1,4 +1,5 @@
 import unittest
+import csv
 
 from tools.validation.check_repository_skeleton import (
     check_bilingual_markers,
@@ -41,6 +42,26 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
+
+    def test_source_field_map_covers_first_stage_sources(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "007_source-field-map.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        source_ids = {row["source_id"] for row in rows}
+        expected = {
+            "src-hust-obc",
+            "src-obimd",
+            "src-evobc",
+            "src-obid-ancientbooks",
+            "src-cambridge-hopkins",
+            "src-tsinghua-oracle-bones",
+        }
+        self.assertTrue(expected.issubset(source_ids))
+        self.assertGreaterEqual(len(rows), 20)
 
 
 if __name__ == "__main__":

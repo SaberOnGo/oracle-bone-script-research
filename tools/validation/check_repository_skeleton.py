@@ -31,6 +31,14 @@ AUTHORITATIVE_SOURCE_EXPANSION_NOTES = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "006_authoritative-source-expansion-notes.md"
 )
+SOURCE_FIELD_MAP = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "007_source-field-map.csv"
+)
+IMPORT_READINESS_NOTES = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "008_first-stage-import-readiness-notes.md"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -150,6 +158,8 @@ REQUIRED_PATHS = [
     "004_first-stage-source-adoption-notes.md",
     OPEN_ORACLE_STRATEGY_REVIEW,
     AUTHORITATIVE_SOURCE_EXPANSION_NOTES,
+    SOURCE_FIELD_MAP,
+    IMPORT_READINESS_NOTES,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -374,9 +384,17 @@ def check_source_registers(root: Path) -> list[str]:
     source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
     inventory_rows, inventory_issues = _read_csv_rows(root / SOURCE_INVENTORY)
     manifest_rows, manifest_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_MANIFEST)
+    field_map_rows, field_map_issues = _read_csv_rows(root / SOURCE_FIELD_MAP)
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
-    issues.extend(source_issues + inventory_issues + manifest_issues + log_issues + large_issues)
+    issues.extend(
+        source_issues
+        + inventory_issues
+        + manifest_issues
+        + field_map_issues
+        + log_issues
+        + large_issues
+    )
 
     source_ids = {row.get("source_id", "") for row in source_rows}
     missing_adopted = sorted(ADOPTED_PROFESSIONAL_SOURCE_IDS - source_ids)
@@ -418,6 +436,18 @@ def check_source_registers(root: Path) -> list[str]:
         local_temp_path = row.get("local_temp_path", "")
         if local_temp_path and not local_temp_path.startswith("tmp/"):
             issues.append(f"{SOURCE_DOWNLOAD_LOG} local_temp_path must stay under tmp/: {local_temp_path}")
+
+    field_map_sources = {row.get("source_id", "") for row in field_map_rows}
+    for source_id in sorted(field_map_sources - source_ids):
+        issues.append(f"{SOURCE_FIELD_MAP} references unknown source_id: {source_id}")
+    field_map_download_ids = {row.get("evidence_download_id", "") for row in field_map_rows}
+    for download_id in sorted(field_map_download_ids - log_ids):
+        issues.append(f"{SOURCE_FIELD_MAP} references missing download log id: {download_id}")
+    reviewed_field_maps = [
+        row for row in field_map_rows if row.get("review_status") == "reviewed_metadata_only"
+    ]
+    if len(reviewed_field_maps) < 20:
+        issues.append(f"{SOURCE_FIELD_MAP} should contain at least 20 reviewed metadata field maps")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

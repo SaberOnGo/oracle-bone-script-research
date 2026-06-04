@@ -67,7 +67,6 @@ REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
 
 REQUIRED_ROOT_GITIGNORE_PATTERNS = [
     "tmp/*",
-    "doc/public/user_prompt/",
     "**/_tmp/",
     "**/tmp/",
     "**/temp/",
@@ -123,6 +122,8 @@ REQUIRED_PATHS = [
     "doc/public/user_plan/001_project-architecture-and-corpus-organization-plan.en.md",
     "doc/public/user_research/README.md",
     "doc/public/user_research/.gitignore",
+    "doc/public/user_prompt/README.md",
+    "doc/public/user_prompt/任务计划prompt.md",
     "project_registry/README.md",
     "project_registry/001_repository-structure-and-naming-rules/README.md",
     "project_registry/002_project-id-to-source-reference-map/README.md",
@@ -184,7 +185,7 @@ FORBIDDEN_TEXT_SNIPPETS = [
     "权利不明的扫描图、论文 PDF、大规模图片和商业出版物整理文本，在权利说明明确前不应提交",
 ]
 
-LOCAL_ONLY_UNTRACKED_PATH_PREFIXES = (
+RAW_USER_PROMPT_ARCHIVE_PATH_PREFIXES = (
     "doc/public/user_prompt/",
 )
 
@@ -239,7 +240,7 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
     for path in root.rglob("*"):
         if ".git" in path.parts or not path.is_file():
             continue
-        if _is_local_only_untracked_path(path, root):
+        if _is_raw_user_prompt_archive_path(path, root):
             continue
         if path == Path(__file__).resolve():
             continue
@@ -256,9 +257,9 @@ def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
 
 
-def _is_local_only_untracked_path(path: Path, root: Path) -> bool:
+def _is_raw_user_prompt_archive_path(path: Path, root: Path) -> bool:
     relative_path = _relative_posix(path, root)
-    return any(relative_path.startswith(prefix) for prefix in LOCAL_ONLY_UNTRACKED_PATH_PREFIXES)
+    return any(relative_path.startswith(prefix) for prefix in RAW_USER_PROMPT_ARCHIVE_PATH_PREFIXES)
 
 
 def _tracked_files(root: Path) -> list[str]:

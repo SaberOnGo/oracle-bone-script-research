@@ -13,6 +13,8 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 
 `build_hust_obc_validation_label_crosswalk.py` reads the logged HUST-OBC validation-class staging file and `ID_to_Chinese.json`, then writes OCR-label candidate crosswalk records under `corpus/001_oracle-characters/000_character-registers/`.
 
+`build_hust_obc_source_category_staging.py` expands HUST-OBC validation classes into source-category rows so the contiguous `0001..1781` category range can be reviewed before any formal project character import.
+
 简体中文：
 未来导入脚本会把仓库源文件转换到 PostgreSQL 或其他查询存储中。
 
@@ -25,3 +27,5 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 `build_ihp_museum_object_staging.py` 会读取已登记的 IHP Museum Oracle Bones 馆藏页临时下载文件，并在 `corpus/005_excavation-sites-periods-and-batches/000_collection-registers/` 下写出对象级 metadata 暂存记录。
 
 `build_hust_obc_validation_label_crosswalk.py` 会读取已登记的 HUST-OBC validation-class 暂存表和 `ID_to_Chinese.json`，并在 `corpus/001_oracle-characters/000_character-registers/` 下写出 OCR label 候选交叉记录。
+
+`build_hust_obc_source_category_staging.py` 会把 HUST-OBC validation class 展开为 source-category 行，使连续的 `0001..1781` 类别范围可以在正式本项目单字导入前先被复核。

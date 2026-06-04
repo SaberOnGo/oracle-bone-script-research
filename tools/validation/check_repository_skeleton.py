@@ -64,6 +64,10 @@ HUST_OBC_VALIDATION_LABEL_CROSSWALK = (
     "corpus/001_oracle-characters/000_character-registers/"
     "007_hust-obc-validation-label-crosswalk-staging.csv"
 )
+HUST_OBC_SOURCE_CATEGORY_STAGING = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "008_hust-obc-source-category-staging.csv"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -242,6 +246,7 @@ REQUIRED_PATHS = [
     OBM_ABBREVIATION_STAGING,
     HUST_OBC_VALIDATION_CLASS_STAGING,
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
+    HUST_OBC_SOURCE_CATEGORY_STAGING,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -258,6 +263,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/download_source_manifest.py",
     "tools/002_corpus-import/build_evobc_evolution_staging.py",
     "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py",
+    "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
@@ -509,6 +515,9 @@ def check_source_registers(root: Path) -> list[str]:
     hust_label_crosswalk_rows, hust_label_crosswalk_issues = _read_csv_rows(
         root / HUST_OBC_VALIDATION_LABEL_CROSSWALK
     )
+    hust_source_category_rows, hust_source_category_issues = _read_csv_rows(
+        root / HUST_OBC_SOURCE_CATEGORY_STAGING
+    )
     obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_MAIN_STAGING
@@ -548,6 +557,7 @@ def check_source_registers(root: Path) -> list[str]:
         + obm_abbreviation_issues
         + hust_validation_issues
         + hust_label_crosswalk_issues
+        + hust_source_category_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
@@ -873,6 +883,75 @@ def check_source_registers(root: Path) -> list[str]:
         issues.append(
             f"{HUST_OBC_VALIDATION_LABEL_CROSSWALK} candidate_class_id set must match "
             f"{HUST_OBC_VALIDATION_CLASS_STAGING}"
+        )
+
+    if len(hust_source_category_rows) != 1781:
+        issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} should contain exactly 1781 source-category rows")
+    source_category_ids: set[int] = set()
+    source_category_candidate_ids: set[str] = set()
+    source_category_multi_count = 0
+    for row in hust_source_category_rows:
+        row_id = row.get("source_category_row_id", "")
+        category_id = row.get("source_category_id", "")
+        padded_id = row.get("source_category_id_padded", "")
+        if not row_id.startswith("hust-obc-src-cat-"):
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row ID must use hust-obc-src-cat-*: {row_id}")
+        if not category_id.isdigit():
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} source_category_id not numeric: {row_id}")
+            category_value = -1
+        else:
+            category_value = int(category_id)
+            source_category_ids.add(category_value)
+            if row_id != f"hust-obc-src-cat-{category_value:04d}":
+                issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row ID does not match source_category_id: {row_id}")
+        if padded_id != category_id.zfill(5):
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} padded ID mismatch: {row_id}")
+        if row.get("source_id") != "src-hust-obc":
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row must reference src-hust-obc: {row_id}")
+        if row.get("evidence_download_id_validation") != "dl-hust-obc-validation-label":
+            issues.append(
+                f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row must cite dl-hust-obc-validation-label: {row_id}"
+            )
+        if row.get("evidence_download_id_id_to_chinese") != "dl-hust-obc-ocr-id-to-chinese":
+            issues.append(
+                f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row must cite dl-hust-obc-ocr-id-to-chinese: {row_id}"
+            )
+        if row.get("evidence_download_id_validation", "") not in log_ids:
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} validation download id missing in log")
+        if row.get("evidence_download_id_id_to_chinese", "") not in log_ids:
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} ID_to_Chinese download id missing in log")
+        label = row.get("source_modern_label_candidate", "")
+        if len(label) != 1:
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} source label must be exactly one character: {row_id}")
+        expected_codepoint = f"U+{ord(label):04X}" if label else ""
+        if row.get("source_modern_label_codepoint", "") != expected_codepoint:
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} codepoint mismatch: {row_id}")
+        candidate_id = row.get("linked_candidate_class_id", "")
+        source_category_candidate_ids.add(candidate_id)
+        if candidate_id not in hust_validation_candidate_ids:
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} linked candidate class missing: {row_id}")
+        crosswalk_id = row.get("linked_label_crosswalk_id", "")
+        if crosswalk_id not in label_crosswalk_ids:
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} linked label crosswalk missing: {row_id}")
+        if row.get("is_part_of_multi_category_class") == "true":
+            source_category_multi_count += 1
+        elif row.get("is_part_of_multi_category_class") != "false":
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} invalid multi-category flag: {row_id}")
+        if row.get("project_import_status") != "dataset_source_category_not_promoted":
+            issues.append(
+                f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row must stay dataset_source_category_not_promoted: {row_id}"
+            )
+        if row.get("rights_status") != "source_marked_risk_noted":
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row must stay source_marked_risk_noted: {row_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} row not reviewed_metadata_only: {row_id}")
+    if hust_source_category_rows and source_category_ids != set(range(1, 1782)):
+        issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} source_category_id range must be 1..1781")
+    if hust_source_category_rows and source_category_multi_count != 366:
+        issues.append(f"{HUST_OBC_SOURCE_CATEGORY_STAGING} multi-category member count must be 366")
+    if hust_source_category_rows and not hust_validation_candidate_ids.issubset(source_category_candidate_ids):
+        issues.append(
+            f"{HUST_OBC_SOURCE_CATEGORY_STAGING} must link back to every HUST validation candidate class"
         )
 
     if len(obimd_main_rows) != 3936:

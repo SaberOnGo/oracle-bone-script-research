@@ -86,6 +86,20 @@ class RepositorySkeletonTests(unittest.TestCase):
             if file_size >= 40 * 1024 * 1024:
                 self.assertEqual(row["commit_policy"], "do_not_commit_regular_git")
 
+    def test_downloaded_metadata_profiles_include_core_counts(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "010_downloaded-metadata-profile.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        metrics = {(row["source_id"], row["profile_metric"]): row["profile_value"] for row in rows}
+        self.assertEqual(metrics[("src-hust-obc", "validation_label_count")], "1588")
+        self.assertEqual(metrics[("src-obimd", "main_character_uid_count")], "3936")
+        self.assertEqual(metrics[("src-evobc", "class_count")], "13714")
+        self.assertEqual(metrics[("src-evobc", "image_reference_count")], "229170")
+
 
 if __name__ == "__main__":
     unittest.main()

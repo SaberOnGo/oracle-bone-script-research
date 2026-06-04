@@ -30,3 +30,5 @@ Do not add general news sites, entertainment sites, unsourced popular articles, 
 - `008_first-stage-import-readiness-notes.md`：第一阶段导入准备决策说明。
 - `009_source-package-file-manifest.csv`: file-level manifest for raw packages and small metadata files.
 - `009_source-package-file-manifest.csv`：原始包和小型 metadata 文件的文件级清单。
+- `010_downloaded-metadata-profile.csv`: reviewed profile metrics extracted from downloaded small metadata.
+- `010_downloaded-metadata-profile.csv`：从已下载小型 metadata 中抽取的已复核概要指标。

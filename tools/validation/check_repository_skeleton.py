@@ -43,6 +43,10 @@ SOURCE_PACKAGE_FILE_MANIFEST = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "009_source-package-file-manifest.csv"
 )
+DOWNLOADED_METADATA_PROFILE = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "010_downloaded-metadata-profile.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -165,6 +169,7 @@ REQUIRED_PATHS = [
     SOURCE_FIELD_MAP,
     IMPORT_READINESS_NOTES,
     SOURCE_PACKAGE_FILE_MANIFEST,
+    DOWNLOADED_METADATA_PROFILE,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -391,6 +396,7 @@ def check_source_registers(root: Path) -> list[str]:
     manifest_rows, manifest_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_MANIFEST)
     field_map_rows, field_map_issues = _read_csv_rows(root / SOURCE_FIELD_MAP)
     package_file_rows, package_file_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
+    metadata_profile_rows, metadata_profile_issues = _read_csv_rows(root / DOWNLOADED_METADATA_PROFILE)
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -399,6 +405,7 @@ def check_source_registers(root: Path) -> list[str]:
         + manifest_issues
         + field_map_issues
         + package_file_issues
+        + metadata_profile_issues
         + log_issues
         + large_issues
     )
@@ -477,6 +484,21 @@ def check_source_registers(root: Path) -> list[str]:
                 )
     if len(package_file_rows) < 10:
         issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} should contain at least 10 package file rows")
+
+    metadata_profile_sources = {row.get("source_id", "") for row in metadata_profile_rows}
+    for source_id in sorted(metadata_profile_sources - source_ids):
+        issues.append(f"{DOWNLOADED_METADATA_PROFILE} references unknown source_id: {source_id}")
+    for row in metadata_profile_rows:
+        download_id = row.get("evidence_download_id", "")
+        if download_id and download_id not in log_ids:
+            issues.append(f"{DOWNLOADED_METADATA_PROFILE} references missing download log id: {download_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(
+                f"{DOWNLOADED_METADATA_PROFILE} profile row not reviewed_metadata_only: "
+                f"{row.get('profile_id', '')}"
+            )
+    if len(metadata_profile_rows) < 15:
+        issues.append(f"{DOWNLOADED_METADATA_PROFILE} should contain at least 15 metadata profile rows")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

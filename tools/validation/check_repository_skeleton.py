@@ -77,6 +77,10 @@ OBIMD_COMPONENT_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "006_obimd-component-graph-edges.jsonl"
 )
+EVOBC_EVOLUTION_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "007_evobc-evolution-graph-edges.jsonl"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -258,6 +262,7 @@ REQUIRED_PATHS = [
     HUST_OBC_SOURCE_CATEGORY_STAGING,
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
+    EVOBC_EVOLUTION_GRAPH_EDGES,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -278,6 +283,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
+    "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -517,6 +523,7 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     issues: list[str] = []
     edge_rows, edge_issues = _read_jsonl_rows(root / HUST_OBC_CANDIDATE_GRAPH_EDGES)
     obimd_edge_rows, obimd_edge_issues = _read_jsonl_rows(root / OBIMD_COMPONENT_GRAPH_EDGES)
+    evobc_edge_rows, evobc_edge_issues = _read_jsonl_rows(root / EVOBC_EVOLUTION_GRAPH_EDGES)
     source_category_rows, source_category_issues = _read_csv_rows(root / HUST_OBC_SOURCE_CATEGORY_STAGING)
     validation_rows, validation_issues = _read_csv_rows(root / HUST_OBC_VALIDATION_CLASS_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
@@ -525,12 +532,21 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     obimd_subchar_glyph_rows, obimd_subchar_glyph_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_GLYPH_STAGING
     )
+    evobc_category_rows, evobc_category_issues = _read_csv_rows(
+        root / EVOBC_EVOLUTION_CATEGORY_STAGING
+    )
+    evobc_codebook_rows, evobc_codebook_issues = _read_csv_rows(
+        root / EVOBC_ERA_SOURCE_CODEBOOK_STAGING
+    )
     issues.extend(edge_issues)
     issues.extend(obimd_edge_issues)
+    issues.extend(evobc_edge_issues)
     issues.extend(source_category_issues)
     issues.extend(validation_issues)
     issues.extend(obimd_subchar_main_issues)
     issues.extend(obimd_subchar_glyph_issues)
+    issues.extend(evobc_category_issues)
+    issues.extend(evobc_codebook_issues)
 
     if len(edge_rows) != 3562:
         issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} should contain exactly 3562 edges")
@@ -690,6 +706,86 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
         issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} subcharacter-to-main edge sequence changed")
     if obimd_edge_rows and compact_obimd_edge_rows[2747:] != expected_obimd_sub_glyph_edges:
         issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} subcharacter-to-glyph edge sequence changed")
+
+    if len(evobc_edge_rows) != 51679:
+        issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} should contain exactly 51679 edges")
+
+    evobc_edge_ids: set[str] = set()
+    evobc_edge_type_counts: dict[str, int] = {}
+    for row in evobc_edge_rows:
+        edge_id = str(row.get("edge_id", ""))
+        if not required_fields.issubset(row):
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge missing required fields: {edge_id}")
+        if edge_id in evobc_edge_ids:
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} duplicate edge_id: {edge_id}")
+        evobc_edge_ids.add(edge_id)
+        edge_type = str(row.get("edge_type", ""))
+        evobc_edge_type_counts[edge_type] = evobc_edge_type_counts.get(edge_type, 0) + 1
+        if row.get("confidence_level") != "high":
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge must stay high confidence metadata edge: {edge_id}")
+        if row.get("source_ids") != ["src-evobc"]:
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge must reference only src-evobc: {edge_id}")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge must stay reviewed: {edge_id}")
+        note = str(row.get("evidence_note", ""))
+        if "not" not in note.lower():
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge evidence note must preserve caution: {edge_id}")
+
+    expected_evobc_type_counts = {
+        "EVOBC_CATEGORY_HAS_ERA_CODE": 26378,
+        "EVOBC_CATEGORY_HAS_SOURCE_CODE": 25301,
+    }
+    if evobc_edge_rows and evobc_edge_type_counts != expected_evobc_type_counts:
+        issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge type counts changed")
+
+    evobc_codebook_by_type_value = {
+        (row.get("code_type", ""), row.get("code_value", "")): row.get("codebook_row_id", "")
+        for row in evobc_codebook_rows
+    }
+    expected_evobc_edges: list[dict[str, object]] = []
+    for row in evobc_category_rows:
+        candidate_id = row.get("candidate_evolution_category_id", "")
+        category_id = row.get("source_category_id", "")
+        if not category_id.isdigit():
+            issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} category ID not numeric: {candidate_id}")
+            continue
+        category_value = int(category_id)
+        for era_code in _parse_compact_counts(row.get("era_code_counts", "")):
+            codebook_row_id = evobc_codebook_by_type_value.get(("era", era_code), "")
+            if not codebook_row_id:
+                issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} missing era codebook row: {era_code}")
+            expected_evobc_edges.append(
+                {
+                    "edge_id": f"edge-evobc-cat-era-{category_value:05d}-{int(era_code):02d}",
+                    "source_node_id": candidate_id,
+                    "edge_type": "EVOBC_CATEGORY_HAS_ERA_CODE",
+                    "target_node_id": codebook_row_id,
+                }
+            )
+        for source_code in _parse_compact_counts(row.get("source_code_counts", "")):
+            codebook_row_id = evobc_codebook_by_type_value.get(("source", source_code), "")
+            if not codebook_row_id:
+                issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} missing source codebook row: {source_code}")
+            expected_evobc_edges.append(
+                {
+                    "edge_id": f"edge-evobc-cat-source-{category_value:05d}-{int(source_code):02d}",
+                    "source_node_id": candidate_id,
+                    "edge_type": "EVOBC_CATEGORY_HAS_SOURCE_CODE",
+                    "target_node_id": codebook_row_id,
+                }
+            )
+
+    compact_evobc_edge_rows = [
+        {
+            "edge_id": row.get("edge_id"),
+            "source_node_id": row.get("source_node_id"),
+            "edge_type": row.get("edge_type"),
+            "target_node_id": row.get("target_node_id"),
+        }
+        for row in evobc_edge_rows
+    ]
+    if evobc_edge_rows and compact_evobc_edge_rows != expected_evobc_edges:
+        issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge sequence changed")
 
     return issues
 

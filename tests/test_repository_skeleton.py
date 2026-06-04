@@ -64,6 +64,15 @@ def load_obimd_component_graph_edges_module():
     return module
 
 
+def load_evobc_evolution_graph_edges_module():
+    path = repo_root() / "tools/003_graph-generation/build_evobc_evolution_graph_edges.py"
+    spec = importlib.util.spec_from_file_location("build_evobc_evolution_graph_edges", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -532,6 +541,77 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[1]["target_node_id"], "obimd-glyph-codepoint-u65e5-uf0000")
         self.assertIn("not a formal component analysis", rows[0]["evidence_note"])
         self.assertIn("private-use code points", rows[1]["evidence_note"])
+
+    def test_evobc_evolution_graph_edges_preserve_era_and_source_counts(self) -> None:
+        path = repo_root() / "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
+        rows = [
+            json.loads(line)
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(rows), 51679)
+        self.assertEqual(
+            Counter(row["edge_type"] for row in rows),
+            Counter(
+                {
+                    "EVOBC_CATEGORY_HAS_ERA_CODE": 26378,
+                    "EVOBC_CATEGORY_HAS_SOURCE_CODE": 25301,
+                }
+            ),
+        )
+        self.assertEqual(rows[0]["edge_id"], "edge-evobc-cat-era-00001-00")
+        self.assertEqual(rows[0]["source_node_id"], "evobc-evo-cat-00001")
+        self.assertEqual(rows[0]["target_node_id"], "evobc-code-001")
+        self.assertIn("edge_image_reference_count=35", rows[0]["evidence_note"])
+        self.assertEqual(rows[1]["edge_id"], "edge-evobc-cat-era-00001-03")
+        self.assertEqual(rows[1]["target_node_id"], "evobc-code-004")
+        self.assertEqual(rows[2]["edge_id"], "edge-evobc-cat-source-00001-00")
+        self.assertEqual(rows[2]["target_node_id"], "evobc-code-007")
+        self.assertIn("source-code labels are dataset tokens", rows[2]["evidence_note"])
+        self.assertEqual(rows[7]["edge_id"], "edge-evobc-cat-source-00001-07")
+        self.assertEqual(rows[7]["target_node_id"], "evobc-code-014")
+        self.assertEqual(rows[8]["edge_id"], "edge-evobc-cat-era-00002-04")
+        self.assertEqual(rows[8]["target_node_id"], "evobc-code-005")
+        self.assertEqual(rows[-1]["edge_id"], "edge-evobc-cat-source-13713-05")
+        self.assertEqual(rows[-1]["source_node_id"], "evobc-evo-cat-13713")
+        self.assertEqual(rows[-1]["target_node_id"], "evobc-code-012")
+        self.assertEqual({tuple(row["source_ids"]) for row in rows}, {("src-evobc",)})
+        self.assertEqual({row["confidence_level"] for row in rows}, {"high"})
+        self.assertEqual({row["review_status"] for row in rows}, {"reviewed"})
+
+    def test_evobc_evolution_graph_edges_builder_expands_compact_counts(self) -> None:
+        module = load_evobc_evolution_graph_edges_module()
+        rows = module.build_edges(
+            [
+                {
+                    "candidate_evolution_category_id": "evobc-evo-cat-00001",
+                    "source_category_id": "00001",
+                    "image_reference_count": "37",
+                    "era_code_counts": "0:35;3:2",
+                    "source_code_counts": "0:1;7:2",
+                },
+                {
+                    "candidate_evolution_category_id": "evobc-evo-cat-13714",
+                    "source_category_id": "13714",
+                    "image_reference_count": "0",
+                    "era_code_counts": "",
+                    "source_code_counts": "",
+                },
+            ],
+            [
+                {"code_type": "era", "code_value": "0", "codebook_row_id": "evobc-code-001"},
+                {"code_type": "era", "code_value": "3", "codebook_row_id": "evobc-code-004"},
+                {"code_type": "source", "code_value": "0", "codebook_row_id": "evobc-code-007"},
+                {"code_type": "source", "code_value": "7", "codebook_row_id": "evobc-code-014"},
+            ],
+        )
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["edge_id"], "edge-evobc-cat-era-00001-00")
+        self.assertEqual(rows[1]["target_node_id"], "evobc-code-004")
+        self.assertEqual(rows[2]["edge_type"], "EVOBC_CATEGORY_HAS_SOURCE_CODE")
+        self.assertEqual(rows[3]["edge_id"], "edge-evobc-cat-source-00001-07")
+        self.assertIn("category_image_reference_count=37", rows[0]["evidence_note"])
+        self.assertIn("not an accepted paleographic correspondence", rows[0]["evidence_note"])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

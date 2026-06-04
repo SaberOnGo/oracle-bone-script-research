@@ -1,0 +1,16 @@
+# Local AI temporary outputs for user research drafts.
+# 用户研究草稿区的 AI 临时产物不得进入 Git。
+_tmp/
+tmp/
+temp/
+scratch/
+.scratch/
+.working/
+.cache/
+generated/
+*.ai-tmp
+*.cache
+*.log
+*.scratch
+*.tmp
+*.bak

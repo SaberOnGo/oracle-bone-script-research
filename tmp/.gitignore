@@ -1,0 +1,5 @@
+# Ignore every local temporary artifact in this directory.
+# 本目录中的本地临时产物全部忽略。
+*
+!.gitignore
+!README.md

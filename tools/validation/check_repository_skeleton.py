@@ -5,12 +5,68 @@ from __future__ import annotations
 
 import sys
 import csv
+import subprocess
 from pathlib import Path
 
 
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
 SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
+
+REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
+    "apps",
+    "corpus",
+    "database",
+    "doc",
+    "license",
+    "project_registry",
+    "readme",
+    "research",
+    "schemas",
+    "skills",
+    "tests",
+    "tmp",
+    "tools",
+]
+
+REQUIRED_ROOT_GITIGNORE_PATTERNS = [
+    "tmp/*",
+    "**/_tmp/",
+    "**/tmp/",
+    "**/temp/",
+    "**/scratch/",
+    "**/.working/",
+    "**/.cache/",
+    "*.ai-tmp",
+    "*.tmp",
+    "*.bak",
+    "external_sources_local/",
+    "large_sources_local/",
+]
+
+FORBIDDEN_TRACKED_TEMP_DIR_NAMES = {
+    "_tmp",
+    "tmp",
+    "temp",
+    "scratch",
+    ".scratch",
+    ".working",
+    ".cache",
+}
+
+ALLOWED_TRACKED_TEMP_CONTROL_FILES = {
+    "tmp/.gitignore",
+    "tmp/README.md",
+}
+
+FORBIDDEN_TRACKED_TEMP_FILE_SUFFIXES = (
+    ".ai-tmp",
+    ".bak",
+    ".cache",
+    ".log",
+    ".scratch",
+    ".tmp",
+)
 
 REQUIRED_PATHS = [
     "AGENTS.md",
@@ -24,10 +80,12 @@ REQUIRED_PATHS = [
     "doc/project/003_record-model-and-id-system/README.md",
     "doc/project/004_oracle-bone-script-research-methods/README.md",
     "doc/project/005_ai-agent-research-assistant-design/README.md",
+    "doc/project/006_large-source-material-handling/README.md",
     "doc/public/user_plan/README.md",
     "doc/public/user_plan/001_project-architecture-and-corpus-organization-plan.zh-CN.md",
     "doc/public/user_plan/001_project-architecture-and-corpus-organization-plan.en.md",
     "doc/public/user_research/README.md",
+    "doc/public/user_research/.gitignore",
     "project_registry/README.md",
     "project_registry/001_repository-structure-and-naming-rules/README.md",
     "project_registry/002_project-id-to-source-reference-map/README.md",
@@ -36,6 +94,8 @@ REQUIRED_PATHS = [
     "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
+    "project_registry/006_large-source-register/README.md",
+    "project_registry/006_large-source-register/001_large-source-register.csv",
     "research/README.md",
     "skills/README.md",
     "skills/oracle-character-record-curation/SKILL.md",
@@ -43,11 +103,15 @@ REQUIRED_PATHS = [
     "skills/ai-agent-evidence-pack-review/SKILL.md",
     "schemas/README.md",
     "corpus/README.md",
+    "tmp/.gitignore",
+    "tmp/README.md",
     "tools/git/check_commit_messages.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
 ]
+
+REQUIRED_PATHS.extend(f"{dirname}/.gitignore" for dirname in REQUIRED_TOP_LEVEL_GITIGNORE_DIRS)
 
 REQUIRED_BILINGUAL_MARKERS = [
     ("AGENTS.md", ["Mandatory Rules", "强制规则"]),
@@ -139,6 +203,24 @@ def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
 
 
+def _tracked_files(root: Path) -> list[str]:
+    try:
+        result = subprocess.run(
+            ["git", "ls-files"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            encoding="utf-8",
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return [
+            _relative_posix(path, root)
+            for path in root.rglob("*")
+            if path.is_file() and ".git" not in path.parts
+        ]
+    return [line.strip().replace("\\", "/") for line in result.stdout.splitlines() if line.strip()]
+
+
 def _load_size_limit_exceptions(root: Path) -> tuple[set[str], list[str]]:
     issues: list[str] = []
     exception_path = root / SIZE_LIMIT_EXCEPTIONS
@@ -184,6 +266,36 @@ def check_file_size_limits(root: Path) -> list[str]:
     return issues
 
 
+def check_root_gitignore_patterns(root: Path) -> list[str]:
+    path = root / ".gitignore"
+    if not path.exists():
+        return ["missing root .gitignore"]
+
+    text = path.read_text(encoding="utf-8", errors="replace")
+    issues: list[str] = []
+    for pattern in REQUIRED_ROOT_GITIGNORE_PATTERNS:
+        if pattern not in text:
+            issues.append(f".gitignore missing required temporary-artifact pattern: {pattern}")
+    return issues
+
+
+def check_tracked_temp_artifacts(root: Path) -> list[str]:
+    issues: list[str] = []
+    for relative_path in _tracked_files(root):
+        if relative_path in ALLOWED_TRACKED_TEMP_CONTROL_FILES:
+            continue
+        parts = relative_path.split("/")
+        for part in parts[:-1]:
+            if part in FORBIDDEN_TRACKED_TEMP_DIR_NAMES:
+                issues.append(f"tracked temporary artifact path: {relative_path}")
+                break
+        else:
+            lower_path = relative_path.lower()
+            if lower_path.endswith(FORBIDDEN_TRACKED_TEMP_FILE_SUFFIXES):
+                issues.append(f"tracked temporary artifact file: {relative_path}")
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
@@ -193,6 +305,8 @@ def main() -> int:
     issues.extend(check_forbidden_top_level_dirs(root))
     issues.extend(check_forbidden_policy_text(root))
     issues.extend(check_file_size_limits(root))
+    issues.extend(check_root_gitignore_patterns(root))
+    issues.extend(check_tracked_temp_artifacts(root))
 
     if issues:
         print("FAIL repository skeleton")

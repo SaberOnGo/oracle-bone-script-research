@@ -14,3 +14,5 @@ English:
 - 把本项目 ID 映射到外部字编、数据库、图版号、旧著录号、URL 和权利状态。
 - Help humans and AI Agents answer: where did this record or asset come from?
 - 帮助人类和 AI Agent 回答：这条记录或资产从哪里来？
+- Track large external source packages that are too big for regular Git while preserving checksums, storage hints, and derived record paths.
+- 追踪不适合进入普通 Git 的大型外部来源包，同时保留校验和、存放线索和派生记录路径。

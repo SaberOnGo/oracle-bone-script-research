@@ -38,5 +38,9 @@ Use this skill before asking an AI Agent to produce or review a decipherment-sup
 English:
 AI Agent output must be marked as draft or hypothesis until human review. Save draft research under `doc/public/user_research/`, not under `research/`.
 
+Temporary downloads, OCR intermediates, vector indexes, scratch comparisons, and generated caches must stay in ignored temporary directories such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/`. Promote only reviewed, source-marked evidence into Git.
+
 简体中文：
 AI Agent 输出在人工复核前必须标记为草稿或假说。草稿研究放在 `doc/public/user_research/`，不要放在 `research/`。
+
+临时下载、OCR 中间产物、向量索引、草稿对比和生成缓存必须放在 `tmp/`、`_tmp/`、`scratch/`、`.working/` 或 `.cache/` 等已忽略临时目录。只有经过复核、标注来源的证据才可以提升进入 Git。

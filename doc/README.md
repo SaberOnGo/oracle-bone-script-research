@@ -10,6 +10,8 @@ This directory contains project documentation for humans and AI agents. Human-fa
 
 - `project/`: stable project policies and research design.
 - `project/`：稳定的项目政策和研究设计。
+- `project/006_large-source-material-handling/`: handling rules for large external source packages.
+- `project/006_large-source-material-handling/`：大型外部来源包处理规则。
 - `public/user_plan/`: user-facing planning drafts.
 - `public/user_plan/`：用户可读的规划草案。
 - `public/user_research/`: user and AI Agent research drafts.

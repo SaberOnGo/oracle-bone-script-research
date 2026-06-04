@@ -5,14 +5,22 @@ External oracle bone images, scans, paper PDFs, large image sets, and research c
 
 Every committed item should answer: where did it come from, what external ID identifies it, what rights status is known, what redistribution risk exists, and who reviewed it.
 
-`SIZE_LIMIT` is 30 MiB per file. Downloaded or committed source materials should stay under this limit. If a file exceeds `SIZE_LIMIT`, record an exception and first consider splitting the file, extracting the useful records, downsampling oversized images, or using a more efficient archival format. Files at or above 40 MiB must not be committed because GitHub commonly starts warning or restricting large files in the 40-50 MiB range.
+`SIZE_LIMIT` is 30 MiB per file. Downloaded or committed source materials should stay under this limit. If a file exceeds `SIZE_LIMIT`, record an exception and first consider splitting the file, extracting the useful records, downsampling oversized images, or using a more efficient archival format. Files at or above 40 MiB must not be committed to regular Git.
+
+Large but important source packages should be registered in `project_registry/006_large-source-register/` instead of being discarded. Keep the raw package in ignored local storage or an external archive, then commit only provenance records, checksums, extraction notes, and reviewed derived records that fit the repository limits.
+
+AI Agent temporary downloads, OCR intermediates, caches, vector indexes, unpacked archives, and generated experiment outputs must stay in ignored temporary directories such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/`.
 
 简体中文：
 研究需要时，本仓库可以下载或提交外部甲骨图片、扫描件、论文 PDF、大规模图片集和研究语料。甲骨文材料本来就稀缺，项目不应因为过度保守而轻易丢失可追溯资料链。
 
 每个提交的资料项都应回答：资料来自哪里、对应哪个外部 ID、已知权利状态是什么、再分发风险是什么、由谁复核过。
 
-`SIZE_LIMIT` 设为单文件 30 MiB。下载或提交的来源材料原则上应低于这个限制。如果文件超过 `SIZE_LIMIT`，必须登记特例，并优先考虑分包、抽取有用记录、对超大图片降采样，或改用更高效的归档格式。达到或超过 40 MiB 的文件不得提交，因为 GitHub 通常会在 40-50 MiB 区间开始警告或限制大文件。
+`SIZE_LIMIT` 设为单文件 30 MiB。下载或提交的来源材料原则上应低于这个限制。如果文件超过 `SIZE_LIMIT`，必须登记特例，并优先考虑分包、抽取有用记录、对超大图片降采样，或改用更高效的归档格式。达到或超过 40 MiB 的文件不得提交到普通 Git。
+
+超过限制但重要的来源包不应被丢弃，而应登记到 `project_registry/006_large-source-register/`。原始包放在已忽略的本地存储或外部归档中，仓库只提交出处记录、校验和、抽取说明和符合尺寸限制的复核后派生记录。
+
+AI Agent 临时下载、OCR 中间产物、缓存、向量索引、解压目录和实验生成产物必须放在 `tmp/`、`_tmp/`、`scratch/`、`.working/` 或 `.cache/` 等已忽略临时目录。
 
 ## Rights Status Values / 权利状态值
 

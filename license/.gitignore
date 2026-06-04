@@ -1,0 +1,15 @@
+# Local AI temporary outputs in this area.
+# 本目录下的 AI 临时产物和本地运行产物不得进入 Git。
+_tmp/
+tmp/
+temp/
+scratch/
+.scratch/
+.working/
+.cache/
+*.ai-tmp
+*.cache
+*.log
+*.scratch
+*.tmp
+*.bak

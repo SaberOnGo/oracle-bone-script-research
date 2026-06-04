@@ -30,6 +30,15 @@ This file is the mandatory entry point for AI agents working from a downloaded c
 - `SIZE_LIMIT` is 30 MiB per file for both downloaded and committed research materials. Files above `SIZE_LIMIT` require a recorded exception and should be split, downsampled, compressed, or converted into extracted records when possible. Files at or above 40 MiB must not be committed to this repository.
 - `SIZE_LIMIT` 设为单文件 30 MiB，下载和提交研究资料都适用。超过 `SIZE_LIMIT` 的文件必须登记特例，并优先考虑分包、降采样、压缩或抽取其中结构化记录。达到或超过 40 MiB 的文件不得提交到本仓库。
 
+- Important source packages that exceed `SIZE_LIMIT` must not be discarded. Keep the raw package in an ignored local or external archive, record it in `project_registry/006_large-source-register/`, and commit only source-marked manifests, checksums, extraction notes, and reviewed derived records that fit repository limits.
+- 超过 `SIZE_LIMIT` 但重要的来源包不得简单丢弃。原始大包应放在已忽略的本地目录或外部归档中，在 `project_registry/006_large-source-register/` 登记，并只提交带来源、校验和、抽取说明以及符合仓库尺寸限制的复核后派生记录。
+
+- AI Agent scratch files, temporary downloads, OCR intermediates, caches, unpacked archives, and generated indexes must stay in ignored temporary areas such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/`. Do not commit temporary artifacts.
+- AI Agent 草稿、临时下载、OCR 中间产物、缓存、解压目录和生成索引必须放在 `tmp/`、`_tmp/`、`scratch/`、`.working/` 或 `.cache/` 等已忽略临时区。不得提交临时产物。
+
+- When adding a new workflow that creates temporary or generated outputs, update the relevant `.gitignore`, repository validation script, and tests in the same change.
+- 新增会产生临时或生成产物的流程时，必须在同一次修改中更新相关 `.gitignore`、仓库校验脚本和测试。
+
 ## Required Reading / 必读文件
 
 For repository-wide work, read these first:
@@ -43,8 +52,10 @@ For repository-wide work, read these first:
 - `project_registry/002_project-id-to-source-reference-map/README.md`
 - `doc/project/001_project-positioning-and-research-boundaries/README.md`
 - `doc/project/002_source-rights-and-provenance-policy/README.md`
+- `doc/project/006_large-source-material-handling/README.md`
 - `doc/project/003_record-model-and-id-system/README.md`
 - `skills/README.md`
+- `project_registry/006_large-source-register/README.md`
 
 For corpus and record curation, also read:
 

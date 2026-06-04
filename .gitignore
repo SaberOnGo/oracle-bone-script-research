@@ -28,9 +28,26 @@ desktop.ini
 .idea/
 .vscode/
 
-# Temporary copies / 临时副本
+# AI and local temporary workspaces / AI 与本地临时工作区
+tmp/*
+**/_tmp/
+**/tmp/
+**/temp/
+**/scratch/
+**/.scratch/
+**/.working/
+**/.cache/
+!tmp/
+!tmp/.gitignore
+!tmp/README.md
+
+# Temporary files / 临时文件
 * - 副本.*
 * - Copy.*
+*.ai-tmp
+*.cache
+*.log
+*.scratch
 *.tmp
 *.bak
 
@@ -40,6 +57,8 @@ desktop.ini
 # 外部研究材料可在注明来源、权利状态和风险提示后提交。以下目录仅用于必须留在本地的资料。
 local_private_data/
 private_data/
+external_sources_local/
+large_sources_local/
 
 # Generated outputs / 生成产物
 output/
@@ -47,3 +66,5 @@ dist/
 build/
 database/generated/
 corpus/generated/
+doc/public/user_research/generated/
+research/generated/

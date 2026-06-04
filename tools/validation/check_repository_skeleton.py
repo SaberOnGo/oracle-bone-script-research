@@ -51,6 +51,10 @@ HUST_OBC_VALIDATION_CLASS_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "005_hust-obc-validation-class-staging.csv"
 )
+OBIMD_MAIN_CHARACTER_STAGING = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "006_obimd-main-character-staging.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -175,6 +179,7 @@ REQUIRED_PATHS = [
     SOURCE_PACKAGE_FILE_MANIFEST,
     DOWNLOADED_METADATA_PROFILE,
     HUST_OBC_VALIDATION_CLASS_STAGING,
+    OBIMD_MAIN_CHARACTER_STAGING,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -405,6 +410,7 @@ def check_source_registers(root: Path) -> list[str]:
     hust_validation_rows, hust_validation_issues = _read_csv_rows(
         root / HUST_OBC_VALIDATION_CLASS_STAGING
     )
+    obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -415,6 +421,7 @@ def check_source_registers(root: Path) -> list[str]:
         + package_file_issues
         + metadata_profile_issues
         + hust_validation_issues
+        + obimd_main_issues
         + log_issues
         + large_issues
     )
@@ -552,6 +559,44 @@ def check_source_registers(root: Path) -> list[str]:
     if validation_class_ids and validation_class_ids != set(range(1588)):
         issues.append(
             f"{HUST_OBC_VALIDATION_CLASS_STAGING} validation_class_id range must be 0..1587"
+        )
+
+    if len(obimd_main_rows) != 3936:
+        issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} should contain exactly 3936 candidate rows")
+    obimd_uids: set[str] = set()
+    empty_transcription_count = 0
+    for row in obimd_main_rows:
+        candidate_id = row.get("candidate_main_character_id", "")
+        if not candidate_id.startswith("obimd-main-cand-"):
+            issues.append(
+                f"{OBIMD_MAIN_CHARACTER_STAGING} candidate ID must use obimd-main-cand-*: "
+                f"{candidate_id}"
+            )
+        if row.get("source_id") != "src-obimd":
+            issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} row must reference src-obimd: {candidate_id}")
+        if row.get("evidence_download_id") != "dl-obimd-main-character-json":
+            issues.append(
+                f"{OBIMD_MAIN_CHARACTER_STAGING} row must cite dl-obimd-main-character-json: "
+                f"{candidate_id}"
+            )
+        source_uid = row.get("source_uid", "")
+        if not source_uid:
+            issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} row missing source_uid: {candidate_id}")
+        elif source_uid in obimd_uids:
+            issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} duplicate source_uid: {source_uid}")
+        obimd_uids.add(source_uid)
+        if row.get("project_import_status") != "dataset_candidate_not_promoted":
+            issues.append(
+                f"{OBIMD_MAIN_CHARACTER_STAGING} row must stay dataset_candidate_not_promoted: "
+                f"{candidate_id}"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{OBIMD_MAIN_CHARACTER_STAGING} row not reviewed_metadata_only: {candidate_id}")
+        if row.get("has_empty_transcription") == "true":
+            empty_transcription_count += 1
+    if obimd_main_rows and empty_transcription_count != 1159:
+        issues.append(
+            f"{OBIMD_MAIN_CHARACTER_STAGING} should preserve 1159 empty transcription rows"
         )
 
     for row in large_rows:

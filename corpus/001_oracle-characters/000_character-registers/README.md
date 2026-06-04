@@ -10,6 +10,7 @@ Current registers:
 - `003_undeciphered-oracle-characters-index.csv`: accepted undeciphered project character records.
 - `004_character-id-assignment-log.md`: formal project ID assignment notes.
 - `005_hust-obc-validation-class-staging.csv`: HUST-OBC validation-class staging index with 1,588 dataset candidate classes. These rows do not assign formal `obs-char-*` IDs and must not be treated as accepted paleographic readings.
+- `006_obimd-main-character-staging.csv`: OBIMD main-character UID staging index with 3,936 dataset candidate main characters. These rows preserve UID/codepoint/transcription metadata for review and do not assign formal `obs-char-*` IDs.
 
 简体中文：
 索引文件用于登记所有甲骨字记录及其来源映射。
@@ -21,3 +22,4 @@ Current registers:
 - `003_undeciphered-oracle-characters-index.csv`：正式未释甲骨单字记录。
 - `004_character-id-assignment-log.md`：正式项目 ID 分配说明。
 - `005_hust-obc-validation-class-staging.csv`：HUST-OBC validation class 暂存索引，包含 1,588 个数据集候选类别。这些行不分配正式 `obs-char-*` ID，也不得当作已接受的古文字学释读。
+- `006_obimd-main-character-staging.csv`：OBIMD main-character UID 暂存索引，包含 3,936 个数据集候选主字。该表保留 UID、codepoint 和 transcription metadata 以供复核，不分配正式 `obs-char-*` ID。

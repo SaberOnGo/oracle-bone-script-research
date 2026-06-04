@@ -119,6 +119,28 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"dataset_candidate_not_promoted"},
         )
 
+    def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "006_obimd-main-character-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3936)
+        self.assertEqual(rows[0]["candidate_main_character_id"], "obimd-main-cand-000001")
+        self.assertEqual(rows[0]["source_uid"], "p8w7ujqanz")
+        self.assertEqual(rows[0]["codepoint"], "日")
+        self.assertEqual(rows[0]["transcription_values"], "日")
+        self.assertEqual(
+            {row["project_import_status"] for row in rows},
+            {"dataset_candidate_not_promoted"},
+        )
+        self.assertEqual(
+            sum(1 for row in rows if row["has_empty_transcription"] == "true"),
+            1159,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

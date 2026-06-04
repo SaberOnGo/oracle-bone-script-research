@@ -55,6 +55,14 @@ OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
 )
+OBIMD_SUBCHARACTER_MAIN_STAGING = (
+    "corpus/003_graphemic-components/000_component-registers/"
+    "002_obimd-subcharacter-main-staging.csv"
+)
+OBIMD_SUBCHARACTER_GLYPH_STAGING = (
+    "corpus/003_graphemic-components/000_component-registers/"
+    "003_obimd-subcharacter-glyph-staging.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -180,6 +188,8 @@ REQUIRED_PATHS = [
     DOWNLOADED_METADATA_PROFILE,
     HUST_OBC_VALIDATION_CLASS_STAGING,
     OBIMD_MAIN_CHARACTER_STAGING,
+    OBIMD_SUBCHARACTER_MAIN_STAGING,
+    OBIMD_SUBCHARACTER_GLYPH_STAGING,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -411,6 +421,12 @@ def check_source_registers(root: Path) -> list[str]:
         root / HUST_OBC_VALIDATION_CLASS_STAGING
     )
     obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
+    obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
+        root / OBIMD_SUBCHARACTER_MAIN_STAGING
+    )
+    obimd_subchar_glyph_rows, obimd_subchar_glyph_issues = _read_csv_rows(
+        root / OBIMD_SUBCHARACTER_GLYPH_STAGING
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -422,6 +438,8 @@ def check_source_registers(root: Path) -> list[str]:
         + metadata_profile_issues
         + hust_validation_issues
         + obimd_main_issues
+        + obimd_subchar_main_issues
+        + obimd_subchar_glyph_issues
         + log_issues
         + large_issues
     )
@@ -597,6 +615,87 @@ def check_source_registers(root: Path) -> list[str]:
     if obimd_main_rows and empty_transcription_count != 1159:
         issues.append(
             f"{OBIMD_MAIN_CHARACTER_STAGING} should preserve 1159 empty transcription rows"
+        )
+
+    if len(obimd_subchar_main_rows) != 2747:
+        issues.append(
+            f"{OBIMD_SUBCHARACTER_MAIN_STAGING} should contain exactly 2747 relationship rows"
+        )
+    obimd_subchar_uids: set[str] = set()
+    obimd_main_relation_uids: set[str] = set()
+    for row in obimd_subchar_main_rows:
+        candidate_id = row.get("candidate_subcharacter_id", "")
+        if not candidate_id.startswith("obimd-sub-cand-"):
+            issues.append(
+                f"{OBIMD_SUBCHARACTER_MAIN_STAGING} candidate ID must use obimd-sub-cand-*: "
+                f"{candidate_id}"
+            )
+        if row.get("source_id") != "src-obimd":
+            issues.append(f"{OBIMD_SUBCHARACTER_MAIN_STAGING} row must reference src-obimd: {candidate_id}")
+        if row.get("evidence_download_id") != "dl-obimd-subchar-main-mapping":
+            issues.append(
+                f"{OBIMD_SUBCHARACTER_MAIN_STAGING} row must cite dl-obimd-subchar-main-mapping: "
+                f"{candidate_id}"
+            )
+        sub_uid = row.get("source_subcharacter_uid", "")
+        main_uid = row.get("source_main_character_uid", "")
+        if not sub_uid or not main_uid:
+            issues.append(f"{OBIMD_SUBCHARACTER_MAIN_STAGING} row missing UID: {candidate_id}")
+        if sub_uid in obimd_subchar_uids:
+            issues.append(f"{OBIMD_SUBCHARACTER_MAIN_STAGING} duplicate subcharacter UID: {sub_uid}")
+        obimd_subchar_uids.add(sub_uid)
+        obimd_main_relation_uids.add(main_uid)
+        if row.get("project_import_status") != "dataset_candidate_not_promoted":
+            issues.append(
+                f"{OBIMD_SUBCHARACTER_MAIN_STAGING} row must stay dataset_candidate_not_promoted: "
+                f"{candidate_id}"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{OBIMD_SUBCHARACTER_MAIN_STAGING} row not reviewed_metadata_only: {candidate_id}")
+    if obimd_subchar_main_rows and len(obimd_main_relation_uids) != 1730:
+        issues.append(f"{OBIMD_SUBCHARACTER_MAIN_STAGING} should preserve 1730 unique main UIDs")
+
+    if len(obimd_subchar_glyph_rows) != 41686:
+        issues.append(
+            f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} should contain exactly 41686 glyph rows"
+        )
+    glyph_codepoints: set[str] = set()
+    glyph_sub_uids: set[str] = set()
+    for row in obimd_subchar_glyph_rows:
+        candidate_id = row.get("candidate_glyph_link_id", "")
+        if not candidate_id.startswith("obimd-glyph-link-"):
+            issues.append(
+                f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} candidate ID must use obimd-glyph-link-*: "
+                f"{candidate_id}"
+            )
+        if row.get("source_id") != "src-obimd":
+            issues.append(f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} row must reference src-obimd: {candidate_id}")
+        if row.get("evidence_download_id") != "dl-obimd-subchar-glyph-mapping":
+            issues.append(
+                f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} row must cite dl-obimd-subchar-glyph-mapping: "
+                f"{candidate_id}"
+            )
+        sub_uid = row.get("source_subcharacter_uid", "")
+        glyph = row.get("glyph_codepoint", "")
+        if not sub_uid or not glyph:
+            issues.append(f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} row missing UID or glyph: {candidate_id}")
+        glyph_sub_uids.add(sub_uid)
+        if glyph in glyph_codepoints:
+            issues.append(f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} duplicate glyph codepoint: {candidate_id}")
+        glyph_codepoints.add(glyph)
+        if not row.get("glyph_codepoint_uplus", ""):
+            issues.append(f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} row missing U+ form: {candidate_id}")
+        if row.get("project_import_status") != "dataset_candidate_not_promoted":
+            issues.append(
+                f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} row must stay dataset_candidate_not_promoted: "
+                f"{candidate_id}"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} row not reviewed_metadata_only: {candidate_id}")
+    if glyph_sub_uids and glyph_sub_uids != obimd_subchar_uids:
+        issues.append(
+            f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} subcharacter UID set must match "
+            f"{OBIMD_SUBCHARACTER_MAIN_STAGING}"
         )
 
     for row in large_rows:

@@ -141,6 +141,37 @@ class RepositorySkeletonTests(unittest.TestCase):
             1159,
         )
 
+    def test_obimd_subcharacter_staging_preserves_hierarchy_and_glyph_links(self) -> None:
+        main_path = (
+            repo_root()
+            / "corpus/003_graphemic-components/000_component-registers/"
+            / "002_obimd-subcharacter-main-staging.csv"
+        )
+        glyph_path = (
+            repo_root()
+            / "corpus/003_graphemic-components/000_component-registers/"
+            / "003_obimd-subcharacter-glyph-staging.csv"
+        )
+        with main_path.open("r", encoding="utf-8-sig", newline="") as file:
+            main_rows = list(csv.DictReader(file))
+        with glyph_path.open("r", encoding="utf-8-sig", newline="") as file:
+            glyph_rows = list(csv.DictReader(file))
+        self.assertEqual(len(main_rows), 2747)
+        self.assertEqual(len(glyph_rows), 41686)
+        self.assertEqual(main_rows[0]["candidate_subcharacter_id"], "obimd-sub-cand-000001")
+        self.assertEqual(main_rows[0]["source_subcharacter_uid"], "p8w7ujqanz")
+        self.assertEqual(main_rows[0]["source_main_character_uid"], "p8w7ujqanz")
+        self.assertEqual(glyph_rows[0]["candidate_glyph_link_id"], "obimd-glyph-link-000001")
+        self.assertEqual(glyph_rows[0]["source_subcharacter_uid"], "p8w7ujqanz")
+        self.assertEqual(glyph_rows[0]["glyph_codepoint_uplus"], "U+65E5;U+F0000")
+        self.assertEqual(
+            {row["project_import_status"] for row in main_rows + glyph_rows},
+            {"dataset_candidate_not_promoted"},
+        )
+        self.assertEqual(len({row["source_subcharacter_uid"] for row in main_rows}), 2747)
+        self.assertEqual(len({row["source_main_character_uid"] for row in main_rows}), 1730)
+        self.assertEqual(len({row["glyph_codepoint"] for row in glyph_rows}), 41686)
+
 
 if __name__ == "__main__":
     unittest.main()

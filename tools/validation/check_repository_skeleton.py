@@ -76,6 +76,14 @@ COLLECTION_PROVENANCE_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "001_institutional-collection-provenance-staging.csv"
 )
+EVOBC_EVOLUTION_CATEGORY_STAGING = (
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+    "001_evobc-evolution-category-staging.csv"
+)
+EVOBC_ERA_SOURCE_CODEBOOK_STAGING = (
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+    "002_evobc-era-source-codebook-staging.csv"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -103,6 +111,8 @@ REQUIRED_EXTERNAL_PREFIXES = {
     "obimd-main",
     "obimd-sub",
     "obimd-glyph-link",
+    "evobc-cat",
+    "evobc-code",
     "collection-prov",
 }
 
@@ -215,13 +225,17 @@ REQUIRED_PATHS = [
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
+    EVOBC_EVOLUTION_CATEGORY_STAGING,
+    EVOBC_ERA_SOURCE_CODEBOOK_STAGING,
     CAMBRIDGE_HOPKINS_CROSSWALK_STAGING,
     CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY,
     COLLECTION_PROVENANCE_STAGING,
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
     "tools/002_corpus-import/download_source_manifest.py",
+    "tools/002_corpus-import/build_evobc_evolution_staging.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -437,6 +451,24 @@ def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
     return rows, issues
 
 
+def _parse_compact_counts(value: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    if not value:
+        return counts
+    for part in value.split(";"):
+        if not part:
+            continue
+        if ":" not in part:
+            counts[part] = -1
+            continue
+        key, raw_count = part.rsplit(":", 1)
+        if not raw_count.isdigit():
+            counts[key] = -1
+            continue
+        counts[key] = int(raw_count)
+    return counts
+
+
 def check_source_registers(root: Path) -> list[str]:
     issues: list[str] = []
     prefix_rows, prefix_issues = _read_csv_rows(root / EXTERNAL_SOURCE_PREFIXES)
@@ -455,6 +487,12 @@ def check_source_registers(root: Path) -> list[str]:
     )
     obimd_subchar_glyph_rows, obimd_subchar_glyph_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_GLYPH_STAGING
+    )
+    evobc_category_rows, evobc_category_issues = _read_csv_rows(
+        root / EVOBC_EVOLUTION_CATEGORY_STAGING
+    )
+    evobc_codebook_rows, evobc_codebook_issues = _read_csv_rows(
+        root / EVOBC_ERA_SOURCE_CODEBOOK_STAGING
     )
     cambridge_crosswalk_rows, cambridge_crosswalk_issues = _read_csv_rows(
         root / CAMBRIDGE_HOPKINS_CROSSWALK_STAGING
@@ -479,6 +517,8 @@ def check_source_registers(root: Path) -> list[str]:
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
+        + evobc_category_issues
+        + evobc_codebook_issues
         + cambridge_crosswalk_issues
         + cambridge_summary_issues
         + collection_provenance_issues
@@ -747,6 +787,136 @@ def check_source_registers(root: Path) -> list[str]:
             f"{OBIMD_SUBCHARACTER_GLYPH_STAGING} subcharacter UID set must match "
             f"{OBIMD_SUBCHARACTER_MAIN_STAGING}"
         )
+
+    expected_evobc_era_counts = {
+        "0": 75681,
+        "1": 47314,
+        "2": 13434,
+        "3": 9131,
+        "4": 80042,
+        "5": 3568,
+    }
+    expected_evobc_source_counts = {
+        "0": 1633,
+        "1": 106010,
+        "2": 17600,
+        "3": 21681,
+        "4": 9131,
+        "5": 32794,
+        "6": 30645,
+        "7": 9676,
+    }
+    if len(evobc_category_rows) != 13714:
+        issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} should contain exactly 13714 rows")
+    evobc_source_category_ids: set[str] = set()
+    evobc_total_images = 0
+    evobc_zero_image_rows = 0
+    evobc_era_counts: dict[str, int] = {}
+    evobc_source_counts: dict[str, int] = {}
+    for row in evobc_category_rows:
+        candidate_id = row.get("candidate_evolution_category_id", "")
+        if not candidate_id.startswith("evobc-evo-cat-"):
+            issues.append(
+                f"{EVOBC_EVOLUTION_CATEGORY_STAGING} candidate ID must use "
+                f"evobc-evo-cat-*: {candidate_id}"
+            )
+        if row.get("source_id") != "src-evobc":
+            issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} row must reference src-evobc: {candidate_id}")
+        if row.get("evidence_download_id_key_value") != "dl-evobc-key-value-json":
+            issues.append(
+                f"{EVOBC_EVOLUTION_CATEGORY_STAGING} row must cite dl-evobc-key-value-json: "
+                f"{candidate_id}"
+            )
+        if row.get("evidence_download_id_list") != "dl-evobc-list-json":
+            issues.append(
+                f"{EVOBC_EVOLUTION_CATEGORY_STAGING} row must cite dl-evobc-list-json: "
+                f"{candidate_id}"
+            )
+        source_category_id = row.get("source_category_id", "")
+        if len(source_category_id) != 5 or not source_category_id.isdigit():
+            issues.append(
+                f"{EVOBC_EVOLUTION_CATEGORY_STAGING} source_category_id must be five digits: "
+                f"{candidate_id}"
+            )
+        if source_category_id in evobc_source_category_ids:
+            issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} duplicate source_category_id: {source_category_id}")
+        evobc_source_category_ids.add(source_category_id)
+        image_count = row.get("image_reference_count", "")
+        if not image_count.isdigit():
+            issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} image_reference_count not numeric: {candidate_id}")
+            image_count_value = 0
+        else:
+            image_count_value = int(image_count)
+        evobc_total_images += image_count_value
+        if image_count_value == 0:
+            evobc_zero_image_rows += 1
+        era_counts = _parse_compact_counts(row.get("era_code_counts", ""))
+        source_counts = _parse_compact_counts(row.get("source_code_counts", ""))
+        if any(count < 0 for count in era_counts.values()):
+            issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} malformed era counts: {candidate_id}")
+        if any(count < 0 for count in source_counts.values()):
+            issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} malformed source counts: {candidate_id}")
+        for key, value in era_counts.items():
+            evobc_era_counts[key] = evobc_era_counts.get(key, 0) + value
+        for key, value in source_counts.items():
+            evobc_source_counts[key] = evobc_source_counts.get(key, 0) + value
+        expected_flags = {
+            "has_oracle_bone_refs": "0",
+            "has_bronze_refs": "1",
+            "has_seal_refs": "2",
+            "has_spring_autumn_refs": "3",
+            "has_warring_states_refs": "4",
+            "has_clerical_refs": "5",
+        }
+        for flag, era_code in expected_flags.items():
+            if row.get(flag) != str(era_counts.get(era_code, 0) > 0).lower():
+                issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} {flag} mismatch: {candidate_id}")
+        if row.get("project_import_status") != "dataset_candidate_not_promoted":
+            issues.append(
+                f"{EVOBC_EVOLUTION_CATEGORY_STAGING} row must stay dataset_candidate_not_promoted: "
+                f"{candidate_id}"
+            )
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} row not reviewed_metadata_only: {candidate_id}")
+    if evobc_category_rows and evobc_source_category_ids != {f"{index:05d}" for index in range(1, 13715)}:
+        issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} source_category_id range must be 00001..13714")
+    if evobc_category_rows and evobc_total_images != 229170:
+        issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} image-reference total must be 229170")
+    if evobc_category_rows and evobc_zero_image_rows != 2:
+        issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} zero-image category count must be 2")
+    if evobc_category_rows and evobc_era_counts != expected_evobc_era_counts:
+        issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} era-code totals changed")
+    if evobc_category_rows and evobc_source_counts != expected_evobc_source_counts:
+        issues.append(f"{EVOBC_EVOLUTION_CATEGORY_STAGING} source-code totals changed")
+
+    if len(evobc_codebook_rows) != 14:
+        issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} should contain exactly 14 rows")
+    era_codebook_counts: dict[str, int] = {}
+    source_codebook_counts: dict[str, int] = {}
+    for row in evobc_codebook_rows:
+        codebook_row_id = row.get("codebook_row_id", "")
+        if not codebook_row_id.startswith("evobc-code-"):
+            issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} row ID must use evobc-code-*: {codebook_row_id}")
+        if row.get("source_id") != "src-evobc":
+            issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} row must reference src-evobc: {codebook_row_id}")
+        if row.get("evidence_download_id") != "dl-evobc-list-json":
+            issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} row must cite dl-evobc-list-json: {codebook_row_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} row not reviewed_metadata_only: {codebook_row_id}")
+        image_count = row.get("image_reference_count", "")
+        if not image_count.isdigit():
+            issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} image_reference_count not numeric: {codebook_row_id}")
+            continue
+        if row.get("code_type") == "era":
+            era_codebook_counts[row.get("code_value", "")] = int(image_count)
+        elif row.get("code_type") == "source":
+            source_codebook_counts[row.get("code_value", "")] = int(image_count)
+        else:
+            issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} unknown code_type: {codebook_row_id}")
+    if evobc_codebook_rows and era_codebook_counts != expected_evobc_era_counts:
+        issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} era-code totals changed")
+    if evobc_codebook_rows and source_codebook_counts != expected_evobc_source_counts:
+        issues.append(f"{EVOBC_ERA_SOURCE_CODEBOOK_STAGING} source-code totals changed")
 
     if len(cambridge_crosswalk_rows) != 612:
         issues.append(

@@ -14,6 +14,8 @@ hust-obc,src-hust-obc,HUST-OBC Dataset,HUST-OBC 甲骨文字數據集,Peer-revie
 obimd,src-obimd,OBIMD Multi-modal Dataset,OBIMD 甲骨文多模態數據集,Peer-reviewed multimodal dataset reference for images; annotations; sentence groups; and reading order.,同行評審多模態數據集引用，用於圖像、標註、句組和閱讀順序。
 open-oracle,src-open-oracle,Open-Oracle Project Repository,Open-Oracle 項目倉庫,Research project hub and dataset index reference.,研究項目入口與數據集索引引用。
 evobc,src-evobc,EVOBC Evolution Dataset,EVOBC 字形演化数据集,Evolution-chain dataset reference across historical script stages.,跨历史文字阶段的字形演化数据集引用。
+evobc-cat,src-evobc,EVOBC evolution category,EVOBC 字形演化类别,Dataset category reference from EVOBC Key&Value.json and List_of_EVOBC.json; not a formal correspondence ID.,来自 EVOBC Key&Value.json 和 List_of_EVOBC.json 的数据集类别引用；不是正式字形对应 ID。
+evobc-code,src-evobc,EVOBC era/source codebook,EVOBC 时代码/source 码表,Project-local staging prefix for EVOBC era and source codebook rows.,本项目用于 EVOBC 时代码与 source 码暂存行的前缀。
 oracle-mnist,src-oracle-mnist,Oracle-MNIST Dataset,Oracle-MNIST 數據集,Small AI benchmark dataset reference.,小型 AI 基準數據集引用。
 gbedobc,src-gbedobc,GBEDOBC Dataset,GBEDOBC 字形演化數據集,Graph-based character evolution dataset reference.,基於圖的字形演化數據集引用。
 nlc-ob,src-nlc-oracle-world,National Library of China Oracle Bone Resources,中國國家圖書館甲骨資源,National-library source reference pending stable endpoint confirmation.,國家圖書館來源引用，待確認穩定入口。

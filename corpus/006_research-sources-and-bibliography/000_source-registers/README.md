@@ -32,3 +32,7 @@ Do not add general news sites, entertainment sites, unsourced popular articles, 
 - `009_source-package-file-manifest.csv`：原始包和小型 metadata 文件的文件级清单。
 - `010_downloaded-metadata-profile.csv`: reviewed profile metrics extracted from downloaded small metadata.
 - `010_downloaded-metadata-profile.csv`：从已下载小型 metadata 中抽取的已复核概要指标。
+
+Derived staging indexes built from logged downloads are stored in their subject corpus areas, not in this source-register directory. For example, EVOBC evolution-chain metadata is staged under `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`.
+
+从已登记下载文件生成的派生暂存索引放在对应主题语料区，而不是放在本来源登记目录中。例如，EVOBC 字形演化 metadata 暂存在 `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`。

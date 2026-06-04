@@ -81,12 +81,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obimd-main",
             "obimd-sub",
             "obimd-glyph-link",
+            "evobc-cat",
+            "evobc-code",
             "collection-prov",
         }
         self.assertTrue(expected.issubset(prefixes))
         self.assertEqual(prefixes["hust-obc-cat"]["source_id"], "src-hust-obc")
         self.assertEqual(prefixes["obimd-main"]["source_id"], "src-obimd")
         self.assertEqual(prefixes["cam-hopkins-j"]["source_id"], "src-cambridge-hopkins")
+        self.assertEqual(prefixes["evobc-cat"]["source_id"], "src-evobc")
         self.assertIn("not an accepted oracle-character ID", prefixes["hust-obc-cat"]["notes_en"])
 
     def test_source_package_manifest_covers_large_metadata_boundaries(self) -> None:
@@ -197,6 +200,62 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len({row["source_subcharacter_uid"] for row in main_rows}), 2747)
         self.assertEqual(len({row["source_main_character_uid"] for row in main_rows}), 1730)
         self.assertEqual(len({row["glyph_codepoint"] for row in glyph_rows}), 41686)
+
+    def test_evobc_evolution_staging_preserves_dataset_scale(self) -> None:
+        category_path = (
+            repo_root()
+            / "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+            / "001_evobc-evolution-category-staging.csv"
+        )
+        codebook_path = (
+            repo_root()
+            / "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+            / "002_evobc-era-source-codebook-staging.csv"
+        )
+        with category_path.open("r", encoding="utf-8-sig", newline="") as file:
+            category_rows = list(csv.DictReader(file))
+        with codebook_path.open("r", encoding="utf-8-sig", newline="") as file:
+            codebook_rows = list(csv.DictReader(file))
+        self.assertEqual(len(category_rows), 13714)
+        self.assertEqual(category_rows[0]["candidate_evolution_category_id"], "evobc-evo-cat-00001")
+        self.assertEqual(category_rows[0]["source_category_id"], "00001")
+        self.assertEqual(category_rows[0]["source_character_codepoints"], "U+3401")
+        self.assertEqual(category_rows[0]["era_code_counts"], "0:35;3:2")
+        self.assertEqual(category_rows[-1]["source_category_id"], "13714")
+        self.assertEqual(category_rows[-1]["image_reference_count"], "0")
+        self.assertEqual(sum(int(row["image_reference_count"]) for row in category_rows), 229170)
+        self.assertEqual(sum(1 for row in category_rows if row["image_reference_count"] == "0"), 2)
+        self.assertEqual(
+            {row["project_import_status"] for row in category_rows},
+            {"dataset_candidate_not_promoted"},
+        )
+        self.assertEqual(len(codebook_rows), 14)
+        era_counts = {
+            row["code_value"]: row["image_reference_count"]
+            for row in codebook_rows
+            if row["code_type"] == "era"
+        }
+        self.assertEqual(
+            era_counts,
+            {
+                "0": "75681",
+                "1": "47314",
+                "2": "13434",
+                "3": "9131",
+                "4": "80042",
+                "5": "3568",
+            },
+        )
+        source_counts = {
+            row["code_value"]: row["image_reference_count"]
+            for row in codebook_rows
+            if row["code_type"] == "source"
+        }
+        self.assertEqual(source_counts["1"], "106010")
+        self.assertEqual(
+            {row["review_status"] for row in codebook_rows},
+            {"reviewed_metadata_only"},
+        )
 
     def test_cambridge_hopkins_crosswalk_preserves_official_references(self) -> None:
         crosswalk_path = (

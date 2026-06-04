@@ -23,6 +23,10 @@ SOURCE_DOWNLOAD_MANIFEST = (
 )
 SOURCE_DOWNLOAD_LOG = "project_registry/006_large-source-register/002_source-download-log.csv"
 LARGE_SOURCE_REGISTER = "project_registry/006_large-source-register/001_large-source-register.csv"
+OPEN_ORACLE_STRATEGY_REVIEW = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "005_open-oracle-strategy-review.md"
+)
 
 ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-xiaoxuetang-jiaguwen",
@@ -30,6 +34,10 @@ ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-ihp-oracle-rubbings",
     "src-ihp-museum-oracle-bones",
     "src-yinqi-wenyuan",
+}
+
+ADOPTED_PROJECT_INDEX_SOURCE_IDS = {
+    "src-open-oracle",
 }
 
 REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
@@ -129,6 +137,7 @@ REQUIRED_PATHS = [
     SOURCE_DOWNLOAD_MANIFEST,
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "004_first-stage-source-adoption-notes.md",
+    OPEN_ORACLE_STRATEGY_REVIEW,
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -350,6 +359,9 @@ def check_source_registers(root: Path) -> list[str]:
     missing_adopted = sorted(ADOPTED_PROFESSIONAL_SOURCE_IDS - source_ids)
     for source_id in missing_adopted:
         issues.append(f"missing adopted professional source: {source_id}")
+    missing_project_indexes = sorted(ADOPTED_PROJECT_INDEX_SOURCE_IDS - source_ids)
+    for source_id in missing_project_indexes:
+        issues.append(f"missing adopted project-index source: {source_id}")
 
     source_by_id = {row.get("source_id", ""): row for row in source_rows}
     for source_id in sorted(ADOPTED_PROFESSIONAL_SOURCE_IDS):
@@ -360,6 +372,14 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{SOURCE_INDEX} source not marked adopted: {source_id}")
         if row.get("review_status") != "reviewed":
             issues.append(f"{SOURCE_INDEX} source not reviewed: {source_id}")
+    for source_id in sorted(ADOPTED_PROJECT_INDEX_SOURCE_IDS):
+        row = source_by_id.get(source_id)
+        if not row:
+            continue
+        if row.get("adoption_status") != "adopted_project_index":
+            issues.append(f"{SOURCE_INDEX} project index not marked adopted_project_index: {source_id}")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{SOURCE_INDEX} project index not reviewed: {source_id}")
 
     inventory_source_ids = {row.get("source_id", "") for row in inventory_rows}
     for source_id in sorted(source_ids - inventory_source_ids):

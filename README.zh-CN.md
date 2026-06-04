@@ -66,4 +66,8 @@ python -m unittest discover -s tests -v
 
 研究需要时，可以下载或提交外部甲骨图片、扫描件、论文 PDF、大规模图片集和研究语料。每个提交的资料项都必须注明来源、权利状态和显式风险提示，方便人类和 AI Agent 追溯出处并判断复用风险。
 
+`SIZE_LIMIT` 设为单文件 30 MiB。更大的文件需要登记特例，并优先考虑分包、降采样、压缩或抽取其中结构化记录。达到或超过 40 MiB 的文件不得提交。
+
 External oracle bone images, scans, paper PDFs, large image sets, and research corpora may be downloaded or committed when they are useful for research. Every committed item must include source provenance, rights status, and a visible risk note, so humans and AI Agents can trace where the material came from and judge reuse risk.
+
+`SIZE_LIMIT` is 30 MiB per file. Larger files require an exception record and should be split, downsampled, compressed, or converted into extracted records when possible. Files at or above 40 MiB must not be committed.

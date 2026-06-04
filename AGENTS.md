@@ -27,6 +27,9 @@ This file is the mandatory entry point for AI agents working from a downloaded c
 - External oracle bone images, scans, paper PDFs, and large research corpora may be downloaded or committed when research needs them, but every item must include source provenance, rights status, and a visible risk note.
 - 研究需要时，可以下载或提交外部甲骨图片、扫描件、论文 PDF 或大型研究资料；但每项资料都必须注明来源、权利状态和显式风险提示。
 
+- `SIZE_LIMIT` is 30 MiB per file for both downloaded and committed research materials. Files above `SIZE_LIMIT` require a recorded exception and should be split, downsampled, compressed, or converted into extracted records when possible. Files at or above 40 MiB must not be committed to this repository.
+- `SIZE_LIMIT` 设为单文件 30 MiB，下载和提交研究资料都适用。超过 `SIZE_LIMIT` 的文件必须登记特例，并优先考虑分包、降采样、压缩或抽取其中结构化记录。达到或超过 40 MiB 的文件不得提交到本仓库。
+
 ## Required Reading / 必读文件
 
 For repository-wide work, read these first:

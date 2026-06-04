@@ -4,8 +4,13 @@
 from __future__ import annotations
 
 import sys
+import csv
 from pathlib import Path
 
+
+SIZE_LIMIT_BYTES = 30 * 1024 * 1024
+HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
+SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
 
 REQUIRED_PATHS = [
     "AGENTS.md",
@@ -28,6 +33,7 @@ REQUIRED_PATHS = [
     "project_registry/002_project-id-to-source-reference-map/README.md",
     "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv",
     "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
     "research/README.md",
@@ -129,6 +135,55 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
     return issues
 
 
+def _relative_posix(path: Path, root: Path) -> str:
+    return path.relative_to(root).as_posix()
+
+
+def _load_size_limit_exceptions(root: Path) -> tuple[set[str], list[str]]:
+    issues: list[str] = []
+    exception_path = root / SIZE_LIMIT_EXCEPTIONS
+    if not exception_path.exists():
+        return set(), [f"missing size-limit exceptions index: {SIZE_LIMIT_EXCEPTIONS}"]
+
+    exceptions: set[str] = set()
+    with exception_path.open("r", encoding="utf-8-sig", newline="") as file:
+        reader = csv.DictReader(file)
+        if "path" not in (reader.fieldnames or []):
+            issues.append(f"{SIZE_LIMIT_EXCEPTIONS} missing required column: path")
+            return exceptions, issues
+        for line_number, row in enumerate(reader, start=2):
+            relative_path = (row.get("path") or "").strip().replace("\\", "/")
+            if not relative_path:
+                continue
+            if relative_path.startswith("/") or "../" in relative_path or relative_path == "..":
+                issues.append(f"{SIZE_LIMIT_EXCEPTIONS}:{line_number} has unsafe path: {relative_path}")
+                continue
+            exceptions.add(relative_path)
+    return exceptions, issues
+
+
+def check_file_size_limits(root: Path) -> list[str]:
+    issues: list[str] = []
+    exceptions, exception_issues = _load_size_limit_exceptions(root)
+    issues.extend(exception_issues)
+
+    for path in root.rglob("*"):
+        if ".git" in path.parts or not path.is_file():
+            continue
+        relative_path = _relative_posix(path, root)
+        file_size = path.stat().st_size
+        if file_size >= HARD_FILE_LIMIT_BYTES:
+            issues.append(
+                f"file exceeds hard 40 MiB commit limit: {relative_path} ({file_size} bytes)"
+            )
+        elif file_size > SIZE_LIMIT_BYTES and relative_path not in exceptions:
+            issues.append(
+                f"file exceeds SIZE_LIMIT 30 MiB and is not listed in "
+                f"{SIZE_LIMIT_EXCEPTIONS}: {relative_path} ({file_size} bytes)"
+            )
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
@@ -137,6 +192,7 @@ def main() -> int:
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))
     issues.extend(check_forbidden_policy_text(root))
+    issues.extend(check_file_size_limits(root))
 
     if issues:
         print("FAIL repository skeleton")

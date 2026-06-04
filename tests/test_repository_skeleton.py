@@ -2,6 +2,7 @@ import unittest
 
 from tools.validation.check_repository_skeleton import (
     check_bilingual_markers,
+    check_file_size_limits,
     check_forbidden_policy_text,
     check_forbidden_paths,
     check_forbidden_top_level_dirs,
@@ -25,6 +26,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_forbidden_old_policy_text_absent(self) -> None:
         self.assertEqual(check_forbidden_policy_text(repo_root()), [])
+
+    def test_file_size_limits(self) -> None:
+        self.assertEqual(check_file_size_limits(repo_root()), [])
 
 
 if __name__ == "__main__":

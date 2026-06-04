@@ -78,6 +78,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "cam-hopkins-h",
             "cam-hopkins-j",
             "hust-obc-cat",
+            "ihp-mus-obj",
             "obimd-main",
             "obimd-sub",
             "obimd-glyph-link",
@@ -89,6 +90,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(prefixes["hust-obc-cat"]["source_id"], "src-hust-obc")
         self.assertEqual(prefixes["obimd-main"]["source_id"], "src-obimd")
         self.assertEqual(prefixes["cam-hopkins-j"]["source_id"], "src-cambridge-hopkins")
+        self.assertEqual(prefixes["ihp-mus-obj"]["source_id"], "src-ihp-museum-oracle-bones")
         self.assertEqual(prefixes["evobc-cat"]["source_id"], "src-evobc")
         self.assertIn("not an accepted oracle-character ID", prefixes["hust-obc-cat"]["notes_en"])
 
@@ -329,6 +331,46 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             {row["review_status"] for row in rows},
             {"reviewed_metadata_only"},
+        )
+
+    def test_ihp_museum_object_staging_preserves_official_item_links(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+            / "002_ihp-museum-oracle-bone-object-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 52)
+        self.assertEqual(rows[0]["candidate_collection_object_id"], "ihp-mus-obj-00001")
+        self.assertEqual(rows[0]["source_collection_item_id"], "1212")
+        self.assertEqual(rows[0]["catalog_reference_text"], "Jia Bian 3333+3361")
+        self.assertEqual(rows[-1]["source_collection_item_id"], "273")
+        self.assertEqual(rows[-1]["catalog_reference_text"], "Ping 0264")
+        self.assertEqual(len({row["source_collection_item_id"] for row in rows}), 52)
+        self.assertTrue(
+            all(
+                row["object_page_url"].startswith(
+                    "https://museum.sinica.edu.tw/en/collection/32/item/"
+                )
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all(
+                row["thumbnail_url"].startswith(
+                    "https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/"
+                )
+                for row in rows
+            )
+        )
+        self.assertEqual(
+            {row["thumbnail_download_status"] for row in rows},
+            {"not_downloaded_metadata_only"},
+        )
+        self.assertEqual(
+            {row["project_import_status"] for row in rows},
+            {"object_metadata_not_promoted"},
         )
 
 

@@ -76,6 +76,10 @@ COLLECTION_PROVENANCE_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "001_institutional-collection-provenance-staging.csv"
 )
+IHP_MUSEUM_OBJECT_STAGING = (
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+    "002_ihp-museum-oracle-bone-object-staging.csv"
+)
 EVOBC_EVOLUTION_CATEGORY_STAGING = (
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
     "001_evobc-evolution-category-staging.csv"
@@ -108,6 +112,7 @@ REQUIRED_EXTERNAL_PREFIXES = {
     "cam-hopkins-h",
     "cam-hopkins-j",
     "hust-obc-cat",
+    "ihp-mus-obj",
     "obimd-main",
     "obimd-sub",
     "obimd-glyph-link",
@@ -230,12 +235,14 @@ REQUIRED_PATHS = [
     CAMBRIDGE_HOPKINS_CROSSWALK_STAGING,
     CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY,
     COLLECTION_PROVENANCE_STAGING,
+    IHP_MUSEUM_OBJECT_STAGING,
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
     "tools/002_corpus-import/download_source_manifest.py",
     "tools/002_corpus-import/build_evobc_evolution_staging.py",
+    "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
@@ -503,6 +510,9 @@ def check_source_registers(root: Path) -> list[str]:
     collection_provenance_rows, collection_provenance_issues = _read_csv_rows(
         root / COLLECTION_PROVENANCE_STAGING
     )
+    ihp_museum_object_rows, ihp_museum_object_issues = _read_csv_rows(
+        root / IHP_MUSEUM_OBJECT_STAGING
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -522,6 +532,7 @@ def check_source_registers(root: Path) -> list[str]:
         + cambridge_crosswalk_issues
         + cambridge_summary_issues
         + collection_provenance_issues
+        + ihp_museum_object_issues
         + log_issues
         + large_issues
     )
@@ -1029,6 +1040,54 @@ def check_source_registers(root: Path) -> list[str]:
                 f"{COLLECTION_PROVENANCE_STAGING} missing expected collection fact: "
                 f"{required_snippet}"
             )
+
+    if len(ihp_museum_object_rows) != 52:
+        issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} should contain exactly 52 rows")
+    ihp_item_ids: set[str] = set()
+    for row in ihp_museum_object_rows:
+        candidate_id = row.get("candidate_collection_object_id", "")
+        if not candidate_id.startswith("ihp-mus-obj-"):
+            issues.append(
+                f"{IHP_MUSEUM_OBJECT_STAGING} candidate ID must use ihp-mus-obj-*: "
+                f"{candidate_id}"
+            )
+        if row.get("source_id") != "src-ihp-museum-oracle-bones":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} row must reference src-ihp-museum-oracle-bones")
+        if row.get("evidence_download_id") != "dl-ihp-museum-oracle-bones":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} row must cite dl-ihp-museum-oracle-bones")
+        source_item_id = row.get("source_collection_item_id", "")
+        if not source_item_id.isdigit():
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} source_collection_item_id not numeric: {candidate_id}")
+        if source_item_id in ihp_item_ids:
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} duplicate source_collection_item_id: {source_item_id}")
+        ihp_item_ids.add(source_item_id)
+        if not row.get("object_page_url", "").startswith(
+            "https://museum.sinica.edu.tw/en/collection/32/item/"
+        ):
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} object_page_url outside official item path")
+        if not row.get("thumbnail_url", "").startswith(
+            "https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/"
+        ):
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} thumbnail_url outside official thumbnail path")
+        if row.get("thumbnail_download_status") != "not_downloaded_metadata_only":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} thumbnail must stay metadata-only")
+        if row.get("project_import_status") != "object_metadata_not_promoted":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} row must stay object_metadata_not_promoted")
+        if row.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} row must stay metadata_only_until_verified")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} row not reviewed_metadata_only")
+    if ihp_museum_object_rows:
+        first_row = ihp_museum_object_rows[0]
+        last_row = ihp_museum_object_rows[-1]
+        if first_row.get("source_collection_item_id") != "1212":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} first item ID changed")
+        if first_row.get("catalog_reference_text") != "Jia Bian 3333+3361":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} first catalog reference changed")
+        if last_row.get("source_collection_item_id") != "273":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} last item ID changed")
+        if last_row.get("catalog_reference_text") != "Ping 0264":
+            issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} last catalog reference changed")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

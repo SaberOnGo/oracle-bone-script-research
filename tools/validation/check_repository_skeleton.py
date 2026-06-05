@@ -17,6 +17,7 @@ SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_
 ASSET_SOURCE_INDEX = "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
 ASSET_RIGHTS_REVIEW_LOG = "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
 ASSET_IMAGE_TECHNICAL_PROFILE = "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv"
+ASSET_IMAGE_VISUAL_PROFILE = "project_registry/004_asset-source-and-rights-index/005_asset-image-visual-profile.csv"
 EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
 ASSET_ID_SOURCE_MAP = "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
 SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
@@ -294,6 +295,7 @@ REQUIRED_PATHS = [
     ASSET_RIGHTS_REVIEW_LOG,
     "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
     ASSET_IMAGE_TECHNICAL_PROFILE,
+    ASSET_IMAGE_VISUAL_PROFILE,
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
     "project_registry/006_large-source-register/README.md",
@@ -364,6 +366,7 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
+    "tools/004_statistics-generation/build_asset_image_visual_profiles.py",
     "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
@@ -617,8 +620,9 @@ def check_asset_records(root: Path) -> list[str]:
     asset_rows, asset_issues = _read_csv_rows(root / ASSET_SOURCE_INDEX)
     rights_rows, rights_issues = _read_csv_rows(root / ASSET_RIGHTS_REVIEW_LOG)
     image_profile_rows, image_profile_issues = _read_csv_rows(root / ASSET_IMAGE_TECHNICAL_PROFILE)
+    visual_profile_rows, visual_profile_issues = _read_csv_rows(root / ASSET_IMAGE_VISUAL_PROFILE)
     map_rows, map_issues = _read_csv_rows(root / ASSET_ID_SOURCE_MAP)
-    issues.extend(asset_issues + rights_issues + image_profile_issues + map_issues)
+    issues.extend(asset_issues + rights_issues + image_profile_issues + visual_profile_issues + map_issues)
 
     asset_ids = {row.get("asset_id", "") for row in asset_rows}
     required_asset_ids = {"asset-000001", "asset-000002"}
@@ -627,6 +631,7 @@ def check_asset_records(root: Path) -> list[str]:
 
     rights_asset_ids = {row.get("asset_id", "") for row in rights_rows}
     image_profile_asset_ids = {row.get("asset_id", "") for row in image_profile_rows}
+    visual_profile_asset_ids = {row.get("asset_id", "") for row in visual_profile_rows}
     map_asset_ids = {row.get("project_id", "") for row in map_rows if row.get("record_type") == "museum_object_image"}
     for asset_id in sorted(asset_ids - rights_asset_ids):
         issues.append(f"{ASSET_RIGHTS_REVIEW_LOG} missing rights review for asset_id: {asset_id}")
@@ -634,6 +639,8 @@ def check_asset_records(root: Path) -> list[str]:
         issues.append(f"{ASSET_ID_SOURCE_MAP} missing source map for asset_id: {asset_id}")
     for asset_id in sorted(asset_ids - image_profile_asset_ids):
         issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} missing image profile for asset_id: {asset_id}")
+    for asset_id in sorted(asset_ids - visual_profile_asset_ids):
+        issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} missing visual profile for asset_id: {asset_id}")
 
     expected_assets = {
         "asset-000001": {
@@ -656,6 +663,11 @@ def check_asset_records(root: Path) -> list[str]:
             "dpi_x": "",
             "dpi_y": "",
             "icc_profile_bytes": "0",
+            "visual_threshold": "140",
+            "visual_bbox": ("11", "23", "2233", "3552", "2223", "3530"),
+            "foreground_pixel_count": "154404",
+            "foreground_pixel_ratio": "0.01447357",
+            "mean_luma": "189.3774",
         },
         "asset-000002": {
             "canonical_path": (
@@ -677,10 +689,16 @@ def check_asset_records(root: Path) -> list[str]:
             "dpi_x": "300",
             "dpi_y": "300",
             "icc_profile_bytes": "3136",
+            "visual_threshold": "140",
+            "visual_bbox": ("58", "75", "3482", "2535", "3425", "2461"),
+            "foreground_pixel_count": "1972665",
+            "foreground_pixel_ratio": "0.18491423",
+            "mean_luma": "171.9248",
         },
     }
     rows_by_asset_id = {row.get("asset_id", ""): row for row in asset_rows}
     image_profile_by_asset_id = {row.get("asset_id", ""): row for row in image_profile_rows}
+    visual_profile_by_asset_id = {row.get("asset_id", ""): row for row in visual_profile_rows}
     for asset_id, expected in expected_assets.items():
         row = rows_by_asset_id.get(asset_id)
         if not row:
@@ -745,6 +763,44 @@ def check_asset_records(root: Path) -> list[str]:
             issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} analysis scope changed: {asset_id}")
         if profile.get("review_status") != "reviewed":
             issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} row must stay reviewed: {asset_id}")
+        visual_profile = visual_profile_by_asset_id.get(asset_id)
+        if not visual_profile:
+            continue
+        if visual_profile.get("asset_path") != expected["canonical_path"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} asset_path changed: {asset_id}")
+        if visual_profile.get("analysis_tool") != "Pillow":
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} analysis tool changed: {asset_id}")
+        if visual_profile.get("analysis_method") != "pillow_luma_threshold_bbox_v1":
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} analysis method changed: {asset_id}")
+        if visual_profile.get("luma_threshold") != expected["visual_threshold"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} threshold changed: {asset_id}")
+        if visual_profile.get("pixel_width") != expected["width"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} width changed: {asset_id}")
+        if visual_profile.get("pixel_height") != expected["height"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} height changed: {asset_id}")
+        bbox_values = (
+            visual_profile.get("foreground_bbox_x_min", ""),
+            visual_profile.get("foreground_bbox_y_min", ""),
+            visual_profile.get("foreground_bbox_x_max", ""),
+            visual_profile.get("foreground_bbox_y_max", ""),
+            visual_profile.get("foreground_bbox_width", ""),
+            visual_profile.get("foreground_bbox_height", ""),
+        )
+        if bbox_values != expected["visual_bbox"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} foreground bbox changed: {asset_id}")
+        if visual_profile.get("foreground_pixel_count") != expected["foreground_pixel_count"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} foreground pixel count changed: {asset_id}")
+        if visual_profile.get("foreground_pixel_ratio") != expected["foreground_pixel_ratio"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} foreground ratio changed: {asset_id}")
+        if visual_profile.get("mean_luma") != expected["mean_luma"]:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} mean luma changed: {asset_id}")
+        if visual_profile.get("analysis_scope") != "visual_preprocessing_metadata_only":
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} analysis scope changed: {asset_id}")
+        caution = visual_profile.get("caution", "")
+        if "not glyph segmentation" not in caution or "paleographic interpretation" not in caution:
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} caution boundary changed: {asset_id}")
+        if visual_profile.get("review_status") != "reviewed_algorithmic_metadata":
+            issues.append(f"{ASSET_IMAGE_VISUAL_PROFILE} row must stay reviewed algorithmic metadata: {asset_id}")
     return issues
 
 

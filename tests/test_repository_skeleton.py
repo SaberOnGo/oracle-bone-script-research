@@ -105,6 +105,15 @@ def load_relationship_graph_statistics_module():
     return module
 
 
+def load_asset_image_visual_profiles_module():
+    path = repo_root() / "tools/004_statistics-generation/build_asset_image_visual_profiles.py"
+    spec = importlib.util.spec_from_file_location("build_asset_image_visual_profiles", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_relationship_graph_context_pack_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py"
     spec = importlib.util.spec_from_file_location("build_relationship_graph_context_pack", path)
@@ -183,6 +192,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         technical_profile_path = (
             repo_root() / "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv"
         )
+        visual_profile_path = (
+            repo_root() / "project_registry/004_asset-source-and-rights-index/005_asset-image-visual-profile.csv"
+        )
         asset_map_path = repo_root() / "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
         with asset_index_path.open("r", encoding="utf-8-sig", newline="") as file:
             assets = {row["asset_id"]: row for row in csv.DictReader(file)}
@@ -190,6 +202,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             rights_rows = {row["asset_id"]: row for row in csv.DictReader(file)}
         with technical_profile_path.open("r", encoding="utf-8-sig", newline="") as file:
             profile_rows = {row["asset_id"]: row for row in csv.DictReader(file)}
+        with visual_profile_path.open("r", encoding="utf-8-sig", newline="") as file:
+            visual_rows = {row["asset_id"]: row for row in csv.DictReader(file)}
         with asset_map_path.open("r", encoding="utf-8-sig", newline="") as file:
             map_rows = {row["project_id"]: row for row in csv.DictReader(file)}
 
@@ -211,6 +225,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(asset_id, assets)
             self.assertIn(asset_id, rights_rows)
             self.assertIn(asset_id, profile_rows)
+            self.assertIn(asset_id, visual_rows)
             self.assertIn(asset_id, map_rows)
             row = assets[asset_id]
             self.assertEqual(row["rights_status"], "public_domain_verified")
@@ -230,14 +245,30 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertEqual(profile["color_mode"], "RGB")
             self.assertEqual(profile["checksum_sha256"], checksum)
             self.assertEqual(profile["analysis_scope"], "image_technical_metadata_only")
+            visual = visual_rows[asset_id]
+            self.assertEqual(visual["asset_path"], row["canonical_path"])
+            self.assertEqual(visual["analysis_tool"], "Pillow")
+            self.assertEqual(visual["analysis_method"], "pillow_luma_threshold_bbox_v1")
+            self.assertEqual(visual["luma_threshold"], "140")
+            self.assertEqual(visual["analysis_scope"], "visual_preprocessing_metadata_only")
+            self.assertEqual(visual["review_status"], "reviewed_algorithmic_metadata")
+            self.assertIn("not glyph segmentation", visual["caution"])
         self.assertEqual(profile_rows["asset-000001"]["pixel_width"], "2667")
         self.assertEqual(profile_rows["asset-000001"]["pixel_height"], "4000")
         self.assertEqual(profile_rows["asset-000001"]["icc_profile_bytes"], "0")
+        self.assertEqual(visual_rows["asset-000001"]["foreground_bbox_width"], "2223")
+        self.assertEqual(visual_rows["asset-000001"]["foreground_bbox_height"], "3530")
+        self.assertEqual(visual_rows["asset-000001"]["foreground_pixel_ratio"], "0.01447357")
+        self.assertEqual(visual_rows["asset-000001"]["mean_luma"], "189.3774")
         self.assertEqual(profile_rows["asset-000002"]["pixel_width"], "4000")
         self.assertEqual(profile_rows["asset-000002"]["pixel_height"], "2667")
         self.assertEqual(profile_rows["asset-000002"]["dpi_x"], "300")
         self.assertEqual(profile_rows["asset-000002"]["dpi_y"], "300")
         self.assertEqual(profile_rows["asset-000002"]["icc_profile_bytes"], "3136")
+        self.assertEqual(visual_rows["asset-000002"]["foreground_bbox_width"], "3425")
+        self.assertEqual(visual_rows["asset-000002"]["foreground_bbox_height"], "2461")
+        self.assertEqual(visual_rows["asset-000002"]["foreground_pixel_ratio"], "0.18491423")
+        self.assertEqual(visual_rows["asset-000002"]["mean_luma"], "171.9248")
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
@@ -247,6 +278,25 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_relationship_graph_statistics(self) -> None:
         self.assertEqual(check_relationship_graph_statistics(repo_root()), [])
+
+    def test_asset_image_visual_profile_builder_preserves_boundary(self) -> None:
+        module = load_asset_image_visual_profiles_module()
+        asset_index_path = repo_root() / "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
+        with asset_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        visual_rows = module.build_visual_profiles(rows, repo_root())
+        self.assertEqual(len(visual_rows), 2)
+        self.assertEqual(visual_rows[0]["visual_profile_id"], "asset-visual-profile-000001")
+        self.assertEqual(visual_rows[0]["luma_threshold"], "140")
+        self.assertEqual(visual_rows[0]["foreground_pixel_count"], "154404")
+        self.assertEqual(visual_rows[1]["foreground_pixel_count"], "1972665")
+        self.assertEqual(
+            {row["analysis_scope"] for row in visual_rows},
+            {"visual_preprocessing_metadata_only"},
+        )
+        self.assertTrue(
+            all("not glyph segmentation" in row["caution"] for row in visual_rows)
+        )
 
     def test_ai_context_packs(self) -> None:
         self.assertEqual(check_ai_context_packs(repo_root()), [])

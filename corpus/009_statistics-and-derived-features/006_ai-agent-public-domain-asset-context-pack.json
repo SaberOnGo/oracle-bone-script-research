@@ -1,0 +1,143 @@
+{
+  "agent_use_rules": [
+    "Use this pack as an image-asset routing summary, not as a decipherment result.",
+    "Open the cited asset index, rights log, technical profile, and visual profile rows before making any research claim.",
+    "Treat luma-threshold regions as preprocessing metadata only; they are not glyph segmentation or component analysis.",
+    "Retain The Met object-page and API provenance when reusing or discussing the images."
+  ],
+  "agent_use_rules_zh": [
+    "本上下文包只作为图像资产检索路由摘要使用，不是释读结果。",
+    "提出任何研究判断前，必须打开被引用的资产索引、权利日志、技术画像和视觉画像记录行。",
+    "亮度阈值区域只是预处理 metadata，不是字形切分或构件分析。",
+    "复用或讨论图像时必须保留 The Met 对象页和 API 来源追溯。"
+  ],
+  "assets": [
+    {
+      "asset_id": "asset-000001",
+      "asset_type": "museum_object_image",
+      "canonical_path": "corpus/005_excavation-sites-periods-and-batches/001_public-domain-object-image-assets/001_asset-000001_met-obj-42045_object-image.jpg",
+      "primary_external_ref_id": "met-obj-42045",
+      "rights_review": {
+        "evidence": "The Met Collection API object 42045 reports isPublicDomain=true and provides primaryImage URL https://images.metmuseum.org/CRDImages/as/original/LC-67_43_14_002.jpg",
+        "notes": "Public-domain object image committed as small source-marked sample asset; image interpretation still requires scholarly review.",
+        "review_id": "asset-rights-review-000001",
+        "reviewed_at": "2026-06-05",
+        "reviewer": "codex-agent",
+        "rights_status_after": "public_domain_verified",
+        "rights_status_before": "unreviewed"
+      },
+      "rights_status": "public_domain_verified",
+      "risk_note": "The Met API marks object 42045 as public domain; retain object page/API provenance and do not treat the image as decipherment evidence without scholarly review.",
+      "source_ids": [
+        "src-metmuseum-oracle-bone"
+      ],
+      "source_url": "https://images.metmuseum.org/CRDImages/as/original/LC-67_43_14_002.jpg",
+      "technical_profile": {
+        "analysis_scope": "image_technical_metadata_only",
+        "checksum_sha256": "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
+        "color_mode": "RGB",
+        "dpi_x": null,
+        "dpi_y": null,
+        "file_size_bytes": 1780568,
+        "icc_profile_bytes": 0,
+        "image_format": "JPEG",
+        "pixel_height": 4000,
+        "pixel_width": 2667
+      },
+      "visual_profile": {
+        "analysis_method": "pillow_luma_threshold_bbox_v1",
+        "analysis_scope": "visual_preprocessing_metadata_only",
+        "caution": "Algorithmic foreground candidate only; not glyph segmentation, component analysis, or paleographic interpretation.",
+        "foreground_bbox": {
+          "height": 3530,
+          "width": 2223,
+          "x_max": 2233,
+          "x_min": 11,
+          "y_max": 3552,
+          "y_min": 23
+        },
+        "foreground_pixel_count": 154404,
+        "foreground_pixel_ratio": 0.01447357,
+        "luma_threshold": 140,
+        "mean_luma": 189.3774
+      }
+    },
+    {
+      "asset_id": "asset-000002",
+      "asset_type": "museum_object_image",
+      "canonical_path": "corpus/005_excavation-sites-periods-and-batches/001_public-domain-object-image-assets/002_asset-000002_met-obj-42022_object-image.jpg",
+      "primary_external_ref_id": "met-obj-42022",
+      "rights_review": {
+        "evidence": "The Met Collection API object 42022 reports isPublicDomain=true and provides primaryImage URL https://images.metmuseum.org/CRDImages/as/original/LC-18_56_71_002.jpg",
+        "notes": "Public-domain object image committed as small source-marked sample asset; image interpretation still requires scholarly review.",
+        "review_id": "asset-rights-review-000002",
+        "reviewed_at": "2026-06-05",
+        "reviewer": "codex-agent",
+        "rights_status_after": "public_domain_verified",
+        "rights_status_before": "unreviewed"
+      },
+      "rights_status": "public_domain_verified",
+      "risk_note": "The Met API marks object 42022 as public domain; retain object page/API provenance and do not treat the image as decipherment evidence without scholarly review.",
+      "source_ids": [
+        "src-metmuseum-oracle-bone"
+      ],
+      "source_url": "https://images.metmuseum.org/CRDImages/as/original/LC-18_56_71_002.jpg",
+      "technical_profile": {
+        "analysis_scope": "image_technical_metadata_only",
+        "checksum_sha256": "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
+        "color_mode": "RGB",
+        "dpi_x": 300,
+        "dpi_y": 300,
+        "file_size_bytes": 2508142,
+        "icc_profile_bytes": 3136,
+        "image_format": "JPEG",
+        "pixel_height": 2667,
+        "pixel_width": 4000
+      },
+      "visual_profile": {
+        "analysis_method": "pillow_luma_threshold_bbox_v1",
+        "analysis_scope": "visual_preprocessing_metadata_only",
+        "caution": "Algorithmic foreground candidate only; not glyph segmentation, component analysis, or paleographic interpretation.",
+        "foreground_bbox": {
+          "height": 2461,
+          "width": 3425,
+          "x_max": 3482,
+          "x_min": 58,
+          "y_max": 2535,
+          "y_min": 75
+        },
+        "foreground_pixel_count": 1972665,
+        "foreground_pixel_ratio": 0.18491423,
+        "luma_threshold": 140,
+        "mean_luma": 171.9248
+      }
+    }
+  ],
+  "context_pack_id": "ai-context-public-domain-assets-001",
+  "coverage": {
+    "analysis_scopes": [
+      "image_technical_metadata_only",
+      "visual_preprocessing_metadata_only"
+    ],
+    "asset_count": 2,
+    "rights_statuses": [
+      "public_domain_verified"
+    ],
+    "source_count": 1,
+    "source_ids": [
+      "src-metmuseum-oracle-bone"
+    ]
+  },
+  "generated_from": [
+    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv",
+    "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv",
+    "project_registry/004_asset-source-and-rights-index/005_asset-image-visual-profile.csv"
+  ],
+  "purpose": "Entry-point context for AI Agents that need committed public-domain image assets, source provenance, rights review, and safe visual preprocessing metadata before opening the image files.",
+  "purpose_zh": "供 AI Agent 在打开图像文件前快速了解已提交公共领域图像资产、来源追溯、权利复核和安全视觉预处理 metadata 的入口上下文。",
+  "status": "reviewed_metadata_only",
+  "title": "Public-Domain Image Asset Context Pack",
+  "title_zh": "公共领域图像资产上下文包",
+  "updated_at": "2026-06-05"
+}

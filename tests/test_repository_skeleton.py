@@ -150,6 +150,15 @@ def load_hust_obc_evidence_pack_draft_module():
     return module
 
 
+def load_public_domain_asset_context_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py"
+    spec = importlib.util.spec_from_file_location("build_public_domain_asset_context_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -300,6 +309,54 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_ai_context_packs(self) -> None:
         self.assertEqual(check_ai_context_packs(repo_root()), [])
+
+    def test_public_domain_asset_context_pack_preserves_asset_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "006_ai-agent-public-domain-asset-context-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["context_pack_id"], "ai-context-public-domain-assets-001")
+        self.assertEqual(data["status"], "reviewed_metadata_only")
+        self.assertEqual(data["coverage"]["asset_count"], 2)
+        self.assertEqual(data["coverage"]["source_ids"], ["src-metmuseum-oracle-bone"])
+        self.assertEqual(data["coverage"]["rights_statuses"], ["public_domain_verified"])
+        self.assertEqual(
+            data["coverage"]["analysis_scopes"],
+            ["image_technical_metadata_only", "visual_preprocessing_metadata_only"],
+        )
+        self.assertEqual([asset["asset_id"] for asset in data["assets"]], ["asset-000001", "asset-000002"])
+        self.assertEqual(data["assets"][0]["primary_external_ref_id"], "met-obj-42045")
+        self.assertEqual(data["assets"][1]["primary_external_ref_id"], "met-obj-42022")
+        self.assertEqual(data["assets"][0]["technical_profile"]["file_size_bytes"], 1780568)
+        self.assertEqual(data["assets"][1]["technical_profile"]["icc_profile_bytes"], 3136)
+        self.assertEqual(data["assets"][0]["visual_profile"]["foreground_pixel_count"], 154404)
+        self.assertEqual(data["assets"][1]["visual_profile"]["foreground_pixel_count"], 1972665)
+        rules = " ".join(data["agent_use_rules"])
+        self.assertIn("not as a decipherment result", rules)
+        self.assertIn("not glyph segmentation", rules)
+
+    def test_public_domain_asset_context_pack_builder_merges_asset_records(self) -> None:
+        module = load_public_domain_asset_context_pack_module()
+        base = repo_root() / "project_registry/004_asset-source-and-rights-index"
+        with (base / "001_asset-source-index.csv").open("r", encoding="utf-8-sig", newline="") as file:
+            asset_rows = list(csv.DictReader(file))
+        with (base / "002_asset-rights-review-log.csv").open("r", encoding="utf-8-sig", newline="") as file:
+            rights_rows = list(csv.DictReader(file))
+        with (base / "004_asset-image-technical-profile.csv").open("r", encoding="utf-8-sig", newline="") as file:
+            technical_rows = list(csv.DictReader(file))
+        with (base / "005_asset-image-visual-profile.csv").open("r", encoding="utf-8-sig", newline="") as file:
+            visual_rows = list(csv.DictReader(file))
+        data = module.build_context_pack(asset_rows, rights_rows, technical_rows, visual_rows)
+        self.assertEqual(data["coverage"]["asset_count"], 2)
+        self.assertEqual(data["assets"][0]["rights_review"]["rights_status_after"], "public_domain_verified")
+        self.assertEqual(
+            data["assets"][0]["technical_profile"]["checksum_sha256"],
+            "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
+        )
+        self.assertEqual(data["assets"][1]["visual_profile"]["foreground_bbox"]["width"], 3425)
+        self.assertIn("资产索引", " ".join(data["agent_use_rules_zh"]))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

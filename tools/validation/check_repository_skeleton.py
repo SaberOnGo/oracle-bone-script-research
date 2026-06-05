@@ -120,6 +120,10 @@ AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv"
 )
+AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "006_ai-agent-public-domain-asset-context-pack.json"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -338,6 +342,7 @@ REQUIRED_PATHS = [
     AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
     AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
     AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
+    AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -371,6 +376,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
+    "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -1603,6 +1609,84 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} section not not_collected: {section}")
         elif value.get("items") != []:
             issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} section has prefilled items: {section}")
+
+    asset_context_path = root / AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK
+    try:
+        asset_context_pack = json.loads(asset_context_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return issues + [f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} invalid JSON: {exc.msg}"]
+    if asset_context_pack.get("context_pack_id") != "ai-context-public-domain-assets-001":
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} context_pack_id changed")
+    if asset_context_pack.get("status") != "reviewed_metadata_only":
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} status must stay reviewed_metadata_only")
+    if asset_context_pack.get("updated_at") != "2026-06-05":
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} updated_at changed")
+    if asset_context_pack.get("generated_from") != [
+        ASSET_SOURCE_INDEX,
+        ASSET_RIGHTS_REVIEW_LOG,
+        ASSET_IMAGE_TECHNICAL_PROFILE,
+        ASSET_IMAGE_VISUAL_PROFILE,
+    ]:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} generated_from changed")
+    asset_coverage = asset_context_pack.get("coverage", {})
+    if asset_coverage.get("asset_count") != 2:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} asset count changed")
+    if asset_coverage.get("source_ids") != ["src-metmuseum-oracle-bone"]:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} source IDs changed")
+    if asset_coverage.get("rights_statuses") != ["public_domain_verified"]:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} rights statuses changed")
+    if asset_coverage.get("analysis_scopes") != [
+        "image_technical_metadata_only",
+        "visual_preprocessing_metadata_only",
+    ]:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} analysis scopes changed")
+    asset_entries = asset_context_pack.get("assets", [])
+    if not isinstance(asset_entries, list) or len(asset_entries) != 2:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} must contain 2 assets")
+    else:
+        first_asset = asset_entries[0]
+        second_asset = asset_entries[1]
+        if first_asset.get("asset_id") != "asset-000001":
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first asset changed")
+        if second_asset.get("asset_id") != "asset-000002":
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second asset changed")
+        if first_asset.get("primary_external_ref_id") != "met-obj-42045":
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first external ref changed")
+        if second_asset.get("primary_external_ref_id") != "met-obj-42022":
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second external ref changed")
+        if first_asset.get("technical_profile", {}).get("checksum_sha256") != (
+            "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df"
+        ):
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first checksum changed")
+        if second_asset.get("technical_profile", {}).get("checksum_sha256") != (
+            "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd"
+        ):
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second checksum changed")
+        if first_asset.get("visual_profile", {}).get("foreground_pixel_count") != 154404:
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first visual count changed")
+        if second_asset.get("visual_profile", {}).get("foreground_pixel_count") != 1972665:
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second visual count changed")
+        first_caution = first_asset.get("visual_profile", {}).get("caution", "")
+        if "not glyph segmentation" not in first_caution:
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} visual caution changed")
+    asset_rules = " ".join(asset_context_pack.get("agent_use_rules", []))
+    asset_rules_zh = " ".join(asset_context_pack.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "image-asset routing summary",
+        "Open the cited asset index",
+        "not glyph segmentation",
+        "The Met object-page and API provenance",
+    ]:
+        if required_snippet not in asset_rules:
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} missing agent rule: {required_snippet}")
+    for required_snippet in [
+        "图像资产检索路由摘要",
+        "必须打开被引用的资产索引",
+        "不是字形切分",
+        "The Met 对象页和 API 来源追溯",
+    ]:
+        if required_snippet not in asset_rules_zh:
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
 
     return issues
 

@@ -328,6 +328,33 @@ class RepositorySkeletonTests(unittest.TestCase):
             [("dl-a", "old-a"), ("dl-b", "new-b"), ("dl-c", "new-c")],
         )
 
+    def test_source_download_status_codebook_defines_log_statuses(self) -> None:
+        codebook_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "013_source-download-status-codebook.csv"
+        )
+        log_path = repo_root() / "project_registry/006_large-source-register/002_source-download-log.csv"
+        with codebook_path.open("r", encoding="utf-8-sig", newline="") as file:
+            status_rows = {row["status_code"]: row for row in csv.DictReader(file)}
+        with log_path.open("r", encoding="utf-8-sig", newline="") as file:
+            log_statuses = {row["status"] for row in csv.DictReader(file)}
+
+        expected = {
+            "downloaded",
+            "downloaded_access_restricted_page",
+            "downloaded_client_challenge_page",
+            "download_error",
+            "http_error",
+            "skipped_exceeds_manifest_limit",
+        }
+        self.assertTrue(expected.issubset(status_rows))
+        self.assertTrue(log_statuses.issubset(status_rows))
+        self.assertEqual(status_rows["downloaded"]["can_support_payload_extracted"], "true")
+        self.assertEqual(status_rows["download_error"]["can_support_payload_extracted"], "false")
+        self.assertEqual(status_rows["downloaded_access_restricted_page"]["can_support_payload_extracted"], "false")
+        self.assertIn("Do not treat download_error as proof", status_rows["download_error"]["caution_en"])
+
     def test_external_prefixes_cover_staging_id_families(self) -> None:
         path = (
             repo_root()

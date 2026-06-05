@@ -57,6 +57,10 @@ OBM_ABBREVIATION_STAGING = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "012_obm-abbreviation-staging.csv"
 )
+SOURCE_DOWNLOAD_STATUS_CODEBOOK = (
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "013_source-download-status-codebook.csv"
+)
 HUST_OBC_VALIDATION_CLASS_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "005_hust-obc-validation-class-staging.csv"
@@ -305,6 +309,7 @@ REQUIRED_PATHS = [
     DOWNLOADED_METADATA_PROFILE,
     CORE_INSTITUTIONAL_ACCESS_PROFILE,
     OBM_ABBREVIATION_STAGING,
+    SOURCE_DOWNLOAD_STATUS_CODEBOOK,
     HUST_OBC_VALIDATION_CLASS_STAGING,
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     HUST_OBC_SOURCE_CATEGORY_STAGING,
@@ -1452,6 +1457,9 @@ def check_source_registers(root: Path) -> list[str]:
     penn_museum_object_rows, penn_museum_object_issues = _read_csv_rows(
         root / PENN_MUSEUM_OBJECT_STAGING
     )
+    download_status_rows, download_status_issues = _read_csv_rows(
+        root / SOURCE_DOWNLOAD_STATUS_CODEBOOK
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -1480,6 +1488,7 @@ def check_source_registers(root: Path) -> list[str]:
         + ihp_museum_object_issues
         + smithsonian_object_issues
         + penn_museum_object_issues
+        + download_status_issues
         + log_issues
         + large_issues
     )
@@ -1532,6 +1541,36 @@ def check_source_registers(root: Path) -> list[str]:
         local_temp_path = row.get("local_temp_path", "")
         if local_temp_path and not local_temp_path.startswith("tmp/"):
             issues.append(f"{SOURCE_DOWNLOAD_LOG} local_temp_path must stay under tmp/: {local_temp_path}")
+
+    status_rows_by_code = {row.get("status_code", ""): row for row in download_status_rows}
+    required_status_codes = {
+        "downloaded",
+        "downloaded_access_restricted_page",
+        "downloaded_client_challenge_page",
+        "download_error",
+        "http_error",
+        "skipped_exceeds_manifest_limit",
+    }
+    for status_code in sorted(required_status_codes - set(status_rows_by_code)):
+        issues.append(f"{SOURCE_DOWNLOAD_STATUS_CODEBOOK} missing status_code: {status_code}")
+    for row in download_status_rows:
+        status_code = row.get("status_code", "")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{SOURCE_DOWNLOAD_STATUS_CODEBOOK} row not reviewed: {status_code}")
+        if row.get("can_support_source_existence") not in {"true", "false"}:
+            issues.append(f"{SOURCE_DOWNLOAD_STATUS_CODEBOOK} existence flag must be boolean: {status_code}")
+        if row.get("can_support_payload_extracted") not in {"true", "false"}:
+            issues.append(f"{SOURCE_DOWNLOAD_STATUS_CODEBOOK} payload flag must be boolean: {status_code}")
+    for status_code in sorted({row.get("status", "") for row in log_rows} - set(status_rows_by_code)):
+        issues.append(f"{SOURCE_DOWNLOAD_LOG} status not defined in codebook: {status_code}")
+    for status_code in ["download_error", "downloaded_access_restricted_page", "skipped_exceeds_manifest_limit"]:
+        row = status_rows_by_code.get(status_code, {})
+        if row.get("can_support_payload_extracted") != "false":
+            issues.append(f"{SOURCE_DOWNLOAD_STATUS_CODEBOOK} {status_code} must not support payload extraction")
+    if "Do not treat download_error as proof" not in " ".join(
+        row.get("caution_en", "") for row in download_status_rows
+    ):
+        issues.append(f"{SOURCE_DOWNLOAD_STATUS_CODEBOOK} missing download_error caution")
 
     field_map_sources = {row.get("source_id", "") for row in field_map_rows}
     for source_id in sorted(field_map_sources - source_ids):

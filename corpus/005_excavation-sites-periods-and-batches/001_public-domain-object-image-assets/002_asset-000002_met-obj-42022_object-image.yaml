@@ -1,0 +1,19 @@
+asset_id: asset-000002
+asset_type: museum_object_image
+local_file: 002_asset-000002_met-obj-42022_object-image.jpg
+file_size_bytes: 2508142
+checksum_sha256: 61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd
+related_project_ids:
+  - met-obj-00002
+related_external_ref_ids:
+  - met-obj-42022
+  - met-accession-18.56.71
+source_id: src-metmuseum-oracle-bone
+source_url: https://images.metmuseum.org/CRDImages/as/original/LC-18_56_71_002.jpg
+object_page_url: https://www.metmuseum.org/art/collection/search/42022
+api_url: https://collectionapi.metmuseum.org/public/collection/v1/objects/42022
+rights_status: public_domain_verified
+rights_evidence: The Met Collection API object 42022 reports isPublicDomain=true.
+risk_note: Object image is public-domain metadata-linked asset evidence; do not treat image content as a decipherment claim without scholarly review.
+review_status: reviewed
+updated_at: 2026-06-05

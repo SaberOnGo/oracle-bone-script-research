@@ -1,5 +1,6 @@
 import unittest
 import csv
+import hashlib
 import importlib.util
 import json
 from collections import Counter
@@ -12,6 +13,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_top_level_dirs,
     check_ai_context_packs,
     check_ai_agent_evidence_pack_validator,
+    check_asset_records,
     check_required_paths,
     check_relationship_graph_edges,
     check_relationship_graph_statistics,
@@ -172,6 +174,51 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_tracked_temp_artifacts_absent(self) -> None:
         self.assertEqual(check_tracked_temp_artifacts(repo_root()), [])
+
+    def test_public_domain_asset_records(self) -> None:
+        self.assertEqual(check_asset_records(repo_root()), [])
+
+        asset_index_path = repo_root() / "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
+        rights_log_path = repo_root() / "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
+        asset_map_path = repo_root() / "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
+        with asset_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+            assets = {row["asset_id"]: row for row in csv.DictReader(file)}
+        with rights_log_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rights_rows = {row["asset_id"]: row for row in csv.DictReader(file)}
+        with asset_map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            map_rows = {row["project_id"]: row for row in csv.DictReader(file)}
+
+        expected = {
+            "asset-000001": (
+                "001_asset-000001_met-obj-42045_object-image.jpg",
+                1780568,
+                "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
+                "met-obj-42045",
+            ),
+            "asset-000002": (
+                "002_asset-000002_met-obj-42022_object-image.jpg",
+                2508142,
+                "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
+                "met-obj-42022",
+            ),
+        }
+        for asset_id, (filename, size, checksum, external_ref) in expected.items():
+            self.assertIn(asset_id, assets)
+            self.assertIn(asset_id, rights_rows)
+            self.assertIn(asset_id, map_rows)
+            row = assets[asset_id]
+            self.assertEqual(row["rights_status"], "public_domain_verified")
+            self.assertEqual(row["primary_external_ref_id"], external_ref)
+            image_path = repo_root() / row["canonical_path"]
+            self.assertEqual(image_path.name, filename)
+            self.assertEqual(image_path.stat().st_size, size)
+            with image_path.open("rb") as file:
+                self.assertEqual(hashlib.sha256(file.read()).hexdigest(), checksum)
+            metadata_path = image_path.with_suffix(".yaml")
+            metadata_text = metadata_path.read_text(encoding="utf-8")
+            self.assertIn(f"asset_id: {asset_id}", metadata_text)
+            self.assertIn(f"checksum_sha256: {checksum}", metadata_text)
+            self.assertIn("rights_status: public_domain_verified", metadata_text)
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])

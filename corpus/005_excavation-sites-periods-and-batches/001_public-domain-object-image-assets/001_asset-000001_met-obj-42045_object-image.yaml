@@ -1,0 +1,19 @@
+asset_id: asset-000001
+asset_type: museum_object_image
+local_file: 001_asset-000001_met-obj-42045_object-image.jpg
+file_size_bytes: 1780568
+checksum_sha256: c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df
+related_project_ids:
+  - met-obj-00001
+related_external_ref_ids:
+  - met-obj-42045
+  - met-accession-67.43.14
+source_id: src-metmuseum-oracle-bone
+source_url: https://images.metmuseum.org/CRDImages/as/original/LC-67_43_14_002.jpg
+object_page_url: https://www.metmuseum.org/art/collection/search/42045
+api_url: https://collectionapi.metmuseum.org/public/collection/v1/objects/42045
+rights_status: public_domain_verified
+rights_evidence: The Met Collection API object 42045 reports isPublicDomain=true.
+risk_note: Object image is public-domain metadata-linked asset evidence; do not treat image content as a decipherment claim without scholarly review.
+review_status: reviewed
+updated_at: 2026-06-05

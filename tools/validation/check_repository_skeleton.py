@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import sys
 import csv
+import hashlib
 import json
 import subprocess
 from pathlib import Path
@@ -13,7 +14,10 @@ from pathlib import Path
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
 SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
+ASSET_SOURCE_INDEX = "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
+ASSET_RIGHTS_REVIEW_LOG = "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
 EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
+ASSET_ID_SOURCE_MAP = "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
 SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
 SOURCE_INVENTORY = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
@@ -285,7 +289,8 @@ REQUIRED_PATHS = [
     "project_registry/001_repository-structure-and-naming-rules/README.md",
     "project_registry/002_project-id-to-source-reference-map/README.md",
     EXTERNAL_SOURCE_PREFIXES,
-    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    ASSET_SOURCE_INDEX,
+    ASSET_RIGHTS_REVIEW_LOG,
     "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
@@ -342,6 +347,7 @@ REQUIRED_PATHS = [
     PENN_MUSEUM_OBJECT_STAGING,
     METMUSEUM_OBJECT_STAGING,
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
+    "corpus/005_excavation-sites-periods-and-batches/001_public-domain-object-image-assets/README.md",
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
@@ -583,6 +589,120 @@ def check_tracked_temp_artifacts(root: Path) -> list[str]:
             lower_path = relative_path.lower()
             if lower_path.endswith(FORBIDDEN_TRACKED_TEMP_FILE_SUFFIXES):
                 issues.append(f"tracked temporary artifact file: {relative_path}")
+    return issues
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as file:
+        for chunk in iter(lambda: file.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _read_simple_yaml_scalars(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line or line.startswith(" ") or line.startswith("-") or ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        values[key.strip()] = value.strip()
+    return values
+
+
+def check_asset_records(root: Path) -> list[str]:
+    issues: list[str] = []
+    asset_rows, asset_issues = _read_csv_rows(root / ASSET_SOURCE_INDEX)
+    rights_rows, rights_issues = _read_csv_rows(root / ASSET_RIGHTS_REVIEW_LOG)
+    map_rows, map_issues = _read_csv_rows(root / ASSET_ID_SOURCE_MAP)
+    issues.extend(asset_issues + rights_issues + map_issues)
+
+    asset_ids = {row.get("asset_id", "") for row in asset_rows}
+    required_asset_ids = {"asset-000001", "asset-000002"}
+    for asset_id in sorted(required_asset_ids - asset_ids):
+        issues.append(f"{ASSET_SOURCE_INDEX} missing asset_id: {asset_id}")
+
+    rights_asset_ids = {row.get("asset_id", "") for row in rights_rows}
+    map_asset_ids = {row.get("project_id", "") for row in map_rows if row.get("record_type") == "museum_object_image"}
+    for asset_id in sorted(asset_ids - rights_asset_ids):
+        issues.append(f"{ASSET_RIGHTS_REVIEW_LOG} missing rights review for asset_id: {asset_id}")
+    for asset_id in sorted(asset_ids - map_asset_ids):
+        issues.append(f"{ASSET_ID_SOURCE_MAP} missing source map for asset_id: {asset_id}")
+
+    expected_assets = {
+        "asset-000001": {
+            "canonical_path": (
+                "corpus/005_excavation-sites-periods-and-batches/"
+                "001_public-domain-object-image-assets/"
+                "001_asset-000001_met-obj-42045_object-image.jpg"
+            ),
+            "metadata_path": (
+                "corpus/005_excavation-sites-periods-and-batches/"
+                "001_public-domain-object-image-assets/"
+                "001_asset-000001_met-obj-42045_object-image.yaml"
+            ),
+            "size": 1780568,
+            "sha256": "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
+            "external_ref": "met-obj-42045",
+            "image_suffix": "LC-67_43_14_002.jpg",
+        },
+        "asset-000002": {
+            "canonical_path": (
+                "corpus/005_excavation-sites-periods-and-batches/"
+                "001_public-domain-object-image-assets/"
+                "002_asset-000002_met-obj-42022_object-image.jpg"
+            ),
+            "metadata_path": (
+                "corpus/005_excavation-sites-periods-and-batches/"
+                "001_public-domain-object-image-assets/"
+                "002_asset-000002_met-obj-42022_object-image.yaml"
+            ),
+            "size": 2508142,
+            "sha256": "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
+            "external_ref": "met-obj-42022",
+            "image_suffix": "LC-18_56_71_002.jpg",
+        },
+    }
+    rows_by_asset_id = {row.get("asset_id", ""): row for row in asset_rows}
+    for asset_id, expected in expected_assets.items():
+        row = rows_by_asset_id.get(asset_id)
+        if not row:
+            continue
+        if row.get("asset_type") != "museum_object_image":
+            issues.append(f"{ASSET_SOURCE_INDEX} asset_type changed: {asset_id}")
+        if row.get("canonical_path") != expected["canonical_path"]:
+            issues.append(f"{ASSET_SOURCE_INDEX} canonical_path changed: {asset_id}")
+        if row.get("primary_external_ref_id") != expected["external_ref"]:
+            issues.append(f"{ASSET_SOURCE_INDEX} primary external ref changed: {asset_id}")
+        if row.get("source_ids") != "src-metmuseum-oracle-bone":
+            issues.append(f"{ASSET_SOURCE_INDEX} source_id changed: {asset_id}")
+        if row.get("rights_status") != "public_domain_verified":
+            issues.append(f"{ASSET_SOURCE_INDEX} rights status must stay public_domain_verified: {asset_id}")
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{ASSET_SOURCE_INDEX} row must stay reviewed: {asset_id}")
+        asset_path = root / expected["canonical_path"]
+        if not asset_path.exists():
+            issues.append(f"{ASSET_SOURCE_INDEX} asset file missing: {expected['canonical_path']}")
+            continue
+        if asset_path.stat().st_size != expected["size"]:
+            issues.append(f"{ASSET_SOURCE_INDEX} file size changed: {asset_id}")
+        if _sha256_file(asset_path) != expected["sha256"]:
+            issues.append(f"{ASSET_SOURCE_INDEX} checksum changed: {asset_id}")
+        if not row.get("source_url", "").endswith(expected["image_suffix"]):
+            issues.append(f"{ASSET_SOURCE_INDEX} source image URL changed: {asset_id}")
+        metadata_path = root / expected["metadata_path"]
+        if not metadata_path.exists():
+            issues.append(f"{ASSET_SOURCE_INDEX} metadata file missing: {expected['metadata_path']}")
+            continue
+        metadata = _read_simple_yaml_scalars(metadata_path)
+        if metadata.get("asset_id") != asset_id:
+            issues.append(f"{expected['metadata_path']} asset_id changed")
+        if metadata.get("checksum_sha256") != expected["sha256"]:
+            issues.append(f"{expected['metadata_path']} checksum changed")
+        if metadata.get("rights_status") != "public_domain_verified":
+            issues.append(f"{expected['metadata_path']} rights status changed")
+        if "isPublicDomain=true" not in metadata.get("rights_evidence", ""):
+            issues.append(f"{expected['metadata_path']} missing public-domain evidence")
     return issues
 
 
@@ -2725,6 +2845,7 @@ def main() -> int:
     issues.extend(check_file_size_limits(root))
     issues.extend(check_root_gitignore_patterns(root))
     issues.extend(check_tracked_temp_artifacts(root))
+    issues.extend(check_asset_records(root))
     issues.extend(check_source_registers(root))
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))

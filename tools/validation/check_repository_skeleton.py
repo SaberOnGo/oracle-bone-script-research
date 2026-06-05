@@ -1635,6 +1635,15 @@ def check_source_registers(root: Path) -> list[str]:
         "period=Shang_Dynasty",
         "penn_museum_materials=Bone;Shell",
         "credit_line_julia_morgan_hugh_morgan_1949",
+        "xiaoxuetang_portal_scope=glyphs_over_180000",
+        "phonology_over_1000000",
+        "dictionary_indexes_over_250000",
+        "covers_oracle_bone_bronze_warring_states_seal_regular",
+        "xiaoxuetang_portal_rights_holders=ntu_chinese_ihp_iis",
+        "yinshang_oracle_vocab_pieces=52486",
+        "characters_about_1000000",
+        "major_corpora=heji_xiaotun_nandi_yingguo_tokyo_whitney",
+        "yinshang_oracle_vocab_topics=astronomy_calendar_weather_geography_polities",
     ]:
         if required_snippet not in core_access_text:
             issues.append(

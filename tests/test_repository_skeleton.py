@@ -259,6 +259,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("period=Shang_Dynasty", text)
         self.assertIn("penn_museum_materials=Bone;Shell", text)
         self.assertIn("credit_line_julia_morgan_hugh_morgan_1949", text)
+        self.assertIn("xiaoxuetang_portal_scope=glyphs_over_180000", text)
+        self.assertIn("phonology_over_1000000", text)
+        self.assertIn("dictionary_indexes_over_250000", text)
+        self.assertIn("covers_oracle_bone_bronze_warring_states_seal_regular", text)
+        self.assertIn("xiaoxuetang_portal_rights_holders=ntu_chinese_ihp_iis", text)
+        self.assertIn("yinshang_oracle_vocab_pieces=52486", text)
+        self.assertIn("characters_about_1000000", text)
+        self.assertIn("major_corpora=heji_xiaotun_nandi_yingguo_tokyo_whitney", text)
+        self.assertIn("yinshang_oracle_vocab_topics=astronomy_calendar_weather_geography_polities", text)
         self.assertEqual(
             {row["review_status"] for row in rows},
             {"reviewed_metadata_only"},
@@ -341,6 +350,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "evobc-cat",
             "evobc-code",
             "collection-prov",
+            "sinica-da-xxt",
+            "sinica-lachnoracle",
         }
         self.assertTrue(expected.issubset(prefixes))
         self.assertEqual(prefixes["hust-obc-cat"]["source_id"], "src-hust-obc")
@@ -348,6 +359,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(prefixes["cam-hopkins-j"]["source_id"], "src-cambridge-hopkins")
         self.assertEqual(prefixes["ihp-mus-obj"]["source_id"], "src-ihp-museum-oracle-bones")
         self.assertEqual(prefixes["evobc-cat"]["source_id"], "src-evobc")
+        self.assertEqual(prefixes["sinica-da-xxt"]["source_id"], "src-sinica-da-xiaoxuetang-site")
+        self.assertEqual(
+            prefixes["sinica-lachnoracle"]["source_id"],
+            "src-sinica-yinshang-oracle-vocabulary",
+        )
         self.assertIn("not an accepted oracle-character ID", prefixes["hust-obc-cat"]["notes_en"])
 
     def test_source_package_manifest_covers_large_metadata_boundaries(self) -> None:
@@ -404,6 +420,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(metrics[("src-penn-museum-oracle-bone", "provenience")], "Anyang")
         self.assertEqual(metrics[("src-penn-museum-oracle-bone", "period")], "Shang Dynasty")
         self.assertEqual(metrics[("src-penn-museum-oracle-bone", "current_location")], "Asia Galleries - On Display")
+        self.assertEqual(metrics[("src-sinica-da-xiaoxuetang-site", "xiaoxuetang_glyph_total_over")], "180000")
+        self.assertEqual(
+            metrics[("src-sinica-da-xiaoxuetang-site", "xiaoxuetang_phonology_total_over")],
+            "1000000",
+        )
+        self.assertEqual(
+            metrics[("src-sinica-da-xiaoxuetang-site", "xiaoxuetang_dictionary_index_total_over")],
+            "250000",
+        )
+        self.assertEqual(
+            metrics[("src-sinica-yinshang-oracle-vocabulary", "yinshang_oracle_bone_piece_count")],
+            "52486",
+        )
+        self.assertEqual(
+            metrics[("src-sinica-yinshang-oracle-vocabulary", "yinshang_oracle_character_count_about")],
+            "1000000",
+        )
 
     def test_nlc_oracle_world_source_is_official_scope_confirmed(self) -> None:
         source_path = (

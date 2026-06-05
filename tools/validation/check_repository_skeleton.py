@@ -16,6 +16,7 @@ HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
 SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
 ASSET_SOURCE_INDEX = "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
 ASSET_RIGHTS_REVIEW_LOG = "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
+ASSET_IMAGE_TECHNICAL_PROFILE = "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv"
 EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
 ASSET_ID_SOURCE_MAP = "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
 SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
@@ -292,6 +293,7 @@ REQUIRED_PATHS = [
     ASSET_SOURCE_INDEX,
     ASSET_RIGHTS_REVIEW_LOG,
     "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
+    ASSET_IMAGE_TECHNICAL_PROFILE,
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
     "project_registry/006_large-source-register/README.md",
@@ -614,8 +616,9 @@ def check_asset_records(root: Path) -> list[str]:
     issues: list[str] = []
     asset_rows, asset_issues = _read_csv_rows(root / ASSET_SOURCE_INDEX)
     rights_rows, rights_issues = _read_csv_rows(root / ASSET_RIGHTS_REVIEW_LOG)
+    image_profile_rows, image_profile_issues = _read_csv_rows(root / ASSET_IMAGE_TECHNICAL_PROFILE)
     map_rows, map_issues = _read_csv_rows(root / ASSET_ID_SOURCE_MAP)
-    issues.extend(asset_issues + rights_issues + map_issues)
+    issues.extend(asset_issues + rights_issues + image_profile_issues + map_issues)
 
     asset_ids = {row.get("asset_id", "") for row in asset_rows}
     required_asset_ids = {"asset-000001", "asset-000002"}
@@ -623,11 +626,14 @@ def check_asset_records(root: Path) -> list[str]:
         issues.append(f"{ASSET_SOURCE_INDEX} missing asset_id: {asset_id}")
 
     rights_asset_ids = {row.get("asset_id", "") for row in rights_rows}
+    image_profile_asset_ids = {row.get("asset_id", "") for row in image_profile_rows}
     map_asset_ids = {row.get("project_id", "") for row in map_rows if row.get("record_type") == "museum_object_image"}
     for asset_id in sorted(asset_ids - rights_asset_ids):
         issues.append(f"{ASSET_RIGHTS_REVIEW_LOG} missing rights review for asset_id: {asset_id}")
     for asset_id in sorted(asset_ids - map_asset_ids):
         issues.append(f"{ASSET_ID_SOURCE_MAP} missing source map for asset_id: {asset_id}")
+    for asset_id in sorted(asset_ids - image_profile_asset_ids):
+        issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} missing image profile for asset_id: {asset_id}")
 
     expected_assets = {
         "asset-000001": {
@@ -645,6 +651,11 @@ def check_asset_records(root: Path) -> list[str]:
             "sha256": "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
             "external_ref": "met-obj-42045",
             "image_suffix": "LC-67_43_14_002.jpg",
+            "width": "2667",
+            "height": "4000",
+            "dpi_x": "",
+            "dpi_y": "",
+            "icc_profile_bytes": "0",
         },
         "asset-000002": {
             "canonical_path": (
@@ -661,9 +672,15 @@ def check_asset_records(root: Path) -> list[str]:
             "sha256": "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
             "external_ref": "met-obj-42022",
             "image_suffix": "LC-18_56_71_002.jpg",
+            "width": "4000",
+            "height": "2667",
+            "dpi_x": "300",
+            "dpi_y": "300",
+            "icc_profile_bytes": "3136",
         },
     }
     rows_by_asset_id = {row.get("asset_id", ""): row for row in asset_rows}
+    image_profile_by_asset_id = {row.get("asset_id", ""): row for row in image_profile_rows}
     for asset_id, expected in expected_assets.items():
         row = rows_by_asset_id.get(asset_id)
         if not row:
@@ -703,6 +720,31 @@ def check_asset_records(root: Path) -> list[str]:
             issues.append(f"{expected['metadata_path']} rights status changed")
         if "isPublicDomain=true" not in metadata.get("rights_evidence", ""):
             issues.append(f"{expected['metadata_path']} missing public-domain evidence")
+        if metadata.get("pixel_width") != expected["width"]:
+            issues.append(f"{expected['metadata_path']} pixel_width changed")
+        if metadata.get("pixel_height") != expected["height"]:
+            issues.append(f"{expected['metadata_path']} pixel_height changed")
+        profile = image_profile_by_asset_id.get(asset_id)
+        if not profile:
+            continue
+        if profile.get("image_format") != "JPEG":
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} image format changed: {asset_id}")
+        if profile.get("pixel_width") != expected["width"]:
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} width changed: {asset_id}")
+        if profile.get("pixel_height") != expected["height"]:
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} height changed: {asset_id}")
+        if profile.get("color_mode") != "RGB":
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} color mode changed: {asset_id}")
+        if profile.get("dpi_x") != expected["dpi_x"] or profile.get("dpi_y") != expected["dpi_y"]:
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} DPI changed: {asset_id}")
+        if profile.get("icc_profile_bytes") != expected["icc_profile_bytes"]:
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} ICC profile byte count changed: {asset_id}")
+        if profile.get("checksum_sha256") != expected["sha256"]:
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} checksum changed: {asset_id}")
+        if profile.get("analysis_scope") != "image_technical_metadata_only":
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} analysis scope changed: {asset_id}")
+        if profile.get("review_status") != "reviewed":
+            issues.append(f"{ASSET_IMAGE_TECHNICAL_PROFILE} row must stay reviewed: {asset_id}")
     return issues
 
 

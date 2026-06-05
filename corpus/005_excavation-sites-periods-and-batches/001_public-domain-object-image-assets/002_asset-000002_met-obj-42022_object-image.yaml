@@ -3,6 +3,13 @@ asset_type: museum_object_image
 local_file: 002_asset-000002_met-obj-42022_object-image.jpg
 file_size_bytes: 2508142
 checksum_sha256: 61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd
+image_format: JPEG
+pixel_width: 4000
+pixel_height: 2667
+color_mode: RGB
+dpi_x: 300
+dpi_y: 300
+icc_profile_bytes: 3136
 related_project_ids:
   - met-obj-00002
 related_external_ref_ids:
@@ -14,6 +21,7 @@ object_page_url: https://www.metmuseum.org/art/collection/search/42022
 api_url: https://collectionapi.metmuseum.org/public/collection/v1/objects/42022
 rights_status: public_domain_verified
 rights_evidence: The Met Collection API object 42022 reports isPublicDomain=true.
-risk_note: Object image is public-domain metadata-linked asset evidence; do not treat image content as a decipherment claim without scholarly review.
+analysis_scope: image_technical_metadata_only
+risk_note: Object image is public-domain metadata-linked asset evidence; technical metadata is not glyph segmentation or a decipherment claim.
 review_status: reviewed
 updated_at: 2026-06-05

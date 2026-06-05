@@ -180,11 +180,16 @@ class RepositorySkeletonTests(unittest.TestCase):
 
         asset_index_path = repo_root() / "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
         rights_log_path = repo_root() / "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
+        technical_profile_path = (
+            repo_root() / "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv"
+        )
         asset_map_path = repo_root() / "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
         with asset_index_path.open("r", encoding="utf-8-sig", newline="") as file:
             assets = {row["asset_id"]: row for row in csv.DictReader(file)}
         with rights_log_path.open("r", encoding="utf-8-sig", newline="") as file:
             rights_rows = {row["asset_id"]: row for row in csv.DictReader(file)}
+        with technical_profile_path.open("r", encoding="utf-8-sig", newline="") as file:
+            profile_rows = {row["asset_id"]: row for row in csv.DictReader(file)}
         with asset_map_path.open("r", encoding="utf-8-sig", newline="") as file:
             map_rows = {row["project_id"]: row for row in csv.DictReader(file)}
 
@@ -205,6 +210,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         for asset_id, (filename, size, checksum, external_ref) in expected.items():
             self.assertIn(asset_id, assets)
             self.assertIn(asset_id, rights_rows)
+            self.assertIn(asset_id, profile_rows)
             self.assertIn(asset_id, map_rows)
             row = assets[asset_id]
             self.assertEqual(row["rights_status"], "public_domain_verified")
@@ -219,6 +225,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(f"asset_id: {asset_id}", metadata_text)
             self.assertIn(f"checksum_sha256: {checksum}", metadata_text)
             self.assertIn("rights_status: public_domain_verified", metadata_text)
+            profile = profile_rows[asset_id]
+            self.assertEqual(profile["image_format"], "JPEG")
+            self.assertEqual(profile["color_mode"], "RGB")
+            self.assertEqual(profile["checksum_sha256"], checksum)
+            self.assertEqual(profile["analysis_scope"], "image_technical_metadata_only")
+        self.assertEqual(profile_rows["asset-000001"]["pixel_width"], "2667")
+        self.assertEqual(profile_rows["asset-000001"]["pixel_height"], "4000")
+        self.assertEqual(profile_rows["asset-000001"]["icc_profile_bytes"], "0")
+        self.assertEqual(profile_rows["asset-000002"]["pixel_width"], "4000")
+        self.assertEqual(profile_rows["asset-000002"]["pixel_height"], "2667")
+        self.assertEqual(profile_rows["asset-000002"]["dpi_x"], "300")
+        self.assertEqual(profile_rows["asset-000002"]["dpi_y"], "300")
+        self.assertEqual(profile_rows["asset-000002"]["icc_profile_bytes"], "3136")
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])

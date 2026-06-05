@@ -151,6 +151,10 @@ SMITHSONIAN_NMAA_OBJECT_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "003_smithsonian-nmaa-oracle-bone-object-staging.csv"
 )
+PENN_MUSEUM_OBJECT_STAGING = (
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+    "004_penn-museum-oracle-bone-object-staging.csv"
+)
 EVOBC_EVOLUTION_CATEGORY_STAGING = (
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
     "001_evobc-evolution-category-staging.csv"
@@ -324,6 +328,7 @@ REQUIRED_PATHS = [
     COLLECTION_PROVENANCE_STAGING,
     IHP_MUSEUM_OBJECT_STAGING,
     SMITHSONIAN_NMAA_OBJECT_STAGING,
+    PENN_MUSEUM_OBJECT_STAGING,
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
     "tmp/.gitignore",
     "tmp/README.md",
@@ -1444,6 +1449,9 @@ def check_source_registers(root: Path) -> list[str]:
     smithsonian_object_rows, smithsonian_object_issues = _read_csv_rows(
         root / SMITHSONIAN_NMAA_OBJECT_STAGING
     )
+    penn_museum_object_rows, penn_museum_object_issues = _read_csv_rows(
+        root / PENN_MUSEUM_OBJECT_STAGING
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -1471,6 +1479,7 @@ def check_source_registers(root: Path) -> list[str]:
         + collection_provenance_issues
         + ihp_museum_object_issues
         + smithsonian_object_issues
+        + penn_museum_object_issues
         + log_issues
         + large_issues
     )
@@ -1621,6 +1630,11 @@ def check_source_registers(root: Path) -> list[str]:
         "nlc_yinqi_cuibian_refs=1595",
         "FS-FSC-O-26_1",
         "CC0",
+        "penn_museum_object_number=49-14-7A",
+        "provenience=Anyang",
+        "period=Shang_Dynasty",
+        "penn_museum_materials=Bone;Shell",
+        "credit_line_julia_morgan_hugh_morgan_1949",
     ]:
         if required_snippet not in core_access_text:
             issues.append(
@@ -2547,6 +2561,37 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} caution must state raw image is not committed")
         if row.get("review_status") != "reviewed_metadata_only":
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row not reviewed_metadata_only")
+
+    if len(penn_museum_object_rows) != 1:
+        issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} should contain exactly 1 sample object row")
+    for row in penn_museum_object_rows:
+        candidate_id = row.get("candidate_collection_object_id", "")
+        if candidate_id != "penn-mus-obj-00001":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} sample candidate ID changed")
+        if row.get("source_id") != "src-penn-museum-oracle-bone":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} row must reference Penn Museum source")
+        if row.get("evidence_download_id") != "dl-penn-museum-49-14-7a":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} row must cite Penn Museum object download")
+        if row.get("source_collection_item_id") != "49-14-7A":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} object number changed")
+        if row.get("accession_number") != "49-14-7A":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} accession number changed")
+        if row.get("provenience") != "Anyang":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} provenience changed")
+        if row.get("historical_period") != "Shang Dynasty":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} historical period changed")
+        if row.get("materials") != "Bone;Shell":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} materials changed")
+        if row.get("dimensions") != "height_cm=2.3;width_cm=2.5":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} dimensions changed")
+        if row.get("project_import_status") != "object_metadata_not_promoted":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} row must stay object_metadata_not_promoted")
+        if row.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} rights status must stay metadata_only_until_verified")
+        if "raw object images are not downloaded" not in row.get("caution", "").lower():
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} caution must state raw images are not downloaded")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} row not reviewed_metadata_only")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

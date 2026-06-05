@@ -11,6 +11,7 @@ thu-ob,src-tsinghua-oracle-bones,Tsinghua University Library Oracle Bones,清华
 cul-hopkins,src-cambridge-hopkins,Cambridge Hopkins Oracle Bones Finding List,剑桥大学图书馆 Hopkins 甲骨清单,Cambridge University Library collection and finding-list reference.,劍橋大學圖書館藏品與清單引用。
 bm-oa,src-british-museum-oracle-bone,British Museum oracle-bone object record,British Museum 甲骨藏品记录,British Museum object registration reference.,British Museum 藏品登記引用。
 si-nmaa,src-smithsonian-nmaa-oracle-bone,Smithsonian National Museum of Asian Art oracle bone,Smithsonian 亚洲艺术博物馆甲骨藏品,Smithsonian accession/EDAN/IIIF reference.,Smithsonian 登錄號、EDAN 與 IIIF 引用。
+penn-mus,src-penn-museum-oracle-bone,Penn Museum oracle-bone object record,Penn Museum 甲骨藏品记录,University museum object number and collection reference.,大学博物馆藏品编号与馆藏引用。
 hust-obc,src-hust-obc,HUST-OBC Dataset,HUST-OBC 甲骨文字數據集,Peer-reviewed AI dataset reference for deciphered and undeciphered OBC image classes.,同行評審 AI 數據集引用，用於已釋與未釋甲骨字圖像類別。
 obimd,src-obimd,OBIMD Multi-modal Dataset,OBIMD 甲骨文多模態數據集,Peer-reviewed multimodal dataset reference for images; annotations; sentence groups; and reading order.,同行評審多模態數據集引用，用於圖像、標註、句組和閱讀順序。
 open-oracle,src-open-oracle,Open-Oracle Project Repository,Open-Oracle 項目倉庫,Research project hub and dataset index reference.,研究項目入口與數據集索引引用。

@@ -254,6 +254,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("rights=CC0", text)
         self.assertIn("iiif_source_image_id=FS-FSC-O-26_1", text)
         self.assertIn("smithsonian_nmaa_provenance_john_hadley_cox_xiaotun_anyang", text)
+        self.assertIn("penn_museum_object_number=49-14-7A", text)
+        self.assertIn("provenience=Anyang", text)
+        self.assertIn("period=Shang_Dynasty", text)
+        self.assertIn("penn_museum_materials=Bone;Shell", text)
+        self.assertIn("credit_line_julia_morgan_hugh_morgan_1949", text)
         self.assertEqual(
             {row["review_status"] for row in rows},
             {"reviewed_metadata_only"},
@@ -395,6 +400,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(metrics[("src-smithsonian-nmaa-oracle-bone", "accession_number")], "FSC-O-26")
         self.assertEqual(metrics[("src-smithsonian-nmaa-oracle-bone", "rights_status")], "CC0")
         self.assertEqual(metrics[("src-smithsonian-nmaa-oracle-bone", "iiif_source_image_id")], "FS-FSC-O-26_1")
+        self.assertEqual(metrics[("src-penn-museum-oracle-bone", "object_number")], "49-14-7A")
+        self.assertEqual(metrics[("src-penn-museum-oracle-bone", "provenience")], "Anyang")
+        self.assertEqual(metrics[("src-penn-museum-oracle-bone", "period")], "Shang Dynasty")
+        self.assertEqual(metrics[("src-penn-museum-oracle-bone", "current_location")], "Asia Galleries - On Display")
 
     def test_nlc_oracle_world_source_is_official_scope_confirmed(self) -> None:
         source_path = (
@@ -471,6 +480,44 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(row["iiif_manifest_status"], "metadata_only_not_downloaded")
         self.assertIn("John Hadley Cox", row["provenance_note"])
         self.assertIn("raw IIIF image is not committed", row["caution"])
+
+    def test_penn_museum_oracle_bone_object_staging(self) -> None:
+        source_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "001_all-sources-index.csv"
+        )
+        download_log_path = repo_root() / "project_registry/006_large-source-register/002_source-download-log.csv"
+        staging_path = (
+            repo_root()
+            / "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+            / "004_penn-museum-oracle-bone-object-staging.csv"
+        )
+        with source_path.open("r", encoding="utf-8-sig", newline="") as file:
+            sources = {row["source_id"]: row for row in csv.DictReader(file)}
+        with download_log_path.open("r", encoding="utf-8-sig", newline="") as file:
+            log_rows = {row["download_id"]: row for row in csv.DictReader(file)}
+        with staging_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        source = sources["src-penn-museum-oracle-bone"]
+        self.assertEqual(source["adoption_status"], "adopted_collection_reference")
+        self.assertEqual(source["rights_status"], "metadata_only_until_verified")
+        self.assertIn("49-14-7A", source["scope"])
+        self.assertIn("object-level review", source["risk_note"])
+        self.assertIn("dl-penn-museum-49-14-7a", log_rows)
+        self.assertEqual(log_rows["dl-penn-museum-49-14-7a"]["status"], "downloaded")
+        self.assertTrue(log_rows["dl-penn-museum-49-14-7a"]["local_temp_path"].startswith("tmp/"))
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row["candidate_collection_object_id"], "penn-mus-obj-00001")
+        self.assertEqual(row["source_collection_item_id"], "49-14-7A")
+        self.assertEqual(row["provenience"], "Anyang")
+        self.assertEqual(row["historical_period"], "Shang Dynasty")
+        self.assertEqual(row["materials"], "Bone;Shell")
+        self.assertEqual(row["dimensions"], "height_cm=2.3;width_cm=2.5")
+        self.assertEqual(row["rights_status"], "metadata_only_until_verified")
+        self.assertIn("raw object images are not downloaded", row["caution"].lower())
 
     def test_hust_obc_validation_staging_has_1588_candidate_classes(self) -> None:
         path = (

@@ -159,6 +159,10 @@ PENN_MUSEUM_OBJECT_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "004_penn-museum-oracle-bone-object-staging.csv"
 )
+METMUSEUM_OBJECT_STAGING = (
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+    "005_metmuseum-oracle-bone-object-staging.csv"
+)
 EVOBC_EVOLUTION_CATEGORY_STAGING = (
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
     "001_evobc-evolution-category-staging.csv"
@@ -179,6 +183,7 @@ ADOPTED_PROFESSIONAL_SOURCE_IDS = {
     "src-cambridge-hopkins",
     "src-british-museum-oracle-bone",
     "src-smithsonian-nmaa-oracle-bone",
+    "src-metmuseum-oracle-bone",
 }
 
 ADOPTED_PROJECT_INDEX_SOURCE_IDS = {
@@ -198,6 +203,7 @@ REQUIRED_EXTERNAL_PREFIXES = {
     "evobc-cat",
     "evobc-code",
     "collection-prov",
+    "met-obj",
 }
 
 REQUIRED_TOP_LEVEL_GITIGNORE_DIRS = [
@@ -334,6 +340,7 @@ REQUIRED_PATHS = [
     IHP_MUSEUM_OBJECT_STAGING,
     SMITHSONIAN_NMAA_OBJECT_STAGING,
     PENN_MUSEUM_OBJECT_STAGING,
+    METMUSEUM_OBJECT_STAGING,
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
     "tmp/.gitignore",
     "tmp/README.md",
@@ -1457,6 +1464,9 @@ def check_source_registers(root: Path) -> list[str]:
     penn_museum_object_rows, penn_museum_object_issues = _read_csv_rows(
         root / PENN_MUSEUM_OBJECT_STAGING
     )
+    metmuseum_object_rows, metmuseum_object_issues = _read_csv_rows(
+        root / METMUSEUM_OBJECT_STAGING
+    )
     download_status_rows, download_status_issues = _read_csv_rows(
         root / SOURCE_DOWNLOAD_STATUS_CODEBOOK
     )
@@ -1488,6 +1498,7 @@ def check_source_registers(root: Path) -> list[str]:
         + ihp_museum_object_issues
         + smithsonian_object_issues
         + penn_museum_object_issues
+        + metmuseum_object_issues
         + download_status_issues
         + log_issues
         + large_issues
@@ -1674,6 +1685,11 @@ def check_source_registers(root: Path) -> list[str]:
         "period=Shang_Dynasty",
         "penn_museum_materials=Bone;Shell",
         "credit_line_julia_morgan_hugh_morgan_1949",
+        "metmuseum_object_id=42045",
+        "accession=67.43.14",
+        "metmuseum_object_id=42022",
+        "accession=18.56.71",
+        "metmuseum_primary_image_urls_available_for_public_domain_objects",
         "xiaoxuetang_portal_scope=glyphs_over_180000",
         "phonology_over_1000000",
         "dictionary_indexes_over_250000",
@@ -2640,6 +2656,57 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} caution must state raw images are not downloaded")
         if row.get("review_status") != "reviewed_metadata_only":
             issues.append(f"{PENN_MUSEUM_OBJECT_STAGING} row not reviewed_metadata_only")
+
+    if len(metmuseum_object_rows) != 2:
+        issues.append(f"{METMUSEUM_OBJECT_STAGING} should contain exactly 2 sample object rows")
+    expected_met_rows = {
+        "met-obj-00001": {
+            "download_id": "dl-metmuseum-object-42045",
+            "source_collection_item_id": "42045",
+            "accession_number": "67.43.14",
+            "title": "Oracle bone",
+            "medium": "Inscribed bone",
+            "image_suffix": "LC-67_43_14_002.jpg",
+        },
+        "met-obj-00002": {
+            "download_id": "dl-metmuseum-object-42022",
+            "source_collection_item_id": "42022",
+            "accession_number": "18.56.71",
+            "title": "Oracle Bone Fragment",
+            "medium": "Bone",
+            "image_suffix": "LC-18_56_71_002.jpg",
+        },
+    }
+    for row in metmuseum_object_rows:
+        candidate_id = row.get("candidate_collection_object_id", "")
+        expected = expected_met_rows.get(candidate_id)
+        if not expected:
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} unexpected candidate ID: {candidate_id}")
+            continue
+        if row.get("source_id") != "src-metmuseum-oracle-bone":
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} row must reference The Met source")
+        if row.get("evidence_download_id") != expected["download_id"]:
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} row has wrong download id: {candidate_id}")
+        if row.get("source_collection_item_id") != expected["source_collection_item_id"]:
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} object ID changed: {candidate_id}")
+        if row.get("accession_number") != expected["accession_number"]:
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} accession number changed: {candidate_id}")
+        if row.get("object_title_en") != expected["title"]:
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} title changed: {candidate_id}")
+        if row.get("is_public_domain") != "true":
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} is_public_domain must stay true: {candidate_id}")
+        if row.get("rights_status") != "public_domain_verified":
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} rights status must stay public_domain_verified: {candidate_id}")
+        if row.get("medium") != expected["medium"]:
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} medium changed: {candidate_id}")
+        if not row.get("primary_image_url", "").endswith(expected["image_suffix"]):
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} primary image URL changed: {candidate_id}")
+        if row.get("project_import_status") != "object_metadata_not_promoted":
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} row must stay object_metadata_not_promoted: {candidate_id}")
+        if "raw image files are not committed" not in row.get("caution", ""):
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} caution must state raw images are not committed: {candidate_id}")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{METMUSEUM_OBJECT_STAGING} row not reviewed_metadata_only: {candidate_id}")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

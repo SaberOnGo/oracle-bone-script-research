@@ -259,6 +259,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("period=Shang_Dynasty", text)
         self.assertIn("penn_museum_materials=Bone;Shell", text)
         self.assertIn("credit_line_julia_morgan_hugh_morgan_1949", text)
+        self.assertIn("metmuseum_object_id=42045", text)
+        self.assertIn("accession=67.43.14", text)
+        self.assertIn("metmuseum_object_id=42022", text)
+        self.assertIn("accession=18.56.71", text)
+        self.assertIn("metmuseum_primary_image_urls_available_for_public_domain_objects", text)
         self.assertIn("xiaoxuetang_portal_scope=glyphs_over_180000", text)
         self.assertIn("phonology_over_1000000", text)
         self.assertIn("dictionary_indexes_over_250000", text)
@@ -377,6 +382,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "evobc-cat",
             "evobc-code",
             "collection-prov",
+            "met-obj",
             "sinica-da-xxt",
             "sinica-lachnoracle",
         }
@@ -386,6 +392,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(prefixes["cam-hopkins-j"]["source_id"], "src-cambridge-hopkins")
         self.assertEqual(prefixes["ihp-mus-obj"]["source_id"], "src-ihp-museum-oracle-bones")
         self.assertEqual(prefixes["evobc-cat"]["source_id"], "src-evobc")
+        self.assertEqual(prefixes["met-obj"]["source_id"], "src-metmuseum-oracle-bone")
         self.assertEqual(prefixes["sinica-da-xxt"]["source_id"], "src-sinica-da-xiaoxuetang-site")
         self.assertEqual(
             prefixes["sinica-lachnoracle"]["source_id"],
@@ -447,6 +454,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(metrics[("src-penn-museum-oracle-bone", "provenience")], "Anyang")
         self.assertEqual(metrics[("src-penn-museum-oracle-bone", "period")], "Shang Dynasty")
         self.assertEqual(metrics[("src-penn-museum-oracle-bone", "current_location")], "Asia Galleries - On Display")
+        self.assertEqual(metrics[("src-metmuseum-oracle-bone", "object_id")], "42022")
+        self.assertEqual(metrics[("src-metmuseum-oracle-bone", "accession_number")], "18.56.71")
+        self.assertEqual(metrics[("src-metmuseum-oracle-bone", "is_public_domain")], "true")
         self.assertEqual(metrics[("src-sinica-da-xiaoxuetang-site", "xiaoxuetang_glyph_total_over")], "180000")
         self.assertEqual(
             metrics[("src-sinica-da-xiaoxuetang-site", "xiaoxuetang_phonology_total_over")],
@@ -578,6 +588,55 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(row["dimensions"], "height_cm=2.3;width_cm=2.5")
         self.assertEqual(row["rights_status"], "metadata_only_until_verified")
         self.assertIn("raw object images are not downloaded", row["caution"].lower())
+
+    def test_metmuseum_public_domain_oracle_bone_object_staging(self) -> None:
+        source_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "001_all-sources-index.csv"
+        )
+        download_log_path = repo_root() / "project_registry/006_large-source-register/002_source-download-log.csv"
+        staging_path = (
+            repo_root()
+            / "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+            / "005_metmuseum-oracle-bone-object-staging.csv"
+        )
+        with source_path.open("r", encoding="utf-8-sig", newline="") as file:
+            sources = {row["source_id"]: row for row in csv.DictReader(file)}
+        with download_log_path.open("r", encoding="utf-8-sig", newline="") as file:
+            log_rows = {row["download_id"]: row for row in csv.DictReader(file)}
+        with staging_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        source = sources["src-metmuseum-oracle-bone"]
+        self.assertEqual(source["adoption_status"], "adopted_public_domain_sample_source")
+        self.assertEqual(source["rights_status"], "public_domain_verified")
+        self.assertIn("42045", source["scope"])
+        self.assertIn("42022", source["scope"])
+        for download_id in ["dl-metmuseum-object-42045", "dl-metmuseum-object-42022"]:
+            self.assertIn(download_id, log_rows)
+            self.assertEqual(log_rows[download_id]["status"], "downloaded")
+            self.assertTrue(log_rows[download_id]["local_temp_path"].startswith("tmp/"))
+
+        self.assertEqual(len(rows), 2)
+        by_id = {row["candidate_collection_object_id"]: row for row in rows}
+        first = by_id["met-obj-00001"]
+        second = by_id["met-obj-00002"]
+        self.assertEqual(first["source_collection_item_id"], "42045")
+        self.assertEqual(first["accession_number"], "67.43.14")
+        self.assertEqual(first["is_public_domain"], "true")
+        self.assertEqual(first["rights_status"], "public_domain_verified")
+        self.assertTrue(first["primary_image_url"].endswith("LC-67_43_14_002.jpg"))
+        self.assertEqual(second["source_collection_item_id"], "42022")
+        self.assertEqual(second["accession_number"], "18.56.71")
+        self.assertEqual(second["is_public_domain"], "true")
+        self.assertEqual(second["object_date"], "13th-11th century BCE")
+        self.assertTrue(second["primary_image_url"].endswith("LC-18_56_71_002.jpg"))
+        self.assertEqual(
+            {row["project_import_status"] for row in rows},
+            {"object_metadata_not_promoted"},
+        )
+        self.assertTrue(all("raw image files are not committed" in row["caution"] for row in rows))
 
     def test_hust_obc_validation_staging_has_1588_candidate_classes(self) -> None:
         path = (

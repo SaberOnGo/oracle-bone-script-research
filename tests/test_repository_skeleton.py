@@ -129,6 +129,15 @@ def load_hust_obc_candidate_evidence_pack_request_queue_module():
     return module
 
 
+def load_hust_obc_evidence_pack_draft_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_evidence_pack_draft", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -1177,6 +1186,96 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(rows[0]["draft_output_path"].startswith("doc/public/user_research/"))
         self.assertIn("source_references_and_asset_metadata", rows[0]["required_evidence_pack_sections"])
         self.assertIn("not be treated as a decipherment result", rows[0]["caution"])
+
+    def test_ai_agent_evidence_pack_schema_keeps_draft_contract(self) -> None:
+        path = (
+            repo_root()
+            / "schemas/006_ai-agent-evidence-pack-schema/"
+            / "ai-agent-evidence-pack.schema.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["title"], "AI Agent Oracle Bone Script Evidence Pack")
+        required = set(data["required"])
+        expected = {
+            "evidence_pack_id",
+            "evidence_request_id",
+            "status",
+            "research_boundary",
+            "assignment_status",
+            "source_references_and_asset_metadata",
+            "full_inscription_context",
+            "neighboring_characters",
+            "component_breakdown_and_variant_notes",
+            "excavation_period_and_catalog_provenance",
+            "bronze_seal_or_modern_comparanda",
+            "supporting_evidence",
+            "opposing_evidence",
+            "open_questions_and_next_checks",
+            "review_log",
+            "caution",
+        }
+        self.assertTrue(expected.issubset(required))
+        self.assertEqual(data["properties"]["research_boundary"]["const"], "draft_not_scholarship")
+        self.assertIn(
+            "reserved_candidate_not_assigned",
+            data["properties"]["assignment_status"]["enum"],
+        )
+
+    def test_ai_agent_first_evidence_pack_draft_is_empty_scaffold(self) -> None:
+        path = (
+            repo_root()
+            / "doc/public/user_research/001_ai-agent-evidence-packs/hust-obc/"
+            / "001_000001-000100_obs-char-bucket/"
+            / "001_obs-char-000001_hust-obc-cat-0001_evidence-pack-draft.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["evidence_pack_id"], "hust-obc-evidence-pack-000001")
+        self.assertEqual(data["evidence_request_id"], "hust-obc-evidence-request-000001")
+        self.assertEqual(data["status"], "draft")
+        self.assertEqual(data["research_boundary"], "draft_not_scholarship")
+        self.assertEqual(data["assignment_status"], "reserved_candidate_not_assigned")
+        self.assertEqual(data["suggested_oracle_character_id"], "obs-char-000001")
+        self.assertEqual(data["primary_external_ref_id"], "hust-obc-cat-0001")
+        self.assertIn("not a decipherment result", data["caution"])
+        evidence_sections = [
+            "character_or_unknown_glyph_id",
+            "source_references_and_asset_metadata",
+            "full_inscription_context",
+            "neighboring_characters",
+            "component_breakdown_and_variant_notes",
+            "excavation_period_and_catalog_provenance",
+            "bronze_seal_or_modern_comparanda",
+            "supporting_evidence",
+            "opposing_evidence",
+        ]
+        for section in evidence_sections:
+            self.assertEqual(data[section]["status"], "not_collected")
+            self.assertEqual(data[section]["items"], [])
+        self.assertTrue(data["open_questions_and_next_checks"])
+        self.assertTrue(data["review_log"])
+
+    def test_ai_agent_evidence_pack_draft_builder_creates_scaffold_only(self) -> None:
+        module = load_hust_obc_evidence_pack_draft_module()
+        row = {
+            "evidence_request_id": "hust-obc-evidence-request-000001",
+            "assignment_status": "reserved_candidate_not_assigned",
+            "suggested_oracle_character_id": "obs-char-000001",
+            "candidate_class_id": "obs-cand-000001",
+            "primary_external_ref_id": "hust-obc-cat-0001",
+            "route_pack_id": "ai-context-hust-obc-bucket-review-001",
+            "bucket_manifest_path": "manifest.csv",
+            "route_files": "manifest.csv;graph.jsonl",
+            "source_route_requirement_ids": "src-hust-obc;src-obimd",
+            "evidence_gap_types": "source_provenance;opposing_evidence",
+        }
+        data = module.build_draft(row)
+        self.assertEqual(data["evidence_pack_id"], "hust-obc-evidence-pack-000001")
+        self.assertEqual(data["research_boundary"], "draft_not_scholarship")
+        self.assertEqual(data["route_files"], ["manifest.csv", "graph.jsonl"])
+        self.assertEqual(data["source_route_requirement_ids"], ["src-hust-obc", "src-obimd"])
+        self.assertEqual(data["supporting_evidence"]["status"], "not_collected")
+        self.assertEqual(data["supporting_evidence"]["items"], [])
+        self.assertIn("not a decipherment result", data["caution"])
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

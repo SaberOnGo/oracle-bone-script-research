@@ -110,6 +110,15 @@ AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv"
 )
+AI_AGENT_EVIDENCE_PACK_SCHEMA = (
+    "schemas/006_ai-agent-evidence-pack-schema/"
+    "ai-agent-evidence-pack.schema.json"
+)
+AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT = (
+    "doc/public/user_research/001_ai-agent-evidence-packs/hust-obc/"
+    "001_000001-000100_obs-char-bucket/"
+    "001_obs-char-000001_hust-obc-cat-0001_evidence-pack-draft.json"
+)
 OBIMD_MAIN_CHARACTER_STAGING = (
     "corpus/001_oracle-characters/000_character-registers/"
     "006_obimd-main-character-staging.csv"
@@ -271,6 +280,8 @@ REQUIRED_PATHS = [
     "skills/source-provenance-review/SKILL.md",
     "skills/ai-agent-evidence-pack-review/SKILL.md",
     "schemas/README.md",
+    "schemas/006_ai-agent-evidence-pack-schema/README.md",
+    AI_AGENT_EVIDENCE_PACK_SCHEMA,
     "corpus/README.md",
     "corpus/006_research-sources-and-bibliography/000_source-registers/README.md",
     SOURCE_INDEX,
@@ -326,9 +337,11 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
+    "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
     "tools/validation/check_repository_skeleton.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
+    AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT,
 ]
 
 REQUIRED_PATHS.extend(f"{dirname}/.gitignore" for dirname in REQUIRED_TOP_LEVEL_GITIGNORE_DIRS)
@@ -1260,6 +1273,79 @@ def check_ai_context_packs(root: Path) -> list[str]:
         issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} multi-component total must be 173")
     if request_rows and request_bucket_numbers != {f"{index:03d}" for index in range(1, 17)}:
         issues.append(f"{AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE} bucket set changed")
+
+    try:
+        evidence_pack_schema = json.loads(
+            (root / AI_AGENT_EVIDENCE_PACK_SCHEMA).read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        return issues + [f"{AI_AGENT_EVIDENCE_PACK_SCHEMA} invalid JSON: {exc.msg}"]
+    schema_required = set(evidence_pack_schema.get("required", []))
+    expected_schema_required = required_sections | {
+        "evidence_pack_id",
+        "evidence_request_id",
+        "status",
+        "research_boundary",
+        "assignment_status",
+        "suggested_oracle_character_id",
+        "candidate_class_id",
+        "primary_external_ref_id",
+        "draft_source_queue_path",
+        "route_pack_id",
+        "bucket_manifest_path",
+        "route_files",
+        "source_route_requirement_ids",
+        "evidence_gap_types",
+        "review_log",
+        "caution",
+        "updated_at",
+    }
+    if evidence_pack_schema.get("title") != "AI Agent Oracle Bone Script Evidence Pack":
+        issues.append(f"{AI_AGENT_EVIDENCE_PACK_SCHEMA} title changed")
+    if not expected_schema_required.issubset(schema_required):
+        issues.append(f"{AI_AGENT_EVIDENCE_PACK_SCHEMA} missing required evidence-pack fields")
+    schema_properties = evidence_pack_schema.get("properties", {})
+    if schema_properties.get("research_boundary", {}).get("const") != "draft_not_scholarship":
+        issues.append(f"{AI_AGENT_EVIDENCE_PACK_SCHEMA} research boundary const changed")
+    if "reserved_candidate_not_assigned" not in schema_properties.get("assignment_status", {}).get("enum", []):
+        issues.append(f"{AI_AGENT_EVIDENCE_PACK_SCHEMA} assignment status enum changed")
+
+    try:
+        sample_draft = json.loads(
+            (root / AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT).read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        return issues + [f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} invalid JSON: {exc.msg}"]
+    expected_sample_values = {
+        "evidence_pack_id": "hust-obc-evidence-pack-000001",
+        "evidence_request_id": "hust-obc-evidence-request-000001",
+        "status": "draft",
+        "research_boundary": "draft_not_scholarship",
+        "assignment_status": "reserved_candidate_not_assigned",
+        "suggested_oracle_character_id": "obs-char-000001",
+        "candidate_class_id": "obs-cand-000001",
+        "primary_external_ref_id": "hust-obc-cat-0001",
+        "draft_source_queue_path": AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
+        "route_pack_id": "ai-context-hust-obc-bucket-review-001",
+        "updated_at": "2026-06-05",
+    }
+    for key, value in expected_sample_values.items():
+        if sample_draft.get(key) != value:
+            issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} {key} changed")
+    if str(AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT).startswith("research/"):
+        issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} must not be under research/")
+    if "not a decipherment result" not in sample_draft.get("caution", ""):
+        issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} caution changed")
+    for section in required_sections:
+        value = sample_draft.get(section)
+        if section == "open_questions_and_next_checks":
+            if not isinstance(value, list) or not value:
+                issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} missing open questions")
+            continue
+        if not isinstance(value, dict) or value.get("status") != "not_collected":
+            issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} section not not_collected: {section}")
+        elif value.get("items") != []:
+            issues.append(f"{AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT} section has prefilled items: {section}")
 
     return issues
 

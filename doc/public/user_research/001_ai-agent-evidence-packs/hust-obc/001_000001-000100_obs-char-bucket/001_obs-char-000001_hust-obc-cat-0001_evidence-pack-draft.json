@@ -1,0 +1,98 @@
+{
+  "evidence_pack_id": "hust-obc-evidence-pack-000001",
+  "evidence_request_id": "hust-obc-evidence-request-000001",
+  "status": "draft",
+  "research_boundary": "draft_not_scholarship",
+  "assignment_status": "reserved_candidate_not_assigned",
+  "suggested_oracle_character_id": "obs-char-000001",
+  "candidate_class_id": "obs-cand-000001",
+  "primary_external_ref_id": "hust-obc-cat-0001",
+  "draft_source_queue_path": "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv",
+  "route_pack_id": "ai-context-hust-obc-bucket-review-001",
+  "bucket_manifest_path": "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/000_hust-obc-promotion-bucket-manifest.csv",
+  "route_files": [
+    "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/000_hust-obc-promotion-bucket-manifest.csv",
+    "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+    "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+    "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+    "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
+  ],
+  "source_route_requirement_ids": [
+    "src-hust-obc",
+    "src-xiaoxuetang-jiaguwen",
+    "src-xiaoxuetang-obm",
+    "src-obimd",
+    "src-evobc",
+    "src-ihp-oracle-rubbings"
+  ],
+  "evidence_gap_types": [
+    "source_provenance",
+    "primary_inscription_context",
+    "neighboring_characters",
+    "component_breakdown",
+    "variant_chain",
+    "bronze_seal_modern_correspondence",
+    "cooccurrence_distribution",
+    "supporting_evidence",
+    "opposing_evidence"
+  ],
+  "character_or_unknown_glyph_id": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Reserved project ID and external candidate ID copied from the request queue; no formal character assignment."
+  },
+  "source_references_and_asset_metadata": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Open cited source registers, route files, and asset metadata before adding evidence."
+  },
+  "full_inscription_context": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Primary inscription text and same-piece context have not been collected."
+  },
+  "neighboring_characters": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Neighboring characters and same-inscription co-text have not been collected."
+  },
+  "component_breakdown_and_variant_notes": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Component split, variant chain, and glyph-form notes have not been collected."
+  },
+  "excavation_period_and_catalog_provenance": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Excavation, period, collection, and catalog provenance have not been collected."
+  },
+  "bronze_seal_or_modern_comparanda": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "Bronze, seal, later script, and modern-form comparanda have not been collected."
+  },
+  "supporting_evidence": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "No supporting evidence has been accepted into this draft."
+  },
+  "opposing_evidence": {
+    "status": "not_collected",
+    "items": [],
+    "notes": "No opposing evidence has been collected yet."
+  },
+  "open_questions_and_next_checks": [
+    {
+      "status": "open",
+      "note": "Collect source rows and image or inscription context before writing any hypothesis."
+    }
+  ],
+  "review_log": [
+    {
+      "status": "created_from_request_queue",
+      "note": "Empty scaffold created for AI Agent evidence collection."
+    }
+  ],
+  "caution": "This file is not a decipherment result, not a formal obs-char assignment, and not published scholarship. Treat it as a structured evidence-collection draft.",
+  "updated_at": "2026-06-05"
+}

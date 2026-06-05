@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SaberOnGo/oracle-bone-script-research/schemas/006_ai-agent-evidence-pack-schema/ai-agent-evidence-pack.schema.json",
+  "title": "AI Agent Oracle Bone Script Evidence Pack",
+  "description": "Draft evidence-pack contract for AI Agent assisted oracle bone script research. This schema records evidence and review state before any decipherment claim.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_pack_id",
+    "evidence_request_id",
+    "status",
+    "research_boundary",
+    "assignment_status",
+    "suggested_oracle_character_id",
+    "candidate_class_id",
+    "primary_external_ref_id",
+    "draft_source_queue_path",
+    "route_pack_id",
+    "bucket_manifest_path",
+    "route_files",
+    "source_route_requirement_ids",
+    "evidence_gap_types",
+    "character_or_unknown_glyph_id",
+    "source_references_and_asset_metadata",
+    "full_inscription_context",
+    "neighboring_characters",
+    "component_breakdown_and_variant_notes",
+    "excavation_period_and_catalog_provenance",
+    "bronze_seal_or_modern_comparanda",
+    "supporting_evidence",
+    "opposing_evidence",
+    "open_questions_and_next_checks",
+    "review_log",
+    "caution",
+    "updated_at"
+  ],
+  "properties": {
+    "evidence_pack_id": {
+      "type": "string",
+      "pattern": "^hust-obc-evidence-pack-[0-9]{6}$"
+    },
+    "evidence_request_id": {
+      "type": "string",
+      "pattern": "^hust-obc-evidence-request-[0-9]{6}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "hypothesis", "needs_review", "reviewed", "deprecated"]
+    },
+    "research_boundary": {
+      "type": "string",
+      "const": "draft_not_scholarship"
+    },
+    "assignment_status": {
+      "type": "string",
+      "enum": ["reserved_candidate_not_assigned", "candidate_promoted_after_human_review"]
+    },
+    "suggested_oracle_character_id": {
+      "type": "string",
+      "pattern": "^obs-char-[0-9]{6}$"
+    },
+    "candidate_class_id": {
+      "type": "string"
+    },
+    "primary_external_ref_id": {
+      "type": "string"
+    },
+    "draft_source_queue_path": {
+      "type": "string"
+    },
+    "route_pack_id": {
+      "type": "string"
+    },
+    "bucket_manifest_path": {
+      "type": "string"
+    },
+    "route_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "source_route_requirement_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "evidence_gap_types": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "character_or_unknown_glyph_id": {"$ref": "#/$defs/evidence_section"},
+    "source_references_and_asset_metadata": {"$ref": "#/$defs/evidence_section"},
+    "full_inscription_context": {"$ref": "#/$defs/evidence_section"},
+    "neighboring_characters": {"$ref": "#/$defs/evidence_section"},
+    "component_breakdown_and_variant_notes": {"$ref": "#/$defs/evidence_section"},
+    "excavation_period_and_catalog_provenance": {"$ref": "#/$defs/evidence_section"},
+    "bronze_seal_or_modern_comparanda": {"$ref": "#/$defs/evidence_section"},
+    "supporting_evidence": {"$ref": "#/$defs/evidence_section"},
+    "opposing_evidence": {"$ref": "#/$defs/evidence_section"},
+    "open_questions_and_next_checks": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/review_item"}
+    },
+    "review_log": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/review_item"}
+    },
+    "caution": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  },
+  "$defs": {
+    "evidence_section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "items", "notes"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["not_collected", "partial", "complete", "not_applicable"]
+        },
+        "items": {
+          "type": "array",
+          "items": {"type": "object"}
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "review_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "note"],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

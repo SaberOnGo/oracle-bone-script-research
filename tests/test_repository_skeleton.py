@@ -242,6 +242,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("digitized_searchable_records=21556", text)
         self.assertIn("collection_number_cross_reference", text)
         self.assertIn("site_policy_required", text)
+        self.assertIn("nlc_oracle_world_objects=2964", text)
+        self.assertIn("object_images=5932", text)
+        self.assertIn("rubbings=2975", text)
+        self.assertIn("rubbing_images=3177", text)
+        self.assertIn("nlc_oracle_bone_holding_count=35651", text)
+        self.assertIn("nlc_field_contract=holding_number", text)
+        self.assertIn("nlc_heji_refs_over_8000", text)
+        self.assertIn("nlc_yinqi_cuibian_refs=1595", text)
         self.assertEqual(
             {row["review_status"] for row in rows},
             {"reviewed_metadata_only"},
@@ -374,6 +382,50 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(metrics[("src-obimd", "main_character_uid_count")], "3936")
         self.assertEqual(metrics[("src-evobc", "class_count")], "13714")
         self.assertEqual(metrics[("src-evobc", "image_reference_count")], "229170")
+        self.assertEqual(metrics[("src-nlc-oracle-world", "oracle_world_object_record_count")], "2964")
+        self.assertEqual(metrics[("src-nlc-oracle-world", "oracle_world_object_image_count")], "5932")
+        self.assertEqual(metrics[("src-nlc-oracle-world", "oracle_world_rubbing_record_count")], "2975")
+        self.assertEqual(metrics[("src-nlc-oracle-world", "oracle_world_rubbing_image_count")], "3177")
+        self.assertEqual(metrics[("src-nlc-oracle-world", "nlc_oracle_bone_holding_count")], "35651")
+        self.assertEqual(metrics[("src-nlc-oracle-world", "nlc_yinqi_cuibian_cataloged_count")], "1595")
+
+    def test_nlc_oracle_world_source_is_official_scope_confirmed(self) -> None:
+        source_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "001_all-sources-index.csv"
+        )
+        download_log_path = repo_root() / "project_registry/006_large-source-register/002_source-download-log.csv"
+        field_map_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "007_source-field-map.csv"
+        )
+        with source_path.open("r", encoding="utf-8-sig", newline="") as file:
+            sources = {row["source_id"]: row for row in csv.DictReader(file)}
+        with download_log_path.open("r", encoding="utf-8-sig", newline="") as file:
+            log_rows = {row["download_id"]: row for row in csv.DictReader(file)}
+        with field_map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            field_rows = [
+                row for row in csv.DictReader(file)
+                if row["source_id"] == "src-nlc-oracle-world"
+            ]
+
+        nlc = sources["src-nlc-oracle-world"]
+        self.assertEqual(nlc["adoption_status"], "candidate_institutional_official_scope_confirmed")
+        self.assertEqual(nlc["review_status"], "reviewed")
+        self.assertIn("35651", nlc["scope"])
+        self.assertIn("not a stable current bulk endpoint", nlc["risk_note"])
+        self.assertIn("dl-nlc-oracle-world-note", log_rows)
+        self.assertIn("dl-nlc-oracle-database-design", log_rows)
+        self.assertEqual(log_rows["dl-nlc-oracle-database-design"]["status"], "downloaded")
+        self.assertTrue(log_rows["dl-nlc-oracle-database-design"]["local_temp_path"].startswith("tmp/"))
+        self.assertGreater(int(log_rows["dl-nlc-oracle-database-design"]["file_size_bytes"]), 0)
+        field_names = {row["source_field_or_unit"] for row in field_rows}
+        self.assertTrue({"馆藏号", "来源号", "著录情况"}.issubset(field_names))
+        joined_target_fields = " ".join(row["target_project_field"] for row in field_rows)
+        self.assertIn("nlc_holding_number", joined_target_fields)
+        self.assertIn("heji_ref_id", joined_target_fields)
 
     def test_hust_obc_validation_staging_has_1588_candidate_classes(self) -> None:
         path = (

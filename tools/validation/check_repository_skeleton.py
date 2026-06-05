@@ -1602,6 +1602,14 @@ def check_source_registers(root: Path) -> list[str]:
         "digitized_searchable_records=21556",
         "collection_number_cross_reference",
         "site_policy_required",
+        "nlc_oracle_world_objects=2964",
+        "object_images=5932",
+        "rubbings=2975",
+        "rubbing_images=3177",
+        "nlc_oracle_bone_holding_count=35651",
+        "nlc_field_contract=holding_number",
+        "nlc_heji_refs_over_8000",
+        "nlc_yinqi_cuibian_refs=1595",
     ]:
         if required_snippet not in core_access_text:
             issues.append(

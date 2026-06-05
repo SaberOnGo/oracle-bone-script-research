@@ -12,7 +12,8 @@ Immediate import priorities:
 4. `src-cambridge-hopkins` is immediately useful for inscription-level external ID crosswalks because it links Yingguo, CUL, Chalfant, and Heji references.
 5. `src-obid-ancientbooks` is useful as a professional discovery interface and catalog-prefix reference, but raw records should not be copied in bulk because access and redistribution terms need caution.
 6. `src-tsinghua-oracle-bones` is useful for collection-level provenance and institutional context.
-7. `src-evobc` and `src-gbedobc` should be reserved for graph/evolution experiments after the primary oracle-character and inscription backbones are stronger.
+7. `src-nlc-oracle-world` now has official NLC PDF evidence for collection scale, Oracle World database scope, and database field design. It is useful as a national-library institutional source, but item-level import still requires a stable current query endpoint and rights/access review.
+8. `src-evobc` and `src-gbedobc` should be reserved for graph/evolution experiments after the primary oracle-character and inscription backbones are stronger.
 
 Recommended next data-building sequence:
 
@@ -20,7 +21,8 @@ Recommended next data-building sequence:
 2. Use HUST-OBC metadata to create a candidate character-class staging table, clearly marked as `dataset_candidate` and not as accepted decipherment.
 3. Use OBIMD metadata fields to design occurrence records: image reference, bounding box, source label, sublabel, reading order, sentence group, and missing/special markers.
 4. Use Cambridge Hopkins rows to design an inscription crosswalk table with `y`, `c`, `h`, and `j` identifiers.
-5. Add review gates before promoting any dataset-derived character class into `corpus/001_oracle-characters/`.
+5. Use NLC official field-design evidence to prepare future fields for holding number, source number, diviner, period, excavation place, bone material, topic category, rubbing source, joins, and catalog references.
+6. Add review gates before promoting any dataset-derived character class into `corpus/001_oracle-characters/`.
 
 Rights and quality boundary:
 
@@ -41,7 +43,8 @@ Rights and quality boundary:
 4. `src-cambridge-hopkins` 可直接用于设计卜辞级外部 ID crosswalk，因为它连接了 Yingguo、CUL、Chalfant 和 Heji 编号。
 5. `src-obid-ancientbooks` 适合作为专业发现界面和目录前缀参考，但由于访问和再分发条款需要谨慎，不应批量复制原始记录。
 6. `src-tsinghua-oracle-bones` 适合作为馆藏级来源和机构语境。
-7. `src-evobc` 和 `src-gbedobc` 应放在后续图谱/字形演化实验阶段使用，前提是甲骨字和卜辞主干已经更稳固。
+7. `src-nlc-oracle-world` 现在已有国家图书馆官方 PDF 证据，可确认馆藏规模、“甲骨世界”数据库范围和数据库字段设计。它适合作为国家级图书馆机构来源，但记录级导入仍需要确认当前稳定查询入口，并复核权利和访问规则。
+8. `src-evobc` 和 `src-gbedobc` 应放在后续图谱/字形演化实验阶段使用，前提是甲骨字和卜辞主干已经更稳固。
 
 建议的数据建设顺序：
 
@@ -49,7 +52,8 @@ Rights and quality boundary:
 2. 用 HUST-OBC metadata 建立候选字类 staging 表，明确标记为 `dataset_candidate`，不能标记为已接受释读。
 3. 用 OBIMD 字段设计 occurrence 记录：图像引用、bounding box、来源 label、sublabel、阅读顺序、句组和缺字/特殊标记。
 4. 用 Cambridge Hopkins 行设计卜辞 crosswalk 表，记录 `y`、`c`、`h`、`j` 等外部编号。
-5. 在任何数据集派生字类进入 `corpus/001_oracle-characters/` 前增加复核门槛。
+5. 用 NLC 官方字段设计证据，为后续馆藏号、来源号、贞人、时期、出土地点、原骨属性、卜辞内容类别、拓片来源、缀合情况和著录情况等字段预留结构。
+6. 在任何数据集派生字类进入 `corpus/001_oracle-characters/` 前增加复核门槛。
 
 权利和质量边界：
 

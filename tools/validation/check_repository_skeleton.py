@@ -339,6 +339,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
     "tools/validation/check_repository_skeleton.py",
+    "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
     "tests/test_repository_skeleton.py",
     AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT,
@@ -561,6 +562,22 @@ def check_tracked_temp_artifacts(root: Path) -> list[str]:
             if lower_path.endswith(FORBIDDEN_TRACKED_TEMP_FILE_SUFFIXES):
                 issues.append(f"tracked temporary artifact file: {relative_path}")
     return issues
+
+
+def check_ai_agent_evidence_pack_validator(root: Path) -> list[str]:
+    result = subprocess.run(
+        [sys.executable, "tools/validation/validate_ai_agent_evidence_packs.py"],
+        cwd=root,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if result.returncode == 0:
+        return []
+    output = "\n".join(part for part in [result.stdout.strip(), result.stderr.strip()] if part)
+    return [f"AI Agent evidence-pack validator failed:\n{output}"]
 
 
 def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
@@ -2504,6 +2521,7 @@ def main() -> int:
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_ai_context_packs(root))
+    issues.extend(check_ai_agent_evidence_pack_validator(root))
 
     if issues:
         print("FAIL repository skeleton")

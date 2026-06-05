@@ -11,6 +11,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_paths,
     check_forbidden_top_level_dirs,
     check_ai_context_packs,
+    check_ai_agent_evidence_pack_validator,
     check_required_paths,
     check_relationship_graph_edges,
     check_relationship_graph_statistics,
@@ -138,6 +139,15 @@ def load_hust_obc_evidence_pack_draft_module():
     return module
 
 
+def load_ai_agent_evidence_pack_validator_module():
+    path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
+    spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
@@ -174,6 +184,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_ai_context_packs(self) -> None:
         self.assertEqual(check_ai_context_packs(repo_root()), [])
+
+    def test_ai_agent_evidence_pack_validator(self) -> None:
+        self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])
 
     def test_source_field_map_covers_first_stage_sources(self) -> None:
         path = (
@@ -1276,6 +1289,29 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["supporting_evidence"]["status"], "not_collected")
         self.assertEqual(data["supporting_evidence"]["items"], [])
         self.assertIn("not a decipherment result", data["caution"])
+
+    def test_ai_agent_evidence_pack_validator_catches_boundary_errors(self) -> None:
+        builder = load_hust_obc_evidence_pack_draft_module()
+        validator = load_ai_agent_evidence_pack_validator_module()
+        row = {
+            "evidence_request_id": "hust-obc-evidence-request-000001",
+            "assignment_status": "reserved_candidate_not_assigned",
+            "suggested_oracle_character_id": "obs-char-000001",
+            "candidate_class_id": "obs-cand-000001",
+            "primary_external_ref_id": "hust-obc-cat-0001",
+            "route_pack_id": "ai-context-hust-obc-bucket-review-001",
+            "bucket_manifest_path": "manifest.csv",
+            "route_files": "manifest.csv;graph.jsonl",
+            "source_route_requirement_ids": "src-hust-obc;src-obimd",
+            "evidence_gap_types": "source_provenance;opposing_evidence",
+        }
+        data = builder.build_draft(row)
+        self.assertEqual(validator.validate_pack(data, root=repo_root()), [])
+        data["research_boundary"] = "published_scholarship"
+        data["caution"] = "This is a decipherment result."
+        issues = validator.validate_pack(data, root=repo_root())
+        self.assertTrue(any("research_boundary" in issue for issue in issues))
+        self.assertTrue(any("not a decipherment result" in issue for issue in issues))
 
     def test_obimd_main_character_staging_has_3936_candidate_uids(self) -> None:
         path = (

@@ -250,6 +250,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("nlc_field_contract=holding_number", text)
         self.assertIn("nlc_heji_refs_over_8000", text)
         self.assertIn("nlc_yinqi_cuibian_refs=1595", text)
+        self.assertIn("smithsonian_nmaa_accession=FSC-O-26", text)
+        self.assertIn("rights=CC0", text)
+        self.assertIn("iiif_source_image_id=FS-FSC-O-26_1", text)
+        self.assertIn("smithsonian_nmaa_provenance_john_hadley_cox_xiaotun_anyang", text)
         self.assertEqual(
             {row["review_status"] for row in rows},
             {"reviewed_metadata_only"},
@@ -388,6 +392,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(metrics[("src-nlc-oracle-world", "oracle_world_rubbing_image_count")], "3177")
         self.assertEqual(metrics[("src-nlc-oracle-world", "nlc_oracle_bone_holding_count")], "35651")
         self.assertEqual(metrics[("src-nlc-oracle-world", "nlc_yinqi_cuibian_cataloged_count")], "1595")
+        self.assertEqual(metrics[("src-smithsonian-nmaa-oracle-bone", "accession_number")], "FSC-O-26")
+        self.assertEqual(metrics[("src-smithsonian-nmaa-oracle-bone", "rights_status")], "CC0")
+        self.assertEqual(metrics[("src-smithsonian-nmaa-oracle-bone", "iiif_source_image_id")], "FS-FSC-O-26_1")
 
     def test_nlc_oracle_world_source_is_official_scope_confirmed(self) -> None:
         source_path = (
@@ -426,6 +433,44 @@ class RepositorySkeletonTests(unittest.TestCase):
         joined_target_fields = " ".join(row["target_project_field"] for row in field_rows)
         self.assertIn("nlc_holding_number", joined_target_fields)
         self.assertIn("heji_ref_id", joined_target_fields)
+
+    def test_smithsonian_nmaa_public_domain_sample_staging(self) -> None:
+        source_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "001_all-sources-index.csv"
+        )
+        download_log_path = repo_root() / "project_registry/006_large-source-register/002_source-download-log.csv"
+        staging_path = (
+            repo_root()
+            / "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+            / "003_smithsonian-nmaa-oracle-bone-object-staging.csv"
+        )
+        with source_path.open("r", encoding="utf-8-sig", newline="") as file:
+            sources = {row["source_id"]: row for row in csv.DictReader(file)}
+        with download_log_path.open("r", encoding="utf-8-sig", newline="") as file:
+            log_rows = {row["download_id"]: row for row in csv.DictReader(file)}
+        with staging_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        source = sources["src-smithsonian-nmaa-oracle-bone"]
+        self.assertEqual(source["adoption_status"], "adopted_public_domain_sample_source")
+        self.assertEqual(source["rights_status"], "public_domain_verified")
+        self.assertIn("FSC-O-26", source["scope"])
+        self.assertIn("request verification", source["risk_note"])
+        self.assertIn("dl-smithsonian-nmaa-fsc-o-26-archive", log_rows)
+        self.assertEqual(log_rows["dl-smithsonian-nmaa-fsc-o-26-archive"]["status"], "downloaded")
+        self.assertTrue(log_rows["dl-smithsonian-nmaa-fsc-o-26-archive"]["local_temp_path"].startswith("tmp/"))
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row["candidate_collection_object_id"], "si-nmaa-obj-00001")
+        self.assertEqual(row["source_collection_item_id"], "FSC-O-26")
+        self.assertEqual(row["accession_number"], "FSC-O-26")
+        self.assertEqual(row["iiif_source_image_id"], "FS-FSC-O-26_1")
+        self.assertEqual(row["rights_status"], "public_domain_verified")
+        self.assertEqual(row["iiif_manifest_status"], "metadata_only_not_downloaded")
+        self.assertIn("John Hadley Cox", row["provenance_note"])
+        self.assertIn("raw IIIF image is not committed", row["caution"])
 
     def test_hust_obc_validation_staging_has_1588_candidate_classes(self) -> None:
         path = (

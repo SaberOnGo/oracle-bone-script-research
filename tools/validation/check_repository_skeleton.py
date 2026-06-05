@@ -147,6 +147,10 @@ IHP_MUSEUM_OBJECT_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "002_ihp-museum-oracle-bone-object-staging.csv"
 )
+SMITHSONIAN_NMAA_OBJECT_STAGING = (
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+    "003_smithsonian-nmaa-oracle-bone-object-staging.csv"
+)
 EVOBC_EVOLUTION_CATEGORY_STAGING = (
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
     "001_evobc-evolution-category-staging.csv"
@@ -319,6 +323,7 @@ REQUIRED_PATHS = [
     CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY,
     COLLECTION_PROVENANCE_STAGING,
     IHP_MUSEUM_OBJECT_STAGING,
+    SMITHSONIAN_NMAA_OBJECT_STAGING,
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
     "tmp/.gitignore",
     "tmp/README.md",
@@ -1436,6 +1441,9 @@ def check_source_registers(root: Path) -> list[str]:
     ihp_museum_object_rows, ihp_museum_object_issues = _read_csv_rows(
         root / IHP_MUSEUM_OBJECT_STAGING
     )
+    smithsonian_object_rows, smithsonian_object_issues = _read_csv_rows(
+        root / SMITHSONIAN_NMAA_OBJECT_STAGING
+    )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(
@@ -1462,6 +1470,7 @@ def check_source_registers(root: Path) -> list[str]:
         + cambridge_summary_issues
         + collection_provenance_issues
         + ihp_museum_object_issues
+        + smithsonian_object_issues
         + log_issues
         + large_issues
     )
@@ -1610,6 +1619,8 @@ def check_source_registers(root: Path) -> list[str]:
         "nlc_field_contract=holding_number",
         "nlc_heji_refs_over_8000",
         "nlc_yinqi_cuibian_refs=1595",
+        "FS-FSC-O-26_1",
+        "CC0",
     ]:
         if required_snippet not in core_access_text:
             issues.append(
@@ -2507,6 +2518,35 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} last item ID changed")
         if last_row.get("catalog_reference_text") != "Ping 0264":
             issues.append(f"{IHP_MUSEUM_OBJECT_STAGING} last catalog reference changed")
+
+    if len(smithsonian_object_rows) != 1:
+        issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} should contain exactly 1 sample object row")
+    for row in smithsonian_object_rows:
+        candidate_id = row.get("candidate_collection_object_id", "")
+        if candidate_id != "si-nmaa-obj-00001":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} sample candidate ID changed")
+        if row.get("source_id") != "src-smithsonian-nmaa-oracle-bone":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row must reference Smithsonian source")
+        if row.get("evidence_download_id") != "dl-smithsonian-nmaa-fsc-o-26-archive":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row must cite FSC-O-26 archive download")
+        if row.get("source_collection_item_id") != "FSC-O-26":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} source collection item ID changed")
+        if row.get("accession_number") != "FSC-O-26":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} accession number changed")
+        if row.get("iiif_source_image_id") != "FS-FSC-O-26_1":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} IIIF source image ID changed")
+        if row.get("rights_status") != "public_domain_verified":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} rights status must stay public_domain_verified")
+        if row.get("iiif_manifest_status") != "metadata_only_not_downloaded":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} raw IIIF asset must not be marked downloaded")
+        if row.get("project_import_status") != "object_metadata_not_promoted":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row must stay object_metadata_not_promoted")
+        if "John Hadley Cox" not in row.get("provenance_note", ""):
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} provenance note missing John Hadley Cox")
+        if "not committed" not in row.get("caution", ""):
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} caution must state raw image is not committed")
+        if row.get("review_status") != "reviewed_metadata_only":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row not reviewed_metadata_only")
 
     for row in large_rows:
         if row.get("file_size_bytes") and row.get("storage_status") == "not_downloaded_registered":

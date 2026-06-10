@@ -60,6 +60,12 @@ BUCKET_SPECS = [
         "end": 200,
         "materialization_status": "second_bucket_candidate_packet_materialized",
     },
+    {
+        "directory_prefix": "019",
+        "start": 201,
+        "end": 300,
+        "materialization_status": "third_bucket_candidate_packet_materialized",
+    },
 ]
 
 INDEX_FIELDS = [
@@ -343,9 +349,10 @@ def update_large_source_register(root: Path) -> None:
             row["checksum_sha256"] = RAW_SHA256
             row["storage_status"] = "downloaded_to_external_local_archive_registered"
             row["storage_hint"] = ARCHIVE_HINT
+            materialized_end = max(int(spec["end"]) for spec in BUCKET_SPECS)
             row["handling_strategy"] = (
                 "Commit only metadata-only undeciphered candidate index and first "
-                "200 packet scaffolds; do not commit raw images."
+                f"{materialized_end} packet scaffolds; do not commit raw images."
             )
             manifest_paths = ";".join(bucket_manifest_path(spec) for spec in BUCKET_SPECS)
             row["derived_record_paths"] = (

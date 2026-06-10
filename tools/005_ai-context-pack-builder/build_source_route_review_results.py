@@ -33,21 +33,23 @@ AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = Path(
     "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv"
 )
 HUST_OBC_CANDIDATE_GRAPH_EDGES = Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl")
+OBIMD_COMPONENT_GRAPH_EDGES = Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl")
+EVOBC_EVOLUTION_GRAPH_EDGES = Path("corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl")
 
-TARGET_SOURCE_ID = "src-hust-obc"
-TARGET_TASK_ID = "source-route-review-001"
+TARGET_SOURCE_IDS = ["src-hust-obc", "src-evobc", "src-obimd"]
+GRAPH_EDGE_FILES_BY_SOURCE = {
+    "src-hust-obc": HUST_OBC_CANDIDATE_GRAPH_EDGES,
+    "src-evobc": EVOBC_EVOLUTION_GRAPH_EDGES,
+    "src-obimd": OBIMD_COMPONENT_GRAPH_EDGES,
+}
 UPDATED_AT = "2026-06-10"
 RESEARCH_BOUNDARY = "source_route_review_metadata_only_not_scholarship"
 OUTPUT_SCOPE = "source_route_review_result_only"
-REVIEW_NOTE = (
-    "Metadata-only review confirms the HUST-OBC source-route files and derived counts "
-    "are internally consistent. HUST dataset labels remain candidates, and raw images "
-    "or the raw zip are not promoted."
-)
 CAUTION = (
     "This is a metadata-only source-route review result. It is not source evidence by itself, "
-    "not a decipherment result, not a character assignment, not a rights clearance, and does "
-    "not promote raw images or dataset labels into scholarship."
+    "not a decipherment result, not a character/component/evolution-chain assignment, not a "
+    "rights clearance, and does not promote raw images, dataset labels, graph edges, or staging "
+    "rows into scholarship."
 )
 
 OUTPUT_FIELDS = [
@@ -107,19 +109,65 @@ def _one(rows: list[dict[str, str]], key: str, value: str) -> dict[str, str]:
     return matches[0]
 
 
-def _source_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
-    return [row for row in rows if row.get("source_id") == TARGET_SOURCE_ID]
+def _source_rows(rows: list[dict[str, str]], source_id: str) -> list[dict[str, str]]:
+    return [row for row in rows if row.get("source_id") == source_id]
 
 
-def _raw_package_row(rows: list[dict[str, str]]) -> dict[str, str]:
-    matches = [
-        row
-        for row in _source_rows(rows)
-        if row.get("file_name") == "HUST-OBC.zip" or row.get("file_kind") == "raw_dataset_zip"
-    ]
-    if len(matches) != 1:
-        raise ValueError(f"expected exactly one HUST-OBC raw package row, found {len(matches)}")
-    return matches[0]
+def _primary_package_row(rows: list[dict[str, str]], source_id: str) -> dict[str, str]:
+    source_rows = _source_rows(rows, source_id)
+    if not source_rows:
+        return {}
+    return max(source_rows, key=lambda row: int(row.get("file_size_bytes") or "0"))
+
+
+def _size_checksum_review_status(package_rows: list[dict[str, str]]) -> str:
+    if not package_rows:
+        return "not_applicable_no_package_manifest_rows"
+    if any(row.get("commit_policy") == "do_not_commit_regular_git" for row in package_rows):
+        return "raw_package_over_git_limit_manifested"
+    return "downloaded_metadata_files_logged_tmp_only"
+
+
+def _candidate_queue_count(source_id: str, promotion_queue_rows: list[dict[str, str]]) -> int:
+    if source_id != "src-hust-obc":
+        return 0
+    return len(promotion_queue_rows)
+
+
+def _evidence_request_count(source_id: str, evidence_request_rows: list[dict[str, str]]) -> int:
+    if source_id != "src-hust-obc":
+        return 0
+    return len(evidence_request_rows)
+
+
+def _next_artifact_recommendation(source_id: str) -> str:
+    recommendations = {
+        "src-hust-obc": "open_first_hust_obc_candidate_or_bucket_route_for_cross_source_review",
+        "src-evobc": "open_first_evobc_evolution_category_route_for_cross_source_review",
+        "src-obimd": "open_first_obimd_component_or_glyph_route_for_cross_source_review",
+    }
+    return recommendations[source_id]
+
+
+def _review_note(source_id: str) -> str:
+    notes = {
+        "src-hust-obc": (
+            "Metadata-only review confirms the HUST-OBC source-route files and derived counts "
+            "are internally consistent. HUST dataset labels remain candidates, and raw images "
+            "or the raw zip are not promoted."
+        ),
+        "src-evobc": (
+            "Metadata-only review confirms the EVOBC source-route files and derived counts are "
+            "internally consistent. EVOBC category, era-code, and source-code graph edges remain "
+            "dataset metadata; raw images and large JSON files are not promoted."
+        ),
+        "src-obimd": (
+            "Metadata-only review confirms the OBIMD source-route files and derived counts are "
+            "internally consistent. OBIMD main-character, subcharacter, and glyph-codepoint graph "
+            "edges remain dataset metadata; raw annotation and image packages are not promoted."
+        ),
+    }
+    return notes[source_id]
 
 
 def build_review_rows(
@@ -132,64 +180,64 @@ def build_review_rows(
     package_file_rows: list[dict[str, str]],
     promotion_queue_rows: list[dict[str, str]],
     evidence_request_rows: list[dict[str, str]],
-    graph_edge_count: int,
+    graph_edge_counts: dict[str, int],
     root: Path | None = None,
 ) -> list[dict[str, str]]:
-    queue_row = _one(queue_rows, "source_route_task_id", TARGET_TASK_ID)
-    scaffold_row = _one(scaffold_rows, "source_route_task_id", TARGET_TASK_ID)
-    coverage_row = _one(coverage_rows, "source_id", TARGET_SOURCE_ID)
-    source_index_row = _one(source_index_rows, "source_id", TARGET_SOURCE_ID)
-    raw_package = _raw_package_row(package_file_rows)
+    rows: list[dict[str, str]] = []
+    for source_id in TARGET_SOURCE_IDS:
+        queue_row = _one(queue_rows, "source_id", source_id)
+        scaffold_row = _one(scaffold_rows, "source_id", source_id)
+        coverage_row = _one(coverage_rows, "source_id", source_id)
+        source_index_row = _one(source_index_rows, "source_id", source_id)
+        metadata_rows = _source_rows(metadata_profile_rows, source_id)
+        download_rows = _source_rows(download_log_rows, source_id)
+        package_rows = _source_rows(package_file_rows, source_id)
+        primary_package = _primary_package_row(package_file_rows, source_id)
+        route_files = scaffold_row["route_files_to_open"]
+        route_file_list = [value for value in route_files.split(";") if value]
+        route_files_exist = True
+        if root is not None:
+            route_files_exist = all((root / value).exists() for value in route_file_list)
 
-    metadata_rows = _source_rows(metadata_profile_rows)
-    download_rows = _source_rows(download_log_rows)
-    package_rows = _source_rows(package_file_rows)
-    route_files = scaffold_row["route_files_to_open"]
-    route_file_list = [value for value in route_files.split(";") if value]
-    route_files_exist = True
-    if root is not None:
-        route_files_exist = all((root / value).exists() for value in route_file_list)
-
-    return [
-        {
-            "source_route_result_id": scaffold_row["source_route_result_id"],
-            "source_route_task_id": TARGET_TASK_ID,
-            "context_pack_id": queue_row["context_pack_id"],
-            "source_id": TARGET_SOURCE_ID,
-            "priority_tags": queue_row["priority_tags"],
-            "review_focus": queue_row["review_focus"],
-            "result_status": "reviewed_metadata_routes_only",
-            "source_register_review_status": "reviewed_metadata_only",
-            "route_file_review_status": (
-                "reviewed_route_files_exist" if route_files_exist else "route_files_missing"
-            ),
-            "rights_and_risk_review_status": coverage_row["rights_status"],
-            "size_checksum_review_status": "raw_package_over_git_limit_manifested",
-            "derivative_promotion_status": "no_raw_asset_promotion",
-            "evidence_gap_status": "needs_cross_source_review_before_evidence_pack",
-            "source_index_row_count": "1",
-            "metadata_profile_metric_count": str(len(metadata_rows)),
-            "download_log_count": str(len(download_rows)),
-            "source_package_file_manifest_count": str(len(package_rows)),
-            "candidate_queue_count": str(len(promotion_queue_rows)),
-            "evidence_request_count": str(len(evidence_request_rows)),
-            "graph_edge_count": str(graph_edge_count),
-            "raw_package_file_size_bytes": raw_package["file_size_bytes"],
-            "raw_package_commit_policy": raw_package["commit_policy"],
-            "rights_status": source_index_row["rights_status"],
-            "source_review_status": source_index_row["review_status"],
-            "route_files_opened": route_files,
-            "review_basis_files": route_files,
-            "next_artifact_recommendation": (
-                "open_first_hust_obc_candidate_or_bucket_route_for_cross_source_review"
-            ),
-            "research_boundary": RESEARCH_BOUNDARY,
-            "output_scope": OUTPUT_SCOPE,
-            "review_note": REVIEW_NOTE,
-            "caution": CAUTION,
-            "updated_at": UPDATED_AT,
-        }
-    ]
+        rows.append(
+            {
+                "source_route_result_id": scaffold_row["source_route_result_id"],
+                "source_route_task_id": queue_row["source_route_task_id"],
+                "context_pack_id": queue_row["context_pack_id"],
+                "source_id": source_id,
+                "priority_tags": queue_row["priority_tags"],
+                "review_focus": queue_row["review_focus"],
+                "result_status": "reviewed_metadata_routes_only",
+                "source_register_review_status": "reviewed_metadata_only",
+                "route_file_review_status": (
+                    "reviewed_route_files_exist" if route_files_exist else "route_files_missing"
+                ),
+                "rights_and_risk_review_status": coverage_row["rights_status"],
+                "size_checksum_review_status": _size_checksum_review_status(package_rows),
+                "derivative_promotion_status": "no_raw_asset_or_dataset_claim_promotion",
+                "evidence_gap_status": "needs_cross_source_review_before_evidence_pack",
+                "source_index_row_count": "1",
+                "metadata_profile_metric_count": str(len(metadata_rows)),
+                "download_log_count": str(len(download_rows)),
+                "source_package_file_manifest_count": str(len(package_rows)),
+                "candidate_queue_count": str(_candidate_queue_count(source_id, promotion_queue_rows)),
+                "evidence_request_count": str(_evidence_request_count(source_id, evidence_request_rows)),
+                "graph_edge_count": str(graph_edge_counts[source_id]),
+                "raw_package_file_size_bytes": primary_package.get("file_size_bytes", ""),
+                "raw_package_commit_policy": primary_package.get("commit_policy", ""),
+                "rights_status": source_index_row["rights_status"],
+                "source_review_status": source_index_row["review_status"],
+                "route_files_opened": route_files,
+                "review_basis_files": route_files,
+                "next_artifact_recommendation": _next_artifact_recommendation(source_id),
+                "research_boundary": RESEARCH_BOUNDARY,
+                "output_scope": OUTPUT_SCOPE,
+                "review_note": _review_note(source_id),
+                "caution": CAUTION,
+                "updated_at": UPDATED_AT,
+            }
+        )
+    return rows
 
 
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
@@ -226,7 +274,10 @@ def main(argv: list[str] | None = None) -> int:
         read_csv_rows(root / args.source_package_file_manifest),
         read_csv_rows(root / args.promotion_queue),
         read_csv_rows(root / args.evidence_request_queue),
-        read_jsonl_count(root / args.graph_edges),
+        {
+            source_id: read_jsonl_count(root / graph_file)
+            for source_id, graph_file in GRAPH_EDGE_FILES_BY_SOURCE.items()
+        },
         root=root,
     )
     write_csv(root / args.output, rows)

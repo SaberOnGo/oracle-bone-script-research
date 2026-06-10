@@ -693,7 +693,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("confirmed scholarship", result_rows[4]["caution"])
         self.assertNotIn("public_domain_verified", result_rows[4]["derivative_promotion_status"])
 
-    def test_ai_agent_source_route_review_results_record_first_hust_metadata_review(self) -> None:
+    def test_ai_agent_source_route_review_results_record_graph_derived_metadata_reviews(self) -> None:
         path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -701,37 +701,60 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 1)
-        row = rows[0]
-        self.assertEqual(row["source_route_result_id"], "source-route-result-001")
-        self.assertEqual(row["source_route_task_id"], "source-route-review-001")
-        self.assertEqual(row["source_id"], "src-hust-obc")
-        self.assertEqual(row["result_status"], "reviewed_metadata_routes_only")
-        self.assertEqual(row["source_register_review_status"], "reviewed_metadata_only")
-        self.assertEqual(row["route_file_review_status"], "reviewed_route_files_exist")
-        self.assertEqual(row["rights_and_risk_review_status"], "source_marked_risk_noted")
-        self.assertEqual(row["size_checksum_review_status"], "raw_package_over_git_limit_manifested")
-        self.assertEqual(row["derivative_promotion_status"], "no_raw_asset_promotion")
-        self.assertEqual(row["evidence_gap_status"], "needs_cross_source_review_before_evidence_pack")
-        self.assertEqual(row["metadata_profile_metric_count"], "11")
-        self.assertEqual(row["download_log_count"], "7")
-        self.assertEqual(row["source_package_file_manifest_count"], "4")
-        self.assertEqual(row["candidate_queue_count"], "1588")
-        self.assertEqual(row["evidence_request_count"], "1588")
-        self.assertEqual(row["graph_edge_count"], "3562")
-        self.assertEqual(row["raw_package_file_size_bytes"], "607933810")
-        self.assertEqual(row["raw_package_commit_policy"], "do_not_commit_regular_git")
-        self.assertEqual(row["research_boundary"], "source_route_review_metadata_only_not_scholarship")
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["source_route_result_id"], "source-route-result-001")
+        self.assertEqual(by_source["src-hust-obc"]["source_route_task_id"], "source-route-review-001")
+        self.assertEqual(by_source["src-hust-obc"]["candidate_queue_count"], "1588")
+        self.assertEqual(by_source["src-hust-obc"]["evidence_request_count"], "1588")
+        self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "3562")
+        self.assertEqual(by_source["src-hust-obc"]["raw_package_file_size_bytes"], "607933810")
         self.assertIn(
             "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
-            row["route_files_opened"],
+            by_source["src-hust-obc"]["route_files_opened"],
         )
-        self.assertIn("dataset labels remain candidates", row["review_note"])
-        self.assertIn("not a decipherment result", row["caution"])
-        self.assertIn("not a rights clearance", row["caution"])
-        self.assertIn("does not promote raw images", row["caution"])
+        self.assertIn("dataset labels remain candidates", by_source["src-hust-obc"]["review_note"])
+        self.assertEqual(by_source["src-evobc"]["source_route_result_id"], "source-route-result-002")
+        self.assertEqual(by_source["src-evobc"]["source_route_task_id"], "source-route-review-002")
+        self.assertEqual(by_source["src-evobc"]["metadata_profile_metric_count"], "7")
+        self.assertEqual(by_source["src-evobc"]["download_log_count"], "5")
+        self.assertEqual(by_source["src-evobc"]["source_package_file_manifest_count"], "3")
+        self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51679")
+        self.assertEqual(by_source["src-evobc"]["raw_package_file_size_bytes"], "23254733")
+        self.assertIn("EVOBC category, era-code", by_source["src-evobc"]["review_note"])
+        self.assertIn(
+            "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+            by_source["src-evobc"]["route_files_opened"],
+        )
+        self.assertEqual(by_source["src-obimd"]["source_route_result_id"], "source-route-result-003")
+        self.assertEqual(by_source["src-obimd"]["source_route_task_id"], "source-route-review-003")
+        self.assertEqual(by_source["src-obimd"]["metadata_profile_metric_count"], "5")
+        self.assertEqual(by_source["src-obimd"]["download_log_count"], "6")
+        self.assertEqual(by_source["src-obimd"]["source_package_file_manifest_count"], "7")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
+        self.assertEqual(by_source["src-obimd"]["raw_package_file_size_bytes"], "558367972")
+        self.assertIn("OBIMD main-character, subcharacter", by_source["src-obimd"]["review_note"])
+        self.assertIn(
+            "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+            by_source["src-obimd"]["route_files_opened"],
+        )
+        self.assertEqual(
+            {row["result_status"] for row in rows},
+            {"reviewed_metadata_routes_only"},
+        )
+        self.assertEqual(
+            {row["derivative_promotion_status"] for row in rows},
+            {"no_raw_asset_or_dataset_claim_promotion"},
+        )
+        self.assertTrue(all("not a decipherment result" in row["caution"] for row in rows))
+        self.assertTrue(all("not a rights clearance" in row["caution"] for row in rows))
+        self.assertTrue(all("graph edges" in row["caution"] for row in rows))
 
-    def test_ai_agent_source_route_review_results_builder_reads_hust_routes(self) -> None:
+    def test_ai_agent_source_route_review_results_builder_reads_graph_derived_routes(self) -> None:
         module = load_source_route_review_results_module()
         root = repo_root()
         rows = module.build_review_rows(
@@ -744,22 +767,30 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SOURCE_PACKAGE_FILE_MANIFEST),
             module.read_csv_rows(root / module.HUST_OBC_OBS_CHAR_PROMOTION_QUEUE),
             module.read_csv_rows(root / module.AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE),
-            module.read_jsonl_count(root / module.HUST_OBC_CANDIDATE_GRAPH_EDGES),
+            {
+                source_id: module.read_jsonl_count(root / graph_file)
+                for source_id, graph_file in module.GRAPH_EDGE_FILES_BY_SOURCE.items()
+            },
             root=root,
         )
-        self.assertEqual(len(rows), 1)
-        row = rows[0]
-        self.assertEqual(row["source_id"], "src-hust-obc")
-        self.assertEqual(row["route_file_review_status"], "reviewed_route_files_exist")
-        self.assertEqual(row["metadata_profile_metric_count"], "11")
-        self.assertEqual(row["download_log_count"], "7")
-        self.assertEqual(row["source_package_file_manifest_count"], "4")
-        self.assertEqual(row["candidate_queue_count"], "1588")
-        self.assertEqual(row["evidence_request_count"], "1588")
-        self.assertEqual(row["graph_edge_count"], "3562")
-        self.assertEqual(row["raw_package_commit_policy"], "do_not_commit_regular_git")
-        self.assertNotIn("confirmed scholarship", row["caution"])
-        self.assertNotIn("public_domain_verified", row["derivative_promotion_status"])
+        self.assertEqual(len(rows), 3)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["route_file_review_status"], "reviewed_route_files_exist")
+        self.assertEqual(by_source["src-hust-obc"]["candidate_queue_count"], "1588")
+        self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "3562")
+        self.assertEqual(by_source["src-evobc"]["candidate_queue_count"], "0")
+        self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51679")
+        self.assertEqual(
+            by_source["src-evobc"]["size_checksum_review_status"],
+            "downloaded_metadata_files_logged_tmp_only",
+        )
+        self.assertEqual(by_source["src-obimd"]["candidate_queue_count"], "0")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
+        self.assertEqual(by_source["src-obimd"]["raw_package_commit_policy"], "do_not_commit_regular_git")
+        self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
+        self.assertTrue(
+            all(row["derivative_promotion_status"] != "public_domain_verified" for row in rows)
+        )
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

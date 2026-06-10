@@ -2275,25 +2275,19 @@ def check_ai_context_packs(root: Path) -> list[str]:
 
     review_rows, review_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS)
     issues.extend(review_issues)
-    if len(review_rows) != 1:
-        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} should contain exactly 1 reviewed row")
-    if review_rows:
-        row = review_rows[0]
-        expected_review_values = {
+    expected_review_source_ids = ["src-hust-obc", "src-evobc", "src-obimd"]
+    if len(review_rows) != 3:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} should contain exactly 3 reviewed rows")
+    if [row.get("source_id", "") for row in review_rows] != expected_review_source_ids:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} source order changed")
+    expected_review_values_by_source = {
+        "src-hust-obc": {
             "source_route_result_id": "source-route-result-001",
             "source_route_task_id": "source-route-review-001",
-            "context_pack_id": "ai-context-source-coverage-001",
-            "source_id": "src-hust-obc",
             "priority_tags": "candidate_queue;graph_derivative;metadata_profile;download_log",
             "review_focus": "open_candidate_queue_and_graph_routes_before_evidence_pack_work",
-            "result_status": "reviewed_metadata_routes_only",
-            "source_register_review_status": "reviewed_metadata_only",
-            "route_file_review_status": "reviewed_route_files_exist",
             "rights_and_risk_review_status": "source_marked_risk_noted",
             "size_checksum_review_status": "raw_package_over_git_limit_manifested",
-            "derivative_promotion_status": "no_raw_asset_promotion",
-            "evidence_gap_status": "needs_cross_source_review_before_evidence_pack",
-            "source_index_row_count": "1",
             "metadata_profile_metric_count": "11",
             "download_log_count": "7",
             "source_package_file_manifest_count": "4",
@@ -2303,28 +2297,97 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "raw_package_file_size_bytes": "607933810",
             "raw_package_commit_policy": "do_not_commit_regular_git",
             "rights_status": "source_marked_risk_noted",
-            "source_review_status": "reviewed",
             "next_artifact_recommendation": (
                 "open_first_hust_obc_candidate_or_bucket_route_for_cross_source_review"
             ),
+            "required_route_files": {
+                HUST_OBC_CANDIDATE_GRAPH_EDGES,
+                HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+                AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
+                AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
+            },
+            "required_review_note": ["HUST-OBC", "dataset labels remain candidates", "raw zip"],
+        },
+        "src-evobc": {
+            "source_route_result_id": "source-route-result-002",
+            "source_route_task_id": "source-route-review-002",
+            "priority_tags": "graph_derivative;metadata_profile;download_log",
+            "review_focus": "open_graph_derivatives_and_source_metadata_before_using_edges",
+            "rights_and_risk_review_status": "source_marked_risk_noted",
+            "size_checksum_review_status": "downloaded_metadata_files_logged_tmp_only",
+            "metadata_profile_metric_count": "7",
+            "download_log_count": "5",
+            "source_package_file_manifest_count": "3",
+            "candidate_queue_count": "0",
+            "evidence_request_count": "0",
+            "graph_edge_count": "51679",
+            "raw_package_file_size_bytes": "23254733",
+            "raw_package_commit_policy": "download_to_tmp_log_checksum_only",
+            "rights_status": "source_marked_risk_noted",
+            "next_artifact_recommendation": (
+                "open_first_evobc_evolution_category_route_for_cross_source_review"
+            ),
+            "required_route_files": {EVOBC_EVOLUTION_GRAPH_EDGES},
+            "required_review_note": ["EVOBC", "category, era-code, and source-code graph edges", "large JSON"],
+        },
+        "src-obimd": {
+            "source_route_result_id": "source-route-result-003",
+            "source_route_task_id": "source-route-review-003",
+            "priority_tags": "graph_derivative;metadata_profile;download_log",
+            "review_focus": "open_graph_derivatives_and_source_metadata_before_using_edges",
+            "rights_and_risk_review_status": "licensed_for_repository",
+            "size_checksum_review_status": "raw_package_over_git_limit_manifested",
+            "metadata_profile_metric_count": "5",
+            "download_log_count": "6",
+            "source_package_file_manifest_count": "7",
+            "candidate_queue_count": "0",
+            "evidence_request_count": "0",
+            "graph_edge_count": "44433",
+            "raw_package_file_size_bytes": "558367972",
+            "raw_package_commit_policy": "do_not_commit_regular_git",
+            "rights_status": "licensed_for_repository",
+            "next_artifact_recommendation": (
+                "open_first_obimd_component_or_glyph_route_for_cross_source_review"
+            ),
+            "required_route_files": {OBIMD_COMPONENT_GRAPH_EDGES},
+            "required_review_note": ["OBIMD", "main-character, subcharacter", "raw annotation and image packages"],
+        },
+    }
+    scaffold_by_result = {
+        scaffold_row.get("source_route_result_id", ""): scaffold_row
+        for scaffold_row in result_rows
+    }
+    for row in review_rows:
+        source_id = row.get("source_id", "")
+        expected_review_values = expected_review_values_by_source.get(source_id)
+        if expected_review_values is None:
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} unexpected source: {source_id}")
+            continue
+        expected_common_review_values = {
+            "context_pack_id": "ai-context-source-coverage-001",
+            "result_status": "reviewed_metadata_routes_only",
+            "source_register_review_status": "reviewed_metadata_only",
+            "route_file_review_status": "reviewed_route_files_exist",
+            "derivative_promotion_status": "no_raw_asset_or_dataset_claim_promotion",
+            "evidence_gap_status": "needs_cross_source_review_before_evidence_pack",
+            "source_index_row_count": "1",
+            "source_review_status": "reviewed",
             "research_boundary": "source_route_review_metadata_only_not_scholarship",
             "output_scope": "source_route_review_result_only",
             "updated_at": "2026-06-10",
         }
-        for key, value in expected_review_values.items():
+        for key, value in {**expected_common_review_values, **expected_review_values}.items():
+            if key in {"required_route_files", "required_review_note"}:
+                continue
             if row.get(key) != value:
-                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {key} changed")
-        scaffold_by_result = {
-            scaffold_row.get("source_route_result_id", ""): scaffold_row
-            for scaffold_row in result_rows
-        }
-        scaffold_row = scaffold_by_result.get("source-route-result-001", {})
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} {key} changed")
+        scaffold_row = scaffold_by_result.get(row.get("source_route_result_id", ""), {})
         if scaffold_row and row.get("route_files_opened") != scaffold_row.get("route_files_to_open"):
-            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} route files changed")
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} route files changed")
         if scaffold_row and row.get("review_basis_files") != scaffold_row.get("route_files_to_open"):
-            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} review basis files changed")
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} review basis files changed")
         route_files_opened = set(filter(None, row.get("route_files_opened", "").split(";")))
-        for required_file in [
+        common_required_files = {
             AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
             SOURCE_COVERAGE_SUMMARY,
             SOURCE_INDEX,
@@ -2332,36 +2395,43 @@ def check_ai_context_packs(root: Path) -> list[str]:
             SOURCE_PACKAGE_FILE_MANIFEST,
             DOWNLOADED_METADATA_PROFILE,
             AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
-            HUST_OBC_CANDIDATE_GRAPH_EDGES,
-            HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
-            AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
-            AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
-        ]:
+        }
+        for required_file in common_required_files | expected_review_values["required_route_files"]:
             if required_file not in route_files_opened:
-                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} missing opened route file: {required_file}")
+                issues.append(
+                    f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} missing opened route file: "
+                    f"{required_file}"
+                )
         review_note = row.get("review_note", "")
-        for required_snippet in [
-            "Metadata-only review",
-            "derived counts",
-            "dataset labels remain candidates",
-            "raw images",
-            "raw zip",
-            "not promoted",
-        ]:
+        for required_snippet in ["Metadata-only review", "derived counts", "not promoted"]:
             if required_snippet not in review_note:
-                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} missing review note: {required_snippet}")
+                issues.append(
+                    f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} missing review note: "
+                    f"{required_snippet}"
+                )
+        for required_snippet in expected_review_values["required_review_note"]:
+            if required_snippet not in review_note:
+                issues.append(
+                    f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} missing review note: "
+                    f"{required_snippet}"
+                )
         caution = row.get("caution", "")
         for required_snippet in [
             "metadata-only source-route review result",
             "not source evidence by itself",
             "not a decipherment result",
-            "not a character assignment",
+            "not a character/component/evolution-chain assignment",
             "not a rights clearance",
             "does not promote raw images",
             "dataset labels",
+            "graph edges",
+            "staging rows",
         ]:
             if required_snippet not in caution:
-                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} missing caution: {required_snippet}")
+                issues.append(
+                    f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} missing caution: "
+                    f"{required_snippet}"
+                )
 
     return issues
 

@@ -141,6 +141,10 @@ AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "010_ai-agent-source-route-review-result-scaffold.csv"
 )
+AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "011_ai-agent-source-route-review-results.csv"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -364,6 +368,7 @@ REQUIRED_PATHS = [
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
+    AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -402,6 +407,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2266,6 +2272,96 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} missing caution "
                     f"{required_snippet}: {result_id}"
                 )
+
+    review_rows, review_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS)
+    issues.extend(review_issues)
+    if len(review_rows) != 1:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} should contain exactly 1 reviewed row")
+    if review_rows:
+        row = review_rows[0]
+        expected_review_values = {
+            "source_route_result_id": "source-route-result-001",
+            "source_route_task_id": "source-route-review-001",
+            "context_pack_id": "ai-context-source-coverage-001",
+            "source_id": "src-hust-obc",
+            "priority_tags": "candidate_queue;graph_derivative;metadata_profile;download_log",
+            "review_focus": "open_candidate_queue_and_graph_routes_before_evidence_pack_work",
+            "result_status": "reviewed_metadata_routes_only",
+            "source_register_review_status": "reviewed_metadata_only",
+            "route_file_review_status": "reviewed_route_files_exist",
+            "rights_and_risk_review_status": "source_marked_risk_noted",
+            "size_checksum_review_status": "raw_package_over_git_limit_manifested",
+            "derivative_promotion_status": "no_raw_asset_promotion",
+            "evidence_gap_status": "needs_cross_source_review_before_evidence_pack",
+            "source_index_row_count": "1",
+            "metadata_profile_metric_count": "11",
+            "download_log_count": "7",
+            "source_package_file_manifest_count": "4",
+            "candidate_queue_count": "1588",
+            "evidence_request_count": "1588",
+            "graph_edge_count": "3562",
+            "raw_package_file_size_bytes": "607933810",
+            "raw_package_commit_policy": "do_not_commit_regular_git",
+            "rights_status": "source_marked_risk_noted",
+            "source_review_status": "reviewed",
+            "next_artifact_recommendation": (
+                "open_first_hust_obc_candidate_or_bucket_route_for_cross_source_review"
+            ),
+            "research_boundary": "source_route_review_metadata_only_not_scholarship",
+            "output_scope": "source_route_review_result_only",
+            "updated_at": "2026-06-10",
+        }
+        for key, value in expected_review_values.items():
+            if row.get(key) != value:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {key} changed")
+        scaffold_by_result = {
+            scaffold_row.get("source_route_result_id", ""): scaffold_row
+            for scaffold_row in result_rows
+        }
+        scaffold_row = scaffold_by_result.get("source-route-result-001", {})
+        if scaffold_row and row.get("route_files_opened") != scaffold_row.get("route_files_to_open"):
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} route files changed")
+        if scaffold_row and row.get("review_basis_files") != scaffold_row.get("route_files_to_open"):
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} review basis files changed")
+        route_files_opened = set(filter(None, row.get("route_files_opened", "").split(";")))
+        for required_file in [
+            AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
+            SOURCE_COVERAGE_SUMMARY,
+            SOURCE_INDEX,
+            SOURCE_DOWNLOAD_LOG,
+            SOURCE_PACKAGE_FILE_MANIFEST,
+            DOWNLOADED_METADATA_PROFILE,
+            AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
+            HUST_OBC_CANDIDATE_GRAPH_EDGES,
+            HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+            AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
+            AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
+        ]:
+            if required_file not in route_files_opened:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} missing opened route file: {required_file}")
+        review_note = row.get("review_note", "")
+        for required_snippet in [
+            "Metadata-only review",
+            "derived counts",
+            "dataset labels remain candidates",
+            "raw images",
+            "raw zip",
+            "not promoted",
+        ]:
+            if required_snippet not in review_note:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} missing review note: {required_snippet}")
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "metadata-only source-route review result",
+            "not source evidence by itself",
+            "not a decipherment result",
+            "not a character assignment",
+            "not a rights clearance",
+            "does not promote raw images",
+            "dataset labels",
+        ]:
+            if required_snippet not in caution:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} missing caution: {required_snippet}")
 
     return issues
 

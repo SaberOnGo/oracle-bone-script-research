@@ -196,6 +196,15 @@ def load_source_route_review_result_scaffold_module():
     return module
 
 
+def load_source_route_review_results_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_results.py"
+    spec = importlib.util.spec_from_file_location("build_source_route_review_results", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -683,6 +692,74 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(result_rows[4]["output_scope"], "source_route_review_scaffold_only")
         self.assertNotIn("confirmed scholarship", result_rows[4]["caution"])
         self.assertNotIn("public_domain_verified", result_rows[4]["derivative_promotion_status"])
+
+    def test_ai_agent_source_route_review_results_record_first_hust_metadata_review(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "011_ai-agent-source-route-review-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row["source_route_result_id"], "source-route-result-001")
+        self.assertEqual(row["source_route_task_id"], "source-route-review-001")
+        self.assertEqual(row["source_id"], "src-hust-obc")
+        self.assertEqual(row["result_status"], "reviewed_metadata_routes_only")
+        self.assertEqual(row["source_register_review_status"], "reviewed_metadata_only")
+        self.assertEqual(row["route_file_review_status"], "reviewed_route_files_exist")
+        self.assertEqual(row["rights_and_risk_review_status"], "source_marked_risk_noted")
+        self.assertEqual(row["size_checksum_review_status"], "raw_package_over_git_limit_manifested")
+        self.assertEqual(row["derivative_promotion_status"], "no_raw_asset_promotion")
+        self.assertEqual(row["evidence_gap_status"], "needs_cross_source_review_before_evidence_pack")
+        self.assertEqual(row["metadata_profile_metric_count"], "11")
+        self.assertEqual(row["download_log_count"], "7")
+        self.assertEqual(row["source_package_file_manifest_count"], "4")
+        self.assertEqual(row["candidate_queue_count"], "1588")
+        self.assertEqual(row["evidence_request_count"], "1588")
+        self.assertEqual(row["graph_edge_count"], "3562")
+        self.assertEqual(row["raw_package_file_size_bytes"], "607933810")
+        self.assertEqual(row["raw_package_commit_policy"], "do_not_commit_regular_git")
+        self.assertEqual(row["research_boundary"], "source_route_review_metadata_only_not_scholarship")
+        self.assertIn(
+            "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+            row["route_files_opened"],
+        )
+        self.assertIn("dataset labels remain candidates", row["review_note"])
+        self.assertIn("not a decipherment result", row["caution"])
+        self.assertIn("not a rights clearance", row["caution"])
+        self.assertIn("does not promote raw images", row["caution"])
+
+    def test_ai_agent_source_route_review_results_builder_reads_hust_routes(self) -> None:
+        module = load_source_route_review_results_module()
+        root = repo_root()
+        rows = module.build_review_rows(
+            module.read_csv_rows(root / module.SOURCE_ROUTE_REVIEW_QUEUE),
+            module.read_csv_rows(root / module.SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD),
+            module.read_csv_rows(root / module.SOURCE_COVERAGE_SUMMARY),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+            module.read_csv_rows(root / module.DOWNLOADED_METADATA_PROFILE),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+            module.read_csv_rows(root / module.SOURCE_PACKAGE_FILE_MANIFEST),
+            module.read_csv_rows(root / module.HUST_OBC_OBS_CHAR_PROMOTION_QUEUE),
+            module.read_csv_rows(root / module.AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE),
+            module.read_jsonl_count(root / module.HUST_OBC_CANDIDATE_GRAPH_EDGES),
+            root=root,
+        )
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row["source_id"], "src-hust-obc")
+        self.assertEqual(row["route_file_review_status"], "reviewed_route_files_exist")
+        self.assertEqual(row["metadata_profile_metric_count"], "11")
+        self.assertEqual(row["download_log_count"], "7")
+        self.assertEqual(row["source_package_file_manifest_count"], "4")
+        self.assertEqual(row["candidate_queue_count"], "1588")
+        self.assertEqual(row["evidence_request_count"], "1588")
+        self.assertEqual(row["graph_edge_count"], "3562")
+        self.assertEqual(row["raw_package_commit_policy"], "do_not_commit_regular_git")
+        self.assertNotIn("confirmed scholarship", row["caution"])
+        self.assertNotIn("public_domain_verified", row["derivative_promotion_status"])
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

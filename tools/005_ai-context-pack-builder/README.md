@@ -12,6 +12,7 @@ Current tools:
 - `build_source_coverage_context_pack.py`: builds a source-level AI Agent routing context pack from the reviewed coverage summary so agents can choose the right register, download log, metadata profile, asset record, graph derivative, or candidate queue before collecting evidence.
 - `build_source_route_review_queue.py`: builds one source-route review task per source from the source coverage context pack, preserving routing-only boundaries before any evidence collection or source promotion.
 - `build_source_route_review_result_scaffold.py`: builds one empty source-route review result scaffold per route task, with all review sections marked not collected until an agent opens the cited route files.
+- `build_source_route_review_results.py`: builds reviewed metadata-only source-route results, currently the first HUST-OBC route result, from queue, scaffold, source register, metadata profile, download log, package manifest, candidate queue, evidence request queue, and graph-edge count.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -25,3 +26,4 @@ Current tools:
 - `build_source_coverage_context_pack.py`：从已复核 coverage summary 构建来源级 AI Agent 路由上下文包，让 agent 在收集证据前先选择正确的来源登记、下载日志、metadata profile、资产记录、图谱派生或候选队列。
 - `build_source_route_review_queue.py`：从来源覆盖上下文包为每个 source 生成一条 source-route 复核任务，在收集证据或提升来源派生记录前保持仅限路由的边界。
 - `build_source_route_review_result_scaffold.py`：为每条来源路由任务生成一个空白 source-route 复核结果骨架，在 agent 打开被引用 route files 前，所有复核章节都保持 not collected。
+- `build_source_route_review_results.py`：从 queue、scaffold、来源登记、metadata profile、下载日志、包 manifest、候选队列、evidence request 队列和图谱边计数生成已复核 metadata-only 来源路由结果；当前生成首条 HUST-OBC route result。

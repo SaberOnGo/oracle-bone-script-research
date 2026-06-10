@@ -21,6 +21,7 @@ Current tools:
 - `build_graph_source_evidence_collection_note_drafts.py`: builds three empty evidence-collection note drafts for a selected 016 task section, plus a manifest, with all evidence still `not_collected`.
 - `build_graph_source_evidence_collection_route_pack.py`: builds a graph-source evidence-collection route pack from the 017-025 note draft manifests, indexing all not-collected note drafts and route files without turning them into evidence or conclusions.
 - `build_graph_source_evidence_collection_result_scaffold.py`: builds an empty graph-source evidence-collection result scaffold from the 026 route pack, preserving route links while every result section remains not collected.
+- `build_graph_source_evidence_collection_review_queue.py`: builds a graph-source evidence-collection review queue from the 027 scaffold, routing future agents to the result row, note draft, route pack, manifest, and route files before any evidence is recorded.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -43,3 +44,4 @@ Current tools:
 - `build_graph_source_evidence_collection_note_drafts.py`：从 016 任务队列为指定任务章节生成三份空白证据收集记录草稿和一份 manifest，所有证据仍保持 `not_collected`。
 - `build_graph_source_evidence_collection_route_pack.py`：从 017-025 证据收集记录草稿 manifest 构建 graph-source evidence-collection route pack，索引所有未收集草稿和 route files，但不把它们提升为证据或结论。
 - `build_graph_source_evidence_collection_result_scaffold.py`：从 026 route pack 生成空白 graph-source evidence-collection result scaffold，保留路由链接，同时让所有结果章节保持未收集状态。
+- `build_graph_source_evidence_collection_review_queue.py`：从 027 scaffold 生成 graph-source evidence-collection review queue，把后续 agent 路由到结果行、note draft、route pack、manifest 和 route files，在记录任何证据前保持准备阶段边界。

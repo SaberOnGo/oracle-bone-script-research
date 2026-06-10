@@ -279,6 +279,17 @@ def load_graph_source_evidence_collection_result_scaffold_module():
     return module
 
 
+def load_graph_source_evidence_collection_review_queue_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_queue.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_evidence_collection_review_queue", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -2177,6 +2188,103 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertTrue(all(row["output_scope"].endswith("_scaffold_only") for row in rows))
         self.assertTrue(all("source promotion decision" in row["caution"] for row in rows))
+        self.assertTrue(all("component or evolution-chain assignment" in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_evidence_collection_review_queue_routes_scaffolds(self) -> None:
+        result_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+        )
+        queue_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "028_ai-agent-graph-source-evidence-collection-review-queue.csv"
+        )
+        with result_path.open("r", encoding="utf-8-sig", newline="") as file:
+            result_rows = list(csv.DictReader(file))
+        with queue_path.open("r", encoding="utf-8-sig", newline="") as file:
+            queue_rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(queue_rows), 27)
+        self.assertEqual(len(queue_rows), len(result_rows))
+        self.assertEqual(
+            queue_rows[0]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-001",
+        )
+        self.assertEqual(queue_rows[0]["evidence_collection_result_id"], "graph-source-evidence-result-001")
+        self.assertEqual(queue_rows[-1]["evidence_collection_result_id"], "graph-source-evidence-result-027")
+        self.assertEqual(
+            [row["target_evidence_section"] for row in queue_rows[:9]],
+            [
+                "source_register",
+                "download_log",
+                "package_manifest",
+                "metadata_profile",
+                "graph_edges",
+                "staging_row",
+                "counter_source_lookup",
+                "rights_risk_review",
+                "review_log",
+            ],
+        )
+        self.assertEqual(queue_rows[0]["priority_rank"], "1")
+        self.assertEqual(queue_rows[7]["priority_rank"], "5")
+        self.assertEqual(queue_rows[-1]["priority_rank"], "9")
+        self.assertTrue(all(row["assignment_status"] == "unassigned" for row in queue_rows))
+        self.assertTrue(
+            all(row["review_status"] == "needs_evidence_collection_review" for row in queue_rows)
+        )
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in queue_rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in queue_rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in queue_rows))
+        self.assertTrue(
+            all(row["research_boundary"] == "evidence_collection_review_queue_not_scholarship" for row in queue_rows)
+        )
+        self.assertTrue(
+            all("keep_result_row_not_collected_until_evidence_is_source_marked" in row["required_review_checks"] for row in queue_rows)
+        )
+        self.assertTrue(
+            all("do_not_write_ai_hypothesis_as_scholarship" in row["required_review_checks"] for row in queue_rows)
+        )
+        self.assertIn(queue_rows[0]["note_draft_path"], queue_rows[0]["route_files_to_open"])
+        self.assertIn(queue_rows[0]["route_pack_path"], queue_rows[0]["route_files_to_open"])
+        self.assertIn(queue_rows[0]["manifest_path"], queue_rows[0]["route_files_to_open"])
+        self.assertTrue(all("Do not use this queue as collected evidence" in row["caution"] for row in queue_rows))
+        self.assertTrue(all("decipherment conclusion" in row["caution"] for row in queue_rows))
+
+    def test_ai_agent_graph_source_evidence_collection_review_queue_builder_preserves_boundary(
+        self,
+    ) -> None:
+        module = load_graph_source_evidence_collection_review_queue_module()
+        result_rows = module.read_csv_rows(
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+        )
+        rows = module.build_review_rows(result_rows)
+        self.assertEqual(len(rows), 27)
+        self.assertEqual(rows[0]["evidence_collection_review_task_id"], "graph-source-evidence-review-001")
+        self.assertEqual(rows[0]["priority_tags"], "section:source_register;source:src-hust-obc;provenance_first")
+        self.assertIn("rights_boundary", rows[7]["priority_tags"])
+        self.assertIn("cross_source_candidate_check", rows[6]["priority_tags"])
+        self.assertIn("review_trace", rows[8]["priority_tags"])
+        self.assertIn(
+            "open_source_register_row_before_copying_provenance",
+            rows[0]["required_review_checks"],
+        )
+        self.assertIn(
+            "do_not_turn_review_queue_into_rights_decision",
+            rows[7]["required_review_checks"],
+        )
+        self.assertIn(
+            "do_not_promote_review_notes_without_source_marked_evidence",
+            rows[8]["required_review_checks"],
+        )
+        self.assertTrue(all(row["result_scaffold_path"].endswith("027_ai-agent-graph-source-evidence-collection-result-scaffold.csv") for row in rows))
+        self.assertTrue(all(row["result_update_target_path"] == row["result_scaffold_path"] for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
         self.assertTrue(all("component or evolution-chain assignment" in row["caution"] for row in rows))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:

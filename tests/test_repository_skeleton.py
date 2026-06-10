@@ -824,9 +824,10 @@ class RepositorySkeletonTests(unittest.TestCase):
                     "eleventh_bucket_candidate_packet_materialized",
                     "twelfth_bucket_candidate_packet_materialized",
                     "thirteenth_bucket_candidate_packet_materialized",
+                    "fourteenth_bucket_candidate_packet_materialized",
                 }
             ),
-            1300,
+            1400,
         )
         self.assertTrue(all("9411" in row["caution"] and "9408" in row["caution"] for row in rows))
 
@@ -1039,7 +1040,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(thirteenth_packet["unknown_candidate_id"], "obs-unk-001201")
         self.assertEqual(thirteenth_packet["record_type"], "oracle_character_undeciphered_candidate_packet")
         self.assertEqual(thirteenth_packet["identity_claim_status"], "no_identity_claim")
-        self.assertEqual(rows[1300]["materialization_status"], "index_only_not_materialized")
+        fourteenth_bucket_manifest_path = (
+            repo_root()
+            / "corpus/001_oracle-characters/"
+            / "030_undeciphered-001301-001400_obs-unk-bucket_oracle-character-candidates/"
+            / "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+        )
+        with fourteenth_bucket_manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            fourteenth_manifest_rows = list(csv.DictReader(file))
+        self.assertEqual(len(fourteenth_manifest_rows), 100)
+        self.assertEqual(fourteenth_manifest_rows[0]["unknown_candidate_id"], "obs-unk-001301")
+        self.assertEqual(fourteenth_manifest_rows[-1]["unknown_candidate_id"], "obs-unk-001400")
+        fourteenth_packet_path = repo_root() / rows[1300]["materialized_candidate_packet_path"]
+        fourteenth_packet = json.loads(fourteenth_packet_path.read_text(encoding="utf-8"))
+        self.assertEqual(fourteenth_packet["unknown_candidate_id"], "obs-unk-001301")
+        self.assertEqual(fourteenth_packet["record_type"], "oracle_character_undeciphered_candidate_packet")
+        self.assertEqual(fourteenth_packet["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(rows[1400]["materialization_status"], "index_only_not_materialized")
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

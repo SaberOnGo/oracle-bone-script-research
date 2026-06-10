@@ -25,6 +25,7 @@ Current generated statistics:
 - `018_ai-agent-graph-source-download-log-note-draft-manifest.csv`: manifest for three empty download-log evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the large-source download log without recording collected evidence, checksums, rights decisions, or source promotion.
 - `019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv`: manifest for three empty package-manifest evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to source package file manifests without recording file-size conclusions, checksum review, rights decisions, or source promotion.
 - `020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv`: manifest for three empty metadata-profile evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to downloaded metadata profile rows without recording collected metrics, rights decisions, source promotion, or decipherment conclusions.
+- `021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv`: manifest for three empty graph-edge evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to relationship graph JSONL files without recording collected edge evidence, component assignments, evolution-chain claims, or decipherment conclusions.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -51,3 +52,4 @@ Current generated statistics:
 - `018_ai-agent-graph-source-download-log-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白下载日志证据收集记录草稿，把 agent 路由到大型来源下载日志，但不记录已收集证据、checksum、权利决定或来源提升。
 - `019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 package manifest 证据收集记录草稿，把 agent 路由到来源包文件 manifest，但不记录文件大小结论、checksum 复核、权利决定或来源提升。
 - `020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 metadata profile 证据收集记录草稿，把 agent 路由到已下载 metadata profile 行，但不记录已收集指标、权利决定、来源提升或释读结论。
+- `021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 graph-edge 证据收集记录草稿，把 agent 路由到关系图谱 JSONL 文件，但不记录已收集图谱边证据、构件判定、演化链声明或释读结论。

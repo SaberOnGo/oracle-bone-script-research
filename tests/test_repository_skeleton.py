@@ -346,6 +346,20 @@ def load_graph_source_download_log_wave_handoff_scaffold_module():
     return module
 
 
+def load_graph_source_package_manifest_wave_handoff_scaffold_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_package_manifest_wave_handoff_scaffold.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_package_manifest_wave_handoff_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_graph_source_download_log_capture_scaffold_module():
     path = repo_root() / (
         "tools/005_ai-context-pack-builder/"
@@ -2991,6 +3005,138 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("checksum review", " ".join(data["agent_use_rules"]))
         self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_graph_source_package_manifest_wave_handoff_scaffold(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "037_ai-agent-graph-source-package-manifest-wave-handoff-scaffold.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-graph-source-package-manifest-wave-handoff-001",
+        )
+        self.assertEqual(data["status"], "draft_package_manifest_wave_handoff_scaffold_not_started")
+        self.assertEqual(
+            data["research_boundary"],
+            "evidence_collection_package_manifest_wave_handoff_scaffold_not_scholarship",
+        )
+        self.assertEqual(
+            data["output_scope"],
+            "graph_source_evidence_collection_package_manifest_wave_handoff_scaffold_only",
+        )
+        self.assertEqual(
+            data["handoff_scope"]["assignment_wave_id"],
+            "graph-source-evidence-assignment-wave-003",
+        )
+        self.assertEqual(data["handoff_scope"]["target_evidence_section"], "package_manifest")
+        self.assertEqual(
+            data["handoff_scope"]["assignment_plan_item_ids"],
+            [
+                "graph-source-evidence-assignment-007",
+                "graph-source-evidence-assignment-008",
+                "graph-source-evidence-assignment-009",
+            ],
+        )
+        self.assertEqual(
+            data["handoff_scope"]["review_task_ids"],
+            [
+                "graph-source-evidence-review-003",
+                "graph-source-evidence-review-012",
+                "graph-source-evidence-review-021",
+            ],
+        )
+        self.assertEqual(data["coverage"]["handoff_item_count"], 3)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 7)
+        self.assertEqual(data["coverage"]["package_manifest_evidence_status_counts"], {"not_collected": 3})
+        self.assertEqual(data["coverage"]["file_size_review_status_counts"], {"not_started": 3})
+        self.assertEqual(data["coverage"]["checksum_review_status_counts"], {"not_started": 3})
+        self.assertEqual(data["coverage"]["storage_boundary_review_status_counts"], {"not_started": 3})
+        self.assertIn(
+            "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            "009_source-package-file-manifest.csv",
+            data["route_files_to_open"],
+        )
+        self.assertEqual(
+            data["required_review_checks"],
+            [
+                "do_not_write_ai_hypothesis_as_scholarship",
+                "keep_raw_package_storage_boundary_explicit",
+                "keep_result_row_not_collected_until_evidence_is_source_marked",
+                "open_package_manifest_before_recording_file_size_or_checksum",
+            ],
+        )
+        self.assertEqual(
+            [row["handoff_item_id"] for row in data["handoff_items"]],
+            [
+                "graph-source-evidence-package-manifest-handoff-007",
+                "graph-source-evidence-package-manifest-handoff-008",
+                "graph-source-evidence-package-manifest-handoff-009",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in data["handoff_items"]],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertTrue(
+            all(row["target_evidence_section"] == "package_manifest" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["package_manifest_evidence_status"] == "not_collected" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["file_size_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["storage_boundary_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["rights_decision_status"] == "not_decided" for row in data["handoff_items"])
+        )
+        rules = " ".join(data["agent_use_rules"])
+        self.assertIn("file-size review", rules)
+        self.assertIn("40 MiB", rules)
+        self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_graph_source_package_manifest_wave_handoff_builder(
+        self,
+    ) -> None:
+        module = load_graph_source_package_manifest_wave_handoff_scaffold_module()
+        root = repo_root()
+        data = module.build_package_manifest_wave_handoff_scaffold(
+            module.read_json(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "030_ai-agent-graph-source-evidence-collection-assignment-plan.json"
+            )
+        )
+
+        self.assertEqual(data["handoff_scope"]["assignment_wave_id"], "graph-source-evidence-assignment-wave-003")
+        self.assertEqual(data["handoff_scope"]["target_evidence_section"], "package_manifest")
+        self.assertEqual(data["coverage"]["handoff_item_count"], 3)
+        self.assertEqual(
+            [row["evidence_collection_review_task_id"] for row in data["handoff_items"]],
+            [
+                "graph-source-evidence-review-003",
+                "graph-source-evidence-review-012",
+                "graph-source-evidence-review-021",
+            ],
+        )
+        self.assertEqual(data["handoff_items"][0]["source_id"], "src-hust-obc")
+        self.assertEqual(data["handoff_items"][1]["source_id"], "src-evobc")
+        self.assertEqual(data["handoff_items"][2]["source_id"], "src-obimd")
+        self.assertTrue(
+            all(row["package_manifest_evidence_status"] == "not_collected" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["checksum_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        self.assertIn("037_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+        self.assertIn("source package file manifest", " ".join(data["agent_use_rules"]))
 
     def test_ai_agent_graph_source_download_log_capture_scaffold(
         self,

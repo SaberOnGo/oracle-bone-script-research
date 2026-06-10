@@ -30,6 +30,7 @@ Current tools:
 - `build_graph_source_download_log_wave_handoff_scaffold.py`: builds the second `download_log` wave handoff scaffold from the 030 plan, listing the three handoff rows and route files while leaving downloads, checksums, size/access conclusions, rights decisions, source promotion, and decipherment claims unset.
 - `build_graph_source_download_log_capture_scaffold.py`: builds an empty download-log evidence capture scaffold from 034, reserving fields for later download status, URL, size, checksum, local temp path, and risk-note capture without filling evidence values or making rights, access, size, checksum, promotion, or decipherment decisions.
 - `build_graph_source_download_log_capture_review_checklist.py`: builds a not-started review checklist from 035 so agents must verify the download log row, source/download IDs, URL, status, size, checksum, temp path, risk note, and non-inference boundaries before recording evidence.
+- `build_graph_source_package_manifest_wave_handoff_scaffold.py`: builds the third `package_manifest` wave handoff scaffold from the 030 plan, listing the three handoff rows and route files while leaving file-size, checksum, storage-boundary, rights, promotion, and decipherment decisions unset.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -61,3 +62,4 @@ Current tools:
 - `build_graph_source_download_log_wave_handoff_scaffold.py`：从 030 计划生成第二波 `download_log` 交接脚手架，列出三条交接行和 route files，同时让下载、checksum、大小/访问结论、权利决定、来源提升和释读声明保持未设置状态。
 - `build_graph_source_download_log_capture_scaffold.py`：从 034 生成空白下载日志证据捕获骨架，为后续下载状态、URL、大小、checksum、本地临时路径和风险说明捕获预留字段，但不填入证据值，也不作权利、访问、大小、checksum、提升或释读决定。
 - `build_graph_source_download_log_capture_review_checklist.py`：从 035 生成未开始的复核 checklist，要求 agent 在记录证据前核对下载日志行、source/download ID、URL、状态、大小、checksum、临时路径、风险说明和禁止推断边界。
+- `build_graph_source_package_manifest_wave_handoff_scaffold.py`：从 030 计划生成第三波 `package_manifest` 交接脚手架，列出三条交接行和 route files，同时让文件大小、checksum、存储边界、权利、提升和释读决定保持未设置状态。

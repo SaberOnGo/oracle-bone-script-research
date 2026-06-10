@@ -229,6 +229,10 @@ AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv"
 )
+AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "033_ai-agent-graph-source-source-register-capture-review-checklist.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -594,6 +598,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD,
+    AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -676,6 +681,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_assignment_plan.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_wave_handoff_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_source_register_capture_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_source_register_capture_review_checklist.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -5975,6 +5981,115 @@ def check_ai_context_packs(root: Path) -> list[str]:
                         f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
                         f"missing caution text: {row_id}"
                     )
+
+    checklist_rows, checklist_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST
+    )
+    issues.extend(checklist_issues)
+    expected_check_keys = [
+        "open_capture_row",
+        "open_source_register_row",
+        "verify_primary_external_ref",
+        "verify_title_and_type",
+        "verify_rights_and_risk",
+        "keep_capture_boundary",
+        "block_source_promotion",
+        "block_decipherment_claim",
+    ]
+    if len(checklist_rows) != 24:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+            "should contain 24 checklist rows"
+        )
+    else:
+        expected_capture_ids = [
+            "graph-source-evidence-source-register-capture-001",
+            "graph-source-evidence-source-register-capture-002",
+            "graph-source-evidence-source-register-capture-003",
+        ]
+        expected_sources_by_capture = {
+            "graph-source-evidence-source-register-capture-001": "src-hust-obc",
+            "graph-source-evidence-source-register-capture-002": "src-evobc",
+            "graph-source-evidence-source-register-capture-003": "src-obimd",
+        }
+        rows_by_capture: dict[str, list[dict[str, str]]] = {
+            capture_id: [] for capture_id in expected_capture_ids
+        }
+        for index, row in enumerate(checklist_rows, start=1):
+            row_id = row.get("checklist_item_id", "")
+            capture_id = row.get("capture_row_id", "")
+            if row_id != f"graph-source-evidence-source-register-check-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"checklist row ID sequence changed: {row_id}"
+                )
+            if capture_id in rows_by_capture:
+                rows_by_capture[capture_id].append(row)
+            if row.get("source_id") != expected_sources_by_capture.get(capture_id):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"source changed: {row_id}"
+                )
+            for key, expected_value in {
+                "target_evidence_section": "source_register",
+                "check_status": "not_started",
+                "review_status": "needs_source_register_capture_review",
+                "evidence_collection_status": "not_collected",
+                "rights_decision_status": "not_decided",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+                "source_register_path": SOURCE_INDEX,
+                "capture_scaffold_path": AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD,
+                "updated_at": "2026-06-10",
+                "research_boundary": "evidence_collection_source_register_capture_review_checklist_not_scholarship",
+                "output_scope": "graph_source_evidence_collection_source_register_capture_review_checklist_only",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                        f"{key} changed: {row_id}"
+                    )
+            route_files = row.get("route_files_to_open", "").split(";")
+            if SOURCE_INDEX not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing source register route: {row_id}"
+                )
+            if row.get("note_draft_path", "") not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing note draft route: {row_id}"
+                )
+            if "do_not_write_ai_hypothesis_as_scholarship" not in row.get(
+                "required_review_checks", ""
+            ):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing no-hypothesis check: {row_id}"
+                )
+            caution = row.get("caution", "")
+            for required_snippet in [
+                "Checklist item only",
+                "does not contain collected evidence",
+                "rights decision",
+                "decipherment conclusion",
+            ]:
+                if required_snippet not in caution:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                        f"missing caution text: {row_id}"
+                    )
+            if not row.get("instruction") or not row.get("instruction_zh"):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing bilingual instruction: {row_id}"
+                )
+        for capture_id, rows in rows_by_capture.items():
+            if [row.get("check_key") for row in rows] != expected_check_keys:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST} "
+                    f"check order changed: {capture_id}"
+                )
 
     return issues
 

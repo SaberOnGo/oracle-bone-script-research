@@ -26,6 +26,7 @@ Current tools:
 - `build_graph_source_evidence_collection_assignment_plan.py`: builds a graph-source evidence-collection assignment plan from the 028 queue and 029 route summary, ordering 27 planned-not-assigned review tasks into 9 source-balanced waves without collecting evidence.
 - `build_graph_source_evidence_collection_wave_handoff_scaffold.py`: builds the first `source_register` wave handoff scaffold from the 030 plan, listing the three handoff rows and route files while leaving evidence, owners, rights decisions, source promotion, and decipherment claims unset.
 - `build_graph_source_evidence_collection_source_register_capture_scaffold.py`: builds an empty first-wave source-register evidence capture scaffold from 031, reserving fields for later source-register provenance capture without filling evidence values or making rights, promotion, or decipherment decisions.
+- `build_graph_source_source_register_capture_review_checklist.py`: builds a not-started review checklist from 032 so agents must verify the capture row, source-register row, external reference, rights/risk fields, and non-promotion boundaries before recording evidence.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -53,3 +54,4 @@ Current tools:
 - `build_graph_source_evidence_collection_assignment_plan.py`：从 028 队列和 029 路由摘要生成 graph-source evidence-collection assignment plan，把 27 条 planned-not-assigned 复核任务排成 9 个来源均衡 wave，但不收集证据。
 - `build_graph_source_evidence_collection_wave_handoff_scaffold.py`：从 030 计划生成第一波 `source_register` 交接脚手架，列出三条交接行和 route files，同时让证据、owner、权利决定、来源提升和释读声明保持未设置状态。
 - `build_graph_source_evidence_collection_source_register_capture_scaffold.py`：从 031 生成空白的首波来源登记证据捕获骨架，为后续来源登记出处捕获预留字段，但不填入证据值，也不作权利、提升或释读决定。
+- `build_graph_source_source_register_capture_review_checklist.py`：从 032 生成未开始的复核 checklist，要求 agent 在记录证据前核对 capture row、来源登记行、外部引用、权利/风险字段和禁止提升边界。

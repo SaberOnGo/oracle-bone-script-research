@@ -170,13 +170,13 @@ def build_context_pack(
             "Use this pack as an image-asset routing summary, not as a decipherment result.",
             "Open the cited asset index, rights log, technical profile, and visual profile rows before making any research claim.",
             "Treat luma-threshold regions as preprocessing metadata only; they are not glyph segmentation or component analysis.",
-            "Retain The Met object-page and API provenance when reusing or discussing the images.",
+            "Retain each asset's object-page, API, or IIIF manifest provenance when reusing or discussing the images.",
         ],
         "agent_use_rules_zh": [
             "本上下文包只作为图像资产检索路由摘要使用，不是释读结果。",
             "提出任何研究判断前，必须打开被引用的资产索引、权利日志、技术画像和视觉画像记录行。",
             "亮度阈值区域只是预处理 metadata，不是字形切分或构件分析。",
-            "复用或讨论图像时必须保留 The Met 对象页和 API 来源追溯。",
+            "复用或讨论图像时必须保留每项资产的对象页、API 或 IIIF manifest 来源追溯。",
         ],
     }
 

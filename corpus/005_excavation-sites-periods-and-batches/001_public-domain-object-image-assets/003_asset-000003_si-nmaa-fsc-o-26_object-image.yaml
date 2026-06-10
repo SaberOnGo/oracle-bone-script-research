@@ -1,0 +1,27 @@
+asset_id: asset-000003
+asset_type: museum_object_image
+local_file: 003_asset-000003_si-nmaa-fsc-o-26_object-image.jpg
+file_size_bytes: 633418
+checksum_sha256: e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079
+image_format: JPEG
+pixel_width: 3000
+pixel_height: 2000
+color_mode: RGB
+dpi_x: 72
+dpi_y: 72
+icc_profile_bytes: 560
+related_project_ids:
+  - si-nmaa-obj-00001
+related_external_ref_ids:
+  - si-nmaa-fsc-o-26
+  - si-nmaa-image-fs-fsc-o-26-1
+source_id: src-smithsonian-nmaa-oracle-bone
+source_url: https://ids.si.edu/ids/iiif/FS-FSC-O-26_1/full/full/0/default.jpg
+object_page_url: https://asia-archive.si.edu/object/FSC-O-26
+iiif_manifest_url: https://ids.si.edu/ids/manifest/FS-FSC-O-26_1
+rights_status: public_domain_verified
+rights_evidence: Smithsonian/NMAA archive page and IIIF manifest report CC0 metadata/media for FSC-O-26 / FS-FSC-O-26_1.
+analysis_scope: image_technical_metadata_only
+risk_note: Object image is a public-domain source-marked sample asset; museum metadata may be revised and image interpretation still requires scholarly review.
+review_status: reviewed
+updated_at: 2026-06-05

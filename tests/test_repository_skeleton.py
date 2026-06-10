@@ -229,6 +229,12 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
                 "met-obj-42022",
             ),
+            "asset-000003": (
+                "003_asset-000003_si-nmaa-fsc-o-26_object-image.jpg",
+                633418,
+                "e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079",
+                "si-nmaa-fsc-o-26",
+            ),
         }
         for asset_id, (filename, size, checksum, external_ref) in expected.items():
             self.assertIn(asset_id, assets)
@@ -278,6 +284,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(visual_rows["asset-000002"]["foreground_bbox_height"], "2461")
         self.assertEqual(visual_rows["asset-000002"]["foreground_pixel_ratio"], "0.18491423")
         self.assertEqual(visual_rows["asset-000002"]["mean_luma"], "171.9248")
+        self.assertEqual(profile_rows["asset-000003"]["pixel_width"], "3000")
+        self.assertEqual(profile_rows["asset-000003"]["pixel_height"], "2000")
+        self.assertEqual(profile_rows["asset-000003"]["dpi_x"], "72")
+        self.assertEqual(profile_rows["asset-000003"]["dpi_y"], "72")
+        self.assertEqual(profile_rows["asset-000003"]["icc_profile_bytes"], "560")
+        self.assertEqual(visual_rows["asset-000003"]["foreground_bbox_width"], "1566")
+        self.assertEqual(visual_rows["asset-000003"]["foreground_bbox_height"], "940")
+        self.assertEqual(visual_rows["asset-000003"]["foreground_pixel_ratio"], "0.03478500")
+        self.assertEqual(visual_rows["asset-000003"]["mean_luma"], "225.5226")
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
@@ -294,11 +309,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         with asset_index_path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         visual_rows = module.build_visual_profiles(rows, repo_root())
-        self.assertEqual(len(visual_rows), 2)
+        self.assertEqual(len(visual_rows), 3)
         self.assertEqual(visual_rows[0]["visual_profile_id"], "asset-visual-profile-000001")
         self.assertEqual(visual_rows[0]["luma_threshold"], "140")
         self.assertEqual(visual_rows[0]["foreground_pixel_count"], "154404")
         self.assertEqual(visual_rows[1]["foreground_pixel_count"], "1972665")
+        self.assertEqual(visual_rows[2]["foreground_pixel_count"], "208710")
         self.assertEqual(
             {row["analysis_scope"] for row in visual_rows},
             {"visual_preprocessing_metadata_only"},
@@ -319,20 +335,29 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["context_pack_id"], "ai-context-public-domain-assets-001")
         self.assertEqual(data["status"], "reviewed_metadata_only")
-        self.assertEqual(data["coverage"]["asset_count"], 2)
-        self.assertEqual(data["coverage"]["source_ids"], ["src-metmuseum-oracle-bone"])
+        self.assertEqual(data["coverage"]["asset_count"], 3)
+        self.assertEqual(
+            data["coverage"]["source_ids"],
+            ["src-metmuseum-oracle-bone", "src-smithsonian-nmaa-oracle-bone"],
+        )
         self.assertEqual(data["coverage"]["rights_statuses"], ["public_domain_verified"])
         self.assertEqual(
             data["coverage"]["analysis_scopes"],
             ["image_technical_metadata_only", "visual_preprocessing_metadata_only"],
         )
-        self.assertEqual([asset["asset_id"] for asset in data["assets"]], ["asset-000001", "asset-000002"])
+        self.assertEqual(
+            [asset["asset_id"] for asset in data["assets"]],
+            ["asset-000001", "asset-000002", "asset-000003"],
+        )
         self.assertEqual(data["assets"][0]["primary_external_ref_id"], "met-obj-42045")
         self.assertEqual(data["assets"][1]["primary_external_ref_id"], "met-obj-42022")
+        self.assertEqual(data["assets"][2]["primary_external_ref_id"], "si-nmaa-fsc-o-26")
         self.assertEqual(data["assets"][0]["technical_profile"]["file_size_bytes"], 1780568)
         self.assertEqual(data["assets"][1]["technical_profile"]["icc_profile_bytes"], 3136)
+        self.assertEqual(data["assets"][2]["technical_profile"]["icc_profile_bytes"], 560)
         self.assertEqual(data["assets"][0]["visual_profile"]["foreground_pixel_count"], 154404)
         self.assertEqual(data["assets"][1]["visual_profile"]["foreground_pixel_count"], 1972665)
+        self.assertEqual(data["assets"][2]["visual_profile"]["foreground_pixel_count"], 208710)
         rules = " ".join(data["agent_use_rules"])
         self.assertIn("not as a decipherment result", rules)
         self.assertIn("not glyph segmentation", rules)
@@ -349,13 +374,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         with (base / "005_asset-image-visual-profile.csv").open("r", encoding="utf-8-sig", newline="") as file:
             visual_rows = list(csv.DictReader(file))
         data = module.build_context_pack(asset_rows, rights_rows, technical_rows, visual_rows)
-        self.assertEqual(data["coverage"]["asset_count"], 2)
+        self.assertEqual(data["coverage"]["asset_count"], 3)
         self.assertEqual(data["assets"][0]["rights_review"]["rights_status_after"], "public_domain_verified")
         self.assertEqual(
             data["assets"][0]["technical_profile"]["checksum_sha256"],
             "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
         )
         self.assertEqual(data["assets"][1]["visual_profile"]["foreground_bbox"]["width"], 3425)
+        self.assertEqual(data["assets"][2]["source_ids"], ["src-smithsonian-nmaa-oracle-bone"])
+        self.assertEqual(
+            data["assets"][2]["technical_profile"]["checksum_sha256"],
+            "e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079",
+        )
         self.assertIn("资产索引", " ".join(data["agent_use_rules_zh"]))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
@@ -720,9 +750,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(row["accession_number"], "FSC-O-26")
         self.assertEqual(row["iiif_source_image_id"], "FS-FSC-O-26_1")
         self.assertEqual(row["rights_status"], "public_domain_verified")
-        self.assertEqual(row["iiif_manifest_status"], "metadata_only_not_downloaded")
+        self.assertEqual(row["iiif_manifest_status"], "public_domain_image_committed_as_asset_000003")
         self.assertIn("John Hadley Cox", row["provenance_note"])
-        self.assertIn("raw IIIF image is not committed", row["caution"])
+        self.assertIn("CC0 IIIF image is committed as asset-000003", row["caution"])
 
     def test_penn_museum_oracle_bone_object_staging(self) -> None:
         source_path = (

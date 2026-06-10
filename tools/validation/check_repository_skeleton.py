@@ -631,7 +631,7 @@ def check_asset_records(root: Path) -> list[str]:
     issues.extend(asset_issues + rights_issues + image_profile_issues + visual_profile_issues + map_issues)
 
     asset_ids = {row.get("asset_id", "") for row in asset_rows}
-    required_asset_ids = {"asset-000001", "asset-000002"}
+    required_asset_ids = {"asset-000001", "asset-000002", "asset-000003"}
     for asset_id in sorted(required_asset_ids - asset_ids):
         issues.append(f"{ASSET_SOURCE_INDEX} missing asset_id: {asset_id}")
 
@@ -663,7 +663,9 @@ def check_asset_records(root: Path) -> list[str]:
             "size": 1780568,
             "sha256": "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
             "external_ref": "met-obj-42045",
+            "source_id": "src-metmuseum-oracle-bone",
             "image_suffix": "LC-67_43_14_002.jpg",
+            "rights_evidence_snippet": "isPublicDomain=true",
             "width": "2667",
             "height": "4000",
             "dpi_x": "",
@@ -689,7 +691,9 @@ def check_asset_records(root: Path) -> list[str]:
             "size": 2508142,
             "sha256": "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
             "external_ref": "met-obj-42022",
+            "source_id": "src-metmuseum-oracle-bone",
             "image_suffix": "LC-18_56_71_002.jpg",
+            "rights_evidence_snippet": "isPublicDomain=true",
             "width": "4000",
             "height": "2667",
             "dpi_x": "300",
@@ -700,6 +704,34 @@ def check_asset_records(root: Path) -> list[str]:
             "foreground_pixel_count": "1972665",
             "foreground_pixel_ratio": "0.18491423",
             "mean_luma": "171.9248",
+        },
+        "asset-000003": {
+            "canonical_path": (
+                "corpus/005_excavation-sites-periods-and-batches/"
+                "001_public-domain-object-image-assets/"
+                "003_asset-000003_si-nmaa-fsc-o-26_object-image.jpg"
+            ),
+            "metadata_path": (
+                "corpus/005_excavation-sites-periods-and-batches/"
+                "001_public-domain-object-image-assets/"
+                "003_asset-000003_si-nmaa-fsc-o-26_object-image.yaml"
+            ),
+            "size": 633418,
+            "sha256": "e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079",
+            "external_ref": "si-nmaa-fsc-o-26",
+            "source_id": "src-smithsonian-nmaa-oracle-bone",
+            "image_suffix": "FS-FSC-O-26_1/full/full/0/default.jpg",
+            "rights_evidence_snippet": "CC0",
+            "width": "3000",
+            "height": "2000",
+            "dpi_x": "72",
+            "dpi_y": "72",
+            "icc_profile_bytes": "560",
+            "visual_threshold": "140",
+            "visual_bbox": ("816", "823", "2381", "1762", "1566", "940"),
+            "foreground_pixel_count": "208710",
+            "foreground_pixel_ratio": "0.03478500",
+            "mean_luma": "225.5226",
         },
     }
     rows_by_asset_id = {row.get("asset_id", ""): row for row in asset_rows}
@@ -715,7 +747,7 @@ def check_asset_records(root: Path) -> list[str]:
             issues.append(f"{ASSET_SOURCE_INDEX} canonical_path changed: {asset_id}")
         if row.get("primary_external_ref_id") != expected["external_ref"]:
             issues.append(f"{ASSET_SOURCE_INDEX} primary external ref changed: {asset_id}")
-        if row.get("source_ids") != "src-metmuseum-oracle-bone":
+        if row.get("source_ids") != expected["source_id"]:
             issues.append(f"{ASSET_SOURCE_INDEX} source_id changed: {asset_id}")
         if row.get("rights_status") != "public_domain_verified":
             issues.append(f"{ASSET_SOURCE_INDEX} rights status must stay public_domain_verified: {asset_id}")
@@ -742,7 +774,7 @@ def check_asset_records(root: Path) -> list[str]:
             issues.append(f"{expected['metadata_path']} checksum changed")
         if metadata.get("rights_status") != "public_domain_verified":
             issues.append(f"{expected['metadata_path']} rights status changed")
-        if "isPublicDomain=true" not in metadata.get("rights_evidence", ""):
+        if expected["rights_evidence_snippet"] not in metadata.get("rights_evidence", ""):
             issues.append(f"{expected['metadata_path']} missing public-domain evidence")
         if metadata.get("pixel_width") != expected["width"]:
             issues.append(f"{expected['metadata_path']} pixel_width changed")
@@ -1629,9 +1661,12 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} generated_from changed")
     asset_coverage = asset_context_pack.get("coverage", {})
-    if asset_coverage.get("asset_count") != 2:
+    if asset_coverage.get("asset_count") != 3:
         issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} asset count changed")
-    if asset_coverage.get("source_ids") != ["src-metmuseum-oracle-bone"]:
+    if asset_coverage.get("source_ids") != [
+        "src-metmuseum-oracle-bone",
+        "src-smithsonian-nmaa-oracle-bone",
+    ]:
         issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} source IDs changed")
     if asset_coverage.get("rights_statuses") != ["public_domain_verified"]:
         issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} rights statuses changed")
@@ -1641,19 +1676,24 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} analysis scopes changed")
     asset_entries = asset_context_pack.get("assets", [])
-    if not isinstance(asset_entries, list) or len(asset_entries) != 2:
-        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} must contain 2 assets")
+    if not isinstance(asset_entries, list) or len(asset_entries) != 3:
+        issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} must contain 3 assets")
     else:
         first_asset = asset_entries[0]
         second_asset = asset_entries[1]
+        third_asset = asset_entries[2]
         if first_asset.get("asset_id") != "asset-000001":
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first asset changed")
         if second_asset.get("asset_id") != "asset-000002":
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second asset changed")
+        if third_asset.get("asset_id") != "asset-000003":
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} third asset changed")
         if first_asset.get("primary_external_ref_id") != "met-obj-42045":
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first external ref changed")
         if second_asset.get("primary_external_ref_id") != "met-obj-42022":
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second external ref changed")
+        if third_asset.get("primary_external_ref_id") != "si-nmaa-fsc-o-26":
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} third external ref changed")
         if first_asset.get("technical_profile", {}).get("checksum_sha256") != (
             "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df"
         ):
@@ -1662,10 +1702,16 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd"
         ):
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second checksum changed")
+        if third_asset.get("technical_profile", {}).get("checksum_sha256") != (
+            "e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079"
+        ):
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} third checksum changed")
         if first_asset.get("visual_profile", {}).get("foreground_pixel_count") != 154404:
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} first visual count changed")
         if second_asset.get("visual_profile", {}).get("foreground_pixel_count") != 1972665:
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} second visual count changed")
+        if third_asset.get("visual_profile", {}).get("foreground_pixel_count") != 208710:
+            issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} third visual count changed")
         first_caution = first_asset.get("visual_profile", {}).get("caution", "")
         if "not glyph segmentation" not in first_caution:
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} visual caution changed")
@@ -1675,7 +1721,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "image-asset routing summary",
         "Open the cited asset index",
         "not glyph segmentation",
-        "The Met object-page and API provenance",
+        "object-page, API, or IIIF manifest provenance",
     ]:
         if required_snippet not in asset_rules:
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} missing agent rule: {required_snippet}")
@@ -1683,7 +1729,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "图像资产检索路由摘要",
         "必须打开被引用的资产索引",
         "不是字形切分",
-        "The Met 对象页和 API 来源追溯",
+        "对象页、API 或 IIIF manifest 来源追溯",
     ]:
         if required_snippet not in asset_rules_zh:
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
@@ -2917,14 +2963,14 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} IIIF source image ID changed")
         if row.get("rights_status") != "public_domain_verified":
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} rights status must stay public_domain_verified")
-        if row.get("iiif_manifest_status") != "metadata_only_not_downloaded":
-            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} raw IIIF asset must not be marked downloaded")
+        if row.get("iiif_manifest_status") != "public_domain_image_committed_as_asset_000003":
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row must reference committed asset-000003")
         if row.get("project_import_status") != "object_metadata_not_promoted":
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row must stay object_metadata_not_promoted")
         if "John Hadley Cox" not in row.get("provenance_note", ""):
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} provenance note missing John Hadley Cox")
-        if "not committed" not in row.get("caution", ""):
-            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} caution must state raw image is not committed")
+        if "CC0 IIIF image is committed as asset-000003" not in row.get("caution", ""):
+            issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} caution must state asset-000003 is committed")
         if row.get("review_status") != "reviewed_metadata_only":
             issues.append(f"{SMITHSONIAN_NMAA_OBJECT_STAGING} row not reviewed_metadata_only")
 

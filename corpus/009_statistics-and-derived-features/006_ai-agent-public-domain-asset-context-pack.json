@@ -3,13 +3,13 @@
     "Use this pack as an image-asset routing summary, not as a decipherment result.",
     "Open the cited asset index, rights log, technical profile, and visual profile rows before making any research claim.",
     "Treat luma-threshold regions as preprocessing metadata only; they are not glyph segmentation or component analysis.",
-    "Retain The Met object-page and API provenance when reusing or discussing the images."
+    "Retain each asset's object-page, API, or IIIF manifest provenance when reusing or discussing the images."
   ],
   "agent_use_rules_zh": [
     "本上下文包只作为图像资产检索路由摘要使用，不是释读结果。",
     "提出任何研究判断前，必须打开被引用的资产索引、权利日志、技术画像和视觉画像记录行。",
     "亮度阈值区域只是预处理 metadata，不是字形切分或构件分析。",
-    "复用或讨论图像时必须保留 The Met 对象页和 API 来源追溯。"
+    "复用或讨论图像时必须保留每项资产的对象页、API 或 IIIF manifest 来源追溯。"
   ],
   "assets": [
     {
@@ -111,6 +111,56 @@
         "luma_threshold": 140,
         "mean_luma": 171.9248
       }
+    },
+    {
+      "asset_id": "asset-000003",
+      "asset_type": "museum_object_image",
+      "canonical_path": "corpus/005_excavation-sites-periods-and-batches/001_public-domain-object-image-assets/003_asset-000003_si-nmaa-fsc-o-26_object-image.jpg",
+      "primary_external_ref_id": "si-nmaa-fsc-o-26",
+      "rights_review": {
+        "evidence": "Smithsonian/NMAA official archive page reports CC0 for FSC-O-26 and the IIIF manifest for FS-FSC-O-26_1 reports Metadata Usage CC0 with image URL https://ids.si.edu/ids/iiif/FS-FSC-O-26_1/full/full/0/default.jpg",
+        "notes": "Public-domain object image committed as small source-marked sample asset; object metadata may be revised and image interpretation still requires scholarly review.",
+        "review_id": "asset-rights-review-000003",
+        "reviewed_at": "2026-06-05",
+        "reviewer": "codex-agent",
+        "rights_status_after": "public_domain_verified",
+        "rights_status_before": "unreviewed"
+      },
+      "rights_status": "public_domain_verified",
+      "risk_note": "Smithsonian/NMAA archive page and IIIF manifest mark FSC-O-26 / FS-FSC-O-26_1 as CC0; retain object-page and manifest provenance and do not treat image metadata as decipherment evidence.",
+      "source_ids": [
+        "src-smithsonian-nmaa-oracle-bone"
+      ],
+      "source_url": "https://ids.si.edu/ids/iiif/FS-FSC-O-26_1/full/full/0/default.jpg",
+      "technical_profile": {
+        "analysis_scope": "image_technical_metadata_only",
+        "checksum_sha256": "e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079",
+        "color_mode": "RGB",
+        "dpi_x": 72,
+        "dpi_y": 72,
+        "file_size_bytes": 633418,
+        "icc_profile_bytes": 560,
+        "image_format": "JPEG",
+        "pixel_height": 2000,
+        "pixel_width": 3000
+      },
+      "visual_profile": {
+        "analysis_method": "pillow_luma_threshold_bbox_v1",
+        "analysis_scope": "visual_preprocessing_metadata_only",
+        "caution": "Algorithmic foreground candidate only; not glyph segmentation, component analysis, or paleographic interpretation.",
+        "foreground_bbox": {
+          "height": 940,
+          "width": 1566,
+          "x_max": 2381,
+          "x_min": 816,
+          "y_max": 1762,
+          "y_min": 823
+        },
+        "foreground_pixel_count": 208710,
+        "foreground_pixel_ratio": 0.034785,
+        "luma_threshold": 140,
+        "mean_luma": 225.5226
+      }
     }
   ],
   "context_pack_id": "ai-context-public-domain-assets-001",
@@ -119,13 +169,14 @@
       "image_technical_metadata_only",
       "visual_preprocessing_metadata_only"
     ],
-    "asset_count": 2,
+    "asset_count": 3,
     "rights_statuses": [
       "public_domain_verified"
     ],
-    "source_count": 1,
+    "source_count": 2,
     "source_ids": [
-      "src-metmuseum-oracle-bone"
+      "src-metmuseum-oracle-bone",
+      "src-smithsonian-nmaa-oracle-bone"
     ]
   },
   "generated_from": [

@@ -346,6 +346,20 @@ def load_graph_source_download_log_wave_handoff_scaffold_module():
     return module
 
 
+def load_graph_source_download_log_capture_scaffold_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_download_log_capture_scaffold.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_download_log_capture_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_graph_source_evidence_collection_source_register_capture_scaffold_module():
     path = repo_root() / (
         "tools/005_ai-context-pack-builder/"
@@ -2963,6 +2977,110 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("checksum review", " ".join(data["agent_use_rules"]))
         self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_graph_source_download_log_capture_scaffold(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "035_ai-agent-graph-source-download-log-evidence-capture-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["capture_row_id"] for row in rows],
+            [
+                "graph-source-evidence-download-log-capture-001",
+                "graph-source-evidence-download-log-capture-002",
+                "graph-source-evidence-download-log-capture-003",
+            ],
+        )
+        self.assertEqual(
+            [row["handoff_item_id"] for row in rows],
+            [
+                "graph-source-evidence-download-log-handoff-004",
+                "graph-source-evidence-download-log-handoff-005",
+                "graph-source-evidence-download-log-handoff-006",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertTrue(all(row["target_evidence_section"] == "download_log" for row in rows))
+        self.assertTrue(
+            all(
+                row["source_download_log_path"]
+                == "project_registry/006_large-source-register/002_source-download-log.csv"
+                for row in rows
+            )
+        )
+        self.assertTrue(all(row["source_download_log_row_status"] == "not_checked" for row in rows))
+        self.assertTrue(all(row["download_log_evidence_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["checksum_review_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["size_review_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["access_review_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "not_decided" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
+        self.assertTrue(all(row["capture_status"] == "empty_scaffold_not_started" for row in rows))
+        empty_fields = [
+            "download_id_evidence_value",
+            "source_id_evidence_value",
+            "url_evidence_value",
+            "downloaded_at_evidence_value",
+            "download_status_evidence_value",
+            "http_status_evidence_value",
+            "file_size_bytes_evidence_value",
+            "checksum_sha256_evidence_value",
+            "local_temp_path_evidence_value",
+            "risk_note_evidence_value",
+        ]
+        for row in rows:
+            for field in empty_fields:
+                self.assertEqual(row[field], "")
+            self.assertEqual(
+                row["handoff_scaffold_path"],
+                "corpus/009_statistics-and-derived-features/"
+                "034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json",
+            )
+            self.assertIn(
+                "project_registry/006_large-source-register/002_source-download-log.csv",
+                row["route_files_to_open"],
+            )
+            self.assertIn(
+                "open_download_log_before_recording_access_or_checksum_status",
+                row["required_review_checks"],
+            )
+            self.assertIn("do_not_infer_rights_from_download_success", row["required_review_checks"])
+            self.assertIn("do not infer rights", row["caution"])
+            self.assertIn("collected evidence", row["caution"])
+
+    def test_ai_agent_graph_source_download_log_capture_scaffold_builder(
+        self,
+    ) -> None:
+        module = load_graph_source_download_log_capture_scaffold_module()
+        root = repo_root()
+        rows = module.build_capture_scaffold(
+            module.read_json(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json"
+            )
+        )
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["capture_row_id"], "graph-source-evidence-download-log-capture-001")
+        self.assertEqual(rows[1]["source_id"], "src-evobc")
+        self.assertEqual(rows[2]["evidence_collection_review_task_id"], "graph-source-evidence-review-020")
+        self.assertTrue(all(row["target_evidence_section"] == "download_log" for row in rows))
+        self.assertTrue(all(row["download_log_evidence_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["checksum_sha256_evidence_value"] == "" for row in rows))
+        self.assertTrue(all(row["file_size_bytes_evidence_value"] == "" for row in rows))
+        self.assertIn("do_not_infer_rights_from_download_success", rows[0]["required_review_checks"])
+        self.assertIn("035_ai-agent", module.DEFAULT_OUTPUT.as_posix())
 
     def test_ai_agent_graph_source_source_register_capture_scaffold(
         self,

@@ -37,6 +37,7 @@ Current tools:
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_queue.py`: builds a metadata-only review queue for the 134 HUST/OBIMD/EVOBC codepoint crosswalk rows that have OBIMD or EVOBC matches, prioritizing three-source matches before single-source matches while preserving no-identity and no-decipherment boundaries.
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts.py`: builds 15 empty Markdown review-log drafts for the first-priority three-source codepoint matches, plus a manifest, with every evidence section left `not_collected` and no identity, reading, component, evolution-chain, or decipherment claim.
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_route_results.py`: builds 15 metadata-only route results from the 042 draft manifest, confirming local candidate-packet, OBIMD/EVOBC staging-row, source-register, download-log, checksum, and route-file availability without collecting evidence or promoting codepoint matches.
+- `build_hust_obimd_evobc_codepoint_crosswalk_evidence_capture_scaffold.py`: builds 45 not-started evidence-capture scaffold rows from the 043 route results, splitting each three-source match into candidate-packet, source-register, and download-log capture tasks without recording collected evidence or making identity, reading, component, evolution-chain, or decipherment claims.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -75,3 +76,4 @@ Current tools:
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_queue.py`：为 HUST/OBIMD/EVOBC codepoint crosswalk 中 134 条命中 OBIMD 或 EVOBC 的行生成 metadata-only 复核队列，优先三源命中，再处理单源命中，同时保持不确认身份、不作释读的边界。
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts.py`：为第一优先级的 15 条三源 codepoint 命中生成空白 Markdown 复核日志草稿和 manifest；所有证据章节保持 `not_collected`，不提出身份、释读、构件、演化链或破译结论。
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_route_results.py`：从 042 草稿 manifest 生成 15 条 metadata-only 路由结果，确认本地候选包、OBIMD/EVOBC staging 行、来源登记、下载日志、checksum 和 route file 可用性，但不收集证据，也不提升 codepoint 命中。
+- `build_hust_obimd_evobc_codepoint_crosswalk_evidence_capture_scaffold.py`：从 043 路由结果生成 45 条未开始的 evidence-capture scaffold 行，把每条三源命中拆成候选资料包、来源登记和下载日志三个捕获任务，但不记录已收集证据，也不提出身份、释读、构件、演化链或破译结论。

@@ -18,6 +18,7 @@ from tools.validation.check_repository_skeleton import (
     check_relationship_graph_edges,
     check_relationship_graph_statistics,
     check_root_gitignore_patterns,
+    check_source_coverage_statistics,
     check_source_registers,
     check_tracked_temp_artifacts,
     repo_root,
@@ -108,6 +109,15 @@ def load_relationship_graph_statistics_module():
 def load_asset_image_visual_profiles_module():
     path = repo_root() / "tools/004_statistics-generation/build_asset_image_visual_profiles.py"
     spec = importlib.util.spec_from_file_location("build_asset_image_visual_profiles", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_coverage_statistics_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_coverage_statistics.py"
+    spec = importlib.util.spec_from_file_location("build_source_coverage_statistics", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -302,6 +312,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_relationship_graph_statistics(self) -> None:
         self.assertEqual(check_relationship_graph_statistics(repo_root()), [])
+
+    def test_source_coverage_statistics(self) -> None:
+        self.assertEqual(check_source_coverage_statistics(repo_root()), [])
 
     def test_asset_image_visual_profile_builder_preserves_boundary(self) -> None:
         module = load_asset_image_visual_profiles_module()
@@ -1451,6 +1464,51 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_node["node-a"]["out_degree"], "2")
         self.assertEqual(by_node["node-b"]["in_degree"], "1")
         self.assertEqual(by_node["node-c"]["incoming_edge_type_counts"], "RELATES_TO:1")
+
+    def test_source_coverage_summary_preserves_current_source_totals(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "007_source-coverage-summary.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 21)
+        self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 44)
+        self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 44)
+        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 48)
+        self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 3)
+        self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 4922128)
+        self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 99674)
+        self.assertEqual(sum(int(row["promotion_queue_candidate_count"]) for row in rows), 1588)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["promotion_queue_candidate_count"], "1588")
+        self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "3562")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
+        self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51679")
+        self.assertEqual(by_source["src-metmuseum-oracle-bone"]["committed_asset_count"], "2")
+        self.assertEqual(by_source["src-smithsonian-nmaa-oracle-bone"]["committed_asset_bytes"], "633418")
+        self.assertEqual(
+            by_source["src-xiaoxuetang-jiaguwen"]["download_status_counts"],
+            "downloaded_access_restricted_page:2",
+        )
+        self.assertTrue(all("Coverage statistics only" in row["caution"] for row in rows))
+
+    def test_source_coverage_statistics_builder_merges_source_rows(self) -> None:
+        module = load_source_coverage_statistics_module()
+        rows = module.build_source_coverage_summary(repo_root())
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(len(rows), 21)
+        self.assertEqual(by_source["src-hust-obc"]["metadata_profile_metric_count"], "11")
+        self.assertEqual(by_source["src-hust-obc"]["coverage_status"], "has_relationship_graph_derivatives")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "2")
+        self.assertEqual(by_source["src-metmuseum-oracle-bone"]["asset_rights_status_counts"], "public_domain_verified:2")
+        self.assertEqual(
+            by_source["src-smithsonian-nmaa-oracle-bone"]["coverage_status"],
+            "has_committed_public_asset_or_metadata",
+        )
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["coverage_status"], "has_download_log_only")
+        self.assertIn("source_registers", rows[0]["generated_from"])
 
     def test_ai_agent_relationship_graph_context_pack_preserves_routing_summary(self) -> None:
         path = (

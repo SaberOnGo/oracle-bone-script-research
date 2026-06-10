@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import subprocess
+from collections import Counter
 from pathlib import Path
 
 
@@ -123,6 +124,10 @@ AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = (
 AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "006_ai-agent-public-domain-asset-context-pack.json"
+)
+SOURCE_COVERAGE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "007_source-coverage-summary.csv"
 )
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
@@ -343,6 +348,7 @@ REQUIRED_PATHS = [
     AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
     AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
     AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
+    SOURCE_COVERAGE_SUMMARY,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -372,6 +378,7 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
     "tools/004_statistics-generation/build_asset_image_visual_profiles.py",
+    "tools/004_statistics-generation/build_source_coverage_statistics.py",
     "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
@@ -1289,6 +1296,125 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
         for key, value in expected_last.items():
             if node_degree_rows[-1].get(key) != value:
                 issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} last row {key} changed")
+
+    return issues
+
+
+def check_source_coverage_statistics(root: Path) -> list[str]:
+    issues: list[str] = []
+    source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
+    coverage_rows, coverage_issues = _read_csv_rows(root / SOURCE_COVERAGE_SUMMARY)
+    issues.extend(source_issues)
+    issues.extend(coverage_issues)
+
+    if len(coverage_rows) != len(source_rows):
+        issues.append(f"{SOURCE_COVERAGE_SUMMARY} row count must match source index")
+    if len(coverage_rows) != 21:
+        issues.append(f"{SOURCE_COVERAGE_SUMMARY} should contain exactly 21 rows")
+
+    source_ids = {row.get("source_id", "") for row in source_rows}
+    coverage_source_ids = {row.get("source_id", "") for row in coverage_rows}
+    if coverage_source_ids != source_ids:
+        issues.append(f"{SOURCE_COVERAGE_SUMMARY} source_id coverage changed")
+
+    totals = Counter()
+    status_counts = Counter()
+    by_source_id = {}
+    for row in coverage_rows:
+        source_id = row.get("source_id", "")
+        by_source_id[source_id] = row
+        if row.get("generated_from") != (
+            "source_registers;download_manifest;download_log;metadata_profiles;"
+            "asset_source_index;relationship_graph_statistics;hust_obc_promotion_queue"
+        ):
+            issues.append(f"{SOURCE_COVERAGE_SUMMARY} generated_from changed: {source_id}")
+        if row.get("updated_at") != "2026-06-10":
+            issues.append(f"{SOURCE_COVERAGE_SUMMARY} updated_at changed: {source_id}")
+        if "Coverage statistics only" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_COVERAGE_SUMMARY} caution changed: {source_id}")
+        for field in [
+            "download_manifest_count",
+            "download_log_count",
+            "downloaded_file_bytes",
+            "metadata_profile_metric_count",
+            "committed_asset_count",
+            "committed_asset_bytes",
+            "graph_edge_count",
+            "graph_edge_type_count",
+            "promotion_queue_candidate_count",
+        ]:
+            value = row.get(field, "")
+            if not value.isdigit():
+                issues.append(f"{SOURCE_COVERAGE_SUMMARY} non-numeric {field}: {source_id}")
+            else:
+                totals[field] += int(value)
+        status_counts[row.get("coverage_status", "")] += 1
+
+    expected_totals = {
+        "download_manifest_count": 44,
+        "download_log_count": 44,
+        "downloaded_file_bytes": 37363373,
+        "metadata_profile_metric_count": 48,
+        "committed_asset_count": 3,
+        "committed_asset_bytes": 4922128,
+        "graph_edge_count": 99674,
+        "promotion_queue_candidate_count": 1588,
+    }
+    for field, expected_value in expected_totals.items():
+        if totals[field] != expected_value:
+            issues.append(f"{SOURCE_COVERAGE_SUMMARY} total {field} changed")
+
+    expected_status_counts = {
+        "has_committed_public_asset_or_metadata": 2,
+        "has_download_log_only": 12,
+        "has_downloaded_metadata_profile": 4,
+        "has_relationship_graph_derivatives": 3,
+    }
+    if dict(status_counts) != expected_status_counts:
+        issues.append(f"{SOURCE_COVERAGE_SUMMARY} coverage status counts changed")
+
+    expected_source_values = {
+        "src-hust-obc": {
+            "graph_edge_count": "3562",
+            "graph_edge_type_count": "2",
+            "promotion_queue_candidate_count": "1588",
+            "coverage_status": "has_relationship_graph_derivatives",
+        },
+        "src-obimd": {
+            "graph_edge_count": "44433",
+            "graph_edge_type_count": "2",
+            "coverage_status": "has_relationship_graph_derivatives",
+        },
+        "src-evobc": {
+            "graph_edge_count": "51679",
+            "graph_edge_type_count": "2",
+            "coverage_status": "has_relationship_graph_derivatives",
+        },
+        "src-metmuseum-oracle-bone": {
+            "committed_asset_count": "2",
+            "committed_asset_bytes": "4288710",
+            "asset_rights_status_counts": "public_domain_verified:2",
+            "coverage_status": "has_committed_public_asset_or_metadata",
+        },
+        "src-smithsonian-nmaa-oracle-bone": {
+            "committed_asset_count": "1",
+            "committed_asset_bytes": "633418",
+            "asset_rights_status_counts": "public_domain_verified:1",
+            "coverage_status": "has_committed_public_asset_or_metadata",
+        },
+        "src-xiaoxuetang-jiaguwen": {
+            "download_status_counts": "downloaded_access_restricted_page:2",
+            "coverage_status": "has_download_log_only",
+        },
+    }
+    for source_id, expected_values in expected_source_values.items():
+        row = by_source_id.get(source_id)
+        if not row:
+            issues.append(f"{SOURCE_COVERAGE_SUMMARY} missing source row: {source_id}")
+            continue
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_COVERAGE_SUMMARY} {source_id} {field} changed")
 
     return issues
 
@@ -3077,6 +3203,7 @@ def main() -> int:
     issues.extend(check_source_registers(root))
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
+    issues.extend(check_source_coverage_statistics(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

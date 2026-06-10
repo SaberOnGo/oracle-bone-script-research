@@ -374,6 +374,20 @@ def load_graph_source_package_manifest_capture_scaffold_module():
     return module
 
 
+def load_graph_source_package_manifest_capture_review_checklist_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_package_manifest_capture_review_checklist.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_package_manifest_capture_review_checklist", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_graph_source_download_log_capture_scaffold_module():
     path = repo_root() / (
         "tools/005_ai-context-pack-builder/"
@@ -3263,6 +3277,124 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["checksum_sha256_evidence_value"] == "" for row in rows))
         self.assertIn("keep_raw_package_storage_boundary_explicit", rows[0]["required_review_checks"])
         self.assertIn("038_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_ai_agent_graph_source_package_manifest_capture_review_checklist(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        expected_check_keys = [
+            "open_capture_row",
+            "open_package_manifest_row",
+            "verify_package_file_and_source_package_ids",
+            "verify_file_name_kind_and_url",
+            "verify_file_size_and_download_id",
+            "verify_checksum_boundary",
+            "verify_commit_policy_and_handling_strategy",
+            "verify_rights_and_review_status_boundary",
+            "block_source_promotion",
+            "block_decipherment_claim",
+        ]
+        self.assertEqual(len(rows), 30)
+        self.assertEqual(rows[0]["checklist_item_id"], "graph-source-evidence-package-manifest-check-001")
+        self.assertEqual(rows[-1]["checklist_item_id"], "graph-source-evidence-package-manifest-check-030")
+        self.assertEqual([row["check_key"] for row in rows[:10]], expected_check_keys)
+        self.assertEqual(
+            [row["capture_row_id"] for row in rows[::10]],
+            [
+                "graph-source-evidence-package-manifest-capture-001",
+                "graph-source-evidence-package-manifest-capture-002",
+                "graph-source-evidence-package-manifest-capture-003",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows[::10]],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertTrue(all(row["target_evidence_section"] == "package_manifest" for row in rows))
+        self.assertTrue(all(row["check_status"] == "not_started" for row in rows))
+        self.assertTrue(
+            all(row["review_status"] == "needs_package_manifest_capture_review" for row in rows)
+        )
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["package_manifest_evidence_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["file_size_review_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["checksum_review_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["storage_boundary_review_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "not_decided" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
+        self.assertTrue(
+            all(
+                row["source_package_file_manifest_path"]
+                == "corpus/006_research-sources-and-bibliography/000_source-registers/"
+                "009_source-package-file-manifest.csv"
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all(
+                row["capture_scaffold_path"].endswith(
+                    "038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv"
+                )
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all(
+                "corpus/006_research-sources-and-bibliography/000_source-registers/"
+                "009_source-package-file-manifest.csv"
+                in row["route_files_to_open"]
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all(
+                "keep_raw_package_storage_boundary_explicit" in row["required_review_checks"]
+                for row in rows
+            )
+        )
+        self.assertTrue(any("file size" in row["instruction"] for row in rows))
+        self.assertTrue(any("checksum" in row["instruction"] for row in rows))
+        self.assertTrue(any("不得仅凭文件大小" in row["instruction_zh"] for row in rows))
+        self.assertTrue(all("Checklist item only" in row["caution"] for row in rows))
+        self.assertTrue(all("storage-boundary review" in row["caution"] for row in rows))
+        self.assertTrue(all("decipherment conclusion" in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_package_manifest_capture_review_checklist_builder(
+        self,
+    ) -> None:
+        module = load_graph_source_package_manifest_capture_review_checklist_module()
+        root = repo_root()
+        rows = module.build_review_checklist(
+            module.read_csv_rows(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv"
+            )
+        )
+
+        self.assertEqual(len(rows), 30)
+        self.assertEqual(rows[0]["check_key"], "open_capture_row")
+        self.assertEqual(rows[1]["check_key"], "open_package_manifest_row")
+        self.assertEqual(rows[5]["check_key"], "verify_checksum_boundary")
+        self.assertEqual(rows[6]["check_key"], "verify_commit_policy_and_handling_strategy")
+        self.assertEqual(rows[7]["check_key"], "verify_rights_and_review_status_boundary")
+        self.assertEqual(rows[-1]["check_key"], "block_decipherment_claim")
+        self.assertEqual(rows[0]["review_status"], "needs_package_manifest_capture_review")
+        self.assertEqual(rows[0]["evidence_collection_status"], "not_collected")
+        self.assertEqual(rows[0]["package_manifest_evidence_status"], "not_collected")
+        self.assertEqual(rows[0]["file_size_review_status"], "not_started")
+        self.assertEqual(rows[0]["checksum_review_status"], "not_started")
+        self.assertEqual(rows[0]["rights_decision_status"], "not_decided")
+        self.assertIn("039_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"package_manifest"})
 
     def test_ai_agent_graph_source_download_log_capture_scaffold(
         self,

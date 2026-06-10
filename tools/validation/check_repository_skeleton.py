@@ -253,6 +253,10 @@ AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv"
 )
+AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -624,6 +628,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_CAPTURE_REVIEW_CHECKLIST,
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_WAVE_HANDOFF_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD,
+    AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -712,6 +717,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_download_log_capture_review_checklist.py",
     "tools/005_ai-context-pack-builder/build_graph_source_package_manifest_wave_handoff_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_package_manifest_capture_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_package_manifest_capture_review_checklist.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -6482,6 +6488,135 @@ def check_ai_context_packs(root: Path) -> list[str]:
                         f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
                         f"caution missing {required_snippet}: {row_id}"
                     )
+
+    package_checklist_rows, package_checklist_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST
+    )
+    issues.extend(package_checklist_issues)
+    expected_package_check_keys = [
+        "open_capture_row",
+        "open_package_manifest_row",
+        "verify_package_file_and_source_package_ids",
+        "verify_file_name_kind_and_url",
+        "verify_file_size_and_download_id",
+        "verify_checksum_boundary",
+        "verify_commit_policy_and_handling_strategy",
+        "verify_rights_and_review_status_boundary",
+        "block_source_promotion",
+        "block_decipherment_claim",
+    ]
+    if len(package_checklist_rows) != 30:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+            "should contain 30 checklist rows"
+        )
+    else:
+        expected_capture_ids = [
+            "graph-source-evidence-package-manifest-capture-001",
+            "graph-source-evidence-package-manifest-capture-002",
+            "graph-source-evidence-package-manifest-capture-003",
+        ]
+        expected_sources_by_capture = {
+            "graph-source-evidence-package-manifest-capture-001": "src-hust-obc",
+            "graph-source-evidence-package-manifest-capture-002": "src-evobc",
+            "graph-source-evidence-package-manifest-capture-003": "src-obimd",
+        }
+        rows_by_capture: dict[str, list[dict[str, str]]] = {
+            capture_id: [] for capture_id in expected_capture_ids
+        }
+        for index, row in enumerate(package_checklist_rows, start=1):
+            row_id = row.get("checklist_item_id", "")
+            capture_id = row.get("capture_row_id", "")
+            if row_id != f"graph-source-evidence-package-manifest-check-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"checklist row ID sequence changed: {row_id}"
+                )
+            if capture_id in rows_by_capture:
+                rows_by_capture[capture_id].append(row)
+            if row.get("source_id") != expected_sources_by_capture.get(capture_id):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"source changed: {row_id}"
+                )
+            for key, expected_value in {
+                "target_evidence_section": "package_manifest",
+                "check_status": "not_started",
+                "review_status": "needs_package_manifest_capture_review",
+                "evidence_collection_status": "not_collected",
+                "package_manifest_evidence_status": "not_collected",
+                "file_size_review_status": "not_started",
+                "checksum_review_status": "not_started",
+                "storage_boundary_review_status": "not_started",
+                "rights_decision_status": "not_decided",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+                "source_package_file_manifest_path": SOURCE_PACKAGE_FILE_MANIFEST,
+                "capture_scaffold_path": AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD,
+                "updated_at": "2026-06-10",
+                "research_boundary": "evidence_collection_package_manifest_capture_review_checklist_not_scholarship",
+                "output_scope": "graph_source_evidence_collection_package_manifest_capture_review_checklist_only",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                        f"{key} changed: {row_id}"
+                    )
+            route_files = row.get("route_files_to_open", "").split(";")
+            if SOURCE_PACKAGE_FILE_MANIFEST not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing package manifest route: {row_id}"
+                )
+            if row.get("note_draft_path", "") not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing note draft route: {row_id}"
+                )
+            required_checks = row.get("required_review_checks", "")
+            for required_snippet in [
+                "open_package_manifest_before_recording_file_size_or_checksum",
+                "keep_raw_package_storage_boundary_explicit",
+                "keep_result_row_not_collected_until_evidence_is_source_marked",
+                "do_not_write_ai_hypothesis_as_scholarship",
+            ]:
+                if required_snippet not in required_checks:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                        f"missing required review check: {row_id}"
+                    )
+            caution = row.get("caution", "")
+            for required_snippet in [
+                "Checklist item only",
+                "collected evidence",
+                "file-size review",
+                "checksum review",
+                "storage-boundary review",
+                "rights decision",
+                "source promotion",
+                "decipherment conclusion",
+            ]:
+                if required_snippet not in caution:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                        f"missing caution text: {row_id}"
+                    )
+            if not row.get("instruction") or not row.get("instruction_zh"):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"missing bilingual instruction: {row_id}"
+                )
+        for capture_id, rows in rows_by_capture.items():
+            if len(rows) != len(expected_package_check_keys):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"checklist count changed: {capture_id}"
+                )
+            if [row.get("check_key") for row in rows] != expected_package_check_keys:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST} "
+                    f"check order changed: {capture_id}"
+                )
 
     download_capture_rows, download_capture_issues = _read_csv_rows(
         root / AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_EVIDENCE_CAPTURE_SCAFFOLD

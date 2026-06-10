@@ -296,6 +296,22 @@ def load_hust_obimd_evobc_codepoint_crosswalk_source_register_capture_results_mo
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -1342,6 +1358,106 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"codepoint_crosswalk_source_register_capture_result_not_scholarship"},
         )
         self.assertTrue(all("not a new rights decision" in row["caution"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results_record_downloads(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "046_ai-agent-hust-obimd-evobc-codepoint-crosswalk-download-log-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 75)
+        self.assertEqual(
+            Counter(row["download_id"] for row in rows),
+            {
+                "dl-hust-obc-validation-label": 15,
+                "dl-hust-obc-ocr-id-to-chinese": 15,
+                "dl-obimd-main-character-json": 15,
+                "dl-evobc-key-value-json": 15,
+                "dl-evobc-list-json": 15,
+            },
+        )
+        self.assertEqual(rows[0]["capture_result_id"], "codepoint-download-log-capture-result-001")
+        self.assertEqual(rows[0]["capture_task_id"], "codepoint-evidence-capture-003")
+        self.assertEqual(rows[0]["route_result_id"], "codepoint-crosswalk-route-result-001")
+        self.assertEqual(rows[0]["download_id"], "dl-hust-obc-validation-label")
+        self.assertEqual(rows[0]["source_id_evidence_value"], "src-hust-obc")
+        self.assertEqual(rows[0]["status_evidence_value"], "downloaded")
+        self.assertEqual(rows[0]["http_status_evidence_value"], "200")
+        self.assertEqual(rows[0]["file_size_bytes_evidence_value"], "22087")
+        self.assertEqual(
+            rows[0]["checksum_sha256_evidence_value"],
+            "406ad244008502401d6c0a690c7e0699896fbcb1b67cd09b36e5dc354158bd8f",
+        )
+        self.assertEqual(rows[4]["download_id"], "dl-evobc-list-json")
+        self.assertEqual(rows[4]["file_size_bytes_evidence_value"], "23254733")
+        self.assertEqual(
+            {row["download_log_evidence_status"] for row in rows},
+            {"metadata_captured_from_reviewed_download_log"},
+        )
+        self.assertEqual(
+            {row["evidence_collection_status"] for row in rows},
+            {"download_log_metadata_captured"},
+        )
+        self.assertEqual(
+            {row["checksum_review_status"] for row in rows},
+            {"checksum_value_captured_no_recalculation"},
+        )
+        self.assertEqual(
+            {row["size_review_status"] for row in rows},
+            {"size_value_captured_no_new_file_review"},
+        )
+        self.assertEqual(
+            {row["access_review_status"] for row in rows},
+            {"download_status_captured_no_new_access"},
+        )
+        self.assertEqual(
+            {row["rights_decision_status"] for row in rows},
+            {"download_log_value_captured_no_new_decision"},
+        )
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("not a new download" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        self.assertEqual(rows[-1]["capture_result_id"], "codepoint-download-log-capture-result-075")
+        self.assertEqual(rows[-1]["capture_task_id"], "codepoint-evidence-capture-045")
+        self.assertEqual(rows[-1]["route_result_id"], "codepoint-crosswalk-route-result-015")
+        self.assertEqual(rows[-1]["download_id"], "dl-evobc-list-json")
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_builder_uses_download_log(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results_module()
+        root = repo_root()
+        rows = module.build_capture_results(
+            module.read_csv_rows(root / module.EVIDENCE_CAPTURE_SCAFFOLD),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+        )
+
+        self.assertEqual(len(rows), 75)
+        self.assertEqual(
+            [row["download_id"] for row in rows[:5]],
+            [
+                "dl-hust-obc-validation-label",
+                "dl-hust-obc-ocr-id-to-chinese",
+                "dl-obimd-main-character-json",
+                "dl-evobc-key-value-json",
+                "dl-evobc-list-json",
+            ],
+        )
+        self.assertEqual(rows[0]["download_log_path"], module.SOURCE_DOWNLOAD_LOG.as_posix())
+        self.assertEqual(rows[0]["status_evidence_value"], "downloaded")
+        self.assertEqual(rows[0]["file_size_bytes_evidence_value"], "22087")
+        self.assertIn("checksum_sha256_present=true", rows[0]["captured_metadata_summary"])
+        self.assertEqual(rows[4]["source_id_evidence_value"], "src-evobc")
+        self.assertEqual(rows[4]["file_size_bytes_evidence_value"], "23254733")
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"codepoint_crosswalk_download_log_capture_result_not_scholarship"},
+        )
+        self.assertTrue(all("not a checksum recalculation" in row["caution"] for row in rows))
         self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:

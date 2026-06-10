@@ -291,6 +291,10 @@ AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_SOURCE_REGISTER_CAPTURE_RESULTS = 
     "corpus/009_statistics-and-derived-features/"
     "045_ai-agent-hust-obimd-evobc-codepoint-crosswalk-source-register-capture-results.csv"
 )
+AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "046_ai-agent-hust-obimd-evobc-codepoint-crosswalk-download-log-capture-results.csv"
+)
 AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_FIRST_REVIEW_LOG_DRAFT = (
     "doc/public/user_research/004_codepoint-crosswalk-review-queues/"
     "001_both_obimd_and_evobc_codepoint_match/"
@@ -681,6 +685,7 @@ REQUIRED_PATHS = [
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_ROUTE_RESULTS,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_SOURCE_REGISTER_CAPTURE_RESULTS,
+    AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_FIRST_REVIEW_LOG_DRAFT,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_LAST_THREE_SOURCE_REVIEW_LOG_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
@@ -758,6 +763,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_review_route_results.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_evidence_capture_scaffold.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_source_register_capture_results.py",
+    "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
@@ -3026,13 +3032,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
             f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_ROUTE_RESULTS} "
             "should contain exactly 15 rows"
         )
-    expected_download_ids = {
+    expected_download_order = [
         "dl-hust-obc-validation-label",
         "dl-hust-obc-ocr-id-to-chinese",
         "dl-obimd-main-character-json",
         "dl-evobc-key-value-json",
         "dl-evobc-list-json",
-    }
+    ]
+    expected_download_ids = set(expected_download_order)
     for index, row in enumerate(codepoint_route_result_rows, start=1):
         result_id = row.get("route_result_id", "")
         draft_id = row.get("review_log_draft_id", "")
@@ -3569,6 +3576,202 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(
                 f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_SOURCE_REGISTER_CAPTURE_RESULTS} "
                 "last source boundary changed"
+            )
+
+    codepoint_download_capture_rows, codepoint_download_capture_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS
+    )
+    issues.extend(codepoint_download_capture_issues)
+    download_log_rows, download_log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    issues.extend(download_log_issues)
+    download_log_by_id = {
+        row.get("download_id", ""): row
+        for row in download_log_rows
+    }
+    download_log_tasks_by_id = {
+        row.get("capture_task_id", ""): row
+        for row in codepoint_capture_rows
+        if row.get("target_evidence_section") == "download_log"
+    }
+    expected_download_counts = {download_id: 15 for download_id in expected_download_order}
+    if len(codepoint_download_capture_rows) != 75:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+            "should contain exactly 75 rows"
+        )
+    download_capture_counts = Counter(
+        row.get("download_id", "") for row in codepoint_download_capture_rows
+    )
+    if codepoint_download_capture_rows and download_capture_counts != expected_download_counts:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+            "download counts changed"
+        )
+    task_to_downloads: dict[str, list[str]] = {}
+    for index, row in enumerate(codepoint_download_capture_rows, start=1):
+        result_id = row.get("capture_result_id", "")
+        task_id = row.get("capture_task_id", "")
+        download_id = row.get("download_id", "")
+        task_row = download_log_tasks_by_id.get(task_id, {})
+        download_row = download_log_by_id.get(download_id, {})
+        if result_id != f"codepoint-download-log-capture-result-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"result ID sequence changed: {result_id}"
+            )
+        task_to_downloads.setdefault(task_id, []).append(download_id)
+        if not task_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"unknown download-log capture task: {task_id}"
+            )
+            continue
+        if download_id not in set(filter(None, task_row.get("source_record_refs", "").split(";"))):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"download_id not listed by 044 task: {result_id}"
+            )
+        if not download_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"unknown download log row: {download_id}"
+            )
+            continue
+        for field in [
+            "route_result_id",
+            "review_log_draft_id",
+            "codepoint_review_task_id",
+            "crosswalk_candidate_id",
+            "suggested_oracle_character_id",
+        ]:
+            if row.get(field) != task_row.get(field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                    f"{field} does not match 044 download-log task: {result_id}"
+                )
+        if row.get("download_log_path") != SOURCE_DOWNLOAD_LOG:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"download log path changed: {result_id}"
+            )
+        if row.get("download_log_path", "").startswith("research/"):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"download log path must not point to research/: {result_id}"
+            )
+        if not (root / row.get("download_log_path", "")).exists():
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"download log path missing: {result_id}"
+            )
+        for key, expected_value in {
+            "download_log_row_status": "reviewed_download_log_row_found",
+            "download_log_evidence_status": "metadata_captured_from_reviewed_download_log",
+            "evidence_collection_status": "download_log_metadata_captured",
+            "checksum_review_status": "checksum_value_captured_no_recalculation",
+            "size_review_status": "size_value_captured_no_new_file_review",
+            "access_review_status": "download_status_captured_no_new_access",
+            "rights_decision_status": "download_log_value_captured_no_new_decision",
+            "source_promotion_status": "not_promoted",
+            "identity_claim_status": "no_identity_claim",
+            "decipherment_claim_status": "no_claim",
+            "capture_status": "reviewed_metadata_only",
+            "research_boundary": "codepoint_crosswalk_download_log_capture_result_not_scholarship",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                    f"{key} changed: {result_id}"
+                )
+        for result_field, download_field in {
+            "source_id_evidence_value": "source_id",
+            "url_evidence_value": "url",
+            "downloaded_at_evidence_value": "downloaded_at",
+            "status_evidence_value": "status",
+            "http_status_evidence_value": "http_status",
+            "file_size_bytes_evidence_value": "file_size_bytes",
+            "checksum_sha256_evidence_value": "checksum_sha256",
+            "local_temp_path_evidence_value": "local_temp_path",
+            "risk_note_evidence_value": "risk_note",
+        }.items():
+            if row.get(result_field) != download_row.get(download_field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                    f"{result_field} does not match download log: {result_id}"
+                )
+        summary = row.get("captured_metadata_summary", "")
+        for required_snippet in [
+            f"route_result_id={row.get('route_result_id', '')}",
+            f"capture_task_id={task_id}",
+            f"download_id={download_id}",
+            f"source_id={download_row.get('source_id', '')}",
+            f"status={download_row.get('status', '')}",
+            f"file_size_bytes={download_row.get('file_size_bytes', '')}",
+            "checksum_sha256_present=true",
+        ]:
+            if required_snippet not in summary:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                    f"summary missing {required_snippet}: {result_id}"
+                )
+        for required_snippet in [
+            "open_download_log_row",
+            "verify_url_status_size_checksum_and_tmp_path",
+            "cross_check_against_source_register",
+        ]:
+            if required_snippet not in row.get("required_next_checks", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                    f"required_next_checks missing {required_snippet}: {result_id}"
+                )
+        for required_snippet in [
+            "captures download-log metadata",
+            "registered download URL, access status, file size, checksum, local tmp path, and risk fields",
+            "not a new download",
+            "not a checksum recalculation",
+            "not a file-size review",
+            "not a new rights decision",
+            "not a source promotion",
+            "not an oracle-character identity decision",
+            "not an accepted reading",
+            "not a component assignment",
+            "not an evolution-chain assignment",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in row.get("caution", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                    f"caution missing {required_snippet}: {result_id}"
+                )
+    for task_id, download_ids in task_to_downloads.items():
+        if download_ids != expected_download_order:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                f"download order changed for {task_id}"
+            )
+    if codepoint_download_capture_rows:
+        first_row = codepoint_download_capture_rows[0]
+        last_row = codepoint_download_capture_rows[-1]
+        if first_row.get("capture_task_id") != "codepoint-evidence-capture-003":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                "first download-log task boundary changed"
+            )
+        if first_row.get("download_id") != "dl-hust-obc-validation-label":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                "first download boundary changed"
+            )
+        if last_row.get("capture_task_id") != "codepoint-evidence-capture-045":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                "last download-log task boundary changed"
+            )
+        if last_row.get("download_id") != "dl-evobc-list-json":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
+                "last download boundary changed"
             )
 
     source_route_rows, source_route_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE)

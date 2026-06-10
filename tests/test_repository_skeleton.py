@@ -344,6 +344,22 @@ def load_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist_modul
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -1641,6 +1657,83 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"codepoint_crosswalk_evidence_readiness_checklist_not_scholarship"},
         )
         self.assertTrue(all("verify_candidate_packet_source_register_download_log_rows" in row["required_next_checks"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot_covers_review_queue(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "049_ai-agent-hust-obimd-evobc-codepoint-crosswalk-route-availability-snapshot.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 134)
+        self.assertEqual(
+            Counter(row["priority_bucket"] for row in rows),
+            Counter(
+                {
+                    "both_obimd_and_evobc_codepoint_match": 15,
+                    "obimd_only_codepoint_match": 7,
+                    "evobc_only_codepoint_match": 112,
+                }
+            ),
+        )
+        self.assertEqual(
+            Counter(row["review_log_materialization_status"] for row in rows),
+            Counter({"draft_log_exists": 15, "draft_log_not_materialized": 119}),
+        )
+        self.assertEqual(rows[0]["route_availability_id"], "codepoint-route-availability-001")
+        self.assertEqual(rows[0]["codepoint_review_task_id"], "codepoint-crosswalk-review-001")
+        self.assertEqual(rows[0]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(rows[0]["obimd_row_count"], "1")
+        self.assertEqual(rows[0]["evobc_row_count"], "1")
+        self.assertEqual(rows[0]["download_log_match_count"], "5")
+        self.assertEqual(rows[15]["route_availability_id"], "codepoint-route-availability-016")
+        self.assertEqual(rows[15]["priority_bucket"], "obimd_only_codepoint_match")
+        self.assertEqual(rows[15]["obimd_row_count"], "1")
+        self.assertEqual(rows[15]["evobc_row_count"], "0")
+        self.assertEqual(rows[15]["download_log_match_count"], "3")
+        self.assertEqual(rows[-1]["route_availability_id"], "codepoint-route-availability-134")
+        self.assertEqual(rows[-1]["priority_bucket"], "evobc_only_codepoint_match")
+        self.assertEqual(rows[-1]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001570")
+        self.assertEqual(rows[-1]["obimd_row_count"], "0")
+        self.assertEqual(rows[-1]["evobc_row_count"], "1")
+        self.assertEqual(rows[-1]["download_log_match_count"], "4")
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual({row["missing_route_file_count"] for row in rows}, {"0"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("not source evidence by itself" in row["caution"] for row in rows))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_route_availability_builder_rebuilds_snapshot(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot_module()
+        root = repo_root()
+        rows = module.build_availability_rows(
+            module.read_csv_rows(root / module.CODEPOINT_REVIEW_QUEUE),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+            module.read_csv_rows(root / module.OBIMD_MAIN_CHARACTER_STAGING),
+            module.read_csv_rows(root / module.EVOBC_EVOLUTION_CATEGORY_STAGING),
+            root,
+        )
+
+        self.assertEqual(len(rows), 134)
+        self.assertEqual(rows[0]["hust_candidate_packet_id"], "hust-obc-candidate-packet-000047")
+        self.assertEqual(rows[0]["download_ids_required"], "dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese;dl-obimd-main-character-json;dl-evobc-key-value-json;dl-evobc-list-json")
+        self.assertEqual(rows[15]["download_ids_required"], "dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese;dl-obimd-main-character-json")
+        self.assertEqual(rows[-1]["download_ids_required"], "dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese;dl-evobc-key-value-json;dl-evobc-list-json")
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"codepoint_crosswalk_route_availability_snapshot_not_scholarship"},
+        )
+        self.assertEqual(
+            {row["evidence_collection_status"] for row in rows},
+            {"availability_metadata_captured_not_evidence"},
+        )
+        self.assertTrue(all("verify_matched_source_staging_rows" in row["required_next_checks"] for row in rows))
         self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:

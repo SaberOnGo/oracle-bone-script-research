@@ -89,6 +89,11 @@ HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY = (
     "010_hust-obc-promotion-bucket-review-summary.csv"
 )
 HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME = "000_hust-obc-promotion-bucket-manifest.csv"
+HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST = (
+    "corpus/001_oracle-characters/"
+    "001_000001-000100_obs-char-bucket_oracle-characters/"
+    "001_hust-obc-candidate-packet-manifest.csv"
+)
 HUST_OBC_CANDIDATE_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "005_hust-obc-candidate-graph-edges.jsonl"
@@ -587,6 +592,7 @@ REQUIRED_PATHS = [
     HUST_OBC_SOURCE_CATEGORY_STAGING,
     HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
     HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY,
+    HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST,
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
     EVOBC_EVOLUTION_GRAPH_EDGES,
@@ -682,6 +688,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
     "tools/002_corpus-import/build_hust_obc_obs_char_promotion_queue.py",
     "tools/002_corpus-import/build_hust_obc_promotion_bucket_manifests.py",
+    "tools/002_corpus-import/build_hust_obc_first_bucket_candidate_packets.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
@@ -7800,6 +7807,122 @@ def check_source_registers(root: Path) -> list[str]:
                 issues.append(f"{manifest_relative_path} caution must preserve not-assigned warning: {queue_id}")
     if hust_promotion_queue_rows and bucket_manifest_queue_ids != queue_ids:
         issues.append("HUST-OBC bucket manifests must cover the full promotion queue exactly once")
+
+    first_bucket_packet_rows, first_bucket_packet_issues = _read_csv_rows(
+        root / HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST
+    )
+    issues.extend(first_bucket_packet_issues)
+    if len(first_bucket_packet_rows) != 100:
+        issues.append(f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} should contain 100 rows")
+    else:
+        rows_by_queue_id = {
+            row.get("promotion_queue_id", ""): row
+            for row in hust_promotion_queue_rows[:100]
+        }
+        for index, row in enumerate(first_bucket_packet_rows, start=1):
+            packet_id = row.get("candidate_packet_id", "")
+            expected_packet_id = f"hust-obc-candidate-packet-{index:06d}"
+            expected_queue_id = f"hust-obc-obs-char-promo-{index:06d}"
+            queue_row = rows_by_queue_id.get(expected_queue_id, {})
+            if packet_id != expected_packet_id:
+                issues.append(
+                    f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} packet ID changed: {packet_id}"
+                )
+            if row.get("promotion_queue_id") != expected_queue_id:
+                issues.append(
+                    f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} queue ID sequence changed: {packet_id}"
+                )
+            if row.get("suggested_oracle_character_id") != f"obs-char-{index:06d}":
+                issues.append(
+                    f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} suggested ID changed: {packet_id}"
+                )
+            for key in [
+                "source_id",
+                "primary_external_ref_id",
+                "candidate_class_id",
+                "source_category_row_ids",
+                "assignment_status",
+                "promotion_status",
+                "rights_status",
+            ]:
+                if queue_row and row.get(key) != queue_row.get(key):
+                    issues.append(
+                        f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} "
+                        f"{key} no longer matches promotion queue: {packet_id}"
+                    )
+            for key, expected_value in {
+                "source_id": "src-hust-obc",
+                "decipherment_status": "unknown_until_cross_source_review",
+                "dataset_label_status": "dataset_label_candidate_not_accepted_reading",
+                "rights_status": "source_marked_risk_noted",
+                "review_status": "needs_cross_source_review",
+                "research_boundary": "candidate_packet_not_accepted_character_record_not_scholarship",
+                "updated_at": "2026-06-10",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} {key} changed: {packet_id}"
+                    )
+            caution = row.get("caution", "")
+            for required_snippet in [
+                "Candidate packet only",
+                "not an accepted oracle character record",
+                "not an accepted reading",
+                "not a source promotion",
+                "not a decipherment conclusion",
+            ]:
+                if required_snippet not in caution:
+                    issues.append(
+                        f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} caution missing "
+                        f"{required_snippet}: {packet_id}"
+                    )
+            packet_relative_path = row.get("candidate_packet_path", "")
+            packet_path = root / packet_relative_path
+            if not packet_path.is_file():
+                issues.append(
+                    f"{HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST} missing packet file: "
+                    f"{packet_relative_path}"
+                )
+                continue
+            try:
+                packet_data = json.loads(packet_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as error:
+                issues.append(f"{packet_relative_path} invalid JSON: {error}")
+                continue
+            if packet_data.get("candidate_packet_id") != packet_id:
+                issues.append(f"{packet_relative_path} packet ID mismatch")
+            if packet_data.get("record_type") != "oracle_character_candidate_packet":
+                issues.append(f"{packet_relative_path} record_type changed")
+            if packet_data.get("suggested_oracle_character_id") != row.get("suggested_oracle_character_id"):
+                issues.append(f"{packet_relative_path} suggested ID mismatch")
+            if packet_data.get("source_id") != "src-hust-obc":
+                issues.append(f"{packet_relative_path} source_id changed")
+            if packet_data.get("decipherment_status") != "unknown_until_cross_source_review":
+                issues.append(f"{packet_relative_path} decipherment status changed")
+            if packet_data.get("assignment_status") != "reserved_candidate_not_assigned":
+                issues.append(f"{packet_relative_path} assignment status changed")
+            if packet_data.get("promotion_status") != "needs_cross_source_review":
+                issues.append(f"{packet_relative_path} promotion status changed")
+            if packet_data.get("review_status") != "needs_cross_source_review":
+                issues.append(f"{packet_relative_path} review status changed")
+            if packet_data.get("research_boundary") != (
+                "candidate_packet_not_accepted_character_record_not_scholarship"
+            ):
+                issues.append(f"{packet_relative_path} research boundary changed")
+            dataset_label = packet_data.get("dataset_label", {})
+            if dataset_label.get("status") != "dataset_label_candidate_not_accepted_reading":
+                issues.append(f"{packet_relative_path} dataset label status changed")
+            if dataset_label.get("source_modern_label_codepoints") != row.get("source_label_codepoints"):
+                issues.append(f"{packet_relative_path} source label codepoints mismatch")
+            source_candidate = packet_data.get("source_candidate", {})
+            if source_candidate.get("promotion_queue_id") != expected_queue_id:
+                issues.append(f"{packet_relative_path} source candidate queue mismatch")
+            if "dl-hust-obc-validation-label" not in packet_data.get("evidence_download_ids", []):
+                issues.append(f"{packet_relative_path} missing validation download ID")
+            if HUST_OBC_OBS_CHAR_PROMOTION_QUEUE not in packet_data.get("route_files", []):
+                issues.append(f"{packet_relative_path} missing promotion queue route")
+            if "not a decipherment conclusion" not in packet_data.get("caution", ""):
+                issues.append(f"{packet_relative_path} caution must block decipherment conclusion")
 
     if len(hust_bucket_summary_rows) != 16:
         issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} should contain exactly 16 rows")

@@ -312,6 +312,22 @@ def load_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results_modul
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -1458,6 +1474,84 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"codepoint_crosswalk_download_log_capture_result_not_scholarship"},
         )
         self.assertTrue(all("not a checksum recalculation" in row["caution"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results_record_packets(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "047_ai-agent-hust-obimd-evobc-codepoint-crosswalk-candidate-packet-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 15)
+        self.assertEqual(rows[0]["capture_result_id"], "codepoint-candidate-packet-capture-result-001")
+        self.assertEqual(rows[0]["capture_task_id"], "codepoint-evidence-capture-001")
+        self.assertEqual(rows[0]["route_result_id"], "codepoint-crosswalk-route-result-001")
+        self.assertEqual(rows[0]["candidate_packet_id_evidence_value"], "hust-obc-candidate-packet-000047")
+        self.assertEqual(rows[0]["source_candidate_class_id_evidence_value"], "obs-cand-000047")
+        self.assertEqual(rows[0]["source_candidate_validation_class_id_evidence_value"], "46")
+        self.assertEqual(rows[0]["source_candidate_source_category_id_padded_evidence_value"], "00055")
+        self.assertEqual(rows[0]["dataset_label_status_evidence_value"], "dataset_label_candidate_not_accepted_reading")
+        self.assertEqual(rows[0]["dataset_label_source_modern_label_codepoints_evidence_value"], "U+342D")
+        self.assertEqual(rows[0]["rights_status_evidence_value"], "source_marked_risk_noted")
+        self.assertEqual(rows[0]["review_status_evidence_value"], "needs_cross_source_review")
+        self.assertIn("obimd-main-cand-002255", rows[0]["route_cross_source_refs_evidence_value"])
+        self.assertIn("evobc-evo-cat-00005", rows[0]["route_cross_source_refs_evidence_value"])
+        self.assertEqual(
+            {row["candidate_packet_evidence_status"] for row in rows},
+            {"metadata_captured_from_reviewed_candidate_packet"},
+        )
+        self.assertEqual(
+            {row["evidence_collection_status"] for row in rows},
+            {"candidate_packet_metadata_captured"},
+        )
+        self.assertEqual(
+            {row["rights_decision_status"] for row in rows},
+            {"packet_value_captured_no_new_decision"},
+        )
+        self.assertEqual(
+            {row["cross_source_reference_status"] for row in rows},
+            {"route_refs_recorded_for_later_review_not_identity_claim"},
+        )
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("not an accepted reading" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        self.assertEqual(rows[-1]["capture_result_id"], "codepoint-candidate-packet-capture-result-015")
+        self.assertEqual(rows[-1]["capture_task_id"], "codepoint-evidence-capture-043")
+        self.assertEqual(rows[-1]["route_result_id"], "codepoint-crosswalk-route-result-015")
+        self.assertEqual(rows[-1]["candidate_packet_id_evidence_value"], "hust-obc-candidate-packet-001550")
+        self.assertEqual(rows[-1]["dataset_label_source_modern_label_codepoints_evidence_value"], "U+3AC3")
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_builder_uses_packets(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results_module()
+        root = repo_root()
+        rows = module.build_capture_results(
+            module.read_csv_rows(root / module.EVIDENCE_CAPTURE_SCAFFOLD),
+            root,
+        )
+
+        self.assertEqual(len(rows), 15)
+        self.assertEqual(rows[0]["candidate_packet_id_evidence_value"], "hust-obc-candidate-packet-000047")
+        self.assertEqual(rows[0]["record_type_evidence_value"], "oracle_character_candidate_packet")
+        self.assertEqual(rows[0]["source_id_evidence_value"], "src-hust-obc")
+        self.assertEqual(rows[0]["external_reference_ids_evidence_value"], "hust-obc-cat-0055;obs-cand-000047")
+        self.assertEqual(
+            rows[0]["evidence_download_ids_evidence_value"],
+            "dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese",
+        )
+        self.assertEqual(rows[0]["route_file_count_evidence_value"], "8")
+        self.assertIn("candidate_packet_id=hust-obc-candidate-packet-000047", rows[0]["captured_metadata_summary"])
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"codepoint_crosswalk_candidate_packet_capture_result_not_scholarship"},
+        )
+        self.assertTrue(all("044 cross-source route refs only" in row["caution"] for row in rows))
         self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:

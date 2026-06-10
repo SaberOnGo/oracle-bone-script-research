@@ -295,6 +295,10 @@ AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
     "046_ai-agent-hust-obimd-evobc-codepoint-crosswalk-download-log-capture-results.csv"
 )
+AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "047_ai-agent-hust-obimd-evobc-codepoint-crosswalk-candidate-packet-capture-results.csv"
+)
 AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_FIRST_REVIEW_LOG_DRAFT = (
     "doc/public/user_research/004_codepoint-crosswalk-review-queues/"
     "001_both_obimd_and_evobc_codepoint_match/"
@@ -686,6 +690,7 @@ REQUIRED_PATHS = [
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_SOURCE_REGISTER_CAPTURE_RESULTS,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS,
+    AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_FIRST_REVIEW_LOG_DRAFT,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_LAST_THREE_SOURCE_REVIEW_LOG_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
@@ -764,6 +769,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_evidence_capture_scaffold.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_source_register_capture_results.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results.py",
+    "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
@@ -3385,6 +3391,266 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(
                 f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_CAPTURE_SCAFFOLD} "
                 "last crosswalk boundary changed"
+            )
+
+    codepoint_candidate_capture_rows, codepoint_candidate_capture_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS
+    )
+    issues.extend(codepoint_candidate_capture_issues)
+    candidate_packet_tasks_by_id = {
+        row.get("capture_task_id", ""): row
+        for row in codepoint_capture_rows
+        if row.get("target_evidence_section") == "candidate_packet"
+    }
+    if len(codepoint_candidate_capture_rows) != 15:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+            "should contain exactly 15 rows"
+        )
+    for index, row in enumerate(codepoint_candidate_capture_rows, start=1):
+        result_id = row.get("capture_result_id", "")
+        task_id = row.get("capture_task_id", "")
+        task_row = candidate_packet_tasks_by_id.get(task_id, {})
+        packet_path = row.get("candidate_packet_path", "")
+        packet_data: dict[str, object] = {}
+        if result_id != f"codepoint-candidate-packet-capture-result-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"result ID sequence changed: {result_id}"
+            )
+        if not task_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"unknown candidate-packet capture task: {task_id}"
+            )
+            continue
+        for field in [
+            "route_result_id",
+            "review_log_draft_id",
+            "codepoint_review_task_id",
+            "crosswalk_candidate_id",
+            "suggested_oracle_character_id",
+        ]:
+            if row.get(field) != task_row.get(field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"{field} does not match 044 candidate-packet task: {result_id}"
+                )
+        if packet_path != task_row.get("source_route_path"):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"candidate packet path changed: {result_id}"
+            )
+        if packet_path.startswith("research/"):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"candidate packet path must not point to research/: {result_id}"
+            )
+        full_packet_path = root / packet_path
+        if not full_packet_path.exists():
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"candidate packet path missing: {result_id}"
+            )
+            continue
+        try:
+            packet_data = json.loads(full_packet_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as error:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"candidate packet JSON invalid: {result_id}: {error}"
+            )
+            continue
+        source_candidate = packet_data.get("source_candidate", {})
+        dataset_label = packet_data.get("dataset_label", {})
+        if not isinstance(source_candidate, dict) or not isinstance(dataset_label, dict):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"candidate packet nested metadata missing: {result_id}"
+            )
+            continue
+        external_references = packet_data.get("external_references", [])
+        evidence_download_ids = packet_data.get("evidence_download_ids", [])
+        source_metadata_files = packet_data.get("source_metadata_files", [])
+        route_files = packet_data.get("route_files", [])
+        external_reference_ids = ";".join(
+            ref.get("external_ref_id", "")
+            for ref in external_references
+            if isinstance(ref, dict) and ref.get("external_ref_id", "")
+        )
+        compact_evidence_download_ids = ";".join(str(value) for value in evidence_download_ids)
+        compact_source_metadata_files = ";".join(str(value) for value in source_metadata_files)
+        compact_source_category_row_ids = ";".join(
+            str(value) for value in source_candidate.get("source_category_row_ids", [])
+        )
+        for result_field, packet_value in {
+            "candidate_packet_id_evidence_value": packet_data.get("candidate_packet_id", ""),
+            "record_type_evidence_value": packet_data.get("record_type", ""),
+            "source_id_evidence_value": packet_data.get("source_id", ""),
+            "preferred_directory_name_evidence_value": packet_data.get("preferred_directory_name", ""),
+            "primary_external_ref_id_evidence_value": packet_data.get("primary_external_ref_id", ""),
+            "source_candidate_promotion_queue_id_evidence_value": source_candidate.get(
+                "promotion_queue_id", ""
+            ),
+            "source_candidate_class_id_evidence_value": source_candidate.get("candidate_class_id", ""),
+            "source_candidate_validation_class_id_evidence_value": source_candidate.get(
+                "validation_class_id", ""
+            ),
+            "source_candidate_source_category_id_evidence_value": source_candidate.get(
+                "source_category_id", ""
+            ),
+            "source_candidate_source_category_id_padded_evidence_value": source_candidate.get(
+                "source_category_id_padded", ""
+            ),
+            "source_candidate_label_crosswalk_id_evidence_value": source_candidate.get(
+                "candidate_label_crosswalk_id", ""
+            ),
+            "source_candidate_source_category_row_ids_evidence_value": compact_source_category_row_ids,
+            "dataset_label_status_evidence_value": dataset_label.get("status", ""),
+            "dataset_label_source_modern_label_codepoints_evidence_value": dataset_label.get(
+                "source_modern_label_codepoints", ""
+            ),
+            "dataset_label_component_count_evidence_value": dataset_label.get(
+                "label_component_count", ""
+            ),
+            "dataset_label_has_multi_component_label_evidence_value": dataset_label.get(
+                "has_multi_component_label", ""
+            ),
+            "dataset_label_source_category_member_count_evidence_value": dataset_label.get(
+                "source_category_member_count", ""
+            ),
+            "decipherment_status_evidence_value": packet_data.get("decipherment_status", ""),
+            "assignment_status_evidence_value": packet_data.get("assignment_status", ""),
+            "promotion_status_evidence_value": packet_data.get("promotion_status", ""),
+            "packet_status_evidence_value": packet_data.get("packet_status", ""),
+            "required_next_review_evidence_value": packet_data.get("required_next_review", ""),
+            "external_reference_ids_evidence_value": external_reference_ids,
+            "evidence_download_ids_evidence_value": compact_evidence_download_ids,
+            "source_metadata_files_evidence_value": compact_source_metadata_files,
+            "route_file_count_evidence_value": str(len(route_files)),
+            "rights_status_evidence_value": packet_data.get("rights_status", ""),
+            "review_status_evidence_value": packet_data.get("review_status", ""),
+            "candidate_packet_research_boundary_evidence_value": packet_data.get(
+                "research_boundary", ""
+            ),
+            "candidate_packet_caution_evidence_value": packet_data.get("caution", ""),
+            "packet_updated_at_evidence_value": packet_data.get("updated_at", ""),
+        }.items():
+            if row.get(result_field) != str(packet_value):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"{result_field} does not match candidate packet: {result_id}"
+                )
+        if packet_data.get("suggested_oracle_character_id", "") != row.get(
+            "suggested_oracle_character_id", ""
+        ):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"suggested oracle character does not match packet: {result_id}"
+            )
+        if row.get("candidate_packet_id_evidence_value", "") not in task_row.get(
+            "source_record_refs", ""
+        ):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"candidate packet ID not listed by 044 task: {result_id}"
+            )
+        if row.get("route_cross_source_refs_evidence_value", "") != task_row.get(
+            "source_record_refs", ""
+        ):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                f"route cross-source refs changed: {result_id}"
+            )
+        for required_ref in ["obimd-main-cand-", "evobc-evo-cat-"]:
+            if required_ref not in row.get("route_cross_source_refs_evidence_value", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"route refs missing {required_ref}: {result_id}"
+                )
+        for key, expected_value in {
+            "candidate_packet_row_status": "reviewed_candidate_packet_file_found",
+            "candidate_packet_evidence_status": "metadata_captured_from_reviewed_candidate_packet",
+            "evidence_collection_status": "candidate_packet_metadata_captured",
+            "rights_decision_status": "packet_value_captured_no_new_decision",
+            "source_promotion_status": "not_promoted",
+            "identity_claim_status": "no_identity_claim",
+            "decipherment_claim_status": "no_claim",
+            "component_claim_status": "no_claim",
+            "evolution_chain_claim_status": "no_claim",
+            "cross_source_reference_status": "route_refs_recorded_for_later_review_not_identity_claim",
+            "capture_status": "reviewed_metadata_only",
+            "research_boundary": "codepoint_crosswalk_candidate_packet_capture_result_not_scholarship",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"{key} changed: {result_id}"
+                )
+        summary = row.get("captured_metadata_summary", "")
+        for required_snippet in [
+            f"route_result_id={row.get('route_result_id', '')}",
+            f"capture_task_id={task_id}",
+            f"candidate_packet_id={packet_data.get('candidate_packet_id', '')}",
+            f"source_candidate_class_id={source_candidate.get('candidate_class_id', '')}",
+            f"dataset_label_codepoints={dataset_label.get('source_modern_label_codepoints', '')}",
+            f"rights_status={packet_data.get('rights_status', '')}",
+            f"review_status={packet_data.get('review_status', '')}",
+        ]:
+            if required_snippet not in summary:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"summary missing {required_snippet}: {result_id}"
+                )
+        for required_snippet in [
+            "open_candidate_packet",
+            "verify_hust_candidate_fields_against_staging",
+            "cross_check_obimd_evobc_source_register_and_download_log",
+        ]:
+            if required_snippet not in row.get("required_next_checks", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"required_next_checks missing {required_snippet}: {result_id}"
+                )
+        for required_snippet in [
+            "captures local candidate-packet metadata",
+            "044 cross-source route refs only as later-review pointers",
+            "not an oracle-character identity decision",
+            "not an accepted reading",
+            "not a component assignment",
+            "not an evolution-chain assignment",
+            "not a new rights decision",
+            "not a source promotion",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in row.get("caution", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                    f"caution missing {required_snippet}: {result_id}"
+                )
+    if codepoint_candidate_capture_rows:
+        first_row = codepoint_candidate_capture_rows[0]
+        last_row = codepoint_candidate_capture_rows[-1]
+        if first_row.get("capture_task_id") != "codepoint-evidence-capture-001":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                "first candidate-packet task boundary changed"
+            )
+        if first_row.get("candidate_packet_id_evidence_value") != "hust-obc-candidate-packet-000047":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                "first candidate packet boundary changed"
+            )
+        if last_row.get("capture_task_id") != "codepoint-evidence-capture-043":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                "last candidate-packet task boundary changed"
+            )
+        if last_row.get("candidate_packet_id_evidence_value") != "hust-obc-candidate-packet-001550":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS} "
+                "last candidate packet boundary changed"
             )
 
     codepoint_source_capture_rows, codepoint_source_capture_issues = _read_csv_rows(

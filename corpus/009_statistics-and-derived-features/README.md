@@ -13,6 +13,7 @@ Current generated statistics:
 - `006_ai-agent-public-domain-asset-context-pack.json`: AI Agent routing context for committed public-domain image assets, rights review, technical metadata, and safe visual preprocessing metadata.
 - `007_source-coverage-summary.csv`: source-level coverage summary for download plans/logs, metadata profiles, committed public assets, relationship-graph derivatives, and HUST-OBC promotion-review candidates.
 - `008_ai-agent-source-coverage-context-pack.json`: AI Agent source-routing context pack built from the coverage summary, preserving source, rights, access, graph, asset, and candidate-queue boundaries before evidence collection.
+- `009_ai-agent-source-route-review-queue.csv`: per-source AI Agent review queue that prioritizes candidate, graph, public-asset, access-limited, metadata-profile, and download-log checks while keeping the work routing-only.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -27,3 +28,4 @@ Current generated statistics:
 - `006_ai-agent-public-domain-asset-context-pack.json`：面向已提交公共领域图像资产的 AI Agent 路由上下文，包含权利复核、技术 metadata 和安全视觉预处理 metadata。
 - `007_source-coverage-summary.csv`：来源级覆盖统计，汇总下载计划/日志、metadata profile、已提交公共领域资产、关系图谱派生记录和 HUST-OBC promotion-review 候选覆盖。
 - `008_ai-agent-source-coverage-context-pack.json`：从 coverage summary 生成的 AI Agent 来源路由上下文包，在收集证据前保持来源、权利、访问、图谱、资产和候选队列边界。
+- `009_ai-agent-source-route-review-queue.csv`：逐来源 AI Agent 复核队列，优先安排候选、图谱、公共领域资产、访问受限、metadata profile 和下载日志检查，并保持仅限路由的工作边界。

@@ -133,6 +133,10 @@ AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
 )
+AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "009_ai-agent-source-route-review-queue.csv"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -354,6 +358,7 @@ REQUIRED_PATHS = [
     AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
     SOURCE_COVERAGE_SUMMARY,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
+    AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -390,6 +395,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
     "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2044,6 +2050,150 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         if required_snippet not in source_rules_zh:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
+
+    source_route_rows, source_route_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE)
+    issues.extend(source_route_issues)
+    if len(source_route_rows) != 21:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} should contain exactly 21 rows")
+    expected_source_route_ids = [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd",
+        "src-metmuseum-oracle-bone",
+        "src-smithsonian-nmaa-oracle-bone",
+        "src-british-museum-oracle-bone",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-nlc-oracle-world",
+        "src-penn-museum-oracle-bone",
+        "src-sinica-da-xiaoxuetang-site",
+        "src-sinica-yinshang-oracle-vocabulary",
+        "src-cambridge-hopkins",
+        "src-gbedobc",
+        "src-ihp-museum-oracle-bones",
+        "src-ihp-oracle-rubbings",
+        "src-obid-ancientbooks",
+        "src-open-oracle",
+        "src-oracle-mnist",
+        "src-tsinghua-oracle-bones",
+        "src-yinqi-wenyuan",
+    ]
+    if [row.get("source_id", "") for row in source_route_rows] != expected_source_route_ids:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} source route order changed")
+    source_route_by_id = {row.get("source_id", ""): row for row in source_route_rows}
+    for index, row in enumerate(source_route_rows, start=1):
+        task_id = row.get("source_route_task_id", "")
+        if task_id != f"source-route-review-{index:03d}":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} task ID sequence changed: {task_id}")
+        if row.get("context_pack_id") != "ai-context-source-coverage-001":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} context pack link changed: {task_id}")
+        if row.get("research_boundary") != "routing_metadata_only_not_scholarship":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} research boundary changed: {task_id}")
+        if row.get("assignment_status") != "unassigned":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} assignment status changed: {task_id}")
+        if row.get("review_status") != "needs_source_route_review":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} review status changed: {task_id}")
+        if row.get("updated_at") != "2026-06-10":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} updated_at changed: {task_id}")
+        caution = row.get("caution", "")
+        if "routing and provenance review aid only" not in caution:
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} caution boundary changed: {task_id}")
+        if "decipherment conclusions" not in caution:
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} decipherment caution changed: {task_id}")
+        route_files = set(filter(None, row.get("route_files", "").split(";")))
+        for required_file in [
+            AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
+            SOURCE_COVERAGE_SUMMARY,
+            SOURCE_INDEX,
+        ]:
+            if required_file not in route_files:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} missing common route file: {task_id}")
+
+    expected_route_values = {
+        "src-hust-obc": {
+            "priority_rank": "1",
+            "priority_tags": "candidate_queue;graph_derivative;metadata_profile;download_log",
+            "review_focus": "open_candidate_queue_and_graph_routes_before_evidence_pack_work",
+            "required_files": {
+                HUST_OBC_CANDIDATE_GRAPH_EDGES,
+                HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+                AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
+                AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
+            },
+            "required_checks": {
+                "verify_candidate_queue_rows_remain_reserved_and_cross_source_review_only",
+                "verify_graph_edges_are_metadata_routes_not_component_or_decipherment_claims",
+            },
+        },
+        "src-evobc": {
+            "priority_rank": "2",
+            "priority_tags": "graph_derivative;metadata_profile;download_log",
+            "review_focus": "open_graph_derivatives_and_source_metadata_before_using_edges",
+            "required_files": {EVOBC_EVOLUTION_GRAPH_EDGES, AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK},
+            "required_checks": {"verify_graph_edges_are_metadata_routes_not_component_or_decipherment_claims"},
+        },
+        "src-obimd": {
+            "priority_rank": "2",
+            "priority_tags": "graph_derivative;metadata_profile;download_log",
+            "review_focus": "open_graph_derivatives_and_source_metadata_before_using_edges",
+            "required_files": {OBIMD_COMPONENT_GRAPH_EDGES, AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK},
+            "required_checks": {"verify_graph_edges_are_metadata_routes_not_component_or_decipherment_claims"},
+        },
+        "src-metmuseum-oracle-bone": {
+            "priority_rank": "3",
+            "priority_tags": "public_asset;metadata_profile;download_log",
+            "review_focus": "open_asset_rights_and_image_metadata_before_visual_review",
+            "required_files": {ASSET_SOURCE_INDEX, ASSET_RIGHTS_REVIEW_LOG, AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK},
+            "required_checks": {"verify_asset_rights_checksums_and_visual_profiles_before_image_use"},
+        },
+        "src-smithsonian-nmaa-oracle-bone": {
+            "priority_rank": "3",
+            "priority_tags": "public_asset;access_limited_or_error;metadata_profile;download_log",
+            "review_focus": "open_asset_rights_and_image_metadata_before_visual_review",
+            "required_files": {ASSET_IMAGE_TECHNICAL_PROFILE, ASSET_IMAGE_VISUAL_PROFILE, SOURCE_DOWNLOAD_LOG},
+            "required_checks": {
+                "verify_asset_rights_checksums_and_visual_profiles_before_image_use",
+                "review_download_log_status_and_record_retry_or_metadata_only_decision",
+            },
+        },
+        "src-british-museum-oracle-bone": {
+            "priority_rank": "4",
+            "priority_tags": "access_limited_or_error;download_log",
+            "review_focus": "open_download_logs_and_resolve_access_or_error_boundary",
+            "required_files": {SOURCE_DOWNLOAD_MANIFEST, SOURCE_DOWNLOAD_LOG, SOURCE_DOWNLOAD_STATUS_CODEBOOK},
+            "required_checks": {"review_download_log_status_and_record_retry_or_metadata_only_decision"},
+        },
+        "src-nlc-oracle-world": {
+            "priority_rank": "5",
+            "priority_tags": "metadata_profile;download_log",
+            "review_focus": "open_metadata_profile_and_source_register_before_extraction",
+            "required_files": {DOWNLOADED_METADATA_PROFILE, SOURCE_DOWNLOAD_LOG},
+            "required_checks": {"open_metadata_profile_rows_and_keep_extraction_reviewed_metadata_only"},
+        },
+        "src-yinqi-wenyuan": {
+            "priority_rank": "6",
+            "priority_tags": "download_log",
+            "review_focus": "open_download_manifest_log_and_package_manifest_before_promotion",
+            "required_files": {SOURCE_PACKAGE_FILE_MANIFEST, SOURCE_DOWNLOAD_STATUS_CODEBOOK},
+            "required_checks": {"confirm_source_size_checksum_rights_and_risk_before_promoting_derivatives"},
+        },
+    }
+    for source_id, expected_values in expected_route_values.items():
+        row = source_route_by_id.get(source_id, {})
+        if not row:
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} missing source route task: {source_id}")
+            continue
+        for key in ["priority_rank", "priority_tags", "review_focus"]:
+            if row.get(key) != expected_values[key]:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} {source_id} {key} changed")
+        route_files = set(filter(None, row.get("route_files", "").split(";")))
+        for required_file in expected_values["required_files"]:
+            if required_file not in route_files:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} {source_id} missing route file: {required_file}")
+        next_checks = set(filter(None, row.get("required_next_checks", "").split(";")))
+        for required_check in expected_values["required_checks"]:
+            if required_check not in next_checks:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} {source_id} missing next check: {required_check}")
 
     return issues
 

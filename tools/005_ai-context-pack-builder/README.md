@@ -10,6 +10,7 @@ Current tools:
 - `build_hust_obc_candidate_evidence_pack_request_queue.py`: builds one evidence-pack request row per HUST-OBC promotion candidate, including required evidence sections and draft output paths under `doc/public/user_research/`.
 - `build_hust_obc_evidence_pack_draft.py`: builds one empty, schema-aligned evidence-pack draft from a single request queue row. It does not batch-create all drafts and does not make decipherment claims.
 - `build_source_coverage_context_pack.py`: builds a source-level AI Agent routing context pack from the reviewed coverage summary so agents can choose the right register, download log, metadata profile, asset record, graph derivative, or candidate queue before collecting evidence.
+- `build_source_route_review_queue.py`: builds one source-route review task per source from the source coverage context pack, preserving routing-only boundaries before any evidence collection or source promotion.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -21,3 +22,4 @@ Current tools:
 - `build_hust_obc_candidate_evidence_pack_request_queue.py`：为每个 HUST-OBC promotion 候选生成一行 evidence-pack 请求，包含必需证据章节和 `doc/public/user_research/` 下的草稿输出路径。
 - `build_hust_obc_evidence_pack_draft.py`：从单条 request queue 记录生成一个空白、符合 schema 的 evidence-pack 草稿。它不会批量创建全部草稿，也不会提出释读结论。
 - `build_source_coverage_context_pack.py`：从已复核 coverage summary 构建来源级 AI Agent 路由上下文包，让 agent 在收集证据前先选择正确的来源登记、下载日志、metadata profile、资产记录、图谱派生或候选队列。
+- `build_source_route_review_queue.py`：从来源覆盖上下文包为每个 source 生成一条 source-route 复核任务，在收集证据或提升来源派生记录前保持仅限路由的边界。

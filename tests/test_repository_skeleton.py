@@ -178,6 +178,15 @@ def load_source_coverage_context_pack_module():
     return module
 
 
+def load_source_route_review_queue_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
+    spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -507,6 +516,92 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Keep new downloads in ignored temporary directories", rules)
         self.assertIn("数据集派生记录", rules_zh)
         self.assertNotIn("confirmed scholarship", rules)
+
+    def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "009_ai-agent-source-route-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 21)
+        self.assertEqual(rows[0]["source_route_task_id"], "source-route-review-001")
+        self.assertEqual(rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(rows[0]["priority_rank"], "1")
+        self.assertEqual(
+            rows[0]["priority_tags"],
+            "candidate_queue;graph_derivative;metadata_profile;download_log",
+        )
+        self.assertIn(
+            "corpus/001_oracle-characters/000_character-registers/"
+            "009_hust-obc-obs-char-promotion-review-queue.csv",
+            rows[0]["route_files"],
+        )
+        self.assertIn(
+            "verify_candidate_queue_rows_remain_reserved_and_cross_source_review_only",
+            rows[0]["required_next_checks"],
+        )
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-evobc"]["priority_rank"], "2")
+        self.assertIn(
+            "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+            by_source["src-evobc"]["route_files"],
+        )
+        self.assertEqual(by_source["src-metmuseum-oracle-bone"]["priority_rank"], "3")
+        self.assertIn(
+            "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv",
+            by_source["src-metmuseum-oracle-bone"]["route_files"],
+        )
+        self.assertEqual(
+            by_source["src-smithsonian-nmaa-oracle-bone"]["priority_tags"],
+            "public_asset;access_limited_or_error;metadata_profile;download_log",
+        )
+        self.assertIn(
+            "review_download_log_status_and_record_retry_or_metadata_only_decision",
+            by_source["src-smithsonian-nmaa-oracle-bone"]["required_next_checks"],
+        )
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["priority_rank"], "4")
+        self.assertEqual(by_source["src-nlc-oracle-world"]["priority_rank"], "5")
+        self.assertEqual(by_source["src-yinqi-wenyuan"]["priority_rank"], "6")
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"routing_metadata_only_not_scholarship"},
+        )
+        self.assertTrue(
+            all("decipherment conclusions" in row["caution"] for row in rows)
+        )
+
+    def test_ai_agent_source_route_review_queue_builder_keeps_boundary(self) -> None:
+        module = load_source_route_review_queue_module()
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "008_ai-agent-source-coverage-context-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        rows = module.build_queue_rows(data)
+        self.assertEqual(len(rows), 21)
+        self.assertEqual(rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(rows[0]["context_pack_id"], "ai-context-source-coverage-001")
+        self.assertEqual(rows[0]["research_boundary"], "routing_metadata_only_not_scholarship")
+        self.assertEqual(rows[1]["source_id"], "src-evobc")
+        self.assertEqual(rows[2]["source_id"], "src-obimd")
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(
+            by_source["src-xiaoxuetang-jiaguwen"]["review_focus"],
+            "open_download_logs_and_resolve_access_or_error_boundary",
+        )
+        self.assertIn(
+            "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            "013_source-download-status-codebook.csv",
+            by_source["src-xiaoxuetang-jiaguwen"]["route_files"],
+        )
+        self.assertIn(
+            "confirm_source_size_checksum_rights_and_risk_before_promoting_derivatives",
+            by_source["src-yinqi-wenyuan"]["required_next_checks"],
+        )
+        self.assertNotIn("confirmed scholarship", rows[0]["caution"])
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

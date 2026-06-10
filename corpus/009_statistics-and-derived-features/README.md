@@ -47,9 +47,11 @@ Current generated statistics:
 - `040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json`: metadata-only AI Agent routing context pack for the 1,588 HUST/OBIMD/EVOBC codepoint crosswalk candidates, summarizing OBIMD/EVOBC match coverage, source routes, sample rows, route files, and non-identity/non-decipherment cautions.
 - `041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv`: metadata-only review queue for the 134 HUST/OBIMD/EVOBC codepoint crosswalk rows with OBIMD or EVOBC matches, ordered by three-source matches, OBIMD-only matches, and EVOBC-only matches before any evidence collection.
 - `042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv`: manifest for 15 empty Markdown review-log drafts under `doc/public/user_research/004_codepoint-crosswalk-review-queues/`, limited to first-priority three-source codepoint matches and keeping all evidence sections `not_collected`.
+- `043_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-route-results.csv`: metadata-only route results for the 15 first-priority three-source codepoint review drafts, confirming candidate-packet, OBIMD/EVOBC staging-row, source-register, download-log, checksum, and route-file availability before evidence collection.
 
 简体中文补充：
 - `042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv`：记录 `doc/public/user_research/004_codepoint-crosswalk-review-queues/` 下 15 份空白 Markdown 复核日志草稿；范围只限第一优先级三源 codepoint 命中，所有证据章节保持 `not_collected`。
+- `043_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-route-results.csv`：记录 15 条第一优先级三源 codepoint 复核草稿的 metadata-only 路由结果，确认候选包、OBIMD/EVOBC staging 行、来源登记、下载日志、checksum 和 route file 的可用性，仍不进入证据收集或释读结论。
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。

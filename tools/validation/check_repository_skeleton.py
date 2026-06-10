@@ -88,6 +88,10 @@ HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY = (
     "corpus/001_oracle-characters/000_character-registers/"
     "010_hust-obc-promotion-bucket-review-summary.csv"
 )
+HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"
+)
 HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME = "000_hust-obc-promotion-bucket-manifest.csv"
 HUST_OBC_CANDIDATE_PACKET_MANIFEST_FILENAME = "001_hust-obc-candidate-packet-manifest.csv"
 HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST = (
@@ -593,6 +597,7 @@ REQUIRED_PATHS = [
     HUST_OBC_SOURCE_CATEGORY_STAGING,
     HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
     HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY,
+    HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK,
     HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST,
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
@@ -691,6 +696,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_promotion_bucket_manifests.py",
     "tools/002_corpus-import/build_hust_obc_first_bucket_candidate_packets.py",
     "tools/002_corpus-import/build_hust_obc_candidate_packets.py",
+    "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
@@ -7162,6 +7168,9 @@ def check_source_registers(root: Path) -> list[str]:
     hust_bucket_summary_rows, hust_bucket_summary_issues = _read_csv_rows(
         root / HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY
     )
+    hust_codepoint_crosswalk_rows, hust_codepoint_crosswalk_issues = _read_csv_rows(
+        root / HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK
+    )
     obimd_main_rows, obimd_main_issues = _read_csv_rows(root / OBIMD_MAIN_CHARACTER_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
         root / OBIMD_SUBCHARACTER_MAIN_STAGING
@@ -7216,6 +7225,7 @@ def check_source_registers(root: Path) -> list[str]:
         + hust_source_category_issues
         + hust_promotion_queue_issues
         + hust_bucket_summary_issues
+        + hust_codepoint_crosswalk_issues
         + obimd_main_issues
         + obimd_subchar_main_issues
         + obimd_subchar_glyph_issues
@@ -7986,6 +7996,169 @@ def check_source_registers(root: Path) -> list[str]:
     }
     if packet_manifest_packet_ids != expected_packet_ids:
         issues.append("HUST-OBC candidate packet ID set must cover 000001..001588 exactly once")
+
+    if len(hust_codepoint_crosswalk_rows) != 1588:
+        issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} should contain exactly 1588 rows")
+    crosswalk_queue_ids: set[str] = set()
+    crosswalk_ids: set[str] = set()
+    crosswalk_status_counts: dict[str, int] = {}
+    total_obimd_matches = 0
+    total_evobc_matches = 0
+    promotion_by_queue_id = {
+        row.get("promotion_queue_id", ""): row
+        for row in hust_promotion_queue_rows
+    }
+    obimd_by_candidate_id = {
+        row.get("candidate_main_character_id", ""): row
+        for row in obimd_main_rows
+    }
+    evobc_by_candidate_id = {
+        row.get("candidate_evolution_category_id", ""): row
+        for row in evobc_category_rows
+    }
+    for index, row in enumerate(hust_codepoint_crosswalk_rows, start=1):
+        crosswalk_id = row.get("crosswalk_candidate_id", "")
+        expected_crosswalk_id = f"hust-obimd-evobc-xwalk-{index:06d}"
+        expected_queue_id = f"hust-obc-obs-char-promo-{index:06d}"
+        queue_row = promotion_by_queue_id.get(expected_queue_id, {})
+        crosswalk_ids.add(crosswalk_id)
+        crosswalk_queue_ids.add(row.get("promotion_queue_id", ""))
+        crosswalk_status = row.get("cross_source_status", "")
+        crosswalk_status_counts[crosswalk_status] = crosswalk_status_counts.get(crosswalk_status, 0) + 1
+        if crosswalk_id != expected_crosswalk_id:
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} ID sequence changed: {crosswalk_id}")
+        if row.get("promotion_queue_id") != expected_queue_id:
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} queue ID sequence changed: {crosswalk_id}")
+        if row.get("suggested_oracle_character_id") != f"obs-char-{index:06d}":
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} suggested ID changed: {crosswalk_id}")
+        for crosswalk_key, queue_key in {
+            "hust_primary_external_ref_id": "primary_external_ref_id",
+            "hust_source_category_id": "source_category_id",
+            "hust_label_candidate": "source_modern_label_candidate",
+            "hust_label_codepoints": "source_modern_label_codepoints",
+            "label_component_count": "label_component_count",
+            "has_multi_component_label": "has_multi_component_label",
+        }.items():
+            if queue_row and row.get(crosswalk_key) != queue_row.get(queue_key):
+                issues.append(
+                    f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} {crosswalk_key} "
+                    f"does not match promotion queue: {crosswalk_id}"
+                )
+        expected_packet_path = (
+            "corpus/001_oracle-characters/"
+            f"{queue_row.get('suggested_bucket_directory', '')}/"
+            f"{queue_row.get('suggested_character_directory', '')}/"
+            "01_candidate-character-packet.json"
+        )
+        if queue_row and row.get("candidate_packet_path") != expected_packet_path:
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} packet path changed: {crosswalk_id}")
+        obimd_ids = [value for value in row.get("obimd_candidate_main_character_ids", "").split(";") if value]
+        evobc_ids = [
+            value for value in row.get("evobc_candidate_evolution_category_ids", "").split(";") if value
+        ]
+        if row.get("obimd_match_count", "") != str(len(obimd_ids)):
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} OBIMD count mismatch: {crosswalk_id}")
+        if row.get("evobc_match_count", "") != str(len(evobc_ids)):
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} EVOBC count mismatch: {crosswalk_id}")
+        total_obimd_matches += len(obimd_ids)
+        total_evobc_matches += len(evobc_ids)
+        for obimd_id in obimd_ids:
+            obimd_row = obimd_by_candidate_id.get(obimd_id, {})
+            if not obimd_row:
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} unknown OBIMD match: {obimd_id}")
+            elif obimd_row.get("codepoint_uplus") != row.get("hust_label_codepoints"):
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} OBIMD codepoint mismatch: {obimd_id}")
+        evobc_image_total = 0
+        evobc_has_oracle = False
+        for evobc_id in evobc_ids:
+            evobc_row = evobc_by_candidate_id.get(evobc_id, {})
+            if not evobc_row:
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} unknown EVOBC match: {evobc_id}")
+                continue
+            if evobc_row.get("source_character_codepoints") != row.get("hust_label_codepoints"):
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} EVOBC codepoint mismatch: {evobc_id}")
+            raw_count = evobc_row.get("image_reference_count", "")
+            if raw_count.isdigit():
+                evobc_image_total += int(raw_count)
+            evobc_has_oracle = evobc_has_oracle or evobc_row.get("has_oracle_bone_refs") == "true"
+        if row.get("evobc_image_reference_count_total") != str(evobc_image_total):
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} EVOBC image total changed: {crosswalk_id}")
+        if row.get("evobc_has_oracle_bone_refs_any") != str(evobc_has_oracle).lower():
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} EVOBC oracle ref flag changed: {crosswalk_id}")
+        expected_status = "no_obimd_or_evobc_codepoint_match"
+        if obimd_ids and evobc_ids:
+            expected_status = "matched_obimd_and_evobc_by_codepoint"
+        elif obimd_ids:
+            expected_status = "matched_obimd_by_codepoint"
+        elif evobc_ids:
+            expected_status = "matched_evobc_by_codepoint"
+        if crosswalk_status != expected_status:
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} status mismatch: {crosswalk_id}")
+        expected_sources = ["src-hust-obc"]
+        if obimd_ids:
+            expected_sources.append("src-obimd")
+        if evobc_ids:
+            expected_sources.append("src-evobc")
+        if row.get("matched_source_ids") != ";".join(expected_sources):
+            issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} matched sources changed: {crosswalk_id}")
+        for key, expected_value in {
+            "match_basis": "exact_unicode_codepoint_sequence_from_dataset_labels",
+            "identity_claim_status": "no_identity_claim",
+            "promotion_status": "not_promoted",
+            "rights_status": "source_marked_risk_noted",
+            "review_status": "needs_cross_source_review",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} {key} changed: {crosswalk_id}")
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "Codepoint crosswalk candidate only",
+            "not confirmed oracle-character identity",
+            "not accepted readings",
+            "not component assignments",
+            "not evolution-chain assignments",
+            "not decipherment conclusions",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} caution missing "
+                    f"{required_snippet}: {crosswalk_id}"
+                )
+        route_files = [value for value in row.get("route_files", "").split(";") if value]
+        required_route_files = [
+            HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+            OBIMD_MAIN_CHARACTER_STAGING,
+            EVOBC_EVOLUTION_CATEGORY_STAGING,
+            SOURCE_INDEX,
+            SOURCE_DOWNLOAD_LOG,
+            row.get("candidate_packet_path", ""),
+        ]
+        for route_file in required_route_files:
+            if route_file not in route_files:
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} missing route file: {route_file}")
+        for route_file in route_files:
+            if not (root / route_file).exists():
+                issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} route file does not exist: {route_file}")
+    if hust_codepoint_crosswalk_rows and crosswalk_queue_ids != queue_ids:
+        issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} must cover the full HUST promotion queue")
+    expected_crosswalk_ids = {
+        f"hust-obimd-evobc-xwalk-{index:06d}"
+        for index in range(1, 1589)
+    }
+    if hust_codepoint_crosswalk_rows and crosswalk_ids != expected_crosswalk_ids:
+        issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} ID set changed")
+    if hust_codepoint_crosswalk_rows and crosswalk_status_counts != {
+        "matched_evobc_by_codepoint": 112,
+        "matched_obimd_and_evobc_by_codepoint": 15,
+        "matched_obimd_by_codepoint": 7,
+        "no_obimd_or_evobc_codepoint_match": 1454,
+    }:
+        issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} status counts changed")
+    if total_obimd_matches != 22:
+        issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} total OBIMD match count changed")
+    if total_evobc_matches != 127:
+        issues.append(f"{HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK} total EVOBC match count changed")
 
     if len(hust_bucket_summary_rows) != 16:
         issues.append(f"{HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY} should contain exactly 16 rows")

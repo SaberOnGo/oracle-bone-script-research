@@ -88,6 +88,15 @@ def load_hust_obc_candidate_packets_module():
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_module():
+    path = repo_root() / "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obimd_evobc_codepoint_crosswalk", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_candidate_graph_edges_module():
     path = repo_root() / "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_graph_edges", path)
@@ -4724,6 +4733,82 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(last_packet["source_candidate"]["promotion_queue_id"], "hust-obc-obs-char-promo-001588")
         self.assertEqual(last_packet["decipherment_status"], "unknown_until_cross_source_review")
         self.assertIn("not a decipherment conclusion", last_packet["caution"])
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_records_lookup_routes_only(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 1588)
+        self.assertEqual(rows[0]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000001")
+        self.assertEqual(rows[-1]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001588")
+        self.assertEqual(rows[0]["promotion_queue_id"], "hust-obc-obs-char-promo-000001")
+        self.assertEqual(rows[-1]["promotion_queue_id"], "hust-obc-obs-char-promo-001588")
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["review_status"] for row in rows}, {"needs_cross_source_review"})
+        self.assertEqual(
+            {row["match_basis"] for row in rows},
+            {"exact_unicode_codepoint_sequence_from_dataset_labels"},
+        )
+        status_counts = Counter(row["cross_source_status"] for row in rows)
+        self.assertEqual(
+            status_counts,
+            {
+                "matched_evobc_by_codepoint": 112,
+                "matched_obimd_and_evobc_by_codepoint": 15,
+                "matched_obimd_by_codepoint": 7,
+                "no_obimd_or_evobc_codepoint_match": 1454,
+            },
+        )
+        self.assertEqual(sum(int(row["obimd_match_count"]) for row in rows), 22)
+        self.assertEqual(sum(int(row["evobc_match_count"]) for row in rows), 127)
+        self.assertTrue(all("not confirmed oracle-character identity" in row["caution"] for row in rows))
+        self.assertTrue(all("not decipherment conclusions" in row["caution"] for row in rows))
+
+        three_source_row = next(row for row in rows if row["cross_source_status"] == "matched_obimd_and_evobc_by_codepoint")
+        self.assertEqual(three_source_row["matched_source_ids"], "src-hust-obc;src-obimd;src-evobc")
+        self.assertEqual(three_source_row["hust_label_codepoints"], "U+342D")
+        self.assertEqual(three_source_row["obimd_match_count"], "1")
+        self.assertEqual(three_source_row["evobc_match_count"], "1")
+        self.assertEqual(three_source_row["evobc_has_oracle_bone_refs_any"], "true")
+        self.assertIn(
+            "corpus/001_oracle-characters/000_character-registers/"
+            "006_obimd-main-character-staging.csv",
+            three_source_row["route_files"],
+        )
+        self.assertIn(
+            "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+            "001_evobc-evolution-category-staging.csv",
+            three_source_row["route_files"],
+        )
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_builder_matches_current_staging(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_module()
+        root = repo_root()
+        rows = module.build_crosswalk_rows(
+            module.read_csv_rows(root / module.HUST_OBC_PROMOTION_QUEUE),
+            module.read_csv_rows(root / module.OBIMD_MAIN_CHARACTER_STAGING),
+            module.read_csv_rows(root / module.EVOBC_EVOLUTION_CATEGORY_STAGING),
+        )
+
+        self.assertEqual(len(rows), 1588)
+        status_counts = Counter(row["cross_source_status"] for row in rows)
+        self.assertEqual(status_counts["matched_obimd_and_evobc_by_codepoint"], 15)
+        self.assertEqual(status_counts["matched_obimd_by_codepoint"], 7)
+        self.assertEqual(status_counts["matched_evobc_by_codepoint"], 112)
+        self.assertEqual(status_counts["no_obimd_or_evobc_codepoint_match"], 1454)
+        self.assertEqual(sum(int(row["obimd_match_count"]) for row in rows), 22)
+        self.assertEqual(sum(int(row["evobc_match_count"]) for row in rows), 127)
+        self.assertEqual(rows[46]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(rows[46]["hust_label_codepoints"], "U+342D")
+        self.assertEqual(rows[46]["matched_source_ids"], "src-hust-obc;src-obimd;src-evobc")
+        self.assertEqual(rows[46]["identity_claim_status"], "no_identity_claim")
+        self.assertIn("not evolution-chain assignments", rows[46]["caution"])
 
     def test_hust_obc_promotion_bucket_summary_routes_review_batches(self) -> None:
         path = (

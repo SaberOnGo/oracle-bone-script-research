@@ -23,6 +23,8 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 
 `build_hust_obc_candidate_packets.py` materializes all 1,588 HUST-OBC promotion candidates across the 16 bucket directories, writing one candidate packet per suggested `obs-char-*` path and one packet manifest per bucket.
 
+`build_hust_obimd_evobc_codepoint_crosswalk.py` builds a metadata-only codepoint crosswalk from the 1,588 HUST-OBC promotion candidates to OBIMD main-character rows and EVOBC evolution-category rows. The output is a lookup route table only, not an identity claim or decipherment result.
+
 简体中文：
 未来导入脚本会把仓库源文件转换到 PostgreSQL 或其他查询存储中。
 
@@ -45,3 +47,5 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 `build_hust_obc_first_bucket_candidate_packets.py` 会把前 100 个 HUST-OBC 提升候选落实为 bucket 下的 `01_candidate-character-packet.json` 文件和 manifest，同时保持“未接受、待跨来源复核”的边界。
 
 `build_hust_obc_candidate_packets.py` 会把全部 1,588 个 HUST-OBC 提升候选落实到 16 个 bucket 目录中，为每个建议 `obs-char-*` 路径写出一个候选资料包，并为每个 bucket 写出一个 packet manifest。
+
+`build_hust_obimd_evobc_codepoint_crosswalk.py` 会从 1,588 个 HUST-OBC 提升候选出发，按 metadata 中的 codepoint 序列对照 OBIMD main-character 行和 EVOBC evolution-category 行。输出只是一张检索路线表，不是同字确认或释读结果。

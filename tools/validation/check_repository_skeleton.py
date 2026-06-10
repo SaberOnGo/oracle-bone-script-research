@@ -221,6 +221,10 @@ AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN = (
     "corpus/009_statistics-and-derived-features/"
     "030_ai-agent-graph-source-evidence-collection-assignment-plan.json"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -584,6 +588,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -664,6 +669,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_queue.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_route_summary.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_assignment_plan.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_wave_handoff_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -5631,6 +5637,219 @@ def check_ai_context_packs(root: Path) -> list[str]:
         if required_snippet not in assignment_rules_zh:
             issues.append(
                 f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                f"missing zh agent rule: {required_snippet}"
+            )
+
+    try:
+        handoff_scaffold = json.loads(
+            (
+                root
+                / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD
+            ).read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        return issues + [
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+            f"invalid JSON: {exc.msg}"
+        ]
+    expected_handoff_values = {
+        "context_pack_id": "ai-context-graph-source-evidence-collection-wave-handoff-001",
+        "status": "draft_wave_handoff_scaffold_not_started",
+        "updated_at": "2026-06-10",
+        "research_boundary": "evidence_collection_wave_handoff_scaffold_not_scholarship",
+        "output_scope": "graph_source_evidence_collection_wave_handoff_scaffold_only",
+        "upstream_context_pack_id": "ai-context-graph-source-evidence-collection-assignment-plan-001",
+    }
+    for key, expected_value in expected_handoff_values.items():
+        if handoff_scaffold.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                f"{key} changed"
+            )
+    if handoff_scaffold.get("generated_from") != [
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+            "generated_from changed"
+        )
+    handoff_scope = handoff_scaffold.get("handoff_scope", {})
+    expected_handoff_scope = {
+        "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+        "target_evidence_section": "source_register",
+        "priority_rank": "1",
+        "source_ids": ["src-hust-obc", "src-evobc", "src-obimd"],
+        "assignment_plan_item_ids": [
+            "graph-source-evidence-assignment-001",
+            "graph-source-evidence-assignment-002",
+            "graph-source-evidence-assignment-003",
+        ],
+        "review_task_ids": [
+            "graph-source-evidence-review-001",
+            "graph-source-evidence-review-010",
+            "graph-source-evidence-review-019",
+        ],
+        "handoff_status": "ready_for_source_register_evidence_collection_not_started",
+        "assignment_status": "planned_not_assigned",
+        "evidence_collection_status": "not_collected",
+        "source_promotion_status": "not_promoted",
+        "decipherment_claim_status": "no_claim",
+    }
+    for key, expected_value in expected_handoff_scope.items():
+        if handoff_scope.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                f"handoff scope {key} changed"
+            )
+    handoff_coverage = handoff_scaffold.get("coverage", {})
+    expected_handoff_coverage = {
+        "handoff_item_count": 3,
+        "assignment_wave_count": 1,
+        "assignment_item_count": 3,
+        "review_task_count": 3,
+        "source_count": 3,
+        "target_evidence_section_count": 1,
+        "route_file_reference_count": 15,
+        "unique_route_file_count": 7,
+        "counter_source_reference_count": 16,
+        "unique_counter_source_count": 6,
+        "required_review_check_reference_count": 12,
+        "unique_required_review_check_count": 4,
+    }
+    for key, expected_value in expected_handoff_coverage.items():
+        if handoff_coverage.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                f"coverage {key} changed"
+            )
+    if handoff_coverage.get("source_counts") != {
+        "src-evobc": 1,
+        "src-hust-obc": 1,
+        "src-obimd": 1,
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+            "source counts changed"
+        )
+    if handoff_coverage.get("section_counts") != {"source_register": 3}:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+            "section counts changed"
+        )
+    for key, expected_counts in {
+        "handoff_status_counts": {
+            "ready_for_source_register_evidence_collection_not_started": 3
+        },
+        "assignment_status_counts": {"planned_not_assigned": 3},
+        "review_status_counts": {"needs_evidence_collection_review": 3},
+        "evidence_collection_status_counts": {"not_collected": 3},
+        "source_promotion_status_counts": {"not_promoted": 3},
+        "decipherment_claim_status_counts": {"no_claim": 3},
+        "rights_decision_status_counts": {"not_decided": 3},
+        "source_register_evidence_status_counts": {"not_collected": 3},
+    }.items():
+        if handoff_coverage.get(key) != expected_counts:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                f"{key} changed"
+            )
+    if handoff_scaffold.get("route_files_to_open", [])[0] != (
+        "corpus/006_research-sources-and-bibliography/"
+        "000_source-registers/001_all-sources-index.csv"
+    ):
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+            "source register route missing from top-level route files"
+        )
+    handoff_items = handoff_scaffold.get("handoff_items", [])
+    if not isinstance(handoff_items, list) or len(handoff_items) != 3:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+            "should contain 3 handoff items"
+        )
+    else:
+        expected_sources = ["src-hust-obc", "src-evobc", "src-obimd"]
+        expected_review_tasks = [
+            "graph-source-evidence-review-001",
+            "graph-source-evidence-review-010",
+            "graph-source-evidence-review-019",
+        ]
+        for index, row in enumerate(handoff_items, start=1):
+            item_id = row.get("handoff_item_id", "")
+            if item_id != f"graph-source-evidence-handoff-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                    f"handoff item ID sequence changed: {item_id}"
+                )
+            if row.get("source_id") != expected_sources[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                    f"handoff source order changed: {item_id}"
+                )
+            if row.get("evidence_collection_review_task_id") != expected_review_tasks[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                    f"handoff review task changed: {item_id}"
+                )
+            for key, expected_value in {
+                "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+                "target_evidence_section": "source_register",
+                "handoff_status": "ready_for_source_register_evidence_collection_not_started",
+                "assignment_status": "planned_not_assigned",
+                "review_status": "needs_evidence_collection_review",
+                "evidence_collection_status": "not_collected",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+                "rights_decision_status": "not_decided",
+                "source_register_evidence_status": "not_collected",
+                "research_boundary": "evidence_collection_wave_handoff_scaffold_not_scholarship",
+                "output_scope": "graph_source_evidence_collection_wave_handoff_scaffold_only",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                        f"{key} changed: {item_id}"
+                    )
+            route_files = row.get("route_files_to_open", [])
+            for required_path in [
+                row.get("note_draft_path"),
+                row.get("route_pack_path"),
+                row.get("manifest_path"),
+                row.get("task_queue_source_path"),
+            ]:
+                if required_path not in route_files:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                        f"handoff missing route file: {item_id}"
+                    )
+    handoff_rules = " ".join(handoff_scaffold.get("agent_use_rules", []))
+    handoff_rules_zh = " ".join(handoff_scaffold.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "only to open the first source_register",
+        "Open the 031 handoff row",
+        "not_collected",
+        "Do not treat this scaffold as collected evidence",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in handoff_rules:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                f"missing agent rule: {required_snippet}"
+            )
+    for required_snippet in [
+        "只能用于打开第一波 source_register",
+        "必须打开 031 交接行",
+        "not_collected",
+        "不得把本脚手架当作已收集证据",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in handoff_rules_zh:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
                 f"missing zh agent rule: {required_snippet}"
             )
 

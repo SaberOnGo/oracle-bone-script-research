@@ -1,0 +1,310 @@
+{
+  "agent_use_rules": [
+    "Use this handoff scaffold only to open the first source_register evidence-collection wave.",
+    "Open the 031 handoff row, 030 plan item, 029 route summary, 028 queue row, 027 result scaffold row, 026 route pack, note draft, manifest, and all route files before recording evidence.",
+    "Keep every row not_collected, not_promoted, not_decided, and no_claim until source-marked evidence is recorded elsewhere.",
+    "Do not treat this scaffold as collected evidence, a rights decision, a source promotion decision, a component or evolution-chain assignment, or a decipherment conclusion.",
+    "Keep any new downloads or scratch analysis in ignored temporary directories until source, size, checksum, rights, and risk are recorded."
+  ],
+  "agent_use_rules_zh": [
+    "本交接脚手架只能用于打开第一波 source_register 证据收集任务。",
+    "记录证据前，必须打开 031 交接行、030 计划项、029 路由摘要、028 队列行、027 结果骨架行、026 路由包、note draft、manifest 和全部 route files。",
+    "在带来源标记的证据于其他位置记录前，每行都必须保持 not_collected、not_promoted、not_decided 和 no_claim。",
+    "不得把本脚手架当作已收集证据、权利决定、来源提升决定、构件或演化链判定、释读结论。",
+    "新增下载或临时分析在记录来源、大小、checksum、权利和风险前必须留在已忽略临时目录。"
+  ],
+  "context_pack_id": "ai-context-graph-source-evidence-collection-wave-handoff-001",
+  "counter_source_ids_to_check": [
+    "src-evobc",
+    "src-hust-obc",
+    "src-ihp-oracle-rubbings",
+    "src-obimd",
+    "src-xiaoxuetang-jiaguwen",
+    "src-xiaoxuetang-obm"
+  ],
+  "coverage": {
+    "assignment_item_count": 3,
+    "assignment_status_counts": {
+      "planned_not_assigned": 3
+    },
+    "assignment_wave_count": 1,
+    "counter_source_reference_count": 16,
+    "decipherment_claim_status_counts": {
+      "no_claim": 3
+    },
+    "evidence_collection_status_counts": {
+      "not_collected": 3
+    },
+    "handoff_item_count": 3,
+    "handoff_status_counts": {
+      "ready_for_source_register_evidence_collection_not_started": 3
+    },
+    "required_review_check_reference_count": 12,
+    "review_status_counts": {
+      "needs_evidence_collection_review": 3
+    },
+    "review_task_count": 3,
+    "rights_decision_status_counts": {
+      "not_decided": 3
+    },
+    "route_file_reference_count": 15,
+    "section_counts": {
+      "source_register": 3
+    },
+    "source_count": 3,
+    "source_counts": {
+      "src-evobc": 1,
+      "src-hust-obc": 1,
+      "src-obimd": 1
+    },
+    "source_promotion_status_counts": {
+      "not_promoted": 3
+    },
+    "source_register_evidence_status_counts": {
+      "not_collected": 3
+    },
+    "target_evidence_section_count": 1,
+    "unique_counter_source_count": 6,
+    "unique_required_review_check_count": 4,
+    "unique_route_file_count": 7
+  },
+  "generated_from": [
+    "corpus/009_statistics-and-derived-features/030_ai-agent-graph-source-evidence-collection-assignment-plan.json",
+    "corpus/009_statistics-and-derived-features/029_ai-agent-graph-source-evidence-collection-review-route-summary.json",
+    "corpus/009_statistics-and-derived-features/028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+    "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+    "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json"
+  ],
+  "handoff_items": [
+    {
+      "assignment_plan_item_id": "graph-source-evidence-assignment-001",
+      "assignment_plan_path": "corpus/009_statistics-and-derived-features/030_ai-agent-graph-source-evidence-collection-assignment-plan.json",
+      "assignment_status": "planned_not_assigned",
+      "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+      "caution": "This handoff row only opens the first assignment wave for later source-register evidence collection. It is not collected evidence, a rights decision, a source promotion decision, a component or evolution-chain assignment, or a decipherment conclusion.",
+      "counter_source_count": 6,
+      "counter_source_ids_to_check": [
+        "src-hust-obc",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-obimd",
+        "src-evobc",
+        "src-ihp-oracle-rubbings"
+      ],
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_result_id": "graph-source-evidence-result-001",
+      "evidence_collection_review_task_id": "graph-source-evidence-review-001",
+      "evidence_collection_status": "not_collected",
+      "evidence_collection_task_id": "graph-source-evidence-task-001",
+      "evidence_pack_write_status": "not_started",
+      "handoff_item_id": "graph-source-evidence-handoff-001",
+      "handoff_status": "ready_for_source_register_evidence_collection_not_started",
+      "manifest_path": "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+      "note_draft_path": "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-001_source-register_collection-note.md",
+      "output_scope": "graph_source_evidence_collection_wave_handoff_scaffold_only",
+      "primary_external_ref_id": "hust-obc-cat-0001",
+      "primary_review_record_id": "hust-obc-evidence-request-000001",
+      "priority_rank": "1",
+      "required_collection_action": "collect_source_register_provenance_fields",
+      "required_review_check_count": 4,
+      "required_review_checks": [
+        "open_source_register_row_before_copying_provenance",
+        "record_source_id_external_ref_and_review_status_only",
+        "keep_result_row_not_collected_until_evidence_is_source_marked",
+        "do_not_write_ai_hypothesis_as_scholarship"
+      ],
+      "research_boundary": "evidence_collection_wave_handoff_scaffold_not_scholarship",
+      "result_scaffold_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+      "result_update_target_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+      "review_queue_path": "corpus/009_statistics-and-derived-features/028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+      "review_route_summary_path": "corpus/009_statistics-and-derived-features/029_ai-agent-graph-source-evidence-collection-review-route-summary.json",
+      "review_status": "needs_evidence_collection_review",
+      "rights_decision_status": "not_decided",
+      "route_file_count": 5,
+      "route_files_to_open": [
+        "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-001_source-register_collection-note.md",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
+      ],
+      "route_pack_path": "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+      "source_id": "src-hust-obc",
+      "source_promotion_review_status": "not_ready",
+      "source_promotion_status": "not_promoted",
+      "source_record_id": "0001",
+      "source_register_evidence_status": "not_collected",
+      "target_evidence_section": "source_register",
+      "task_queue_source_path": "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv"
+    },
+    {
+      "assignment_plan_item_id": "graph-source-evidence-assignment-002",
+      "assignment_plan_path": "corpus/009_statistics-and-derived-features/030_ai-agent-graph-source-evidence-collection-assignment-plan.json",
+      "assignment_status": "planned_not_assigned",
+      "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+      "caution": "This handoff row only opens the first assignment wave for later source-register evidence collection. It is not collected evidence, a rights decision, a source promotion decision, a component or evolution-chain assignment, or a decipherment conclusion.",
+      "counter_source_count": 5,
+      "counter_source_ids_to_check": [
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-hust-obc",
+        "src-obimd",
+        "src-ihp-oracle-rubbings"
+      ],
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_result_id": "graph-source-evidence-result-010",
+      "evidence_collection_review_task_id": "graph-source-evidence-review-010",
+      "evidence_collection_status": "not_collected",
+      "evidence_collection_task_id": "graph-source-evidence-task-010",
+      "evidence_pack_write_status": "not_started",
+      "handoff_item_id": "graph-source-evidence-handoff-002",
+      "handoff_status": "ready_for_source_register_evidence_collection_not_started",
+      "manifest_path": "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+      "note_draft_path": "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-010_source-register_collection-note.md",
+      "output_scope": "graph_source_evidence_collection_wave_handoff_scaffold_only",
+      "primary_external_ref_id": "evobc-cat-00001",
+      "primary_review_record_id": "evobc-evo-cat-00001",
+      "priority_rank": "1",
+      "required_collection_action": "collect_source_register_provenance_fields",
+      "required_review_check_count": 4,
+      "required_review_checks": [
+        "open_source_register_row_before_copying_provenance",
+        "record_source_id_external_ref_and_review_status_only",
+        "keep_result_row_not_collected_until_evidence_is_source_marked",
+        "do_not_write_ai_hypothesis_as_scholarship"
+      ],
+      "research_boundary": "evidence_collection_wave_handoff_scaffold_not_scholarship",
+      "result_scaffold_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+      "result_update_target_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+      "review_queue_path": "corpus/009_statistics-and-derived-features/028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+      "review_route_summary_path": "corpus/009_statistics-and-derived-features/029_ai-agent-graph-source-evidence-collection-review-route-summary.json",
+      "review_status": "needs_evidence_collection_review",
+      "rights_decision_status": "not_decided",
+      "route_file_count": 5,
+      "route_files_to_open": [
+        "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-010_source-register_collection-note.md",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
+      ],
+      "route_pack_path": "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+      "source_id": "src-evobc",
+      "source_promotion_review_status": "not_ready",
+      "source_promotion_status": "not_promoted",
+      "source_record_id": "00001",
+      "source_register_evidence_status": "not_collected",
+      "target_evidence_section": "source_register",
+      "task_queue_source_path": "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv"
+    },
+    {
+      "assignment_plan_item_id": "graph-source-evidence-assignment-003",
+      "assignment_plan_path": "corpus/009_statistics-and-derived-features/030_ai-agent-graph-source-evidence-collection-assignment-plan.json",
+      "assignment_status": "planned_not_assigned",
+      "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+      "caution": "This handoff row only opens the first assignment wave for later source-register evidence collection. It is not collected evidence, a rights decision, a source promotion decision, a component or evolution-chain assignment, or a decipherment conclusion.",
+      "counter_source_count": 5,
+      "counter_source_ids_to_check": [
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm",
+        "src-hust-obc",
+        "src-evobc",
+        "src-ihp-oracle-rubbings"
+      ],
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_result_id": "graph-source-evidence-result-019",
+      "evidence_collection_review_task_id": "graph-source-evidence-review-019",
+      "evidence_collection_status": "not_collected",
+      "evidence_collection_task_id": "graph-source-evidence-task-019",
+      "evidence_pack_write_status": "not_started",
+      "handoff_item_id": "graph-source-evidence-handoff-003",
+      "handoff_status": "ready_for_source_register_evidence_collection_not_started",
+      "manifest_path": "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+      "note_draft_path": "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-019_source-register_collection-note.md",
+      "output_scope": "graph_source_evidence_collection_wave_handoff_scaffold_only",
+      "primary_external_ref_id": "obimd-sub-p8w7ujqanz",
+      "primary_review_record_id": "obimd-sub-cand-000001",
+      "priority_rank": "1",
+      "required_collection_action": "collect_source_register_provenance_fields",
+      "required_review_check_count": 4,
+      "required_review_checks": [
+        "open_source_register_row_before_copying_provenance",
+        "record_source_id_external_ref_and_review_status_only",
+        "keep_result_row_not_collected_until_evidence_is_source_marked",
+        "do_not_write_ai_hypothesis_as_scholarship"
+      ],
+      "research_boundary": "evidence_collection_wave_handoff_scaffold_not_scholarship",
+      "result_scaffold_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+      "result_update_target_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+      "review_queue_path": "corpus/009_statistics-and-derived-features/028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+      "review_route_summary_path": "corpus/009_statistics-and-derived-features/029_ai-agent-graph-source-evidence-collection-review-route-summary.json",
+      "review_status": "needs_evidence_collection_review",
+      "rights_decision_status": "not_decided",
+      "route_file_count": 5,
+      "route_files_to_open": [
+        "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-019_source-register_collection-note.md",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
+      ],
+      "route_pack_path": "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+      "source_id": "src-obimd",
+      "source_promotion_review_status": "not_ready",
+      "source_promotion_status": "not_promoted",
+      "source_record_id": "p8w7ujqanz",
+      "source_register_evidence_status": "not_collected",
+      "target_evidence_section": "source_register",
+      "task_queue_source_path": "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv"
+    }
+  ],
+  "handoff_scope": {
+    "assignment_plan_item_ids": [
+      "graph-source-evidence-assignment-001",
+      "graph-source-evidence-assignment-002",
+      "graph-source-evidence-assignment-003"
+    ],
+    "assignment_status": "planned_not_assigned",
+    "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+    "decipherment_claim_status": "no_claim",
+    "evidence_collection_status": "not_collected",
+    "handoff_status": "ready_for_source_register_evidence_collection_not_started",
+    "priority_rank": "1",
+    "review_task_ids": [
+      "graph-source-evidence-review-001",
+      "graph-source-evidence-review-010",
+      "graph-source-evidence-review-019"
+    ],
+    "source_ids": [
+      "src-hust-obc",
+      "src-evobc",
+      "src-obimd"
+    ],
+    "source_promotion_status": "not_promoted",
+    "target_evidence_section": "source_register"
+  },
+  "output_scope": "graph_source_evidence_collection_wave_handoff_scaffold_only",
+  "purpose": "Open the first source-register assignment wave from the 030 plan for future evidence collection. This scaffold only lists the handoff items and files that must be opened; it does not collect evidence, assign an owner, decide rights, promote sources, or make decipherment claims.",
+  "purpose_zh": "从 030 计划打开第一波 source_register 分配任务，供后续证据收集使用。本脚手架只列出必须打开的交接项和文件；不收集证据，不分配 owner，不决定权利，不提升来源，也不提出释读声明。",
+  "required_review_checks": [
+    "do_not_write_ai_hypothesis_as_scholarship",
+    "keep_result_row_not_collected_until_evidence_is_source_marked",
+    "open_source_register_row_before_copying_provenance",
+    "record_source_id_external_ref_and_review_status_only"
+  ],
+  "research_boundary": "evidence_collection_wave_handoff_scaffold_not_scholarship",
+  "route_files_to_open": [
+    "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+    "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+    "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+    "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+    "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-010_source-register_collection-note.md",
+    "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-001_source-register_collection-note.md",
+    "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-019_source-register_collection-note.md"
+  ],
+  "status": "draft_wave_handoff_scaffold_not_started",
+  "title": "Graph Source Evidence Collection Wave Handoff Scaffold",
+  "title_zh": "图谱来源证据收集首波交接脚手架",
+  "updated_at": "2026-06-10",
+  "upstream_context_pack_id": "ai-context-graph-source-evidence-collection-assignment-plan-001"
+}

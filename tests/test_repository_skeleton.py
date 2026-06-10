@@ -18,6 +18,7 @@ from tools.validation.check_repository_skeleton import (
     check_relationship_graph_edges,
     check_relationship_graph_statistics,
     check_root_gitignore_patterns,
+    check_hust_obc_undeciphered_candidates,
     check_source_coverage_statistics,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -82,6 +83,15 @@ def load_hust_obc_first_bucket_candidate_packets_module():
 def load_hust_obc_candidate_packets_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_candidate_packets.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_packets", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_hust_obc_undeciphered_candidate_index_module():
+    path = repo_root() / "tools/002_corpus-import/build_hust_obc_undeciphered_candidate_index.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_undeciphered_candidate_index", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -765,6 +775,66 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
+
+    def test_hust_obc_undeciphered_candidates(self) -> None:
+        self.assertEqual(check_hust_obc_undeciphered_candidates(repo_root()), [])
+
+        index_path = (
+            repo_root()
+            / "corpus/001_oracle-characters/000_character-registers/"
+            / "003_undeciphered-oracle-characters-index.csv"
+        )
+        with index_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 9408)
+        self.assertEqual(
+            Counter(row["source_group"] for row in rows),
+            {"L": 4444, "X": 2288, "Y+H": 2676},
+        )
+        self.assertEqual(sum(int(row["source_image_count"]) for row in rows), 62989)
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-000001")
+        self.assertEqual(rows[0]["primary_external_ref_id"], "hust-obc-und-L-000001")
+        self.assertEqual(rows[-1]["unknown_candidate_id"], "obs-unk-009408")
+        self.assertEqual(rows[-1]["primary_external_ref_id"], "hust-obc-und-YH-009408")
+        self.assertTrue(all(not row["unknown_candidate_id"].startswith("obs-char-") for row in rows))
+        self.assertEqual(
+            {row["identity_claim_status"] for row in rows},
+            {"no_identity_claim"},
+        )
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual(
+            sum(
+                1
+                for row in rows
+                if row["materialization_status"] == "first_bucket_candidate_packet_materialized"
+            ),
+            100,
+        )
+        self.assertTrue(all("9411" in row["caution"] and "9408" in row["caution"] for row in rows))
+
+        first_packet_path = repo_root() / rows[0]["materialized_candidate_packet_path"]
+        first_packet = json.loads(first_packet_path.read_text(encoding="utf-8"))
+        self.assertEqual(first_packet["unknown_candidate_id"], "obs-unk-000001")
+        self.assertEqual(first_packet["record_type"], "oracle_character_undeciphered_candidate_packet")
+        self.assertEqual(first_packet["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(first_packet["source_id"], "src-hust-obc")
+        self.assertIn("not an accepted oracle character", first_packet["caution"])
+
+    def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_index_module()
+        self.assertEqual(
+            module.group_from_zip_path("HUST-OBC/undeciphered/L/1/L00001.png"),
+            ("L", "1"),
+        )
+        self.assertEqual(
+            module.group_from_zip_path("HUST-OBC/undeciphered/Y+H/7/Y00007.png"),
+            ("Y+H", "7"),
+        )
+        self.assertIsNone(module.group_from_zip_path("HUST-OBC/deciphered/1/0001.png"))
+        self.assertEqual(module.external_ref_id("Y+H", 9408), "hust-obc-und-YH-009408")
 
     def test_relationship_graph_edges(self) -> None:
         self.assertEqual(check_relationship_graph_edges(repo_root()), [])

@@ -92,6 +92,15 @@ HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK = (
     "corpus/001_oracle-characters/000_character-registers/"
     "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"
 )
+HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "003_undeciphered-oracle-characters-index.csv"
+)
+HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST = (
+    "corpus/001_oracle-characters/"
+    "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates/"
+    "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+)
 HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME = "000_hust-obc-promotion-bucket-manifest.csv"
 HUST_OBC_CANDIDATE_PACKET_MANIFEST_FILENAME = "001_hust-obc-candidate-packet-manifest.csv"
 HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST = (
@@ -645,6 +654,8 @@ REQUIRED_PATHS = [
     HUST_OBC_VALIDATION_CLASS_STAGING,
     HUST_OBC_VALIDATION_LABEL_CROSSWALK,
     HUST_OBC_SOURCE_CATEGORY_STAGING,
+    HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX,
+    HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST,
     HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
     HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY,
     HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK,
@@ -758,6 +769,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_promotion_bucket_manifests.py",
     "tools/002_corpus-import/build_hust_obc_first_bucket_candidate_packets.py",
     "tools/002_corpus-import/build_hust_obc_candidate_packets.py",
+    "tools/002_corpus-import/build_hust_obc_undeciphered_candidate_index.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
@@ -9233,6 +9245,106 @@ def _parse_compact_counts(value: str) -> dict[str, int]:
     return counts
 
 
+def check_hust_obc_undeciphered_candidates(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX)
+    manifest_rows, manifest_issues = _read_csv_rows(
+        root / HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST
+    )
+    log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
+    issues.extend(row_issues)
+    issues.extend(manifest_issues)
+    issues.extend(log_issues)
+    issues.extend(large_issues)
+    if not rows:
+        return issues
+
+    if len(rows) != 9408:
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} should contain 9408 rows")
+    group_counts = Counter(row.get("source_group", "") for row in rows)
+    expected_groups = {"L": 4444, "X": 2288, "Y+H": 2676}
+    if dict(group_counts) != expected_groups:
+        issues.append(
+            f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} group counts changed: {dict(group_counts)}"
+        )
+    image_total = sum(int(row.get("source_image_count", "0") or "0") for row in rows)
+    if image_total != 62989:
+        issues.append(
+            f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} image path total should be 62989"
+        )
+    if rows[0].get("unknown_candidate_id") != "obs-unk-000001":
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} first obs-unk ID changed")
+    if rows[-1].get("unknown_candidate_id") != "obs-unk-009408":
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} last obs-unk ID changed")
+    if rows[0].get("primary_external_ref_id") != "hust-obc-und-L-000001":
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} first external ref changed")
+    if rows[-1].get("primary_external_ref_id") != "hust-obc-und-YH-009408":
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} last external ref changed")
+
+    materialized = [
+        row
+        for row in rows
+        if row.get("materialization_status") == "first_bucket_candidate_packet_materialized"
+    ]
+    if len(materialized) != 100:
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} should materialize first 100 rows")
+    if len(manifest_rows) != 100:
+        issues.append(f"{HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST} should contain 100 rows")
+
+    for index, row in enumerate(rows, start=1):
+        candidate_id = row.get("unknown_candidate_id", "")
+        expected_id = f"obs-unk-{index:06d}"
+        if candidate_id != expected_id:
+            issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} ID sequence changed at {index}")
+            break
+        if candidate_id.startswith("obs-char-"):
+            issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} must not assign obs-char IDs")
+        if row.get("assignment_status") != "unknown_candidate_id_not_formal_obs_char_assignment":
+            issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} assignment boundary changed")
+        if row.get("identity_claim_status") != "no_identity_claim":
+            issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} identity claim boundary changed")
+        if "9411" not in row.get("caution", "") or "9408" not in row.get("caution", ""):
+            issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} caution missing count discrepancy")
+        packet_path = row.get("materialized_candidate_packet_path", "")
+        if index <= 100:
+            if not packet_path:
+                issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} first 100 rows need packet paths")
+            elif not (root / packet_path).exists():
+                issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} missing packet: {packet_path}")
+        elif packet_path:
+            issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} rows after first 100 should not claim packets")
+
+    download_rows = {row.get("download_id"): row for row in log_rows}
+    download_row = download_rows.get("dl-hust-obc-figshare-raw")
+    if not download_row:
+        issues.append(f"{SOURCE_DOWNLOAD_LOG} missing dl-hust-obc-figshare-raw")
+    else:
+        if download_row.get("file_size_bytes") != "607933810":
+            issues.append(f"{SOURCE_DOWNLOAD_LOG} HUST-OBC raw size changed")
+        if download_row.get("checksum_sha256") != (
+            "0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569bf0ad9d"
+        ):
+            issues.append(f"{SOURCE_DOWNLOAD_LOG} HUST-OBC raw checksum changed")
+        if "external_local_archive" not in download_row.get("local_temp_path", ""):
+            issues.append(f"{SOURCE_DOWNLOAD_LOG} HUST-OBC raw package should point outside Git")
+
+    large_row = next(
+        (row for row in large_rows if row.get("source_package_id") == "large-src-000001"),
+        None,
+    )
+    if not large_row:
+        issues.append(f"{LARGE_SOURCE_REGISTER} missing large-src-000001")
+    else:
+        if large_row.get("storage_status") != "downloaded_to_external_local_archive_registered":
+            issues.append(f"{LARGE_SOURCE_REGISTER} HUST-OBC storage status changed")
+        if "003_undeciphered-oracle-characters-index.csv" not in large_row.get(
+            "derived_record_paths", ""
+        ):
+            issues.append(f"{LARGE_SOURCE_REGISTER} HUST-OBC derived index path missing")
+    return issues
+
+
 def check_source_registers(root: Path) -> list[str]:
     issues: list[str] = []
     prefix_rows, prefix_issues = _read_csv_rows(root / EXTERNAL_SOURCE_PREFIXES)
@@ -9380,8 +9492,14 @@ def check_source_registers(root: Path) -> list[str]:
         issues.append(f"{SOURCE_DOWNLOAD_LOG} missing download_id from manifest: {download_id}")
     for row in log_rows:
         local_temp_path = row.get("local_temp_path", "")
-        if local_temp_path and not local_temp_path.startswith("tmp/"):
-            issues.append(f"{SOURCE_DOWNLOAD_LOG} local_temp_path must stay under tmp/: {local_temp_path}")
+        if local_temp_path and not (
+            local_temp_path.startswith("tmp/")
+            or local_temp_path.startswith("external_local_archive/")
+        ):
+            issues.append(
+                f"{SOURCE_DOWNLOAD_LOG} local_temp_path must stay under tmp/ "
+                f"or external_local_archive/: {local_temp_path}"
+            )
 
     status_rows_by_code = {row.get("status_code", ""): row for row in download_status_rows}
     required_status_codes = {
@@ -10888,6 +11006,7 @@ def main() -> int:
     issues.extend(check_tracked_temp_artifacts(root))
     issues.extend(check_asset_records(root))
     issues.extend(check_source_registers(root))
+    issues.extend(check_hust_obc_undeciphered_candidates(root))
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))

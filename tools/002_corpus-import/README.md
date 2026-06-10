@@ -25,6 +25,8 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 
 `build_hust_obimd_evobc_codepoint_crosswalk.py` builds a metadata-only codepoint crosswalk from the 1,588 HUST-OBC promotion candidates to OBIMD main-character rows and EVOBC evolution-category rows. The output is a lookup route table only, not an identity claim or decipherment result.
 
+`build_hust_obc_undeciphered_candidate_index.py` reads the HUST-OBC raw figshare zip from local temporary or external archive storage, then writes a metadata-only `obs-unk-*` undeciphered candidate index plus the first 100 candidate packet scaffolds. It records source image paths and counts only; raw image files stay outside regular Git.
+
 简体中文：
 未来导入脚本会把仓库源文件转换到 PostgreSQL 或其他查询存储中。
 
@@ -49,3 +51,5 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 `build_hust_obc_candidate_packets.py` 会把全部 1,588 个 HUST-OBC 提升候选落实到 16 个 bucket 目录中，为每个建议 `obs-char-*` 路径写出一个候选资料包，并为每个 bucket 写出一个 packet manifest。
 
 `build_hust_obimd_evobc_codepoint_crosswalk.py` 会从 1,588 个 HUST-OBC 提升候选出发，按 metadata 中的 codepoint 序列对照 OBIMD main-character 行和 EVOBC evolution-category 行。输出只是一张检索路线表，不是同字确认或释读结果。
+
+`build_hust_obc_undeciphered_candidate_index.py` 会从本地临时区或外部归档中的 HUST-OBC figshare 原始 zip 读取目录结构，写出 metadata-only 的 `obs-unk-*` 未释读候选索引，并生成前 100 个候选 packet scaffold。它只记录来源图片路径和数量；原始图片文件保留在普通 Git 之外。

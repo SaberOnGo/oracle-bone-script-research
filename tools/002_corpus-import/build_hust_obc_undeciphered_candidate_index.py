@@ -1,0 +1,397 @@
+#!/usr/bin/env python3
+"""Build metadata-only HUST-OBC undeciphered candidate records."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import re
+import shutil
+from collections import Counter, defaultdict
+from pathlib import Path
+from zipfile import ZipFile
+
+
+SOURCE_ID = "src-hust-obc"
+SOURCE_PACKAGE_ID = "large-src-000001"
+DOWNLOAD_ID = "dl-hust-obc-figshare-raw"
+SOURCE_URL = "https://ndownloader.figshare.com/files/48465988"
+SOURCE_REPORTED_UNDECIPHERED_CLASS_COUNT = 9411
+FIGSHARE_MD5 = "7138be414ebc8c9262ecda38b7fd9e84"
+ZIP_OBSERVED_UNDECIPHERED_CLASS_COUNT = 9408
+ZIP_OBSERVED_UNDECIPHERED_IMAGE_COUNT = 62989
+RAW_SIZE_BYTES = 607933810
+RAW_SHA256 = "0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569bf0ad9d"
+UPDATED_AT = "2026-06-10"
+DOWNLOADED_AT = "2026-06-10T10:25:00+00:00"
+DEFAULT_ZIP_PATH = "tmp/source_downloads/dl-hust-obc-figshare-raw.zip"
+ARCHIVE_HINT = (
+    "external_local_archive/source_packages/hust-obc/"
+    "dl-hust-obc-figshare-raw.zip"
+)
+EXTERNAL_ARCHIVE_PATH = (
+    "D:/project/52_oracle-bone-script-research-local-archive/"
+    "source_packages/hust-obc/dl-hust-obc-figshare-raw.zip"
+)
+INDEX_PATH = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "003_undeciphered-oracle-characters-index.csv"
+)
+BUCKET_DIR = (
+    "corpus/001_oracle-characters/"
+    "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates"
+)
+BUCKET_MANIFEST = (
+    BUCKET_DIR + "/000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+)
+LARGE_SOURCE_REGISTER = "project_registry/006_large-source-register/001_large-source-register.csv"
+DOWNLOAD_LOG = "project_registry/006_large-source-register/002_source-download-log.csv"
+
+GROUP_LABELS = {
+    "L": "Oracle Bone Script: Six Digit Numerical Code",
+    "X": "New Compilation of Oracle Bone Scripts",
+    "Y+H": "YinQiWenYuan + HWOBC",
+}
+GROUP_ORDER = {"L": 0, "X": 1, "Y+H": 2}
+
+INDEX_FIELDS = [
+    "unknown_candidate_id",
+    "record_type",
+    "source_id",
+    "source_package_id",
+    "evidence_download_id",
+    "primary_external_ref_id",
+    "source_group",
+    "source_group_label",
+    "source_class_id",
+    "source_class_path",
+    "source_image_count",
+    "first_source_image_path",
+    "last_source_image_path",
+    "filename_source_prefixes",
+    "source_reported_undeciphered_class_count",
+    "zip_observed_undeciphered_class_count",
+    "zip_observed_undeciphered_image_count",
+    "materialized_candidate_packet_path",
+    "materialization_status",
+    "decipherment_status",
+    "identity_claim_status",
+    "assignment_status",
+    "promotion_status",
+    "rights_status",
+    "risk_note",
+    "caution",
+    "review_status",
+    "updated_at",
+]
+
+
+def repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def group_from_zip_path(path: str) -> tuple[str, str] | None:
+    parts = path.split("/")
+    if len(parts) < 5 or parts[0] != "HUST-OBC" or parts[1] != "undeciphered":
+        return None
+    group = parts[2]
+    if group not in GROUP_ORDER:
+        return None
+    class_id = parts[3]
+    filename = parts[-1]
+    if not filename or filename == class_id:
+        return None
+    if not re.search(r"\.(png|jpg|jpeg|bmp|webp)$", filename, re.IGNORECASE):
+        return None
+    return group, class_id
+
+
+def class_sort_key(item: tuple[tuple[str, str], list[str]]) -> tuple[int, int, str]:
+    (group, class_id), _paths = item
+    numeric = int(class_id) if class_id.isdigit() else 10**12
+    return GROUP_ORDER[group], numeric, class_id
+
+
+def external_ref_id(group: str, sequence: int) -> str:
+    ref_group = "YH" if group == "Y+H" else group
+    return f"hust-obc-und-{ref_group}-{sequence:06d}"
+
+
+def packet_dir_name(sequence: int, candidate_id: str, ref_id: str) -> str:
+    return f"{sequence:03d}_{candidate_id}_{ref_id}_oracle-character-candidate"
+
+
+def filename_prefixes(paths: list[str]) -> str:
+    counts: Counter[str] = Counter()
+    for path in paths:
+        name = Path(path).name
+        prefix = name.split("_", 1)[0]
+        counts[prefix] += 1
+    return ";".join(f"{key}:{counts[key]}" for key in sorted(counts))
+
+
+def collect_candidates(zip_path: Path) -> list[dict[str, str]]:
+    by_class: dict[tuple[str, str], list[str]] = defaultdict(list)
+    with ZipFile(zip_path) as zf:
+        for name in zf.namelist():
+            parsed = group_from_zip_path(name)
+            if parsed is None:
+                continue
+            by_class[parsed].append(name)
+
+    rows: list[dict[str, str]] = []
+    for sequence, ((group, class_id), paths) in enumerate(
+        sorted(by_class.items(), key=class_sort_key), start=1
+    ):
+        sorted_paths = sorted(paths)
+        candidate_id = f"obs-unk-{sequence:06d}"
+        ref_id = external_ref_id(group, sequence)
+        materialized_path = ""
+        materialization_status = "index_only_not_materialized"
+        if sequence <= 100:
+            materialized_path = (
+                f"{BUCKET_DIR}/{packet_dir_name(sequence, candidate_id, ref_id)}/"
+                "01_undeciphered-candidate-packet.json"
+            )
+            materialization_status = "first_bucket_candidate_packet_materialized"
+        caution = (
+            "HUST-OBC zip-directory candidate only; not an accepted oracle character, "
+            "reading, component, evolution chain, or decipherment conclusion. "
+            "Article reports 9411 undeciphered characters, but the inspected zip "
+            "directory yielded 9408 candidate class directories; discrepancy needs review."
+        )
+        rows.append(
+            {
+                "unknown_candidate_id": candidate_id,
+                "record_type": "oracle_character_undeciphered_candidate",
+                "source_id": SOURCE_ID,
+                "source_package_id": SOURCE_PACKAGE_ID,
+                "evidence_download_id": DOWNLOAD_ID,
+                "primary_external_ref_id": ref_id,
+                "source_group": group,
+                "source_group_label": GROUP_LABELS[group],
+                "source_class_id": class_id,
+                "source_class_path": f"HUST-OBC/undeciphered/{group}/{class_id}/",
+                "source_image_count": str(len(sorted_paths)),
+                "first_source_image_path": sorted_paths[0],
+                "last_source_image_path": sorted_paths[-1],
+                "filename_source_prefixes": filename_prefixes(sorted_paths),
+                "source_reported_undeciphered_class_count": str(
+                    SOURCE_REPORTED_UNDECIPHERED_CLASS_COUNT
+                ),
+                "zip_observed_undeciphered_class_count": str(
+                    ZIP_OBSERVED_UNDECIPHERED_CLASS_COUNT
+                ),
+                "zip_observed_undeciphered_image_count": str(
+                    ZIP_OBSERVED_UNDECIPHERED_IMAGE_COUNT
+                ),
+                "materialized_candidate_packet_path": materialized_path,
+                "materialization_status": materialization_status,
+                "decipherment_status": "undeciphered_dataset_candidate_not_accepted_character",
+                "identity_claim_status": "no_identity_claim",
+                "assignment_status": "unknown_candidate_id_not_formal_obs_char_assignment",
+                "promotion_status": "not_promoted",
+                "rights_status": "source_marked_risk_noted",
+                "risk_note": (
+                    "Figshare package metadata reports CC BY 4.0; Scientific Data article "
+                    "page uses CC BY-NC-ND 4.0. Raw package is 607933810 bytes and must "
+                    "not be committed to regular Git."
+                ),
+                "caution": caution,
+                "review_status": "reviewed_metadata_only",
+                "updated_at": UPDATED_AT,
+            }
+        )
+    return rows
+
+
+def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
+    bucket_path = root / BUCKET_DIR
+    if bucket_path.exists():
+        for child in bucket_path.iterdir():
+            if child.is_dir():
+                shutil.rmtree(child)
+            elif child.name == "000_hust-obc-undeciphered-candidate-bucket-manifest.csv":
+                child.unlink()
+    bucket_path.mkdir(parents=True, exist_ok=True)
+    manifest_rows: list[dict[str, str]] = []
+    for sequence, row in enumerate(rows[:100], start=1):
+        packet_path = root / row["materialized_candidate_packet_path"]
+        packet_path.parent.mkdir(parents=True, exist_ok=True)
+        packet = {
+            "unknown_candidate_id": row["unknown_candidate_id"],
+            "record_type": "oracle_character_undeciphered_candidate_packet",
+            "source_id": row["source_id"],
+            "source_package_id": row["source_package_id"],
+            "evidence_download_id": row["evidence_download_id"],
+            "primary_external_ref_id": row["primary_external_ref_id"],
+            "source_group": row["source_group"],
+            "source_group_label": row["source_group_label"],
+            "source_class_id": row["source_class_id"],
+            "source_class_path": row["source_class_path"],
+            "source_image_count": int(row["source_image_count"]),
+            "first_source_image_path": row["first_source_image_path"],
+            "last_source_image_path": row["last_source_image_path"],
+            "filename_source_prefixes": row["filename_source_prefixes"],
+            "decipherment_status": row["decipherment_status"],
+            "identity_claim_status": row["identity_claim_status"],
+            "assignment_status": row["assignment_status"],
+            "promotion_status": row["promotion_status"],
+            "rights_status": row["rights_status"],
+            "risk_note": row["risk_note"],
+            "caution": row["caution"],
+            "review_status": row["review_status"],
+            "updated_at": row["updated_at"],
+        }
+        packet_path.write_text(
+            json.dumps(packet, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        manifest_rows.append(
+            {
+                "bucket_sequence": f"{sequence:03d}",
+                "unknown_candidate_id": row["unknown_candidate_id"],
+                "primary_external_ref_id": row["primary_external_ref_id"],
+                "packet_path": row["materialized_candidate_packet_path"],
+                "source_group": row["source_group"],
+                "source_class_id": row["source_class_id"],
+                "source_image_count": row["source_image_count"],
+                "review_status": row["review_status"],
+                "updated_at": row["updated_at"],
+            }
+        )
+    write_csv(
+        root / BUCKET_MANIFEST,
+        [
+            "bucket_sequence",
+            "unknown_candidate_id",
+            "primary_external_ref_id",
+            "packet_path",
+            "source_group",
+            "source_class_id",
+            "source_image_count",
+            "review_status",
+            "updated_at",
+        ],
+        manifest_rows,
+    )
+
+
+def update_large_source_register(root: Path) -> None:
+    path = root / LARGE_SOURCE_REGISTER
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+        fieldnames = file.readline()
+    fieldnames_list = list(rows[0].keys()) if rows else []
+    for row in rows:
+        if row["source_package_id"] == SOURCE_PACKAGE_ID:
+            row["source_url"] = SOURCE_URL
+            row["access_method"] = (
+                "Downloaded via figshare ndownloader after source and rights review; "
+                "raw package kept outside regular Git."
+            )
+            row["downloaded_at"] = DOWNLOADED_AT
+            row["file_size_bytes"] = str(RAW_SIZE_BYTES)
+            row["checksum_sha256"] = RAW_SHA256
+            row["storage_status"] = "downloaded_to_external_local_archive_registered"
+            row["storage_hint"] = ARCHIVE_HINT
+            row["handling_strategy"] = (
+                "Commit only metadata-only undeciphered candidate index and first "
+                "100 packet scaffolds; do not commit raw images."
+            )
+            row["derived_record_paths"] = (
+                "corpus/001_oracle-characters/000_character-registers/"
+                "003_undeciphered-oracle-characters-index.csv;"
+                "corpus/001_oracle-characters/"
+                "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates/"
+                "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+            )
+            row["rights_status"] = "source_marked_risk_noted"
+            row["risk_note"] = (
+                "Raw package exceeds 40 MiB and is not committed. Figshare metadata "
+                "reports CC BY 4.0, while the Scientific Data article page uses "
+                "CC BY-NC-ND 4.0. Article reports 9411 undeciphered characters; "
+                "zip directory yielded 9408 candidate classes."
+            )
+            row["review_status"] = "reviewed_metadata_only"
+            row["updated_at"] = UPDATED_AT
+    if not fieldnames_list:
+        return
+    write_csv(path, fieldnames_list, rows)
+
+
+def update_download_log(root: Path) -> None:
+    path = root / DOWNLOAD_LOG
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    fieldnames = list(rows[0].keys()) if rows else [
+        "download_id",
+        "source_id",
+        "url",
+        "downloaded_at",
+        "status",
+        "http_status",
+        "file_size_bytes",
+        "checksum_sha256",
+        "local_temp_path",
+        "risk_note",
+    ]
+    rows = [row for row in rows if row.get("download_id") != DOWNLOAD_ID]
+    rows.append(
+        {
+            "download_id": DOWNLOAD_ID,
+            "source_id": SOURCE_ID,
+            "url": SOURCE_URL,
+            "downloaded_at": DOWNLOADED_AT,
+            "status": "downloaded",
+            "http_status": "200",
+            "file_size_bytes": str(RAW_SIZE_BYTES),
+            "checksum_sha256": RAW_SHA256,
+            "local_temp_path": ARCHIVE_HINT,
+            "risk_note": (
+                f"Raw zip kept outside regular Git; MD5 {FIGSHARE_MD5} matches "
+                "figshare API. Zip directory lists 9408 undeciphered candidate "
+                "classes and 62989 undeciphered images, while article reports "
+                "9411 undeciphered characters."
+            ),
+        }
+    )
+    write_csv(path, fieldnames, rows)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--zip-path", default=DEFAULT_ZIP_PATH)
+    args = parser.parse_args()
+    root = repo_root()
+    zip_path = Path(args.zip_path)
+    if not zip_path.is_absolute():
+        zip_path = root / zip_path
+    if not zip_path.exists():
+        raise SystemExit(f"missing HUST-OBC raw zip: {zip_path}")
+    rows = collect_candidates(zip_path)
+    write_csv(root / INDEX_PATH, INDEX_FIELDS, rows)
+    write_packets(root, rows)
+    update_large_source_register(root)
+    update_download_log(root)
+    group_counts = Counter(row["source_group"] for row in rows)
+    image_count = sum(int(row["source_image_count"]) for row in rows)
+    print(
+        "wrote "
+        f"{len(rows)} undeciphered candidates; groups={dict(group_counts)}; "
+        f"images={image_count}"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

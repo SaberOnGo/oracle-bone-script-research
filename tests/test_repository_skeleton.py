@@ -332,6 +332,20 @@ def load_graph_source_evidence_collection_wave_handoff_scaffold_module():
     return module
 
 
+def load_graph_source_download_log_wave_handoff_scaffold_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_download_log_wave_handoff_scaffold.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_download_log_wave_handoff_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_graph_source_evidence_collection_source_register_capture_scaffold_module():
     path = repo_root() / (
         "tools/005_ai-context-pack-builder/"
@@ -2801,6 +2815,153 @@ class RepositorySkeletonTests(unittest.TestCase):
             all(row["source_register_evidence_status"] == "not_collected" for row in data["handoff_items"])
         )
         self.assertIn("rights decision", " ".join(data["agent_use_rules"]))
+        self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_graph_source_download_log_wave_handoff_scaffold(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-graph-source-download-log-wave-handoff-001",
+        )
+        self.assertEqual(data["status"], "draft_download_log_wave_handoff_scaffold_not_started")
+        self.assertEqual(data["updated_at"], "2026-06-10")
+        self.assertEqual(
+            data["research_boundary"],
+            "evidence_collection_download_log_wave_handoff_scaffold_not_scholarship",
+        )
+        self.assertEqual(
+            data["output_scope"],
+            "graph_source_evidence_collection_download_log_wave_handoff_scaffold_only",
+        )
+        self.assertEqual(
+            data["handoff_scope"]["assignment_wave_id"],
+            "graph-source-evidence-assignment-wave-002",
+        )
+        self.assertEqual(data["handoff_scope"]["target_evidence_section"], "download_log")
+        self.assertEqual(
+            data["handoff_scope"]["assignment_plan_item_ids"],
+            [
+                "graph-source-evidence-assignment-004",
+                "graph-source-evidence-assignment-005",
+                "graph-source-evidence-assignment-006",
+            ],
+        )
+        self.assertEqual(
+            data["handoff_scope"]["review_task_ids"],
+            [
+                "graph-source-evidence-review-002",
+                "graph-source-evidence-review-011",
+                "graph-source-evidence-review-020",
+            ],
+        )
+        self.assertEqual(data["coverage"]["handoff_item_count"], 3)
+        self.assertEqual(data["coverage"]["route_file_reference_count"], 15)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 7)
+        self.assertEqual(data["coverage"]["counter_source_reference_count"], 16)
+        self.assertEqual(data["coverage"]["required_review_check_reference_count"], 12)
+        self.assertEqual(
+            data["coverage"]["handoff_status_counts"],
+            {"ready_for_download_log_evidence_collection_not_started": 3},
+        )
+        self.assertEqual(
+            data["coverage"]["download_log_evidence_status_counts"],
+            {"not_collected": 3},
+        )
+        self.assertEqual(
+            data["coverage"]["checksum_review_status_counts"],
+            {"not_started": 3},
+        )
+        self.assertEqual(
+            data["coverage"]["size_review_status_counts"],
+            {"not_started": 3},
+        )
+        self.assertEqual(
+            data["coverage"]["access_review_status_counts"],
+            {"not_started": 3},
+        )
+        self.assertIn(
+            "project_registry/006_large-source-register/002_source-download-log.csv",
+            data["route_files_to_open"],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in data["handoff_items"]],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual(
+            [row["handoff_item_id"] for row in data["handoff_items"]],
+            [
+                "graph-source-evidence-download-log-handoff-004",
+                "graph-source-evidence-download-log-handoff-005",
+                "graph-source-evidence-download-log-handoff-006",
+            ],
+        )
+        self.assertTrue(
+            all(row["target_evidence_section"] == "download_log" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["download_log_evidence_status"] == "not_collected" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["checksum_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["size_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["access_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        rules = " ".join(data["agent_use_rules"])
+        self.assertIn("Open the 034 handoff row", rules)
+        self.assertIn("checksum review", rules)
+        self.assertIn("ignored temporary directories", rules)
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("必须打开 034 交接行", rules_zh)
+        self.assertIn("checksum 复核", rules_zh)
+        self.assertIn("已忽略临时目录", rules_zh)
+
+    def test_ai_agent_graph_source_download_log_wave_handoff_builder(
+        self,
+    ) -> None:
+        module = load_graph_source_download_log_wave_handoff_scaffold_module()
+        root = repo_root()
+        data = module.build_download_log_wave_handoff_scaffold(
+            module.read_json(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "030_ai-agent-graph-source-evidence-collection-assignment-plan.json"
+            )
+        )
+        self.assertEqual(data["coverage"]["handoff_item_count"], 3)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 7)
+        self.assertEqual(data["handoff_scope"]["target_evidence_section"], "download_log")
+        self.assertEqual(
+            data["handoff_items"][0]["assignment_plan_item_id"],
+            "graph-source-evidence-assignment-004",
+        )
+        self.assertEqual(
+            data["handoff_items"][1]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-011",
+        )
+        self.assertEqual(
+            data["handoff_items"][2]["note_draft_path"],
+            "doc/public/user_research/003_evidence-collection-tasks/obimd/"
+            "graph-source-evidence-task-020_download-log_collection-note.md",
+        )
+        self.assertTrue(
+            all(row["download_log_evidence_status"] == "not_collected" for row in data["handoff_items"])
+        )
+        self.assertTrue(
+            all(row["checksum_review_status"] == "not_started" for row in data["handoff_items"])
+        )
+        self.assertIn("checksum review", " ".join(data["agent_use_rules"]))
         self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
 
     def test_ai_agent_graph_source_source_register_capture_scaffold(

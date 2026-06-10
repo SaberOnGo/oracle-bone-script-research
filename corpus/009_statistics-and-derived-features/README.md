@@ -38,6 +38,7 @@ Current generated statistics:
 - `031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json`: first-wave handoff scaffold for the `source_register` assignment wave, listing the three source-register handoff rows and required route files without collecting evidence, assigning owners, deciding rights, promoting sources, or making decipherment claims.
 - `032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv`: empty capture scaffold for the first-wave `source_register` handoff rows, reserving source-register provenance fields while leaving evidence values blank and keeping rights decisions, source promotion, and decipherment claims unset.
 - `033_ai-agent-graph-source-source-register-capture-review-checklist.csv`: not-started review checklist for the 032 source-register capture rows, requiring agents to open the capture row, source register, rights/risk fields, and boundary checks before any evidence value can be recorded.
+- `034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json`: second-wave handoff scaffold for the `download_log` assignment wave, listing the three download-log handoff rows and required route files without downloading files, recording checksums or size/access conclusions, deciding rights, promoting sources, or making decipherment claims.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -77,3 +78,4 @@ Current generated statistics:
 - `031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json`：面向 `source_register` 分配 wave 的首波交接脚手架，列出三条来源登记交接行和必须打开的 route files，但不收集证据、不分配 owner、不决定权利、不提升来源，也不提出释读声明。
 - `032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv`：面向首波 `source_register` 交接行的空白证据捕获骨架，预留来源登记出处字段，同时让证据值保持空白，权利决定、来源提升和释读声明保持未设置状态。
 - `033_ai-agent-graph-source-source-register-capture-review-checklist.csv`：面向 032 来源登记捕获行的未开始复核 checklist，要求 agent 在记录任何证据值前先打开 capture row、来源登记、权利/风险字段和边界检查。
+- `034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json`：面向 `download_log` 分配 wave 的第二波交接脚手架，列出三条下载日志交接行和必须打开的 route files，但不下载文件、不记录 checksum 或大小/访问结论、不决定权利、不提升来源，也不提出释读声明。

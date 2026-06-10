@@ -233,6 +233,10 @@ AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "033_ai-agent-graph-source-source-register-capture-review-checklist.csv"
 )
+AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -599,6 +603,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_CAPTURE_REVIEW_CHECKLIST,
+    AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -682,6 +687,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_wave_handoff_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_source_register_capture_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_source_register_capture_review_checklist.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_download_log_wave_handoff_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -5862,6 +5868,233 @@ def check_ai_context_packs(root: Path) -> list[str]:
         if required_snippet not in handoff_rules_zh:
             issues.append(
                 f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
+                f"missing zh agent rule: {required_snippet}"
+            )
+
+    try:
+        download_log_handoff = json.loads(
+            (
+                root
+                / AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD
+            ).read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        return issues + [
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            f"invalid JSON: {exc.msg}"
+        ]
+    expected_download_log_handoff_values = {
+        "context_pack_id": "ai-context-graph-source-download-log-wave-handoff-001",
+        "status": "draft_download_log_wave_handoff_scaffold_not_started",
+        "updated_at": "2026-06-10",
+        "research_boundary": "evidence_collection_download_log_wave_handoff_scaffold_not_scholarship",
+        "output_scope": "graph_source_evidence_collection_download_log_wave_handoff_scaffold_only",
+        "upstream_context_pack_id": "ai-context-graph-source-evidence-collection-assignment-plan-001",
+    }
+    for key, expected_value in expected_download_log_handoff_values.items():
+        if download_log_handoff.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                f"{key} changed"
+            )
+    if download_log_handoff.get("generated_from") != [
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            "generated_from changed"
+        )
+    download_log_scope = download_log_handoff.get("handoff_scope", {})
+    expected_download_log_scope = {
+        "assignment_wave_id": "graph-source-evidence-assignment-wave-002",
+        "target_evidence_section": "download_log",
+        "priority_rank": "2",
+        "source_ids": ["src-hust-obc", "src-evobc", "src-obimd"],
+        "assignment_plan_item_ids": [
+            "graph-source-evidence-assignment-004",
+            "graph-source-evidence-assignment-005",
+            "graph-source-evidence-assignment-006",
+        ],
+        "review_task_ids": [
+            "graph-source-evidence-review-002",
+            "graph-source-evidence-review-011",
+            "graph-source-evidence-review-020",
+        ],
+        "handoff_status": "ready_for_download_log_evidence_collection_not_started",
+        "assignment_status": "planned_not_assigned",
+        "evidence_collection_status": "not_collected",
+        "source_promotion_status": "not_promoted",
+        "decipherment_claim_status": "no_claim",
+    }
+    for key, expected_value in expected_download_log_scope.items():
+        if download_log_scope.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                f"handoff scope {key} changed"
+            )
+    download_log_coverage = download_log_handoff.get("coverage", {})
+    expected_download_log_coverage = {
+        "handoff_item_count": 3,
+        "assignment_wave_count": 1,
+        "assignment_item_count": 3,
+        "review_task_count": 3,
+        "source_count": 3,
+        "target_evidence_section_count": 1,
+        "route_file_reference_count": 15,
+        "unique_route_file_count": 7,
+        "counter_source_reference_count": 16,
+        "unique_counter_source_count": 6,
+        "required_review_check_reference_count": 12,
+        "unique_required_review_check_count": 4,
+    }
+    for key, expected_value in expected_download_log_coverage.items():
+        if download_log_coverage.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                f"coverage {key} changed"
+            )
+    if download_log_coverage.get("source_counts") != {
+        "src-evobc": 1,
+        "src-hust-obc": 1,
+        "src-obimd": 1,
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            "source counts changed"
+        )
+    if download_log_coverage.get("section_counts") != {"download_log": 3}:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            "section counts changed"
+        )
+    for key, expected_counts in {
+        "handoff_status_counts": {
+            "ready_for_download_log_evidence_collection_not_started": 3
+        },
+        "assignment_status_counts": {"planned_not_assigned": 3},
+        "review_status_counts": {"needs_evidence_collection_review": 3},
+        "evidence_collection_status_counts": {"not_collected": 3},
+        "source_promotion_status_counts": {"not_promoted": 3},
+        "decipherment_claim_status_counts": {"no_claim": 3},
+        "rights_decision_status_counts": {"not_decided": 3},
+        "download_log_evidence_status_counts": {"not_collected": 3},
+        "checksum_review_status_counts": {"not_started": 3},
+        "size_review_status_counts": {"not_started": 3},
+        "access_review_status_counts": {"not_started": 3},
+    }.items():
+        if download_log_coverage.get(key) != expected_counts:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                f"{key} changed"
+            )
+    if SOURCE_DOWNLOAD_LOG not in download_log_handoff.get("route_files_to_open", []):
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            "download log route missing from top-level route files"
+        )
+    if download_log_handoff.get("required_review_checks") != [
+        "do_not_infer_rights_from_download_success",
+        "do_not_write_ai_hypothesis_as_scholarship",
+        "keep_result_row_not_collected_until_evidence_is_source_marked",
+        "open_download_log_before_recording_access_or_checksum_status",
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            "required review checks changed"
+        )
+    download_log_items = download_log_handoff.get("handoff_items", [])
+    if not isinstance(download_log_items, list) or len(download_log_items) != 3:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+            "should contain 3 handoff items"
+        )
+    else:
+        expected_sources = ["src-hust-obc", "src-evobc", "src-obimd"]
+        expected_review_tasks = [
+            "graph-source-evidence-review-002",
+            "graph-source-evidence-review-011",
+            "graph-source-evidence-review-020",
+        ]
+        for index, row in enumerate(download_log_items, start=4):
+            item_id = row.get("handoff_item_id", "")
+            if item_id != f"graph-source-evidence-download-log-handoff-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                    f"handoff item ID sequence changed: {item_id}"
+                )
+            if row.get("source_id") != expected_sources[index - 4]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                    f"handoff source order changed: {item_id}"
+                )
+            if row.get("evidence_collection_review_task_id") != expected_review_tasks[index - 4]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                    f"handoff review task changed: {item_id}"
+                )
+            for key, expected_value in {
+                "assignment_wave_id": "graph-source-evidence-assignment-wave-002",
+                "target_evidence_section": "download_log",
+                "handoff_status": "ready_for_download_log_evidence_collection_not_started",
+                "assignment_status": "planned_not_assigned",
+                "review_status": "needs_evidence_collection_review",
+                "evidence_collection_status": "not_collected",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+                "rights_decision_status": "not_decided",
+                "download_log_evidence_status": "not_collected",
+                "checksum_review_status": "not_started",
+                "size_review_status": "not_started",
+                "access_review_status": "not_started",
+                "research_boundary": "evidence_collection_download_log_wave_handoff_scaffold_not_scholarship",
+                "output_scope": "graph_source_evidence_collection_download_log_wave_handoff_scaffold_only",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                        f"{key} changed: {item_id}"
+                    )
+            route_files = row.get("route_files_to_open", [])
+            for required_path in [
+                row.get("note_draft_path"),
+                row.get("route_pack_path"),
+                row.get("manifest_path"),
+                row.get("task_queue_source_path"),
+                SOURCE_DOWNLOAD_LOG,
+            ]:
+                if required_path not in route_files:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                        f"handoff missing route file: {item_id}"
+                    )
+    download_log_rules = " ".join(download_log_handoff.get("agent_use_rules", []))
+    download_log_rules_zh = " ".join(download_log_handoff.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "only to open the second download_log",
+        "Open the 034 handoff row",
+        "checksum review",
+        "size review",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in download_log_rules:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
+                f"missing agent rule: {required_snippet}"
+            )
+    for required_snippet in [
+        "只能用于打开第二波 download_log",
+        "必须打开 034 交接行",
+        "checksum 复核",
+        "大小复核",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in download_log_rules_zh:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_WAVE_HANDOFF_SCAFFOLD} "
                 f"missing zh agent rule: {required_snippet}"
             )
 

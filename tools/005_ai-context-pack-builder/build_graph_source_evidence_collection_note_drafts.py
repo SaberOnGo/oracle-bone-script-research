@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build empty evidence-collection note drafts from source-register tasks."""
+"""Build empty evidence-collection note drafts from 016 task queue rows."""
 
 from __future__ import annotations
 
@@ -55,6 +55,18 @@ OUTPUT_FIELDS = [
     "updated_at",
 ]
 
+SECTION_LABELS = {
+    "source_register": ("Source Register", "来源登记"),
+    "download_log": ("Download Log", "下载日志"),
+    "package_manifest": ("Package Manifest", "包 manifest"),
+    "metadata_profile": ("Metadata Profile", "metadata 画像"),
+    "graph_edges": ("Graph Edges", "图谱边"),
+    "staging_row": ("Staging Row", "staging 行"),
+    "counter_source_lookup": ("Counter-Source Lookup", "反查来源"),
+    "rights_risk_review": ("Rights And Risk Review", "权利与风险复核"),
+    "review_log": ("Review Log", "复核日志"),
+}
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
@@ -72,6 +84,7 @@ def _split_compact(value: str) -> list[str]:
 def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
     route_files = _split_compact(row["route_files_to_open"])
     counter_sources = _split_compact(row["counter_source_ids_to_check"])
+    section_label_en, section_label_zh = SECTION_LABELS[row["target_evidence_section"]]
     lines = [
         "# Evidence Collection Note / 证据收集记录草稿",
         "",
@@ -113,7 +126,7 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             "",
             "## Evidence Collection / 证据收集",
             "",
-            "### Source Register / 来源登记",
+            f"### {section_label_en} / {section_label_zh}",
             "",
             "- Status / 状态: `not_collected`",
             "- Evidence items / 证据条目: none",
@@ -135,14 +148,19 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
     return "\n".join(lines)
 
 
-def build_note_manifest_rows(task_rows: list[dict[str, str]]) -> list[dict[str, str]]:
-    source_register_rows = [
+def build_note_manifest_rows(
+    task_rows: list[dict[str, str]],
+    target_section: str = TARGET_EVIDENCE_SECTION,
+) -> list[dict[str, str]]:
+    if target_section not in SECTION_LABELS:
+        raise ValueError(f"unsupported target evidence section: {target_section}")
+    target_rows = [
         row
         for row in task_rows
-        if row.get("target_evidence_section") == TARGET_EVIDENCE_SECTION
+        if row.get("target_evidence_section") == target_section
     ]
     rows: list[dict[str, str]] = []
-    for index, row in enumerate(source_register_rows, start=1):
+    for index, row in enumerate(target_rows, start=1):
         rows.append(
             {
                 "evidence_collection_note_draft_id": f"graph-source-evidence-note-draft-{index:03d}",
@@ -202,11 +220,12 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--task-queue", default=str(GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE))
     parser.add_argument("--manifest", default=str(GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST))
+    parser.add_argument("--target-section", default=TARGET_EVIDENCE_SECTION, choices=sorted(SECTION_LABELS))
     args = parser.parse_args(argv)
 
     root = repo_root()
     task_rows = read_csv_rows(root / args.task_queue)
-    manifest_rows = build_note_manifest_rows(task_rows)
+    manifest_rows = build_note_manifest_rows(task_rows, target_section=args.target_section)
     write_markdown_drafts(root, task_rows, manifest_rows)
     write_csv(root / args.manifest, manifest_rows)
     print(f"wrote={len(manifest_rows)} manifest={(root / args.manifest).relative_to(root)}")

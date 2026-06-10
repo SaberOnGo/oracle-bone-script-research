@@ -18,3 +18,10 @@ This directory is for exploratory research created by users, contributors, or AI
 - AI Agent 证据包草稿应遵循 `schemas/006_ai-agent-evidence-pack-schema/ai-agent-evidence-pack.schema.json`。
 - Empty scaffold evidence packs must keep evidence sections as `not_collected` and must not claim decipherment.
 - 空白证据包骨架必须把证据章节保持为 `not_collected`，不得声称已经完成释读。
+
+## Current Draft Areas / 当前草稿区
+
+- `001_ai-agent-evidence-packs/`: empty AI Agent evidence-pack drafts and examples; sections marked `not_collected` are not evidence.
+- `001_ai-agent-evidence-packs/`：空白 AI Agent 证据包草稿和示例；标记为 `not_collected` 的章节不是证据。
+- `002_cross-source-review-queues/`: empty cross-source review log drafts generated from graph-source scaffolds; they route later evidence collection but do not promote source records, graph edges, component assignments, evolution chains, or decipherment conclusions.
+- `002_cross-source-review-queues/`：从 graph-source scaffold 生成的空白交叉来源复核日志草稿；它们只为后续证据收集提供路由，不提升来源记录、图谱边、构件判定、演化链或释读结论。

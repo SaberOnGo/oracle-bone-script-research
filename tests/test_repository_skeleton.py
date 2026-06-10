@@ -223,6 +223,15 @@ def load_graph_source_cross_review_log_scaffold_module():
     return module
 
 
+def load_graph_source_cross_review_log_drafts_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_drafts.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_cross_review_log_drafts", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -965,6 +974,84 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in scaffold_rows))
         self.assertTrue(all(row["promotion_decision_status"] != "promoted" for row in scaffold_rows))
+
+    def test_ai_agent_graph_source_cross_review_log_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "014_ai-agent-graph-source-cross-review-log-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual(rows[0]["draft_log_id"], "graph-source-cross-review-draft-001")
+        self.assertEqual(rows[0]["cross_review_log_id"], "graph-source-cross-review-log-001")
+        self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
+        self.assertEqual(rows[0]["evidence_section_status"], "not_collected")
+        self.assertEqual(rows[0]["research_boundary"], "user_research_draft_not_scholarship")
+        self.assertEqual(
+            rows[0]["draft_log_path"],
+            "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
+            "001_hust-obc-evidence-request-000001_cross-source-review-log.md",
+        )
+        self.assertEqual(
+            rows[1]["draft_log_path"],
+            "doc/public/user_research/002_cross-source-review-queues/evobc/"
+            "002_evobc-evo-cat-00001_cross-source-review-log.md",
+        )
+        self.assertEqual(
+            rows[2]["draft_log_path"],
+            "doc/public/user_research/002_cross-source-review-queues/obimd/"
+            "003_obimd-sub-cand-000001_cross-source-review-log.md",
+        )
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        draft_text = (repo_root() / rows[0]["draft_log_path"]).read_text(encoding="utf-8")
+        for snippet in [
+            "Graph Source Cross-Review Log",
+            "draft_not_collected",
+            "user_research_draft_not_scholarship",
+            "not_collected",
+            "not_decided",
+            "created_from_013_scaffold",
+            "not a decipherment conclusion",
+        ]:
+            self.assertIn(snippet, draft_text)
+
+    def test_ai_agent_graph_source_cross_review_log_draft_builder_links_scaffold(self) -> None:
+        module = load_graph_source_cross_review_log_drafts_module()
+        root = repo_root()
+        scaffold_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD)
+        rows = module.build_draft_manifest_rows(scaffold_rows)
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["draft_log_id"], "graph-source-cross-review-draft-001")
+        self.assertEqual(rows[0]["cross_review_log_id"], scaffold_rows[0]["cross_review_log_id"])
+        self.assertEqual(rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(rows[1]["source_id"], "src-evobc")
+        self.assertEqual(rows[2]["source_id"], "src-obimd")
+        self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
+        self.assertEqual(rows[0]["evidence_section_status"], "not_collected")
+        self.assertEqual(rows[0]["research_boundary"], "user_research_draft_not_scholarship")
+        self.assertEqual(
+            rows[0]["draft_log_path"],
+            "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
+            "001_hust-obc-evidence-request-000001_cross-source-review-log.md",
+        )
+        self.assertEqual(
+            rows[0]["route_files_to_open"],
+            scaffold_rows[0]["route_files_to_open"],
+        )
+        self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
+        markdown = module.build_markdown(scaffold_rows[0], rows[0]["draft_log_id"])
+        self.assertIn("hust-obc-evidence-request-000001", markdown)
+        self.assertIn("Route Files To Open", markdown)
+        self.assertIn("Required Counter Sources", markdown)
+        self.assertIn("Evidence Sections", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

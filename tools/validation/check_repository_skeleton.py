@@ -153,6 +153,22 @@ AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "013_ai-agent-graph-source-cross-review-log-scaffold.csv"
 )
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "014_ai-agent-graph-source-cross-review-log-draft-manifest.csv"
+)
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
+    "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
+    "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
+)
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT = (
+    "doc/public/user_research/002_cross-source-review-queues/evobc/"
+    "002_evobc-evo-cat-00001_cross-source-review-log.md"
+)
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT = (
+    "doc/public/user_research/002_cross-source-review-queues/obimd/"
+    "003_obimd-sub-cand-000001_cross-source-review-log.md"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -379,6 +395,10 @@ REQUIRED_PATHS = [
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -420,6 +440,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_queue.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_drafts.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2727,6 +2748,112 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} missing caution "
                     f"{required_snippet}: {log_id}"
                 )
+
+    cross_review_draft_rows, cross_review_draft_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST
+    )
+    issues.extend(cross_review_draft_issues)
+    if len(cross_review_draft_rows) != 3:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} should contain exactly 3 rows"
+        )
+    if [row.get("source_id", "") for row in cross_review_draft_rows] != expected_review_source_ids:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} source order changed")
+    cross_review_log_rows_by_id = {
+        row.get("cross_review_log_id", ""): row
+        for row in cross_review_log_rows
+    }
+    expected_draft_paths = {
+        "src-hust-obc": AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
+        "src-evobc": AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
+        "src-obimd": AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
+    }
+    expected_draft_status_values = {
+        "scaffold_source_path": AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD,
+        "draft_status": "draft_not_collected",
+        "evidence_section_status": "not_collected",
+        "research_boundary": "user_research_draft_not_scholarship",
+        "updated_at": "2026-06-10",
+    }
+    for index, row in enumerate(cross_review_draft_rows, start=1):
+        draft_log_id = row.get("draft_log_id", "")
+        cross_review_log_id = row.get("cross_review_log_id", "")
+        source_id = row.get("source_id", "")
+        scaffold_row = cross_review_log_rows_by_id.get(cross_review_log_id, {})
+        if draft_log_id != f"graph-source-cross-review-draft-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"draft ID sequence changed: {draft_log_id}"
+            )
+        if not scaffold_row:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing scaffold link: {draft_log_id}"
+            )
+            continue
+        for linked_field in [
+            "cross_review_task_id",
+            "source_id",
+            "primary_review_record_id",
+            "primary_external_ref_id",
+            "source_record_id",
+            "route_files_to_open",
+            "required_counter_source_ids",
+            "required_evidence_sections",
+        ]:
+            if row.get(linked_field) != scaffold_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} {linked_field} "
+                    f"does not match scaffold: {draft_log_id}"
+                )
+        expected_draft_path = expected_draft_paths.get(source_id)
+        if row.get("draft_log_path") != expected_draft_path:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} draft path changed: "
+                f"{draft_log_id}"
+            )
+        for key, expected_value in expected_draft_status_values.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} {key} "
+                    f"changed: {draft_log_id}"
+                )
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "not source evidence",
+            "not a rights decision",
+            "not a promotion decision",
+            "not a component or evolution-chain assignment",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} missing caution "
+                    f"{required_snippet}: {draft_log_id}"
+                )
+        if expected_draft_path:
+            draft_path = root / expected_draft_path
+            if not draft_path.exists():
+                issues.append(f"{expected_draft_path} missing draft log file")
+                continue
+            draft_text = draft_path.read_text(encoding="utf-8")
+            for required_snippet in [
+                "Graph Source Cross-Review Log",
+                "draft_not_collected",
+                "user_research_draft_not_scholarship",
+                "not_collected",
+                "not_decided",
+                "Route Files To Open",
+                "Required Counter Sources",
+                "Evidence Sections",
+                "created_from_013_scaffold",
+                "not a decipherment conclusion",
+                "不是释读结论",
+            ]:
+                if required_snippet not in draft_text:
+                    issues.append(
+                        f"{expected_draft_path} missing draft text snippet: {required_snippet}"
+                    )
 
     return issues
 

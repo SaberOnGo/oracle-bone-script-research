@@ -1573,6 +1573,85 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
 
+    def test_ai_agent_graph_source_staging_row_note_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "022_ai-agent-graph-source-staging-row-note-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["evidence_collection_task_id"] for row in rows],
+            [
+                "graph-source-evidence-task-006",
+                "graph-source-evidence-task-015",
+                "graph-source-evidence-task-024",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"staging_row"})
+        self.assertIn(
+            "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv",
+            rows[0]["route_files_to_open"],
+        )
+        self.assertIn(
+            "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+            rows[1]["route_files_to_open"],
+        )
+        self.assertIn(
+            "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+            rows[2]["route_files_to_open"],
+        )
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("not a promotion decision" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        for row in rows:
+            note_path = repo_root() / row["note_draft_path"]
+            text = note_path.read_text(encoding="utf-8")
+            self.assertIn("Evidence Collection Note", text)
+            self.assertIn("staging_row", text)
+            self.assertIn("Staging Row", text)
+            self.assertIn("staging 行", text)
+            self.assertIn("not_collected", text)
+            self.assertIn("not a decipherment conclusion", text)
+            self.assertIn("不是释读结论", text)
+            for route_file in row["route_files_to_open"].split(";"):
+                self.assertIn(route_file, text)
+
+    def test_ai_agent_graph_source_staging_row_note_draft_builder_selects_section(self) -> None:
+        module = load_graph_source_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE)
+        rows = module.build_note_manifest_rows(task_rows, target_section="staging_row")
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "graph-source-evidence-task-006")
+        self.assertEqual(rows[1]["evidence_collection_task_id"], "graph-source-evidence-task-015")
+        self.assertEqual(rows[2]["evidence_collection_task_id"], "graph-source-evidence-task-024")
+        self.assertTrue(all(row["target_evidence_section"] == "staging_row" for row in rows))
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        task_rows_by_id = {row["evidence_collection_task_id"]: row for row in task_rows}
+        markdown = module.build_markdown(
+            task_rows_by_id["graph-source-evidence-task-006"],
+            rows[0]["evidence_collection_note_draft_id"],
+        )
+        self.assertIn("Staging Row", markdown)
+        self.assertIn("staging 行", markdown)
+        self.assertIn(
+            "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv",
+            markdown,
+        )
+        self.assertIn("created_from_016_task_queue", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])
 

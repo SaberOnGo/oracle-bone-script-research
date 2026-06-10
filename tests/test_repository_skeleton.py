@@ -328,6 +328,22 @@ def load_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results_m
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -1552,6 +1568,79 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"codepoint_crosswalk_candidate_packet_capture_result_not_scholarship"},
         )
         self.assertTrue(all("044 cross-source route refs only" in row["caution"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist_links_captures(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "048_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-readiness-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 15)
+        self.assertEqual(rows[0]["readiness_check_id"], "codepoint-evidence-readiness-001")
+        self.assertEqual(rows[0]["route_result_id"], "codepoint-crosswalk-route-result-001")
+        self.assertEqual(rows[0]["candidate_packet_id"], "hust-obc-candidate-packet-000047")
+        self.assertEqual(rows[0]["source_ids_captured"], "src-hust-obc;src-obimd;src-evobc")
+        self.assertEqual(
+            rows[0]["download_ids_captured"],
+            "dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese;"
+            "dl-obimd-main-character-json;dl-evobc-key-value-json;dl-evobc-list-json",
+        )
+        self.assertEqual(rows[0]["candidate_packet_capture_count"], "1")
+        self.assertEqual(rows[0]["source_register_capture_count"], "3")
+        self.assertEqual(rows[0]["download_log_capture_count"], "5")
+        self.assertEqual(rows[0]["captured_section_count"], "3")
+        self.assertEqual(rows[0]["missing_required_sections"], "none")
+        self.assertIn("src-obimd=licensed_for_repository", rows[0]["source_register_rights_statuses"])
+        self.assertIn("dl-evobc-list-json=downloaded:200", rows[0]["download_log_access_statuses"])
+        self.assertEqual(
+            {row["overall_readiness_status"] for row in rows},
+            {"ready_for_human_evidence_pack_review_metadata_only"},
+        )
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertTrue(all("not source evidence by itself" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        self.assertEqual(rows[-1]["readiness_check_id"], "codepoint-evidence-readiness-015")
+        self.assertEqual(rows[-1]["route_result_id"], "codepoint-crosswalk-route-result-015")
+        self.assertEqual(rows[-1]["candidate_packet_id"], "hust-obc-candidate-packet-001550")
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_builder_uses_capture_rows(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist_module()
+        root = repo_root()
+        rows = module.build_readiness_rows(
+            module.read_csv_rows(root / module.CANDIDATE_PACKET_CAPTURE_RESULTS),
+            module.read_csv_rows(root / module.SOURCE_REGISTER_CAPTURE_RESULTS),
+            module.read_csv_rows(root / module.DOWNLOAD_LOG_CAPTURE_RESULTS),
+        )
+
+        self.assertEqual(len(rows), 15)
+        self.assertEqual(rows[0]["candidate_packet_capture_result_id"], "codepoint-candidate-packet-capture-result-001")
+        self.assertEqual(
+            rows[0]["source_register_capture_result_ids"],
+            "codepoint-source-register-capture-result-001;codepoint-source-register-capture-result-002;"
+            "codepoint-source-register-capture-result-003",
+        )
+        self.assertEqual(
+            rows[0]["download_log_capture_result_ids"],
+            "codepoint-download-log-capture-result-001;codepoint-download-log-capture-result-002;"
+            "codepoint-download-log-capture-result-003;codepoint-download-log-capture-result-004;"
+            "codepoint-download-log-capture-result-005",
+        )
+        self.assertEqual(rows[0]["source_register_evidence_statuses"], "metadata_captured_from_reviewed_source_register=3")
+        self.assertEqual(rows[0]["download_log_evidence_statuses"], "metadata_captured_from_reviewed_download_log=5")
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"codepoint_crosswalk_evidence_readiness_checklist_not_scholarship"},
+        )
+        self.assertTrue(all("verify_candidate_packet_source_register_download_log_rows" in row["required_next_checks"] for row in rows))
         self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:

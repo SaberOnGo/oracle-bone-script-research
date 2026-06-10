@@ -299,6 +299,10 @@ AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS =
     "corpus/009_statistics-and-derived-features/"
     "047_ai-agent-hust-obimd-evobc-codepoint-crosswalk-candidate-packet-capture-results.csv"
 )
+AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "048_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-readiness-checklist.csv"
+)
 AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_FIRST_REVIEW_LOG_DRAFT = (
     "doc/public/user_research/004_codepoint-crosswalk-review-queues/"
     "001_both_obimd_and_evobc_codepoint_match/"
@@ -691,6 +695,7 @@ REQUIRED_PATHS = [
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_SOURCE_REGISTER_CAPTURE_RESULTS,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CANDIDATE_PACKET_CAPTURE_RESULTS,
+    AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_FIRST_REVIEW_LOG_DRAFT,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_LAST_THREE_SOURCE_REVIEW_LOG_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
@@ -770,6 +775,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_source_register_capture_results.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_download_log_capture_results.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_candidate_packet_capture_results.py",
+    "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
@@ -4038,6 +4044,190 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(
                 f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_DOWNLOAD_LOG_CAPTURE_RESULTS} "
                 "last download boundary changed"
+            )
+
+    codepoint_readiness_rows, codepoint_readiness_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST
+    )
+    issues.extend(codepoint_readiness_issues)
+    candidate_capture_by_route = {
+        row.get("route_result_id", ""): row
+        for row in codepoint_candidate_capture_rows
+    }
+    source_capture_by_route: dict[str, list[dict[str, str]]] = {}
+    for row in codepoint_source_capture_rows:
+        source_capture_by_route.setdefault(row.get("route_result_id", ""), []).append(row)
+    download_capture_by_route: dict[str, list[dict[str, str]]] = {}
+    for row in codepoint_download_capture_rows:
+        download_capture_by_route.setdefault(row.get("route_result_id", ""), []).append(row)
+    if len(codepoint_readiness_rows) != 15:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+            "should contain exactly 15 rows"
+        )
+    for index, row in enumerate(codepoint_readiness_rows, start=1):
+        readiness_id = row.get("readiness_check_id", "")
+        route_id = row.get("route_result_id", "")
+        candidate_row = candidate_capture_by_route.get(route_id, {})
+        source_rows = sorted(
+            source_capture_by_route.get(route_id, []),
+            key=lambda source_row: expected_source_ids.index(source_row.get("source_id", ""))
+            if source_row.get("source_id", "") in expected_source_ids
+            else len(expected_source_ids),
+        )
+        download_rows = sorted(
+            download_capture_by_route.get(route_id, []),
+            key=lambda download_row: expected_download_order.index(download_row.get("download_id", ""))
+            if download_row.get("download_id", "") in expected_download_order
+            else len(expected_download_order),
+        )
+        if readiness_id != f"codepoint-evidence-readiness-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                f"readiness ID sequence changed: {readiness_id}"
+            )
+        if not candidate_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                f"missing 047 candidate row for {route_id}"
+            )
+            continue
+        for field in [
+            "review_log_draft_id",
+            "codepoint_review_task_id",
+            "crosswalk_candidate_id",
+            "suggested_oracle_character_id",
+        ]:
+            if row.get(field) != candidate_row.get(field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                    f"{field} does not match 047 candidate row: {readiness_id}"
+                )
+        expected_source_result_ids = ";".join(
+            source_row.get("capture_result_id", "") for source_row in source_rows
+        )
+        expected_download_result_ids = ";".join(
+            download_row.get("capture_result_id", "") for download_row in download_rows
+        )
+        expected_source_ids_compact = ";".join(
+            source_row.get("source_id", "") for source_row in source_rows
+        )
+        expected_download_ids_compact = ";".join(
+            download_row.get("download_id", "") for download_row in download_rows
+        )
+        expected_source_rights = ";".join(
+            f"{source_row.get('source_id', '')}={source_row.get('rights_status_evidence_value', '')}"
+            for source_row in source_rows
+        )
+        expected_download_access = ";".join(
+            f"{download_row.get('download_id', '')}={download_row.get('status_evidence_value', '')}:"
+            f"{download_row.get('http_status_evidence_value', '')}"
+            for download_row in download_rows
+        )
+        for key, expected_value in {
+            "candidate_packet_capture_result_id": candidate_row.get("capture_result_id", ""),
+            "source_register_capture_result_ids": expected_source_result_ids,
+            "download_log_capture_result_ids": expected_download_result_ids,
+            "candidate_packet_id": candidate_row.get("candidate_packet_id_evidence_value", ""),
+            "source_ids_captured": expected_source_ids_compact,
+            "download_ids_captured": expected_download_ids_compact,
+            "route_cross_source_refs": candidate_row.get("route_cross_source_refs_evidence_value", ""),
+            "candidate_packet_capture_count": "1",
+            "source_register_capture_count": "3",
+            "download_log_capture_count": "5",
+            "captured_section_count": "3",
+            "required_section_count": "3",
+            "candidate_packet_evidence_status": "metadata_captured_from_reviewed_candidate_packet",
+            "source_register_evidence_statuses": "metadata_captured_from_reviewed_source_register=3",
+            "download_log_evidence_statuses": "metadata_captured_from_reviewed_download_log=5",
+            "candidate_packet_capture_status": "reviewed_metadata_only",
+            "source_register_capture_statuses": "reviewed_metadata_only=3",
+            "download_log_capture_statuses": "reviewed_metadata_only=5",
+            "candidate_packet_ready_status": "ready_metadata_only",
+            "source_register_ready_status": "ready_metadata_only",
+            "download_log_ready_status": "ready_metadata_only",
+            "overall_readiness_status": "ready_for_human_evidence_pack_review_metadata_only",
+            "missing_required_sections": "none",
+            "blocking_issue_count": "0",
+            "source_register_rights_statuses": expected_source_rights,
+            "download_log_access_statuses": expected_download_access,
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "identity_claim_status": "no_identity_claim",
+            "decipherment_claim_status": "no_claim",
+            "component_claim_status": "no_claim",
+            "evolution_chain_claim_status": "no_claim",
+            "research_boundary": "codepoint_crosswalk_evidence_readiness_checklist_not_scholarship",
+            "checklist_status": "ready_for_human_review",
+            "evidence_pack_action": "open_review_log_draft_then_attach_metadata_captures",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                    f"{key} changed: {readiness_id}"
+                )
+        if len(source_rows) != 3:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                f"source capture count changed for {readiness_id}"
+            )
+        if len(download_rows) != 5:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                f"download capture count changed for {readiness_id}"
+            )
+        for required_snippet in [
+            "open_review_log_draft",
+            "verify_candidate_packet_source_register_download_log_rows",
+            "compare_against_xiaoxuetang_obm_and_primary_inscription_context",
+        ]:
+            if required_snippet not in row.get("required_next_checks", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                    f"required_next_checks missing {required_snippet}: {readiness_id}"
+                )
+        for required_snippet in [
+            "metadata-readiness checklist",
+            "045 source-register metadata",
+            "046 download-log metadata",
+            "047 candidate-packet metadata",
+            "not source evidence by itself",
+            "not an oracle-character identity decision",
+            "not an accepted reading",
+            "not a component assignment",
+            "not an evolution-chain assignment",
+            "not a rights decision",
+            "not a source promotion",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in row.get("caution", ""):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                    f"caution missing {required_snippet}: {readiness_id}"
+                )
+    if codepoint_readiness_rows:
+        first_row = codepoint_readiness_rows[0]
+        last_row = codepoint_readiness_rows[-1]
+        if first_row.get("route_result_id") != "codepoint-crosswalk-route-result-001":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                "first route boundary changed"
+            )
+        if first_row.get("candidate_packet_id") != "hust-obc-candidate-packet-000047":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                "first candidate packet boundary changed"
+            )
+        if last_row.get("route_result_id") != "codepoint-crosswalk-route-result-015":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                "last route boundary changed"
+            )
+        if last_row.get("candidate_packet_id") != "hust-obc-candidate-packet-001550":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_EVIDENCE_READINESS_CHECKLIST} "
+                "last candidate packet boundary changed"
             )
 
     source_route_rows, source_route_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE)

@@ -259,6 +259,15 @@ def load_graph_source_evidence_collection_note_drafts_module():
     return module
 
 
+def load_graph_source_evidence_collection_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_evidence_collection_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -1895,6 +1904,159 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_collected", markdown)
         self.assertIn("not a rights decision", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
+
+    def test_ai_agent_graph_source_evidence_collection_route_pack_preserves_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "026_ai-agent-graph-source-evidence-collection-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        expected_sources = ["src-hust-obc", "src-evobc", "src-obimd"]
+        expected_sections = [
+            "source_register",
+            "download_log",
+            "package_manifest",
+            "metadata_profile",
+            "graph_edges",
+            "staging_row",
+            "counter_source_lookup",
+            "rights_risk_review",
+            "review_log",
+        ]
+        expected_manifests = [
+            "corpus/009_statistics-and-derived-features/"
+            "017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "018_ai-agent-graph-source-download-log-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "022_ai-agent-graph-source-staging-row-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv",
+            "corpus/009_statistics-and-derived-features/"
+            "025_ai-agent-graph-source-review-log-note-draft-manifest.csv",
+        ]
+
+        self.assertEqual(data["context_pack_id"], "ai-context-graph-source-evidence-collection-001")
+        self.assertEqual(data["status"], "draft_route_pack_not_collected")
+        self.assertEqual(data["updated_at"], "2026-06-10")
+        self.assertEqual(data["generated_from"], expected_manifests)
+        self.assertEqual(
+            data["coverage"],
+            {
+                "counter_source_reference_count": 144,
+                "evidence_collection_status_counts": {"not_collected": 27},
+                "manifest_count": 9,
+                "note_draft_count": 27,
+                "note_status_counts": {"draft_not_collected": 27},
+                "promotion_status_counts": {"not_promoted": 27},
+                "research_boundary_counts": {
+                    "evidence_collection_note_draft_not_scholarship": 27
+                },
+                "route_file_reference_count": 46,
+                "section_counts": {section: 3 for section in expected_sections},
+                "source_count": 3,
+                "source_counts": {"src-evobc": 9, "src-hust-obc": 9, "src-obimd": 9},
+                "target_evidence_section_count": 9,
+            },
+        )
+        self.assertEqual([row["source_id"] for row in data["source_routes"]], expected_sources)
+        self.assertTrue(all(row["note_draft_count"] == 9 for row in data["source_routes"]))
+        self.assertTrue(
+            all(row["target_evidence_sections"] == expected_sections for row in data["source_routes"])
+        )
+        self.assertEqual(
+            [row["target_evidence_section"] for row in data["section_routes"]],
+            expected_sections,
+        )
+        self.assertTrue(all(row["source_ids"] == expected_sources for row in data["section_routes"]))
+        self.assertEqual(len(data["note_routes"]), 27)
+        self.assertEqual(
+            data["note_routes"][0]["evidence_collection_task_id"],
+            "graph-source-evidence-task-001",
+        )
+        self.assertEqual(
+            data["note_routes"][-1]["evidence_collection_task_id"],
+            "graph-source-evidence-task-027",
+        )
+        self.assertTrue(
+            all(
+                row["note_draft_path"].startswith("doc/public/user_research/")
+                and not row["note_draft_path"].startswith("research/")
+                for row in data["note_routes"]
+            )
+        )
+        self.assertTrue(
+            all(row["evidence_collection_status"] == "not_collected" for row in data["note_routes"])
+        )
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in data["note_routes"]))
+        self.assertTrue(
+            all(
+                row["research_boundary"] == "evidence_collection_note_draft_not_scholarship"
+                for row in data["note_routes"]
+            )
+        )
+        rules = " ".join(data["agent_use_rules"])
+        self.assertIn("not-collected", rules)
+        self.assertIn("Do not treat this pack as collected evidence", rules)
+        self.assertIn("ignored temporary directories", rules)
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("未收集", rules_zh)
+        self.assertIn("不得把本包当作已收集证据", rules_zh)
+        self.assertIn("已忽略临时目录", rules_zh)
+
+    def test_ai_agent_graph_source_evidence_collection_route_pack_builder_collects_manifests(self) -> None:
+        module = load_graph_source_evidence_collection_route_pack_module()
+        root = repo_root()
+        data = module.build_route_pack(
+            [
+                (manifest_path, module.read_csv_rows(root / manifest_path))
+                for manifest_path in module.MANIFEST_PATHS
+            ]
+        )
+        self.assertEqual(data["coverage"]["manifest_count"], 9)
+        self.assertEqual(data["coverage"]["note_draft_count"], 27)
+        self.assertEqual(data["coverage"]["route_file_reference_count"], 46)
+        self.assertEqual(data["coverage"]["counter_source_reference_count"], 144)
+        self.assertEqual(
+            {row["source_id"]: row["note_draft_count"] for row in data["source_routes"]},
+            {"src-hust-obc": 9, "src-evobc": 9, "src-obimd": 9},
+        )
+        self.assertEqual(
+            {row["target_evidence_section"]: row["note_draft_count"] for row in data["section_routes"]},
+            {
+                "source_register": 3,
+                "download_log": 3,
+                "package_manifest": 3,
+                "metadata_profile": 3,
+                "graph_edges": 3,
+                "staging_row": 3,
+                "counter_source_lookup": 3,
+                "rights_risk_review": 3,
+                "review_log": 3,
+            },
+        )
+        self.assertEqual(
+            data["note_routes"][0]["evidence_collection_task_id"],
+            "graph-source-evidence-task-001",
+        )
+        self.assertEqual(
+            data["note_routes"][-1]["evidence_collection_task_id"],
+            "graph-source-evidence-task-027",
+        )
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in data["note_routes"]))
+        self.assertTrue(
+            all("not a decipherment conclusion" in row["caution"] for row in data["note_routes"])
+        )
+        self.assertIn("or a decipherment conclusion", " ".join(data["agent_use_rules"]))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

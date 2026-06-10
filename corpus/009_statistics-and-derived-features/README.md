@@ -30,6 +30,7 @@ Current generated statistics:
 - `023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv`: manifest for three empty counter-source lookup evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the source register for later cross-source checks without claiming identity matches, source promotion, or decipherment conclusions.
 - `024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv`: manifest for three empty rights/risk review evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to source registers, metadata profiles, download logs, and package manifests without recording rights decisions, size conclusions, source promotion, or decipherment conclusions.
 - `025_ai-agent-graph-source-review-log-note-draft-manifest.csv`: manifest for three empty review-log evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the metadata-only cross-source review results and draft review logs without recording collected evidence, human review conclusions, source promotion, or decipherment conclusions.
+- `026_ai-agent-graph-source-evidence-collection-route-pack.json`: AI Agent route pack that indexes the 017-025 graph-source evidence-collection note draft manifests, all 27 not-collected note drafts, and their route files without turning draft notes into collected evidence, rights decisions, source promotion, or decipherment conclusions.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -61,3 +62,4 @@ Current generated statistics:
 - `023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 counter-source lookup 证据收集记录草稿，把 agent 路由到来源总表以便后续跨来源反查，但不声明身份匹配、来源提升或释读结论。
 - `024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 rights/risk review 证据收集记录草稿，把 agent 路由到来源总表、metadata profile、下载日志和 package manifest，但不记录权利决定、文件大小结论、来源提升或释读结论。
 - `025_ai-agent-graph-source-review-log-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 review-log 证据收集记录草稿，把 agent 路由到 metadata-only 交叉来源复核结果和草稿复核日志，但不记录已收集证据、人工复核结论、来源提升或释读结论。
+- `026_ai-agent-graph-source-evidence-collection-route-pack.json`：AI Agent 路由包，索引 017-025 图谱来源证据收集记录草稿 manifest、全部 27 份未收集 note draft 及其 route files，但不把草稿提升为已收集证据、权利决定、来源提升或释读结论。

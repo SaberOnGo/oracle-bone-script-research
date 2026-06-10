@@ -201,6 +201,10 @@ AI_AGENT_GRAPH_SOURCE_REVIEW_LOG_NOTE_DRAFT_MANIFEST = (
     "corpus/009_statistics-and-derived-features/"
     "025_ai-agent-graph-source-review-log-note-draft-manifest.csv"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "026_ai-agent-graph-source-evidence-collection-route-pack.json"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -559,6 +563,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_COUNTER_SOURCE_LOOKUP_NOTE_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_RIGHTS_RISK_REVIEW_NOTE_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_REVIEW_LOG_NOTE_DRAFT_MANIFEST,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -634,6 +639,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_results.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_task_queue.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_note_drafts.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_route_pack.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -4680,6 +4686,172 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     f"{row.get('note_draft_path', '')} missing route file: "
                     f"{required_route_file}"
                 )
+
+    route_pack_path = root / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK
+    try:
+        route_pack = json.loads(route_pack_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} invalid JSON: {exc}")
+        return issues
+
+    expected_route_manifest_paths = [
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_METADATA_PROFILE_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_GRAPH_EDGES_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_STAGING_ROW_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_COUNTER_SOURCE_LOOKUP_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_RIGHTS_RISK_REVIEW_NOTE_DRAFT_MANIFEST,
+        AI_AGENT_GRAPH_SOURCE_REVIEW_LOG_NOTE_DRAFT_MANIFEST,
+    ]
+    expected_route_sections = [
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log",
+    ]
+    expected_route_sources = ["src-hust-obc", "src-evobc", "src-obimd"]
+    for key, expected_value in {
+        "context_pack_id": "ai-context-graph-source-evidence-collection-001",
+        "status": "draft_route_pack_not_collected",
+        "updated_at": "2026-06-10",
+    }.items():
+        if route_pack.get(key) != expected_value:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} {key} changed")
+    if route_pack.get("generated_from") != expected_route_manifest_paths:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} generated_from changed")
+
+    coverage = route_pack.get("coverage", {})
+    expected_coverage_values = {
+        "manifest_count": 9,
+        "note_draft_count": 27,
+        "source_count": 3,
+        "target_evidence_section_count": 9,
+        "route_file_reference_count": 46,
+        "counter_source_reference_count": 144,
+    }
+    for key, expected_value in expected_coverage_values.items():
+        if coverage.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} coverage {key} changed"
+            )
+    if coverage.get("source_counts") != {
+        "src-evobc": 9,
+        "src-hust-obc": 9,
+        "src-obimd": 9,
+    }:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} source counts changed")
+    if coverage.get("section_counts") != {section: 3 for section in expected_route_sections}:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} section counts changed")
+    if coverage.get("note_status_counts") != {"draft_not_collected": 27}:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} note status counts changed")
+    if coverage.get("evidence_collection_status_counts") != {"not_collected": 27}:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} evidence status counts changed"
+        )
+    if coverage.get("promotion_status_counts") != {"not_promoted": 27}:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} promotion counts changed")
+    if coverage.get("research_boundary_counts") != {
+        "evidence_collection_note_draft_not_scholarship": 27
+    }:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} boundary counts changed")
+
+    source_routes = route_pack.get("source_routes", [])
+    if [row.get("source_id") for row in source_routes] != expected_route_sources:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} source route order changed")
+    for source_route in source_routes:
+        if source_route.get("note_draft_count") != 9:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} source route count changed: "
+                f"{source_route.get('source_id', '')}"
+            )
+        if source_route.get("target_evidence_sections") != expected_route_sections:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} source route sections changed: "
+                f"{source_route.get('source_id', '')}"
+            )
+        for note_path in source_route.get("note_draft_paths", []):
+            if not str(note_path).startswith("doc/public/user_research/003_evidence-collection-tasks/"):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} bad note path: "
+                    f"{note_path}"
+                )
+
+    section_routes = route_pack.get("section_routes", [])
+    if [row.get("target_evidence_section") for row in section_routes] != expected_route_sections:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} section route order changed")
+    for section_route in section_routes:
+        if section_route.get("note_draft_count") != 3:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} section route count changed: "
+                f"{section_route.get('target_evidence_section', '')}"
+            )
+        if section_route.get("source_ids") != expected_route_sources:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} section route sources changed: "
+                f"{section_route.get('target_evidence_section', '')}"
+            )
+
+    note_routes = route_pack.get("note_routes", [])
+    if len(note_routes) != 27:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} should contain 27 note routes")
+    if note_routes:
+        if note_routes[0].get("evidence_collection_task_id") != "graph-source-evidence-task-001":
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} first task changed")
+        if note_routes[-1].get("evidence_collection_task_id") != "graph-source-evidence-task-027":
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} last task changed")
+    for route in note_routes:
+        note_path = str(route.get("note_draft_path", ""))
+        if not note_path.startswith("doc/public/user_research/"):
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} note path outside user_research: "
+                f"{note_path}"
+            )
+        if note_path.startswith("research/"):
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} note path enters research: "
+                f"{note_path}"
+            )
+        for key, expected_value in {
+            "note_status": "draft_not_collected",
+            "evidence_collection_status": "not_collected",
+            "promotion_status": "not_promoted",
+            "research_boundary": "evidence_collection_note_draft_not_scholarship",
+        }.items():
+            if route.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} {key} changed: "
+                    f"{route.get('evidence_collection_task_id', '')}"
+                )
+
+    agent_rules = " ".join(route_pack.get("agent_use_rules", []))
+    for required_snippet in [
+        "not-collected",
+        "Do not treat this pack as collected evidence",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in agent_rules:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} missing agent rule: "
+                f"{required_snippet}"
+            )
+    agent_rules_zh = " ".join(route_pack.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "未收集",
+        "不得把本包当作已收集证据",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in agent_rules_zh:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} missing zh agent rule: "
+                f"{required_snippet}"
+            )
 
     return issues
 

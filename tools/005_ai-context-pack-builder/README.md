@@ -19,6 +19,7 @@ Current tools:
 - `build_graph_source_cross_review_log_results.py`: builds metadata-only cross-source review log results from the draft manifest and local route files, confirming availability and staging refs without source promotion or decipherment claims.
 - `build_graph_source_evidence_collection_task_queue.py`: builds a not-started evidence-collection task queue from the 015 results, splitting each reviewed route into source-register, download-log, package-manifest, metadata-profile, graph-edge, staging-row, counter-source, rights/risk, and review-log tasks.
 - `build_graph_source_evidence_collection_note_drafts.py`: builds three empty evidence-collection note drafts for a selected 016 task section, plus a manifest, with all evidence still `not_collected`.
+- `build_graph_source_evidence_collection_route_pack.py`: builds a graph-source evidence-collection route pack from the 017-025 note draft manifests, indexing all not-collected note drafts and route files without turning them into evidence or conclusions.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -39,3 +40,4 @@ Current tools:
 - `build_graph_source_cross_review_log_results.py`：从 draft manifest 和本地 route files 生成 metadata-only 交叉来源复核日志结果，只确认可用性和 staging 引用，不提升来源记录或提出释读结论。
 - `build_graph_source_evidence_collection_task_queue.py`：从 015 结果生成未开始的证据收集任务队列，把每条已复核路由拆成来源登记、下载日志、package manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险和复核日志任务。
 - `build_graph_source_evidence_collection_note_drafts.py`：从 016 任务队列为指定任务章节生成三份空白证据收集记录草稿和一份 manifest，所有证据仍保持 `not_collected`。
+- `build_graph_source_evidence_collection_route_pack.py`：从 017-025 证据收集记录草稿 manifest 构建 graph-source evidence-collection route pack，索引所有未收集草稿和 route files，但不把它们提升为证据或结论。

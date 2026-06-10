@@ -332,6 +332,21 @@ def load_graph_source_evidence_collection_wave_handoff_scaffold_module():
     return module
 
 
+def load_graph_source_evidence_collection_source_register_capture_scaffold_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_evidence_collection_source_register_capture_scaffold.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_evidence_collection_source_register_capture_scaffold",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -2772,6 +2787,132 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("rights decision", " ".join(data["agent_use_rules"]))
         self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_graph_source_source_register_capture_scaffold(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["capture_row_id"] for row in rows],
+            [
+                "graph-source-evidence-source-register-capture-001",
+                "graph-source-evidence-source-register-capture-002",
+                "graph-source-evidence-source-register-capture-003",
+            ],
+        )
+        self.assertEqual(
+            [row["handoff_item_id"] for row in rows],
+            [
+                "graph-source-evidence-handoff-001",
+                "graph-source-evidence-handoff-002",
+                "graph-source-evidence-handoff-003",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual(
+            [row["evidence_collection_review_task_id"] for row in rows],
+            [
+                "graph-source-evidence-review-001",
+                "graph-source-evidence-review-010",
+                "graph-source-evidence-review-019",
+            ],
+        )
+        self.assertTrue(
+            all(row["target_evidence_section"] == "source_register" for row in rows)
+        )
+        self.assertTrue(
+            all(row["source_register_row_status"] == "not_checked" for row in rows)
+        )
+        self.assertTrue(
+            all(row["evidence_collection_status"] == "not_collected" for row in rows)
+        )
+        self.assertTrue(
+            all(row["source_register_evidence_status"] == "not_collected" for row in rows)
+        )
+        self.assertTrue(
+            all(row["rights_decision_status"] == "not_decided" for row in rows)
+        )
+        self.assertTrue(
+            all(row["source_promotion_status"] == "not_promoted" for row in rows)
+        )
+        self.assertTrue(
+            all(row["decipherment_claim_status"] == "no_claim" for row in rows)
+        )
+        self.assertTrue(
+            all(row["capture_status"] == "empty_scaffold_not_started" for row in rows)
+        )
+        empty_fields = [
+            "source_id_evidence_value",
+            "primary_external_ref_evidence_value",
+            "source_title_evidence_value",
+            "source_type_evidence_value",
+            "rights_status_evidence_value",
+            "risk_note_evidence_value",
+            "review_status_evidence_value",
+        ]
+        self.assertTrue(all(row[fieldname] == "" for row in rows for fieldname in empty_fields))
+        self.assertTrue(
+            all(
+                "corpus/006_research-sources-and-bibliography/000_source-registers/"
+                "001_all-sources-index.csv" in row["route_files_to_open"]
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all(
+                "open_source_register_row_before_copying_provenance"
+                in row["required_review_checks"]
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all("do not use it as collected evidence" in row["caution"] for row in rows)
+        )
+
+    def test_ai_agent_graph_source_source_register_capture_scaffold_builder(
+        self,
+    ) -> None:
+        module = (
+            load_graph_source_evidence_collection_source_register_capture_scaffold_module()
+        )
+        root = repo_root()
+        rows = module.build_capture_scaffold(
+            module.read_json(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json"
+            )
+        )
+
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(rows[1]["source_id"], "src-evobc")
+        self.assertEqual(rows[2]["source_id"], "src-obimd")
+        self.assertEqual(rows[0]["capture_status"], "empty_scaffold_not_started")
+        self.assertEqual(rows[1]["source_register_row_status"], "not_checked")
+        self.assertEqual(rows[2]["source_register_evidence_status"], "not_collected")
+        self.assertEqual(
+            rows[0]["handoff_scaffold_path"],
+            "corpus/009_statistics-and-derived-features/"
+            "031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json",
+        )
+        self.assertIn(
+            "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            "001_all-sources-index.csv",
+            rows[0]["route_files_to_open"],
+        )
+        self.assertIn("decipherment conclusion", rows[0]["caution"])
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

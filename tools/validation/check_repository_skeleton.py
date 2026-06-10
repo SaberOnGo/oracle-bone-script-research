@@ -225,6 +225,10 @@ AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json"
 )
+AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -589,6 +593,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD,
+    AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -670,6 +675,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_route_summary.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_assignment_plan.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_wave_handoff_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_source_register_capture_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -5852,6 +5858,123 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD} "
                 f"missing zh agent rule: {required_snippet}"
             )
+
+    capture_rows, capture_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD
+    )
+    issues.extend(capture_issues)
+    if len(capture_rows) != 3:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+            "should contain 3 source-register capture rows"
+        )
+    else:
+        expected_sources = ["src-hust-obc", "src-evobc", "src-obimd"]
+        expected_handoff_ids = [
+            "graph-source-evidence-handoff-001",
+            "graph-source-evidence-handoff-002",
+            "graph-source-evidence-handoff-003",
+        ]
+        expected_review_tasks = [
+            "graph-source-evidence-review-001",
+            "graph-source-evidence-review-010",
+            "graph-source-evidence-review-019",
+        ]
+        empty_evidence_fields = [
+            "source_id_evidence_value",
+            "primary_external_ref_evidence_value",
+            "source_title_evidence_value",
+            "source_type_evidence_value",
+            "rights_status_evidence_value",
+            "risk_note_evidence_value",
+            "review_status_evidence_value",
+        ]
+        for index, row in enumerate(capture_rows, start=1):
+            row_id = row.get("capture_row_id", "")
+            if row_id != f"graph-source-evidence-source-register-capture-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"capture row ID sequence changed: {row_id}"
+                )
+            if row.get("handoff_item_id") != expected_handoff_ids[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"handoff item changed: {row_id}"
+                )
+            if row.get("source_id") != expected_sources[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"source order changed: {row_id}"
+                )
+            if row.get("evidence_collection_review_task_id") != expected_review_tasks[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"review task changed: {row_id}"
+                )
+            for key, expected_value in {
+                "assignment_wave_id": "graph-source-evidence-assignment-wave-001",
+                "target_evidence_section": "source_register",
+                "source_register_path": SOURCE_INDEX,
+                "source_register_row_status": "not_checked",
+                "evidence_collection_status": "not_collected",
+                "source_register_evidence_status": "not_collected",
+                "rights_decision_status": "not_decided",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+                "capture_status": "empty_scaffold_not_started",
+                "updated_at": "2026-06-10",
+                "handoff_scaffold_path": AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_WAVE_HANDOFF_SCAFFOLD,
+                "research_boundary": "evidence_collection_source_register_capture_scaffold_not_scholarship",
+                "output_scope": "graph_source_evidence_collection_source_register_capture_scaffold_only",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"{key} changed: {row_id}"
+                    )
+            for fieldname in empty_evidence_fields:
+                if row.get(fieldname) != "":
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"{fieldname} should remain empty: {row_id}"
+                    )
+            route_files = row.get("route_files_to_open", "").split(";")
+            for required_path in [
+                SOURCE_INDEX,
+                row.get("note_draft_path", ""),
+                row.get("route_pack_path", ""),
+                row.get("manifest_path", ""),
+                row.get("task_queue_source_path", ""),
+            ]:
+                if required_path not in route_files:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"missing route file: {row_id}"
+                    )
+            required_checks = row.get("required_review_checks", "")
+            for required_snippet in [
+                "open_source_register_row_before_copying_provenance",
+                "record_source_id_external_ref_and_review_status_only",
+                "keep_result_row_not_collected_until_evidence_is_source_marked",
+                "do_not_write_ai_hypothesis_as_scholarship",
+            ]:
+                if required_snippet not in required_checks:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"missing required review check: {row_id}"
+                    )
+            caution = row.get("caution", "")
+            for required_snippet in [
+                "Empty capture scaffold",
+                "do not use it as collected evidence",
+                "rights decision",
+                "decipherment conclusion",
+            ]:
+                if required_snippet not in caution:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_SOURCE_REGISTER_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"missing caution text: {row_id}"
+                    )
 
     return issues
 

@@ -36,6 +36,7 @@ Current generated statistics:
 - `029_ai-agent-graph-source-evidence-collection-review-route-summary.json`: routing summary for the 028 review queue, grouping the 27 review tasks by source and target evidence section while preserving not-collected, not-promoted, and no-claim boundaries.
 - `030_ai-agent-graph-source-evidence-collection-assignment-plan.json`: planned-not-assigned assignment plan that orders the 27 review tasks into 9 source-balanced waves while keeping all evidence, rights, promotion, and decipherment fields unchanged.
 - `031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json`: first-wave handoff scaffold for the `source_register` assignment wave, listing the three source-register handoff rows and required route files without collecting evidence, assigning owners, deciding rights, promoting sources, or making decipherment claims.
+- `032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv`: empty capture scaffold for the first-wave `source_register` handoff rows, reserving source-register provenance fields while leaving evidence values blank and keeping rights decisions, source promotion, and decipherment claims unset.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -73,3 +74,4 @@ Current generated statistics:
 - `029_ai-agent-graph-source-evidence-collection-review-route-summary.json`：面向 028 复核队列的路由摘要，按来源和目标证据章节汇总 27 条复核任务，同时保留未收集、未提升、无释读声明的边界。
 - `030_ai-agent-graph-source-evidence-collection-assignment-plan.json`：planned-not-assigned 分配计划，把 27 条复核任务排成 9 个来源均衡 wave，同时不改变任何证据、权利、提升或释读字段。
 - `031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json`：面向 `source_register` 分配 wave 的首波交接脚手架，列出三条来源登记交接行和必须打开的 route files，但不收集证据、不分配 owner、不决定权利、不提升来源，也不提出释读声明。
+- `032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv`：面向首波 `source_register` 交接行的空白证据捕获骨架，预留来源登记出处字段，同时让证据值保持空白，权利决定、来源提升和释读声明保持未设置状态。

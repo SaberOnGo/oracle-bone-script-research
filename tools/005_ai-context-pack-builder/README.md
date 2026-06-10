@@ -38,6 +38,7 @@ Current tools:
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts.py`: builds 15 empty Markdown review-log drafts for the first-priority three-source codepoint matches, plus a manifest, with every evidence section left `not_collected` and no identity, reading, component, evolution-chain, or decipherment claim.
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_route_results.py`: builds 15 metadata-only route results from the 042 draft manifest, confirming local candidate-packet, OBIMD/EVOBC staging-row, source-register, download-log, checksum, and route-file availability without collecting evidence or promoting codepoint matches.
 - `build_hust_obimd_evobc_codepoint_crosswalk_evidence_capture_scaffold.py`: builds 45 not-started evidence-capture scaffold rows from the 043 route results, splitting each three-source match into candidate-packet, source-register, and download-log capture tasks without recording collected evidence or making identity, reading, component, evolution-chain, or decipherment claims.
+- `build_hust_obimd_evobc_codepoint_crosswalk_source_register_capture_results.py`: builds 45 reviewed metadata-only source-register capture result rows from the 044 source-register tasks, copying source type, provider, authority tier, URL, rights status, risk note, and review status for HUST-OBC, OBIMD, and EVOBC without source promotion or decipherment claims.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -77,3 +78,4 @@ Current tools:
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts.py`：为第一优先级的 15 条三源 codepoint 命中生成空白 Markdown 复核日志草稿和 manifest；所有证据章节保持 `not_collected`，不提出身份、释读、构件、演化链或破译结论。
 - `build_hust_obimd_evobc_codepoint_crosswalk_review_route_results.py`：从 042 草稿 manifest 生成 15 条 metadata-only 路由结果，确认本地候选包、OBIMD/EVOBC staging 行、来源登记、下载日志、checksum 和 route file 可用性，但不收集证据，也不提升 codepoint 命中。
 - `build_hust_obimd_evobc_codepoint_crosswalk_evidence_capture_scaffold.py`：从 043 路由结果生成 45 条未开始的 evidence-capture scaffold 行，把每条三源命中拆成候选资料包、来源登记和下载日志三个捕获任务，但不记录已收集证据，也不提出身份、释读、构件、演化链或破译结论。
+- `build_hust_obimd_evobc_codepoint_crosswalk_source_register_capture_results.py`：从 044 的 source-register 任务生成 45 条 reviewed metadata-only 来源登记捕获结果，复制 HUST-OBC、OBIMD、EVOBC 的来源类型、提供方、权威层级、URL、权利状态、风险说明和复核状态，但不提升来源或提出释读结论。

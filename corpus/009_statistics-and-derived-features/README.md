@@ -34,6 +34,7 @@ Current generated statistics:
 - `027_ai-agent-graph-source-evidence-collection-result-scaffold.csv`: empty result scaffold for all 27 graph-source evidence-collection routes, preserving note draft links, route files, and section actions while keeping all evidence, rights, promotion, and decipherment fields uncollected or no-claim.
 - `028_ai-agent-graph-source-evidence-collection-review-queue.csv`: review queue for the 27 graph-source evidence-collection result scaffold rows, routing agents to result rows, note drafts, route packs, manifests, route files, and counter sources before any evidence, rights decision, source promotion, or decipherment claim is recorded.
 - `029_ai-agent-graph-source-evidence-collection-review-route-summary.json`: routing summary for the 028 review queue, grouping the 27 review tasks by source and target evidence section while preserving not-collected, not-promoted, and no-claim boundaries.
+- `030_ai-agent-graph-source-evidence-collection-assignment-plan.json`: planned-not-assigned assignment plan that orders the 27 review tasks into 9 source-balanced waves while keeping all evidence, rights, promotion, and decipherment fields unchanged.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -69,3 +70,4 @@ Current generated statistics:
 - `027_ai-agent-graph-source-evidence-collection-result-scaffold.csv`：面向全部 27 条 graph-source 证据收集路由的空白结果骨架，保留 note draft 链接、route files 和章节动作，同时让所有证据、权利、提升和释读字段保持未收集或无声明。
 - `028_ai-agent-graph-source-evidence-collection-review-queue.csv`：面向 27 条 graph-source 证据收集结果骨架行的复核队列，把 agent 路由到结果行、note draft、route pack、manifest、route files 和反查来源，在记录任何证据、权利决定、来源提升或释读声明前保持准备阶段边界。
 - `029_ai-agent-graph-source-evidence-collection-review-route-summary.json`：面向 028 复核队列的路由摘要，按来源和目标证据章节汇总 27 条复核任务，同时保留未收集、未提升、无释读声明的边界。
+- `030_ai-agent-graph-source-evidence-collection-assignment-plan.json`：planned-not-assigned 分配计划，把 27 条复核任务排成 9 个来源均衡 wave，同时不改变任何证据、权利、提升或释读字段。

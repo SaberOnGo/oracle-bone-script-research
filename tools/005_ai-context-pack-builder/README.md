@@ -23,6 +23,7 @@ Current tools:
 - `build_graph_source_evidence_collection_result_scaffold.py`: builds an empty graph-source evidence-collection result scaffold from the 026 route pack, preserving route links while every result section remains not collected.
 - `build_graph_source_evidence_collection_review_queue.py`: builds a graph-source evidence-collection review queue from the 027 scaffold, routing future agents to the result row, note draft, route pack, manifest, and route files before any evidence is recorded.
 - `build_graph_source_evidence_collection_review_route_summary.py`: builds a graph-source evidence-collection review route summary from the 028 queue, grouping review tasks by source and target evidence section while keeping the output routing-only.
+- `build_graph_source_evidence_collection_assignment_plan.py`: builds a graph-source evidence-collection assignment plan from the 028 queue and 029 route summary, ordering 27 planned-not-assigned review tasks into 9 source-balanced waves without collecting evidence.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -47,3 +48,4 @@ Current tools:
 - `build_graph_source_evidence_collection_result_scaffold.py`：从 026 route pack 生成空白 graph-source evidence-collection result scaffold，保留路由链接，同时让所有结果章节保持未收集状态。
 - `build_graph_source_evidence_collection_review_queue.py`：从 027 scaffold 生成 graph-source evidence-collection review queue，把后续 agent 路由到结果行、note draft、route pack、manifest 和 route files，在记录任何证据前保持准备阶段边界。
 - `build_graph_source_evidence_collection_review_route_summary.py`：从 028 队列生成 graph-source evidence-collection review route summary，按来源和目标证据章节汇总复核任务，同时保持仅限路由的输出边界。
+- `build_graph_source_evidence_collection_assignment_plan.py`：从 028 队列和 029 路由摘要生成 graph-source evidence-collection assignment plan，把 27 条 planned-not-assigned 复核任务排成 9 个来源均衡 wave，但不收集证据。

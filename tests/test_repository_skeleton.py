@@ -304,6 +304,20 @@ def load_graph_source_evidence_collection_review_route_summary_module():
     return module
 
 
+def load_graph_source_evidence_collection_assignment_plan_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_evidence_collection_assignment_plan.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_evidence_collection_assignment_plan", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -2434,6 +2448,182 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
         )
         self.assertIn("component or evolution-chain assignment", " ".join(data["agent_use_rules"]))
+        self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_graph_source_evidence_collection_assignment_plan_orders_waves(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "030_ai-agent-graph-source-evidence-collection-assignment-plan.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        expected_priority_sections = [
+            "source_register",
+            "download_log",
+            "package_manifest",
+            "metadata_profile",
+            "rights_risk_review",
+            "graph_edges",
+            "staging_row",
+            "counter_source_lookup",
+            "review_log",
+        ]
+
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-graph-source-evidence-collection-assignment-plan-001",
+        )
+        self.assertEqual(data["status"], "draft_assignment_plan_not_started")
+        self.assertEqual(data["updated_at"], "2026-06-10")
+        self.assertEqual(
+            data["research_boundary"],
+            "evidence_collection_assignment_plan_not_scholarship",
+        )
+        self.assertEqual(
+            data["output_scope"],
+            "graph_source_evidence_collection_assignment_plan_only",
+        )
+        self.assertEqual(
+            data["upstream_context_pack_id"],
+            "ai-context-graph-source-evidence-collection-review-summary-001",
+        )
+        self.assertEqual(
+            data["generated_from"],
+            [
+                "corpus/009_statistics-and-derived-features/"
+                "029_ai-agent-graph-source-evidence-collection-review-route-summary.json",
+                "corpus/009_statistics-and-derived-features/"
+                "028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+                "corpus/009_statistics-and-derived-features/"
+                "027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+                "corpus/009_statistics-and-derived-features/"
+                "026_ai-agent-graph-source-evidence-collection-route-pack.json",
+            ],
+        )
+        self.assertEqual(data["coverage"]["assignment_item_count"], 27)
+        self.assertEqual(data["coverage"]["assignment_wave_count"], 9)
+        self.assertEqual(data["coverage"]["source_workstream_count"], 3)
+        self.assertEqual(data["coverage"]["route_file_reference_count"], 154)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 57)
+        self.assertEqual(data["coverage"]["counter_source_reference_count"], 144)
+        self.assertEqual(data["coverage"]["unique_counter_source_count"], 6)
+        self.assertEqual(
+            data["coverage"]["assignment_status_counts"],
+            {"planned_not_assigned": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["review_status_counts"],
+            {"needs_evidence_collection_review": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["evidence_collection_status_counts"],
+            {"not_collected": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["source_promotion_status_counts"],
+            {"not_promoted": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["decipherment_claim_status_counts"],
+            {"no_claim": 27},
+        )
+        self.assertEqual(
+            [row["target_evidence_section"] for row in data["assignment_waves"]],
+            expected_priority_sections,
+        )
+        self.assertTrue(
+            all(row["assignment_item_count"] == 3 for row in data["assignment_waves"])
+        )
+        self.assertTrue(
+            all(row["source_ids"] == ["src-hust-obc", "src-evobc", "src-obimd"] for row in data["assignment_waves"])
+        )
+        self.assertEqual(
+            [row["source_id"] for row in data["source_workstreams"]],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertTrue(
+            all(row["target_evidence_sections"] == expected_priority_sections for row in data["source_workstreams"])
+        )
+        self.assertEqual(
+            {row["source_id"]: row["route_file_count"] for row in data["source_workstreams"]},
+            {"src-hust-obc": 32, "src-evobc": 29, "src-obimd": 30},
+        )
+        self.assertEqual(len(data["assignment_items"]), 27)
+        self.assertEqual(
+            data["assignment_items"][0]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-001",
+        )
+        self.assertEqual(
+            data["assignment_items"][1]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-010",
+        )
+        self.assertEqual(
+            data["assignment_items"][2]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-019",
+        )
+        self.assertEqual(
+            data["assignment_items"][-1]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-027",
+        )
+        self.assertTrue(
+            all(row["assignment_status"] == "planned_not_assigned" for row in data["assignment_items"])
+        )
+        self.assertTrue(
+            all(row["evidence_collection_status"] == "not_collected" for row in data["assignment_items"])
+        )
+        self.assertTrue(
+            all(row["source_promotion_status"] == "not_promoted" for row in data["assignment_items"])
+        )
+        self.assertTrue(
+            all(row["decipherment_claim_status"] == "no_claim" for row in data["assignment_items"])
+        )
+        rules = " ".join(data["agent_use_rules"])
+        self.assertIn("Open the 030 plan item", rules)
+        self.assertIn("planned_not_assigned", rules)
+        self.assertIn("Do not treat this plan as collected evidence", rules)
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("必须打开 030 计划项", rules_zh)
+        self.assertIn("不得把本计划当作已收集证据", rules_zh)
+
+    def test_ai_agent_graph_source_evidence_collection_assignment_plan_builder(
+        self,
+    ) -> None:
+        module = load_graph_source_evidence_collection_assignment_plan_module()
+        root = repo_root()
+        data = module.build_assignment_plan(
+            module.read_csv_rows(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "028_ai-agent-graph-source-evidence-collection-review-queue.csv"
+            ),
+            module.read_json(
+                root
+                / "corpus/009_statistics-and-derived-features/"
+                / "029_ai-agent-graph-source-evidence-collection-review-route-summary.json"
+            ),
+        )
+        self.assertEqual(data["coverage"]["assignment_item_count"], 27)
+        self.assertEqual(data["coverage"]["assignment_wave_count"], 9)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 57)
+        self.assertEqual(
+            data["assignment_waves"][4]["target_evidence_section"],
+            "rights_risk_review",
+        )
+        self.assertEqual(data["assignment_waves"][4]["priority_rank"], "5")
+        self.assertEqual(
+            data["assignment_items"][4]["target_evidence_section"],
+            "download_log",
+        )
+        self.assertEqual(
+            data["assignment_items"][4]["evidence_collection_review_task_id"],
+            "graph-source-evidence-review-011",
+        )
+        self.assertTrue(
+            all(row["assignment_status"] == "planned_not_assigned" for row in data["assignment_items"])
+        )
+        self.assertIn("rights decision", " ".join(data["agent_use_rules"]))
         self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:

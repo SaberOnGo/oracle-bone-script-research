@@ -217,6 +217,10 @@ AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "029_ai-agent-graph-source-evidence-collection-review-route-summary.json"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN = (
+    "corpus/009_statistics-and-derived-features/"
+    "030_ai-agent-graph-source-evidence-collection-assignment-plan.json"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -579,6 +583,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -658,6 +663,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_queue.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_route_summary.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_assignment_plan.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -5064,6 +5070,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "rights_risk_review",
         "review_log",
     ]
+    expected_priority_sections = list(expected_review_priorities)
     if [row.get("source_id", "") for row in review_queue_rows] != [
         row.get("source_id", "")
         for row in result_rows
@@ -5376,6 +5383,254 @@ def check_ai_context_packs(root: Path) -> list[str]:
         if required_snippet not in summary_rules_zh:
             issues.append(
                 f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"missing zh agent rule: {required_snippet}"
+            )
+
+    try:
+        assignment_plan = json.loads(
+            (root / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN)
+            .read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        return issues + [
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            f"invalid JSON: {exc.msg}"
+        ]
+    expected_assignment_values = {
+        "context_pack_id": "ai-context-graph-source-evidence-collection-assignment-plan-001",
+        "status": "draft_assignment_plan_not_started",
+        "updated_at": "2026-06-10",
+        "research_boundary": "evidence_collection_assignment_plan_not_scholarship",
+        "output_scope": "graph_source_evidence_collection_assignment_plan_only",
+        "upstream_context_pack_id": "ai-context-graph-source-evidence-collection-review-summary-001",
+    }
+    for key, expected_value in expected_assignment_values.items():
+        if assignment_plan.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                f"{key} changed"
+            )
+    if assignment_plan.get("generated_from") != [
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            "generated_from changed"
+        )
+    assignment_coverage = assignment_plan.get("coverage", {})
+    expected_assignment_coverage = {
+        "review_task_count": 27,
+        "assignment_item_count": 27,
+        "assignment_wave_count": 9,
+        "source_workstream_count": 3,
+        "source_count": 3,
+        "target_evidence_section_count": 9,
+        "route_file_reference_count": 154,
+        "unique_route_file_count": 57,
+        "counter_source_reference_count": 144,
+        "unique_counter_source_count": 6,
+    }
+    for key, expected_value in expected_assignment_coverage.items():
+        if assignment_coverage.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                f"coverage {key} changed"
+            )
+    if assignment_coverage.get("source_counts") != {
+        "src-hust-obc": 9,
+        "src-evobc": 9,
+        "src-obimd": 9,
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            "source counts changed"
+        )
+    if assignment_coverage.get("section_counts") != {
+        section: 3 for section in expected_priority_sections
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            "section counts changed"
+        )
+    for key, expected_counts in {
+        "assignment_status_counts": {"planned_not_assigned": 27},
+        "review_status_counts": {"needs_evidence_collection_review": 27},
+        "evidence_collection_status_counts": {"not_collected": 27},
+        "source_promotion_status_counts": {"not_promoted": 27},
+        "decipherment_claim_status_counts": {"no_claim": 27},
+    }.items():
+        if assignment_coverage.get(key) != expected_counts:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                f"{key} changed"
+            )
+    assignment_waves = assignment_plan.get("assignment_waves", [])
+    if [row.get("target_evidence_section") for row in assignment_waves] != expected_priority_sections:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            "wave section order changed"
+        )
+    else:
+        for index, row in enumerate(assignment_waves, start=1):
+            wave_id = row.get("assignment_wave_id", "")
+            if wave_id != f"graph-source-evidence-assignment-wave-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"wave ID sequence changed: {wave_id}"
+                )
+            if row.get("priority_rank") != str(index):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"wave priority changed: {wave_id}"
+                )
+            if row.get("assignment_item_count") != 3:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"wave count changed: {wave_id}"
+                )
+            if row.get("source_ids") != ["src-hust-obc", "src-evobc", "src-obimd"]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"wave source order changed: {wave_id}"
+                )
+            for key, expected_value in {
+                "assignment_status": "planned_not_assigned",
+                "evidence_collection_status": "not_collected",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                        f"wave {key} changed: {wave_id}"
+                    )
+    source_workstreams = assignment_plan.get("source_workstreams", [])
+    if [row.get("source_id") for row in source_workstreams] != [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd",
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            "source workstream order changed"
+        )
+    else:
+        expected_source_route_counts = {
+            "src-hust-obc": 32,
+            "src-evobc": 29,
+            "src-obimd": 30,
+        }
+        for row in source_workstreams:
+            source_id = row.get("source_id", "")
+            if row.get("assignment_item_count") != 9:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"source item count changed: {source_id}"
+                )
+            if row.get("target_evidence_sections") != expected_priority_sections:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"source sections changed: {source_id}"
+                )
+            if row.get("min_priority_rank") != 1 or row.get("max_priority_rank") != 9:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"source priority range changed: {source_id}"
+                )
+            if row.get("route_file_count") != expected_source_route_counts.get(source_id):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"source route file count changed: {source_id}"
+                )
+    assignment_items = assignment_plan.get("assignment_items", [])
+    if not isinstance(assignment_items, list) or len(assignment_items) != 27:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+            "should contain 27 assignment items"
+        )
+    else:
+        if assignment_items[0].get("evidence_collection_review_task_id") != "graph-source-evidence-review-001":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                "first assignment review task changed"
+            )
+        if assignment_items[1].get("evidence_collection_review_task_id") != "graph-source-evidence-review-010":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                "second assignment review task changed"
+            )
+        if assignment_items[2].get("evidence_collection_review_task_id") != "graph-source-evidence-review-019":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                "third assignment review task changed"
+            )
+        if assignment_items[-1].get("evidence_collection_review_task_id") != "graph-source-evidence-review-027":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                "last assignment review task changed"
+            )
+        for index, row in enumerate(assignment_items, start=1):
+            item_id = row.get("assignment_plan_item_id", "")
+            if item_id != f"graph-source-evidence-assignment-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"assignment item ID sequence changed: {item_id}"
+                )
+            for key, expected_value in {
+                "assignment_status": "planned_not_assigned",
+                "review_status": "needs_evidence_collection_review",
+                "evidence_collection_status": "not_collected",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                        f"{key} changed: {item_id}"
+                    )
+            route_files = row.get("route_files_to_open", [])
+            if row.get("note_draft_path") not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"assignment missing note draft route: {item_id}"
+                )
+            if row.get("route_pack_path") not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"assignment missing route pack: {item_id}"
+                )
+            if row.get("manifest_path") not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                    f"assignment missing manifest: {item_id}"
+                )
+    assignment_rules = " ".join(assignment_plan.get("agent_use_rules", []))
+    assignment_rules_zh = " ".join(assignment_plan.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "only to choose the next planned review route",
+        "Open the 030 plan item",
+        "planned_not_assigned",
+        "Do not treat this plan as collected evidence",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in assignment_rules:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
+                f"missing agent rule: {required_snippet}"
+            )
+    for required_snippet in [
+        "只能用于选择下一条计划中的复核路由",
+        "必须打开 030 计划项",
+        "planned_not_assigned",
+        "不得把本计划当作已收集证据",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in assignment_rules_zh:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ASSIGNMENT_PLAN} "
                 f"missing zh agent rule: {required_snippet}"
             )
 

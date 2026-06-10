@@ -66,6 +66,12 @@ BUCKET_SPECS = [
         "end": 300,
         "materialization_status": "third_bucket_candidate_packet_materialized",
     },
+    {
+        "directory_prefix": "020",
+        "start": 301,
+        "end": 400,
+        "materialization_status": "fourth_bucket_candidate_packet_materialized",
+    },
 ]
 
 INDEX_FIELDS = [

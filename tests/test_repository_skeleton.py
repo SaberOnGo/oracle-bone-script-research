@@ -220,6 +220,21 @@ def load_hust_obimd_evobc_codepoint_crosswalk_context_pack_module():
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_review_queue_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_review_queue.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_review_queue", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -903,6 +918,81 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("does not contain identity", data["purpose"])
         self.assertNotIn("confirmed scholarship", " ".join(data["agent_use_rules"]))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_review_queue_prioritizes_matches(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 134)
+        self.assertEqual(
+            Counter(row["priority_bucket"] for row in rows),
+            {
+                "both_obimd_and_evobc_codepoint_match": 15,
+                "obimd_only_codepoint_match": 7,
+                "evobc_only_codepoint_match": 112,
+            },
+        )
+        self.assertEqual(
+            Counter(row["cross_source_status"] for row in rows),
+            {
+                "matched_obimd_and_evobc_by_codepoint": 15,
+                "matched_obimd_by_codepoint": 7,
+                "matched_evobc_by_codepoint": 112,
+            },
+        )
+        self.assertEqual(rows[0]["codepoint_review_task_id"], "codepoint-crosswalk-review-001")
+        self.assertEqual(rows[0]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(rows[0]["priority_rank"], "1")
+        self.assertEqual(rows[0]["matched_source_ids"], "src-hust-obc;src-obimd;src-evobc")
+        self.assertEqual(rows[0]["hust_label_codepoints"], "U+342D")
+        self.assertIn("obimd_main_character_staging_row", rows[0]["required_evidence_sections"])
+        self.assertIn("evobc_evolution_category_staging_row", rows[0]["required_evidence_sections"])
+        self.assertIn("040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json", rows[0]["route_files_to_open"])
+        self.assertTrue(rows[0]["expected_output_path"].startswith("doc/public/user_research/"))
+        self.assertEqual(rows[0]["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(rows[0]["promotion_status"], "not_promoted")
+        self.assertEqual(rows[0]["assignment_status"], "unassigned")
+        self.assertEqual(rows[0]["task_status"], "needs_codepoint_cross_source_review")
+        self.assertIn("not confirmed oracle-character identity", rows[0]["caution"])
+        self.assertIn("not decipherment conclusions", rows[0]["caution"])
+        self.assertEqual(rows[14]["codepoint_review_task_id"], "codepoint-crosswalk-review-015")
+        self.assertEqual(rows[14]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001550")
+        self.assertEqual(rows[15]["codepoint_review_task_id"], "codepoint-crosswalk-review-016")
+        self.assertEqual(rows[15]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000057")
+        self.assertEqual(rows[15]["priority_rank"], "2")
+        self.assertEqual(rows[-1]["codepoint_review_task_id"], "codepoint-crosswalk-review-134")
+        self.assertEqual(rows[-1]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001570")
+        self.assertEqual(rows[-1]["priority_rank"], "3")
+        self.assertTrue(all(row["research_boundary"].endswith("not_scholarship") for row in rows))
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_review_queue_builder_keeps_boundaries(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_review_queue_module()
+        root = repo_root()
+        rows = module.build_review_rows(
+            module.read_json(root / module.CODEPOINT_CROSSWALK_CONTEXT_PACK),
+            module.read_csv_rows(root / module.HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK),
+        )
+
+        self.assertEqual(len(rows), 134)
+        self.assertEqual(rows[0]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(rows[0]["priority_bucket"], "both_obimd_and_evobc_codepoint_match")
+        self.assertEqual(rows[15]["priority_bucket"], "obimd_only_codepoint_match")
+        self.assertEqual(rows[-1]["priority_bucket"], "evobc_only_codepoint_match")
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertTrue(
+            all("record_no_identity_or_decipherment_claim" in row["required_next_checks"] for row in rows)
+        )
+        self.assertTrue(
+            all(module.CODEPOINT_CROSSWALK_CONTEXT_PACK.as_posix() in row["route_files_to_open"] for row in rows)
+        )
+        self.assertFalse(any(row["expected_output_path"].startswith("research/") for row in rows))
+        self.assertIn("not component assignments", rows[0]["caution"])
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:
         path = (

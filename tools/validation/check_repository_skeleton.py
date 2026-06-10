@@ -271,6 +271,10 @@ AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json"
 )
+AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -646,6 +650,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST,
     AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK,
+    AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -716,6 +721,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
@@ -2600,6 +2606,226 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
                 f"missing Chinese agent rule: {required_snippet}"
             )
+
+    codepoint_review_rows, codepoint_review_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE
+    )
+    issues.extend(codepoint_review_issues)
+    codepoint_crosswalk_rows, codepoint_crosswalk_issues = _read_csv_rows(
+        root / HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK
+    )
+    issues.extend(codepoint_crosswalk_issues)
+    crosswalk_rows_by_id = {
+        row.get("crosswalk_candidate_id", ""): row
+        for row in codepoint_crosswalk_rows
+    }
+    if len(codepoint_review_rows) != 134:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+            "should contain exactly 134 rows"
+        )
+    if Counter(row.get("priority_bucket", "") for row in codepoint_review_rows) != {
+        "both_obimd_and_evobc_codepoint_match": 15,
+        "obimd_only_codepoint_match": 7,
+        "evobc_only_codepoint_match": 112,
+    }:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+            "priority bucket counts changed"
+        )
+    if Counter(row.get("cross_source_status", "") for row in codepoint_review_rows) != {
+        "matched_obimd_and_evobc_by_codepoint": 15,
+        "matched_obimd_by_codepoint": 7,
+        "matched_evobc_by_codepoint": 112,
+    }:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+            "cross-source status counts changed"
+        )
+    expected_priority_by_status = {
+        "matched_obimd_and_evobc_by_codepoint": ("1", "both_obimd_and_evobc_codepoint_match"),
+        "matched_obimd_by_codepoint": ("2", "obimd_only_codepoint_match"),
+        "matched_evobc_by_codepoint": ("3", "evobc_only_codepoint_match"),
+    }
+    for index, row in enumerate(codepoint_review_rows, start=1):
+        task_id = row.get("codepoint_review_task_id", "")
+        crosswalk_id = row.get("crosswalk_candidate_id", "")
+        crosswalk_row = crosswalk_rows_by_id.get(crosswalk_id, {})
+        if task_id != f"codepoint-crosswalk-review-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"task ID sequence changed: {task_id}"
+            )
+        if row.get("context_pack_id") != "ai-context-hust-obimd-evobc-codepoint-crosswalk-001":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"context pack link changed: {task_id}"
+            )
+        if not crosswalk_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"unknown crosswalk ID: {crosswalk_id}"
+            )
+            continue
+        if crosswalk_row.get("cross_source_status") == "no_obimd_or_evobc_codepoint_match":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"must not queue no-match rows: {task_id}"
+            )
+        for linked_field in [
+            "suggested_oracle_character_id",
+            "promotion_queue_id",
+            "cross_source_status",
+            "matched_source_ids",
+            "hust_primary_external_ref_id",
+            "hust_label_codepoints",
+            "obimd_match_count",
+            "obimd_candidate_main_character_ids",
+            "evobc_match_count",
+            "evobc_candidate_evolution_category_ids",
+            "evobc_image_reference_count_total",
+            "evobc_has_oracle_bone_refs_any",
+            "candidate_packet_path",
+            "identity_claim_status",
+        ]:
+            if row.get(linked_field) != crosswalk_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"{linked_field} does not match crosswalk: {task_id}"
+                )
+        expected_priority = expected_priority_by_status.get(row.get("cross_source_status", ""))
+        if expected_priority is None:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"unexpected status: {task_id}"
+            )
+        elif (row.get("priority_rank"), row.get("priority_bucket")) != expected_priority:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"priority changed: {task_id}"
+            )
+        for key, expected_value in {
+            "promotion_status": "not_promoted",
+            "assignment_status": "unassigned",
+            "task_status": "needs_codepoint_cross_source_review",
+            "research_boundary": "codepoint_crosswalk_review_queue_metadata_only_not_scholarship",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"{key} changed: {task_id}"
+                )
+        if not row.get("expected_output_path", "").startswith(
+            "doc/public/user_research/004_codepoint-crosswalk-review-queues/"
+        ):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"expected output path outside user_research: {task_id}"
+            )
+        if row.get("expected_output_path", "").startswith("research/"):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"expected output path must not use research/: {task_id}"
+            )
+        evidence_sections = set(filter(None, row.get("required_evidence_sections", "").split(";")))
+        for required_section in [
+            "crosswalk_row",
+            "hust_candidate_packet",
+            "source_register",
+            "download_log",
+            "rights_risk_boundary",
+            "review_log",
+        ]:
+            if required_section not in evidence_sections:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"missing evidence section {required_section}: {task_id}"
+                )
+        if int(row.get("obimd_match_count", "0")) > 0 and (
+            "obimd_main_character_staging_row" not in evidence_sections
+        ):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"missing OBIMD evidence section: {task_id}"
+            )
+        if int(row.get("evobc_match_count", "0")) > 0 and (
+            "evobc_evolution_category_staging_row" not in evidence_sections
+        ):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                f"missing EVOBC evidence section: {task_id}"
+            )
+        next_checks = row.get("required_next_checks", "")
+        for required_check in [
+            "open_codepoint_crosswalk_row",
+            "open_hust_candidate_packet",
+            "verify_source_register_and_download_log_rights_risk",
+            "record_no_identity_or_decipherment_claim",
+        ]:
+            if required_check not in next_checks:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"missing next check {required_check}: {task_id}"
+                )
+        route_files = [value for value in row.get("route_files_to_open", "").split(";") if value]
+        for required_file in [
+            AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK,
+            HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK,
+            HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+            row.get("candidate_packet_path", ""),
+            SOURCE_INDEX,
+            SOURCE_DOWNLOAD_LOG,
+        ]:
+            if required_file not in route_files:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"missing route file {required_file}: {task_id}"
+                )
+        for route_file in route_files:
+            if not (root / route_file).exists():
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"route file does not exist: {route_file}"
+                )
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "codepoint cross-source review task only",
+            "lookup routes",
+            "not confirmed oracle-character identity",
+            "not accepted readings",
+            "not component assignments",
+            "not evolution-chain assignments",
+            "not decipherment conclusions",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"missing caution {required_snippet}: {task_id}"
+                )
+    if codepoint_review_rows:
+        expected_boundary_rows = [
+            ("codepoint-crosswalk-review-001", "hust-obimd-evobc-xwalk-000047", "1"),
+            ("codepoint-crosswalk-review-015", "hust-obimd-evobc-xwalk-001550", "1"),
+            ("codepoint-crosswalk-review-016", "hust-obimd-evobc-xwalk-000057", "2"),
+            ("codepoint-crosswalk-review-134", "hust-obimd-evobc-xwalk-001570", "3"),
+        ]
+        rows_by_task_id = {
+            row.get("codepoint_review_task_id", ""): row
+            for row in codepoint_review_rows
+        }
+        for task_id, crosswalk_id, priority_rank in expected_boundary_rows:
+            row = rows_by_task_id.get(task_id, {})
+            if row.get("crosswalk_candidate_id") != crosswalk_id:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"boundary task changed: {task_id}"
+                )
+            if row.get("priority_rank") != priority_rank:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_QUEUE} "
+                    f"boundary priority changed: {task_id}"
+                )
 
     source_route_rows, source_route_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE)
     issues.extend(source_route_issues)

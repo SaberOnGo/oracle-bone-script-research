@@ -45,6 +45,7 @@ Current generated statistics:
 - `038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv`: empty capture scaffold for the third-wave `package_manifest` handoff rows, reserving package file, source package, file name, file kind, source URL, size, download ID, checksum, commit policy, handling strategy, rights, and review-status evidence fields while keeping every evidence value blank and every review, rights, promotion, and decipherment status unset.
 - `039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv`: not-started review checklist for the 038 package-manifest capture rows, requiring agents to open the package manifest row, verify package/source package IDs, file name/kind/URL, file size/download ID, checksum boundary, commit policy, handling strategy, rights/review status, and block source promotion and decipherment claims.
 - `040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json`: metadata-only AI Agent routing context pack for the 1,588 HUST/OBIMD/EVOBC codepoint crosswalk candidates, summarizing OBIMD/EVOBC match coverage, source routes, sample rows, route files, and non-identity/non-decipherment cautions.
+- `041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv`: metadata-only review queue for the 134 HUST/OBIMD/EVOBC codepoint crosswalk rows with OBIMD or EVOBC matches, ordered by three-source matches, OBIMD-only matches, and EVOBC-only matches before any evidence collection.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -91,3 +92,4 @@ Current generated statistics:
 - `038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv`：面向第三波 `package_manifest` 交接行的空白证据捕获骨架，预留 package file、source package、文件名、文件类型、来源 URL、大小、download ID、checksum、提交策略、处理策略、权利和复核状态字段，同时让所有证据值保持空白，并保持复核、权利、提升和释读状态未设置。
 - `039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv`：面向 038 package manifest 捕获行的未开始复核 checklist，要求 agent 打开 package manifest 行并核对 package/source package ID、文件名/类型/URL、文件大小/download ID、checksum 边界、提交策略、处理策略、权利/复核状态，同时阻止来源提升和释读声明。
 - `040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json`：面向 1,588 条 HUST/OBIMD/EVOBC codepoint crosswalk 候选的 metadata-only AI Agent 路由上下文包，汇总 OBIMD/EVOBC 命中覆盖、来源路由、样例行、route files 和禁止身份/释读推断的 caution。
+- `041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv`：面向 134 条命中 OBIMD 或 EVOBC 的 HUST/OBIMD/EVOBC codepoint crosswalk 行的 metadata-only 复核队列，按三源命中、OBIMD-only、EVOBC-only 排序，用于证据收集前的路由准备。

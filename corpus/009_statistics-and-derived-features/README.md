@@ -23,6 +23,7 @@ Current generated statistics:
 - `016_ai-agent-graph-source-evidence-collection-task-queue.csv`: per-source, per-section evidence-collection task queue derived from the 015 results, routing future agents to source register, download log, package manifest, metadata profile, graph-edge, staging-row, counter-source, rights/risk, and review-log checks while keeping all evidence uncollected.
 - `017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv`: manifest for three empty source-register evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, linked to 016 task rows and kept `not_collected`, `not_promoted`, and outside scholarship.
 - `018_ai-agent-graph-source-download-log-note-draft-manifest.csv`: manifest for three empty download-log evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the large-source download log without recording collected evidence, checksums, rights decisions, or source promotion.
+- `019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv`: manifest for three empty package-manifest evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to source package file manifests without recording file-size conclusions, checksum review, rights decisions, or source promotion.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -47,3 +48,4 @@ Current generated statistics:
 - `016_ai-agent-graph-source-evidence-collection-task-queue.csv`：从 015 结果派生的逐来源、逐章节证据收集任务队列，把后续 agent 路由到来源登记、下载日志、package manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险和复核日志检查，同时保持所有证据为未收集状态。
 - `017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白来源登记证据收集记录草稿，与 016 任务行相连，并保持 `not_collected`、`not_promoted`、非学术结论边界。
 - `018_ai-agent-graph-source-download-log-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白下载日志证据收集记录草稿，把 agent 路由到大型来源下载日志，但不记录已收集证据、checksum、权利决定或来源提升。
+- `019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 package manifest 证据收集记录草稿，把 agent 路由到来源包文件 manifest，但不记录文件大小结论、checksum 复核、权利决定或来源提升。

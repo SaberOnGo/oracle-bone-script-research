@@ -1360,6 +1360,74 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
 
+    def test_ai_agent_graph_source_package_manifest_note_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["evidence_collection_task_id"] for row in rows],
+            [
+                "graph-source-evidence-task-003",
+                "graph-source-evidence-task-012",
+                "graph-source-evidence-task-021",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"package_manifest"})
+        self.assertEqual(
+            {row["route_files_to_open"] for row in rows},
+            {"corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv"},
+        )
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("not a promotion decision" in row["caution"] for row in rows))
+        for row in rows:
+            note_path = repo_root() / row["note_draft_path"]
+            text = note_path.read_text(encoding="utf-8")
+            self.assertIn("Evidence Collection Note", text)
+            self.assertIn("package_manifest", text)
+            self.assertIn("Package Manifest", text)
+            self.assertIn("包 manifest", text)
+            self.assertIn(
+                "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
+                text,
+            )
+            self.assertIn("not_collected", text)
+            self.assertIn("not a decipherment conclusion", text)
+            self.assertIn("不是释读结论", text)
+
+    def test_ai_agent_graph_source_package_manifest_note_draft_builder_selects_section(self) -> None:
+        module = load_graph_source_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE)
+        rows = module.build_note_manifest_rows(task_rows, target_section="package_manifest")
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "graph-source-evidence-task-003")
+        self.assertEqual(rows[1]["evidence_collection_task_id"], "graph-source-evidence-task-012")
+        self.assertEqual(rows[2]["evidence_collection_task_id"], "graph-source-evidence-task-021")
+        self.assertTrue(all(row["target_evidence_section"] == "package_manifest" for row in rows))
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        task_rows_by_id = {row["evidence_collection_task_id"]: row for row in task_rows}
+        markdown = module.build_markdown(
+            task_rows_by_id["graph-source-evidence-task-003"],
+            rows[0]["evidence_collection_note_draft_id"],
+        )
+        self.assertIn("Package Manifest", markdown)
+        self.assertIn("包 manifest", markdown)
+        self.assertIn("created_from_016_task_queue", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])
 

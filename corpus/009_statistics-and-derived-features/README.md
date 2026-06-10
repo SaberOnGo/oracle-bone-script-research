@@ -27,6 +27,7 @@ Current generated statistics:
 - `020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv`: manifest for three empty metadata-profile evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to downloaded metadata profile rows without recording collected metrics, rights decisions, source promotion, or decipherment conclusions.
 - `021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv`: manifest for three empty graph-edge evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to relationship graph JSONL files without recording collected edge evidence, component assignments, evolution-chain claims, or decipherment conclusions.
 - `022_ai-agent-graph-source-staging-row-note-draft-manifest.csv`: manifest for three empty staging-row evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents back to candidate and staging rows without promoting dataset rows into accepted characters, components, evolution chains, or scholarship.
+- `023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv`: manifest for three empty counter-source lookup evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the source register for later cross-source checks without claiming identity matches, source promotion, or decipherment conclusions.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -55,3 +56,4 @@ Current generated statistics:
 - `020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 metadata profile 证据收集记录草稿，把 agent 路由到已下载 metadata profile 行，但不记录已收集指标、权利决定、来源提升或释读结论。
 - `021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 graph-edge 证据收集记录草稿，把 agent 路由到关系图谱 JSONL 文件，但不记录已收集图谱边证据、构件判定、演化链声明或释读结论。
 - `022_ai-agent-graph-source-staging-row-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 staging-row 证据收集记录草稿，把 agent 路由回候选和 staging 行，但不把数据集行提升为已接受甲骨字、构件、演化链或学术结论。
+- `023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv`：记录 `doc/public/user_research/003_evidence-collection-tasks/` 下三份空白 counter-source lookup 证据收集记录草稿，把 agent 路由到来源总表以便后续跨来源反查，但不声明身份匹配、来源提升或释读结论。

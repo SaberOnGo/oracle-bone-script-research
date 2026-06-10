@@ -129,6 +129,10 @@ SOURCE_COVERAGE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "007_source-coverage-summary.csv"
 )
+AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "008_ai-agent-source-coverage-context-pack.json"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -349,6 +353,7 @@ REQUIRED_PATHS = [
     AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
     AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
     SOURCE_COVERAGE_SUMMARY,
+    AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -384,6 +389,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
     "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -1859,6 +1865,185 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         if required_snippet not in asset_rules_zh:
             issues.append(f"{AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
+
+    source_context_path = root / AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK
+    try:
+        source_context_pack = json.loads(source_context_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return issues + [f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} invalid JSON: {exc.msg}"]
+    if source_context_pack.get("context_pack_id") != "ai-context-source-coverage-001":
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} context_pack_id changed")
+    if source_context_pack.get("status") != "reviewed_metadata_only":
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} status must stay reviewed_metadata_only")
+    if source_context_pack.get("updated_at") != "2026-06-10":
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} updated_at changed")
+    if source_context_pack.get("generated_from") != [
+        SOURCE_COVERAGE_SUMMARY,
+        SOURCE_INDEX,
+        SOURCE_DOWNLOAD_MANIFEST,
+        SOURCE_DOWNLOAD_LOG,
+        DOWNLOADED_METADATA_PROFILE,
+        ASSET_SOURCE_INDEX,
+        RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
+        HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+    ]:
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} generated_from changed")
+
+    source_coverage = source_context_pack.get("coverage", {})
+    expected_source_coverage = {
+        "source_count": 21,
+        "download_manifest_count": 44,
+        "download_log_count": 44,
+        "metadata_profile_metric_count": 48,
+        "committed_asset_count": 3,
+        "committed_asset_bytes": 4922128,
+        "graph_edge_count": 99674,
+        "promotion_queue_candidate_count": 1588,
+    }
+    for key, value in expected_source_coverage.items():
+        if source_coverage.get(key) != value:
+            issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage {key} changed")
+    if source_coverage.get("coverage_status_counts") != {
+        "has_committed_public_asset_or_metadata": 2,
+        "has_download_log_only": 12,
+        "has_downloaded_metadata_profile": 4,
+        "has_relationship_graph_derivatives": 3,
+    }:
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage status counts changed")
+    if source_coverage.get("rights_status_counts") != {
+        "licensed_for_repository": 1,
+        "metadata_only_until_verified": 11,
+        "public_domain_verified": 2,
+        "source_marked_risk_noted": 7,
+    }:
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} rights status counts changed")
+    if source_coverage.get("authority_tier_counts") != {
+        "core_institutional": 4,
+        "institutional_database": 1,
+        "institutional_portal": 1,
+        "museum_collection": 2,
+        "national_library": 1,
+        "national_museum_collection": 1,
+        "peer_reviewed_dataset": 4,
+        "peer_reviewed_or_preprint_dataset": 1,
+        "scholarly_commercial_platform": 1,
+        "scholarly_platform": 1,
+        "scholarly_project": 1,
+        "university_library_collection": 2,
+        "university_museum_collection": 1,
+    }:
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} authority tier counts changed")
+
+    source_entries = source_context_pack.get("source_routes", [])
+    if not isinstance(source_entries, list) or len(source_entries) != 21:
+        issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} must contain 21 source routes")
+        source_entries_by_id = {}
+    else:
+        source_entries_by_id = {
+            row.get("source_id", ""): row
+            for row in source_entries
+        }
+        if set(source_entries_by_id) != {
+            "src-british-museum-oracle-bone",
+            "src-cambridge-hopkins",
+            "src-evobc",
+            "src-gbedobc",
+            "src-hust-obc",
+            "src-ihp-museum-oracle-bones",
+            "src-ihp-oracle-rubbings",
+            "src-metmuseum-oracle-bone",
+            "src-nlc-oracle-world",
+            "src-obid-ancientbooks",
+            "src-obimd",
+            "src-open-oracle",
+            "src-oracle-mnist",
+            "src-penn-museum-oracle-bone",
+            "src-sinica-da-xiaoxuetang-site",
+            "src-sinica-yinshang-oracle-vocabulary",
+            "src-smithsonian-nmaa-oracle-bone",
+            "src-tsinghua-oracle-bones",
+            "src-xiaoxuetang-jiaguwen",
+            "src-xiaoxuetang-obm",
+            "src-yinqi-wenyuan",
+        }:
+            issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} source route IDs changed")
+        expected_source_values = {
+            "src-hust-obc": {
+                "route": "open_graph_and_metadata_derivatives",
+                "promotion_queue_candidate_count": 1588,
+                "graph_edge_count": 3562,
+            },
+            "src-obimd": {
+                "route": "open_graph_and_metadata_derivatives",
+                "graph_edge_count": 44433,
+            },
+            "src-evobc": {
+                "route": "open_graph_and_metadata_derivatives",
+                "graph_edge_count": 51679,
+            },
+            "src-metmuseum-oracle-bone": {
+                "route": "open_asset_and_rights_records",
+                "committed_asset_count": 2,
+            },
+            "src-smithsonian-nmaa-oracle-bone": {
+                "route": "open_asset_and_rights_records",
+                "committed_asset_count": 1,
+            },
+            "src-xiaoxuetang-jiaguwen": {
+                "route": "open_download_log_and_source_register",
+                "download_status_counts": "downloaded_access_restricted_page:2",
+            },
+        }
+        for source_id, expected_values in expected_source_values.items():
+            entry = source_entries_by_id.get(source_id, {})
+            if not entry:
+                issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing source route: {source_id}")
+                continue
+            for key, value in expected_values.items():
+                if entry.get(key) != value:
+                    issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} {source_id} {key} changed")
+
+    priority_routes = source_context_pack.get("priority_routes", {})
+    expected_priority_ids = {
+        "graph_derivative_sources": ["src-evobc", "src-hust-obc", "src-obimd"],
+        "public_asset_sources": [
+            "src-metmuseum-oracle-bone",
+            "src-smithsonian-nmaa-oracle-bone",
+        ],
+        "candidate_queue_sources": ["src-hust-obc"],
+        "access_limited_or_error_sources": [
+            "src-british-museum-oracle-bone",
+            "src-smithsonian-nmaa-oracle-bone",
+            "src-xiaoxuetang-jiaguwen",
+            "src-xiaoxuetang-obm",
+        ],
+    }
+    for route_name, expected_ids in expected_priority_ids.items():
+        route_entries = priority_routes.get(route_name, [])
+        route_ids = [entry.get("source_id", "") for entry in route_entries]
+        if route_ids != expected_ids:
+            issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} priority route changed: {route_name}")
+
+    source_rules = " ".join(source_context_pack.get("agent_use_rules", []))
+    source_rules_zh = " ".join(source_context_pack.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "source-routing and coverage summary",
+        "Open the cited source register",
+        "dataset-derived rows",
+        "Do not infer decipherment",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in source_rules:
+            issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing agent rule: {required_snippet}")
+    for required_snippet in [
+        "来源路由和覆盖范围摘要",
+        "必须打开被引用的来源登记",
+        "数据集派生记录",
+        "不得仅凭覆盖数量",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in source_rules_zh:
+            issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
 
     return issues
 

@@ -169,6 +169,15 @@ def load_public_domain_asset_context_pack_module():
     return module
 
 
+def load_source_coverage_context_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_coverage_context_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -400,6 +409,104 @@ class RepositorySkeletonTests(unittest.TestCase):
             "e4152d2d680234decb8d4b04225c83a59955b69bc4d8b10eebe7a98d54259079",
         )
         self.assertIn("资产索引", " ".join(data["agent_use_rules_zh"]))
+
+    def test_ai_agent_source_coverage_context_pack_preserves_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "008_ai-agent-source-coverage-context-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["context_pack_id"], "ai-context-source-coverage-001")
+        self.assertEqual(data["status"], "reviewed_metadata_only")
+        self.assertEqual(data["coverage"]["source_count"], 21)
+        self.assertEqual(data["coverage"]["download_manifest_count"], 44)
+        self.assertEqual(data["coverage"]["download_log_count"], 44)
+        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 48)
+        self.assertEqual(data["coverage"]["committed_asset_count"], 3)
+        self.assertEqual(data["coverage"]["committed_asset_bytes"], 4922128)
+        self.assertEqual(data["coverage"]["graph_edge_count"], 99674)
+        self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
+        self.assertEqual(
+            data["coverage"]["coverage_status_counts"],
+            {
+                "has_committed_public_asset_or_metadata": 2,
+                "has_download_log_only": 12,
+                "has_downloaded_metadata_profile": 4,
+                "has_relationship_graph_derivatives": 3,
+            },
+        )
+        source_routes = {
+            entry["source_id"]: entry
+            for entry in data["source_routes"]
+        }
+        self.assertEqual(len(source_routes), 21)
+        self.assertEqual(source_routes["src-hust-obc"]["graph_edge_count"], 3562)
+        self.assertEqual(source_routes["src-hust-obc"]["promotion_queue_candidate_count"], 1588)
+        self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 44433)
+        self.assertEqual(source_routes["src-evobc"]["graph_edge_count"], 51679)
+        self.assertEqual(source_routes["src-metmuseum-oracle-bone"]["committed_asset_count"], 2)
+        self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
+        self.assertEqual(
+            [
+                entry["source_id"]
+                for entry in data["priority_routes"]["graph_derivative_sources"]
+            ],
+            ["src-evobc", "src-hust-obc", "src-obimd"],
+        )
+        self.assertEqual(
+            [
+                entry["source_id"]
+                for entry in data["priority_routes"]["public_asset_sources"]
+            ],
+            ["src-metmuseum-oracle-bone", "src-smithsonian-nmaa-oracle-bone"],
+        )
+        self.assertEqual(
+            [
+                entry["source_id"]
+                for entry in data["priority_routes"]["access_limited_or_error_sources"]
+            ],
+            [
+                "src-british-museum-oracle-bone",
+                "src-smithsonian-nmaa-oracle-bone",
+                "src-xiaoxuetang-jiaguwen",
+                "src-xiaoxuetang-obm",
+            ],
+        )
+        rules = " ".join(data["agent_use_rules"])
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("not as evidence by itself", rules)
+        self.assertIn("dataset-derived rows as candidates", rules)
+        self.assertIn("Do not infer decipherment", rules)
+        self.assertIn("已忽略临时目录", rules_zh)
+
+    def test_ai_agent_source_coverage_context_pack_builder_keeps_boundaries(self) -> None:
+        module = load_source_coverage_context_pack_module()
+        path = repo_root() / "corpus/009_statistics-and-derived-features/007_source-coverage-summary.csv"
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        data = module.build_context_pack(rows)
+        source_routes = {
+            entry["source_id"]: entry
+            for entry in data["source_routes"]
+        }
+        self.assertEqual(data["coverage"]["source_count"], 21)
+        self.assertEqual(data["coverage"]["graph_edge_count"], 99674)
+        self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
+        self.assertEqual(source_routes["src-hust-obc"]["route"], "open_graph_and_metadata_derivatives")
+        self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["route"], "open_asset_and_rights_records")
+        self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
+        self.assertEqual(
+            source_routes["src-xiaoxuetang-jiaguwen"]["download_status_counts"],
+            "downloaded_access_restricted_page:2",
+        )
+        rules = " ".join(data["agent_use_rules"])
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("source-routing and coverage summary", rules)
+        self.assertIn("not as evidence by itself", rules)
+        self.assertIn("Keep new downloads in ignored temporary directories", rules)
+        self.assertIn("数据集派生记录", rules_zh)
+        self.assertNotIn("confirmed scholarship", rules)
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

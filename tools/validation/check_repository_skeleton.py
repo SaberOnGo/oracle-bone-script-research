@@ -145,6 +145,10 @@ AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
     "011_ai-agent-source-route-review-results.csv"
 )
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "012_ai-agent-graph-source-cross-review-queue.csv"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -369,6 +373,7 @@ REQUIRED_PATHS = [
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -408,6 +413,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_cross_review_queue.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2430,6 +2436,209 @@ def check_ai_context_packs(root: Path) -> list[str]:
             if required_snippet not in caution:
                 issues.append(
                     f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} {source_id} missing caution: "
+                    f"{required_snippet}"
+                )
+
+    cross_review_rows, cross_review_issues = _read_csv_rows(root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE)
+    issues.extend(cross_review_issues)
+    if len(cross_review_rows) != 3:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} should contain exactly 3 rows")
+    if [row.get("source_id", "") for row in cross_review_rows] != expected_review_source_ids:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} source order changed")
+    review_rows_by_source = {
+        review_row.get("source_id", ""): review_row
+        for review_row in review_rows
+    }
+    expected_cross_review_values_by_source = {
+        "src-hust-obc": {
+            "cross_review_task_id": "graph-source-cross-review-001",
+            "source_route_result_id": "source-route-result-001",
+            "source_route_task_id": "source-route-review-001",
+            "target_review_scope": "hust_obc_first_candidate_evidence_pack_cross_source_review",
+            "primary_review_record_id": "hust-obc-evidence-request-000001",
+            "related_project_id": "obs-char-000001",
+            "primary_external_ref_id": "hust-obc-cat-0001",
+            "source_record_id": "0001",
+            "candidate_or_staging_row_count": "1588",
+            "graph_edge_count": "3562",
+            "rights_status": "source_marked_risk_noted",
+            "required_counter_source_ids": (
+                "src-hust-obc;src-xiaoxuetang-jiaguwen;src-xiaoxuetang-obm;"
+                "src-obimd;src-evobc;src-ihp-oracle-rubbings"
+            ),
+            "expected_output_path": (
+                "doc/public/user_research/001_ai-agent-evidence-packs/hust-obc/"
+                "001_000001-000100_obs-char-bucket/"
+                "001_obs-char-000001_hust-obc-cat-0001_evidence-pack-draft.json"
+            ),
+            "required_route_files": {
+                AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
+                HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+                HUST_OBC_CANDIDATE_GRAPH_EDGES,
+                OBIMD_COMPONENT_GRAPH_EDGES,
+                EVOBC_EVOLUTION_GRAPH_EDGES,
+            },
+            "required_review_note": [
+                "first HUST-OBC evidence request",
+                "source category 0001",
+                "obs-char-000001 remains reserved only",
+            ],
+        },
+        "src-evobc": {
+            "cross_review_task_id": "graph-source-cross-review-002",
+            "source_route_result_id": "source-route-result-002",
+            "source_route_task_id": "source-route-review-002",
+            "target_review_scope": "evobc_first_evolution_category_cross_source_review",
+            "primary_review_record_id": "evobc-evo-cat-00001",
+            "related_project_id": "",
+            "primary_external_ref_id": "evobc-cat-00001",
+            "source_record_id": "00001",
+            "candidate_or_staging_row_count": "13714",
+            "graph_edge_count": "51679",
+            "rights_status": "source_marked_risk_noted",
+            "required_counter_source_ids": (
+                "src-xiaoxuetang-jiaguwen;src-xiaoxuetang-obm;src-hust-obc;"
+                "src-obimd;src-ihp-oracle-rubbings"
+            ),
+            "expected_output_path": (
+                "doc/public/user_research/002_cross-source-review-queues/evobc/"
+                "001_evobc-evo-cat-00001_cross-source-review-log.md"
+            ),
+            "required_route_files": {
+                EVOBC_EVOLUTION_CATEGORY_STAGING,
+                EVOBC_ERA_SOURCE_CODEBOOK_STAGING,
+                EVOBC_EVOLUTION_GRAPH_EDGES,
+            },
+            "required_review_note": [
+                "First category has source_category_id=00001",
+                "source_character_codepoints=U+3401",
+                "era_code_counts=0:35;3:2",
+            ],
+        },
+        "src-obimd": {
+            "cross_review_task_id": "graph-source-cross-review-003",
+            "source_route_result_id": "source-route-result-003",
+            "source_route_task_id": "source-route-review-003",
+            "target_review_scope": "obimd_first_component_glyph_route_cross_source_review",
+            "primary_review_record_id": "obimd-sub-cand-000001",
+            "related_project_id": "obimd-main-cand-000001",
+            "primary_external_ref_id": "obimd-sub-p8w7ujqanz",
+            "source_record_id": "p8w7ujqanz",
+            "candidate_or_staging_row_count": "2747",
+            "graph_edge_count": "44433",
+            "rights_status": "licensed_for_repository",
+            "required_counter_source_ids": (
+                "src-xiaoxuetang-jiaguwen;src-xiaoxuetang-obm;src-hust-obc;"
+                "src-evobc;src-ihp-oracle-rubbings"
+            ),
+            "expected_output_path": (
+                "doc/public/user_research/002_cross-source-review-queues/obimd/"
+                "001_obimd-sub-cand-000001_cross-source-review-log.md"
+            ),
+            "required_route_files": {
+                OBIMD_MAIN_CHARACTER_STAGING,
+                OBIMD_SUBCHARACTER_MAIN_STAGING,
+                OBIMD_SUBCHARACTER_GLYPH_STAGING,
+                OBIMD_COMPONENT_GRAPH_EDGES,
+            },
+            "required_review_note": [
+                "obimd-main-cand-000001",
+                "obimd-sub-cand-000001",
+                "glyph_codepoint_uplus=U+65E5;U+F0000",
+            ],
+        },
+    }
+    required_common_cross_review_files = {
+        AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS,
+        SOURCE_INDEX,
+        DOWNLOADED_METADATA_PROFILE,
+        SOURCE_DOWNLOAD_LOG,
+        SOURCE_PACKAGE_FILE_MANIFEST,
+    }
+    required_evidence_sections = {
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log",
+    }
+    for row in cross_review_rows:
+        source_id = row.get("source_id", "")
+        expected_cross_review_values = expected_cross_review_values_by_source.get(source_id)
+        if expected_cross_review_values is None:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} unexpected source: {source_id}")
+            continue
+        source_review_row = review_rows_by_source.get(source_id, {})
+        for linked_field in [
+            "source_route_result_id",
+            "source_route_task_id",
+            "context_pack_id",
+            "graph_edge_count",
+            "rights_status",
+            "source_review_status",
+        ]:
+            if source_review_row and row.get(linked_field) != source_review_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} "
+                    f"{linked_field} does not match source-route result"
+                )
+        expected_common_cross_review_values = {
+            "context_pack_id": "ai-context-source-coverage-001",
+            "source_review_status": "reviewed",
+            "task_status": "needs_cross_source_review",
+            "promotion_status": "not_promoted",
+            "research_boundary": "cross_source_review_queue_metadata_only_not_scholarship",
+            "updated_at": "2026-06-10",
+        }
+        for key, value in {**expected_common_cross_review_values, **expected_cross_review_values}.items():
+            if key in {"required_route_files", "required_review_note"}:
+                continue
+            if row.get(key) != value:
+                issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} {key} changed")
+        sections = set(filter(None, row.get("required_evidence_sections", "").split(";")))
+        if sections != required_evidence_sections:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} evidence sections changed")
+        route_files = set(filter(None, row.get("route_files_to_open", "").split(";")))
+        if row.get("review_basis_files") != row.get("route_files_to_open"):
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} review basis changed")
+        for required_file in required_common_cross_review_files | expected_cross_review_values["required_route_files"]:
+            if required_file not in route_files:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} missing route file: "
+                    f"{required_file}"
+                )
+            elif not (root / required_file).exists():
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} route file missing on disk: "
+                    f"{required_file}"
+                )
+        review_note = row.get("review_note", "")
+        for required_snippet in expected_cross_review_values["required_review_note"]:
+            if required_snippet not in review_note:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} missing review note: "
+                    f"{required_snippet}"
+                )
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "cross-source review queue row only",
+            "not source evidence by itself",
+            "not a decipherment result",
+            "not a component assignment",
+            "not an evolution-chain assignment",
+            "not a rights clearance",
+            "must not promote dataset labels",
+            "graph edges",
+            "staging rows",
+            "raw source packages",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} missing caution: "
                     f"{required_snippet}"
                 )
 

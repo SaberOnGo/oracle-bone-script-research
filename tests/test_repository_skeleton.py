@@ -205,6 +205,15 @@ def load_source_route_review_results_module():
     return module
 
 
+def load_graph_source_cross_review_queue_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_cross_review_queue.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_cross_review_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -791,6 +800,96 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             all(row["derivative_promotion_status"] != "public_domain_verified" for row in rows)
         )
+
+    def test_ai_agent_graph_source_cross_review_queue_records_first_review_tasks(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "012_ai-agent-graph-source-cross-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(
+            by_source["src-hust-obc"]["cross_review_task_id"],
+            "graph-source-cross-review-001",
+        )
+        self.assertEqual(
+            by_source["src-hust-obc"]["primary_review_record_id"],
+            "hust-obc-evidence-request-000001",
+        )
+        self.assertEqual(by_source["src-hust-obc"]["related_project_id"], "obs-char-000001")
+        self.assertEqual(by_source["src-hust-obc"]["candidate_or_staging_row_count"], "1588")
+        self.assertIn("source category 0001", by_source["src-hust-obc"]["review_note"])
+        self.assertIn(
+            "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv",
+            by_source["src-hust-obc"]["route_files_to_open"],
+        )
+        self.assertEqual(
+            by_source["src-evobc"]["primary_review_record_id"],
+            "evobc-evo-cat-00001",
+        )
+        self.assertEqual(by_source["src-evobc"]["primary_external_ref_id"], "evobc-cat-00001")
+        self.assertEqual(by_source["src-evobc"]["candidate_or_staging_row_count"], "13714")
+        self.assertIn("source_character_codepoints=U+3401", by_source["src-evobc"]["review_note"])
+        self.assertIn(
+            "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+            "001_evobc-evolution-category-staging.csv",
+            by_source["src-evobc"]["route_files_to_open"],
+        )
+        self.assertEqual(
+            by_source["src-obimd"]["primary_review_record_id"],
+            "obimd-sub-cand-000001",
+        )
+        self.assertEqual(by_source["src-obimd"]["related_project_id"], "obimd-main-cand-000001")
+        self.assertEqual(by_source["src-obimd"]["primary_external_ref_id"], "obimd-sub-p8w7ujqanz")
+        self.assertEqual(by_source["src-obimd"]["candidate_or_staging_row_count"], "2747")
+        self.assertIn("glyph_codepoint_uplus=U+65E5;U+F0000", by_source["src-obimd"]["review_note"])
+        self.assertIn(
+            "corpus/003_graphemic-components/000_component-registers/"
+            "003_obimd-subcharacter-glyph-staging.csv",
+            by_source["src-obimd"]["route_files_to_open"],
+        )
+        self.assertEqual(
+            {row["task_status"] for row in rows},
+            {"needs_cross_source_review"},
+        )
+        self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertTrue(all("not a decipherment result" in row["caution"] for row in rows))
+        self.assertTrue(all("not a rights clearance" in row["caution"] for row in rows))
+        self.assertTrue(all("staging rows" in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_cross_review_queue_builder_reads_first_review_tasks(self) -> None:
+        module = load_graph_source_cross_review_queue_module()
+        root = repo_root()
+        rows = module.build_cross_review_rows(
+            module.read_csv_rows(root / module.SOURCE_ROUTE_REVIEW_RESULTS),
+            module.read_csv_rows(root / module.AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE),
+            module.read_csv_rows(root / module.HUST_OBC_OBS_CHAR_PROMOTION_QUEUE),
+            module.read_csv_rows(root / module.EVOBC_EVOLUTION_CATEGORY_STAGING),
+            module.read_csv_rows(root / module.EVOBC_ERA_SOURCE_CODEBOOK_STAGING),
+            module.read_csv_rows(root / module.OBIMD_MAIN_CHARACTER_STAGING),
+            module.read_csv_rows(root / module.OBIMD_SUBCHARACTER_MAIN_STAGING),
+            module.read_csv_rows(root / module.OBIMD_SUBCHARACTER_GLYPH_STAGING),
+        )
+        self.assertEqual(len(rows), 3)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["source_route_result_id"], "source-route-result-001")
+        self.assertEqual(by_source["src-hust-obc"]["primary_external_ref_id"], "hust-obc-cat-0001")
+        self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "3562")
+        self.assertEqual(by_source["src-evobc"]["source_route_result_id"], "source-route-result-002")
+        self.assertEqual(by_source["src-evobc"]["source_record_id"], "00001")
+        self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51679")
+        self.assertEqual(by_source["src-obimd"]["source_route_result_id"], "source-route-result-003")
+        self.assertEqual(by_source["src-obimd"]["source_record_id"], "p8w7ujqanz")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
+        self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
+        self.assertTrue(all(row["research_boundary"].endswith("not_scholarship") for row in rows))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

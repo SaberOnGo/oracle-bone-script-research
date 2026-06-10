@@ -157,6 +157,10 @@ AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST = (
     "corpus/009_statistics-and-derived-features/"
     "014_ai-agent-graph-source-cross-review-log-draft-manifest.csv"
 )
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "015_ai-agent-graph-source-cross-review-log-results.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -396,6 +400,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -441,6 +446,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_queue.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_drafts.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_results.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2854,6 +2860,161 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     issues.append(
                         f"{expected_draft_path} missing draft text snippet: {required_snippet}"
                     )
+
+    cross_review_result_rows, cross_review_result_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS
+    )
+    issues.extend(cross_review_result_issues)
+    if len(cross_review_result_rows) != 3:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} should contain exactly 3 rows")
+    if [row.get("source_id", "") for row in cross_review_result_rows] != expected_review_source_ids:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} source order changed")
+    cross_review_draft_rows_by_id = {
+        row.get("draft_log_id", ""): row
+        for row in cross_review_draft_rows
+    }
+    expected_result_counts = {
+        "src-hust-obc": {
+            "route_file_count": "11",
+            "required_counter_source_count": "6",
+            "registered_counter_source_count": "6",
+            "download_log_count": "7",
+            "package_manifest_count": "4",
+            "metadata_profile_metric_count": "11",
+            "graph_route_file_count": "3",
+            "graph_edge_route_line_count": "99674",
+            "primary_graph_edge_count": "3562",
+            "staging_row_count": "3",
+            "rights_status": "source_marked_risk_noted",
+        },
+        "src-evobc": {
+            "route_file_count": "8",
+            "required_counter_source_count": "5",
+            "registered_counter_source_count": "5",
+            "download_log_count": "5",
+            "package_manifest_count": "3",
+            "metadata_profile_metric_count": "7",
+            "graph_route_file_count": "1",
+            "graph_edge_route_line_count": "51679",
+            "primary_graph_edge_count": "51679",
+            "staging_row_count": "3",
+            "rights_status": "source_marked_risk_noted",
+        },
+        "src-obimd": {
+            "route_file_count": "9",
+            "required_counter_source_count": "5",
+            "registered_counter_source_count": "5",
+            "download_log_count": "6",
+            "package_manifest_count": "7",
+            "metadata_profile_metric_count": "5",
+            "graph_route_file_count": "1",
+            "graph_edge_route_line_count": "44433",
+            "primary_graph_edge_count": "44433",
+            "staging_row_count": "52",
+            "rights_status": "licensed_for_repository",
+        },
+    }
+    expected_result_status_values = {
+        "missing_route_file_count": "0",
+        "route_file_review_status": "reviewed_route_files_exist",
+        "counter_source_lookup_status": "reviewed_all_required_counter_sources_registered",
+        "download_log_review_status": "reviewed_metadata_only",
+        "package_manifest_review_status": "reviewed_metadata_only",
+        "metadata_profile_review_status": "reviewed_metadata_only",
+        "graph_edge_review_status": "reviewed_graph_route_files_metadata_only",
+        "staging_row_review_status": "reviewed_metadata_only",
+        "draft_log_status": "draft_log_exists",
+        "rights_risk_review_status": "reviewed_rights_boundary_metadata_only",
+        "promotion_decision_status": "not_promoted",
+        "evidence_pack_draft_status": "not_started_or_draft_only",
+        "research_boundary": "cross_source_review_log_result_metadata_only_not_scholarship",
+        "output_scope": "cross_source_review_log_result_only",
+        "updated_at": "2026-06-10",
+    }
+    expected_staging_snippets = {
+        "src-hust-obc": [
+            "hust-obc-evidence-request-000001",
+            "hust-obc-obs-char-promo-000001",
+            "hust-obc-bucket-001-row-001",
+        ],
+        "src-evobc": [
+            "evobc-evo-cat-00001",
+            "evobc-code-001",
+            "evobc-code-004",
+        ],
+        "src-obimd": [
+            "obimd-main-cand-000001",
+            "obimd-sub-cand-000001",
+            "obimd-glyph-link-000001",
+            "obimd-glyph-link-000050",
+        ],
+    }
+    for index, row in enumerate(cross_review_result_rows, start=1):
+        result_id = row.get("cross_review_result_id", "")
+        draft_log_id = row.get("draft_log_id", "")
+        source_id = row.get("source_id", "")
+        draft_row = cross_review_draft_rows_by_id.get(draft_log_id, {})
+        if result_id != f"graph-source-cross-review-result-{index:03d}":
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} result ID sequence changed: {result_id}")
+        if not draft_row:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} missing draft link: {result_id}")
+            continue
+        for linked_field in [
+            "cross_review_log_id",
+            "cross_review_task_id",
+            "source_id",
+            "primary_review_record_id",
+            "primary_external_ref_id",
+            "source_record_id",
+        ]:
+            if row.get(linked_field) != draft_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} {linked_field} "
+                    f"does not match draft manifest: {result_id}"
+                )
+        for key, expected_value in expected_result_status_values.items():
+            if row.get(key) != expected_value:
+                issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} {key} changed: {result_id}")
+        for key, expected_value in expected_result_counts.get(source_id, {}).items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} {source_id} "
+                    f"{key} changed: {row.get(key)}"
+                )
+        staging_refs = row.get("staging_record_refs", "")
+        for required_snippet in expected_staging_snippets.get(source_id, []):
+            if required_snippet not in staging_refs:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} {source_id} "
+                    f"missing staging ref: {required_snippet}"
+                )
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "metadata-only cross-source review log result",
+            "not source evidence",
+            "not a rights decision",
+            "not a promotion decision",
+            "not a component or evolution-chain assignment",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} missing caution "
+                    f"{required_snippet}: {result_id}"
+                )
+        review_note = row.get("review_note", "")
+        for required_snippet in [
+            "Metadata-only review opened",
+            "does not promote dataset labels",
+            "graph edges",
+            "staging rows",
+            "scholarship",
+        ]:
+            if required_snippet not in review_note:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} missing review note "
+                    f"{required_snippet}: {result_id}"
+                )
 
     return issues
 

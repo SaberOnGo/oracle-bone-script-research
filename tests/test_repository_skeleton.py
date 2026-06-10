@@ -232,6 +232,15 @@ def load_graph_source_cross_review_log_drafts_module():
     return module
 
 
+def load_graph_source_cross_review_log_results_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_results.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_cross_review_log_results", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -1052,6 +1061,78 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Evidence Sections", markdown)
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
+
+    def test_ai_agent_graph_source_cross_review_log_results_are_metadata_only(self) -> None:
+        results_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "015_ai-agent-graph-source-cross-review-log-results.csv"
+        )
+        with results_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["route_file_count"], "11")
+        self.assertEqual(by_source["src-hust-obc"]["missing_route_file_count"], "0")
+        self.assertEqual(by_source["src-hust-obc"]["registered_counter_source_count"], "6")
+        self.assertEqual(by_source["src-hust-obc"]["primary_graph_edge_count"], "3562")
+        self.assertEqual(by_source["src-hust-obc"]["staging_row_count"], "3")
+        self.assertIn("hust-obc-bucket-001-row-001", by_source["src-hust-obc"]["staging_record_refs"])
+        self.assertEqual(by_source["src-evobc"]["route_file_count"], "8")
+        self.assertEqual(by_source["src-evobc"]["primary_graph_edge_count"], "51679")
+        self.assertEqual(by_source["src-evobc"]["staging_row_count"], "3")
+        self.assertIn("evobc-code-004", by_source["src-evobc"]["staging_record_refs"])
+        self.assertEqual(by_source["src-obimd"]["route_file_count"], "9")
+        self.assertEqual(by_source["src-obimd"]["primary_graph_edge_count"], "44433")
+        self.assertEqual(by_source["src-obimd"]["staging_row_count"], "52")
+        self.assertIn("obimd-glyph-link-000050", by_source["src-obimd"]["staging_record_refs"])
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual(
+            {row["counter_source_lookup_status"] for row in rows},
+            {"reviewed_all_required_counter_sources_registered"},
+        )
+        self.assertEqual({row["promotion_decision_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"cross_source_review_log_result_metadata_only_not_scholarship"},
+        )
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_cross_review_log_result_builder_counts_routes(self) -> None:
+        module = load_graph_source_cross_review_log_results_module()
+        root = repo_root()
+        rows = module.build_result_rows(
+            module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+            module.read_csv_rows(root / module.DOWNLOADED_METADATA_PROFILE),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+            module.read_csv_rows(root / module.SOURCE_PACKAGE_FILE_MANIFEST),
+            module.read_csv_rows(root / module.HUST_OBC_EVIDENCE_REQUEST_QUEUE),
+            module.read_csv_rows(root / module.HUST_OBC_PROMOTION_QUEUE),
+            module.read_csv_rows(root / module.HUST_OBC_BUCKET_MANIFEST),
+            module.read_csv_rows(root / module.EVOBC_CATEGORY_STAGING),
+            module.read_csv_rows(root / module.EVOBC_CODEBOOK_STAGING),
+            module.read_csv_rows(root / module.OBIMD_MAIN_CHARACTER_STAGING),
+            module.read_csv_rows(root / module.OBIMD_SUBCHARACTER_MAIN_STAGING),
+            module.read_csv_rows(root / module.OBIMD_SUBCHARACTER_GLYPH_STAGING),
+            root,
+        )
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["cross_review_result_id"], "graph-source-cross-review-result-001")
+        self.assertEqual(rows[0]["draft_log_id"], "graph-source-cross-review-draft-001")
+        self.assertEqual(rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(rows[0]["graph_edge_route_line_count"], "99674")
+        self.assertEqual(rows[1]["source_id"], "src-evobc")
+        self.assertIn("evobc-evo-cat-00001", rows[1]["staging_record_refs"])
+        self.assertEqual(rows[2]["source_id"], "src-obimd")
+        self.assertIn("obimd-main-cand-000001", rows[2]["staging_record_refs"])
+        self.assertTrue(all(row["draft_log_status"] == "draft_log_exists" for row in rows))
+        self.assertTrue(all(row["promotion_decision_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

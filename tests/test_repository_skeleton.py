@@ -1428,6 +1428,75 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
 
+    def test_ai_agent_graph_source_metadata_profile_note_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["evidence_collection_task_id"] for row in rows],
+            [
+                "graph-source-evidence-task-004",
+                "graph-source-evidence-task-013",
+                "graph-source-evidence-task-022",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"metadata_profile"})
+        self.assertEqual(
+            {row["route_files_to_open"] for row in rows},
+            {"corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"},
+        )
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("not a rights decision" in row["caution"] for row in rows))
+        self.assertTrue(all("not a promotion decision" in row["caution"] for row in rows))
+        for row in rows:
+            note_path = repo_root() / row["note_draft_path"]
+            text = note_path.read_text(encoding="utf-8")
+            self.assertIn("Evidence Collection Note", text)
+            self.assertIn("metadata_profile", text)
+            self.assertIn("Metadata Profile", text)
+            self.assertIn("metadata 画像", text)
+            self.assertIn(
+                "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
+                text,
+            )
+            self.assertIn("not_collected", text)
+            self.assertIn("not a decipherment conclusion", text)
+            self.assertIn("不是释读结论", text)
+
+    def test_ai_agent_graph_source_metadata_profile_note_draft_builder_selects_section(self) -> None:
+        module = load_graph_source_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE)
+        rows = module.build_note_manifest_rows(task_rows, target_section="metadata_profile")
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "graph-source-evidence-task-004")
+        self.assertEqual(rows[1]["evidence_collection_task_id"], "graph-source-evidence-task-013")
+        self.assertEqual(rows[2]["evidence_collection_task_id"], "graph-source-evidence-task-022")
+        self.assertTrue(all(row["target_evidence_section"] == "metadata_profile" for row in rows))
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        task_rows_by_id = {row["evidence_collection_task_id"]: row for row in task_rows}
+        markdown = module.build_markdown(
+            task_rows_by_id["graph-source-evidence-task-004"],
+            rows[0]["evidence_collection_note_draft_id"],
+        )
+        self.assertIn("Metadata Profile", markdown)
+        self.assertIn("metadata 画像", markdown)
+        self.assertIn("created_from_016_task_queue", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])
 

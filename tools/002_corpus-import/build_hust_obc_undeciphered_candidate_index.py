@@ -38,13 +38,6 @@ INDEX_PATH = (
     "corpus/001_oracle-characters/000_character-registers/"
     "003_undeciphered-oracle-characters-index.csv"
 )
-BUCKET_DIR = (
-    "corpus/001_oracle-characters/"
-    "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates"
-)
-BUCKET_MANIFEST = (
-    BUCKET_DIR + "/000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
-)
 LARGE_SOURCE_REGISTER = "project_registry/006_large-source-register/001_large-source-register.csv"
 DOWNLOAD_LOG = "project_registry/006_large-source-register/002_source-download-log.csv"
 
@@ -54,6 +47,20 @@ GROUP_LABELS = {
     "Y+H": "YinQiWenYuan + HWOBC",
 }
 GROUP_ORDER = {"L": 0, "X": 1, "Y+H": 2}
+BUCKET_SPECS = [
+    {
+        "directory_prefix": "017",
+        "start": 1,
+        "end": 100,
+        "materialization_status": "first_bucket_candidate_packet_materialized",
+    },
+    {
+        "directory_prefix": "018",
+        "start": 101,
+        "end": 200,
+        "materialization_status": "second_bucket_candidate_packet_materialized",
+    },
+]
 
 INDEX_FIELDS = [
     "unknown_candidate_id",
@@ -122,6 +129,28 @@ def packet_dir_name(sequence: int, candidate_id: str, ref_id: str) -> str:
     return f"{sequence:03d}_{candidate_id}_{ref_id}_oracle-character-candidate"
 
 
+def bucket_directory(spec: dict[str, int | str]) -> str:
+    return (
+        "corpus/001_oracle-characters/"
+        f"{spec['directory_prefix']}_undeciphered-{int(spec['start']):06d}-"
+        f"{int(spec['end']):06d}_obs-unk-bucket_oracle-character-candidates"
+    )
+
+
+def bucket_manifest_path(spec: dict[str, int | str]) -> str:
+    return (
+        f"{bucket_directory(spec)}/"
+        "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+    )
+
+
+def bucket_for_sequence(sequence: int) -> dict[str, int | str] | None:
+    for spec in BUCKET_SPECS:
+        if int(spec["start"]) <= sequence <= int(spec["end"]):
+            return spec
+    return None
+
+
 def filename_prefixes(paths: list[str]) -> str:
     counts: Counter[str] = Counter()
     for path in paths:
@@ -147,14 +176,17 @@ def collect_candidates(zip_path: Path) -> list[dict[str, str]]:
         sorted_paths = sorted(paths)
         candidate_id = f"obs-unk-{sequence:06d}"
         ref_id = external_ref_id(group, sequence)
+        spec = bucket_for_sequence(sequence)
         materialized_path = ""
         materialization_status = "index_only_not_materialized"
-        if sequence <= 100:
+        if spec is not None:
+            bucket_sequence = sequence - int(spec["start"]) + 1
             materialized_path = (
-                f"{BUCKET_DIR}/{packet_dir_name(sequence, candidate_id, ref_id)}/"
+                f"{bucket_directory(spec)}/"
+                f"{packet_dir_name(bucket_sequence, candidate_id, ref_id)}/"
                 "01_undeciphered-candidate-packet.json"
             )
-            materialization_status = "first_bucket_candidate_packet_materialized"
+            materialization_status = str(spec["materialization_status"])
         caution = (
             "HUST-OBC zip-directory candidate only; not an accepted oracle character, "
             "reading, component, evolution chain, or decipherment conclusion. "
@@ -214,8 +246,8 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) -> 
         writer.writerows(rows)
 
 
-def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
-    bucket_path = root / BUCKET_DIR
+def write_packet_bucket(root: Path, rows: list[dict[str, str]], spec: dict[str, int | str]) -> None:
+    bucket_path = root / bucket_directory(spec)
     if bucket_path.exists():
         for child in bucket_path.iterdir():
             if child.is_dir():
@@ -224,7 +256,9 @@ def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
                 child.unlink()
     bucket_path.mkdir(parents=True, exist_ok=True)
     manifest_rows: list[dict[str, str]] = []
-    for sequence, row in enumerate(rows[:100], start=1):
+    start = int(spec["start"])
+    end = int(spec["end"])
+    for bucket_sequence, row in enumerate(rows[start - 1:end], start=1):
         packet_path = root / row["materialized_candidate_packet_path"]
         packet_path.parent.mkdir(parents=True, exist_ok=True)
         packet = {
@@ -258,7 +292,7 @@ def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
         )
         manifest_rows.append(
             {
-                "bucket_sequence": f"{sequence:03d}",
+                "bucket_sequence": f"{bucket_sequence:03d}",
                 "unknown_candidate_id": row["unknown_candidate_id"],
                 "primary_external_ref_id": row["primary_external_ref_id"],
                 "packet_path": row["materialized_candidate_packet_path"],
@@ -270,7 +304,7 @@ def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
             }
         )
     write_csv(
-        root / BUCKET_MANIFEST,
+        root / bucket_manifest_path(spec),
         [
             "bucket_sequence",
             "unknown_candidate_id",
@@ -284,6 +318,11 @@ def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
         ],
         manifest_rows,
     )
+
+
+def write_packets(root: Path, rows: list[dict[str, str]]) -> None:
+    for spec in BUCKET_SPECS:
+        write_packet_bucket(root, rows, spec)
 
 
 def update_large_source_register(root: Path) -> None:
@@ -306,14 +345,13 @@ def update_large_source_register(root: Path) -> None:
             row["storage_hint"] = ARCHIVE_HINT
             row["handling_strategy"] = (
                 "Commit only metadata-only undeciphered candidate index and first "
-                "100 packet scaffolds; do not commit raw images."
+                "200 packet scaffolds; do not commit raw images."
             )
+            manifest_paths = ";".join(bucket_manifest_path(spec) for spec in BUCKET_SPECS)
             row["derived_record_paths"] = (
                 "corpus/001_oracle-characters/000_character-registers/"
                 "003_undeciphered-oracle-characters-index.csv;"
-                "corpus/001_oracle-characters/"
-                "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates/"
-                "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+                f"{manifest_paths}"
             )
             row["rights_status"] = "source_marked_risk_noted"
             row["risk_note"] = (
@@ -376,6 +414,10 @@ def main() -> int:
     zip_path = Path(args.zip_path)
     if not zip_path.is_absolute():
         zip_path = root / zip_path
+    if not zip_path.exists():
+        archive_path = Path(EXTERNAL_ARCHIVE_PATH)
+        if archive_path.exists():
+            zip_path = archive_path
     if not zip_path.exists():
         raise SystemExit(f"missing HUST-OBC raw zip: {zip_path}")
     rows = collect_candidates(zip_path)

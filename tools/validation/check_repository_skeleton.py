@@ -101,6 +101,11 @@ HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST = (
     "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates/"
     "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
 )
+HUST_OBC_UNDECIPHERED_SECOND_BUCKET_MANIFEST = (
+    "corpus/001_oracle-characters/"
+    "018_undeciphered-000101-000200_obs-unk-bucket_oracle-character-candidates/"
+    "000_hust-obc-undeciphered-candidate-bucket-manifest.csv"
+)
 HUST_OBC_PROMOTION_BUCKET_MANIFEST_FILENAME = "000_hust-obc-promotion-bucket-manifest.csv"
 HUST_OBC_CANDIDATE_PACKET_MANIFEST_FILENAME = "001_hust-obc-candidate-packet-manifest.csv"
 HUST_OBC_FIRST_BUCKET_CANDIDATE_PACKET_MANIFEST = (
@@ -656,6 +661,7 @@ REQUIRED_PATHS = [
     HUST_OBC_SOURCE_CATEGORY_STAGING,
     HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX,
     HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST,
+    HUST_OBC_UNDECIPHERED_SECOND_BUCKET_MANIFEST,
     HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
     HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY,
     HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK,
@@ -9248,13 +9254,17 @@ def _parse_compact_counts(value: str) -> dict[str, int]:
 def check_hust_obc_undeciphered_candidates(root: Path) -> list[str]:
     issues: list[str] = []
     rows, row_issues = _read_csv_rows(root / HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX)
-    manifest_rows, manifest_issues = _read_csv_rows(
+    first_manifest_rows, first_manifest_issues = _read_csv_rows(
         root / HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST
+    )
+    second_manifest_rows, second_manifest_issues = _read_csv_rows(
+        root / HUST_OBC_UNDECIPHERED_SECOND_BUCKET_MANIFEST
     )
     log_rows, log_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
     issues.extend(row_issues)
-    issues.extend(manifest_issues)
+    issues.extend(first_manifest_issues)
+    issues.extend(second_manifest_issues)
     issues.extend(log_issues)
     issues.extend(large_issues)
     if not rows:
@@ -9285,12 +9295,18 @@ def check_hust_obc_undeciphered_candidates(root: Path) -> list[str]:
     materialized = [
         row
         for row in rows
-        if row.get("materialization_status") == "first_bucket_candidate_packet_materialized"
+        if row.get("materialization_status")
+        in {
+            "first_bucket_candidate_packet_materialized",
+            "second_bucket_candidate_packet_materialized",
+        }
     ]
-    if len(materialized) != 100:
-        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} should materialize first 100 rows")
-    if len(manifest_rows) != 100:
+    if len(materialized) != 200:
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} should materialize first 200 rows")
+    if len(first_manifest_rows) != 100:
         issues.append(f"{HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST} should contain 100 rows")
+    if len(second_manifest_rows) != 100:
+        issues.append(f"{HUST_OBC_UNDECIPHERED_SECOND_BUCKET_MANIFEST} should contain 100 rows")
 
     for index, row in enumerate(rows, start=1):
         candidate_id = row.get("unknown_candidate_id", "")
@@ -9307,9 +9323,9 @@ def check_hust_obc_undeciphered_candidates(root: Path) -> list[str]:
         if "9411" not in row.get("caution", "") or "9408" not in row.get("caution", ""):
             issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} caution missing count discrepancy")
         packet_path = row.get("materialized_candidate_packet_path", "")
-        if index <= 100:
+        if index <= 200:
             if not packet_path:
-                issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} first 100 rows need packet paths")
+                issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} first 200 rows need packet paths")
             elif not (root / packet_path).exists():
                 issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} missing packet: {packet_path}")
         elif packet_path:
@@ -9342,6 +9358,10 @@ def check_hust_obc_undeciphered_candidates(root: Path) -> list[str]:
             "derived_record_paths", ""
         ):
             issues.append(f"{LARGE_SOURCE_REGISTER} HUST-OBC derived index path missing")
+        if "018_undeciphered-000101-000200_obs-unk-bucket" not in large_row.get(
+            "derived_record_paths", ""
+        ):
+            issues.append(f"{LARGE_SOURCE_REGISTER} HUST-OBC second undeciphered bucket path missing")
     return issues
 
 

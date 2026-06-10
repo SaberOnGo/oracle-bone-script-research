@@ -79,6 +79,15 @@ def load_hust_obc_first_bucket_candidate_packets_module():
     return module
 
 
+def load_hust_obc_candidate_packets_module():
+    path = repo_root() / "tools/002_corpus-import/build_hust_obc_candidate_packets.py"
+    spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_packets", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_candidate_graph_edges_module():
     path = repo_root() / "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_graph_edges", path)
@@ -4610,6 +4619,61 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("not an accepted oracle character record", first_packet["caution"])
 
+    def test_hust_obc_candidate_packets_materialize_all_1588_candidates(self) -> None:
+        root = repo_root()
+        all_rows: list[dict[str, str]] = []
+        bucket_counts: list[int] = []
+        for bucket_number in range(1, 17):
+            bucket_start = (bucket_number - 1) * 100 + 1
+            bucket_end = bucket_start + 99
+            bucket_directory = (
+                f"{bucket_number:03d}_{bucket_start:06d}-{bucket_end:06d}"
+                "_obs-char-bucket_oracle-characters"
+            )
+            manifest_path = (
+                root
+                / "corpus/001_oracle-characters"
+                / bucket_directory
+                / "001_hust-obc-candidate-packet-manifest.csv"
+            )
+            with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+                rows = list(csv.DictReader(file))
+            bucket_counts.append(len(rows))
+            all_rows.extend(rows)
+
+        self.assertEqual(bucket_counts, [100] * 15 + [88])
+        self.assertEqual(len(all_rows), 1588)
+        self.assertEqual(all_rows[0]["candidate_packet_id"], "hust-obc-candidate-packet-000001")
+        self.assertEqual(all_rows[-1]["candidate_packet_id"], "hust-obc-candidate-packet-001588")
+        self.assertEqual(all_rows[0]["suggested_oracle_character_id"], "obs-char-000001")
+        self.assertEqual(all_rows[-1]["suggested_oracle_character_id"], "obs-char-001588")
+        self.assertEqual({row["source_id"] for row in all_rows}, {"src-hust-obc"})
+        self.assertEqual(
+            {row["decipherment_status"] for row in all_rows},
+            {"unknown_until_cross_source_review"},
+        )
+        self.assertEqual(
+            {row["dataset_label_status"] for row in all_rows},
+            {"dataset_label_candidate_not_accepted_reading"},
+        )
+        self.assertEqual({row["assignment_status"] for row in all_rows}, {"reserved_candidate_not_assigned"})
+        self.assertEqual({row["promotion_status"] for row in all_rows}, {"needs_cross_source_review"})
+        self.assertEqual({row["review_status"] for row in all_rows}, {"needs_cross_source_review"})
+        self.assertTrue(all("not an accepted reading" in row["caution"] for row in all_rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in all_rows))
+
+        first_packet = json.loads((root / all_rows[0]["candidate_packet_path"]).read_text(encoding="utf-8"))
+        last_packet = json.loads((root / all_rows[-1]["candidate_packet_path"]).read_text(encoding="utf-8"))
+        self.assertEqual(first_packet["record_type"], "oracle_character_candidate_packet")
+        self.assertEqual(first_packet["source_candidate"]["promotion_queue_id"], "hust-obc-obs-char-promo-000001")
+        self.assertEqual(last_packet["source_candidate"]["promotion_queue_id"], "hust-obc-obs-char-promo-001588")
+        self.assertEqual(first_packet["dataset_label"]["status"], "dataset_label_candidate_not_accepted_reading")
+        self.assertEqual(last_packet["dataset_label"]["status"], "dataset_label_candidate_not_accepted_reading")
+        self.assertIn("dl-hust-obc-validation-label", first_packet["evidence_download_ids"])
+        self.assertIn("dl-hust-obc-ocr-id-to-chinese", last_packet["evidence_download_ids"])
+        self.assertIn("not an accepted oracle character record", first_packet["caution"])
+        self.assertIn("not a decipherment conclusion", last_packet["caution"])
+
     def test_hust_obc_first_bucket_candidate_packet_builder_keeps_candidate_boundary(self) -> None:
         module = load_hust_obc_first_bucket_candidate_packets_module()
         root = repo_root()
@@ -4631,6 +4695,35 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(packets[0][1]["decipherment_status"], "unknown_until_cross_source_review")
         self.assertEqual(packets[0][1]["dataset_label"]["status"], "dataset_label_candidate_not_accepted_reading")
         self.assertIn("not a decipherment conclusion", packets[0][1]["caution"])
+
+    def test_hust_obc_candidate_packet_builder_groups_all_buckets(self) -> None:
+        module = load_hust_obc_candidate_packets_module()
+        root = repo_root()
+        promotion_rows = module.read_csv_rows(root / module.PROMOTION_QUEUE)
+        packets_by_manifest, manifest_rows_by_manifest = module.build_candidate_packets(promotion_rows)
+
+        self.assertEqual(len(packets_by_manifest), 16)
+        self.assertEqual(len(manifest_rows_by_manifest), 16)
+        self.assertEqual(sum(len(packets) for packets in packets_by_manifest.values()), 1588)
+        self.assertEqual(sum(len(rows) for rows in manifest_rows_by_manifest.values()), 1588)
+        manifest_counts = [len(rows) for _, rows in sorted(manifest_rows_by_manifest.items())]
+        self.assertEqual(manifest_counts, [100] * 15 + [88])
+
+        first_manifest = sorted(manifest_rows_by_manifest)[0]
+        last_manifest = sorted(manifest_rows_by_manifest)[-1]
+        first_row = manifest_rows_by_manifest[first_manifest][0]
+        last_row = manifest_rows_by_manifest[last_manifest][-1]
+        self.assertEqual(first_row["candidate_packet_id"], "hust-obc-candidate-packet-000001")
+        self.assertEqual(last_row["candidate_packet_id"], "hust-obc-candidate-packet-001588")
+        self.assertEqual(first_row["dataset_label_status"], "dataset_label_candidate_not_accepted_reading")
+        self.assertEqual(last_row["review_status"], "needs_cross_source_review")
+
+        first_packet = packets_by_manifest[first_manifest][0][1]
+        last_packet = packets_by_manifest[last_manifest][-1][1]
+        self.assertEqual(first_packet["record_type"], "oracle_character_candidate_packet")
+        self.assertEqual(last_packet["source_candidate"]["promotion_queue_id"], "hust-obc-obs-char-promo-001588")
+        self.assertEqual(last_packet["decipherment_status"], "unknown_until_cross_source_review")
+        self.assertIn("not a decipherment conclusion", last_packet["caution"])
 
     def test_hust_obc_promotion_bucket_summary_routes_review_batches(self) -> None:
         path = (

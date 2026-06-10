@@ -1,0 +1,71 @@
+{
+  "candidate_packet_id": "hust-obc-candidate-packet-000618",
+  "record_type": "oracle_character_candidate_packet",
+  "suggested_oracle_character_id": "obs-char-000618",
+  "preferred_directory_name": "618_obs-char-000618_hust-obc-cat-0703_oracle-character",
+  "primary_external_ref_id": "hust-obc-cat-0703",
+  "source_id": "src-hust-obc",
+  "source_candidate": {
+    "promotion_queue_id": "hust-obc-obs-char-promo-000618",
+    "candidate_class_id": "obs-cand-000618",
+    "validation_class_id": "617",
+    "source_category_id": "0703",
+    "source_category_id_padded": "00703",
+    "candidate_label_crosswalk_id": "hust-obc-label-xwalk-0618",
+    "source_category_row_ids": [
+      "hust-obc-src-cat-0703"
+    ]
+  },
+  "dataset_label": {
+    "status": "dataset_label_candidate_not_accepted_reading",
+    "source_modern_label_candidate": "㚵",
+    "source_modern_label_codepoints": "U+36B5",
+    "label_component_count": "1",
+    "has_multi_component_label": "false",
+    "source_category_member_count": "1"
+  },
+  "decipherment_status": "unknown_until_cross_source_review",
+  "assignment_status": "reserved_candidate_not_assigned",
+  "promotion_status": "needs_cross_source_review",
+  "packet_status": "candidate_packet_created_from_source_marked_staging",
+  "required_next_review": "compare_xiaoxuetang_obm_obimd_evobc_and_primary_inscription_context",
+  "external_references": [
+    {
+      "external_ref_id": "hust-obc-cat-0703",
+      "source_id": "src-hust-obc",
+      "id_type": "hust_obc_source_category",
+      "external_value": "0703",
+      "note": "Dataset category reference only; not an accepted oracle-character reading."
+    },
+    {
+      "external_ref_id": "obs-cand-000618",
+      "source_id": "src-hust-obc",
+      "id_type": "hust_obc_validation_class_candidate",
+      "external_value": "617",
+      "note": "Validation class candidate used for routing cross-source review."
+    }
+  ],
+  "evidence_download_ids": [
+    "dl-hust-obc-validation-label",
+    "dl-hust-obc-ocr-id-to-chinese"
+  ],
+  "source_metadata_files": [
+    "Validation_label.json",
+    "ID_to_Chinese.json"
+  ],
+  "route_files": [
+    "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+    "corpus/001_oracle-characters/007_000601-000700_obs-char-bucket_oracle-characters/000_hust-obc-promotion-bucket-manifest.csv",
+    "corpus/001_oracle-characters/000_character-registers/005_hust-obc-validation-class-staging.csv",
+    "corpus/001_oracle-characters/000_character-registers/007_hust-obc-validation-label-crosswalk-staging.csv",
+    "corpus/001_oracle-characters/000_character-registers/008_hust-obc-source-category-staging.csv",
+    "project_registry/006_large-source-register/002_source-download-log.csv",
+    "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+    "corpus/001_oracle-characters/007_000601-000700_obs-char-bucket_oracle-characters"
+  ],
+  "rights_status": "source_marked_risk_noted",
+  "review_status": "needs_cross_source_review",
+  "research_boundary": "candidate_packet_not_accepted_character_record_not_scholarship",
+  "caution": "Candidate packet only. This is not an accepted oracle character record, not an accepted reading, not a source promotion, and not a decipherment conclusion. The HUST-OBC label is dataset metadata for lookup until cross-source review.",
+  "updated_at": "2026-06-10"
+}

@@ -250,6 +250,15 @@ def load_graph_source_evidence_collection_task_queue_module():
     return module
 
 
+def load_graph_source_evidence_collection_note_drafts_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_note_drafts.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_evidence_collection_note_drafts", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -1220,6 +1229,71 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["expected_output_path"].startswith("doc/public/user_research/") for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_evidence_collection_note_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["evidence_collection_note_draft_id"] for row in rows],
+            [
+                "graph-source-evidence-note-draft-001",
+                "graph-source-evidence-note-draft-002",
+                "graph-source-evidence-note-draft-003",
+            ],
+        )
+        self.assertEqual(
+            [row["evidence_collection_task_id"] for row in rows],
+            [
+                "graph-source-evidence-task-001",
+                "graph-source-evidence-task-010",
+                "graph-source-evidence-task-019",
+            ],
+        )
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"source_register"})
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        for row in rows:
+            note_path = repo_root() / row["note_draft_path"]
+            text = note_path.read_text(encoding="utf-8")
+            self.assertIn("Evidence Collection Note", text)
+            self.assertIn("Route Files To Open", text)
+            self.assertIn("created_from_016_task_queue", text)
+            self.assertIn("not_collected", text)
+            self.assertIn("not a decipherment conclusion", text)
+            self.assertIn("不是释读结论", text)
+
+    def test_ai_agent_graph_source_evidence_collection_note_draft_builder_links_tasks(self) -> None:
+        module = load_graph_source_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE)
+        rows = module.build_note_manifest_rows(task_rows)
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["evidence_collection_note_draft_id"], "graph-source-evidence-note-draft-001")
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "graph-source-evidence-task-001")
+        self.assertEqual(rows[0]["note_draft_path"], task_rows[0]["expected_output_path"])
+        self.assertEqual(rows[1]["evidence_collection_task_id"], "graph-source-evidence-task-010")
+        self.assertEqual(rows[2]["evidence_collection_task_id"], "graph-source-evidence-task-019")
+        self.assertTrue(all(row["target_evidence_section"] == "source_register" for row in rows))
+        self.assertTrue(all(row["note_status"] == "draft_not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        markdown = module.build_markdown(task_rows[0], rows[0]["evidence_collection_note_draft_id"])
+        self.assertIn("Evidence Collection Note", markdown)
+        self.assertIn("created_from_016_task_queue", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+        self.assertIn("不是释读结论", markdown)
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

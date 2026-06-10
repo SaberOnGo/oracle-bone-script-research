@@ -165,6 +165,10 @@ AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "016_ai-agent-graph-source-evidence-collection-task-queue.csv"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -176,6 +180,18 @@ AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT = (
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/obimd/"
     "003_obimd-sub-cand-000001_cross-source-review-log.md"
+)
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_HUST_SOURCE_REGISTER_DRAFT = (
+    "doc/public/user_research/003_evidence-collection-tasks/hust-obc/"
+    "graph-source-evidence-task-001_source-register_collection-note.md"
+)
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_EVOBC_SOURCE_REGISTER_DRAFT = (
+    "doc/public/user_research/003_evidence-collection-tasks/evobc/"
+    "graph-source-evidence-task-010_source-register_collection-note.md"
+)
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_OBIMD_SOURCE_REGISTER_DRAFT = (
+    "doc/public/user_research/003_evidence-collection-tasks/obimd/"
+    "graph-source-evidence-task-019_source-register_collection-note.md"
 )
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
@@ -406,9 +422,13 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_HUST_SOURCE_REGISTER_DRAFT,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_EVOBC_SOURCE_REGISTER_DRAFT,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_OBIMD_SOURCE_REGISTER_DRAFT,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -453,6 +473,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_drafts.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_results.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_task_queue.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_note_drafts.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -3149,6 +3170,146 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 issues.append(
                     f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} missing caution "
                     f"{required_snippet}: {task_id}"
+                )
+
+    evidence_note_draft_rows, evidence_note_draft_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST
+    )
+    issues.extend(evidence_note_draft_issues)
+    if len(evidence_note_draft_rows) != 3:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+            "should contain exactly 3 rows"
+        )
+    evidence_task_rows_by_id = {
+        row.get("evidence_collection_task_id", ""): row
+        for row in evidence_task_rows
+    }
+    expected_note_tasks = [
+        (
+            "graph-source-evidence-note-draft-001",
+            "graph-source-evidence-task-001",
+            "src-hust-obc",
+            AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_HUST_SOURCE_REGISTER_DRAFT,
+        ),
+        (
+            "graph-source-evidence-note-draft-002",
+            "graph-source-evidence-task-010",
+            "src-evobc",
+            AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_EVOBC_SOURCE_REGISTER_DRAFT,
+        ),
+        (
+            "graph-source-evidence-note-draft-003",
+            "graph-source-evidence-task-019",
+            "src-obimd",
+            AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_OBIMD_SOURCE_REGISTER_DRAFT,
+        ),
+    ]
+    for row, expected in zip(evidence_note_draft_rows, expected_note_tasks):
+        expected_note_id, expected_task_id, expected_source_id, expected_note_path = expected
+        note_id = row.get("evidence_collection_note_draft_id", "")
+        task_id = row.get("evidence_collection_task_id", "")
+        task_row = evidence_task_rows_by_id.get(task_id, {})
+        if note_id != expected_note_id:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"note ID changed: {note_id}"
+            )
+        if task_id != expected_task_id:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"task link changed: {task_id}"
+            )
+        if row.get("source_id") != expected_source_id:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"source changed: {note_id}"
+            )
+        if row.get("note_draft_path") != expected_note_path:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"note path changed: {note_id}"
+            )
+        if not task_row:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"missing 016 task link: {note_id}"
+            )
+            continue
+        for linked_field in [
+            "cross_review_result_id",
+            "draft_log_id",
+            "cross_review_log_id",
+            "cross_review_task_id",
+            "source_id",
+            "primary_review_record_id",
+            "primary_external_ref_id",
+            "source_record_id",
+            "target_evidence_section",
+            "route_files_to_open",
+            "counter_source_ids_to_check",
+        ]:
+            if row.get(linked_field) != task_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                    f"{linked_field} does not match 016 task: {note_id}"
+                )
+        if row.get("note_draft_path") != task_row.get("expected_output_path"):
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"note path does not match 016 expected output: {note_id}"
+            )
+        for key, expected_value in {
+            "target_evidence_section": "source_register",
+            "task_queue_source_path": AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE,
+            "note_status": "draft_not_collected",
+            "evidence_collection_status": "not_collected",
+            "promotion_status": "not_promoted",
+            "research_boundary": "evidence_collection_note_draft_not_scholarship",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                    f"{key} changed: {note_id}"
+                )
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "not collected evidence",
+            "not a rights decision",
+            "not a promotion decision",
+            "not a component or evolution-chain assignment",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                    f"missing caution {required_snippet}: {note_id}"
+                )
+        note_path = root / row.get("note_draft_path", "")
+        if not note_path.exists():
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"missing note draft file: {note_id}"
+            )
+            continue
+        note_text = note_path.read_text(encoding="utf-8")
+        for required_snippet in [
+            "Evidence Collection Note",
+            "证据收集记录草稿",
+            "draft_not_collected",
+            "not_collected",
+            "not_promoted",
+            "Route Files To Open",
+            "Counter Sources To Check",
+            "created_from_016_task_queue",
+            "not a decipherment conclusion",
+            "不是释读结论",
+        ]:
+            if required_snippet not in note_text:
+                issues.append(
+                    f"{row.get('note_draft_path', '')} missing note snippet: "
+                    f"{required_snippet}"
                 )
 
     return issues

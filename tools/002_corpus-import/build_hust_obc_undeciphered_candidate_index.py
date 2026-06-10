@@ -138,6 +138,12 @@ BUCKET_SPECS = [
         "end": 1500,
         "materialization_status": "fifteenth_bucket_candidate_packet_materialized",
     },
+    {
+        "directory_prefix": "032",
+        "start": 1501,
+        "end": 1600,
+        "materialization_status": "sixteenth_bucket_candidate_packet_materialized",
+    },
 ]
 
 INDEX_FIELDS = [

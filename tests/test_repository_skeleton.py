@@ -290,6 +290,20 @@ def load_graph_source_evidence_collection_review_queue_module():
     return module
 
 
+def load_graph_source_evidence_collection_review_route_summary_module():
+    path = repo_root() / (
+        "tools/005_ai-context-pack-builder/"
+        "build_graph_source_evidence_collection_review_route_summary.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_evidence_collection_review_route_summary", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -2286,6 +2300,141 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
         self.assertTrue(all("component or evolution-chain assignment" in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_evidence_collection_review_route_summary_groups_routes(
+        self,
+    ) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "029_ai-agent-graph-source-evidence-collection-review-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        expected_sections = [
+            "source_register",
+            "download_log",
+            "package_manifest",
+            "metadata_profile",
+            "graph_edges",
+            "staging_row",
+            "counter_source_lookup",
+            "rights_risk_review",
+            "review_log",
+        ]
+
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-graph-source-evidence-collection-review-summary-001",
+        )
+        self.assertEqual(data["status"], "draft_review_route_summary_not_collected")
+        self.assertEqual(data["updated_at"], "2026-06-10")
+        self.assertEqual(
+            data["research_boundary"],
+            "evidence_collection_review_route_summary_not_scholarship",
+        )
+        self.assertEqual(
+            data["generated_from"],
+            [
+                "corpus/009_statistics-and-derived-features/"
+                "028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+                "corpus/009_statistics-and-derived-features/"
+                "027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+                "corpus/009_statistics-and-derived-features/"
+                "026_ai-agent-graph-source-evidence-collection-route-pack.json",
+            ],
+        )
+        self.assertEqual(data["coverage"]["review_task_count"], 27)
+        self.assertEqual(
+            data["coverage"]["source_counts"],
+            {"src-hust-obc": 9, "src-evobc": 9, "src-obimd": 9},
+        )
+        self.assertEqual(
+            data["coverage"]["section_counts"],
+            {section: 3 for section in expected_sections},
+        )
+        self.assertEqual(data["coverage"]["route_file_reference_count"], 154)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 57)
+        self.assertEqual(data["coverage"]["counter_source_reference_count"], 144)
+        self.assertEqual(data["coverage"]["unique_counter_source_count"], 6)
+        self.assertEqual(data["coverage"]["assignment_status_counts"], {"unassigned": 27})
+        self.assertEqual(
+            data["coverage"]["review_status_counts"],
+            {"needs_evidence_collection_review": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["evidence_collection_status_counts"],
+            {"not_collected": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["source_promotion_status_counts"],
+            {"not_promoted": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["decipherment_claim_status_counts"],
+            {"no_claim": 27},
+        )
+        self.assertEqual(
+            data["coverage"]["priority_rank_counts"],
+            {str(rank): 3 for rank in range(1, 10)},
+        )
+        self.assertEqual(
+            [row["source_id"] for row in data["source_summaries"]],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertTrue(
+            all(row["target_evidence_sections"] == expected_sections for row in data["source_summaries"])
+        )
+        self.assertEqual(
+            {row["source_id"]: row["route_file_count"] for row in data["source_summaries"]},
+            {"src-hust-obc": 32, "src-evobc": 29, "src-obimd": 30},
+        )
+        self.assertEqual(
+            [row["target_evidence_section"] for row in data["section_summaries"]],
+            expected_sections,
+        )
+        self.assertTrue(
+            all(row["source_ids"] == ["src-hust-obc", "src-evobc", "src-obimd"] for row in data["section_summaries"])
+        )
+        self.assertTrue(
+            all(row["required_review_check_count"] == 12 for row in data["section_summaries"])
+        )
+        rules = " ".join(data["agent_use_rules"])
+        self.assertIn("Open the 028 queue row", rules)
+        self.assertIn("Do not treat this summary as collected evidence", rules)
+        self.assertIn("ignored temporary directories", rules)
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("必须打开 028 队列行", rules_zh)
+        self.assertIn("不得把本摘要当作已收集证据", rules_zh)
+
+    def test_ai_agent_graph_source_evidence_collection_review_route_summary_builder(
+        self,
+    ) -> None:
+        module = load_graph_source_evidence_collection_review_route_summary_module()
+        rows = module.read_csv_rows(
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "028_ai-agent-graph-source-evidence-collection-review-queue.csv"
+        )
+        data = module.build_route_summary(rows)
+        self.assertEqual(data["coverage"]["review_task_count"], 27)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 57)
+        self.assertEqual(data["coverage"]["unique_counter_source_count"], 6)
+        self.assertEqual(data["source_summaries"][0]["review_task_count"], 9)
+        self.assertEqual(data["source_summaries"][0]["min_priority_rank"], 1)
+        self.assertEqual(data["source_summaries"][0]["max_priority_rank"], 9)
+        self.assertEqual(
+            data["section_summaries"][7]["target_evidence_section"],
+            "rights_risk_review",
+        )
+        self.assertEqual(data["section_summaries"][7]["priority_rank"], "5")
+        self.assertTrue(
+            all(
+                row["source_ids"] == ["src-hust-obc", "src-evobc", "src-obimd"]
+                for row in data["section_summaries"]
+            )
+        )
+        self.assertIn("component or evolution-chain assignment", " ".join(data["agent_use_rules"]))
+        self.assertIn("释读结论", " ".join(data["agent_use_rules_zh"]))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

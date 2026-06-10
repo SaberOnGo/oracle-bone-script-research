@@ -1,0 +1,594 @@
+{
+  "agent_use_rules": [
+    "Use this file only to choose an evidence-collection review route.",
+    "Open the 028 queue row, 027 result scaffold row, 026 route pack, manifest, note draft, and route files before recording evidence.",
+    "Do not treat this summary as collected evidence, a rights decision, a source promotion decision, a component or evolution-chain assignment, or a decipherment conclusion.",
+    "Keep any new downloads or scratch analysis in ignored temporary directories until source, size, checksum, rights, and risk are recorded."
+  ],
+  "agent_use_rules_zh": [
+    "本文件只能用于选择证据收集复核路由。",
+    "记录证据前，必须打开 028 队列行、027 结果骨架行、026 路由包、manifest、note draft 和 route files。",
+    "不得把本摘要当作已收集证据、权利决定、来源提升决定、构件或演化链判定、释读结论。",
+    "新增下载或临时分析在记录来源、大小、checksum、权利和风险前必须留在已忽略临时目录。"
+  ],
+  "context_pack_id": "ai-context-graph-source-evidence-collection-review-summary-001",
+  "coverage": {
+    "assignment_status_counts": {
+      "unassigned": 27
+    },
+    "counter_source_reference_count": 144,
+    "decipherment_claim_status_counts": {
+      "no_claim": 27
+    },
+    "evidence_collection_status_counts": {
+      "not_collected": 27
+    },
+    "output_scope_counts": {
+      "graph_source_evidence_collection_review_queue_only": 27
+    },
+    "priority_rank_counts": {
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 3,
+      "8": 3,
+      "9": 3
+    },
+    "research_boundary_counts": {
+      "evidence_collection_review_queue_not_scholarship": 27
+    },
+    "review_status_counts": {
+      "needs_evidence_collection_review": 27
+    },
+    "review_task_count": 27,
+    "route_file_reference_count": 154,
+    "section_counts": {
+      "counter_source_lookup": 3,
+      "download_log": 3,
+      "graph_edges": 3,
+      "metadata_profile": 3,
+      "package_manifest": 3,
+      "review_log": 3,
+      "rights_risk_review": 3,
+      "source_register": 3,
+      "staging_row": 3
+    },
+    "source_count": 3,
+    "source_counts": {
+      "src-evobc": 9,
+      "src-hust-obc": 9,
+      "src-obimd": 9
+    },
+    "source_promotion_status_counts": {
+      "not_promoted": 27
+    },
+    "target_evidence_section_count": 9,
+    "unique_counter_source_count": 6,
+    "unique_route_file_count": 57
+  },
+  "generated_from": [
+    "corpus/009_statistics-and-derived-features/028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+    "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+    "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json"
+  ],
+  "purpose": "Summarize the 028 graph-source evidence collection review queue by source and target evidence section so AI Agents can choose the next review route before opening route files. This is a routing summary only.",
+  "purpose_zh": "按来源和目标证据章节汇总 028 图谱来源证据收集复核队列，让 AI Agent 在打开 route files 前先选择下一条复核路由。本文件只是路由摘要。",
+  "research_boundary": "evidence_collection_review_route_summary_not_scholarship",
+  "route_file_summary": {
+    "counter_source_ids_to_check": [
+      "src-evobc",
+      "src-hust-obc",
+      "src-ihp-oracle-rubbings",
+      "src-obimd",
+      "src-xiaoxuetang-jiaguwen",
+      "src-xiaoxuetang-obm"
+    ],
+    "result_scaffold_path": "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv",
+    "review_queue_path": "corpus/009_statistics-and-derived-features/028_ai-agent-graph-source-evidence-collection-review-queue.csv",
+    "route_files_to_open": [
+      "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+      "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+      "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/000_hust-obc-promotion-bucket-manifest.csv",
+      "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
+      "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
+      "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+      "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/002_evobc-era-source-codebook-staging.csv",
+      "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+      "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
+      "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
+      "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+      "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv",
+      "corpus/009_statistics-and-derived-features/015_ai-agent-graph-source-cross-review-log-results.csv",
+      "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+      "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/018_ai-agent-graph-source-download-log-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/022_ai-agent-graph-source-staging-row-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/025_ai-agent-graph-source-review-log-note-draft-manifest.csv",
+      "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+      "doc/public/user_research/002_cross-source-review-queues/evobc/002_evobc-evo-cat-00001_cross-source-review-log.md",
+      "doc/public/user_research/002_cross-source-review-queues/hust-obc/001_hust-obc-evidence-request-000001_cross-source-review-log.md",
+      "doc/public/user_research/002_cross-source-review-queues/obimd/003_obimd-sub-cand-000001_cross-source-review-log.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-010_source-register_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-011_download-log_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-012_package-manifest_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-013_metadata-profile_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-014_graph-edges_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-015_staging-row_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-016_counter-source-lookup_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-017_rights-risk-review_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-018_review-log_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-001_source-register_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-002_download-log_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-003_package-manifest_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-004_metadata-profile_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-005_graph-edges_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-006_staging-row_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-007_counter-source-lookup_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-008_rights-risk-review_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-009_review-log_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-019_source-register_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-020_download-log_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-021_package-manifest_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-022_metadata-profile_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-023_graph-edges_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-024_staging-row_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-025_counter-source-lookup_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-026_rights-risk-review_collection-note.md",
+      "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-027_review-log_collection-note.md",
+      "project_registry/006_large-source-register/002_source-download-log.csv"
+    ],
+    "route_pack_path": "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json"
+  },
+  "section_summaries": [
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv"
+      ],
+      "priority_rank": "1",
+      "required_collection_actions": [
+        "collect_source_register_provenance_fields"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 7,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "source_register"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/018_ai-agent-graph-source-download-log-note-draft-manifest.csv"
+      ],
+      "priority_rank": "2",
+      "required_collection_actions": [
+        "collect_download_log_status_size_checksum_access_notes"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 7,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "download_log"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv"
+      ],
+      "priority_rank": "3",
+      "required_collection_actions": [
+        "collect_package_manifest_file_size_checksum_and_storage_boundary"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 7,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "package_manifest"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv"
+      ],
+      "priority_rank": "4",
+      "required_collection_actions": [
+        "collect_metadata_profile_fields_and_extraction_scope"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 7,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "metadata_profile"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv"
+      ],
+      "priority_rank": "6",
+      "required_collection_actions": [
+        "collect_graph_edge_source_status_and_claim_boundary"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 9,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "graph_edges"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/022_ai-agent-graph-source-staging-row-note-draft-manifest.csv"
+      ],
+      "priority_rank": "7",
+      "required_collection_actions": [
+        "collect_staging_row_field_map_and_review_status"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 14,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "staging_row"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv"
+      ],
+      "priority_rank": "8",
+      "required_collection_actions": [
+        "collect_counter_source_lookup_notes_without_identity_claim"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 7,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "counter_source_lookup"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv"
+      ],
+      "priority_rank": "5",
+      "required_collection_actions": [
+        "collect_rights_risk_notes_without_rights_decision"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 10,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "rights_risk_review"
+    },
+    {
+      "counter_source_count": 6,
+      "manifest_paths": [
+        "corpus/009_statistics-and-derived-features/025_ai-agent-graph-source-review-log-note-draft-manifest.csv"
+      ],
+      "priority_rank": "9",
+      "required_collection_actions": [
+        "collect_review_log_notes_without_promotion_decision"
+      ],
+      "required_review_check_count": 12,
+      "result_scaffold_paths": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 3,
+      "route_file_count": 10,
+      "source_ids": [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd"
+      ],
+      "target_evidence_section": "review_log"
+    }
+  ],
+  "source_summaries": [
+    {
+      "counter_source_count": 6,
+      "counter_source_ids_to_check": [
+        "src-evobc",
+        "src-hust-obc",
+        "src-ihp-oracle-rubbings",
+        "src-obimd",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm"
+      ],
+      "max_priority_rank": 9,
+      "min_priority_rank": 1,
+      "primary_external_ref_ids": [
+        "hust-obc-cat-0001"
+      ],
+      "primary_review_record_ids": [
+        "hust-obc-evidence-request-000001"
+      ],
+      "result_update_targets": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 9,
+      "review_task_ids": [
+        "graph-source-evidence-review-001",
+        "graph-source-evidence-review-002",
+        "graph-source-evidence-review-003",
+        "graph-source-evidence-review-004",
+        "graph-source-evidence-review-005",
+        "graph-source-evidence-review-006",
+        "graph-source-evidence-review-007",
+        "graph-source-evidence-review-008",
+        "graph-source-evidence-review-009"
+      ],
+      "route_file_count": 32,
+      "route_files_to_open": [
+        "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+        "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/000_hust-obc-promotion-bucket-manifest.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
+        "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
+        "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+        "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+        "corpus/009_statistics-and-derived-features/005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv",
+        "corpus/009_statistics-and-derived-features/015_ai-agent-graph-source-cross-review-log-results.csv",
+        "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/018_ai-agent-graph-source-download-log-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/022_ai-agent-graph-source-staging-row-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/025_ai-agent-graph-source-review-log-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+        "doc/public/user_research/002_cross-source-review-queues/hust-obc/001_hust-obc-evidence-request-000001_cross-source-review-log.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-001_source-register_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-002_download-log_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-003_package-manifest_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-004_metadata-profile_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-005_graph-edges_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-006_staging-row_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-007_counter-source-lookup_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-008_rights-risk-review_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/hust-obc/graph-source-evidence-task-009_review-log_collection-note.md",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "source_id": "src-hust-obc",
+      "target_evidence_sections": [
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log"
+      ]
+    },
+    {
+      "counter_source_count": 5,
+      "counter_source_ids_to_check": [
+        "src-hust-obc",
+        "src-ihp-oracle-rubbings",
+        "src-obimd",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm"
+      ],
+      "max_priority_rank": 9,
+      "min_priority_rank": 1,
+      "primary_external_ref_ids": [
+        "evobc-cat-00001"
+      ],
+      "primary_review_record_ids": [
+        "evobc-evo-cat-00001"
+      ],
+      "result_update_targets": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 9,
+      "review_task_ids": [
+        "graph-source-evidence-review-010",
+        "graph-source-evidence-review-011",
+        "graph-source-evidence-review-012",
+        "graph-source-evidence-review-013",
+        "graph-source-evidence-review-014",
+        "graph-source-evidence-review-015",
+        "graph-source-evidence-review-016",
+        "graph-source-evidence-review-017",
+        "graph-source-evidence-review-018"
+      ],
+      "route_file_count": 29,
+      "route_files_to_open": [
+        "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+        "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/002_evobc-era-source-codebook-staging.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
+        "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+        "corpus/009_statistics-and-derived-features/015_ai-agent-graph-source-cross-review-log-results.csv",
+        "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/018_ai-agent-graph-source-download-log-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/022_ai-agent-graph-source-staging-row-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/025_ai-agent-graph-source-review-log-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+        "doc/public/user_research/002_cross-source-review-queues/evobc/002_evobc-evo-cat-00001_cross-source-review-log.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-010_source-register_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-011_download-log_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-012_package-manifest_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-013_metadata-profile_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-014_graph-edges_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-015_staging-row_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-016_counter-source-lookup_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-017_rights-risk-review_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/evobc/graph-source-evidence-task-018_review-log_collection-note.md",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "source_id": "src-evobc",
+      "target_evidence_sections": [
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log"
+      ]
+    },
+    {
+      "counter_source_count": 5,
+      "counter_source_ids_to_check": [
+        "src-evobc",
+        "src-hust-obc",
+        "src-ihp-oracle-rubbings",
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-obm"
+      ],
+      "max_priority_rank": 9,
+      "min_priority_rank": 1,
+      "primary_external_ref_ids": [
+        "obimd-sub-p8w7ujqanz"
+      ],
+      "primary_review_record_ids": [
+        "obimd-sub-cand-000001"
+      ],
+      "result_update_targets": [
+        "corpus/009_statistics-and-derived-features/027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+      ],
+      "review_task_count": 9,
+      "review_task_ids": [
+        "graph-source-evidence-review-019",
+        "graph-source-evidence-review-020",
+        "graph-source-evidence-review-021",
+        "graph-source-evidence-review-022",
+        "graph-source-evidence-review-023",
+        "graph-source-evidence-review-024",
+        "graph-source-evidence-review-025",
+        "graph-source-evidence-review-026",
+        "graph-source-evidence-review-027"
+      ],
+      "route_file_count": 30,
+      "route_files_to_open": [
+        "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+        "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
+        "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
+        "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+        "corpus/009_statistics-and-derived-features/015_ai-agent-graph-source-cross-review-log-results.csv",
+        "corpus/009_statistics-and-derived-features/016_ai-agent-graph-source-evidence-collection-task-queue.csv",
+        "corpus/009_statistics-and-derived-features/017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/018_ai-agent-graph-source-download-log-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/022_ai-agent-graph-source-staging-row-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/025_ai-agent-graph-source-review-log-note-draft-manifest.csv",
+        "corpus/009_statistics-and-derived-features/026_ai-agent-graph-source-evidence-collection-route-pack.json",
+        "doc/public/user_research/002_cross-source-review-queues/obimd/003_obimd-sub-cand-000001_cross-source-review-log.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-019_source-register_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-020_download-log_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-021_package-manifest_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-022_metadata-profile_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-023_graph-edges_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-024_staging-row_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-025_counter-source-lookup_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-026_rights-risk-review_collection-note.md",
+        "doc/public/user_research/003_evidence-collection-tasks/obimd/graph-source-evidence-task-027_review-log_collection-note.md",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "source_id": "src-obimd",
+      "target_evidence_sections": [
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log"
+      ]
+    }
+  ],
+  "status": "draft_review_route_summary_not_collected",
+  "title": "Graph Source Evidence Collection Review Route Summary",
+  "title_zh": "图谱来源证据收集复核路由摘要",
+  "updated_at": "2026-06-10"
+}

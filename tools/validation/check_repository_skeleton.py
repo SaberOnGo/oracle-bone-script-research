@@ -213,6 +213,10 @@ AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "028_ai-agent-graph-source-evidence-collection-review-queue.csv"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "029_ai-agent-graph-source-evidence-collection-review-route-summary.json"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -574,6 +578,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -652,6 +657,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_route_pack.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_queue.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_review_route_summary.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -5047,6 +5053,17 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "counter_source_lookup": "8",
         "review_log": "9",
     }
+    expected_review_sections = [
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log",
+    ]
     if [row.get("source_id", "") for row in review_queue_rows] != [
         row.get("source_id", "")
         for row in result_rows
@@ -5154,6 +5171,213 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE} "
                     f"missing caution {required_snippet}: {review_task_id}"
                 )
+
+    try:
+        review_summary = json.loads(
+            (root / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY)
+            .read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        return issues + [
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            f"invalid JSON: {exc.msg}"
+        ]
+    expected_summary_values = {
+        "context_pack_id": "ai-context-graph-source-evidence-collection-review-summary-001",
+        "status": "draft_review_route_summary_not_collected",
+        "updated_at": "2026-06-10",
+        "research_boundary": "evidence_collection_review_route_summary_not_scholarship",
+    }
+    for key, expected_value in expected_summary_values.items():
+        if review_summary.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"{key} changed"
+            )
+    if review_summary.get("generated_from") != [
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
+        AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "generated_from changed"
+        )
+    summary_coverage = review_summary.get("coverage", {})
+    expected_summary_coverage = {
+        "review_task_count": 27,
+        "source_count": 3,
+        "target_evidence_section_count": 9,
+        "route_file_reference_count": 154,
+        "unique_route_file_count": 57,
+        "counter_source_reference_count": 144,
+        "unique_counter_source_count": 6,
+    }
+    for key, expected_value in expected_summary_coverage.items():
+        if summary_coverage.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"coverage {key} changed"
+            )
+    if summary_coverage.get("source_counts") != {
+        "src-hust-obc": 9,
+        "src-evobc": 9,
+        "src-obimd": 9,
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "source counts changed"
+        )
+    if summary_coverage.get("section_counts") != {
+        "source_register": 3,
+        "download_log": 3,
+        "package_manifest": 3,
+        "metadata_profile": 3,
+        "graph_edges": 3,
+        "staging_row": 3,
+        "counter_source_lookup": 3,
+        "rights_risk_review": 3,
+        "review_log": 3,
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "section counts changed"
+        )
+    for key, expected_counts in {
+        "assignment_status_counts": {"unassigned": 27},
+        "review_status_counts": {"needs_evidence_collection_review": 27},
+        "evidence_collection_status_counts": {"not_collected": 27},
+        "source_promotion_status_counts": {"not_promoted": 27},
+        "decipherment_claim_status_counts": {"no_claim": 27},
+        "research_boundary_counts": {"evidence_collection_review_queue_not_scholarship": 27},
+        "output_scope_counts": {"graph_source_evidence_collection_review_queue_only": 27},
+    }.items():
+        if summary_coverage.get(key) != expected_counts:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"{key} changed"
+            )
+    if summary_coverage.get("priority_rank_counts") != {
+        str(rank): 3 for rank in range(1, 10)
+    }:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "priority counts changed"
+        )
+    route_file_summary = review_summary.get("route_file_summary", {})
+    for key, expected_value in {
+        "review_queue_path": AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_QUEUE,
+        "result_scaffold_path": AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
+        "route_pack_path": AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
+    }.items():
+        if route_file_summary.get(key) != expected_value:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"route file summary {key} changed"
+            )
+    if len(route_file_summary.get("route_files_to_open", [])) != 57:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "unique route file list changed"
+        )
+    source_summaries = review_summary.get("source_summaries", [])
+    if [row.get("source_id") for row in source_summaries] != [
+        "src-hust-obc",
+        "src-evobc",
+        "src-obimd",
+    ]:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "source summary order changed"
+        )
+    else:
+        expected_source_route_counts = {
+            "src-hust-obc": 32,
+            "src-evobc": 29,
+            "src-obimd": 30,
+        }
+        for row in source_summaries:
+            source_id = row.get("source_id", "")
+            if row.get("review_task_count") != 9:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"source task count changed: {source_id}"
+                )
+            if row.get("target_evidence_sections") != expected_review_sections:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"source sections changed: {source_id}"
+                )
+            if row.get("min_priority_rank") != 1 or row.get("max_priority_rank") != 9:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"source priority range changed: {source_id}"
+                )
+            if row.get("route_file_count") != expected_source_route_counts.get(source_id):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"source route file count changed: {source_id}"
+                )
+            if row.get("result_update_targets") != [
+                AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD
+            ]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"source result target changed: {source_id}"
+                )
+    section_summaries = review_summary.get("section_summaries", [])
+    if [row.get("target_evidence_section") for row in section_summaries] != expected_review_sections:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+            "section summary order changed"
+        )
+    else:
+        for row in section_summaries:
+            section = row.get("target_evidence_section", "")
+            if row.get("review_task_count") != 3:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"section task count changed: {section}"
+                )
+            if row.get("source_ids") != ["src-hust-obc", "src-evobc", "src-obimd"]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"section source order changed: {section}"
+                )
+            if row.get("priority_rank") != expected_review_priorities.get(section):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"section priority changed: {section}"
+                )
+            if row.get("required_review_check_count") != 12:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                    f"section review check count changed: {section}"
+                )
+    summary_rules = " ".join(review_summary.get("agent_use_rules", []))
+    summary_rules_zh = " ".join(review_summary.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "choose an evidence-collection review route",
+        "Open the 028 queue row",
+        "Do not treat this summary as collected evidence",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in summary_rules:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"missing agent rule: {required_snippet}"
+            )
+    for required_snippet in [
+        "只能用于选择证据收集复核路由",
+        "必须打开 028 队列行",
+        "不得把本摘要当作已收集证据",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in summary_rules_zh:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_REVIEW_ROUTE_SUMMARY} "
+                f"missing zh agent rule: {required_snippet}"
+            )
 
     return issues
 

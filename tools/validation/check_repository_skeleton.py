@@ -249,6 +249,10 @@ AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_WAVE_HANDOFF_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "037_ai-agent-graph-source-package-manifest-wave-handoff-scaffold.json"
 )
+AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -619,6 +623,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_CAPTURE_REVIEW_CHECKLIST,
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_WAVE_HANDOFF_SCAFFOLD,
+    AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -706,6 +711,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_download_log_capture_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_download_log_capture_review_checklist.py",
     "tools/005_ai-context-pack-builder/build_graph_source_package_manifest_wave_handoff_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_package_manifest_capture_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -6346,6 +6352,136 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_WAVE_HANDOFF_SCAFFOLD} "
                 f"missing zh agent rule: {required_snippet}"
             )
+
+    package_capture_rows, package_capture_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD
+    )
+    issues.extend(package_capture_issues)
+    if len(package_capture_rows) != 3:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+            "should contain 3 package-manifest capture rows"
+        )
+    else:
+        expected_sources = ["src-hust-obc", "src-evobc", "src-obimd"]
+        expected_handoff_ids = [
+            "graph-source-evidence-package-manifest-handoff-007",
+            "graph-source-evidence-package-manifest-handoff-008",
+            "graph-source-evidence-package-manifest-handoff-009",
+        ]
+        expected_review_tasks = [
+            "graph-source-evidence-review-003",
+            "graph-source-evidence-review-012",
+            "graph-source-evidence-review-021",
+        ]
+        empty_evidence_fields = [
+            "package_file_id_evidence_value",
+            "source_package_id_evidence_value",
+            "source_id_evidence_value",
+            "file_name_evidence_value",
+            "file_kind_evidence_value",
+            "source_url_evidence_value",
+            "file_size_bytes_evidence_value",
+            "download_id_evidence_value",
+            "checksum_sha256_evidence_value",
+            "commit_policy_evidence_value",
+            "handling_strategy_evidence_value",
+            "rights_status_evidence_value",
+            "review_status_evidence_value",
+        ]
+        for index, row in enumerate(package_capture_rows, start=1):
+            row_id = row.get("capture_row_id", "")
+            if row_id != f"graph-source-evidence-package-manifest-capture-{index:03d}":
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"capture row ID sequence changed: {row_id}"
+                )
+            if row.get("handoff_item_id") != expected_handoff_ids[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"handoff item changed: {row_id}"
+                )
+            if row.get("source_id") != expected_sources[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"source order changed: {row_id}"
+                )
+            if row.get("evidence_collection_review_task_id") != expected_review_tasks[index - 1]:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                    f"review task changed: {row_id}"
+                )
+            for key, expected_value in {
+                "assignment_wave_id": "graph-source-evidence-assignment-wave-003",
+                "target_evidence_section": "package_manifest",
+                "source_package_file_manifest_path": SOURCE_PACKAGE_FILE_MANIFEST,
+                "source_package_file_manifest_row_status": "not_checked",
+                "evidence_collection_status": "not_collected",
+                "package_manifest_evidence_status": "not_collected",
+                "file_size_review_status": "not_started",
+                "checksum_review_status": "not_started",
+                "storage_boundary_review_status": "not_started",
+                "rights_decision_status": "not_decided",
+                "source_promotion_status": "not_promoted",
+                "decipherment_claim_status": "no_claim",
+                "capture_status": "empty_scaffold_not_started",
+                "updated_at": "2026-06-10",
+                "handoff_scaffold_path": AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_WAVE_HANDOFF_SCAFFOLD,
+                "research_boundary": "evidence_collection_package_manifest_capture_scaffold_not_scholarship",
+                "output_scope": "graph_source_evidence_collection_package_manifest_capture_scaffold_only",
+            }.items():
+                if row.get(key) != expected_value:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"{key} changed: {row_id}"
+                    )
+            for key in empty_evidence_fields:
+                if row.get(key) != "":
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"{key} must stay blank until evidence is collected: {row_id}"
+                    )
+            route_files = row.get("route_files_to_open", "").split(";")
+            for required_path in [
+                row.get("note_draft_path"),
+                row.get("route_pack_path"),
+                row.get("manifest_path"),
+                row.get("task_queue_source_path"),
+                SOURCE_PACKAGE_FILE_MANIFEST,
+            ]:
+                if required_path not in route_files:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"capture row missing route file: {row_id}"
+                    )
+            required_checks = row.get("required_review_checks", "").split(";")
+            for required_check in [
+                "open_package_manifest_before_recording_file_size_or_checksum",
+                "keep_raw_package_storage_boundary_explicit",
+                "keep_result_row_not_collected_until_evidence_is_source_marked",
+                "do_not_write_ai_hypothesis_as_scholarship",
+            ]:
+                if required_check not in required_checks:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"missing required check: {row_id}"
+                    )
+            caution = row.get("caution", "")
+            for required_snippet in [
+                "Empty capture scaffold",
+                "source package file manifest",
+                "file size",
+                "checksum",
+                "storage boundary",
+                "rights status",
+                "collected evidence",
+                "decipherment conclusion",
+            ]:
+                if required_snippet not in caution:
+                    issues.append(
+                        f"{AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD} "
+                        f"caution missing {required_snippet}: {row_id}"
+                    )
 
     download_capture_rows, download_capture_issues = _read_csv_rows(
         root / AI_AGENT_GRAPH_SOURCE_DOWNLOAD_LOG_EVIDENCE_CAPTURE_SCAFFOLD

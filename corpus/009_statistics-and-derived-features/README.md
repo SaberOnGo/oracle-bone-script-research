@@ -46,6 +46,10 @@ Current generated statistics:
 - `039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv`: not-started review checklist for the 038 package-manifest capture rows, requiring agents to open the package manifest row, verify package/source package IDs, file name/kind/URL, file size/download ID, checksum boundary, commit policy, handling strategy, rights/review status, and block source promotion and decipherment claims.
 - `040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json`: metadata-only AI Agent routing context pack for the 1,588 HUST/OBIMD/EVOBC codepoint crosswalk candidates, summarizing OBIMD/EVOBC match coverage, source routes, sample rows, route files, and non-identity/non-decipherment cautions.
 - `041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv`: metadata-only review queue for the 134 HUST/OBIMD/EVOBC codepoint crosswalk rows with OBIMD or EVOBC matches, ordered by three-source matches, OBIMD-only matches, and EVOBC-only matches before any evidence collection.
+- `042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv`: manifest for 15 empty Markdown review-log drafts under `doc/public/user_research/004_codepoint-crosswalk-review-queues/`, limited to first-priority three-source codepoint matches and keeping all evidence sections `not_collected`.
+
+简体中文补充：
+- `042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv`：记录 `doc/public/user_research/004_codepoint-crosswalk-review-queues/` 下 15 份空白 Markdown 复核日志草稿；范围只限第一优先级三源 codepoint 命中，所有证据章节保持 `not_collected`。
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。

@@ -235,6 +235,21 @@ def load_hust_obimd_evobc_codepoint_crosswalk_review_queue_module():
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -993,6 +1008,85 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertFalse(any(row["expected_output_path"].startswith("research/") for row in rows))
         self.assertIn("not component assignments", rows[0]["caution"])
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 15)
+        self.assertEqual(
+            {row["priority_bucket"] for row in rows},
+            {"both_obimd_and_evobc_codepoint_match"},
+        )
+        self.assertEqual(
+            {row["cross_source_status"] for row in rows},
+            {"matched_obimd_and_evobc_by_codepoint"},
+        )
+        self.assertEqual(rows[0]["review_log_draft_id"], "codepoint-crosswalk-review-log-draft-001")
+        self.assertEqual(rows[0]["codepoint_review_task_id"], "codepoint-crosswalk-review-001")
+        self.assertEqual(rows[0]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
+        self.assertEqual(rows[0]["evidence_collection_status"], "not_collected")
+        self.assertEqual(rows[0]["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(rows[0]["promotion_status"], "not_promoted")
+        self.assertEqual(
+            rows[0]["research_boundary"],
+            "codepoint_crosswalk_review_log_draft_not_scholarship",
+        )
+        self.assertEqual(rows[-1]["codepoint_review_task_id"], "codepoint-crosswalk-review-015")
+        self.assertEqual(rows[-1]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001550")
+        self.assertTrue(all(row["draft_path"].startswith("doc/public/user_research/") for row in rows))
+        self.assertFalse(any(row["draft_path"].startswith("research/") for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+        draft_text = (repo_root() / rows[0]["draft_path"]).read_text(encoding="utf-8")
+        for snippet in [
+            "Codepoint Crosswalk Review Log Draft",
+            "codepoint 交叉复核日志草稿",
+            "draft_not_collected",
+            "not_collected",
+            "no_identity_claim",
+            "not_promoted",
+            "Route Files To Open",
+            "Required Next Checks",
+            "not a decipherment conclusion",
+            "不是释读结论",
+            "hust-obimd-evobc-xwalk-000047",
+        ]:
+            self.assertIn(snippet, draft_text)
+        self.assertIn(rows[0]["route_files_to_open"].split(";")[0], draft_text)
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_review_log_draft_builder_links_queue(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_module()
+        root = repo_root()
+        queue_rows = module.read_csv_rows(root / module.CODEPOINT_CROSSWALK_REVIEW_QUEUE)
+        rows = module.build_draft_manifest_rows(queue_rows)
+
+        self.assertEqual(len(rows), 15)
+        self.assertEqual(rows[0]["review_log_draft_id"], "codepoint-crosswalk-review-log-draft-001")
+        self.assertEqual(rows[0]["codepoint_review_task_id"], "codepoint-crosswalk-review-001")
+        self.assertEqual(rows[0]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(rows[-1]["codepoint_review_task_id"], "codepoint-crosswalk-review-015")
+        self.assertEqual(rows[-1]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001550")
+        self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertTrue(all(row["source_queue_path"] == module.CODEPOINT_CROSSWALK_REVIEW_QUEUE.as_posix() for row in rows))
+        self.assertFalse(any(row["draft_path"].startswith("research/") for row in rows))
+
+        markdown = module.build_markdown(rows[0])
+        self.assertIn("Route Files To Open", markdown)
+        self.assertIn("Evidence Sections", markdown)
+        self.assertIn("Required Next Checks", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+        self.assertIn("不是释读结论", markdown)
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:
         path = (

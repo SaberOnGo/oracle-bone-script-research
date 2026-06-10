@@ -267,6 +267,10 @@ AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv"
 )
+AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -641,6 +645,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_WAVE_HANDOFF_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_EVIDENCE_CAPTURE_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_PACKAGE_MANIFEST_CAPTURE_REVIEW_CHECKLIST,
+    AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -710,6 +715,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
     "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
@@ -2396,6 +2402,204 @@ def check_ai_context_packs(root: Path) -> list[str]:
     ]:
         if required_snippet not in source_rules_zh:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")
+
+    codepoint_context_path = root / AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK
+    try:
+        codepoint_context_pack = json.loads(codepoint_context_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return issues + [
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} invalid JSON: {exc.msg}"
+        ]
+    if codepoint_context_pack.get("context_pack_id") != (
+        "ai-context-hust-obimd-evobc-codepoint-crosswalk-001"
+    ):
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "context_pack_id changed"
+        )
+    if codepoint_context_pack.get("status") != "reviewed_metadata_only":
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "status must stay reviewed_metadata_only"
+        )
+    if codepoint_context_pack.get("updated_at") != "2026-06-10":
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} updated_at changed"
+        )
+    if codepoint_context_pack.get("generated_from") != [
+        HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK,
+        HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+        OBIMD_MAIN_CHARACTER_STAGING,
+        EVOBC_EVOLUTION_CATEGORY_STAGING,
+        SOURCE_INDEX,
+        SOURCE_DOWNLOAD_LOG,
+    ]:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} generated_from changed"
+        )
+    codepoint_coverage = codepoint_context_pack.get("coverage", {})
+    expected_codepoint_coverage = {
+        "total_crosswalk_rows": 1588,
+        "rows_with_any_obimd_or_evobc_codepoint_match": 134,
+        "rows_with_obimd_codepoint_match": 22,
+        "rows_with_evobc_codepoint_match": 127,
+        "rows_with_both_obimd_and_evobc_codepoint_match": 15,
+        "rows_without_obimd_or_evobc_codepoint_match": 1454,
+        "total_obimd_match_count": 22,
+        "total_evobc_match_count": 127,
+        "evobc_image_reference_count_total": 1518,
+        "evobc_oracle_ref_candidate_row_count": 32,
+        "multi_component_label_row_count": 173,
+        "unique_route_file_count": 1609,
+        "route_file_reference_count": 11116,
+    }
+    for key, value in expected_codepoint_coverage.items():
+        if codepoint_coverage.get(key) != value:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                f"coverage {key} changed"
+            )
+    if codepoint_coverage.get("cross_source_status_counts") != {
+        "matched_evobc_by_codepoint": 112,
+        "matched_obimd_and_evobc_by_codepoint": 15,
+        "matched_obimd_by_codepoint": 7,
+        "no_obimd_or_evobc_codepoint_match": 1454,
+    }:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "status counts changed"
+        )
+    if codepoint_coverage.get("identity_claim_status_counts") != {"no_identity_claim": 1588}:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "identity claim counts changed"
+        )
+    if codepoint_coverage.get("promotion_status_counts") != {"not_promoted": 1588}:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "promotion counts changed"
+        )
+    if codepoint_coverage.get("review_status_counts") != {"needs_cross_source_review": 1588}:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "review counts changed"
+        )
+    if codepoint_coverage.get("matched_source_set_counts") != {
+        "src-hust-obc": 1454,
+        "src-hust-obc;src-evobc": 112,
+        "src-hust-obc;src-obimd": 7,
+        "src-hust-obc;src-obimd;src-evobc": 15,
+    }:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "matched source counts changed"
+        )
+    codepoint_source_routes = codepoint_context_pack.get("source_routes", [])
+    if not isinstance(codepoint_source_routes, list) or [
+        row.get("source_id", "") for row in codepoint_source_routes
+    ] != ["src-hust-obc", "src-obimd", "src-evobc"]:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "source route order changed"
+        )
+    else:
+        source_route_files = {
+            row.get("source_id", ""): set(row.get("route_files", []))
+            for row in codepoint_source_routes
+        }
+        if OBIMD_MAIN_CHARACTER_STAGING not in source_route_files.get("src-obimd", set()):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                "missing OBIMD route file"
+            )
+        if EVOBC_EVOLUTION_CATEGORY_STAGING not in source_route_files.get("src-evobc", set()):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                "missing EVOBC route file"
+            )
+    codepoint_status_routes = codepoint_context_pack.get("status_routes", [])
+    if not isinstance(codepoint_status_routes, list) or len(codepoint_status_routes) != 4:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "must contain 4 status routes"
+        )
+    else:
+        if {
+            row.get("claim_boundary", "") for row in codepoint_status_routes
+        } != {"lookup_route_only_no_identity_or_decipherment_claim"}:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                "status route claim boundary changed"
+            )
+    sample_rows = codepoint_context_pack.get("sample_rows_by_status", {})
+    expected_sample_statuses = {
+        "matched_evobc_by_codepoint",
+        "matched_obimd_and_evobc_by_codepoint",
+        "matched_obimd_by_codepoint",
+        "no_obimd_or_evobc_codepoint_match",
+    }
+    if set(sample_rows) != expected_sample_statuses:
+        issues.append(
+            f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+            "sample status set changed"
+        )
+    else:
+        three_source_sample = sample_rows["matched_obimd_and_evobc_by_codepoint"]
+        if three_source_sample.get("crosswalk_candidate_id") != "hust-obimd-evobc-xwalk-000047":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                "three-source sample changed"
+            )
+        if three_source_sample.get("identity_claim_status") != "no_identity_claim":
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                "sample identity boundary changed"
+            )
+        if "not decipherment conclusions" not in three_source_sample.get("caution", ""):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                "sample caution changed"
+            )
+    codepoint_route_catalog = codepoint_context_pack.get("route_file_catalog", {})
+    for required_file in [
+        HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK,
+        HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
+        OBIMD_MAIN_CHARACTER_STAGING,
+        EVOBC_EVOLUTION_CATEGORY_STAGING,
+        SOURCE_INDEX,
+        SOURCE_DOWNLOAD_LOG,
+    ]:
+        if required_file not in codepoint_route_catalog.get("required_source_files", []):
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                f"missing required source file: {required_file}"
+            )
+    codepoint_rules = " ".join(codepoint_context_pack.get("agent_use_rules", []))
+    codepoint_rules_zh = " ".join(codepoint_context_pack.get("agent_use_rules_zh", []))
+    for required_snippet in [
+        "codepoint lookup route",
+        "Open the cited crosswalk row",
+        "do not confirm oracle-character identity",
+        "current routing gap",
+        "ignored temporary directories",
+    ]:
+        if required_snippet not in codepoint_rules:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                f"missing agent rule: {required_snippet}"
+            )
+    for required_snippet in [
+        "codepoint 反查路由",
+        "必须打开被引用的 crosswalk 行",
+        "不等于确认甲骨字身份",
+        "路由缺口",
+        "已忽略临时目录",
+    ]:
+        if required_snippet not in codepoint_rules_zh:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_CONTEXT_PACK} "
+                f"missing Chinese agent rule: {required_snippet}"
+            )
 
     source_route_rows, source_route_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE)
     issues.extend(source_route_issues)

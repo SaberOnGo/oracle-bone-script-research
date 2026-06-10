@@ -33,6 +33,7 @@ Current tools:
 - `build_graph_source_package_manifest_wave_handoff_scaffold.py`: builds the third `package_manifest` wave handoff scaffold from the 030 plan, listing the three handoff rows and route files while leaving file-size, checksum, storage-boundary, rights, promotion, and decipherment decisions unset.
 - `build_graph_source_package_manifest_capture_scaffold.py`: builds an empty package-manifest evidence capture scaffold from 037, reserving fields for later package file, source package, file name, source URL, size, checksum, commit-policy, handling-strategy, rights, and review-status capture without filling evidence values or making file-size, checksum, storage, rights, promotion, or decipherment decisions.
 - `build_graph_source_package_manifest_capture_review_checklist.py`: builds a not-started review checklist from 038 so agents must verify package manifest row, package/source package IDs, file metadata, size/download ID, checksum boundary, commit policy, handling strategy, rights/review status, and non-promotion boundaries before recording evidence.
+- `build_hust_obimd_evobc_codepoint_crosswalk_context_pack.py`: builds a metadata-only AI Agent route context pack from the HUST/OBIMD/EVOBC codepoint crosswalk, summarizing match coverage, sample rows, source routes, and cautions without claiming oracle-character identity, readings, components, evolution chains, or decipherment conclusions.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -67,3 +68,4 @@ Current tools:
 - `build_graph_source_package_manifest_wave_handoff_scaffold.py`：从 030 计划生成第三波 `package_manifest` 交接脚手架，列出三条交接行和 route files，同时让文件大小、checksum、存储边界、权利、提升和释读决定保持未设置状态。
 - `build_graph_source_package_manifest_capture_scaffold.py`：从 037 生成空白 package manifest 证据捕获骨架，为后续 package file、source package、文件名、来源 URL、大小、checksum、提交策略、处理策略、权利和复核状态捕获预留字段，但不填入证据值，也不作文件大小、checksum、存储、权利、提升或释读决定。
 - `build_graph_source_package_manifest_capture_review_checklist.py`：从 038 生成未开始的复核 checklist，要求 agent 在记录证据前核对 package manifest 行、package/source package ID、文件 metadata、大小/download ID、checksum 边界、提交策略、处理策略、权利/复核状态和禁止提升边界。
+- `build_hust_obimd_evobc_codepoint_crosswalk_context_pack.py`：从 HUST/OBIMD/EVOBC codepoint crosswalk 生成 metadata-only AI Agent 路由上下文包，汇总命中覆盖、样例行、来源路由和 caution，但不声明甲骨字身份、释读、构件、演化链或破译结论。

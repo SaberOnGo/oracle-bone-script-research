@@ -205,6 +205,21 @@ def load_source_coverage_context_pack_module():
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_context_pack_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obimd_evobc_codepoint_crosswalk_context_pack.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_context_pack", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -802,6 +817,92 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Keep new downloads in ignored temporary directories", rules)
         self.assertIn("数据集派生记录", rules_zh)
         self.assertNotIn("confirmed scholarship", rules)
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_context_pack_preserves_lookup_boundaries(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-hust-obimd-evobc-codepoint-crosswalk-001",
+        )
+        self.assertEqual(data["status"], "reviewed_metadata_only")
+        self.assertEqual(data["coverage"]["total_crosswalk_rows"], 1588)
+        self.assertEqual(data["coverage"]["rows_with_any_obimd_or_evobc_codepoint_match"], 134)
+        self.assertEqual(data["coverage"]["rows_with_obimd_codepoint_match"], 22)
+        self.assertEqual(data["coverage"]["rows_with_evobc_codepoint_match"], 127)
+        self.assertEqual(data["coverage"]["rows_with_both_obimd_and_evobc_codepoint_match"], 15)
+        self.assertEqual(data["coverage"]["rows_without_obimd_or_evobc_codepoint_match"], 1454)
+        self.assertEqual(data["coverage"]["total_obimd_match_count"], 22)
+        self.assertEqual(data["coverage"]["total_evobc_match_count"], 127)
+        self.assertEqual(data["coverage"]["evobc_image_reference_count_total"], 1518)
+        self.assertEqual(data["coverage"]["evobc_oracle_ref_candidate_row_count"], 32)
+        self.assertEqual(data["coverage"]["multi_component_label_row_count"], 173)
+        self.assertEqual(data["coverage"]["unique_route_file_count"], 1609)
+        self.assertEqual(data["coverage"]["identity_claim_status_counts"], {"no_identity_claim": 1588})
+        self.assertEqual(data["coverage"]["promotion_status_counts"], {"not_promoted": 1588})
+        self.assertEqual(data["coverage"]["review_status_counts"], {"needs_cross_source_review": 1588})
+        self.assertEqual(
+            data["coverage"]["cross_source_status_counts"],
+            {
+                "matched_evobc_by_codepoint": 112,
+                "matched_obimd_and_evobc_by_codepoint": 15,
+                "matched_obimd_by_codepoint": 7,
+                "no_obimd_or_evobc_codepoint_match": 1454,
+            },
+        )
+        self.assertEqual(
+            [row["source_id"] for row in data["source_routes"]],
+            ["src-hust-obc", "src-obimd", "src-evobc"],
+        )
+        self.assertEqual(set(data["sample_rows_by_status"]), {
+            "matched_evobc_by_codepoint",
+            "matched_obimd_and_evobc_by_codepoint",
+            "matched_obimd_by_codepoint",
+            "no_obimd_or_evobc_codepoint_match",
+        })
+        three_source_sample = data["sample_rows_by_status"]["matched_obimd_and_evobc_by_codepoint"]
+        self.assertEqual(three_source_sample["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000047")
+        self.assertEqual(three_source_sample["hust_label_codepoints"], "U+342D")
+        self.assertEqual(three_source_sample["identity_claim_status"], "no_identity_claim")
+        self.assertIn("not decipherment conclusions", three_source_sample["caution"])
+        rules = " ".join(data["agent_use_rules"])
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("codepoint lookup route", rules)
+        self.assertIn("do not confirm oracle-character identity", rules)
+        self.assertIn("current routing gap", rules)
+        self.assertIn("codepoint 反查路由", rules_zh)
+        self.assertIn("不等于确认甲骨字身份", rules_zh)
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_context_pack_builder_keeps_boundaries(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_context_pack_module()
+        root = repo_root()
+        data = module.build_context_pack(
+            module.read_csv_rows(root / module.HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+        )
+
+        self.assertEqual(data["coverage"]["total_crosswalk_rows"], 1588)
+        self.assertEqual(data["coverage"]["rows_with_any_obimd_or_evobc_codepoint_match"], 134)
+        self.assertEqual(data["coverage"]["total_obimd_match_count"], 22)
+        self.assertEqual(data["coverage"]["total_evobc_match_count"], 127)
+        self.assertEqual(data["coverage"]["evobc_image_reference_count_total"], 1518)
+        self.assertEqual(data["coverage"]["matched_source_set_counts"]["src-hust-obc;src-obimd;src-evobc"], 15)
+        self.assertEqual(data["status_routes"][0]["claim_boundary"], "lookup_route_only_no_identity_or_decipherment_claim")
+        self.assertEqual(data["source_routes"][1]["source_id"], "src-obimd")
+        self.assertIn(
+            module.OBIMD_MAIN_CHARACTER_STAGING.as_posix(),
+            data["source_routes"][1]["route_files"],
+        )
+        self.assertIn(
+            module.EVOBC_EVOLUTION_CATEGORY_STAGING.as_posix(),
+            data["source_routes"][2]["route_files"],
+        )
+        self.assertIn("does not contain identity", data["purpose"])
+        self.assertNotIn("confirmed scholarship", " ".join(data["agent_use_rules"]))
 
     def test_ai_agent_source_route_review_queue_prioritizes_safe_next_checks(self) -> None:
         path = (

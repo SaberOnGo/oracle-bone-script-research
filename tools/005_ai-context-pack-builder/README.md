@@ -14,6 +14,7 @@ Current tools:
 - `build_source_route_review_result_scaffold.py`: builds one empty source-route review result scaffold per route task, with all review sections marked not collected until an agent opens the cited route files.
 - `build_source_route_review_results.py`: builds reviewed metadata-only source-route results for graph-derived HUST-OBC, EVOBC, and OBIMD routes from queue, scaffold, source register, metadata profile, download log, package manifest, candidate/evidence queues when applicable, and graph-edge counts.
 - `build_graph_source_cross_review_queue.py`: builds three metadata-only cross-source review tasks from the reviewed HUST-OBC, EVOBC, and OBIMD source-route results, linking each first candidate or staging row to required route files and non-promotion cautions.
+- `build_graph_source_cross_review_log_scaffold.py`: builds an empty log scaffold from the graph-source cross-review queue, reserving not-collected review sections for source registers, route files, counter-source lookups, rights/risk checks, evidence-pack status, and promotion decisions.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -29,3 +30,4 @@ Current tools:
 - `build_source_route_review_result_scaffold.py`：为每条来源路由任务生成一个空白 source-route 复核结果骨架，在 agent 打开被引用 route files 前，所有复核章节都保持 not collected。
 - `build_source_route_review_results.py`：从 queue、scaffold、来源登记、metadata profile、下载日志、包 manifest、适用时的候选/evidence 队列和图谱边计数，为 graph-derived HUST-OBC、EVOBC、OBIMD 路由生成已复核 metadata-only 来源路由结果。
 - `build_graph_source_cross_review_queue.py`：从已复核的 HUST-OBC、EVOBC、OBIMD source-route 结果生成三条 metadata-only 交叉来源复核任务，把每个首个候选或 staging 行连接到必需 route files 和禁止提升为结论的 caution。
+- `build_graph_source_cross_review_log_scaffold.py`：从 graph-source cross-review queue 生成空白日志骨架，为来源登记、route files、反查来源、权利/风险检查、evidence-pack 状态和提升决定预留 not-collected 复核章节。

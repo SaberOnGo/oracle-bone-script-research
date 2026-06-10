@@ -149,6 +149,10 @@ AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "012_ai-agent-graph-source-cross-review-queue.csv"
 )
+AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "013_ai-agent-graph-source-cross-review-log-scaffold.csv"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -374,6 +378,7 @@ REQUIRED_PATHS = [
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE,
+    AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -414,6 +419,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_results.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_queue.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2640,6 +2646,86 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 issues.append(
                     f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} {source_id} missing caution: "
                     f"{required_snippet}"
+                )
+
+    cross_review_log_rows, cross_review_log_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD
+    )
+    issues.extend(cross_review_log_issues)
+    if len(cross_review_log_rows) != 3:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} should contain exactly 3 rows")
+    if [row.get("source_id", "") for row in cross_review_log_rows] != expected_review_source_ids:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} source order changed")
+    cross_review_rows_by_task = {
+        row.get("cross_review_task_id", ""): row
+        for row in cross_review_rows
+    }
+    expected_log_status_values = {
+        "result_status": "not_started",
+        "source_register_review_status": "not_collected",
+        "download_log_review_status": "not_collected",
+        "package_manifest_review_status": "not_collected",
+        "metadata_profile_review_status": "not_collected",
+        "graph_edge_review_status": "not_collected",
+        "staging_row_review_status": "not_collected",
+        "counter_source_lookup_status": "not_collected",
+        "rights_risk_review_status": "not_collected",
+        "review_log_status": "not_collected",
+        "evidence_pack_draft_status": "not_started",
+        "promotion_decision_status": "not_decided",
+        "research_boundary": "cross_source_review_log_scaffold_not_scholarship",
+        "output_scope": "cross_source_review_log_scaffold_only",
+        "updated_at": "2026-06-10",
+    }
+    for index, row in enumerate(cross_review_log_rows, start=1):
+        log_id = row.get("cross_review_log_id", "")
+        task_id = row.get("cross_review_task_id", "")
+        queue_row = cross_review_rows_by_task.get(task_id, {})
+        if log_id != f"graph-source-cross-review-log-{index:03d}":
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} log ID sequence changed: {log_id}")
+        if task_id != f"graph-source-cross-review-{index:03d}":
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} task link sequence changed: {log_id}")
+        if not queue_row:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} missing queue link: {log_id}")
+            continue
+        for linked_field in [
+            "source_route_result_id",
+            "source_route_task_id",
+            "context_pack_id",
+            "source_id",
+            "target_review_scope",
+            "primary_review_record_id",
+            "related_project_id",
+            "primary_external_ref_id",
+            "source_record_id",
+            "expected_output_path",
+            "route_files_to_open",
+            "required_counter_source_ids",
+            "required_evidence_sections",
+        ]:
+            if row.get(linked_field) != queue_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} {linked_field} "
+                    f"does not match queue: {log_id}"
+                )
+        for key, expected_value in expected_log_status_values.items():
+            if row.get(key) != expected_value:
+                issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} {key} changed: {log_id}")
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "empty graph-source cross-review log scaffold",
+            "not_collected",
+            "opens the cited route files",
+            "Do not use it as source evidence",
+            "rights decision",
+            "promotion decision",
+            "component or evolution-chain assignment",
+            "decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} missing caution "
+                    f"{required_snippet}: {log_id}"
                 )
 
     return issues

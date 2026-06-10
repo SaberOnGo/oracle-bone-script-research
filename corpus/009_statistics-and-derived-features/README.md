@@ -17,6 +17,7 @@ Current generated statistics:
 - `010_ai-agent-source-route-review-result-scaffold.csv`: empty per-source route-review result scaffold, reserving not-collected review sections for source register, route file, rights/risk, size/checksum, promotion decision, evidence gap, and next artifact checks.
 - `011_ai-agent-source-route-review-results.csv`: reviewed metadata-only source-route results for graph-derived HUST-OBC, EVOBC, and OBIMD routes, confirming route files, derived counts, rights/risk boundaries, size/commit-policy boundaries, and next cross-source review actions without promoting raw assets, dataset labels, graph edges, or staging rows into scholarship.
 - `012_ai-agent-graph-source-cross-review-queue.csv`: three metadata-only cross-source review tasks for the first HUST-OBC, EVOBC, and OBIMD graph-derived routes, pointing agents to the required registers, staging rows, graph files, and review logs before any evidence-pack draft or source promotion.
+- `013_ai-agent-graph-source-cross-review-log-scaffold.csv`: empty log scaffold for the 012 cross-source review tasks, keeping source register, download log, package manifest, metadata profile, graph-edge, staging-row, counter-source, rights/risk, review-log, evidence-pack, and promotion-decision sections uncollected until source-marked review.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -35,3 +36,4 @@ Current generated statistics:
 - `010_ai-agent-source-route-review-result-scaffold.csv`：逐来源 route-review 空白结果骨架，为来源登记、route file、权利/风险、大小/checksum、提升决定、证据缺口和下一产物检查预留 not-collected 章节。
 - `011_ai-agent-source-route-review-results.csv`：面向 graph-derived HUST-OBC、EVOBC、OBIMD 路由的 metadata-only 来源路由复核结果，确认 route files、派生计数、权利/风险边界、尺寸/提交策略边界和下一步交叉来源复核动作，不把原始资产、数据集标签、图谱边或 staging rows 提升为学术结论。
 - `012_ai-agent-graph-source-cross-review-queue.csv`：面向首个 HUST-OBC、EVOBC、OBIMD graph-derived 路由的三条 metadata-only 交叉来源复核任务，指向必需登记表、staging 行、图谱文件和复核日志，在任何 evidence-pack 草稿或来源提升前保持准备阶段边界。
+- `013_ai-agent-graph-source-cross-review-log-scaffold.csv`：面向 012 交叉来源复核任务的空白日志骨架，把来源登记、下载日志、包 manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险、复核日志、evidence-pack 和提升决定章节保持为未收集状态，等待带来源标记的复核。

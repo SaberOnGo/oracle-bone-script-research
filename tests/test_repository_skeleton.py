@@ -214,6 +214,15 @@ def load_graph_source_cross_review_queue_module():
     return module
 
 
+def load_graph_source_cross_review_log_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_cross_review_log_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -890,6 +899,72 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
         self.assertTrue(all(row["research_boundary"].endswith("not_scholarship") for row in rows))
+
+    def test_ai_agent_graph_source_cross_review_log_scaffold_is_empty(self) -> None:
+        queue_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "012_ai-agent-graph-source-cross-review-queue.csv"
+        )
+        scaffold_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "013_ai-agent-graph-source-cross-review-log-scaffold.csv"
+        )
+        with queue_path.open("r", encoding="utf-8-sig", newline="") as file:
+            queue_rows = list(csv.DictReader(file))
+        with scaffold_path.open("r", encoding="utf-8-sig", newline="") as file:
+            scaffold_rows = list(csv.DictReader(file))
+        self.assertEqual(len(scaffold_rows), 3)
+        self.assertEqual(len(scaffold_rows), len(queue_rows))
+        self.assertEqual(
+            [row["source_id"] for row in scaffold_rows],
+            ["src-hust-obc", "src-evobc", "src-obimd"],
+        )
+        self.assertEqual(scaffold_rows[0]["cross_review_log_id"], "graph-source-cross-review-log-001")
+        self.assertEqual(scaffold_rows[0]["cross_review_task_id"], queue_rows[0]["cross_review_task_id"])
+        self.assertEqual(scaffold_rows[0]["expected_output_path"], queue_rows[0]["expected_output_path"])
+        self.assertEqual(scaffold_rows[1]["primary_review_record_id"], "evobc-evo-cat-00001")
+        self.assertEqual(scaffold_rows[2]["primary_review_record_id"], "obimd-sub-cand-000001")
+        self.assertEqual({row["result_status"] for row in scaffold_rows}, {"not_started"})
+        self.assertEqual(
+            {row["source_register_review_status"] for row in scaffold_rows},
+            {"not_collected"},
+        )
+        self.assertEqual(
+            {row["counter_source_lookup_status"] for row in scaffold_rows},
+            {"not_collected"},
+        )
+        self.assertEqual(
+            {row["promotion_decision_status"] for row in scaffold_rows},
+            {"not_decided"},
+        )
+        self.assertEqual(
+            {row["research_boundary"] for row in scaffold_rows},
+            {"cross_source_review_log_scaffold_not_scholarship"},
+        )
+        self.assertTrue(all("Do not use it as source evidence" in row["caution"] for row in scaffold_rows))
+        self.assertTrue(all("decipherment conclusion" in row["caution"] for row in scaffold_rows))
+
+    def test_ai_agent_graph_source_cross_review_log_scaffold_builder_keeps_empty_sections(self) -> None:
+        module = load_graph_source_cross_review_log_scaffold_module()
+        root = repo_root()
+        queue_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_QUEUE)
+        scaffold_rows = module.build_log_scaffold_rows(queue_rows)
+        self.assertEqual(len(scaffold_rows), 3)
+        self.assertEqual(scaffold_rows[0]["cross_review_log_id"], "graph-source-cross-review-log-001")
+        self.assertEqual(scaffold_rows[0]["cross_review_task_id"], queue_rows[0]["cross_review_task_id"])
+        self.assertEqual(scaffold_rows[0]["route_files_to_open"], queue_rows[0]["route_files_to_open"])
+        self.assertEqual(scaffold_rows[1]["source_id"], "src-evobc")
+        self.assertEqual(scaffold_rows[1]["expected_output_path"], queue_rows[1]["expected_output_path"])
+        self.assertEqual(scaffold_rows[2]["source_id"], "src-obimd")
+        self.assertEqual(scaffold_rows[2]["output_scope"], "cross_source_review_log_scaffold_only")
+        self.assertEqual(
+            {row["graph_edge_review_status"] for row in scaffold_rows},
+            {"not_collected"},
+        )
+        self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in scaffold_rows))
+        self.assertTrue(all(row["promotion_decision_status"] != "promoted" for row in scaffold_rows))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

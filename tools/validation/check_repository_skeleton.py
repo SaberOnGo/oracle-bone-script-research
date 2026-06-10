@@ -137,6 +137,10 @@ AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "009_ai-agent-source-route-review-queue.csv"
 )
+AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "010_ai-agent-source-route-review-result-scaffold.csv"
+)
 AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
@@ -359,6 +363,7 @@ REQUIRED_PATHS = [
     SOURCE_COVERAGE_SUMMARY,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
+    AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
     OBIMD_MAIN_CHARACTER_STAGING,
     OBIMD_SUBCHARACTER_MAIN_STAGING,
     OBIMD_SUBCHARACTER_GLYPH_STAGING,
@@ -396,6 +401,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_route_review_queue.py",
+    "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -2194,6 +2200,72 @@ def check_ai_context_packs(root: Path) -> list[str]:
         for required_check in expected_values["required_checks"]:
             if required_check not in next_checks:
                 issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} {source_id} missing next check: {required_check}")
+
+    result_rows, result_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD)
+    issues.extend(result_issues)
+    if len(result_rows) != 21:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} should contain exactly 21 rows")
+    if [row.get("source_id", "") for row in result_rows] != expected_source_route_ids:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} source order changed")
+    queue_rows_by_task = {
+        row.get("source_route_task_id", ""): row
+        for row in source_route_rows
+    }
+    for index, row in enumerate(result_rows, start=1):
+        result_id = row.get("source_route_result_id", "")
+        task_id = row.get("source_route_task_id", "")
+        queue_row = queue_rows_by_task.get(task_id, {})
+        if result_id != f"source-route-result-{index:03d}":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} result ID sequence changed: {result_id}")
+        if task_id != f"source-route-review-{index:03d}":
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} task link sequence changed: {result_id}")
+        if not queue_row:
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} missing queue link: {result_id}")
+            continue
+        for linked_field in [
+            "context_pack_id",
+            "source_id",
+            "priority_tags",
+            "review_focus",
+            "required_next_checks",
+        ]:
+            if row.get(linked_field) != queue_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} {linked_field} "
+                    f"does not match queue: {result_id}"
+                )
+        if row.get("route_files_to_open") != queue_row.get("route_files"):
+            issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} route files changed: {result_id}")
+        expected_scaffold_values = {
+            "result_status": "not_started",
+            "source_register_review_status": "not_collected",
+            "route_file_review_status": "not_collected",
+            "rights_and_risk_review_status": "not_collected",
+            "size_checksum_review_status": "not_collected",
+            "derivative_promotion_status": "not_decided",
+            "evidence_gap_status": "not_collected",
+            "next_artifact_recommendation": "not_collected",
+            "research_boundary": "review_result_scaffold_not_scholarship",
+            "output_scope": "source_route_review_scaffold_only",
+            "updated_at": "2026-06-10",
+        }
+        for key, value in expected_scaffold_values.items():
+            if row.get(key) != value:
+                issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} {key} changed: {result_id}")
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "empty source-route review result scaffold",
+            "remain not_collected",
+            "Do not use it as source evidence",
+            "rights decision",
+            "promotion decision",
+            "decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD} missing caution "
+                    f"{required_snippet}: {result_id}"
+                )
 
     return issues
 

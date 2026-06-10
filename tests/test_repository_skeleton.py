@@ -187,6 +187,15 @@ def load_source_route_review_queue_module():
     return module
 
 
+def load_source_route_review_result_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_result_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_source_route_review_result_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -602,6 +611,78 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_source["src-yinqi-wenyuan"]["required_next_checks"],
         )
         self.assertNotIn("confirmed scholarship", rows[0]["caution"])
+
+    def test_ai_agent_source_route_review_result_scaffold_is_empty(self) -> None:
+        queue_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "009_ai-agent-source-route-review-queue.csv"
+        )
+        result_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "010_ai-agent-source-route-review-result-scaffold.csv"
+        )
+        with queue_path.open("r", encoding="utf-8-sig", newline="") as file:
+            queue_rows = list(csv.DictReader(file))
+        with result_path.open("r", encoding="utf-8-sig", newline="") as file:
+            result_rows = list(csv.DictReader(file))
+        self.assertEqual(len(result_rows), 21)
+        self.assertEqual(len(result_rows), len(queue_rows))
+        self.assertEqual(result_rows[0]["source_route_result_id"], "source-route-result-001")
+        self.assertEqual(result_rows[0]["source_route_task_id"], "source-route-review-001")
+        self.assertEqual(result_rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(result_rows[0]["route_files_to_open"], queue_rows[0]["route_files"])
+        self.assertEqual(result_rows[0]["required_next_checks"], queue_rows[0]["required_next_checks"])
+        self.assertEqual(
+            {row["result_status"] for row in result_rows},
+            {"not_started"},
+        )
+        self.assertEqual(
+            {row["source_register_review_status"] for row in result_rows},
+            {"not_collected"},
+        )
+        self.assertEqual(
+            {row["rights_and_risk_review_status"] for row in result_rows},
+            {"not_collected"},
+        )
+        self.assertEqual(
+            {row["derivative_promotion_status"] for row in result_rows},
+            {"not_decided"},
+        )
+        self.assertEqual(
+            {row["research_boundary"] for row in result_rows},
+            {"review_result_scaffold_not_scholarship"},
+        )
+        self.assertTrue(
+            all("Do not use it as source evidence" in row["caution"] for row in result_rows)
+        )
+        self.assertTrue(
+            all("decipherment conclusion" in row["caution"] for row in result_rows)
+        )
+
+    def test_ai_agent_source_route_review_result_scaffold_builder_keeps_empty_sections(self) -> None:
+        module = load_source_route_review_result_scaffold_module()
+        queue_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "009_ai-agent-source-route-review-queue.csv"
+        )
+        with queue_path.open("r", encoding="utf-8-sig", newline="") as file:
+            queue_rows = list(csv.DictReader(file))
+        result_rows = module.build_result_rows(queue_rows)
+        self.assertEqual(len(result_rows), 21)
+        self.assertEqual(result_rows[0]["source_route_result_id"], "source-route-result-001")
+        self.assertEqual(result_rows[0]["source_route_task_id"], queue_rows[0]["source_route_task_id"])
+        self.assertEqual(result_rows[4]["source_id"], "src-smithsonian-nmaa-oracle-bone")
+        self.assertEqual(result_rows[4]["priority_tags"], queue_rows[4]["priority_tags"])
+        self.assertEqual(result_rows[4]["route_files_to_open"], queue_rows[4]["route_files"])
+        self.assertEqual(result_rows[4]["result_status"], "not_started")
+        self.assertEqual(result_rows[4]["evidence_gap_status"], "not_collected")
+        self.assertEqual(result_rows[4]["next_artifact_recommendation"], "not_collected")
+        self.assertEqual(result_rows[4]["output_scope"], "source_route_review_scaffold_only")
+        self.assertNotIn("confirmed scholarship", result_rows[4]["caution"])
+        self.assertNotIn("public_domain_verified", result_rows[4]["derivative_promotion_status"])
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

@@ -20,6 +20,7 @@ Current generated statistics:
 - `013_ai-agent-graph-source-cross-review-log-scaffold.csv`: empty log scaffold for the 012 cross-source review tasks, keeping source register, download log, package manifest, metadata profile, graph-edge, staging-row, counter-source, rights/risk, review-log, evidence-pack, and promotion-decision sections uncollected until source-marked review.
 - `014_ai-agent-graph-source-cross-review-log-draft-manifest.csv`: manifest for three empty Markdown cross-source review log drafts under `doc/public/user_research/002_cross-source-review-queues/`, keeping every evidence section `not_collected` and every promotion decision `not_decided`.
 - `015_ai-agent-graph-source-cross-review-log-results.csv`: metadata-only cross-source review log results for the three draft logs, confirming local route-file availability, registered counter sources, metadata/profile/download/package rows, graph-edge route counts, and staging-row refs without promoting any dataset labels, graph edges, component assignments, evolution chains, or decipherment conclusions.
+- `016_ai-agent-graph-source-evidence-collection-task-queue.csv`: per-source, per-section evidence-collection task queue derived from the 015 results, routing future agents to source register, download log, package manifest, metadata profile, graph-edge, staging-row, counter-source, rights/risk, and review-log checks while keeping all evidence uncollected.
 
 简体中文：
 本目录将保存生成的出现次数、共现、主题、时代、地点和相似度统计。
@@ -41,3 +42,4 @@ Current generated statistics:
 - `013_ai-agent-graph-source-cross-review-log-scaffold.csv`：面向 012 交叉来源复核任务的空白日志骨架，把来源登记、下载日志、包 manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险、复核日志、evidence-pack 和提升决定章节保持为未收集状态，等待带来源标记的复核。
 - `014_ai-agent-graph-source-cross-review-log-draft-manifest.csv`：记录 `doc/public/user_research/002_cross-source-review-queues/` 下三份空白 Markdown 交叉来源复核日志草稿，所有证据章节保持 `not_collected`，所有提升决定保持 `not_decided`。
 - `015_ai-agent-graph-source-cross-review-log-results.csv`：面向三份草稿日志的 metadata-only 交叉来源复核日志结果，确认本地 route file 可用性、已登记反查来源、metadata/profile/download/package 行、图谱边路由计数和 staging row 引用，但不提升任何数据集标签、图谱边、构件判定、演化链或释读结论。
+- `016_ai-agent-graph-source-evidence-collection-task-queue.csv`：从 015 结果派生的逐来源、逐章节证据收集任务队列，把后续 agent 路由到来源登记、下载日志、package manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险和复核日志检查，同时保持所有证据为未收集状态。

@@ -241,6 +241,15 @@ def load_graph_source_cross_review_log_results_module():
     return module
 
 
+def load_graph_source_evidence_collection_task_queue_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_task_queue.py"
+    spec = importlib.util.spec_from_file_location("build_graph_source_evidence_collection_task_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -1132,6 +1141,84 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("obimd-main-cand-000001", rows[2]["staging_record_refs"])
         self.assertTrue(all(row["draft_log_status"] == "draft_log_exists" for row in rows))
         self.assertTrue(all(row["promotion_decision_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_evidence_collection_task_queue_is_not_collected(self) -> None:
+        task_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "016_ai-agent-graph-source-evidence-collection-task-queue.csv"
+        )
+        with task_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 27)
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "graph-source-evidence-task-001")
+        self.assertEqual(rows[-1]["evidence_collection_task_id"], "graph-source-evidence-task-027")
+        self.assertEqual(
+            {row["source_id"] for row in rows},
+            {"src-hust-obc", "src-evobc", "src-obimd"},
+        )
+        self.assertEqual(
+            [row["target_evidence_section"] for row in rows[:9]],
+            [
+                "source_register",
+                "download_log",
+                "package_manifest",
+                "metadata_profile",
+                "graph_edges",
+                "staging_row",
+                "counter_source_lookup",
+                "rights_risk_review",
+                "review_log",
+            ],
+        )
+        self.assertEqual(
+            {row["target_evidence_section"] for row in rows},
+            {
+                "source_register",
+                "download_log",
+                "package_manifest",
+                "metadata_profile",
+                "graph_edges",
+                "staging_row",
+                "counter_source_lookup",
+                "rights_risk_review",
+                "review_log",
+            },
+        )
+        self.assertEqual(rows[4]["route_file_count"], "3")
+        self.assertEqual(rows[5]["route_file_count"], "3")
+        self.assertEqual(rows[13]["route_file_count"], "1")
+        self.assertEqual(rows[14]["route_file_count"], "2")
+        self.assertEqual(rows[22]["route_file_count"], "1")
+        self.assertEqual(rows[23]["route_file_count"], "3")
+        self.assertTrue(all(row["prerequisite_status"] == "ready_from_015_metadata_review" for row in rows))
+        self.assertTrue(all(row["task_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+    def test_ai_agent_graph_source_evidence_collection_task_queue_builder_splits_sections(self) -> None:
+        module = load_graph_source_evidence_collection_task_queue_module()
+        root = repo_root()
+        rows = module.build_task_rows(
+            module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST),
+            module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS),
+        )
+        self.assertEqual(len(rows), 27)
+        self.assertEqual(rows[0]["source_id"], "src-hust-obc")
+        self.assertEqual(rows[0]["target_evidence_section"], "source_register")
+        self.assertEqual(rows[0]["route_file_count"], "1")
+        self.assertEqual(rows[4]["target_evidence_section"], "graph_edges")
+        self.assertEqual(rows[4]["route_file_count"], "3")
+        self.assertEqual(rows[9]["source_id"], "src-evobc")
+        self.assertEqual(rows[14]["target_evidence_section"], "staging_row")
+        self.assertEqual(rows[14]["route_file_count"], "2")
+        self.assertEqual(rows[18]["source_id"], "src-obimd")
+        self.assertEqual(rows[23]["target_evidence_section"], "staging_row")
+        self.assertEqual(rows[23]["route_file_count"], "3")
+        self.assertTrue(all(row["expected_output_path"].startswith("doc/public/user_research/") for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:

@@ -161,6 +161,10 @@ AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
     "015_ai-agent-graph-source-cross-review-log-results.csv"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "016_ai-agent-graph-source-evidence-collection-task-queue.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -401,6 +405,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -447,6 +452,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_scaffold.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_drafts.py",
     "tools/005_ai-context-pack-builder/build_graph_source_cross_review_log_results.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_task_queue.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -3014,6 +3020,135 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 issues.append(
                     f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} missing review note "
                     f"{required_snippet}: {result_id}"
+                )
+
+    evidence_task_rows, evidence_task_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE
+    )
+    issues.extend(evidence_task_issues)
+    if len(evidence_task_rows) != 27:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} should contain exactly 27 rows")
+    expected_sections = [
+        "source_register",
+        "download_log",
+        "package_manifest",
+        "metadata_profile",
+        "graph_edges",
+        "staging_row",
+        "counter_source_lookup",
+        "rights_risk_review",
+        "review_log",
+    ]
+    for source_id in expected_review_source_ids:
+        source_rows = [row for row in evidence_task_rows if row.get("source_id") == source_id]
+        if len(source_rows) != 9:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {source_id} should have 9 rows")
+        if [row.get("target_evidence_section", "") for row in source_rows] != expected_sections:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {source_id} section order changed")
+    for section in expected_sections:
+        section_count = sum(1 for row in evidence_task_rows if row.get("target_evidence_section") == section)
+        if section_count != 3:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {section} "
+                f"should appear 3 times, got {section_count}"
+            )
+    cross_review_result_rows_by_id = {
+        row.get("cross_review_result_id", ""): row
+        for row in cross_review_result_rows
+    }
+    expected_route_file_counts_by_source_section = {
+        ("src-hust-obc", "source_register"): "1",
+        ("src-hust-obc", "download_log"): "1",
+        ("src-hust-obc", "package_manifest"): "1",
+        ("src-hust-obc", "metadata_profile"): "1",
+        ("src-hust-obc", "graph_edges"): "3",
+        ("src-hust-obc", "staging_row"): "3",
+        ("src-hust-obc", "counter_source_lookup"): "1",
+        ("src-hust-obc", "rights_risk_review"): "4",
+        ("src-hust-obc", "review_log"): "2",
+        ("src-evobc", "source_register"): "1",
+        ("src-evobc", "download_log"): "1",
+        ("src-evobc", "package_manifest"): "1",
+        ("src-evobc", "metadata_profile"): "1",
+        ("src-evobc", "graph_edges"): "1",
+        ("src-evobc", "staging_row"): "2",
+        ("src-evobc", "counter_source_lookup"): "1",
+        ("src-evobc", "rights_risk_review"): "4",
+        ("src-evobc", "review_log"): "2",
+        ("src-obimd", "source_register"): "1",
+        ("src-obimd", "download_log"): "1",
+        ("src-obimd", "package_manifest"): "1",
+        ("src-obimd", "metadata_profile"): "1",
+        ("src-obimd", "graph_edges"): "1",
+        ("src-obimd", "staging_row"): "3",
+        ("src-obimd", "counter_source_lookup"): "1",
+        ("src-obimd", "rights_risk_review"): "4",
+        ("src-obimd", "review_log"): "2",
+    }
+    for index, row in enumerate(evidence_task_rows, start=1):
+        task_id = row.get("evidence_collection_task_id", "")
+        result_id = row.get("cross_review_result_id", "")
+        source_id = row.get("source_id", "")
+        section = row.get("target_evidence_section", "")
+        result_row = cross_review_result_rows_by_id.get(result_id, {})
+        if task_id != f"graph-source-evidence-task-{index:03d}":
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} task ID sequence changed: {task_id}")
+        if not result_row:
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} missing result link: {task_id}")
+            continue
+        for linked_field in [
+            "draft_log_id",
+            "cross_review_log_id",
+            "cross_review_task_id",
+            "source_id",
+            "primary_review_record_id",
+            "primary_external_ref_id",
+            "source_record_id",
+        ]:
+            if row.get(linked_field) != result_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {linked_field} "
+                    f"does not match 015 result: {task_id}"
+                )
+        expected_route_count = expected_route_file_counts_by_source_section.get((source_id, section))
+        if row.get("route_file_count") != expected_route_count:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {source_id} {section} "
+                f"route_file_count changed: {row.get('route_file_count')}"
+            )
+        expected_output_prefix = (
+            "doc/public/user_research/003_evidence-collection-tasks/"
+        )
+        if not row.get("expected_output_path", "").startswith(expected_output_prefix):
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} bad output path: {task_id}")
+        for key, expected_value in {
+            "prerequisite_status": "ready_from_015_metadata_review",
+            "task_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "promotion_status": "not_promoted",
+            "research_boundary": "evidence_collection_task_queue_not_scholarship",
+            "output_scope": "route_to_future_evidence_collection_only",
+            "updated_at": "2026-06-10",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {key} changed: {task_id}")
+        if not row.get("collection_scope", "").startswith("collect_"):
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} missing collection scope: {task_id}")
+        if not row.get("route_files_to_open", ""):
+            issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} missing route file: {task_id}")
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "evidence-collection task only",
+            "not collected evidence",
+            "not a rights decision",
+            "not a promotion decision",
+            "not a component or evolution-chain assignment",
+            "not a decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} missing caution "
+                    f"{required_snippet}: {task_id}"
                 )
 
     return issues

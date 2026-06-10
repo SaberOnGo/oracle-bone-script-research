@@ -17,6 +17,7 @@ Current tools:
 - `build_graph_source_cross_review_log_scaffold.py`: builds an empty log scaffold from the graph-source cross-review queue, reserving not-collected review sections for source registers, route files, counter-source lookups, rights/risk checks, evidence-pack status, and promotion decisions.
 - `build_graph_source_cross_review_log_drafts.py`: builds three empty Markdown cross-source review log drafts from the scaffold, plus a draft manifest, with every evidence section left `not_collected`.
 - `build_graph_source_cross_review_log_results.py`: builds metadata-only cross-source review log results from the draft manifest and local route files, confirming availability and staging refs without source promotion or decipherment claims.
+- `build_graph_source_evidence_collection_task_queue.py`: builds a not-started evidence-collection task queue from the 015 results, splitting each reviewed route into source-register, download-log, package-manifest, metadata-profile, graph-edge, staging-row, counter-source, rights/risk, and review-log tasks.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -35,3 +36,4 @@ Current tools:
 - `build_graph_source_cross_review_log_scaffold.py`：从 graph-source cross-review queue 生成空白日志骨架，为来源登记、route files、反查来源、权利/风险检查、evidence-pack 状态和提升决定预留 not-collected 复核章节。
 - `build_graph_source_cross_review_log_drafts.py`：从 scaffold 生成三份空白 Markdown 交叉来源复核日志草稿和一份草稿 manifest，所有证据章节保持 `not_collected`。
 - `build_graph_source_cross_review_log_results.py`：从 draft manifest 和本地 route files 生成 metadata-only 交叉来源复核日志结果，只确认可用性和 staging 引用，不提升来源记录或提出释读结论。
+- `build_graph_source_evidence_collection_task_queue.py`：从 015 结果生成未开始的证据收集任务队列，把每条已复核路由拆成来源登记、下载日志、package manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险和复核日志任务。

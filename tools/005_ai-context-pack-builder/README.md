@@ -20,6 +20,7 @@ Current tools:
 - `build_graph_source_evidence_collection_task_queue.py`: builds a not-started evidence-collection task queue from the 015 results, splitting each reviewed route into source-register, download-log, package-manifest, metadata-profile, graph-edge, staging-row, counter-source, rights/risk, and review-log tasks.
 - `build_graph_source_evidence_collection_note_drafts.py`: builds three empty evidence-collection note drafts for a selected 016 task section, plus a manifest, with all evidence still `not_collected`.
 - `build_graph_source_evidence_collection_route_pack.py`: builds a graph-source evidence-collection route pack from the 017-025 note draft manifests, indexing all not-collected note drafts and route files without turning them into evidence or conclusions.
+- `build_graph_source_evidence_collection_result_scaffold.py`: builds an empty graph-source evidence-collection result scaffold from the 026 route pack, preserving route links while every result section remains not collected.
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。
@@ -41,3 +42,4 @@ Current tools:
 - `build_graph_source_evidence_collection_task_queue.py`：从 015 结果生成未开始的证据收集任务队列，把每条已复核路由拆成来源登记、下载日志、package manifest、metadata profile、图谱边、staging 行、反查来源、权利/风险和复核日志任务。
 - `build_graph_source_evidence_collection_note_drafts.py`：从 016 任务队列为指定任务章节生成三份空白证据收集记录草稿和一份 manifest，所有证据仍保持 `not_collected`。
 - `build_graph_source_evidence_collection_route_pack.py`：从 017-025 证据收集记录草稿 manifest 构建 graph-source evidence-collection route pack，索引所有未收集草稿和 route files，但不把它们提升为证据或结论。
+- `build_graph_source_evidence_collection_result_scaffold.py`：从 026 route pack 生成空白 graph-source evidence-collection result scaffold，保留路由链接，同时让所有结果章节保持未收集状态。

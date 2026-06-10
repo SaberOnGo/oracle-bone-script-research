@@ -268,6 +268,17 @@ def load_graph_source_evidence_collection_route_pack_module():
     return module
 
 
+def load_graph_source_evidence_collection_result_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_result_scaffold.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_graph_source_evidence_collection_result_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_ai_agent_evidence_pack_validator_module():
     path = repo_root() / "tools/validation/validate_ai_agent_evidence_packs.py"
     spec = importlib.util.spec_from_file_location("validate_ai_agent_evidence_packs", path)
@@ -2057,6 +2068,116 @@ class RepositorySkeletonTests(unittest.TestCase):
             all("not a decipherment conclusion" in row["caution"] for row in data["note_routes"])
         )
         self.assertIn("or a decipherment conclusion", " ".join(data["agent_use_rules"]))
+
+    def test_ai_agent_graph_source_evidence_collection_result_scaffold_is_empty(self) -> None:
+        route_pack_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "026_ai-agent-graph-source-evidence-collection-route-pack.json"
+        )
+        result_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+        )
+        route_pack = json.loads(route_pack_path.read_text(encoding="utf-8"))
+        with result_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 27)
+        self.assertEqual(len(rows), len(route_pack["note_routes"]))
+        self.assertEqual(rows[0]["evidence_collection_result_id"], "graph-source-evidence-result-001")
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "graph-source-evidence-task-001")
+        self.assertEqual(rows[-1]["evidence_collection_result_id"], "graph-source-evidence-result-027")
+        self.assertEqual(rows[-1]["evidence_collection_task_id"], "graph-source-evidence-task-027")
+        self.assertEqual([row["source_id"] for row in rows[:9]], ["src-hust-obc"] * 9)
+        self.assertEqual([row["source_id"] for row in rows[9:18]], ["src-evobc"] * 9)
+        self.assertEqual([row["source_id"] for row in rows[18:]], ["src-obimd"] * 9)
+        self.assertEqual(
+            [row["target_evidence_section"] for row in rows[:9]],
+            [
+                "source_register",
+                "download_log",
+                "package_manifest",
+                "metadata_profile",
+                "graph_edges",
+                "staging_row",
+                "counter_source_lookup",
+                "rights_risk_review",
+                "review_log",
+            ],
+        )
+        self.assertEqual(
+            {row["result_status"] for row in rows},
+            {"not_started"},
+        )
+        self.assertEqual(
+            {row["evidence_collection_status"] for row in rows},
+            {"not_collected"},
+        )
+        self.assertEqual(
+            {row["source_promotion_status"] for row in rows},
+            {"not_promoted"},
+        )
+        self.assertEqual(
+            {row["decipherment_claim_status"] for row in rows},
+            {"no_claim"},
+        )
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"evidence_collection_result_scaffold_not_scholarship"},
+        )
+        self.assertTrue(all("Do not use it as collected evidence" in row["caution"] for row in rows))
+        self.assertTrue(all("decipherment conclusion" in row["caution"] for row in rows))
+        self.assertEqual(
+            rows[0]["route_files_to_open"],
+            ";".join(route_pack["note_routes"][0]["route_files_to_open"]),
+        )
+        self.assertEqual(
+            rows[0]["counter_source_ids_to_check"],
+            ";".join(route_pack["note_routes"][0]["counter_source_ids_to_check"]),
+        )
+
+    def test_ai_agent_graph_source_evidence_collection_result_scaffold_builder_keeps_empty_sections(
+        self,
+    ) -> None:
+        module = load_graph_source_evidence_collection_result_scaffold_module()
+        route_pack = module.read_json(
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "026_ai-agent-graph-source-evidence-collection-route-pack.json"
+        )
+        rows = module.build_result_rows(route_pack)
+        self.assertEqual(len(rows), 27)
+        self.assertEqual(rows[0]["evidence_collection_result_id"], "graph-source-evidence-result-001")
+        self.assertEqual(rows[0]["required_collection_action"], "collect_source_register_provenance_fields")
+        self.assertEqual(
+            rows[7]["required_collection_action"],
+            "collect_rights_risk_notes_without_rights_decision",
+        )
+        self.assertEqual(
+            rows[26]["required_collection_action"],
+            "collect_review_log_notes_without_promotion_decision",
+        )
+        self.assertEqual(
+            {row["note_draft_open_status"] for row in rows},
+            {"not_opened"},
+        )
+        self.assertEqual(
+            {row["route_files_open_status"] for row in rows},
+            {"not_opened"},
+        )
+        self.assertEqual(
+            {row["source_register_evidence_status"] for row in rows},
+            {"not_collected"},
+        )
+        self.assertEqual(
+            {row["rights_risk_review_status"] for row in rows},
+            {"not_collected"},
+        )
+        self.assertTrue(all(row["output_scope"].endswith("_scaffold_only") for row in rows))
+        self.assertTrue(all("source promotion decision" in row["caution"] for row in rows))
+        self.assertTrue(all("component or evolution-chain assignment" in row["caution"] for row in rows))
 
     def test_ai_agent_evidence_pack_validator(self) -> None:
         self.assertEqual(check_ai_agent_evidence_pack_validator(repo_root()), [])

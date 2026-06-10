@@ -205,6 +205,10 @@ AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "026_ai-agent-graph-source-evidence-collection-route-pack.json"
 )
+AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "027_ai-agent-graph-source-evidence-collection-result-scaffold.csv"
+)
 AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT = (
     "doc/public/user_research/002_cross-source-review-queues/hust-obc/"
     "001_hust-obc-evidence-request-000001_cross-source-review-log.md"
@@ -564,6 +568,7 @@ REQUIRED_PATHS = [
     AI_AGENT_GRAPH_SOURCE_RIGHTS_RISK_REVIEW_NOTE_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_REVIEW_LOG_NOTE_DRAFT_MANIFEST,
     AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK,
+    AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_HUST_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_EVOBC_DRAFT,
     AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_OBIMD_DRAFT,
@@ -640,6 +645,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_task_queue.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_note_drafts.py",
     "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_graph_source_evidence_collection_result_scaffold.py",
     "tools/validation/check_repository_skeleton.py",
     "tools/validation/validate_ai_agent_evidence_packs.py",
     "tests/test_check_commit_messages.py",
@@ -4852,6 +4858,152 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK} missing zh agent rule: "
                 f"{required_snippet}"
             )
+
+    result_rows, result_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD
+    )
+    issues.extend(result_issues)
+    if len(result_rows) != 27:
+        issues.append(
+            f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+            "should contain exactly 27 rows"
+        )
+    route_rows_by_task = {
+        str(row.get("evidence_collection_task_id", "")): row
+        for row in note_routes
+        if isinstance(row, dict)
+    }
+    expected_section_actions = {
+        "source_register": "collect_source_register_provenance_fields",
+        "download_log": "collect_download_log_status_size_checksum_access_notes",
+        "package_manifest": "collect_package_manifest_file_size_checksum_and_storage_boundary",
+        "metadata_profile": "collect_metadata_profile_fields_and_extraction_scope",
+        "graph_edges": "collect_graph_edge_source_status_and_claim_boundary",
+        "staging_row": "collect_staging_row_field_map_and_review_status",
+        "counter_source_lookup": "collect_counter_source_lookup_notes_without_identity_claim",
+        "rights_risk_review": "collect_rights_risk_notes_without_rights_decision",
+        "review_log": "collect_review_log_notes_without_promotion_decision",
+    }
+    expected_result_status_values = {
+        "result_status": "not_started",
+        "note_draft_open_status": "not_opened",
+        "route_files_open_status": "not_opened",
+        "evidence_collection_status": "not_collected",
+        "source_register_evidence_status": "not_collected",
+        "download_log_evidence_status": "not_collected",
+        "package_manifest_evidence_status": "not_collected",
+        "metadata_profile_evidence_status": "not_collected",
+        "graph_edge_evidence_status": "not_collected",
+        "staging_row_evidence_status": "not_collected",
+        "counter_source_lookup_status": "not_collected",
+        "rights_risk_review_status": "not_collected",
+        "review_log_status": "not_collected",
+        "source_promotion_status": "not_promoted",
+        "decipherment_claim_status": "no_claim",
+        "next_artifact_recommendation": "not_collected",
+        "research_boundary": "evidence_collection_result_scaffold_not_scholarship",
+        "output_scope": "graph_source_evidence_collection_result_scaffold_only",
+        "updated_at": "2026-06-10",
+    }
+    if [row.get("source_id", "") for row in result_rows] != [
+        str(row.get("source_id", ""))
+        for row in note_routes
+        if isinstance(row, dict)
+    ]:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} source order changed")
+    if [row.get("target_evidence_section", "") for row in result_rows] != [
+        str(row.get("target_evidence_section", ""))
+        for row in note_routes
+        if isinstance(row, dict)
+    ]:
+        issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} section order changed")
+    for index, row in enumerate(result_rows, start=1):
+        result_id = row.get("evidence_collection_result_id", "")
+        task_id = row.get("evidence_collection_task_id", "")
+        route_row = route_rows_by_task.get(task_id, {})
+        if result_id != f"graph-source-evidence-result-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"result ID sequence changed: {result_id}"
+            )
+        if task_id != f"graph-source-evidence-task-{index:03d}":
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"task link sequence changed: {result_id}"
+            )
+        if not route_row:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"missing route-pack link: {result_id}"
+            )
+            continue
+        for linked_field in [
+            "evidence_collection_note_draft_id",
+            "source_id",
+            "primary_review_record_id",
+            "primary_external_ref_id",
+            "source_record_id",
+            "target_evidence_section",
+            "note_draft_path",
+            "manifest_path",
+            "task_queue_source_path",
+        ]:
+            if row.get(linked_field) != str(route_row.get(linked_field, "")):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                    f"{linked_field} does not match route pack: {result_id}"
+                )
+        if row.get("context_pack_id") != route_pack.get("context_pack_id"):
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"context_pack_id changed: {result_id}"
+            )
+        if row.get("route_pack_path") != AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_ROUTE_PACK:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"route_pack_path changed: {result_id}"
+            )
+        if row.get("route_files_to_open") != ";".join(
+            str(value) for value in route_row.get("route_files_to_open", [])
+        ):
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"route files changed: {result_id}"
+            )
+        if row.get("counter_source_ids_to_check") != ";".join(
+            str(value) for value in route_row.get("counter_source_ids_to_check", [])
+        ):
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"counter sources changed: {result_id}"
+            )
+        expected_action = expected_section_actions.get(row.get("target_evidence_section", ""))
+        if row.get("required_collection_action") != expected_action:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                f"collection action changed: {result_id}"
+            )
+        for key, expected_value in expected_result_status_values.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                    f"{key} changed: {result_id}"
+                )
+        caution = row.get("caution", "")
+        for required_snippet in [
+            "empty graph-source evidence collection result scaffold",
+            "remain not_collected",
+            "Do not use it as collected evidence",
+            "rights decision",
+            "source promotion decision",
+            "component or evolution-chain assignment",
+            "decipherment conclusion",
+        ]:
+            if required_snippet not in caution:
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_RESULT_SCAFFOLD} "
+                    f"missing caution {required_snippet}: {result_id}"
+                )
 
     return issues
 

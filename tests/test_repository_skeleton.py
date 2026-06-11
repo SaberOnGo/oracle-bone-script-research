@@ -10799,6 +10799,81 @@ class RepositorySkeletonTests(unittest.TestCase):
             {"object_metadata_not_promoted"},
         )
 
+    def test_xiaoxuetang_followup_route_pack_indexes_jgw_and_obm_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "076_ai-agent-xiaoxuetang-followup-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["context_pack_id"], "ai-context-xiaoxuetang-followup-route-pack-001")
+        self.assertEqual(data["coverage"]["review_task_count"], 6)
+        self.assertEqual(data["coverage"]["review_log_draft_count"], 6)
+        self.assertEqual(
+            data["coverage"]["followup_family_counts"],
+            {
+                "xxt_jgw_tls_access_boundary_followup": 2,
+                "xxt_obm_access_boundary_followup": 4,
+            },
+        )
+        self.assertEqual(
+            data["coverage"]["target_source_counts"],
+            {
+                "src-xiaoxuetang-jiaguwen": 2,
+                "src-xiaoxuetang-obm": 4,
+            },
+        )
+        self.assertEqual(len(data["family_routes"]), 2)
+        self.assertTrue(
+            all(
+                str(route["review_log_draft_path"]).startswith("doc/public/user_research/")
+                for route in data["followup_routes"]
+            )
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in str(route["caution"])
+                for route in data["followup_routes"]
+            )
+        )
+
+    def test_xiaoxuetang_followup_review_route_summary_groups_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "077_ai-agent-xiaoxuetang-followup-review-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-xiaoxuetang-followup-review-summary-001",
+        )
+        self.assertEqual(data["coverage"]["review_task_count"], 6)
+        self.assertEqual(
+            data["coverage"]["followup_family_counts"],
+            {
+                "xxt_jgw_tls_access_boundary_followup": 2,
+                "xxt_obm_access_boundary_followup": 4,
+            },
+        )
+        self.assertEqual(
+            data["coverage"]["followup_method_counts"],
+            {"manual_browser_or_institutional_export_required": 6},
+        )
+        self.assertEqual(
+            data["coverage"]["target_source_counts"],
+            {
+                "src-xiaoxuetang-jiaguwen": 2,
+                "src-xiaoxuetang-obm": 4,
+            },
+        )
+        self.assertEqual(
+            data["route_pack_path"],
+            "corpus/009_statistics-and-derived-features/076_ai-agent-xiaoxuetang-followup-route-pack.json",
+        )
+        self.assertEqual(len(data["family_summaries"]), 2)
+        self.assertEqual(len(data["target_source_summaries"]), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

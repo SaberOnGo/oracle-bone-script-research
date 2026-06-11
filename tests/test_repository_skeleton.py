@@ -11048,5 +11048,102 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
 
 
+    def test_xxt_obm_access_boundary_capture_scaffold_tracks_profile_and_staging_fields(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "083_ai-agent-xxt-obm-access-boundary-capture-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["capture_row_id"], "xxt-obm-access-capture-001")
+        self.assertEqual(
+            {row["manual_followup_route_status"] for row in rows},
+            {"manual_browser_or_institutional_export_not_started"},
+        )
+        self.assertEqual(
+            {row["access_profile_availability_status"] for row in rows},
+            {"not_checked"},
+        )
+        self.assertEqual(
+            {row["staging_availability_status"] for row in rows},
+            {"not_checked"},
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in row["caution"]
+                for row in rows
+            )
+        )
+
+    def test_xxt_obm_access_boundary_capture_review_checklist_blocks_claims(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "084_ai-agent-xxt-obm-access-boundary-capture-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 28)
+        self.assertEqual(len({row["capture_row_id"] for row in rows}), 4)
+        self.assertEqual(
+            {row["check_status"] for row in rows},
+            {"not_started"},
+        )
+        self.assertEqual(
+            {row["identity_claim_status"] for row in rows},
+            {"no_identity_claim"},
+        )
+        self.assertEqual(
+            {row["decipherment_claim_status"] for row in rows},
+            {"no_claim"},
+        )
+        self.assertTrue(
+            any(row["check_key"] == "check_staging_availability_only" for row in rows)
+        )
+
+    def test_xxt_obm_access_boundary_capture_results_record_current_boundary_only(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "085_ai-agent-xxt-obm-access-boundary-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["capture_result_id"], "xxt-obm-access-capture-result-001")
+        self.assertEqual(
+            {row["manual_followup_route_status"] for row in rows},
+            {"manual_browser_or_institutional_export_required_after_access_restricted_html"},
+        )
+        self.assertEqual(
+            {row["capture_status"] for row in rows},
+            {"reviewed_metadata_only_current_access_boundary_recorded"},
+        )
+        self.assertEqual(
+            {row["human_review_status"] for row in rows},
+            {"reviewed_metadata_only"},
+        )
+        self.assertEqual(
+            {row["access_profile_availability_status"] for row in rows},
+            {
+                "available_from_current_route_evidence",
+                "not_available_from_current_route_evidence",
+            },
+        )
+        self.assertEqual(
+            {row["staging_availability_status"] for row in rows},
+            {
+                "available_from_current_route_evidence",
+                "not_available_from_current_route_evidence",
+            },
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in row["caution"]
+                for row in rows
+            )
+        )
 if __name__ == "__main__":
     unittest.main()

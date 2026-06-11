@@ -11145,5 +11145,71 @@ class RepositorySkeletonTests(unittest.TestCase):
                 for row in rows
             )
         )
+    def test_xiaoxuetang_followup_capture_route_pack_indexes_jgw_and_obm_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "086_ai-agent-xiaoxuetang-followup-capture-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-xiaoxuetang-followup-capture-route-pack-001",
+        )
+        self.assertEqual(data["coverage"]["capture_result_count"], 6)
+        self.assertEqual(
+            data["coverage"]["followup_family_counts"],
+            {
+                "xxt_jgw_tls_access_boundary_followup": 2,
+                "xxt_obm_access_boundary_followup": 4,
+            },
+        )
+        self.assertEqual(
+            data["coverage"]["target_source_counts"],
+            {
+                "src-xiaoxuetang-jiaguwen": 2,
+                "src-xiaoxuetang-obm": 4,
+            },
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in row["caution"]
+                for row in data["capture_routes"]
+            )
+        )
+
+    def test_xiaoxuetang_followup_capture_review_route_summary_groups_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "087_ai-agent-xiaoxuetang-followup-capture-review-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-xiaoxuetang-followup-capture-review-summary-001",
+        )
+        self.assertEqual(data["coverage"]["capture_result_count"], 6)
+        self.assertEqual(
+            data["coverage"]["followup_family_counts"],
+            {
+                "xxt_jgw_tls_access_boundary_followup": 2,
+                "xxt_obm_access_boundary_followup": 4,
+            },
+        )
+        self.assertEqual(
+            [family["followup_family_id"] for family in data["family_summaries"]],
+            [
+                "xxt_jgw_tls_access_boundary_followup",
+                "xxt_obm_access_boundary_followup",
+            ],
+        )
+        self.assertTrue(
+            any(
+                item["target_source_id"] == "src-xiaoxuetang-obm"
+                and item["capture_result_count"] == 4
+                for item in data["target_source_summaries"]
+            )
+        )
 if __name__ == "__main__":
     unittest.main()

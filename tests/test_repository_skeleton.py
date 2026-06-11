@@ -642,6 +642,22 @@ def load_hust_obc_undeciphered_candidate_full_inscription_context_note_updates_m
     return module
 
 
+def load_hust_obc_undeciphered_candidate_source_image_reference_extraction_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_source_image_reference_extraction_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_source_image_reference_extraction_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module():
     path = (
         repo_root()

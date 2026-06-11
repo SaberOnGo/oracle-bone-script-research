@@ -673,6 +673,22 @@ def load_hust_obc_undeciphered_candidate_source_image_reference_note_updates_mod
     spec.loader.exec_module(module)
     return module
 
+
+def load_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
 def load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module():
     path = (
         repo_root()
@@ -4516,6 +4532,74 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("filename_tokens_only_not_catalog_confirmation", note_text)
         self.assertIn("HUST-OBC/undeciphered/X/1850/", note_text)
+
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "071_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-route-probe-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["route_probe_result_id"] for row in rows],
+            [
+                "hust-obc-xxt-jgw-route-probe-0001",
+                "hust-obc-xxt-jgw-route-probe-0002",
+            ],
+        )
+        self.assertEqual([row["candidate_filename_number_probe_token"] for row in rows], ["502", "1176"])
+        self.assertEqual(
+            [row["targeted_download_id"] for row in rows],
+            ["dl-xxt-jgw-kaiorder-0502", "dl-xxt-jgw-kaiorder-1176"],
+        )
+        self.assertEqual({row["target_source_id"] for row in rows}, {"src-xiaoxuetang-jiaguwen"})
+        self.assertEqual(
+            {row["automated_fetch_status"] for row in rows},
+            {"failed_tls_handshake_no_html_captured"},
+        )
+        self.assertEqual(
+            {row["official_access_boundary_status"] for row in rows},
+            {"direct_official_character_page_not_collected_due_tls_or_access_boundary"},
+        )
+        self.assertEqual(
+            {row["evidence_collection_status"] for row in rows},
+            {"route_probe_only_no_official_character_html_collected"},
+        )
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("search hint" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_builder(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_results_module()
+        root = repo_root()
+        rows = module.read_csv_rows(root / module.NOTE_UPDATE_RESULTS)
+        output_rows = module.build_route_probe_rows(rows)
+
+        self.assertEqual(len(output_rows), 2)
+        self.assertEqual(output_rows[0]["route_probe_result_id"], "hust-obc-xxt-jgw-route-probe-0001")
+        self.assertEqual(output_rows[0]["candidate_filename_number_probe_token"], "502")
+        self.assertEqual(output_rows[1]["targeted_download_id"], "dl-xxt-jgw-kaiorder-1176")
+        self.assertIn("071_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+        self.assertEqual(module.build_download_id("502"), "dl-xxt-jgw-kaiorder-0502")
+        self.assertEqual(
+            module.build_target_url("1176"),
+            "https://xiaoxue.iis.sinica.edu.tw/jiaguwen?kaiOrder=1176",
+        )
+        self.assertEqual(module.first_probe_token("1176;1177;1178"), "1176")
+        self.assertIn("manual browser", output_rows[0]["risk_note"])
+
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()
         self.assertEqual(

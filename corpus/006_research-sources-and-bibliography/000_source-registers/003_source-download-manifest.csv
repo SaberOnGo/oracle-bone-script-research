@@ -1,6 +1,8 @@
 download_id,source_id,url,artifact_kind,commit_policy,max_bytes,notes
 dl-xxt-jgw-home,src-xiaoxuetang-jiaguwen,https://xiaoxue.iis.sinica.edu.tw/jiaguwen,landing_page,download_to_tmp_log_checksum_only,31457280,Official landing page; may block automated requests.
 dl-xxt-jgw-about,src-xiaoxuetang-jiaguwen,https://xiaoxue.iis.sinica.edu.tw/jiaguwen/About/About,about_page,download_to_tmp_log_checksum_only,31457280,Database history and scope note.
+dl-xxt-jgw-kaiorder-0502,src-xiaoxuetang-jiaguwen,https://xiaoxue.iis.sinica.edu.tw/jiaguwen?kaiOrder=502,character_detail_page,download_to_tmp_log_checksum_only,31457280,Official Xiaoxuetang oracle-character detail route targeted from HUST-OBC filename token 502; route probe only and not a catalog confirmation.
+dl-xxt-jgw-kaiorder-1176,src-xiaoxuetang-jiaguwen,https://xiaoxue.iis.sinica.edu.tw/jiaguwen?kaiOrder=1176,character_detail_page,download_to_tmp_log_checksum_only,31457280,Official Xiaoxuetang oracle-character detail route targeted from HUST-OBC filename token 1176; route probe only and not a catalog confirmation.
 dl-xxt-obm-example,src-xiaoxuetang-obm,https://xiaoxue.iis.sinica.edu.tw/obm/Home/Example,source_table_rules_page,download_to_tmp_log_checksum_only,31457280,Heji material source table rules.
 dl-xxt-obm-guide,src-xiaoxuetang-obm,https://xiaoxue.iis.sinica.edu.tw/obm/Content/Docs/Get_Started.pdf,user_guide_pdf,download_to_tmp_log_checksum_only,31457280,Small official user guide if automated access is allowed.
 dl-xxt-obm-appendix01,src-xiaoxuetang-obm,https://xiaoxue.iis.sinica.edu.tw/obm/Home/Appendix01,old_catalog_abbreviation_appendix,download_to_tmp_log_checksum_only,31457280,Official appendix for old catalog book abbreviations; scripted access may be restricted.

@@ -578,6 +578,22 @@ def load_hust_obc_undeciphered_candidate_evidence_collection_task_queue_module()
     return module
 
 
+def load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_evidence_collection_note_drafts.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_evidence_collection_note_drafts",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -3836,6 +3852,81 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[11]["target_evidence_section"], "character_or_unknown_glyph_id")
         self.assertIn("061_ai-agent", rows[0]["route_files_to_open"])
         self.assertIn("062_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_are_empty(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "063_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-note-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 22)
+        self.assertEqual(
+            [row["evidence_collection_note_draft_id"] for row in rows[:2]],
+            [
+                "hust-obc-undeciphered-evidence-note-draft-0001",
+                "hust-obc-undeciphered-evidence-note-draft-0002",
+            ],
+        )
+        self.assertEqual({row["unknown_candidate_id"] for row in rows}, {"obs-unk-006294", "obs-unk-005708"})
+        self.assertEqual({row["note_status"] for row in rows}, {"draft_not_collected"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["human_review_status"] for row in rows}, {"not_started"})
+        self.assertEqual({row["formal_schema_compatibility_status"] for row in rows}, {"not_formal_obs_char_schema"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_candidate_evidence_collection_note_draft_not_scholarship"},
+        )
+        self.assertTrue(all(row["note_draft_path"].startswith("doc/public/user_research/") for row in rows))
+        self.assertFalse(any(row["note_draft_path"].startswith("research/") for row in rows))
+        self.assertTrue(all(row["task_queue_source_path"].endswith("062_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-task-queue.csv") for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+        first_text = (repo_root() / rows[0]["note_draft_path"]).read_text(encoding="utf-8")
+        for snippet in [
+            "HUST-OBC Undeciphered Candidate Evidence Collection Note Draft",
+            "created_from_062_task_queue",
+            "Status / 状态: `not_collected`",
+            "Evidence items / 证据条目: none",
+            "not a decipherment conclusion",
+            "不是破译或释读结论",
+        ]:
+            self.assertIn(snippet, first_text)
+
+    def test_hust_obc_undeciphered_candidate_evidence_collection_note_draft_builder_links_tasks(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.TASK_QUEUE)
+        rows = module.build_note_manifest_rows(task_rows)
+
+        self.assertEqual(len(rows), 22)
+        self.assertEqual(
+            rows[0]["evidence_collection_note_draft_id"],
+            "hust-obc-undeciphered-evidence-note-draft-0001",
+        )
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "hust-obc-undeciphered-evidence-task-0001")
+        self.assertEqual(rows[0]["note_draft_path"], task_rows[0]["expected_output_path"])
+        self.assertEqual(rows[10]["target_evidence_section"], "review_log")
+        self.assertEqual(rows[11]["evidence_collection_task_id"], "hust-obc-undeciphered-evidence-task-0012")
+        self.assertEqual(rows[11]["unknown_candidate_id"], "obs-unk-005708")
+        markdown = module.build_markdown(task_rows[0], rows[0]["evidence_collection_note_draft_id"])
+        self.assertIn("open_061_scaffold_row", markdown)
+        self.assertIn("not_collected", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+        self.assertIn("不是破译或释读结论", markdown)
+        self.assertIn("063_ai-agent", module.DEFAULT_MANIFEST.as_posix())
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

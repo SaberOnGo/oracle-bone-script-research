@@ -28,6 +28,8 @@ This directory is for exploratory research created by users, contributors, or AI
 - `003_evidence-collection-tasks/`: empty evidence-collection note drafts generated from task queues; they identify route files to open but do not contain collected evidence or promotion decisions.
 - `004_codepoint-crosswalk-review-queues/`: empty codepoint crosswalk review-log drafts for HUST/OBIMD/EVOBC matched rows; they route later evidence collection and must not be read as identity, reading, component, evolution-chain, or decipherment conclusions.
 - `005_undeciphered-candidate-review-queues/`: empty HUST-OBC `obs-unk-*` undeciphered-candidate review-log drafts; they route later evidence collection and must not be read as accepted oracle-character identities, readings, formal `obs-char` assignments, component assignments, evolution chains, or decipherment conclusions.
+- `006_undeciphered-candidate-evidence-collection-tasks/`: empty HUST-OBC `obs-unk-*` evidence-collection note drafts generated from section-level task queues; they route future source-marked evidence collection and must remain `not_collected` until evidence is reviewed.
 - `003_evidence-collection-tasks/`：从任务队列生成的空白证据收集记录草稿；它们只标出待打开路由文件，不包含已收集证据或提升决定。
 - `004_codepoint-crosswalk-review-queues/`：HUST/OBIMD/EVOBC 命中行的空白 codepoint 交叉复核日志草稿；它们只为后续证据收集提供路由，不应被读作身份、释读、构件、演化链或破译结论。
 - `005_undeciphered-candidate-review-queues/`：HUST-OBC `obs-unk-*` 未释读候选的空白复核日志草稿；它们只为后续证据收集提供路由，不应被读作已接受甲骨单字身份、释读、正式 `obs-char` 分配、构件判定、演化链或破译结论。
+- `006_undeciphered-candidate-evidence-collection-tasks/`：从章节级任务队列生成的 HUST-OBC `obs-unk-*` 空白证据收集记录草稿；它们只为后续带来源标记的证据收集提供路由，在证据经过复核前必须保持 `not_collected`。

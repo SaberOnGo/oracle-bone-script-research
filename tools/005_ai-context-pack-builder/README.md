@@ -57,6 +57,7 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_evidence_readiness_checklist.py`: builds a metadata-only readiness checklist from 056, 057, 058, and 059, confirming that the four required capture sections are available before later human evidence-pack review while preserving the non-decipherment boundary.
 - `build_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest.py`: builds an empty metadata-only evidence-pack scaffold manifest from 060 and 052, linking the ready capture rows to review-log drafts while keeping every evidence section `not_collected` and staying outside the formal obs-char evidence-pack schema.
 - `build_hust_obc_undeciphered_candidate_evidence_collection_task_queue.py`: builds a not-started section-level evidence-collection task queue from 061, splitting each top undeciphered candidate into 11 future collection tasks while preserving no-evidence, no-identity, no-formal-schema, and no-decipherment boundaries.
+- `build_hust_obc_undeciphered_candidate_evidence_collection_note_drafts.py`: builds 22 empty Markdown collection-note drafts and a manifest from 062, keeping each note route-only and `not_collected` under `doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/`.
 - `build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py`：从 041 复核队列、本地 HUST 候选包、OBIMD/EVOBC staging、来源登记和下载日志生成 134 行 metadata-only 路线可用性快照，标明哪些 review-log 草稿已存在、哪些路线可继续物化；不提出身份、释读、构件、演化链、权利、来源提升或破译结论。
 - `build_hust_obc_undeciphered_candidate_context_pack.py`：为全部 9,408 条已观测 HUST-OBC `obs-unk-*` 未释读候选行生成 metadata-only AI Agent 路由上下文包，按来源组和 95 个 bucket manifest 汇总，同时保持不确认身份、不分配正式 ID、不作释读结论的边界。
 - `build_hust_obc_undeciphered_candidate_review_queue.py`：从未释读候选 context pack 和索引生成 9,408 行 metadata-only 复核队列，按来源图片数量排序优先级，并把每个任务路由到全局索引、bucket manifest、候选 packet、来源登记、大型来源登记和下载日志；在任何证据收集前保持准备阶段边界。
@@ -71,6 +72,7 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_evidence_readiness_checklist.py`：从 056、057、058、059 生成 metadata-only readiness checklist，确认四类必需捕获章节已可供后续人工 evidence-pack 复核使用，同时保持非释读结论边界。
 - `build_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest.py`：从 060 和 052 生成空白 metadata-only evidence-pack 脚手架 manifest，把已就绪捕获行连接到复核日志草稿；所有证据章节保持 `not_collected`，并明确不进入正式 obs-char evidence-pack schema。
 - `build_hust_obc_undeciphered_candidate_evidence_collection_task_queue.py`：从 061 生成未开始的章节级 evidence-collection task queue，把每个最高优先级未释读候选拆成 11 条后续收集任务，同时保持无证据、无身份、非正式 schema、无释读结论边界。
+- `build_hust_obc_undeciphered_candidate_evidence_collection_note_drafts.py`：从 062 生成 22 份空白 Markdown collection-note 草稿和 manifest，存放在 `doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/` 下；每份草稿只保留路由并保持 `not_collected`。
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。

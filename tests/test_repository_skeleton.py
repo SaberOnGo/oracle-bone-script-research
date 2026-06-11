@@ -370,6 +370,22 @@ def load_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot_module
     return module
 
 
+def load_hust_obc_undeciphered_candidate_context_pack_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_context_pack.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_context_pack",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -2570,6 +2586,67 @@ class RepositorySkeletonTests(unittest.TestCase):
             rows[-1]["materialization_status"],
             "ninety_fifth_final_bucket_candidate_packet_materialized",
         )
+
+    def test_hust_obc_undeciphered_candidate_context_pack_preserves_boundaries(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "050_ai-agent-hust-obc-undeciphered-candidate-context-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(data["context_pack_id"], "ai-context-hust-obc-undeciphered-candidate-001")
+        self.assertEqual(data["status"], "reviewed_metadata_only")
+        self.assertEqual(data["coverage"]["total_candidate_rows"], 9408)
+        self.assertEqual(data["coverage"]["total_bucket_routes"], 95)
+        self.assertEqual(data["coverage"]["total_source_image_count"], 62989)
+        self.assertEqual(data["coverage"]["source_reported_undeciphered_class_count"], 9411)
+        self.assertEqual(data["coverage"]["zip_observed_undeciphered_class_count"], 9408)
+        self.assertEqual(data["coverage"]["reported_vs_observed_class_delta"], 3)
+        self.assertEqual(data["coverage"]["source_group_counts"], {"L": 4444, "X": 2288, "Y+H": 2676})
+        self.assertEqual(data["coverage"]["identity_claim_status_counts"], {"no_identity_claim": 9408})
+        self.assertEqual(
+            data["coverage"]["assignment_status_counts"],
+            {"unknown_candidate_id_not_formal_obs_char_assignment": 9408},
+        )
+        self.assertTrue(data["coverage"]["all_bucket_manifests_exist"])
+        self.assertEqual(data["sample_rows"]["first"]["unknown_candidate_id"], "obs-unk-000001")
+        self.assertEqual(data["sample_rows"]["last"]["unknown_candidate_id"], "obs-unk-009408")
+        self.assertEqual(data["bucket_routes"][0]["candidate_count"], 100)
+        self.assertEqual(data["bucket_routes"][-1]["candidate_count"], 8)
+        self.assertEqual(data["bucket_routes"][-1]["last_unknown_candidate_id"], "obs-unk-009408")
+        self.assertEqual(data["group_summaries"][0]["source_group"], "L")
+        self.assertEqual(data["group_summaries"][0]["source_image_count"], 4444)
+        self.assertEqual(data["group_summaries"][2]["source_group"], "Y+H")
+        self.assertEqual(data["group_summaries"][2]["source_image_count"], 52051)
+        rules = " ".join(data["agent_use_rules"])
+        rules_zh = " ".join(data["agent_use_rules_zh"])
+        self.assertIn("obs-unk IDs separate from formal obs-char IDs", rules)
+        self.assertIn("Do not infer identity, reading", rules)
+        self.assertIn("9,411 versus zip-observed 9,408", rules)
+        self.assertIn("obs-unk ID 必须与正式 obs-char ID 分开", rules_zh)
+        self.assertIn("不得根据来源 class 路径或图片数量推断身份", rules_zh)
+        self.assertNotIn("confirmed scholarship", rules)
+
+    def test_hust_obc_undeciphered_candidate_context_pack_builder_keeps_routes(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_context_pack_module()
+        root = repo_root()
+        rows = module.read_csv_rows(root / module.UNDECIPHERED_INDEX)
+        data = module.build_context_pack(root, rows)
+
+        self.assertEqual(data["coverage"]["total_candidate_rows"], 9408)
+        self.assertEqual(data["coverage"]["total_bucket_routes"], 95)
+        self.assertEqual(data["coverage"]["total_source_image_count"], 62989)
+        self.assertEqual(data["source_routes"][0]["source_id"], "src-hust-obc")
+        self.assertEqual(data["source_routes"][0]["raw_package_policy"], "raw_zip_registered_not_committed_to_regular_git")
+        self.assertEqual(data["bucket_routes"][0]["bucket_route_id"], "hust-obc-undeciphered-bucket-route-001")
+        self.assertEqual(data["bucket_routes"][0]["first_unknown_candidate_id"], "obs-unk-000001")
+        self.assertEqual(data["bucket_routes"][-1]["bucket_route_id"], "hust-obc-undeciphered-bucket-route-095")
+        self.assertEqual(data["bucket_routes"][-1]["last_unknown_candidate_id"], "obs-unk-009408")
+        self.assertTrue(all(route["bucket_manifest_exists"] for route in data["bucket_routes"]))
+        self.assertTrue(all(route["review_route"] == "open_bucket_manifest_then_candidate_packet" for route in data["bucket_routes"]))
+        self.assertIn(module.UNDECIPHERED_INDEX.as_posix(), data["generated_from"])
+        self.assertIn("not formal obs-char assignments", data["caution"])
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

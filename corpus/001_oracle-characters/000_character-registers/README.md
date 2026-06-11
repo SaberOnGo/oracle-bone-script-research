@@ -8,6 +8,7 @@ Current registers:
 - `001_all-oracle-characters-index.csv`: accepted project character records.
 - `002_deciphered-oracle-characters-index.csv`: accepted deciphered project character records.
 - `003_undeciphered-oracle-characters-index.csv`: HUST-OBC metadata-only undeciphered candidate index with 9,408 zip-observed candidate class directories. These rows use `obs-unk-*` IDs, do not assign formal `obs-char-*` IDs, and must not be treated as accepted oracle-character identities or decipherment conclusions.
+- `corpus/009_statistics-and-derived-features/050_ai-agent-hust-obc-undeciphered-candidate-context-pack.json`: AI Agent routing context pack for the same 9,408 `obs-unk-*` rows. It summarizes the 95 bucket manifests and source-group coverage without promoting any candidate into a formal `obs-char-*` record.
 - `004_character-id-assignment-log.md`: formal project ID assignment notes.
 - `005_hust-obc-validation-class-staging.csv`: HUST-OBC validation-class staging index with 1,588 dataset candidate classes. These rows do not assign formal `obs-char-*` IDs and must not be treated as accepted paleographic readings.
 - `006_obimd-main-character-staging.csv`: OBIMD main-character UID staging index with 3,936 dataset candidate main characters. These rows preserve UID/codepoint/transcription metadata for review and do not assign formal `obs-char-*` IDs.

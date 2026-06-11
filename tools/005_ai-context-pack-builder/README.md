@@ -44,7 +44,9 @@ Current tools:
 - `build_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist.py`: builds a 15-row metadata readiness checklist by linking each 047 candidate-packet capture row to its three 045 source-register rows and five 046 download-log rows, marking the route ready for human evidence-pack review while blocking identity, reading, component, evolution-chain, rights, source-promotion, and decipherment conclusions.
 - `build_hust_obimd_evobc_codepoint_crosswalk_evidence_readiness_checklist.py`：生成 15 行 metadata readiness checklist，把每条 047 候选包捕获结果连接到对应 3 条 045 来源登记行和 5 条 046 下载日志行；只标记可进入人工 evidence-pack 复核，不提出身份、释读、构件、演化链、权利、来源提升或破译结论。
 - `build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py`: builds a 134-row metadata-only route availability snapshot from the 041 review queue, local HUST candidate packets, OBIMD/EVOBC staging rows, source-register rows, and download-log rows, showing which review-log drafts already exist and which routes are ready to materialize without making identity, reading, component, evolution-chain, rights, source-promotion, or decipherment claims.
+- `build_hust_obc_undeciphered_candidate_context_pack.py`: builds a metadata-only AI Agent routing context pack for all 9,408 observed HUST-OBC `obs-unk-*` undeciphered candidate rows, grouping them by source group and 95 bucket manifests while preserving the non-identity, non-assignment, and non-decipherment boundaries.
 - `build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py`：从 041 复核队列、本地 HUST 候选包、OBIMD/EVOBC staging、来源登记和下载日志生成 134 行 metadata-only 路线可用性快照，标明哪些 review-log 草稿已存在、哪些路线可继续物化；不提出身份、释读、构件、演化链、权利、来源提升或破译结论。
+- `build_hust_obc_undeciphered_candidate_context_pack.py`：为全部 9,408 条已观测 HUST-OBC `obs-unk-*` 未释读候选行生成 metadata-only AI Agent 路由上下文包，按来源组和 95 个 bucket manifest 汇总，同时保持不确认身份、不分配正式 ID、不作释读结论的边界。
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。

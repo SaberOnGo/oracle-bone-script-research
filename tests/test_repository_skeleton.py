@@ -689,6 +689,38 @@ def load_hust_obc_undeciphered_candidate_xxt_jgw_route_probe_results_module():
     spec.loader.exec_module(module)
     return module
 
+
+def load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_queue_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_queue.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_queue",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
 def load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module():
     path = (
         repo_root()
@@ -4599,6 +4631,109 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(module.first_probe_token("1176;1177;1178"), "1176")
         self.assertIn("manual browser", output_rows[0]["risk_note"])
+
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_queue(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["xxt_followup_review_task_id"], "hust-obc-xxt-followup-review-0001")
+        self.assertEqual(rows[1]["xxt_followup_review_task_id"], "hust-obc-xxt-followup-review-0002")
+        self.assertEqual([row["candidate_filename_number_probe_token"] for row in rows], ["502", "1176"])
+        self.assertEqual({row["priority_bucket"] for row in rows}, {"xxt_jgw_tls_access_boundary_followup"})
+        self.assertEqual({row["followup_method"] for row in rows}, {"manual_browser_or_institutional_export_required"})
+        self.assertEqual({row["source_register_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["download_manifest_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["download_log_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["route_file_count"] for row in rows}, {"6"})
+        self.assertEqual({row["missing_route_file_count"] for row in rows}, {"0"})
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("manual or institutional access follow-up" in row["caution"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_queue_builder(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_queue_module()
+        root = repo_root()
+        rows = module.build_followup_review_rows(
+            module.read_csv_rows(root / module.NOTE_UPDATE_RESULTS),
+            module.read_csv_rows(root / module.ROUTE_PROBE_RESULTS),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_MANIFEST),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+            root,
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["xxt_followup_review_task_id"], "hust-obc-xxt-followup-review-0001")
+        self.assertEqual(rows[0]["targeted_download_id"], "dl-xxt-jgw-kaiorder-0502")
+        self.assertEqual(rows[1]["targeted_download_id"], "dl-xxt-jgw-kaiorder-1176")
+        self.assertIn("072_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+        self.assertEqual(rows[0]["source_register_match_count"], "1")
+        self.assertEqual(rows[0]["download_manifest_match_count"], "1")
+        self.assertEqual(rows[0]["download_log_match_count"], "1")
+        self.assertIn(
+            "doc/public/user_research/007_xxt-jgw-route-probe-review-queues/",
+            rows[0]["expected_output_path"],
+        )
+        self.assertIn("open_full_inscription_context_note_draft", rows[0]["required_next_checks"])
+
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_draft_manifest(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "073_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-log-draft-manifest.csv"
+        )
+        root = repo_root()
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["review_log_draft_id"] for row in rows],
+            [
+                "hust-obc-xxt-followup-review-log-draft-0001",
+                "hust-obc-xxt-followup-review-log-draft-0002",
+            ],
+        )
+        self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("not source evidence" in row["caution"] for row in rows))
+
+        note_path = root / rows[0]["draft_path"]
+        note_text = note_path.read_text(encoding="utf-8")
+        self.assertIn("Xiaoxuetang Route Follow-up Review Log Draft", note_text)
+        self.assertIn("created_from_072_followup_review_queue", note_text)
+        self.assertIn("open_071_route_probe_result", note_text)
+        self.assertIn("manual browser or institutional export path", note_text)
+
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_builder(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_module()
+        root = repo_root()
+        rows = module.build_draft_manifest_rows(
+            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE)
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["review_log_draft_id"], "hust-obc-xxt-followup-review-log-draft-0001")
+        self.assertEqual(rows[0]["targeted_download_id"], "dl-xxt-jgw-kaiorder-0502")
+        self.assertEqual(rows[1]["targeted_download_id"], "dl-xxt-jgw-kaiorder-1176")
+        self.assertIn("073_ai-agent", module.DEFAULT_MANIFEST.as_posix())
+        markdown = module.build_markdown(rows[0])
+        self.assertIn("Route Probe Result", markdown)
+        self.assertIn("open_071_route_probe_result", markdown)
+        self.assertIn("not catalog confirmation", markdown)
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

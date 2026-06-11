@@ -418,6 +418,22 @@ def load_hust_obc_undeciphered_candidate_review_log_drafts_module():
     return module
 
 
+def load_hust_obc_undeciphered_candidate_review_route_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_review_route_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_review_route_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -2825,6 +2841,84 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
         self.assertIn("不是破译或释读结论", markdown)
+
+    def test_hust_obc_undeciphered_candidate_review_route_results_are_metadata_only(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "053_ai-agent-hust-obc-undeciphered-candidate-review-route-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["unknown_candidate_id"] for row in rows],
+            ["obs-unk-006294", "obs-unk-005708"],
+        )
+        self.assertEqual({row["route_file_count"] for row in rows}, {"7"})
+        self.assertEqual({row["missing_route_file_count"] for row in rows}, {"0"})
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual({row["draft_log_status"] for row in rows}, {"draft_log_exists"})
+        self.assertEqual({row["candidate_packet_status"] for row in rows}, {"candidate_packet_exists"})
+        self.assertEqual({row["candidate_packet_review_status"] for row in rows}, {"reviewed_metadata_only"})
+        self.assertEqual({row["source_register_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["source_register_authority_tier"] for row in rows}, {"peer_reviewed_dataset"})
+        self.assertEqual({row["source_register_route_status"] for row in rows}, {"reviewed_source_registered"})
+        self.assertEqual({row["large_source_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["large_source_file_size_bytes"] for row in rows}, {"607933810"})
+        self.assertEqual(
+            {row["large_source_route_status"] for row in rows},
+            {"reviewed_large_source_registered"},
+        )
+        self.assertEqual({row["download_log_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["download_log_status"] for row in rows}, {"downloaded"})
+        self.assertEqual({row["download_log_file_size_bytes"] for row in rows}, {"607933810"})
+        self.assertEqual({row["download_log_route_status"] for row in rows}, {"reviewed_download_log_registered"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_candidate_review_route_result_metadata_only_not_scholarship"},
+        )
+        self.assertTrue(all("not source evidence by itself" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+        self.assertIn("no identity, assignment, reading", rows[0]["review_note"])
+
+    def test_hust_obc_undeciphered_candidate_review_route_result_builder_checks_routes(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_review_route_results_module()
+        root = repo_root()
+        rows = module.build_result_rows(
+            module.read_csv_rows(root / module.REVIEW_LOG_DRAFT_MANIFEST),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+            module.read_csv_rows(root / module.LARGE_SOURCE_REGISTER),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+            root,
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["route_result_id"], "hust-obc-undeciphered-route-result-0001")
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-006294")
+        self.assertEqual(rows[0]["packet_filename_source_prefixes"], "X:61")
+        self.assertEqual(rows[1]["unknown_candidate_id"], "obs-unk-005708")
+        self.assertEqual(rows[1]["packet_filename_source_prefixes"], "X:50")
+        self.assertEqual({row["missing_route_file_count"] for row in rows}, {"0"})
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual({row["large_source_checksum_sha256"] for row in rows}, {
+            "0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569bf0ad9d"
+        })
+        self.assertEqual({row["download_log_checksum_sha256"] for row in rows}, {
+            "0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569bf0ad9d"
+        })
+        self.assertFalse(any(row["research_boundary"].startswith("research/") for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

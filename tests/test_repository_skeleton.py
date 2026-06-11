@@ -721,6 +721,38 @@ def load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_modu
     spec.loader.exec_module(module)
     return module
 
+
+def load_xxt_obm_access_boundary_followup_review_queue_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_xxt_obm_access_boundary_followup_review_queue.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_xxt_obm_access_boundary_followup_review_queue",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_xxt_obm_access_boundary_review_log_drafts_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_xxt_obm_access_boundary_review_log_drafts.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_xxt_obm_access_boundary_review_log_drafts",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
 def load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module():
     path = (
         repo_root()
@@ -4734,6 +4766,99 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Route Probe Result", markdown)
         self.assertIn("open_071_route_probe_result", markdown)
         self.assertIn("not catalog confirmation", markdown)
+
+    def test_xxt_obm_access_boundary_followup_review_queue(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["obm_followup_review_task_id"], "xxt-obm-followup-review-0001")
+        self.assertEqual(rows[0]["targeted_download_id"], "dl-xxt-obm-appendix01")
+        self.assertEqual(rows[1]["targeted_download_id"], "dl-xxt-obm-appendix02")
+        self.assertEqual(rows[2]["targeted_download_id"], "dl-xxt-obm-example")
+        self.assertEqual(rows[3]["targeted_download_id"], "dl-xxt-obm-guide")
+        self.assertEqual({row["followup_method"] for row in rows}, {"manual_browser_or_institutional_export_required"})
+        self.assertEqual({row["download_status"] for row in rows}, {"downloaded_access_restricted_page"})
+        self.assertEqual({row["http_status"] for row in rows}, {"200"})
+        self.assertEqual(rows[0]["staging_row_count"], "90")
+        self.assertEqual(rows[1]["staging_row_count"], "211")
+        self.assertEqual(rows[2]["staging_row_count"], "0")
+        self.assertEqual(rows[3]["staging_row_count"], "0")
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual({row["missing_route_file_count"] for row in rows}, {"0"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("manual or institutional-access review" in row["caution"] for row in rows))
+
+    def test_xxt_obm_access_boundary_followup_review_queue_builder(self) -> None:
+        module = load_xxt_obm_access_boundary_followup_review_queue_module()
+        root = repo_root()
+        rows = module.build_followup_review_rows(
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_MANIFEST),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+            module.read_csv_rows(root / module.CORE_ACCESS_PROFILE),
+            module.read_csv_rows(root / module.OBM_ABBREVIATION_STAGING),
+            root,
+        )
+
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["targeted_download_id"], "dl-xxt-obm-appendix01")
+        self.assertEqual(rows[0]["profile_match_count"], "1")
+        self.assertEqual(rows[0]["staging_row_count"], "90")
+        self.assertEqual(rows[1]["staging_row_count"], "211")
+        self.assertEqual(rows[2]["staging_row_count"], "0")
+        self.assertIn("074_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+        self.assertIn(
+            "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/",
+            rows[0]["expected_output_path"],
+        )
+
+    def test_xxt_obm_access_boundary_review_log_draft_manifest(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "075_ai-agent-xxt-obm-access-boundary-review-log-draft-manifest.csv"
+        )
+        root = repo_root()
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["review_log_draft_id"], "xxt-obm-access-review-log-draft-0001")
+        self.assertEqual(rows[3]["review_log_draft_id"], "xxt-obm-access-review-log-draft-0004")
+        self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all("not source evidence" in row["caution"] for row in rows))
+
+        note_path = root / rows[0]["draft_path"]
+        note_text = note_path.read_text(encoding="utf-8")
+        self.assertIn("Xiaoxuetang OBM Access Boundary Review Log Draft", note_text)
+        self.assertIn("created_from_074_followup_review_queue", note_text)
+        self.assertIn("open_staging_rows_before_old_catalog_or_holding_claims", note_text)
+
+    def test_xxt_obm_access_boundary_review_log_drafts_builder(self) -> None:
+        module = load_xxt_obm_access_boundary_review_log_drafts_module()
+        root = repo_root()
+        rows = module.build_draft_manifest_rows(
+            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE)
+        )
+
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["review_log_draft_id"], "xxt-obm-access-review-log-draft-0001")
+        self.assertEqual(rows[0]["targeted_download_id"], "dl-xxt-obm-appendix01")
+        self.assertEqual(rows[3]["targeted_download_id"], "dl-xxt-obm-guide")
+        self.assertIn("075_ai-agent", module.DEFAULT_MANIFEST.as_posix())
+        markdown = module.build_markdown(rows[0])
+        self.assertIn("Access Profile Rows", markdown)
+        self.assertIn("open_staging_rows_before_old_catalog_or_holding_claims", markdown)
+        self.assertIn("not a Heji row import", markdown)
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

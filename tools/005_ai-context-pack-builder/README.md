@@ -55,6 +55,7 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_large_source_register_capture_results.py`: builds two metadata-only large-source-register capture result rows from the 054/055 large-source tasks, copying the registered raw-package size, checksum, external storage hint, handling strategy, derived-record paths, rights status, and risk note without committing raw images or inferring identity, assignment, or decipherment.
 - `build_hust_obc_undeciphered_candidate_packet_capture_results.py`: builds two metadata-only candidate-packet capture result rows from the 054/055 candidate-packet tasks, cross-checking local packets against bucket manifests and the global undeciphered index before recording dataset candidate paths, image counts, first/last source-image paths, rights/risk values, and class-count discrepancy metadata.
 - `build_hust_obc_undeciphered_candidate_evidence_readiness_checklist.py`: builds a metadata-only readiness checklist from 056, 057, 058, and 059, confirming that the four required capture sections are available before later human evidence-pack review while preserving the non-decipherment boundary.
+- `build_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest.py`: builds an empty metadata-only evidence-pack scaffold manifest from 060 and 052, linking the ready capture rows to review-log drafts while keeping every evidence section `not_collected` and staying outside the formal obs-char evidence-pack schema.
 - `build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py`：从 041 复核队列、本地 HUST 候选包、OBIMD/EVOBC staging、来源登记和下载日志生成 134 行 metadata-only 路线可用性快照，标明哪些 review-log 草稿已存在、哪些路线可继续物化；不提出身份、释读、构件、演化链、权利、来源提升或破译结论。
 - `build_hust_obc_undeciphered_candidate_context_pack.py`：为全部 9,408 条已观测 HUST-OBC `obs-unk-*` 未释读候选行生成 metadata-only AI Agent 路由上下文包，按来源组和 95 个 bucket manifest 汇总，同时保持不确认身份、不分配正式 ID、不作释读结论的边界。
 - `build_hust_obc_undeciphered_candidate_review_queue.py`：从未释读候选 context pack 和索引生成 9,408 行 metadata-only 复核队列，按来源图片数量排序优先级，并把每个任务路由到全局索引、bucket manifest、候选 packet、来源登记、大型来源登记和下载日志；在任何证据收集前保持准备阶段边界。
@@ -67,6 +68,7 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_large_source_register_capture_results.py`：从 054/055 的大型来源登记任务生成 2 条 metadata-only large-source-register capture result，只复制已登记原始包大小、checksum、外部存储线索、处理策略、派生记录路径、权利状态和风险说明；不提交原始图片，也不推断身份、正式分配或破译结论。
 - `build_hust_obc_undeciphered_candidate_packet_capture_results.py`：从 054/055 的候选 packet 任务生成 2 条 metadata-only candidate-packet capture result，先交叉核对本地 packet、bucket manifest 和全局未释读索引，再记录数据集候选路径、图片数量、首末来源图片路径、权利/风险值和 class 计数差异 metadata。
 - `build_hust_obc_undeciphered_candidate_evidence_readiness_checklist.py`：从 056、057、058、059 生成 metadata-only readiness checklist，确认四类必需捕获章节已可供后续人工 evidence-pack 复核使用，同时保持非释读结论边界。
+- `build_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest.py`：从 060 和 052 生成空白 metadata-only evidence-pack 脚手架 manifest，把已就绪捕获行连接到复核日志草稿；所有证据章节保持 `not_collected`，并明确不进入正式 obs-char evidence-pack schema。
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。

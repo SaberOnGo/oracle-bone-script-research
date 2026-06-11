@@ -546,6 +546,22 @@ def load_hust_obc_undeciphered_candidate_evidence_readiness_checklist_module():
     return module
 
 
+def load_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -3633,6 +3649,91 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["large_source_register_capture_result_id"], "hust-obc-undeciphered-large-source-capture-result-0001")
         self.assertEqual(rows[0]["captured_section_count"], "4")
         self.assertIn("060_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "061_ai-agent-hust-obc-undeciphered-candidate-evidence-pack-scaffold-manifest.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["evidence_pack_scaffold_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-evidence-pack-scaffold-0001",
+                "hust-obc-undeciphered-evidence-pack-scaffold-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["readiness_check_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-evidence-readiness-0001",
+                "hust-obc-undeciphered-evidence-readiness-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["unknown_candidate_id"] for row in rows],
+            ["obs-unk-006294", "obs-unk-005708"],
+        )
+        self.assertEqual({row["metadata_capture_status"] for row in rows}, {"ready_metadata_only"})
+        self.assertEqual({row["evidence_pack_status"] for row in rows}, {"empty_scaffold_not_started"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["human_review_status"] for row in rows}, {"not_started"})
+        self.assertEqual({row["formal_schema_compatibility_status"] for row in rows}, {"not_formal_obs_char_schema"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest_not_scholarship"},
+        )
+        for row in rows:
+            self.assertIn("full_inscription_context", row["required_evidence_sections"])
+            self.assertIn("bronze_seal_or_modern_comparanda", row["required_evidence_sections"])
+            self.assertIn("supporting_evidence", row["required_evidence_sections"])
+            self.assertIn("opposing_evidence", row["required_evidence_sections"])
+            self.assertIn("full_inscription_context=not_collected", row["evidence_section_statuses"])
+            self.assertIn("open_060_readiness_row", row["required_next_checks"])
+            self.assertIn("open_056_057_058_059_capture_rows", row["required_next_checks"])
+            self.assertIn("not compatible with the formal obs-char evidence-pack schema", row["caution"])
+            self.assertTrue(row["review_log_draft_path"].startswith("doc/public/user_research/"))
+            self.assertFalse(row["review_log_draft_path"].startswith("research/"))
+
+    def test_hust_obc_undeciphered_candidate_evidence_pack_scaffold_builder_links_readiness(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_evidence_pack_scaffold_manifest_module()
+        root = repo_root()
+        rows = module.build_scaffold_manifest_rows(
+            module.read_csv_rows(root / module.READINESS_CHECKLIST),
+            module.read_csv_rows(root / module.REVIEW_LOG_DRAFT_MANIFEST),
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            rows[0]["evidence_pack_scaffold_id"],
+            "hust-obc-undeciphered-evidence-pack-scaffold-0001",
+        )
+        self.assertEqual(rows[0]["readiness_check_id"], "hust-obc-undeciphered-evidence-readiness-0001")
+        self.assertEqual(
+            rows[0]["candidate_packet_capture_result_id"],
+            "hust-obc-undeciphered-candidate-packet-capture-result-0001",
+        )
+        self.assertEqual(
+            rows[0]["review_log_draft_path"],
+            "doc/public/user_research/005_undeciphered-candidate-review-queues/"
+            "001_image_count_050_plus/0001_obs-unk-006294_hust-obc-und-X-006294_review-log.md",
+        )
+        self.assertEqual(rows[0]["evidence_collection_status"], "not_collected")
+        self.assertIn("061_ai-agent", module.DEFAULT_OUTPUT.as_posix())
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

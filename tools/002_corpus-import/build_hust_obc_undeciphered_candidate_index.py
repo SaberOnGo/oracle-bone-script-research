@@ -450,6 +450,12 @@ BUCKET_SPECS = [
         "end": 6700,
         "materialization_status": "sixty_seventh_bucket_candidate_packet_materialized",
     },
+    {
+        "directory_prefix": "084",
+        "start": 6701,
+        "end": 6800,
+        "materialization_status": "sixty_eighth_bucket_candidate_packet_materialized",
+    },
 ]
 
 INDEX_FIELDS = [

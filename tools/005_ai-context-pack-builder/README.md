@@ -87,3 +87,5 @@ Recent additions / 最新补充：
 - `build_xiaoxuetang_followup_jgw_capture_review_checklist.py`: builds a review checklist from the 080 capture scaffold so later agents must verify route files and keep catalog/Heji/collection/context availability checks separate from identity or decipherment claims.
 - `build_xiaoxuetang_followup_jgw_capture_scaffold.py`：从 079 生成首波 JGW follow-up capture scaffold，预留 access、catalog、Heji、collection、inscription context 可得性字段，但不写结论。
 - `build_xiaoxuetang_followup_jgw_capture_review_checklist.py`：从 080 生成 review checklist，强制后续 agent 把 catalog/Heji/collection/context 的可得性检查与身份或释读判断分开。
+- `build_xiaoxuetang_followup_jgw_capture_results.py`: builds metadata-only capture results from the 080 JGW follow-up scaffold plus the 070 note-update results and 071 route-probe results, recording only the currently provable TLS/access boundary and availability-not-found state.
+- `build_xiaoxuetang_followup_jgw_capture_results.py`：从 080 JGW follow-up scaffold、070 note-update results 和 071 route-probe results 生成 metadata-only capture results，只记录当前可证明的 TLS/访问边界与“暂不可得”状态。

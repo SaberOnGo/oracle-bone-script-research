@@ -11010,6 +11010,43 @@ class RepositorySkeletonTests(unittest.TestCase):
             any(row["check_key"] == "check_heji_crosswalk_only" for row in rows)
         )
 
+    def test_xiaoxuetang_followup_jgw_capture_results_record_current_boundary_only(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "082_ai-agent-xiaoxuetang-followup-jgw-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["capture_result_id"], "xxt-jgw-followup-capture-result-001")
+        self.assertEqual(
+            {row["manual_followup_route_status"] for row in rows},
+            {"manual_browser_or_institutional_export_required_after_tls_access_boundary"},
+        )
+        self.assertEqual(
+            {row["catalog_availability_status"] for row in rows},
+            {"not_available_from_current_route_evidence"},
+        )
+        self.assertEqual(
+            {row["heji_crosswalk_availability_status"] for row in rows},
+            {"not_available_from_current_route_evidence"},
+        )
+        self.assertEqual(
+            {row["capture_status"] for row in rows},
+            {"reviewed_metadata_only_current_route_boundary_recorded"},
+        )
+        self.assertEqual(
+            {row["human_review_status"] for row in rows},
+            {"reviewed_metadata_only"},
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in row["caution"]
+                for row in rows
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

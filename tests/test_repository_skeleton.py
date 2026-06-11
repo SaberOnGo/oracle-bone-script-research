@@ -386,6 +386,22 @@ def load_hust_obc_undeciphered_candidate_context_pack_module():
     return module
 
 
+def load_hust_obc_undeciphered_candidate_review_queue_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_review_queue.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_review_queue",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -2647,6 +2663,73 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(route["review_route"] == "open_bucket_manifest_then_candidate_packet" for route in data["bucket_routes"]))
         self.assertIn(module.UNDECIPHERED_INDEX.as_posix(), data["generated_from"])
         self.assertIn("not formal obs-char assignments", data["caution"])
+
+    def test_hust_obc_undeciphered_candidate_review_queue_routes_all_candidates(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "051_ai-agent-hust-obc-undeciphered-candidate-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 9408)
+        self.assertEqual(
+            Counter(row["priority_bucket"] for row in rows),
+            {
+                "image_count_001": 6209,
+                "image_count_002_009": 739,
+                "image_count_010_019": 128,
+                "image_count_020_049": 2330,
+                "image_count_050_plus": 2,
+            },
+        )
+        self.assertEqual(rows[0]["undeciphered_review_task_id"], "hust-obc-undeciphered-review-0001")
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-006294")
+        self.assertEqual(rows[0]["primary_external_ref_id"], "hust-obc-und-X-006294")
+        self.assertEqual(rows[0]["source_image_count"], "61")
+        self.assertEqual(rows[0]["priority_bucket"], "image_count_050_plus")
+        self.assertIn("050_ai-agent-hust-obc-undeciphered-candidate-context-pack.json", rows[0]["route_files_to_open"])
+        self.assertIn("003_undeciphered-oracle-characters-index.csv", rows[0]["route_files_to_open"])
+        self.assertIn("01_undeciphered-candidate-packet.json", rows[0]["route_files_to_open"])
+        self.assertTrue(rows[0]["expected_output_path"].startswith("doc/public/user_research/"))
+        self.assertEqual(rows[1]["unknown_candidate_id"], "obs-unk-005708")
+        self.assertEqual(rows[1]["source_image_count"], "50")
+        self.assertEqual(rows[2]["priority_bucket"], "image_count_020_049")
+        self.assertEqual(rows[-1]["priority_bucket"], "image_count_001")
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertTrue(all(row["research_boundary"].endswith("not_scholarship") for row in rows))
+        self.assertIn("not a formal obs-char assignment", rows[0]["caution"])
+        self.assertIn("not a reading", rows[0]["caution"])
+
+    def test_hust_obc_undeciphered_candidate_review_queue_builder_prioritizes_image_counts(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_review_queue_module()
+        root = repo_root()
+        rows = module.build_review_rows(
+            module.read_json(root / module.CONTEXT_PACK),
+            module.read_csv_rows(root / module.UNDECIPHERED_INDEX),
+        )
+
+        self.assertEqual(len(rows), 9408)
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-006294")
+        self.assertEqual(rows[0]["source_image_count"], "61")
+        self.assertEqual(rows[0]["priority_rank"], "1")
+        self.assertEqual(rows[0]["priority_bucket"], "image_count_050_plus")
+        self.assertEqual(rows[0]["bucket_directory"], "079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates")
+        self.assertIn(module.CONTEXT_PACK.as_posix(), rows[0]["route_files_to_open"])
+        self.assertIn(module.SOURCE_DOWNLOAD_LOG.as_posix(), rows[0]["route_files_to_open"])
+        self.assertEqual(rows[1]["unknown_candidate_id"], "obs-unk-005708")
+        self.assertEqual(rows[2]["priority_rank"], "2")
+        self.assertEqual(rows[-1]["priority_rank"], "5")
+        self.assertTrue(all(row["task_status"] == "needs_metadata_route_review" for row in rows))
+        self.assertFalse(any(row["expected_output_path"].startswith("research/") for row in rows))
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

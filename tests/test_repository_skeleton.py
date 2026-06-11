@@ -434,6 +434,22 @@ def load_hust_obc_undeciphered_candidate_review_route_results_module():
     return module
 
 
+def load_hust_obc_undeciphered_candidate_evidence_capture_scaffold_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_evidence_capture_scaffold.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_evidence_capture_scaffold",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -2919,6 +2935,83 @@ class RepositorySkeletonTests(unittest.TestCase):
         })
         self.assertFalse(any(row["research_boundary"].startswith("research/") for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_evidence_capture_scaffold_is_empty(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "054_ai-agent-hust-obc-undeciphered-candidate-evidence-capture-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 8)
+        self.assertEqual(
+            Counter(row["target_evidence_section"] for row in rows),
+            {
+                "candidate_packet": 2,
+                "source_register": 2,
+                "large_source_register": 2,
+                "download_log": 2,
+            },
+        )
+        self.assertEqual(
+            [row["unknown_candidate_id"] for row in rows[:4]],
+            ["obs-unk-006294"] * 4,
+        )
+        self.assertEqual(
+            [row["unknown_candidate_id"] for row in rows[4:]],
+            ["obs-unk-005708"] * 4,
+        )
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["capture_status"] for row in rows}, {"empty_scaffold_not_started"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"not_decided"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_candidate_evidence_capture_scaffold_not_scholarship"},
+        )
+        for field in [
+            "captured_evidence_value",
+            "captured_evidence_source_id",
+            "captured_evidence_source_path",
+            "captured_evidence_note",
+        ]:
+            self.assertEqual({row[field] for row in rows}, {""})
+        self.assertTrue(all("Do not use this row as collected evidence" in row["caution"] for row in rows))
+        self.assertTrue(all("decipherment conclusion" in row["caution"] for row in rows))
+        self.assertIn("607933810", rows[2]["route_metadata_summary"])
+        self.assertIn("0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569bf0ad9d", rows[3]["route_metadata_summary"])
+        self.assertIn("do_not_commit_raw_package", rows[2]["required_review_actions"])
+        self.assertIn("do_not_infer_rights_identity_or_decipherment", rows[3]["required_review_actions"])
+
+    def test_hust_obc_undeciphered_candidate_evidence_capture_scaffold_builder_splits_sections(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_evidence_capture_scaffold_module()
+        root = repo_root()
+        rows = module.build_capture_rows(module.read_csv_rows(root / module.ROUTE_RESULTS))
+
+        self.assertEqual(len(rows), 8)
+        self.assertEqual(
+            [row["target_evidence_section"] for row in rows[:4]],
+            ["candidate_packet", "source_register", "large_source_register", "download_log"],
+        )
+        self.assertEqual(rows[0]["capture_task_id"], "hust-obc-undeciphered-evidence-capture-0001")
+        self.assertEqual(rows[-1]["capture_task_id"], "hust-obc-undeciphered-evidence-capture-0008")
+        self.assertEqual(rows[0]["source_route_path"], rows[0]["source_route_path"].replace("\\", "/"))
+        self.assertEqual(rows[1]["source_route_path"], module.SOURCE_REGISTER_PATH)
+        self.assertEqual(rows[2]["source_route_path"], module.LARGE_SOURCE_REGISTER_PATH)
+        self.assertEqual(rows[3]["source_route_path"], module.SOURCE_DOWNLOAD_LOG_PATH)
+        self.assertEqual({row["captured_evidence_value"] for row in rows}, {""})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertTrue(all(row["research_boundary"].endswith("not_scholarship") for row in rows))
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

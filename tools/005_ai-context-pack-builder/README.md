@@ -48,11 +48,13 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_review_queue.py`: builds a 9,408-row metadata-only review queue from the undeciphered candidate context pack and index, prioritizing candidates by source image count and routing each task to the global index, bucket manifest, candidate packet, source register, large-source register, and download log before any evidence collection.
 - `build_hust_obc_undeciphered_candidate_review_log_drafts.py`: builds two empty Markdown review-log drafts for the highest-priority HUST-OBC `obs-unk-*` candidates in the `image_count_050_plus` bucket, plus a manifest, with every evidence section left `not_collected` and no identity, reading, assignment, component, evolution-chain, or decipherment claim.
 - `build_hust_obc_undeciphered_candidate_review_route_results.py`: builds metadata-only route results from the 052 draft manifest, confirming local draft-log, candidate-packet, source-register, large-source-register, download-log, size, and checksum availability before evidence collection.
+- `build_hust_obc_undeciphered_candidate_evidence_capture_scaffold.py`: builds eight empty evidence-capture scaffold rows from the 053 route results, splitting each top undeciphered candidate into candidate-packet, source-register, large-source-register, and download-log capture tasks without filling evidence values or making rights, promotion, identity, assignment, reading, component, evolution-chain, or decipherment claims.
 - `build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py`：从 041 复核队列、本地 HUST 候选包、OBIMD/EVOBC staging、来源登记和下载日志生成 134 行 metadata-only 路线可用性快照，标明哪些 review-log 草稿已存在、哪些路线可继续物化；不提出身份、释读、构件、演化链、权利、来源提升或破译结论。
 - `build_hust_obc_undeciphered_candidate_context_pack.py`：为全部 9,408 条已观测 HUST-OBC `obs-unk-*` 未释读候选行生成 metadata-only AI Agent 路由上下文包，按来源组和 95 个 bucket manifest 汇总，同时保持不确认身份、不分配正式 ID、不作释读结论的边界。
 - `build_hust_obc_undeciphered_candidate_review_queue.py`：从未释读候选 context pack 和索引生成 9,408 行 metadata-only 复核队列，按来源图片数量排序优先级，并把每个任务路由到全局索引、bucket manifest、候选 packet、来源登记、大型来源登记和下载日志；在任何证据收集前保持准备阶段边界。
 - `build_hust_obc_undeciphered_candidate_review_log_drafts.py`：为 `image_count_050_plus` 最高优先级分组中的 2 条 HUST-OBC `obs-unk-*` 未释读候选生成空白 Markdown 复核日志草稿和 manifest；所有证据章节保持 `not_collected`，不提出身份、释读、正式分配、构件、演化链或破译结论。
 - `build_hust_obc_undeciphered_candidate_review_route_results.py`：从 052 草稿 manifest 生成 metadata-only route results，确认本地草稿、候选 packet、来源登记、大型来源登记、下载日志、文件大小和 checksum 的可用性；仍不收集证据或提出释读结论。
+- `build_hust_obc_undeciphered_candidate_evidence_capture_scaffold.py`：从 053 路由结果生成 8 条空白 evidence-capture scaffold，把每个最高优先级未释读候选拆成候选 packet、来源登记、大型来源登记和下载日志四类捕获任务；不填入证据值，不作权利、提升、身份、分配、释读、构件、演化链或破译结论。
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。

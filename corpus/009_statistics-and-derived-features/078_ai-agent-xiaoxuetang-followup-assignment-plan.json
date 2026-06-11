@@ -1,0 +1,610 @@
+{
+  "agent_use_rules": [
+    "Use this assignment plan only to choose the next planned Xiaoxuetang follow-up route.",
+    "Open the 078 plan item, 077 review summary, 076 route pack, source queue row, review-log draft, and all route files before recording any evidence.",
+    "Keep each item planned_not_assigned until an owner explicitly records assignment outside this generated plan.",
+    "Do not treat this plan as collected evidence, a rights decision, a catalog or collection match, a formal assignment, or a decipherment conclusion."
+  ],
+  "agent_use_rules_zh": [
+    "本分派计划只能用于选择下一条小学堂后续复核路线。",
+    "记录任何证据前，必须先打开 078 计划项、077 review summary、076 route pack、source queue 行、review-log 草稿和全部 route files。",
+    "在有人于本生成计划之外明确登记分派前，每个项目都必须保持 planned_not_assigned。",
+    "不得把本计划当作已采集证据、权利结论、著录或馆藏匹配、正式分配或释读结论。"
+  ],
+  "assignment_items": [
+    {
+      "artifact_kind": "xiaoxuetang_jgw_character_detail_page",
+      "assignment_plan_item_id": "xxt-followup-assignment-001",
+      "assignment_scope_status": "unknown_candidate_id_not_formal_obs_char_assignment",
+      "assignment_status": "planned_not_assigned",
+      "caution": "This assignment-plan item only schedules a Xiaoxuetang follow-up route for later manual-browser or institutional-export work. It is not collected evidence, not a rights decision, not a catalog or collection match, not a formal assignment, and not a decipherment conclusion.",
+      "component_claim_status": "no_claim",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "evolution_chain_claim_status": "no_claim",
+      "followup_family_id": "xxt_jgw_tls_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang JGW TLS/Access Boundary Follow-up",
+      "followup_method": "manual_browser_or_institutional_export_required",
+      "followup_task_id": "hust-obc-xxt-followup-review-0001",
+      "formal_schema_compatibility_status": "not_formal_obs_char_schema",
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "human_review_status": "not_started",
+      "identity_claim_status": "no_identity_claim",
+      "official_access_boundary_status": "direct_official_character_page_not_collected_due_tls_or_access_boundary",
+      "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+      "primary_external_ref_id": "hust-obc-und-X-006294",
+      "priority_bucket": "xxt_jgw_tls_access_boundary_followup",
+      "priority_rank": 1,
+      "required_next_check_count": 6,
+      "required_next_checks": [
+        "open_071_route_probe_result",
+        "open_070_note_update_result",
+        "open_full_inscription_context_note_draft",
+        "verify_registered_xxt_source_and_download_rows",
+        "use_manual_browser_or_institutional_export_before_any_catalog_claim",
+        "record_no_identity_assignment_or_decipherment_claim"
+      ],
+      "required_review_check_count": 8,
+      "required_review_sections": [
+        "route_probe_result",
+        "note_update_result",
+        "full_inscription_context_note",
+        "source_register_row",
+        "source_download_manifest_row",
+        "download_log_row",
+        "official_access_boundary",
+        "review_log"
+      ],
+      "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+      "review_log_draft_id": "hust-obc-xxt-followup-review-log-draft-0001",
+      "review_log_draft_path": "doc/public/user_research/007_xxt-jgw-route-probe-review-queues/001_tls-access-boundary/0001_obs-unk-006294_dl-xxt-jgw-kaiorder-0502_review-log.md",
+      "rights_decision_status": "no_new_rights_decision",
+      "rights_status": "source_marked_risk_noted",
+      "risk_note": "Official Xiaoxuetang route was targeted from a HUST filename token, but local Python urllib/OpenSSL and curl schannel clients both failed before HTML capture. Treat as access-boundary evidence only until a manual browser or institutional export path is reviewed.",
+      "route_file_count": 6,
+      "route_file_review_status": "reviewed_route_files_exist",
+      "route_files_to_open": [
+        "corpus/009_statistics-and-derived-features/070_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-note-update-results.csv",
+        "corpus/009_statistics-and-derived-features/071_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-route-probe-results.csv",
+        "doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/obs-unk-006294_hust-obc-und-X-006294/hust-obc-undeciphered-evidence-task-0003_full-inscription-context_collection-note.md",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "route_source_id": "src-hust-obc",
+      "source_promotion_status": "not_promoted",
+      "source_queue_path": "corpus/009_statistics-and-derived-features/072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv",
+      "staging_row_count": 0,
+      "target_evidence_section": "full_inscription_context",
+      "target_source_id": "src-xiaoxuetang-jiaguwen",
+      "targeted_download_id": "dl-xxt-jgw-kaiorder-0502",
+      "targeted_url": "https://xiaoxue.iis.sinica.edu.tw/jiaguwen?kaiOrder=502",
+      "unknown_candidate_id": "obs-unk-006294"
+    },
+    {
+      "artifact_kind": "xiaoxuetang_jgw_character_detail_page",
+      "assignment_plan_item_id": "xxt-followup-assignment-002",
+      "assignment_scope_status": "unknown_candidate_id_not_formal_obs_char_assignment",
+      "assignment_status": "planned_not_assigned",
+      "caution": "This assignment-plan item only schedules a Xiaoxuetang follow-up route for later manual-browser or institutional-export work. It is not collected evidence, not a rights decision, not a catalog or collection match, not a formal assignment, and not a decipherment conclusion.",
+      "component_claim_status": "no_claim",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "evolution_chain_claim_status": "no_claim",
+      "followup_family_id": "xxt_jgw_tls_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang JGW TLS/Access Boundary Follow-up",
+      "followup_method": "manual_browser_or_institutional_export_required",
+      "followup_task_id": "hust-obc-xxt-followup-review-0002",
+      "formal_schema_compatibility_status": "not_formal_obs_char_schema",
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "human_review_status": "not_started",
+      "identity_claim_status": "no_identity_claim",
+      "official_access_boundary_status": "direct_official_character_page_not_collected_due_tls_or_access_boundary",
+      "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+      "primary_external_ref_id": "hust-obc-und-X-005708",
+      "priority_bucket": "xxt_jgw_tls_access_boundary_followup",
+      "priority_rank": 2,
+      "required_next_check_count": 6,
+      "required_next_checks": [
+        "open_071_route_probe_result",
+        "open_070_note_update_result",
+        "open_full_inscription_context_note_draft",
+        "verify_registered_xxt_source_and_download_rows",
+        "use_manual_browser_or_institutional_export_before_any_catalog_claim",
+        "record_no_identity_assignment_or_decipherment_claim"
+      ],
+      "required_review_check_count": 8,
+      "required_review_sections": [
+        "route_probe_result",
+        "note_update_result",
+        "full_inscription_context_note",
+        "source_register_row",
+        "source_download_manifest_row",
+        "download_log_row",
+        "official_access_boundary",
+        "review_log"
+      ],
+      "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+      "review_log_draft_id": "hust-obc-xxt-followup-review-log-draft-0002",
+      "review_log_draft_path": "doc/public/user_research/007_xxt-jgw-route-probe-review-queues/001_tls-access-boundary/0002_obs-unk-005708_dl-xxt-jgw-kaiorder-1176_review-log.md",
+      "rights_decision_status": "no_new_rights_decision",
+      "rights_status": "source_marked_risk_noted",
+      "risk_note": "Official Xiaoxuetang route was targeted from a HUST filename token, but local Python urllib/OpenSSL and curl schannel clients both failed before HTML capture. Treat as access-boundary evidence only until a manual browser or institutional export path is reviewed.",
+      "route_file_count": 6,
+      "route_file_review_status": "reviewed_route_files_exist",
+      "route_files_to_open": [
+        "corpus/009_statistics-and-derived-features/070_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-note-update-results.csv",
+        "corpus/009_statistics-and-derived-features/071_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-route-probe-results.csv",
+        "doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/obs-unk-005708_hust-obc-und-X-005708/hust-obc-undeciphered-evidence-task-0014_full-inscription-context_collection-note.md",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "route_source_id": "src-hust-obc",
+      "source_promotion_status": "not_promoted",
+      "source_queue_path": "corpus/009_statistics-and-derived-features/072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv",
+      "staging_row_count": 0,
+      "target_evidence_section": "full_inscription_context",
+      "target_source_id": "src-xiaoxuetang-jiaguwen",
+      "targeted_download_id": "dl-xxt-jgw-kaiorder-1176",
+      "targeted_url": "https://xiaoxue.iis.sinica.edu.tw/jiaguwen?kaiOrder=1176",
+      "unknown_candidate_id": "obs-unk-005708"
+    },
+    {
+      "artifact_kind": "old_catalog_abbreviation_appendix",
+      "assignment_plan_item_id": "xxt-followup-assignment-003",
+      "assignment_scope_status": "not_applicable_source_level_followup_only",
+      "assignment_status": "planned_not_assigned",
+      "caution": "This assignment-plan item only schedules a Xiaoxuetang follow-up route for later manual-browser or institutional-export work. It is not collected evidence, not a rights decision, not a catalog or collection match, not a formal assignment, and not a decipherment conclusion.",
+      "component_claim_status": "no_claim",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "evolution_chain_claim_status": "no_claim",
+      "followup_family_id": "xxt_obm_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang OBM Access Boundary Follow-up",
+      "followup_method": "manual_browser_or_institutional_export_required",
+      "followup_task_id": "xxt-obm-followup-review-0001",
+      "formal_schema_compatibility_status": "not_formal_inscription_or_obs_char_schema",
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "human_review_status": "not_started",
+      "identity_claim_status": "no_identity_claim",
+      "official_access_boundary_status": "downloaded_access_restricted_page",
+      "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+      "primary_external_ref_id": "",
+      "priority_bucket": "appendix_old_catalog_abbrev_followup",
+      "priority_rank": 1,
+      "required_next_check_count": 5,
+      "required_next_checks": [
+        "open_registered_source_and_download_rows",
+        "open_access_profile_rows",
+        "open_staging_rows_before_old_catalog_or_holding_claims",
+        "use_manual_browser_or_institutional_export_before_any_row_level_claim",
+        "record_no_identity_assignment_or_decipherment_claim"
+      ],
+      "required_review_check_count": 7,
+      "required_review_sections": [
+        "source_register_row",
+        "source_download_manifest_row",
+        "download_log_row",
+        "access_profile_rows",
+        "staging_rows_when_available",
+        "official_access_boundary",
+        "review_log"
+      ],
+      "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+      "review_log_draft_id": "xxt-obm-access-review-log-draft-0001",
+      "review_log_draft_path": "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/001_access-restricted-pages/0001_dl-xxt-obm-appendix01_review-log.md",
+      "rights_decision_status": "no_new_rights_decision",
+      "rights_status": "metadata_only_until_verified",
+      "risk_note": "Site returned an access-restricted HTML page; treat as access evidence only.",
+      "route_file_count": 5,
+      "route_file_review_status": "reviewed_route_files_exist",
+      "route_files_to_open": [
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/011_core-institutional-access-profile.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/012_obm-abbreviation-staging.csv"
+      ],
+      "route_source_id": "src-xiaoxuetang-obm",
+      "source_promotion_status": "not_promoted",
+      "source_queue_path": "corpus/009_statistics-and-derived-features/074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv",
+      "staging_row_count": 90,
+      "target_evidence_section": "",
+      "target_source_id": "src-xiaoxuetang-obm",
+      "targeted_download_id": "dl-xxt-obm-appendix01",
+      "targeted_url": "https://xiaoxue.iis.sinica.edu.tw/obm/Home/Appendix01",
+      "unknown_candidate_id": ""
+    },
+    {
+      "artifact_kind": "holding_abbreviation_appendix",
+      "assignment_plan_item_id": "xxt-followup-assignment-004",
+      "assignment_scope_status": "not_applicable_source_level_followup_only",
+      "assignment_status": "planned_not_assigned",
+      "caution": "This assignment-plan item only schedules a Xiaoxuetang follow-up route for later manual-browser or institutional-export work. It is not collected evidence, not a rights decision, not a catalog or collection match, not a formal assignment, and not a decipherment conclusion.",
+      "component_claim_status": "no_claim",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "evolution_chain_claim_status": "no_claim",
+      "followup_family_id": "xxt_obm_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang OBM Access Boundary Follow-up",
+      "followup_method": "manual_browser_or_institutional_export_required",
+      "followup_task_id": "xxt-obm-followup-review-0002",
+      "formal_schema_compatibility_status": "not_formal_inscription_or_obs_char_schema",
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "human_review_status": "not_started",
+      "identity_claim_status": "no_identity_claim",
+      "official_access_boundary_status": "downloaded_access_restricted_page",
+      "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+      "primary_external_ref_id": "",
+      "priority_bucket": "appendix_holding_abbrev_followup",
+      "priority_rank": 2,
+      "required_next_check_count": 5,
+      "required_next_checks": [
+        "open_registered_source_and_download_rows",
+        "open_access_profile_rows",
+        "open_staging_rows_before_old_catalog_or_holding_claims",
+        "use_manual_browser_or_institutional_export_before_any_row_level_claim",
+        "record_no_identity_assignment_or_decipherment_claim"
+      ],
+      "required_review_check_count": 7,
+      "required_review_sections": [
+        "source_register_row",
+        "source_download_manifest_row",
+        "download_log_row",
+        "access_profile_rows",
+        "staging_rows_when_available",
+        "official_access_boundary",
+        "review_log"
+      ],
+      "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+      "review_log_draft_id": "xxt-obm-access-review-log-draft-0002",
+      "review_log_draft_path": "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/001_access-restricted-pages/0002_dl-xxt-obm-appendix02_review-log.md",
+      "rights_decision_status": "no_new_rights_decision",
+      "rights_status": "metadata_only_until_verified",
+      "risk_note": "Site returned an access-restricted HTML page; treat as access evidence only.",
+      "route_file_count": 5,
+      "route_file_review_status": "reviewed_route_files_exist",
+      "route_files_to_open": [
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/011_core-institutional-access-profile.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/012_obm-abbreviation-staging.csv"
+      ],
+      "route_source_id": "src-xiaoxuetang-obm",
+      "source_promotion_status": "not_promoted",
+      "source_queue_path": "corpus/009_statistics-and-derived-features/074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv",
+      "staging_row_count": 211,
+      "target_evidence_section": "",
+      "target_source_id": "src-xiaoxuetang-obm",
+      "targeted_download_id": "dl-xxt-obm-appendix02",
+      "targeted_url": "https://xiaoxue.iis.sinica.edu.tw/obm/Home/Appendix02",
+      "unknown_candidate_id": ""
+    },
+    {
+      "artifact_kind": "source_table_rules_page",
+      "assignment_plan_item_id": "xxt-followup-assignment-005",
+      "assignment_scope_status": "not_applicable_source_level_followup_only",
+      "assignment_status": "planned_not_assigned",
+      "caution": "This assignment-plan item only schedules a Xiaoxuetang follow-up route for later manual-browser or institutional-export work. It is not collected evidence, not a rights decision, not a catalog or collection match, not a formal assignment, and not a decipherment conclusion.",
+      "component_claim_status": "no_claim",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "evolution_chain_claim_status": "no_claim",
+      "followup_family_id": "xxt_obm_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang OBM Access Boundary Follow-up",
+      "followup_method": "manual_browser_or_institutional_export_required",
+      "followup_task_id": "xxt-obm-followup-review-0003",
+      "formal_schema_compatibility_status": "not_formal_inscription_or_obs_char_schema",
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "human_review_status": "not_started",
+      "identity_claim_status": "no_identity_claim",
+      "official_access_boundary_status": "downloaded_access_restricted_page",
+      "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+      "primary_external_ref_id": "",
+      "priority_bucket": "source_table_rules_followup",
+      "priority_rank": 3,
+      "required_next_check_count": 5,
+      "required_next_checks": [
+        "open_registered_source_and_download_rows",
+        "open_access_profile_rows",
+        "review_access_boundary_before_manual_followup",
+        "use_manual_browser_or_institutional_export_before_any_row_level_claim",
+        "record_no_identity_assignment_or_decipherment_claim"
+      ],
+      "required_review_check_count": 7,
+      "required_review_sections": [
+        "source_register_row",
+        "source_download_manifest_row",
+        "download_log_row",
+        "access_profile_rows",
+        "staging_rows_when_available",
+        "official_access_boundary",
+        "review_log"
+      ],
+      "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+      "review_log_draft_id": "xxt-obm-access-review-log-draft-0003",
+      "review_log_draft_path": "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/001_access-restricted-pages/0003_dl-xxt-obm-example_review-log.md",
+      "rights_decision_status": "no_new_rights_decision",
+      "rights_status": "metadata_only_until_verified",
+      "risk_note": "Site returned an access-restricted HTML page; treat as access evidence only.",
+      "route_file_count": 4,
+      "route_file_review_status": "reviewed_route_files_exist",
+      "route_files_to_open": [
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/011_core-institutional-access-profile.csv"
+      ],
+      "route_source_id": "src-xiaoxuetang-obm",
+      "source_promotion_status": "not_promoted",
+      "source_queue_path": "corpus/009_statistics-and-derived-features/074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv",
+      "staging_row_count": 0,
+      "target_evidence_section": "",
+      "target_source_id": "src-xiaoxuetang-obm",
+      "targeted_download_id": "dl-xxt-obm-example",
+      "targeted_url": "https://xiaoxue.iis.sinica.edu.tw/obm/Home/Example",
+      "unknown_candidate_id": ""
+    },
+    {
+      "artifact_kind": "user_guide_pdf",
+      "assignment_plan_item_id": "xxt-followup-assignment-006",
+      "assignment_scope_status": "not_applicable_source_level_followup_only",
+      "assignment_status": "planned_not_assigned",
+      "caution": "This assignment-plan item only schedules a Xiaoxuetang follow-up route for later manual-browser or institutional-export work. It is not collected evidence, not a rights decision, not a catalog or collection match, not a formal assignment, and not a decipherment conclusion.",
+      "component_claim_status": "no_claim",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "evolution_chain_claim_status": "no_claim",
+      "followup_family_id": "xxt_obm_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang OBM Access Boundary Follow-up",
+      "followup_method": "manual_browser_or_institutional_export_required",
+      "followup_task_id": "xxt-obm-followup-review-0004",
+      "formal_schema_compatibility_status": "not_formal_inscription_or_obs_char_schema",
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "human_review_status": "not_started",
+      "identity_claim_status": "no_identity_claim",
+      "official_access_boundary_status": "downloaded_access_restricted_page",
+      "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+      "primary_external_ref_id": "",
+      "priority_bucket": "user_guide_followup",
+      "priority_rank": 4,
+      "required_next_check_count": 5,
+      "required_next_checks": [
+        "open_registered_source_and_download_rows",
+        "open_access_profile_rows",
+        "review_access_boundary_before_manual_followup",
+        "use_manual_browser_or_institutional_export_before_any_row_level_claim",
+        "record_no_identity_assignment_or_decipherment_claim"
+      ],
+      "required_review_check_count": 7,
+      "required_review_sections": [
+        "source_register_row",
+        "source_download_manifest_row",
+        "download_log_row",
+        "access_profile_rows",
+        "staging_rows_when_available",
+        "official_access_boundary",
+        "review_log"
+      ],
+      "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+      "review_log_draft_id": "xxt-obm-access-review-log-draft-0004",
+      "review_log_draft_path": "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/001_access-restricted-pages/0004_dl-xxt-obm-guide_review-log.md",
+      "rights_decision_status": "no_new_rights_decision",
+      "rights_status": "metadata_only_until_verified",
+      "risk_note": "Site returned an access-restricted HTML page; treat as access evidence only.",
+      "route_file_count": 4,
+      "route_file_review_status": "reviewed_route_files_exist",
+      "route_files_to_open": [
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/011_core-institutional-access-profile.csv"
+      ],
+      "route_source_id": "src-xiaoxuetang-obm",
+      "source_promotion_status": "not_promoted",
+      "source_queue_path": "corpus/009_statistics-and-derived-features/074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv",
+      "staging_row_count": 0,
+      "target_evidence_section": "",
+      "target_source_id": "src-xiaoxuetang-obm",
+      "targeted_download_id": "dl-xxt-obm-guide",
+      "targeted_url": "https://xiaoxue.iis.sinica.edu.tw/obm/Content/Docs/Get_Started.pdf",
+      "unknown_candidate_id": ""
+    }
+  ],
+  "assignment_waves": [
+    {
+      "assignment_item_count": 2,
+      "assignment_plan_item_ids": [
+        "xxt-followup-assignment-001",
+        "xxt-followup-assignment-002"
+      ],
+      "assignment_status": "planned_not_assigned",
+      "assignment_wave_id": "xxt-followup-assignment-wave-001",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "followup_family_id": "xxt_jgw_tls_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang JGW TLS/Access Boundary Follow-up",
+      "followup_task_ids": [
+        "hust-obc-xxt-followup-review-0001",
+        "hust-obc-xxt-followup-review-0002"
+      ],
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "priority_rank": "1",
+      "route_file_count": 7,
+      "route_files_to_open": [
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "corpus/009_statistics-and-derived-features/070_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-note-update-results.csv",
+        "corpus/009_statistics-and-derived-features/071_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-route-probe-results.csv",
+        "doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/obs-unk-005708_hust-obc-und-X-005708/hust-obc-undeciphered-evidence-task-0014_full-inscription-context_collection-note.md",
+        "doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/obs-unk-006294_hust-obc-und-X-006294/hust-obc-undeciphered-evidence-task-0003_full-inscription-context_collection-note.md",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "source_promotion_status": "not_promoted",
+      "target_source_ids": [
+        "src-xiaoxuetang-jiaguwen",
+        "src-xiaoxuetang-jiaguwen"
+      ],
+      "targeted_download_ids": [
+        "dl-xxt-jgw-kaiorder-0502",
+        "dl-xxt-jgw-kaiorder-1176"
+      ]
+    },
+    {
+      "assignment_item_count": 4,
+      "assignment_plan_item_ids": [
+        "xxt-followup-assignment-003",
+        "xxt-followup-assignment-004",
+        "xxt-followup-assignment-005",
+        "xxt-followup-assignment-006"
+      ],
+      "assignment_status": "planned_not_assigned",
+      "assignment_wave_id": "xxt-followup-assignment-wave-002",
+      "decipherment_claim_status": "no_claim",
+      "evidence_collection_status": "followup_review_not_started",
+      "followup_family_id": "xxt_obm_access_boundary_followup",
+      "followup_family_label": "Xiaoxuetang OBM Access Boundary Follow-up",
+      "followup_task_ids": [
+        "xxt-obm-followup-review-0001",
+        "xxt-obm-followup-review-0002",
+        "xxt-obm-followup-review-0003",
+        "xxt-obm-followup-review-0004"
+      ],
+      "handoff_readiness_status": "planned_for_followup_handoff",
+      "priority_rank": "2",
+      "route_file_count": 5,
+      "route_files_to_open": [
+        "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/011_core-institutional-access-profile.csv",
+        "corpus/006_research-sources-and-bibliography/000_source-registers/012_obm-abbreviation-staging.csv",
+        "project_registry/006_large-source-register/002_source-download-log.csv"
+      ],
+      "source_promotion_status": "not_promoted",
+      "target_source_ids": [
+        "src-xiaoxuetang-obm",
+        "src-xiaoxuetang-obm",
+        "src-xiaoxuetang-obm",
+        "src-xiaoxuetang-obm"
+      ],
+      "targeted_download_ids": [
+        "dl-xxt-obm-appendix01",
+        "dl-xxt-obm-appendix02",
+        "dl-xxt-obm-example",
+        "dl-xxt-obm-guide"
+      ]
+    }
+  ],
+  "context_pack_id": "ai-context-xiaoxuetang-followup-assignment-plan-001",
+  "coverage": {
+    "artifact_kind_count": 5,
+    "artifact_kind_counts": {
+      "holding_abbreviation_appendix": 1,
+      "old_catalog_abbreviation_appendix": 1,
+      "source_table_rules_page": 1,
+      "user_guide_pdf": 1,
+      "xiaoxuetang_jgw_character_detail_page": 2
+    },
+    "assignment_item_count": 6,
+    "assignment_status_counts": {
+      "planned_not_assigned": 6
+    },
+    "assignment_wave_count": 2,
+    "evidence_collection_status_counts": {
+      "followup_review_not_started": 6
+    },
+    "followup_family_count": 2,
+    "followup_family_counts": {
+      "xxt_jgw_tls_access_boundary_followup": 2,
+      "xxt_obm_access_boundary_followup": 4
+    },
+    "handoff_readiness_status_counts": {
+      "planned_for_followup_handoff": 6
+    },
+    "human_review_status_counts": {
+      "not_started": 6
+    },
+    "official_access_boundary_status_counts": {
+      "direct_official_character_page_not_collected_due_tls_or_access_boundary": 2,
+      "downloaded_access_restricted_page": 4
+    },
+    "required_next_check_count": 11,
+    "required_review_section_count": 10,
+    "review_task_count": 6,
+    "route_file_reference_count": 30,
+    "staging_row_count_total": 301,
+    "target_source_count": 2,
+    "target_source_counts": {
+      "src-xiaoxuetang-jiaguwen": 2,
+      "src-xiaoxuetang-obm": 4
+    },
+    "target_source_workstream_count": 2,
+    "unique_route_file_count": 9
+  },
+  "generated_from": [
+    "corpus/009_statistics-and-derived-features/076_ai-agent-xiaoxuetang-followup-route-pack.json",
+    "corpus/009_statistics-and-derived-features/077_ai-agent-xiaoxuetang-followup-review-route-summary.json"
+  ],
+  "output_scope": "xiaoxuetang_followup_assignment_plan_only",
+  "purpose": "Plan the next Xiaoxuetang follow-up review waves from the combined 076 route pack and 077 review summary. This plan only orders routing work for later manual-browser or institutional-export follow-up; it does not assign an owner, collect evidence, decide rights, confirm catalogs or collections, or make decipherment claims.",
+  "purpose_zh": "依据 076 统一 route pack 和 077 review summary 规划下一步小学堂后续复核 wave。本计划只给后续人工浏览器或机构导出跟进排顺序，不分派 owner，不采集证据，不做权利结论，不确认著录或馆藏，也不做释读判断。",
+  "research_boundary": "xxt_followup_assignment_plan_not_scholarship",
+  "status": "draft_assignment_plan_not_started",
+  "target_source_workstreams": [
+    {
+      "artifact_kinds": [
+        "xiaoxuetang_jgw_character_detail_page"
+      ],
+      "assignment_item_count": 2,
+      "assignment_plan_item_ids": [
+        "xxt-followup-assignment-001",
+        "xxt-followup-assignment-002"
+      ],
+      "followup_family_ids": [
+        "xxt_jgw_tls_access_boundary_followup"
+      ],
+      "followup_task_ids": [
+        "hust-obc-xxt-followup-review-0001",
+        "hust-obc-xxt-followup-review-0002"
+      ],
+      "max_priority_rank": 2,
+      "min_priority_rank": 1,
+      "route_file_count": 7,
+      "target_source_id": "src-xiaoxuetang-jiaguwen"
+    },
+    {
+      "artifact_kinds": [
+        "holding_abbreviation_appendix",
+        "old_catalog_abbreviation_appendix",
+        "source_table_rules_page",
+        "user_guide_pdf"
+      ],
+      "assignment_item_count": 4,
+      "assignment_plan_item_ids": [
+        "xxt-followup-assignment-003",
+        "xxt-followup-assignment-004",
+        "xxt-followup-assignment-005",
+        "xxt-followup-assignment-006"
+      ],
+      "followup_family_ids": [
+        "xxt_obm_access_boundary_followup"
+      ],
+      "followup_task_ids": [
+        "xxt-obm-followup-review-0001",
+        "xxt-obm-followup-review-0002",
+        "xxt-obm-followup-review-0003",
+        "xxt-obm-followup-review-0004"
+      ],
+      "max_priority_rank": 4,
+      "min_priority_rank": 1,
+      "route_file_count": 5,
+      "target_source_id": "src-xiaoxuetang-obm"
+    }
+  ],
+  "title": "Xiaoxuetang Follow-up Assignment Plan",
+  "title_zh": "小学堂后续复核分派计划",
+  "updated_at": "2026-06-11",
+  "upstream_context_pack_id": "ai-context-xiaoxuetang-followup-review-summary-001"
+}

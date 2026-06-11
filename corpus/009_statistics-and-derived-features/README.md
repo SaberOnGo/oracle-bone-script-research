@@ -98,3 +98,7 @@ Recent additions / 最新补充：
 - `077_ai-agent-xiaoxuetang-followup-review-route-summary.json`: compact routing summary for the 076 combined Xiaoxuetang route pack, grouping the six follow-up tasks by follow-up family and target source so later agents can choose the next manual-browser or institutional-export route before opening route files or recording evidence.
 - `076_ai-agent-xiaoxuetang-followup-route-pack.json`：统一汇总小学堂 JGW 与 OBM 的后续复核路由，只作为 AI Agent 选路由入口。
 - `077_ai-agent-xiaoxuetang-followup-review-route-summary.json`：从统一路由包生成摘要，先分族、分目标来源，再进入人工或机构访问跟进。
+- `078_ai-agent-xiaoxuetang-followup-assignment-plan.json`: planning-only assignment plan for the six Xiaoxuetang follow-up tasks, split into a first JGW route wave and a second OBM route wave without assigning owners, collecting evidence, confirming catalogs or collections, or making decipherment claims.
+- `079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json`: first-wave handoff scaffold derived from 078, opening the two JGW follow-up routes and their required files before any manual-browser or institutional-export evidence capture.
+- `078_ai-agent-xiaoxuetang-followup-assignment-plan.json`：6 条小学堂后续复核任务的计划层分派文件，分成第一波 JGW 和第二波 OBM，不分配 owner，不采证，不确认著录/馆藏，也不做释读判断。
+- `079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json`：由 078 派生的第一波交接脚手架，先打开 2 条 JGW follow-up 路线及其必需文件，再进入后续人工或机构访问采证。

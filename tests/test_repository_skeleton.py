@@ -10874,6 +10874,83 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(data["family_summaries"]), 2)
         self.assertEqual(len(data["target_source_summaries"]), 2)
 
+    def test_xiaoxuetang_followup_assignment_plan_groups_two_waves(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "078_ai-agent-xiaoxuetang-followup-assignment-plan.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-xiaoxuetang-followup-assignment-plan-001",
+        )
+        self.assertEqual(data["coverage"]["assignment_item_count"], 6)
+        self.assertEqual(data["coverage"]["assignment_wave_count"], 2)
+        self.assertEqual(
+            data["coverage"]["followup_family_counts"],
+            {
+                "xxt_jgw_tls_access_boundary_followup": 2,
+                "xxt_obm_access_boundary_followup": 4,
+            },
+        )
+        self.assertEqual(
+            [wave["followup_family_id"] for wave in data["assignment_waves"]],
+            [
+                "xxt_jgw_tls_access_boundary_followup",
+                "xxt_obm_access_boundary_followup",
+            ],
+        )
+        self.assertTrue(
+            all(
+                item["assignment_status"] == "planned_not_assigned"
+                for item in data["assignment_items"]
+            )
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in item["caution"]
+                for item in data["assignment_items"]
+            )
+        )
+
+    def test_xiaoxuetang_followup_wave_handoff_scaffold_opens_first_jgw_wave(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["context_pack_id"],
+            "ai-context-xiaoxuetang-followup-wave-handoff-001",
+        )
+        self.assertEqual(data["coverage"]["handoff_item_count"], 2)
+        self.assertEqual(
+            data["handoff_scope"]["followup_family_id"],
+            "xxt_jgw_tls_access_boundary_followup",
+        )
+        self.assertEqual(
+            data["coverage"]["followup_family_counts"],
+            {"xxt_jgw_tls_access_boundary_followup": 2},
+        )
+        self.assertEqual(
+            data["coverage"]["target_source_counts"],
+            {"src-xiaoxuetang-jiaguwen": 2},
+        )
+        self.assertTrue(
+            all(
+                item["handoff_status"] == "ready_for_xxt_jgw_followup_not_started"
+                for item in data["handoff_items"]
+            )
+        )
+        self.assertTrue(
+            all(
+                item["review_log_draft_path"].startswith("doc/public/user_research/007_")
+                for item in data["handoff_items"]
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

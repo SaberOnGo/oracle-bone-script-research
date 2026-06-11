@@ -79,3 +79,7 @@ Recent additions / 最新补充：
 - `build_xiaoxuetang_followup_review_route_summary.py`: builds a compact review-route summary from the 076 combined Xiaoxuetang route pack, grouping the six follow-up tasks by follow-up family and target source before any evidence capture.
 - `build_xiaoxuetang_followup_route_pack.py`：把小学堂 JGW 与 OBM 两条后续复核线合并成统一 route pack，只做索引，不做释读或著录结论。
 - `build_xiaoxuetang_followup_review_route_summary.py`：从统一 route pack 生成简明 review summary，便于后续 agent 先选路由再开 route files。
+- `build_xiaoxuetang_followup_assignment_plan.py`: builds a two-wave assignment plan from the 076 combined route pack and 077 review summary, separating the JGW character-page follow-up routes from the OBM access-restricted-page routes while keeping every item planned-only and non-decisional.
+- `build_xiaoxuetang_followup_wave_handoff_scaffold.py`: builds the first-wave handoff scaffold from the 078 Xiaoxuetang assignment plan, opening only the two JGW follow-up routes for later manual-browser or institutional-export review.
+- `build_xiaoxuetang_followup_assignment_plan.py`：从 076/077 生成两波次的小学堂 follow-up 分派计划，把 JGW 字页路线与 OBM 访问受限路线分开，但仍只做计划不做结论。
+- `build_xiaoxuetang_followup_wave_handoff_scaffold.py`：从 078 生成第一波交接脚手架，只打开 2 条 JGW follow-up 路线，供后续人工或机构访问复核。

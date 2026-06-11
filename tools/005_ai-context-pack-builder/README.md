@@ -83,3 +83,7 @@ Recent additions / 最新补充：
 - `build_xiaoxuetang_followup_wave_handoff_scaffold.py`: builds the first-wave handoff scaffold from the 078 Xiaoxuetang assignment plan, opening only the two JGW follow-up routes for later manual-browser or institutional-export review.
 - `build_xiaoxuetang_followup_assignment_plan.py`：从 076/077 生成两波次的小学堂 follow-up 分派计划，把 JGW 字页路线与 OBM 访问受限路线分开，但仍只做计划不做结论。
 - `build_xiaoxuetang_followup_wave_handoff_scaffold.py`：从 078 生成第一波交接脚手架，只打开 2 条 JGW follow-up 路线，供后续人工或机构访问复核。
+- `build_xiaoxuetang_followup_jgw_capture_scaffold.py`: builds a first-wave JGW follow-up capture scaffold from the 079 handoff rows, reserving access-outcome, catalog-availability, Heji-crosswalk-availability, collection-match-availability, and inscription-context-availability fields without recording evidence or claims.
+- `build_xiaoxuetang_followup_jgw_capture_review_checklist.py`: builds a review checklist from the 080 capture scaffold so later agents must verify route files and keep catalog/Heji/collection/context availability checks separate from identity or decipherment claims.
+- `build_xiaoxuetang_followup_jgw_capture_scaffold.py`：从 079 生成首波 JGW follow-up capture scaffold，预留 access、catalog、Heji、collection、inscription context 可得性字段，但不写结论。
+- `build_xiaoxuetang_followup_jgw_capture_review_checklist.py`：从 080 生成 review checklist，强制后续 agent 把 catalog/Heji/collection/context 的可得性检查与身份或释读判断分开。

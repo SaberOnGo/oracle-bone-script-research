@@ -102,3 +102,7 @@ Recent additions / 最新补充：
 - `079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json`: first-wave handoff scaffold derived from 078, opening the two JGW follow-up routes and their required files before any manual-browser or institutional-export evidence capture.
 - `078_ai-agent-xiaoxuetang-followup-assignment-plan.json`：6 条小学堂后续复核任务的计划层分派文件，分成第一波 JGW 和第二波 OBM，不分配 owner，不采证，不确认著录/馆藏，也不做释读判断。
 - `079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json`：由 078 派生的第一波交接脚手架，先打开 2 条 JGW follow-up 路线及其必需文件，再进入后续人工或机构访问采证。
+- `080_ai-agent-xiaoxuetang-followup-jgw-capture-scaffold.csv`: empty first-wave JGW follow-up capture scaffold for the two Xiaoxuetang character-page routes, reserving access outcome plus catalog, Heji crosswalk, collection match, and inscription-context availability fields while keeping every evidence value blank and every claim blocked.
+- `081_ai-agent-xiaoxuetang-followup-jgw-capture-review-checklist.csv`: not-started review checklist for the 080 rows, requiring agents to open the handoff row, review-log draft, route files, and registered source/download rows before recording any availability status.
+- `080_ai-agent-xiaoxuetang-followup-jgw-capture-scaffold.csv`：2 条 Xiaoxuetang 字页路线的首波空 capture scaffold，预留 access outcome、catalog、Heji、collection、inscription context 可得性字段，证据值保持空白，所有判断保持阻断。
+- `081_ai-agent-xiaoxuetang-followup-jgw-capture-review-checklist.csv`：针对 080 的未开始 checklist，要求后续 agent 先开 handoff 行、review-log 草稿、route files 和已登记来源/下载行，再记录任何 availability 状态。

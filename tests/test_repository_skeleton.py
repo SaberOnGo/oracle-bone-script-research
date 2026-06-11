@@ -10951,6 +10951,65 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
         )
 
+    def test_xiaoxuetang_followup_jgw_capture_scaffold_tracks_availability_fields(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "080_ai-agent-xiaoxuetang-followup-jgw-capture-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["capture_row_id"], "xxt-jgw-followup-capture-001")
+        self.assertEqual(
+            {row["followup_family_id"] for row in rows},
+            {"xxt_jgw_tls_access_boundary_followup"},
+        )
+        self.assertEqual(
+            {row["manual_followup_route_status"] for row in rows},
+            {"manual_browser_or_institutional_export_not_started"},
+        )
+        self.assertEqual(
+            {row["catalog_availability_status"] for row in rows},
+            {"not_checked"},
+        )
+        self.assertEqual(
+            {row["heji_crosswalk_availability_status"] for row in rows},
+            {"not_checked"},
+        )
+        self.assertTrue(
+            all(
+                "not a decipherment conclusion" in row["caution"]
+                for row in rows
+            )
+        )
+
+    def test_xiaoxuetang_followup_jgw_capture_review_checklist_blocks_claims(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "081_ai-agent-xiaoxuetang-followup-jgw-capture-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 16)
+        self.assertEqual(len({row["capture_row_id"] for row in rows}), 2)
+        self.assertEqual(
+            {row["check_status"] for row in rows},
+            {"not_started"},
+        )
+        self.assertEqual(
+            {row["identity_claim_status"] for row in rows},
+            {"no_identity_claim"},
+        )
+        self.assertEqual(
+            {row["decipherment_claim_status"] for row in rows},
+            {"no_claim"},
+        )
+        self.assertTrue(
+            any(row["check_key"] == "check_heji_crosswalk_only" for row in rows)
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

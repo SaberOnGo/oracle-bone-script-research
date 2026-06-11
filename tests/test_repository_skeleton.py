@@ -610,6 +610,38 @@ def load_hust_obc_undeciphered_candidate_source_metadata_note_updates_module():
     return module
 
 
+def load_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_hust_obc_undeciphered_candidate_full_inscription_context_note_updates_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_full_inscription_context_note_updates.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_full_inscription_context_note_updates",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module():
     path = (
         repo_root()
@@ -4158,6 +4190,208 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("source_metadata_collected_metadata_only", note_text)
         self.assertIn("hust-obc-undeciphered-source-register-capture-result-0001", note_text)
         self.assertIn("not a decipherment conclusion", note_text)
+
+    def test_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "066_ai-agent-hust-obc-undeciphered-candidate-full-inscription-context-precheck-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["full_inscription_context_precheck_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-full-inscription-context-precheck-0001",
+                "hust-obc-undeciphered-full-inscription-context-precheck-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["source_metadata_evidence_capture_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-source-metadata-evidence-capture-result-0001",
+                "hust-obc-undeciphered-source-metadata-evidence-capture-result-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["evidence_collection_note_draft_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-evidence-note-draft-0003",
+                "hust-obc-undeciphered-evidence-note-draft-0014",
+            ],
+        )
+        self.assertEqual(
+            [row["evidence_collection_task_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-evidence-task-0003",
+                "hust-obc-undeciphered-evidence-task-0014",
+            ],
+        )
+        self.assertEqual([row["unknown_candidate_id"] for row in rows], ["obs-unk-006294", "obs-unk-005708"])
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"full_inscription_context"})
+        self.assertEqual({row["source_id"] for row in rows}, {"src-hust-obc"})
+        self.assertEqual({row["source_package_id"] for row in rows}, {"large-src-000001"})
+        self.assertEqual({row["download_id"] for row in rows}, {"dl-hust-obc-figshare-raw"})
+        self.assertEqual([row["source_class_path"] for row in rows], ["HUST-OBC/undeciphered/X/1850/", "HUST-OBC/undeciphered/X/1264/"])
+        self.assertEqual([row["source_image_count"] for row in rows], ["61", "50"])
+        self.assertEqual(
+            {row["source_image_reference_status"] for row in rows},
+            {"available_as_hust_obc_dataset_file_paths_only"},
+        )
+        self.assertEqual(
+            {row["candidate_packet_context_status"] for row in rows},
+            {"source_image_refs_only_no_primary_inscription_context"},
+        )
+        self.assertEqual(
+            {row["primary_catalog_context_status"] for row in rows},
+            {"not_found_in_current_candidate_packet_metadata"},
+        )
+        self.assertEqual({row["heji_crosswalk_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["old_catalog_context_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["collection_context_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["excavation_context_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["transcription_context_status"] for row in rows}, {"not_collected"})
+        self.assertEqual(
+            {row["inscription_context_evidence_status"] for row in rows},
+            {"not_collected_route_precheck_only"},
+        )
+        self.assertEqual(
+            {row["route_precheck_status"] for row in rows},
+            {"ready_for_registered_catalog_context_search"},
+        )
+        self.assertEqual(
+            {row["next_registered_source_routes"] for row in rows},
+            {"src-xiaoxuetang-jiaguwen;src-xiaoxuetang-obm;src-hust-obc"},
+        )
+        self.assertTrue(all("Heji" in row["next_source_search_scope"] for row in rows))
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"full_inscription_context_not_collected"})
+        self.assertEqual({row["note_update_status"] for row in rows}, {"not_written_to_markdown_note"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_full_inscription_context_precheck_not_scholarship"},
+        )
+        self.assertTrue(all(row["note_draft_path"].startswith("doc/public/user_research/") for row in rows))
+        self.assertFalse(any(row["note_draft_path"].startswith("research/") for row in rows))
+        self.assertTrue(all("not proof of full inscription context" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_full_inscription_context_precheck_builder_links_notes(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results_module()
+        root = repo_root()
+        rows = module.build_full_inscription_context_precheck_rows(
+            module.read_csv_rows(root / module.NOTE_DRAFT_MANIFEST),
+            module.read_csv_rows(root / module.TASK_QUEUE),
+            module.read_csv_rows(root / module.SOURCE_METADATA_CAPTURE_RESULTS),
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            rows[0]["full_inscription_context_precheck_result_id"],
+            "hust-obc-undeciphered-full-inscription-context-precheck-0001",
+        )
+        self.assertEqual(rows[0]["evidence_collection_task_id"], "hust-obc-undeciphered-evidence-task-0003")
+        self.assertEqual(rows[0]["source_metadata_evidence_capture_result_id"], "hust-obc-undeciphered-source-metadata-evidence-capture-result-0001")
+        self.assertEqual(rows[0]["inscription_context_evidence_status"], "not_collected_route_precheck_only")
+        self.assertEqual(rows[1]["source_class_path"], "HUST-OBC/undeciphered/X/1264/")
+        self.assertIn("066_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_hust_obc_undeciphered_candidate_full_inscription_context_note_update_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "067_ai-agent-hust-obc-undeciphered-candidate-full-inscription-context-note-update-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["note_update_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-full-inscription-context-note-update-0001",
+                "hust-obc-undeciphered-full-inscription-context-note-update-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["full_inscription_context_precheck_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-full-inscription-context-precheck-0001",
+                "hust-obc-undeciphered-full-inscription-context-precheck-0002",
+            ],
+        )
+        self.assertEqual([row["unknown_candidate_id"] for row in rows], ["obs-unk-006294", "obs-unk-005708"])
+        self.assertEqual([row["source_image_count"] for row in rows], ["61", "50"])
+        self.assertEqual({row["target_evidence_section"] for row in rows}, {"full_inscription_context"})
+        self.assertEqual({row["source_image_reference_status"] for row in rows}, {"available_as_hust_obc_dataset_file_paths_only"})
+        self.assertEqual({row["candidate_packet_context_status"] for row in rows}, {"source_image_refs_only_no_primary_inscription_context"})
+        self.assertEqual({row["primary_catalog_context_status"] for row in rows}, {"not_found_in_current_candidate_packet_metadata"})
+        self.assertEqual({row["inscription_context_evidence_status"] for row in rows}, {"not_collected_route_precheck_only"})
+        self.assertEqual({row["note_status"] for row in rows}, {"route_precheck_written_from_066"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"full_inscription_context_not_collected"})
+        self.assertEqual({row["human_review_status"] for row in rows}, {"not_started"})
+        self.assertEqual({row["formal_schema_compatibility_status"] for row in rows}, {"not_formal_obs_char_schema"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_full_inscription_context_note_update_not_scholarship"},
+        )
+        self.assertTrue(all(row["note_draft_path"].startswith("doc/public/user_research/") for row in rows))
+        self.assertFalse(any(row["note_draft_path"].startswith("research/") for row in rows))
+        self.assertTrue(all("not proof of full inscription context" in row["caution"] for row in rows))
+        self.assertTrue(all("not a decipherment conclusion" in row["caution"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_full_inscription_context_note_update_builder_writes_precheck(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_full_inscription_context_note_updates_module()
+        root = repo_root()
+        precheck_rows = module.read_csv_rows(root / module.PRECHECK_RESULTS)
+        rows = module.build_note_update_rows(precheck_rows)
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            rows[0]["note_update_result_id"],
+            "hust-obc-undeciphered-full-inscription-context-note-update-0001",
+        )
+        self.assertEqual(rows[0]["note_status"], "route_precheck_written_from_066")
+        self.assertEqual(rows[0]["evidence_collection_status"], "full_inscription_context_not_collected")
+        self.assertIn("067_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+        markdown = module.build_markdown(precheck_rows[0])
+        self.assertIn("HUST-OBC Undeciphered Candidate Full Inscription Context Precheck", markdown)
+        self.assertIn("hust-obc-undeciphered-full-inscription-context-precheck-0001", markdown)
+        self.assertIn("source_image_refs_only_no_primary_inscription_context", markdown)
+        self.assertIn("not_collected_route_precheck_only", markdown)
+        self.assertIn("src-xiaoxuetang-jiaguwen", markdown)
+        self.assertIn("src-xiaoxuetang-obm", markdown)
+        self.assertIn("not a decipherment conclusion", markdown)
+        self.assertIn("不是释读结论", markdown)
+
+        note_path = root / rows[0]["note_draft_path"]
+        note_text = note_path.read_text(encoding="utf-8")
+        self.assertIn("route_precheck_written_from_066", note_text)
+        self.assertIn("full_inscription_context_not_collected", note_text)
+        self.assertIn("not_found_in_current_candidate_packet_metadata", note_text)
+        self.assertIn("这不是已取得完整卜辞上下文的证明", note_text)
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

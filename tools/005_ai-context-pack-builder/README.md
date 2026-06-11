@@ -60,6 +60,8 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_evidence_collection_note_drafts.py`: builds 22 empty Markdown collection-note drafts and a manifest from 062, keeping each note route-only and `not_collected` under `doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/`.
 - `build_hust_obc_undeciphered_candidate_source_metadata_evidence_capture_results.py`: builds metadata-only capture results for the two source-references-and-asset-metadata collection-note routes, linking 063 note drafts and 062 tasks to reviewed 056-059 metadata rows without downloading files, deciding rights, promoting sources, or making identity or decipherment claims.
 - `build_hust_obc_undeciphered_candidate_source_metadata_note_updates.py`: writes the 064 source metadata capture results into the two corresponding collection-note Markdown files and emits a 065 note-update result table while keeping the notes metadata-only and outside identity, rights, source-promotion, component, evolution-chain, and decipherment conclusions.
+- `build_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results.py`: builds 066 route-precheck rows for the two full-inscription-context collection-note routes, recording HUST-OBC source-image path availability and the current absence of primary catalog, inscription transcription, Heji, old-catalog, collection, and excavation context.
+- `build_hust_obc_undeciphered_candidate_full_inscription_context_note_updates.py`: writes the 066 route-precheck rows into the two full-inscription-context Markdown notes and emits 067 note-update results while keeping the evidence section not collected and outside identity, assignment, rights, source-promotion, component, evolution-chain, and decipherment conclusions.
 - `build_hust_obimd_evobc_codepoint_crosswalk_route_availability_snapshot.py`：从 041 复核队列、本地 HUST 候选包、OBIMD/EVOBC staging、来源登记和下载日志生成 134 行 metadata-only 路线可用性快照，标明哪些 review-log 草稿已存在、哪些路线可继续物化；不提出身份、释读、构件、演化链、权利、来源提升或破译结论。
 - `build_hust_obc_undeciphered_candidate_context_pack.py`：为全部 9,408 条已观测 HUST-OBC `obs-unk-*` 未释读候选行生成 metadata-only AI Agent 路由上下文包，按来源组和 95 个 bucket manifest 汇总，同时保持不确认身份、不分配正式 ID、不作释读结论的边界。
 - `build_hust_obc_undeciphered_candidate_review_queue.py`：从未释读候选 context pack 和索引生成 9,408 行 metadata-only 复核队列，按来源图片数量排序优先级，并把每个任务路由到全局索引、bucket manifest、候选 packet、来源登记、大型来源登记和下载日志；在任何证据收集前保持准备阶段边界。
@@ -77,6 +79,8 @@ Current tools:
 - `build_hust_obc_undeciphered_candidate_evidence_collection_note_drafts.py`：从 062 生成 22 份空白 Markdown collection-note 草稿和 manifest，存放在 `doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/` 下；每份草稿只保留路由并保持 `not_collected`。
 - `build_hust_obc_undeciphered_candidate_source_metadata_evidence_capture_results.py`：为两条 source-references-and-asset-metadata collection-note 路由生成 metadata-only 捕获结果，把 063 草稿和 062 任务连接到已复核的 056-059 metadata 行；不下载文件、不作权利决定、不提升来源，也不声明身份或释读结论。
 - `build_hust_obc_undeciphered_candidate_source_metadata_note_updates.py`：把 064 来源 metadata 捕获结果写入对应两份 collection-note Markdown，并输出 065 note-update 结果表；记录仍限 metadata-only，不进入身份、权利、来源提升、构件、演化链或释读结论。
+- `build_hust_obc_undeciphered_candidate_full_inscription_context_precheck_results.py`：为两条 full-inscription-context collection-note 路由生成 066 路线预检行，记录 HUST-OBC 来源图片路径可用，同时明确当前尚未捕获一手著录、卜辞释文、《合集》、旧著录、馆藏和出土上下文。
+- `build_hust_obc_undeciphered_candidate_full_inscription_context_note_updates.py`：把 066 路线预检行写入两份 full-inscription-context Markdown 笔记，并输出 067 note-update 结果；证据章节仍保持未收集，且不进入身份、正式分配、权利、来源提升、构件、演化链或释读结论。
 
 简体中文：
 未来上下文包工具会为 AI Agent 推理收集来源证据。

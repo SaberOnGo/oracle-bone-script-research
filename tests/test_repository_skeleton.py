@@ -514,6 +514,22 @@ def load_hust_obc_undeciphered_candidate_large_source_register_capture_results_m
     return module
 
 
+def load_hust_obc_undeciphered_candidate_packet_capture_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_packet_capture_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_packet_capture_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -3415,6 +3431,106 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checksum_sha256_present=true", rows[0]["captured_metadata_summary"])
         self.assertIn("storage_status=downloaded_to_external_local_archive_registered", rows[0]["captured_metadata_summary"])
         self.assertIn("058_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_hust_obc_undeciphered_candidate_packet_capture_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "059_ai-agent-hust-obc-undeciphered-candidate-packet-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["capture_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-candidate-packet-capture-result-0001",
+                "hust-obc-undeciphered-candidate-packet-capture-result-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["checklist_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-capture-review-checklist-0001",
+                "hust-obc-undeciphered-capture-review-checklist-0005",
+            ],
+        )
+        self.assertEqual(
+            [row["unknown_candidate_id"] for row in rows],
+            ["obs-unk-006294", "obs-unk-005708"],
+        )
+        self.assertEqual(
+            [row["source_class_path_evidence_value"] for row in rows],
+            ["HUST-OBC/undeciphered/X/1850/", "HUST-OBC/undeciphered/X/1264/"],
+        )
+        self.assertEqual([row["source_image_count_evidence_value"] for row in rows], ["61", "50"])
+        self.assertEqual([row["bucket_sequence_evidence_value"] for row in rows], ["094", "008"])
+        self.assertTrue(all(row["candidate_packet_row_status"] == "reviewed_candidate_packet_found" for row in rows))
+        self.assertTrue(all(row["bucket_manifest_row_status"] == "reviewed_bucket_manifest_row_found" for row in rows))
+        self.assertTrue(
+            all(row["undeciphered_index_row_status"] == "reviewed_undeciphered_index_row_found" for row in rows)
+        )
+        self.assertEqual({row["source_id_evidence_value"] for row in rows}, {"src-hust-obc"})
+        self.assertEqual({row["source_package_id_evidence_value"] for row in rows}, {"large-src-000001"})
+        self.assertEqual({row["evidence_download_id_evidence_value"] for row in rows}, {"dl-hust-obc-figshare-raw"})
+        self.assertEqual({row["source_group_evidence_value"] for row in rows}, {"X"})
+        self.assertEqual({row["source_reported_undeciphered_class_count_evidence_value"] for row in rows}, {"9411"})
+        self.assertEqual({row["zip_observed_undeciphered_class_count_evidence_value"] for row in rows}, {"9408"})
+        self.assertEqual({row["zip_observed_undeciphered_image_count_evidence_value"] for row in rows}, {"62989"})
+        self.assertTrue(all("candidate-packet" in row["candidate_packet_path"] for row in rows))
+        self.assertTrue(all("000_hust-obc-undeciphered-candidate-bucket-manifest.csv" in row["bucket_manifest_path"] for row in rows))
+        self.assertTrue(all("003_undeciphered-oracle-characters-index.csv" in row["undeciphered_index_path"] for row in rows))
+        self.assertTrue(all("X_？_" in row["first_source_image_path_evidence_value"] for row in rows))
+        self.assertTrue(all("X_？_" in row["last_source_image_path_evidence_value"] for row in rows))
+        self.assertEqual(
+            {row["decipherment_status_evidence_value"] for row in rows},
+            {"undeciphered_dataset_candidate_not_accepted_character"},
+        )
+        self.assertEqual({row["identity_claim_status_evidence_value"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status_evidence_value"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["promotion_status_evidence_value"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["rights_status_evidence_value"] for row in rows}, {"source_marked_risk_noted"})
+        self.assertTrue(all("607933810 bytes" in row["risk_note_evidence_value"] for row in rows))
+        self.assertEqual({row["candidate_packet_evidence_status"] for row in rows}, {"metadata_captured_from_reviewed_candidate_packet"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"candidate_packet_metadata_captured"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"candidate_packet_value_captured_no_new_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_candidate_packet_capture_result_not_scholarship"},
+        )
+        self.assertTrue(all("not an accepted oracle-character identity" in row["caution"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_packet_capture_builder_uses_packet_manifest_and_index(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_packet_capture_results_module()
+        root = repo_root()
+        rows = module.build_capture_results(
+            module.read_csv_rows(root / module.EVIDENCE_CAPTURE_SCAFFOLD),
+            module.read_csv_rows(root / module.CAPTURE_REVIEW_CHECKLIST),
+            module.read_csv_rows(root / module.UNDECIPHERED_INDEX),
+            root=root,
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-006294")
+        self.assertEqual(rows[1]["unknown_candidate_id"], "obs-unk-005708")
+        self.assertEqual(rows[0]["bucket_sequence_evidence_value"], "094")
+        self.assertEqual(rows[1]["bucket_sequence_evidence_value"], "008")
+        self.assertIn("source_image_count=61", rows[0]["captured_metadata_summary"])
+        self.assertIn(
+            "index_materialization_status=sixty_third_bucket_candidate_packet_materialized",
+            rows[0]["captured_metadata_summary"],
+        )
+        self.assertIn("059_ai-agent", module.DEFAULT_OUTPUT.as_posix())
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

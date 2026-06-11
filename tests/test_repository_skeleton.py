@@ -466,6 +466,38 @@ def load_hust_obc_undeciphered_candidate_evidence_capture_review_checklist_modul
     return module
 
 
+def load_hust_obc_undeciphered_candidate_source_register_capture_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_source_register_capture_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_source_register_capture_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_hust_obc_undeciphered_candidate_download_log_capture_results_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/"
+        / "build_hust_obc_undeciphered_candidate_download_log_capture_results.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obc_undeciphered_candidate_download_log_capture_results",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_source_route_review_queue_module():
     path = repo_root() / "tools/005_ai-context-pack-builder/build_source_route_review_queue.py"
     spec = importlib.util.spec_from_file_location("build_source_route_review_queue", path)
@@ -3133,6 +3165,146 @@ class RepositorySkeletonTests(unittest.TestCase):
             ),
         )
         self.assertIn("055_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_hust_obc_undeciphered_candidate_source_register_capture_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "056_ai-agent-hust-obc-undeciphered-candidate-source-register-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["capture_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-source-register-capture-result-0001",
+                "hust-obc-undeciphered-source-register-capture-result-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["checklist_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-capture-review-checklist-0002",
+                "hust-obc-undeciphered-capture-review-checklist-0006",
+            ],
+        )
+        self.assertEqual({row["source_id"] for row in rows}, {"src-hust-obc"})
+        self.assertEqual({row["source_type_evidence_value"] for row in rows}, {"open_research_dataset"})
+        self.assertEqual({row["authority_tier_evidence_value"] for row in rows}, {"peer_reviewed_dataset"})
+        self.assertEqual({row["rights_status_evidence_value"] for row in rows}, {"source_marked_risk_noted"})
+        self.assertTrue(all("Scientific Data dataset" in row["scope_evidence_value"] for row in rows))
+        self.assertTrue(all("GuoXueDaShi" in row["risk_note_evidence_value"] for row in rows))
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"source_register_metadata_captured"})
+        self.assertEqual(
+            {row["rights_decision_status"] for row in rows},
+            {"register_value_captured_no_new_decision"},
+        )
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_source_register_capture_result_not_scholarship"},
+        )
+        self.assertTrue(all("not an accepted oracle-character identity" in row["caution"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_source_register_capture_builder_uses_checklist(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_source_register_capture_results_module()
+        root = repo_root()
+        rows = module.build_capture_results(
+            module.read_csv_rows(root / module.EVIDENCE_CAPTURE_SCAFFOLD),
+            module.read_csv_rows(root / module.CAPTURE_REVIEW_CHECKLIST),
+            module.read_csv_rows(root / module.SOURCE_INDEX),
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-006294")
+        self.assertEqual(rows[1]["unknown_candidate_id"], "obs-unk-005708")
+        self.assertEqual(rows[0]["source_register_path"], module.SOURCE_INDEX.as_posix())
+        self.assertIn("checklist_id=hust-obc-undeciphered-capture-review-checklist-0002", rows[0]["captured_metadata_summary"])
+        self.assertIn("056_ai-agent", module.DEFAULT_OUTPUT.as_posix())
+
+    def test_hust_obc_undeciphered_candidate_download_log_capture_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "057_ai-agent-hust-obc-undeciphered-candidate-download-log-capture-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["capture_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-download-log-capture-result-0001",
+                "hust-obc-undeciphered-download-log-capture-result-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["checklist_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-capture-review-checklist-0004",
+                "hust-obc-undeciphered-capture-review-checklist-0008",
+            ],
+        )
+        self.assertEqual({row["download_id"] for row in rows}, {"dl-hust-obc-figshare-raw"})
+        self.assertEqual({row["source_id_evidence_value"] for row in rows}, {"src-hust-obc"})
+        self.assertEqual({row["status_evidence_value"] for row in rows}, {"downloaded"})
+        self.assertEqual({row["http_status_evidence_value"] for row in rows}, {"200"})
+        self.assertEqual({row["file_size_bytes_evidence_value"] for row in rows}, {"607933810"})
+        self.assertEqual(
+            {row["checksum_sha256_evidence_value"] for row in rows},
+            {"0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569bf0ad9d"},
+        )
+        self.assertTrue(all("external_local_archive" in row["local_temp_path_evidence_value"] for row in rows))
+        self.assertTrue(all("9408 undeciphered candidate classes" in row["risk_note_evidence_value"] for row in rows))
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"download_log_metadata_captured"})
+        self.assertEqual(
+            {row["rights_decision_status"] for row in rows},
+            {"download_log_value_captured_no_new_decision"},
+        )
+        self.assertEqual({row["checksum_review_status"] for row in rows}, {"checksum_value_captured_no_recalculation"})
+        self.assertEqual({row["size_review_status"] for row in rows}, {"size_value_captured_no_new_file_review"})
+        self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
+        self.assertEqual(
+            {row["assignment_status"] for row in rows},
+            {"unknown_candidate_id_not_formal_obs_char_assignment"},
+        )
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual({row["evolution_chain_claim_status"] for row in rows}, {"no_claim"})
+        self.assertEqual(
+            {row["research_boundary"] for row in rows},
+            {"hust_obc_undeciphered_download_log_capture_result_not_scholarship"},
+        )
+        self.assertTrue(all("not a checksum recalculation" in row["caution"] for row in rows))
+        self.assertFalse(any("accepted reading" in row["required_next_checks"] for row in rows))
+
+    def test_hust_obc_undeciphered_candidate_download_log_capture_builder_uses_checklist(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_download_log_capture_results_module()
+        root = repo_root()
+        rows = module.build_capture_results(
+            module.read_csv_rows(root / module.EVIDENCE_CAPTURE_SCAFFOLD),
+            module.read_csv_rows(root / module.CAPTURE_REVIEW_CHECKLIST),
+            module.read_csv_rows(root / module.SOURCE_DOWNLOAD_LOG),
+        )
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["unknown_candidate_id"], "obs-unk-006294")
+        self.assertEqual(rows[1]["unknown_candidate_id"], "obs-unk-005708")
+        self.assertEqual(rows[0]["download_log_path"], module.SOURCE_DOWNLOAD_LOG.as_posix())
+        self.assertIn("checksum_sha256_present=true", rows[0]["captured_metadata_summary"])
+        self.assertIn("057_ai-agent", module.DEFAULT_OUTPUT.as_posix())
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

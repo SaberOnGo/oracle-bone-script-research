@@ -1,0 +1,65 @@
+{
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000476",
+  "canonical_path": "corpus/002_oracle-bone-inscriptions/005_000401-000500_obs-insc-cw-bucket_crosswalk-candidates/476_obs-insc-cw-cand-000476_cam-hopkins-cw-000476_crosswalk-candidate",
+  "catalog_identity_claim_status": "not_confirmed_catalog_identity",
+  "catalog_references": [
+    {
+      "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000476",
+      "catalog_reference_index_id": "obs-insc-cw-cand-000476-catalog-ref-01",
+      "project_id": "obs-insc-cw-cand-000476",
+      "reference_status": "present_in_cambridge_hopkins_metadata",
+      "reference_type": "yingguo",
+      "reference_value": "y2385",
+      "required_review": "verify_against_primary_catalog_object_record_and_source_image"
+    },
+    {
+      "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000476",
+      "catalog_reference_index_id": "obs-insc-cw-cand-000476-catalog-ref-02",
+      "project_id": "obs-insc-cw-cand-000476",
+      "reference_status": "present_in_cambridge_hopkins_metadata",
+      "reference_type": "cambridge_university_library",
+      "reference_value": "567",
+      "required_review": "verify_against_primary_catalog_object_record_and_source_image"
+    },
+    {
+      "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000476",
+      "catalog_reference_index_id": "obs-insc-cw-cand-000476-catalog-ref-03",
+      "project_id": "obs-insc-cw-cand-000476",
+      "reference_status": "present_in_cambridge_hopkins_metadata",
+      "reference_type": "chalfant",
+      "reference_value": "628",
+      "required_review": "verify_against_primary_catalog_object_record_and_source_image"
+    },
+    {
+      "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000476",
+      "catalog_reference_index_id": "obs-insc-cw-cand-000476-catalog-ref-04",
+      "project_id": "obs-insc-cw-cand-000476",
+      "reference_status": "missing_or_unassigned",
+      "reference_type": "heji",
+      "reference_value": "*****",
+      "required_review": "locate_or_confirm_missing_reference_before_formal_assignment"
+    }
+  ],
+  "caution": "This object is a Cambridge/Hopkins inscription crosswalk candidate only. It is metadata for catalog review; it is not a formal obi-* inscription record, not an object identity claim, not a transcription, not an inscription reading, and not a decipherment conclusion.",
+  "collection_object_match_status": "not_collected",
+  "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+  "formal_inscription_assignment_status": "not_assigned_formal_obi_id",
+  "group_declared_count": "6",
+  "group_number": "19",
+  "image_evidence_status": "not_collected",
+  "missing_reference_types": [
+    "heji"
+  ],
+  "period_group_observed_row_count": 6,
+  "period_label": "III",
+  "primary_external_ref_id": "cam-hopkins-cw-000476",
+  "project_id": "obs-insc-cw-cand-000476",
+  "project_import_status": "dataset_candidate_not_promoted",
+  "record_type": "inscription_crosswalk_candidate",
+  "research_boundary": "object_local_cambridge_hopkins_inscription_crosswalk_candidate_not_scholarship",
+  "review_status": "needs_human_inscription_crosswalk_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_id": "src-cambridge-hopkins",
+  "text_transcription_status": "not_collected",
+  "updated_at": "2026-06-20"
+}

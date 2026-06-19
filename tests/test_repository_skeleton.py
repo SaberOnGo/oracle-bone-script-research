@@ -22,6 +22,7 @@ from tools.validation.check_repository_skeleton import (
     check_hust_obc_undeciphered_candidates,
     check_character_directory_local_materials,
     check_component_candidate_local_materials,
+    check_inscription_crosswalk_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
@@ -152,6 +153,15 @@ def load_hust_obc_first_bucket_candidate_packets_module():
 def load_hust_obc_candidate_packets_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_candidate_packets.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_packets", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_cambridge_hopkins_inscription_crosswalk_materials_module():
+    path = repo_root() / "tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_materials.py"
+    spec = importlib.util.spec_from_file_location("build_cambridge_hopkins_inscription_crosswalk_materials", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -2316,6 +2326,47 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed graphemic component", readme_text)
             self.assertFalse((object_dir.parent / "human-readable").exists())
+
+    def test_inscription_crosswalk_candidate_local_materials_are_colocated(self) -> None:
+        self.assertEqual(check_inscription_crosswalk_candidate_local_materials(repo_root()), [])
+
+        map_path = (
+            repo_root()
+            / "project_registry/002_project-id-to-source-reference-map/"
+            / "002_oracle-inscription-id-source-map.csv"
+        )
+        with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 612)
+        self.assertEqual(rows[0]["project_id"], "obs-insc-cw-cand-000001")
+        self.assertEqual(rows[-1]["project_id"], "obs-insc-cw-cand-000612")
+        for row in [rows[0], rows[-1]]:
+            object_dir = repo_root() / row["canonical_path"]
+            self.assertTrue((object_dir / "README.md").exists())
+            self.assertTrue((object_dir / "01_candidate-inscription-crosswalk-packet.json").exists())
+            self.assertTrue((object_dir / "02_crosswalk-source-index.csv").exists())
+            self.assertTrue((object_dir / "03_catalog-reference-index.csv").exists())
+            self.assertTrue((object_dir / "04_human-review-sheet.md").exists())
+            readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+            self.assertIn("object-local research entrance", readme_text)
+            self.assertIn("not a formal `obi-*` inscription record", readme_text)
+            self.assertIn("not a decipherment conclusion", readme_text)
+            self.assertFalse((object_dir.parent / "human-readable").exists())
+
+    def test_cambridge_hopkins_inscription_crosswalk_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
+        module = load_cambridge_hopkins_inscription_crosswalk_materials_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 612)
+        first = outputs["obs-insc-cw-cand-000001"]
+        last = outputs["obs-insc-cw-cand-000612"]
+        self.assertIn("corpus/002_oracle-bone-inscriptions", first["object_dir"].as_posix())
+        self.assertIn("corpus/002_oracle-bone-inscriptions", last["object_dir"].as_posix())
+        self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
+        self.assertIn("not a formal `obi-*` inscription record", first["readme_text"])
+        self.assertIn("not_assigned_formal_obi_id", first["review_sheet_text"])
+        self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
+        self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
+        self.assertEqual(len(first["catalog_rows"]), 4)
 
     def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_character_local_materials_module()
@@ -11713,7 +11764,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             ),
         )
         self.assertEqual(rows[0]["edge_id"], "edge-cam-hopkins-crosswalk-source-0001")
-        self.assertEqual(rows[0]["source_node_id"], "cam-hopkins-crosswalk-000001")
+        self.assertEqual(rows[0]["source_node_id"], "obs-insc-cw-cand-000001")
         self.assertEqual(rows[0]["target_node_id"], "src-cambridge-hopkins")
         self.assertEqual(rows[3]["target_node_id"], "cam-hopkins-group-01")
         self.assertEqual(rows[4]["edge_type"], "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF")
@@ -11746,6 +11797,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[-1]["edge_type"], "HAS_CAMBRIDGE_HOPKINS_HEJI_REF")
         self.assertEqual(rows[-1]["target_node_id"], "cam-hopkins-heji-12345")
         self.assertIn("not a formal obi-* inscription record", rows[0]["evidence_note"])
+        mapped_rows = module.build_edges(
+            [
+                {
+                    "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-test",
+                    "source_id": "src-cambridge-hopkins",
+                    "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+                    "period_label": "I",
+                    "group_number": "1",
+                    "yingguo_ref_id": "y-test",
+                    "cul_ref_id": "",
+                    "chalfant_ref_id": "",
+                    "heji_ref_id": "",
+                }
+            ],
+            {"cam-hopkins-crosswalk-test": "obs-insc-cw-cand-test"},
+        )
+        self.assertEqual(mapped_rows[0]["source_node_id"], "obs-insc-cw-cand-test")
 
     def test_character_asset_graph_edges_link_local_glyph_images(self) -> None:
         path = repo_root() / "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"

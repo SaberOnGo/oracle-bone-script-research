@@ -38,6 +38,7 @@ The builders create `README.md`, `02_visual-source-index.csv`, `04_visual-galler
 python tools/002_corpus-import/build_character_local_materials.py --root .
 python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 python tools/002_corpus-import/build_obimd_component_candidate_materials.py --root .
+python tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_materials.py --root .
 ```
 
 ## Current Batch / 当前批次
@@ -47,6 +48,9 @@ The current batch covers all 1,588 HUST-OBC promoted candidate characters, `obs-
 
 English:
 The OBIMD component candidate batch covers all 2,747 OBIMD subcharacter candidates. Each `obs-comp-cand-*` object directory contains a human-readable README, an AI-readable candidate packet, a source index, a glyph-codepoint index, and a human-readable glyph-codepoint gallery in the same concrete component candidate directory. These are dataset candidates for review only; they are not promoted formal component records or component assignments.
+
+English:
+The Cambridge/Hopkins inscription crosswalk batch covers all 612 catalog crosswalk candidates. Each `obs-insc-cw-cand-*` object directory contains a human-readable README, an AI-readable candidate packet, a crosswalk source index, a catalog-reference index, and a human review sheet in the same concrete inscription crosswalk candidate directory. These are metadata candidates for catalog review only; they are not promoted formal `obi-*` inscription records, object identity claims, text transcriptions, inscription readings, or decipherment conclusions.
 
 绠€浣撲腑鏂囷細
 OBIMD 鏋勪欢鍊欓€夋壒娆¤鐩栧叏閮?2,747 涓?OBIMD subcharacter 鍊欓€夈€傛瘡涓?`obs-comp-cand-*` 瀵硅薄鐩綍鍐呴兘鍚屾椂鍖呭惈浜虹被鍙 README銆丄I 鍙鍊欓€夊寘銆佹潵婧愮储寮曘€乬lyph-codepoint 绱㈠紩鍜屼汉绫诲彲璇荤殑 glyph-codepoint gallery銆傝繖浜涘彧鏄緟澶嶆牳鐨勬暟鎹泦鍊欓€夛紝涓嶆槸宸叉彁鍗囩殑姝ｅ紡鏋勪欢璁板綍鎴栨瀯浠跺叧绯荤粨璁恒€?

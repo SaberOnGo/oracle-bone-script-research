@@ -382,6 +382,10 @@ def count_csv(root: Path, path: str) -> int:
     return len(read_csv_rows(root, path))
 
 
+def count_csv_by_field(root: Path, path: str, field_name: str, expected_value: str) -> int:
+    return sum(1 for row in read_csv_rows(root, path) if row.get(field_name) == expected_value)
+
+
 def count_files(root: Path, pattern: str) -> int:
     return sum(1 for _ in root.glob(pattern))
 
@@ -848,7 +852,12 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             count_csv(root, "corpus/002_oracle-bone-inscriptions/000_inscription-registers/001_all-inscriptions-index.csv"),
             count_csv(root, "corpus/002_oracle-bone-inscriptions/000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv")
             + count_csv(root, "corpus/002_oracle-bone-inscriptions/000_inscription-registers/003_cambridge-hopkins-classified-summary.csv"),
-            0,
+            count_csv_by_field(
+                root,
+                "project_registry/002_project-id-to-source-reference-map/002_oracle-inscription-id-source-map.csv",
+                "record_type",
+                "inscription_crosswalk_candidate",
+            ),
             cambridge_hopkins_graph_edges,
             cambridge_hopkins_review_queue_count,
             cambridge_hopkins_review_queue_count,

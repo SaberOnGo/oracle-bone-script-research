@@ -293,6 +293,10 @@ def count_csv(root: Path, path: Path) -> int:
     return len(safe_rows(root, path))
 
 
+def count_csv_by_field(root: Path, path: Path, field_name: str, expected_value: str) -> int:
+    return sum(1 for row in safe_rows(root, path) if row.get(field_name) == expected_value)
+
+
 def count_existing_file(root: Path, path: Path) -> int:
     return 1 if (root / path).exists() else 0
 
@@ -548,12 +552,23 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_files(root, "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/**/*.md"),
             ),
             {
-                "formal_inscription_id_map_rows": count_csv(root, INSCRIPTION_ID_MAP),
+                "candidate_inscription_crosswalk_map_rows": count_csv_by_field(
+                    root, INSCRIPTION_ID_MAP, "record_type", "inscription_crosswalk_candidate"
+                ),
+                "formal_inscription_id_map_rows": count_csv_by_field(
+                    root, INSCRIPTION_ID_MAP, "record_type", "oracle_bone_inscription"
+                ),
                 "cambridge_hopkins_graph_edges": graph_source_counts["src-cambridge-hopkins"],
                 "cambridge_hopkins_crosswalk_review_queue_rows": count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE),
                 "xxt_obm_access_capture_rows": count_csv(root, STAT_DIR / "085_ai-agent-xxt-obm-access-boundary-capture-results.csv"),
                 "xxt_obm_review_logs": count_files(root, "doc/public/user_research/008_xxt-obm-access-boundary-review-queues/**/*.md"),
-                "formal_inscription_record_files": count_files(root, "corpus/002_oracle-bone-inscriptions/**/*.json"),
+                "candidate_inscription_crosswalk_packet_files": count_files(
+                    root,
+                    "corpus/002_oracle-bone-inscriptions/**/01_candidate-inscription-crosswalk-packet.json",
+                ),
+                "formal_inscription_record_files": count_files(
+                    root, "corpus/002_oracle-bone-inscriptions/**/inscription-record.json"
+                ),
             },
             "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/",
             "metadata_only_pending_review",
@@ -1002,7 +1017,12 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
             ),
             {
                 "formal_character_map_rows": count_csv(root, CHAR_ID_MAP),
-                "formal_inscription_map_rows": count_csv(root, INSCRIPTION_ID_MAP),
+                "candidate_inscription_crosswalk_map_rows": count_csv_by_field(
+                    root, INSCRIPTION_ID_MAP, "record_type", "inscription_crosswalk_candidate"
+                ),
+                "formal_inscription_map_rows": count_csv_by_field(
+                    root, INSCRIPTION_ID_MAP, "record_type", "oracle_bone_inscription"
+                ),
                 "formal_asset_map_rows": count_csv(root, ASSET_ID_MAP),
                 "formal_component_map_rows": count_csv(root, COMPONENT_ID_MAP),
             },

@@ -2300,6 +2300,106 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
     return issues
 
 
+def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    inscription_map_path = (
+        root
+        / "project_registry/002_project-id-to-source-reference-map/"
+        / "002_oracle-inscription-id-source-map.csv"
+    )
+    with inscription_map_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    if len(rows) != 612:
+        issues.append(f"{inscription_map_path.relative_to(root).as_posix()} should contain 612 crosswalk candidate rows")
+    if rows and rows[0].get("project_id") != "obs-insc-cw-cand-000001":
+        issues.append(f"{inscription_map_path.relative_to(root).as_posix()} first project_id changed")
+    if rows and rows[-1].get("project_id") != "obs-insc-cw-cand-000612":
+        issues.append(f"{inscription_map_path.relative_to(root).as_posix()} last project_id changed")
+    required_files = [
+        "README.md",
+        "01_candidate-inscription-crosswalk-packet.json",
+        "02_crosswalk-source-index.csv",
+        "03_catalog-reference-index.csv",
+        "04_human-review-sheet.md",
+    ]
+    for index, row in enumerate(rows, start=1):
+        project_id = row.get("project_id", "")
+        if project_id != f"obs-insc-cw-cand-{index:06d}":
+            issues.append(f"{inscription_map_path.relative_to(root).as_posix()} project_id sequence changed: {project_id}")
+        if row.get("record_type") != "inscription_crosswalk_candidate":
+            issues.append(f"{inscription_map_path.relative_to(root).as_posix()} record_type changed: {project_id}")
+        if row.get("review_status") != "needs_human_inscription_crosswalk_review":
+            issues.append(f"{inscription_map_path.relative_to(root).as_posix()} review_status changed: {project_id}")
+        object_dir = root / row.get("canonical_path", "")
+        if not path_exists(object_dir):
+            issues.append(f"{inscription_map_path.relative_to(root).as_posix()} missing object directory: {project_id}")
+            continue
+        for filename in required_files:
+            if not path_exists(object_dir / filename):
+                issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        readme_path = object_dir / "README.md"
+        if path_exists(readme_path):
+            text = readme_path.read_text(encoding="utf-8")
+            for snippet in [
+                "object-local research entrance",
+                "AI-readable indexes",
+                "not a formal `obi-*` inscription record",
+                "not an object identity claim",
+                "not a transcription or inscription reading",
+                "not a decipherment conclusion",
+                "03_catalog-reference-index.csv",
+                "04_human-review-sheet.md",
+            ]:
+                if snippet not in text:
+                    issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        packet_path = object_dir / "01_candidate-inscription-crosswalk-packet.json"
+        if path_exists(packet_path):
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            if packet.get("project_id") != project_id:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} project_id mismatch")
+            if packet.get("record_type") != "inscription_crosswalk_candidate":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} record_type changed")
+            if packet.get("review_status") != "needs_human_inscription_crosswalk_review":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} review_status changed")
+            if packet.get("formal_inscription_assignment_status") != "not_assigned_formal_obi_id":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} formal assignment status changed")
+            if "not a formal obi-* inscription record" not in packet.get("caution", ""):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing inscription boundary")
+        source_index_path = object_dir / "02_crosswalk-source-index.csv"
+        if path_exists(source_index_path):
+            with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                source_rows = list(csv.DictReader(file))
+            if len(source_rows) != 1:
+                issues.append(f"{source_index_path.relative_to(root).as_posix()} should contain one source row")
+            for source_row in source_rows:
+                if source_row.get("project_id") != project_id:
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} project_id mismatch")
+                if source_row.get("source_id") != "src-cambridge-hopkins":
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} source_id changed")
+                if source_row.get("review_status") != "reviewed_metadata_only":
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} review_status changed")
+        catalog_index_path = object_dir / "03_catalog-reference-index.csv"
+        if path_exists(catalog_index_path):
+            with catalog_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                catalog_rows = list(csv.DictReader(file))
+            if len(catalog_rows) != 4:
+                issues.append(f"{catalog_index_path.relative_to(root).as_posix()} should contain four catalog references")
+            reference_types = {catalog_row.get("reference_type", "") for catalog_row in catalog_rows}
+            if reference_types != {"yingguo", "cambridge_university_library", "chalfant", "heji"}:
+                issues.append(f"{catalog_index_path.relative_to(root).as_posix()} reference types changed")
+        review_sheet_path = object_dir / "04_human-review-sheet.md"
+        if path_exists(review_sheet_path):
+            review_sheet = review_sheet_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Do not assign a formal `obi-*` ID",
+                "not an inscription reading",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in review_sheet:
+                    issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+    return issues
+
+
 def check_character_object_material_coverage_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_path = root / CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT
@@ -3145,9 +3245,14 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     if cambridge_edge_rows and cambridge_edge_type_counts != expected_cambridge_type_counts:
         issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge type counts changed")
 
+    inscription_map_rows, inscription_map_issues = _read_csv_rows(
+        root / "project_registry/002_project-id-to-source-reference-map/002_oracle-inscription-id-source-map.csv"
+    )
+    issues.extend(inscription_map_issues)
     expected_crosswalk_ids = {
-        row.get("candidate_inscription_crosswalk_id", "")
-        for row in cambridge_crosswalk_rows
+        row.get("project_id", "")
+        for row in inscription_map_rows
+        if row.get("record_type") == "inscription_crosswalk_candidate"
     }
     if cambridge_source_nodes != expected_crosswalk_ids:
         issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} source node coverage changed")
@@ -3157,6 +3262,8 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
         issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} first edge changed")
     if first_cambridge_edge.get("target_node_id") != "src-cambridge-hopkins":
         issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} first edge target changed")
+    if first_cambridge_edge.get("source_node_id") != "obs-insc-cw-cand-000001":
+        issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} first edge source changed")
 
     if len(character_asset_edge_rows) != 1590:
         issues.append(f"{CHARACTER_ASSET_GRAPH_EDGES} should contain exactly 1590 edges")
@@ -3674,6 +3781,8 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_code_edges:25301",
         ],
         "inscription_and_collection_staging": [
+            "candidate_inscription_crosswalk_map_rows:612",
+            "candidate_inscription_crosswalk_packet_files:612",
             "formal_inscription_id_map_rows:0",
             "formal_inscription_record_files:0",
             "cambridge_hopkins_graph_edges:4403",
@@ -3770,6 +3879,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows:5",
         ],
         "formal_project_id_maps": [
+            "candidate_inscription_crosswalk_map_rows:612",
             "formal_character_map_rows:0",
             "formal_inscription_map_rows:0",
             "formal_component_map_rows:2747",
@@ -4589,8 +4699,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     if summary.get("review_priority_counts") != expected_priority_counts:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
-        "candidate_record_count": 11130,
-        "formal_record_count": 66354,
+        "candidate_record_count": 11742,
+        "formal_record_count": 72475,
         "graph_edge_count": 211481,
         "manual_review_backlog_count": 13391,
         "review_queue_count": 13135,
@@ -4629,6 +4739,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         },
         "inscriptions_and_plate_crosswalks": {
             "staging_record_count": "637",
+            "candidate_record_count": "612",
+            "formal_record_count": "0",
             "graph_edge_count": "4403",
             "review_queue_count": "612",
         },
@@ -23475,6 +23587,7 @@ def main() -> int:
     issues.extend(check_required_paths(root))
     issues.extend(check_character_directory_local_materials(root))
     issues.extend(check_component_candidate_local_materials(root))
+    issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))

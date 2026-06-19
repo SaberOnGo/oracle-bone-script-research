@@ -18,6 +18,10 @@ DEFAULT_OUTPUT = Path(
     "corpus/008_relationship-graph/"
     "008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
 )
+DEFAULT_INSCRIPTION_MAP = Path(
+    "project_registry/002_project-id-to-source-reference-map/"
+    "002_oracle-inscription-id-source-map.csv"
+)
 SOURCE_ID = "src-cambridge-hopkins"
 EVIDENCE_NOTE = (
     "Metadata edge from Cambridge/Hopkins finding-list crosswalk staging; "
@@ -51,6 +55,18 @@ def group_node_id(group_number: str) -> str:
     return f"cam-hopkins-group-{safe_token(stripped)}"
 
 
+def crosswalk_project_id_map(inscription_map_rows: list[dict[str, str]]) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for row in inscription_map_rows:
+        if row.get("record_type") != "inscription_crosswalk_candidate":
+            continue
+        project_id = row.get("project_id", "")
+        for external_ref in row.get("all_external_ref_ids", "").split(";"):
+            if external_ref.startswith("cam-hopkins-crosswalk-"):
+                mapping[external_ref] = project_id
+    return mapping
+
+
 def make_edge(edge_id: str, source_node_id: str, edge_type: str, target_node_id: str) -> dict[str, object]:
     return {
         "edge_id": edge_id,
@@ -64,8 +80,12 @@ def make_edge(edge_id: str, source_node_id: str, edge_type: str, target_node_id:
     }
 
 
-def build_edges(crosswalk_rows: list[dict[str, str]]) -> list[dict[str, object]]:
+def build_edges(
+    crosswalk_rows: list[dict[str, str]],
+    crosswalk_to_project_id: dict[str, str] | None = None,
+) -> list[dict[str, object]]:
     edges: list[dict[str, object]] = []
+    crosswalk_to_project_id = crosswalk_to_project_id or {}
     external_ref_specs = [
         ("yingguo_ref_id", "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF", "cam-hopkins-yingguo"),
         ("cul_ref_id", "HAS_CAMBRIDGE_HOPKINS_CUL_REF", "cam-hopkins-cul"),
@@ -74,6 +94,7 @@ def build_edges(crosswalk_rows: list[dict[str, str]]) -> list[dict[str, object]]
     ]
     for index, row in enumerate(crosswalk_rows, start=1):
         crosswalk_id = row["candidate_inscription_crosswalk_id"]
+        source_node_id = crosswalk_to_project_id.get(crosswalk_id, crosswalk_id)
         group_number = row.get("group_number", "")
         period_label = row.get("period_label", "")
         download_id = row.get("evidence_download_id", "")
@@ -81,25 +102,25 @@ def build_edges(crosswalk_rows: list[dict[str, str]]) -> list[dict[str, object]]
             [
                 make_edge(
                     f"edge-cam-hopkins-crosswalk-source-{index:04d}",
-                    crosswalk_id,
+                    source_node_id,
                     "HAS_CAMBRIDGE_HOPKINS_SOURCE",
                     row.get("source_id", SOURCE_ID),
                 ),
                 make_edge(
                     f"edge-cam-hopkins-crosswalk-download-{index:04d}",
-                    crosswalk_id,
+                    source_node_id,
                     "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD",
                     download_id,
                 ),
                 make_edge(
                     f"edge-cam-hopkins-crosswalk-period-{index:04d}",
-                    crosswalk_id,
+                    source_node_id,
                     "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL",
                     f"cam-hopkins-period-{safe_token(period_label)}",
                 ),
                 make_edge(
                     f"edge-cam-hopkins-crosswalk-group-{index:04d}",
-                    crosswalk_id,
+                    source_node_id,
                     "HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP",
                     group_node_id(group_number),
                 ),
@@ -112,7 +133,7 @@ def build_edges(crosswalk_rows: list[dict[str, str]]) -> list[dict[str, object]]
             edges.append(
                 make_edge(
                     f"edge-cam-hopkins-crosswalk-{safe_token(field_name)}-{index:04d}",
-                    crosswalk_id,
+                    source_node_id,
                     edge_type,
                     f"{target_prefix}-{safe_token(external_ref)}",
                 )
@@ -131,12 +152,14 @@ def write_jsonl(path: Path, rows: list[dict[str, object]]) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--crosswalk-staging", default=str(DEFAULT_CROSSWALK_STAGING))
+    parser.add_argument("--inscription-map", default=str(DEFAULT_INSCRIPTION_MAP))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     args = parser.parse_args(argv)
 
     root = repo_root()
     crosswalk_rows = read_csv_rows(root / args.crosswalk_staging)
-    edges = build_edges(crosswalk_rows)
+    inscription_map_rows = read_csv_rows(root / args.inscription_map)
+    edges = build_edges(crosswalk_rows, crosswalk_project_id_map(inscription_map_rows))
     write_jsonl(root / args.output, edges)
     print(f"wrote={len(edges)} output={(root / args.output).relative_to(root)}")
     return 0

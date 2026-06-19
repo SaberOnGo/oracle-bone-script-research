@@ -1,0 +1,5 @@
+catalog_reference_index_id,candidate_inscription_crosswalk_id,project_id,reference_type,reference_value,reference_status,required_review
+obs-insc-cw-cand-000450-catalog-ref-01,cam-hopkins-crosswalk-000450,obs-insc-cw-cand-000450,yingguo,y2318,present_in_cambridge_hopkins_metadata,verify_against_primary_catalog_object_record_and_source_image
+obs-insc-cw-cand-000450-catalog-ref-02,cam-hopkins-crosswalk-000450,obs-insc-cw-cand-000450,cambridge_university_library,283,present_in_cambridge_hopkins_metadata,verify_against_primary_catalog_object_record_and_source_image
+obs-insc-cw-cand-000450-catalog-ref-03,cam-hopkins-crosswalk-000450,obs-insc-cw-cand-000450,chalfant,366,present_in_cambridge_hopkins_metadata,verify_against_primary_catalog_object_record_and_source_image
+obs-insc-cw-cand-000450-catalog-ref-04,cam-hopkins-crosswalk-000450,obs-insc-cw-cand-000450,heji,41368,present_in_cambridge_hopkins_metadata,verify_against_primary_catalog_object_record_and_source_image

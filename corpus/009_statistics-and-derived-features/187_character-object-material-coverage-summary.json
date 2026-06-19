@@ -4,16 +4,16 @@
     "obs-char": 1588,
     "obs-unk": 9408
   },
-  "human_readme_count": 802,
-  "human_visual_gallery_count": 802,
+  "human_readme_count": 902,
+  "human_visual_gallery_count": 902,
   "ai_packet_count": 10996,
-  "ai_visual_source_index_count": 802,
-  "local_visual_asset_object_count": 802,
-  "complete_object_local_bundle_count": 802,
-  "missing_human_entry_count": 10194,
+  "ai_visual_source_index_count": 902,
+  "local_visual_asset_object_count": 902,
+  "complete_object_local_bundle_count": 902,
+  "missing_human_entry_count": 10094,
   "material_bundle_status_counts": {
-    "missing_human_object_materials": 10194,
-    "object_local_bundle_with_review_image": 802
+    "missing_human_object_materials": 10094,
+    "object_local_bundle_with_review_image": 902
   },
   "parallel_human_directory_count": 0,
   "research_boundary": "object_local_material_coverage_audit_not_scholarship; not an identity claim, not a component conclusion, not an evolution conclusion, not an accepted reading, and not a decipherment conclusion",

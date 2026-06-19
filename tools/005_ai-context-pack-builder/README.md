@@ -274,3 +274,8 @@ English supplement:
 - `build_source_pipeline_phase_action_missing_evidence_review_handoff_route_summary.py` 基于 153 handoff checklist 生成 `154_source-pipeline-phase-action-missing-evidence-review-handoff-route-summary.json`。该 summary 按来源和 pipeline gap status 汇总计划中的交接路线，仅用于导航，同时保持证据和 outcome 均未设置。
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_scaffold.py` 基于 154 handoff route summary 生成 `155_source-pipeline-phase-action-missing-evidence-review-outcome-scaffold.csv`。该 scaffold 为复核者提供后续记录 missing-evidence outcome 的人工闸口，同时保持无证据、无权利决定、无来源提升、无语料导入和无释读结论边界。
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack.py` 基于 155 outcome scaffold 生成 `156_source-pipeline-phase-action-missing-evidence-review-outcome-route-pack.json`。该 route pack 为后续人工复核索引 outcome 行，不采集证据、不决定权利、不提升来源、不导入语料，也不提出释读结论。
+English supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold.py` builds `157_source-pipeline-phase-action-missing-evidence-review-outcome-handoff-scaffold.json` from the 156 outcome route pack. It creates 18 planned-not-assigned handoff rows while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold.py` 基于 156 outcome route pack 生成 `157_source-pipeline-phase-action-missing-evidence-review-outcome-handoff-scaffold.json`。它创建 18 条 planned-not-assigned handoff 行，同时保持证据采集、已复核 outcome、权利决定、来源提升、语料导入、身份、构件、演化和释读结论均未设置。

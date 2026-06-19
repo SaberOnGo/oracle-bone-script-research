@@ -5,6 +5,11 @@ Future context-pack tools will gather source evidence for AI Agent reasoning.
 
 Current tools:
 
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_scaffold.py`: builds `174_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-scaffold.csv` from the 173 source handoff route summary. It gives each route one empty human-gated outcome scaffold row for later reviewed source-outcome capture while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_scaffold.py` 基于 173 source handoff route summary 生成 `174_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-scaffold.csv`。它为每条路线生成一条空的人工门控 outcome scaffold 行，供后续复核后填写来源 outcome；证据采集、已复核 outcome、权利裁定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_route_summary.py`: builds `173_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-route-summary.json` from the 172 source handoff checklist. It indexes each source handoff checklist row by source, pipeline gap, and status while preserving routing-only boundaries and leaving evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
 
 简体中文补充：

@@ -142,6 +142,9 @@ SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST = STAT_DIR / "141_source-pipeline-ph
 SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX = (
     STAT_DIR / "142_source-pipeline-phase-action-evidence-presence-matrix.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY = (
+    STAT_DIR / "143_source-pipeline-phase-action-evidence-gap-summary.csv"
+)
 
 
 def repo_root() -> Path:
@@ -522,7 +525,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_SOURCE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX)
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY),
                 structured=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -566,7 +570,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_SOURCE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX)
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY),
                 review_queue=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -610,7 +615,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_SOURCE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX)
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY),
             ),
             {
                 "review_log_files": review_log_files,
@@ -716,6 +722,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "source_pipeline_phase_action_source_summary_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_SOURCE_SUMMARY),
                 "source_pipeline_phase_action_file_checklist_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST),
                 "source_pipeline_phase_action_evidence_presence_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX),
+                "source_pipeline_phase_action_evidence_gap_summary_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY),
             },
             "doc/public/user_research/",
             "pending_human_review",

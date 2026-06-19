@@ -189,6 +189,10 @@ SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "142_source-pipeline-phase-action-evidence-presence-matrix.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "143_source-pipeline-phase-action-evidence-gap-summary.csv"
+)
 UPDATED_AT = "2026-06-19"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
@@ -441,6 +445,9 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_phase_action_evidence_presence_count = count_csv(
         root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX
     )
+    source_pipeline_phase_action_evidence_gap_summary_count = count_csv(
+        root, SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY
+    )
 
     rows = [
         make_row(
@@ -603,7 +610,8 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_route_summary_count
             + source_pipeline_phase_action_source_summary_count
             + source_pipeline_phase_action_file_checklist_count
-            + source_pipeline_phase_action_evidence_presence_count,
+            + source_pipeline_phase_action_evidence_presence_count
+            + source_pipeline_phase_action_evidence_gap_summary_count,
             count_csv(root, "corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv")
             + source_engineering_gap_queue_count
             + source_engineering_execution_matrix_count
@@ -645,10 +653,11 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_route_summary_count
             + source_pipeline_phase_action_source_summary_count
             + source_pipeline_phase_action_file_checklist_count
-            + source_pipeline_phase_action_evidence_presence_count,
+            + source_pipeline_phase_action_evidence_presence_count
+            + source_pipeline_phase_action_evidence_gap_summary_count,
             "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-            SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX,
-            "open_source_pipeline_phase_action_evidence_presence_matrix_then_record_human_gated_source_outcomes",
+            SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY,
+            "open_source_pipeline_phase_action_evidence_gap_summary_then_record_human_gated_source_outcomes",
         ),
         make_row(
             "core-ready-009",

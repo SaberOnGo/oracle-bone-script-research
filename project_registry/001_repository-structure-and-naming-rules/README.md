@@ -1,23 +1,57 @@
 # Repository Structure And Naming Rules / 仓库结构与命名规则
 
 English:
-Use stable, ASCII-friendly paths with numeric prefixes. Paths should include project-local IDs and one short external reference ID, while complete provenance lives in metadata and registry CSV files.
+Use stable, short, ASCII-friendly paths with numeric prefixes. Paths should include a project-local ID and one short external reference ID. Complete provenance belongs in metadata files and registry CSV files.
 
 简体中文：
-路径使用稳定、兼容 ASCII、带数字前缀的命名。路径中包含本项目 ID 和一个简短外部来源 ID；完整出处写入 metadata 和 registry CSV。
+路径应稳定、简短、兼容 ASCII，并带数字前缀。路径中应包含本项目 ID 和一个简短外部来源 ID。完整出处应写入 metadata 文件和 registry CSV。
 
-## Patterns / 模式
+## Core Patterns / 核心模式
+
+Large bucket directory:
+
+大量资料分桶目录：
 
 ```text
 001_000001-000100_obs-char-bucket_oracle-characters/
+```
+
+Single oracle character directory:
+
+单个甲骨字目录：
+
+```text
 001_obs-char-000001_xxt-jgw-0001_oracle-character/
+```
+
+Asset file:
+
+资料资产文件：
+
+```text
 001_asset-000001_xxt-jgw-0001_glyph-image.png
 ```
 
-Do not use modern readings, liding forms, pinyin, or English meaning as primary path identity.
+## Path Identity / 路径身份
 
-不要把现代释读、隶定字、拼音或英文意义作为路径主身份。
+English:
+Do not use modern readings, liding forms, pinyin, or English meaning as primary path identity. Many oracle characters do not have reliable modern equivalents, and readings may change after review.
 
-Temporary working directories are a special case. Use short conventional names such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/` only for ignored local artifacts. Do not use them as permanent research record paths.
+简体中文：
+不要把现代释读、隶定字、拼音或英文意义作为路径主身份。很多甲骨字没有可靠的现代字对应，释读也可能在复核后变化。
 
-临时工作目录是特殊情况。`tmp/`、`_tmp/`、`scratch/`、`.working/`、`.cache/` 等短名称只用于已忽略的本地临时产物，不得作为永久研究记录路径。
+## Object-Local Materials / 对象内资料
+
+English:
+Concrete corpus object directories should contain both human-readable materials and AI-readable materials. Do not create a parallel human-readable directory next to `corpus/` or next to an object directory.
+
+简体中文：
+具体 `corpus` 对象目录里应同时放置人类可读资料和 AI 可读资料。不要在 `corpus/` 旁边或对象目录旁边再创建并行的人类可读目录。
+
+## Temporary Areas / 临时区域
+
+English:
+Temporary working directories are a special case. Use conventional ignored names such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/` only for local scratch files, temporary downloads, OCR intermediates, unpacked archives, caches, and generated experimental outputs.
+
+简体中文：
+临时工作目录是特殊情况。`tmp/`、`_tmp/`、`scratch/`、`.working/`、`.cache/` 等约定目录只用于已忽略的本地草稿、临时下载、OCR 中间产物、解压目录、缓存和实验性生成产物。

@@ -2,8 +2,8 @@
   "agent_use_rules": [
     "Use this pack only as a routing and coverage summary.",
     "Open the cited CSV/JSONL source rows before making any research claim.",
-    "Treat HUST-OBC, OBIMD, and EVOBC rows as dataset metadata until cross-source review.",
-    "Do not present OCR labels, component links, glyph code points, or evolution category links as accepted readings."
+    "Treat HUST-OBC, OBIMD, EVOBC, and Cambridge/Hopkins rows as dataset metadata until cross-source review.",
+    "Do not present OCR labels, component links, glyph code points, evolution category links, or inscription crosswalk links as accepted readings or confirmed records."
   ],
   "agent_use_rules_zh": [
     "本上下文包只作为检索路由和覆盖范围摘要使用。",
@@ -13,17 +13,18 @@
   ],
   "context_pack_id": "ai-context-relationship-graph-001",
   "coverage": {
-    "edge_type_count": 6,
-    "graph_file_count": 3,
+    "edge_type_count": 14,
+    "graph_file_count": 4,
     "graph_files": [
       "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
       "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-      "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
+      "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+      "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
     ],
-    "node_count": 65039,
-    "source_count": 3,
+    "node_count": 67632,
+    "source_count": 4,
     "top_node_limit": 20,
-    "total_edge_count": 99674
+    "total_edge_count": 104077
   },
   "generated_from": [
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv",
@@ -32,6 +33,64 @@
   "purpose": "Entry-point context for AI Agents before deeper graph or source lookup; supports evidence-first retrieval and does not contain decipherment claims.",
   "purpose_zh": "供 AI Agent 深入检索图谱或来源表前使用的入口上下文；支持先证据后推理，不包含释读结论。",
   "source_summaries": [
+    {
+      "edge_count": 4403,
+      "edge_types": [
+        {
+          "edge_count": 441,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_CHALFANT_REF",
+          "unique_source_node_count": 441,
+          "unique_target_node_count": 440
+        },
+        {
+          "edge_count": 612,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP",
+          "unique_source_node_count": 612,
+          "unique_target_node_count": 21
+        },
+        {
+          "edge_count": 606,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_CUL_REF",
+          "unique_source_node_count": 606,
+          "unique_target_node_count": 605
+        },
+        {
+          "edge_count": 612,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD",
+          "unique_source_node_count": 612,
+          "unique_target_node_count": 1
+        },
+        {
+          "edge_count": 296,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_HEJI_REF",
+          "unique_source_node_count": 296,
+          "unique_target_node_count": 296
+        },
+        {
+          "edge_count": 612,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL",
+          "unique_source_node_count": 612,
+          "unique_target_node_count": 6
+        },
+        {
+          "edge_count": 612,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_SOURCE",
+          "unique_source_node_count": 612,
+          "unique_target_node_count": 1
+        },
+        {
+          "edge_count": 612,
+          "edge_type": "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF",
+          "unique_source_node_count": 612,
+          "unique_target_node_count": 611
+        }
+      ],
+      "graph_files": [
+        "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
+      ],
+      "label": "Cambridge/Hopkins inscription crosswalk metadata",
+      "source_id": "src-cambridge-hopkins"
+    },
     {
       "edge_count": 51679,
       "edge_types": [
@@ -244,6 +303,26 @@
       "total_degree": 1078
     },
     {
+      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+      "in_degree": 612,
+      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD:612",
+      "node_id": "dl-cambridge-hopkins-finding-list",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-cambridge-hopkins",
+      "total_degree": 612
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+      "in_degree": 612,
+      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_SOURCE:612",
+      "node_id": "src-cambridge-hopkins",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-cambridge-hopkins",
+      "total_degree": 612
+    },
+    {
       "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
       "in_degree": 0,
       "incoming_edge_type_counts": "",
@@ -264,6 +343,16 @@
       "total_degree": 378
     },
     {
+      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+      "in_degree": 291,
+      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL:291",
+      "node_id": "cam-hopkins-period-i",
+      "out_degree": 0,
+      "outgoing_edge_type_counts": "",
+      "source_ids": "src-cambridge-hopkins",
+      "total_degree": 291
+    },
+    {
       "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
       "in_degree": 0,
       "incoming_edge_type_counts": "",
@@ -272,36 +361,6 @@
       "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:277;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
       "source_ids": "src-obimd",
       "total_degree": 278
-    },
-    {
-      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-      "in_degree": 0,
-      "incoming_edge_type_counts": "",
-      "node_id": "obimd-sub-cand-000451",
-      "out_degree": 227,
-      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:226;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
-      "source_ids": "src-obimd",
-      "total_degree": 227
-    },
-    {
-      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-      "in_degree": 0,
-      "incoming_edge_type_counts": "",
-      "node_id": "obimd-sub-cand-002368",
-      "out_degree": 215,
-      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:214;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
-      "source_ids": "src-obimd",
-      "total_degree": 215
-    },
-    {
-      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-      "in_degree": 0,
-      "incoming_edge_type_counts": "",
-      "node_id": "obimd-sub-cand-001669",
-      "out_degree": 195,
-      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:194;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
-      "source_ids": "src-obimd",
-      "total_degree": 195
     }
   ],
   "updated_at": "2026-06-04"

@@ -19,6 +19,10 @@ from tools.validation.check_repository_skeleton import (
     check_relationship_graph_statistics,
     check_root_gitignore_patterns,
     check_hust_obc_undeciphered_candidates,
+    check_preprocessing_status_audit,
+    check_data_quality_audit,
+    check_source_processing_pipeline_audit,
+    check_core_corpus_readiness_matrix,
     check_source_coverage_statistics,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -29,6 +33,15 @@ from tools.validation.check_repository_skeleton import (
 def load_download_source_manifest_module():
     path = repo_root() / "tools/002_corpus-import/download_source_manifest.py"
     spec = importlib.util.spec_from_file_location("download_source_manifest", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_registered_source_metadata_profiles_module():
+    path = repo_root() / "tools/002_corpus-import/build_registered_source_metadata_profiles.py"
+    spec = importlib.util.spec_from_file_location("build_registered_source_metadata_profiles", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -134,6 +147,29 @@ def load_evobc_evolution_graph_edges_module():
     return module
 
 
+def load_cambridge_hopkins_inscription_graph_edges_module():
+    path = repo_root() / "tools/003_graph-generation/build_cambridge_hopkins_inscription_graph_edges.py"
+    spec = importlib.util.spec_from_file_location("build_cambridge_hopkins_inscription_graph_edges", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_cambridge_hopkins_inscription_crosswalk_review_queue_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/build_cambridge_hopkins_inscription_crosswalk_review_queue.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_cambridge_hopkins_inscription_crosswalk_review_queue", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_relationship_graph_statistics_module():
     path = repo_root() / "tools/004_statistics-generation/build_relationship_graph_statistics.py"
     spec = importlib.util.spec_from_file_location("build_relationship_graph_statistics", path)
@@ -155,6 +191,356 @@ def load_asset_image_visual_profiles_module():
 def load_source_coverage_statistics_module():
     path = repo_root() / "tools/004_statistics-generation/build_source_coverage_statistics.py"
     spec = importlib.util.spec_from_file_location("build_source_coverage_statistics", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_preprocessing_status_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_preprocessing_status_audit.py"
+    spec = importlib.util.spec_from_file_location("build_preprocessing_status_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_data_quality_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_data_quality_audit.py"
+    spec = importlib.util.spec_from_file_location("build_data_quality_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_processing_pipeline_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_processing_pipeline_audit.py"
+    spec = importlib.util.spec_from_file_location("build_source_processing_pipeline_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_pipeline_gap_matrix_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_pipeline_gap_matrix.py"
+    spec = importlib.util.spec_from_file_location("build_source_pipeline_gap_matrix", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_pipeline_gap_review_checklist_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_pipeline_gap_review_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_source_pipeline_gap_review_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_readiness_matrix_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_readiness_matrix.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_readiness_matrix", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_gap_queue_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_engineering_gap_queue.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_gap_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_execution_matrix_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_engineering_execution_matrix.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_execution_matrix", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_gap_review_log_drafts_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_gap_review_log_drafts.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_gap_review_log_drafts", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_gap_evidence_snapshot_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_gap_evidence_snapshot.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_gap_evidence_snapshot", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_next_action_checklist_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_next_action_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_next_action_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_next_action_result_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_next_action_result_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_next_action_result_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_lane_summary_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_engineering_lane_summary.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_lane_summary", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_lane_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_lane_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_lane_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_field_map_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_field_map_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_source_field_map_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_field_map_review_checklist_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_field_map_review_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_source_field_map_review_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_field_map_review_result_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_field_map_review_result_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_source_field_map_review_result_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_field_map_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_field_map_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_field_map_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_package_manifest_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_package_manifest_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_package_manifest_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_access_boundary_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_access_boundary_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_access_boundary_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_checksum_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_checksum_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_checksum_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_metadata_profile_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_metadata_profile_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_metadata_profile_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_safe_derived_record_review_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_safe_derived_record_review_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_safe_derived_record_review_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_review_route_summary_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_review_route_summary.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_review_route_summary", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_review_wave_handoff_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_review_wave_handoff_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_review_wave_handoff_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_first_wave_review_results_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_first_wave_review_results.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_first_wave_review_results", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_first_wave_result_records_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_first_wave_result_records.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_first_wave_result_records", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_first_wave_followup_queue_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_first_wave_followup_queue.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_first_wave_followup_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_first_wave_source_status_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_engineering_first_wave_source_status.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_first_wave_source_status", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_source_checklist_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_source_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_second_wave_source_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_review_drafts_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_review_drafts.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_second_wave_review_drafts", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_result_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_result_scaffold.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_second_wave_result_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_review_checklist_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_review_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_second_wave_review_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_review_outcome_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_review_outcome_scaffold.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_source_engineering_second_wave_review_outcome_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_outcome_route_pack_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_outcome_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_source_engineering_second_wave_outcome_route_pack", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_outcome_handoff_scaffold_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_outcome_handoff_scaffold.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_source_engineering_second_wave_outcome_handoff_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_handoff_review_checklist_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_handoff_review_checklist.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_source_engineering_second_wave_handoff_review_checklist", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_engineering_second_wave_handoff_route_summary_module():
+    path = repo_root() / "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_handoff_route_summary.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_source_engineering_second_wave_handoff_route_summary", path
+    )
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -4977,20 +5363,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["context_pack_id"], "ai-context-source-coverage-001")
         self.assertEqual(data["status"], "reviewed_metadata_only")
         self.assertEqual(data["coverage"]["source_count"], 21)
-        self.assertEqual(data["coverage"]["download_manifest_count"], 44)
-        self.assertEqual(data["coverage"]["download_log_count"], 44)
-        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 48)
+        self.assertEqual(data["coverage"]["download_manifest_count"], 46)
+        self.assertEqual(data["coverage"]["download_log_count"], 47)
+        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 62)
         self.assertEqual(data["coverage"]["committed_asset_count"], 3)
         self.assertEqual(data["coverage"]["committed_asset_bytes"], 4922128)
-        self.assertEqual(data["coverage"]["graph_edge_count"], 99674)
+        self.assertEqual(data["coverage"]["graph_edge_count"], 104077)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(
             data["coverage"]["coverage_status_counts"],
             {
                 "has_committed_public_asset_or_metadata": 2,
-                "has_download_log_only": 12,
-                "has_downloaded_metadata_profile": 4,
-                "has_relationship_graph_derivatives": 3,
+                "has_download_log_only": 5,
+                "has_downloaded_metadata_profile": 10,
+                "has_relationship_graph_derivatives": 4,
             },
         )
         source_routes = {
@@ -5002,6 +5388,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(source_routes["src-hust-obc"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 44433)
         self.assertEqual(source_routes["src-evobc"]["graph_edge_count"], 51679)
+        self.assertEqual(source_routes["src-cambridge-hopkins"]["graph_edge_count"], 4403)
         self.assertEqual(source_routes["src-metmuseum-oracle-bone"]["committed_asset_count"], 2)
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
         self.assertEqual(
@@ -5009,7 +5396,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 entry["source_id"]
                 for entry in data["priority_routes"]["graph_derivative_sources"]
             ],
-            ["src-evobc", "src-hust-obc", "src-obimd"],
+            ["src-cambridge-hopkins", "src-evobc", "src-hust-obc", "src-obimd"],
         )
         self.assertEqual(
             [
@@ -5048,14 +5435,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             for entry in data["source_routes"]
         }
         self.assertEqual(data["coverage"]["source_count"], 21)
-        self.assertEqual(data["coverage"]["graph_edge_count"], 99674)
+        self.assertEqual(data["coverage"]["graph_edge_count"], 104077)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(source_routes["src-hust-obc"]["route"], "open_graph_and_metadata_derivatives")
+        self.assertEqual(source_routes["src-cambridge-hopkins"]["route"], "open_graph_and_metadata_derivatives")
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["route"], "open_asset_and_rights_records")
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
         self.assertEqual(
             source_routes["src-xiaoxuetang-jiaguwen"]["download_status_counts"],
-            "downloaded_access_restricted_page:2",
+            "download_error:2;downloaded_access_restricted_page:2",
         )
         rules = " ".join(data["agent_use_rules"])
         rules_zh = " ".join(data["agent_use_rules_zh"])
@@ -5889,7 +6277,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["priority_rank"], "4")
         self.assertEqual(by_source["src-nlc-oracle-world"]["priority_rank"], "5")
-        self.assertEqual(by_source["src-yinqi-wenyuan"]["priority_rank"], "6")
+        self.assertEqual(by_source["src-yinqi-wenyuan"]["priority_rank"], "5")
+        self.assertEqual(
+            by_source["src-yinqi-wenyuan"]["priority_tags"],
+            "metadata_profile;download_log",
+        )
         self.assertEqual(
             {row["research_boundary"] for row in rows},
             {"routing_metadata_only_not_scholarship"},
@@ -5913,7 +6305,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["research_boundary"], "routing_metadata_only_not_scholarship")
         self.assertEqual(rows[1]["source_id"], "src-evobc")
         self.assertEqual(rows[2]["source_id"], "src-obimd")
+        self.assertEqual(rows[3]["source_id"], "src-cambridge-hopkins")
         by_source = {row["source_id"]: row for row in rows}
+        self.assertIn(
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            by_source["src-cambridge-hopkins"]["route_files"],
+        )
         self.assertEqual(
             by_source["src-xiaoxuetang-jiaguwen"]["review_focus"],
             "open_download_logs_and_resolve_access_or_error_boundary",
@@ -5924,7 +6321,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_source["src-xiaoxuetang-jiaguwen"]["route_files"],
         )
         self.assertIn(
-            "confirm_source_size_checksum_rights_and_risk_before_promoting_derivatives",
+            "open_metadata_profile_rows_and_keep_extraction_reviewed_metadata_only",
             by_source["src-yinqi-wenyuan"]["required_next_checks"],
         )
         self.assertNotIn("confirmed scholarship", rows[0]["caution"])
@@ -5991,15 +6388,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(result_rows), 21)
         self.assertEqual(result_rows[0]["source_route_result_id"], "source-route-result-001")
         self.assertEqual(result_rows[0]["source_route_task_id"], queue_rows[0]["source_route_task_id"])
-        self.assertEqual(result_rows[4]["source_id"], "src-smithsonian-nmaa-oracle-bone")
-        self.assertEqual(result_rows[4]["priority_tags"], queue_rows[4]["priority_tags"])
-        self.assertEqual(result_rows[4]["route_files_to_open"], queue_rows[4]["route_files"])
-        self.assertEqual(result_rows[4]["result_status"], "not_started")
-        self.assertEqual(result_rows[4]["evidence_gap_status"], "not_collected")
-        self.assertEqual(result_rows[4]["next_artifact_recommendation"], "not_collected")
-        self.assertEqual(result_rows[4]["output_scope"], "source_route_review_scaffold_only")
-        self.assertNotIn("confirmed scholarship", result_rows[4]["caution"])
-        self.assertNotIn("public_domain_verified", result_rows[4]["derivative_promotion_status"])
+        by_source = {row["source_id"]: row for row in result_rows}
+        queue_by_source = {row["source_id"]: row for row in queue_rows}
+        smithsonian_row = by_source["src-smithsonian-nmaa-oracle-bone"]
+        smithsonian_queue_row = queue_by_source["src-smithsonian-nmaa-oracle-bone"]
+        self.assertEqual(smithsonian_row["priority_tags"], smithsonian_queue_row["priority_tags"])
+        self.assertEqual(smithsonian_row["route_files_to_open"], smithsonian_queue_row["route_files"])
+        self.assertEqual(smithsonian_row["result_status"], "not_started")
+        self.assertEqual(smithsonian_row["evidence_gap_status"], "not_collected")
+        self.assertEqual(smithsonian_row["next_artifact_recommendation"], "not_collected")
+        self.assertEqual(smithsonian_row["output_scope"], "source_route_review_scaffold_only")
+        self.assertNotIn("confirmed scholarship", smithsonian_row["caution"])
+        self.assertNotIn("public_domain_verified", smithsonian_row["derivative_promotion_status"])
 
     def test_ai_agent_source_route_review_results_record_graph_derived_metadata_reviews(self) -> None:
         path = (
@@ -6009,10 +6409,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 3)
+        self.assertEqual(len(rows), 4)
         self.assertEqual(
             [row["source_id"] for row in rows],
-            ["src-hust-obc", "src-evobc", "src-obimd"],
+            ["src-hust-obc", "src-evobc", "src-obimd", "src-cambridge-hopkins"],
         )
         by_source = {row["source_id"]: row for row in rows}
         self.assertEqual(by_source["src-hust-obc"]["source_route_result_id"], "source-route-result-001")
@@ -6051,6 +6451,31 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_source["src-obimd"]["route_files_opened"],
         )
         self.assertEqual(
+            by_source["src-cambridge-hopkins"]["source_route_result_id"],
+            "source-route-result-004",
+        )
+        self.assertEqual(
+            by_source["src-cambridge-hopkins"]["source_route_task_id"],
+            "source-route-review-004",
+        )
+        self.assertEqual(by_source["src-cambridge-hopkins"]["download_log_count"], "1")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["source_package_file_manifest_count"], "0")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
+        self.assertEqual(
+            by_source["src-cambridge-hopkins"]["rights_status"],
+            "metadata_only_until_verified",
+        )
+        self.assertEqual(
+            by_source["src-cambridge-hopkins"]["size_checksum_review_status"],
+            "not_applicable_no_package_manifest_rows",
+        )
+        self.assertIn(
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            by_source["src-cambridge-hopkins"]["route_files_opened"],
+        )
+        self.assertIn("catalog crosswalk metadata", by_source["src-cambridge-hopkins"]["review_note"])
+        self.assertIn("no inscription reading", by_source["src-cambridge-hopkins"]["review_note"])
+        self.assertEqual(
             {row["result_status"] for row in rows},
             {"reviewed_metadata_routes_only"},
         )
@@ -6060,6 +6485,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertTrue(all("not a decipherment result" in row["caution"] for row in rows))
         self.assertTrue(all("not a rights clearance" in row["caution"] for row in rows))
+        self.assertTrue(all("not an inscription reading" in row["caution"] for row in rows))
         self.assertTrue(all("graph edges" in row["caution"] for row in rows))
 
     def test_ai_agent_source_route_review_results_builder_reads_graph_derived_routes(self) -> None:
@@ -6081,7 +6507,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             },
             root=root,
         )
-        self.assertEqual(len(rows), 3)
+        self.assertEqual(len(rows), 4)
         by_source = {row["source_id"]: row for row in rows}
         self.assertEqual(by_source["src-hust-obc"]["route_file_review_status"], "reviewed_route_files_exist")
         self.assertEqual(by_source["src-hust-obc"]["candidate_queue_count"], "1588")
@@ -6095,6 +6521,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-obimd"]["candidate_queue_count"], "0")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
         self.assertEqual(by_source["src-obimd"]["raw_package_commit_policy"], "do_not_commit_regular_git")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["candidate_queue_count"], "0")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
+        self.assertEqual(
+            by_source["src-cambridge-hopkins"]["size_checksum_review_status"],
+            "not_applicable_no_package_manifest_rows",
+        )
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
         self.assertTrue(
             all(row["derivative_promotion_status"] != "public_domain_verified" for row in rows)
@@ -9200,6 +9632,74 @@ class RepositorySkeletonTests(unittest.TestCase):
             metrics[("src-sinica-yinshang-oracle-vocabulary", "yinshang_oracle_character_count_about")],
             "1000000",
         )
+        self.assertEqual(
+            metrics[("src-tsinghua-oracle-bones", "collection_oracle_bone_count_over")],
+            "1750",
+        )
+        self.assertEqual(
+            metrics[("src-tsinghua-oracle-bones", "collection_inscribed_piece_count")],
+            "1495",
+        )
+        self.assertEqual(
+            metrics[("src-gbedobc", "graph_based_group_count")],
+            "756",
+        )
+        self.assertEqual(
+            metrics[("src-gbedobc", "graph_based_character_count")],
+            "3780",
+        )
+        self.assertEqual(
+            metrics[("src-open-oracle", "registered_project_links")],
+            "HUST-OBC;EVOBC;OBSD",
+        )
+        self.assertEqual(
+            metrics[("src-oracle-mnist", "registered_dataset_scope")],
+            "small_oracle_character_image_benchmark",
+        )
+        self.assertEqual(
+            metrics[("src-yinqi-wenyuan", "registered_platform_sections")],
+            "glyph;catalog;literature;knowledge_service",
+        )
+        self.assertEqual(
+            metrics[("src-ihp-museum-oracle-bones", "registered_scope")],
+            "museum_collection_overview_and_selected_artifact_labels",
+        )
+
+    def test_registered_source_metadata_profile_builder_keeps_registered_rows(self) -> None:
+        module = load_registered_source_metadata_profiles_module()
+        profile_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "010_downloaded-metadata-profile.csv"
+        )
+        with profile_path.open("r", encoding="utf-8-sig", newline="") as file:
+            existing_rows = list(csv.DictReader(file))
+        rebuilt_rows = module.build_profile_rows(existing_rows)
+        self.assertEqual(len(rebuilt_rows), len(existing_rows))
+        metrics = {
+            (row["source_id"], row["evidence_download_id"], row["profile_metric"]): row
+            for row in rebuilt_rows
+        }
+        self.assertEqual(
+            metrics[
+                (
+                    "src-tsinghua-oracle-bones",
+                    "dl-tsinghua-oracle-bones-overview",
+                    "registered_collection_provenance_names",
+                )
+            ]["profile_value"],
+            "Hu Houxuan;Yu Shengwu;Chen Mengjia",
+        )
+        self.assertEqual(
+            metrics[
+                (
+                    "src-gbedobc",
+                    "dl-gbedobc-nature-pdf",
+                    "downloaded_article_pdf_size_bytes",
+                )
+            ]["review_status"],
+            "reviewed_metadata_only",
+        )
 
     def test_nlc_oracle_world_source_is_official_scope_confirmed(self) -> None:
         source_path = (
@@ -10127,6 +10627,64 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("category_image_reference_count=37", rows[0]["evidence_note"])
         self.assertIn("not an accepted paleographic correspondence", rows[0]["evidence_note"])
 
+    def test_cambridge_hopkins_inscription_graph_edges_preserve_crosswalk_metadata(self) -> None:
+        path = repo_root() / "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
+        rows = [
+            json.loads(line)
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(rows), 4403)
+        self.assertEqual(
+            Counter(row["edge_type"] for row in rows),
+            Counter(
+                {
+                    "HAS_CAMBRIDGE_HOPKINS_SOURCE": 612,
+                    "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD": 612,
+                    "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL": 612,
+                    "HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP": 612,
+                    "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF": 612,
+                    "HAS_CAMBRIDGE_HOPKINS_CUL_REF": 606,
+                    "HAS_CAMBRIDGE_HOPKINS_CHALFANT_REF": 441,
+                    "HAS_CAMBRIDGE_HOPKINS_HEJI_REF": 296,
+                }
+            ),
+        )
+        self.assertEqual(rows[0]["edge_id"], "edge-cam-hopkins-crosswalk-source-0001")
+        self.assertEqual(rows[0]["source_node_id"], "cam-hopkins-crosswalk-000001")
+        self.assertEqual(rows[0]["target_node_id"], "src-cambridge-hopkins")
+        self.assertEqual(rows[3]["target_node_id"], "cam-hopkins-group-01")
+        self.assertEqual(rows[4]["edge_type"], "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF")
+        self.assertEqual(rows[4]["target_node_id"], "cam-hopkins-yingguo-y1")
+        self.assertEqual({tuple(row["source_ids"]) for row in rows}, {("src-cambridge-hopkins",)})
+        self.assertEqual({row["confidence_level"] for row in rows}, {"high"})
+        self.assertEqual({row["review_status"] for row in rows}, {"reviewed"})
+        self.assertTrue(all("not a formal obi-*" in row["evidence_note"] for row in rows))
+
+    def test_cambridge_hopkins_inscription_graph_edges_builder_skips_missing_refs(self) -> None:
+        module = load_cambridge_hopkins_inscription_graph_edges_module()
+        rows = module.build_edges(
+            [
+                {
+                    "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-test",
+                    "source_id": "src-cambridge-hopkins",
+                    "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+                    "period_label": "unclassified",
+                    "group_number": "unclassified",
+                    "yingguo_ref_id": "y-test",
+                    "cul_ref_id": "*****",
+                    "chalfant_ref_id": "",
+                    "heji_ref_id": "12345",
+                }
+            ]
+        )
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(rows[2]["target_node_id"], "cam-hopkins-period-unclassified")
+        self.assertEqual(rows[3]["target_node_id"], "cam-hopkins-group-unclassified")
+        self.assertEqual(rows[-1]["edge_type"], "HAS_CAMBRIDGE_HOPKINS_HEJI_REF")
+        self.assertEqual(rows[-1]["target_node_id"], "cam-hopkins-heji-12345")
+        self.assertIn("not a formal obi-* inscription record", rows[0]["evidence_note"])
+
     def test_relationship_graph_edge_type_summary_preserves_current_edge_totals(self) -> None:
         path = (
             repo_root()
@@ -10135,7 +10693,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 6)
+        self.assertEqual(len(rows), 14)
         by_edge_type = {row["edge_type"]: row for row in rows}
         self.assertEqual(by_edge_type["HAS_HUST_OBC_SOURCE_CATEGORY"]["edge_count"], "1781")
         self.assertEqual(by_edge_type["HAS_HUST_OBC_SOURCE_CATEGORY"]["unique_source_node_count"], "1588")
@@ -10143,7 +10701,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_edge_type["OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER"]["unique_target_node_count"], "1730")
         self.assertEqual(by_edge_type["EVOBC_CATEGORY_HAS_ERA_CODE"]["edge_count"], "26378")
         self.assertEqual(by_edge_type["EVOBC_CATEGORY_HAS_SOURCE_CODE"]["unique_target_node_count"], "8")
-        self.assertEqual(sum(int(row["edge_count"]) for row in rows), 99674)
+        self.assertEqual(by_edge_type["HAS_CAMBRIDGE_HOPKINS_HEJI_REF"]["edge_count"], "296")
+        self.assertEqual(by_edge_type["HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP"]["unique_target_node_count"], "21")
+        self.assertEqual(sum(int(row["edge_count"]) for row in rows), 104077)
         self.assertEqual({row["generated_from"] for row in rows}, {"relationship_graph_jsonl"})
 
     def test_relationship_graph_node_degree_summary_preserves_degree_totals(self) -> None:
@@ -10154,9 +10714,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 65039)
-        self.assertEqual(sum(int(row["out_degree"]) for row in rows), 99674)
-        self.assertEqual(sum(int(row["in_degree"]) for row in rows), 99674)
+        self.assertEqual(len(rows), 67632)
+        self.assertEqual(sum(int(row["out_degree"]) for row in rows), 104077)
+        self.assertEqual(sum(int(row["in_degree"]) for row in rows), 104077)
         self.assertEqual(rows[0]["node_id"], "evobc-code-008")
         self.assertEqual(rows[0]["total_degree"], "10158")
         self.assertEqual(rows[0]["incoming_edge_type_counts"], "EVOBC_CATEGORY_HAS_SOURCE_CODE:10158")
@@ -10213,23 +10773,28 @@ class RepositorySkeletonTests(unittest.TestCase):
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         self.assertEqual(len(rows), 21)
-        self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 44)
-        self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 44)
-        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 48)
+        self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 46)
+        self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 47)
+        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 62)
         self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 3)
         self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 4922128)
-        self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 99674)
+        self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 104077)
         self.assertEqual(sum(int(row["promotion_queue_candidate_count"]) for row in rows), 1588)
         by_source = {row["source_id"]: row for row in rows}
         self.assertEqual(by_source["src-hust-obc"]["promotion_queue_candidate_count"], "1588")
         self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "3562")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
         self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51679")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "8")
+        self.assertEqual(by_source["src-tsinghua-oracle-bones"]["metadata_profile_metric_count"], "3")
+        self.assertEqual(by_source["src-gbedobc"]["metadata_profile_metric_count"], "3")
+        self.assertEqual(by_source["src-yinqi-wenyuan"]["metadata_profile_metric_count"], "2")
         self.assertEqual(by_source["src-metmuseum-oracle-bone"]["committed_asset_count"], "2")
         self.assertEqual(by_source["src-smithsonian-nmaa-oracle-bone"]["committed_asset_bytes"], "633418")
         self.assertEqual(
             by_source["src-xiaoxuetang-jiaguwen"]["download_status_counts"],
-            "downloaded_access_restricted_page:2",
+            "download_error:2;downloaded_access_restricted_page:2",
         )
         self.assertTrue(all("Coverage statistics only" in row["caution"] for row in rows))
 
@@ -10241,6 +10806,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["metadata_profile_metric_count"], "11")
         self.assertEqual(by_source["src-hust-obc"]["coverage_status"], "has_relationship_graph_derivatives")
         self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "2")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "8")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["coverage_status"], "has_relationship_graph_derivatives")
         self.assertEqual(by_source["src-metmuseum-oracle-bone"]["asset_rights_status_counts"], "public_domain_verified:2")
         self.assertEqual(
             by_source["src-smithsonian-nmaa-oracle-bone"]["coverage_status"],
@@ -10258,14 +10825,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["context_pack_id"], "ai-context-relationship-graph-001")
         self.assertEqual(data["status"], "reviewed_metadata_only")
-        self.assertEqual(data["coverage"]["total_edge_count"], 99674)
-        self.assertEqual(data["coverage"]["node_count"], 65039)
-        self.assertEqual(data["coverage"]["source_count"], 3)
-        self.assertEqual(data["coverage"]["edge_type_count"], 6)
+        self.assertEqual(data["coverage"]["total_edge_count"], 104077)
+        self.assertEqual(data["coverage"]["node_count"], 67632)
+        self.assertEqual(data["coverage"]["source_count"], 4)
+        self.assertEqual(data["coverage"]["edge_type_count"], 14)
         by_source = {row["source_id"]: row for row in data["source_summaries"]}
         self.assertEqual(by_source["src-hust-obc"]["edge_count"], 3562)
         self.assertEqual(by_source["src-obimd"]["edge_count"], 44433)
         self.assertEqual(by_source["src-evobc"]["edge_count"], 51679)
+        self.assertEqual(by_source["src-cambridge-hopkins"]["edge_count"], 4403)
         self.assertEqual(data["top_degree_nodes"][0]["node_id"], "evobc-code-008")
         self.assertEqual(data["top_degree_nodes"][0]["total_degree"], 10158)
         self.assertIn("routing and coverage summary", " ".join(data["agent_use_rules"]))
@@ -10725,6 +11293,58 @@ class RepositorySkeletonTests(unittest.TestCase):
             if row["summary_kind"] == "classified_table_grand_total"
         ][0]
         self.assertEqual(grand_total["total_count"], "609")
+
+    def test_cambridge_hopkins_inscription_crosswalk_review_queue_routes_all_rows(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 612)
+        self.assertEqual(
+            Counter(row["priority_bucket"] for row in rows),
+            {
+                "crosswalk_refs_present_needs_external_review": 289,
+                "missing_chalfant_heji_refs": 164,
+                "missing_chalfant_ref": 6,
+                "missing_cul_chalfant_heji_refs": 1,
+                "missing_cul_heji_refs": 4,
+                "missing_cul_ref": 1,
+                "missing_heji_ref": 147,
+            },
+        )
+        self.assertEqual(
+            Counter(row["period_group_count_status"] for row in rows),
+            {
+                "differs_from_declared_period_group_count": 143,
+                "matches_declared_period_group_count": 465,
+                "no_declared_group_count": 4,
+            },
+        )
+        self.assertEqual(rows[0]["candidate_inscription_crosswalk_id"], "cam-hopkins-crosswalk-000259")
+        self.assertEqual(rows[0]["missing_reference_types"], "cul_ref;chalfant_ref;heji_ref")
+        self.assertEqual({row["formal_inscription_assignment_status"] for row in rows}, {"not_assigned_formal_obi_id"})
+        self.assertEqual({row["catalog_identity_claim_status"] for row in rows}, {"not_confirmed_catalog_identity"})
+        self.assertEqual({row["image_evidence_status"] for row in rows}, {"not_collected"})
+        self.assertTrue(all("not an inscription reading" in row["caution"] for row in rows))
+
+    def test_cambridge_hopkins_inscription_crosswalk_review_queue_builder_keeps_boundaries(self) -> None:
+        module = load_cambridge_hopkins_inscription_crosswalk_review_queue_module()
+        root = repo_root()
+        rows = module.build_review_queue_rows(
+            module.read_csv_rows(root / module.CAMBRIDGE_HOPKINS_CROSSWALK_STAGING)
+        )
+        self.assertEqual(len(rows), 612)
+        self.assertEqual(rows[0]["priority_bucket"], "missing_cul_chalfant_heji_refs")
+        self.assertEqual(rows[0]["period_group_count_status"], "differs_from_declared_period_group_count")
+        self.assertIn("locate_or_confirm_missing_cul_ref", rows[0]["required_next_checks"])
+        self.assertIn(
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            rows[0]["route_files_to_open"],
+        )
+        self.assertTrue(all(row["text_transcription_status"] == "not_collected" for row in rows))
 
     def test_institutional_collection_provenance_staging_preserves_source_facts(self) -> None:
         path = (
@@ -11287,5 +11907,2397 @@ class RepositorySkeletonTests(unittest.TestCase):
                 for item in data["handoff_items"]
             )
         )
+
+    def test_preprocessing_status_audit_preserves_current_stage_totals(self) -> None:
+        self.assertEqual(check_preprocessing_status_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "091_preprocessing-status-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["row_count"], 11)
+        self.assertEqual(
+            data["stage_counts"],
+            {"pending_human_review": 6, "structured": 1, "verified": 4},
+        )
+        self.assertIn("does not start formal decipherment research", data["completion_boundary"])
+
+    def test_preprocessing_status_audit_builder_keeps_candidate_boundaries(self) -> None:
+        module = load_preprocessing_status_audit_module()
+        rows = module.build_audit_rows(repo_root())
+        self.assertEqual(len(rows), 11)
+        by_type = {row["area_type"]: row for row in rows}
+        self.assertEqual(by_type["oracle_character_candidates"]["current_stage"], "pending_human_review")
+        self.assertIn(
+            "candidate_character_packet_json_files:1588",
+            by_type["oracle_character_candidates"]["count_summary"],
+        )
+        self.assertIn(
+            "undeciphered_candidate_packet_json_files:9408",
+            by_type["undeciphered_character_candidates"]["count_summary"],
+        )
+        self.assertIn(
+            "cambridge_hopkins_crosswalk_review_queue_rows:612",
+            by_type["inscription_and_collection_staging"]["count_summary"],
+        )
+        self.assertIn(
+            "cambridge_hopkins_crosswalk_review_queue_rows:612",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_gap_queue_rows:45",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_execution_matrix_rows:21",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_gap_review_log_draft_rows:45",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_gap_evidence_snapshot_rows:45",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_next_action_checklist_rows:45",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_next_action_result_scaffold_rows:45",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_lane_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_field_map_scaffold_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_field_map_review_checklist_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_field_map_review_result_scaffold_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_field_map_review_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_package_manifest_review_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_access_boundary_review_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_checksum_review_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_metadata_profile_review_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_safe_derived_record_review_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_review_route_summary_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_review_wave_handoff_scaffold_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_result_scaffold_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_review_checklist_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_review_outcome_scaffold_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_outcome_handoff_scaffold_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_handoff_review_checklist_rows:4",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_handoff_route_summary_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_pipeline_gap_matrix_rows:21",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_pipeline_gap_review_checklist_rows:21",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "source_engineering_second_wave_outcome_route_pack_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertEqual(by_type["formal_project_id_maps"]["current_stage"], "structured")
+        self.assertIn(
+            "formal_character_map_rows:0",
+            by_type["formal_project_id_maps"]["count_summary"],
+        )
+        self.assertTrue(all("Preprocessing audit only" in row["caution"] for row in rows))
+
+    def test_data_quality_audit_preserves_current_quality_totals(self) -> None:
+        self.assertEqual(check_data_quality_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "093_data-quality-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["dataset_count"], 25)
+        self.assertEqual(data["quality_status_counts"], {"pass": 25})
+        self.assertEqual(data["totals"]["row_count"], 121607)
+        self.assertEqual(data["totals"]["issue_count"], 0)
+        self.assertIn("does not promote candidate identities", data["completion_boundary"])
+
+    def test_data_quality_audit_builder_checks_reference_integrity(self) -> None:
+        module = load_data_quality_audit_module()
+        rows = module.build_quality_rows(repo_root())
+        self.assertEqual(len(rows), 25)
+        by_dataset = {row["dataset_id"]: row for row in rows}
+        self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
+        self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
+        self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["missing_path_count"], "0")
+        self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["boundary_status_violation_count"], "0")
+        self.assertIn(
+            "promotion_status=needs_cross_source_review:1588",
+            by_dataset["hust_obc_promotion_review_queue"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["hust_obimd_evobc_codepoint_crosswalk"]["issue_count"], "0")
+        self.assertEqual(
+            by_dataset["cambridge_hopkins_inscription_crosswalk_review_queue"]["row_count"],
+            "612",
+        )
+        self.assertEqual(
+            by_dataset["cambridge_hopkins_inscription_crosswalk_review_queue"][
+                "boundary_status_violation_count"
+            ],
+            "0",
+        )
+        self.assertEqual(by_dataset["source_engineering_gap_queue"]["row_count"], "45")
+        self.assertEqual(by_dataset["source_engineering_gap_queue"]["missing_path_count"], "0")
+        self.assertEqual(by_dataset["source_engineering_gap_queue"]["boundary_status_violation_count"], "0")
+        self.assertEqual(by_dataset["source_engineering_execution_matrix"]["row_count"], "21")
+        self.assertEqual(by_dataset["source_engineering_execution_matrix"]["missing_path_count"], "0")
+        self.assertEqual(by_dataset["source_engineering_execution_matrix"]["boundary_status_violation_count"], "0")
+        self.assertIn(
+            "review_status=needs_source_engineering_review:18",
+            by_dataset["source_engineering_execution_matrix"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_engineering_gap_review_log_draft_manifest"]["row_count"], "45")
+        self.assertEqual(
+            by_dataset["source_engineering_gap_review_log_draft_manifest"]["missing_path_count"],
+            "0",
+        )
+        self.assertEqual(
+            by_dataset["source_engineering_gap_review_log_draft_manifest"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "draft_status=draft_not_collected:45",
+            by_dataset["source_engineering_gap_review_log_draft_manifest"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_engineering_gap_evidence_snapshot"]["row_count"], "45")
+        self.assertEqual(by_dataset["source_engineering_gap_evidence_snapshot"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_engineering_gap_evidence_snapshot"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "evidence_status=metadata_only_existing_records_snapshot:45",
+            by_dataset["source_engineering_gap_evidence_snapshot"]["status_counts"],
+        )
+        self.assertIn(
+            "corpus_import_status=not_imported:45",
+            by_dataset["source_engineering_gap_evidence_snapshot"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_engineering_next_action_checklist"]["row_count"], "45")
+        self.assertEqual(by_dataset["source_engineering_next_action_checklist"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_engineering_next_action_checklist"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "action_status=ready_for_source_engineering_review:45",
+            by_dataset["source_engineering_next_action_checklist"]["status_counts"],
+        )
+        self.assertIn(
+            "safe_to_automate_status=metadata_review_safe_manifest_decision_requires_human:15",
+            by_dataset["source_engineering_next_action_checklist"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_engineering_next_action_result_scaffold"]["row_count"], "45")
+        self.assertEqual(by_dataset["source_engineering_next_action_result_scaffold"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_engineering_next_action_result_scaffold"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "result_status=not_started:45",
+            by_dataset["source_engineering_next_action_result_scaffold"]["status_counts"],
+        )
+        self.assertIn(
+            "decipherment_claim_status=no_decipherment_claim:45",
+            by_dataset["source_engineering_next_action_result_scaffold"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_engineering_lane_summary"]["row_count"], "6")
+        self.assertEqual(by_dataset["source_engineering_lane_summary"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_engineering_lane_summary"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "review_status=summary_only_pending_source_engineering_review:6",
+            by_dataset["source_engineering_lane_summary"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_field_map_scaffold"]["row_count"], "4")
+        self.assertEqual(by_dataset["source_field_map_scaffold"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_field_map_scaffold"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "field_map_review_status=pending_human_field_map_review:4",
+            by_dataset["source_field_map_scaffold"]["status_counts"],
+        )
+        self.assertIn(
+            "decipherment_claim_status=no_decipherment_claim:4",
+            by_dataset["source_field_map_scaffold"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_field_map_review_checklist"]["row_count"], "4")
+        self.assertEqual(by_dataset["source_field_map_review_checklist"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_field_map_review_checklist"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "checklist_status=not_started:4",
+            by_dataset["source_field_map_review_checklist"]["status_counts"],
+        )
+        self.assertIn(
+            "field_map_review_status=pending_human_field_map_review:4",
+            by_dataset["source_field_map_review_checklist"]["status_counts"],
+        )
+        self.assertIn(
+            "decipherment_claim_status=no_decipherment_claim:4",
+            by_dataset["source_field_map_review_checklist"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["source_field_map_review_result_scaffold"]["row_count"], "4")
+        self.assertEqual(by_dataset["source_field_map_review_result_scaffold"]["missing_path_count"], "0")
+        self.assertEqual(
+            by_dataset["source_field_map_review_result_scaffold"]["boundary_status_violation_count"],
+            "0",
+        )
+        self.assertIn(
+            "field_map_result_status=not_started:4",
+            by_dataset["source_field_map_review_result_scaffold"]["status_counts"],
+        )
+        self.assertIn(
+            "field_map_review_status=pending_human_field_map_review:4",
+            by_dataset["source_field_map_review_result_scaffold"]["status_counts"],
+        )
+        self.assertIn(
+            "decipherment_claim_status=no_decipherment_claim:4",
+            by_dataset["source_field_map_review_result_scaffold"]["status_counts"],
+        )
+        self.assertEqual(by_dataset["008_cambridge-hopkins-inscription-crosswalk-graph-edges"]["row_count"], "4403")
+        self.assertTrue(all(row["quality_status"] == "pass" for row in rows))
+
+    def test_source_engineering_gap_queue_records_current_pipeline_gaps(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "099_ai-agent-source-engineering-gap-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(
+            Counter(row["gap_type"] for row in rows),
+            {
+                "access_boundary_or_error_followup": 6,
+                "checksum_or_failed_download_status_review_needed": 5,
+                "metadata_profile_extraction_needed": 5,
+                "package_file_manifest_or_not_applicable_decision_needed": 15,
+                "safe_derived_record_decision_needed": 10,
+                "source_field_map_needed": 4,
+            },
+        )
+        self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["review_status"] for row in rows}, {"needs_source_engineering_review"})
+        self.assertTrue(all("not a corpus import" in row["caution"] for row in rows))
+
+    def test_source_engineering_gap_queue_builder_keeps_gap_distribution(self) -> None:
+        module = load_source_engineering_gap_queue_module()
+        root = repo_root()
+        rows = module.build_gap_rows(
+            module.read_csv_rows(root / module.SOURCE_PROCESSING_PIPELINE_AUDIT),
+            module.read_csv_rows(root / module.SOURCE_COVERAGE_SUMMARY),
+        )
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
+        self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
+        self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
+        self.assertIn(
+            "project_registry/006_large-source-register/002_source-download-log.csv",
+            rows[0]["route_files_to_open"],
+        )
+        self.assertEqual(rows[-1]["gap_type"], "safe_derived_record_decision_needed")
+
+    def test_source_engineering_execution_matrix_records_source_work_surface(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "100_ai-agent-source-engineering-execution-matrix.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["gap_count"], "0")
+        self.assertEqual(by_source["src-hust-obc"]["review_status"], "no_current_source_engineering_gap")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["highest_priority_rank"], "1")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["gap_count"], "2")
+        self.assertEqual(
+            Counter(row["review_status"] for row in rows),
+            {"needs_source_engineering_review": 18, "no_current_source_engineering_gap": 3},
+        )
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertTrue(all("not a corpus import" in row["caution"] for row in rows))
+
+    def test_source_engineering_execution_matrix_builder_keeps_gap_totals(self) -> None:
+        module = load_source_engineering_execution_matrix_module()
+        root = repo_root()
+        rows = module.build_execution_rows(
+            module.read_csv_rows(root / module.SOURCE_PROCESSING_PIPELINE_AUDIT),
+            module.read_csv_rows(root / module.SOURCE_ENGINEERING_GAP_QUEUE),
+        )
+        summary = module.build_summary(rows)
+        self.assertEqual(len(rows), 21)
+        self.assertEqual(summary["source_with_gap_count"], 18)
+        self.assertEqual(summary["total_gap_count"], 45)
+        self.assertEqual(
+            summary["gap_type_counts"],
+            {
+                "access_boundary_or_error_followup": 6,
+                "checksum_or_failed_download_status_review_needed": 5,
+                "metadata_profile_extraction_needed": 5,
+                "package_file_manifest_or_not_applicable_decision_needed": 15,
+                "safe_derived_record_decision_needed": 10,
+                "source_field_map_needed": 4,
+            },
+        )
+        self.assertIn("does not download raw material", summary["completion_boundary"])
+
+    def test_source_engineering_gap_review_log_drafts_are_empty_scaffolds(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(
+            Counter(row["gap_type"] for row in rows),
+            {
+                "access_boundary_or_error_followup": 6,
+                "checksum_or_failed_download_status_review_needed": 5,
+                "metadata_profile_extraction_needed": 5,
+                "package_file_manifest_or_not_applicable_decision_needed": 15,
+                "safe_derived_record_decision_needed": 10,
+                "source_field_map_needed": 4,
+            },
+        )
+        self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertTrue(all((repo_root() / row["draft_path"]).exists() for row in rows))
+        first_text = (repo_root() / rows[0]["draft_path"]).read_text(encoding="utf-8")
+        self.assertIn("Evidence items /", first_text)
+        self.assertIn("none", first_text)
+        self.assertIn("no rights clearance", first_text)
+
+    def test_source_engineering_gap_review_log_draft_builder_keeps_boundaries(self) -> None:
+        module = load_source_engineering_gap_review_log_drafts_module()
+        root = repo_root()
+        rows = module.build_draft_manifest_rows(
+            module.read_csv_rows(root / module.SOURCE_ENGINEERING_GAP_QUEUE)
+        )
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(rows[0]["review_log_draft_id"], "source-engineering-gap-review-log-draft-0001")
+        self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
+        self.assertEqual(rows[0]["evidence_collection_status"], "not_collected")
+        self.assertEqual(rows[0]["source_promotion_status"], "not_promoted")
+        markdown = module.build_markdown(rows[0])
+        self.assertIn("Source Engineering Gap Review Log Draft", markdown)
+        self.assertIn("This draft intentionally contains no collected evidence yet", markdown)
+        self.assertIn("not a corpus import", markdown)
+
+    def test_source_engineering_gap_evidence_snapshot_records_existing_metadata(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "103_ai-agent-source-engineering-gap-evidence-snapshot.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(
+            Counter(row["gap_type"] for row in rows),
+            {
+                "access_boundary_or_error_followup": 6,
+                "checksum_or_failed_download_status_review_needed": 5,
+                "metadata_profile_extraction_needed": 5,
+                "package_file_manifest_or_not_applicable_decision_needed": 15,
+                "safe_derived_record_decision_needed": 10,
+                "source_field_map_needed": 4,
+            },
+        )
+        self.assertEqual({row["evidence_status"] for row in rows}, {"metadata_only_existing_records_snapshot"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["route_file_missing_count"] for row in rows}, {"0"})
+        self.assertTrue(all((repo_root() / row["draft_path"]).exists() for row in rows))
+        self.assertTrue(all("not a new download" in row["caution"] for row in rows))
+        self.assertTrue(all("not corpus import" in row["caution"] for row in rows))
+
+    def test_source_engineering_gap_evidence_snapshot_builder_keeps_boundaries(self) -> None:
+        module = load_source_engineering_gap_evidence_snapshot_module()
+        rows = module.build_snapshot_rows(repo_root())
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(rows[0]["evidence_snapshot_id"], "source-engineering-gap-evidence-snapshot-0001")
+        self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(rows[0]["download_log_status_counts"], "http_error:1")
+        self.assertEqual(rows[0]["download_log_http_status_counts"], "403:1")
+        self.assertEqual(rows[0]["route_file_missing_count"], "0")
+        self.assertEqual(rows[0]["evidence_status"], module.EVIDENCE_STATUS)
+        self.assertEqual(rows[0]["rights_decision_status"], module.RIGHTS_DECISION_STATUS)
+        self.assertEqual(rows[0]["source_promotion_status"], module.SOURCE_PROMOTION_STATUS)
+        self.assertEqual(rows[0]["corpus_import_status"], module.CORPUS_IMPORT_STATUS)
+        self.assertIn("not checksum recalculation", rows[0]["caution"])
+        self.assertIn("not a decipherment conclusion", rows[0]["caution"])
+
+    def test_source_engineering_next_action_checklist_routes_gap_lanes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "104_ai-agent-source-engineering-next-action-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(
+            Counter(row["action_lane"] for row in rows),
+            {
+                "access_boundary_followup": 6,
+                "checksum_and_download_status_review": 5,
+                "metadata_profile_extraction_planning": 5,
+                "package_manifest_or_not_applicable_review": 15,
+                "safe_derived_record_decision": 10,
+                "source_field_map_planning": 4,
+            },
+        )
+        self.assertEqual({row["action_status"] for row in rows}, {"ready_for_source_engineering_review"})
+        self.assertEqual({row["human_review_status"] for row in rows}, {"pending_human_review"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertTrue(all((repo_root() / row["primary_input_path"]).exists() for row in rows))
+        self.assertTrue(all((repo_root() / row["review_log_path"]).exists() for row in rows))
+        self.assertTrue(all("does not execute downloads" in row["caution"] for row in rows))
+
+    def test_source_engineering_next_action_checklist_builder_keeps_boundaries(self) -> None:
+        module = load_source_engineering_next_action_checklist_module()
+        rows = module.build_checklist_rows(repo_root())
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0001")
+        self.assertEqual(rows[0]["evidence_snapshot_id"], "source-engineering-gap-evidence-snapshot-0001")
+        self.assertEqual(rows[0]["action_lane"], "access_boundary_followup")
+        self.assertEqual(rows[0]["safe_to_automate_status"], "metadata_routing_safe_content_capture_blocked")
+        self.assertIn("manual_browser_or_institutional_export", rows[0]["human_gate"])
+        self.assertIn("open_download_log", rows[0]["checklist_items"])
+        self.assertIn("not_imported", {row["corpus_import_status"] for row in rows})
+        self.assertIn("make decipherment conclusions", rows[0]["caution"])
+
+    def test_source_engineering_next_action_result_scaffold_is_empty(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "105_ai-agent-source-engineering-next-action-result-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 45)
+        self.assertEqual({row["result_status"] for row in rows}, {"not_started"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        self.assertTrue(all((repo_root() / row["source_checklist_path"]).exists() for row in rows))
+        self.assertTrue(all(row["result_record_path"].endswith("_next-action-result.md") for row in rows))
+        self.assertTrue(all("does not record completed evidence" in row["caution"] for row in rows))
+
+    def test_source_engineering_next_action_result_scaffold_builder_keeps_empty_results(self) -> None:
+        module = load_source_engineering_next_action_result_scaffold_module()
+        rows = module.build_result_scaffold_rows(repo_root())
+        self.assertEqual(len(rows), 45)
+        self.assertEqual(rows[0]["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0001")
+        self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0001")
+        self.assertEqual(rows[0]["action_lane"], "access_boundary_followup")
+        self.assertEqual(rows[0]["result_record_path"], rows[0]["expected_result_path"])
+        self.assertEqual(rows[0]["result_status"], module.RESULT_STATUS)
+        self.assertEqual(rows[0]["evidence_collection_status"], module.EVIDENCE_COLLECTION_STATUS)
+        self.assertIn("not a rights decision", rows[0]["caution"])
+        self.assertIn("not a corpus import", rows[0]["caution"])
+
+    def test_source_engineering_lane_summary_groups_current_backlog(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "106_ai-agent-source-engineering-lane-summary.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 6)
+        by_lane = {row["action_lane"]: row for row in rows}
+        self.assertEqual(by_lane["package_manifest_or_not_applicable_review"]["action_count"], "15")
+        self.assertEqual(by_lane["safe_derived_record_decision"]["action_count"], "10")
+        self.assertEqual(by_lane["source_field_map_planning"]["action_count"], "4")
+        self.assertTrue(all(row["result_status_counts"] == "not_started:{}".format(row["action_count"]) for row in rows))
+        self.assertTrue(all(row["source_promotion_status_counts"] == "not_promoted:{}".format(row["action_count"]) for row in rows))
+        self.assertTrue(all(row["corpus_import_status_counts"] == "not_imported:{}".format(row["action_count"]) for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status_counts"] == "no_decipherment_claim:{}".format(row["action_count"]) for row in rows))
+        self.assertTrue(all((repo_root() / row["checklist_path"]).exists() for row in rows))
+        self.assertTrue(all((repo_root() / row["result_scaffold_path"]).exists() for row in rows))
+        self.assertTrue(all("summary only" in row["caution"] for row in rows))
+
+    def test_source_engineering_lane_summary_builder_counts_lanes(self) -> None:
+        module = load_source_engineering_lane_summary_module()
+        rows = module.build_lane_summary_rows(repo_root())
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(rows[0]["lane_summary_id"], "source-engineering-lane-summary-001")
+        by_lane = {row["action_lane"]: row for row in rows}
+        self.assertEqual(by_lane["access_boundary_followup"]["priority_min"], "1")
+        self.assertEqual(by_lane["access_boundary_followup"]["action_count"], "6")
+        self.assertEqual(by_lane["metadata_profile_extraction_planning"]["result_status_counts"], "not_started:5")
+        self.assertEqual(by_lane["checksum_and_download_status_review"]["evidence_collection_status_counts"], "not_collected:5")
+        self.assertTrue(all(row["review_status"] == module.REVIEW_STATUS for row in rows))
+        self.assertIn("does not complete source-engineering review", rows[0]["caution"])
+
+    def test_source_engineering_lane_route_pack_indexes_review_lanes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "107_ai-agent-source-engineering-lane-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-engineering-lane-route-pack-001")
+        self.assertEqual(data["lane_count"], 6)
+        self.assertEqual(data["action_count"], 45)
+        self.assertEqual(data["result_scaffold_count"], 45)
+        self.assertEqual(data["review_status"], "route_pack_pending_source_engineering_review")
+        self.assertIn("does not collect evidence", data["caution"])
+        by_lane = {lane["action_lane"]: lane for lane in data["lanes"]}
+        self.assertEqual(by_lane["access_boundary_followup"]["action_count"], 6)
+        self.assertEqual(by_lane["package_manifest_or_not_applicable_review"]["action_count"], 15)
+        self.assertEqual(
+            by_lane["safe_derived_record_decision"]["result_status_counts"],
+            "not_started:10",
+        )
+        self.assertTrue(all((repo_root() / lane["checklist_path"]).exists() for lane in data["lanes"]))
+        self.assertTrue(all((repo_root() / lane["result_scaffold_path"]).exists() for lane in data["lanes"]))
+        self.assertTrue(
+            all(task["result_status"] == "not_started" for lane in data["lanes"] for task in lane["tasks"])
+        )
+        self.assertTrue(
+            all(task["decipherment_claim_status"] == "no_decipherment_claim" for lane in data["lanes"] for task in lane["tasks"])
+        )
+
+    def test_source_engineering_lane_route_pack_builder_keeps_metadata_boundaries(self) -> None:
+        module = load_source_engineering_lane_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["lane_count"], 6)
+        self.assertEqual(data["action_count"], 45)
+        self.assertEqual(data["lanes"][0]["action_lane"], "access_boundary_followup")
+        self.assertEqual(data["lanes"][0]["tasks"][0]["next_action_id"], "source-engineering-next-action-0001")
+        self.assertIn("open_download_log", data["lanes"][0]["tasks"][0]["checklist_items"])
+        self.assertEqual(data["lanes"][0]["tasks"][0]["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(data["lanes"][0]["tasks"][0]["source_promotion_status"], "not_promoted")
+        self.assertEqual(data["lanes"][0]["tasks"][0]["corpus_import_status"], "not_imported")
+        self.assertIn("does not collect evidence", data["caution"])
+
+    def test_source_package_manifest_review_route_pack_indexes_manifest_lane(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "112_ai-agent-source-package-manifest-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-package-manifest-review-route-pack-001")
+        self.assertEqual(data["action_lane"], "package_manifest_or_not_applicable_review")
+        self.assertEqual(data["source_count"], 15)
+        self.assertEqual(data["route_count"], 15)
+        self.assertEqual(data["review_status"], "route_pack_pending_package_manifest_review")
+        self.assertEqual(data["research_boundary"], "source_package_manifest_review_route_pack_not_reviewed_decision")
+        self.assertIn("does not decide package manifest applicability", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        self.assertIn("src-cambridge-hopkins", {route["source_id"] for route in data["routes"]})
+        self.assertIn("src-yinqi-wenyuan", {route["source_id"] for route in data["routes"]})
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0021")
+        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0021")
+        self.assertEqual(first_route["manifest_decision"], "")
+        self.assertEqual(first_route["result_status"], "not_started")
+        self.assertEqual(first_route["evidence_collection_status"], "not_collected")
+        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first_route["source_promotion_status"], "not_promoted")
+        self.assertEqual(first_route["corpus_import_status"], "not_imported")
+        self.assertEqual(first_route["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn("record_manifest_needed_or_not_applicable", first_route["checklist_items"])
+        self.assertIn("keep_raw_package_outside_regular_git", first_route["checklist_items"])
+        for route in data["routes"]:
+            for field in [
+                "primary_input_path",
+                "source_checklist_path",
+                "package_manifest_path",
+                "large_source_register_path",
+                "download_log_path",
+                "review_log_path",
+            ]:
+                self.assertTrue((repo_root() / route[field]).exists(), route[field])
+            result_record_path = repo_root() / route["result_record_path"]
+            self.assertTrue(result_record_path.parent.exists(), route["result_record_path"])
+            self.assertTrue(route["result_record_path"].endswith("_next-action-result.md"))
+
+    def test_source_package_manifest_review_route_pack_builder_keeps_empty_decisions(self) -> None:
+        module = load_source_package_manifest_review_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["route_count"], 15)
+        self.assertEqual(data["routes"][0]["source_id"], "src-cambridge-hopkins")
+        self.assertEqual(data["routes"][0]["gap_type"], "package_file_manifest_or_not_applicable_decision_needed")
+        self.assertEqual(data["routes"][0]["automation_scope"], "manifest_gap_review_only")
+        self.assertEqual(
+            data["routes"][0]["blocking_condition"],
+            "no_raw_package_commit_without_manifest_or_explicit_not_applicable_decision",
+        )
+        self.assertEqual(data["routes"][0]["manifest_decision"], "")
+        self.assertEqual(data["routes"][0]["result_status"], "not_started")
+        self.assertEqual(data["routes"][0]["human_review_status"], "pending_human_review")
+        self.assertIn("not a corpus import", data["caution"])
+
+    def test_source_access_boundary_review_route_pack_indexes_access_lane(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "113_ai-agent-source-access-boundary-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-access-boundary-review-route-pack-001")
+        self.assertEqual(data["action_lane"], "access_boundary_followup")
+        self.assertEqual(data["source_count"], 6)
+        self.assertEqual(data["route_count"], 6)
+        self.assertEqual(data["review_status"], "route_pack_pending_access_boundary_review")
+        self.assertEqual(data["research_boundary"], "source_access_boundary_review_route_pack_not_access_decision")
+        self.assertIn("does not resolve access outcomes", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        self.assertIn("src-british-museum-oracle-bone", {route["source_id"] for route in data["routes"]})
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0001")
+        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0001")
+        self.assertEqual(first_route["access_outcome"], "")
+        self.assertEqual(first_route["result_status"], "not_started")
+        self.assertEqual(first_route["evidence_collection_status"], "not_collected")
+        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first_route["source_promotion_status"], "not_promoted")
+        self.assertEqual(first_route["corpus_import_status"], "not_imported")
+        self.assertEqual(first_route["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn("record_access_outcome", first_route["checklist_items"])
+        self.assertIn("separate_http_tls_access_boundary_from_source_content", first_route["checklist_items"])
+        for route in data["routes"]:
+            for field in [
+                "primary_input_path",
+                "source_checklist_path",
+                "source_register_path",
+                "source_coverage_summary_path",
+                "download_manifest_path",
+                "download_log_path",
+                "download_status_codebook_path",
+                "review_log_path",
+            ]:
+                self.assertTrue((repo_root() / route[field]).exists(), route[field])
+            result_record_path = repo_root() / route["result_record_path"]
+            self.assertTrue(result_record_path.parent.exists(), route["result_record_path"])
+            self.assertTrue(route["result_record_path"].endswith("_next-action-result.md"))
+
+    def test_source_access_boundary_review_route_pack_builder_keeps_empty_outcomes(self) -> None:
+        module = load_source_access_boundary_review_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["route_count"], 6)
+        self.assertEqual(data["routes"][0]["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(data["routes"][0]["gap_type"], "access_boundary_or_error_followup")
+        self.assertEqual(
+            data["routes"][0]["automation_scope"],
+            "route_metadata_only_manual_access_may_be_needed",
+        )
+        self.assertEqual(
+            data["routes"][0]["blocking_condition"],
+            "no_content_import_until_access_or_metadata_only_boundary_is_reviewed",
+        )
+        self.assertEqual(data["routes"][0]["access_outcome"], "")
+        self.assertEqual(data["routes"][0]["result_status"], "not_started")
+        self.assertEqual(data["routes"][0]["human_review_status"], "pending_human_review")
+        self.assertIn("not a corpus import", data["caution"])
+
+    def test_source_checksum_review_route_pack_indexes_checksum_lane(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "114_ai-agent-source-checksum-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-checksum-review-route-pack-001")
+        self.assertEqual(data["action_lane"], "checksum_and_download_status_review")
+        self.assertEqual(data["source_count"], 5)
+        self.assertEqual(data["route_count"], 5)
+        self.assertEqual(data["review_status"], "route_pack_pending_checksum_review")
+        self.assertEqual(data["research_boundary"], "source_checksum_review_route_pack_not_download_or_checksum_decision")
+        self.assertIn("does not recalculate checksums", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        self.assertIn("src-xiaoxuetang-jiaguwen", {route["source_id"] for route in data["routes"]})
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0007")
+        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0007")
+        self.assertEqual(first_route["checksum_outcome"], "")
+        self.assertEqual(first_route["result_status"], "not_started")
+        self.assertEqual(first_route["evidence_collection_status"], "not_collected")
+        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first_route["source_promotion_status"], "not_promoted")
+        self.assertEqual(first_route["corpus_import_status"], "not_imported")
+        self.assertEqual(first_route["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn("verify_status_and_size_fields", first_route["checklist_items"])
+        self.assertIn("confirm_checksum_absence_or_presence", first_route["checklist_items"])
+        for route in data["routes"]:
+            for field in [
+                "primary_input_path",
+                "source_checklist_path",
+                "source_processing_pipeline_audit_path",
+                "download_log_path",
+                "download_status_codebook_path",
+                "review_log_path",
+            ]:
+                self.assertTrue((repo_root() / route[field]).exists(), route[field])
+            result_record_path = repo_root() / route["result_record_path"]
+            self.assertTrue(result_record_path.parent.exists(), route["result_record_path"])
+            self.assertTrue(route["result_record_path"].endswith("_next-action-result.md"))
+
+    def test_source_checksum_review_route_pack_builder_keeps_empty_outcomes(self) -> None:
+        module = load_source_checksum_review_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["route_count"], 5)
+        self.assertEqual(data["routes"][0]["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(data["routes"][0]["gap_type"], "checksum_or_failed_download_status_review_needed")
+        self.assertEqual(data["routes"][0]["automation_scope"], "existing_download_log_metadata_only")
+        self.assertEqual(
+            data["routes"][0]["blocking_condition"],
+            "no_source_package_or_derivative_promotion_without_reviewed_download_status",
+        )
+        self.assertEqual(data["routes"][0]["checksum_outcome"], "")
+        self.assertEqual(data["routes"][0]["result_status"], "not_started")
+        self.assertEqual(data["routes"][0]["human_review_status"], "pending_human_review")
+        self.assertIn("not a corpus import", data["caution"])
+
+    def test_source_metadata_profile_review_route_pack_indexes_profile_lane(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "115_ai-agent-source-metadata-profile-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-metadata-profile-review-route-pack-001")
+        self.assertEqual(data["action_lane"], "metadata_profile_extraction_planning")
+        self.assertEqual(data["source_count"], 5)
+        self.assertEqual(data["route_count"], 5)
+        self.assertEqual(data["review_status"], "route_pack_pending_metadata_profile_review")
+        self.assertEqual(data["research_boundary"], "source_metadata_profile_review_route_pack_not_extraction_decision")
+        self.assertIn("does not extract metadata profiles", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        self.assertIn("src-cambridge-hopkins", {route["source_id"] for route in data["routes"]})
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0012")
+        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0012")
+        self.assertEqual(first_route["metadata_profile_decision"], "")
+        self.assertEqual(first_route["result_status"], "not_started")
+        self.assertEqual(first_route["evidence_collection_status"], "not_collected")
+        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first_route["source_promotion_status"], "not_promoted")
+        self.assertEqual(first_route["corpus_import_status"], "not_imported")
+        self.assertEqual(first_route["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn("define_profile_metrics", first_route["checklist_items"])
+        self.assertIn("record_extraction_boundary", first_route["checklist_items"])
+        for route in data["routes"]:
+            for field in [
+                "primary_input_path",
+                "source_checklist_path",
+                "source_processing_pipeline_audit_path",
+                "source_register_path",
+                "download_log_path",
+                "downloaded_metadata_profile_path",
+                "review_log_path",
+            ]:
+                self.assertTrue((repo_root() / route[field]).exists(), route[field])
+            result_record_path = repo_root() / route["result_record_path"]
+            self.assertTrue(result_record_path.parent.exists(), route["result_record_path"])
+            self.assertTrue(route["result_record_path"].endswith("_next-action-result.md"))
+
+    def test_source_metadata_profile_review_route_pack_builder_keeps_empty_decisions(self) -> None:
+        module = load_source_metadata_profile_review_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["route_count"], 5)
+        self.assertEqual(data["routes"][0]["source_id"], "src-cambridge-hopkins")
+        self.assertEqual(data["routes"][0]["gap_type"], "metadata_profile_extraction_needed")
+        self.assertEqual(
+            data["routes"][0]["automation_scope"],
+            "profile_extraction_can_be_scripted_from_reviewed_local_or_registered_rows",
+        )
+        self.assertEqual(
+            data["routes"][0]["blocking_condition"],
+            "no_profile_from_raw_or_restricted_material_until_source_route_is_reviewed",
+        )
+        self.assertEqual(data["routes"][0]["metadata_profile_decision"], "")
+        self.assertEqual(data["routes"][0]["result_status"], "not_started")
+        self.assertEqual(data["routes"][0]["human_review_status"], "pending_human_review")
+        self.assertIn("not a corpus import", data["caution"])
+
+    def test_source_safe_derived_record_review_route_pack_indexes_safe_derived_lane(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "116_ai-agent-source-safe-derived-record-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-safe-derived-record-review-route-pack-001")
+        self.assertEqual(data["action_lane"], "safe_derived_record_decision")
+        self.assertEqual(data["source_count"], 10)
+        self.assertEqual(data["route_count"], 10)
+        self.assertEqual(data["review_status"], "route_pack_pending_safe_derived_record_review")
+        self.assertEqual(data["research_boundary"], "source_safe_derived_record_review_route_pack_not_promotion_decision")
+        self.assertIn("does not decide safe derived records", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        self.assertIn("src-gbedobc", {route["source_id"] for route in data["routes"]})
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0036")
+        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0036")
+        self.assertEqual(first_route["safe_derived_record_decision"], "")
+        self.assertEqual(first_route["result_status"], "not_started")
+        self.assertEqual(first_route["evidence_collection_status"], "not_collected")
+        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first_route["source_promotion_status"], "not_promoted")
+        self.assertEqual(first_route["corpus_import_status"], "not_imported")
+        self.assertEqual(first_route["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn("identify_candidate_derived_record", first_route["checklist_items"])
+        self.assertIn("record_rights_risk_and_review_status", first_route["checklist_items"])
+        for route in data["routes"]:
+            for field in [
+                "primary_input_path",
+                "source_checklist_path",
+                "source_processing_pipeline_audit_path",
+                "source_coverage_summary_path",
+                "source_register_path",
+                "downloaded_metadata_profile_path",
+                "review_log_path",
+            ]:
+                self.assertTrue((repo_root() / route[field]).exists(), route[field])
+            result_record_path = repo_root() / route["result_record_path"]
+            self.assertTrue(result_record_path.parent.exists(), route["result_record_path"])
+            self.assertTrue(route["result_record_path"].endswith("_next-action-result.md"))
+
+    def test_source_safe_derived_record_review_route_pack_builder_keeps_empty_decisions(self) -> None:
+        module = load_source_safe_derived_record_review_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["route_count"], 10)
+        self.assertEqual(data["routes"][0]["source_id"], "src-gbedobc")
+        self.assertEqual(data["routes"][0]["gap_type"], "safe_derived_record_decision_needed")
+        self.assertEqual(data["routes"][0]["automation_scope"], "derived_record_route_planning_only")
+        self.assertEqual(
+            data["routes"][0]["blocking_condition"],
+            "no_derived_record_promotion_without_source_marked_reviewed_boundary",
+        )
+        self.assertEqual(data["routes"][0]["safe_derived_record_decision"], "")
+        self.assertEqual(data["routes"][0]["result_status"], "not_started")
+        self.assertEqual(data["routes"][0]["human_review_status"], "pending_human_review")
+        self.assertIn("not a corpus import", data["caution"])
+
+    def test_source_engineering_review_route_summary_covers_all_lane_route_packs(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "117_ai-agent-source-engineering-review-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["summary_id"], "source-engineering-review-route-summary-001")
+        self.assertEqual(data["lane_count"], 6)
+        self.assertEqual(data["route_pack_count"], 6)
+        self.assertEqual(data["total_route_count"], 45)
+        self.assertEqual(data["review_status"], "route_summary_pending_source_engineering_review")
+        self.assertEqual(data["research_boundary"], "source_engineering_review_route_summary_not_review_result")
+        self.assertIn("does not record reviewed outcomes", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        by_lane = {lane["action_lane"]: lane for lane in data["lanes"]}
+        self.assertEqual(set(by_lane), {
+            "access_boundary_followup",
+            "checksum_and_download_status_review",
+            "metadata_profile_extraction_planning",
+            "source_field_map_planning",
+            "package_manifest_or_not_applicable_review",
+            "safe_derived_record_decision",
+        })
+        self.assertEqual(by_lane["access_boundary_followup"]["route_count"], 6)
+        self.assertEqual(by_lane["checksum_and_download_status_review"]["decision_field"], "checksum_outcome")
+        self.assertEqual(
+            by_lane["metadata_profile_extraction_planning"]["decision_field"],
+            "metadata_profile_decision",
+        )
+        self.assertEqual(by_lane["source_field_map_planning"]["decision_field"], "field_map_decision")
+        self.assertEqual(
+            by_lane["package_manifest_or_not_applicable_review"]["decision_field"],
+            "manifest_decision",
+        )
+        self.assertEqual(
+            by_lane["safe_derived_record_decision"]["decision_field"],
+            "safe_derived_record_decision",
+        )
+        for lane in data["lanes"]:
+            self.assertEqual(lane["result_status_counts"], {"not_started": lane["route_count"]})
+            self.assertEqual(lane["evidence_collection_status_counts"], {"not_collected": lane["route_count"]})
+            self.assertEqual(lane["human_review_status_counts"], {"pending_human_review": lane["route_count"]})
+            self.assertEqual(lane["corpus_import_status_counts"], {"not_imported": lane["route_count"]})
+            self.assertEqual(lane["decipherment_claim_status_counts"], {"no_decipherment_claim": lane["route_count"]})
+            self.assertEqual(lane["decision_filled_count"], 0)
+            self.assertTrue((repo_root() / lane["route_pack_path"]).exists(), lane["route_pack_path"])
+            self.assertTrue((repo_root() / lane["first_review_log_path"]).exists(), lane["first_review_log_path"])
+            self.assertTrue((repo_root() / lane["first_result_record_path"]).parent.exists())
+
+    def test_source_engineering_review_route_summary_builder_preserves_empty_results(self) -> None:
+        module = load_source_engineering_review_route_summary_module()
+        data = module.build_summary(repo_root())
+        self.assertEqual(data["total_route_count"], 45)
+        self.assertEqual(data["total_decision_filled_count"], 0)
+        self.assertEqual(data["total_result_started_count"], 0)
+        first_lane = data["lanes"][0]
+        self.assertEqual(first_lane["action_lane"], "access_boundary_followup")
+        self.assertEqual(first_lane["route_pack_path"], module.ROUTE_PACK_SPECS[0]["path"].as_posix())
+        self.assertEqual(first_lane["decision_field"], "access_outcome")
+        self.assertIn("not a corpus import", data["caution"])
+
+    def test_source_engineering_review_wave_handoff_scaffold_opens_first_route_per_lane(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "118_ai-agent-source-engineering-review-wave-handoff-scaffold.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["context_pack_id"], "ai-context-source-engineering-review-wave-handoff-001")
+        self.assertEqual(data["status"], "draft_source_engineering_review_wave_handoff_not_started")
+        self.assertEqual(data["research_boundary"], "source_engineering_review_wave_handoff_not_review_result")
+        self.assertIn("does not record reviewed outcomes", data["caution"])
+        self.assertEqual(data["handoff_scope"]["wave_id"], "source-engineering-review-wave-001")
+        self.assertEqual(data["coverage"]["handoff_item_count"], 6)
+        self.assertEqual(data["coverage"]["action_lane_count"], 6)
+        self.assertEqual(data["coverage"]["source_count"], 4)
+        self.assertEqual(data["coverage"]["review_log_count"], 6)
+        self.assertEqual(data["coverage"]["result_record_count"], 6)
+        self.assertEqual(data["coverage"]["decision_filled_count"], 0)
+        self.assertEqual(data["coverage"]["result_started_count"], 0)
+        self.assertEqual(data["coverage"]["evidence_collection_status_counts"], {"not_collected": 6})
+        self.assertEqual(data["coverage"]["human_review_status_counts"], {"pending_human_review": 6})
+        self.assertEqual(data["coverage"]["rights_decision_status_counts"], {"no_new_rights_decision": 6})
+        self.assertEqual(data["coverage"]["source_promotion_status_counts"], {"not_promoted": 6})
+        self.assertEqual(data["coverage"]["corpus_import_status_counts"], {"not_imported": 6})
+        self.assertEqual(data["coverage"]["decipherment_claim_status_counts"], {"no_decipherment_claim": 6})
+        self.assertEqual(
+            [item["action_lane"] for item in data["handoff_items"]],
+            [
+                "access_boundary_followup",
+                "checksum_and_download_status_review",
+                "metadata_profile_extraction_planning",
+                "source_field_map_planning",
+                "package_manifest_or_not_applicable_review",
+                "safe_derived_record_decision",
+            ],
+        )
+        self.assertEqual(data["handoff_items"][0]["next_action_id"], "source-engineering-next-action-0001")
+        self.assertEqual(data["handoff_items"][0]["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(data["handoff_items"][-1]["next_action_id"], "source-engineering-next-action-0036")
+        for source_path in data["generated_from"]:
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        for item in data["handoff_items"]:
+            self.assertEqual(item["handoff_status"], "ready_for_source_engineering_review_not_started")
+            self.assertEqual(item["result_status"], "not_started")
+            self.assertEqual(item["decision_value"], "")
+            self.assertEqual(item["evidence_collection_status"], "not_collected")
+            self.assertEqual(item["corpus_import_status"], "not_imported")
+            self.assertEqual(item["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertTrue((repo_root() / item["route_pack_path"]).exists(), item["route_pack_path"])
+            self.assertTrue((repo_root() / item["review_log_path"]).exists(), item["review_log_path"])
+            self.assertTrue((repo_root() / item["result_record_path"]).parent.exists(), item["result_record_path"])
+
+    def test_source_engineering_review_wave_handoff_builder_keeps_first_wave_empty(self) -> None:
+        module = load_source_engineering_review_wave_handoff_scaffold_module()
+        summary = json.loads((repo_root() / module.REVIEW_ROUTE_SUMMARY).read_text(encoding="utf-8"))
+        data = module.build_wave_handoff_scaffold(repo_root(), summary)
+        self.assertEqual(data["coverage"]["handoff_item_count"], 6)
+        self.assertEqual(data["coverage"]["decision_filled_count"], 0)
+        self.assertEqual(data["coverage"]["result_started_count"], 0)
+        self.assertEqual(data["route_files_to_open"][0], module.REVIEW_ROUTE_SUMMARY.as_posix())
+        self.assertIn("not a rights decision", data["agent_use_rules"][2])
+
+    def test_source_engineering_first_wave_review_results_capture_existing_metadata(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "119_ai-agent-source-engineering-first-wave-review-results.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(
+            [row["action_lane"] for row in rows],
+            [
+                "access_boundary_followup",
+                "checksum_and_download_status_review",
+                "metadata_profile_extraction_planning",
+                "source_field_map_planning",
+                "package_manifest_or_not_applicable_review",
+                "safe_derived_record_decision",
+            ],
+        )
+        by_action = {row["next_action_id"]: row for row in rows}
+        access = by_action["source-engineering-next-action-0001"]
+        self.assertEqual(access["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(access["decision_field"], "access_outcome")
+        self.assertEqual(access["decision_value"], "access_boundary_recorded_http_error_403")
+        self.assertEqual(access["download_log_ids"], "dl-british-museum-oa-165")
+        self.assertEqual(access["download_log_status_counts"], "http_error:1")
+        self.assertEqual(access["download_log_http_status_counts"], "403:1")
+        self.assertEqual(access["download_log_checksum_present_count"], "0")
+        checksum = by_action["source-engineering-next-action-0007"]
+        self.assertEqual(checksum["decision_field"], "checksum_outcome")
+        self.assertEqual(checksum["decision_value"], "no_checksum_recorded_for_http_error_403_no_recalculation")
+        cambridge_metadata = by_action["source-engineering-next-action-0012"]
+        self.assertEqual(cambridge_metadata["source_id"], "src-cambridge-hopkins")
+        self.assertEqual(cambridge_metadata["metadata_profile_metric_count"], "0")
+        self.assertEqual(cambridge_metadata["decision_value"], "metadata_profile_absent_existing_records_only")
+        ihp_field_map = by_action["source-engineering-next-action-0017"]
+        self.assertEqual(ihp_field_map["field_map_scaffold_id"], "source-field-map-scaffold-001")
+        self.assertEqual(ihp_field_map["field_map_review_status"], "pending_human_field_map_review")
+        self.assertEqual(ihp_field_map["decision_value"], "field_map_scaffold_exists_semantics_pending_human_review")
+        cambridge_manifest = by_action["source-engineering-next-action-0021"]
+        self.assertEqual(cambridge_manifest["package_manifest_row_count"], "0")
+        self.assertEqual(cambridge_manifest["decision_value"], "no_package_manifest_rows_found_decision_pending")
+        gbedobc = by_action["source-engineering-next-action-0036"]
+        self.assertEqual(gbedobc["source_id"], "src-gbedobc")
+        self.assertEqual(gbedobc["metadata_profile_metric_count"], "3")
+        self.assertEqual(
+            gbedobc["metadata_profile_ids"],
+            "metadata-profile-000060;metadata-profile-000061;metadata-profile-000062",
+        )
+        self.assertEqual(gbedobc["decision_value"], "metadata_profiles_available_promotion_decision_pending")
+        for row in rows:
+            self.assertEqual(row["result_status"], "metadata_captured_from_existing_records")
+            self.assertEqual(row["evidence_collection_status"], "existing_metadata_captured")
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(row["source_promotion_status"], "not_promoted")
+            self.assertEqual(row["corpus_import_status"], "not_imported")
+            self.assertEqual(row["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertEqual(row["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(row["component_claim_status"], "no_component_claim")
+            self.assertEqual(row["evolution_claim_status"], "no_evolution_chain_claim")
+            for source_path in row["reviewed_evidence_paths"].split(";"):
+                self.assertTrue((repo_root() / source_path).exists(), source_path)
+            self.assertIn("not rights clearance", row["caution"])
+
+    def test_source_engineering_first_wave_review_results_builder_preserves_boundaries(self) -> None:
+        module = load_source_engineering_first_wave_review_results_module()
+        rows = module.build_result_rows(repo_root())
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(rows[0]["first_wave_result_id"], "source-engineering-first-wave-review-result-0001")
+        self.assertEqual(rows[0]["evidence_snapshot_id"], "source-engineering-gap-evidence-snapshot-0001")
+        self.assertEqual(rows[0]["download_log_http_status_counts"], "403:1")
+        self.assertEqual({row["result_status"] for row in rows}, {"metadata_captured_from_existing_records"})
+        self.assertEqual({row["evidence_collection_status"] for row in rows}, {"existing_metadata_captured"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        self.assertTrue(all("metadata-only" in row["research_boundary"] for row in rows))
+        self.assertTrue(all("not a new download" in row["caution"] for row in rows))
+
+    def test_source_engineering_first_wave_result_records_materialize_review_surfaces(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "120_ai-agent-source-engineering-first-wave-result-record-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 6)
+        first = rows[0]
+        self.assertEqual(first["first_wave_result_id"], "source-engineering-first-wave-review-result-0001")
+        self.assertEqual(first["result_record_status"], "metadata_result_record_materialized")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["decision_value"], "access_boundary_recorded_http_error_403")
+        self.assertEqual(first["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(first["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(first["component_claim_status"], "no_component_claim")
+        self.assertEqual(first["evolution_claim_status"], "no_evolution_chain_claim")
+        for row in rows:
+            record_path = repo_root() / row["result_record_path"]
+            self.assertTrue(record_path.exists(), row["result_record_path"])
+            text = record_path.read_text(encoding="utf-8")
+            self.assertIn("Source Engineering First-Wave Result Record", text)
+            self.assertIn("来源工程第一波结果记录", text)
+            self.assertIn(row["first_wave_result_id"], text)
+            self.assertIn(row["decision_value"], text)
+            self.assertIn("metadata-only review result", text)
+            self.assertIn("no_new_rights_decision", text)
+            self.assertIn("not_promoted", text)
+            self.assertIn("not_imported", text)
+            self.assertIn("no_decipherment_claim", text)
+            self.assertIn("not a new download", text)
+            for source_path in row["reviewed_evidence_paths"].split(";"):
+                self.assertIn(source_path, text)
+                self.assertTrue((repo_root() / source_path).exists(), source_path)
+
+    def test_source_engineering_first_wave_result_records_builder_uses_119_rows(self) -> None:
+        module = load_source_engineering_first_wave_result_records_module()
+        source_rows = module.read_csv_rows(repo_root() / module.FIRST_WAVE_REVIEW_RESULTS)
+        manifest_rows = module.build_manifest_rows(source_rows)
+        self.assertEqual(len(manifest_rows), 6)
+        self.assertEqual(
+            [row["first_wave_result_id"] for row in manifest_rows],
+            [row["first_wave_result_id"] for row in source_rows],
+        )
+        self.assertEqual({row["result_record_status"] for row in manifest_rows}, {"metadata_result_record_materialized"})
+        self.assertEqual({row["rights_decision_status"] for row in manifest_rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in manifest_rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in manifest_rows}, {"not_imported"})
+        self.assertTrue(all("not a rights decision" in row["caution"] for row in manifest_rows))
+        markdown = module.build_markdown(source_rows[0])
+        self.assertIn("access_boundary_recorded_http_error_403", markdown)
+        self.assertIn("download_log_status_counts", markdown)
+        self.assertIn("403:1", markdown)
+        self.assertIn("not a rights decision", markdown)
+
+    def test_source_engineering_first_wave_followup_queue_routes_materialized_results(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "121_ai-agent-source-engineering-first-wave-followup-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(
+            [row["followup_action_type"] for row in rows],
+            [
+                "manual_access_boundary_review",
+                "checksum_absence_boundary_review",
+                "metadata_profile_extraction_plan_review",
+                "field_map_semantics_review",
+                "package_manifest_decision_review",
+                "safe_derived_record_decision_review",
+            ],
+        )
+        first = rows[0]
+        self.assertEqual(first["followup_task_id"], "source-engineering-first-wave-followup-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["decision_value"], "access_boundary_recorded_http_error_403")
+        self.assertEqual(first["followup_status"], "pending_human_review")
+        self.assertEqual(first["automation_boundary"], "human_gated_metadata_only_followup")
+        self.assertIn("record_retry_manual_access_or_metadata_only_boundary", first["followup_objective"])
+        self.assertEqual(first["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        by_action = {row["next_action_id"]: row for row in rows}
+        self.assertIn("define_profile_metrics", by_action["source-engineering-next-action-0012"]["followup_objective"])
+        self.assertIn("human_field_map_review_required_before_import", by_action["source-engineering-next-action-0017"]["followup_objective"])
+        self.assertIn("record_manifest_needed_or_not_applicable", by_action["source-engineering-next-action-0021"]["followup_objective"])
+        self.assertIn("identify_candidate_derived_record", by_action["source-engineering-next-action-0036"]["followup_objective"])
+        for row in rows:
+            self.assertTrue((repo_root() / row["result_record_path"]).exists(), row["result_record_path"])
+            self.assertTrue((repo_root() / row["first_wave_result_path"]).exists(), row["first_wave_result_path"])
+            self.assertTrue((repo_root() / row["result_record_manifest_path"]).exists(), row["result_record_manifest_path"])
+            self.assertEqual(row["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(row["component_claim_status"], "no_component_claim")
+            self.assertEqual(row["evolution_claim_status"], "no_evolution_chain_claim")
+            self.assertIn("not a rights decision", row["caution"])
+
+    def test_source_engineering_first_wave_followup_queue_builder_preserves_boundaries(self) -> None:
+        module = load_source_engineering_first_wave_followup_queue_module()
+        review_rows = module.read_csv_rows(repo_root() / module.FIRST_WAVE_REVIEW_RESULTS)
+        manifest_rows = module.read_csv_rows(repo_root() / module.RESULT_RECORD_MANIFEST)
+        rows = module.build_followup_rows(review_rows, manifest_rows)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(rows[0]["followup_task_id"], "source-engineering-first-wave-followup-0001")
+        self.assertEqual(rows[-1]["followup_task_id"], "source-engineering-first-wave-followup-0006")
+        self.assertEqual({row["followup_status"] for row in rows}, {"pending_human_review"})
+        self.assertEqual({row["automation_boundary"] for row in rows}, {"human_gated_metadata_only_followup"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        self.assertTrue(all("not corpus import" in row["caution"] for row in rows))
+
+    def test_source_engineering_first_wave_source_status_rolls_up_sources(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "122_ai-agent-source-engineering-first-wave-source-status.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["source_id"] for row in rows],
+            [
+                "src-british-museum-oracle-bone",
+                "src-cambridge-hopkins",
+                "src-ihp-museum-oracle-bones",
+                "src-gbedobc",
+            ],
+        )
+        by_source = {row["source_id"]: row for row in rows}
+        british_museum = by_source["src-british-museum-oracle-bone"]
+        self.assertEqual(british_museum["first_wave_result_count"], "2")
+        self.assertEqual(british_museum["followup_task_count"], "2")
+        self.assertEqual(
+            british_museum["source_first_wave_status"],
+            "access_blocked_metadata_only_boundary_pending_human_decision",
+        )
+        self.assertEqual(
+            british_museum["action_lanes"],
+            "access_boundary_followup;checksum_and_download_status_review",
+        )
+        self.assertEqual(
+            british_museum["followup_action_types"],
+            "manual_access_boundary_review;checksum_absence_boundary_review",
+        )
+        self.assertEqual(british_museum["download_log_status_counts"], "http_error:1")
+        self.assertEqual(british_museum["download_log_http_status_counts"], "403:1")
+        self.assertEqual(british_museum["download_log_checksum_present_count_total"], "0")
+        self.assertIn("manual_access_boundary_review_required", british_museum["remaining_blockers"])
+        self.assertIn("checksum_absence_review_required", british_museum["remaining_blockers"])
+
+        cambridge = by_source["src-cambridge-hopkins"]
+        self.assertEqual(cambridge["first_wave_result_count"], "2")
+        self.assertEqual(cambridge["followup_task_count"], "2")
+        self.assertEqual(cambridge["metadata_profile_metric_count_total"], "0")
+        self.assertEqual(cambridge["package_manifest_row_count_total"], "0")
+        self.assertEqual(cambridge["download_log_checksum_present_count_total"], "1")
+        self.assertEqual(
+            cambridge["source_first_wave_status"],
+            "downloaded_graph_derivative_metadata_profile_and_manifest_decisions_pending",
+        )
+        self.assertIn("metadata_profile_extraction_plan_review", cambridge["followup_action_types"])
+        self.assertIn("package_manifest_decision_review", cambridge["followup_action_types"])
+
+        ihp = by_source["src-ihp-museum-oracle-bones"]
+        self.assertEqual(ihp["first_wave_result_count"], "1")
+        self.assertEqual(ihp["metadata_profile_metric_count_total"], "2")
+        self.assertEqual(ihp["field_map_scaffold_ids"], "source-field-map-scaffold-001")
+        self.assertEqual(
+            ihp["source_first_wave_status"],
+            "metadata_profile_available_field_map_semantics_pending",
+        )
+
+        gbedobc = by_source["src-gbedobc"]
+        self.assertEqual(gbedobc["first_wave_result_count"], "1")
+        self.assertEqual(gbedobc["metadata_profile_metric_count_total"], "3")
+        self.assertEqual(gbedobc["download_log_checksum_present_count_total"], "2")
+        self.assertEqual(
+            gbedobc["source_first_wave_status"],
+            "metadata_profiles_available_safe_derived_decision_pending",
+        )
+
+        for row in rows:
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(row["source_promotion_status"], "not_promoted")
+            self.assertEqual(row["corpus_import_status"], "not_imported")
+            self.assertEqual(row["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertEqual(row["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(row["component_claim_status"], "no_component_claim")
+            self.assertEqual(row["evolution_claim_status"], "no_evolution_chain_claim")
+            self.assertEqual(row["followup_status"], "pending_human_review")
+            self.assertIn("not a rights decision", row["caution"])
+            for source_path in row["result_record_paths"].split(";"):
+                self.assertTrue((repo_root() / source_path).exists(), source_path)
+            for source_path in row["reviewed_evidence_paths"].split(";"):
+                self.assertTrue((repo_root() / source_path).exists(), source_path)
+
+    def test_source_engineering_first_wave_source_status_builder_preserves_boundaries(self) -> None:
+        module = load_source_engineering_first_wave_source_status_module()
+        root = repo_root()
+        rows = module.build_source_status_rows(
+            module.read_csv_rows(root / module.FIRST_WAVE_REVIEW_RESULTS),
+            module.read_csv_rows(root / module.FIRST_WAVE_FOLLOWUP_QUEUE),
+        )
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["source_status_id"], "source-engineering-first-wave-source-status-0001")
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        self.assertTrue(all("metadata-only" in row["research_boundary"] for row in rows))
+        self.assertTrue(all("not a corpus import" in row["caution"] for row in rows))
+
+    def test_source_engineering_second_wave_source_checklist_routes_source_statuses(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "123_ai-agent-source-engineering-second-wave-source-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["continuation_task_id"] for row in rows],
+            [
+                "source-engineering-second-wave-source-checklist-0001",
+                "source-engineering-second-wave-source-checklist-0002",
+                "source-engineering-second-wave-source-checklist-0003",
+                "source-engineering-second-wave-source-checklist-0004",
+            ],
+        )
+        self.assertEqual(
+            [row["source_action_lane"] for row in rows],
+            [
+                "access_and_checksum_boundary_resolution",
+                "metadata_profile_and_package_manifest_decision",
+                "field_map_semantics_review",
+                "safe_derived_record_decision",
+            ],
+        )
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertIn(
+            "resolve_access_boundary_before_download_or_content_import",
+            by_source["src-british-museum-oracle-bone"]["source_level_objective"],
+        )
+        self.assertIn(
+            "define_metadata_profile_and_manifest_decision_before_import",
+            by_source["src-cambridge-hopkins"]["source_level_objective"],
+        )
+        self.assertEqual(by_source["src-ihp-museum-oracle-bones"]["priority_rank"], "3")
+        self.assertEqual(by_source["src-gbedobc"]["priority_rank"], "4")
+        for row in rows:
+            self.assertEqual(row["source_status_path"], "corpus/009_statistics-and-derived-features/122_ai-agent-source-engineering-first-wave-source-status.csv")
+            self.assertEqual(row["action_status"], "ready_for_human_source_engineering_review")
+            self.assertEqual(row["human_review_status"], "pending_human_review")
+            self.assertEqual(row["automation_boundary"], "human_gated_metadata_only_followup")
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(row["source_promotion_status"], "not_promoted")
+            self.assertEqual(row["corpus_import_status"], "not_imported")
+            self.assertEqual(row["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertEqual(row["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(row["component_claim_status"], "no_component_claim")
+            self.assertEqual(row["evolution_claim_status"], "no_evolution_chain_claim")
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a corpus import", row["caution"])
+            self.assertTrue(row["expected_review_output_path"].startswith("doc/public/user_research/"))
+            self.assertTrue((repo_root() / row["source_status_path"]).exists())
+            for source_path in row["result_record_paths"].split(";"):
+                self.assertTrue((repo_root() / source_path).exists(), source_path)
+            for source_path in row["reviewed_evidence_paths"].split(";"):
+                self.assertTrue((repo_root() / source_path).exists(), source_path)
+
+    def test_source_engineering_second_wave_source_checklist_builder_preserves_boundaries(self) -> None:
+        module = load_source_engineering_second_wave_source_checklist_module()
+        source_rows = module.read_csv_rows(repo_root() / module.SOURCE_STATUS)
+        rows = module.build_checklist_rows(source_rows)
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["source_status_id"], "source-engineering-first-wave-source-status-0001")
+        self.assertEqual({row["human_review_status"] for row in rows}, {"pending_human_review"})
+        self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        self.assertTrue(all("metadata-only" in row["research_boundary"] for row in rows))
+        self.assertTrue(all("not a rights decision" in row["caution"] for row in rows))
+
+    def test_source_engineering_second_wave_review_drafts_materialize_checklist(self) -> None:
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["review_draft_id"] for row in rows],
+            [
+                "source-engineering-second-wave-review-draft-0001",
+                "source-engineering-second-wave-review-draft-0002",
+                "source-engineering-second-wave-review-draft-0003",
+                "source-engineering-second-wave-review-draft-0004",
+            ],
+        )
+        self.assertEqual(
+            [row["source_action_lane"] for row in rows],
+            [
+                "access_and_checksum_boundary_resolution",
+                "metadata_profile_and_package_manifest_decision",
+                "field_map_semantics_review",
+                "safe_derived_record_decision",
+            ],
+        )
+        first = rows[0]
+        self.assertEqual(first["continuation_task_id"], "source-engineering-second-wave-source-checklist-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["draft_status"], "draft_not_collected")
+        self.assertEqual(first["evidence_collection_status"], "not_collected")
+        for row in rows:
+            self.assertEqual(row["source_checklist_path"], "corpus/009_statistics-and-derived-features/123_ai-agent-source-engineering-second-wave-source-checklist.csv")
+            self.assertEqual(row["human_review_status"], "pending_human_review")
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(row["source_promotion_status"], "not_promoted")
+            self.assertEqual(row["corpus_import_status"], "not_imported")
+            self.assertEqual(row["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertEqual(row["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(row["component_claim_status"], "no_component_claim")
+            self.assertEqual(row["evolution_claim_status"], "no_evolution_chain_claim")
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a corpus import", row["caution"])
+            draft_path = repo_root() / row["draft_path"]
+            self.assertTrue(draft_path.exists(), row["draft_path"])
+            text = draft_path.read_text(encoding="utf-8")
+            self.assertIn("Source Engineering Second-Wave Review Draft", text)
+            self.assertIn("来源工程第二波复核草稿", text)
+            self.assertIn(row["review_draft_id"], text)
+            self.assertIn(row["continuation_task_id"], text)
+            self.assertIn(row["source_id"], text)
+            self.assertIn("draft_not_collected", text)
+            self.assertIn("no_new_rights_decision", text)
+            self.assertIn("not_promoted", text)
+            self.assertIn("not_imported", text)
+            self.assertIn("no_decipherment_claim", text)
+            self.assertIn("not a rights decision", text)
+            for source_path in row["required_inputs"].split(";"):
+                self.assertIn(source_path, text)
+
+    def test_source_engineering_second_wave_review_drafts_builder_uses_123_rows(self) -> None:
+        module = load_source_engineering_second_wave_review_drafts_module()
+        checklist_rows = module.read_csv_rows(repo_root() / module.SECOND_WAVE_SOURCE_CHECKLIST)
+        manifest_rows = module.build_manifest_rows(checklist_rows)
+        self.assertEqual(len(manifest_rows), 4)
+        self.assertEqual(
+            [row["continuation_task_id"] for row in manifest_rows],
+            [row["continuation_task_id"] for row in checklist_rows],
+        )
+        self.assertEqual({row["draft_status"] for row in manifest_rows}, {"draft_not_collected"})
+        self.assertEqual({row["rights_decision_status"] for row in manifest_rows}, {"no_new_rights_decision"})
+        self.assertEqual({row["source_promotion_status"] for row in manifest_rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in manifest_rows}, {"not_imported"})
+        markdown = module.build_markdown(checklist_rows[0], manifest_rows[0])
+        self.assertIn("access_and_checksum_boundary_resolution", markdown)
+        self.assertIn("manual_access_boundary_review_required", markdown)
+        self.assertIn("not a rights decision", markdown)
+
+    def test_source_engineering_second_wave_result_scaffold_is_empty(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "125_ai-agent-source-engineering-second-wave-result-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["second_wave_result_scaffold_id"] for row in rows],
+            [
+                "source-engineering-second-wave-result-scaffold-0001",
+                "source-engineering-second-wave-result-scaffold-0002",
+                "source-engineering-second-wave-result-scaffold-0003",
+                "source-engineering-second-wave-result-scaffold-0004",
+            ],
+        )
+        first = rows[0]
+        self.assertEqual(first["review_draft_id"], "source-engineering-second-wave-review-draft-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["result_status"], "not_started")
+        self.assertEqual(first["draft_open_status"], "not_opened")
+        self.assertEqual(first["route_files_open_status"], "not_opened")
+        self.assertEqual(first["evidence_collection_status"], "not_collected")
+        self.assertEqual(first["human_review_status"], "pending_human_review")
+        self.assertEqual(first["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(first["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(first["component_claim_status"], "no_component_claim")
+        self.assertEqual(first["evolution_claim_status"], "no_evolution_chain_claim")
+        for row in rows:
+            self.assertEqual(row["source_review_draft_manifest_path"], "corpus/009_statistics-and-derived-features/124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv")
+            self.assertTrue((repo_root() / row["draft_path"]).exists())
+            self.assertEqual(row["reviewed_evidence_paths"], "")
+            self.assertEqual(row["access_outcome"], "")
+            self.assertEqual(row["checksum_outcome"], "")
+            self.assertEqual(row["manifest_decision"], "")
+            self.assertEqual(row["field_map_decision"], "")
+            self.assertEqual(row["metadata_profile_decision"], "")
+            self.assertEqual(row["safe_derived_record_decision"], "")
+            self.assertIn(row["draft_path"], row["route_files_to_open"])
+            self.assertIn(row["source_status_path"], row["route_files_to_open"])
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a decipherment conclusion", row["caution"])
+
+    def test_source_engineering_second_wave_result_scaffold_builder_uses_124_rows(self) -> None:
+        module = load_source_engineering_second_wave_result_scaffold_module()
+        manifest_rows = module.read_csv_rows(repo_root() / module.SECOND_WAVE_REVIEW_DRAFT_MANIFEST)
+        rows = module.build_result_scaffold_rows(manifest_rows)
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["review_draft_id"] for row in rows],
+            [row["review_draft_id"] for row in manifest_rows],
+        )
+        self.assertEqual(
+            [row["source_action_lane"] for row in rows],
+            [row["source_action_lane"] for row in manifest_rows],
+        )
+        self.assertEqual(rows[0]["second_wave_result_scaffold_id"], "source-engineering-second-wave-result-scaffold-0001")
+        self.assertEqual(rows[0]["required_result_action"], module.REQUIRED_ACTIONS["access_and_checksum_boundary_resolution"])
+        self.assertEqual(rows[1]["required_result_action"], module.REQUIRED_ACTIONS["metadata_profile_and_package_manifest_decision"])
+        self.assertTrue(all(row["result_status"] == module.RESULT_STATUS for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == module.EVIDENCE_COLLECTION_STATUS for row in rows))
+        self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
+
+    def test_source_engineering_second_wave_review_checklist_routes_125_scaffold(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "126_ai-agent-source-engineering-second-wave-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["second_wave_review_checklist_id"] for row in rows],
+            [
+                "source-engineering-second-wave-review-checklist-0001",
+                "source-engineering-second-wave-review-checklist-0002",
+                "source-engineering-second-wave-review-checklist-0003",
+                "source-engineering-second-wave-review-checklist-0004",
+            ],
+        )
+        self.assertEqual([row["priority_rank"] for row in rows], ["1", "2", "3", "4"])
+        first = rows[0]
+        self.assertEqual(first["second_wave_result_scaffold_id"], "source-engineering-second-wave-result-scaffold-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["assignment_status"], "unassigned")
+        self.assertEqual(first["review_status"], "needs_second_wave_source_review")
+        self.assertEqual(first["evidence_collection_status"], "not_collected")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(first["result_update_target_path"], "corpus/009_statistics-and-derived-features/125_ai-agent-source-engineering-second-wave-result-scaffold.csv")
+        self.assertIn("open_second_wave_result_scaffold", first["required_review_steps"])
+        self.assertIn("open_second_wave_review_draft", first["required_review_steps"])
+        self.assertIn("verify_access_and_checksum_boundary", first["required_review_steps"])
+        for row in rows:
+            self.assertEqual(row["result_scaffold_path"], "corpus/009_statistics-and-derived-features/125_ai-agent-source-engineering-second-wave-result-scaffold.csv")
+            self.assertTrue((repo_root() / row["draft_path"]).exists())
+            self.assertIn(row["draft_path"], row["route_files_to_open"])
+            self.assertIn(row["source_status_path"], row["route_files_to_open"])
+            self.assertIn("human_gated", row["automation_boundary"])
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a decipherment conclusion", row["caution"])
+
+    def test_source_engineering_second_wave_review_checklist_builder_uses_125_rows(self) -> None:
+        module = load_source_engineering_second_wave_review_checklist_module()
+        scaffold_rows = module.read_csv_rows(repo_root() / module.SECOND_WAVE_RESULT_SCAFFOLD)
+        rows = module.build_review_checklist_rows(scaffold_rows)
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["second_wave_result_scaffold_id"] for row in rows],
+            [row["second_wave_result_scaffold_id"] for row in scaffold_rows],
+        )
+        self.assertEqual(rows[0]["required_review_steps"], ";".join(module.REQUIRED_REVIEW_STEPS_BY_LANE["access_and_checksum_boundary_resolution"]))
+        self.assertEqual(rows[3]["required_review_steps"], ";".join(module.REQUIRED_REVIEW_STEPS_BY_LANE["safe_derived_record_decision"]))
+        self.assertTrue(all(row["assignment_status"] == module.ASSIGNMENT_STATUS for row in rows))
+        self.assertTrue(all(row["review_status"] == module.REVIEW_STATUS for row in rows))
+        self.assertTrue(all(row["research_boundary"] == module.RESEARCH_BOUNDARY for row in rows))
+
+    def test_source_engineering_second_wave_review_outcome_scaffold_routes_126_checklist(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["second_wave_review_outcome_scaffold_id"] for row in rows],
+            [
+                "source-engineering-second-wave-review-outcome-scaffold-0001",
+                "source-engineering-second-wave-review-outcome-scaffold-0002",
+                "source-engineering-second-wave-review-outcome-scaffold-0003",
+                "source-engineering-second-wave-review-outcome-scaffold-0004",
+            ],
+        )
+        first = rows[0]
+        self.assertEqual(first["second_wave_review_checklist_id"], "source-engineering-second-wave-review-checklist-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["review_outcome_status"], "not_started")
+        self.assertEqual(first["evidence_collection_status"], "not_collected")
+        self.assertEqual(first["human_review_status"], "pending_human_review")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(
+            first["review_checklist_path"],
+            "corpus/009_statistics-and-derived-features/126_ai-agent-source-engineering-second-wave-review-checklist.csv",
+        )
+        self.assertEqual(
+            first["outcome_update_target_path"],
+            "corpus/009_statistics-and-derived-features/127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv",
+        )
+        self.assertIn("access_outcome_reviewed", first["reserved_outcome_fields"])
+        self.assertIn("checksum_outcome_reviewed", first["reserved_outcome_fields"])
+        for row in rows:
+            self.assertEqual(row["review_checklist_path"], "corpus/009_statistics-and-derived-features/126_ai-agent-source-engineering-second-wave-review-checklist.csv")
+            self.assertIn(row["draft_path"], row["route_files_to_open"])
+            self.assertTrue((repo_root() / row["draft_path"]).exists())
+            self.assertEqual(row["reviewed_evidence_paths"], "")
+            self.assertEqual(row["reviewed_outcome_summary"], "")
+            self.assertIn("human-gated outcome scaffold", row["caution"])
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a decipherment conclusion", row["caution"])
+
+    def test_source_engineering_second_wave_review_outcome_scaffold_builder_uses_126_rows(self) -> None:
+        module = load_source_engineering_second_wave_review_outcome_scaffold_module()
+        checklist_rows = module.read_csv_rows(repo_root() / module.SECOND_WAVE_REVIEW_CHECKLIST)
+        rows = module.build_review_outcome_scaffold_rows(checklist_rows)
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["second_wave_review_checklist_id"] for row in rows],
+            [row["second_wave_review_checklist_id"] for row in checklist_rows],
+        )
+        self.assertEqual(
+            [row["source_action_lane"] for row in rows],
+            [row["source_action_lane"] for row in checklist_rows],
+        )
+        self.assertEqual(rows[0]["required_review_steps"], checklist_rows[0]["required_review_steps"])
+        self.assertEqual(rows[0]["second_wave_review_outcome_scaffold_id"], "source-engineering-second-wave-review-outcome-scaffold-0001")
+        self.assertTrue(all(row["review_outcome_status"] == module.REVIEW_OUTCOME_STATUS for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == module.EVIDENCE_COLLECTION_STATUS for row in rows))
+        self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
+        self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
+
+    def test_source_engineering_second_wave_outcome_route_pack_indexes_127_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "128_ai-agent-source-engineering-second-wave-outcome-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-engineering-second-wave-outcome-route-pack-001")
+        self.assertEqual(data["route_count"], 4)
+        self.assertEqual(data["source_count"], 4)
+        self.assertEqual(data["outcome_scaffold_path"], "corpus/009_statistics-and-derived-features/127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv")
+        self.assertEqual(data["automation_boundary"], "routing_only_no_outcome_capture")
+        self.assertEqual(data["research_boundary"], "source_engineering_second_wave_outcome_route_pack_not_scholarship")
+        self.assertIn("not collected evidence", data["caution"])
+        self.assertEqual(
+            data["lane_counts"],
+            {
+                "access_and_checksum_boundary_resolution": 1,
+                "field_map_semantics_review": 1,
+                "metadata_profile_and_package_manifest_decision": 1,
+                "safe_derived_record_decision": 1,
+            },
+        )
+        first = data["routes"][0]
+        self.assertEqual(first["route_id"], "source-engineering-second-wave-outcome-route-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["review_outcome_status"], "not_started")
+        self.assertEqual(first["human_review_status"], "pending_human_review")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn("verify_access_and_checksum_boundary", first["required_review_steps"])
+        self.assertIn(first["draft_path"], first["route_files_to_open"])
+        for route in data["routes"]:
+            self.assertEqual(route["outcome_scaffold_path"], data["outcome_scaffold_path"])
+            self.assertEqual(route["evidence_collection_status"], "not_collected")
+            self.assertEqual(route["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(route["reviewed_evidence_paths"], "")
+            self.assertEqual(route["reviewed_outcome_summary"], "")
+            self.assertTrue((repo_root() / route["draft_path"]).exists())
+
+    def test_source_engineering_second_wave_outcome_route_pack_builder_uses_127_rows(self) -> None:
+        module = load_source_engineering_second_wave_outcome_route_pack_module()
+        outcome_rows = module.read_csv_rows(repo_root() / module.SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD)
+        data = module.build_route_pack(outcome_rows)
+        self.assertEqual(data["route_count"], 4)
+        self.assertEqual(
+            [route["second_wave_review_outcome_scaffold_id"] for route in data["routes"]],
+            [row["second_wave_review_outcome_scaffold_id"] for row in outcome_rows],
+        )
+        self.assertEqual(
+            [route["source_action_lane"] for route in data["routes"]],
+            [row["source_action_lane"] for row in outcome_rows],
+        )
+        self.assertEqual(data["lane_counts"]["safe_derived_record_decision"], 1)
+        self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
+        self.assertTrue(all(route["route_status"] == module.ROUTE_STATUS for route in data["routes"]))
+
+    def test_source_engineering_second_wave_outcome_handoff_scaffold_plans_128_routes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "129_ai-agent-source-engineering-second-wave-outcome-handoff-scaffold.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            data["handoff_scaffold_id"],
+            "source-engineering-second-wave-outcome-handoff-scaffold-001",
+        )
+        self.assertEqual(
+            data["route_pack_path"],
+            "corpus/009_statistics-and-derived-features/128_ai-agent-source-engineering-second-wave-outcome-route-pack.json",
+        )
+        self.assertEqual(data["handoff_count"], 4)
+        self.assertEqual(data["route_count"], 4)
+        self.assertEqual(data["source_count"], 4)
+        self.assertEqual(data["assignment_status_counts"], {"planned_not_assigned": 4})
+        self.assertEqual(data["handoff_status_counts"], {"not_started": 4})
+        self.assertEqual(data["automation_boundary"], "planned_handoff_only_no_outcome_capture")
+        self.assertEqual(
+            data["research_boundary"],
+            "source_engineering_second_wave_outcome_handoff_scaffold_not_scholarship",
+        )
+        self.assertIn("not collected evidence", data["caution"])
+        self.assertIn("not a rights decision", data["caution"])
+        self.assertIn("not a decipherment conclusion", data["caution"])
+        first = data["handoffs"][0]
+        self.assertEqual(first["handoff_id"], "source-engineering-second-wave-outcome-handoff-0001")
+        self.assertEqual(first["route_id"], "source-engineering-second-wave-outcome-route-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["assignment_status"], "planned_not_assigned")
+        self.assertEqual(first["handoff_status"], "not_started")
+        self.assertEqual(first["review_outcome_status"], "not_started")
+        self.assertEqual(first["human_review_status"], "pending_human_review")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertIn(first["draft_path"], first["route_files_to_open"])
+        for handoff in data["handoffs"]:
+            self.assertEqual(
+                handoff["outcome_scaffold_path"],
+                "corpus/009_statistics-and-derived-features/127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv",
+            )
+            self.assertEqual(handoff["route_pack_path"], data["route_pack_path"])
+            self.assertEqual(handoff["evidence_collection_status"], "not_collected")
+            self.assertEqual(handoff["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(handoff["reviewed_evidence_paths"], "")
+            self.assertEqual(handoff["reviewed_outcome_summary"], "")
+            self.assertTrue((repo_root() / handoff["draft_path"]).exists())
+
+    def test_source_engineering_second_wave_outcome_handoff_scaffold_builder_uses_128_routes(self) -> None:
+        module = load_source_engineering_second_wave_outcome_handoff_scaffold_module()
+        route_pack = module.read_json(repo_root() / module.SECOND_WAVE_OUTCOME_ROUTE_PACK)
+        data = module.build_handoff_scaffold(route_pack)
+        self.assertEqual(data["handoff_count"], 4)
+        self.assertEqual(
+            [handoff["route_id"] for handoff in data["handoffs"]],
+            [route["route_id"] for route in route_pack["routes"]],
+        )
+        self.assertEqual(
+            [handoff["source_action_lane"] for handoff in data["handoffs"]],
+            [route["source_action_lane"] for route in route_pack["routes"]],
+        )
+        self.assertEqual(
+            data["handoffs"][0]["handoff_id"],
+            "source-engineering-second-wave-outcome-handoff-0001",
+        )
+        self.assertTrue(all(handoff["assignment_status"] == module.ASSIGNMENT_STATUS for handoff in data["handoffs"]))
+        self.assertTrue(all(handoff["handoff_status"] == module.HANDOFF_STATUS for handoff in data["handoffs"]))
+        self.assertTrue(all(handoff["reviewed_evidence_paths"] == "" for handoff in data["handoffs"]))
+        self.assertTrue(all(handoff["reviewed_outcome_summary"] == "" for handoff in data["handoffs"]))
+
+    def test_source_engineering_second_wave_handoff_review_checklist_routes_129_handoffs(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "130_ai-agent-source-engineering-second-wave-handoff-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        first = rows[0]
+        self.assertEqual(first["handoff_review_checklist_id"], "source-engineering-second-wave-handoff-review-checklist-0001")
+        self.assertEqual(first["handoff_id"], "source-engineering-second-wave-outcome-handoff-0001")
+        self.assertEqual(first["route_id"], "source-engineering-second-wave-outcome-route-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["checklist_status"], "not_started")
+        self.assertEqual(first["assignment_status"], "planned_not_assigned")
+        self.assertEqual(first["handoff_status"], "not_started")
+        self.assertEqual(first["review_outcome_status"], "not_started")
+        self.assertEqual(first["human_review_status"], "pending_human_review")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(first["reviewed_evidence_paths"], "")
+        self.assertEqual(first["reviewed_outcome_summary"], "")
+        self.assertIn("verify_handoff_row_against_129", first["required_precheck_steps"])
+        self.assertIn("verify_empty_outcome_fields_before_review", first["required_precheck_steps"])
+        self.assertIn("do_not_collect_evidence_or_record_outcome_in_checklist", first["required_precheck_steps"])
+        self.assertIn(first["draft_path"], first["route_files_to_open"])
+        self.assertTrue((repo_root() / first["draft_path"]).exists())
+        for row in rows:
+            self.assertEqual(
+                row["handoff_scaffold_path"],
+                "corpus/009_statistics-and-derived-features/129_ai-agent-source-engineering-second-wave-outcome-handoff-scaffold.json",
+            )
+            self.assertEqual(row["route_pack_path"], "corpus/009_statistics-and-derived-features/128_ai-agent-source-engineering-second-wave-outcome-route-pack.json")
+            self.assertEqual(row["outcome_scaffold_path"], "corpus/009_statistics-and-derived-features/127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv")
+            self.assertEqual(row["evidence_collection_status"], "not_collected")
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a decipherment conclusion", row["caution"])
+
+    def test_source_engineering_second_wave_handoff_review_checklist_builder_uses_129_handoffs(self) -> None:
+        module = load_source_engineering_second_wave_handoff_review_checklist_module()
+        handoff_scaffold = module.read_json(repo_root() / module.SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD)
+        rows = module.build_checklist_rows(handoff_scaffold)
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            [row["handoff_id"] for row in rows],
+            [handoff["handoff_id"] for handoff in handoff_scaffold["handoffs"]],
+        )
+        self.assertEqual(
+            [row["source_action_lane"] for row in rows],
+            [handoff["source_action_lane"] for handoff in handoff_scaffold["handoffs"]],
+        )
+        self.assertEqual(rows[0]["handoff_review_checklist_id"], "source-engineering-second-wave-handoff-review-checklist-0001")
+        self.assertTrue(all(row["checklist_status"] == module.CHECKLIST_STATUS for row in rows))
+        self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
+        self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
+
+    def test_source_engineering_second_wave_handoff_route_summary_indexes_130_checklist(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "131_ai-agent-source-engineering-second-wave-handoff-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_summary_id"], "source-engineering-second-wave-handoff-route-summary-001")
+        self.assertEqual(
+            data["handoff_review_checklist_path"],
+            "corpus/009_statistics-and-derived-features/130_ai-agent-source-engineering-second-wave-handoff-review-checklist.csv",
+        )
+        self.assertEqual(data["route_count"], 4)
+        self.assertEqual(data["source_count"], 4)
+        self.assertEqual(data["checklist_status_counts"], {"not_started": 4})
+        self.assertEqual(data["assignment_status_counts"], {"planned_not_assigned": 4})
+        self.assertEqual(data["handoff_status_counts"], {"not_started": 4})
+        self.assertEqual(
+            data["lane_counts"],
+            {
+                "access_and_checksum_boundary_resolution": 1,
+                "field_map_semantics_review": 1,
+                "metadata_profile_and_package_manifest_decision": 1,
+                "safe_derived_record_decision": 1,
+            },
+        )
+        self.assertEqual(data["automation_boundary"], "route_summary_only_no_outcome_capture")
+        self.assertEqual(
+            data["research_boundary"],
+            "source_engineering_second_wave_handoff_route_summary_not_scholarship",
+        )
+        self.assertIn("not collected evidence", data["caution"])
+        self.assertIn("not a rights decision", data["caution"])
+        self.assertIn("not a decipherment conclusion", data["caution"])
+        first = data["routes"][0]
+        self.assertEqual(first["summary_route_id"], "source-engineering-second-wave-handoff-summary-route-0001")
+        self.assertEqual(first["handoff_review_checklist_id"], "source-engineering-second-wave-handoff-review-checklist-0001")
+        self.assertEqual(first["handoff_id"], "source-engineering-second-wave-outcome-handoff-0001")
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["source_action_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(first["checklist_status"], "not_started")
+        self.assertEqual(first["reviewed_evidence_paths"], "")
+        self.assertEqual(first["reviewed_outcome_summary"], "")
+        self.assertIn(first["draft_path"], first["route_files_to_open"])
+        for route in data["routes"]:
+            self.assertEqual(route["handoff_review_checklist_path"], data["handoff_review_checklist_path"])
+            self.assertEqual(route["evidence_collection_status"], "not_collected")
+            self.assertEqual(route["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(route["source_promotion_status"], "not_promoted")
+            self.assertEqual(route["corpus_import_status"], "not_imported")
+            self.assertEqual(route["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertTrue((repo_root() / route["draft_path"]).exists())
+
+    def test_source_engineering_second_wave_handoff_route_summary_builder_uses_130_rows(self) -> None:
+        module = load_source_engineering_second_wave_handoff_route_summary_module()
+        checklist_rows = module.read_csv_rows(repo_root() / module.SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST)
+        data = module.build_route_summary(checklist_rows)
+        self.assertEqual(data["route_count"], 4)
+        self.assertEqual(
+            [route["handoff_review_checklist_id"] for route in data["routes"]],
+            [row["handoff_review_checklist_id"] for row in checklist_rows],
+        )
+        self.assertEqual(
+            [route["source_action_lane"] for route in data["routes"]],
+            [row["source_action_lane"] for row in checklist_rows],
+        )
+        self.assertEqual(data["lane_counts"]["field_map_semantics_review"], 1)
+        self.assertTrue(all(route["checklist_status"] == "not_started" for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
+        self.assertTrue(all(route["automation_boundary"] == module.AUTOMATION_BOUNDARY for route in data["routes"]))
+
+    def test_source_field_map_scaffold_records_pending_field_map_gaps(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "108_ai-agent-source-field-map-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            {row["source_id"] for row in rows},
+            {
+                "src-ihp-museum-oracle-bones",
+                "src-open-oracle",
+                "src-oracle-mnist",
+                "src-yinqi-wenyuan",
+            },
+        )
+        self.assertEqual({row["action_lane"] for row in rows}, {"source_field_map_planning"})
+        self.assertEqual({row["field_map_review_status"] for row in rows}, {"pending_human_field_map_review"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        self.assertTrue(all((repo_root() / row["review_log_path"]).exists() for row in rows))
+        self.assertTrue(all("does not add reviewed field-map rows" in row["caution"] for row in rows))
+
+    def test_source_field_map_scaffold_builder_uses_lane_route_pack(self) -> None:
+        module = load_source_field_map_scaffold_module()
+        rows = module.build_scaffold_rows(repo_root())
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["field_map_scaffold_id"], "source-field-map-scaffold-001")
+        self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0017")
+        self.assertEqual(rows[0]["source_id"], "src-ihp-museum-oracle-bones")
+        self.assertEqual(rows[0]["proposed_source_field_or_unit"], "field_semantics_unreviewed")
+        self.assertEqual(rows[0]["proposed_target_project_fields"], "pending_human_review")
+        self.assertEqual(rows[0]["rights_decision_status"], "no_new_rights_decision")
+        self.assertIn("not a corpus import", rows[0]["caution"])
+
+    def test_source_field_map_review_checklist_routes_scaffold_rows(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "109_ai-agent-source-field-map-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            {row["source_id"] for row in rows},
+            {
+                "src-ihp-museum-oracle-bones",
+                "src-open-oracle",
+                "src-oracle-mnist",
+                "src-yinqi-wenyuan",
+            },
+        )
+        self.assertEqual({row["checklist_status"] for row in rows}, {"not_started"})
+        self.assertEqual({row["field_map_review_status"] for row in rows}, {"pending_human_field_map_review"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        for row in rows:
+            for field in [
+                "review_log_path",
+                "source_register_path",
+                "existing_field_map_path",
+                "lane_route_pack_path",
+                "scaffold_path",
+            ]:
+                self.assertTrue((repo_root() / row[field]).exists(), row[field])
+            self.assertIn("verify_rights_and_risk_note", row["required_review_steps"])
+            self.assertIn("do_not_import_until_reviewed", row["required_review_steps"])
+            self.assertIn("does not approve field-map semantics", row["caution"])
+
+    def test_source_field_map_review_checklist_builder_keeps_pending_boundaries(self) -> None:
+        module = load_source_field_map_review_checklist_module()
+        rows = module.build_review_checklist_rows(repo_root())
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["field_map_checklist_id"], "source-field-map-review-checklist-001")
+        self.assertEqual(rows[0]["field_map_scaffold_id"], "source-field-map-scaffold-001")
+        self.assertEqual(rows[0]["source_id"], "src-ihp-museum-oracle-bones")
+        self.assertEqual(rows[0]["checklist_status"], "not_started")
+        self.assertEqual(rows[0]["field_map_review_status"], "pending_human_field_map_review")
+        self.assertEqual(rows[0]["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(rows[0]["source_promotion_status"], "not_promoted")
+        self.assertEqual(rows[0]["corpus_import_status"], "not_imported")
+        self.assertEqual(rows[0]["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(rows[0]["source_register_path"], module.SOURCE_INDEX.as_posix())
+        self.assertEqual(rows[0]["existing_field_map_path"], module.SOURCE_FIELD_MAP.as_posix())
+        self.assertIn("identify_source_field_or_unit", rows[0]["required_review_steps"])
+        self.assertIn("not a corpus import", rows[0]["caution"])
+
+    def test_source_field_map_review_result_scaffold_reserves_review_outcomes(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "110_ai-agent-source-field-map-review-result-scaffold.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            {row["source_id"] for row in rows},
+            {
+                "src-ihp-museum-oracle-bones",
+                "src-open-oracle",
+                "src-oracle-mnist",
+                "src-yinqi-wenyuan",
+            },
+        )
+        self.assertEqual({row["field_map_result_status"] for row in rows}, {"not_started"})
+        self.assertEqual({row["field_map_review_status"] for row in rows}, {"pending_human_field_map_review"})
+        self.assertEqual({row["reviewed_source_level"] for row in rows}, {"pending_human_review"})
+        self.assertEqual({row["reviewed_source_field_or_unit"] for row in rows}, {"pending_human_review"})
+        self.assertEqual({row["reviewed_target_project_fields"] for row in rows}, {"pending_human_review"})
+        self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
+        self.assertEqual({row["corpus_import_status"] for row in rows}, {"not_imported"})
+        self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_decipherment_claim"})
+        for row in rows:
+            for field in ["checklist_path", "scaffold_path", "review_log_path", "source_register_path"]:
+                self.assertTrue((repo_root() / row[field]).exists(), row[field])
+            self.assertIn("field_map_review_notes", row["reserved_review_fields"])
+            self.assertIn("does not approve field-map semantics", row["caution"])
+
+    def test_source_field_map_review_result_scaffold_builder_keeps_empty_results(self) -> None:
+        module = load_source_field_map_review_result_scaffold_module()
+        rows = module.build_result_scaffold_rows(repo_root())
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(rows[0]["field_map_result_scaffold_id"], "source-field-map-review-result-scaffold-001")
+        self.assertEqual(rows[0]["field_map_checklist_id"], "source-field-map-review-checklist-001")
+        self.assertEqual(rows[0]["field_map_scaffold_id"], "source-field-map-scaffold-001")
+        self.assertEqual(rows[0]["source_id"], "src-ihp-museum-oracle-bones")
+        self.assertEqual(rows[0]["field_map_result_status"], "not_started")
+        self.assertEqual(rows[0]["field_map_review_status"], "pending_human_field_map_review")
+        self.assertEqual(rows[0]["rights_decision_status"], "no_new_rights_decision")
+        self.assertEqual(rows[0]["source_promotion_status"], "not_promoted")
+        self.assertEqual(rows[0]["corpus_import_status"], "not_imported")
+        self.assertEqual(rows[0]["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(rows[0]["checklist_path"], module.SOURCE_FIELD_MAP_REVIEW_CHECKLIST.as_posix())
+        self.assertEqual(rows[0]["target_reviewed_field_map_path"], module.SOURCE_FIELD_MAP.as_posix())
+        self.assertIn("not a rights decision", rows[0]["caution"])
+
+    def test_source_field_map_review_route_pack_indexes_field_map_chain(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "111_ai-agent-source-field-map-review-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-field-map-review-route-pack-001")
+        self.assertEqual(data["source_count"], 4)
+        self.assertEqual(data["route_count"], 4)
+        self.assertEqual(data["review_status"], "route_pack_pending_field_map_review")
+        self.assertEqual(data["research_boundary"], "source_field_map_review_route_pack_not_reviewed_mapping")
+        self.assertIn("does not approve field-map semantics", data["caution"])
+        for source_path in data["source_paths"].values():
+            self.assertTrue((repo_root() / source_path).exists(), source_path)
+        self.assertEqual(
+            {route["source_id"] for route in data["routes"]},
+            {
+                "src-ihp-museum-oracle-bones",
+                "src-open-oracle",
+                "src-oracle-mnist",
+                "src-yinqi-wenyuan",
+            },
+        )
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["field_map_scaffold_id"], "source-field-map-scaffold-001")
+        self.assertEqual(first_route["field_map_checklist_id"], "source-field-map-review-checklist-001")
+        self.assertEqual(
+            first_route["field_map_result_scaffold_id"],
+            "source-field-map-review-result-scaffold-001",
+        )
+        self.assertTrue(all(route["field_map_result_status"] == "not_started" for route in data["routes"]))
+        self.assertTrue(
+            all(route["field_map_review_status"] == "pending_human_field_map_review" for route in data["routes"])
+        )
+        self.assertTrue(all(route["rights_decision_status"] == "no_new_rights_decision" for route in data["routes"]))
+        self.assertTrue(all(route["source_promotion_status"] == "not_promoted" for route in data["routes"]))
+        self.assertTrue(all(route["corpus_import_status"] == "not_imported" for route in data["routes"]))
+        self.assertTrue(all(route["decipherment_claim_status"] == "no_decipherment_claim" for route in data["routes"]))
+        for route in data["routes"]:
+            for field in [
+                "review_log_path",
+                "checklist_path",
+                "scaffold_path",
+                "source_register_path",
+                "target_reviewed_field_map_path",
+            ]:
+                self.assertTrue((repo_root() / route[field]).exists(), route[field])
+
+    def test_source_field_map_review_route_pack_builder_links_108_to_110(self) -> None:
+        module = load_source_field_map_review_route_pack_module()
+        data = module.build_route_pack(repo_root())
+        self.assertEqual(data["source_count"], 4)
+        self.assertEqual(data["route_count"], 4)
+        first_route = data["routes"][0]
+        self.assertEqual(first_route["source_id"], "src-ihp-museum-oracle-bones")
+        self.assertEqual(first_route["field_map_scaffold_id"], "source-field-map-scaffold-001")
+        self.assertEqual(first_route["field_map_checklist_id"], "source-field-map-review-checklist-001")
+        self.assertEqual(
+            first_route["field_map_result_scaffold_id"],
+            "source-field-map-review-result-scaffold-001",
+        )
+        self.assertIn("verify_rights_and_risk_note", first_route["required_review_steps"])
+        self.assertIn("field_map_review_notes", first_route["reserved_review_fields"])
+        self.assertEqual(first_route["field_map_blockers"], ["field_map_semantics_not_reviewed"])
+        self.assertEqual(first_route["field_map_result_status"], "not_started")
+        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
+        self.assertIn("not a rights decision", data["caution"])
+
+    def test_source_processing_pipeline_audit_preserves_current_source_totals(self) -> None:
+        self.assertEqual(check_source_processing_pipeline_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "095_source-processing-pipeline-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["source_count"], 21)
+        self.assertEqual(
+            data["stage_counts"],
+            {
+                "cleaned": 4,
+                "discovered_access_boundary_or_error": 1,
+                "pending_human_review": 16,
+            },
+        )
+        self.assertEqual(data["totals"]["download_manifest_count"], 46)
+        self.assertEqual(data["totals"]["download_log_count"], 47)
+        self.assertEqual(data["totals"]["metadata_profile_count"], 62)
+        self.assertEqual(data["totals"]["graph_edge_count"], 104077)
+        self.assertEqual(data["totals"]["candidate_queue_count"], 10996)
+        self.assertIn("source-level preprocessing only", data["completion_boundary"])
+
+    def test_source_processing_pipeline_audit_builder_tracks_source_routes(self) -> None:
+        module = load_source_processing_pipeline_audit_module()
+        rows = module.build_pipeline_rows(repo_root())
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["current_stage"], "pending_human_review")
+        self.assertEqual(by_source["src-hust-obc"]["candidate_queue_count"], "10996")
+        self.assertEqual(by_source["src-hust-obc"]["large_source_register_count"], "1")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
+        self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51679")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["current_stage"], "pending_human_review")
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["current_stage"], "cleaned")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["current_stage"], "discovered_access_boundary_or_error")
+        self.assertTrue(all(row["source_route_review_queue_count"] == "1" for row in rows))
+        self.assertTrue(all("Source processing pipeline audit only" in row["caution"] for row in rows))
+
+    def test_source_pipeline_gap_matrix_routes_each_source_without_promotion(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "132_ai-agent-source-pipeline-gap-matrix.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(
+            set(by_source),
+            {
+                row["source_id"]
+                for row in load_source_processing_pipeline_audit_module().read_csv_rows(
+                    repo_root()
+                    / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+                    / "001_all-sources-index.csv"
+                )
+            },
+        )
+        self.assertEqual(by_source["src-hust-obc"]["pipeline_gap_status"], "needs_safe_derived_record_review")
+        self.assertEqual(by_source["src-hust-obc"]["large_source_register_count"], "1")
+        self.assertEqual(by_source["src-hust-obc"]["package_manifest_count"], "4")
+        self.assertEqual(by_source["src-obimd"]["pipeline_gap_status"], "needs_safe_derived_record_review")
+        self.assertEqual(by_source["src-obimd"]["large_source_register_count"], "1")
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["pipeline_gap_status"], "needs_access_boundary_review")
+        self.assertEqual(
+            by_source["src-british-museum-oracle-bone"]["pipeline_gap_status"],
+            "needs_download_or_access_review",
+        )
+        self.assertEqual(by_source["src-nlc-oracle-world"]["metadata_profile_count"], "7")
+        for row in rows:
+            self.assertTrue((repo_root() / row["source_register_path"]).exists())
+            self.assertTrue((repo_root() / row["pipeline_audit_path"]).exists())
+            self.assertTrue((repo_root() / row["next_entry_path"]).exists())
+            self.assertTrue(row["risk_note"])
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(row["source_promotion_status"], "not_promoted")
+            self.assertEqual(row["corpus_import_status"], "not_imported")
+            self.assertEqual(row["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertIn("not a corpus import", row["caution"])
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a decipherment conclusion", row["caution"])
+
+    def test_source_pipeline_gap_matrix_builder_classifies_pipeline_gaps(self) -> None:
+        module = load_source_pipeline_gap_matrix_module()
+        rows = module.build_gap_rows(repo_root())
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["gap_flags"], "candidate_or_graph_derivatives_pending_review")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["pipeline_gap_status"], "needs_safe_derived_record_review")
+        self.assertEqual(
+            by_source["src-british-museum-oracle-bone"]["gap_flags"],
+            "not_downloaded_or_access_not_resolved;missing_field_map;missing_package_manifest;missing_metadata_profile",
+        )
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["review_lane"], "access_and_checksum_boundary_resolution")
+        self.assertEqual(by_source["src-nlc-oracle-world"]["review_lane"], "metadata_profile_and_package_manifest_decision")
+        self.assertTrue(all(row["claim_boundary"] == module.CLAIM_BOUNDARY for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "no_new_rights_decision" for row in rows))
+
+    def test_source_pipeline_gap_review_checklist_routes_132_gaps(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "133_ai-agent-source-pipeline-gap-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["review_lane"], "safe_derived_record_decision")
+        self.assertIn("review_candidate_or_graph_derivatives", by_source["src-hust-obc"]["required_review_steps"])
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["checklist_status"], "not_started")
+        self.assertIn(
+            "verify_download_or_access_boundary",
+            by_source["src-british-museum-oracle-bone"]["required_review_steps"],
+        )
+        self.assertIn("verify_field_map_absence_or_plan", by_source["src-british-museum-oracle-bone"]["required_review_steps"])
+        self.assertIn("review_metadata_profile_or_not_applicable", by_source["src-nlc-oracle-world"]["required_review_steps"])
+        for row in rows:
+            self.assertEqual(row["gap_matrix_path"], "corpus/009_statistics-and-derived-features/132_ai-agent-source-pipeline-gap-matrix.csv")
+            self.assertEqual(row["checklist_status"], "not_started")
+            self.assertEqual(row["evidence_collection_status"], "not_collected")
+            self.assertEqual(row["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(row["source_promotion_status"], "not_promoted")
+            self.assertEqual(row["corpus_import_status"], "not_imported")
+            self.assertEqual(row["decipherment_claim_status"], "no_decipherment_claim")
+            for route_path in row["route_files_to_open"].split(";"):
+                self.assertTrue((repo_root() / route_path).exists(), route_path)
+            self.assertIn("not a rights decision", row["caution"])
+            self.assertIn("not a corpus import", row["caution"])
+            self.assertIn("not a decipherment conclusion", row["caution"])
+
+    def test_source_pipeline_gap_review_checklist_builder_uses_gap_matrix(self) -> None:
+        module = load_source_pipeline_gap_review_checklist_module()
+        rows = module.build_checklist_rows(repo_root())
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["pipeline_gap_status"], "needs_access_boundary_review")
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["review_lane"], "access_and_checksum_boundary_resolution")
+        self.assertIn("verify_access_boundary_or_error_status", by_source["src-xiaoxuetang-jiaguwen"]["required_review_steps"])
+        self.assertEqual(by_source["src-obimd"]["checklist_id"], "source-pipeline-gap-review-checklist-011")
+        self.assertEqual(by_source["src-obimd"]["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
+        self.assertTrue(all(row["review_outcome_summary"] == "" for row in rows))
+
+    def test_core_corpus_readiness_matrix_preserves_current_review_backlog(self) -> None:
+        self.assertEqual(check_core_corpus_readiness_matrix(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "097_manual-review-backlog-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["core_area_count"], 10)
+        self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
+        self.assertEqual(data["review_priority_counts"], {"high_batch_review": 2, "targeted_review": 8})
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12260)
+        self.assertEqual(data["totals"]["graph_edge_count"], 208154)
+        self.assertIn("does not start formal decipherment research", data["completion_boundary"])
+        self.assertIn("row-sums across readiness areas", data["totals_note"])
+
+    def test_core_corpus_readiness_matrix_builder_keeps_candidate_boundaries(self) -> None:
+        module = load_core_corpus_readiness_matrix_module()
+        rows = module.build_readiness_rows(repo_root())
+        self.assertEqual(len(rows), 10)
+        by_area = {row["corpus_area"]: row for row in rows}
+        self.assertEqual(by_area["oracle_characters"]["review_priority"], "high_batch_review")
+        self.assertEqual(by_area["undeciphered_oracle_character_candidates"]["candidate_record_count"], "9408")
+        self.assertEqual(by_area["cross_source_codepoint_routes"]["candidate_record_count"], "134")
+        self.assertEqual(by_area["graphemic_components"]["graph_edge_count"], "44433")
+        self.assertEqual(by_area["evolution_correspondences"]["graph_edge_count"], "51679")
+        self.assertEqual(by_area["inscriptions_and_plate_crosswalks"]["graph_edge_count"], "4403")
+        self.assertEqual(by_area["inscriptions_and_plate_crosswalks"]["review_queue_count"], "612")
+        self.assertEqual(
+            by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
+            "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
+        )
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "131")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "104077")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "378")
+        self.assertEqual(
+            by_area["research_sources_and_bibliography"]["review_queue_path"],
+            "corpus/009_statistics-and-derived-features/133_ai-agent-source-pipeline-gap-review-checklist.csv",
+        )
+        self.assertTrue(all(row["readiness_stage"] == "ready_for_human_review" for row in rows))
+        self.assertTrue(all("Core corpus readiness only" in row["caution"] for row in rows))
 if __name__ == "__main__":
     unittest.main()

@@ -590,6 +590,10 @@ EVOBC_EVOLUTION_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "007_evobc-evolution-graph-edges.jsonl"
 )
+CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
+)
 RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "001_relationship-graph-edge-type-summary.csv"
@@ -617,6 +621,182 @@ AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK = (
 SOURCE_COVERAGE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "007_source-coverage-summary.csv"
+)
+PREPROCESSING_STATUS_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "090_preprocessing-status-audit.csv"
+)
+PREPROCESSING_STATUS_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "091_preprocessing-status-summary.json"
+)
+DATA_QUALITY_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "092_data-quality-audit.csv"
+)
+DATA_QUALITY_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "093_data-quality-summary.json"
+)
+SOURCE_PROCESSING_PIPELINE_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "094_source-processing-pipeline-audit.csv"
+)
+SOURCE_PROCESSING_PIPELINE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "095_source-processing-pipeline-summary.json"
+)
+CORE_CORPUS_READINESS_MATRIX = (
+    "corpus/009_statistics-and-derived-features/"
+    "096_core-corpus-readiness-matrix.csv"
+)
+MANUAL_REVIEW_BACKLOG_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "097_manual-review-backlog-summary.json"
+)
+CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv"
+)
+SOURCE_ENGINEERING_GAP_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "099_ai-agent-source-engineering-gap-queue.csv"
+)
+SOURCE_ENGINEERING_EXECUTION_MATRIX = (
+    "corpus/009_statistics-and-derived-features/"
+    "100_ai-agent-source-engineering-execution-matrix.csv"
+)
+SOURCE_ENGINEERING_EXECUTION_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "101_source-engineering-execution-summary.json"
+)
+SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv"
+)
+SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT = (
+    "corpus/009_statistics-and-derived-features/"
+    "103_ai-agent-source-engineering-gap-evidence-snapshot.csv"
+)
+SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "104_ai-agent-source-engineering-next-action-checklist.csv"
+)
+SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "105_ai-agent-source-engineering-next-action-result-scaffold.csv"
+)
+SOURCE_ENGINEERING_LANE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "106_ai-agent-source-engineering-lane-summary.csv"
+)
+SOURCE_ENGINEERING_LANE_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "107_ai-agent-source-engineering-lane-route-pack.json"
+)
+SOURCE_FIELD_MAP_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "108_ai-agent-source-field-map-scaffold.csv"
+)
+SOURCE_FIELD_MAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "109_ai-agent-source-field-map-review-checklist.csv"
+)
+SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "110_ai-agent-source-field-map-review-result-scaffold.csv"
+)
+SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "111_ai-agent-source-field-map-review-route-pack.json"
+)
+SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "112_ai-agent-source-package-manifest-review-route-pack.json"
+)
+SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "113_ai-agent-source-access-boundary-review-route-pack.json"
+)
+SOURCE_CHECKSUM_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "114_ai-agent-source-checksum-review-route-pack.json"
+)
+SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "115_ai-agent-source-metadata-profile-review-route-pack.json"
+)
+SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "116_ai-agent-source-safe-derived-record-review-route-pack.json"
+)
+SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "117_ai-agent-source-engineering-review-route-summary.json"
+)
+SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "118_ai-agent-source-engineering-review-wave-handoff-scaffold.json"
+)
+SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "119_ai-agent-source-engineering-first-wave-review-results.csv"
+)
+SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "120_ai-agent-source-engineering-first-wave-result-record-manifest.csv"
+)
+SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "121_ai-agent-source-engineering-first-wave-followup-queue.csv"
+)
+SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS = (
+    "corpus/009_statistics-and-derived-features/"
+    "122_ai-agent-source-engineering-first-wave-source-status.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "123_ai-agent-source-engineering-second-wave-source-checklist.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "125_ai-agent-source-engineering-second-wave-result-scaffold.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "126_ai-agent-source-engineering-second-wave-review-checklist.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "128_ai-agent-source-engineering-second-wave-outcome-route-pack.json"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "129_ai-agent-source-engineering-second-wave-outcome-handoff-scaffold.json"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "130_ai-agent-source-engineering-second-wave-handoff-review-checklist.csv"
+)
+SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "131_ai-agent-source-engineering-second-wave-handoff-route-summary.json"
+)
+SOURCE_PIPELINE_GAP_MATRIX = (
+    "corpus/009_statistics-and-derived-features/"
+    "132_ai-agent-source-pipeline-gap-matrix.csv"
+)
+SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "133_ai-agent-source-pipeline-gap-review-checklist.csv"
 )
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
@@ -1224,6 +1404,7 @@ REQUIRED_PATHS = [
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
     EVOBC_EVOLUTION_GRAPH_EDGES,
+    CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES,
     RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
     RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY,
     AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
@@ -1231,6 +1412,50 @@ REQUIRED_PATHS = [
     AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
     AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
     SOURCE_COVERAGE_SUMMARY,
+    PREPROCESSING_STATUS_AUDIT,
+    PREPROCESSING_STATUS_SUMMARY,
+    DATA_QUALITY_AUDIT,
+    DATA_QUALITY_SUMMARY,
+    SOURCE_PROCESSING_PIPELINE_AUDIT,
+    SOURCE_PROCESSING_PIPELINE_SUMMARY,
+    CORE_CORPUS_READINESS_MATRIX,
+    MANUAL_REVIEW_BACKLOG_SUMMARY,
+    CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
+    SOURCE_ENGINEERING_GAP_QUEUE,
+    SOURCE_ENGINEERING_EXECUTION_MATRIX,
+    SOURCE_ENGINEERING_EXECUTION_SUMMARY,
+    SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST,
+    SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT,
+    SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST,
+    SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD,
+    SOURCE_ENGINEERING_LANE_SUMMARY,
+    SOURCE_ENGINEERING_LANE_ROUTE_PACK,
+    SOURCE_FIELD_MAP_SCAFFOLD,
+    SOURCE_FIELD_MAP_REVIEW_CHECKLIST,
+    SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD,
+    SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK,
+    SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK,
+    SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK,
+    SOURCE_CHECKSUM_REVIEW_ROUTE_PACK,
+    SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK,
+    SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK,
+    SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY,
+    SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD,
+    SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS,
+    SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST,
+    SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE,
+    SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS,
+    SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST,
+    SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST,
+    SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD,
+    SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST,
+    SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD,
+    SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK,
+    SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD,
+    SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST,
+    SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY,
+    SOURCE_PIPELINE_GAP_MATRIX,
+    SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1323,6 +1548,7 @@ REQUIRED_PATHS = [
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
     "tools/002_corpus-import/download_source_manifest.py",
+    "tools/002_corpus-import/build_registered_source_metadata_profiles.py",
     "tools/002_corpus-import/build_evobc_evolution_staging.py",
     "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py",
     "tools/002_corpus-import/build_hust_obc_source_category_staging.py",
@@ -1336,15 +1562,55 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
+    "tools/003_graph-generation/build_cambridge_hopkins_inscription_graph_edges.py",
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
     "tools/004_statistics-generation/build_asset_image_visual_profiles.py",
     "tools/004_statistics-generation/build_source_coverage_statistics.py",
+    "tools/004_statistics-generation/build_preprocessing_status_audit.py",
+    "tools/004_statistics-generation/build_data_quality_audit.py",
+    "tools/004_statistics-generation/build_source_processing_pipeline_audit.py",
+    "tools/004_statistics-generation/build_core_corpus_readiness_matrix.py",
+    "tools/004_statistics-generation/build_source_engineering_gap_queue.py",
+    "tools/004_statistics-generation/build_source_engineering_execution_matrix.py",
+    "tools/004_statistics-generation/build_source_engineering_lane_summary.py",
     "tools/005_ai-context-pack-builder/build_relationship_graph_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_gap_review_log_drafts.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_gap_evidence_snapshot.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_next_action_checklist.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_next_action_result_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_lane_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_field_map_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_field_map_review_checklist.py",
+    "tools/005_ai-context-pack-builder/build_source_field_map_review_result_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_field_map_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_package_manifest_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_access_boundary_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_checksum_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_metadata_profile_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_safe_derived_record_review_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_review_route_summary.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_review_wave_handoff_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_first_wave_review_results.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_first_wave_result_records.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_first_wave_followup_queue.py",
+    "tools/004_statistics-generation/build_source_engineering_first_wave_source_status.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_source_checklist.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_review_drafts.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_result_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_review_checklist.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_review_outcome_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_outcome_route_pack.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_outcome_handoff_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_handoff_review_checklist.py",
+    "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_handoff_route_summary.py",
+    "tools/004_statistics-generation/build_source_pipeline_gap_matrix.py",
+    "tools/005_ai-context-pack-builder/build_source_pipeline_gap_review_checklist.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
     "tools/005_ai-context-pack-builder/build_public_domain_asset_context_pack.py",
     "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
+    "tools/005_ai-context-pack-builder/build_cambridge_hopkins_inscription_crosswalk_review_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_context_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_review_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts.py",
@@ -1907,6 +2173,9 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     edge_rows, edge_issues = _read_jsonl_rows(root / HUST_OBC_CANDIDATE_GRAPH_EDGES)
     obimd_edge_rows, obimd_edge_issues = _read_jsonl_rows(root / OBIMD_COMPONENT_GRAPH_EDGES)
     evobc_edge_rows, evobc_edge_issues = _read_jsonl_rows(root / EVOBC_EVOLUTION_GRAPH_EDGES)
+    cambridge_edge_rows, cambridge_edge_issues = _read_jsonl_rows(
+        root / CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES
+    )
     source_category_rows, source_category_issues = _read_csv_rows(root / HUST_OBC_SOURCE_CATEGORY_STAGING)
     validation_rows, validation_issues = _read_csv_rows(root / HUST_OBC_VALIDATION_CLASS_STAGING)
     obimd_subchar_main_rows, obimd_subchar_main_issues = _read_csv_rows(
@@ -1921,15 +2190,20 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     evobc_codebook_rows, evobc_codebook_issues = _read_csv_rows(
         root / EVOBC_ERA_SOURCE_CODEBOOK_STAGING
     )
+    cambridge_crosswalk_rows, cambridge_crosswalk_issues = _read_csv_rows(
+        root / CAMBRIDGE_HOPKINS_CROSSWALK_STAGING
+    )
     issues.extend(edge_issues)
     issues.extend(obimd_edge_issues)
     issues.extend(evobc_edge_issues)
+    issues.extend(cambridge_edge_issues)
     issues.extend(source_category_issues)
     issues.extend(validation_issues)
     issues.extend(obimd_subchar_main_issues)
     issues.extend(obimd_subchar_glyph_issues)
     issues.extend(evobc_category_issues)
     issues.extend(evobc_codebook_issues)
+    issues.extend(cambridge_crosswalk_issues)
 
     if len(edge_rows) != 3562:
         issues.append(f"{HUST_OBC_CANDIDATE_GRAPH_EDGES} should contain exactly 3562 edges")
@@ -2170,6 +2444,61 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     if evobc_edge_rows and compact_evobc_edge_rows != expected_evobc_edges:
         issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge sequence changed")
 
+    if len(cambridge_edge_rows) != 4403:
+        issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} should contain exactly 4403 edges")
+    cambridge_edge_ids: set[str] = set()
+    cambridge_edge_type_counts: dict[str, int] = {}
+    cambridge_source_nodes: set[str] = set()
+    for row in cambridge_edge_rows:
+        edge_id = str(row.get("edge_id", ""))
+        if not required_fields.issubset(row):
+            issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge missing required fields: {edge_id}")
+        if edge_id in cambridge_edge_ids:
+            issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} duplicate edge_id: {edge_id}")
+        cambridge_edge_ids.add(edge_id)
+        edge_type = str(row.get("edge_type", ""))
+        cambridge_edge_type_counts[edge_type] = cambridge_edge_type_counts.get(edge_type, 0) + 1
+        cambridge_source_nodes.add(str(row.get("source_node_id", "")))
+        if row.get("confidence_level") != "high":
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge must stay high confidence metadata edge: {edge_id}"
+            )
+        if row.get("source_ids") != ["src-cambridge-hopkins"]:
+            issues.append(
+                f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge must reference only src-cambridge-hopkins: {edge_id}"
+            )
+        if row.get("review_status") != "reviewed":
+            issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge must stay reviewed: {edge_id}")
+        note = str(row.get("evidence_note", ""))
+        if "not a formal obi-*" not in note:
+            issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge evidence note must preserve caution: {edge_id}")
+
+    expected_cambridge_type_counts = {
+        "HAS_CAMBRIDGE_HOPKINS_CHALFANT_REF": 441,
+        "HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP": 612,
+        "HAS_CAMBRIDGE_HOPKINS_CUL_REF": 606,
+        "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD": 612,
+        "HAS_CAMBRIDGE_HOPKINS_HEJI_REF": 296,
+        "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL": 612,
+        "HAS_CAMBRIDGE_HOPKINS_SOURCE": 612,
+        "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF": 612,
+    }
+    if cambridge_edge_rows and cambridge_edge_type_counts != expected_cambridge_type_counts:
+        issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} edge type counts changed")
+
+    expected_crosswalk_ids = {
+        row.get("candidate_inscription_crosswalk_id", "")
+        for row in cambridge_crosswalk_rows
+    }
+    if cambridge_source_nodes != expected_crosswalk_ids:
+        issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} source node coverage changed")
+
+    first_cambridge_edge = cambridge_edge_rows[0] if cambridge_edge_rows else {}
+    if first_cambridge_edge.get("edge_id") != "edge-cam-hopkins-crosswalk-source-0001":
+        issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} first edge changed")
+    if first_cambridge_edge.get("target_node_id") != "src-cambridge-hopkins":
+        issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} first edge target changed")
+
     return issues
 
 
@@ -2184,10 +2513,10 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
     issues.extend(edge_summary_issues)
     issues.extend(node_degree_issues)
 
-    if len(edge_summary_rows) != 6:
-        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} should contain exactly 6 rows")
-    if len(node_degree_rows) != 65039:
-        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} should contain exactly 65039 rows")
+    if len(edge_summary_rows) != 14:
+        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} should contain exactly 14 rows")
+    if len(node_degree_rows) != 67632:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} should contain exactly 67632 rows")
 
     expected_edge_counts = {
         (
@@ -2220,6 +2549,46 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             "src-evobc",
             "EVOBC_CATEGORY_HAS_SOURCE_CODE",
         ): ("25301", "13712", "8"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_CHALFANT_REF",
+        ): ("441", "441", "440"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP",
+        ): ("612", "612", "21"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_CUL_REF",
+        ): ("606", "606", "605"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD",
+        ): ("612", "612", "1"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_HEJI_REF",
+        ): ("296", "296", "296"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL",
+        ): ("612", "612", "6"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_SOURCE",
+        ): ("612", "612", "1"),
+        (
+            "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+            "src-cambridge-hopkins",
+            "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF",
+        ): ("612", "612", "611"),
     }
     observed_edge_counts = {}
     total_edge_count = 0
@@ -2245,8 +2614,8 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} confidence not high-only: {key}")
     if observed_edge_counts != expected_edge_counts:
         issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} edge count summary changed")
-    if total_edge_count != 99674:
-        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} total edge count should be 99674")
+    if total_edge_count != 104077:
+        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} total edge count should be 104077")
 
     total_out_degree = 0
     total_in_degree = 0
@@ -2269,10 +2638,10 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total degree mismatch: {node_id}")
         total_out_degree += out_value
         total_in_degree += in_value
-    if total_out_degree != 99674:
-        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total out-degree should be 99674")
-    if total_in_degree != 99674:
-        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total in-degree should be 99674")
+    if total_out_degree != 104077:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total out-degree should be 104077")
+    if total_in_degree != 104077:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total in-degree should be 104077")
 
     if node_degree_rows:
         expected_first = {
@@ -2288,7 +2657,7 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             if node_degree_rows[0].get(key) != value:
                 issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} first row {key} changed")
         expected_last = {
-            "node_degree_row_id": "graph-node-degree-065039",
+            "node_degree_row_id": "graph-node-degree-067632",
             "node_id": "obs-cand-001588",
             "total_degree": "1",
             "out_degree": "1",
@@ -2354,13 +2723,13 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         status_counts[row.get("coverage_status", "")] += 1
 
     expected_totals = {
-        "download_manifest_count": 44,
-        "download_log_count": 44,
-        "downloaded_file_bytes": 37363373,
-        "metadata_profile_metric_count": 48,
+        "download_manifest_count": 46,
+        "download_log_count": 47,
+        "downloaded_file_bytes": 645297183,
+        "metadata_profile_metric_count": 62,
         "committed_asset_count": 3,
         "committed_asset_bytes": 4922128,
-        "graph_edge_count": 99674,
+        "graph_edge_count": 104077,
         "promotion_queue_candidate_count": 1588,
     }
     for field, expected_value in expected_totals.items():
@@ -2369,9 +2738,9 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
 
     expected_status_counts = {
         "has_committed_public_asset_or_metadata": 2,
-        "has_download_log_only": 12,
-        "has_downloaded_metadata_profile": 4,
-        "has_relationship_graph_derivatives": 3,
+        "has_download_log_only": 5,
+        "has_downloaded_metadata_profile": 10,
+        "has_relationship_graph_derivatives": 4,
     }
     if dict(status_counts) != expected_status_counts:
         issues.append(f"{SOURCE_COVERAGE_SUMMARY} coverage status counts changed")
@@ -2393,6 +2762,11 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "graph_edge_type_count": "2",
             "coverage_status": "has_relationship_graph_derivatives",
         },
+        "src-cambridge-hopkins": {
+            "graph_edge_count": "4403",
+            "graph_edge_type_count": "8",
+            "coverage_status": "has_relationship_graph_derivatives",
+        },
         "src-metmuseum-oracle-bone": {
             "committed_asset_count": "2",
             "committed_asset_bytes": "4288710",
@@ -2406,7 +2780,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "coverage_status": "has_committed_public_asset_or_metadata",
         },
         "src-xiaoxuetang-jiaguwen": {
-            "download_status_counts": "downloaded_access_restricted_page:2",
+            "download_status_counts": "download_error:2;downloaded_access_restricted_page:2",
             "coverage_status": "has_download_log_only",
         },
     }
@@ -2422,8 +2796,2982 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
     return issues
 
 
+def check_preprocessing_status_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_rows, audit_issues = _read_csv_rows(root / PREPROCESSING_STATUS_AUDIT)
+    issues.extend(audit_issues)
+
+    summary_path = root / PREPROCESSING_STATUS_SUMMARY
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {PREPROCESSING_STATUS_SUMMARY}")
+        summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} invalid JSON: {exc}")
+        summary = {}
+
+    if len(audit_rows) != 11:
+        issues.append(f"{PREPROCESSING_STATUS_AUDIT} should contain exactly 11 rows")
+    if summary.get("row_count") != 11:
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} row_count should be 11")
+    if summary.get("audit_csv_path") != PREPROCESSING_STATUS_AUDIT:
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} audit_csv_path changed")
+    if summary.get("updated_at") != "2026-06-19":
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} updated_at changed")
+    if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} completion boundary changed")
+
+    expected_stage_counts = {
+        "pending_human_review": 6,
+        "structured": 1,
+        "verified": 4,
+    }
+    if summary.get("stage_counts") != expected_stage_counts:
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} stage counts changed")
+
+    expected_area_types = {
+        "assets",
+        "components_and_glyph_links",
+        "evolution_correspondence_candidates",
+        "formal_project_id_maps",
+        "inscription_and_collection_staging",
+        "large_source_register",
+        "oracle_character_candidates",
+        "relationship_graph",
+        "review_queues",
+        "source_registry",
+        "undeciphered_character_candidates",
+    }
+    area_types = {row.get("area_type", "") for row in audit_rows}
+    if area_types != expected_area_types:
+        issues.append(f"{PREPROCESSING_STATUS_AUDIT} area type set changed")
+
+    by_type = {row.get("area_type", ""): row for row in audit_rows}
+    expected_fragments = {
+        "source_registry": [
+            "source_rows:21",
+            "download_log_rows:47",
+            "downloaded_rows:41",
+            "download_error_or_boundary_rows:6",
+        ],
+        "large_source_register": [
+            "large_source_rows:3",
+            "downloaded_large_source_rows:1",
+            "not_downloaded_registered_rows:2",
+        ],
+        "oracle_character_candidates": [
+            "validation_class_rows:1588",
+            "promotion_review_queue_rows:1588",
+            "candidate_character_packet_json_files:1588",
+            "accepted_character_index_rows:0",
+        ],
+        "undeciphered_character_candidates": [
+            "undeciphered_index_rows:9408",
+            "undeciphered_candidate_packet_json_files:9408",
+            "review_queue_rows:9408",
+        ],
+        "components_and_glyph_links": [
+            "obimd_main_character_rows:3936",
+            "obimd_graph_edges:44433",
+        ],
+        "evolution_correspondence_candidates": [
+            "evobc_graph_edges:51679",
+            "era_code_edges:26378",
+            "source_code_edges:25301",
+        ],
+        "inscription_and_collection_staging": [
+            "formal_inscription_id_map_rows:0",
+            "formal_inscription_record_files:0",
+            "cambridge_hopkins_graph_edges:4403",
+            "cambridge_hopkins_crosswalk_review_queue_rows:612",
+            "xxt_obm_access_capture_rows:4",
+        ],
+        "assets": [
+            "asset_source_rows:3",
+            "asset_id_map_rows:3",
+        ],
+        "relationship_graph": [
+            "graph_edge_rows:104077",
+            "edge_type_count:14",
+            "node_degree_summary_rows:67632",
+        ],
+        "review_queues": [
+            "review_log_files:76",
+            "evidence_collection_note_files:49",
+            "undeciphered_review_queue_rows:9408",
+            "cambridge_hopkins_crosswalk_review_queue_rows:612",
+            "source_engineering_gap_queue_rows:45",
+            "source_engineering_execution_matrix_rows:21",
+            "source_engineering_gap_review_log_draft_rows:45",
+            "source_engineering_gap_evidence_snapshot_rows:45",
+            "source_engineering_next_action_checklist_rows:45",
+            "source_engineering_next_action_result_scaffold_rows:45",
+            "source_engineering_lane_route_pack_files:1",
+            "source_field_map_scaffold_rows:4",
+            "source_field_map_review_checklist_rows:4",
+            "source_field_map_review_result_scaffold_rows:4",
+            "source_field_map_review_route_pack_files:1",
+            "source_package_manifest_review_route_pack_files:1",
+            "source_access_boundary_review_route_pack_files:1",
+            "source_checksum_review_route_pack_files:1",
+            "source_metadata_profile_review_route_pack_files:1",
+            "source_safe_derived_record_review_route_pack_files:1",
+            "source_engineering_review_route_summary_files:1",
+            "source_engineering_second_wave_outcome_handoff_scaffold_files:1",
+            "source_engineering_second_wave_handoff_review_checklist_rows:4",
+            "source_engineering_second_wave_handoff_route_summary_files:1",
+            "source_pipeline_gap_matrix_rows:21",
+            "source_pipeline_gap_review_checklist_rows:21",
+        ],
+        "formal_project_id_maps": [
+            "formal_character_map_rows:0",
+            "formal_inscription_map_rows:0",
+            "formal_component_map_rows:0",
+            "formal_asset_map_rows:3",
+        ],
+    }
+    for area_type, fragments in expected_fragments.items():
+        count_summary = by_type.get(area_type, {}).get("count_summary", "")
+        for fragment in fragments:
+            if fragment not in count_summary:
+                issues.append(f"{PREPROCESSING_STATUS_AUDIT} {area_type} missing {fragment}")
+
+    for row in audit_rows:
+        area_type = row.get("area_type", "")
+        if row.get("updated_at") != "2026-06-19":
+            issues.append(f"{PREPROCESSING_STATUS_AUDIT} updated_at changed: {area_type}")
+        if "Preprocessing audit only" not in row.get("caution", ""):
+            issues.append(f"{PREPROCESSING_STATUS_AUDIT} caution changed: {area_type}")
+        if row.get("current_stage") not in {"verified", "pending_human_review", "structured"}:
+            issues.append(f"{PREPROCESSING_STATUS_AUDIT} unexpected stage: {area_type}")
+        if row.get("area_type") in {
+            "oracle_character_candidates",
+            "undeciphered_character_candidates",
+            "components_and_glyph_links",
+            "evolution_correspondence_candidates",
+            "relationship_graph",
+        } and "candidate" not in row.get("review_status", ""):
+            issues.append(f"{PREPROCESSING_STATUS_AUDIT} candidate boundary changed: {area_type}")
+
+    summary_rows = summary.get("rows", [])
+    if isinstance(summary_rows, list) and len(summary_rows) != len(audit_rows):
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} embedded row count changed")
+    return issues
+
+
+def check_data_quality_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_rows, audit_issues = _read_csv_rows(root / DATA_QUALITY_AUDIT)
+    issues.extend(audit_issues)
+
+    summary_path = root / DATA_QUALITY_SUMMARY
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {DATA_QUALITY_SUMMARY}")
+        summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{DATA_QUALITY_SUMMARY} invalid JSON: {exc}")
+        summary = {}
+
+    if len(audit_rows) != 25:
+        issues.append(f"{DATA_QUALITY_AUDIT} should contain exactly 25 rows")
+    if summary.get("dataset_count") != 25:
+        issues.append(f"{DATA_QUALITY_SUMMARY} dataset_count should be 25")
+    if summary.get("audit_csv_path") != DATA_QUALITY_AUDIT:
+        issues.append(f"{DATA_QUALITY_SUMMARY} audit_csv_path changed")
+    if summary.get("updated_at") != "2026-06-19":
+        issues.append(f"{DATA_QUALITY_SUMMARY} updated_at changed")
+    if "does not promote candidate identities" not in summary.get("completion_boundary", ""):
+        issues.append(f"{DATA_QUALITY_SUMMARY} completion boundary changed")
+    if summary.get("quality_status_counts") != {"pass": 25}:
+        issues.append(f"{DATA_QUALITY_SUMMARY} quality status counts changed")
+
+    expected_totals = {
+        "boundary_status_violation_count": 0,
+        "duplicate_key_count": 0,
+        "issue_count": 0,
+        "missing_path_count": 0,
+        "missing_required_value_count": 0,
+        "row_count": 121607,
+        "unknown_download_ref_count": 0,
+        "unknown_large_source_ref_count": 0,
+        "unknown_source_ref_count": 0,
+    }
+    if summary.get("totals") != expected_totals:
+        issues.append(f"{DATA_QUALITY_SUMMARY} totals changed")
+
+    expected_dataset_counts = {
+        "source_index": "21",
+        "source_download_manifest": "46",
+        "source_download_log": "47",
+        "large_source_register": "3",
+        "source_package_file_manifest": "14",
+        "asset_source_index": "3",
+        "hust_obc_promotion_review_queue": "1588",
+        "hust_obc_undeciphered_candidate_index": "9408",
+        "obimd_main_character_staging": "3936",
+        "hust_obimd_evobc_codepoint_crosswalk": "1588",
+        "cambridge_hopkins_inscription_crosswalk_review_queue": "612",
+        "source_engineering_gap_queue": "45",
+        "source_engineering_execution_matrix": "21",
+        "source_engineering_gap_review_log_draft_manifest": "45",
+        "source_engineering_gap_evidence_snapshot": "45",
+        "source_engineering_next_action_checklist": "45",
+        "source_engineering_next_action_result_scaffold": "45",
+        "source_engineering_lane_summary": "6",
+        "source_field_map_scaffold": "4",
+        "source_field_map_review_checklist": "4",
+        "source_field_map_review_result_scaffold": "4",
+        "005_hust-obc-candidate-graph-edges": "3562",
+        "006_obimd-component-graph-edges": "44433",
+        "007_evobc-evolution-graph-edges": "51679",
+        "008_cambridge-hopkins-inscription-crosswalk-graph-edges": "4403",
+    }
+    by_dataset = {row.get("dataset_id", ""): row for row in audit_rows}
+    if set(by_dataset) != set(expected_dataset_counts):
+        issues.append(f"{DATA_QUALITY_AUDIT} dataset set changed")
+    for dataset_id, expected_count in expected_dataset_counts.items():
+        row = by_dataset.get(dataset_id, {})
+        if row.get("row_count") != expected_count:
+            issues.append(f"{DATA_QUALITY_AUDIT} row_count changed for {dataset_id}")
+        if row.get("quality_status") != "pass":
+            issues.append(f"{DATA_QUALITY_AUDIT} quality_status not pass for {dataset_id}")
+        if row.get("issue_count") != "0":
+            issues.append(f"{DATA_QUALITY_AUDIT} issue_count not zero for {dataset_id}")
+        if row.get("completeness_percent") != "100.00":
+            issues.append(f"{DATA_QUALITY_AUDIT} completeness not 100% for {dataset_id}")
+        if "Data-quality audit only" not in row.get("caution", ""):
+            issues.append(f"{DATA_QUALITY_AUDIT} caution changed for {dataset_id}")
+
+    candidate_rows = [
+        by_dataset.get("hust_obc_promotion_review_queue", {}),
+        by_dataset.get("hust_obc_undeciphered_candidate_index", {}),
+        by_dataset.get("hust_obimd_evobc_codepoint_crosswalk", {}),
+    ]
+    for row in candidate_rows:
+        status_counts = row.get("status_counts", "")
+        if "not_promoted" not in status_counts and "needs_cross_source_review" not in status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} candidate boundary status missing")
+    cambridge_queue_quality = by_dataset.get("cambridge_hopkins_inscription_crosswalk_review_queue", {})
+    if "review_status=needs_human_review:612" not in cambridge_queue_quality.get("status_counts", ""):
+        issues.append(f"{DATA_QUALITY_AUDIT} Cambridge/Hopkins review queue status counts changed")
+    source_gap_quality = by_dataset.get("source_engineering_gap_queue", {})
+    if "review_status=needs_source_engineering_review:45" not in source_gap_quality.get("status_counts", ""):
+        issues.append(f"{DATA_QUALITY_AUDIT} source-engineering gap queue status counts changed")
+    source_execution_quality = by_dataset.get("source_engineering_execution_matrix", {})
+    execution_status_counts = source_execution_quality.get("status_counts", "")
+    if "review_status=needs_source_engineering_review:18" not in execution_status_counts:
+        issues.append(f"{DATA_QUALITY_AUDIT} source-engineering execution review count changed")
+    if "review_status=no_current_source_engineering_gap:3" not in execution_status_counts:
+        issues.append(f"{DATA_QUALITY_AUDIT} source-engineering execution no-gap count changed")
+    source_gap_draft_quality = by_dataset.get("source_engineering_gap_review_log_draft_manifest", {})
+    draft_status_counts = source_gap_draft_quality.get("status_counts", "")
+    for expected_fragment in [
+        "draft_status=draft_not_collected:45",
+        "evidence_collection_status=not_collected:45",
+        "human_review_status=pending_human_review:45",
+        "rights_decision_status=no_new_rights_decision:45",
+        "source_promotion_status=not_promoted:45",
+    ]:
+        if expected_fragment not in draft_status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} source-engineering draft status missing {expected_fragment}")
+    source_gap_snapshot_quality = by_dataset.get("source_engineering_gap_evidence_snapshot", {})
+    snapshot_status_counts = source_gap_snapshot_quality.get("status_counts", "")
+    for expected_fragment in [
+        "evidence_status=metadata_only_existing_records_snapshot:45",
+        "rights_decision_status=no_new_rights_decision:45",
+        "source_promotion_status=not_promoted:45",
+        "corpus_import_status=not_imported:45",
+    ]:
+        if expected_fragment not in snapshot_status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} source-engineering snapshot status missing {expected_fragment}")
+    source_next_action_quality = by_dataset.get("source_engineering_next_action_checklist", {})
+    next_action_status_counts = source_next_action_quality.get("status_counts", "")
+    for expected_fragment in [
+        "action_status=ready_for_source_engineering_review:45",
+        "human_review_status=pending_human_review:45",
+        "rights_decision_status=no_new_rights_decision:45",
+        "source_promotion_status=not_promoted:45",
+        "corpus_import_status=not_imported:45",
+    ]:
+        if expected_fragment not in next_action_status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} source-engineering next-action status missing {expected_fragment}")
+    source_next_action_result_quality = by_dataset.get("source_engineering_next_action_result_scaffold", {})
+    next_action_result_status_counts = source_next_action_result_quality.get("status_counts", "")
+    for expected_fragment in [
+        "result_status=not_started:45",
+        "evidence_collection_status=not_collected:45",
+        "human_review_status=pending_human_review:45",
+        "rights_decision_status=no_new_rights_decision:45",
+        "source_promotion_status=not_promoted:45",
+        "corpus_import_status=not_imported:45",
+        "decipherment_claim_status=no_decipherment_claim:45",
+    ]:
+        if expected_fragment not in next_action_result_status_counts:
+            issues.append(
+                f"{DATA_QUALITY_AUDIT} source-engineering next-action result status missing {expected_fragment}"
+            )
+    source_lane_summary_quality = by_dataset.get("source_engineering_lane_summary", {})
+    if (
+        "review_status=summary_only_pending_source_engineering_review:6"
+        not in source_lane_summary_quality.get("status_counts", "")
+    ):
+        issues.append(f"{DATA_QUALITY_AUDIT} source-engineering lane summary review status changed")
+    source_field_map_quality = by_dataset.get("source_field_map_scaffold", {})
+    field_map_status_counts = source_field_map_quality.get("status_counts", "")
+    for expected_fragment in [
+        "field_map_review_status=pending_human_field_map_review:4",
+        "human_review_status=pending_human_review:4",
+        "rights_decision_status=no_new_rights_decision:4",
+        "source_promotion_status=not_promoted:4",
+        "corpus_import_status=not_imported:4",
+        "decipherment_claim_status=no_decipherment_claim:4",
+    ]:
+        if expected_fragment not in field_map_status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} source field-map scaffold status missing {expected_fragment}")
+    source_field_map_checklist_quality = by_dataset.get("source_field_map_review_checklist", {})
+    field_map_checklist_status_counts = source_field_map_checklist_quality.get("status_counts", "")
+    for expected_fragment in [
+        "checklist_status=not_started:4",
+        "field_map_review_status=pending_human_field_map_review:4",
+        "human_review_status=pending_human_review:4",
+        "rights_decision_status=no_new_rights_decision:4",
+        "source_promotion_status=not_promoted:4",
+        "corpus_import_status=not_imported:4",
+        "decipherment_claim_status=no_decipherment_claim:4",
+    ]:
+        if expected_fragment not in field_map_checklist_status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} source field-map checklist status missing {expected_fragment}")
+    source_field_map_result_quality = by_dataset.get("source_field_map_review_result_scaffold", {})
+    field_map_result_status_counts = source_field_map_result_quality.get("status_counts", "")
+    for expected_fragment in [
+        "field_map_result_status=not_started:4",
+        "field_map_review_status=pending_human_field_map_review:4",
+        "human_review_status=pending_human_review:4",
+        "rights_decision_status=no_new_rights_decision:4",
+        "source_promotion_status=not_promoted:4",
+        "corpus_import_status=not_imported:4",
+        "decipherment_claim_status=no_decipherment_claim:4",
+    ]:
+        if expected_fragment not in field_map_result_status_counts:
+            issues.append(f"{DATA_QUALITY_AUDIT} source field-map result status missing {expected_fragment}")
+
+    summary_rows = summary.get("rows", [])
+    if isinstance(summary_rows, list) and len(summary_rows) != len(audit_rows):
+        issues.append(f"{DATA_QUALITY_SUMMARY} embedded row count changed")
+    return issues
+
+
+def check_source_processing_pipeline_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_rows, audit_issues = _read_csv_rows(root / SOURCE_PROCESSING_PIPELINE_AUDIT)
+    gap_rows, gap_issues = _read_csv_rows(root / SOURCE_PIPELINE_GAP_MATRIX)
+    gap_checklist_rows, gap_checklist_issues = _read_csv_rows(root / SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST)
+    source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
+    issues.extend(audit_issues)
+    issues.extend(gap_issues)
+    issues.extend(gap_checklist_issues)
+    issues.extend(source_issues)
+
+    summary_path = root / SOURCE_PROCESSING_PIPELINE_SUMMARY
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_PROCESSING_PIPELINE_SUMMARY}")
+        summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} invalid JSON: {exc}")
+        summary = {}
+
+    if len(audit_rows) != 21:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_AUDIT} should contain exactly 21 rows")
+    if summary.get("source_count") != 21:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} source_count should be 21")
+    if summary.get("audit_csv_path") != SOURCE_PROCESSING_PIPELINE_AUDIT:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} audit_csv_path changed")
+    if summary.get("updated_at") != "2026-06-19":
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} updated_at changed")
+    if "audits source-level preprocessing only" not in summary.get("completion_boundary", ""):
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} completion boundary changed")
+
+    source_ids = {row.get("source_id", "") for row in source_rows}
+    audit_source_ids = {row.get("source_id", "") for row in audit_rows}
+    if audit_source_ids != source_ids:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_AUDIT} source_id coverage changed")
+
+    expected_stage_counts = {
+        "cleaned": 4,
+        "discovered_access_boundary_or_error": 1,
+        "pending_human_review": 16,
+    }
+    if summary.get("stage_counts") != expected_stage_counts:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} stage counts changed")
+
+    expected_totals = {
+        "access_boundary_or_error_count": 10,
+        "asset_count": 3,
+        "candidate_queue_count": 10996,
+        "checksum_present_count": 41,
+        "cross_source_crosswalk_match_count": 1737,
+        "download_log_count": 47,
+        "download_manifest_count": 46,
+        "downloaded_count": 41,
+        "field_map_count": 54,
+        "graph_edge_count": 104077,
+        "large_source_register_count": 3,
+        "metadata_profile_count": 62,
+        "package_manifest_count": 14,
+        "size_recorded_count": 47,
+        "source_route_review_queue_count": 21,
+    }
+    if summary.get("totals") != expected_totals:
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} totals changed")
+
+    by_source = {row.get("source_id", ""): row for row in audit_rows}
+    expected_source_fragments = {
+        "src-hust-obc": {
+            "current_stage": "pending_human_review",
+            "candidate_queue_count": "10996",
+            "graph_edge_count": "3562",
+            "large_source_register_count": "1",
+        },
+        "src-obimd": {
+            "current_stage": "pending_human_review",
+            "graph_edge_count": "44433",
+            "large_source_register_count": "1",
+        },
+        "src-evobc": {
+            "current_stage": "pending_human_review",
+            "graph_edge_count": "51679",
+            "large_source_register_count": "1",
+        },
+        "src-cambridge-hopkins": {
+            "current_stage": "pending_human_review",
+            "graph_edge_count": "4403",
+            "downloaded_count": "1",
+        },
+        "src-xiaoxuetang-jiaguwen": {
+            "current_stage": "cleaned",
+            "access_boundary_or_error_count": "4",
+        },
+        "src-british-museum-oracle-bone": {
+            "current_stage": "discovered_access_boundary_or_error",
+            "downloaded_count": "0",
+        },
+    }
+    for source_id, expected_values in expected_source_fragments.items():
+        row = by_source.get(source_id, {})
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(
+                    f"{SOURCE_PROCESSING_PIPELINE_AUDIT} {source_id} {field} changed"
+                )
+
+    for row in audit_rows:
+        source_id = row.get("source_id", "")
+        if row.get("source_route_review_queue_count") != "1":
+            issues.append(f"{SOURCE_PROCESSING_PIPELINE_AUDIT} missing source route review row: {source_id}")
+        if "Source processing pipeline audit only" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_PROCESSING_PIPELINE_AUDIT} caution changed: {source_id}")
+        if not row.get("next_action", ""):
+            issues.append(f"{SOURCE_PROCESSING_PIPELINE_AUDIT} missing next_action: {source_id}")
+
+    gap_source_ids = {row.get("source_id", "") for row in gap_rows}
+    if len(gap_rows) != 21:
+        issues.append(f"{SOURCE_PIPELINE_GAP_MATRIX} should contain exactly 21 rows")
+    if gap_source_ids != source_ids:
+        issues.append(f"{SOURCE_PIPELINE_GAP_MATRIX} source_id coverage changed")
+    gap_by_source = {row.get("source_id", ""): row for row in gap_rows}
+    expected_gap_fragments = {
+        "src-hust-obc": {
+            "pipeline_gap_status": "needs_safe_derived_record_review",
+            "large_source_register_count": "1",
+            "package_manifest_count": "4",
+        },
+        "src-obimd": {
+            "pipeline_gap_status": "needs_safe_derived_record_review",
+            "large_source_register_count": "1",
+        },
+        "src-xiaoxuetang-jiaguwen": {
+            "pipeline_gap_status": "needs_access_boundary_review",
+            "review_lane": "access_and_checksum_boundary_resolution",
+        },
+        "src-british-museum-oracle-bone": {
+            "pipeline_gap_status": "needs_download_or_access_review",
+            "gap_flags": "not_downloaded_or_access_not_resolved;missing_field_map;missing_package_manifest;missing_metadata_profile",
+        },
+        "src-nlc-oracle-world": {
+            "review_lane": "metadata_profile_and_package_manifest_decision",
+            "metadata_profile_count": "7",
+        },
+    }
+    for source_id, expected_values in expected_gap_fragments.items():
+        row = gap_by_source.get(source_id, {})
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_GAP_MATRIX} {source_id} {field} changed")
+    for row in gap_rows:
+        source_id = row.get("source_id", "")
+        expected_boundary_fields = {
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }
+        for field, expected_value in expected_boundary_fields.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_GAP_MATRIX} {source_id} {field} changed")
+        for field in ["source_register_path", "pipeline_audit_path", "next_entry_path"]:
+            if not (root / row.get(field, "")).exists():
+                issues.append(f"{SOURCE_PIPELINE_GAP_MATRIX} missing linked path: {source_id} {field}")
+        for snippet in ["not a corpus import", "not a rights decision", "not a decipherment conclusion"]:
+            if snippet not in row.get("caution", ""):
+                issues.append(f"{SOURCE_PIPELINE_GAP_MATRIX} {source_id} caution missing {snippet}")
+
+    checklist_source_ids = {row.get("source_id", "") for row in gap_checklist_rows}
+    if len(gap_checklist_rows) != 21:
+        issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} should contain exactly 21 rows")
+    if checklist_source_ids != source_ids:
+        issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} source_id coverage changed")
+    checklist_by_source = {row.get("source_id", ""): row for row in gap_checklist_rows}
+    expected_checklist_fragments = {
+        "src-hust-obc": {
+            "review_lane": "safe_derived_record_decision",
+            "required_step": "review_candidate_or_graph_derivatives",
+        },
+        "src-british-museum-oracle-bone": {
+            "pipeline_gap_status": "needs_download_or_access_review",
+            "required_step": "verify_download_or_access_boundary",
+        },
+        "src-xiaoxuetang-jiaguwen": {
+            "review_lane": "access_and_checksum_boundary_resolution",
+            "required_step": "verify_access_boundary_or_error_status",
+        },
+        "src-nlc-oracle-world": {
+            "review_lane": "metadata_profile_and_package_manifest_decision",
+            "required_step": "review_metadata_profile_or_not_applicable",
+        },
+    }
+    for source_id, expected_values in expected_checklist_fragments.items():
+        row = checklist_by_source.get(source_id, {})
+        for field, expected_value in expected_values.items():
+            if field == "required_step":
+                if expected_value not in row.get("required_review_steps", ""):
+                    issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} {source_id} missing step {expected_value}")
+            elif row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} {source_id} {field} changed")
+    for row in gap_checklist_rows:
+        source_id = row.get("source_id", "")
+        if row.get("gap_matrix_path") != SOURCE_PIPELINE_GAP_MATRIX:
+            issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} gap matrix path changed: {source_id}")
+        for field, expected_value in {
+            "checklist_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} {source_id} {field} changed")
+        if row.get("reviewed_evidence_paths") or row.get("review_outcome_summary"):
+            issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} reviewed fields should be empty: {source_id}")
+        for route_path in row.get("route_files_to_open", "").split(";"):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} missing route path: {route_path}")
+        for snippet in ["not a rights decision", "not a corpus import", "not a decipherment conclusion"]:
+            if snippet not in row.get("caution", ""):
+                issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} {source_id} caution missing {snippet}")
+
+    summary_rows = summary.get("rows", [])
+    if isinstance(summary_rows, list) and len(summary_rows) != len(audit_rows):
+        issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} embedded row count changed")
+    return issues
+
+
+def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
+    issues: list[str] = []
+    matrix_rows, matrix_issues = _read_csv_rows(root / CORE_CORPUS_READINESS_MATRIX)
+    source_gap_rows, source_gap_issues = _read_csv_rows(root / SOURCE_ENGINEERING_GAP_QUEUE)
+    source_execution_rows, source_execution_issues = _read_csv_rows(root / SOURCE_ENGINEERING_EXECUTION_MATRIX)
+    source_gap_draft_rows, source_gap_draft_issues = _read_csv_rows(
+        root / SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST
+    )
+    source_gap_snapshot_rows, source_gap_snapshot_issues = _read_csv_rows(
+        root / SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT
+    )
+    source_next_action_rows, source_next_action_issues = _read_csv_rows(
+        root / SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST
+    )
+    source_next_action_result_rows, source_next_action_result_issues = _read_csv_rows(
+        root / SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD
+    )
+    source_lane_summary_rows, source_lane_summary_issues = _read_csv_rows(
+        root / SOURCE_ENGINEERING_LANE_SUMMARY
+    )
+    source_field_map_scaffold_rows, source_field_map_scaffold_issues = _read_csv_rows(
+        root / SOURCE_FIELD_MAP_SCAFFOLD
+    )
+    source_field_map_checklist_rows, source_field_map_checklist_issues = _read_csv_rows(
+        root / SOURCE_FIELD_MAP_REVIEW_CHECKLIST
+    )
+    source_field_map_result_rows, source_field_map_result_issues = _read_csv_rows(
+        root / SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD
+    )
+    try:
+        source_field_map_route_pack = json.loads((root / SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK}")
+        source_field_map_route_pack = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} invalid JSON: {exc}")
+        source_field_map_route_pack = {}
+    try:
+        source_package_manifest_route_pack = json.loads(
+            (root / SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK}")
+        source_package_manifest_route_pack = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} invalid JSON: {exc}")
+        source_package_manifest_route_pack = {}
+    try:
+        source_access_boundary_route_pack = json.loads(
+            (root / SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK}")
+        source_access_boundary_route_pack = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} invalid JSON: {exc}")
+        source_access_boundary_route_pack = {}
+    try:
+        source_checksum_route_pack = json.loads(
+            (root / SOURCE_CHECKSUM_REVIEW_ROUTE_PACK).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_CHECKSUM_REVIEW_ROUTE_PACK}")
+        source_checksum_route_pack = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} invalid JSON: {exc}")
+        source_checksum_route_pack = {}
+    try:
+        source_metadata_profile_route_pack = json.loads(
+            (root / SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK}")
+        source_metadata_profile_route_pack = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} invalid JSON: {exc}")
+        source_metadata_profile_route_pack = {}
+    try:
+        source_safe_derived_record_route_pack = json.loads(
+            (root / SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK}")
+        source_safe_derived_record_route_pack = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} invalid JSON: {exc}")
+        source_safe_derived_record_route_pack = {}
+    try:
+        source_engineering_review_route_summary = json.loads(
+            (root / SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY}")
+        source_engineering_review_route_summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} invalid JSON: {exc}")
+        source_engineering_review_route_summary = {}
+    try:
+        source_engineering_review_wave_handoff_scaffold = json.loads(
+            (root / SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD}")
+        source_engineering_review_wave_handoff_scaffold = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} invalid JSON: {exc}")
+        source_engineering_review_wave_handoff_scaffold = {}
+    try:
+        source_engineering_first_wave_review_results, first_wave_result_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS
+        )
+        issues.extend(first_wave_result_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS}")
+        source_engineering_first_wave_review_results = []
+    try:
+        source_engineering_first_wave_result_record_manifest, result_record_manifest_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST
+        )
+        issues.extend(result_record_manifest_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST}")
+        source_engineering_first_wave_result_record_manifest = []
+    try:
+        source_engineering_first_wave_followup_queue, first_wave_followup_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE
+        )
+        issues.extend(first_wave_followup_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE}")
+        source_engineering_first_wave_followup_queue = []
+    try:
+        source_engineering_first_wave_source_status, first_wave_source_status_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS
+        )
+        issues.extend(first_wave_source_status_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS}")
+        source_engineering_first_wave_source_status = []
+    try:
+        source_engineering_second_wave_source_checklist, second_wave_source_checklist_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST
+        )
+        issues.extend(second_wave_source_checklist_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST}")
+        source_engineering_second_wave_source_checklist = []
+    try:
+        source_engineering_second_wave_review_draft_manifest, second_wave_review_draft_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST
+        )
+        issues.extend(second_wave_review_draft_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST}")
+        source_engineering_second_wave_review_draft_manifest = []
+    try:
+        source_engineering_second_wave_result_scaffold, second_wave_result_scaffold_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD
+        )
+        issues.extend(second_wave_result_scaffold_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD}")
+        source_engineering_second_wave_result_scaffold = []
+    try:
+        source_engineering_second_wave_review_checklist, second_wave_review_checklist_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST
+        )
+        issues.extend(second_wave_review_checklist_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST}")
+        source_engineering_second_wave_review_checklist = []
+    try:
+        source_engineering_second_wave_review_outcome_scaffold, second_wave_review_outcome_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD
+        )
+        issues.extend(second_wave_review_outcome_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD}")
+        source_engineering_second_wave_review_outcome_scaffold = []
+    try:
+        source_engineering_second_wave_outcome_route_pack = json.loads(
+            (root / SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK}")
+        source_engineering_second_wave_outcome_route_pack = {}
+    try:
+        source_engineering_second_wave_outcome_handoff_scaffold = json.loads(
+            (root / SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD}")
+        source_engineering_second_wave_outcome_handoff_scaffold = {}
+    try:
+        source_engineering_second_wave_handoff_review_checklist, second_wave_handoff_review_issues = _read_csv_rows(
+            root / SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST
+        )
+        issues.extend(second_wave_handoff_review_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST}")
+        source_engineering_second_wave_handoff_review_checklist = []
+    try:
+        source_pipeline_gap_rows, source_pipeline_gap_issues = _read_csv_rows(root / SOURCE_PIPELINE_GAP_MATRIX)
+        issues.extend(source_pipeline_gap_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_PIPELINE_GAP_MATRIX}")
+        source_pipeline_gap_rows = []
+        source_pipeline_gap_issues = []
+    try:
+        source_pipeline_gap_checklist_rows, source_pipeline_gap_checklist_issues = _read_csv_rows(
+            root / SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST
+        )
+        issues.extend(source_pipeline_gap_checklist_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST}")
+        source_pipeline_gap_checklist_rows = []
+        source_pipeline_gap_checklist_issues = []
+    try:
+        source_engineering_second_wave_handoff_route_summary = json.loads(
+            (root / SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY}")
+        source_engineering_second_wave_handoff_route_summary = {}
+    issues.extend(matrix_issues)
+    issues.extend(source_gap_issues)
+    issues.extend(source_execution_issues)
+    issues.extend(source_gap_draft_issues)
+    issues.extend(source_gap_snapshot_issues)
+    issues.extend(source_next_action_issues)
+    issues.extend(source_next_action_result_issues)
+    issues.extend(source_lane_summary_issues)
+    issues.extend(source_field_map_scaffold_issues)
+    issues.extend(source_field_map_checklist_issues)
+    issues.extend(source_field_map_result_issues)
+
+    summary_path = root / MANUAL_REVIEW_BACKLOG_SUMMARY
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {MANUAL_REVIEW_BACKLOG_SUMMARY}")
+        summary = {}
+
+    execution_summary_path = root / SOURCE_ENGINEERING_EXECUTION_SUMMARY
+    try:
+        execution_summary = json.loads(execution_summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_EXECUTION_SUMMARY}")
+        execution_summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_SUMMARY} invalid JSON: {exc}")
+        execution_summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} invalid JSON: {exc}")
+        summary = {}
+
+    if len(matrix_rows) != 10:
+        issues.append(f"{CORE_CORPUS_READINESS_MATRIX} should contain exactly 10 rows")
+    if summary.get("core_area_count") != 10:
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} core_area_count should be 10")
+    if summary.get("matrix_csv_path") != CORE_CORPUS_READINESS_MATRIX:
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} matrix_csv_path changed")
+    if summary.get("updated_at") != "2026-06-19":
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} updated_at changed")
+    if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} completion boundary changed")
+
+    expected_stage_counts = {"ready_for_human_review": 10}
+    if summary.get("readiness_stage_counts") != expected_stage_counts:
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} readiness stage counts changed")
+    expected_priority_counts = {"high_batch_review": 2, "targeted_review": 8}
+    if summary.get("review_priority_counts") != expected_priority_counts:
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
+    expected_totals = {
+        "candidate_record_count": 11130,
+        "formal_record_count": 67675,
+        "graph_edge_count": 208154,
+        "manual_review_backlog_count": 12260,
+        "review_queue_count": 12260,
+        "staging_record_count": 75144,
+    }
+    if summary.get("totals") != expected_totals:
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
+    if "row-sums across readiness areas" not in summary.get("totals_note", ""):
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals note changed")
+
+    expected_area_fragments = {
+        "oracle_characters": {
+            "readiness_stage": "ready_for_human_review",
+            "review_priority": "high_batch_review",
+            "candidate_record_count": "1588",
+            "review_queue_count": "1588",
+            "graph_edge_count": "3562",
+        },
+        "undeciphered_oracle_character_candidates": {
+            "readiness_stage": "ready_for_human_review",
+            "review_priority": "high_batch_review",
+            "candidate_record_count": "9408",
+            "review_queue_count": "9408",
+        },
+        "cross_source_codepoint_routes": {
+            "candidate_record_count": "134",
+            "review_queue_count": "134",
+        },
+        "graphemic_components": {
+            "staging_record_count": "44433",
+            "graph_edge_count": "44433",
+        },
+        "evolution_correspondences": {
+            "staging_record_count": "13728",
+            "graph_edge_count": "51679",
+        },
+        "inscriptions_and_plate_crosswalks": {
+            "staging_record_count": "637",
+            "graph_edge_count": "4403",
+            "review_queue_count": "612",
+        },
+        "relationship_graph_and_statistics": {
+            "staging_record_count": "131",
+            "graph_edge_count": "104077",
+            "review_queue_count": "3",
+        },
+        "research_sources_and_bibliography": {
+            "staging_record_count": "197",
+            "review_queue_count": "378",
+            "review_queue_path": SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST,
+        },
+        "published_research_notes": {
+            "formal_record_count": "5",
+            "review_queue_count": "131",
+        },
+    }
+    by_area = {row.get("corpus_area", ""): row for row in matrix_rows}
+    for area_id, expected_values in expected_area_fragments.items():
+        row = by_area.get(area_id, {})
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_READINESS_MATRIX} {area_id} {field} changed")
+
+    for row in matrix_rows:
+        area_id = row.get("corpus_area", "")
+        if row.get("readiness_stage") != "ready_for_human_review":
+            issues.append(f"{CORE_CORPUS_READINESS_MATRIX} row not ready for review: {area_id}")
+        if "Core corpus readiness only" not in row.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_READINESS_MATRIX} caution changed: {area_id}")
+        if not row.get("next_action", ""):
+            issues.append(f"{CORE_CORPUS_READINESS_MATRIX} missing next_action: {area_id}")
+        primary_entry = row.get("primary_entry_path", "")
+        review_queue = row.get("review_queue_path", "")
+        if primary_entry and not (root / primary_entry).exists():
+            issues.append(f"{CORE_CORPUS_READINESS_MATRIX} missing primary entry path: {primary_entry}")
+        if review_queue and not (root / review_queue).exists():
+            issues.append(f"{CORE_CORPUS_READINESS_MATRIX} missing review queue path: {review_queue}")
+
+    summary_rows = summary.get("rows", [])
+    if isinstance(summary_rows, list) and len(summary_rows) != len(matrix_rows):
+        issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} embedded row count changed")
+    expected_gap_type_counts = {
+        "access_boundary_or_error_followup": 6,
+        "checksum_or_failed_download_status_review_needed": 5,
+        "metadata_profile_extraction_needed": 5,
+        "package_file_manifest_or_not_applicable_decision_needed": 15,
+        "safe_derived_record_decision_needed": 10,
+        "source_field_map_needed": 4,
+    }
+    if len(source_execution_rows) != 21:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} should contain exactly 21 rows")
+    if execution_summary.get("source_count") != 21:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_SUMMARY} source_count changed")
+    if execution_summary.get("source_with_gap_count") != 18:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_SUMMARY} source_with_gap_count changed")
+    if execution_summary.get("total_gap_count") != 45:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_SUMMARY} total_gap_count changed")
+    if execution_summary.get("gap_type_counts") != expected_gap_type_counts:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_SUMMARY} gap type distribution changed")
+    expected_execution_review_counts = {
+        "needs_source_engineering_review": 18,
+        "no_current_source_engineering_gap": 3,
+    }
+    if execution_summary.get("review_status_counts") != expected_execution_review_counts:
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_SUMMARY} review status counts changed")
+    by_execution_source = {row.get("source_id", ""): row for row in source_execution_rows}
+    if by_execution_source.get("src-hust-obc", {}).get("review_status") != "no_current_source_engineering_gap":
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} HUST-OBC execution boundary changed")
+    if by_execution_source.get("src-hust-obc", {}).get("gap_count") != "0":
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} HUST-OBC gap count changed")
+    if by_execution_source.get("src-british-museum-oracle-bone", {}).get("highest_priority_rank") != "1":
+        issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} British Museum priority changed")
+    for row in source_execution_rows:
+        execution_id = row.get("source_execution_id", "")
+        if not execution_id.startswith("source-engineering-exec-"):
+            issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} execution ID changed: {execution_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} source promotion boundary changed: {execution_id}")
+        if row.get("commit_policy_boundary") != "metadata_review_only_raw_or_temporary_material_stays_outside_regular_git":
+            issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} commit boundary changed: {execution_id}")
+        if "not a corpus import" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} caution changed: {execution_id}")
+        route_files = [value for value in row.get("route_files_to_open", "").split(";") if value]
+        for route_file in route_files:
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_EXECUTION_MATRIX} missing route file: {route_file}")
+    if len(source_gap_draft_rows) != 45:
+        issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} should contain exactly 45 rows")
+    draft_gap_type_counts = Counter(row.get("gap_type", "") for row in source_gap_draft_rows)
+    if source_gap_draft_rows and draft_gap_type_counts != expected_gap_type_counts:
+        issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} gap type distribution changed")
+    for row in source_gap_draft_rows:
+        draft_id = row.get("review_log_draft_id", "")
+        if not draft_id.startswith("source-engineering-gap-review-log-draft-"):
+            issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} draft ID changed: {draft_id}")
+        if row.get("draft_status") != "draft_not_collected":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} draft status changed: {draft_id}")
+        if row.get("evidence_collection_status") != "not_collected":
+            issues.append(
+                f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} evidence status changed: {draft_id}"
+            )
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} promotion boundary changed: {draft_id}")
+        if "not a corpus import" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} caution changed: {draft_id}")
+        for path_field in ["draft_path", "source_queue_path", "route_files_to_open"]:
+            values = [value for value in row.get(path_field, "").split(";") if value]
+            for value in values:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} missing path: {value}")
+    if len(source_gap_snapshot_rows) != 45:
+        issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} should contain exactly 45 rows")
+    snapshot_gap_type_counts = Counter(row.get("gap_type", "") for row in source_gap_snapshot_rows)
+    if source_gap_snapshot_rows and snapshot_gap_type_counts != expected_gap_type_counts:
+        issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} gap type distribution changed")
+    for row in source_gap_snapshot_rows:
+        snapshot_id = row.get("evidence_snapshot_id", "")
+        if not snapshot_id.startswith("source-engineering-gap-evidence-snapshot-"):
+            issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} snapshot ID changed: {snapshot_id}")
+        if row.get("route_file_missing_count") != "0":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} missing route file count changed: {snapshot_id}")
+        if row.get("evidence_status") != "metadata_only_existing_records_snapshot":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} evidence boundary changed: {snapshot_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} promotion boundary changed: {snapshot_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} corpus import boundary changed: {snapshot_id}")
+        caution = row.get("caution", "")
+        if "not a new download" not in caution or "not corpus import" not in caution:
+            issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} caution changed: {snapshot_id}")
+        for path_field in ["draft_path", "route_files_to_open"]:
+            values = [value for value in row.get(path_field, "").split(";") if value]
+            for value in values:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} missing path: {value}")
+    if len(source_next_action_rows) != 45:
+        issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} should contain exactly 45 rows")
+    next_action_gap_type_counts = Counter(row.get("gap_type", "") for row in source_next_action_rows)
+    if source_next_action_rows and next_action_gap_type_counts != expected_gap_type_counts:
+        issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} gap type distribution changed")
+    expected_lane_counts = {
+        "access_boundary_followup": 6,
+        "checksum_and_download_status_review": 5,
+        "metadata_profile_extraction_planning": 5,
+        "package_manifest_or_not_applicable_review": 15,
+        "safe_derived_record_decision": 10,
+        "source_field_map_planning": 4,
+    }
+    lane_counts = Counter(row.get("action_lane", "") for row in source_next_action_rows)
+    if source_next_action_rows and lane_counts != expected_lane_counts:
+        issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} action lane distribution changed")
+    for row in source_next_action_rows:
+        action_id = row.get("next_action_id", "")
+        if not action_id.startswith("source-engineering-next-action-"):
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} action ID changed: {action_id}")
+        if row.get("action_status") != "ready_for_source_engineering_review":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} action status changed: {action_id}")
+        if row.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} human review boundary changed: {action_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} rights boundary changed: {action_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} promotion boundary changed: {action_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} corpus import boundary changed: {action_id}")
+        caution = row.get("caution", "")
+        if "does not execute downloads" not in caution or "make decipherment conclusions" not in caution:
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} caution changed: {action_id}")
+        for path_field in ["primary_input_path", "secondary_input_paths", "review_log_path"]:
+            values = [value for value in row.get(path_field, "").split(";") if value]
+            for value in values:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST} missing path: {value}")
+    if len(source_next_action_result_rows) != 45:
+        issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} should contain exactly 45 rows")
+    result_gap_type_counts = Counter(row.get("gap_type", "") for row in source_next_action_result_rows)
+    if source_next_action_result_rows and result_gap_type_counts != expected_gap_type_counts:
+        issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} gap type distribution changed")
+    result_lane_counts = Counter(row.get("action_lane", "") for row in source_next_action_result_rows)
+    if source_next_action_result_rows and result_lane_counts != expected_lane_counts:
+        issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} action lane distribution changed")
+    for row in source_next_action_result_rows:
+        result_id = row.get("result_scaffold_id", "")
+        if not result_id.startswith("source-engineering-next-action-result-scaffold-"):
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} result ID changed: {result_id}")
+        if row.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} result status changed: {result_id}")
+        if row.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} evidence status changed: {result_id}")
+        if row.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} human review boundary changed: {result_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} rights boundary changed: {result_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} promotion boundary changed: {result_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} corpus import boundary changed: {result_id}")
+        if row.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} decipherment boundary changed: {result_id}")
+        caution = row.get("caution", "")
+        if "does not record completed evidence" not in caution or "not a rights decision" not in caution:
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} caution changed: {result_id}")
+        if row.get("result_record_path") != row.get("expected_result_path"):
+            issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} result path changed: {result_id}")
+        for path_field in ["source_checklist_path", "source_review_log_path"]:
+            values = [value for value in row.get(path_field, "").split(";") if value]
+            for value in values:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD} missing path: {value}")
+    if len(source_lane_summary_rows) != 6:
+        issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} should contain exactly 6 rows")
+    by_lane_summary = {row.get("action_lane", ""): row for row in source_lane_summary_rows}
+    for lane, expected_count in expected_lane_counts.items():
+        row = by_lane_summary.get(lane, {})
+        if row.get("action_count") != str(expected_count):
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} action_count changed: {lane}")
+        if row.get("result_status_counts") != f"not_started:{expected_count}":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} result status changed: {lane}")
+        if row.get("source_promotion_status_counts") != f"not_promoted:{expected_count}":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} promotion boundary changed: {lane}")
+        if row.get("corpus_import_status_counts") != f"not_imported:{expected_count}":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} corpus boundary changed: {lane}")
+        if row.get("decipherment_claim_status_counts") != f"no_decipherment_claim:{expected_count}":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} decipherment boundary changed: {lane}")
+        if row.get("review_status") != "summary_only_pending_source_engineering_review":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} review status changed: {lane}")
+        if "does not complete source-engineering review" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} caution changed: {lane}")
+        for path_field in ["checklist_path", "result_scaffold_path"]:
+            value = row.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} missing path: {value}")
+    if len(source_field_map_scaffold_rows) != 4:
+        issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} should contain exactly 4 rows")
+    expected_field_map_sources = {
+        "src-ihp-museum-oracle-bones",
+        "src-open-oracle",
+        "src-oracle-mnist",
+        "src-yinqi-wenyuan",
+    }
+    if {row.get("source_id", "") for row in source_field_map_scaffold_rows} != expected_field_map_sources:
+        issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} source set changed")
+    for row in source_field_map_scaffold_rows:
+        row_id = row.get("field_map_scaffold_id", "")
+        if row.get("action_lane") != "source_field_map_planning":
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} action lane changed: {row_id}")
+        if row.get("field_map_review_status") != "pending_human_field_map_review":
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} field-map review status changed: {row_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} rights boundary changed: {row_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} promotion boundary changed: {row_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} corpus boundary changed: {row_id}")
+        if row.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} decipherment boundary changed: {row_id}")
+        if "does not add reviewed field-map rows" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} caution changed: {row_id}")
+        review_log_path = row.get("review_log_path", "")
+        if review_log_path and not (root / review_log_path).exists():
+            issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} missing review log: {review_log_path}")
+    if len(source_field_map_checklist_rows) != 4:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} should contain exactly 4 rows")
+    if {row.get("source_id", "") for row in source_field_map_checklist_rows} != expected_field_map_sources:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} source set changed")
+    for row in source_field_map_checklist_rows:
+        row_id = row.get("field_map_checklist_id", "")
+        if row.get("checklist_status") != "not_started":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} checklist status changed: {row_id}")
+        if row.get("field_map_review_status") != "pending_human_field_map_review":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} field-map review status changed: {row_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} rights boundary changed: {row_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} promotion boundary changed: {row_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} corpus boundary changed: {row_id}")
+        if row.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} decipherment boundary changed: {row_id}")
+        if "does not approve field-map semantics" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} caution changed: {row_id}")
+        required_steps = row.get("required_review_steps", "")
+        if "verify_rights_and_risk_note" not in required_steps or "do_not_import_until_reviewed" not in required_steps:
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} required steps changed: {row_id}")
+        for path_field in [
+            "review_log_path",
+            "source_register_path",
+            "existing_field_map_path",
+            "lane_route_pack_path",
+            "scaffold_path",
+        ]:
+            value = row.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} missing path: {value}")
+    if len(source_field_map_result_rows) != 4:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} should contain exactly 4 rows")
+    if {row.get("source_id", "") for row in source_field_map_result_rows} != expected_field_map_sources:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} source set changed")
+    for row in source_field_map_result_rows:
+        row_id = row.get("field_map_result_scaffold_id", "")
+        if row.get("field_map_result_status") != "not_started":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} result status changed: {row_id}")
+        if row.get("field_map_review_status") != "pending_human_field_map_review":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} field-map review status changed: {row_id}")
+        if row.get("reviewed_source_level") != "pending_human_review":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} reviewed source level changed: {row_id}")
+        if row.get("reviewed_source_field_or_unit") != "pending_human_review":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} reviewed source field changed: {row_id}")
+        if row.get("reviewed_target_project_fields") != "pending_human_review":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} reviewed target fields changed: {row_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} rights boundary changed: {row_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} promotion boundary changed: {row_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} corpus boundary changed: {row_id}")
+        if row.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} decipherment boundary changed: {row_id}")
+        if "does not approve field-map semantics" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} caution changed: {row_id}")
+        if "field_map_review_notes" not in row.get("reserved_review_fields", ""):
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} reserved fields changed: {row_id}")
+        for path_field in ["checklist_path", "scaffold_path", "review_log_path", "source_register_path"]:
+            value = row.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} missing path: {value}")
+    route_pack_routes = source_field_map_route_pack.get("routes", [])
+    if source_field_map_route_pack.get("route_pack_id") != "source-field-map-review-route-pack-001":
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} route_pack_id changed")
+    if source_field_map_route_pack.get("source_count") != 4:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} source_count should be 4")
+    if source_field_map_route_pack.get("route_count") != 4:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} route_count should be 4")
+    if source_field_map_route_pack.get("review_status") != "route_pack_pending_field_map_review":
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} review status changed")
+    if source_field_map_route_pack.get("research_boundary") != "source_field_map_review_route_pack_not_reviewed_mapping":
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} research boundary changed")
+    if "does not approve field-map semantics" not in source_field_map_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} caution changed")
+    for value in source_field_map_route_pack.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} missing source path: {value}")
+    if {route.get("source_id", "") for route in route_pack_routes} != expected_field_map_sources:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} source set changed")
+    for route in route_pack_routes:
+        route_id = route.get("field_map_result_scaffold_id", "")
+        if route.get("field_map_result_status") != "not_started":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} result status changed: {route_id}")
+        if route.get("field_map_review_status") != "pending_human_field_map_review":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} field-map review status changed: {route_id}")
+        if route.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} rights boundary changed: {route_id}")
+        if route.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} promotion boundary changed: {route_id}")
+        if route.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} corpus boundary changed: {route_id}")
+        if route.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} decipherment boundary changed: {route_id}")
+        if "verify_rights_and_risk_note" not in route.get("required_review_steps", []):
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} required steps changed: {route_id}")
+        if "field_map_review_notes" not in route.get("reserved_review_fields", []):
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} reserved fields changed: {route_id}")
+        if "field_map_semantics_not_reviewed" not in route.get("field_map_blockers", []):
+            issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} blockers changed: {route_id}")
+        for path_field in [
+            "review_log_path",
+            "checklist_path",
+            "scaffold_path",
+            "source_register_path",
+            "target_reviewed_field_map_path",
+        ]:
+            value = route.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} missing path: {value}")
+    package_manifest_routes = source_package_manifest_route_pack.get("routes", [])
+    if source_package_manifest_route_pack.get("route_pack_id") != "source-package-manifest-review-route-pack-001":
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} route_pack_id changed")
+    if source_package_manifest_route_pack.get("action_lane") != "package_manifest_or_not_applicable_review":
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} action lane changed")
+    if source_package_manifest_route_pack.get("source_count") != 15:
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} source_count should be 15")
+    if source_package_manifest_route_pack.get("route_count") != 15:
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} route_count should be 15")
+    if source_package_manifest_route_pack.get("review_status") != "route_pack_pending_package_manifest_review":
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} review status changed")
+    if (
+        source_package_manifest_route_pack.get("research_boundary")
+        != "source_package_manifest_review_route_pack_not_reviewed_decision"
+    ):
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} research boundary changed")
+    if "does not decide package manifest applicability" not in source_package_manifest_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} caution changed")
+    for value in source_package_manifest_route_pack.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} missing source path: {value}")
+    if {route.get("source_id", "") for route in package_manifest_routes} != {
+        row.get("source_id", "")
+        for row in source_next_action_rows
+        if row.get("action_lane") == "package_manifest_or_not_applicable_review"
+    }:
+        issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} source set changed")
+    for route in package_manifest_routes:
+        route_id = route.get("result_scaffold_id", "")
+        if route.get("gap_type") != "package_file_manifest_or_not_applicable_decision_needed":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} gap type changed: {route_id}")
+        if route.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} result status changed: {route_id}")
+        if route.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} evidence status changed: {route_id}")
+        if route.get("manifest_decision") != "":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} manifest decision should be empty: {route_id}")
+        if route.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} human review status changed: {route_id}")
+        if route.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} rights boundary changed: {route_id}")
+        if route.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} promotion boundary changed: {route_id}")
+        if route.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} corpus boundary changed: {route_id}")
+        if route.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} decipherment boundary changed: {route_id}")
+        checklist_items = route.get("checklist_items", [])
+        if (
+            "record_manifest_needed_or_not_applicable" not in checklist_items
+            or "keep_raw_package_outside_regular_git" not in checklist_items
+        ):
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} checklist items changed: {route_id}")
+        for path_field in [
+            "primary_input_path",
+            "source_checklist_path",
+            "package_manifest_path",
+            "large_source_register_path",
+            "download_log_path",
+            "review_log_path",
+        ]:
+            value = route.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} missing path: {value}")
+        result_record_path = route.get("result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(f"{SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK} missing result parent: {result_record_path}")
+    access_boundary_routes = source_access_boundary_route_pack.get("routes", [])
+    if source_access_boundary_route_pack.get("route_pack_id") != "source-access-boundary-review-route-pack-001":
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} route_pack_id changed")
+    if source_access_boundary_route_pack.get("action_lane") != "access_boundary_followup":
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} action lane changed")
+    if source_access_boundary_route_pack.get("source_count") != 6:
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} source_count should be 6")
+    if source_access_boundary_route_pack.get("route_count") != 6:
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} route_count should be 6")
+    if source_access_boundary_route_pack.get("review_status") != "route_pack_pending_access_boundary_review":
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} review status changed")
+    if (
+        source_access_boundary_route_pack.get("research_boundary")
+        != "source_access_boundary_review_route_pack_not_access_decision"
+    ):
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} research boundary changed")
+    if "does not resolve access outcomes" not in source_access_boundary_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} caution changed")
+    for value in source_access_boundary_route_pack.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} missing source path: {value}")
+    if {route.get("source_id", "") for route in access_boundary_routes} != {
+        row.get("source_id", "")
+        for row in source_next_action_rows
+        if row.get("action_lane") == "access_boundary_followup"
+    }:
+        issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} source set changed")
+    for route in access_boundary_routes:
+        route_id = route.get("result_scaffold_id", "")
+        if route.get("gap_type") != "access_boundary_or_error_followup":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} gap type changed: {route_id}")
+        if route.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} result status changed: {route_id}")
+        if route.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} evidence status changed: {route_id}")
+        if route.get("access_outcome") != "":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} access outcome should be empty: {route_id}")
+        if route.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} human review status changed: {route_id}")
+        if route.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} rights boundary changed: {route_id}")
+        if route.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} promotion boundary changed: {route_id}")
+        if route.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} corpus boundary changed: {route_id}")
+        if route.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} decipherment boundary changed: {route_id}")
+        checklist_items = route.get("checklist_items", [])
+        if (
+            "record_access_outcome" not in checklist_items
+            or "separate_http_tls_access_boundary_from_source_content" not in checklist_items
+        ):
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} checklist items changed: {route_id}")
+        for path_field in [
+            "primary_input_path",
+            "source_checklist_path",
+            "source_register_path",
+            "source_coverage_summary_path",
+            "download_manifest_path",
+            "download_log_path",
+            "download_status_codebook_path",
+            "review_log_path",
+        ]:
+            value = route.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} missing path: {value}")
+        result_record_path = route.get("result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(f"{SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK} missing result parent: {result_record_path}")
+    checksum_routes = source_checksum_route_pack.get("routes", [])
+    if source_checksum_route_pack.get("route_pack_id") != "source-checksum-review-route-pack-001":
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} route_pack_id changed")
+    if source_checksum_route_pack.get("action_lane") != "checksum_and_download_status_review":
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} action lane changed")
+    if source_checksum_route_pack.get("source_count") != 5:
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} source_count should be 5")
+    if source_checksum_route_pack.get("route_count") != 5:
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} route_count should be 5")
+    if source_checksum_route_pack.get("review_status") != "route_pack_pending_checksum_review":
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} review status changed")
+    if (
+        source_checksum_route_pack.get("research_boundary")
+        != "source_checksum_review_route_pack_not_download_or_checksum_decision"
+    ):
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} research boundary changed")
+    if "does not recalculate checksums" not in source_checksum_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} caution changed")
+    for value in source_checksum_route_pack.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} missing source path: {value}")
+    if {route.get("source_id", "") for route in checksum_routes} != {
+        row.get("source_id", "")
+        for row in source_next_action_rows
+        if row.get("action_lane") == "checksum_and_download_status_review"
+    }:
+        issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} source set changed")
+    for route in checksum_routes:
+        route_id = route.get("result_scaffold_id", "")
+        if route.get("gap_type") != "checksum_or_failed_download_status_review_needed":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} gap type changed: {route_id}")
+        if route.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} result status changed: {route_id}")
+        if route.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} evidence status changed: {route_id}")
+        if route.get("checksum_outcome") != "":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} checksum outcome should be empty: {route_id}")
+        if route.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} human review status changed: {route_id}")
+        if route.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} rights boundary changed: {route_id}")
+        if route.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} promotion boundary changed: {route_id}")
+        if route.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} corpus boundary changed: {route_id}")
+        if route.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} decipherment boundary changed: {route_id}")
+        checklist_items = route.get("checklist_items", [])
+        if (
+            "verify_status_and_size_fields" not in checklist_items
+            or "confirm_checksum_absence_or_presence" not in checklist_items
+        ):
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} checklist items changed: {route_id}")
+        for path_field in [
+            "primary_input_path",
+            "source_checklist_path",
+            "source_processing_pipeline_audit_path",
+            "download_log_path",
+            "download_status_codebook_path",
+            "review_log_path",
+        ]:
+            value = route.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} missing path: {value}")
+        result_record_path = route.get("result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(f"{SOURCE_CHECKSUM_REVIEW_ROUTE_PACK} missing result parent: {result_record_path}")
+    metadata_profile_routes = source_metadata_profile_route_pack.get("routes", [])
+    if source_metadata_profile_route_pack.get("route_pack_id") != "source-metadata-profile-review-route-pack-001":
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_pack_id changed")
+    if source_metadata_profile_route_pack.get("action_lane") != "metadata_profile_extraction_planning":
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} action lane changed")
+    if source_metadata_profile_route_pack.get("source_count") != 5:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} source_count should be 5")
+    if source_metadata_profile_route_pack.get("route_count") != 5:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_count should be 5")
+    if source_metadata_profile_route_pack.get("review_status") != "route_pack_pending_metadata_profile_review":
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} review status changed")
+    if (
+        source_metadata_profile_route_pack.get("research_boundary")
+        != "source_metadata_profile_review_route_pack_not_extraction_decision"
+    ):
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} research boundary changed")
+    if "does not extract metadata profiles" not in source_metadata_profile_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} caution changed")
+    for value in source_metadata_profile_route_pack.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} missing source path: {value}")
+    if {route.get("source_id", "") for route in metadata_profile_routes} != {
+        row.get("source_id", "")
+        for row in source_next_action_rows
+        if row.get("action_lane") == "metadata_profile_extraction_planning"
+    }:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} source set changed")
+    for route in metadata_profile_routes:
+        route_id = route.get("result_scaffold_id", "")
+        if route.get("gap_type") != "metadata_profile_extraction_needed":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} gap type changed: {route_id}")
+        if route.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} result status changed: {route_id}")
+        if route.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} evidence status changed: {route_id}")
+        if route.get("metadata_profile_decision") != "":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} metadata decision should be empty: {route_id}")
+        if route.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} human review status changed: {route_id}")
+        if route.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} rights boundary changed: {route_id}")
+        if route.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} promotion boundary changed: {route_id}")
+        if route.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} corpus boundary changed: {route_id}")
+        if route.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} decipherment boundary changed: {route_id}")
+        checklist_items = route.get("checklist_items", [])
+        if "define_profile_metrics" not in checklist_items or "record_extraction_boundary" not in checklist_items:
+            issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} checklist items changed: {route_id}")
+        for path_field in [
+            "primary_input_path",
+            "source_checklist_path",
+            "source_processing_pipeline_audit_path",
+            "source_register_path",
+            "download_log_path",
+            "downloaded_metadata_profile_path",
+            "review_log_path",
+        ]:
+            value = route.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} missing path: {value}")
+        result_record_path = route.get("result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(
+                f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} missing result parent: {result_record_path}"
+            )
+    safe_derived_record_routes = source_safe_derived_record_route_pack.get("routes", [])
+    if source_safe_derived_record_route_pack.get("route_pack_id") != "source-safe-derived-record-review-route-pack-001":
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} route_pack_id changed")
+    if source_safe_derived_record_route_pack.get("action_lane") != "safe_derived_record_decision":
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} action lane changed")
+    if source_safe_derived_record_route_pack.get("source_count") != 10:
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} source_count should be 10")
+    if source_safe_derived_record_route_pack.get("route_count") != 10:
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} route_count should be 10")
+    if source_safe_derived_record_route_pack.get("review_status") != "route_pack_pending_safe_derived_record_review":
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} review status changed")
+    if (
+        source_safe_derived_record_route_pack.get("research_boundary")
+        != "source_safe_derived_record_review_route_pack_not_promotion_decision"
+    ):
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} research boundary changed")
+    if "does not decide safe derived records" not in source_safe_derived_record_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} caution changed")
+    for value in source_safe_derived_record_route_pack.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} missing source path: {value}")
+    if {route.get("source_id", "") for route in safe_derived_record_routes} != {
+        row.get("source_id", "")
+        for row in source_next_action_rows
+        if row.get("action_lane") == "safe_derived_record_decision"
+    }:
+        issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} source set changed")
+    for route in safe_derived_record_routes:
+        route_id = route.get("result_scaffold_id", "")
+        if route.get("gap_type") != "safe_derived_record_decision_needed":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} gap type changed: {route_id}")
+        if route.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} result status changed: {route_id}")
+        if route.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} evidence status changed: {route_id}")
+        if route.get("safe_derived_record_decision") != "":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} decision should be empty: {route_id}")
+        if route.get("human_review_status") != "pending_human_review":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} human review status changed: {route_id}")
+        if route.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} rights boundary changed: {route_id}")
+        if route.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} promotion boundary changed: {route_id}")
+        if route.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} corpus boundary changed: {route_id}")
+        if route.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} decipherment boundary changed: {route_id}")
+        checklist_items = route.get("checklist_items", [])
+        if (
+            "identify_candidate_derived_record" not in checklist_items
+            or "record_rights_risk_and_review_status" not in checklist_items
+        ):
+            issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} checklist items changed: {route_id}")
+        for path_field in [
+            "primary_input_path",
+            "source_checklist_path",
+            "source_processing_pipeline_audit_path",
+            "source_coverage_summary_path",
+            "source_register_path",
+            "downloaded_metadata_profile_path",
+            "review_log_path",
+        ]:
+            value = route.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} missing path: {value}")
+        result_record_path = route.get("result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(
+                f"{SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK} missing result parent: {result_record_path}"
+            )
+    summary_lanes = source_engineering_review_route_summary.get("lanes", [])
+    if source_engineering_review_route_summary.get("summary_id") != "source-engineering-review-route-summary-001":
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} summary_id changed")
+    if source_engineering_review_route_summary.get("lane_count") != 6:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} lane_count should be 6")
+    if source_engineering_review_route_summary.get("route_pack_count") != 6:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} route_pack_count should be 6")
+    if source_engineering_review_route_summary.get("total_route_count") != 45:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} total_route_count should be 45")
+    if source_engineering_review_route_summary.get("total_decision_filled_count") != 0:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} should not contain filled decisions")
+    if source_engineering_review_route_summary.get("total_result_started_count") != 0:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} should not contain started results")
+    if source_engineering_review_route_summary.get("review_status") != "route_summary_pending_source_engineering_review":
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} review status changed")
+    if (
+        source_engineering_review_route_summary.get("research_boundary")
+        != "source_engineering_review_route_summary_not_review_result"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} research boundary changed")
+    if "does not record reviewed outcomes" not in source_engineering_review_route_summary.get("caution", ""):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} caution changed")
+    for value in source_engineering_review_route_summary.get("source_paths", {}).values():
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} missing source path: {value}")
+    expected_summary_lanes = {
+        "access_boundary_followup": ("access_outcome", 6, SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK),
+        "checksum_and_download_status_review": ("checksum_outcome", 5, SOURCE_CHECKSUM_REVIEW_ROUTE_PACK),
+        "metadata_profile_extraction_planning": ("metadata_profile_decision", 5, SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK),
+        "source_field_map_planning": ("field_map_decision", 4, SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK),
+        "package_manifest_or_not_applicable_review": ("manifest_decision", 15, SOURCE_PACKAGE_MANIFEST_REVIEW_ROUTE_PACK),
+        "safe_derived_record_decision": ("safe_derived_record_decision", 10, SOURCE_SAFE_DERIVED_RECORD_REVIEW_ROUTE_PACK),
+    }
+    by_summary_lane = {lane.get("action_lane", ""): lane for lane in summary_lanes}
+    if set(by_summary_lane) != set(expected_summary_lanes):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} lane set changed")
+    for lane_name, (decision_field, route_count, route_pack_path) in expected_summary_lanes.items():
+        lane = by_summary_lane.get(lane_name, {})
+        if lane.get("decision_field") != decision_field:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} decision field changed: {lane_name}")
+        if lane.get("route_count") != route_count:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} route count changed: {lane_name}")
+        if lane.get("route_pack_path") != route_pack_path:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} route pack path changed: {lane_name}")
+        if lane.get("result_status_counts") != {"not_started": route_count}:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} result status changed: {lane_name}")
+        if lane.get("evidence_collection_status_counts") != {"not_collected": route_count}:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} evidence status changed: {lane_name}")
+        if lane.get("human_review_status_counts") != {"pending_human_review": route_count}:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} human review status changed: {lane_name}")
+        if lane.get("corpus_import_status_counts") != {"not_imported": route_count}:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} corpus boundary changed: {lane_name}")
+        if lane.get("decipherment_claim_status_counts") != {"no_decipherment_claim": route_count}:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} decipherment boundary changed: {lane_name}")
+        if lane.get("decision_filled_count") != 0:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} decision filled count changed: {lane_name}")
+        for path_field in ["route_pack_path", "first_review_log_path"]:
+            value = lane.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} missing lane path: {value}")
+        result_record_path = lane.get("first_result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY} missing result parent: {result_record_path}")
+    handoff_items = source_engineering_review_wave_handoff_scaffold.get("handoff_items", [])
+    handoff_coverage = source_engineering_review_wave_handoff_scaffold.get("coverage", {})
+    handoff_scope = source_engineering_review_wave_handoff_scaffold.get("handoff_scope", {})
+    if (
+        source_engineering_review_wave_handoff_scaffold.get("context_pack_id")
+        != "ai-context-source-engineering-review-wave-handoff-001"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} context_pack_id changed")
+    if (
+        source_engineering_review_wave_handoff_scaffold.get("status")
+        != "draft_source_engineering_review_wave_handoff_not_started"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} status changed")
+    if (
+        source_engineering_review_wave_handoff_scaffold.get("research_boundary")
+        != "source_engineering_review_wave_handoff_not_review_result"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} research boundary changed")
+    if "does not record reviewed outcomes" not in source_engineering_review_wave_handoff_scaffold.get("caution", ""):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} caution changed")
+    if handoff_scope.get("wave_id") != "source-engineering-review-wave-001":
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} wave_id changed")
+    expected_handoff_coverage = {
+        "handoff_item_count": 6,
+        "action_lane_count": 6,
+        "source_count": 4,
+        "review_log_count": 6,
+        "result_record_count": 6,
+        "decision_filled_count": 0,
+        "result_started_count": 0,
+    }
+    for field, expected_value in expected_handoff_coverage.items():
+        if handoff_coverage.get(field) != expected_value:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} {field} changed")
+    expected_handoff_status_counts = {
+        "evidence_collection_status_counts": {"not_collected": 6},
+        "human_review_status_counts": {"pending_human_review": 6},
+        "rights_decision_status_counts": {"no_new_rights_decision": 6},
+        "source_promotion_status_counts": {"not_promoted": 6},
+        "corpus_import_status_counts": {"not_imported": 6},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": 6},
+    }
+    for field, expected_value in expected_handoff_status_counts.items():
+        if handoff_coverage.get(field) != expected_value:
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} {field} changed")
+    if [item.get("action_lane", "") for item in handoff_items] != list(expected_summary_lanes):
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} lane order changed")
+    if handoff_items and handoff_items[0].get("next_action_id") != "source-engineering-next-action-0001":
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} first route changed")
+    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0036":
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} last route changed")
+    generated_from = source_engineering_review_wave_handoff_scaffold.get("generated_from", [])
+    for value in generated_from:
+        if value and not (root / value).exists():
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} missing generated_from path: {value}")
+    route_files_to_open = source_engineering_review_wave_handoff_scaffold.get("route_files_to_open", [])
+    if route_files_to_open and route_files_to_open[0] != SOURCE_ENGINEERING_REVIEW_ROUTE_SUMMARY:
+        issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} first route file should be 117 summary")
+    for route_file in route_files_to_open:
+        if route_file and not (root / route_file).exists() and not str(route_file).endswith("_next-action-result.md"):
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} missing route file: {route_file}")
+    for item in handoff_items:
+        handoff_id = item.get("handoff_item_id", "")
+        if item.get("handoff_status") != "ready_for_source_engineering_review_not_started":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} handoff status changed: {handoff_id}")
+        if item.get("result_status") != "not_started":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} result status changed: {handoff_id}")
+        if item.get("decision_value") != "":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} decision value should be empty: {handoff_id}")
+        if item.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} evidence status changed: {handoff_id}")
+        if item.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} rights boundary changed: {handoff_id}")
+        if item.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} source promotion boundary changed: {handoff_id}")
+        if item.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} corpus import boundary changed: {handoff_id}")
+        if item.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} decipherment boundary changed: {handoff_id}")
+        for path_field in ["route_pack_path", "review_log_path"]:
+            value = item.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} missing item path: {value}")
+        result_record_path = item.get("result_record_path", "")
+        if result_record_path and not (root / result_record_path).parent.exists():
+            issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} missing result parent: {result_record_path}")
+    expected_first_wave_decisions = {
+        "source-engineering-next-action-0001": "access_boundary_recorded_http_error_403",
+        "source-engineering-next-action-0007": "no_checksum_recorded_for_http_error_403_no_recalculation",
+        "source-engineering-next-action-0012": "metadata_profile_absent_existing_records_only",
+        "source-engineering-next-action-0017": "field_map_scaffold_exists_semantics_pending_human_review",
+        "source-engineering-next-action-0021": "no_package_manifest_rows_found_decision_pending",
+        "source-engineering-next-action-0036": "metadata_profiles_available_promotion_decision_pending",
+    }
+    if len(source_engineering_first_wave_review_results) != 6:
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} row count should be 6")
+    if [row.get("action_lane", "") for row in source_engineering_first_wave_review_results] != list(
+        expected_summary_lanes
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} lane order changed")
+    for row in source_engineering_first_wave_review_results:
+        result_id = row.get("first_wave_result_id", "")
+        next_action_id = row.get("next_action_id", "")
+        if row.get("decision_value") != expected_first_wave_decisions.get(next_action_id, ""):
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} decision value changed: {result_id}")
+        if row.get("result_status") != "metadata_captured_from_existing_records":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} result status changed: {result_id}")
+        if row.get("evidence_collection_status") != "existing_metadata_captured":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} evidence status changed: {result_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} rights boundary changed: {result_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} source promotion changed: {result_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} corpus import changed: {result_id}")
+        if row.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} decipherment boundary changed: {result_id}")
+        if row.get("identity_claim_status") != "no_identity_claim":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} identity boundary changed: {result_id}")
+        if row.get("component_claim_status") != "no_component_claim":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} component boundary changed: {result_id}")
+        if row.get("evolution_claim_status") != "no_evolution_chain_claim":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} evolution boundary changed: {result_id}")
+        if "not rights clearance" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} caution changed: {result_id}")
+        for evidence_path in row.get("reviewed_evidence_paths", "").split(";"):
+            if evidence_path and not (root / evidence_path).exists():
+                issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_REVIEW_RESULTS} missing evidence path: {evidence_path}")
+    first_wave_results_by_id = {
+        row.get("first_wave_result_id", ""): row for row in source_engineering_first_wave_review_results
+    }
+    if len(source_engineering_first_wave_result_record_manifest) != 6:
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} row count should be 6")
+    for row in source_engineering_first_wave_result_record_manifest:
+        result_id = row.get("first_wave_result_id", "")
+        source_row = first_wave_results_by_id.get(result_id, {})
+        record_path = row.get("result_record_path", "")
+        record_text = ""
+        if result_id not in first_wave_results_by_id:
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} unknown result id: {result_id}")
+        if row.get("result_record_status") != "metadata_result_record_materialized":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} materialized status changed: {result_id}")
+        for field, expected_value in {
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} {field} changed: {result_id}")
+        if source_row and row.get("decision_value") != source_row.get("decision_value"):
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} decision mismatch: {result_id}")
+        if record_path:
+            path = root / record_path
+            if not path.exists():
+                issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} missing result record: {record_path}")
+            else:
+                record_text = path.read_text(encoding="utf-8")
+        if record_text:
+            for required_text in [
+                "Source Engineering First-Wave Result Record",
+                "来源工程第一波结果记录",
+                result_id,
+                row.get("decision_value", ""),
+                "metadata-only review result",
+                "no_new_rights_decision",
+                "not_promoted",
+                "not_imported",
+                "no_decipherment_claim",
+                "not a new download",
+            ]:
+                if required_text and required_text not in record_text:
+                    issues.append(
+                        f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} "
+                        f"record text missing {required_text}: {record_path}"
+                    )
+            for evidence_path in row.get("reviewed_evidence_paths", "").split(";"):
+                if evidence_path and evidence_path not in record_text:
+                    issues.append(
+                        f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} "
+                        f"record missing evidence path {evidence_path}: {record_path}"
+                    )
+    expected_followup_action_types = [
+        "manual_access_boundary_review",
+        "checksum_absence_boundary_review",
+        "metadata_profile_extraction_plan_review",
+        "field_map_semantics_review",
+        "package_manifest_decision_review",
+        "safe_derived_record_decision_review",
+    ]
+    if len(source_engineering_first_wave_followup_queue) != 6:
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} row count should be 6")
+    if [row.get("followup_action_type", "") for row in source_engineering_first_wave_followup_queue] != expected_followup_action_types:
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} action type order changed")
+    result_record_manifest_ids = {
+        row.get("result_record_manifest_id", "") for row in source_engineering_first_wave_result_record_manifest
+    }
+    for row in source_engineering_first_wave_followup_queue:
+        task_id = row.get("followup_task_id", "")
+        if row.get("result_record_manifest_id") not in result_record_manifest_ids:
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} missing manifest link: {task_id}")
+        if row.get("followup_status") != "pending_human_review":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} followup status changed: {task_id}")
+        if row.get("automation_boundary") != "human_gated_metadata_only_followup":
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} automation boundary changed: {task_id}")
+        for field, expected_value in {
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} {field} changed: {task_id}")
+        for path_field in ["result_record_path", "first_wave_result_path", "result_record_manifest_path"]:
+            value = row.get(path_field, "")
+            if value and not (root / value).exists():
+                issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} missing {path_field}: {value}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_FOLLOWUP_QUEUE} caution changed: {task_id}")
+    expected_source_statuses = {
+        "src-british-museum-oracle-bone": "access_blocked_metadata_only_boundary_pending_human_decision",
+        "src-cambridge-hopkins": "downloaded_graph_derivative_metadata_profile_and_manifest_decisions_pending",
+        "src-ihp-museum-oracle-bones": "metadata_profile_available_field_map_semantics_pending",
+        "src-gbedobc": "metadata_profiles_available_safe_derived_decision_pending",
+    }
+    if len(source_engineering_first_wave_source_status) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS} row count should be 4")
+    if [row.get("source_id", "") for row in source_engineering_first_wave_source_status] != list(
+        expected_source_statuses
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS} source order changed")
+    for row in source_engineering_first_wave_source_status:
+        source_id = row.get("source_id", "")
+        if row.get("source_first_wave_status") != expected_source_statuses.get(source_id):
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS} status changed: {source_id}")
+        for field, expected_value in {
+            "followup_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS} {field} changed: {source_id}")
+        for path_field in ["result_record_paths", "reviewed_evidence_paths"]:
+            for value in [part for part in row.get(path_field, "").split(";") if part]:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS} missing {path_field}: {value}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS} caution changed: {source_id}")
+    expected_second_wave_lanes = [
+        "access_and_checksum_boundary_resolution",
+        "metadata_profile_and_package_manifest_decision",
+        "field_map_semantics_review",
+        "safe_derived_record_decision",
+    ]
+    if len(source_engineering_second_wave_source_checklist) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} row count should be 4")
+    if [row.get("source_action_lane", "") for row in source_engineering_second_wave_source_checklist] != expected_second_wave_lanes:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} lane order changed")
+    source_status_ids = {
+        row.get("source_status_id", "") for row in source_engineering_first_wave_source_status
+    }
+    for row in source_engineering_second_wave_source_checklist:
+        task_id = row.get("continuation_task_id", "")
+        source_id = row.get("source_id", "")
+        if row.get("source_status_id") not in source_status_ids:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} missing 122 status link: {task_id}")
+        if row.get("source_status_path") != SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} source status path changed: {task_id}")
+        for field, expected_value in {
+            "action_status": "ready_for_human_source_engineering_review",
+            "human_review_status": "pending_human_review",
+            "automation_boundary": "human_gated_metadata_only_followup",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} {field} changed: {task_id}")
+        for path_field in ["result_record_paths", "reviewed_evidence_paths"]:
+            for value in [part for part in row.get(path_field, "").split(";") if part]:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} missing {path_field}: {value}")
+        if not row.get("expected_review_output_path", "").startswith("doc/public/user_research/"):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} expected output path changed: {task_id}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST} caution changed: {source_id}")
+    if len(source_engineering_second_wave_review_draft_manifest) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} row count should be 4")
+    if [row.get("source_action_lane", "") for row in source_engineering_second_wave_review_draft_manifest] != expected_second_wave_lanes:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} lane order changed")
+    checklist_by_task = {
+        row.get("continuation_task_id", ""): row for row in source_engineering_second_wave_source_checklist
+    }
+    for row in source_engineering_second_wave_review_draft_manifest:
+        draft_id = row.get("review_draft_id", "")
+        task_id = row.get("continuation_task_id", "")
+        checklist_row = checklist_by_task.get(task_id)
+        if not checklist_row:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} missing 123 task link: {draft_id}")
+            continue
+        if row.get("source_checklist_path") != SOURCE_ENGINEERING_SECOND_WAVE_SOURCE_CHECKLIST:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} checklist path changed: {draft_id}")
+        if row.get("source_status_path") != SOURCE_ENGINEERING_FIRST_WAVE_SOURCE_STATUS:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} source status path changed: {draft_id}")
+        for linked_field in [
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "draft_path",
+            "required_inputs",
+            "result_record_paths",
+            "reviewed_evidence_paths",
+            "source_level_objective",
+            "blocker_summary",
+        ]:
+            checklist_field = "expected_review_output_path" if linked_field == "draft_path" else linked_field
+            if row.get(linked_field) != checklist_row.get(checklist_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} {linked_field} "
+                    f"does not match 123 checklist: {draft_id}"
+                )
+        for field, expected_value in {
+            "draft_status": "draft_not_collected",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+            "research_boundary": "source_engineering_second_wave_review_draft_metadata-only_not_scholarship",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} {field} changed: {draft_id}")
+        draft_path = row.get("draft_path", "")
+        if not draft_path.startswith("doc/public/user_research/"):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} draft path changed: {draft_id}")
+            continue
+        full_draft_path = root / draft_path
+        if not full_draft_path.exists():
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} missing draft: {draft_path}")
+            continue
+        draft_text = full_draft_path.read_text(encoding="utf-8")
+        for required_snippet in [
+            "Source Engineering Second-Wave Review Draft",
+            "来源工程第二波复核草稿",
+            draft_id,
+            task_id,
+            row.get("source_id", ""),
+            "not a rights decision",
+            "not a decipherment conclusion",
+            "not_collected",
+            "pending_human_review",
+        ]:
+            if required_snippet not in draft_text:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} draft missing "
+                    f"{required_snippet}: {draft_path}"
+                )
+        for field in ["required_inputs", "result_record_paths", "reviewed_evidence_paths"]:
+            for value in [part for part in row.get(field, "").split(";") if part]:
+                if not (root / value).exists():
+                    issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} missing {field}: {value}")
+                if value not in draft_text:
+                    issues.append(
+                        f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} draft missing "
+                        f"{field} path: {value}"
+                    )
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} caution changed: {draft_id}")
+    if len(source_engineering_second_wave_result_scaffold) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} row count should be 4")
+    if [row.get("source_action_lane", "") for row in source_engineering_second_wave_result_scaffold] != expected_second_wave_lanes:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} lane order changed")
+    review_draft_by_id = {
+        row.get("review_draft_id", ""): row for row in source_engineering_second_wave_review_draft_manifest
+    }
+    expected_second_wave_result_actions = {
+        "access_and_checksum_boundary_resolution": "record_access_and_checksum_boundary_outcomes_after_human_review",
+        "metadata_profile_and_package_manifest_decision": (
+            "record_metadata_profile_scope_and_package_manifest_decision_after_human_review"
+        ),
+        "field_map_semantics_review": "record_field_map_semantics_review_after_human_review",
+        "safe_derived_record_decision": "record_safe_derived_record_decision_after_human_review",
+    }
+    for index, row in enumerate(source_engineering_second_wave_result_scaffold, start=1):
+        scaffold_id = row.get("second_wave_result_scaffold_id", "")
+        expected_scaffold_id = f"source-engineering-second-wave-result-scaffold-{index:04d}"
+        if scaffold_id != expected_scaffold_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} ID sequence changed: {scaffold_id}")
+        draft_id = row.get("review_draft_id", "")
+        draft_row = review_draft_by_id.get(draft_id)
+        if not draft_row:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} missing 124 draft link: {scaffold_id}")
+            continue
+        if row.get("source_review_draft_manifest_path") != SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} manifest path changed: {scaffold_id}")
+        for linked_field in [
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "result_record_paths",
+            "source_level_objective",
+        ]:
+            if row.get(linked_field) != draft_row.get(linked_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} {linked_field} "
+                    f"does not match 124 manifest: {scaffold_id}"
+                )
+        expected_action = expected_second_wave_result_actions.get(row.get("source_action_lane", ""))
+        if row.get("required_result_action") != expected_action:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} action changed: {scaffold_id}")
+        for field, expected_value in {
+            "result_status": "not_started",
+            "draft_open_status": "not_opened",
+            "route_files_open_status": "not_opened",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+            "research_boundary": "source_engineering_second_wave_result_scaffold_not_scholarship",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} {field} changed: {scaffold_id}")
+        for empty_field in [
+            "reviewed_evidence_paths",
+            "access_outcome",
+            "checksum_outcome",
+            "manifest_decision",
+            "field_map_decision",
+            "metadata_profile_decision",
+            "safe_derived_record_decision",
+            "human_review_notes",
+        ]:
+            if row.get(empty_field) != "":
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} {empty_field} should be empty: {scaffold_id}")
+        route_files = set(filter(None, row.get("route_files_to_open", "").split(";")))
+        for required_file in [
+            row.get("draft_path", ""),
+            row.get("source_checklist_path", ""),
+            row.get("source_status_path", ""),
+            *[part for part in draft_row.get("required_inputs", "").split(";") if part],
+        ]:
+            if required_file not in route_files:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} missing route file "
+                    f"{required_file}: {scaffold_id}"
+                )
+            if required_file and not (root / required_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} missing route path: {required_file}")
+        for result_record_path in [part for part in row.get("result_record_paths", "").split(";") if part]:
+            if not (root / result_record_path).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} missing result record: {result_record_path}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} caution missing rights boundary: {scaffold_id}")
+        if "not a decipherment conclusion" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD} caution missing decipherment boundary: {scaffold_id}")
+    if len(source_engineering_second_wave_review_checklist) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} row count should be 4")
+    if [row.get("source_action_lane", "") for row in source_engineering_second_wave_review_checklist] != expected_second_wave_lanes:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} lane order changed")
+    result_scaffold_by_id = {
+        row.get("second_wave_result_scaffold_id", ""): row for row in source_engineering_second_wave_result_scaffold
+    }
+    expected_lane_checks = {
+        "access_and_checksum_boundary_resolution": [
+            "open_second_wave_result_scaffold",
+            "open_second_wave_review_draft",
+            "verify_access_and_checksum_boundary",
+        ],
+        "metadata_profile_and_package_manifest_decision": [
+            "open_second_wave_result_scaffold",
+            "verify_metadata_profile_scope",
+            "verify_package_manifest_or_not_applicable_boundary",
+        ],
+        "field_map_semantics_review": [
+            "open_second_wave_result_scaffold",
+            "verify_field_map_semantics_before_import",
+            "keep_field_map_review_separate_from_corpus_import",
+        ],
+        "safe_derived_record_decision": [
+            "open_second_wave_result_scaffold",
+            "verify_safe_derived_record_boundary",
+            "keep_source_promotion_pending_until_human_review",
+        ],
+    }
+    for index, row in enumerate(source_engineering_second_wave_review_checklist, start=1):
+        checklist_id = row.get("second_wave_review_checklist_id", "")
+        expected_checklist_id = f"source-engineering-second-wave-review-checklist-{index:04d}"
+        if checklist_id != expected_checklist_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} ID sequence changed: {checklist_id}")
+        scaffold_id = row.get("second_wave_result_scaffold_id", "")
+        scaffold_row = result_scaffold_by_id.get(scaffold_id)
+        if not scaffold_row:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} missing 125 scaffold link: {checklist_id}")
+            continue
+        if row.get("result_scaffold_path") != SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} scaffold path changed: {checklist_id}")
+        if row.get("result_update_target_path") != SOURCE_ENGINEERING_SECOND_WAVE_RESULT_SCAFFOLD:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} update target changed: {checklist_id}")
+        for linked_field in [
+            "review_draft_id",
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "required_result_action",
+            "source_review_draft_manifest_path",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "route_files_to_open",
+            "reserved_review_fields",
+        ]:
+            if row.get(linked_field) != scaffold_row.get(linked_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} {linked_field} "
+                    f"does not match 125 scaffold: {checklist_id}"
+                )
+        if row.get("priority_rank") != str(index):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} priority changed: {checklist_id}")
+        lane = row.get("source_action_lane", "")
+        required_steps = set(filter(None, row.get("required_review_steps", "").split(";")))
+        for expected_step in expected_lane_checks.get(lane, []):
+            if expected_step not in required_steps:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} missing review step "
+                    f"{expected_step}: {checklist_id}"
+                )
+        for common_step in [
+            "open_cited_route_files",
+            "verify_rights_and_risk_boundaries",
+            "do_not_import_or_promote_until_reviewed",
+            "do_not_write_ai_hypothesis_as_scholarship",
+        ]:
+            if common_step not in required_steps:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} missing common step "
+                    f"{common_step}: {checklist_id}"
+                )
+        priority_tags = set(filter(None, row.get("priority_tags", "").split(";")))
+        for expected_tag in {f"source:{row.get('source_id', '')}", f"lane:{lane}", "second_wave"}:
+            if expected_tag not in priority_tags:
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} missing priority tag {expected_tag}: {checklist_id}")
+        for field, expected_value in {
+            "assignment_status": "unassigned",
+            "review_status": "needs_second_wave_source_review",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+            "automation_boundary": "human_gated_second_wave_source_engineering_review",
+            "research_boundary": "source_engineering_second_wave_review_checklist_not_scholarship",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} {field} changed: {checklist_id}")
+        for route_file in [part for part in row.get("route_files_to_open", "").split(";") if part]:
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} missing route path: {route_file}")
+        if "human-gated review route only" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} caution missing route boundary: {checklist_id}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} caution missing rights boundary: {checklist_id}")
+        if "not a decipherment conclusion" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST} caution missing decipherment boundary: {checklist_id}")
+    if len(source_engineering_second_wave_review_outcome_scaffold) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} row count should be 4")
+    if [row.get("source_action_lane", "") for row in source_engineering_second_wave_review_outcome_scaffold] != expected_second_wave_lanes:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} lane order changed")
+    review_checklist_by_id = {
+        row.get("second_wave_review_checklist_id", ""): row for row in source_engineering_second_wave_review_checklist
+    }
+    for index, row in enumerate(source_engineering_second_wave_review_outcome_scaffold, start=1):
+        outcome_id = row.get("second_wave_review_outcome_scaffold_id", "")
+        expected_outcome_id = f"source-engineering-second-wave-review-outcome-scaffold-{index:04d}"
+        if outcome_id != expected_outcome_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} ID sequence changed: {outcome_id}")
+        checklist_id = row.get("second_wave_review_checklist_id", "")
+        checklist_row = review_checklist_by_id.get(checklist_id)
+        if not checklist_row:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} missing 126 checklist link: {outcome_id}")
+            continue
+        if row.get("review_checklist_path") != SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_CHECKLIST:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} checklist path changed: {outcome_id}")
+        if row.get("outcome_update_target_path") != SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} update target changed: {outcome_id}")
+        for linked_field in [
+            "second_wave_result_scaffold_id",
+            "review_draft_id",
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "priority_rank",
+            "priority_tags",
+            "required_result_action",
+            "required_review_steps",
+            "blocking_condition",
+            "result_scaffold_path",
+            "result_update_target_path",
+            "source_review_draft_manifest_path",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "route_files_to_open",
+            "reserved_review_fields",
+        ]:
+            if row.get(linked_field) != checklist_row.get(linked_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} {linked_field} "
+                    f"does not match 126 checklist: {outcome_id}"
+                )
+        reserved_outcome_fields = set(filter(None, row.get("reserved_outcome_fields", "").split(";")))
+        for expected_outcome_field in [
+            "access_outcome_reviewed",
+            "checksum_outcome_reviewed",
+            "manifest_decision_reviewed",
+            "field_map_decision_reviewed",
+            "metadata_profile_decision_reviewed",
+            "safe_derived_record_decision_reviewed",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "human_review_notes",
+        ]:
+            if expected_outcome_field not in reserved_outcome_fields:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} missing reserved outcome field "
+                    f"{expected_outcome_field}: {outcome_id}"
+                )
+        for field, expected_value in {
+            "review_outcome_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+            "automation_boundary": "human_gated_second_wave_source_engineering_outcome_capture",
+            "research_boundary": "source_engineering_second_wave_review_outcome_scaffold_not_scholarship",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} {field} changed: {outcome_id}")
+        for empty_field in [
+            "reviewed_evidence_paths",
+            "access_outcome_reviewed",
+            "checksum_outcome_reviewed",
+            "manifest_decision_reviewed",
+            "field_map_decision_reviewed",
+            "metadata_profile_decision_reviewed",
+            "safe_derived_record_decision_reviewed",
+            "reviewed_outcome_summary",
+            "required_followup_reviewed",
+            "human_reviewer_id",
+            "human_review_date",
+            "human_review_notes",
+        ]:
+            if row.get(empty_field) != "":
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} {empty_field} should be empty: {outcome_id}")
+        for route_file in [part for part in row.get("route_files_to_open", "").split(";") if part]:
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} missing route path: {route_file}")
+        if "human-gated outcome scaffold" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} caution missing outcome boundary: {outcome_id}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} caution missing rights boundary: {outcome_id}")
+        if "not a decipherment conclusion" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD} caution missing decipherment boundary: {outcome_id}")
+    outcome_route_pack_routes = source_engineering_second_wave_outcome_route_pack.get("routes", [])
+    if source_engineering_second_wave_outcome_route_pack.get("route_pack_id") != (
+        "source-engineering-second-wave-outcome-route-pack-001"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route pack ID changed")
+    if source_engineering_second_wave_outcome_route_pack.get("outcome_scaffold_path") != (
+        SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} outcome scaffold path changed")
+    if source_engineering_second_wave_outcome_route_pack.get("route_count") != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route count should be 4")
+    if source_engineering_second_wave_outcome_route_pack.get("source_count") != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} source count should be 4")
+    if source_engineering_second_wave_outcome_route_pack.get("lane_counts") != {
+        "access_and_checksum_boundary_resolution": 1,
+        "field_map_semantics_review": 1,
+        "metadata_profile_and_package_manifest_decision": 1,
+        "safe_derived_record_decision": 1,
+    }:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} lane counts changed")
+    for field, expected_value in {
+        "automation_boundary": "routing_only_no_outcome_capture",
+        "research_boundary": "source_engineering_second_wave_outcome_route_pack_not_scholarship",
+    }.items():
+        if source_engineering_second_wave_outcome_route_pack.get(field) != expected_value:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} {field} changed")
+    if "not collected evidence" not in source_engineering_second_wave_outcome_route_pack.get("caution", ""):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} caution missing evidence boundary")
+    outcome_scaffold_by_id = {
+        row.get("second_wave_review_outcome_scaffold_id", ""): row
+        for row in source_engineering_second_wave_review_outcome_scaffold
+    }
+    if len(outcome_route_pack_routes) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} routes length should be 4")
+    for index, route in enumerate(outcome_route_pack_routes, start=1):
+        route_id = route.get("route_id", "")
+        expected_route_id = f"source-engineering-second-wave-outcome-route-{index:04d}"
+        if route_id != expected_route_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route ID changed: {route_id}")
+        outcome_id = route.get("second_wave_review_outcome_scaffold_id", "")
+        outcome_row = outcome_scaffold_by_id.get(outcome_id)
+        if not outcome_row:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} missing 127 scaffold link: {route_id}")
+            continue
+        for linked_field in [
+            "second_wave_review_checklist_id",
+            "second_wave_result_scaffold_id",
+            "review_draft_id",
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "priority_rank",
+            "required_result_action",
+            "blocking_condition",
+            "review_checklist_path",
+            "result_scaffold_path",
+            "source_review_draft_manifest_path",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "review_outcome_status",
+            "evidence_collection_status",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "human_review_status",
+            "rights_decision_status",
+            "source_promotion_status",
+            "corpus_import_status",
+            "decipherment_claim_status",
+            "identity_claim_status",
+            "component_claim_status",
+            "evolution_claim_status",
+        ]:
+            if route.get(linked_field) != outcome_row.get(linked_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} {linked_field} "
+                    f"does not match 127 scaffold: {route_id}"
+                )
+        if route.get("outcome_scaffold_path") != SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route outcome path changed: {route_id}")
+        if route.get("route_status") != "not_started":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route status changed: {route_id}")
+        for list_field in [
+            "priority_tags",
+            "required_review_steps",
+            "route_files_to_open",
+            "reserved_review_fields",
+            "reserved_outcome_fields",
+        ]:
+            expected_values = [part for part in outcome_row.get(list_field, "").split(";") if part]
+            if route.get(list_field) != expected_values:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} {list_field} "
+                    f"does not match 127 scaffold: {route_id}"
+                )
+        for route_file in route.get("route_files_to_open", []):
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} missing route path: {route_file}")
+        if route.get("automation_boundary") != "routing_only_no_outcome_capture":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route automation boundary changed: {route_id}")
+        if route.get("research_boundary") != "source_engineering_second_wave_outcome_route_pack_not_scholarship":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route research boundary changed: {route_id}")
+        if "not a rights decision" not in route.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route caution missing rights boundary: {route_id}")
+        if "not a decipherment conclusion" not in route.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK} route caution missing decipherment boundary: {route_id}")
+    outcome_handoffs = source_engineering_second_wave_outcome_handoff_scaffold.get("handoffs", [])
+    if source_engineering_second_wave_outcome_handoff_scaffold.get("handoff_scaffold_id") != (
+        "source-engineering-second-wave-outcome-handoff-scaffold-001"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} scaffold ID changed")
+    if source_engineering_second_wave_outcome_handoff_scaffold.get("route_pack_path") != (
+        SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} route pack path changed")
+    if source_engineering_second_wave_outcome_handoff_scaffold.get("outcome_scaffold_path") != (
+        SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_OUTCOME_SCAFFOLD
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} outcome scaffold path changed")
+    for field, expected_value in {
+        "handoff_count": 4,
+        "route_count": 4,
+        "source_count": 4,
+        "assignment_status_counts": {"planned_not_assigned": 4},
+        "handoff_status_counts": {"not_started": 4},
+        "lane_counts": {
+            "access_and_checksum_boundary_resolution": 1,
+            "field_map_semantics_review": 1,
+            "metadata_profile_and_package_manifest_decision": 1,
+            "safe_derived_record_decision": 1,
+        },
+        "automation_boundary": "planned_handoff_only_no_outcome_capture",
+        "research_boundary": "source_engineering_second_wave_outcome_handoff_scaffold_not_scholarship",
+    }.items():
+        if source_engineering_second_wave_outcome_handoff_scaffold.get(field) != expected_value:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} {field} changed")
+    handoff_caution = source_engineering_second_wave_outcome_handoff_scaffold.get("caution", "")
+    for snippet in ["not collected evidence", "not a rights decision", "not a decipherment conclusion"]:
+        if snippet not in handoff_caution:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} caution missing {snippet}")
+    routes_by_id = {route.get("route_id", ""): route for route in outcome_route_pack_routes}
+    if len(outcome_handoffs) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoffs length should be 4")
+    for index, handoff in enumerate(outcome_handoffs, start=1):
+        handoff_id = handoff.get("handoff_id", "")
+        expected_handoff_id = f"source-engineering-second-wave-outcome-handoff-{index:04d}"
+        if handoff_id != expected_handoff_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoff ID changed: {handoff_id}")
+        route_id = handoff.get("route_id", "")
+        route = routes_by_id.get(route_id)
+        if not route:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} missing 128 route link: {handoff_id}")
+            continue
+        if handoff.get("route_pack_path") != SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_ROUTE_PACK:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoff route pack path changed: {handoff_id}")
+        if handoff.get("assignment_status") != "planned_not_assigned":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} assignment status changed: {handoff_id}")
+        if handoff.get("handoff_status") != "not_started":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoff status changed: {handoff_id}")
+        if handoff.get("handoff_objective") != "open_route_files_and_record_human_reviewed_outcome_later":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoff objective changed: {handoff_id}")
+        for linked_field in [
+            "second_wave_review_outcome_scaffold_id",
+            "second_wave_review_checklist_id",
+            "second_wave_result_scaffold_id",
+            "review_draft_id",
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "priority_rank",
+            "priority_tags",
+            "required_result_action",
+            "required_review_steps",
+            "blocking_condition",
+            "outcome_scaffold_path",
+            "review_checklist_path",
+            "result_scaffold_path",
+            "source_review_draft_manifest_path",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "route_files_to_open",
+            "reserved_review_fields",
+            "reserved_outcome_fields",
+            "route_status",
+            "review_outcome_status",
+            "evidence_collection_status",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "human_review_status",
+            "rights_decision_status",
+            "source_promotion_status",
+            "corpus_import_status",
+            "decipherment_claim_status",
+            "identity_claim_status",
+            "component_claim_status",
+            "evolution_claim_status",
+        ]:
+            if handoff.get(linked_field) != route.get(linked_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} {linked_field} "
+                    f"does not match 128 route: {handoff_id}"
+                )
+        if handoff.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} evidence status changed: {handoff_id}")
+        if handoff.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} rights status changed: {handoff_id}")
+        if handoff.get("reviewed_evidence_paths") != "":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} reviewed evidence should be empty: {handoff_id}")
+        if handoff.get("reviewed_outcome_summary") != "":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} outcome summary should be empty: {handoff_id}")
+        for route_file in handoff.get("route_files_to_open", []):
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} missing route path: {route_file}")
+        if handoff.get("automation_boundary") != "planned_handoff_only_no_outcome_capture":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} automation boundary changed: {handoff_id}")
+        if handoff.get("research_boundary") != "source_engineering_second_wave_outcome_handoff_scaffold_not_scholarship":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} research boundary changed: {handoff_id}")
+        if "not a rights decision" not in handoff.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoff caution missing rights boundary: {handoff_id}")
+        if "not a decipherment conclusion" not in handoff.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD} handoff caution missing decipherment boundary: {handoff_id}")
+    handoffs_by_id = {handoff.get("handoff_id", ""): handoff for handoff in outcome_handoffs}
+    if len(source_engineering_second_wave_handoff_review_checklist) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} should contain exactly 4 rows")
+    for index, row in enumerate(source_engineering_second_wave_handoff_review_checklist, start=1):
+        checklist_id = row.get("handoff_review_checklist_id", "")
+        expected_checklist_id = f"source-engineering-second-wave-handoff-review-checklist-{index:04d}"
+        if checklist_id != expected_checklist_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} checklist ID changed: {checklist_id}")
+        handoff_id = row.get("handoff_id", "")
+        handoff = handoffs_by_id.get(handoff_id)
+        if not handoff:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} missing 129 handoff link: {checklist_id}")
+            continue
+        for linked_field in [
+            "handoff_id",
+            "route_id",
+            "second_wave_review_outcome_scaffold_id",
+            "second_wave_review_checklist_id",
+            "second_wave_result_scaffold_id",
+            "review_draft_id",
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "priority_rank",
+            "required_result_action",
+            "blocking_condition",
+            "route_pack_path",
+            "outcome_scaffold_path",
+            "review_checklist_path",
+            "result_scaffold_path",
+            "source_review_draft_manifest_path",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "assignment_status",
+            "handoff_status",
+            "route_status",
+            "review_outcome_status",
+            "evidence_collection_status",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "human_review_status",
+            "rights_decision_status",
+            "source_promotion_status",
+            "corpus_import_status",
+            "decipherment_claim_status",
+            "identity_claim_status",
+            "component_claim_status",
+            "evolution_claim_status",
+        ]:
+            if row.get(linked_field) != str(handoff.get(linked_field, "")):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} {linked_field} "
+                    f"does not match 129 handoff: {checklist_id}"
+                )
+        for list_field in [
+            "priority_tags",
+            "required_review_steps",
+            "route_files_to_open",
+            "reserved_review_fields",
+            "reserved_outcome_fields",
+        ]:
+            expected_values = ";".join(str(item) for item in handoff.get(list_field, []))
+            if row.get(list_field) != expected_values:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} {list_field} "
+                    f"does not match 129 handoff: {checklist_id}"
+                )
+        if row.get("handoff_scaffold_path") != SOURCE_ENGINEERING_SECOND_WAVE_OUTCOME_HANDOFF_SCAFFOLD:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} handoff scaffold path changed: {checklist_id}")
+        if row.get("checklist_status") != "not_started":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} checklist status changed: {checklist_id}")
+        required_precheck_steps = [part for part in row.get("required_precheck_steps", "").split(";") if part]
+        for required_step in [
+            "verify_handoff_row_against_129",
+            "open_128_route_pack",
+            "open_127_outcome_scaffold",
+            "open_all_route_files_before_review",
+            "verify_rights_and_risk_boundaries",
+            "verify_empty_outcome_fields_before_review",
+            "do_not_collect_evidence_or_record_outcome_in_checklist",
+            "keep_source_promotion_and_corpus_import_blocked",
+            "do_not_write_ai_hypothesis_as_scholarship",
+        ]:
+            if required_step not in required_precheck_steps:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} missing precheck "
+                    f"{required_step}: {checklist_id}"
+                )
+        if row.get("reviewed_evidence_paths") != "":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} reviewed evidence should be empty: {checklist_id}")
+        if row.get("reviewed_outcome_summary") != "":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} outcome summary should be empty: {checklist_id}")
+        if row.get("evidence_collection_status") != "not_collected":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} evidence status changed: {checklist_id}")
+        if row.get("rights_decision_status") != "no_new_rights_decision":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} rights status changed: {checklist_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} promotion status changed: {checklist_id}")
+        if row.get("corpus_import_status") != "not_imported":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} import status changed: {checklist_id}")
+        if row.get("decipherment_claim_status") != "no_decipherment_claim":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} decipherment status changed: {checklist_id}")
+        for route_file in [part for part in row.get("route_files_to_open", "").split(";") if part]:
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} missing route path: {route_file}")
+        if row.get("automation_boundary") != "handoff_precheck_only_no_outcome_capture":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} automation boundary changed: {checklist_id}")
+        if row.get("research_boundary") != "source_engineering_second_wave_handoff_review_checklist_not_scholarship":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} research boundary changed: {checklist_id}")
+        if "not a rights decision" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} caution missing rights boundary: {checklist_id}")
+        if "not a decipherment conclusion" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST} caution missing decipherment boundary: {checklist_id}")
+    handoff_checklist_by_id = {
+        row.get("handoff_review_checklist_id", ""): row
+        for row in source_engineering_second_wave_handoff_review_checklist
+    }
+    handoff_summary_routes = source_engineering_second_wave_handoff_route_summary.get("routes", [])
+    if source_engineering_second_wave_handoff_route_summary.get("route_summary_id") != (
+        "source-engineering-second-wave-handoff-route-summary-001"
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} summary ID changed")
+    if source_engineering_second_wave_handoff_route_summary.get("handoff_review_checklist_path") != (
+        SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST
+    ):
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} checklist path changed")
+    for field, expected_value in {
+        "route_count": 4,
+        "source_count": 4,
+        "lane_counts": {
+            "access_and_checksum_boundary_resolution": 1,
+            "field_map_semantics_review": 1,
+            "metadata_profile_and_package_manifest_decision": 1,
+            "safe_derived_record_decision": 1,
+        },
+        "source_counts": {
+            "src-british-museum-oracle-bone": 1,
+            "src-cambridge-hopkins": 1,
+            "src-gbedobc": 1,
+            "src-ihp-museum-oracle-bones": 1,
+        },
+        "checklist_status_counts": {"not_started": 4},
+        "assignment_status_counts": {"planned_not_assigned": 4},
+        "handoff_status_counts": {"not_started": 4},
+        "review_outcome_status_counts": {"not_started": 4},
+        "human_review_status_counts": {"pending_human_review": 4},
+        "automation_boundary": "route_summary_only_no_outcome_capture",
+        "research_boundary": "source_engineering_second_wave_handoff_route_summary_not_scholarship",
+    }.items():
+        if source_engineering_second_wave_handoff_route_summary.get(field) != expected_value:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} {field} changed")
+    summary_caution = source_engineering_second_wave_handoff_route_summary.get("caution", "")
+    for snippet in ["not collected evidence", "not a rights decision", "not a decipherment conclusion"]:
+        if snippet not in summary_caution:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} caution missing {snippet}")
+    if len(handoff_summary_routes) != 4:
+        issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} routes length should be 4")
+    for index, route in enumerate(handoff_summary_routes, start=1):
+        summary_route_id = route.get("summary_route_id", "")
+        expected_summary_route_id = f"source-engineering-second-wave-handoff-summary-route-{index:04d}"
+        if summary_route_id != expected_summary_route_id:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} route ID changed: {summary_route_id}")
+        checklist_id = route.get("handoff_review_checklist_id", "")
+        checklist_row = handoff_checklist_by_id.get(checklist_id)
+        if not checklist_row:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} missing 130 checklist link: {summary_route_id}")
+            continue
+        for linked_field in [
+            "handoff_review_checklist_id",
+            "handoff_id",
+            "route_id",
+            "second_wave_review_outcome_scaffold_id",
+            "second_wave_review_checklist_id",
+            "second_wave_result_scaffold_id",
+            "review_draft_id",
+            "continuation_task_id",
+            "source_status_id",
+            "source_id",
+            "source_action_lane",
+            "source_first_wave_status",
+            "priority_rank",
+            "required_result_action",
+            "blocking_condition",
+            "handoff_scaffold_path",
+            "route_pack_path",
+            "outcome_scaffold_path",
+            "review_checklist_path",
+            "result_scaffold_path",
+            "source_review_draft_manifest_path",
+            "source_checklist_path",
+            "source_status_path",
+            "draft_path",
+            "checklist_status",
+            "assignment_status",
+            "handoff_status",
+            "route_status",
+            "review_outcome_status",
+            "evidence_collection_status",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "human_review_status",
+            "rights_decision_status",
+            "source_promotion_status",
+            "corpus_import_status",
+            "decipherment_claim_status",
+            "identity_claim_status",
+            "component_claim_status",
+            "evolution_claim_status",
+        ]:
+            if route.get(linked_field) != checklist_row.get(linked_field):
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} {linked_field} "
+                    f"does not match 130 checklist: {summary_route_id}"
+                )
+        for list_field in [
+            "priority_tags",
+            "required_review_steps",
+            "required_precheck_steps",
+            "route_files_to_open",
+            "reserved_review_fields",
+            "reserved_outcome_fields",
+        ]:
+            expected_values = [part for part in checklist_row.get(list_field, "").split(";") if part]
+            if route.get(list_field) != expected_values:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} {list_field} "
+                    f"does not match 130 checklist: {summary_route_id}"
+                )
+        if route.get("handoff_review_checklist_path") != SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_REVIEW_CHECKLIST:
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} route checklist path changed: {summary_route_id}")
+        if route.get("reviewed_evidence_paths") != "":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} reviewed evidence should be empty: {summary_route_id}")
+        if route.get("reviewed_outcome_summary") != "":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} outcome summary should be empty: {summary_route_id}")
+        for route_file in route.get("route_files_to_open", []):
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} missing route path: {route_file}")
+        if route.get("automation_boundary") != "route_summary_only_no_outcome_capture":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} route automation boundary changed: {summary_route_id}")
+        if route.get("research_boundary") != "source_engineering_second_wave_handoff_route_summary_not_scholarship":
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} route research boundary changed: {summary_route_id}")
+        if "not a rights decision" not in route.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} route caution missing rights boundary: {summary_route_id}")
+        if "not a decipherment conclusion" not in route.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY} route caution missing decipherment boundary: {summary_route_id}")
+    if len(source_gap_rows) != 45:
+        issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} should contain exactly 45 rows")
+    gap_type_counts = Counter(row.get("gap_type", "") for row in source_gap_rows)
+    if source_gap_rows and gap_type_counts != expected_gap_type_counts:
+        issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} gap type distribution changed")
+    for row in source_gap_rows:
+        gap_id = row.get("source_engineering_gap_id", "")
+        if not gap_id.startswith("source-engineering-gap-"):
+            issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} gap ID changed: {gap_id}")
+        if row.get("source_promotion_status") != "not_promoted":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} source promotion boundary changed: {gap_id}")
+        if row.get("review_status") != "needs_source_engineering_review":
+            issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} review status changed: {gap_id}")
+        if "not a corpus import" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} caution changed: {gap_id}")
+        route_files = [value for value in row.get("route_files_to_open", "").split(";") if value]
+        for route_file in route_files:
+            if not (root / route_file).exists():
+                issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} missing route file: {route_file}")
+    return issues
+
+
 def check_ai_context_packs(root: Path) -> list[str]:
     issues: list[str] = []
+    lane_route_pack_path = root / SOURCE_ENGINEERING_LANE_ROUTE_PACK
+    try:
+        lane_route_pack = json.loads(lane_route_pack_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        lane_route_pack = {}
+        issues.append(f"missing required path: {SOURCE_ENGINEERING_LANE_ROUTE_PACK}")
+    except json.JSONDecodeError as exc:
+        lane_route_pack = {}
+        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} invalid JSON: {exc.msg}")
+    if lane_route_pack:
+        if lane_route_pack.get("route_pack_id") != "source-engineering-lane-route-pack-001":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} route_pack_id changed")
+        if lane_route_pack.get("updated_at") != "2026-06-19":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} updated_at changed")
+        if lane_route_pack.get("lane_count") != 6:
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} lane_count changed")
+        if lane_route_pack.get("action_count") != 45:
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} action_count changed")
+        if lane_route_pack.get("result_scaffold_count") != 45:
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} result_scaffold_count changed")
+        if lane_route_pack.get("review_status") != "route_pack_pending_source_engineering_review":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} review_status changed")
+        if lane_route_pack.get("research_boundary") != "source_engineering_lane_route_pack_not_scholarship":
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} research boundary changed")
+        if "does not collect evidence" not in lane_route_pack.get("caution", ""):
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} caution changed")
+        expected_source_paths = {
+            "next_action_checklist": SOURCE_ENGINEERING_NEXT_ACTION_CHECKLIST,
+            "next_action_result_scaffold": SOURCE_ENGINEERING_NEXT_ACTION_RESULT_SCAFFOLD,
+            "lane_summary": SOURCE_ENGINEERING_LANE_SUMMARY,
+        }
+        if lane_route_pack.get("source_paths") != expected_source_paths:
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} source_paths changed")
+        lanes = lane_route_pack.get("lanes", [])
+        expected_lane_counts = {
+            "access_boundary_followup": 6,
+            "checksum_and_download_status_review": 5,
+            "metadata_profile_extraction_planning": 5,
+            "source_field_map_planning": 4,
+            "package_manifest_or_not_applicable_review": 15,
+            "safe_derived_record_decision": 10,
+        }
+        if not isinstance(lanes, list) or len(lanes) != 6:
+            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} must contain 6 lanes")
+        else:
+            by_lane = {lane.get("action_lane", ""): lane for lane in lanes}
+            if set(by_lane) != set(expected_lane_counts):
+                issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} lane set changed")
+            for lane, expected_count in expected_lane_counts.items():
+                lane_row = by_lane.get(lane, {})
+                tasks = lane_row.get("tasks", [])
+                if lane_row.get("action_count") != expected_count:
+                    issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} action count changed: {lane}")
+                if len(tasks) != expected_count:
+                    issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task count changed: {lane}")
+                if lane_row.get("result_status_counts") != f"not_started:{expected_count}":
+                    issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} result counts changed: {lane}")
+                if lane_row.get("decipherment_claim_status_counts") != f"no_decipherment_claim:{expected_count}":
+                    issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} decipherment counts changed: {lane}")
+                for path_field in ["checklist_path", "result_scaffold_path"]:
+                    value = lane_row.get(path_field, "")
+                    if value and not (root / value).exists():
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} missing lane path: {value}")
+                for task in tasks:
+                    action_id = task.get("next_action_id", "")
+                    if task.get("result_status") != "not_started":
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task result changed: {action_id}")
+                    if task.get("evidence_collection_status") != "not_collected":
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task evidence changed: {action_id}")
+                    if task.get("rights_decision_status") != "no_new_rights_decision":
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task rights changed: {action_id}")
+                    if task.get("source_promotion_status") != "not_promoted":
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task promotion changed: {action_id}")
+                    if task.get("corpus_import_status") != "not_imported":
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task import changed: {action_id}")
+                    if task.get("decipherment_claim_status") != "no_decipherment_claim":
+                        issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} task claim changed: {action_id}")
+                    for path_field in ["primary_input_path", "review_log_path"]:
+                        value = task.get(path_field, "")
+                        if value and not (root / value).exists():
+                            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} missing task path: {value}")
+                    for value in task.get("secondary_input_paths", []):
+                        if value and not (root / value).exists():
+                            issues.append(f"{SOURCE_ENGINEERING_LANE_ROUTE_PACK} missing secondary path: {value}")
+
     path = root / AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK
     try:
         context_pack = json.loads(path.read_text(encoding="utf-8"))
@@ -2445,11 +5793,11 @@ def check_ai_context_packs(root: Path) -> list[str]:
 
     coverage = context_pack.get("coverage", {})
     expected_coverage = {
-        "graph_file_count": 3,
-        "source_count": 3,
-        "edge_type_count": 6,
-        "total_edge_count": 99674,
-        "node_count": 65039,
+        "graph_file_count": 4,
+        "source_count": 4,
+        "edge_type_count": 14,
+        "total_edge_count": 104077,
+        "node_count": 67632,
         "top_node_limit": 20,
     }
     for key, value in expected_coverage.items():
@@ -2459,19 +5807,21 @@ def check_ai_context_packs(root: Path) -> list[str]:
         HUST_OBC_CANDIDATE_GRAPH_EDGES,
         OBIMD_COMPONENT_GRAPH_EDGES,
         EVOBC_EVOLUTION_GRAPH_EDGES,
+        CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES,
     ]
     if coverage.get("graph_files") != expected_graph_files:
         issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} graph file list changed")
 
     source_summaries = context_pack.get("source_summaries", [])
-    if not isinstance(source_summaries, list) or len(source_summaries) != 3:
-        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} must contain 3 source summaries")
+    if not isinstance(source_summaries, list) or len(source_summaries) != 4:
+        issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} must contain 4 source summaries")
     else:
         edge_counts_by_source = {
             row.get("source_id"): row.get("edge_count")
             for row in source_summaries
         }
         if edge_counts_by_source != {
+            "src-cambridge-hopkins": 4403,
             "src-evobc": 51679,
             "src-hust-obc": 3562,
             "src-obimd": 44433,
@@ -2889,12 +6239,12 @@ def check_ai_context_packs(root: Path) -> list[str]:
     source_coverage = source_context_pack.get("coverage", {})
     expected_source_coverage = {
         "source_count": 21,
-        "download_manifest_count": 44,
-        "download_log_count": 44,
-        "metadata_profile_metric_count": 48,
+        "download_manifest_count": 46,
+        "download_log_count": 47,
+        "metadata_profile_metric_count": 62,
         "committed_asset_count": 3,
         "committed_asset_bytes": 4922128,
-        "graph_edge_count": 99674,
+        "graph_edge_count": 104077,
         "promotion_queue_candidate_count": 1588,
     }
     for key, value in expected_source_coverage.items():
@@ -2902,9 +6252,9 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage {key} changed")
     if source_coverage.get("coverage_status_counts") != {
         "has_committed_public_asset_or_metadata": 2,
-        "has_download_log_only": 12,
-        "has_downloaded_metadata_profile": 4,
-        "has_relationship_graph_derivatives": 3,
+        "has_download_log_only": 5,
+        "has_downloaded_metadata_profile": 10,
+        "has_relationship_graph_derivatives": 4,
     }:
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage status counts changed")
     if source_coverage.get("rights_status_counts") != {
@@ -2978,6 +6328,11 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 "route": "open_graph_and_metadata_derivatives",
                 "graph_edge_count": 51679,
             },
+            "src-cambridge-hopkins": {
+                "route": "open_graph_and_metadata_derivatives",
+                "graph_edge_count": 4403,
+                "graph_edge_type_count": 8,
+            },
             "src-metmuseum-oracle-bone": {
                 "route": "open_asset_and_rights_records",
                 "committed_asset_count": 2,
@@ -2988,7 +6343,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
             },
             "src-xiaoxuetang-jiaguwen": {
                 "route": "open_download_log_and_source_register",
-                "download_status_counts": "downloaded_access_restricted_page:2",
+                "download_status_counts": "download_error:2;downloaded_access_restricted_page:2",
             },
         }
         for source_id, expected_values in expected_source_values.items():
@@ -3002,7 +6357,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
 
     priority_routes = source_context_pack.get("priority_routes", {})
     expected_priority_ids = {
-        "graph_derivative_sources": ["src-evobc", "src-hust-obc", "src-obimd"],
+        "graph_derivative_sources": ["src-cambridge-hopkins", "src-evobc", "src-hust-obc", "src-obimd"],
         "public_asset_sources": [
             "src-metmuseum-oracle-bone",
             "src-smithsonian-nmaa-oracle-bone",
@@ -5069,24 +8424,24 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "src-hust-obc",
         "src-evobc",
         "src-obimd",
+        "src-cambridge-hopkins",
         "src-metmuseum-oracle-bone",
         "src-smithsonian-nmaa-oracle-bone",
         "src-british-museum-oracle-bone",
         "src-xiaoxuetang-jiaguwen",
         "src-xiaoxuetang-obm",
+        "src-gbedobc",
+        "src-ihp-museum-oracle-bones",
         "src-nlc-oracle-world",
+        "src-open-oracle",
+        "src-oracle-mnist",
         "src-penn-museum-oracle-bone",
         "src-sinica-da-xiaoxuetang-site",
         "src-sinica-yinshang-oracle-vocabulary",
-        "src-cambridge-hopkins",
-        "src-gbedobc",
-        "src-ihp-museum-oracle-bones",
-        "src-ihp-oracle-rubbings",
-        "src-obid-ancientbooks",
-        "src-open-oracle",
-        "src-oracle-mnist",
         "src-tsinghua-oracle-bones",
         "src-yinqi-wenyuan",
+        "src-ihp-oracle-rubbings",
+        "src-obid-ancientbooks",
     ]
     if [row.get("source_id", "") for row in source_route_rows] != expected_source_route_ids:
         issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE} source route order changed")
@@ -5149,6 +8504,16 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "required_files": {OBIMD_COMPONENT_GRAPH_EDGES, AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK},
             "required_checks": {"verify_graph_edges_are_metadata_routes_not_component_or_decipherment_claims"},
         },
+        "src-cambridge-hopkins": {
+            "priority_rank": "2",
+            "priority_tags": "graph_derivative;download_log",
+            "review_focus": "open_graph_derivatives_and_source_metadata_before_using_edges",
+            "required_files": {CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES, AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK},
+            "required_checks": {
+                "verify_graph_edges_are_metadata_routes_not_component_or_decipherment_claims",
+                "confirm_source_size_checksum_rights_and_risk_before_promoting_derivatives",
+            },
+        },
         "src-metmuseum-oracle-bone": {
             "priority_rank": "3",
             "priority_tags": "public_asset;metadata_profile;download_log",
@@ -5181,11 +8546,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "required_checks": {"open_metadata_profile_rows_and_keep_extraction_reviewed_metadata_only"},
         },
         "src-yinqi-wenyuan": {
-            "priority_rank": "6",
-            "priority_tags": "download_log",
-            "review_focus": "open_download_manifest_log_and_package_manifest_before_promotion",
-            "required_files": {SOURCE_PACKAGE_FILE_MANIFEST, SOURCE_DOWNLOAD_STATUS_CODEBOOK},
-            "required_checks": {"confirm_source_size_checksum_rights_and_risk_before_promoting_derivatives"},
+            "priority_rank": "5",
+            "priority_tags": "metadata_profile;download_log",
+            "review_focus": "open_metadata_profile_and_source_register_before_extraction",
+            "required_files": {DOWNLOADED_METADATA_PROFILE, SOURCE_DOWNLOAD_LOG},
+            "required_checks": {
+                "open_metadata_profile_rows_and_keep_extraction_reviewed_metadata_only",
+                "confirm_source_size_checksum_rights_and_risk_before_promoting_derivatives",
+            },
         },
     }
     for source_id, expected_values in expected_route_values.items():
@@ -5273,9 +8641,10 @@ def check_ai_context_packs(root: Path) -> list[str]:
 
     review_rows, review_issues = _read_csv_rows(root / AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS)
     issues.extend(review_issues)
-    expected_review_source_ids = ["src-hust-obc", "src-evobc", "src-obimd"]
-    if len(review_rows) != 3:
-        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} should contain exactly 3 reviewed rows")
+    expected_review_source_ids = ["src-hust-obc", "src-evobc", "src-obimd", "src-cambridge-hopkins"]
+    expected_cross_review_source_ids = ["src-hust-obc", "src-evobc", "src-obimd"]
+    if len(review_rows) != 4:
+        issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} should contain exactly 4 reviewed rows")
     if [row.get("source_id", "") for row in review_rows] != expected_review_source_ids:
         issues.append(f"{AI_AGENT_SOURCE_ROUTE_REVIEW_RESULTS} source order changed")
     expected_review_values_by_source = {
@@ -5287,7 +8656,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "rights_and_risk_review_status": "source_marked_risk_noted",
             "size_checksum_review_status": "raw_package_over_git_limit_manifested",
             "metadata_profile_metric_count": "11",
-            "download_log_count": "7",
+            "download_log_count": "8",
             "source_package_file_manifest_count": "4",
             "candidate_queue_count": "1588",
             "evidence_request_count": "1588",
@@ -5350,6 +8719,33 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "required_route_files": {OBIMD_COMPONENT_GRAPH_EDGES},
             "required_review_note": ["OBIMD", "main-character, subcharacter", "raw annotation and image packages"],
         },
+        "src-cambridge-hopkins": {
+            "source_route_result_id": "source-route-result-004",
+            "source_route_task_id": "source-route-review-004",
+            "priority_tags": "graph_derivative;download_log",
+            "review_focus": "open_graph_derivatives_and_source_metadata_before_using_edges",
+            "rights_and_risk_review_status": "metadata_only_until_verified",
+            "size_checksum_review_status": "not_applicable_no_package_manifest_rows",
+            "metadata_profile_metric_count": "0",
+            "download_log_count": "1",
+            "source_package_file_manifest_count": "0",
+            "candidate_queue_count": "0",
+            "evidence_request_count": "0",
+            "graph_edge_count": "4403",
+            "raw_package_file_size_bytes": "",
+            "raw_package_commit_policy": "",
+            "rights_status": "metadata_only_until_verified",
+            "next_artifact_recommendation": (
+                "open_first_cambridge_hopkins_crosswalk_route_for_catalog_metadata_review"
+            ),
+            "required_route_files": {CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES},
+            "required_review_note": [
+                "Cambridge/Hopkins",
+                "catalog crosswalk metadata",
+                "no inscription reading",
+                "catalog equivalence is promoted",
+            ],
+        },
     }
     scaffold_by_result = {
         scaffold_row.get("source_route_result_id", ""): scaffold_row
@@ -5391,9 +8787,10 @@ def check_ai_context_packs(root: Path) -> list[str]:
             SOURCE_INDEX,
             SOURCE_DOWNLOAD_LOG,
             SOURCE_PACKAGE_FILE_MANIFEST,
-            DOWNLOADED_METADATA_PROFILE,
             AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK,
         }
+        if "metadata_profile" in row.get("priority_tags", ""):
+            common_required_files.add(DOWNLOADED_METADATA_PROFILE)
         for required_file in common_required_files | expected_review_values["required_route_files"]:
             if required_file not in route_files_opened:
                 issues.append(
@@ -5420,6 +8817,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "not a decipherment result",
             "not a character/component/evolution-chain assignment",
             "not a rights clearance",
+            "not an inscription reading",
             "does not promote raw images",
             "dataset labels",
             "graph edges",
@@ -5435,7 +8833,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
     issues.extend(cross_review_issues)
     if len(cross_review_rows) != 3:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} should contain exactly 3 rows")
-    if [row.get("source_id", "") for row in cross_review_rows] != expected_review_source_ids:
+    if [row.get("source_id", "") for row in cross_review_rows] != expected_cross_review_source_ids:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_QUEUE} source order changed")
     review_rows_by_source = {
         review_row.get("source_id", ""): review_row
@@ -5640,7 +9038,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
     issues.extend(cross_review_log_issues)
     if len(cross_review_log_rows) != 3:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} should contain exactly 3 rows")
-    if [row.get("source_id", "") for row in cross_review_log_rows] != expected_review_source_ids:
+    if [row.get("source_id", "") for row in cross_review_log_rows] != expected_cross_review_source_ids:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD} source order changed")
     cross_review_rows_by_task = {
         row.get("cross_review_task_id", ""): row
@@ -5722,7 +9120,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         issues.append(
             f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} should contain exactly 3 rows"
         )
-    if [row.get("source_id", "") for row in cross_review_draft_rows] != expected_review_source_ids:
+    if [row.get("source_id", "") for row in cross_review_draft_rows] != expected_cross_review_source_ids:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} source order changed")
     cross_review_log_rows_by_id = {
         row.get("cross_review_log_id", ""): row
@@ -5826,7 +9224,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
     issues.extend(cross_review_result_issues)
     if len(cross_review_result_rows) != 3:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} should contain exactly 3 rows")
-    if [row.get("source_id", "") for row in cross_review_result_rows] != expected_review_source_ids:
+    if [row.get("source_id", "") for row in cross_review_result_rows] != expected_cross_review_source_ids:
         issues.append(f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS} source order changed")
     cross_review_draft_rows_by_id = {
         row.get("draft_log_id", ""): row
@@ -5992,7 +9390,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "rights_risk_review",
         "review_log",
     ]
-    for source_id in expected_review_source_ids:
+    for source_id in expected_cross_review_source_ids:
         source_rows = [row for row in evidence_task_rows if row.get("source_id") == source_id]
         if len(source_rows) != 9:
             issues.append(f"{AI_AGENT_GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE} {source_id} should have 9 rows")
@@ -11141,6 +14539,9 @@ def check_source_registers(root: Path) -> list[str]:
     cambridge_summary_rows, cambridge_summary_issues = _read_csv_rows(
         root / CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY
     )
+    cambridge_review_queue_rows, cambridge_review_queue_issues = _read_csv_rows(
+        root / CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE
+    )
     collection_provenance_rows, collection_provenance_issues = _read_csv_rows(
         root / COLLECTION_PROVENANCE_STAGING
     )
@@ -11184,6 +14585,7 @@ def check_source_registers(root: Path) -> list[str]:
         + evobc_codebook_issues
         + cambridge_crosswalk_issues
         + cambridge_summary_issues
+        + cambridge_review_queue_issues
         + collection_provenance_issues
         + ihp_museum_object_issues
         + smithsonian_object_issues
@@ -12512,6 +15914,49 @@ def check_source_registers(root: Path) -> list[str]:
             f"{CAMBRIDGE_HOPKINS_CROSSWALK_STAGING} missing-reference counts changed"
         )
 
+    if len(cambridge_review_queue_rows) != 612:
+        issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} should contain exactly 612 rows")
+    queue_candidate_ids = {row.get("candidate_inscription_crosswalk_id", "") for row in cambridge_review_queue_rows}
+    staging_candidate_ids = {row.get("candidate_inscription_crosswalk_id", "") for row in cambridge_crosswalk_rows}
+    if queue_candidate_ids != staging_candidate_ids:
+        issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} candidate coverage changed")
+    priority_counts = Counter(row.get("priority_bucket", "") for row in cambridge_review_queue_rows)
+    expected_priority_counts = {
+        "crosswalk_refs_present_needs_external_review": 289,
+        "missing_chalfant_heji_refs": 164,
+        "missing_chalfant_ref": 6,
+        "missing_cul_chalfant_heji_refs": 1,
+        "missing_cul_heji_refs": 4,
+        "missing_cul_ref": 1,
+        "missing_heji_ref": 147,
+    }
+    if cambridge_review_queue_rows and priority_counts != expected_priority_counts:
+        issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} priority distribution changed")
+    period_group_status_counts = Counter(
+        row.get("period_group_count_status", "") for row in cambridge_review_queue_rows
+    )
+    expected_period_group_status_counts = {
+        "differs_from_declared_period_group_count": 143,
+        "matches_declared_period_group_count": 465,
+        "no_declared_group_count": 4,
+    }
+    if cambridge_review_queue_rows and period_group_status_counts != expected_period_group_status_counts:
+        issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} period-group status distribution changed")
+    for row in cambridge_review_queue_rows:
+        task_id = row.get("cambridge_hopkins_review_task_id", "")
+        if not task_id.startswith("cam-hopkins-crosswalk-review-"):
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} task ID changed: {task_id}")
+        if row.get("formal_inscription_assignment_status") != "not_assigned_formal_obi_id":
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} formal assignment boundary changed: {task_id}")
+        if row.get("catalog_identity_claim_status") != "not_confirmed_catalog_identity":
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} catalog identity boundary changed: {task_id}")
+        if row.get("image_evidence_status") != "not_collected":
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} image evidence boundary changed: {task_id}")
+        if row.get("text_transcription_status") != "not_collected":
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} transcription boundary changed: {task_id}")
+        if "not a formal obi-* assignment" not in row.get("caution", ""):
+            issues.append(f"{CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE} caution changed: {task_id}")
+
     if len(cambridge_summary_rows) != 25:
         issues.append(f"{CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY} should contain exactly 25 rows")
     cambridge_group_rows = [
@@ -12758,6 +16203,10 @@ def main() -> int:
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))
+    issues.extend(check_preprocessing_status_audit(root))
+    issues.extend(check_data_quality_audit(root))
+    issues.extend(check_source_processing_pipeline_audit(root))
+    issues.extend(check_core_corpus_readiness_matrix(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

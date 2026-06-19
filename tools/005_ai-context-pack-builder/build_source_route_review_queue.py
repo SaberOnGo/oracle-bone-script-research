@@ -62,6 +62,9 @@ HUST_OBC_OBS_CHAR_PROMOTION_QUEUE = Path(
 HUST_OBC_CANDIDATE_GRAPH_EDGES = Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl")
 OBIMD_COMPONENT_GRAPH_EDGES = Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl")
 EVOBC_EVOLUTION_GRAPH_EDGES = Path("corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl")
+CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES = Path(
+    "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
+)
 
 UPDATED_AT = "2026-06-10"
 RESEARCH_BOUNDARY = "routing_metadata_only_not_scholarship"
@@ -106,6 +109,14 @@ GRAPH_EDGE_FILES_BY_SOURCE = {
     "src-hust-obc": HUST_OBC_CANDIDATE_GRAPH_EDGES,
     "src-obimd": OBIMD_COMPONENT_GRAPH_EDGES,
     "src-evobc": EVOBC_EVOLUTION_GRAPH_EDGES,
+    "src-cambridge-hopkins": CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES,
+}
+
+SOURCE_TIEBREAK_ORDER = {
+    "src-hust-obc": 1,
+    "src-evobc": 2,
+    "src-obimd": 3,
+    "src-cambridge-hopkins": 4,
 }
 
 
@@ -252,6 +263,7 @@ def build_queue_rows(context_pack: dict[str, object]) -> list[dict[str, str]]:
         (entry for entry in entries if isinstance(entry, dict)),
         key=lambda entry: (
             priority_rank(source_tags(entry)),
+            SOURCE_TIEBREAK_ORDER.get(str(entry["source_id"]), 1000),
             str(entry["source_id"]),
         ),
     )

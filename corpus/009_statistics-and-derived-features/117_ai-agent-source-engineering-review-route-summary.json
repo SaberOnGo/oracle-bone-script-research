@@ -1,0 +1,294 @@
+{
+  "summary_id": "source-engineering-review-route-summary-001",
+  "updated_at": "2026-06-19",
+  "source_paths": {
+    "lane_route_pack": "corpus/009_statistics-and-derived-features/107_ai-agent-source-engineering-lane-route-pack.json",
+    "next_action_result_scaffold": "corpus/009_statistics-and-derived-features/105_ai-agent-source-engineering-next-action-result-scaffold.csv",
+    "access_boundary_route_pack": "corpus/009_statistics-and-derived-features/113_ai-agent-source-access-boundary-review-route-pack.json",
+    "checksum_route_pack": "corpus/009_statistics-and-derived-features/114_ai-agent-source-checksum-review-route-pack.json",
+    "metadata_profile_route_pack": "corpus/009_statistics-and-derived-features/115_ai-agent-source-metadata-profile-review-route-pack.json",
+    "field_map_route_pack": "corpus/009_statistics-and-derived-features/111_ai-agent-source-field-map-review-route-pack.json",
+    "package_manifest_route_pack": "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json",
+    "safe_derived_record_route_pack": "corpus/009_statistics-and-derived-features/116_ai-agent-source-safe-derived-record-review-route-pack.json"
+  },
+  "lane_count": 6,
+  "route_pack_count": 6,
+  "total_route_count": 45,
+  "total_decision_filled_count": 0,
+  "total_result_started_count": 0,
+  "review_status": "route_summary_pending_source_engineering_review",
+  "research_boundary": "source_engineering_review_route_summary_not_review_result",
+  "caution": "Source-engineering review route summary only; it does not record reviewed outcomes, is not a corpus import, not source promotion, not a rights decision, and not an identity or decipherment claim.",
+  "lanes": [
+    {
+      "action_lane": "access_boundary_followup",
+      "route_pack_id": "source-access-boundary-review-route-pack-001",
+      "route_pack_path": "corpus/009_statistics-and-derived-features/113_ai-agent-source-access-boundary-review-route-pack.json",
+      "decision_field": "access_outcome",
+      "route_count": 6,
+      "source_count": 6,
+      "priority_min": 1,
+      "priority_max": 1,
+      "gap_type_counts": {
+        "access_boundary_or_error_followup": 6
+      },
+      "result_status_counts": {
+        "not_started": 6
+      },
+      "evidence_collection_status_counts": {
+        "not_collected": 6
+      },
+      "human_review_status_counts": {
+        "pending_human_review": 6
+      },
+      "rights_decision_status_counts": {
+        "no_new_rights_decision": 6
+      },
+      "source_promotion_status_counts": {
+        "not_promoted": 6
+      },
+      "corpus_import_status_counts": {
+        "not_imported": 6
+      },
+      "decipherment_claim_status_counts": {
+        "no_decipherment_claim": 6
+      },
+      "decision_filled_count": 0,
+      "result_started_count": 0,
+      "blocking_conditions": [
+        "no_content_import_until_access_or_metadata_only_boundary_is_reviewed"
+      ],
+      "first_next_action_id": "source-engineering-next-action-0001",
+      "first_source_id": "src-british-museum-oracle-bone",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0001_src-british-museum-oracle-bone_access_boundary_or_error_followup_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0001_src-british-museum-oracle-bone_access_boundary_or_error_followup_next-action-result.md",
+      "review_status": "route_pack_pending_access_boundary_review",
+      "research_boundary": "source_access_boundary_review_route_pack_not_access_decision"
+    },
+    {
+      "action_lane": "checksum_and_download_status_review",
+      "route_pack_id": "source-checksum-review-route-pack-001",
+      "route_pack_path": "corpus/009_statistics-and-derived-features/114_ai-agent-source-checksum-review-route-pack.json",
+      "decision_field": "checksum_outcome",
+      "route_count": 5,
+      "source_count": 5,
+      "priority_min": 2,
+      "priority_max": 2,
+      "gap_type_counts": {
+        "checksum_or_failed_download_status_review_needed": 5
+      },
+      "result_status_counts": {
+        "not_started": 5
+      },
+      "evidence_collection_status_counts": {
+        "not_collected": 5
+      },
+      "human_review_status_counts": {
+        "pending_human_review": 5
+      },
+      "rights_decision_status_counts": {
+        "no_new_rights_decision": 5
+      },
+      "source_promotion_status_counts": {
+        "not_promoted": 5
+      },
+      "corpus_import_status_counts": {
+        "not_imported": 5
+      },
+      "decipherment_claim_status_counts": {
+        "no_decipherment_claim": 5
+      },
+      "decision_filled_count": 0,
+      "result_started_count": 0,
+      "blocking_conditions": [
+        "no_source_package_or_derivative_promotion_without_reviewed_download_status"
+      ],
+      "first_next_action_id": "source-engineering-next-action-0007",
+      "first_source_id": "src-british-museum-oracle-bone",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0007_src-british-museum-oracle-bone_checksum_or_failed_download_status_review_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0007_src-british-museum-oracle-bone_checksum_or_failed_download_status_review_needed_next-action-result.md",
+      "review_status": "route_pack_pending_checksum_review",
+      "research_boundary": "source_checksum_review_route_pack_not_download_or_checksum_decision"
+    },
+    {
+      "action_lane": "metadata_profile_extraction_planning",
+      "route_pack_id": "source-metadata-profile-review-route-pack-001",
+      "route_pack_path": "corpus/009_statistics-and-derived-features/115_ai-agent-source-metadata-profile-review-route-pack.json",
+      "decision_field": "metadata_profile_decision",
+      "route_count": 5,
+      "source_count": 5,
+      "priority_min": 4,
+      "priority_max": 4,
+      "gap_type_counts": {
+        "metadata_profile_extraction_needed": 5
+      },
+      "result_status_counts": {
+        "not_started": 5
+      },
+      "evidence_collection_status_counts": {
+        "not_collected": 5
+      },
+      "human_review_status_counts": {
+        "pending_human_review": 5
+      },
+      "rights_decision_status_counts": {
+        "no_new_rights_decision": 5
+      },
+      "source_promotion_status_counts": {
+        "not_promoted": 5
+      },
+      "corpus_import_status_counts": {
+        "not_imported": 5
+      },
+      "decipherment_claim_status_counts": {
+        "no_decipherment_claim": 5
+      },
+      "decision_filled_count": 0,
+      "result_started_count": 0,
+      "blocking_conditions": [
+        "no_profile_from_raw_or_restricted_material_until_source_route_is_reviewed"
+      ],
+      "first_next_action_id": "source-engineering-next-action-0012",
+      "first_source_id": "src-cambridge-hopkins",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-cambridge-hopkins_metadata_profile_extraction_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-cambridge-hopkins_metadata_profile_extraction_needed_next-action-result.md",
+      "review_status": "route_pack_pending_metadata_profile_review",
+      "research_boundary": "source_metadata_profile_review_route_pack_not_extraction_decision"
+    },
+    {
+      "action_lane": "source_field_map_planning",
+      "route_pack_id": "source-field-map-review-route-pack-001",
+      "route_pack_path": "corpus/009_statistics-and-derived-features/111_ai-agent-source-field-map-review-route-pack.json",
+      "decision_field": "field_map_decision",
+      "route_count": 4,
+      "source_count": 4,
+      "priority_min": 0,
+      "priority_max": 0,
+      "gap_type_counts": {
+        "": 4
+      },
+      "result_status_counts": {
+        "not_started": 4
+      },
+      "evidence_collection_status_counts": {
+        "not_collected": 4
+      },
+      "human_review_status_counts": {
+        "pending_human_review": 4
+      },
+      "rights_decision_status_counts": {
+        "no_new_rights_decision": 4
+      },
+      "source_promotion_status_counts": {
+        "not_promoted": 4
+      },
+      "corpus_import_status_counts": {
+        "not_imported": 4
+      },
+      "decipherment_claim_status_counts": {
+        "no_decipherment_claim": 4
+      },
+      "decision_filled_count": 0,
+      "result_started_count": 0,
+      "blocking_conditions": [
+        "no_field_map_import_until_semantics_and_rights_are_reviewed"
+      ],
+      "first_next_action_id": "source-engineering-next-action-0017",
+      "first_source_id": "src-ihp-museum-oracle-bones",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-ihp-museum-oracle-bones_source_field_map_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-ihp-museum-oracle-bones_source_field_map_needed_next-action-result.md",
+      "review_status": "route_pack_pending_field_map_review",
+      "research_boundary": "source_field_map_review_route_pack_not_reviewed_mapping"
+    },
+    {
+      "action_lane": "package_manifest_or_not_applicable_review",
+      "route_pack_id": "source-package-manifest-review-route-pack-001",
+      "route_pack_path": "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json",
+      "decision_field": "manifest_decision",
+      "route_count": 15,
+      "source_count": 15,
+      "priority_min": 6,
+      "priority_max": 6,
+      "gap_type_counts": {
+        "package_file_manifest_or_not_applicable_decision_needed": 15
+      },
+      "result_status_counts": {
+        "not_started": 15
+      },
+      "evidence_collection_status_counts": {
+        "not_collected": 15
+      },
+      "human_review_status_counts": {
+        "pending_human_review": 15
+      },
+      "rights_decision_status_counts": {
+        "no_new_rights_decision": 15
+      },
+      "source_promotion_status_counts": {
+        "not_promoted": 15
+      },
+      "corpus_import_status_counts": {
+        "not_imported": 15
+      },
+      "decipherment_claim_status_counts": {
+        "no_decipherment_claim": 15
+      },
+      "decision_filled_count": 0,
+      "result_started_count": 0,
+      "blocking_conditions": [
+        "no_raw_package_commit_without_manifest_or_explicit_not_applicable_decision"
+      ],
+      "first_next_action_id": "source-engineering-next-action-0021",
+      "first_source_id": "src-cambridge-hopkins",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_next-action-result.md",
+      "review_status": "route_pack_pending_package_manifest_review",
+      "research_boundary": "source_package_manifest_review_route_pack_not_reviewed_decision"
+    },
+    {
+      "action_lane": "safe_derived_record_decision",
+      "route_pack_id": "source-safe-derived-record-review-route-pack-001",
+      "route_pack_path": "corpus/009_statistics-and-derived-features/116_ai-agent-source-safe-derived-record-review-route-pack.json",
+      "decision_field": "safe_derived_record_decision",
+      "route_count": 10,
+      "source_count": 10,
+      "priority_min": 7,
+      "priority_max": 7,
+      "gap_type_counts": {
+        "safe_derived_record_decision_needed": 10
+      },
+      "result_status_counts": {
+        "not_started": 10
+      },
+      "evidence_collection_status_counts": {
+        "not_collected": 10
+      },
+      "human_review_status_counts": {
+        "pending_human_review": 10
+      },
+      "rights_decision_status_counts": {
+        "no_new_rights_decision": 10
+      },
+      "source_promotion_status_counts": {
+        "not_promoted": 10
+      },
+      "corpus_import_status_counts": {
+        "not_imported": 10
+      },
+      "decipherment_claim_status_counts": {
+        "no_decipherment_claim": 10
+      },
+      "decision_filled_count": 0,
+      "result_started_count": 0,
+      "blocking_conditions": [
+        "no_derived_record_promotion_without_source_marked_reviewed_boundary"
+      ],
+      "first_next_action_id": "source-engineering-next-action-0036",
+      "first_source_id": "src-gbedobc",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_next-action-result.md",
+      "review_status": "route_pack_pending_safe_derived_record_review",
+      "research_boundary": "source_safe_derived_record_review_route_pack_not_promotion_decision"
+    }
+  ]
+}

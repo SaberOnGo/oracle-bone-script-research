@@ -5,6 +5,8 @@ Future import scripts will convert repository source files into PostgreSQL or ot
 
 `download_source_manifest.py` downloads approved lightweight source pages into ignored `tmp/source_downloads/` and writes only the provenance log, size, checksum, and status into `project_registry/006_large-source-register/002_source-download-log.csv`.
 
+`build_registered_source_metadata_profiles.py` appends reviewed metadata-only profile rows derived from committed source registers and download logs. It does not re-download source pages or promote registered descriptions into scholarship.
+
 Use `--download-id <id>` to download only selected manifest rows and merge those rows into the existing log without refreshing unrelated source timestamps.
 
 `build_evobc_evolution_staging.py` reads the logged EVOBC `Key&Value.json` and `List_of_EVOBC.json` files from ignored `tmp/source_downloads/`, then writes reviewed metadata-only staging indexes under `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`.
@@ -53,3 +55,6 @@ Use `--download-id <id>` to download only selected manifest rows and merge those
 `build_hust_obimd_evobc_codepoint_crosswalk.py` 会从 1,588 个 HUST-OBC 提升候选出发，按 metadata 中的 codepoint 序列对照 OBIMD main-character 行和 EVOBC evolution-category 行。输出只是一张检索路线表，不是同字确认或释读结果。
 
 `build_hust_obc_undeciphered_candidate_index.py` 会从本地临时区或外部归档中的 HUST-OBC figshare 原始 zip 读取目录结构，写出 metadata-only 的 `obs-unk-*` 未释读候选索引，并按配置生成候选 packet bucket。目前已落实全部已观测 HUST-OBC 未释读候选 `obs-unk-000001..obs-unk-009408`。它只记录来源图片路径和数量；原始图片文件保留在普通 Git 之外。
+
+�������Ĳ��䣺
+`build_registered_source_metadata_profiles.py` ������ύ����Դ�ǼǱ���������־��׷���Ѹ��˵� metadata-only profile �У�����������������Դҳ�棬Ҳ����ѵǼ���������Ϊѧ�����ۡ�

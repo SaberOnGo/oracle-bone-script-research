@@ -35,12 +35,16 @@ AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = Path(
 HUST_OBC_CANDIDATE_GRAPH_EDGES = Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl")
 OBIMD_COMPONENT_GRAPH_EDGES = Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl")
 EVOBC_EVOLUTION_GRAPH_EDGES = Path("corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl")
+CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES = Path(
+    "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
+)
 
-TARGET_SOURCE_IDS = ["src-hust-obc", "src-evobc", "src-obimd"]
+TARGET_SOURCE_IDS = ["src-hust-obc", "src-evobc", "src-obimd", "src-cambridge-hopkins"]
 GRAPH_EDGE_FILES_BY_SOURCE = {
     "src-hust-obc": HUST_OBC_CANDIDATE_GRAPH_EDGES,
     "src-evobc": EVOBC_EVOLUTION_GRAPH_EDGES,
     "src-obimd": OBIMD_COMPONENT_GRAPH_EDGES,
+    "src-cambridge-hopkins": CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES,
 }
 UPDATED_AT = "2026-06-10"
 RESEARCH_BOUNDARY = "source_route_review_metadata_only_not_scholarship"
@@ -48,8 +52,8 @@ OUTPUT_SCOPE = "source_route_review_result_only"
 CAUTION = (
     "This is a metadata-only source-route review result. It is not source evidence by itself, "
     "not a decipherment result, not a character/component/evolution-chain assignment, not a "
-    "rights clearance, and does not promote raw images, dataset labels, graph edges, or staging "
-    "rows into scholarship."
+    "rights clearance, not an inscription reading or catalog identity confirmation, and does not "
+    "promote raw images, dataset labels, graph edges, or staging rows into scholarship."
 )
 
 OUTPUT_FIELDS = [
@@ -145,6 +149,7 @@ def _next_artifact_recommendation(source_id: str) -> str:
         "src-hust-obc": "open_first_hust_obc_candidate_or_bucket_route_for_cross_source_review",
         "src-evobc": "open_first_evobc_evolution_category_route_for_cross_source_review",
         "src-obimd": "open_first_obimd_component_or_glyph_route_for_cross_source_review",
+        "src-cambridge-hopkins": "open_first_cambridge_hopkins_crosswalk_route_for_catalog_metadata_review",
     }
     return recommendations[source_id]
 
@@ -165,6 +170,13 @@ def _review_note(source_id: str) -> str:
             "Metadata-only review confirms the OBIMD source-route files and derived counts are "
             "internally consistent. OBIMD main-character, subcharacter, and glyph-codepoint graph "
             "edges remain dataset metadata; raw annotation and image packages are not promoted."
+        ),
+        "src-cambridge-hopkins": (
+            "Metadata-only review confirms the Cambridge/Hopkins source-route files and derived "
+            "counts are internally consistent. Cambridge/Hopkins CUL, Chalfant, Heji, Yingguo, "
+            "period-label, and classification graph edges remain catalog crosswalk metadata; "
+            "no inscription reading, object identity, image asset, or catalog equivalence is promoted, "
+            "and raw source material is not promoted."
         ),
     }
     return notes[source_id]

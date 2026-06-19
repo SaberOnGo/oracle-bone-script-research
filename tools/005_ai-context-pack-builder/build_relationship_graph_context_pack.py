@@ -35,6 +35,7 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
 
 def source_label(source_id: str) -> str:
     labels = {
+        "src-cambridge-hopkins": "Cambridge/Hopkins inscription crosswalk metadata",
         "src-hust-obc": "HUST-OBC dataset metadata",
         "src-obimd": "OBIMD component and glyph metadata",
         "src-evobc": "EVOBC evolution category metadata",
@@ -135,8 +136,8 @@ def build_context_pack(
         "agent_use_rules": [
             "Use this pack only as a routing and coverage summary.",
             "Open the cited CSV/JSONL source rows before making any research claim.",
-            "Treat HUST-OBC, OBIMD, and EVOBC rows as dataset metadata until cross-source review.",
-            "Do not present OCR labels, component links, glyph code points, or evolution category links as accepted readings.",
+            "Treat HUST-OBC, OBIMD, EVOBC, and Cambridge/Hopkins rows as dataset metadata until cross-source review.",
+            "Do not present OCR labels, component links, glyph code points, evolution category links, or inscription crosswalk links as accepted readings or confirmed records.",
         ],
         "agent_use_rules_zh": [
             "本上下文包只作为检索路由和覆盖范围摘要使用。",

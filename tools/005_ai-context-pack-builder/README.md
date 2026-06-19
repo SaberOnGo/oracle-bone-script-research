@@ -301,3 +301,8 @@ English supplement:
 
 Simplified Chinese supplement:
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist.py` 从 161 wave handoff scaffold 生成 `162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv`。该 checklist 只是后续人工门控 outcome capture 前用于打开路由文件的 precheck 表面；不采集证据，不分配 owner，不裁定权利，不提升来源，不导入语料，也不提出释读结论。
+English supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_route_summary.py` builds `163_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-route-summary.json` from the 162 wave handoff checklist. The summary indexes the 18 precheck rows by source, wave, and pipeline gap for navigation only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
+
+Simplified Chinese supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_route_summary.py` 从 162 wave handoff checklist 生成 `163_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-route-summary.json`。该 summary 只按来源、wave 和 pipeline gap 索引 18 条 precheck 行用于导航；不采集证据，不记录已复核 outcome，不裁定权利，不提升来源，不导入语料，也不提出释读结论。

@@ -202,6 +202,9 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFO
 SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST = (
     STAT_DIR / "162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ROUTE_SUMMARY = (
+    STAT_DIR / "163_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-route-summary.json"
+)
 
 
 def repo_root() -> Path:
@@ -602,7 +605,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_ASSIGNMENT_PLAN)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST)
+                + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ROUTE_SUMMARY),
                 structured=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -666,7 +670,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_ASSIGNMENT_PLAN)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST)
+                + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ROUTE_SUMMARY),
                 review_queue=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -730,7 +735,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_ASSIGNMENT_PLAN)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST)
+                + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ROUTE_SUMMARY),
             ),
             {
                 "review_log_files": review_log_files,
@@ -856,6 +862,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan_files": count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_ASSIGNMENT_PLAN),
                 "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold_files": count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD),
                 "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST),
+                "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_route_summary_files": count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ROUTE_SUMMARY),
             },
             "doc/public/user_research/",
             "pending_human_review",

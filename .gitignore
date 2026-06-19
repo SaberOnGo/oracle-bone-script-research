@@ -59,6 +59,7 @@ local_private_data/
 private_data/
 external_sources_local/
 large_sources_local/
+external_local_archive/
 
 # Generated outputs / 生成产物
 output/

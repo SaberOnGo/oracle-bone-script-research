@@ -94,6 +94,17 @@ def read_image_reference_rows(root: Path) -> dict[str, list[dict[str, str]]]:
     return rows_by_candidate
 
 
+def read_existing_visual_rows(path: Path) -> dict[str, dict[str, str]]:
+    if not path.exists():
+        return {}
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        return {
+            row["source_image_reference_path"]: row
+            for row in csv.DictReader(file)
+            if row.get("source_image_reference_path")
+        }
+
+
 def archive_status(row: dict[str, str]) -> str:
     resolved = row.get("resolved_local_archive_path", "")
     if resolved and Path(resolved).exists():
@@ -107,10 +118,19 @@ def build_visual_rows(
     project_id: str,
     packet: dict,
     image_reference_rows: list[dict[str, str]],
+    existing_visual_rows: dict[str, dict[str, str]] | None = None,
 ) -> list[dict[str, str]]:
+    existing_visual_rows = existing_visual_rows or {}
     if image_reference_rows:
         rows = []
         for index, source_row in enumerate(image_reference_rows, start=1):
+            existing_row = existing_visual_rows.get(source_row["source_image_path"], {})
+            committed_image_path = existing_row.get("committed_image_path", "")
+            visual_material_status = (
+                "committed_review_image_derivative"
+                if committed_image_path
+                else "source_image_reference_only_no_committed_glyph_image"
+            )
             rows.append(
                 {
                     "visual_source_index_id": f"{project_id}-visual-source-{index:03d}",
@@ -119,14 +139,14 @@ def build_visual_rows(
                     "source_id": source_row["source_id"],
                     "source_package_id": source_row["source_package_id"],
                     "download_id": source_row["download_id"],
-                    "visual_material_status": "source_image_reference_only_no_committed_glyph_image",
-                    "committed_image_path": "",
+                    "visual_material_status": visual_material_status,
+                    "committed_image_path": committed_image_path,
                     "source_image_reference_path": source_row["source_image_path"],
                     "source_image_sequence_in_candidate": source_row["source_image_sequence_in_candidate"],
                     "source_image_count_expected": source_row["source_image_count_expected"],
                     "registered_storage_hint": source_row["registered_storage_hint"],
                     "resolved_local_archive_path": source_row["resolved_local_archive_path"],
-                    "local_archive_status": archive_status(source_row),
+                    "local_archive_status": existing_row.get("local_archive_status") or archive_status(source_row),
                     "rights_status": source_row["source_rights_status"],
                     "risk_note": source_row["risk_note"],
                     "review_status": "needs_human_visual_review",
@@ -182,6 +202,20 @@ def build_readme_text(
     source_id = packet.get("source_id", "")
     status_counts = sorted({row["visual_material_status"] for row in visual_rows})
     image_ref_count = sum(1 for row in visual_rows if row["source_image_reference_path"])
+    committed_images = [
+        row["committed_image_path"]
+        for row in visual_rows
+        if row.get("committed_image_path")
+    ]
+    if committed_images:
+        committed_image_text = "; ".join(
+            Path(path).relative_to(object_dir).as_posix()
+            if Path(path).is_relative_to(object_dir)
+            else path
+            for path in committed_images
+        )
+    else:
+        committed_image_text = "none in this directory yet"
     packet_record_type = packet.get("record_type", "")
     caution = packet.get("caution", "")
     local_path = object_dir.as_posix()
@@ -212,7 +246,7 @@ Simplified Chinese:
 
 - Status / 状态: `{status_text}`
 - Source image reference rows / 来源图像路径引用行数: `{image_ref_count}`
-- Committed glyph image / 已提交字形图片: none in this directory yet
+- Committed glyph image / 已提交字形图片: {committed_image_text}
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.
@@ -243,11 +277,17 @@ def build_outputs(root: Path) -> dict[str, dict]:
         object_dir = root / target["object_dir"]
         packet_name = target["packet"]
         packet = read_json(object_dir / packet_name)
-        visual_rows = build_visual_rows(project_id, packet, image_rows.get(project_id, []))
+        visual_index_path = object_dir / "02_visual-source-index.csv"
+        visual_rows = build_visual_rows(
+            project_id,
+            packet,
+            image_rows.get(project_id, []),
+            read_existing_visual_rows(visual_index_path),
+        )
         outputs[project_id] = {
             "object_dir": object_dir,
             "readme_path": object_dir / "README.md",
-            "visual_index_path": object_dir / "02_visual-source-index.csv",
+            "visual_index_path": visual_index_path,
             "readme_text": build_readme_text(project_id, object_dir.relative_to(root), packet_name, packet, visual_rows),
             "visual_rows": visual_rows,
         }

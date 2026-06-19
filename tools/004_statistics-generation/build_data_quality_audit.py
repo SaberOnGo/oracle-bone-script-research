@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 from collections import Counter
 from pathlib import Path
 from typing import NamedTuple
@@ -107,6 +108,17 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
 
+def filesystem_path(path: Path) -> str:
+    resolved = path.resolve()
+    if os.name == "nt":
+        return "\\\\?\\" + str(resolved)
+    return str(resolved)
+
+
+def path_exists(path: Path) -> bool:
+    return os.path.exists(filesystem_path(path))
+
+
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
@@ -150,7 +162,7 @@ def count_missing_paths(
             for value in values:
                 if value.startswith("external_") or value.startswith("tmp/"):
                     continue
-                if not (base / value).exists():
+                if not path_exists(base / value):
                     missing += 1
     return missing
 

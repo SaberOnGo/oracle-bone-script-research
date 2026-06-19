@@ -6,18 +6,25 @@ English:
 Simplified Chinese:
 `build_character_local_materials.py` 会把人类可读资料和 AI 可读资料写入同一个具体字对象目录。
 
+English:
+`extract_hust_obc_local_glyph_images.py` extracts selected small HUST-OBC glyph candidate image derivatives from the registered raw zip into each target object directory's `03_visual-assets/` folder. The raw zip stays in ignored `external_local_archive/` storage.
+
+简体中文：
+`extract_hust_obc_local_glyph_images.py` 会从已登记的 HUST-OBC 原始 zip 中抽取选定的小型字形候选图派生件，放入目标对象目录下的 `03_visual-assets/`。原始 zip 保留在已忽略的 `external_local_archive/` 归档区。
+
 ## Scope / 范围
 
 English:
-The builder creates `README.md` and `02_visual-source-index.csv` next to the existing `01_*packet.json` file. It does not create a parallel human-readable directory, does not commit raw large source packages, and does not make decipherment or component conclusions.
+The builders create `README.md`, `02_visual-source-index.csv`, and selected `03_visual-assets/` files next to the existing `01_*packet.json` file. They do not create a parallel human-readable directory, do not commit raw large source packages, and do not make decipherment or component conclusions.
 
 简体中文：
-该脚本会在已有 `01_*packet.json` 旁边生成 `README.md` 和 `02_visual-source-index.csv`。它不创建并行的“人类看的目录”，不提交大型原始来源包，也不提出释读或构件结论。
+这些脚本会在已有 `01_*packet.json` 旁边生成 `README.md`、`02_visual-source-index.csv` 和选定的 `03_visual-assets/` 文件。它们不创建并行的“人类看的目录”，不提交大型原始来源包，也不提出释读或构件结论。
 
 ## Command / 命令
 
 ```powershell
 python tools/002_corpus-import/build_character_local_materials.py --root .
+python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 ```
 
 ## Current Batch / 当前批次

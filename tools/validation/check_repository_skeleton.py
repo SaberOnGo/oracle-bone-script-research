@@ -7,6 +7,7 @@ import sys
 import csv
 import hashlib
 import json
+import os
 import subprocess
 from collections import Counter
 from pathlib import Path
@@ -14,6 +15,13 @@ from pathlib import Path
 
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
+IGNORED_LOCAL_ARCHIVE_PREFIXES = (
+    "external_local_archive/",
+    "external_sources_local/",
+    "large_sources_local/",
+    "local_private_data/",
+    "private_data/",
+)
 SIZE_LIMIT_EXCEPTIONS = "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv"
 ASSET_SOURCE_INDEX = "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
 ASSET_RIGHTS_REVIEW_LOG = "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
@@ -1452,6 +1460,7 @@ REQUIRED_ROOT_GITIGNORE_PATTERNS = [
     "*.bak",
     "external_sources_local/",
     "large_sources_local/",
+    "external_local_archive/",
 ]
 
 FORBIDDEN_TRACKED_TEMP_DIR_NAMES = {
@@ -1846,6 +1855,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_candidate_packets.py",
     "tools/002_corpus-import/build_hust_obc_undeciphered_candidate_index.py",
     "tools/002_corpus-import/build_character_local_materials.py",
+    "tools/002_corpus-import/extract_hust_obc_local_glyph_images.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
@@ -2059,6 +2069,17 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
 
+def filesystem_path(path: Path) -> str:
+    resolved = path.resolve()
+    if os.name == "nt":
+        return "\\\\?\\" + str(resolved)
+    return str(resolved)
+
+
+def path_exists(path: Path) -> bool:
+    return os.path.exists(filesystem_path(path))
+
+
 def check_required_paths(root: Path) -> list[str]:
     issues: list[str] = []
     for relative in REQUIRED_PATHS:
@@ -2131,7 +2152,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 issues.append(f"{visual_index_path.relative_to(root).as_posix()} project ID mismatch: {row_id}")
             if row.get("committed_image_path"):
                 committed_path = root / row["committed_image_path"]
-                if not committed_path.exists():
+                if not path_exists(committed_path):
                     issues.append(f"{visual_index_path.relative_to(root).as_posix()} missing committed image: {row_id}")
             if row.get("review_status") != "needs_human_visual_review":
                 issues.append(f"{visual_index_path.relative_to(root).as_posix()} review status changed: {row_id}")
@@ -2257,6 +2278,8 @@ def check_file_size_limits(root: Path) -> list[str]:
         if ".git" in path.parts or not path.is_file():
             continue
         relative_path = _relative_posix(path, root)
+        if relative_path.startswith(IGNORED_LOCAL_ARCHIVE_PREFIXES):
+            continue
         file_size = path.stat().st_size
         if file_size >= HARD_FILE_LIMIT_BYTES:
             issues.append(
@@ -2335,7 +2358,7 @@ def check_asset_records(root: Path) -> list[str]:
     rights_asset_ids = {row.get("asset_id", "") for row in rights_rows}
     image_profile_asset_ids = {row.get("asset_id", "") for row in image_profile_rows}
     visual_profile_asset_ids = {row.get("asset_id", "") for row in visual_profile_rows}
-    map_asset_ids = {row.get("project_id", "") for row in map_rows if row.get("record_type") == "museum_object_image"}
+    map_asset_ids = {row.get("project_id", "") for row in map_rows if row.get("project_id", "").startswith("asset-")}
     for asset_id in sorted(asset_ids - rights_asset_ids):
         issues.append(f"{ASSET_RIGHTS_REVIEW_LOG} missing rights review for asset_id: {asset_id}")
     for asset_id in sorted(asset_ids - map_asset_ids):
@@ -3148,8 +3171,8 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "download_log_count": 47,
         "downloaded_file_bytes": 645297183,
         "metadata_profile_metric_count": 62,
-        "committed_asset_count": 3,
-        "committed_asset_bytes": 4922128,
+        "committed_asset_count": 5,
+        "committed_asset_bytes": 4947544,
         "graph_edge_count": 104077,
         "promotion_queue_candidate_count": 1588,
     }
@@ -3168,6 +3191,9 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
 
     expected_source_values = {
         "src-hust-obc": {
+            "committed_asset_count": "2",
+            "committed_asset_bytes": "25416",
+            "asset_rights_status_counts": "source_marked_risk_noted:2",
             "graph_edge_count": "3562",
             "graph_edge_type_count": "2",
             "promotion_queue_candidate_count": "1588",
@@ -3467,7 +3493,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "issue_count": 0,
         "missing_path_count": 0,
         "missing_required_value_count": 0,
-        "row_count": 121607,
+        "row_count": 121609,
         "unknown_download_ref_count": 0,
         "unknown_large_source_ref_count": 0,
         "unknown_source_ref_count": 0,
@@ -3481,7 +3507,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "source_download_log": "47",
         "large_source_register": "3",
         "source_package_file_manifest": "14",
-        "asset_source_index": "3",
+        "asset_source_index": "5",
         "hust_obc_promotion_review_queue": "1588",
         "hust_obc_undeciphered_candidate_index": "9408",
         "obimd_main_character_staging": "3936",
@@ -13140,8 +13166,8 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "download_manifest_count": 46,
         "download_log_count": 47,
         "metadata_profile_metric_count": 62,
-        "committed_asset_count": 3,
-        "committed_asset_bytes": 4922128,
+        "committed_asset_count": 5,
+        "committed_asset_bytes": 4947544,
         "graph_edge_count": 104077,
         "promotion_queue_candidate_count": 1588,
     }
@@ -13257,6 +13283,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
     expected_priority_ids = {
         "graph_derivative_sources": ["src-cambridge-hopkins", "src-evobc", "src-hust-obc", "src-obimd"],
         "public_asset_sources": [
+            "src-hust-obc",
             "src-metmuseum-oracle-bone",
             "src-smithsonian-nmaa-oracle-bone",
         ],

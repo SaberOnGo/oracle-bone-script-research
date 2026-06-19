@@ -54,10 +54,10 @@ def split_source_ids(value: str) -> list[str]:
 
 
 def coverage_status(row: dict[str, str]) -> str:
-    if int(row["committed_asset_count"]) > 0:
-        return "has_committed_public_asset_or_metadata"
     if int(row["graph_edge_count"]) > 0:
         return "has_relationship_graph_derivatives"
+    if int(row["committed_asset_count"]) > 0:
+        return "has_committed_public_asset_or_metadata"
     if int(row["promotion_queue_candidate_count"]) > 0:
         return "has_candidate_review_queue"
     if int(row["metadata_profile_metric_count"]) > 0:

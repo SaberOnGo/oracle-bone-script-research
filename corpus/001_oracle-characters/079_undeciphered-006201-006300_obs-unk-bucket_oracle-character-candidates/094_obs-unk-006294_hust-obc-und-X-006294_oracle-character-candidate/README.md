@@ -22,9 +22,9 @@ Simplified Chinese:
 
 ## Visual Material Status / 图像资料状态
 
-- Status / 状态: `source_image_reference_only_no_committed_glyph_image`
+- Status / 状态: `committed_review_image_derivative, source_image_reference_only_no_committed_glyph_image`
 - Source image reference rows / 来源图像路径引用行数: `61`
-- Committed glyph image / 已提交字形图片: none in this directory yet
+- Committed glyph image / 已提交字形图片: 03_visual-assets/001_asset-000005_hust-X-006294_glyph.png
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.

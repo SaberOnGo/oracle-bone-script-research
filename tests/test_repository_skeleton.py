@@ -3,6 +3,7 @@ import csv
 import hashlib
 import importlib.util
 import json
+import os
 from collections import Counter
 
 from tools.validation.check_repository_skeleton import (
@@ -161,6 +162,26 @@ def load_hust_obc_undeciphered_candidate_index_module():
     assert spec.loader is not None
     spec.loader.exec_module(module)
     return module
+
+
+def filesystem_path(path):
+    resolved = path.resolve()
+    if os.name == "nt":
+        return "\\\\?\\" + str(resolved)
+    return str(resolved)
+
+
+def path_exists(path):
+    return os.path.exists(filesystem_path(path))
+
+
+def path_size(path):
+    return os.stat(filesystem_path(path)).st_size
+
+
+def read_text_long(path, encoding="utf-8"):
+    with open(filesystem_path(path), "r", encoding=encoding) as file:
+        return file.read()
 
 
 def load_character_local_materials_module():
@@ -2197,6 +2218,8 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_root_gitignore_patterns(self) -> None:
         self.assertEqual(check_root_gitignore_patterns(repo_root()), [])
+        root_gitignore = (repo_root() / ".gitignore").read_text(encoding="utf-8")
+        self.assertIn("external_local_archive/", root_gitignore)
 
     def test_tracked_temp_artifacts_absent(self) -> None:
         self.assertEqual(check_tracked_temp_artifacts(repo_root()), [])
@@ -2220,6 +2243,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("不是已确认释读", readme_text)
             self.assertFalse((target_dir.parent / "human-readable").exists())
+        extracted_readme = (target_dirs[1] / "README.md").read_text(encoding="utf-8")
+        self.assertIn("03_visual-assets/001_asset-000005_hust-X-006294_glyph.png", extracted_readme)
+        self.assertNotIn("Committed glyph image / 已提交字形图片: none in this directory yet", extracted_readme)
 
         visual_index_path = target_dirs[1] / "02_visual-source-index.csv"
         with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -2227,7 +2253,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 61)
         self.assertTrue(all(row["project_id"] == "obs-unk-006294" for row in rows))
         self.assertTrue(all(row["source_image_reference_path"] for row in rows))
-        self.assertTrue(all(row["committed_image_path"] == "" for row in rows))
+        committed_rows = [row for row in rows if row["committed_image_path"]]
+        self.assertEqual(len(committed_rows), 1)
+        self.assertEqual(committed_rows[0]["visual_material_status"], "committed_review_image_derivative")
         self.assertTrue(all(row["review_status"] == "needs_human_visual_review" for row in rows))
 
     def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
@@ -2243,6 +2271,43 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(project_id, output["readme_text"])
             self.assertIn("co-located", output["readme_text"])
             self.assertIn("同一具体对象目录", output["readme_text"])
+        image_rows = outputs["obs-unk-006294"]["visual_rows"]
+        self.assertEqual(
+            image_rows[0]["committed_image_path"],
+            "corpus/001_oracle-characters/079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate/03_visual-assets/001_asset-000005_hust-X-006294_glyph.png",
+        )
+        self.assertEqual(image_rows[0]["visual_material_status"], "committed_review_image_derivative")
+
+    def test_hust_obc_local_glyph_images_are_inside_object_dirs(self) -> None:
+        expected = {
+            "obs-unk-005708": (
+                "corpus/001_oracle-characters/074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
+                "008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate/"
+                "03_visual-assets/001_asset-000004_hust-X-005708_glyph.png"
+            ),
+            "obs-unk-006294": (
+                "corpus/001_oracle-characters/079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
+                "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate/"
+                "03_visual-assets/001_asset-000005_hust-X-006294_glyph.png"
+            ),
+        }
+        for project_id, relative_image_path in expected.items():
+            image_path = repo_root() / relative_image_path
+            metadata_path = image_path.with_suffix(".yaml")
+            self.assertTrue(path_exists(image_path), relative_image_path)
+            self.assertTrue(path_exists(metadata_path), metadata_path.relative_to(repo_root()).as_posix())
+            self.assertLess(path_size(image_path), 30 * 1024 * 1024)
+            metadata_text = read_text_long(metadata_path)
+            self.assertIn(project_id, metadata_text)
+            self.assertIn("source_marked_risk_noted", metadata_text)
+            self.assertIn("not an accepted reading", metadata_text)
+
+            visual_index_path = image_path.parents[1] / "02_visual-source-index.csv"
+            with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                first_row = next(csv.DictReader(file))
+            self.assertEqual(first_row["committed_image_path"], relative_image_path)
+            self.assertEqual(first_row["visual_material_status"], "committed_review_image_derivative")
+            self.assertEqual(first_row["review_status"], "needs_human_visual_review")
 
     def test_public_domain_asset_records(self) -> None:
         self.assertEqual(check_asset_records(repo_root()), [])
@@ -6153,8 +6218,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["download_manifest_count"], 46)
         self.assertEqual(data["coverage"]["download_log_count"], 47)
         self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 62)
-        self.assertEqual(data["coverage"]["committed_asset_count"], 3)
-        self.assertEqual(data["coverage"]["committed_asset_bytes"], 4922128)
+        self.assertEqual(data["coverage"]["committed_asset_count"], 5)
+        self.assertEqual(data["coverage"]["committed_asset_bytes"], 4947544)
         self.assertEqual(data["coverage"]["graph_edge_count"], 104077)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(
@@ -6176,6 +6241,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 44433)
         self.assertEqual(source_routes["src-evobc"]["graph_edge_count"], 51679)
         self.assertEqual(source_routes["src-cambridge-hopkins"]["graph_edge_count"], 4403)
+        self.assertEqual(source_routes["src-hust-obc"]["committed_asset_count"], 2)
         self.assertEqual(source_routes["src-metmuseum-oracle-bone"]["committed_asset_count"], 2)
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
         self.assertEqual(
@@ -6190,7 +6256,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 entry["source_id"]
                 for entry in data["priority_routes"]["public_asset_sources"]
             ],
-            ["src-metmuseum-oracle-bone", "src-smithsonian-nmaa-oracle-bone"],
+            ["src-hust-obc", "src-metmuseum-oracle-bone", "src-smithsonian-nmaa-oracle-bone"],
         )
         self.assertEqual(
             [
@@ -11563,8 +11629,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 46)
         self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 47)
         self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 62)
-        self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 3)
-        self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 4922128)
+        self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 5)
+        self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 4947544)
         self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 104077)
         self.assertEqual(sum(int(row["promotion_queue_candidate_count"]) for row in rows), 1588)
         by_source = {row["source_id"]: row for row in rows}
@@ -11592,6 +11658,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 21)
         self.assertEqual(by_source["src-hust-obc"]["metadata_profile_metric_count"], "11")
         self.assertEqual(by_source["src-hust-obc"]["coverage_status"], "has_relationship_graph_derivatives")
+        self.assertEqual(by_source["src-hust-obc"]["committed_asset_count"], "2")
+        self.assertEqual(by_source["src-hust-obc"]["committed_asset_bytes"], "25416")
         self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "2")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "8")
         self.assertEqual(by_source["src-cambridge-hopkins"]["coverage_status"], "has_relationship_graph_derivatives")
@@ -12885,7 +12953,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["dataset_count"], 25)
         self.assertEqual(data["quality_status_counts"], {"pass": 25})
-        self.assertEqual(data["totals"]["row_count"], 121607)
+        self.assertEqual(data["totals"]["row_count"], 121609)
         self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
 

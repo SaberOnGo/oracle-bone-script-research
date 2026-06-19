@@ -697,6 +697,14 @@ MANUAL_REVIEW_BACKLOG_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "097_manual-review-backlog-summary.json"
 )
+CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "186_character-object-material-coverage-audit.csv"
+)
+CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "187_character-object-material-coverage-summary.json"
+)
 CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv"
@@ -1674,6 +1682,8 @@ REQUIRED_PATHS = [
     SOURCE_PROCESSING_PIPELINE_SUMMARY,
     CORE_CORPUS_READINESS_MATRIX,
     MANUAL_REVIEW_BACKLOG_SUMMARY,
+    CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT,
+    CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY,
     CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
     SOURCE_ENGINEERING_GAP_QUEUE,
     SOURCE_ENGINEERING_EXECUTION_MATRIX,
@@ -2199,6 +2209,82 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                         issues.append(
                             f"{gallery_path.relative_to(root).as_posix()} missing committed image: {committed_name}"
                         )
+    return issues
+
+
+def check_character_object_material_coverage_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_path = root / CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT
+    summary_path = root / CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY
+    with audit_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    required_fields = {
+        "coverage_audit_id",
+        "project_id",
+        "project_id_type",
+        "object_dir",
+        "ai_packet_path",
+        "human_readme_path",
+        "ai_visual_source_index_path",
+        "human_visual_gallery_path",
+        "local_visual_asset_count",
+        "parallel_human_directory_present",
+        "material_bundle_status",
+        "next_material_engineering_step",
+        "research_boundary",
+        "decipherment_claim_status",
+    }
+    if len(rows) != 10996:
+        issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} row count changed")
+    if rows:
+        missing_fields = required_fields - set(rows[0])
+        if missing_fields:
+            issues.append(
+                f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} missing fields: "
+                f"{', '.join(sorted(missing_fields))}"
+            )
+    status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
+    expected_status_counts = {
+        "missing_human_object_materials": 10991,
+        "object_local_bundle_no_image_yet": 3,
+        "object_local_bundle_with_review_image": 2,
+    }
+    if dict(status_counts) != expected_status_counts:
+        issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} status counts changed")
+    project_type_counts = Counter(row.get("project_id_type", "") for row in rows)
+    if dict(project_type_counts) != {"obs-char": 1588, "obs-unk": 9408}:
+        issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} project ID type counts changed")
+    for row in rows:
+        row_id = row.get("coverage_audit_id", "")
+        if not row.get("object_dir", "").startswith("corpus/001_oracle-characters/"):
+            issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} object outside corpus: {row_id}")
+        if row.get("parallel_human_directory_present") != "false":
+            issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} parallel human directory present: {row_id}")
+        if row.get("decipherment_claim_status") != "no_claim":
+            issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} decipherment claim changed: {row_id}")
+        boundary = row.get("research_boundary", "")
+        if "not_scholarship" not in boundary or "not a decipherment conclusion" not in boundary:
+            issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} boundary missing caution: {row_id}")
+    expected_summary_values = {
+        "object_directory_count": 10996,
+        "project_id_type_counts": {"obs-char": 1588, "obs-unk": 9408},
+        "human_readme_count": 5,
+        "human_visual_gallery_count": 5,
+        "ai_packet_count": 10996,
+        "ai_visual_source_index_count": 5,
+        "local_visual_asset_object_count": 2,
+        "complete_object_local_bundle_count": 5,
+        "missing_human_entry_count": 10991,
+        "parallel_human_directory_count": 0,
+    }
+    for key, expected in expected_summary_values.items():
+        if summary.get(key) != expected:
+            issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY} {key} changed")
+    if "not a decipherment conclusion" not in summary.get("research_boundary", ""):
+        issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY} boundary missing caution")
+    if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
+        issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY} completion boundary changed")
     return issues
 
 
@@ -4418,7 +4504,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 209893,
         "manual_review_backlog_count": 13391,
         "review_queue_count": 13135,
-        "staging_record_count": 75196,
+        "staging_record_count": 75198,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -4457,7 +4543,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "183",
+            "staging_record_count": "185",
             "graph_edge_count": "105816",
             "review_queue_count": "3",
         },
@@ -23297,6 +23383,7 @@ def main() -> int:
     issues = []
     issues.extend(check_required_paths(root))
     issues.extend(check_character_directory_local_materials(root))
+    issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))

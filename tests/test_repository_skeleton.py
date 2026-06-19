@@ -21,6 +21,7 @@ from tools.validation.check_repository_skeleton import (
     check_root_gitignore_patterns,
     check_hust_obc_undeciphered_candidates,
     check_character_directory_local_materials,
+    check_character_object_material_coverage_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
     check_source_processing_pipeline_audit,
@@ -1019,6 +1020,15 @@ def load_source_pipeline_missing_evidence_outcome_routes_assignment_checklist_mo
 def load_core_corpus_readiness_matrix_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_readiness_matrix.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_readiness_matrix", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_character_object_material_coverage_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_character_object_material_coverage_audit.py"
+    spec = importlib.util.spec_from_file_location("build_character_object_material_coverage_audit", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -2344,6 +2354,54 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not an accepted reading", gallery_text)
             self.assertIn("not a decipherment conclusion", gallery_text)
             self.assertIn("不是已确认释读", gallery_text)
+
+    def test_character_object_material_coverage_audit_tracks_object_local_gaps(self) -> None:
+        self.assertEqual(check_character_object_material_coverage_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "186_character-object-material-coverage-audit.csv"
+        )
+        summary_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "187_character-object-material-coverage-summary.json"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(rows), 10996)
+        self.assertEqual(summary["object_directory_count"], 10996)
+        self.assertEqual(summary["project_id_type_counts"], {"obs-char": 1588, "obs-unk": 9408})
+        self.assertEqual(summary["human_readme_count"], 5)
+        self.assertEqual(summary["human_visual_gallery_count"], 5)
+        self.assertEqual(summary["ai_packet_count"], 10996)
+        self.assertEqual(summary["ai_visual_source_index_count"], 5)
+        self.assertEqual(summary["local_visual_asset_object_count"], 2)
+        self.assertEqual(summary["complete_object_local_bundle_count"], 5)
+        self.assertEqual(summary["missing_human_entry_count"], 10991)
+        self.assertIn("not a decipherment conclusion", summary["research_boundary"])
+        by_project = {row["project_id"]: row for row in rows}
+        self.assertEqual(by_project["obs-char-000001"]["material_bundle_status"], "object_local_bundle_no_image_yet")
+        self.assertEqual(by_project["obs-unk-006294"]["material_bundle_status"], "object_local_bundle_with_review_image")
+        self.assertEqual(by_project["obs-char-000004"]["material_bundle_status"], "missing_human_object_materials")
+        self.assertEqual(by_project["obs-unk-006294"]["human_visual_gallery_path"].split("/")[-1], "04_visual-gallery.md")
+        self.assertEqual(by_project["obs-unk-006294"]["local_visual_asset_count"], "1")
+        self.assertTrue(all(row["parallel_human_directory_present"] == "false" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
+
+    def test_character_object_material_coverage_builder_keeps_candidate_boundaries(self) -> None:
+        module = load_character_object_material_coverage_audit_module()
+        rows = module.build_audit_rows(repo_root())
+        summary = module.build_summary(rows)
+        self.assertEqual(len(rows), 10996)
+        self.assertEqual(summary["complete_object_local_bundle_count"], 5)
+        self.assertEqual(summary["local_visual_asset_object_count"], 2)
+        self.assertEqual(summary["missing_human_entry_count"], 10991)
+        self.assertEqual(rows[0]["object_sequence"], "000001")
+        self.assertIn("corpus/001_oracle-characters", rows[0]["object_dir"])
+        self.assertNotIn("doc/public/user_research", rows[0]["human_readme_path"])
+        self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
 
     def test_public_domain_asset_records(self) -> None:
         self.assertEqual(check_asset_records(repo_root()), [])
@@ -18344,7 +18402,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "183")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "185")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "105816")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1235")
         self.assertEqual(

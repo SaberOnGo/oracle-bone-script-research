@@ -2,9 +2,9 @@
   "summary_id": "data-quality-summary-001",
   "updated_at": "2026-06-19",
   "audit_csv_path": "corpus/009_statistics-and-derived-features/092_data-quality-audit.csv",
-  "dataset_count": 26,
+  "dataset_count": 27,
   "quality_status_counts": {
-    "needs_review": 1,
+    "needs_review": 2,
     "pass": 25
   },
   "dataset_type_counts": {
@@ -17,7 +17,7 @@
     "inscription_crosswalk_review_queue": 1,
     "large_source_register": 1,
     "package_manifest": 1,
-    "relationship_graph_jsonl": 5,
+    "relationship_graph_jsonl": 6,
     "source_engineering_execution_matrix": 1,
     "source_engineering_gap_evidence_snapshot": 1,
     "source_engineering_gap_queue": 1,
@@ -32,12 +32,12 @@
     "undeciphered_candidate_index": 1
   },
   "totals": {
-    "boundary_status_violation_count": 2,
+    "boundary_status_violation_count": 1739,
     "duplicate_key_count": 0,
-    "issue_count": 2,
+    "issue_count": 1739,
     "missing_path_count": 0,
     "missing_required_value_count": 0,
-    "row_count": 121611,
+    "row_count": 123348,
     "unknown_download_ref_count": 0,
     "unknown_large_source_ref_count": 0,
     "unknown_source_ref_count": 0
@@ -613,6 +613,28 @@
       "issue_count": "2",
       "completeness_percent": "100.00",
       "status_counts": "review_status=needs_human_visual_review;confidence_level=high:2",
+      "quality_status": "needs_review",
+      "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
+      "updated_at": "2026-06-19"
+    },
+    {
+      "quality_row_id": "data-quality-027",
+      "dataset_id": "010_cross-source-id-graph-edges",
+      "dataset_type": "relationship_graph_jsonl",
+      "path": "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl",
+      "row_count": "1737",
+      "key_fields": "edge_id",
+      "required_fields": "edge_id;source_node_id;edge_type;target_node_id;confidence_level;source_ids;review_status",
+      "duplicate_key_count": "0",
+      "missing_required_value_count": "0",
+      "unknown_source_ref_count": "0",
+      "unknown_download_ref_count": "0",
+      "unknown_large_source_ref_count": "0",
+      "missing_path_count": "0",
+      "boundary_status_violation_count": "1737",
+      "issue_count": "1737",
+      "completeness_percent": "100.00",
+      "status_counts": "review_status=needs_cross_source_review;confidence_level=high:1737",
       "quality_status": "needs_review",
       "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
       "updated_at": "2026-06-19"

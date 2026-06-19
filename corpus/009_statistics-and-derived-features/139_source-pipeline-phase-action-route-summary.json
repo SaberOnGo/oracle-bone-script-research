@@ -757,7 +757,7 @@
       "metadata_profile_count": "7",
       "candidate_queue_count": "0",
       "cross_source_crosswalk_match_count": "127",
-      "graph_edge_count": "51679",
+      "graph_edge_count": "51948",
       "action_queue_path": "corpus/009_statistics-and-derived-features/137_source-pipeline-phase-action-queue.csv",
       "phase_coverage_path": "corpus/009_statistics-and-derived-features/136_source-pipeline-phase-coverage-matrix.csv",
       "phase_evidence_paths": [
@@ -1053,7 +1053,7 @@
       "metadata_profile_count": "11",
       "candidate_queue_count": "10996",
       "cross_source_crosswalk_match_count": "1588",
-      "graph_edge_count": "3562",
+      "graph_edge_count": "5301",
       "action_queue_path": "corpus/009_statistics-and-derived-features/137_source-pipeline-phase-action-queue.csv",
       "phase_coverage_path": "corpus/009_statistics-and-derived-features/136_source-pipeline-phase-coverage-matrix.csv",
       "phase_evidence_paths": [
@@ -2681,7 +2681,7 @@
       "metadata_profile_count": "5",
       "candidate_queue_count": "0",
       "cross_source_crosswalk_match_count": "22",
-      "graph_edge_count": "44433",
+      "graph_edge_count": "44492",
       "action_queue_path": "corpus/009_statistics-and-derived-features/137_source-pipeline-phase-action-queue.csv",
       "phase_coverage_path": "corpus/009_statistics-and-derived-features/136_source-pipeline-phase-coverage-matrix.csv",
       "phase_evidence_paths": [

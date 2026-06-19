@@ -13,19 +13,20 @@
   ],
   "context_pack_id": "ai-context-relationship-graph-001",
   "coverage": {
-    "edge_type_count": 15,
-    "graph_file_count": 5,
+    "edge_type_count": 24,
+    "graph_file_count": 6,
     "graph_files": [
       "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
       "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
       "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
       "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
-      "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
+      "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
+      "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
     ],
-    "node_count": 67636,
+    "node_count": 70834,
     "source_count": 4,
     "top_node_limit": 20,
-    "total_edge_count": 104079
+    "total_edge_count": 106144
   },
   "generated_from": [
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv",
@@ -93,8 +94,26 @@
       "source_id": "src-cambridge-hopkins"
     },
     {
-      "edge_count": 51679,
+      "edge_count": 51948,
       "edge_types": [
+        {
+          "edge_count": 127,
+          "edge_type": "CHARACTER_HAS_EVOBC_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 127,
+          "unique_target_node_count": 127
+        },
+        {
+          "edge_count": 127,
+          "edge_type": "CHARACTER_HAS_HUST_OBC_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 127,
+          "unique_target_node_count": 127
+        },
+        {
+          "edge_count": 15,
+          "edge_type": "CHARACTER_HAS_OBIMD_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 15,
+          "unique_target_node_count": 15
+        },
         {
           "edge_count": 26378,
           "edge_type": "EVOBC_CATEGORY_HAS_ERA_CODE",
@@ -109,19 +128,38 @@
         }
       ],
       "graph_files": [
-        "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
+        "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+        "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
       ],
       "label": "EVOBC evolution category metadata",
       "source_id": "src-evobc"
     },
     {
-      "edge_count": 3564,
+      "edge_count": 5301,
       "edge_types": [
+        {
+          "edge_count": 127,
+          "edge_type": "CHARACTER_HAS_EVOBC_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 127,
+          "unique_target_node_count": 127
+        },
+        {
+          "edge_count": 1588,
+          "edge_type": "CHARACTER_HAS_HUST_OBC_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 1588,
+          "unique_target_node_count": 1588
+        },
         {
           "edge_count": 2,
           "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
           "unique_source_node_count": 2,
           "unique_target_node_count": 2
+        },
+        {
+          "edge_count": 22,
+          "edge_type": "CHARACTER_HAS_OBIMD_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 22,
+          "unique_target_node_count": 22
         },
         {
           "edge_count": 1781,
@@ -138,14 +176,33 @@
       ],
       "graph_files": [
         "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
-        "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
+        "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
+        "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
       ],
       "label": "HUST-OBC dataset metadata",
       "source_id": "src-hust-obc"
     },
     {
-      "edge_count": 44433,
+      "edge_count": 44492,
       "edge_types": [
+        {
+          "edge_count": 15,
+          "edge_type": "CHARACTER_HAS_EVOBC_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 15,
+          "unique_target_node_count": 15
+        },
+        {
+          "edge_count": 22,
+          "edge_type": "CHARACTER_HAS_HUST_OBC_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 22,
+          "unique_target_node_count": 22
+        },
+        {
+          "edge_count": 22,
+          "edge_type": "CHARACTER_HAS_OBIMD_CODEPOINT_LOOKUP_ROUTE",
+          "unique_source_node_count": 22,
+          "unique_target_node_count": 22
+        },
         {
           "edge_count": 41686,
           "edge_type": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT",
@@ -160,7 +217,8 @@
         }
       ],
       "graph_files": [
-        "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"
+        "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+        "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
       ],
       "label": "OBIMD component and glyph metadata",
       "source_id": "src-obimd"

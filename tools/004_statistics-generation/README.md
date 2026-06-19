@@ -6,6 +6,12 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `164_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-plan.json` as the current missing-evidence outcome-review handoff assignment entry. This is preprocessing navigation only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
+
+简体中文补充：
+- `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `164_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-plan.json` 计入当前缺失证据 outcome 复核交接分派入口。该入口仅用于预处理导航；不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+
+English supplement:
 - `build_source_pipeline_gap_matrix.py` writes `132_ai-agent-source-pipeline-gap-matrix.csv`, a 21-row source-level gap matrix derived from the source register and 094 pipeline audit. It is a review navigation file only and keeps rights decisions, source promotion, corpus import, and decipherment claims unset.
 
 简体中文补充：

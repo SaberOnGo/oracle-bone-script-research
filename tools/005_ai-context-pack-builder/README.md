@@ -334,3 +334,9 @@ English supplement:
 
 Simplified Chinese supplement:
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_route_pack.py` 基于 169 assignment outcome source checklist 生成 `170_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-route-pack.json`。该包把 18 条来源清单行转换为只用于导航的 JSON route 对象，方便后续打开来源文件并由人工记录 source outcome；当前不采集证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+
+English supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_scaffold.py` builds `171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json` from the 170 assignment outcome source route pack. It wraps the 18 source routes as planned handoffs for later human-gated source outcome capture while leaving evidence, reviewed outcomes, rights decisions, source promotion, corpus import, and decipherment claims unset.
+
+Simplified Chinese supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_scaffold.py` 基于 170 assignment outcome source route pack 生成 `171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json`。它把 18 条来源 route 包装为后续人工门控 source outcome capture 的 planned handoff，同时保持证据、已复核 outcome、权利决定、来源提升、语料导入和释读结论均未设置。

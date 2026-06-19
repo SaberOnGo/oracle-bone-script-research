@@ -5,6 +5,11 @@ Future context-pack tools will gather source evidence for AI Agent reasoning.
 
 Current tools:
 
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_route_summary.py`: builds `173_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-route-summary.json` from the 172 source handoff checklist. It indexes each source handoff checklist row by source, pipeline gap, and status while preserving routing-only boundaries and leaving evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_route_summary.py` 基于 172 source handoff checklist 生成 `173_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-route-summary.json`。它按来源、流水线缺口和状态索引每条来源交接检查行；该输出仅用于路线汇总，证据采集、已复核 outcome、权利裁定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_checklist.py`: builds `172_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-checklist.csv` from the 171 source handoff scaffold. It gives each source handoff one precheck row with the 168/169/170/171 entry points and routed source files to open before any later human-gated outcome work; evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims remain unset.
 
 简体中文补充：

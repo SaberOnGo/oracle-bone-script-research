@@ -1,0 +1,28 @@
+asset_id: asset-001394
+asset_type: glyph_candidate_image
+local_file: 001_asset-001394_hust-obc-cat-1554_glyph.png
+canonical_path: corpus/001_oracle-characters/014_001301-001400_obs-char-bucket_oracle-characters/1389_obs-char-001389_hust-obc-cat-1554_oracle-character/03_visual-assets/001_asset-001394_hust-obc-cat-1554_glyph.png
+file_size_bytes: 1980
+checksum_sha256: 1949b48d52b71715e1012e2825f9a5d31fadff6d7209dfe7cff708e3f93c9f5d
+image_format: PNG
+pixel_width: 68
+pixel_height: 80
+color_mode: RGB
+related_project_ids:
+  - obs-char-001389
+related_external_ref_ids:
+  - hust-obc-cat-1554
+source_id: src-hust-obc
+source_package_id: large-src-000001
+download_id: dl-hust-obc-figshare-raw
+source_image_path: HUST-OBC/deciphered/1554/G_1554_乙5403合7352賓組.png
+source_image_sequence_in_candidate: 001
+source_image_count_expected: not_counted_for_deciphered_category_yet
+raw_source_image_checksum_sha256: c897279c4e19fe43d5a250a236bc937b6aada77200ea9b49cf863f2e9439ae41
+rights_status: source_marked_risk_noted
+analysis_scope: local_review_image_derivative_only
+risk_note: HUST-OBC rights are source-marked with conflicting Figshare and article license signals; this small derivative is committed for preparation-stage review with provenance and risk note.
+review_status: needs_human_visual_review
+research_boundary: candidate_image_not_scholarship
+caution: Source-marked local review image only; not an accepted glyph identity, not an accepted reading, and not a decipherment conclusion.
+updated_at: 2026-06-20

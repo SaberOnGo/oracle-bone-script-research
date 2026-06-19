@@ -2258,8 +2258,7 @@ def check_character_object_material_coverage_audit(root: Path) -> list[str]:
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
     expected_status_counts = {
         "missing_human_object_materials": 10971,
-        "object_local_bundle_no_image_yet": 13,
-        "object_local_bundle_with_review_image": 12,
+        "object_local_bundle_with_review_image": 25,
     }
     if dict(status_counts) != expected_status_counts:
         issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT} status counts changed")
@@ -2284,7 +2283,7 @@ def check_character_object_material_coverage_audit(root: Path) -> list[str]:
         "human_visual_gallery_count": 25,
         "ai_packet_count": 10996,
         "ai_visual_source_index_count": 25,
-        "local_visual_asset_object_count": 12,
+        "local_visual_asset_object_count": 25,
         "complete_object_local_bundle_count": 25,
         "missing_human_entry_count": 10971,
         "parallel_human_directory_count": 0,
@@ -3082,93 +3081,25 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     if first_cambridge_edge.get("target_node_id") != "src-cambridge-hopkins":
         issues.append(f"{CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES} first edge target changed")
 
-    if len(character_asset_edge_rows) != 12:
-        issues.append(f"{CHARACTER_ASSET_GRAPH_EDGES} should contain exactly 12 edges")
+    if len(character_asset_edge_rows) != 25:
+        issues.append(f"{CHARACTER_ASSET_GRAPH_EDGES} should contain exactly 25 edges")
+    expected_character_asset_pairs = [
+        ("obs-unk-005708", "asset-000004"),
+        ("obs-unk-006294", "asset-000005"),
+        *[
+            (f"obs-char-{index:06d}", f"asset-{index + 5:06d}")
+            for index in range(1, 24)
+        ],
+    ]
     expected_character_asset_edges = [
         {
-            "edge_id": "edge-character-asset-glyph-candidate-0001",
-            "source_node_id": "obs-unk-005708",
+            "edge_id": f"edge-character-asset-glyph-candidate-{index:04d}",
+            "source_node_id": source_node_id,
             "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000004",
+            "target_node_id": target_node_id,
             "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0002",
-            "source_node_id": "obs-unk-006294",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000005",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0003",
-            "source_node_id": "obs-char-000001",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000006",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0004",
-            "source_node_id": "obs-char-000002",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000007",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0005",
-            "source_node_id": "obs-char-000003",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000008",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0006",
-            "source_node_id": "obs-char-000004",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000009",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0007",
-            "source_node_id": "obs-char-000005",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000010",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0008",
-            "source_node_id": "obs-char-000006",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000011",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0009",
-            "source_node_id": "obs-char-000007",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000012",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0010",
-            "source_node_id": "obs-char-000008",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000013",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0011",
-            "source_node_id": "obs-char-000009",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000014",
-            "review_status": "needs_human_visual_review",
-        },
-        {
-            "edge_id": "edge-character-asset-glyph-candidate-0012",
-            "source_node_id": "obs-char-000010",
-            "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-            "target_node_id": "asset-000015",
-            "review_status": "needs_human_visual_review",
-        },
+        }
+        for index, (source_node_id, target_node_id) in enumerate(expected_character_asset_pairs, start=1)
     ]
     compact_character_asset_edges = [
         {
@@ -3242,8 +3173,8 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
 
     if len(edge_summary_rows) != 24:
         issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} should contain exactly 24 rows")
-    if len(node_degree_rows) != 70844:
-        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} should contain exactly 70844 rows")
+    if len(node_degree_rows) != 70857:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} should contain exactly 70857 rows")
 
     expected_edge_counts = {
         (
@@ -3320,7 +3251,7 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
             "src-hust-obc",
             "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-        ): ("12", "12", "12"),
+        ): ("25", "25", "25"),
         (
             "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl",
             "src-evobc",
@@ -3396,8 +3327,8 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} confidence not high-only: {key}")
     if observed_edge_counts != expected_edge_counts:
         issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} edge count summary changed")
-    if total_edge_count != 106154:
-        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} total edge count should be 106154")
+    if total_edge_count != 106167:
+        issues.append(f"{RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY} total edge count should be 106167")
 
     total_out_degree = 0
     total_in_degree = 0
@@ -3420,10 +3351,10 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total degree mismatch: {node_id}")
         total_out_degree += out_value
         total_in_degree += in_value
-    if total_out_degree != 105826:
-        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total out-degree should be 105826")
-    if total_in_degree != 105826:
-        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total in-degree should be 105826")
+    if total_out_degree != 105839:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total out-degree should be 105839")
+    if total_in_degree != 105839:
+        issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} total in-degree should be 105839")
 
     if node_degree_rows:
         expected_first = {
@@ -3439,7 +3370,7 @@ def check_relationship_graph_statistics(root: Path) -> list[str]:
             if node_degree_rows[0].get(key) != value:
                 issues.append(f"{RELATIONSHIP_GRAPH_NODE_DEGREE_SUMMARY} first row {key} changed")
         expected_last = {
-            "node_degree_row_id": "graph-node-degree-070844",
+            "node_degree_row_id": "graph-node-degree-070857",
             "node_id": "obs-unk-006294",
             "total_degree": "1",
             "out_degree": "1",
@@ -3509,9 +3440,9 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "download_log_count": 47,
         "downloaded_file_bytes": 645297183,
         "metadata_profile_metric_count": 62,
-        "committed_asset_count": 15,
-        "committed_asset_bytes": 4964374,
-        "graph_edge_count": 106154,
+        "committed_asset_count": 28,
+        "committed_asset_bytes": 5005387,
+        "graph_edge_count": 106167,
         "promotion_queue_candidate_count": 1588,
     }
     for field, expected_value in expected_totals.items():
@@ -3529,10 +3460,10 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
 
     expected_source_values = {
         "src-hust-obc": {
-            "committed_asset_count": "12",
-            "committed_asset_bytes": "42246",
-            "asset_rights_status_counts": "source_marked_risk_noted:12",
-            "graph_edge_count": "5311",
+            "committed_asset_count": "25",
+            "committed_asset_bytes": "83259",
+            "asset_rights_status_counts": "source_marked_risk_noted:25",
+            "graph_edge_count": "5324",
             "graph_edge_type_count": "6",
             "promotion_queue_candidate_count": "1588",
             "coverage_status": "has_relationship_graph_derivatives",
@@ -3673,13 +3604,13 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "xxt_obm_access_capture_rows:4",
         ],
         "assets": [
-            "asset_source_rows:15",
-            "asset_id_map_rows:15",
+            "asset_source_rows:28",
+            "asset_id_map_rows:28",
         ],
         "relationship_graph": [
-            "graph_edge_rows:105826",
+            "graph_edge_rows:105839",
             "edge_type_count:18",
-            "node_degree_summary_rows:70844",
+            "node_degree_summary_rows:70857",
         ],
         "review_queues": [
             "review_log_files:76",
@@ -3765,7 +3696,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "formal_character_map_rows:0",
             "formal_inscription_map_rows:0",
             "formal_component_map_rows:0",
-            "formal_asset_map_rows:15",
+            "formal_asset_map_rows:28",
         ],
     }
     for area_type, fragments in expected_fragments.items():
@@ -3826,12 +3757,12 @@ def check_data_quality_audit(root: Path) -> list[str]:
         issues.append(f"{DATA_QUALITY_SUMMARY} quality status counts changed")
 
     expected_totals = {
-        "boundary_status_violation_count": 1749,
+        "boundary_status_violation_count": 1762,
         "duplicate_key_count": 0,
-        "issue_count": 1749,
+        "issue_count": 1762,
         "missing_path_count": 0,
         "missing_required_value_count": 0,
-        "row_count": 123368,
+        "row_count": 123394,
         "unknown_download_ref_count": 0,
         "unknown_large_source_ref_count": 0,
         "unknown_source_ref_count": 0,
@@ -3845,7 +3776,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "source_download_log": "47",
         "large_source_register": "3",
         "source_package_file_manifest": "14",
-        "asset_source_index": "15",
+        "asset_source_index": "28",
         "hust_obc_promotion_review_queue": "1588",
         "hust_obc_undeciphered_candidate_index": "9408",
         "obimd_main_character_staging": "3936",
@@ -3865,7 +3796,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "006_obimd-component-graph-edges": "44433",
         "007_evobc-evolution-graph-edges": "51679",
         "008_cambridge-hopkins-inscription-crosswalk-graph-edges": "4403",
-        "009_character-asset-graph-edges": "12",
+        "009_character-asset-graph-edges": "25",
         "010_cross-source-id-graph-edges": "1737",
     }
     by_dataset = {row.get("dataset_id", ""): row for row in audit_rows}
@@ -3876,7 +3807,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
         if row.get("row_count") != expected_count:
             issues.append(f"{DATA_QUALITY_AUDIT} row_count changed for {dataset_id}")
         expected_review_datasets = {
-            "009_character-asset-graph-edges": "12",
+            "009_character-asset-graph-edges": "25",
             "010_cross-source-id-graph-edges": "1737",
         }
         expected_quality_status = "needs_review" if dataset_id in expected_review_datasets else "pass"
@@ -4058,7 +3989,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
 
     expected_totals = {
         "access_boundary_or_error_count": 10,
-        "asset_count": 15,
+        "asset_count": 28,
         "candidate_queue_count": 10996,
         "checksum_present_count": 41,
         "cross_source_crosswalk_match_count": 1737,
@@ -4066,7 +3997,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "download_manifest_count": 46,
         "downloaded_count": 41,
         "field_map_count": 54,
-        "graph_edge_count": 106154,
+        "graph_edge_count": 106167,
         "large_source_register_count": 3,
         "metadata_profile_count": 62,
         "package_manifest_count": 14,
@@ -4081,8 +4012,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "src-hust-obc": {
             "current_stage": "pending_human_review",
             "candidate_queue_count": "10996",
-            "asset_count": "12",
-            "graph_edge_count": "5311",
+            "asset_count": "25",
+            "graph_edge_count": "5324",
             "large_source_register_count": "1",
         },
         "src-obimd": {
@@ -4582,8 +4513,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
         "candidate_record_count": 11130,
-        "formal_record_count": 70897,
-        "graph_edge_count": 209903,
+        "formal_record_count": 70910,
+        "graph_edge_count": 209916,
         "manual_review_backlog_count": 13391,
         "review_queue_count": 13135,
         "staging_record_count": 75198,
@@ -4626,7 +4557,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         },
         "relationship_graph_and_statistics": {
             "staging_record_count": "185",
-            "graph_edge_count": "105826",
+            "graph_edge_count": "105839",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
@@ -13067,8 +12998,8 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "graph_file_count": 6,
         "source_count": 4,
         "edge_type_count": 24,
-        "total_edge_count": 106154,
-        "node_count": 70844,
+        "total_edge_count": 106167,
+        "node_count": 70857,
         "top_node_limit": 20,
     }
     for key, value in expected_coverage.items():
@@ -13096,7 +13027,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         if edge_counts_by_source != {
             "src-cambridge-hopkins": 4403,
             "src-evobc": 51948,
-            "src-hust-obc": 5311,
+            "src-hust-obc": 5324,
             "src-obimd": 44492,
         }:
             issues.append(f"{AI_AGENT_RELATIONSHIP_GRAPH_CONTEXT_PACK} source edge counts changed")
@@ -13515,9 +13446,9 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "download_manifest_count": 46,
         "download_log_count": 47,
         "metadata_profile_metric_count": 62,
-        "committed_asset_count": 15,
-        "committed_asset_bytes": 4964374,
-        "graph_edge_count": 106154,
+        "committed_asset_count": 28,
+        "committed_asset_bytes": 5005387,
+        "graph_edge_count": 106167,
         "promotion_queue_candidate_count": 1588,
     }
     for key, value in expected_source_coverage.items():
@@ -13591,7 +13522,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "src-hust-obc": {
                 "route": "open_graph_and_metadata_derivatives",
                 "promotion_queue_candidate_count": 1588,
-                "graph_edge_count": 5311,
+                "graph_edge_count": 5324,
             },
             "src-obimd": {
                 "route": "open_graph_and_metadata_derivatives",

@@ -8,13 +8,12 @@
   "human_visual_gallery_count": 25,
   "ai_packet_count": 10996,
   "ai_visual_source_index_count": 25,
-  "local_visual_asset_object_count": 12,
+  "local_visual_asset_object_count": 25,
   "complete_object_local_bundle_count": 25,
   "missing_human_entry_count": 10971,
   "material_bundle_status_counts": {
     "missing_human_object_materials": 10971,
-    "object_local_bundle_no_image_yet": 13,
-    "object_local_bundle_with_review_image": 12
+    "object_local_bundle_with_review_image": 25
   },
   "parallel_human_directory_count": 0,
   "research_boundary": "object_local_material_coverage_audit_not_scholarship; not an identity claim, not a component conclusion, not an evolution conclusion, not an accepted reading, and not a decipherment conclusion",

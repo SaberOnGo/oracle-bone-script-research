@@ -13,7 +13,7 @@ This human-readable gallery stays inside the same concrete oracle-character obje
 - Source / 来源: `src-hust-obc`
 - AI packet / AI 资料包: `01_candidate-character-packet.json`
 - Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
-- Committed local review images / 已提交本地复核图像数: `0`
+- Committed local review images / 已提交本地复核图像数: `1`
 
 ## Research Boundary / 研究边界
 
@@ -23,10 +23,15 @@ Images shown here are source-marked preparation materials for human visual revie
 简体中文：
 本页展示的图像只是带来源标记的准备阶段材料，用于人工视觉复核。它们不是已确认字形身份，不是已确认释读，不是构件结论，也不是破译结论。
 
-## No Committed Local Image Yet / 暂无已提交本地图像
+## obs-char-001375-visual-source-001 / 图像条目
 
-English:
-This object currently has no committed local glyph image derivative. Use `02_visual-source-index.csv` to inspect source-image references and source-package routing before extracting any review image into this same object directory.
+![obs-char-001375 glyph candidate](03_visual-assets/001_asset-001380_hust-obc-cat-1536_glyph.png)
 
-简体中文：
-本对象目前还没有已提交的本地字形图像派生件。请先查看 `02_visual-source-index.csv` 中的来源图像引用和来源包路线，再把可复核图像抽取到同一对象目录中。
+- Local image / 本地图像: `03_visual-assets/001_asset-001380_hust-obc-cat-1536_glyph.png`
+- Local metadata / 本地 metadata: `03_visual-assets/001_asset-001380_hust-obc-cat-1536_glyph.yaml`
+- Source image path / 来源图像路径: `HUST-OBC/deciphered/1536/G_1536_前2.8.3(甲).png`
+- Source package / 来源包: `large-src-000001`
+- Download ID / 下载 ID: `dl-hust-obc-figshare-raw`
+- Rights status / 权利状态: `source_marked_risk_noted`
+- Review status / 复核状态: `needs_human_visual_review`
+- Risk note / 风险提示: HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence.

@@ -29,6 +29,9 @@ SOURCE_PIPELINE_PHASE_ACTION_QUEUE = Path(
 SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD = Path(
     "corpus/009_statistics-and-derived-features/138_source-pipeline-phase-action-result-scaffold.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY = Path(
+    "corpus/009_statistics-and-derived-features/139_source-pipeline-phase-action-route-summary.json"
+)
 UPDATED_AT = "2026-06-19"
 CLAIM_BOUNDARY = "core_corpus_phase_coverage_not_review_outcome_not_scholarship"
 CAUTION = (
@@ -223,6 +226,7 @@ def phase_evidence_paths(area: str, readiness: dict[str, str], audit: dict[str, 
         paths.append(SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX.as_posix())
         paths.append(SOURCE_PIPELINE_PHASE_ACTION_QUEUE.as_posix())
         paths.append(SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD.as_posix())
+        paths.append(SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY.as_posix())
     unique_paths = []
     for path in paths:
         if path and path not in unique_paths:
@@ -237,6 +241,7 @@ def build_phase_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_phase_rows = count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX)
     source_pipeline_action_rows = count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
     source_pipeline_action_result_rows = count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD)
+    source_pipeline_action_route_summary_files = 1 if (root / SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY).exists() else 0
     audit_by_type = {row["area_type"]: row for row in audit_rows}
 
     rows: list[dict[str, str]] = []
@@ -266,6 +271,7 @@ def build_phase_rows(root: Path) -> list[dict[str, str]]:
                     + source_pipeline_phase_rows
                     + source_pipeline_action_rows
                     + source_pipeline_action_result_rows
+                    + source_pipeline_action_route_summary_files
                     if area == "research_sources_and_bibliography"
                     else 0
                 ),

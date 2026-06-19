@@ -818,6 +818,10 @@ SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "138_source-pipeline-phase-action-result-scaffold.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "139_source-pipeline-phase-action-route-summary.json"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1481,6 +1485,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
+    SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1635,6 +1640,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py",
+    "tools/004_statistics-generation/build_source_pipeline_phase_action_route_summary.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -2958,6 +2964,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_coverage_rows:21",
             "source_pipeline_phase_action_queue_rows:77",
             "source_pipeline_phase_action_result_scaffold_rows:77",
+            "source_pipeline_phase_action_route_summary_files:1",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3773,9 +3780,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 12466,
-        "review_queue_count": 12466,
-        "staging_record_count": 75149,
+        "manual_review_backlog_count": 12467,
+        "review_queue_count": 12467,
+        "staging_record_count": 75150,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3814,14 +3821,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "136",
+            "staging_record_count": "137",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "584",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
+            "review_queue_count": "585",
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -5832,8 +5839,8 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "196",
-            "review_queue_count": "584",
+            "source_pipeline_evidence_rows": "197",
+            "review_queue_count": "585",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
         "relationship_graph_and_statistics": {
@@ -6117,6 +6124,120 @@ def check_source_pipeline_phase_action_result_scaffold(root: Path) -> list[str]:
         for route_path in row.get("route_files_to_open", "").split(";"):
             if route_path and not (root / route_path).exists():
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD} missing route path: {route_path}")
+    return issues
+
+
+def check_source_pipeline_phase_action_route_summary(root: Path) -> list[str]:
+    issues: list[str] = []
+    try:
+        data = json.loads((root / SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return [f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY}"]
+    except json.JSONDecodeError as exc:
+        return [f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} invalid JSON: {exc.msg}"]
+
+    if data.get("route_summary_id") != "source-pipeline-phase-action-route-summary-001":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} route_summary_id changed")
+    if data.get("updated_at") != "2026-06-19":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} updated_at changed")
+    if data.get("action_result_scaffold_path") != SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} scaffold path changed")
+    if data.get("route_count") != 77:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} route_count changed")
+    if data.get("source_count") != 21:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} source_count changed")
+    expected_lanes = {
+        "access_and_checksum_boundary_resolution": 33,
+        "field_map_semantics_review": 12,
+        "metadata_profile_and_package_manifest_decision": 27,
+        "safe_derived_record_decision": 5,
+    }
+    if data.get("review_lane_counts") != expected_lanes:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} review_lane_counts changed")
+    expected_phases = {
+        "cleaned": 5,
+        "downloaded": 6,
+        "extracted": 5,
+        "linked": 17,
+        "structured": 5,
+        "unpacked": 18,
+        "verified": 21,
+    }
+    if data.get("phase_counts") != expected_phases:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} phase_counts changed")
+    for field, expected_value in {
+        "result_status_counts": {"not_started": 77},
+        "route_status_counts": {"not_started": 77},
+        "evidence_collection_status_counts": {"not_collected": 77},
+        "human_review_status_counts": {"pending_human_review": 77},
+        "rights_decision_status_counts": {"no_new_rights_decision": 77},
+        "source_promotion_status_counts": {"not_promoted": 77},
+        "corpus_import_status_counts": {"not_imported": 77},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": 77},
+    }.items():
+        if data.get(field) != expected_value:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} {field} changed")
+    if data.get("automation_boundary") != "routing_only_no_source_phase_outcome_capture":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} automation boundary changed")
+    if data.get("research_boundary") != "source_pipeline_phase_action_route_summary_not_scholarship":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} research boundary changed")
+    if "routing-only" not in data.get("caution", ""):
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} caution changed")
+
+    routes = data.get("routes", [])
+    if not isinstance(routes, list) or len(routes) != 77:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} routes array changed")
+        return issues
+    expected_route_fragments = {
+        0: {
+            "route_id": "source-pipeline-phase-action-route-001",
+            "result_scaffold_id": "source-pipeline-phase-action-result-scaffold-001",
+            "source_id": "src-british-museum-oracle-bone",
+            "phase_name": "downloaded",
+        },
+        13: {
+            "result_scaffold_id": "source-pipeline-phase-action-result-scaffold-014",
+            "source_id": "src-hust-obc",
+            "phase_name": "verified",
+            "graph_edge_count": "3562",
+        },
+        76: {
+            "route_id": "source-pipeline-phase-action-route-077",
+            "result_scaffold_id": "source-pipeline-phase-action-result-scaffold-077",
+            "source_id": "src-yinqi-wenyuan",
+            "phase_name": "verified",
+        },
+    }
+    for route_index, expected_values in expected_route_fragments.items():
+        route = routes[route_index]
+        for field, expected_value in expected_values.items():
+            if route.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} route {route_index + 1} {field} changed")
+
+    for route in routes:
+        route_id = route.get("route_id", "")
+        for field, expected_value in {
+            "action_result_scaffold_path": SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
+            "route_status": "not_started",
+            "result_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "automation_boundary": "routing_only_no_source_phase_outcome_capture",
+            "research_boundary": "source_pipeline_phase_action_route_summary_not_scholarship",
+        }.items():
+            if route.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} {route_id} {field} changed")
+        if route.get("reviewed_evidence_paths") != "" or route.get("reviewed_outcome_summary") != "":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} {route_id} should keep outcomes empty")
+        if SOURCE_PIPELINE_EVIDENCE_LEDGER not in route.get("phase_evidence_paths", []):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} {route_id} missing 134 evidence path")
+        for route_path in route.get("route_files_to_open", []):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY} missing route path: {route_path}")
     return issues
 
 
@@ -16646,6 +16767,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))
+    issues.extend(check_source_pipeline_phase_action_route_summary(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

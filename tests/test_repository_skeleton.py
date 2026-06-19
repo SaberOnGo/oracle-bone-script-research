@@ -27,6 +27,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_pipeline_phase_coverage_matrix,
     check_source_pipeline_phase_action_queue,
     check_source_pipeline_phase_action_result_scaffold,
+    check_source_pipeline_phase_action_route_summary,
     check_source_coverage_statistics,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -276,6 +277,15 @@ def load_source_pipeline_phase_action_queue_module():
 def load_source_pipeline_phase_action_result_scaffold_module():
     path = repo_root() / "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py"
     spec = importlib.util.spec_from_file_location("build_source_pipeline_phase_action_result_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_pipeline_phase_action_route_summary_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_pipeline_phase_action_route_summary.py"
+    spec = importlib.util.spec_from_file_location("build_source_pipeline_phase_action_route_summary", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -12119,6 +12129,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
+            "source_pipeline_phase_action_route_summary_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
             "source_engineering_second_wave_outcome_route_pack_files:1",
             by_type["review_queues"]["count_summary"],
         )
@@ -14521,6 +14535,64 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_action["source-pipeline-phase-action-014"]["graph_edge_count"], "3562")
         self.assertTrue(all(row["action_queue_path"] == module.SOURCE_PIPELINE_PHASE_ACTION_QUEUE.as_posix() for row in rows))
 
+    def test_source_pipeline_phase_action_route_summary_indexes_138_scaffold(self) -> None:
+        self.assertEqual(check_source_pipeline_phase_action_route_summary(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "139_source-pipeline-phase-action-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_summary_id"], "source-pipeline-phase-action-route-summary-001")
+        self.assertEqual(data["route_count"], 77)
+        self.assertEqual(data["source_count"], 21)
+        self.assertEqual(
+            data["review_lane_counts"],
+            {
+                "access_and_checksum_boundary_resolution": 33,
+                "field_map_semantics_review": 12,
+                "metadata_profile_and_package_manifest_decision": 27,
+                "safe_derived_record_decision": 5,
+            },
+        )
+        self.assertEqual(
+            data["phase_counts"],
+            {
+                "cleaned": 5,
+                "downloaded": 6,
+                "extracted": 5,
+                "linked": 17,
+                "structured": 5,
+                "unpacked": 18,
+                "verified": 21,
+            },
+        )
+        self.assertEqual(data["result_status_counts"], {"not_started": 77})
+        self.assertEqual(data["human_review_status_counts"], {"pending_human_review": 77})
+        self.assertEqual(data["research_boundary"], "source_pipeline_phase_action_route_summary_not_scholarship")
+        self.assertEqual(data["routes"][0]["route_id"], "source-pipeline-phase-action-route-001")
+        self.assertEqual(data["routes"][0]["result_scaffold_id"], "source-pipeline-phase-action-result-scaffold-001")
+        self.assertEqual(data["routes"][0]["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(data["routes"][0]["phase_name"], "downloaded")
+        self.assertEqual(data["routes"][0]["route_status"], "not_started")
+        self.assertEqual(data["routes"][0]["reviewed_evidence_paths"], "")
+        self.assertEqual(data["routes"][-1]["result_scaffold_id"], "source-pipeline-phase-action-result-scaffold-077")
+
+    def test_source_pipeline_phase_action_route_summary_builder_uses_138_rows(self) -> None:
+        module = load_source_pipeline_phase_action_route_summary_module()
+        scaffold_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD)
+        data = module.build_route_summary(scaffold_rows)
+        self.assertEqual(data["route_count"], 77)
+        self.assertEqual(data["source_counts"]["src-hust-obc"], 1)
+        self.assertEqual(data["source_counts"]["src-british-museum-oracle-bone"], 7)
+        self.assertEqual(data["routes"][13]["source_id"], "src-hust-obc")
+        self.assertEqual(data["routes"][13]["phase_name"], "verified")
+        self.assertEqual(data["routes"][13]["graph_edge_count"], "3562")
+        self.assertEqual(data["routes"][13]["action_result_scaffold_path"], module.SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD.as_posix())
+        self.assertEqual(data["routes"][13]["automation_boundary"], module.AUTOMATION_BOUNDARY)
+        self.assertTrue(all(route["rights_decision_status"] == "no_new_rights_decision" for route in data["routes"]))
+        self.assertTrue(all(route["decipherment_claim_status"] == "no_decipherment_claim" for route in data["routes"]))
+
     def test_core_corpus_readiness_matrix_preserves_current_review_backlog(self) -> None:
         self.assertEqual(check_core_corpus_readiness_matrix(repo_root()), [])
         path = (
@@ -14532,7 +14604,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 2, "targeted_review": 8})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12466)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12467)
         self.assertEqual(data["totals"]["graph_edge_count"], 208154)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -14553,12 +14625,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "136")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "137")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "104077")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "584")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "585")
         self.assertEqual(
             by_area["research_sources_and_bibliography"]["review_queue_path"],
-            "corpus/009_statistics-and-derived-features/138_source-pipeline-phase-action-result-scaffold.csv",
+            "corpus/009_statistics-and-derived-features/139_source-pipeline-phase-action-route-summary.json",
         )
         self.assertTrue(all(row["readiness_stage"] == "ready_for_human_review" for row in rows))
         self.assertTrue(all("Core corpus readiness only" in row["caution"] for row in rows))
@@ -14578,11 +14650,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_area["oracle_characters"]["candidate_or_staging_boundary"], "candidate_not_promoted")
         self.assertIn("005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv", by_area["oracle_characters"]["phase_evidence_paths"])
         self.assertEqual(by_area["research_sources_and_bibliography"]["downloaded_status"], "mixed_or_partial")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["source_pipeline_evidence_rows"], "196")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["source_pipeline_evidence_rows"], "197")
         self.assertIn("134_ai-agent-source-pipeline-evidence-ledger.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("136_source-pipeline-phase-coverage-matrix.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("137_source-pipeline-phase-action-queue.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("138_source-pipeline-phase-action-result-scaffold.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
+        self.assertIn("139_source-pipeline-phase-action-route-summary.json", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertEqual(by_area["relationship_graph_and_statistics"]["linked_status"], "present")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["verified_status"], "present")
         self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))

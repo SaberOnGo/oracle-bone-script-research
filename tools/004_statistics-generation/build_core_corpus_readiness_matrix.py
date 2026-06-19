@@ -249,6 +249,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_SCAFFOLD = 
     "corpus/009_statistics-and-derived-features/"
     "157_source-pipeline-phase-action-missing-evidence-review-outcome-handoff-scaffold.json"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "158_source-pipeline-phase-action-missing-evidence-review-outcome-handoff-checklist.csv"
+)
 UPDATED_AT = "2026-06-19"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
@@ -546,6 +550,9 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold_count = count_existing_file(
         root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_SCAFFOLD
     )
+    source_pipeline_phase_action_missing_evidence_review_outcome_handoff_checklist_count = count_csv(
+        root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_CHECKLIST
+    )
 
     rows = [
         make_row(
@@ -777,10 +784,11 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_missing_evidence_review_handoff_route_summary_count
             + source_pipeline_phase_action_missing_evidence_review_outcome_scaffold_count
             + source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_count
-            + source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold_count,
+            + source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold_count
+            + source_pipeline_phase_action_missing_evidence_review_outcome_handoff_checklist_count,
             "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_SCAFFOLD,
-            "open_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold_then_record_human_gated_source_outcomes",
+            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_CHECKLIST,
+            "open_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_checklist_then_record_human_gated_source_outcomes",
         ),
         make_row(
             "core-ready-009",

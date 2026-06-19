@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 
-OBS_CHAR_LOCAL_MATERIAL_LIMIT = 300
+OBS_CHAR_LOCAL_MATERIAL_LIMIT = 400
 EXTRA_TARGET_PROJECT_IDS = ("obs-unk-005708", "obs-unk-006294")
 TARGET_PROJECT_IDS = tuple(
     [f"obs-char-{index:06d}" for index in range(1, OBS_CHAR_LOCAL_MATERIAL_LIMIT + 1)]
@@ -217,12 +217,12 @@ def build_readme_text(
 English:
 This directory is the co-located working folder for this concrete oracle-character object. Human-readable notes, visual/source entrances, and AI-readable packet/index files stay together in this same object directory, not in a parallel human-only directory.
 
-Simplified Chinese:
-本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像/来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus` 或对象目录并行的“人类看的目录”。
+简体中文：
+本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像和来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus` 或对象目录并行的“人类看的目录”。
 
 ## Local Files / 本地文件
 
-- Human-readable page / 人类可读页: `README.md`
+- Human-readable page / 人类可读页面: `README.md`
 - Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
 - AI-readable candidate packet / AI 可读候选包: `{packet_name}`
 - AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
@@ -239,13 +239,13 @@ Simplified Chinese:
 
 - Status / 状态: `{status_text}`
 - Source image reference rows / 来源图像路径引用行数: `{image_ref_count}`
-- Committed glyph image / 已提交字形图片: {committed_image_text}
+- Committed glyph image / 已提交字形图像: {committed_image_text}
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.
 
 简体中文：
-如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包内部路径引用。HUST-OBC 原始包已按大来源登记，不提交到普通 Git。如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记来源包，抽取适合复核的图像派生件，并在提交任何图片资产前记录权利、出处和风险。
+如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包内部路径引用。HUST-OBC 原始包已经按大型来源登记，不提交到普通 Git。如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记来源包，抽取适合复核的图像派生件，并在提交任何图像资产前记录权利、出处和风险。
 
 ## Research Boundary / 研究边界
 
@@ -297,8 +297,7 @@ English:
 This object currently has no committed local glyph image derivative. Use `02_visual-source-index.csv` to inspect source-image references and source-package routing before extracting any review image into this same object directory.
 
 简体中文：
-本对象目前还没有已提交的本地字形图像派生件。请先查看 `02_visual-source-index.csv` 中的来源图像引用和来源包路线，再把可复核图像抽取到同一对象目录中。
-"""
+本对象目前还没有已提交的本地字形图像派生件。请先查看 `02_visual-source-index.csv` 中的来源图像引用和来源包路线，再把可复核图像抽取到同一对象目录中。"""
         )
     return f"""# {project_id} Visual Gallery / {project_id} 图像资料页
 
@@ -306,7 +305,7 @@ English:
 This human-readable gallery stays inside the same concrete oracle-character object directory as the AI-readable packet and visual/source index. It is a preparation-stage viewing surface for local review images, not a parallel human-only directory.
 
 简体中文：
-本图像资料页与 AI 可读资料包、图像/来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
+本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
 
 ## Object And Source / 对象与来源
 

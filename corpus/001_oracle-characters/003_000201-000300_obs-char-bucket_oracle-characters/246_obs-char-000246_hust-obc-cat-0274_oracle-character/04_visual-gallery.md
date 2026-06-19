@@ -4,7 +4,7 @@ English:
 This human-readable gallery stays inside the same concrete oracle-character object directory as the AI-readable packet and visual/source index. It is a preparation-stage viewing surface for local review images, not a parallel human-only directory.
 
 简体中文：
-本图像资料页与 AI 可读资料包、图像/来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
+本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
 
 ## Object And Source / 对象与来源
 

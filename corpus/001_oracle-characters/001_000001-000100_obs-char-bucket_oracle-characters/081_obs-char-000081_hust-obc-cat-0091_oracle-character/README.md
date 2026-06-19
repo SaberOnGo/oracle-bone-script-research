@@ -3,12 +3,12 @@
 English:
 This directory is the co-located working folder for this concrete oracle-character object. Human-readable notes, visual/source entrances, and AI-readable packet/index files stay together in this same object directory, not in a parallel human-only directory.
 
-Simplified Chinese:
-本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像/来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus` 或对象目录并行的“人类看的目录”。
+简体中文：
+本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像和来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus` 或对象目录并行的“人类看的目录”。
 
 ## Local Files / 本地文件
 
-- Human-readable page / 人类可读页: `README.md`
+- Human-readable page / 人类可读页面: `README.md`
 - Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
 - AI-readable candidate packet / AI 可读候选包: `01_candidate-character-packet.json`
 - AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
@@ -25,13 +25,13 @@ Simplified Chinese:
 
 - Status / 状态: `committed_review_image_derivative`
 - Source image reference rows / 来源图像路径引用行数: `1`
-- Committed glyph image / 已提交字形图片: 03_visual-assets/001_asset-000086_hust-obc-cat-0091_glyph.png
+- Committed glyph image / 已提交字形图像: 03_visual-assets/001_asset-000086_hust-obc-cat-0091_glyph.png
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.
 
 简体中文：
-如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包内部路径引用。HUST-OBC 原始包已按大来源登记，不提交到普通 Git。如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记来源包，抽取适合复核的图像派生件，并在提交任何图片资产前记录权利、出处和风险。
+如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包内部路径引用。HUST-OBC 原始包已经按大型来源登记，不提交到普通 Git。如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记来源包，抽取适合复核的图像派生件，并在提交任何图像资产前记录权利、出处和风险。
 
 ## Research Boundary / 研究边界
 

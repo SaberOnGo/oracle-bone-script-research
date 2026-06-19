@@ -7,9 +7,11 @@ Current tools:
 
 English supplement:
 - `build_character_object_material_coverage_audit.py` generates `186_character-object-material-coverage-audit.csv` and `187_character-object-material-coverage-summary.json` from concrete character object directories. It audits whether each object directory contains co-located human-readable materials (`README.md`, `04_visual-gallery.md`) and AI-readable materials (`01_*packet.json`, `02_visual-source-index.csv`) without creating a parallel human-only directory, collecting new evidence, promoting records, or making decipherment claims.
+  It counts object-local `.jpg`, `.jpeg`, and `.png` files under `03_visual-assets/` as committed review images when computing local material coverage.
 
 Simplified Chinese supplement:
 - `build_character_object_material_coverage_audit.py` 会从具体字对象目录生成 `186_character-object-material-coverage-audit.csv` 和 `187_character-object-material-coverage-summary.json`。它审计每个对象目录是否同时具备同目录的人类可读资料（`README.md`、`04_visual-gallery.md`）和 AI 可读资料（`01_*packet.json`、`02_visual-source-index.csv`），不创建并行的“人类看的目录”，不采集新证据，不提升记录，也不提出释读结论。
+  计算对象内资料覆盖率时，它会把 `03_visual-assets/` 下的 `.jpg`、`.jpeg` 和 `.png` 都计为已提交本地复核图。
 
 English supplement:
 - `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv` as the current missing-evidence outcome routes assignment checklist. This is a precheck and navigation surface only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.

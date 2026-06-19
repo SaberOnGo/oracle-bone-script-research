@@ -19,6 +19,7 @@ Simplified Chinese:
 ```powershell
 python tools/002_corpus-import/build_character_local_materials.py --root .
 python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
+python tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py --root .
 python tools/002_corpus-import/build_obimd_component_candidate_materials.py --root .
 python tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_materials.py --root .
 python tools/002_corpus-import/build_evobc_evolution_candidate_materials.py --root .
@@ -28,10 +29,10 @@ python tools/002_corpus-import/build_collection_object_candidate_materials.py --
 ## Current Coverage / 当前覆盖范围
 
 English:
-The HUST-OBC local-material batch covers all 1,588 promoted candidate character directories plus selected undeciphered candidate directories with source-image path references. These directories contain co-located README files, visual/source indexes, visual galleries, and committed local review image derivatives where allowed.
+The HUST-OBC local-material batch covers all 1,588 promoted candidate character directories and all 9,408 undeciphered candidate directories. Each concrete object directory now keeps its AI packet, README, visual/source index, visual gallery, human review sheet, and a small source-marked local review image together under the same `corpus/001_oracle-characters/` object path.
 
 Simplified Chinese:
-HUST-OBC 对象内资料批次覆盖 1,588 个已提升候选字目录，以及若干已有来源图像路径引用的未释字候选目录。这些目录在同一个对象目录内保存 README、图像/来源索引、图像页面，以及在允许时提交的本地复核图像派生件。
+HUST-OBC 对象内资料批次覆盖 1,588 个已提升候选字目录和全部 9,408 个未释字候选目录。每个具体对象目录现在都把 AI packet、README、图像/来源索引、图像图库、人工复核表和带来源标记的小型本地复核图像放在同一个 `corpus/001_oracle-characters/` 对象路径内。
 
 English:
 The OBIMD component batch covers all 2,747 OBIMD subcharacter candidates. Each `obs-comp-cand-*` directory contains a README, candidate packet, source index, glyph-codepoint index, and glyph-codepoint gallery. These are review candidates only, not confirmed components or component assignments.

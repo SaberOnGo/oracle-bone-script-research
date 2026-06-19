@@ -9,6 +9,8 @@ Single files should stay under `SIZE_LIMIT = 30 MiB`. If a research asset must e
 
 `005_asset-image-visual-profile.csv` records deterministic visual preprocessing metadata for committed image assets, including a conservative luma-threshold candidate region, foreground pixel ratio, and mean luma. These rows are algorithmic metadata only; they are not glyph segmentation, component analysis, or paleographic interpretation.
 
+The HUST-OBC undeciphered-candidate glyph images are small object-local review images extracted from the registered large source package. The 607,933,810-byte raw zip remains outside regular Git under the large-source register; committed images keep per-asset source, checksum, rights-status, and risk-note rows here.
+
 简体中文：
 本目录用于追踪图片、拓片、摹本、截图和下载资产的来源。研究需要时可以提交权利状态尚不完全明确的资产，但资产索引必须显示来源、权利状态和风险提示。
 
@@ -17,3 +19,5 @@ Single files should stay under `SIZE_LIMIT = 30 MiB`. If a research asset must e
 `004_asset-image-technical-profile.csv` 记录已提交图像资产的技术 metadata，例如格式、像素尺寸、颜色模式、DPI、ICC profile、校验和以及复核边界。
 
 `005_asset-image-visual-profile.csv` 记录已提交图像资产的确定性视觉预处理 metadata，包括保守亮度阈值候选区域、前景像素比例和平均亮度。这些记录只是算法 metadata，不是字形切分、构件分析或古文字学释读。
+
+HUST-OBC 未释字候选图像是从已登记大型来源包抽取的小型对象内复核图。607,933,810 字节的原始 zip 仍按大型来源登记保留在普通 Git 之外；已提交图像在本目录保留逐项来源、checksum、权利状态和风险提示记录。

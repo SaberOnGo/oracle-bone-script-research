@@ -1,0 +1,27 @@
+asset_id: asset-008565
+asset_type: glyph_candidate_image
+local_file: 001_asset-008565_hust-obc-und-YH-006974_glyph.jpg
+canonical_path: corpus/001_oracle-characters/086_undeciphered-006901-007000_obs-unk-bucket_oracle-character-candidates/074_obs-unk-006974_hust-obc-und-YH-006974_oracle-character-candidate/03_visual-assets/001_asset-008565_hust-obc-und-YH-006974_glyph.jpg
+file_size_bytes: 2922
+checksum_sha256: d9e8c2c294be45e1002f6861e23f89f864845cfe1aa232f5c3dd777f0b7f5379
+image_format: PNG
+pixel_width: 235
+pixel_height: 287
+color_mode: RGB
+related_project_ids:
+  - obs-unk-006974
+related_external_ref_ids:
+  - hust-obc-und-YH-006974
+source_id: src-hust-obc
+source_package_id: large-src-000001
+download_id: dl-hust-obc-figshare-raw
+source_image_path: HUST-OBC/undeciphered/Y+H/60464/H_？_60464_0.png
+source_image_count_expected: 23
+raw_source_image_checksum_sha256: d9e8c2c294be45e1002f6861e23f89f864845cfe1aa232f5c3dd777f0b7f5379
+rights_status: source_marked_risk_noted
+analysis_scope: local_review_image_derivative_only
+risk_note: HUST-OBC glyph candidate image extracted from registered large source package for preparation-stage object-local visual review; rights signals conflict between Figshare package metadata and the Scientific Data article page.
+review_status: needs_human_visual_review
+research_boundary: candidate_image_not_scholarship
+caution: Source-marked candidate image only; not an accepted glyph identity, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
+updated_at: 2026-06-20

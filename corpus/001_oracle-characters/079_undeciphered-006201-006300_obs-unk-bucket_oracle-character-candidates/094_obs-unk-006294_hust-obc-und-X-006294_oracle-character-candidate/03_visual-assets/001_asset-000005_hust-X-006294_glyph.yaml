@@ -16,13 +16,12 @@ source_id: src-hust-obc
 source_package_id: large-src-000001
 download_id: dl-hust-obc-figshare-raw
 source_image_path: HUST-OBC/undeciphered/X/1850/X_？_502_1.png
-source_image_sequence_in_candidate: 001
 source_image_count_expected: 61
-raw_source_image_checksum_sha256: 488ac062411666f4f58c6d18110b8510870dcd13b2544eae9dc16dcf03c9c962
+raw_source_image_checksum_sha256: a5ee501af4d6245e104e9cb03b58acfa78cf9fcfb412a347a5deac0bcb34b457
 rights_status: source_marked_risk_noted
 analysis_scope: local_review_image_derivative_only
-risk_note: HUST-OBC rights are source-marked with conflicting Figshare and article license signals; this small derivative is committed for preparation-stage review with provenance and risk note.
+risk_note: HUST-OBC glyph candidate image extracted from registered large source package for preparation-stage object-local visual review; rights signals conflict between Figshare package metadata and the Scientific Data article page.
 review_status: needs_human_visual_review
 research_boundary: candidate_image_not_scholarship
-caution: Source-marked local review image only; not an accepted glyph identity, not an accepted reading, and not a decipherment conclusion.
+caution: Source-marked candidate image only; not an accepted glyph identity, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
 updated_at: 2026-06-20

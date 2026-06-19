@@ -90,6 +90,16 @@ def next_step(status: str) -> str:
     }[status]
 
 
+def local_image_count(asset_dir: Path) -> int:
+    if not asset_dir.exists():
+        return 0
+    return sum(
+        1
+        for path in asset_dir.iterdir()
+        if path.name.lower().endswith((".jpg", ".jpeg", ".png"))
+    )
+
+
 def build_audit_rows(root: Path) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     packet_paths = sorted((root / CHARACTER_ROOT).glob("*/*/01_*packet.json"))
@@ -102,7 +112,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
         visual_index_path = object_dir / "02_visual-source-index.csv"
         gallery_path = object_dir / "04_visual-gallery.md"
         asset_dir = object_dir / "03_visual-assets"
-        asset_count = len(list(asset_dir.glob("*.png"))) if asset_dir.exists() else 0
+        asset_count = local_image_count(asset_dir)
         metadata_count = len(list(asset_dir.glob("*.yaml"))) if asset_dir.exists() else 0
         parallel_human = (object_dir / "human-readable").exists() or (bucket_dir / "human-readable").exists()
         status = bundle_status(

@@ -61,13 +61,13 @@ UNDECIPHERED_TARGETS = {
         "asset_filename": "001_asset-000005_hust-X-006294_glyph.png",
     },
 }
-OBS_CHAR_IMAGE_LIMIT = 1100
+OBS_CHAR_IMAGE_LIMIT = 1200
 OBS_CHAR_ASSET_ID_START = 6
 
 
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
-    with path.open("rb") as file:
+    with open(filesystem_path(path), "rb") as file:
         for chunk in iter(lambda: file.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
@@ -82,6 +82,10 @@ def filesystem_path(path: Path) -> str:
     if os.name == "nt":
         return "\\\\?\\" + str(resolved)
     return str(resolved)
+
+
+def file_size(path: Path) -> int:
+    return os.stat(filesystem_path(path)).st_size
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -260,7 +264,7 @@ def asset_source_rows(outputs: dict[str, dict[str, Path | str]]) -> list[dict[st
                 "asset_id": str(output["asset_id"]),
                 "asset_type": "glyph_candidate_image",
                 "canonical_path": Path(output["asset_path"]).as_posix(),
-                "file_size_bytes": str(Path(output["asset_path_abs"]).stat().st_size),
+                "file_size_bytes": str(file_size(Path(output["asset_path_abs"]))),
                 "related_project_ids": project_id,
                 "primary_external_ref_id": str(output["primary_external_ref_id"]),
                 "source_ids": "src-hust-obc",
@@ -334,7 +338,7 @@ def technical_profile_rows(outputs: dict[str, dict[str, Path | str]]) -> list[di
                 "dpi_x": "",
                 "dpi_y": "",
                 "icc_profile_bytes": "0",
-                "file_size_bytes": str(asset_path_abs.stat().st_size),
+                "file_size_bytes": str(file_size(asset_path_abs)),
                 "checksum_sha256": sha256_file(asset_path_abs),
                 "analysis_tool": "Pillow",
                 "analysis_scope": "image_technical_metadata_only",
@@ -350,6 +354,7 @@ def technical_profile_rows(outputs: dict[str, dict[str, Path | str]]) -> list[di
 
 
 def extract_outputs(root: Path) -> dict[str, dict[str, Path | str]]:
+    root = root.resolve()
     raw_zip_path = root / RAW_ZIP
     if not raw_zip_path.exists():
         raise FileNotFoundError(f"missing HUST-OBC raw zip: {RAW_ZIP}")
@@ -396,9 +401,9 @@ def extract_outputs(root: Path) -> dict[str, dict[str, Path | str]]:
             update_visual_index(object_dir / "02_visual-source-index.csv", asset_path.relative_to(root), source_row)
             outputs[project_id] = {
                 "asset_id": target["asset_id"],
-                "asset_path": asset_path,
-                "asset_path_abs": asset_path,
-                "metadata_path": metadata_path,
+                "asset_path": asset_path.relative_to(root),
+                "asset_path_abs": asset_path.resolve(),
+                "metadata_path": metadata_path.relative_to(root),
                 "source_image_path": source_row["source_image_path"],
                 "zip_member": member_name,
                 "primary_external_ref_id": source_row["primary_external_ref_id"],

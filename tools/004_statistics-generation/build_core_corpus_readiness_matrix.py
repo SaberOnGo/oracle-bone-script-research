@@ -493,11 +493,15 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     cambridge_hopkins_graph_edges = count_jsonl(
         root, "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
     )
+    character_asset_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
+    )
     graph_edge_total = (
         hust_candidate_graph_edges
         + obimd_graph_edges
         + evobc_graph_edges
         + cambridge_hopkins_graph_edges
+        + character_asset_graph_edges
     )
 
     collection_staging_count = sum(

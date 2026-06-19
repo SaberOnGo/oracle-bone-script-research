@@ -9,6 +9,8 @@ Current staged graph files:
 - `006_obimd-component-graph-edges.jsonl`: reviewed metadata-only graph edges derived from OBIMD main-character, sub-character, and glyph-code-point mappings. These edges expose component/glyph relationships for retrieval and later review, but they are not formal component analyses, accepted readings, or committed image assets.
 - `007_evobc-evolution-graph-edges.jsonl`: reviewed metadata-only graph edges derived from EVOBC category era/source count summaries. These edges make broad oracle-bone, bronze, seal, Spring and Autumn, Warring States, clerical, and source-token coverage searchable, but they are not accepted paleographic correspondences.
 - `008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl`: reviewed metadata-only graph edges derived from Cambridge/Hopkins inscription crosswalk staging rows. These edges connect candidate crosswalk rows to source, download, period, classification-group, and external catalog-reference nodes; they are not formal `obi-*` inscription records, object identifications, or textual readings.
+- `009_character-asset-graph-edges.jsonl`: candidate graph edges from project-local oracle-character candidate IDs to co-located glyph image asset IDs. These edges support retrieval of human-viewable local images from AI-readable graph records; they are not decipherment evidence, confirmed glyph identities, or component conclusions.
+- `009_character-asset-graph-edges.jsonl`：候选图谱边，连接本项目甲骨字候选 ID 与同一具体字目录中的字形图片资产 ID；用于让 AI 可读记录指向人类可看的本地图像，不是释读证据、已确认字形身份或构件结论。
 
 简体中文：
 本目录将保存连接甲骨字、构件、卜辞、来源、地点、时代、主题、人物和假说的图谱节点与边。

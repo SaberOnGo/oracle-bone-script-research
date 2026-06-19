@@ -47,6 +47,7 @@ GRAPH_EDGE_FILES = [
     Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"),
+    Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
 ]
 
 

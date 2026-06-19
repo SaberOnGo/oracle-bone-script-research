@@ -9,6 +9,8 @@ Current tools:
 - `build_obimd_component_graph_edges.py`: builds reviewed metadata-only JSONL edges from OBIMD main-character, sub-character, and glyph-code-point staging tables.
 - `build_evobc_evolution_graph_edges.py`: builds reviewed metadata-only JSONL edges from EVOBC evolution category era/source count summaries.
 - `build_cambridge_hopkins_inscription_graph_edges.py`: builds reviewed metadata-only JSONL edges from Cambridge/Hopkins inscription crosswalk staging rows to source, download, period, classification-group, and external catalog-reference nodes.
+- `build_character_asset_graph_edges.py`: builds candidate JSONL edges from the asset source index so project-local character candidates can point to co-located local glyph image assets without making decipherment or component claims.
+- `build_character_asset_graph_edges.py`：从资产来源登记表生成候选 JSONL 图谱边，让本项目字形候选能指向同一具体字目录中的本地图像资产；不提出释读、字形身份或构件结论。
 
 简体中文：
 未来图谱生成工具会从结构化记录生成图谱节点和边。

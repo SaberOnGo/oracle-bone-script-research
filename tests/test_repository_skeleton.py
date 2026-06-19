@@ -44,6 +44,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_pipeline_phase_action_missing_evidence_review_handoff_checklist,
     check_source_pipeline_phase_action_missing_evidence_review_handoff_route_summary,
     check_source_pipeline_phase_action_missing_evidence_review_outcome_scaffold,
+    check_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack,
     check_source_coverage_statistics,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -490,6 +491,20 @@ def load_source_pipeline_phase_action_missing_evidence_review_outcome_scaffold_m
     )
     spec = importlib.util.spec_from_file_location(
         "build_source_pipeline_phase_action_missing_evidence_review_outcome_scaffold", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_module():
+    path = (
+        repo_root()
+        / "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack", path
     )
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
@@ -15603,6 +15618,73 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
         self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
 
+    def test_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_indexes_155_scaffold(self) -> None:
+        self.assertEqual(check_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "156_source-pipeline-phase-action-missing-evidence-review-outcome-route-pack.json"
+        )
+        self.assertTrue(path.exists())
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "source-pipeline-missing-evidence-review-outcome-route-pack-001")
+        self.assertEqual(
+            data["outcome_scaffold_path"],
+            "corpus/009_statistics-and-derived-features/155_source-pipeline-phase-action-missing-evidence-review-outcome-scaffold.csv",
+        )
+        self.assertEqual(data["route_count"], 18)
+        self.assertEqual(data["source_count"], 18)
+        self.assertEqual(data["route_status_counts"], {"not_started": 18})
+        self.assertEqual(data["review_outcome_status_counts"], {"not_started": 18})
+        self.assertEqual(data["human_review_status_counts"], {"pending_human_review": 18})
+        self.assertEqual(data["pipeline_gap_status_counts"]["needs_package_manifest_review"], 7)
+        self.assertEqual(data["automation_boundary"], "routing_only_no_missing_evidence_outcome_capture")
+        self.assertEqual(
+            data["research_boundary"],
+            "source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_not_scholarship",
+        )
+        self.assertIn("not collected evidence", data["caution"])
+        self.assertIn("not a rights decision", data["caution"])
+        self.assertIn("not a decipherment conclusion", data["caution"])
+        first = data["routes"][0]
+        self.assertEqual(first["route_id"], "source-pipeline-missing-evidence-review-outcome-route-001")
+        self.assertEqual(
+            first["missing_evidence_review_outcome_scaffold_id"],
+            "source-pipeline-missing-evidence-review-outcome-scaffold-001",
+        )
+        self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
+        self.assertEqual(first["route_status"], "not_started")
+        self.assertEqual(first["reviewed_evidence_paths"], "")
+        self.assertEqual(first["reviewed_outcome_summary"], "")
+        self.assertEqual(data["routes"][-1]["source_id"], "src-yinqi-wenyuan")
+        for route in data["routes"]:
+            self.assertEqual(route["outcome_scaffold_path"], data["outcome_scaffold_path"])
+            self.assertEqual(route["evidence_collection_status"], "not_collected")
+            self.assertEqual(route["rights_decision_status"], "no_new_rights_decision")
+            self.assertEqual(route["source_promotion_status"], "not_promoted")
+            self.assertEqual(route["corpus_import_status"], "not_imported")
+            self.assertEqual(route["decipherment_claim_status"], "no_decipherment_claim")
+            self.assertEqual(route["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(route["component_claim_status"], "no_component_claim")
+            self.assertEqual(route["evolution_claim_status"], "no_evolution_chain_claim")
+
+    def test_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_builder_uses_155_rows(self) -> None:
+        module = load_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_module()
+        outcome_rows = module.read_csv_rows(
+            repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_SCAFFOLD
+        )
+        data = module.build_route_pack(outcome_rows)
+        self.assertEqual(data["route_count"], 18)
+        self.assertEqual(
+            [route["missing_evidence_review_outcome_scaffold_id"] for route in data["routes"]],
+            [row["missing_evidence_review_outcome_scaffold_id"] for row in outcome_rows],
+        )
+        self.assertEqual(data["source_counts"]["src-yinqi-wenyuan"], 1)
+        self.assertEqual(data["pipeline_gap_status_counts"]["needs_safe_derived_record_review"], 1)
+        self.assertEqual(data["routes"][0]["route_id"], "source-pipeline-missing-evidence-review-outcome-route-001")
+        self.assertTrue(all(route["route_status"] == "not_started" for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
+
     def test_core_corpus_readiness_matrix_preserves_current_review_backlog(self) -> None:
         self.assertEqual(check_core_corpus_readiness_matrix(repo_root()), [])
         path = (
@@ -15614,7 +15696,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 3, "targeted_review": 7})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13153)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13154)
         self.assertEqual(data["totals"]["graph_edge_count"], 208154)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -15635,12 +15717,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "153")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "154")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "104077")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1235")
         self.assertEqual(
             by_area["research_sources_and_bibliography"]["review_queue_path"],
-            "corpus/009_statistics-and-derived-features/155_source-pipeline-phase-action-missing-evidence-review-outcome-scaffold.csv",
+            "corpus/009_statistics-and-derived-features/156_source-pipeline-phase-action-missing-evidence-review-outcome-route-pack.json",
         )
         self.assertTrue(all(row["readiness_stage"] == "ready_for_human_review" for row in rows))
         self.assertTrue(all("Core corpus readiness only" in row["caution"] for row in rows))
@@ -15660,7 +15742,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_area["oracle_characters"]["candidate_or_staging_boundary"], "candidate_not_promoted")
         self.assertIn("005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv", by_area["oracle_characters"]["phase_evidence_paths"])
         self.assertEqual(by_area["research_sources_and_bibliography"]["downloaded_status"], "mixed_or_partial")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["source_pipeline_evidence_rows"], "865")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["source_pipeline_evidence_rows"], "866")
         self.assertIn("134_ai-agent-source-pipeline-evidence-ledger.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("136_source-pipeline-phase-coverage-matrix.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("137_source-pipeline-phase-action-queue.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
@@ -15682,6 +15764,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("153_source-pipeline-phase-action-missing-evidence-review-handoff-checklist.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("154_source-pipeline-phase-action-missing-evidence-review-handoff-route-summary.json", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertIn("155_source-pipeline-phase-action-missing-evidence-review-outcome-scaffold.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
+        self.assertIn("156_source-pipeline-phase-action-missing-evidence-review-outcome-route-pack.json", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertEqual(by_area["relationship_graph_and_statistics"]["linked_status"], "present")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["verified_status"], "present")
         self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))

@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 
-OBS_CHAR_LOCAL_MATERIAL_LIMIT = 1000
+OBS_CHAR_LOCAL_MATERIAL_LIMIT = 1100
 EXTRA_TARGET_PROJECT_IDS = ("obs-unk-005708", "obs-unk-006294")
 TARGET_PROJECT_IDS = tuple(
     [f"obs-char-{index:06d}" for index in range(1, OBS_CHAR_LOCAL_MATERIAL_LIMIT + 1)]

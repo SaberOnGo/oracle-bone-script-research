@@ -24,6 +24,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_processing_pipeline_audit,
     check_core_corpus_readiness_matrix,
     check_core_corpus_phase_coverage_matrix,
+    check_source_pipeline_phase_coverage_matrix,
     check_source_coverage_statistics,
     check_source_registers,
     check_tracked_temp_artifacts,
@@ -246,6 +247,15 @@ def load_source_pipeline_gap_review_checklist_module():
 def load_source_pipeline_evidence_ledger_module():
     path = repo_root() / "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py"
     spec = importlib.util.spec_from_file_location("build_source_pipeline_evidence_ledger", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_source_pipeline_phase_coverage_matrix_module():
+    path = repo_root() / "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py"
+    spec = importlib.util.spec_from_file_location("build_source_pipeline_phase_coverage_matrix", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -12077,6 +12087,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
+            "source_pipeline_phase_coverage_rows:21",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
             "source_engineering_second_wave_outcome_route_pack_files:1",
             by_type["review_queues"]["count_summary"],
         )
@@ -14330,6 +14344,43 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
         self.assertTrue(all(row["review_outcome_summary"] == "" for row in rows))
 
+    def test_source_pipeline_phase_coverage_matrix_tracks_each_source_stage(self) -> None:
+        self.assertEqual(check_source_pipeline_phase_coverage_matrix(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "136_source-pipeline-phase-coverage-matrix.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-hust-obc"]["phase_coverage_status"], "source_evidence_and_derivatives_present_pending_review")
+        self.assertEqual(by_source["src-hust-obc"]["downloaded_status"], "present")
+        self.assertEqual(by_source["src-hust-obc"]["linked_status"], "present")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["downloaded_status"], "missing")
+        self.assertIn("downloaded", by_source["src-british-museum-oracle-bone"]["missing_or_review_needed_phases"])
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["downloaded_status"], "review_needed")
+        self.assertIn("verify_access_boundary_or_error_status", by_source["src-xiaoxuetang-jiaguwen"]["next_review_steps"])
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44433")
+        self.assertEqual(by_source["src-obimd"]["linked_status"], "present")
+        self.assertTrue(all(row["rights_decision_status"] == "no_new_rights_decision" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
+
+    def test_source_pipeline_phase_coverage_builder_uses_ledger_boundaries(self) -> None:
+        module = load_source_pipeline_phase_coverage_matrix_module()
+        rows = module.build_phase_rows(repo_root())
+        self.assertEqual(len(rows), 21)
+        by_source = {row["source_id"]: row for row in rows}
+        self.assertEqual(by_source["src-evobc"]["structured_status"], "present")
+        self.assertEqual(by_source["src-evobc"]["verified_status"], "pending_human_review")
+        self.assertEqual(by_source["src-nlc-oracle-world"]["manifest_status"], "review_needed")
+        self.assertEqual(by_source["src-sinica-da-xiaoxuetang-site"]["downloaded_status"], "missing")
+        self.assertEqual(by_source["src-obid-ancientbooks"]["linked_status"], "missing")
+        self.assertEqual(by_source["src-obid-ancientbooks"]["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertTrue(all(row["review_outcome_status"] == "not_recorded" for row in rows))
+        self.assertTrue(all("134_ai-agent-source-pipeline-evidence-ledger.csv" in row["phase_evidence_paths"] for row in rows))
+
     def test_core_corpus_readiness_matrix_preserves_current_review_backlog(self) -> None:
         self.assertEqual(check_core_corpus_readiness_matrix(repo_root()), [])
         path = (
@@ -14341,7 +14392,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 2, "targeted_review": 8})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12291)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12312)
         self.assertEqual(data["totals"]["graph_edge_count"], 208154)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -14362,12 +14413,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "133")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "134")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "104077")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "409")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "430")
         self.assertEqual(
             by_area["research_sources_and_bibliography"]["review_queue_path"],
-            "corpus/009_statistics-and-derived-features/135_core-corpus-phase-coverage-matrix.csv",
+            "corpus/009_statistics-and-derived-features/136_source-pipeline-phase-coverage-matrix.csv",
         )
         self.assertTrue(all(row["readiness_stage"] == "ready_for_human_review" for row in rows))
         self.assertTrue(all("Core corpus readiness only" in row["caution"] for row in rows))
@@ -14387,8 +14438,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_area["oracle_characters"]["candidate_or_staging_boundary"], "candidate_not_promoted")
         self.assertIn("005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv", by_area["oracle_characters"]["phase_evidence_paths"])
         self.assertEqual(by_area["research_sources_and_bibliography"]["downloaded_status"], "mixed_or_partial")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["source_pipeline_evidence_rows"], "21")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["source_pipeline_evidence_rows"], "42")
         self.assertIn("134_ai-agent-source-pipeline-evidence-ledger.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
+        self.assertIn("136_source-pipeline-phase-coverage-matrix.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertEqual(by_area["relationship_graph_and_statistics"]["linked_status"], "present")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["verified_status"], "present")
         self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))

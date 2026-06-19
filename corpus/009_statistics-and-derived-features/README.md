@@ -297,6 +297,8 @@ English supplement:
 
 English supplement:
 - `135_core-corpus-phase-coverage-matrix.csv` is a 10-row core-corpus phase matrix derived from 090, 096, and 134. It records discovered/downloaded/registered/unpacked/extracted/cleaned/structured/linked/verified/pending-review status signals and evidence paths for each core corpus area, while keeping all conclusions pending review.
+- `136_source-pipeline-phase-coverage-matrix.csv` is a 21-row per-source phase matrix derived from 134. It records each source's discovered/downloaded/registered/unpacked/extracted/cleaned/structured/linked/verified/pending-review status, missing or review-needed phases, and next review steps without changing source promotion or rights decisions.
 
 简体中文补充：
 - `135_core-corpus-phase-coverage-matrix.csv` 是基于 090、096 和 134 生成的 10 行核心语料阶段矩阵。它为每类核心语料记录已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态信号与证据路径，所有结论仍保持待复核。
+- `136_source-pipeline-phase-coverage-matrix.csv` 是基于 134 生成的 21 行逐来源阶段矩阵。它记录每个来源的已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态、缺失或待复核阶段以及下一步复核步骤，不改变来源提升或权利裁定。

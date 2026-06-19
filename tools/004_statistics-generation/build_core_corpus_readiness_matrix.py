@@ -161,6 +161,10 @@ CORE_CORPUS_PHASE_COVERAGE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "135_core-corpus-phase-coverage-matrix.csv"
 )
+SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = (
+    "corpus/009_statistics-and-derived-features/"
+    "136_source-pipeline-phase-coverage-matrix.csv"
+)
 UPDATED_AT = "2026-06-19"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
@@ -402,6 +406,7 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_gap_review_checklist_count = count_csv(root, SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST)
     source_pipeline_evidence_ledger_count = count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER)
     core_corpus_phase_coverage_count = count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX)
+    source_pipeline_phase_coverage_count = count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX)
 
     rows = [
         make_row(
@@ -557,7 +562,8 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_gap_matrix_count
             + source_pipeline_gap_review_checklist_count
             + source_pipeline_evidence_ledger_count
-            + core_corpus_phase_coverage_count,
+            + core_corpus_phase_coverage_count
+            + source_pipeline_phase_coverage_count,
             count_csv(root, "corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv")
             + source_engineering_gap_queue_count
             + source_engineering_execution_matrix_count
@@ -592,10 +598,11 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_gap_matrix_count
             + source_pipeline_gap_review_checklist_count
             + source_pipeline_evidence_ledger_count
-            + core_corpus_phase_coverage_count,
+            + core_corpus_phase_coverage_count
+            + source_pipeline_phase_coverage_count,
             "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-            CORE_CORPUS_PHASE_COVERAGE_MATRIX,
-            "open_core_corpus_phase_coverage_then_record_human_gated_preprocessing_outcomes",
+            SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
+            "open_source_pipeline_phase_coverage_then_record_human_gated_source_outcomes",
         ),
         make_row(
             "core-ready-009",

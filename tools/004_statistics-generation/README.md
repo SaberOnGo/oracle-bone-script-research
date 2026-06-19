@@ -63,6 +63,8 @@ English supplement:
 
 English supplement:
 - `build_core_corpus_phase_coverage_matrix.py` generates `135_core-corpus-phase-coverage-matrix.csv` from the 090 preprocessing audit, 096 readiness matrix, and 134 source evidence ledger. It maps each core corpus area to preprocessing phase statuses and next evidence paths without importing records or making scholarship claims.
+- `build_source_pipeline_phase_coverage_matrix.py` generates `136_source-pipeline-phase-coverage-matrix.csv` from the 134 source evidence ledger. It assigns every registered source phase statuses, missing/review-needed phases, and next review steps while preserving no-rights-decision, not-promoted, not-imported, and no-decipherment-claim boundaries.
 
 简体中文补充：
 - `build_core_corpus_phase_coverage_matrix.py` 基于 090 预处理审计、096 readiness 矩阵和 134 来源证据账本生成 `135_core-corpus-phase-coverage-matrix.csv`。它把每类核心语料映射到预处理阶段状态和下一步证据路径，不导入记录，也不提出学术结论。
+- `build_source_pipeline_phase_coverage_matrix.py` 基于 134 来源证据账本生成 `136_source-pipeline-phase-coverage-matrix.csv`。它为每个已登记来源标注阶段状态、缺失/待复核阶段和下一步复核步骤，同时保持不作权利裁定、不提升来源、不导入语料和不提出释读结论的边界。

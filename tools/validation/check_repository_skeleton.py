@@ -104,22 +104,8 @@ HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX = (
     "corpus/001_oracle-characters/000_character-registers/"
     "003_undeciphered-oracle-characters-index.csv"
 )
-CHARACTER_LOCAL_MATERIAL_TARGETS = {
-    "obs-char-000001": (
-        "corpus/001_oracle-characters/"
-        "001_000001-000100_obs-char-bucket_oracle-characters/"
-        "001_obs-char-000001_hust-obc-cat-0001_oracle-character"
-    ),
-    "obs-char-000002": (
-        "corpus/001_oracle-characters/"
-        "001_000001-000100_obs-char-bucket_oracle-characters/"
-        "002_obs-char-000002_hust-obc-cat-0002_oracle-character"
-    ),
-    "obs-char-000003": (
-        "corpus/001_oracle-characters/"
-        "001_000001-000100_obs-char-bucket_oracle-characters/"
-        "003_obs-char-000003_hust-obc-cat-0003_oracle-character"
-    ),
+CHARACTER_LOCAL_MATERIAL_OBS_CHAR_LIMIT = 23
+CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS = {
     "obs-unk-005708": (
         "corpus/001_oracle-characters/"
         "074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
@@ -2108,6 +2094,28 @@ def check_required_paths(root: Path) -> list[str]:
     return issues
 
 
+def project_id_from_character_object_dir(path: Path) -> str:
+    for part in path.name.split("_"):
+        if part.startswith("obs-char-") or part.startswith("obs-unk-"):
+            return part
+    return ""
+
+
+def character_local_material_targets(root: Path) -> dict[str, str]:
+    expected_ids = {
+        f"obs-char-{index:06d}" for index in range(1, CHARACTER_LOCAL_MATERIAL_OBS_CHAR_LIMIT + 1)
+    } | set(CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS)
+    targets: dict[str, str] = {}
+    object_root = root / "corpus/001_oracle-characters"
+    for packet_path in sorted(object_root.glob("*/*/01_*packet.json")):
+        project_id = project_id_from_character_object_dir(packet_path.parent)
+        if project_id in expected_ids:
+            targets[project_id] = packet_path.parent.relative_to(root).as_posix()
+    for project_id, relative_dir in CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS.items():
+        targets.setdefault(project_id, relative_dir)
+    return {project_id: targets.get(project_id, "") for project_id in sorted(expected_ids)}
+
+
 def check_character_directory_local_materials(root: Path) -> list[str]:
     issues: list[str] = []
     required_csv_fields = {
@@ -2124,7 +2132,10 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         "research_boundary",
         "caution",
     }
-    for project_id, relative_dir in CHARACTER_LOCAL_MATERIAL_TARGETS.items():
+    for project_id, relative_dir in character_local_material_targets(root).items():
+        if not relative_dir:
+            issues.append(f"missing character local-material target for {project_id}")
+            continue
         object_dir = root / relative_dir
         readme_path = object_dir / "README.md"
         visual_index_path = object_dir / "02_visual-source-index.csv"
@@ -2246,8 +2257,8 @@ def check_character_object_material_coverage_audit(root: Path) -> list[str]:
             )
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
     expected_status_counts = {
-        "missing_human_object_materials": 10991,
-        "object_local_bundle_no_image_yet": 3,
+        "missing_human_object_materials": 10971,
+        "object_local_bundle_no_image_yet": 23,
         "object_local_bundle_with_review_image": 2,
     }
     if dict(status_counts) != expected_status_counts:
@@ -2269,13 +2280,13 @@ def check_character_object_material_coverage_audit(root: Path) -> list[str]:
     expected_summary_values = {
         "object_directory_count": 10996,
         "project_id_type_counts": {"obs-char": 1588, "obs-unk": 9408},
-        "human_readme_count": 5,
-        "human_visual_gallery_count": 5,
+        "human_readme_count": 25,
+        "human_visual_gallery_count": 25,
         "ai_packet_count": 10996,
-        "ai_visual_source_index_count": 5,
+        "ai_visual_source_index_count": 25,
         "local_visual_asset_object_count": 2,
-        "complete_object_local_bundle_count": 5,
-        "missing_human_entry_count": 10991,
+        "complete_object_local_bundle_count": 25,
+        "missing_human_entry_count": 10971,
         "parallel_human_directory_count": 0,
     }
     for key, expected in expected_summary_values.items():

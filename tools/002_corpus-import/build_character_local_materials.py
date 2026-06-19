@@ -9,49 +9,12 @@ import json
 from pathlib import Path
 
 
-TARGETS = {
-    "obs-char-000001": {
-        "object_dir": (
-            "corpus/001_oracle-characters/"
-            "001_000001-000100_obs-char-bucket_oracle-characters/"
-            "001_obs-char-000001_hust-obc-cat-0001_oracle-character"
-        ),
-        "packet": "01_candidate-character-packet.json",
-    },
-    "obs-char-000002": {
-        "object_dir": (
-            "corpus/001_oracle-characters/"
-            "001_000001-000100_obs-char-bucket_oracle-characters/"
-            "002_obs-char-000002_hust-obc-cat-0002_oracle-character"
-        ),
-        "packet": "01_candidate-character-packet.json",
-    },
-    "obs-char-000003": {
-        "object_dir": (
-            "corpus/001_oracle-characters/"
-            "001_000001-000100_obs-char-bucket_oracle-characters/"
-            "003_obs-char-000003_hust-obc-cat-0003_oracle-character"
-        ),
-        "packet": "01_candidate-character-packet.json",
-    },
-    "obs-unk-005708": {
-        "object_dir": (
-            "corpus/001_oracle-characters/"
-            "074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
-            "008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate"
-        ),
-        "packet": "01_undeciphered-candidate-packet.json",
-    },
-    "obs-unk-006294": {
-        "object_dir": (
-            "corpus/001_oracle-characters/"
-            "079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
-            "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate"
-        ),
-        "packet": "01_undeciphered-candidate-packet.json",
-    },
-}
-TARGET_PROJECT_IDS = tuple(TARGETS)
+OBS_CHAR_LOCAL_MATERIAL_LIMIT = 23
+EXTRA_TARGET_PROJECT_IDS = ("obs-unk-005708", "obs-unk-006294")
+TARGET_PROJECT_IDS = tuple(
+    [f"obs-char-{index:06d}" for index in range(1, OBS_CHAR_LOCAL_MATERIAL_LIMIT + 1)]
+    + list(EXTRA_TARGET_PROJECT_IDS)
+)
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
     "068_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-results.csv"
@@ -82,6 +45,31 @@ VISUAL_INDEX_FIELDS = [
 
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def project_id_from_object_dir(path: Path) -> str:
+    for part in path.name.split("_"):
+        if part.startswith("obs-char-") or part.startswith("obs-unk-"):
+            return part
+    raise ValueError(f"Cannot find project ID in object directory name: {path}")
+
+
+def discover_target_dirs(root: Path) -> dict[str, dict[str, Path | str]]:
+    target_ids = set(TARGET_PROJECT_IDS)
+    object_root = root / "corpus/001_oracle-characters"
+    targets: dict[str, dict[str, Path | str]] = {}
+    for packet_path in sorted(object_root.glob("*/*/01_*packet.json")):
+        object_dir = packet_path.parent
+        project_id = project_id_from_object_dir(object_dir)
+        if project_id in target_ids:
+            targets[project_id] = {
+                "object_dir": object_dir,
+                "packet": packet_path.name,
+            }
+    missing_ids = sorted(target_ids - set(targets))
+    if missing_ids:
+        raise FileNotFoundError(f"Missing target character packet directories: {', '.join(missing_ids)}")
+    return {project_id: targets[project_id] for project_id in TARGET_PROJECT_IDS}
 
 
 def read_image_reference_rows(root: Path) -> dict[str, list[dict[str, str]]]:
@@ -341,8 +329,8 @@ Images shown here are source-marked preparation materials for human visual revie
 def build_outputs(root: Path) -> dict[str, dict]:
     image_rows = read_image_reference_rows(root)
     outputs: dict[str, dict] = {}
-    for project_id, target in TARGETS.items():
-        object_dir = root / target["object_dir"]
+    for project_id, target in discover_target_dirs(root).items():
+        object_dir = target["object_dir"]
         packet_name = target["packet"]
         packet = read_json(object_dir / packet_name)
         visual_index_path = object_dir / "02_visual-source-index.csv"

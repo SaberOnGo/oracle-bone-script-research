@@ -42,7 +42,7 @@ python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 ## Current Batch / 当前批次
 
 English:
-The current batch covers three HUST-OBC promoted candidate object directories and two HUST-OBC undeciphered candidate directories with extracted source-image path references. The two undeciphered candidate directories also have committed local review image derivatives and object-local visual galleries.
+The current batch covers the first twenty-three HUST-OBC promoted candidate object directories plus two HUST-OBC undeciphered candidate directories with extracted source-image path references. The two undeciphered candidate directories also have committed local review image derivatives and object-local visual galleries. Promoted candidate directories without extracted image references still receive co-located README, visual/source index, and visual-gallery files that mark the missing image work as preparation-stage follow-up.
 
 简体中文：
 当前批次覆盖 3 个 HUST-OBC 提升候选字对象目录，以及 2 个已有来源图像路径引用的 HUST-OBC 未释字候选目录。其中两个未释字候选目录还包含已提交的本地复核图像派生件和对象内图像页。

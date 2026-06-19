@@ -2260,6 +2260,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/"
             / "001_obs-char-000001_hust-obc-cat-0001_oracle-character",
             repo_root()
+            / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/"
+            / "023_obs-char-000023_hust-obc-cat-0028_oracle-character",
+            repo_root()
             / "corpus/001_oracle-characters/079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
             / "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate",
         ]
@@ -2272,11 +2275,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("不是已确认释读", readme_text)
             self.assertFalse((target_dir.parent / "human-readable").exists())
-        extracted_readme = (target_dirs[1] / "README.md").read_text(encoding="utf-8")
+        extracted_readme = (target_dirs[-1] / "README.md").read_text(encoding="utf-8")
         self.assertIn("03_visual-assets/001_asset-000005_hust-X-006294_glyph.png", extracted_readme)
         self.assertNotIn("Committed glyph image / 已提交字形图片: none in this directory yet", extracted_readme)
 
-        visual_index_path = target_dirs[1] / "02_visual-source-index.csv"
+        visual_index_path = target_dirs[-1] / "02_visual-source-index.csv"
         with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         self.assertEqual(len(rows), 61)
@@ -2373,18 +2376,19 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 10996)
         self.assertEqual(summary["object_directory_count"], 10996)
         self.assertEqual(summary["project_id_type_counts"], {"obs-char": 1588, "obs-unk": 9408})
-        self.assertEqual(summary["human_readme_count"], 5)
-        self.assertEqual(summary["human_visual_gallery_count"], 5)
+        self.assertEqual(summary["human_readme_count"], 25)
+        self.assertEqual(summary["human_visual_gallery_count"], 25)
         self.assertEqual(summary["ai_packet_count"], 10996)
-        self.assertEqual(summary["ai_visual_source_index_count"], 5)
+        self.assertEqual(summary["ai_visual_source_index_count"], 25)
         self.assertEqual(summary["local_visual_asset_object_count"], 2)
-        self.assertEqual(summary["complete_object_local_bundle_count"], 5)
-        self.assertEqual(summary["missing_human_entry_count"], 10991)
+        self.assertEqual(summary["complete_object_local_bundle_count"], 25)
+        self.assertEqual(summary["missing_human_entry_count"], 10971)
         self.assertIn("not a decipherment conclusion", summary["research_boundary"])
         by_project = {row["project_id"]: row for row in rows}
         self.assertEqual(by_project["obs-char-000001"]["material_bundle_status"], "object_local_bundle_no_image_yet")
         self.assertEqual(by_project["obs-unk-006294"]["material_bundle_status"], "object_local_bundle_with_review_image")
-        self.assertEqual(by_project["obs-char-000004"]["material_bundle_status"], "missing_human_object_materials")
+        self.assertEqual(by_project["obs-char-000023"]["material_bundle_status"], "object_local_bundle_no_image_yet")
+        self.assertEqual(by_project["obs-char-000024"]["material_bundle_status"], "missing_human_object_materials")
         self.assertEqual(by_project["obs-unk-006294"]["human_visual_gallery_path"].split("/")[-1], "04_visual-gallery.md")
         self.assertEqual(by_project["obs-unk-006294"]["local_visual_asset_count"], "1")
         self.assertTrue(all(row["parallel_human_directory_present"] == "false" for row in rows))
@@ -2395,9 +2399,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         rows = module.build_audit_rows(repo_root())
         summary = module.build_summary(rows)
         self.assertEqual(len(rows), 10996)
-        self.assertEqual(summary["complete_object_local_bundle_count"], 5)
+        self.assertEqual(summary["complete_object_local_bundle_count"], 25)
         self.assertEqual(summary["local_visual_asset_object_count"], 2)
-        self.assertEqual(summary["missing_human_entry_count"], 10991)
+        self.assertEqual(summary["missing_human_entry_count"], 10971)
         self.assertEqual(rows[0]["object_sequence"], "000001")
         self.assertIn("corpus/001_oracle-characters", rows[0]["object_dir"])
         self.assertNotIn("doc/public/user_research", rows[0]["human_readme_path"])

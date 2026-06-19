@@ -23,10 +23,10 @@
       "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
       "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
     ],
-    "node_count": 70934,
+    "node_count": 71034,
     "source_count": 4,
     "top_node_limit": 20,
-    "total_edge_count": 106244
+    "total_edge_count": 106344
   },
   "generated_from": [
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv",
@@ -135,7 +135,7 @@
       "source_id": "src-evobc"
     },
     {
-      "edge_count": 5401,
+      "edge_count": 5501,
       "edge_types": [
         {
           "edge_count": 127,
@@ -150,10 +150,10 @@
           "unique_target_node_count": 1588
         },
         {
-          "edge_count": 102,
+          "edge_count": 202,
           "edge_type": "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE",
-          "unique_source_node_count": 102,
-          "unique_target_node_count": 102
+          "unique_source_node_count": 202,
+          "unique_target_node_count": 202
         },
         {
           "edge_count": 22,

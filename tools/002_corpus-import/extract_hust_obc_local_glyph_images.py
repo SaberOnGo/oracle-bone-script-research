@@ -61,7 +61,7 @@ UNDECIPHERED_TARGETS = {
         "asset_filename": "001_asset-000005_hust-X-006294_glyph.png",
     },
 }
-OBS_CHAR_IMAGE_LIMIT = 100
+OBS_CHAR_IMAGE_LIMIT = 200
 OBS_CHAR_ASSET_ID_START = 6
 
 
@@ -129,8 +129,10 @@ def project_id_from_object_dir(path: Path) -> str:
 
 def discover_obs_char_targets(root: Path) -> dict[str, dict[str, Path | str]]:
     targets: dict[str, dict[str, Path | str]] = {}
-    object_root = root / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters"
-    for packet_path in sorted(object_root.glob("*/01_candidate-character-packet.json")):
+    object_root = root / "corpus/001_oracle-characters"
+    for packet_path in sorted(
+        object_root.glob("*_obs-char-bucket_oracle-characters/*/01_candidate-character-packet.json")
+    ):
         object_dir = packet_path.parent
         project_id = project_id_from_object_dir(object_dir)
         number = int(project_id.rsplit("-", 1)[1])

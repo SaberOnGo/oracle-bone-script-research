@@ -830,6 +830,10 @@ SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "141_source-pipeline-phase-action-file-checklist.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX = (
+    "corpus/009_statistics-and-derived-features/"
+    "142_source-pipeline-phase-action-evidence-presence-matrix.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1496,6 +1500,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY,
     SOURCE_PIPELINE_PHASE_ACTION_SOURCE_SUMMARY,
     SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST,
+    SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1653,6 +1658,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_phase_action_route_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_source_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_file_checklist.py",
+    "tools/004_statistics-generation/build_source_pipeline_phase_action_evidence_presence_matrix.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -2979,6 +2985,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_route_summary_files:1",
             "source_pipeline_phase_action_source_summary_rows:21",
             "source_pipeline_phase_action_file_checklist_rows:210",
+            "source_pipeline_phase_action_evidence_presence_rows:210",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3787,16 +3794,16 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     expected_stage_counts = {"ready_for_human_review": 10}
     if summary.get("readiness_stage_counts") != expected_stage_counts:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} readiness stage counts changed")
-    expected_priority_counts = {"high_batch_review": 2, "targeted_review": 8}
+    expected_priority_counts = {"high_batch_review": 3, "targeted_review": 7}
     if summary.get("review_priority_counts") != expected_priority_counts:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 12698,
-        "review_queue_count": 12698,
-        "staging_record_count": 75152,
+        "manual_review_backlog_count": 12908,
+        "review_queue_count": 12908,
+        "staging_record_count": 75153,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3835,14 +3842,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "139",
+            "staging_record_count": "140",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "816",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST,
+            "review_queue_count": "1026",
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -5853,8 +5860,8 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "428",
-            "review_queue_count": "816",
+            "source_pipeline_evidence_rows": "638",
+            "review_queue_count": "1026",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
         "relationship_graph_and_statistics": {
@@ -6410,6 +6417,100 @@ def check_source_pipeline_phase_action_file_checklist(root: Path) -> list[str]:
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST} missing file_to_open: {file_to_open}")
             if "only expands route files" not in row.get("caution", ""):
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST} caution changed: {source_id}")
+    return issues
+
+
+def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX
+    if not path.exists():
+        return [f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX}"]
+    rows, csv_issues = _read_csv_rows(path)
+    issues.extend(csv_issues)
+
+    if len(rows) != 210:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} should contain exactly 210 rows")
+    present_count = sum(1 for row in rows if row.get("match_status") == "present")
+    missing_count = sum(1 for row in rows if row.get("match_status") == "missing_for_source")
+    if present_count != 163 or missing_count != 47:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} match status counts changed")
+
+    by_key = {(row.get("source_id", ""), row.get("file_role", "")): row for row in rows}
+    expected_fragments = {
+        ("src-british-museum-oracle-bone", "source_register"): {
+            "matched_row_count": "1",
+            "match_status": "present",
+            "join_strategy": "source_id",
+        },
+        ("src-british-museum-oracle-bone", "source_field_map"): {
+            "matched_row_count": "0",
+            "match_status": "missing_for_source",
+            "matched_ids": "",
+        },
+        ("src-hust-obc", "source_download_log"): {
+            "matched_row_count": "8",
+            "match_status": "present",
+            "join_strategy": "source_id",
+        },
+        ("src-hust-obc", "large_source_register"): {
+            "matched_row_count": "1",
+            "match_status": "present",
+            "join_strategy": "source_package_id_via_package_manifest",
+            "matched_ids": "large-src-000001",
+        },
+        ("src-obimd", "source_package_file_manifest"): {
+            "matched_row_count": "7",
+            "match_status": "present",
+        },
+        ("src-evobc", "downloaded_metadata_profile"): {
+            "matched_row_count": "7",
+            "match_status": "present",
+        },
+        ("src-yinqi-wenyuan", "large_source_register"): {
+            "matched_row_count": "0",
+            "match_status": "missing_for_source",
+            "join_strategy": "source_package_id_via_package_manifest",
+            "matched_ids": "",
+        },
+    }
+    for key, expected_values in expected_fragments.items():
+        row = by_key.get(key, {})
+        if not row:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} missing key: {key}")
+            continue
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} {key} {field} changed")
+
+    role_status_counts: dict[str, Counter[str]] = {}
+    for row in rows:
+        role_status_counts.setdefault(row.get("file_role", ""), Counter())
+        role_status_counts[row.get("file_role", "")][row.get("match_status", "")] += 1
+    expected_role_counts = {
+        "source_download_log": {"present": 21},
+        "source_field_map": {"missing_for_source": 5, "present": 16},
+        "large_source_register": {"missing_for_source": 18, "present": 3},
+    }
+    for role, expected_counts in expected_role_counts.items():
+        if dict(role_status_counts.get(role, {})) != expected_counts:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} {role} counts changed")
+
+    for row in rows:
+        row_id = row.get("evidence_presence_row_id", "")
+        for field, expected_value in {
+            "file_checklist_path": SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST,
+            "review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "research_boundary": "source_pipeline_phase_action_evidence_presence_matrix_not_scholarship",
+            "updated_at": "2026-06-19",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} {row_id} {field} changed")
+        if "existing review files contain source-matched rows" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} caution changed: {row_id}")
     return issues
 
 
@@ -16942,6 +17043,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_route_summary(root))
     issues.extend(check_source_pipeline_phase_action_source_summary(root))
     issues.extend(check_source_pipeline_phase_action_file_checklist(root))
+    issues.extend(check_source_pipeline_phase_action_evidence_presence_matrix(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

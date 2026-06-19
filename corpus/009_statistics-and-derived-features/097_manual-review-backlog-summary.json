@@ -7,16 +7,16 @@
     "ready_for_human_review": 10
   },
   "review_priority_counts": {
-    "high_batch_review": 2,
-    "targeted_review": 8
+    "high_batch_review": 3,
+    "targeted_review": 7
   },
   "totals": {
     "candidate_record_count": 11130,
     "formal_record_count": 67675,
     "graph_edge_count": 208154,
-    "manual_review_backlog_count": 12698,
-    "review_queue_count": 12698,
-    "staging_record_count": 75152
+    "manual_review_backlog_count": 12908,
+    "review_queue_count": 12908,
+    "staging_record_count": 75153
   },
   "completion_boundary": "This summary is a preprocessing readiness and manual-review backlog index. It does not start formal decipherment research or confirm candidate scholarship.",
   "totals_note": "Totals are row-sums across readiness areas and may include shared derivatives exposed through both corpus-specific rows and the graph/statistics row.",
@@ -171,13 +171,13 @@
       "staging_record_count": "197",
       "candidate_record_count": "0",
       "graph_edge_count": "0",
-      "review_queue_count": "816",
-      "manual_review_backlog_count": "816",
+      "review_queue_count": "1026",
+      "manual_review_backlog_count": "1026",
       "readiness_stage": "ready_for_human_review",
-      "review_priority": "targeted_review",
+      "review_priority": "high_batch_review",
       "primary_entry_path": "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-      "review_queue_path": "corpus/009_statistics-and-derived-features/141_source-pipeline-phase-action-file-checklist.csv",
-      "next_action": "open_source_pipeline_phase_action_file_checklist_then_record_human_gated_source_outcomes",
+      "review_queue_path": "corpus/009_statistics-and-derived-features/142_source-pipeline-phase-action-evidence-presence-matrix.csv",
+      "next_action": "open_source_pipeline_phase_action_evidence_presence_matrix_then_record_human_gated_source_outcomes",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
       "updated_at": "2026-06-19"
@@ -188,7 +188,7 @@
       "label_en": "Relationship graph and derived statistics",
       "label_zh": "关系图与派生统计",
       "formal_record_count": "67646",
-      "staging_record_count": "139",
+      "staging_record_count": "140",
       "candidate_record_count": "0",
       "graph_edge_count": "104077",
       "review_queue_count": "3",

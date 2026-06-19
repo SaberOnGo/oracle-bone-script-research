@@ -75,6 +75,7 @@ English supplement:
 - `build_source_pipeline_phase_action_route_summary.py` generates `139_source-pipeline-phase-action-route-summary.json` from the 138 result scaffold. It groups all 77 source-phase review routes by source, phase, and lane for navigation only, without recording reviewed outcomes.
 - `build_source_pipeline_phase_action_source_summary.py` generates `140_source-pipeline-phase-action-source-summary.csv` from the 139 route summary. It compresses the 77 routes into 21 source-level review entry rows while keeping outcomes, rights decisions, promotion, imports, and decipherment claims empty.
 - `build_source_pipeline_phase_action_file_checklist.py` generates `141_source-pipeline-phase-action-file-checklist.csv` from the 140 source summary. It expands each source-level entry into the 10 source register, manifest, field-map, download-log, and audit files that must be opened for review, without deciding any reviewed outcome.
+- `build_source_pipeline_phase_action_evidence_presence_matrix.py` generates `142_source-pipeline-phase-action-evidence-presence-matrix.csv` from the 141 file checklist. It checks whether each review file currently contains source-matched rows, including large-source register matches through package-manifest package IDs, without collecting new evidence or deciding review outcomes.
 
 简体中文补充：
 - `build_source_pipeline_phase_action_queue.py` 基于 136 来源阶段矩阵生成 `137_source-pipeline-phase-action-queue.csv`。它把缺失或待复核的来源阶段展开为 77 行人工复核动作；不采集新证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
@@ -82,3 +83,4 @@ English supplement:
 - `build_source_pipeline_phase_action_route_summary.py` 基于 138 结果脚手架生成 `139_source-pipeline-phase-action-route-summary.json`。它按来源、阶段和 lane 汇总 77 条来源阶段复核路线，仅作导航，不记录已复核 outcome。
 - `build_source_pipeline_phase_action_source_summary.py` 基于 139 路线汇总生成 `140_source-pipeline-phase-action-source-summary.csv`。它把 77 条路线压缩成 21 行来源级复核入口，同时保持 outcome、权利裁定、来源提升、语料导入和释读结论为空。
 - `build_source_pipeline_phase_action_file_checklist.py` 基于 140 来源汇总生成 `141_source-pipeline-phase-action-file-checklist.csv`。它把每个来源级入口展开为复核时需要打开的 10 个 source register、manifest、field-map、download-log 和 audit 文件；不裁定任何已复核 outcome。
+- `build_source_pipeline_phase_action_evidence_presence_matrix.py` 基于 141 文件清单生成 `142_source-pipeline-phase-action-evidence-presence-matrix.csv`。它检查每个复核文件当前是否含有与来源匹配的行，其中 large-source register 通过 package manifest 的 package ID 间接匹配；不采集新证据，也不裁定复核 outcome。

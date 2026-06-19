@@ -1,0 +1,258 @@
+{
+  "candidate_component_id": "obs-comp-cand-000060",
+  "record_type": "graphemic_component_candidate",
+  "candidate_subcharacter_id": "obimd-sub-cand-000060",
+  "preferred_directory_name": "060_obs-comp-cand-000060_obimd-sub-o63zqxohsa_component-candidate",
+  "source_id": "src-obimd",
+  "primary_external_ref_id": "obimd-sub-o63zqxohsa",
+  "source_subcharacter_uid": "o63zqxohsa",
+  "source_main_character_uid": "o63zqxohsa",
+  "main_character_external_ref_id": "obimd-main-o63zqxohsa",
+  "source_relationship": {
+    "relationship_type": "subcharacter_belongs_to_main_character",
+    "evidence_download_id": "dl-obimd-subchar-main-mapping",
+    "source_metadata_file": "Sub-character to Main-character Mapping.xlsx",
+    "status": "dataset_candidate_not_promoted"
+  },
+  "glyph_codepoint_links": [
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001036",
+      "glyph_codepoint": "山󰗷",
+      "glyph_codepoint_uplus": "U+5C71;U+F05F7",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001037",
+      "glyph_codepoint": "󰗸",
+      "glyph_codepoint_uplus": "U+F05F8",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001038",
+      "glyph_codepoint": "󰗹",
+      "glyph_codepoint_uplus": "U+F05F9",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001039",
+      "glyph_codepoint": "󰗺",
+      "glyph_codepoint_uplus": "U+F05FA",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001040",
+      "glyph_codepoint": "󰗻",
+      "glyph_codepoint_uplus": "U+F05FB",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001041",
+      "glyph_codepoint": "󰗼",
+      "glyph_codepoint_uplus": "U+F05FC",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001042",
+      "glyph_codepoint": "󰗽",
+      "glyph_codepoint_uplus": "U+F05FD",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001043",
+      "glyph_codepoint": "󰗾",
+      "glyph_codepoint_uplus": "U+F05FE",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001044",
+      "glyph_codepoint": "󰗿",
+      "glyph_codepoint_uplus": "U+F05FF",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001045",
+      "glyph_codepoint": "󰘀",
+      "glyph_codepoint_uplus": "U+F0600",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001046",
+      "glyph_codepoint": "󰘁",
+      "glyph_codepoint_uplus": "U+F0601",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001047",
+      "glyph_codepoint": "󰘂",
+      "glyph_codepoint_uplus": "U+F0602",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001048",
+      "glyph_codepoint": "󰘃",
+      "glyph_codepoint_uplus": "U+F0603",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001049",
+      "glyph_codepoint": "󰘄",
+      "glyph_codepoint_uplus": "U+F0604",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001050",
+      "glyph_codepoint": "󰘅",
+      "glyph_codepoint_uplus": "U+F0605",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001051",
+      "glyph_codepoint": "󰘆",
+      "glyph_codepoint_uplus": "U+F0606",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001052",
+      "glyph_codepoint": "󰘇",
+      "glyph_codepoint_uplus": "U+F0607",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001053",
+      "glyph_codepoint": "󰘈",
+      "glyph_codepoint_uplus": "U+F0608",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001054",
+      "glyph_codepoint": "󰘉",
+      "glyph_codepoint_uplus": "U+F0609",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001055",
+      "glyph_codepoint": "󰘊",
+      "glyph_codepoint_uplus": "U+F060A",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001056",
+      "glyph_codepoint": "󰘋",
+      "glyph_codepoint_uplus": "U+F060B",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001057",
+      "glyph_codepoint": "󰘌",
+      "glyph_codepoint_uplus": "U+F060C",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001058",
+      "glyph_codepoint": "󰘍",
+      "glyph_codepoint_uplus": "U+F060D",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001059",
+      "glyph_codepoint": "󰘎",
+      "glyph_codepoint_uplus": "U+F060E",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001060",
+      "glyph_codepoint": "󰘏",
+      "glyph_codepoint_uplus": "U+F060F",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001061",
+      "glyph_codepoint": "󰘐",
+      "glyph_codepoint_uplus": "U+F0610",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001062",
+      "glyph_codepoint": "󰘑",
+      "glyph_codepoint_uplus": "U+F0611",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001063",
+      "glyph_codepoint": "󰘒",
+      "glyph_codepoint_uplus": "U+F0612",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001064",
+      "glyph_codepoint": "󰘓",
+      "glyph_codepoint_uplus": "U+F0613",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001065",
+      "glyph_codepoint": "󰘔",
+      "glyph_codepoint_uplus": "U+F0614",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001066",
+      "glyph_codepoint": "󰘕",
+      "glyph_codepoint_uplus": "U+F0615",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    },
+    {
+      "candidate_glyph_link_id": "obimd-glyph-link-001067",
+      "glyph_codepoint": "󰘖",
+      "glyph_codepoint_uplus": "U+F0616",
+      "relationship_type": "subcharacter_has_glyph_codepoint",
+      "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
+    }
+  ],
+  "route_files": [
+    "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
+    "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
+    "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv",
+    "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/060_obs-comp-cand-000060_obimd-sub-o63zqxohsa_component-candidate/02_component-source-index.csv",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/060_obs-comp-cand-000060_obimd-sub-o63zqxohsa_component-candidate/03_glyph-codepoint-index.csv",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/060_obs-comp-cand-000060_obimd-sub-o63zqxohsa_component-candidate/04_glyph-codepoint-gallery.md"
+  ],
+  "rights_status": "licensed_for_repository",
+  "object_status": "dataset_candidate_not_promoted",
+  "review_status": "needs_human_component_review",
+  "research_boundary": "dataset_component_candidate_only_not_formal_component_record_not_component_assignment",
+  "caution": "OBIMD subcharacter metadata is useful for routing component review, but this object is not a confirmed graphemic component, not a component breakdown, and not a decipherment or oracle-character identity claim.",
+  "updated_at": "2026-06-20"
+}

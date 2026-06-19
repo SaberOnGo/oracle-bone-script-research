@@ -1,0 +1,34 @@
+# Glyph Codepoint Gallery / 字形码位查看: obs-comp-cand-000474
+
+English:
+This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.
+
+简体中文：
+本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。
+
+Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.
+
+| Link ID | Glyph text | U+ codepoints | Review status |
+| --- | --- | --- | --- |
+| `obimd-glyph-link-007072` | 陰𱁇󲲧 | `U+9670;U+31047;U+F2CA7` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007073` | 󲲨 | `U+F2CA8` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007074` | 󲲩 | `U+F2CA9` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007075` | 󲲪 | `U+F2CAA` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007076` | 󲲫 | `U+F2CAB` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007077` | 󲲬 | `U+F2CAC` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007078` | 󲲭 | `U+F2CAD` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007079` | 󲲮 | `U+F2CAE` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007080` | 󲲯 | `U+F2CAF` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007081` | 󲲰 | `U+F2CB0` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007082` | 󲲱 | `U+F2CB1` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007083` | 󲲲 | `U+F2CB2` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007084` | 󲲳 | `U+F2CB3` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007085` | 󲲴 | `U+F2CB4` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007086` | 󲲵 | `U+F2CB5` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007087` | 󲲶 | `U+F2CB6` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007088` | 󲲷 | `U+F2CB7` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007089` | 󲲸 | `U+F2CB8` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007090` | 󲲹 | `U+F2CB9` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007091` | 󲲺 | `U+F2CBA` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007092` | 󲲻 | `U+F2CBB` | `reviewed_metadata_only` |
+| `obimd-glyph-link-007093` | 󲲼 | `U+F2CBC` | `reviewed_metadata_only` |

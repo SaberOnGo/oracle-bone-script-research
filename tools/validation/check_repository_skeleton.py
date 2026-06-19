@@ -2223,6 +2223,83 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
     return issues
 
 
+def check_component_candidate_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    component_map_path = root / "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv"
+    with component_map_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    if len(rows) != 2747:
+        issues.append(f"{component_map_path.relative_to(root).as_posix()} should contain 2747 component candidate rows")
+    if rows and rows[0].get("project_id") != "obs-comp-cand-000001":
+        issues.append(f"{component_map_path.relative_to(root).as_posix()} first project_id changed")
+    if rows and rows[-1].get("project_id") != "obs-comp-cand-002747":
+        issues.append(f"{component_map_path.relative_to(root).as_posix()} last project_id changed")
+    required_files = [
+        "README.md",
+        "01_candidate-component-packet.json",
+        "02_component-source-index.csv",
+        "03_glyph-codepoint-index.csv",
+        "04_glyph-codepoint-gallery.md",
+    ]
+    for index, row in enumerate(rows, start=1):
+        project_id = row.get("project_id", "")
+        if project_id != f"obs-comp-cand-{index:06d}":
+            issues.append(f"{component_map_path.relative_to(root).as_posix()} project_id sequence changed: {project_id}")
+        if row.get("record_type") != "graphemic_component_candidate":
+            issues.append(f"{component_map_path.relative_to(root).as_posix()} record_type changed: {project_id}")
+        if row.get("review_status") != "needs_human_component_review":
+            issues.append(f"{component_map_path.relative_to(root).as_posix()} review_status changed: {project_id}")
+        object_dir = root / row.get("canonical_path", "")
+        if not path_exists(object_dir):
+            issues.append(f"{component_map_path.relative_to(root).as_posix()} missing object directory: {project_id}")
+            continue
+        for filename in required_files:
+            if not path_exists(object_dir / filename):
+                issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        readme_path = object_dir / "README.md"
+        if path_exists(readme_path):
+            text = readme_path.read_text(encoding="utf-8")
+            for snippet in [
+                "object-local research entrance",
+                "AI-readable indexes",
+                "not a confirmed graphemic component",
+                "not a decipherment conclusion",
+                "03_glyph-codepoint-index.csv",
+                "04_glyph-codepoint-gallery.md",
+            ]:
+                if snippet not in text:
+                    issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        packet_path = object_dir / "01_candidate-component-packet.json"
+        if path_exists(packet_path):
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            if packet.get("candidate_component_id") != project_id:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} candidate_component_id mismatch")
+            if packet.get("record_type") != "graphemic_component_candidate":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} record_type changed")
+            if packet.get("review_status") != "needs_human_component_review":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} review_status changed")
+            if "not a confirmed graphemic component" not in packet.get("caution", ""):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
+        glyph_index_path = object_dir / "03_glyph-codepoint-index.csv"
+        if path_exists(glyph_index_path):
+            with glyph_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                glyph_rows = list(csv.DictReader(file))
+            if not glyph_rows:
+                issues.append(f"{glyph_index_path.relative_to(root).as_posix()} should contain glyph rows")
+            for glyph_row in glyph_rows:
+                if glyph_row.get("candidate_component_id") != project_id:
+                    issues.append(f"{glyph_index_path.relative_to(root).as_posix()} candidate_component_id mismatch")
+                if glyph_row.get("review_status") != "reviewed_metadata_only":
+                    issues.append(f"{glyph_index_path.relative_to(root).as_posix()} review_status changed")
+        gallery_path = object_dir / "04_glyph-codepoint-gallery.md"
+        if path_exists(gallery_path):
+            gallery_text = gallery_path.read_text(encoding="utf-8")
+            for snippet in ["Glyph Codepoint Gallery", "dataset candidate only", "not a confirmed component image"]:
+                if snippet not in gallery_text:
+                    issues.append(f"{gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+    return issues
+
+
 def check_character_object_material_coverage_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_path = root / CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT
@@ -2904,15 +2981,15 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
         issues.append(f"{OBIMD_COMPONENT_GRAPH_EDGES} edge type counts changed")
 
     subcandidate_by_uid = {
-        row.get("source_subcharacter_uid", ""): row.get("candidate_subcharacter_id", "")
-        for row in obimd_subchar_main_rows
+        row.get("source_subcharacter_uid", ""): f"obs-comp-cand-{index:06d}"
+        for index, row in enumerate(obimd_subchar_main_rows, start=1)
     }
     expected_obimd_sub_main_edges: list[dict[str, object]] = []
     for index, row in enumerate(obimd_subchar_main_rows, start=1):
         expected_obimd_sub_main_edges.append(
             {
                 "edge_id": f"edge-obimd-sub-main-{index:06d}",
-                "source_node_id": row.get("candidate_subcharacter_id", ""),
+                "source_node_id": f"obs-comp-cand-{index:06d}",
                 "edge_type": "OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER",
                 "target_node_id": row.get("main_character_external_ref_id", ""),
             }
@@ -3695,7 +3772,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
             "formal_inscription_map_rows:0",
-            "formal_component_map_rows:0",
+            "formal_component_map_rows:2747",
             "formal_asset_map_rows:1593",
         ],
     }
@@ -4513,7 +4590,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
         "candidate_record_count": 11130,
-        "formal_record_count": 72475,
+        "formal_record_count": 66354,
         "graph_edge_count": 211481,
         "manual_review_backlog_count": 13391,
         "review_queue_count": 13135,
@@ -23397,6 +23474,7 @@ def main() -> int:
     issues = []
     issues.extend(check_required_paths(root))
     issues.extend(check_character_directory_local_materials(root))
+    issues.extend(check_component_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))

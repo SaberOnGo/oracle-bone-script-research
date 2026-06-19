@@ -22,6 +22,9 @@ DEFAULT_SUBCHARACTER_GLYPH_STAGING = Path(
     "003_obimd-subcharacter-glyph-staging.csv"
 )
 DEFAULT_OUTPUT = Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl")
+DEFAULT_COMPONENT_ID_MAP = Path(
+    "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv"
+)
 
 
 def repo_root() -> Path:
@@ -38,14 +41,31 @@ def glyph_codepoint_node_id(codepoints: str) -> str:
     return f"obimd-glyph-codepoint-{compact}"
 
 
+def read_component_candidate_map(rows: list[dict[str, str]]) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for row in rows:
+        if row.get("record_type") != "graphemic_component_candidate":
+            continue
+        external_refs = row.get("all_external_ref_ids", "").split(";")
+        for external_ref in external_refs:
+            if external_ref.startswith("obimd-sub-"):
+                mapping[external_ref] = row["project_id"]
+    return mapping
+
+
 def build_edges(
     main_rows: list[dict[str, str]],
     subcharacter_main_rows: list[dict[str, str]],
     subcharacter_glyph_rows: list[dict[str, str]],
+    component_candidate_map: dict[str, str] | None = None,
 ) -> list[dict[str, object]]:
     _ = main_rows
+    component_candidate_map = component_candidate_map or {}
     subcandidate_by_uid = {
-        row["source_subcharacter_uid"]: row["candidate_subcharacter_id"]
+        row["source_subcharacter_uid"]: component_candidate_map.get(
+            row.get("subcharacter_external_ref_id", ""),
+            row["candidate_subcharacter_id"],
+        )
         for row in subcharacter_main_rows
     }
     edges: list[dict[str, object]] = []
@@ -67,6 +87,7 @@ def build_edges(
                 "source_ids": ["src-obimd"],
                 "evidence_note": (
                     "Dataset metadata edge from OBIMD Sub-character to Main-character Mapping.xlsx; "
+                    "source node uses the project-local component candidate ID when available; "
                     "not a formal component analysis or oracle-character identity claim."
                 ),
                 "review_status": "reviewed",
@@ -109,6 +130,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--main-staging", default=str(DEFAULT_MAIN_STAGING))
     parser.add_argument("--subcharacter-main-staging", default=str(DEFAULT_SUBCHARACTER_MAIN_STAGING))
     parser.add_argument("--subcharacter-glyph-staging", default=str(DEFAULT_SUBCHARACTER_GLYPH_STAGING))
+    parser.add_argument("--component-id-map", default=str(DEFAULT_COMPONENT_ID_MAP))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     args = parser.parse_args(argv)
 
@@ -116,7 +138,13 @@ def main(argv: list[str] | None = None) -> int:
     main_rows = read_csv_rows(root / args.main_staging)
     subcharacter_main_rows = read_csv_rows(root / args.subcharacter_main_staging)
     subcharacter_glyph_rows = read_csv_rows(root / args.subcharacter_glyph_staging)
-    edges = build_edges(main_rows, subcharacter_main_rows, subcharacter_glyph_rows)
+    component_map_rows = read_csv_rows(root / args.component_id_map)
+    edges = build_edges(
+        main_rows,
+        subcharacter_main_rows,
+        subcharacter_glyph_rows,
+        read_component_candidate_map(component_map_rows),
+    )
     write_jsonl(root / args.output, edges)
 
     print(f"wrote={len(edges)} output={(root / args.output).relative_to(root)}")

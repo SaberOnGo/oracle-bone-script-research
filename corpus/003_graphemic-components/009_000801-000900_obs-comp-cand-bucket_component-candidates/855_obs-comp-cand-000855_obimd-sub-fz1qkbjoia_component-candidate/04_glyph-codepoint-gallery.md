@@ -1,0 +1,42 @@
+# Glyph Codepoint Gallery / 字形码位查看: obs-comp-cand-000855
+
+English:
+This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.
+
+简体中文：
+本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。
+
+Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.
+
+| Link ID | Glyph text | U+ codepoints | Review status |
+| --- | --- | --- | --- |
+| `obimd-glyph-link-012281` | 󴴭 | `U+F4D2D` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012282` | 󴴮 | `U+F4D2E` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012283` | 󴴯 | `U+F4D2F` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012284` | 󴴰 | `U+F4D30` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012285` | 󴴱 | `U+F4D31` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012286` | 󴴲 | `U+F4D32` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012287` | 󴴳 | `U+F4D33` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012288` | 󴴴 | `U+F4D34` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012289` | 󴴵 | `U+F4D35` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012290` | 󴴶 | `U+F4D36` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012291` | 󴴷 | `U+F4D37` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012292` | 󴴸 | `U+F4D38` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012293` | 󴴹 | `U+F4D39` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012294` | 󴴺 | `U+F4D3A` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012295` | 󴴻 | `U+F4D3B` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012296` | 󴴼 | `U+F4D3C` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012297` | 󴴽 | `U+F4D3D` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012298` | 󴴾 | `U+F4D3E` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012299` | 󴴿 | `U+F4D3F` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012300` | 󴵀 | `U+F4D40` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012301` | 󴵁 | `U+F4D41` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012302` | 󴵂 | `U+F4D42` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012303` | 󴵃 | `U+F4D43` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012304` | 󴵄 | `U+F4D44` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012305` | 󴵅 | `U+F4D45` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012306` | 󴵆 | `U+F4D46` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012307` | 󴵇 | `U+F4D47` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012308` | 󴵈 | `U+F4D48` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012309` | 󴵉 | `U+F4D49` | `reviewed_metadata_only` |
+| `obimd-glyph-link-012310` | 󴵊 | `U+F4D4A` | `reviewed_metadata_only` |

@@ -21,6 +21,7 @@ from tools.validation.check_repository_skeleton import (
     check_root_gitignore_patterns,
     check_hust_obc_undeciphered_candidates,
     check_character_directory_local_materials,
+    check_component_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
@@ -2290,6 +2291,31 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(committed_rows), 1)
         self.assertEqual(committed_rows[0]["visual_material_status"], "committed_review_image_derivative")
         self.assertTrue(all(row["review_status"] == "needs_human_visual_review" for row in rows))
+
+    def test_component_candidate_local_materials_are_colocated(self) -> None:
+        self.assertEqual(check_component_candidate_local_materials(repo_root()), [])
+
+        map_path = (
+            repo_root()
+            / "project_registry/002_project-id-to-source-reference-map/"
+            / "004_component-id-source-map.csv"
+        )
+        with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 2747)
+        self.assertEqual(rows[0]["project_id"], "obs-comp-cand-000001")
+        self.assertEqual(rows[-1]["project_id"], "obs-comp-cand-002747")
+        for row in [rows[0], rows[-1]]:
+            object_dir = repo_root() / row["canonical_path"]
+            self.assertTrue((object_dir / "README.md").exists())
+            self.assertTrue((object_dir / "01_candidate-component-packet.json").exists())
+            self.assertTrue((object_dir / "02_component-source-index.csv").exists())
+            self.assertTrue((object_dir / "03_glyph-codepoint-index.csv").exists())
+            self.assertTrue((object_dir / "04_glyph-codepoint-gallery.md").exists())
+            readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+            self.assertIn("object-local research entrance", readme_text)
+            self.assertIn("not a confirmed graphemic component", readme_text)
+            self.assertFalse((object_dir.parent / "human-readable").exists())
 
     def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_character_local_materials_module()
@@ -11550,16 +11576,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ),
         )
         self.assertEqual(rows[0]["edge_id"], "edge-obimd-sub-main-000001")
-        self.assertEqual(rows[0]["source_node_id"], "obimd-sub-cand-000001")
+        self.assertEqual(rows[0]["source_node_id"], "obs-comp-cand-000001")
         self.assertEqual(rows[0]["target_node_id"], "obimd-main-p8w7ujqanz")
         self.assertEqual(rows[2746]["edge_id"], "edge-obimd-sub-main-002747")
-        self.assertEqual(rows[2746]["source_node_id"], "obimd-sub-cand-002747")
+        self.assertEqual(rows[2746]["source_node_id"], "obs-comp-cand-002747")
         self.assertEqual(rows[2746]["target_node_id"], "obimd-main-bt5y2iq3kp")
         self.assertEqual(rows[2747]["edge_id"], "edge-obimd-sub-glyph-000001")
-        self.assertEqual(rows[2747]["source_node_id"], "obimd-sub-cand-000001")
+        self.assertEqual(rows[2747]["source_node_id"], "obs-comp-cand-000001")
         self.assertEqual(rows[2747]["target_node_id"], "obimd-glyph-codepoint-u65e5-uf0000")
         self.assertEqual(rows[-1]["edge_id"], "edge-obimd-sub-glyph-041686")
-        self.assertEqual(rows[-1]["source_node_id"], "obimd-sub-cand-002747")
+        self.assertEqual(rows[-1]["source_node_id"], "obs-comp-cand-002747")
         self.assertEqual(rows[-1]["target_node_id"], "obimd-glyph-codepoint-uff9e1")
         self.assertEqual({tuple(row["source_ids"]) for row in rows}, {("src-obimd",)})
         self.assertEqual({row["confidence_level"] for row in rows}, {"high"})

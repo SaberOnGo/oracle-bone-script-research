@@ -12,7 +12,7 @@
   },
   "totals": {
     "candidate_record_count": 11130,
-    "formal_record_count": 72475,
+    "formal_record_count": 66354,
     "graph_edge_count": 211481,
     "manual_review_backlog_count": 13391,
     "review_queue_count": 13135,
@@ -187,7 +187,7 @@
       "corpus_area": "relationship_graph_and_statistics",
       "label_en": "Relationship graph and derived statistics",
       "label_zh": "关系图与派生统计",
-      "formal_record_count": "72446",
+      "formal_record_count": "66325",
       "staging_record_count": "185",
       "candidate_record_count": "0",
       "graph_edge_count": "107404",

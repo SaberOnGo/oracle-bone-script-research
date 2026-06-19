@@ -150,7 +150,7 @@
       "label_en": "Formal project-local ID maps",
       "label_zh": "正式本项目 ID 映射表",
       "current_stage": "structured",
-      "count_summary": "formal_asset_map_rows:1593;formal_character_map_rows:0;formal_component_map_rows:0;formal_inscription_map_rows:0",
+      "count_summary": "formal_asset_map_rows:1593;formal_character_map_rows:0;formal_component_map_rows:2747;formal_inscription_map_rows:0",
       "next_entry_path": "project_registry/002_project-id-to-source-reference-map/",
       "review_status": "mostly_unassigned_by_design",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",

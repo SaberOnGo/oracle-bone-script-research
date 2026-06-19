@@ -1,0 +1,24 @@
+# Glyph Codepoint Gallery / 字形码位查看: obs-comp-cand-001284
+
+English:
+This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.
+
+简体中文：
+本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。
+
+Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.
+
+| Link ID | Glyph text | U+ codepoints | Review status |
+| --- | --- | --- | --- |
+| `obimd-glyph-link-019299` | 疋󷗱 | `U+758B;U+F75F1` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019300` | 󷗲 | `U+F75F2` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019301` | 󷗳 | `U+F75F3` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019302` | 󷗴 | `U+F75F4` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019303` | 󷗵 | `U+F75F5` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019304` | 󷗶 | `U+F75F6` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019305` | 󷗷 | `U+F75F7` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019306` | 󷗸 | `U+F75F8` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019307` | 󷗹 | `U+F75F9` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019308` | 󷗺 | `U+F75FA` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019309` | 󷗻 | `U+F75FB` | `reviewed_metadata_only` |
+| `obimd-glyph-link-019310` | 󷗼 | `U+F75FC` | `reviewed_metadata_only` |

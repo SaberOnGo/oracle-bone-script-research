@@ -1,0 +1,37 @@
+# Glyph Codepoint Gallery / 字形码位查看: obs-comp-cand-000770
+
+English:
+This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.
+
+简体中文：
+本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。
+
+Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.
+
+| Link ID | Glyph text | U+ codepoints | Review status |
+| --- | --- | --- | --- |
+| `obimd-glyph-link-011120` | 򲤥󴖪 | `U+B2925;U+F45AA` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011121` | 󴖫 | `U+F45AB` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011122` | 󴖬 | `U+F45AC` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011123` | 󴖭 | `U+F45AD` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011124` | 󴖮 | `U+F45AE` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011125` | 󴖯 | `U+F45AF` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011126` | 󴖰 | `U+F45B0` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011127` | 󴖱 | `U+F45B1` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011128` | 󴖲 | `U+F45B2` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011129` | 󴖳 | `U+F45B3` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011130` | 󴖴 | `U+F45B4` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011131` | 󴖵 | `U+F45B5` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011132` | 󴖶 | `U+F45B6` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011133` | 󴖷 | `U+F45B7` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011134` | 󴖸 | `U+F45B8` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011135` | 󴖹 | `U+F45B9` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011136` | 󴖺 | `U+F45BA` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011137` | 󴖻 | `U+F45BB` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011138` | 󴖼 | `U+F45BC` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011139` | 󴖽 | `U+F45BD` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011140` | 󴖾 | `U+F45BE` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011141` | 󴗀 | `U+F45C0` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011142` | 󴗂 | `U+F45C2` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011143` | 󴗄 | `U+F45C4` | `reviewed_metadata_only` |
+| `obimd-glyph-link-011144` | 󴗅 | `U+F45C5` | `reviewed_metadata_only` |

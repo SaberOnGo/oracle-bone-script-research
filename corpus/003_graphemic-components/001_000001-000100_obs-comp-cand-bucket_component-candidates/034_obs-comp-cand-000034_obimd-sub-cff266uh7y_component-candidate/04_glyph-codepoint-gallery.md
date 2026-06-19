@@ -1,0 +1,22 @@
+# Glyph Codepoint Gallery / 字形码位查看: obs-comp-cand-000034
+
+English:
+This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.
+
+简体中文：
+本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。
+
+Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.
+
+| Link ID | Glyph text | U+ codepoints | Review status |
+| --- | --- | --- | --- |
+| `obimd-glyph-link-000675` | 霝󰎛 | `U+971D;U+F039B` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000676` | 󰎜 | `U+F039C` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000677` | 󰎝 | `U+F039D` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000678` | 󰎞 | `U+F039E` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000679` | 󰎟 | `U+F039F` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000680` | 󰎠 | `U+F03A0` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000681` | 󰎥 | `U+F03A5` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000682` | 󰎦 | `U+F03A6` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000683` | 󰎧 | `U+F03A7` | `reviewed_metadata_only` |
+| `obimd-glyph-link-000684` | 󰎨 | `U+F03A8` | `reviewed_metadata_only` |

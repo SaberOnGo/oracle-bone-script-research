@@ -1,0 +1,19 @@
+# Glyph Codepoint Gallery / 字形码位查看: obs-comp-cand-001659
+
+English:
+This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.
+
+简体中文：
+本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。
+
+Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.
+
+| Link ID | Glyph text | U+ codepoints | Review status |
+| --- | --- | --- | --- |
+| `obimd-glyph-link-025672` | 宓󹧪 | `U+5B93;U+F99EA` | `reviewed_metadata_only` |
+| `obimd-glyph-link-025673` | 󹧫 | `U+F99EB` | `reviewed_metadata_only` |
+| `obimd-glyph-link-025674` | 󹧬 | `U+F99EC` | `reviewed_metadata_only` |
+| `obimd-glyph-link-025675` | 󹧭 | `U+F99ED` | `reviewed_metadata_only` |
+| `obimd-glyph-link-025676` | 󹧮 | `U+F99EE` | `reviewed_metadata_only` |
+| `obimd-glyph-link-025677` | 󹧯 | `U+F99EF` | `reviewed_metadata_only` |
+| `obimd-glyph-link-025678` | 󹧰 | `U+F99F0` | `reviewed_metadata_only` |

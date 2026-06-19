@@ -68,6 +68,9 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_CHECKLIST = Path(
 SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_ROUTE_PACK = Path(
     "corpus/009_statistics-and-derived-features/151_source-pipeline-phase-action-missing-evidence-review-route-pack.json"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_HANDOFF_SCAFFOLD = Path(
+    "corpus/009_statistics-and-derived-features/152_source-pipeline-phase-action-missing-evidence-review-handoff-scaffold.json"
+)
 UPDATED_AT = "2026-06-19"
 CLAIM_BOUNDARY = "core_corpus_phase_coverage_not_review_outcome_not_scholarship"
 CAUTION = (
@@ -275,6 +278,7 @@ def phase_evidence_paths(area: str, readiness: dict[str, str], audit: dict[str, 
         paths.append(SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD.as_posix())
         paths.append(SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_CHECKLIST.as_posix())
         paths.append(SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_ROUTE_PACK.as_posix())
+        paths.append(SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_HANDOFF_SCAFFOLD.as_posix())
     unique_paths = []
     for path in paths:
         if path and path not in unique_paths:
@@ -322,6 +326,9 @@ def build_phase_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_action_missing_evidence_review_route_pack_files = (
         1 if (root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_ROUTE_PACK).exists() else 0
     )
+    source_pipeline_action_missing_evidence_review_handoff_scaffold_files = (
+        1 if (root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_HANDOFF_SCAFFOLD).exists() else 0
+    )
     audit_by_type = {row["area_type"]: row for row in audit_rows}
 
     rows: list[dict[str, str]] = []
@@ -364,6 +371,7 @@ def build_phase_rows(root: Path) -> list[dict[str, str]]:
                     + source_pipeline_action_missing_evidence_review_result_scaffold_rows
                     + source_pipeline_action_missing_evidence_review_checklist_rows
                     + source_pipeline_action_missing_evidence_review_route_pack_files
+                    + source_pipeline_action_missing_evidence_review_handoff_scaffold_files
                     if area == "research_sources_and_bibliography"
                     else 0
                 ),

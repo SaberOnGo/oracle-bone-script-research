@@ -1,24 +1,24 @@
-asset_id: asset-000004
+asset_id: asset-000007
 asset_type: glyph_candidate_image
-local_file: 001_asset-000004_hust-X-005708_glyph.png
-canonical_path: corpus/001_oracle-characters/074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate/03_visual-assets/001_asset-000004_hust-X-005708_glyph.png
-file_size_bytes: 13523
-checksum_sha256: 095f9d62d18fceb076ecf02bf117a1066a9f557b031bdd295c2b59288ee55076
+local_file: 001_asset-000007_hust-obc-cat-0002_glyph.png
+canonical_path: corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/002_obs-char-000002_hust-obc-cat-0002_oracle-character/03_visual-assets/001_asset-000007_hust-obc-cat-0002_glyph.png
+file_size_bytes: 1478
+checksum_sha256: f424b86f7040f807bc91252349903f52e4c7e6cd72f3cb6a3777d9000ed6998b
 image_format: PNG
-pixel_width: 182
-pixel_height: 250
+pixel_width: 65
+pixel_height: 80
 color_mode: RGB
 related_project_ids:
-  - obs-unk-005708
+  - obs-char-000002
 related_external_ref_ids:
-  - hust-obc-und-X-005708
+  - hust-obc-cat-0002
 source_id: src-hust-obc
 source_package_id: large-src-000001
 download_id: dl-hust-obc-figshare-raw
-source_image_path: HUST-OBC/undeciphered/X/1264/X_？_1176_1.png
+source_image_path: HUST-OBC/deciphered/0002/G_0002_京津2120合4366賓組.png
 source_image_sequence_in_candidate: 001
-source_image_count_expected: 50
-raw_source_image_checksum_sha256: 12f84443aff7aceeaa1fa686777fb30720da71144710475bfba9230ddfb087a1
+source_image_count_expected: not_counted_for_deciphered_category_yet
+raw_source_image_checksum_sha256: 8535ddb06d5b434c15d84b2218bca087d7b440359b8fd2843ac5192cc37423b8
 rights_status: source_marked_risk_noted
 analysis_scope: local_review_image_derivative_only
 risk_note: HUST-OBC rights are source-marked with conflicting Figshare and article license signals; this small derivative is committed for preparation-stage review with provenance and risk note.

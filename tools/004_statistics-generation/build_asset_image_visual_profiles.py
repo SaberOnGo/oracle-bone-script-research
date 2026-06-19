@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import os
 from pathlib import Path
 
 try:
@@ -16,7 +17,7 @@ except ImportError as exc:  # pragma: no cover - exercised only when Pillow is a
 ASSET_SOURCE_INDEX = Path("project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv")
 DEFAULT_OUTPUT = Path("project_registry/004_asset-source-and-rights-index/005_asset-image-visual-profile.csv")
 LUMA_THRESHOLD = 140
-UPDATED_AT = "2026-06-05"
+UPDATED_AT = "2026-06-20"
 ANALYSIS_METHOD = "pillow_luma_threshold_bbox_v1"
 ANALYSIS_SCOPE = "visual_preprocessing_metadata_only"
 CAUTION = (
@@ -29,6 +30,13 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
 
+def filesystem_path(path: Path) -> str:
+    resolved = path.resolve()
+    if os.name == "nt":
+        return "\\\\?\\" + str(resolved)
+    return str(resolved)
+
+
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
@@ -36,7 +44,7 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
 
 def build_visual_profile(asset_row: dict[str, str], root: Path, index: int) -> dict[str, str]:
     asset_path = root / asset_row["canonical_path"]
-    with Image.open(asset_path) as image:
+    with Image.open(filesystem_path(asset_path)) as image:
         luma = image.convert("L")
         width, height = luma.size
         pixels = luma.tobytes()
@@ -58,6 +66,11 @@ def build_visual_profile(asset_row: dict[str, str], root: Path, index: int) -> d
     else:
         x_min = x_max = y_min = y_max = bbox_width = bbox_height = 0
 
+    review_status = (
+        "reviewed_algorithmic_metadata"
+        if asset_row.get("asset_type") == "museum_object_image"
+        else "needs_human_visual_review"
+    )
     return {
         "visual_profile_id": f"asset-visual-profile-{index:06d}",
         "asset_id": asset_row["asset_id"],
@@ -78,8 +91,8 @@ def build_visual_profile(asset_row: dict[str, str], root: Path, index: int) -> d
         "mean_luma": f"{mean_luma:.4f}",
         "analysis_scope": ANALYSIS_SCOPE,
         "caution": CAUTION,
-        "review_status": "reviewed_algorithmic_metadata",
-        "updated_at": UPDATED_AT,
+        "review_status": review_status,
+        "updated_at": asset_row.get("updated_at") or UPDATED_AT,
     }
 
 
@@ -87,7 +100,8 @@ def build_visual_profiles(asset_rows: list[dict[str, str]], root: Path) -> list[
     image_rows = [
         row
         for row in asset_rows
-        if row.get("asset_type") == "museum_object_image" and row.get("canonical_path")
+        if row.get("asset_type") in {"museum_object_image", "glyph_candidate_image"}
+        and row.get("canonical_path")
     ]
     return [
         build_visual_profile(asset_row, root, index)

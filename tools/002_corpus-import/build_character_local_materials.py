@@ -148,6 +148,9 @@ def build_visual_rows(
             )
         return rows
 
+    if existing_visual_rows:
+        return sorted(existing_visual_rows.values(), key=lambda row: row.get("visual_source_index_id", ""))
+
     return [
         {
             "visual_source_index_id": f"{project_id}-visual-source-001",

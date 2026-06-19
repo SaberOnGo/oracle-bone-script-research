@@ -61,7 +61,7 @@ UNDECIPHERED_TARGETS = {
         "asset_filename": "001_asset-000005_hust-X-006294_glyph.png",
     },
 }
-OBS_CHAR_IMAGE_LIMIT = 23
+OBS_CHAR_IMAGE_LIMIT = 100
 OBS_CHAR_ASSET_ID_START = 6
 
 

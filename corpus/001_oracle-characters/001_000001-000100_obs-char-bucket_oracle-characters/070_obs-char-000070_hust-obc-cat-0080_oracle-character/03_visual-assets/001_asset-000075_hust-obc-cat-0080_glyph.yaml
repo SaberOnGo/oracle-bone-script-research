@@ -1,0 +1,28 @@
+asset_id: asset-000075
+asset_type: glyph_candidate_image
+local_file: 001_asset-000075_hust-obc-cat-0080_glyph.png
+canonical_path: corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/070_obs-char-000070_hust-obc-cat-0080_oracle-character/03_visual-assets/001_asset-000075_hust-obc-cat-0080_glyph.png
+file_size_bytes: 1881
+checksum_sha256: 91aef959124522cf010d6b4ece1804bb99cb85b21d1e22eb3b2848325aa61978
+image_format: PNG
+pixel_width: 80
+pixel_height: 70
+color_mode: RGB
+related_project_ids:
+  - obs-char-000070
+related_external_ref_ids:
+  - hust-obc-cat-0080
+source_id: src-hust-obc
+source_package_id: large-src-000001
+download_id: dl-hust-obc-figshare-raw
+source_image_path: HUST-OBC/deciphered/0080/G_0080_佚386合367賓組.png
+source_image_sequence_in_candidate: 001
+source_image_count_expected: not_counted_for_deciphered_category_yet
+raw_source_image_checksum_sha256: 27804297d2f042b61d35347198214505306a4bc597fad65c6c638e74fda68421
+rights_status: source_marked_risk_noted
+analysis_scope: local_review_image_derivative_only
+risk_note: HUST-OBC rights are source-marked with conflicting Figshare and article license signals; this small derivative is committed for preparation-stage review with provenance and risk note.
+review_status: needs_human_visual_review
+research_boundary: candidate_image_not_scholarship
+caution: Source-marked local review image only; not an accepted glyph identity, not an accepted reading, and not a decipherment conclusion.
+updated_at: 2026-06-20

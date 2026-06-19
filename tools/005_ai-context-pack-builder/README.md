@@ -5,6 +5,11 @@ Future context-pack tools will gather source evidence for AI Agent reasoning.
 
 Current tools:
 
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold.py`: builds `166_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-scaffold.csv` from the 165 assignment checklist. It reserves empty human-gated outcome fields for each assignment row while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, and decipherment claims unset.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold.py` 基于 165 assignment checklist 生成 `166_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-scaffold.csv`。它为每条分派行预留空的人工门控 outcome 字段；证据采集、已复核 outcome、权利裁定、来源提升、语料导入和释读结论仍保持未设置。
+
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist.py`: builds `165_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-checklist.csv` from the 164 assignment plan. It gives each planned assignment item a not-started precheck row with files to open and required assignment-check steps while keeping evidence, reviewed outcomes, rights decisions, source promotion, corpus import, and decipherment claims unset.
 
 简体中文补充：

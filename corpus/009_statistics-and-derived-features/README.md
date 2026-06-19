@@ -302,3 +302,9 @@ English supplement:
 简体中文补充：
 - `135_core-corpus-phase-coverage-matrix.csv` 是基于 090、096 和 134 生成的 10 行核心语料阶段矩阵。它为每类核心语料记录已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态信号与证据路径，所有结论仍保持待复核。
 - `136_source-pipeline-phase-coverage-matrix.csv` 是基于 134 生成的 21 行逐来源阶段矩阵。它记录每个来源的已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态、缺失或待复核阶段以及下一步复核步骤，不改变来源提升或权利裁定。
+
+English supplement:
+- `137_source-pipeline-phase-action-queue.csv` expands the 136 source phase matrix into 77 pending human-review actions. It is a preprocessing queue only: no evidence is collected, no rights decision is made, no source is promoted, no corpus records are imported, and no decipherment claim is made.
+
+简体中文补充：
+- `137_source-pipeline-phase-action-queue.csv` 把 136 来源阶段矩阵展开为 77 行待人工复核动作。它只属于预处理队列：不采集证据、不作权利裁定、不提升来源、不导入语料，也不提出释读结论。

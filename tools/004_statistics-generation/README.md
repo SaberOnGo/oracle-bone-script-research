@@ -68,3 +68,9 @@ English supplement:
 简体中文补充：
 - `build_core_corpus_phase_coverage_matrix.py` 基于 090 预处理审计、096 readiness 矩阵和 134 来源证据账本生成 `135_core-corpus-phase-coverage-matrix.csv`。它把每类核心语料映射到预处理阶段状态和下一步证据路径，不导入记录，也不提出学术结论。
 - `build_source_pipeline_phase_coverage_matrix.py` 基于 134 来源证据账本生成 `136_source-pipeline-phase-coverage-matrix.csv`。它为每个已登记来源标注阶段状态、缺失/待复核阶段和下一步复核步骤，同时保持不作权利裁定、不提升来源、不导入语料和不提出释读结论的边界。
+
+English supplement:
+- `build_source_pipeline_phase_action_queue.py` generates `137_source-pipeline-phase-action-queue.csv` from the 136 source phase matrix. It expands missing or review-needed source phases into 77 human-review action rows without collecting evidence, deciding rights, promoting sources, importing corpus records, or making decipherment claims.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_queue.py` 基于 136 来源阶段矩阵生成 `137_source-pipeline-phase-action-queue.csv`。它把缺失或待复核的来源阶段展开为 77 行人工复核动作；不采集新证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。

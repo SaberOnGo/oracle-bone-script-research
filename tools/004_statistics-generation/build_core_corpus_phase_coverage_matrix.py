@@ -23,6 +23,9 @@ SOURCE_PIPELINE_EVIDENCE_LEDGER = Path(
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = Path(
     "corpus/009_statistics-and-derived-features/136_source-pipeline-phase-coverage-matrix.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_QUEUE = Path(
+    "corpus/009_statistics-and-derived-features/137_source-pipeline-phase-action-queue.csv"
+)
 UPDATED_AT = "2026-06-19"
 CLAIM_BOUNDARY = "core_corpus_phase_coverage_not_review_outcome_not_scholarship"
 CAUTION = (
@@ -215,6 +218,7 @@ def phase_evidence_paths(area: str, readiness: dict[str, str], audit: dict[str, 
     if area == "research_sources_and_bibliography":
         paths.append(SOURCE_PIPELINE_EVIDENCE_LEDGER.as_posix())
         paths.append(SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX.as_posix())
+        paths.append(SOURCE_PIPELINE_PHASE_ACTION_QUEUE.as_posix())
     unique_paths = []
     for path in paths:
         if path and path not in unique_paths:
@@ -227,6 +231,7 @@ def build_phase_rows(root: Path) -> list[dict[str, str]]:
     readiness_rows = read_csv_rows(root / CORE_CORPUS_READINESS_MATRIX)
     source_pipeline_evidence_rows = count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER)
     source_pipeline_phase_rows = count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX)
+    source_pipeline_action_rows = count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
     audit_by_type = {row["area_type"]: row for row in audit_rows}
 
     rows: list[dict[str, str]] = []
@@ -252,7 +257,7 @@ def build_phase_rows(root: Path) -> list[dict[str, str]]:
                 "graph_edge_count": readiness["graph_edge_count"],
                 "review_queue_count": readiness["review_queue_count"],
                 "source_pipeline_evidence_rows": str(
-                    source_pipeline_evidence_rows + source_pipeline_phase_rows
+                    source_pipeline_evidence_rows + source_pipeline_phase_rows + source_pipeline_action_rows
                     if area == "research_sources_and_bibliography"
                     else 0
                 ),

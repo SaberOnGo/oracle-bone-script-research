@@ -802,6 +802,10 @@ SOURCE_PIPELINE_EVIDENCE_LEDGER = (
     "corpus/009_statistics-and-derived-features/"
     "134_ai-agent-source-pipeline-evidence-ledger.csv"
 )
+CORE_CORPUS_PHASE_COVERAGE_MATRIX = (
+    "corpus/009_statistics-and-derived-features/"
+    "135_core-corpus-phase-coverage-matrix.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1461,6 +1465,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_GAP_MATRIX,
     SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST,
     SOURCE_PIPELINE_EVIDENCE_LEDGER,
+    CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1611,6 +1616,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_gap_matrix.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_gap_review_checklist.py",
     "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -2930,6 +2936,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_gap_matrix_rows:21",
             "source_pipeline_gap_review_checklist_rows:21",
             "source_pipeline_evidence_ledger_rows:21",
+            "core_corpus_phase_coverage_rows:10",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3745,9 +3752,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 12281,
-        "review_queue_count": 12281,
-        "staging_record_count": 75145,
+        "manual_review_backlog_count": 12291,
+        "review_queue_count": 12291,
+        "staging_record_count": 75146,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3786,14 +3793,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "132",
+            "staging_record_count": "133",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "399",
-            "review_queue_path": SOURCE_PIPELINE_EVIDENCE_LEDGER,
+            "review_queue_count": "409",
+            "review_queue_path": CORE_CORPUS_PHASE_COVERAGE_MATRIX,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -5759,6 +5766,88 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         for route_file in route_files:
             if not (root / route_file).exists():
                 issues.append(f"{SOURCE_ENGINEERING_GAP_QUEUE} missing route file: {route_file}")
+    return issues
+
+
+def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_COVERAGE_MATRIX)
+    issues.extend(row_issues)
+    if len(rows) != 10:
+        issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} should contain exactly 10 rows")
+
+    expected_areas = {
+        "oracle_characters",
+        "undeciphered_oracle_character_candidates",
+        "cross_source_codepoint_routes",
+        "graphemic_components",
+        "evolution_correspondences",
+        "inscriptions_and_plate_crosswalks",
+        "collection_provenance_assets",
+        "research_sources_and_bibliography",
+        "relationship_graph_and_statistics",
+        "published_research_notes",
+    }
+    by_area = {row.get("corpus_area", ""): row for row in rows}
+    if set(by_area) != expected_areas:
+        issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} corpus area set changed")
+
+    expected_fragments = {
+        "oracle_characters": {
+            "pending_human_review_status": "present",
+            "candidate_or_staging_boundary": "candidate_not_promoted",
+        },
+        "undeciphered_oracle_character_candidates": {
+            "structured_status": "present",
+            "verified_status": "missing",
+        },
+        "inscriptions_and_plate_crosswalks": {
+            "review_queue_count": "612",
+            "linked_status": "present",
+        },
+        "collection_provenance_assets": {
+            "registered_status": "present",
+            "pending_human_review_status": "present",
+        },
+        "research_sources_and_bibliography": {
+            "downloaded_status": "mixed_or_partial",
+            "source_pipeline_evidence_rows": "21",
+            "review_queue_count": "409",
+            "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
+        },
+        "relationship_graph_and_statistics": {
+            "downloaded_status": "not_applicable",
+            "linked_status": "present",
+            "verified_status": "present",
+        },
+        "published_research_notes": {
+            "research_boundary_status": "draft_or_bibliography_review_queue",
+            "verified_status": "missing",
+        },
+    }
+    for area, expected_values in expected_fragments.items():
+        row = by_area.get(area, {})
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} {area} {field} changed")
+
+    for row in rows:
+        area = row.get("corpus_area", "")
+        for field, expected_value in {
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} {area} {field} changed")
+        if "preprocessing phase coverage only" not in row.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} caution changed: {area}")
+        if not row.get("next_action", "").startswith("open_phase_evidence_then_"):
+            issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} next_action changed: {area}")
+        for path in row.get("phase_evidence_paths", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} missing evidence path: {path}")
     return issues
 
 
@@ -16284,6 +16373,7 @@ def main() -> int:
     issues.extend(check_data_quality_audit(root))
     issues.extend(check_source_processing_pipeline_audit(root))
     issues.extend(check_core_corpus_readiness_matrix(root))
+    issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

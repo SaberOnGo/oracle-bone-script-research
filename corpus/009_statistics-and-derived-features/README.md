@@ -294,3 +294,9 @@ English supplement:
 
 简体中文补充：
 - `134_ai-agent-source-pipeline-evidence-ledger.csv` 是基于 094 来源处理流水线审计和 133 来源流水线清单生成的 21 行逐来源预处理证据账本。它只汇总现有证据计数和 route files；不是已复核证据 outcome、权利裁定、来源提升、语料导入或释读结论。
+
+English supplement:
+- `135_core-corpus-phase-coverage-matrix.csv` is a 10-row core-corpus phase matrix derived from 090, 096, and 134. It records discovered/downloaded/registered/unpacked/extracted/cleaned/structured/linked/verified/pending-review status signals and evidence paths for each core corpus area, while keeping all conclusions pending review.
+
+简体中文补充：
+- `135_core-corpus-phase-coverage-matrix.csv` 是基于 090、096 和 134 生成的 10 行核心语料阶段矩阵。它为每类核心语料记录已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态信号与证据路径，所有结论仍保持待复核。

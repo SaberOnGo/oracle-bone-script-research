@@ -1,0 +1,287 @@
+#!/usr/bin/env python3
+"""Build a core-corpus preprocessing phase coverage matrix.
+
+The matrix translates existing audits into the phase vocabulary used by the
+project goal: discovered, downloaded, registered, unpacked, extracted, cleaned,
+structured, linked, verified, and pending human review. It is a navigation and
+gap surface only, not a scholarly result.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+from pathlib import Path
+
+
+OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/135_core-corpus-phase-coverage-matrix.csv")
+PREPROCESSING_STATUS_AUDIT = Path("corpus/009_statistics-and-derived-features/090_preprocessing-status-audit.csv")
+CORE_CORPUS_READINESS_MATRIX = Path("corpus/009_statistics-and-derived-features/096_core-corpus-readiness-matrix.csv")
+SOURCE_PIPELINE_EVIDENCE_LEDGER = Path(
+    "corpus/009_statistics-and-derived-features/134_ai-agent-source-pipeline-evidence-ledger.csv"
+)
+UPDATED_AT = "2026-06-19"
+CLAIM_BOUNDARY = "core_corpus_phase_coverage_not_review_outcome_not_scholarship"
+CAUTION = (
+    "Core corpus preprocessing phase coverage only; statuses summarize existing engineering "
+    "evidence and do not decide rights, import corpus records, promote candidates, or make "
+    "decipherment claims."
+)
+
+PHASES = [
+    "discovered",
+    "downloaded",
+    "registered",
+    "unpacked",
+    "extracted",
+    "cleaned",
+    "structured",
+    "linked",
+    "verified",
+    "pending_human_review",
+]
+
+AREA_TO_AUDIT_TYPE = {
+    "oracle_characters": "oracle_character_candidates",
+    "undeciphered_oracle_character_candidates": "undeciphered_character_candidates",
+    "cross_source_codepoint_routes": "oracle_character_candidates",
+    "graphemic_components": "components_and_glyph_links",
+    "evolution_correspondences": "evolution_correspondence_candidates",
+    "inscriptions_and_plate_crosswalks": "inscription_and_collection_staging",
+    "collection_provenance_assets": "inscription_and_collection_staging",
+    "research_sources_and_bibliography": "source_registry",
+    "relationship_graph_and_statistics": "relationship_graph",
+    "published_research_notes": "review_queues",
+}
+
+BOUNDARY_BY_AREA = {
+    "oracle_characters": "candidate_not_promoted",
+    "undeciphered_oracle_character_candidates": "candidate_not_promoted",
+    "cross_source_codepoint_routes": "candidate_crosswalk_not_identity_claim",
+    "graphemic_components": "candidate_component_graph_not_formal_component",
+    "evolution_correspondences": "candidate_evolution_graph_not_formal_correspondence",
+    "inscriptions_and_plate_crosswalks": "staging_crosswalk_not_formal_inscription",
+    "collection_provenance_assets": "metadata_or_reviewed_asset_not_raw_import",
+    "research_sources_and_bibliography": "source_metadata_not_rights_decision",
+    "relationship_graph_and_statistics": "candidate_graph_edges_not_semantic_promotion",
+    "published_research_notes": "draft_or_bibliography_review_queue",
+}
+
+PHASE_OVERRIDES = {
+    "oracle_characters": {
+        "downloaded": "present",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "present",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+    "undeciphered_oracle_character_candidates": {
+        "downloaded": "present",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "missing",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+    "cross_source_codepoint_routes": {
+        "downloaded": "present",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "present",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+    "graphemic_components": {
+        "downloaded": "present",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "present",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+    "evolution_correspondences": {
+        "downloaded": "present",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "present",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+    "inscriptions_and_plate_crosswalks": {
+        "downloaded": "mixed_or_partial",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "present",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+    "collection_provenance_assets": {
+        "downloaded": "mixed_or_partial",
+        "registered": "present",
+        "unpacked": "present",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "missing",
+        "verified": "mixed_or_partial",
+        "pending_human_review": "present",
+    },
+    "research_sources_and_bibliography": {
+        "downloaded": "mixed_or_partial",
+        "registered": "present",
+        "unpacked": "mixed_or_partial",
+        "extracted": "mixed_or_partial",
+        "cleaned": "mixed_or_partial",
+        "structured": "present",
+        "linked": "present",
+        "verified": "mixed_or_partial",
+        "pending_human_review": "present",
+    },
+    "relationship_graph_and_statistics": {
+        "downloaded": "not_applicable",
+        "registered": "present",
+        "unpacked": "not_applicable",
+        "extracted": "present",
+        "cleaned": "present",
+        "structured": "present",
+        "linked": "present",
+        "verified": "present",
+        "pending_human_review": "present",
+    },
+    "published_research_notes": {
+        "downloaded": "not_applicable",
+        "registered": "present",
+        "unpacked": "not_applicable",
+        "extracted": "mixed_or_partial",
+        "cleaned": "mixed_or_partial",
+        "structured": "present",
+        "linked": "mixed_or_partial",
+        "verified": "missing",
+        "pending_human_review": "present",
+    },
+}
+
+
+def repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def read_csv_rows(path: Path) -> list[dict[str, str]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        return list(csv.DictReader(file))
+
+
+def count_csv(root: Path, path: Path) -> int:
+    return len(read_csv_rows(root / path))
+
+
+def phase_status(area: str, phase: str, audit_stage: str, readiness: dict[str, str]) -> str:
+    if phase == "discovered":
+        return "present" if int(readiness["formal_record_count"]) + int(readiness["staging_record_count"]) + int(
+            readiness["candidate_record_count"]
+        ) + int(readiness["graph_edge_count"]) else "missing"
+    override = PHASE_OVERRIDES.get(area, {}).get(phase)
+    if override:
+        return override
+    if audit_stage == phase:
+        return "present"
+    return "missing"
+
+
+def phase_evidence_paths(area: str, readiness: dict[str, str], audit: dict[str, str]) -> str:
+    paths = [readiness["primary_entry_path"], readiness["review_queue_path"], audit["next_entry_path"]]
+    if area == "research_sources_and_bibliography":
+        paths.append(SOURCE_PIPELINE_EVIDENCE_LEDGER.as_posix())
+    unique_paths = []
+    for path in paths:
+        if path and path not in unique_paths:
+            unique_paths.append(path)
+    return ";".join(unique_paths)
+
+
+def build_phase_rows(root: Path) -> list[dict[str, str]]:
+    audit_rows = read_csv_rows(root / PREPROCESSING_STATUS_AUDIT)
+    readiness_rows = read_csv_rows(root / CORE_CORPUS_READINESS_MATRIX)
+    source_pipeline_evidence_rows = count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER)
+    audit_by_type = {row["area_type"]: row for row in audit_rows}
+
+    rows: list[dict[str, str]] = []
+    for index, readiness in enumerate(readiness_rows, start=1):
+        area = readiness["corpus_area"]
+        audit = audit_by_type[AREA_TO_AUDIT_TYPE[area]]
+        phase_values = {
+            f"{phase}_status": phase_status(area, phase, audit["current_stage"], readiness) for phase in PHASES
+        }
+        rows.append(
+            {
+                "phase_row_id": f"core-corpus-phase-{index:03d}",
+                "corpus_area": area,
+                "label_en": readiness["label_en"],
+                "preprocessing_audit_area_type": audit["area_type"],
+                "preprocessing_current_stage": audit["current_stage"],
+                "readiness_stage": readiness["readiness_stage"],
+                "review_priority": readiness["review_priority"],
+                **phase_values,
+                "formal_record_count": readiness["formal_record_count"],
+                "staging_record_count": readiness["staging_record_count"],
+                "candidate_record_count": readiness["candidate_record_count"],
+                "graph_edge_count": readiness["graph_edge_count"],
+                "review_queue_count": readiness["review_queue_count"],
+                "source_pipeline_evidence_rows": str(source_pipeline_evidence_rows if area == "research_sources_and_bibliography" else 0),
+                "phase_evidence_paths": phase_evidence_paths(area, readiness, audit),
+                "next_action": f"open_phase_evidence_then_{readiness['next_action']}",
+                "candidate_or_staging_boundary": BOUNDARY_BY_AREA[area],
+                "research_boundary_status": BOUNDARY_BY_AREA[area],
+                "claim_boundary": CLAIM_BOUNDARY,
+                "rights_decision_status": "no_new_rights_decision",
+                "source_promotion_status": "not_promoted",
+                "corpus_import_status": "not_imported",
+                "decipherment_claim_status": "no_decipherment_claim",
+                "caution": CAUTION,
+                "updated_at": UPDATED_AT,
+            }
+        )
+    return rows
+
+
+def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8-sig", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--csv-output", default=str(OUTPUT_CSV))
+    args = parser.parse_args(argv)
+
+    root = repo_root()
+    rows = build_phase_rows(root)
+    write_csv(root / args.csv_output, rows)
+    print(f"core_corpus_phase_coverage_rows={len(rows)} csv={args.csv_output}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

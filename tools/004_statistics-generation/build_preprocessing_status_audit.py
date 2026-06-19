@@ -132,6 +132,7 @@ SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY = (
 SOURCE_PIPELINE_GAP_MATRIX = STAT_DIR / "132_ai-agent-source-pipeline-gap-matrix.csv"
 SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST = STAT_DIR / "133_ai-agent-source-pipeline-gap-review-checklist.csv"
 SOURCE_PIPELINE_EVIDENCE_LEDGER = STAT_DIR / "134_ai-agent-source-pipeline-evidence-ledger.csv"
+CORE_CORPUS_PHASE_COVERAGE_MATRIX = STAT_DIR / "135_core-corpus-phase-coverage-matrix.csv"
 
 
 def repo_root() -> Path:
@@ -504,7 +505,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_GAP_MATRIX)
                 + count_csv(root, SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST)
-                + count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER),
+                + count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER)
+                + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX),
                 structured=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -540,7 +542,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_GAP_MATRIX)
                 + count_csv(root, SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST)
-                + count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER),
+                + count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER)
+                + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX),
                 review_queue=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -576,7 +579,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_GAP_MATRIX)
                 + count_csv(root, SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST)
-                + count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER),
+                + count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER)
+                + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX),
             ),
             {
                 "review_log_files": review_log_files,
@@ -674,6 +678,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "source_pipeline_gap_matrix_rows": count_csv(root, SOURCE_PIPELINE_GAP_MATRIX),
                 "source_pipeline_gap_review_checklist_rows": count_csv(root, SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST),
                 "source_pipeline_evidence_ledger_rows": count_csv(root, SOURCE_PIPELINE_EVIDENCE_LEDGER),
+                "core_corpus_phase_coverage_rows": count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX),
             },
             "doc/public/user_research/",
             "pending_human_review",

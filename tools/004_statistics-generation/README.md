@@ -60,3 +60,9 @@ English supplement:
 
 简体中文补充：
 - `build_source_pipeline_evidence_ledger.py` 基于 094 来源处理流水线审计和 133 来源流水线清单生成 `134_ai-agent-source-pipeline-evidence-ledger.csv`。它按来源记录现有下载、checksum、包清单、metadata profile、候选记录和图边证据计数，同时保持已复核证据路径和 outcome 为空。
+
+English supplement:
+- `build_core_corpus_phase_coverage_matrix.py` generates `135_core-corpus-phase-coverage-matrix.csv` from the 090 preprocessing audit, 096 readiness matrix, and 134 source evidence ledger. It maps each core corpus area to preprocessing phase statuses and next evidence paths without importing records or making scholarship claims.
+
+简体中文补充：
+- `build_core_corpus_phase_coverage_matrix.py` 基于 090 预处理审计、096 readiness 矩阵和 134 来源证据账本生成 `135_core-corpus-phase-coverage-matrix.csv`。它把每类核心语料映射到预处理阶段状态和下一步证据路径，不导入记录，也不提出学术结论。

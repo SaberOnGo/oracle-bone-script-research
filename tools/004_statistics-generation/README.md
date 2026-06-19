@@ -71,6 +71,8 @@ English supplement:
 
 English supplement:
 - `build_source_pipeline_phase_action_queue.py` generates `137_source-pipeline-phase-action-queue.csv` from the 136 source phase matrix. It expands missing or review-needed source phases into 77 human-review action rows without collecting evidence, deciding rights, promoting sources, importing corpus records, or making decipherment claims.
+- `build_source_pipeline_phase_action_result_scaffold.py` generates `138_source-pipeline-phase-action-result-scaffold.csv` from the 137 action queue. It reserves reviewed-outcome fields for all 77 actions while keeping evidence, rights decisions, source promotion, corpus import, and decipherment claims empty.
 
 简体中文补充：
 - `build_source_pipeline_phase_action_queue.py` 基于 136 来源阶段矩阵生成 `137_source-pipeline-phase-action-queue.csv`。它把缺失或待复核的来源阶段展开为 77 行人工复核动作；不采集新证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+- `build_source_pipeline_phase_action_result_scaffold.py` 基于 137 动作队列生成 `138_source-pipeline-phase-action-result-scaffold.csv`。它为 77 条动作预留复核 outcome 字段，但证据、权利裁定、来源提升、语料导入和释读结论仍保持为空。

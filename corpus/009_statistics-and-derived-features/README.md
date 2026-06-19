@@ -305,6 +305,8 @@ English supplement:
 
 English supplement:
 - `137_source-pipeline-phase-action-queue.csv` expands the 136 source phase matrix into 77 pending human-review actions. It is a preprocessing queue only: no evidence is collected, no rights decision is made, no source is promoted, no corpus records are imported, and no decipherment claim is made.
+- `138_source-pipeline-phase-action-result-scaffold.csv` is the empty result scaffold for the 77 rows in 137. It provides reviewed-outcome placeholders only and keeps evidence collection, rights decisions, source promotion, corpus import, and decipherment claims unset.
 
 简体中文补充：
 - `137_source-pipeline-phase-action-queue.csv` 把 136 来源阶段矩阵展开为 77 行待人工复核动作。它只属于预处理队列：不采集证据、不作权利裁定、不提升来源、不导入语料，也不提出释读结论。
+- `138_source-pipeline-phase-action-result-scaffold.csv` 是 137 中 77 行动作的空结果脚手架。它只提供复核 outcome 占位字段，证据采集、权利裁定、来源提升、语料导入和释读结论均保持未填写。

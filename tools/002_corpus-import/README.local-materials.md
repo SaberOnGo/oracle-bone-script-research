@@ -1,59 +1,59 @@
-# Character Local Materials Builder / 字对象本地资料生成器
+# Object-Local Materials Builders / 对象内资料生成器
 
 English:
-`build_character_local_materials.py` writes human-readable and AI-readable preparation materials inside the same concrete character object directory. The current object-local bundle includes:
+These builders write human-readable and AI-readable preparation materials inside the same concrete `corpus` object directory. They do not create parallel "human-readable" directories, do not promote dataset labels into scholarship, and do not commit large raw source packages.
 
-- `README.md`: human-readable object entrance and research-boundary note.
-- `01_*packet.json`: AI-readable candidate packet already stored in the object directory.
-- `02_visual-source-index.csv`: AI-readable visual/source index with source paths, rights status, risk notes, and review status.
-- `03_visual-assets/`: selected local review image derivatives and metadata, when extraction is allowed and source-marked.
-- `04_visual-gallery.md`: human-readable visual gallery that renders committed local review images directly from the same object directory.
+Simplified Chinese:
+这些生成器会把人类可读资料和 AI 可读资料写入同一个具体 `corpus` 对象目录。它们不会创建并行的“人类可读”目录，不会把数据集标签提升为学术结论，也不会提交大型原始来源包。
 
-简体中文：
-`build_character_local_materials.py` 会把人类可读资料和 AI 可读资料写入同一个具体字对象目录。当前对象内资料包包括：
-
-- `README.md`：人类可读的对象入口和研究边界说明。
-- `01_*packet.json`：已经放在对象目录中的 AI 可读候选资料包。
-- `02_visual-source-index.csv`：AI 可读的图像和来源索引，记录来源路径、权利状态、风险提示和复核状态。
-- `03_visual-assets/`：在允许抽取且带来源标记时保存的本地复核图像派生件和 metadata。
-- `04_visual-gallery.md`：人类可读图像页，直接从同一对象目录渲染已提交的本地复核图像。
+## Generated Object Files / 生成的对象内文件
 
 English:
-`extract_hust_obc_local_glyph_images.py` extracts selected small HUST-OBC glyph candidate image derivatives from the registered raw zip into each target object directory's `03_visual-assets/` folder. The raw zip stays in ignored `external_local_archive/` storage.
+Depending on the object type, a generated object directory contains a human README, an AI packet, source/provenance indexes, visual or code indexes, human review sheets, and small reviewed image derivatives when source rights and size rules allow them.
 
-简体中文：
-`extract_hust_obc_local_glyph_images.py` 会从已登记的 HUST-OBC 原始 zip 中抽取选定的小型字形候选图像派生件，放入目标对象目录下的 `03_visual-assets/`。原始 zip 保留在已忽略的 `external_local_archive/` 归档区。
+Simplified Chinese:
+根据对象类型不同，生成后的对象目录会包含人类 README、AI packet、来源/出处索引、图像或代码索引、人工复核表，以及在来源权利和大小规则允许时保存的小型复核图像派生件。
 
-## Scope / 范围
-
-English:
-The builders create `README.md`, `02_visual-source-index.csv`, `04_visual-gallery.md`, and selected `03_visual-assets/` files next to the existing `01_*packet.json` file. They do not create a parallel human-readable directory, do not commit raw large source packages, and do not make decipherment or component conclusions.
-
-简体中文：
-这些脚本会在已有 `01_*packet.json` 旁边生成 `README.md`、`02_visual-source-index.csv`、`04_visual-gallery.md` 和选定的 `03_visual-assets/` 文件。它们不会创建并行的“人类看的目录”，不会提交大型原始来源包，也不会提出释读或构件结论。
-
-## Command / 命令
+## Commands / 命令
 
 ```powershell
 python tools/002_corpus-import/build_character_local_materials.py --root .
 python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 python tools/002_corpus-import/build_obimd_component_candidate_materials.py --root .
 python tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_materials.py --root .
+python tools/002_corpus-import/build_evobc_evolution_candidate_materials.py --root .
 ```
 
-## Current Batch / 当前批次
+## Current Coverage / 当前覆盖范围
 
 English:
-The current batch covers all 1,588 HUST-OBC promoted candidate characters, `obs-char-000001` through `obs-char-001588`, plus two HUST-OBC undeciphered candidate directories with extracted source-image path references. These target object directories have co-located README files, visual/source indexes, visual galleries, and committed local review image derivatives inside the same concrete `corpus` object directory.
+The HUST-OBC local-material batch covers all 1,588 promoted candidate character directories plus selected undeciphered candidate directories with source-image path references. These directories contain co-located README files, visual/source indexes, visual galleries, and committed local review image derivatives where allowed.
+
+Simplified Chinese:
+HUST-OBC 对象内资料批次覆盖 1,588 个已提升候选字目录，以及若干已有来源图像路径引用的未释字候选目录。这些目录在同一个对象目录内保存 README、图像/来源索引、图像页面，以及在允许时提交的本地复核图像派生件。
 
 English:
-The OBIMD component candidate batch covers all 2,747 OBIMD subcharacter candidates. Each `obs-comp-cand-*` object directory contains a human-readable README, an AI-readable candidate packet, a source index, a glyph-codepoint index, and a human-readable glyph-codepoint gallery in the same concrete component candidate directory. These are dataset candidates for review only; they are not promoted formal component records or component assignments.
+The OBIMD component batch covers all 2,747 OBIMD subcharacter candidates. Each `obs-comp-cand-*` directory contains a README, candidate packet, source index, glyph-codepoint index, and glyph-codepoint gallery. These are review candidates only, not confirmed components or component assignments.
+
+Simplified Chinese:
+OBIMD 构件批次覆盖 2,747 个 OBIMD subcharacter 候选。每个 `obs-comp-cand-*` 目录包含 README、候选 packet、来源索引、glyph-codepoint 索引和 glyph-codepoint 页面。这些只是待复核候选，不是已确认构件或构件拆分结论。
 
 English:
-The Cambridge/Hopkins inscription crosswalk batch covers all 612 catalog crosswalk candidates. Each `obs-insc-cw-cand-*` object directory contains a human-readable README, an AI-readable candidate packet, a crosswalk source index, a catalog-reference index, and a human review sheet in the same concrete inscription crosswalk candidate directory. These are metadata candidates for catalog review only; they are not promoted formal `obi-*` inscription records, object identity claims, text transcriptions, inscription readings, or decipherment conclusions.
+The Cambridge/Hopkins inscription crosswalk batch covers all 612 catalog crosswalk candidates. Each `obs-insc-cw-cand-*` directory contains a README, candidate packet, crosswalk source index, catalog-reference index, and human review sheet. These are catalog-review candidates only, not formal `obi-*` inscription records, object identity claims, transcriptions, readings, or decipherment conclusions.
 
-绠€浣撲腑鏂囷細
-OBIMD 鏋勪欢鍊欓€夋壒娆¤鐩栧叏閮?2,747 涓?OBIMD subcharacter 鍊欓€夈€傛瘡涓?`obs-comp-cand-*` 瀵硅薄鐩綍鍐呴兘鍚屾椂鍖呭惈浜虹被鍙 README銆丄I 鍙鍊欓€夊寘銆佹潵婧愮储寮曘€乬lyph-codepoint 绱㈠紩鍜屼汉绫诲彲璇荤殑 glyph-codepoint gallery銆傝繖浜涘彧鏄緟澶嶆牳鐨勬暟鎹泦鍊欓€夛紝涓嶆槸宸叉彁鍗囩殑姝ｅ紡鏋勪欢璁板綍鎴栨瀯浠跺叧绯荤粨璁恒€?
+Simplified Chinese:
+Cambridge/Hopkins 卜辞目录互证批次覆盖 612 个目录 crosswalk 候选。每个 `obs-insc-cw-cand-*` 目录包含 README、候选 packet、crosswalk 来源索引、目录引用索引和人工复核表。这些只是目录复核候选，不是正式 `obi-*` 卜辞记录、馆藏对象同一性结论、释文、卜辞读法或释读结论。
 
-简体中文：
-当前批次覆盖 HUST-OBC 全部 1,588 个已提升候选字，即 `obs-char-000001` 至 `obs-char-001588`，以及 2 个已有来源图像路径引用的 HUST-OBC 未释字候选目录。这些目标对象目录都在同一个具体 `corpus` 对象目录内放置 README、图像和来源索引、图像页，以及已提交的本地复核图像派生件。
+English:
+The EVOBC evolution-category batch covers all 13,714 EVOBC dataset categories. Each `obs-evo-cand-*` directory contains a README, candidate packet, source index, era/source code index, and human review sheet. These are metadata candidates only, not accepted paleographic correspondences, evolution-chain conclusions, modern-character identity confirmations, or decipherment conclusions.
+
+Simplified Chinese:
+EVOBC 字形演化类别批次覆盖 13,714 个 EVOBC 数据集类别。每个 `obs-evo-cand-*` 目录包含 README、候选 packet、来源索引、时代码/source 码索引和人工复核表。这些只是 metadata 候选，不是已接受的古文字对应关系、字形演化链结论、现代字身份确认或释读结论。
+
+## Validation / 校验
+
+English:
+Object-local material checks are part of `tools/validation/check_repository_skeleton.py` and the unit test suite. They verify co-location, required files, source routes, candidate status, and the absence of parallel human-readable directories.
+
+Simplified Chinese:
+对象内资料检查已接入 `tools/validation/check_repository_skeleton.py` 和单元测试。检查内容包括对象内共置、必需文件、来源路径、候选状态，以及不存在并行的人类可读目录。

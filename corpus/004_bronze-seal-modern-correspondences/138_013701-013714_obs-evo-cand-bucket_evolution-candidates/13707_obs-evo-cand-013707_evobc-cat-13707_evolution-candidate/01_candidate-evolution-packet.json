@@ -1,0 +1,80 @@
+{
+  "candidate_evolution_category_id": "evobc-evo-cat-13707",
+  "caution": "EVOBC category and image-reference metadata is useful for routing cross-period review, but this object is not an accepted paleographic correspondence, not an evolution-chain conclusion, not a modern-character identification, and not a decipherment conclusion.",
+  "code_index": [
+    {
+      "candidate_evolution_category_id": "evobc-evo-cat-13707",
+      "category_image_reference_count": "1",
+      "caution": "Era labels are EVOBC dataset labels and still require source-chain review.",
+      "code_image_reference_count": "1",
+      "code_index_id": "obs-evo-cand-013707-era-04",
+      "code_type": "era",
+      "code_value": "4",
+      "codebook_row_id": "evobc-code-005",
+      "label_en": "Warring States period Characters",
+      "label_zh": "战国文字",
+      "observed_token": "WSC",
+      "project_id": "obs-evo-cand-013707",
+      "reference_basis": "EVOBC README shorthand table and List_of_EVOBC filename tokens.",
+      "review_status": "reviewed_metadata_only",
+      "updated_at": "2026-06-20"
+    },
+    {
+      "candidate_evolution_category_id": "evobc-evo-cat-13707",
+      "category_image_reference_count": "1",
+      "caution": "Source code labels are not documented in the README and must not be overinterpreted.",
+      "code_image_reference_count": "1",
+      "code_index_id": "obs-evo-cand-013707-source-05",
+      "code_type": "source",
+      "code_value": "5",
+      "codebook_row_id": "evobc-code-012",
+      "label_en": "",
+      "label_zh": "",
+      "observed_token": "Book:32794",
+      "project_id": "obs-evo-cand-013707",
+      "reference_basis": "Observed from List_of_EVOBC filename tokens; not an official source-name mapping.",
+      "review_status": "reviewed_metadata_only",
+      "updated_at": "2026-06-20"
+    }
+  ],
+  "era_code_counts": {
+    "4": 1
+  },
+  "era_token_counts": "WSC:1",
+  "evolution_chain_claim_status": "no_claim",
+  "formal_correspondence_status": "not_formal_correspondence",
+  "image_reference_count": 1,
+  "modern_character_identity_status": "not_confirmed",
+  "primary_external_ref_id": "evobc-cat-13707",
+  "project_id": "obs-evo-cand-013707",
+  "project_import_status": "dataset_candidate_not_promoted",
+  "record_type": "evolution_correspondence_candidate",
+  "research_boundary": "evobc_evolution_category_candidate_only_not_formal_correspondence_not_evolution_chain",
+  "review_status": "needs_human_evolution_review",
+  "rights_status": "source_marked_risk_noted",
+  "route_files": [
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/002_evobc-era-source-codebook-staging.csv",
+    "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
+    "corpus/004_bronze-seal-modern-correspondences/138_013701-013714_obs-evo-cand-bucket_evolution-candidates/13707_obs-evo-cand-013707_evobc-cat-13707_evolution-candidate/02_evolution-source-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/138_013701-013714_obs-evo-cand-bucket_evolution-candidates/13707_obs-evo-cand-013707_evobc-cat-13707_evolution-candidate/03_era-source-code-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/138_013701-013714_obs-evo-cand-bucket_evolution-candidates/13707_obs-evo-cand-013707_evobc-cat-13707_evolution-candidate/04_human-review-sheet.md"
+  ],
+  "script_stage_flags": {
+    "has_bronze_refs": false,
+    "has_clerical_refs": false,
+    "has_oracle_bone_refs": false,
+    "has_seal_refs": false,
+    "has_spring_autumn_refs": false,
+    "has_warring_states_refs": true
+  },
+  "source_category_id": "13707",
+  "source_character_codepoints": "U+F9B3",
+  "source_character_label": "靈",
+  "source_code_counts": {
+    "5": 1
+  },
+  "source_id": "src-evobc",
+  "source_token_counts": "Book:1",
+  "updated_at": "2026-06-20"
+}

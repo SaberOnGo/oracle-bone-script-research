@@ -23,6 +23,7 @@ from tools.validation.check_repository_skeleton import (
     check_character_directory_local_materials,
     check_component_candidate_local_materials,
     check_inscription_crosswalk_candidate_local_materials,
+    check_evolution_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
@@ -162,6 +163,15 @@ def load_hust_obc_candidate_packets_module():
 def load_cambridge_hopkins_inscription_crosswalk_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_materials.py"
     spec = importlib.util.spec_from_file_location("build_cambridge_hopkins_inscription_crosswalk_materials", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_evobc_evolution_candidate_materials_module():
+    path = repo_root() / "tools/002_corpus-import/build_evobc_evolution_candidate_materials.py"
+    spec = importlib.util.spec_from_file_location("build_evobc_evolution_candidate_materials", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -2367,6 +2377,50 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
         self.assertEqual(len(first["catalog_rows"]), 4)
+
+    def test_evolution_candidate_local_materials_are_colocated(self) -> None:
+        self.assertEqual(check_evolution_candidate_local_materials(repo_root()), [])
+
+        map_path = (
+            repo_root()
+            / "project_registry/002_project-id-to-source-reference-map/"
+            / "005_evolution-candidate-id-source-map.csv"
+        )
+        with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 13714)
+        self.assertEqual(rows[0]["project_id"], "obs-evo-cand-000001")
+        self.assertEqual(rows[-1]["project_id"], "obs-evo-cand-013714")
+        for row in [rows[0], rows[-1]]:
+            object_dir = repo_root() / row["canonical_path"]
+            self.assertTrue((object_dir / "README.md").exists())
+            self.assertTrue((object_dir / "01_candidate-evolution-packet.json").exists())
+            self.assertTrue((object_dir / "02_evolution-source-index.csv").exists())
+            self.assertTrue((object_dir / "03_era-source-code-index.csv").exists())
+            self.assertTrue((object_dir / "04_human-review-sheet.md").exists())
+            readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+            self.assertIn("object-local research entrance", readme_text)
+            self.assertIn("本目录是一个 EVOBC 字形演化类别候选对象", readme_text)
+            self.assertIn("not an accepted paleographic correspondence", readme_text)
+            self.assertIn("not an evolution-chain conclusion", readme_text)
+            self.assertIn("not a decipherment conclusion", readme_text)
+            self.assertFalse((object_dir.parent / "human-readable").exists())
+
+    def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
+        module = load_evobc_evolution_candidate_materials_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 13714)
+        first = outputs["obs-evo-cand-000001"]
+        last = outputs["obs-evo-cand-013714"]
+        self.assertIn("corpus/004_bronze-seal-modern-correspondences", first["object_dir"].as_posix())
+        self.assertIn("corpus/004_bronze-seal-modern-correspondences", last["object_dir"].as_posix())
+        self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
+        self.assertIn("not an accepted paleographic correspondence", first["readme_text"])
+        self.assertIn("not_formal_correspondence", first["review_sheet_text"])
+        self.assertEqual(first["packet"]["record_type"], "evolution_correspondence_candidate")
+        self.assertEqual(first["packet"]["evolution_chain_claim_status"], "no_claim")
+        self.assertEqual(len(first["source_rows"]), 2)
+        self.assertGreaterEqual(len(first["code_rows"]), 1)
 
     def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_character_local_materials_module()

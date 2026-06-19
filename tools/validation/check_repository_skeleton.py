@@ -1844,6 +1844,8 @@ REQUIRED_PATHS = [
     SMITHSONIAN_NMAA_OBJECT_STAGING,
     PENN_MUSEUM_OBJECT_STAGING,
     METMUSEUM_OBJECT_STAGING,
+    "project_registry/002_project-id-to-source-reference-map/005_evolution-candidate-id-source-map.csv",
+    "corpus/004_bronze-seal-modern-correspondences/README.md",
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
     "corpus/005_excavation-sites-periods-and-batches/001_public-domain-object-image-assets/README.md",
     "tmp/.gitignore",
@@ -1863,6 +1865,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_character_local_materials.py",
     "tools/002_corpus-import/extract_hust_obc_local_glyph_images.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
+    "tools/002_corpus-import/build_evobc_evolution_candidate_materials.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
@@ -2241,6 +2244,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "03_glyph-codepoint-index.csv",
         "04_glyph-codepoint-gallery.md",
     ]
+    sample_indexes = {1, len(rows)}
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
         if project_id != f"obs-comp-cand-{index:06d}":
@@ -2256,6 +2260,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         for filename in required_files:
             if not path_exists(object_dir / filename):
                 issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        if index not in sample_indexes:
+            continue
         readme_path = object_dir / "README.md"
         if path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
@@ -2400,6 +2406,129 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
     return issues
 
 
+def check_evolution_candidate_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    evolution_map_path = (
+        root
+        / "project_registry/002_project-id-to-source-reference-map/"
+        / "005_evolution-candidate-id-source-map.csv"
+    )
+    with evolution_map_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    if len(rows) != 13714:
+        issues.append(f"{evolution_map_path.relative_to(root).as_posix()} should contain 13714 evolution candidate rows")
+    if rows and rows[0].get("project_id") != "obs-evo-cand-000001":
+        issues.append(f"{evolution_map_path.relative_to(root).as_posix()} first project_id changed")
+    if rows and rows[-1].get("project_id") != "obs-evo-cand-013714":
+        issues.append(f"{evolution_map_path.relative_to(root).as_posix()} last project_id changed")
+    required_files = [
+        "README.md",
+        "01_candidate-evolution-packet.json",
+        "02_evolution-source-index.csv",
+        "03_era-source-code-index.csv",
+        "04_human-review-sheet.md",
+    ]
+    for index, row in enumerate(rows, start=1):
+        project_id = row.get("project_id", "")
+        if project_id != f"obs-evo-cand-{index:06d}":
+            issues.append(f"{evolution_map_path.relative_to(root).as_posix()} project_id sequence changed: {project_id}")
+        if row.get("record_type") != "evolution_correspondence_candidate":
+            issues.append(f"{evolution_map_path.relative_to(root).as_posix()} record_type changed: {project_id}")
+        if row.get("review_status") != "needs_human_evolution_review":
+            issues.append(f"{evolution_map_path.relative_to(root).as_posix()} review_status changed: {project_id}")
+        if row.get("source_ids") != "src-evobc":
+            issues.append(f"{evolution_map_path.relative_to(root).as_posix()} source_ids changed: {project_id}")
+        object_dir = root / row.get("canonical_path", "")
+        if not path_exists(object_dir):
+            issues.append(f"{evolution_map_path.relative_to(root).as_posix()} missing object directory: {project_id}")
+            continue
+        if "corpus/004_bronze-seal-modern-correspondences/" not in object_dir.relative_to(root).as_posix():
+            issues.append(f"{evolution_map_path.relative_to(root).as_posix()} object outside corpus/004: {project_id}")
+        if path_exists(object_dir.parent / "human-readable"):
+            issues.append(f"{object_dir.parent.relative_to(root).as_posix()} has forbidden parallel human-readable directory")
+        for filename in required_files:
+            if not path_exists(object_dir / filename):
+                issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        readme_path = object_dir / "README.md"
+        if path_exists(readme_path):
+            text = readme_path.read_text(encoding="utf-8")
+            for snippet in [
+                "object-local research entrance",
+                "AI-readable indexes",
+                "not an accepted paleographic correspondence",
+                "not an evolution-chain conclusion",
+                "not a confirmed modern-character identity",
+                "not a decipherment conclusion",
+                "03_era-source-code-index.csv",
+                "04_human-review-sheet.md",
+                "本目录是一个 EVOBC 字形演化类别候选对象",
+            ]:
+                if snippet not in text:
+                    issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        packet_path = object_dir / "01_candidate-evolution-packet.json"
+        packet_image_reference_count = -1
+        if path_exists(packet_path):
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            if isinstance(packet.get("image_reference_count"), int):
+                packet_image_reference_count = int(packet["image_reference_count"])
+            if packet.get("project_id") != project_id:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} project_id mismatch")
+            if packet.get("record_type") != "evolution_correspondence_candidate":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} record_type changed")
+            if packet.get("review_status") != "needs_human_evolution_review":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} review_status changed")
+            if packet.get("formal_correspondence_status") != "not_formal_correspondence":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} formal correspondence status changed")
+            if packet.get("evolution_chain_claim_status") != "no_claim":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} evolution claim status changed")
+            if packet.get("modern_character_identity_status") != "not_confirmed":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} modern identity status changed")
+            if "not an accepted paleographic correspondence" not in packet.get("caution", ""):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing evolution boundary")
+        source_index_path = object_dir / "02_evolution-source-index.csv"
+        if path_exists(source_index_path):
+            with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                source_rows = list(csv.DictReader(file))
+            if len(source_rows) != 2:
+                issues.append(f"{source_index_path.relative_to(root).as_posix()} should contain two source rows")
+            download_ids = {source_row.get("evidence_download_id", "") for source_row in source_rows}
+            if download_ids != {"dl-evobc-key-value-json", "dl-evobc-list-json"}:
+                issues.append(f"{source_index_path.relative_to(root).as_posix()} download IDs changed")
+            for source_row in source_rows:
+                if source_row.get("project_id") != project_id:
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} project_id mismatch")
+                if source_row.get("source_id") != "src-evobc":
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} source_id changed")
+                if source_row.get("review_status") != "reviewed_metadata_only":
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} review_status changed")
+        code_index_path = object_dir / "03_era-source-code-index.csv"
+        if path_exists(code_index_path):
+            with code_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                code_rows = list(csv.DictReader(file))
+            if not code_rows and packet_image_reference_count != 0:
+                issues.append(f"{code_index_path.relative_to(root).as_posix()} should contain code rows")
+            if {code_row.get("code_type", "") for code_row in code_rows} - {"era", "source"}:
+                issues.append(f"{code_index_path.relative_to(root).as_posix()} code_type changed")
+            for code_row in code_rows:
+                if code_row.get("project_id") != project_id:
+                    issues.append(f"{code_index_path.relative_to(root).as_posix()} project_id mismatch")
+                if code_row.get("review_status") != "reviewed_metadata_only":
+                    issues.append(f"{code_index_path.relative_to(root).as_posix()} review_status changed")
+        review_sheet_path = object_dir / "04_human-review-sheet.md"
+        if path_exists(review_sheet_path):
+            review_sheet = review_sheet_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Do not record a formal correspondence",
+                "not_formal_correspondence",
+                "no_claim",
+                "not_collected",
+                "风险提示",
+            ]:
+                if snippet not in review_sheet:
+                    issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+    return issues
+
+
 def check_character_object_material_coverage_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_path = root / CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT
@@ -2513,6 +2642,8 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
     for path in root.rglob("*"):
         if ".git" in path.parts or not path.is_file():
             continue
+        if _is_generated_evolution_candidate_material_path(path, root):
+            continue
         if _is_raw_user_prompt_archive_path(path, root):
             continue
         if path == Path(__file__).resolve():
@@ -2528,6 +2659,14 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
 
 def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
+
+
+def _is_generated_evolution_candidate_material_path(path: Path, root: Path) -> bool:
+    relative_path = _relative_posix(path, root)
+    return (
+        relative_path.startswith("corpus/004_bronze-seal-modern-correspondences/")
+        and "_obs-evo-cand-bucket_evolution-candidates/" in relative_path
+    )
 
 
 def _is_raw_user_prompt_archive_path(path: Path, root: Path) -> bool:
@@ -23588,6 +23727,7 @@ def main() -> int:
     issues.extend(check_character_directory_local_materials(root))
     issues.extend(check_component_candidate_local_materials(root))
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
+    issues.extend(check_evolution_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))

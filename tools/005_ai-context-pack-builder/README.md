@@ -5,6 +5,11 @@ Future context-pack tools will gather source evidence for AI Agent reasoning.
 
 Current tools:
 
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary.py`: builds `181_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes.json` from the 180 route summary outcome scaffold. It indexes each empty human-gated source outcome scaffold row as a routing-only route summary record while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
+
+Simplified Chinese supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary.py` 基于 180 route summary outcome scaffold 生成 `181_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes.json`。它把每条空的人工门控 source outcome scaffold 行索引成仅用于导航的 route summary 记录；证据采集、已复核 outcome、权利裁定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold.py`: builds `180_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-route-summary-outcome-scaffold.csv` from the 179 checklist outcome route summary. It gives each route one empty human-gated outcome surface for later reviewed source outcome capture while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
 
 Simplified Chinese supplement:

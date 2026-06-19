@@ -341,6 +341,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGN
     "corpus/009_statistics-and-derived-features/"
     "180_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-route-summary-outcome-scaffold.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTE_SUMMARY_OUTCOME_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "181_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes.json"
+)
 UPDATED_AT = "2026-06-19"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
@@ -711,6 +715,10 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
         root,
         SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTE_SUMMARY_OUTCOME_SCAFFOLD,
     )
+    source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary_count = count_existing_file(
+        root,
+        SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTE_SUMMARY_OUTCOME_ROUTE_SUMMARY,
+    )
 
     rows = [
         make_row(
@@ -965,10 +973,11 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_route_summary_count
             + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_scaffold_count
             + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_count
-            + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold_count,
+            + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold_count
+            + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary_count,
             "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTE_SUMMARY_OUTCOME_SCAFFOLD,
-            "open_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold_then_record_human_gated_source_outcomes",
+            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTE_SUMMARY_OUTCOME_ROUTE_SUMMARY,
+            "open_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary_then_record_human_gated_source_outcomes",
         ),
         make_row(
             "core-ready-009",

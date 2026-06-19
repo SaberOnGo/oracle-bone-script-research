@@ -9,6 +9,7 @@ Simplified Chinese:
 ## Local Files / 本地文件
 
 - Human-readable page / 人类可读页: `README.md`
+- Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
 - AI-readable candidate packet / AI 可读候选包: `01_undeciphered-candidate-packet.json`
 - AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
 
@@ -43,5 +44,5 @@ This page is a preparation-stage object entrance. It is not an accepted characte
 ## Review Notes / 复核说明
 
 - Review status / 复核状态: `needs_human_visual_review`
-- Required next step / 下一步: open the packet and visual/source index in this same directory, then compare against source registers, source package manifests, and cross-source evidence.
+- Required next step / 下一步: open the packet, visual gallery, and visual/source index in this same directory, then compare against source registers, source package manifests, and cross-source evidence.
 - Boundary caution / 边界提示: HUST-OBC zip-directory candidate only; not an accepted oracle character, reading, component, evolution chain, or decipherment conclusion. Article reports 9411 undeciphered characters, but the inspected zip directory yielded 9408 candidate class directories; discrepancy needs review.

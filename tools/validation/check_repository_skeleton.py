@@ -2118,6 +2118,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         object_dir = root / relative_dir
         readme_path = object_dir / "README.md"
         visual_index_path = object_dir / "02_visual-source-index.csv"
+        gallery_path = object_dir / "04_visual-gallery.md"
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")
@@ -2132,6 +2133,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 "co-located working folder",
                 "同一具体对象目录",
                 "02_visual-source-index.csv",
+                "04_visual-gallery.md",
                 "not an accepted reading",
                 "not a decipherment conclusion",
                 "不是已确认释读",
@@ -2175,6 +2177,28 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             path_rows = [row for row in rows if row.get("source_image_reference_path")]
             if len(path_rows) != 61:
                 issues.append(f"{visual_index_path.relative_to(root).as_posix()} should retain 61 source image references")
+        committed_rows = [row for row in rows if row.get("committed_image_path")]
+        if committed_rows:
+            if not gallery_path.exists():
+                issues.append(f"{relative_dir} missing co-located 04_visual-gallery.md")
+            else:
+                gallery_text = gallery_path.read_text(encoding="utf-8")
+                for snippet in [
+                    "![",
+                    "02_visual-source-index.csv",
+                    "source_marked_risk_noted",
+                    "not an accepted reading",
+                    "not a decipherment conclusion",
+                    "不是已确认释读",
+                ]:
+                    if snippet not in gallery_text:
+                        issues.append(f"{gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+                for row in committed_rows:
+                    committed_name = Path(row["committed_image_path"]).name
+                    if committed_name not in gallery_text:
+                        issues.append(
+                            f"{gallery_path.relative_to(root).as_posix()} missing committed image: {committed_name}"
+                        )
     return issues
 
 

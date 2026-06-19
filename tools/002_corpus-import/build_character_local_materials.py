@@ -51,7 +51,6 @@ TARGETS = {
         "packet": "01_undeciphered-candidate-packet.json",
     },
 }
-
 TARGET_PROJECT_IDS = tuple(TARGETS)
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
@@ -156,7 +155,7 @@ def build_visual_rows(
                         "accepted glyph identity, not an accepted reading, and not a "
                         "decipherment conclusion."
                     ),
-                    "updated_at": "2026-06-19",
+                    "updated_at": "2026-06-20",
                 }
             )
         return rows
@@ -186,9 +185,23 @@ def build_visual_rows(
                 "reference in the current prepared records; not an accepted reading and "
                 "not a decipherment conclusion."
             ),
-            "updated_at": "2026-06-19",
+            "updated_at": "2026-06-20",
         }
     ]
+
+
+def relative_committed_images(object_dir: Path, committed_images: list[str]) -> str:
+    if not committed_images:
+        return "none in this directory yet"
+    values = []
+    for path in committed_images:
+        asset_path = Path(path)
+        values.append(
+            asset_path.relative_to(object_dir).as_posix()
+            if asset_path.is_relative_to(object_dir)
+            else path
+        )
+    return "; ".join(values)
 
 
 def build_readme_text(
@@ -202,24 +215,12 @@ def build_readme_text(
     source_id = packet.get("source_id", "")
     status_counts = sorted({row["visual_material_status"] for row in visual_rows})
     image_ref_count = sum(1 for row in visual_rows if row["source_image_reference_path"])
-    committed_images = [
-        row["committed_image_path"]
-        for row in visual_rows
-        if row.get("committed_image_path")
-    ]
-    if committed_images:
-        committed_image_text = "; ".join(
-            Path(path).relative_to(object_dir).as_posix()
-            if Path(path).is_relative_to(object_dir)
-            else path
-            for path in committed_images
-        )
-    else:
-        committed_image_text = "none in this directory yet"
+    committed_images = [row["committed_image_path"] for row in visual_rows if row.get("committed_image_path")]
     packet_record_type = packet.get("record_type", "")
     caution = packet.get("caution", "")
     local_path = object_dir.as_posix()
     status_text = ", ".join(status_counts)
+    committed_image_text = relative_committed_images(object_dir, committed_images)
     return f"""# {project_id} Local Object Materials / {project_id} 本地对象资料
 
 English:
@@ -231,6 +232,7 @@ Simplified Chinese:
 ## Local Files / 本地文件
 
 - Human-readable page / 人类可读页: `README.md`
+- Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
 - AI-readable candidate packet / AI 可读候选包: `{packet_name}`
 - AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
 
@@ -265,8 +267,74 @@ This page is a preparation-stage object entrance. It is not an accepted characte
 ## Review Notes / 复核说明
 
 - Review status / 复核状态: `needs_human_visual_review`
-- Required next step / 下一步: open the packet and visual/source index in this same directory, then compare against source registers, source package manifests, and cross-source evidence.
+- Required next step / 下一步: open the packet, visual gallery, and visual/source index in this same directory, then compare against source registers, source package manifests, and cross-source evidence.
 - Boundary caution / 边界提示: {caution}
+"""
+
+
+def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_rows: list[dict[str, str]]) -> str:
+    external_id = packet.get("primary_external_ref_id", "")
+    source_id = packet.get("source_id", "")
+    committed_rows = [row for row in visual_rows if row.get("committed_image_path")]
+    sections: list[str] = []
+    for row in committed_rows:
+        asset_path = Path(row["committed_image_path"])
+        asset_name = asset_path.name
+        metadata_name = asset_path.with_suffix(".yaml").name
+        local_asset_path = f"03_visual-assets/{asset_name}"
+        local_metadata_path = f"03_visual-assets/{metadata_name}"
+        sections.append(
+            f"""## {row["visual_source_index_id"]} / 图像条目
+
+![{project_id} glyph candidate]({local_asset_path})
+
+- Local image / 本地图像: `{local_asset_path}`
+- Local metadata / 本地 metadata: `{local_metadata_path}`
+- Source image path / 来源图像路径: `{row.get("source_image_reference_path", "")}`
+- Source package / 来源包: `{row.get("source_package_id", "")}`
+- Download ID / 下载 ID: `{row.get("download_id", "")}`
+- Rights status / 权利状态: `{row.get("rights_status", "")}`
+- Review status / 复核状态: `{row.get("review_status", "")}`
+- Risk note / 风险提示: {row.get("risk_note", "")}
+"""
+        )
+    if not sections:
+        sections.append(
+            """## No Committed Local Image Yet / 暂无已提交本地图像
+
+English:
+This object currently has no committed local glyph image derivative. Use `02_visual-source-index.csv` to inspect source-image references and source-package routing before extracting any review image into this same object directory.
+
+简体中文：
+本对象目前还没有已提交的本地字形图像派生件。请先查看 `02_visual-source-index.csv` 中的来源图像引用和来源包路线，再把可复核图像抽取到同一对象目录中。
+"""
+        )
+    return f"""# {project_id} Visual Gallery / {project_id} 图像资料页
+
+English:
+This human-readable gallery stays inside the same concrete oracle-character object directory as the AI-readable packet and visual/source index. It is a preparation-stage viewing surface for local review images, not a parallel human-only directory.
+
+简体中文：
+本图像资料页与 AI 可读资料包、图像/来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
+
+## Object And Source / 对象与来源
+
+- Project ID / 项目 ID: `{project_id}`
+- Primary external reference / 首选外部参考: `{external_id}`
+- Source / 来源: `{source_id}`
+- AI packet / AI 资料包: `{packet_name}`
+- Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
+- Committed local review images / 已提交本地复核图像数: `{len(committed_rows)}`
+
+## Research Boundary / 研究边界
+
+English:
+Images shown here are source-marked preparation materials for human visual review. Each image is not an accepted glyph identity, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
+
+简体中文：
+本页展示的图像只是带来源标记的准备阶段材料，用于人工视觉复核。它们不是已确认字形身份，不是已确认释读，不是构件结论，也不是破译结论。
+
+{chr(10).join(sections)}
 """
 
 
@@ -288,7 +356,9 @@ def build_outputs(root: Path) -> dict[str, dict]:
             "object_dir": object_dir,
             "readme_path": object_dir / "README.md",
             "visual_index_path": visual_index_path,
+            "gallery_path": object_dir / "04_visual-gallery.md",
             "readme_text": build_readme_text(project_id, object_dir.relative_to(root), packet_name, packet, visual_rows),
+            "gallery_text": build_gallery_text(project_id, packet_name, packet, visual_rows),
             "visual_rows": visual_rows,
         }
     return outputs
@@ -303,7 +373,8 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
 
 def write_outputs(outputs: dict[str, dict]) -> None:
     for output in outputs.values():
-        output["readme_path"].write_text(output["readme_text"], encoding="utf-8", newline="\n")
+        output["readme_path"].write_text(output["readme_text"].rstrip() + "\n", encoding="utf-8", newline="\n")
+        output["gallery_path"].write_text(output["gallery_text"].rstrip() + "\n", encoding="utf-8", newline="\n")
         write_csv(output["visual_index_path"], output["visual_rows"])
 
 

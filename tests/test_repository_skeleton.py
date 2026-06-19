@@ -2257,6 +2257,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             readme_text = (target_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("01_", readme_text)
             self.assertIn("02_visual-source-index.csv", readme_text)
+            self.assertIn("04_visual-gallery.md", readme_text)
             self.assertIn("not an accepted reading", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("不是已确认释读", readme_text)
@@ -2289,6 +2290,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(project_id, output["readme_text"])
             self.assertIn("co-located", output["readme_text"])
             self.assertIn("同一具体对象目录", output["readme_text"])
+            self.assertEqual(output["gallery_path"].parent, object_dir)
+            self.assertIn("04_visual-gallery.md", output["readme_text"])
+            self.assertIn(project_id, output["gallery_text"])
+            self.assertIn("not a decipherment conclusion", output["gallery_text"])
         image_rows = outputs["obs-unk-006294"]["visual_rows"]
         self.assertEqual(
             image_rows[0]["committed_image_path"],
@@ -2326,6 +2331,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertEqual(first_row["committed_image_path"], relative_image_path)
             self.assertEqual(first_row["visual_material_status"], "committed_review_image_derivative")
             self.assertEqual(first_row["review_status"], "needs_human_visual_review")
+
+            object_dir = image_path.parents[1]
+            gallery_path = object_dir / "04_visual-gallery.md"
+            self.assertTrue(path_exists(gallery_path), gallery_path.relative_to(repo_root()).as_posix())
+            gallery_text = gallery_path.read_text(encoding="utf-8")
+            self.assertIn(f"![{project_id} glyph candidate](03_visual-assets/", gallery_text)
+            self.assertIn(image_path.name, gallery_text)
+            self.assertIn(image_path.with_suffix(".yaml").name, gallery_text)
+            self.assertIn("02_visual-source-index.csv", gallery_text)
+            self.assertIn("source_marked_risk_noted", gallery_text)
+            self.assertIn("not an accepted reading", gallery_text)
+            self.assertIn("not a decipherment conclusion", gallery_text)
+            self.assertIn("不是已确认释读", gallery_text)
 
     def test_public_domain_asset_records(self) -> None:
         self.assertEqual(check_asset_records(repo_root()), [])

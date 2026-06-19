@@ -92,3 +92,7 @@ English supplement:
 - `build_source_pipeline_phase_action_missing_evidence_action_queue.py` 基于 142 evidence presence 矩阵生成 `144_source-pipeline-phase-action-missing-evidence-action-queue.csv`。它把 47 个缺失 source-file evidence role 展开为人工复核任务；不采集新证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
 - `build_source_pipeline_phase_action_missing_evidence_result_scaffold.py` 基于 144 缺失证据动作队列生成 `145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv`。它为 47 个缺失证据动作预留空白的已复核 outcome 字段，同时保持证据采集、权利裁定、来源提升、语料导入和释读结论均未设置。
 - `build_source_pipeline_phase_action_missing_evidence_route_summary.py` 基于 145 结果脚手架生成 `146_source-pipeline-phase-action-missing-evidence-route-summary.json`。它按来源和缺失证据角色汇总 47 条缺失证据路线，仅用于导航，不记录已复核 outcome。
+- `build_source_pipeline_phase_action_missing_evidence_source_summary.py` generates `147_source-pipeline-phase-action-missing-evidence-source-summary.csv` from the 146 route summary. It compresses the 47 missing-evidence routes into 18 source-level review entries while keeping reviewed outcomes, rights decisions, source promotion, corpus import, and decipherment claims empty.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_source_summary.py` 基于 146 route summary 生成 `147_source-pipeline-phase-action-missing-evidence-source-summary.csv`。它把 47 条缺失证据 route 压缩成 18 行来源级复核入口，同时保持已复核 outcome、权利裁定、来源提升、语料导入和释读结论为空。

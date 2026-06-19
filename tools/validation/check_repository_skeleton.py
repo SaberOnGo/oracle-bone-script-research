@@ -96,6 +96,33 @@ HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX = (
     "corpus/001_oracle-characters/000_character-registers/"
     "003_undeciphered-oracle-characters-index.csv"
 )
+CHARACTER_LOCAL_MATERIAL_TARGETS = {
+    "obs-char-000001": (
+        "corpus/001_oracle-characters/"
+        "001_000001-000100_obs-char-bucket_oracle-characters/"
+        "001_obs-char-000001_hust-obc-cat-0001_oracle-character"
+    ),
+    "obs-char-000002": (
+        "corpus/001_oracle-characters/"
+        "001_000001-000100_obs-char-bucket_oracle-characters/"
+        "002_obs-char-000002_hust-obc-cat-0002_oracle-character"
+    ),
+    "obs-char-000003": (
+        "corpus/001_oracle-characters/"
+        "001_000001-000100_obs-char-bucket_oracle-characters/"
+        "003_obs-char-000003_hust-obc-cat-0003_oracle-character"
+    ),
+    "obs-unk-005708": (
+        "corpus/001_oracle-characters/"
+        "074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
+        "008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate"
+    ),
+    "obs-unk-006294": (
+        "corpus/001_oracle-characters/"
+        "079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
+        "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate"
+    ),
+}
 HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST = (
     "corpus/001_oracle-characters/"
     "017_undeciphered-000001-000100_obs-unk-bucket_oracle-character-candidates/"
@@ -1807,6 +1834,7 @@ REQUIRED_PATHS = [
     "tmp/.gitignore",
     "tmp/README.md",
     "tools/git/check_commit_messages.py",
+    "tools/002_corpus-import/README.local-materials.md",
     "tools/002_corpus-import/download_source_manifest.py",
     "tools/002_corpus-import/build_registered_source_metadata_profiles.py",
     "tools/002_corpus-import/build_evobc_evolution_staging.py",
@@ -1817,6 +1845,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_first_bucket_candidate_packets.py",
     "tools/002_corpus-import/build_hust_obc_candidate_packets.py",
     "tools/002_corpus-import/build_hust_obc_undeciphered_candidate_index.py",
+    "tools/002_corpus-import/build_character_local_materials.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
@@ -2035,6 +2064,86 @@ def check_required_paths(root: Path) -> list[str]:
     for relative in REQUIRED_PATHS:
         if not (root / relative).exists():
             issues.append(f"missing required path: {relative}")
+    return issues
+
+
+def check_character_directory_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    required_csv_fields = {
+        "visual_source_index_id",
+        "project_id",
+        "primary_external_ref_id",
+        "source_id",
+        "visual_material_status",
+        "committed_image_path",
+        "source_image_reference_path",
+        "local_archive_status",
+        "rights_status",
+        "review_status",
+        "research_boundary",
+        "caution",
+    }
+    for project_id, relative_dir in CHARACTER_LOCAL_MATERIAL_TARGETS.items():
+        object_dir = root / relative_dir
+        readme_path = object_dir / "README.md"
+        visual_index_path = object_dir / "02_visual-source-index.csv"
+        packet_paths = list(object_dir.glob("01_*packet.json"))
+        if not object_dir.exists():
+            issues.append(f"missing character object directory: {relative_dir}")
+            continue
+        if not packet_paths:
+            issues.append(f"{relative_dir} missing 01_*packet.json")
+        if not readme_path.exists():
+            issues.append(f"{relative_dir} missing co-located README.md")
+        else:
+            text = readme_path.read_text(encoding="utf-8")
+            for snippet in [
+                "co-located working folder",
+                "同一具体对象目录",
+                "02_visual-source-index.csv",
+                "not an accepted reading",
+                "not a decipherment conclusion",
+                "不是已确认释读",
+            ]:
+                if snippet not in text:
+                    issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        if not visual_index_path.exists():
+            issues.append(f"{relative_dir} missing co-located 02_visual-source-index.csv")
+            continue
+        try:
+            with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                rows = list(csv.DictReader(file))
+        except csv.Error as exc:
+            issues.append(f"{visual_index_path.relative_to(root).as_posix()} invalid CSV: {exc}")
+            continue
+        if not rows:
+            issues.append(f"{visual_index_path.relative_to(root).as_posix()} has no rows")
+            continue
+        missing_fields = required_csv_fields - set(rows[0])
+        if missing_fields:
+            issues.append(
+                f"{visual_index_path.relative_to(root).as_posix()} missing fields: "
+                f"{', '.join(sorted(missing_fields))}"
+            )
+        for row in rows:
+            row_id = row.get("visual_source_index_id", "")
+            if row.get("project_id") != project_id:
+                issues.append(f"{visual_index_path.relative_to(root).as_posix()} project ID mismatch: {row_id}")
+            if row.get("committed_image_path"):
+                committed_path = root / row["committed_image_path"]
+                if not committed_path.exists():
+                    issues.append(f"{visual_index_path.relative_to(root).as_posix()} missing committed image: {row_id}")
+            if row.get("review_status") != "needs_human_visual_review":
+                issues.append(f"{visual_index_path.relative_to(root).as_posix()} review status changed: {row_id}")
+            if row.get("research_boundary") != "co_located_visual_source_index_not_scholarship":
+                issues.append(f"{visual_index_path.relative_to(root).as_posix()} research boundary changed: {row_id}")
+            caution = row.get("caution", "")
+            if "not an accepted reading" not in caution or "not a decipherment conclusion" not in caution:
+                issues.append(f"{visual_index_path.relative_to(root).as_posix()} caution missing boundary: {row_id}")
+        if project_id == "obs-unk-006294":
+            path_rows = [row for row in rows if row.get("source_image_reference_path")]
+            if len(path_rows) != 61:
+                issues.append(f"{visual_index_path.relative_to(root).as_posix()} should retain 61 source image references")
     return issues
 
 
@@ -22979,6 +23088,7 @@ def main() -> int:
     root = repo_root()
     issues = []
     issues.extend(check_required_paths(root))
+    issues.extend(check_character_directory_local_materials(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))

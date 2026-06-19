@@ -1,0 +1,281 @@
+#!/usr/bin/env python3
+"""Build co-located human and AI material indexes for character directories."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+from pathlib import Path
+
+
+TARGETS = {
+    "obs-char-000001": {
+        "object_dir": (
+            "corpus/001_oracle-characters/"
+            "001_000001-000100_obs-char-bucket_oracle-characters/"
+            "001_obs-char-000001_hust-obc-cat-0001_oracle-character"
+        ),
+        "packet": "01_candidate-character-packet.json",
+    },
+    "obs-char-000002": {
+        "object_dir": (
+            "corpus/001_oracle-characters/"
+            "001_000001-000100_obs-char-bucket_oracle-characters/"
+            "002_obs-char-000002_hust-obc-cat-0002_oracle-character"
+        ),
+        "packet": "01_candidate-character-packet.json",
+    },
+    "obs-char-000003": {
+        "object_dir": (
+            "corpus/001_oracle-characters/"
+            "001_000001-000100_obs-char-bucket_oracle-characters/"
+            "003_obs-char-000003_hust-obc-cat-0003_oracle-character"
+        ),
+        "packet": "01_candidate-character-packet.json",
+    },
+    "obs-unk-005708": {
+        "object_dir": (
+            "corpus/001_oracle-characters/"
+            "074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
+            "008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate"
+        ),
+        "packet": "01_undeciphered-candidate-packet.json",
+    },
+    "obs-unk-006294": {
+        "object_dir": (
+            "corpus/001_oracle-characters/"
+            "079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
+            "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate"
+        ),
+        "packet": "01_undeciphered-candidate-packet.json",
+    },
+}
+
+TARGET_PROJECT_IDS = tuple(TARGETS)
+IMAGE_REFERENCE_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "068_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-results.csv"
+)
+VISUAL_INDEX_FIELDS = [
+    "visual_source_index_id",
+    "project_id",
+    "primary_external_ref_id",
+    "source_id",
+    "source_package_id",
+    "download_id",
+    "visual_material_status",
+    "committed_image_path",
+    "source_image_reference_path",
+    "source_image_sequence_in_candidate",
+    "source_image_count_expected",
+    "registered_storage_hint",
+    "resolved_local_archive_path",
+    "local_archive_status",
+    "rights_status",
+    "risk_note",
+    "review_status",
+    "research_boundary",
+    "caution",
+    "updated_at",
+]
+
+
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_image_reference_rows(root: Path) -> dict[str, list[dict[str, str]]]:
+    path = root / IMAGE_REFERENCE_RESULTS
+    rows_by_candidate: dict[str, list[dict[str, str]]] = {}
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        for row in csv.DictReader(file):
+            rows_by_candidate.setdefault(row["unknown_candidate_id"], []).append(row)
+    return rows_by_candidate
+
+
+def archive_status(row: dict[str, str]) -> str:
+    resolved = row.get("resolved_local_archive_path", "")
+    if resolved and Path(resolved).exists():
+        return "registered_external_archive_available_outside_git"
+    if resolved:
+        return "registered_external_archive_missing_on_current_disk"
+    return "not_applicable_no_archive_path"
+
+
+def build_visual_rows(
+    project_id: str,
+    packet: dict,
+    image_reference_rows: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    if image_reference_rows:
+        rows = []
+        for index, source_row in enumerate(image_reference_rows, start=1):
+            rows.append(
+                {
+                    "visual_source_index_id": f"{project_id}-visual-source-{index:03d}",
+                    "project_id": project_id,
+                    "primary_external_ref_id": source_row["primary_external_ref_id"],
+                    "source_id": source_row["source_id"],
+                    "source_package_id": source_row["source_package_id"],
+                    "download_id": source_row["download_id"],
+                    "visual_material_status": "source_image_reference_only_no_committed_glyph_image",
+                    "committed_image_path": "",
+                    "source_image_reference_path": source_row["source_image_path"],
+                    "source_image_sequence_in_candidate": source_row["source_image_sequence_in_candidate"],
+                    "source_image_count_expected": source_row["source_image_count_expected"],
+                    "registered_storage_hint": source_row["registered_storage_hint"],
+                    "resolved_local_archive_path": source_row["resolved_local_archive_path"],
+                    "local_archive_status": archive_status(source_row),
+                    "rights_status": source_row["source_rights_status"],
+                    "risk_note": source_row["risk_note"],
+                    "review_status": "needs_human_visual_review",
+                    "research_boundary": "co_located_visual_source_index_not_scholarship",
+                    "caution": (
+                        "Source image path metadata only; not a committed image, not an "
+                        "accepted glyph identity, not an accepted reading, and not a "
+                        "decipherment conclusion."
+                    ),
+                    "updated_at": "2026-06-19",
+                }
+            )
+        return rows
+
+    return [
+        {
+            "visual_source_index_id": f"{project_id}-visual-source-001",
+            "project_id": project_id,
+            "primary_external_ref_id": packet.get("primary_external_ref_id", ""),
+            "source_id": packet.get("source_id", ""),
+            "source_package_id": packet.get("source_package_id", ""),
+            "download_id": ";".join(packet.get("evidence_download_ids", [])),
+            "visual_material_status": "no_source_image_reference_extracted_yet",
+            "committed_image_path": "",
+            "source_image_reference_path": "",
+            "source_image_sequence_in_candidate": "",
+            "source_image_count_expected": "",
+            "registered_storage_hint": "",
+            "resolved_local_archive_path": "",
+            "local_archive_status": "not_applicable_no_source_image_reference",
+            "rights_status": packet.get("rights_status", ""),
+            "risk_note": packet.get("risk_note", ""),
+            "review_status": "needs_human_visual_review",
+            "research_boundary": "co_located_visual_source_index_not_scholarship",
+            "caution": (
+                "This object has a local candidate packet but no extracted source-image "
+                "reference in the current prepared records; not an accepted reading and "
+                "not a decipherment conclusion."
+            ),
+            "updated_at": "2026-06-19",
+        }
+    ]
+
+
+def build_readme_text(
+    project_id: str,
+    object_dir: Path,
+    packet_name: str,
+    packet: dict,
+    visual_rows: list[dict[str, str]],
+) -> str:
+    external_id = packet.get("primary_external_ref_id", "")
+    source_id = packet.get("source_id", "")
+    status_counts = sorted({row["visual_material_status"] for row in visual_rows})
+    image_ref_count = sum(1 for row in visual_rows if row["source_image_reference_path"])
+    packet_record_type = packet.get("record_type", "")
+    caution = packet.get("caution", "")
+    local_path = object_dir.as_posix()
+    status_text = ", ".join(status_counts)
+    return f"""# {project_id} Local Object Materials / {project_id} 本地对象资料
+
+English:
+This directory is the co-located working folder for this concrete oracle-character object. Human-readable notes, visual/source entrances, and AI-readable packet/index files stay together in this same object directory, not in a parallel human-only directory.
+
+Simplified Chinese:
+本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像/来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus` 或对象目录并行的“人类看的目录”。
+
+## Local Files / 本地文件
+
+- Human-readable page / 人类可读页: `README.md`
+- AI-readable candidate packet / AI 可读候选包: `{packet_name}`
+- AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
+
+## Object Summary / 对象摘要
+
+- Project ID / 项目 ID: `{project_id}`
+- Primary external reference / 首选外部参考: `{external_id}`
+- Source / 来源: `{source_id}`
+- Packet record type / 资料包类型: `{packet_record_type}`
+- Directory / 目录: `{local_path}`
+
+## Visual Material Status / 图像资料状态
+
+- Status / 状态: `{status_text}`
+- Source image reference rows / 来源图像路径引用行数: `{image_ref_count}`
+- Committed glyph image / 已提交字形图片: none in this directory yet
+
+English:
+If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.
+
+简体中文：
+如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包内部路径引用。HUST-OBC 原始包已按大来源登记，不提交到普通 Git。如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记来源包，抽取适合复核的图像派生件，并在提交任何图片资产前记录权利、出处和风险。
+
+## Research Boundary / 研究边界
+
+English:
+This page is a preparation-stage object entrance. It is not an accepted character record, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
+
+简体中文：
+本页只是准备阶段的对象入口。它不是正式甲骨单字记录，不是已确认释读，不是构件结论，也不是破译结论。
+
+## Review Notes / 复核说明
+
+- Review status / 复核状态: `needs_human_visual_review`
+- Required next step / 下一步: open the packet and visual/source index in this same directory, then compare against source registers, source package manifests, and cross-source evidence.
+- Boundary caution / 边界提示: {caution}
+"""
+
+
+def build_outputs(root: Path) -> dict[str, dict]:
+    image_rows = read_image_reference_rows(root)
+    outputs: dict[str, dict] = {}
+    for project_id, target in TARGETS.items():
+        object_dir = root / target["object_dir"]
+        packet_name = target["packet"]
+        packet = read_json(object_dir / packet_name)
+        visual_rows = build_visual_rows(project_id, packet, image_rows.get(project_id, []))
+        outputs[project_id] = {
+            "object_dir": object_dir,
+            "readme_path": object_dir / "README.md",
+            "visual_index_path": object_dir / "02_visual-source-index.csv",
+            "readme_text": build_readme_text(project_id, object_dir.relative_to(root), packet_name, packet, visual_rows),
+            "visual_rows": visual_rows,
+        }
+    return outputs
+
+
+def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    with path.open("w", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=VISUAL_INDEX_FIELDS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def write_outputs(outputs: dict[str, dict]) -> None:
+    for output in outputs.values():
+        output["readme_path"].write_text(output["readme_text"], encoding="utf-8", newline="\n")
+        write_csv(output["visual_index_path"], output["visual_rows"])
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", default=Path.cwd(), type=Path)
+    args = parser.parse_args()
+    outputs = build_outputs(args.root)
+    write_outputs(outputs)
+    print(f"Wrote local materials for {len(outputs)} character directories.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

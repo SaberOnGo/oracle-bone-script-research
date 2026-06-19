@@ -19,6 +19,7 @@ from tools.validation.check_repository_skeleton import (
     check_relationship_graph_statistics,
     check_root_gitignore_patterns,
     check_hust_obc_undeciphered_candidates,
+    check_character_directory_local_materials,
     check_preprocessing_status_audit,
     check_data_quality_audit,
     check_source_processing_pipeline_audit,
@@ -156,6 +157,15 @@ def load_hust_obc_candidate_packets_module():
 def load_hust_obc_undeciphered_candidate_index_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_undeciphered_candidate_index.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_undeciphered_candidate_index", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_character_local_materials_module():
+    path = repo_root() / "tools/002_corpus-import/build_character_local_materials.py"
+    spec = importlib.util.spec_from_file_location("build_character_local_materials", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -2190,6 +2200,49 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_tracked_temp_artifacts_absent(self) -> None:
         self.assertEqual(check_tracked_temp_artifacts(repo_root()), [])
+
+    def test_character_directory_local_materials_are_colocated(self) -> None:
+        self.assertEqual(check_character_directory_local_materials(repo_root()), [])
+
+        target_dirs = [
+            repo_root()
+            / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/"
+            / "001_obs-char-000001_hust-obc-cat-0001_oracle-character",
+            repo_root()
+            / "corpus/001_oracle-characters/079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
+            / "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate",
+        ]
+        for target_dir in target_dirs:
+            readme_text = (target_dir / "README.md").read_text(encoding="utf-8")
+            self.assertIn("01_", readme_text)
+            self.assertIn("02_visual-source-index.csv", readme_text)
+            self.assertIn("not an accepted reading", readme_text)
+            self.assertIn("not a decipherment conclusion", readme_text)
+            self.assertIn("不是已确认释读", readme_text)
+            self.assertFalse((target_dir.parent / "human-readable").exists())
+
+        visual_index_path = target_dirs[1] / "02_visual-source-index.csv"
+        with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 61)
+        self.assertTrue(all(row["project_id"] == "obs-unk-006294" for row in rows))
+        self.assertTrue(all(row["source_image_reference_path"] for row in rows))
+        self.assertTrue(all(row["committed_image_path"] == "" for row in rows))
+        self.assertTrue(all(row["review_status"] == "needs_human_visual_review" for row in rows))
+
+    def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
+        module = load_character_local_materials_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(set(outputs), set(module.TARGET_PROJECT_IDS))
+        for project_id, output in outputs.items():
+            object_dir = output["object_dir"]
+            self.assertIn("corpus/001_oracle-characters", object_dir.as_posix())
+            self.assertEqual(output["readme_path"].parent, object_dir)
+            self.assertEqual(output["visual_index_path"].parent, object_dir)
+            self.assertNotIn("doc/public/user_research", output["readme_path"].as_posix())
+            self.assertIn(project_id, output["readme_text"])
+            self.assertIn("co-located", output["readme_text"])
+            self.assertIn("同一具体对象目录", output["readme_text"])
 
     def test_public_domain_asset_records(self) -> None:
         self.assertEqual(check_asset_records(repo_root()), [])

@@ -24,6 +24,7 @@ from tools.validation.check_repository_skeleton import (
     check_component_candidate_local_materials,
     check_inscription_crosswalk_candidate_local_materials,
     check_evolution_candidate_local_materials,
+    check_collection_object_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
@@ -172,6 +173,15 @@ def load_cambridge_hopkins_inscription_crosswalk_materials_module():
 def load_evobc_evolution_candidate_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_evobc_evolution_candidate_materials.py"
     spec = importlib.util.spec_from_file_location("build_evobc_evolution_candidate_materials", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_collection_object_candidate_materials_module():
+    path = repo_root() / "tools/002_corpus-import/build_collection_object_candidate_materials.py"
+    spec = importlib.util.spec_from_file_location("build_collection_object_candidate_materials", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -2421,6 +2431,77 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["packet"]["evolution_chain_claim_status"], "no_claim")
         self.assertEqual(len(first["source_rows"]), 2)
         self.assertGreaterEqual(len(first["code_rows"]), 1)
+
+    def test_collection_object_candidate_local_materials_are_colocated(self) -> None:
+        self.assertEqual(check_collection_object_candidate_local_materials(repo_root()), [])
+
+        map_path = (
+            repo_root()
+            / "project_registry/002_project-id-to-source-reference-map/"
+            / "006_collection-object-id-source-map.csv"
+        )
+        with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 56)
+        self.assertEqual(rows[0]["project_id"], "coll-obj-cand-00001")
+        self.assertEqual(rows[-1]["project_id"], "coll-obj-cand-00056")
+
+        for row in [rows[0], rows[52], rows[53], rows[54], rows[55]]:
+            object_dir = repo_root() / row["canonical_path"]
+            self.assertTrue((object_dir / "README.md").exists())
+            self.assertTrue((object_dir / "01_collection-object-packet.json").exists())
+            self.assertTrue((object_dir / "02_collection-source-index.csv").exists())
+            self.assertTrue((object_dir / "03_visual-asset-index.csv").exists())
+            self.assertTrue((object_dir / "04_visual-gallery.md").exists())
+            self.assertTrue((object_dir / "05_human-review-sheet.md").exists())
+            readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+            self.assertIn("object-local research entrance", readme_text)
+            self.assertIn("not a confirmed inscription identity", readme_text)
+            self.assertIn("not a transcription, formal reading, component analysis, or decipherment conclusion", readme_text)
+            self.assertFalse((object_dir.parent / "human-readable").exists())
+
+        smithsonian_gallery = (
+            repo_root()
+            / rows[52]["canonical_path"]
+            / "04_visual-gallery.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("../../001_public-domain-object-image-assets/003_asset-000003_si-nmaa-fsc-o-26_object-image.jpg", smithsonian_gallery)
+        self.assertIn("asset-000003", smithsonian_gallery)
+
+        penn_gallery = (
+            repo_root()
+            / rows[53]["canonical_path"]
+            / "04_visual-gallery.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("No committed image asset is available", penn_gallery)
+        self.assertNotIn("![object image]", penn_gallery)
+
+        met_gallery = (
+            repo_root()
+            / rows[54]["canonical_path"]
+            / "04_visual-gallery.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("../../001_public-domain-object-image-assets/001_asset-000001_met-obj-42045_object-image.jpg", met_gallery)
+        self.assertIn("asset-000001", met_gallery)
+
+    def test_collection_object_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
+        module = load_collection_object_candidate_materials_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 56)
+        first = outputs["coll-obj-cand-00001"]
+        smithsonian = outputs["coll-obj-cand-00053"]
+        penn = outputs["coll-obj-cand-00054"]
+        met = outputs["coll-obj-cand-00055"]
+        self.assertIn("corpus/005_excavation-sites-periods-and-batches", first["object_dir"].as_posix())
+        self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
+        self.assertIn("object-local research entrance", first["readme_text"])
+        self.assertIn("not_confirmed", first["review_sheet_text"])
+        self.assertEqual(first["packet"]["record_type"], "collection_object_candidate")
+        self.assertEqual(first["packet"]["object_identity_claim_status"], "not_confirmed")
+        self.assertEqual(first["visual_rows"][0]["visual_entry_type"], "external_thumbnail_url_metadata_only")
+        self.assertEqual(smithsonian["visual_rows"][0]["asset_id"], "asset-000003")
+        self.assertEqual(penn["visual_rows"][0]["visual_entry_type"], "no_committed_visual_asset")
+        self.assertEqual(met["visual_rows"][0]["asset_id"], "asset-000001")
 
     def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_character_local_materials_module()

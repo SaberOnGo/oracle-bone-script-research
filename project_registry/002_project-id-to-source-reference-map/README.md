@@ -13,6 +13,7 @@ This directory stores CSV maps from project-local IDs to external source IDs. It
 - `003_asset-id-source-map.csv`: committed visual/source asset IDs.
 - `004_component-id-source-map.csv`: graphemic component candidate IDs.
 - `005_evolution-candidate-id-source-map.csv`: EVOBC evolution/correspondence candidate IDs.
+- `006_collection-object-id-source-map.csv`: museum and collection object candidate IDs.
 
 ## How To Use / 使用方式
 

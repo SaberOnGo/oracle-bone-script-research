@@ -29,6 +29,10 @@ ASSET_IMAGE_TECHNICAL_PROFILE = "project_registry/004_asset-source-and-rights-in
 ASSET_IMAGE_VISUAL_PROFILE = "project_registry/004_asset-source-and-rights-index/005_asset-image-visual-profile.csv"
 EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
 ASSET_ID_SOURCE_MAP = "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
+COLLECTION_OBJECT_ID_SOURCE_MAP = (
+    "project_registry/002_project-id-to-source-reference-map/"
+    "006_collection-object-id-source-map.csv"
+)
 SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
 SOURCE_INVENTORY = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
@@ -1390,6 +1394,10 @@ METMUSEUM_OBJECT_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "005_metmuseum-oracle-bone-object-staging.csv"
 )
+COLLECTION_OBJECT_CANDIDATE_MANIFEST = (
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/"
+    "000_collection-object-candidate-manifest.csv"
+)
 EVOBC_EVOLUTION_CATEGORY_STAGING = (
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
     "001_evobc-evolution-category-staging.csv"
@@ -1844,6 +1852,8 @@ REQUIRED_PATHS = [
     SMITHSONIAN_NMAA_OBJECT_STAGING,
     PENN_MUSEUM_OBJECT_STAGING,
     METMUSEUM_OBJECT_STAGING,
+    COLLECTION_OBJECT_ID_SOURCE_MAP,
+    COLLECTION_OBJECT_CANDIDATE_MANIFEST,
     "project_registry/002_project-id-to-source-reference-map/005_evolution-candidate-id-source-map.csv",
     "corpus/004_bronze-seal-modern-correspondences/README.md",
     "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/README.md",
@@ -1866,6 +1876,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/extract_hust_obc_local_glyph_images.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
     "tools/002_corpus-import/build_evobc_evolution_candidate_materials.py",
+    "tools/002_corpus-import/build_collection_object_candidate_materials.py",
     "tools/002_corpus-import/build_ihp_museum_object_staging.py",
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
@@ -2526,6 +2537,168 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+    return issues
+
+
+def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    map_path = root / COLLECTION_OBJECT_ID_SOURCE_MAP
+    manifest_path = root / COLLECTION_OBJECT_CANDIDATE_MANIFEST
+    with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+        map_rows = list(csv.DictReader(file))
+    with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+        manifest_rows = list(csv.DictReader(file))
+    if len(map_rows) != 56:
+        issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} should contain 56 collection object rows")
+    if len(manifest_rows) != 56:
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} should contain 56 collection object rows")
+    if map_rows and map_rows[0].get("project_id") != "coll-obj-cand-00001":
+        issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} first project_id changed")
+    if map_rows and map_rows[-1].get("project_id") != "coll-obj-cand-00056":
+        issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} last project_id changed")
+    if manifest_rows and manifest_rows[52].get("visual_entry_status") != "committed_public_domain_asset":
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} Smithsonian visual status changed")
+    if manifest_rows and manifest_rows[53].get("visual_entry_status") != "no_committed_visual_asset":
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} Penn visual status changed")
+    if manifest_rows and {row.get("visual_entry_status", "") for row in manifest_rows[54:56]} != {
+        "committed_public_domain_asset"
+    }:
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} Met visual status changed")
+
+    manifest_by_project_id = {row.get("project_id", ""): row for row in manifest_rows}
+    required_files = [
+        "README.md",
+        "01_collection-object-packet.json",
+        "02_collection-source-index.csv",
+        "03_visual-asset-index.csv",
+        "04_visual-gallery.md",
+        "05_human-review-sheet.md",
+    ]
+    expected_sources = {
+        "src-ihp-museum-oracle-bones",
+        "src-smithsonian-nmaa-oracle-bone",
+        "src-penn-museum-oracle-bone",
+        "src-metmuseum-oracle-bone",
+    }
+    committed_asset_ids: set[str] = set()
+    external_thumbnail_count = 0
+    for index, row in enumerate(map_rows, start=1):
+        project_id = row.get("project_id", "")
+        if project_id != f"coll-obj-cand-{index:05d}":
+            issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} project_id sequence changed: {project_id}")
+        if row.get("record_type") != "collection_object_candidate":
+            issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} record_type changed: {project_id}")
+        if row.get("review_status") != "needs_human_collection_object_review":
+            issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} review_status changed: {project_id}")
+        if row.get("source_ids") not in expected_sources:
+            issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} source_ids changed: {project_id}")
+        manifest_row = manifest_by_project_id.get(project_id)
+        if not manifest_row:
+            issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} missing row for {project_id}")
+        elif manifest_row.get("candidate_directory") != row.get("canonical_path"):
+            issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} directory mismatch: {project_id}")
+        object_dir = root / row.get("canonical_path", "")
+        if not path_exists(object_dir):
+            issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} missing object directory: {project_id}")
+            continue
+        if "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/" not in object_dir.relative_to(root).as_posix():
+            issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} object outside corpus/005 candidate area: {project_id}")
+        if path_exists(object_dir.parent / "human-readable"):
+            issues.append(f"{object_dir.parent.relative_to(root).as_posix()} has forbidden parallel human-readable directory")
+        for filename in required_files:
+            if not path_exists(object_dir / filename):
+                issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        readme_path = object_dir / "README.md"
+        if path_exists(readme_path):
+            text = readme_path.read_text(encoding="utf-8")
+            for snippet in [
+                "object-local research entrance",
+                "AI-readable packet/index files",
+                "not a confirmed inscription identity",
+                "not a transcription, formal reading, component analysis, or decipherment conclusion",
+                "04_visual-gallery.md",
+                "05_human-review-sheet.md",
+            ]:
+                if snippet not in text:
+                    issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        packet_path = object_dir / "01_collection-object-packet.json"
+        if path_exists(packet_path):
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            if packet.get("project_id") != project_id:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} project_id mismatch")
+            if packet.get("record_type") != "collection_object_candidate":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} record_type changed")
+            if packet.get("object_identity_claim_status") != "not_confirmed":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} object identity status changed")
+            if packet.get("inscription_record_status") != "not_promoted_to_formal_inscription_record":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} inscription status changed")
+            if packet.get("transcription_status") != "not_collected":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} transcription status changed")
+            if "must not be treated as inscription identity" not in packet.get("caution", ""):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing collection boundary")
+        source_index_path = object_dir / "02_collection-source-index.csv"
+        if path_exists(source_index_path):
+            with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                source_rows = list(csv.DictReader(file))
+            if len(source_rows) != 1:
+                issues.append(f"{source_index_path.relative_to(root).as_posix()} should contain one source row")
+            for source_row in source_rows:
+                if source_row.get("project_id") != project_id:
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} project_id mismatch")
+                if source_row.get("source_id") not in expected_sources:
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} source_id changed")
+                if source_row.get("project_import_status") != "object_metadata_not_promoted":
+                    issues.append(f"{source_index_path.relative_to(root).as_posix()} import status changed")
+        visual_index_path = object_dir / "03_visual-asset-index.csv"
+        if path_exists(visual_index_path):
+            with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                visual_rows = list(csv.DictReader(file))
+            if len(visual_rows) != 1:
+                issues.append(f"{visual_index_path.relative_to(root).as_posix()} should contain one visual row")
+            for visual_row in visual_rows:
+                if visual_row.get("project_id") != project_id:
+                    issues.append(f"{visual_index_path.relative_to(root).as_posix()} project_id mismatch")
+                entry_type = visual_row.get("visual_entry_type", "")
+                if entry_type == "committed_public_domain_asset":
+                    committed_asset_ids.add(visual_row.get("asset_id", ""))
+                    asset_path = root / visual_row.get("asset_path", "")
+                    if not path_exists(asset_path):
+                        issues.append(f"{visual_index_path.relative_to(root).as_posix()} missing committed asset")
+                    if visual_row.get("rights_status") != "public_domain_verified":
+                        issues.append(f"{visual_index_path.relative_to(root).as_posix()} committed asset rights changed")
+                elif entry_type == "external_thumbnail_url_metadata_only":
+                    external_thumbnail_count += 1
+                    if not visual_row.get("thumbnail_url", "").startswith("https://museum.sinica.edu.tw/"):
+                        issues.append(f"{visual_index_path.relative_to(root).as_posix()} IHP thumbnail URL changed")
+                elif entry_type != "no_committed_visual_asset":
+                    issues.append(f"{visual_index_path.relative_to(root).as_posix()} visual entry type changed")
+        gallery_path = object_dir / "04_visual-gallery.md"
+        if path_exists(gallery_path):
+            gallery = gallery_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Visual Gallery",
+                "human visual entrance only",
+                "not glyph segmentation",
+                "not a transcription",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in gallery:
+                    issues.append(f"{gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        review_sheet_path = object_dir / "05_human-review-sheet.md"
+        if path_exists(review_sheet_path):
+            review_sheet = review_sheet_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Do not record inscription identity",
+                "not_promoted_to_formal_inscription_record",
+                "not_collected",
+                "not_applicable_preprocessing_only",
+            ]:
+                if snippet not in review_sheet:
+                    issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+    if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
+    if external_thumbnail_count != 52:
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} IHP external thumbnail count changed")
     return issues
 
 
@@ -23728,6 +23901,7 @@ def main() -> int:
     issues.extend(check_component_candidate_local_materials(root))
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
     issues.extend(check_evolution_candidate_local_materials(root))
+    issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))

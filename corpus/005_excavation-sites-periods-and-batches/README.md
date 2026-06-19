@@ -7,8 +7,10 @@ Current registers:
 
 - `000_collection-registers/001_institutional-collection-provenance-staging.csv`: institutional collection-level provenance staging records extracted from official library, museum, and archive pages.
 - `000_collection-registers/002_ihp-museum-oracle-bone-object-staging.csv`: object-level staging records for 52 oracle-bone collection items listed on the official IHP Museum Oracle Bones page.
+- `001_public-domain-object-image-assets/`: committed public-domain object images with source-marked metadata.
+- `002_collection-object-candidates/`: object-local human-readable and AI-readable candidate materials for IHP Museum, Smithsonian/NMAA, Penn Museum, and The Met collection objects.
 
-The collection staging rows preserve source-level provenance facts such as holding counts, digitized-record counts, named collection provenance, excavation context, and institutional crosswalk notes. The IHP Museum object rows preserve official item-page links and thumbnail URLs as metadata only; images are not downloaded and item-level rights remain under review.
+The collection staging rows preserve source-level provenance facts such as holding counts, digitized-record counts, named collection provenance, excavation context, and institutional crosswalk notes. The IHP Museum object rows preserve official item-page links and thumbnail URLs as metadata only; images are not downloaded and item-level rights remain under review. The collection-object candidate directories keep human-readable README/gallery/review files and AI-readable packet/index files together inside each object directory.
 
 简体中文：
 本目录将保存时代、地点、坑位、批次、收藏和出处记录。

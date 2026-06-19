@@ -22,6 +22,7 @@ python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 python tools/002_corpus-import/build_obimd_component_candidate_materials.py --root .
 python tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_materials.py --root .
 python tools/002_corpus-import/build_evobc_evolution_candidate_materials.py --root .
+python tools/002_corpus-import/build_collection_object_candidate_materials.py --root .
 ```
 
 ## Current Coverage / 当前覆盖范围
@@ -51,6 +52,12 @@ Simplified Chinese:
 EVOBC 字形演化类别批次覆盖 13,714 个 EVOBC 数据集类别。每个 `obs-evo-cand-*` 目录包含 README、候选 packet、来源索引、时代码/source 码索引和人工复核表。这些只是 metadata 候选，不是已接受的古文字对应关系、字形演化链结论、现代字身份确认或释读结论。
 
 ## Validation / 校验
+
+English:
+The collection-object candidate batch covers 56 museum or collection object candidates from IHP Museum, Smithsonian/NMAA, Penn Museum, and The Met staging rows. Each `coll-obj-cand-*` directory contains a README, AI packet, source index, visual asset or thumbnail-route index, visual gallery, and human review sheet. Public-domain Met and Smithsonian assets are shown through object-local gallery links; IHP thumbnails and Penn images remain metadata-only until rights and object-level review are complete.
+
+Simplified Chinese:
+馆藏对象候选批次覆盖 56 个来自史语所历史文物陈列馆、Smithsonian/NMAA、Penn Museum 和 The Met 暂存行的对象。每个 `coll-obj-cand-*` 目录包含 README、AI packet、来源索引、图像资产或缩略图入口索引、图像 gallery 和人工复核表。Met 与 Smithsonian 的公版图片通过对象内 gallery 链接显示；IHP 缩略图和 Penn 图像在权利与对象级复核完成前仍保持 metadata-only。
 
 English:
 Object-local material checks are part of `tools/validation/check_repository_skeleton.py` and the unit test suite. They verify co-location, required files, source routes, candidate status, and the absence of parallel human-readable directories.

@@ -179,3 +179,8 @@ English supplement:
 
 Simplified Chinese supplement:
 - `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `163_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-route-summary.json` 计为当前 missing-evidence outcome-review 的路由入口。该输出仍然只是预处理导航，不记录证据、outcome、权利裁定、来源提升、语料导入或释读结论。
+English supplement:
+- `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `170_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-route-pack.json` as the current assignment outcome source routing entry. This remains preprocessing navigation only: it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
+
+Simplified Chinese supplement:
+- `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `170_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-route-pack.json` 计为当前 assignment outcome source 的 route 入口。该入口仍然只用于预处理导航：不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。

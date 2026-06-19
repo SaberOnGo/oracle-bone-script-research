@@ -6,6 +6,12 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `183_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-summary.json` as the current missing-evidence assignment outcome source handoff outcome checklist outcome routes summary. This is a routing and status aggregation surface only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
+
+Simplified Chinese supplement:
+- `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在将 `183_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-summary.json` 计入当前缺失证据 assignment outcome 来源交接 outcome checklist outcome routes summary。该文件只是路由和状态汇总表面；不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+
+English supplement:
 - `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `182_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-checklist.csv` as the current missing-evidence assignment outcome source handoff outcome checklist outcome routes checklist. This is a precheck and navigation surface only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
 
 Simplified Chinese supplement:

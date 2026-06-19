@@ -5,6 +5,11 @@ Future context-pack tools will gather source evidence for AI Agent reasoning.
 
 Current tools:
 
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary.py`: builds `183_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-summary.json` from the 182 checklist outcome routes checklist. It indexes the 18 precheck rows as a routing-only summary with source and status counts while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
+
+Simplified Chinese supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary.py` 基于 182 checklist outcome routes checklist 生成 `183_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-summary.json`。它把 18 条前置检查行索引成仅用于导航的汇总，并记录来源与状态计数；证据采集、已复核 outcome、权利裁定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_checklist.py`: builds `182_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-checklist.csv` from the 181 checklist outcome routes. It gives each route one precheck row for opening the 181, 180, and 179 files and confirming empty reviewed-evidence and reviewed-outcome fields before later human-gated source outcome work; it does not collect evidence, decide rights, promote sources, import corpus records, or make decipherment claims.
 
 Simplified Chinese supplement:

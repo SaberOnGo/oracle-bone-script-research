@@ -798,6 +798,10 @@ SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "133_ai-agent-source-pipeline-gap-review-checklist.csv"
 )
+SOURCE_PIPELINE_EVIDENCE_LEDGER = (
+    "corpus/009_statistics-and-derived-features/"
+    "134_ai-agent-source-pipeline-evidence-ledger.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1456,6 +1460,7 @@ REQUIRED_PATHS = [
     SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY,
     SOURCE_PIPELINE_GAP_MATRIX,
     SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST,
+    SOURCE_PIPELINE_EVIDENCE_LEDGER,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1605,6 +1610,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_engineering_second_wave_handoff_route_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_gap_matrix.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_gap_review_checklist.py",
+    "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -2923,6 +2929,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_engineering_second_wave_handoff_route_summary_files:1",
             "source_pipeline_gap_matrix_rows:21",
             "source_pipeline_gap_review_checklist_rows:21",
+            "source_pipeline_evidence_ledger_rows:21",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3169,10 +3176,12 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
     audit_rows, audit_issues = _read_csv_rows(root / SOURCE_PROCESSING_PIPELINE_AUDIT)
     gap_rows, gap_issues = _read_csv_rows(root / SOURCE_PIPELINE_GAP_MATRIX)
     gap_checklist_rows, gap_checklist_issues = _read_csv_rows(root / SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST)
+    evidence_ledger_rows, evidence_ledger_issues = _read_csv_rows(root / SOURCE_PIPELINE_EVIDENCE_LEDGER)
     source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
     issues.extend(audit_issues)
     issues.extend(gap_issues)
     issues.extend(gap_checklist_issues)
+    issues.extend(evidence_ledger_issues)
     issues.extend(source_issues)
 
     summary_path = root / SOURCE_PROCESSING_PIPELINE_SUMMARY
@@ -3384,6 +3393,65 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         for snippet in ["not a rights decision", "not a corpus import", "not a decipherment conclusion"]:
             if snippet not in row.get("caution", ""):
                 issues.append(f"{SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST} {source_id} caution missing {snippet}")
+
+    ledger_source_ids = {row.get("source_id", "") for row in evidence_ledger_rows}
+    if len(evidence_ledger_rows) != 21:
+        issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} should contain exactly 21 rows")
+    if ledger_source_ids != source_ids:
+        issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} source_id coverage changed")
+    ledger_by_source = {row.get("source_id", ""): row for row in evidence_ledger_rows}
+    expected_ledger_fragments = {
+        "src-hust-obc": {
+            "downloaded_count": "8",
+            "checksum_present_count": "8",
+            "package_manifest_count": "4",
+            "metadata_profile_count": "11",
+            "evidence_completeness_status": "source_evidence_and_derivatives_present_pending_review",
+        },
+        "src-british-museum-oracle-bone": {
+            "downloaded_count": "0",
+            "download_evidence_status": "access_or_download_not_resolved",
+        },
+        "src-obimd": {
+            "graph_edge_count": "44433",
+            "derivative_evidence_status": "candidate_or_graph_derivatives_present_pending_review",
+        },
+        "src-xiaoxuetang-jiaguwen": {
+            "download_evidence_status": "downloaded_with_access_or_checksum_review_needed",
+        },
+        "src-nlc-oracle-world": {
+            "metadata_profile_count": "7",
+            "manifest_evidence_status": "package_manifest_missing_or_not_applicable_unreviewed",
+        },
+    }
+    for source_id, expected_values in expected_ledger_fragments.items():
+        row = ledger_by_source.get(source_id, {})
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} {source_id} {field} changed")
+    for row in evidence_ledger_rows:
+        source_id = row.get("source_id", "")
+        if row.get("checklist_path") != SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST:
+            issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} checklist path changed: {source_id}")
+        if "download_manifest" not in row.get("evidence_counts_summary", ""):
+            issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} evidence summary missing download manifest: {source_id}")
+        for field, expected_value in {
+            "ledger_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} {source_id} {field} changed")
+        if row.get("reviewed_evidence_paths") or row.get("review_outcome_summary"):
+            issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} reviewed fields should be empty: {source_id}")
+        for route_path in row.get("route_files_to_open", "").split(";"):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} missing route path: {route_path}")
+        for snippet in ["not a rights decision", "not a corpus import", "not a decipherment conclusion"]:
+            if snippet not in row.get("caution", ""):
+                issues.append(f"{SOURCE_PIPELINE_EVIDENCE_LEDGER} {source_id} caution missing {snippet}")
 
     summary_rows = summary.get("rows", [])
     if isinstance(summary_rows, list) and len(summary_rows) != len(audit_rows):
@@ -3609,6 +3677,15 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         source_pipeline_gap_checklist_rows = []
         source_pipeline_gap_checklist_issues = []
     try:
+        source_pipeline_evidence_ledger_rows, source_pipeline_evidence_ledger_issues = _read_csv_rows(
+            root / SOURCE_PIPELINE_EVIDENCE_LEDGER
+        )
+        issues.extend(source_pipeline_evidence_ledger_issues)
+    except FileNotFoundError:
+        issues.append(f"missing required path: {SOURCE_PIPELINE_EVIDENCE_LEDGER}")
+        source_pipeline_evidence_ledger_rows = []
+        source_pipeline_evidence_ledger_issues = []
+    try:
         source_engineering_second_wave_handoff_route_summary = json.loads(
             (root / SOURCE_ENGINEERING_SECOND_WAVE_HANDOFF_ROUTE_SUMMARY).read_text(encoding="utf-8")
         )
@@ -3668,9 +3745,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 12260,
-        "review_queue_count": 12260,
-        "staging_record_count": 75144,
+        "manual_review_backlog_count": 12281,
+        "review_queue_count": 12281,
+        "staging_record_count": 75145,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3709,14 +3786,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "131",
+            "staging_record_count": "132",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "378",
-            "review_queue_path": SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST,
+            "review_queue_count": "399",
+            "review_queue_path": SOURCE_PIPELINE_EVIDENCE_LEDGER,
         },
         "published_research_notes": {
             "formal_record_count": "5",

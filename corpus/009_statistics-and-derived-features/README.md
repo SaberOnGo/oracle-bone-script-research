@@ -288,3 +288,9 @@ English supplement:
 - `119_ai-agent-source-engineering-first-wave-review-results.csv` 从 118 交接脚手架和本地已有来源工程证据表捕获仅限元数据的第一波结果。它记录六条路线当前的下载/访问状态、checksum 是否存在、package manifest 缺失、metadata profile 数量和 field-map scaffold 状态，但权利许可、来源提升、语料导入、身份、构件、演化和释读决定仍然等待人工复核。
 - `120_ai-agent-source-engineering-first-wave-result-record-manifest.csv` 索引从 119 实体化到 `doc/public/user_research/009_source-engineering-gap-review-queues/` 的六个 Markdown 结果记录。它为后续复核者提供逐路线入口、证据路径和边界状态，同时所有学术判断和语料提升决定仍保持待复核。
 - `121_ai-agent-source-engineering-first-wave-followup-queue.csv` 把六个已实体化的第一波结果记录路由为保守的后续动作类型。它是供来源工程继续推进的人工门控队列，不是自动权利裁定、导入、提升、身份、构件、演化或释读决定。
+
+English supplement:
+- `134_ai-agent-source-pipeline-evidence-ledger.csv` is a 21-row per-source preprocessing evidence ledger derived from the 094 source-processing audit and 133 source-pipeline checklist. It summarizes existing evidence counts and route files only; it is not a reviewed evidence outcome, rights decision, source promotion, corpus import, or decipherment conclusion.
+
+简体中文补充：
+- `134_ai-agent-source-pipeline-evidence-ledger.csv` 是基于 094 来源处理流水线审计和 133 来源流水线清单生成的 21 行逐来源预处理证据账本。它只汇总现有证据计数和 route files；不是已复核证据 outcome、权利裁定、来源提升、语料导入或释读结论。

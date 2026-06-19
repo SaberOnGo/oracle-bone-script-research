@@ -54,3 +54,9 @@ English supplement:
 
 简体中文补充：
 - `build_source_engineering_lane_summary.py` 将 104 下一步行动清单和 105 空结果脚手架汇总为六个来源工程复核泳道，并生成 `106_ai-agent-source-engineering-lane-summary.csv`。该输出只是 metadata-only 的 backlog 汇总；它不完成复核动作、不采集证据、不裁定权利、不导入语料、不提升来源，也不提出释读结论。
+
+English supplement:
+- `build_source_pipeline_evidence_ledger.py` generates `134_ai-agent-source-pipeline-evidence-ledger.csv` from the 094 source-processing audit and 133 source-pipeline checklist. It records existing download, checksum, package-manifest, metadata-profile, candidate, and graph evidence counts per source, while keeping reviewed evidence paths and outcomes empty.
+
+简体中文补充：
+- `build_source_pipeline_evidence_ledger.py` 基于 094 来源处理流水线审计和 133 来源流水线清单生成 `134_ai-agent-source-pipeline-evidence-ledger.csv`。它按来源记录现有下载、checksum、包清单、metadata profile、候选记录和图边证据计数，同时保持已复核证据路径和 outcome 为空。

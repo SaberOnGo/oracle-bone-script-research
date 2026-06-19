@@ -197,6 +197,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "144_source-pipeline-phase-action-missing-evidence-action-queue.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv"
+)
 UPDATED_AT = "2026-06-19"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
@@ -455,6 +459,9 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_phase_action_missing_evidence_action_queue_count = count_csv(
         root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE
     )
+    source_pipeline_phase_action_missing_evidence_result_scaffold_count = count_csv(
+        root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD
+    )
 
     rows = [
         make_row(
@@ -619,7 +626,8 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_file_checklist_count
             + source_pipeline_phase_action_evidence_presence_count
             + source_pipeline_phase_action_evidence_gap_summary_count
-            + source_pipeline_phase_action_missing_evidence_action_queue_count,
+            + source_pipeline_phase_action_missing_evidence_action_queue_count
+            + source_pipeline_phase_action_missing_evidence_result_scaffold_count,
             count_csv(root, "corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv")
             + source_engineering_gap_queue_count
             + source_engineering_execution_matrix_count
@@ -663,10 +671,11 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_file_checklist_count
             + source_pipeline_phase_action_evidence_presence_count
             + source_pipeline_phase_action_evidence_gap_summary_count
-            + source_pipeline_phase_action_missing_evidence_action_queue_count,
+            + source_pipeline_phase_action_missing_evidence_action_queue_count
+            + source_pipeline_phase_action_missing_evidence_result_scaffold_count,
             "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE,
-            "open_source_pipeline_phase_action_missing_evidence_action_queue_then_record_human_gated_source_outcomes",
+            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
+            "open_source_pipeline_phase_action_missing_evidence_result_scaffold_then_record_human_gated_source_outcomes",
         ),
         make_row(
             "core-ready-009",

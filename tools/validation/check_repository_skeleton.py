@@ -842,6 +842,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "144_source-pipeline-phase-action-missing-evidence-action-queue.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD = (
+    "corpus/009_statistics-and-derived-features/"
+    "145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1511,6 +1515,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE,
+    SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1671,6 +1676,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_phase_action_evidence_presence_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_evidence_gap_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_action_queue.py",
+    "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -3000,6 +3006,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_evidence_presence_rows:210",
             "source_pipeline_phase_action_evidence_gap_summary_rows:21",
             "source_pipeline_phase_action_missing_evidence_action_queue_rows:47",
+            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:47",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3815,9 +3822,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 12976,
-        "review_queue_count": 12976,
-        "staging_record_count": 75155,
+        "manual_review_backlog_count": 13023,
+        "review_queue_count": 13023,
+        "staging_record_count": 75156,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3856,14 +3863,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "142",
+            "staging_record_count": "143",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "1094",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE,
+            "review_queue_count": "1141",
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -5874,8 +5881,8 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "706",
-            "review_queue_count": "1094",
+            "source_pipeline_evidence_rows": "753",
+            "review_queue_count": "1141",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
         "relationship_graph_and_statistics": {
@@ -6674,6 +6681,61 @@ def check_source_pipeline_phase_action_missing_evidence_action_queue(root: Path)
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE} {row_id} {field} changed")
         if "only expands existing missing source-file presence signals" not in row.get("caution", ""):
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE} caution changed: {row_id}")
+    return issues
+
+
+def check_source_pipeline_phase_action_missing_evidence_result_scaffold(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD
+    if not path.exists():
+        return [f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD}"]
+    rows, csv_issues = _read_csv_rows(path)
+    issues.extend(csv_issues)
+
+    if len(rows) != 47:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} should contain exactly 47 rows")
+    expected_empty_fields = {
+        "missing_role_applicability_reviewed",
+        "target_source_row_action_reviewed",
+        "reviewed_evidence_paths",
+        "reviewed_outcome_summary",
+        "required_followup_reviewed",
+        "human_reviewer_id",
+        "human_review_date",
+        "human_review_notes",
+    }
+    for index, row in enumerate(rows, start=1):
+        row_id = row.get("missing_evidence_result_scaffold_id", "")
+        if row_id != f"source-pipeline-phase-action-missing-evidence-result-{index:03d}":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} row id changed: {row_id}")
+        for field in expected_empty_fields:
+            if row.get(field) != "":
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} {row_id} {field} should be empty")
+        for field, expected_value in {
+            "action_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE,
+            "result_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "research_boundary": "source_pipeline_phase_action_missing_evidence_result_scaffold_not_scholarship",
+            "updated_at": "2026-06-19",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} {row_id} {field} changed")
+        if "human-fillable and empty" not in row.get("caution", ""):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} caution changed: {row_id}")
+
+    by_action = {row.get("missing_evidence_action_id", ""): row for row in rows}
+    first = by_action.get("source-pipeline-phase-action-missing-evidence-001", {})
+    if first.get("source_id") != "src-british-museum-oracle-bone":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} first source changed")
+    if first.get("missing_file_role") != "downloaded_metadata_profile":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} first missing role changed")
+    if "missing_role_applicability_reviewed" not in first.get("reserved_outcome_fields", ""):
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} reserved fields changed")
     return issues
 
 
@@ -17209,6 +17271,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_evidence_presence_matrix(root))
     issues.extend(check_source_pipeline_phase_action_evidence_gap_summary(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_action_queue(root))
+    issues.extend(check_source_pipeline_phase_action_missing_evidence_result_scaffold(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

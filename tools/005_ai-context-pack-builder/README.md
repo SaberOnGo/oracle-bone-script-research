@@ -296,3 +296,8 @@ English supplement:
 
 简体中文补充：
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py` 基于 160 assignment plan 生成 `161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json`。该 scaffold 只实体化计划中的 handoff 行；owner 分配、证据采集、已复核 outcome、权利决定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+English supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist.py` builds `162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv` from the 161 wave handoff scaffold. The checklist is a precheck surface for opening routed files before later human-gated outcome capture; it does not collect evidence, assign owners, decide rights, promote sources, import corpus records, or make decipherment claims.
+
+Simplified Chinese supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist.py` 从 161 wave handoff scaffold 生成 `162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv`。该 checklist 只是后续人工门控 outcome capture 前用于打开路由文件的 precheck 表面；不采集证据，不分配 owner，不裁定权利，不提升来源，不导入语料，也不提出释读结论。

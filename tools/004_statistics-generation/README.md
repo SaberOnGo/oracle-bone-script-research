@@ -136,3 +136,8 @@ English supplement:
 
 简体中文补充：
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py` 基于 160 assignment plan 生成 `161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json`。它只把计划中的 outcome-review wave 展开为交接行用于导航；不分配 owner、不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+English supplement:
+- `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv` as the current missing-evidence outcome-review precheck entry. This remains preprocessing navigation only: no evidence collection, reviewed outcome, rights decision, source promotion, corpus import, or decipherment claim is recorded.
+
+Simplified Chinese supplement:
+- `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv` 计为当前 missing-evidence outcome-review 的 precheck 入口。该输出仍然只是预处理导航；不采集证据，不记录已复核 outcome，不裁定权利，不提升来源，不导入语料，也不提出释读结论。

@@ -910,6 +910,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFO
     "corpus/009_statistics-and-derived-features/"
     "161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "162_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-checklist.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1596,6 +1600,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_ASSIGNMENT_PLAN,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD,
+    SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1773,6 +1778,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_route_summary.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py",
+    "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -3119,6 +3125,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_missing_evidence_review_outcome_handoff_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold_files:1",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist_rows:18",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3934,9 +3941,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 13176,
+        "manual_review_backlog_count": 13194,
         "review_queue_count": 13135,
-        "staging_record_count": 75172,
+        "staging_record_count": 75173,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3975,14 +3982,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "159",
+            "staging_record_count": "160",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
             "review_queue_count": "1235",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD,
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -5993,7 +6000,7 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "888",
+            "source_pipeline_evidence_rows": "906",
             "review_queue_count": "1235",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
@@ -8899,6 +8906,167 @@ def check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_hand
     ]
     if [wave.get("assignment_wave_id") for wave in data.get("handoff_waves", [])] != expected_wave_ids:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD} wave links changed")
+    return issues
+
+
+def check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist(root: Path) -> list[str]:
+    issues: list[str] = []
+    scaffold_path = root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD
+    checklist_path = root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST
+    try:
+        scaffold = json.loads(scaffold_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        scaffold = {}
+        issues.append(f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD}")
+    except json.JSONDecodeError as exc:
+        scaffold = {}
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD} invalid JSON: {exc}")
+    try:
+        with checklist_path.open(encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+    except FileNotFoundError:
+        return [f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST}"]
+
+    if len(rows) != 18:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} row count should be 18")
+        return issues
+    handoff_items = {
+        item.get("handoff_item_id", ""): item
+        for item in scaffold.get("handoff_items", [])
+        if isinstance(item, dict)
+    }
+    expected_steps = [
+        "verify_wave_handoff_row_against_161",
+        "open_160_assignment_plan",
+        "open_159_handoff_route_summary",
+        "open_158_handoff_checklist",
+        "open_157_handoff_scaffold",
+        "open_156_outcome_route_pack",
+        "open_155_outcome_scaffold",
+        "open_all_wave_handoff_files_before_review",
+        "verify_rights_status_and_risk_note",
+        "verify_empty_reviewed_outcome_fields_before_review",
+        "do_not_collect_evidence_or_record_outcome_in_checklist",
+        "keep_source_promotion_and_corpus_import_blocked",
+        "do_not_write_ai_hypothesis_as_scholarship",
+    ]
+    for index, row in enumerate(rows, start=1):
+        checklist_id = row.get("wave_handoff_checklist_id", "")
+        expected_checklist_id = f"source-pipeline-missing-evidence-review-outcome-wave-handoff-checklist-{index:03d}"
+        if checklist_id != expected_checklist_id:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} checklist ID changed: {checklist_id}")
+        item = handoff_items.get(row.get("handoff_item_id", ""))
+        if not item:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} missing 161 handoff item link: {checklist_id}")
+            continue
+        for field in [
+            "handoff_item_id",
+            "handoff_wave_id",
+            "assignment_wave_id",
+            "assignment_plan_item_id",
+            "summary_route_id",
+            "outcome_handoff_checklist_id",
+            "handoff_id_from_157",
+            "route_id",
+            "missing_evidence_review_outcome_scaffold_id",
+            "source_id",
+            "source_type",
+            "rights_status",
+            "pipeline_gap_status",
+            "priority_rank",
+            "assignment_plan_path",
+            "route_summary_path",
+            "previous_handoff_route_summary_path",
+            "route_pack_path",
+            "outcome_scaffold_path",
+            "outcome_update_target_path",
+            "review_checklist_path",
+            "result_scaffold_path",
+            "result_update_target_path",
+            "review_draft_manifest_path",
+            "draft_path",
+            "source_summary_path",
+            "source_gap_route_summary_path",
+            "handoff_status",
+            "assignment_status",
+            "handoff_readiness_status",
+            "route_status",
+            "review_outcome_status",
+            "evidence_collection_status",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "remaining_blockers_reviewed",
+            "required_followup_reviewed",
+            "human_review_status",
+            "rights_decision_status",
+            "source_promotion_status",
+            "corpus_import_status",
+            "decipherment_claim_status",
+            "identity_claim_status",
+            "component_claim_status",
+            "evolution_claim_status",
+        ]:
+            expected_value = str(item.get(field, ""))
+            if row.get(field) != expected_value:
+                issues.append(
+                    f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} {field} "
+                    f"does not match 161 item: {checklist_id}"
+                )
+        for list_field in [
+            "missing_file_roles",
+            "priority_tags",
+            "required_review_steps",
+            "required_review_actions",
+            "route_files_to_open",
+            "reserved_outcome_fields",
+        ]:
+            expected_value = ";".join(str(value) for value in item.get(list_field, []))
+            if row.get(list_field) != expected_value:
+                issues.append(
+                    f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} {list_field} "
+                    f"does not match 161 item: {checklist_id}"
+                )
+        if row.get("handoff_scaffold_path") != SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_SCAFFOLD:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} scaffold path changed: {checklist_id}")
+        if row.get("previous_handoff_scaffold_path") != item.get("handoff_scaffold_path"):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} previous scaffold path changed: {checklist_id}")
+        for step in expected_steps:
+            if step not in row.get("required_precheck_steps", ""):
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} missing step {step}: {checklist_id}")
+        for file_path in row.get("wave_handoff_files_to_open", "").split(";"):
+            if file_path and not (root / file_path).exists():
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} missing route file path: {file_path}")
+        for field, expected_value in {
+            "checklist_status": "not_started",
+            "handoff_status": "ready_for_outcome_review_not_started",
+            "assignment_status": "planned_not_assigned",
+            "review_outcome_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "reviewed_evidence_paths": "",
+            "reviewed_outcome_summary": "",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_claim_status": "no_evolution_chain_claim",
+            "automation_boundary": "wave_handoff_precheck_only_no_missing_evidence_outcome_capture",
+            "research_boundary": "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist_not_scholarship",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} {field} changed: {checklist_id}")
+        for snippet in [
+            "precheck surface only",
+            "not collected evidence",
+            "not a reviewed outcome",
+            "not a rights decision",
+            "not source promotion",
+            "not a corpus import",
+            "not a decipherment conclusion",
+        ]:
+            if snippet not in row.get("caution", ""):
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_CHECKLIST} caution missing {snippet}: {checklist_id}")
     return issues
 
 
@@ -19451,6 +19619,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_route_summary(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold(root))
+    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

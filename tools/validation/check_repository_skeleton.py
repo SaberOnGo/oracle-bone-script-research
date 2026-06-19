@@ -854,6 +854,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "147_source-pipeline-phase-action-missing-evidence-source-summary.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1526,6 +1530,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY,
+    SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1689,6 +1694,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_result_scaffold.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_route_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_source_summary.py",
+    "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_drafts.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -3021,6 +3027,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:47",
             "source_pipeline_phase_action_missing_evidence_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_source_summary_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_draft_rows:18",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3836,9 +3843,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 13042,
-        "review_queue_count": 13042,
-        "staging_record_count": 75158,
+        "manual_review_backlog_count": 13078,
+        "review_queue_count": 13078,
+        "staging_record_count": 75159,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3877,18 +3884,18 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "145",
+            "staging_record_count": "146",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "1160",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY,
+            "review_queue_count": "1178",
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST,
         },
         "published_research_notes": {
             "formal_record_count": "5",
-            "review_queue_count": "131",
+            "review_queue_count": "149",
         },
     }
     by_area = {row.get("corpus_area", ""): row for row in matrix_rows}
@@ -5895,8 +5902,8 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "772",
-            "review_queue_count": "1160",
+            "source_pipeline_evidence_rows": "790",
+            "review_queue_count": "1178",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
         "relationship_graph_and_statistics": {
@@ -6891,6 +6898,73 @@ def check_source_pipeline_phase_action_missing_evidence_source_summary(root: Pat
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY} {row_id} {field} changed")
         if "routing-only" not in row.get("caution", ""):
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY} caution changed: {row_id}")
+    return issues
+
+
+def check_source_pipeline_phase_action_missing_evidence_review_drafts(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST
+    if not path.exists():
+        return [f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST}"]
+    rows, csv_issues = _read_csv_rows(path)
+    issues.extend(csv_issues)
+
+    if len(rows) != 18:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} should contain exactly 18 rows")
+    if rows:
+        first = rows[0]
+        last = rows[-1]
+        if first.get("review_draft_id") != "source-pipeline-missing-evidence-review-draft-001":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} first draft id changed")
+        if first.get("source_id") != "src-british-museum-oracle-bone":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} first source changed")
+        if first.get("missing_file_roles") != (
+            "downloaded_metadata_profile;large_source_register;source_field_map;source_package_file_manifest"
+        ):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} first roles changed")
+        if last.get("review_draft_id") != "source-pipeline-missing-evidence-review-draft-018":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} last draft id changed")
+        if last.get("source_id") != "src-yinqi-wenyuan":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} last source changed")
+
+    for index, row in enumerate(rows, start=1):
+        row_id = row.get("review_draft_id", "")
+        if row_id != f"source-pipeline-missing-evidence-review-draft-{index:03d}":
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} row id changed: {row_id}")
+        for field, expected_value in {
+            "source_summary_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY,
+            "draft_status": "draft_not_collected",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "pending_human_review",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "reviewed_evidence_paths": "",
+            "reviewed_outcome_summary": "",
+            "research_boundary": "source_pipeline_phase_action_missing_evidence_review_draft_not_scholarship",
+            "updated_at": "2026-06-19",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} {row_id} {field} changed")
+        draft_path = row.get("draft_path", "")
+        if not draft_path.startswith("doc/public/user_research/010_source-pipeline-missing-evidence-review-queues/"):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} draft path changed: {row_id}")
+        if draft_path.startswith("research/"):
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} draft path entered research: {row_id}")
+        full_draft_path = root / draft_path
+        if not full_draft_path.exists():
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} missing draft: {draft_path}")
+            continue
+        text = full_draft_path.read_text(encoding="utf-8")
+        for snippet in [
+            "Source Pipeline Missing-Evidence Review Draft",
+            row.get("source_id", ""),
+            "No reviewed evidence has been collected in this draft",
+            "not a decipherment conclusion",
+        ]:
+            if snippet and snippet not in text:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} draft missing snippet: {row_id}")
     return issues
 
 
@@ -17429,6 +17503,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_missing_evidence_result_scaffold(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_route_summary(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_source_summary(root))
+    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_drafts(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

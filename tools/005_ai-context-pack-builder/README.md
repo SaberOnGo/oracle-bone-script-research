@@ -5,6 +5,11 @@ Future context-pack tools will gather source evidence for AI Agent reasoning.
 
 Current tools:
 
+- `build_source_pipeline_missing_evidence_outcome_routes_assignment_plan.py`: builds `184_source-pipeline-missing-evidence-outcome-routes-assignment-plan.json` from the 183 outcome routes summary. It groups the 18 routes by pipeline gap status into five not-started human-review assignment groups while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
+
+Simplified Chinese supplement:
+- `build_source_pipeline_missing_evidence_outcome_routes_assignment_plan.py` 基于 183 outcome routes summary 生成 `184_source-pipeline-missing-evidence-outcome-routes-assignment-plan.json`。它按 pipeline gap status 将 18 条 route 分成 5 个尚未开始的人工复核分配组；证据采集、已复核 outcome、权利裁定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary.py`: builds `183_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-outcome-checklist-outcome-routes-summary.json` from the 182 checklist outcome routes checklist. It indexes the 18 precheck rows as a routing-only summary with source and status counts while keeping evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims unset.
 
 Simplified Chinese supplement:

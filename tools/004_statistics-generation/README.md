@@ -6,6 +6,12 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `165_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-checklist.csv` as the current missing-evidence outcome-review assignment precheck entry. This is preprocessing navigation only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
+
+简体中文补充：
+- `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `165_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-checklist.csv` 计入当前缺失证据 outcome 复核分派前置检查入口。该入口仅用于预处理导航；不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+
+English supplement:
 - `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `164_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-plan.json` as the current missing-evidence outcome-review handoff assignment entry. This is preprocessing navigation only; it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
 
 简体中文补充：

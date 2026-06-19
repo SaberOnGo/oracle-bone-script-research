@@ -160,6 +160,9 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY = (
 SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST = (
     STAT_DIR / "148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD = (
+    STAT_DIR / "149_source-pipeline-phase-action-missing-evidence-result-scaffold.csv"
+)
 
 
 def repo_root() -> Path:
@@ -546,7 +549,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST)
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD),
                 structured=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -596,7 +600,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST)
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD),
                 review_queue=review_log_files
                 + evidence_note_files
                 + count_csv(root, CAMBRIDGE_HOPKINS_REVIEW_QUEUE)
@@ -646,7 +651,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY)
-                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST),
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST)
+                + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD),
             ),
             {
                 "review_log_files": review_log_files,
@@ -758,6 +764,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "source_pipeline_phase_action_missing_evidence_route_summary_files": count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY),
                 "source_pipeline_phase_action_missing_evidence_source_summary_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY),
                 "source_pipeline_phase_action_missing_evidence_review_draft_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST),
+                "source_pipeline_phase_action_missing_evidence_review_result_scaffold_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD),
             },
             "doc/public/user_research/",
             "pending_human_review",

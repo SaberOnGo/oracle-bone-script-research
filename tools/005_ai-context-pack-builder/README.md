@@ -255,6 +255,8 @@ English supplement:
 - `build_source_engineering_first_wave_followup_queue.py` 基于 119 和 120 生成 `121_ai-agent-source-engineering-first-wave-followup-queue.csv`。它把每个已实体化结果记录转换为人工门控的后续动作类型，同时保留 metadata-only 边界，并继续阻断来源提升、语料导入和学术结论。
 English supplement:
 - `build_source_pipeline_phase_action_missing_evidence_review_drafts.py` builds `148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv` and 18 empty Markdown review drafts from the 147 source-level missing-evidence summary. The drafts are human-review work surfaces only; evidence, reviewed outcomes, rights decisions, source promotion, corpus import, and decipherment claims remain empty.
+- `build_source_pipeline_phase_action_missing_evidence_review_result_scaffold.py` builds `149_source-pipeline-phase-action-missing-evidence-result-scaffold.csv` from the 148 missing-evidence review draft manifest. The scaffold reserves empty reviewed-outcome fields only; evidence collection, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims remain unset.
 
 简体中文补充：
 - `build_source_pipeline_phase_action_missing_evidence_review_drafts.py` 基于 147 来源级缺失证据汇总生成 `148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv` 和 18 个空 Markdown 复核草稿。这些草稿只作为人工复核工作界面；证据、已复核结果、权利裁定、来源提升、语料导入和释读结论仍保持为空。
+- `build_source_pipeline_phase_action_missing_evidence_review_result_scaffold.py` 基于 148 缺失证据复核草稿 manifest 生成 `149_source-pipeline-phase-action-missing-evidence-result-scaffold.csv`。该脚手架只预留空白的已复核 outcome 字段；证据收集、权利裁定、来源提升、语料导入、身份、构件、演化和释读结论仍保持未设置。

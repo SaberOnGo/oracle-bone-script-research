@@ -23,9 +23,9 @@ This directory is the co-located working folder for this concrete oracle-charact
 
 ## Visual Material Status / 图像资料状态
 
-- Status / 状态: `no_source_image_reference_extracted_yet`
-- Source image reference rows / 来源图像路径引用行数: `0`
-- Committed glyph image / 已提交字形图像: none in this directory yet
+- Status / 状态: `committed_review_image_derivative`
+- Source image reference rows / 来源图像路径引用行数: `1`
+- Committed glyph image / 已提交字形图像: 03_visual-assets/001_asset-001495_hust-obc-cat-1672_glyph.png
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.

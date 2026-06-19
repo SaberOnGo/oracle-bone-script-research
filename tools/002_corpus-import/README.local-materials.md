@@ -42,7 +42,7 @@ python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 ## Current Batch / 当前批次
 
 English:
-The current batch covers the first fifteen HUST-OBC promoted candidate buckets, `obs-char-000001` through `obs-char-001500`, plus two HUST-OBC undeciphered candidate directories with extracted source-image path references. These target object directories have co-located README files, visual/source indexes, visual galleries, and committed local review image derivatives inside the same concrete `corpus` object directory.
+The current batch covers all 1,588 HUST-OBC promoted candidate characters, `obs-char-000001` through `obs-char-001588`, plus two HUST-OBC undeciphered candidate directories with extracted source-image path references. These target object directories have co-located README files, visual/source indexes, visual galleries, and committed local review image derivatives inside the same concrete `corpus` object directory.
 
 简体中文：
-当前批次覆盖 HUST-OBC 已提升候选字的前十五个分桶，即 `obs-char-000001` 至 `obs-char-001500`，以及 2 个已有来源图像路径引用的 HUST-OBC 未释字候选目录。这些目标对象目录都在同一个具体 `corpus` 对象目录内放置 README、图像和来源索引、图像页，以及已提交的本地复核图像派生件。
+当前批次覆盖 HUST-OBC 全部 1,588 个已提升候选字，即 `obs-char-000001` 至 `obs-char-001588`，以及 2 个已有来源图像路径引用的 HUST-OBC 未释字候选目录。这些目标对象目录都在同一个具体 `corpus` 对象目录内放置 README、图像和来源索引、图像页，以及已提交的本地复核图像派生件。

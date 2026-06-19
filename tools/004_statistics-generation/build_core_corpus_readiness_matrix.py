@@ -289,6 +289,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGN
     "corpus/009_statistics-and-derived-features/"
     "167_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-route-summary.json"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "168_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-summary.csv"
+)
 UPDATED_AT = "2026-06-19"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
@@ -616,6 +620,9 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary_count = count_existing_file(
         root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY
     )
+    source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_count = count_csv(
+        root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY
+    )
 
     rows = [
         make_row(
@@ -857,10 +864,11 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_plan_count
             + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist_count
             + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold_count
-            + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary_count,
+            + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary_count
+            + source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_count,
             "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
-            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY,
-            "open_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary_then_record_human_gated_source_outcomes",
+            SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY,
+            "open_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_then_record_human_gated_source_outcomes",
         ),
         make_row(
             "core-ready-009",

@@ -934,6 +934,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGN
     "corpus/009_statistics-and-derived-features/"
     "167_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-route-summary.json"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "168_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-summary.csv"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1626,6 +1630,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_CHECKLIST,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SCAFFOLD,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY,
+    SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1789,6 +1794,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_result_scaffold.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_route_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_source_summary.py",
+    "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_drafts.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_result_scaffold.py",
     "tools/005_ai-context-pack-builder/build_source_pipeline_phase_action_missing_evidence_review_checklist.py",
@@ -3161,6 +3167,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist_rows:18",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold_rows:18",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary_files:1",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_rows:18",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3976,9 +3983,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 13233,
+        "manual_review_backlog_count": 13251,
         "review_queue_count": 13135,
-        "staging_record_count": 75178,
+        "staging_record_count": 75179,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -4017,14 +4024,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "165",
+            "staging_record_count": "166",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
             "review_queue_count": "1235",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY,
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -6035,7 +6042,7 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "945",
+            "source_pipeline_evidence_rows": "963",
             "review_queue_count": "1235",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
@@ -9715,6 +9722,137 @@ def check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_hand
         }.items():
             if route.get(field) != expected_value:
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY} {field} changed: {route_id}")
+    return issues
+
+
+def check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(
+        root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY
+    )
+    issues.extend(row_issues)
+    route_summary_path = root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY
+    try:
+        route_summary = json.loads(route_summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        route_summary = {}
+        issues.append(f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY}")
+    except json.JSONDecodeError as exc:
+        route_summary = {}
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY} invalid JSON: {exc}")
+    if row_issues or not route_summary:
+        return issues
+
+    routes = [route for route in route_summary.get("routes", []) if isinstance(route, dict)]
+    if len(rows) != 18:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY} row count should be 18")
+        return issues
+    grouped: dict[str, list[dict[str, object]]] = {}
+    for route in routes:
+        grouped.setdefault(str(route.get("source_id", "")), []).append(route)
+    if set(grouped) != {row.get("source_id", "") for row in rows}:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY} source coverage changed")
+
+    def route_values(route: dict[str, object], field: str) -> list[str]:
+        value = route.get(field, "")
+        if isinstance(value, list):
+            return [str(item) for item in value if str(item)]
+        return [part for part in str(value).split(";") if part]
+
+    def unique_join(values: list[str]) -> str:
+        seen: list[str] = []
+        for value in values:
+            if value and value not in seen:
+                seen.append(value)
+        return ";".join(seen)
+
+    def sorted_unique_join(values: list[str]) -> str:
+        return ";".join(sorted({value for value in values if value}))
+
+    def count_join(values: list[str]) -> str:
+        return ";".join(f"{key}:{count}" for key, count in sorted(Counter(values).items()) if key)
+
+    for index, row in enumerate(rows, start=1):
+        row_id = row.get("assignment_outcome_source_summary_id", "")
+        expected_row_id = (
+            "source-pipeline-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-summary-"
+            f"{index:03d}"
+        )
+        if row_id != expected_row_id:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY} row ID changed: {row_id}")
+        source_routes = grouped.get(row.get("source_id", ""), [])
+        if not source_routes:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY} missing 167 route link: {row_id}")
+            continue
+        first = source_routes[0]
+        missing_file_roles: list[str] = []
+        priority_tags: list[str] = []
+        required_review_steps: list[str] = []
+        assignment_files_to_open: list[str] = []
+        draft_paths: list[str] = []
+        for route in source_routes:
+            missing_file_roles.extend(route_values(route, "missing_file_roles"))
+            priority_tags.extend(route_values(route, "priority_tags"))
+            required_review_steps.extend(route_values(route, "required_review_steps"))
+            assignment_files_to_open.extend(route_values(route, "assignment_files_to_open"))
+            draft_paths.append(str(route.get("draft_path", "")))
+        expected_values = {
+            "source_type": str(first.get("source_type", "")),
+            "rights_status": str(first.get("rights_status", "")),
+            "pipeline_gap_status": str(first.get("pipeline_gap_status", "")),
+            "assignment_outcome_route_count": str(len(source_routes)),
+            "handoff_wave_ids": unique_join([str(route.get("handoff_wave_id", "")) for route in source_routes]),
+            "assignment_wave_ids": unique_join([str(route.get("assignment_wave_id", "")) for route in source_routes]),
+            "assignment_plan_item_ids": unique_join([str(route.get("assignment_plan_item_id", "")) for route in source_routes]),
+            "assignment_review_checklist_ids": unique_join(
+                [str(route.get("assignment_review_checklist_id", "")) for route in source_routes]
+            ),
+            "assignment_outcome_scaffold_ids": unique_join(
+                [str(route.get("assignment_outcome_scaffold_id", "")) for route in source_routes]
+            ),
+            "assignment_outcome_route_ids": unique_join([str(route.get("summary_route_id", "")) for route in source_routes]),
+            "missing_file_role_count": str(len(set(missing_file_roles))),
+            "missing_file_roles": sorted_unique_join(missing_file_roles),
+            "priority_tags": sorted_unique_join(priority_tags),
+            "required_review_steps": sorted_unique_join(required_review_steps),
+            "assignment_files_to_open": unique_join(assignment_files_to_open),
+            "draft_paths": unique_join(draft_paths),
+            "assignment_outcome_route_summary_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY,
+            "next_review_action": "open_assignment_outcome_routes_for_source_then_record_human_gated_source_outcomes",
+            "source_review_status": "pending_human_review",
+            "assignment_review_status_counts": count_join(
+                [str(route.get("assignment_review_status", "")) for route in source_routes]
+            ),
+            "review_outcome_status_counts": count_join(
+                [str(route.get("review_outcome_status", "")) for route in source_routes]
+            ),
+            "evidence_collection_status_counts": count_join(
+                [str(route.get("evidence_collection_status", "")) for route in source_routes]
+            ),
+            "human_review_status_counts": count_join([str(route.get("human_review_status", "")) for route in source_routes]),
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "reviewed_evidence_paths": "",
+            "reviewed_outcome_summary": "",
+            "research_boundary": "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_not_scholarship",
+            "updated_at": "2026-06-19",
+        }
+        for field, expected_value in expected_values.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY} {field} changed: {row_id}")
+        for snippet in [
+            "routing-only",
+            "not collected evidence",
+            "not a reviewed outcome",
+            "not a rights decision",
+            "not source promotion",
+            "not a corpus import",
+            "not a decipherment conclusion",
+        ]:
+            if snippet not in row.get("caution", ""):
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_SUMMARY} caution missing {snippet}: {row_id}")
     return issues
 
 
@@ -20273,6 +20411,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary(root))
+    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

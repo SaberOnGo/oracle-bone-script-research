@@ -291,3 +291,8 @@ English supplement:
 
 简体中文补充：
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan.py` 基于 159 route summary 生成 `160_source-pipeline-phase-action-missing-evidence-review-outcome-assignment-plan.json`。该 assignment plan 仅按 pipeline gap status 为后续人工门控复核分组路由；分派、证据采集、已复核 outcome、权利决定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。
+English supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py` builds `161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json` from the 160 assignment plan. The scaffold materializes planned handoff rows only; owner assignment, evidence collection, reviewed outcomes, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims remain unset.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py` 基于 160 assignment plan 生成 `161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json`。该 scaffold 只实体化计划中的 handoff 行；owner 分配、证据采集、已复核 outcome、权利决定、来源提升、语料导入、身份、构件、演化和释读结论均保持未设置。

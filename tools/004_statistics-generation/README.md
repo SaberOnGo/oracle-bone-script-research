@@ -131,3 +131,8 @@ English supplement:
 
 简体中文补充：
 - `build_source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan.py` 基于 159 outcome handoff route summary 生成 `160_source-pipeline-phase-action-missing-evidence-review-outcome-assignment-plan.json`。它只把 18 条计划中的来源 outcome-review 路由按五类 gap status 分组为复核 wave，用于导航；不分配复核者、不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+English supplement:
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py` generates `161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json` from the 160 assignment plan. It opens the planned outcome-review waves as handoff rows for navigation only, without assigning owners, collecting evidence, recording reviewed outcomes, deciding rights, promoting sources, importing corpus records, or making decipherment claims.
+
+简体中文补充：
+- `build_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold.py` 基于 160 assignment plan 生成 `161_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-scaffold.json`。它只把计划中的 outcome-review wave 展开为交接行用于导航；不分配 owner、不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。

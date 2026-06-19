@@ -846,6 +846,10 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv"
 )
+SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "146_source-pipeline-phase-action-missing-evidence-route-summary.json"
+)
 AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "008_ai-agent-source-coverage-context-pack.json"
@@ -1516,6 +1520,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
+    SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY,
     AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK,
     AI_AGENT_SOURCE_ROUTE_REVIEW_QUEUE,
     AI_AGENT_SOURCE_ROUTE_REVIEW_RESULT_SCAFFOLD,
@@ -1677,6 +1682,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_phase_action_evidence_gap_summary.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_result_scaffold.py",
+    "tools/004_statistics-generation/build_source_pipeline_phase_action_missing_evidence_route_summary.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_bucket_review_route_pack.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_candidate_evidence_pack_request_queue.py",
     "tools/005_ai-context-pack-builder/build_hust_obc_evidence_pack_draft.py",
@@ -3007,6 +3013,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_evidence_gap_summary_rows:21",
             "source_pipeline_phase_action_missing_evidence_action_queue_rows:47",
             "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:47",
+            "source_pipeline_phase_action_missing_evidence_route_summary_files:1",
         ],
         "formal_project_id_maps": [
             "formal_character_map_rows:0",
@@ -3822,9 +3829,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 11130,
         "formal_record_count": 67675,
         "graph_edge_count": 208154,
-        "manual_review_backlog_count": 13023,
-        "review_queue_count": 13023,
-        "staging_record_count": 75156,
+        "manual_review_backlog_count": 13024,
+        "review_queue_count": 13024,
+        "staging_record_count": 75157,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -3863,14 +3870,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "143",
+            "staging_record_count": "144",
             "graph_edge_count": "104077",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
             "staging_record_count": "197",
-            "review_queue_count": "1141",
-            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
+            "review_queue_count": "1142",
+            "review_queue_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY,
         },
         "published_research_notes": {
             "formal_record_count": "5",
@@ -5881,8 +5888,8 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
-            "source_pipeline_evidence_rows": "753",
-            "review_queue_count": "1141",
+            "source_pipeline_evidence_rows": "754",
+            "review_queue_count": "1142",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
         "relationship_graph_and_statistics": {
@@ -6736,6 +6743,85 @@ def check_source_pipeline_phase_action_missing_evidence_result_scaffold(root: Pa
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} first missing role changed")
     if "missing_role_applicability_reviewed" not in first.get("reserved_outcome_fields", ""):
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD} reserved fields changed")
+    return issues
+
+
+def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return [f"missing required path: {SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY}"]
+    except json.JSONDecodeError as exc:
+        return [f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} invalid JSON: {exc.msg}"]
+
+    expected_values = {
+        "route_summary_id": "source-pipeline-phase-action-missing-evidence-route-summary-001",
+        "updated_at": "2026-06-19",
+        "action_result_scaffold_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
+        "route_count": 47,
+        "source_count": 18,
+        "automation_boundary": "routing_only_no_missing_evidence_outcome_capture",
+        "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
+    }
+    for field, expected_value in expected_values.items():
+        if data.get(field) != expected_value:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {field} changed")
+    expected_role_counts = {
+        "downloaded_metadata_profile": 6,
+        "large_source_register": 18,
+        "source_field_map": 5,
+        "source_package_file_manifest": 18,
+    }
+    if data.get("missing_file_role_counts") != expected_role_counts:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} role counts changed")
+    for field, expected_value in {
+        "result_status_counts": {"not_started": 47},
+        "route_status_counts": {"not_started": 47},
+        "evidence_collection_status_counts": {"not_collected": 47},
+        "human_review_status_counts": {"pending_human_review": 47},
+        "rights_decision_status_counts": {"no_new_rights_decision": 47},
+        "source_promotion_status_counts": {"not_promoted": 47},
+        "corpus_import_status_counts": {"not_imported": 47},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": 47},
+    }.items():
+        if data.get(field) != expected_value:
+            issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {field} changed")
+    if "routing-only" not in data.get("caution", ""):
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} caution changed")
+
+    routes = data.get("routes", [])
+    if not isinstance(routes, list) or len(routes) != 47:
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} routes changed")
+        return issues
+    first = routes[0]
+    last = routes[-1]
+    if first.get("route_id") != "source-pipeline-phase-action-missing-evidence-route-001":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first route id changed")
+    if first.get("source_id") != "src-british-museum-oracle-bone":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first source changed")
+    if first.get("missing_file_role") != "downloaded_metadata_profile":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first role changed")
+    if last.get("route_id") != "source-pipeline-phase-action-missing-evidence-route-047":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} last route id changed")
+    if last.get("source_id") != "src-yinqi-wenyuan":
+        issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} last source changed")
+    for route in routes:
+        route_id = route.get("route_id", "")
+        for field, expected_value in {
+            "route_status": "not_started",
+            "result_status": "not_started",
+            "evidence_collection_status": "not_collected",
+            "reviewed_outcome_summary": "",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
+        }.items():
+            if route.get(field) != expected_value:
+                issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {route_id} {field} changed")
     return issues
 
 
@@ -17272,6 +17358,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_evidence_gap_summary(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_missing_evidence_result_scaffold(root))
+    issues.extend(check_source_pipeline_phase_action_missing_evidence_route_summary(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

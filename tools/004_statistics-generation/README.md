@@ -324,3 +324,8 @@ Simplified Chinese supplement:
 
 Simplified Chinese supplement:
 - `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json` 计为当前 assignment outcome source 的 handoff 入口。该入口仍然只用于预处理导航：不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+English supplement:
+- `build_published_research_note_phase_gap_review_checklist.py` generates `197_published-research-note-phase-gap-review-checklist.csv` from the published_research_notes rows in the core corpus phase gap queue. It routes reviewers to `research/`, `doc/public/user_research/`, and the source register index while keeping user/AI drafts outside `research/` until human review rewrites them as source-marked scholarship notes.
+
+Simplified Chinese supplement:
+- `build_published_research_note_phase_gap_review_checklist.py` 基于 core corpus phase gap queue 中的 published_research_notes 行生成 `197_published-research-note-phase-gap-review-checklist.csv`。该清单把复核者路由到 `research/`、`doc/public/user_research/` 和来源登记索引，同时保持用户/AI 草稿不进入 `research/`，除非经过人工复核并改写为带来源标记的学术笔记。

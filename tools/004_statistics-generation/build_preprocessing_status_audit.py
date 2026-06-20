@@ -145,6 +145,9 @@ CORE_CORPUS_PHASE_GAP_ACTION_QUEUE = STAT_DIR / "192_core-corpus-phase-gap-actio
 RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
     STAT_DIR / "193_research-source-phase-gap-review-checklist.csv"
 )
+PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST = (
+    STAT_DIR / "197_published-research-note-phase-gap-review-checklist.csv"
+)
 COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
     STAT_DIR / "194_collection-provenance-phase-gap-review-checklist.csv"
 )
@@ -685,6 +688,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_ACTION_QUEUE)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
+                + count_csv(root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST)
@@ -837,6 +841,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_ACTION_QUEUE)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
+                + count_csv(root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST)
@@ -985,6 +990,9 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "core_corpus_phase_gap_action_queue_rows": count_csv(root, CORE_CORPUS_PHASE_GAP_ACTION_QUEUE),
                 "research_source_phase_gap_review_checklist_rows": count_csv(
                     root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST
+                ),
+                "published_research_note_phase_gap_review_checklist_rows": count_csv(
+                    root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST
                 ),
                 "collection_provenance_phase_gap_review_checklist_rows": count_csv(
                     root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST

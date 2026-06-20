@@ -36,6 +36,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_coverage_matrix,
     check_core_corpus_phase_gap_action_queue,
     check_research_source_phase_gap_review_checklist,
+    check_published_research_note_phase_gap_review_checklist,
     check_collection_provenance_phase_gap_review_checklist,
     check_inscription_plate_crosswalk_phase_gap_review_checklist,
     check_shape_component_evolution_verification_gap_review_checklist,
@@ -414,6 +415,15 @@ def load_source_processing_pipeline_audit_module():
 def load_research_source_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location("build_research_source_phase_gap_review_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_published_research_note_phase_gap_review_checklist_module():
+    path = repo_root() / "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_published_research_note_phase_gap_review_checklist", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19274,7 +19284,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "194")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "195")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19458,6 +19468,46 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["assignment_checklist_ids"].count("source-pipeline-missing-evidence-outcome-routes-assignment-checklist-"), 5)
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
         self.assertTrue(all("research source phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_published_research_note_phase_gap_review_checklist_routes_research_note_gaps(self) -> None:
+        self.assertEqual(check_published_research_note_phase_gap_review_checklist(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "197_published-research-note-phase-gap-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 4)
+        self.assertEqual({row["corpus_area"] for row in rows}, {"published_research_notes"})
+        self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
+        self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
+        self.assertEqual({row["research_note_file_count"] for row in rows}, {"6"})
+        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"153"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"183"})
+        self.assertTrue(all("research/" in row["files_to_open"] for row in rows))
+        self.assertTrue(all("doc/public/user_research/" in row["files_to_open"] for row in rows))
+        self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["corpus_import_status"] == "not_imported" for row in rows))
+        self.assertTrue(all(row["scholarship_note_promotion_status"] == "not_promoted_to_research" for row in rows))
+        self.assertTrue(all(row["draft_boundary_status"] == "user_ai_drafts_stay_in_doc_public_user_research" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
+
+    def test_published_research_note_phase_gap_review_checklist_builder_uses_gap_queue_and_research_routes(self) -> None:
+        module = load_published_research_note_phase_gap_review_checklist_module()
+        rows = module.build_checklist_rows(repo_root())
+        self.assertEqual(len(rows), 4)
+        first = rows[0]
+        self.assertEqual(first["review_checklist_id"], "published-research-note-phase-gap-review-001")
+        self.assertEqual(first["gap_queue_id"], "core-corpus-phase-gap-017")
+        self.assertEqual(first["candidate_or_staging_boundary"], "draft_or_bibliography_review_queue")
+        self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertIn("research/001_published-scholarship-index/README.md", first["research_note_route_paths"])
+        self.assertIn("doc/public/user_research/README.md", first["draft_review_route_paths"])
+        self.assertTrue(all("published research note phase gap review checklist only" in row["caution"] for row in rows))
 
     def test_collection_provenance_phase_gap_review_checklist_routes_asset_gaps(self) -> None:
         self.assertEqual(check_collection_provenance_phase_gap_review_checklist(repo_root()), [])

@@ -6,6 +6,12 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `188_object-local-material-coverage-audit.csv` now includes `source_ids` extracted from object packets, including nested source indexes. `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` use those IDs to expose source-level object-local material bundle, review-image object, route object, and partial-bundle counts. These are preprocessing navigation signals only: they do not promote candidate objects, decide rights, import corpus records, or make decipherment claims.
+
+Simplified Chinese supplement:
+- `188_object-local-material-coverage-audit.csv` 现在会从对象 packet（包括内嵌 source index）抽取 `source_ids`。`094_source-processing-pipeline-audit.csv` 和 `095_source-processing-pipeline-summary.json` 使用这些 ID 按来源显示对象内资料包、复核图像对象、路线对象和部分缺失包计数。这些只是预处理导航信号：不提升候选对象、不裁定权利、不导入语料，也不提出释读结论。
+
+English supplement:
 - `build_object_local_material_coverage_audit.py` generates `188_object-local-material-coverage-audit.csv` and `189_object-local-material-coverage-summary.json` across character, component, evolution, inscription-crosswalk, collection-object, source-object, and topic-candidate directories. It audits whether human-readable files, AI-readable packets/indexes, local review images, route galleries, and source material access indexes are co-located inside the same concrete `corpus` object directory, without creating parallel human-only directories or promoting candidate evidence into scholarship.
   The preprocessing status audit also counts 188/189, and the core corpus phase matrix exposes them as relationship-graph/statistics evidence paths so later review can verify object-local human/AI material coverage before semantic promotion.
 

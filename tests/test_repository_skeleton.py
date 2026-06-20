@@ -2773,16 +2773,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(
             by_project["obs-evo-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["obs-evo-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-evo-cand-000001"]["source_ids"], "src-evobc")
         self.assertEqual(
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
         self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["source_ids"], "src-obimd")
         self.assertEqual(
             by_project["obs-comp-cand-000070"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
@@ -2795,12 +2798,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "3")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["source_ids"], "src-xiaoxuetang-jiaguwen")
         self.assertEqual(by_project["obs-topic-cand-000001"]["corpus_area"], "research_topic_candidates")
         self.assertEqual(
             by_project["obs-topic-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "1")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["source_ids"], "src-cambridge-hopkins")
+        self.assertTrue(all(row["source_ids"] for row in rows))
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
 
     def test_object_local_material_coverage_builder_keeps_candidate_boundaries(self) -> None:
@@ -2813,6 +2819,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertTrue(all(row["object_dir"].startswith("corpus/") for row in rows))
+        self.assertTrue(all(row["source_ids"].startswith("src-") for row in rows))
         self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
 
     def test_cambridge_hopkins_topic_materials_builder_keeps_topic_routes_candidate_only(self) -> None:
@@ -15900,6 +15907,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["totals"]["source_phase_action_count"], 62)
         self.assertEqual(data["totals"]["missing_evidence_action_count"], 32)
         self.assertEqual(data["totals"]["missing_evidence_assignment_count"], 18)
+        self.assertEqual(data["totals"]["object_local_material_bundle_count"], 28166)
+        self.assertEqual(data["totals"]["object_local_review_image_object_count"], 13715)
+        self.assertEqual(data["totals"]["object_local_route_object_count"], 17170)
+        self.assertEqual(data["totals"]["object_local_partial_bundle_count"], 0)
         self.assertIn("source-level preprocessing only", data["completion_boundary"])
 
     def test_source_processing_pipeline_audit_builder_tracks_source_routes(self) -> None:
@@ -15914,17 +15925,27 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "16295")
         self.assertEqual(by_source["src-hust-obc"]["source_phase_action_count"], "1")
         self.assertEqual(by_source["src-hust-obc"]["missing_evidence_action_count"], "0")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_review_image_object_count"], "10996")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "1")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44492")
+        self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2748")
+        self.assertEqual(by_source["src-obimd"]["object_local_review_image_object_count"], "2719")
         self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51948")
+        self.assertEqual(by_source["src-evobc"]["object_local_material_bundle_count"], "13715")
+        self.assertEqual(by_source["src-evobc"]["object_local_route_object_count"], "13715")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
         self.assertEqual(by_source["src-cambridge-hopkins"]["current_stage"], "pending_human_review")
         self.assertEqual(by_source["src-cambridge-hopkins"]["missing_evidence_assignment_count"], "1")
+        self.assertEqual(by_source["src-cambridge-hopkins"]["object_local_material_bundle_count"], "633")
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["current_stage"], "structured")
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["source_phase_action_count"], "6")
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["missing_evidence_action_count"], "2")
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["object_local_material_bundle_count"], "1")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["current_stage"], "discovered_access_boundary_or_error")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["source_phase_action_count"], "7")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_evidence_action_count"], "4")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["object_local_material_bundle_count"], "1")
         self.assertTrue(all(row["source_route_review_queue_count"] == "1" for row in rows))
         self.assertTrue(all("Source processing pipeline audit only" in row["caution"] for row in rows))
 

@@ -6,7 +6,11 @@ Current generated statistics:
 
 - `188_object-local-material-coverage-audit.csv`: repository-wide object-local material coverage audit for concrete character, component, evolution, inscription-crosswalk, collection-object, source-object, and topic-candidate directories. It records human-readable files, AI-readable packets/indexes, local review images, route galleries, source material access indexes, missing object-local files, and parallel-directory checks without promoting any record into scholarship.
 - `189_object-local-material-coverage-summary.json`: compact summary for 188, including corpus-area counts, image-bearing object counts, route-gallery object counts, metadata-only object counts, and the no-parallel-human-directory boundary.
+- `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` now roll up the `source_ids` from 188 into source-level object-local material bundle, review-image object, route object, and partial-bundle counts. These counts only help find the next preprocessing entrance for each source; they do not promote candidate objects, decide rights, import corpus records, or make decipherment claims.
 - `090_preprocessing-status-audit.csv` counts 188/189 under the review-queue/source-engineering status row, and `135_core-corpus-phase-coverage-matrix.csv` links them from the relationship-graph/statistics evidence paths. These links are preprocessing evidence only, not reviewed scholarship.
+
+Simplified Chinese supplement:
+- `094_source-processing-pipeline-audit.csv` 和 `095_source-processing-pipeline-summary.json` 现在会把 188 中的 `source_ids` 汇总为来源级对象内资料包、复核图像对象、路线对象和部分缺失包计数。这些计数只用于定位每个来源的下一步预处理入口；不提升候选对象、不裁定权利、不导入语料，也不提出释读结论。
 
 简体中文补充：
 - `188_object-local-material-coverage-audit.csv`：面向全仓库具体对象目录的对象内资料覆盖审计，覆盖甲骨字、构件、演化、卜辞 crosswalk、馆藏对象、来源对象和研究主题候选目录。它记录人类可读文件、AI 可读 packet/index、本地复核图片、路线图、来源资料访问索引、缺失对象内文件和并行目录检查，不把任何记录提升为学术结论。

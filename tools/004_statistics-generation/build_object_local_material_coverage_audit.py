@@ -44,6 +44,7 @@ class ObjectSpec:
 PROJECT_ID_PATTERN = re.compile(
     r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand|topic-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
 )
+SOURCE_ID_PATTERN = re.compile(r"^src-[a-z0-9-]+$")
 
 
 OBJECT_SPECS = [
@@ -142,6 +143,7 @@ FIELDNAMES = [
     "coverage_audit_id",
     "corpus_area",
     "project_id",
+    "source_ids",
     "record_type",
     "object_dir",
     "packet_path",
@@ -185,6 +187,34 @@ def project_id_for_packet(packet: dict[str, object], object_dir: Path) -> str:
             return value
     match = PROJECT_ID_PATTERN.search(object_dir.name)
     return match.group(1) if match else ""
+
+
+def source_ids_for_packet(packet: dict[str, object]) -> list[str]:
+    source_ids: set[str] = set()
+    collect_source_ids(packet, source_ids)
+    return sorted(source_ids)
+
+
+def collect_source_ids(value: object, source_ids: set[str]) -> None:
+    if isinstance(value, dict):
+        for key, nested in value.items():
+            if key in {"source_id", "source_ids"}:
+                collect_source_ids(nested, source_ids)
+            elif isinstance(nested, (dict, list)):
+                collect_source_ids(nested, source_ids)
+        return
+    if isinstance(value, list):
+        for item in value:
+            collect_source_ids(item, source_ids)
+        return
+    if isinstance(value, str):
+        for item in split_source_ids(value):
+            if SOURCE_ID_PATTERN.match(item):
+                source_ids.add(item)
+
+
+def split_source_ids(value: str) -> list[str]:
+    return [item for item in value.replace(",", ";").split(";") if item]
 
 
 def match_one(object_dir: Path, pattern: str) -> bool:
@@ -248,6 +278,7 @@ def build_rows(root: Path) -> list[dict[str, str]]:
                     "coverage_audit_id": f"object-local-material-coverage-{len(rows) + 1:05d}",
                     "corpus_area": spec.corpus_area,
                     "project_id": project_id_for_packet(packet, object_dir),
+                    "source_ids": ";".join(source_ids_for_packet(packet)),
                     "record_type": str(packet.get("record_type", "")),
                     "object_dir": relative(object_dir, root),
                     "packet_path": relative(packet_path, root),

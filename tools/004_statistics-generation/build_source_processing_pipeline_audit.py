@@ -51,6 +51,9 @@ SOURCE_PIPELINE_MISSING_EVIDENCE_ACTION_QUEUE = Path(
 SOURCE_PIPELINE_MISSING_EVIDENCE_ASSIGNMENT_CHECKLIST = Path(
     "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv"
 )
+OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
+    "corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv"
+)
 GRAPH_EDGE_FILES = [
     Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"),
@@ -87,6 +90,26 @@ def count_semicolon_field(rows: list[dict[str, str]], field: str) -> Counter[str
     for row in rows:
         for value in split_values(row.get(field, "")):
             counts[value] += 1
+    return counts
+
+
+def object_local_material_counts_by_source(rows: list[dict[str, str]]) -> dict[str, Counter[str]]:
+    counts: dict[str, Counter[str]] = {
+        "object_local_material_bundle_count": Counter(),
+        "object_local_review_image_object_count": Counter(),
+        "object_local_route_object_count": Counter(),
+        "object_local_partial_bundle_count": Counter(),
+    }
+    for row in rows:
+        source_ids = split_values(row.get("source_ids", ""))
+        for source_id in source_ids:
+            counts["object_local_material_bundle_count"][source_id] += 1
+            if int(row.get("local_visual_asset_count", "0") or 0) > 0:
+                counts["object_local_review_image_object_count"][source_id] += 1
+            if int(row.get("route_file_count", "0") or 0) > 0:
+                counts["object_local_route_object_count"][source_id] += 1
+            if row.get("material_bundle_status") == "partial_or_missing_object_local_bundle":
+                counts["object_local_partial_bundle_count"][source_id] += 1
     return counts
 
 
@@ -197,6 +220,7 @@ def build_pipeline_rows(root: Path) -> list[dict[str, str]]:
     phase_action_rows = read_csv_rows(root / SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
     missing_evidence_action_rows = read_csv_rows(root / SOURCE_PIPELINE_MISSING_EVIDENCE_ACTION_QUEUE)
     missing_evidence_assignment_rows = read_csv_rows(root / SOURCE_PIPELINE_MISSING_EVIDENCE_ASSIGNMENT_CHECKLIST)
+    object_local_material_rows = read_csv_rows(root / OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT)
 
     manifest_counts = count_by_field(manifest_rows, "source_id")
     field_map_counts = count_by_field(field_map_rows, "source_id")
@@ -217,6 +241,7 @@ def build_pipeline_rows(root: Path) -> list[dict[str, str]]:
     phase_action_counts = count_by_field(phase_action_rows, "source_id")
     missing_evidence_action_counts = count_by_field(missing_evidence_action_rows, "source_id")
     missing_evidence_assignment_counts = count_semicolon_field(missing_evidence_assignment_rows, "source_ids")
+    object_local_material_counts = object_local_material_counts_by_source(object_local_material_rows)
 
     download_rows_by_source: dict[str, list[dict[str, str]]] = {}
     for row in download_log_rows:
@@ -271,6 +296,18 @@ def build_pipeline_rows(root: Path) -> list[dict[str, str]]:
             "source_phase_action_count": str(phase_action_counts[source_id]),
             "missing_evidence_action_count": str(missing_evidence_action_counts[source_id]),
             "missing_evidence_assignment_count": str(missing_evidence_assignment_counts[source_id]),
+            "object_local_material_bundle_count": str(
+                object_local_material_counts["object_local_material_bundle_count"][source_id]
+            ),
+            "object_local_review_image_object_count": str(
+                object_local_material_counts["object_local_review_image_object_count"][source_id]
+            ),
+            "object_local_route_object_count": str(
+                object_local_material_counts["object_local_route_object_count"][source_id]
+            ),
+            "object_local_partial_bundle_count": str(
+                object_local_material_counts["object_local_partial_bundle_count"][source_id]
+            ),
             "download_status_counts": compact_counter(Counter(row.get("status", "") for row in source_download_rows)),
             "current_stage": current_stage,
             "next_entry_path": "corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv",
@@ -308,6 +345,10 @@ def build_summary(rows: list[dict[str, str]]) -> dict[str, object]:
             "source_phase_action_count",
             "missing_evidence_action_count",
             "missing_evidence_assignment_count",
+            "object_local_material_bundle_count",
+            "object_local_review_image_object_count",
+            "object_local_route_object_count",
+            "object_local_partial_bundle_count",
         ]:
             totals[field] += int(row[field])
     return {

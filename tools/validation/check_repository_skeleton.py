@@ -2931,6 +2931,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "coverage_audit_id",
         "corpus_area",
         "project_id",
+        "source_ids",
         "record_type",
         "object_dir",
         "packet_path",
@@ -2977,6 +2978,8 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         row_id = row.get("coverage_audit_id", "")
         if not row.get("object_dir", "").startswith("corpus/"):
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} object outside corpus: {row_id}")
+        if not row.get("source_ids", ""):
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} missing source_ids: {row_id}")
         if row.get("parallel_human_directory_present") != "false":
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} parallel human directory present: {row_id}")
         if row.get("decipherment_claim_status") != "no_claim":
@@ -4817,6 +4820,10 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "metadata_profile_count": 62,
         "missing_evidence_action_count": 32,
         "missing_evidence_assignment_count": 18,
+        "object_local_material_bundle_count": 28166,
+        "object_local_partial_bundle_count": 0,
+        "object_local_review_image_object_count": 13715,
+        "object_local_route_object_count": 17170,
         "package_manifest_count": 36,
         "size_recorded_count": 48,
         "source_phase_action_count": 62,
@@ -4835,6 +4842,9 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "large_source_register_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_action_count": "0",
+            "object_local_material_bundle_count": "10997",
+            "object_local_review_image_object_count": "10996",
+            "object_local_route_object_count": "1",
         },
         "src-obimd": {
             "current_stage": "pending_human_review",
@@ -4845,6 +4855,9 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "large_source_register_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_action_count": "0",
+            "object_local_material_bundle_count": "2748",
+            "object_local_review_image_object_count": "2719",
+            "object_local_route_object_count": "2748",
         },
         "src-evobc": {
             "current_stage": "pending_human_review",
@@ -4852,6 +4865,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "large_source_register_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_action_count": "0",
+            "object_local_material_bundle_count": "13715",
+            "object_local_route_object_count": "13715",
         },
         "src-cambridge-hopkins": {
             "current_stage": "pending_human_review",
@@ -4859,18 +4874,24 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "downloaded_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_assignment_count": "1",
+            "object_local_material_bundle_count": "633",
+            "object_local_route_object_count": "633",
         },
         "src-xiaoxuetang-jiaguwen": {
             "current_stage": "structured",
             "access_boundary_or_error_count": "4",
             "source_phase_action_count": "6",
             "missing_evidence_action_count": "2",
+            "object_local_material_bundle_count": "1",
+            "object_local_route_object_count": "1",
         },
         "src-british-museum-oracle-bone": {
             "current_stage": "discovered_access_boundary_or_error",
             "downloaded_count": "0",
             "source_phase_action_count": "7",
             "missing_evidence_action_count": "4",
+            "object_local_material_bundle_count": "1",
+            "object_local_route_object_count": "1",
         },
     }
     for source_id, expected_values in expected_source_fragments.items():

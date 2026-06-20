@@ -3,7 +3,7 @@
     "Use this pack only as a routing and coverage summary.",
     "Open the cited CSV/JSONL source rows before making any research claim.",
     "Treat HUST-OBC, OBIMD, EVOBC, and Cambridge/Hopkins rows as dataset metadata until cross-source review.",
-    "Do not present OCR labels, component links, glyph code points, evolution category links, or inscription crosswalk links as accepted readings or confirmed records."
+    "Do not present OCR labels, component links, glyph code points, evolution category links, inscription crosswalk links, or topic candidate links as accepted readings, grammar analyses, or confirmed records."
   ],
   "agent_use_rules_zh": [
     "本上下文包只作为检索路由和覆盖范围摘要使用。",
@@ -13,8 +13,8 @@
   ],
   "context_pack_id": "ai-context-relationship-graph-001",
   "coverage": {
-    "edge_type_count": 25,
-    "graph_file_count": 7,
+    "edge_type_count": 30,
+    "graph_file_count": 8,
     "graph_files": [
       "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
       "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
@@ -22,12 +22,13 @@
       "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
       "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
       "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl",
-      "corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"
+      "corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",
+      "corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl"
     ],
-    "node_count": 101598,
+    "node_count": 101619,
     "source_count": 4,
     "top_node_limit": 20,
-    "total_edge_count": 127502
+    "total_edge_count": 128174
   },
   "generated_from": [
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv",
@@ -37,8 +38,14 @@
   "purpose_zh": "供 AI Agent 深入检索图谱或来源表前使用的入口上下文；支持先证据后推理，不包含释读结论。",
   "source_summaries": [
     {
-      "edge_count": 4403,
+      "edge_count": 5075,
       "edge_types": [
+        {
+          "edge_count": 4,
+          "edge_type": "CAMBRIDGE_HOPKINS_UNROUTED_CROSSWALK_NEEDS_TOPIC_REVIEW",
+          "unique_source_node_count": 4,
+          "unique_target_node_count": 1
+        },
         {
           "edge_count": 441,
           "edge_type": "HAS_CAMBRIDGE_HOPKINS_CHALFANT_REF",
@@ -86,12 +93,37 @@
           "edge_type": "HAS_CAMBRIDGE_HOPKINS_YINGGUO_REF",
           "unique_source_node_count": 612,
           "unique_target_node_count": 611
+        },
+        {
+          "edge_count": 20,
+          "edge_type": "TOPIC_CANDIDATE_HAS_CAMBRIDGE_HOPKINS_CLASSIFICATION_GROUP",
+          "unique_source_node_count": 20,
+          "unique_target_node_count": 20
+        },
+        {
+          "edge_count": 20,
+          "edge_type": "TOPIC_CANDIDATE_HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD",
+          "unique_source_node_count": 20,
+          "unique_target_node_count": 1
+        },
+        {
+          "edge_count": 20,
+          "edge_type": "TOPIC_CANDIDATE_HAS_CAMBRIDGE_HOPKINS_SOURCE",
+          "unique_source_node_count": 20,
+          "unique_target_node_count": 1
+        },
+        {
+          "edge_count": 608,
+          "edge_type": "TOPIC_CANDIDATE_HAS_INSCRIPTION_CROSSWALK_ROUTE",
+          "unique_source_node_count": 20,
+          "unique_target_node_count": 608
         }
       ],
       "graph_files": [
-        "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"
+        "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
+        "corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl"
       ],
-      "label": "Cambridge/Hopkins inscription crosswalk metadata",
+      "label": "Cambridge/Hopkins inscription crosswalk and topic metadata",
       "source_id": "src-cambridge-hopkins"
     },
     {
@@ -397,24 +429,24 @@
       "total_degree": 755
     },
     {
-      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
-      "in_degree": 612,
-      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD:612",
+      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl;corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl",
+      "in_degree": 632,
+      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD:612;TOPIC_CANDIDATE_HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD:20",
       "node_id": "dl-cambridge-hopkins-finding-list",
       "out_degree": 0,
       "outgoing_edge_type_counts": "",
       "source_ids": "src-cambridge-hopkins",
-      "total_degree": 612
+      "total_degree": 632
     },
     {
-      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
-      "in_degree": 612,
-      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_SOURCE:612",
+      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl;corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl",
+      "in_degree": 632,
+      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_SOURCE:612;TOPIC_CANDIDATE_HAS_CAMBRIDGE_HOPKINS_SOURCE:20",
       "node_id": "src-cambridge-hopkins",
       "out_degree": 0,
       "outgoing_edge_type_counts": "",
       "source_ids": "src-cambridge-hopkins",
-      "total_degree": 612
+      "total_degree": 632
     },
     {
       "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl;corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",

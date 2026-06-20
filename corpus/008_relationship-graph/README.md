@@ -1,23 +1,26 @@
 # Relationship Graph / 关系图谱
 
 English:
-This directory will store graph node and edge files connecting characters, components, inscriptions, sources, places, periods, topics, people, and hypotheses.
-
-Current staged graph files:
-
-- `005_hust-obc-candidate-graph-edges.jsonl`: reviewed metadata-only graph edges derived from HUST-OBC validation class/category metadata. These edges connect project candidate class IDs to HUST-OBC source category rows and OCR label candidate nodes. They are dataset provenance edges, not accepted paleographic readings or confirmed oracle-character identities.
-- `006_obimd-component-graph-edges.jsonl`: reviewed metadata-only graph edges derived from OBIMD main-character, sub-character, and glyph-code-point mappings. These edges expose component/glyph relationships for retrieval and later review, but they are not formal component analyses, accepted readings, or committed image assets.
-- `007_evobc-evolution-graph-edges.jsonl`: reviewed metadata-only graph edges derived from EVOBC category era/source count summaries. These edges make broad oracle-bone, bronze, seal, Spring and Autumn, Warring States, clerical, and source-token coverage searchable, but they are not accepted paleographic correspondences.
-- `008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl`: reviewed metadata-only graph edges derived from Cambridge/Hopkins inscription crosswalk staging rows. These edges connect candidate crosswalk rows to source, download, period, classification-group, and external catalog-reference nodes; they are not formal `obi-*` inscription records, object identifications, or textual readings.
-- `009_character-asset-graph-edges.jsonl`: candidate graph edges from project-local oracle-character candidate IDs to co-located glyph image asset IDs. These edges support retrieval of human-viewable local images from AI-readable graph records; they are not decipherment evidence, confirmed glyph identities, or component conclusions.
-- `009_character-asset-graph-edges.jsonl`：候选图谱边，连接本项目甲骨字候选 ID 与同一具体字目录中的字形图片资产 ID；用于让 AI 可读记录指向人类可看的本地图像，不是释读证据、已确认字形身份或构件结论。
+This directory stores graph edge files connecting candidate characters, components, inscriptions, sources, periods, topics, and assets. The files are preprocessing and retrieval infrastructure only.
 
 简体中文：
-本目录将保存连接甲骨字、构件、卜辞、来源、地点、时代、主题、人物和假说的图谱节点与边。
+本目录保存连接候选单字、构件、卜辞、来源、时期、主题和资产的图边文件。这些文件只是预处理和检索基础设施。
 
-当前已暂存的图谱文件：
+## Current Graph Files / 当前图边文件
 
-- `005_hust-obc-candidate-graph-edges.jsonl`：从 HUST-OBC validation class/category 元数据派生的、仅限已复核元数据层面的图谱边。该文件连接本项目候选 class ID、HUST-OBC 来源 category 行和 OCR 标签候选节点。这些边是数据集来源关系，不是已接受的古文字释读，也不是已确认的甲骨文字身份关系。
-- `006_obimd-component-graph-edges.jsonl`：从 OBIMD main-character、sub-character 和 glyph-code-point 映射派生的、仅限已复核元数据层面的图谱边。该文件把构件/子字与 glyph codepoint 关系暴露给检索和后续复核，但不是正式构件分析、已接受释读或已提交图像资产。
-- `007_evobc-evolution-graph-edges.jsonl`：从 EVOBC category 的时代/来源计数摘要派生的、仅限已复核元数据层面的图谱边。该文件让甲骨、金文、篆书、春秋、战国、隶书和来源 token 覆盖情况可检索，但不是已接受的古文字对应关系。
-- `008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl`：从 Cambridge/Hopkins 卜辞 crosswalk staging 行派生的、仅限已复核元数据层面的图谱边。该文件连接候选 crosswalk 行、来源、下载记录、时期、分类组和外部著录号节点；它不是正式 `obi-*` 卜辞记录、器物身份确认或卜辞文本释读。
+- `005_hust-obc-candidate-graph-edges.jsonl`: HUST-OBC validation class/category metadata edges.
+- `006_obimd-component-graph-edges.jsonl`: OBIMD main-character, sub-character, and glyph-codepoint metadata edges.
+- `007_evobc-evolution-graph-edges.jsonl`: EVOBC category, era, and source-token metadata edges.
+- `008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl`: Cambridge/Hopkins inscription crosswalk metadata edges.
+- `009_character-asset-graph-edges.jsonl`: character candidate to local glyph-image asset route edges.
+- `010_cross-source-id-graph-edges.jsonl`: HUST/OBIMD/EVOBC codepoint lookup-route edges.
+- `011_component-asset-graph-edges.jsonl`: component candidate to local component-image asset route edges.
+- `012_cambridge-hopkins-topic-candidate-graph-edges.jsonl`: Cambridge/Hopkins topic candidate to source, download, classification-group, inscription-crosswalk route, and unrouted crosswalk review-bucket edges.
+
+## Boundary / 边界
+
+English:
+Graph edges are routing evidence and review scaffolding. They do not confirm readings, component assignments, inscription identities, topic assignments, grammar analyses, paleographic correspondences, transcriptions, or decipherment conclusions.
+
+简体中文：
+图边只是证据路由和复核脚手架。它们不确认读法、构件归属、卜辞身份、主题归属、语法分析、古文字对应、释文或破译结论。

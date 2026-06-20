@@ -887,6 +887,10 @@ CORE_CORPUS_PHASE_GAP_REVIEW_INDEX = (
     "corpus/009_statistics-and-derived-features/"
     "199_core-corpus-phase-gap-review-index.csv"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "200_core-corpus-phase-gap-review-route-pack.json"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
@@ -1830,6 +1834,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
+    CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
     CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -2051,6 +2056,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_index.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_review_route_pack.py",
     "tools/004_statistics-generation/build_character_candidate_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py",
@@ -5663,7 +5669,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75233,
+        "staging_record_count": 75234,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5704,7 +5710,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "197",
+            "staging_record_count": "198",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7957,6 +7963,99 @@ def check_core_corpus_phase_gap_review_index(root: Path) -> list[str]:
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} missing file to open: {path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_review_route_pack(root: Path) -> list[str]:
+    issues: list[str] = []
+    index_rows, index_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_GAP_REVIEW_INDEX)
+    issues.extend(index_issues)
+    path = root / CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return [f"missing required path: {CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK}"]
+    except json.JSONDecodeError as exc:
+        return [f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} invalid JSON: {exc.msg}"]
+
+    routes = data.get("routes", [])
+    if not isinstance(routes, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} routes should be a list")
+        routes = []
+    if data.get("route_pack_id") != "core-corpus-phase-gap-review-route-pack-001":
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} route pack ID changed")
+    if data.get("review_index_path") != CORE_CORPUS_PHASE_GAP_REVIEW_INDEX:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} review index path changed")
+    if data.get("route_count") != len(index_rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} route count should match 199 index")
+    if data.get("gap_count") != len({row.get("gap_queue_id", "") for row in index_rows}):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} gap count should match 199 index")
+    if data.get("specialized_checklist_family_count") != 6:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} specialized checklist family count changed")
+    expected_family_counts = dict(
+        sorted(Counter(row.get("specialized_checklist_family", "") for row in index_rows).items())
+    )
+    if data.get("specialized_checklist_family_counts") != expected_family_counts:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} specialized family counts changed")
+    for field, expected_counts in {
+        "route_status_counts": {"not_started": len(index_rows)},
+        "review_status_counts": {"needs_human_review": len(index_rows)},
+        "evidence_collection_status_counts": {"not_collected": len(index_rows)},
+        "rights_decision_status_counts": {"no_rights_decision": len(index_rows)},
+        "source_promotion_status_counts": {"not_promoted": len(index_rows)},
+        "corpus_import_status_counts": {"not_imported": len(index_rows)},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": len(index_rows)},
+    }.items():
+        if data.get(field) != expected_counts:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} {field} changed")
+    if data.get("automation_boundary") != "routing_only_no_core_corpus_phase_gap_outcome_capture":
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} automation boundary changed")
+    if data.get("research_boundary") != "core_corpus_phase_gap_review_route_pack_not_scholarship":
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} research boundary changed")
+    if "routing-only" not in data.get("caution", ""):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} caution changed")
+
+    if len(routes) != len(index_rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} routes should match 199 index rows")
+    for index, (route, index_row) in enumerate(zip(routes, index_rows), start=1):
+        if not isinstance(route, dict):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} route {index} should be an object")
+            continue
+        expected_route_id = f"core-corpus-phase-gap-review-route-{index:03d}"
+        if route.get("route_id") != expected_route_id:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} route ID changed: {index}")
+        for field in [
+            "review_index_id",
+            "gap_queue_id",
+            "source_phase_row_id",
+            "corpus_area",
+            "phase_name",
+            "phase_status",
+            "specialized_checklist_family",
+            "specialized_checklist_id",
+            "specialized_checklist_path",
+        ]:
+            if route.get(field) != index_row.get(field):
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} {field} mismatch: {expected_route_id}")
+        for field, expected_value in {
+            "route_status": "not_started",
+            "review_status": "needs_human_review",
+            "index_status": "route_index_only",
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "automation_boundary": "routing_only_no_core_corpus_phase_gap_outcome_capture",
+            "research_boundary": "core_corpus_phase_gap_review_route_pack_not_scholarship",
+        }.items():
+            if route.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} {field} changed: {expected_route_id}")
+        if "core corpus phase gap review route pack is routing-only" not in route.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} route caution changed: {expected_route_id}")
+        for route_path in route.get("route_files_to_open", []):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK} missing route file: {route_path}")
     return issues
 
 
@@ -25236,6 +25335,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
     issues.extend(check_core_corpus_phase_gap_review_index(root))
+    issues.extend(check_core_corpus_phase_gap_review_route_pack(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))

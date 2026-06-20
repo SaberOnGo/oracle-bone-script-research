@@ -6543,13 +6543,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         with asset_index_path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         visual_rows = module.build_visual_profiles(rows, repo_root())
-        self.assertEqual(len(visual_rows), 10999)
+        self.assertEqual(len(visual_rows), 21363)
         self.assertEqual(visual_rows[0]["visual_profile_id"], "asset-visual-profile-000001")
         self.assertEqual(visual_rows[0]["luma_threshold"], "140")
         self.assertEqual(visual_rows[0]["foreground_pixel_count"], "154404")
         self.assertEqual(visual_rows[1]["foreground_pixel_count"], "1972665")
         self.assertEqual(visual_rows[2]["foreground_pixel_count"], "208710")
-        self.assertEqual(visual_rows[-1]["asset_id"], "asset-010999")
+        self.assertEqual(visual_rows[-1]["asset_id"], "asset-021363")
         self.assertEqual(visual_rows[-1]["review_status"], "needs_human_visual_review")
         self.assertEqual(
             {row["analysis_scope"] for row in visual_rows},
@@ -6634,12 +6634,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["context_pack_id"], "ai-context-source-coverage-001")
         self.assertEqual(data["status"], "reviewed_metadata_only")
         self.assertEqual(data["coverage"]["source_count"], 21)
-        self.assertEqual(data["coverage"]["download_manifest_count"], 46)
-        self.assertEqual(data["coverage"]["download_log_count"], 47)
+        self.assertEqual(data["coverage"]["download_manifest_count"], 47)
+        self.assertEqual(data["coverage"]["download_log_count"], 48)
         self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 62)
-        self.assertEqual(data["coverage"]["committed_asset_count"], 10999)
-        self.assertEqual(data["coverage"]["committed_asset_bytes"], 57931267)
-        self.assertEqual(data["coverage"]["graph_edge_count"], 117138)
+        self.assertEqual(data["coverage"]["committed_asset_count"], 21363)
+        self.assertEqual(data["coverage"]["committed_asset_bytes"], 96318352)
+        self.assertEqual(data["coverage"]["graph_edge_count"], 127502)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(
             data["coverage"]["coverage_status_counts"],
@@ -6657,7 +6657,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(source_routes), 21)
         self.assertEqual(source_routes["src-hust-obc"]["graph_edge_count"], 16295)
         self.assertEqual(source_routes["src-hust-obc"]["promotion_queue_candidate_count"], 1588)
-        self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 44492)
+        self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 54856)
+        self.assertEqual(source_routes["src-obimd"]["committed_asset_count"], 10364)
         self.assertEqual(source_routes["src-evobc"]["graph_edge_count"], 51948)
         self.assertEqual(source_routes["src-cambridge-hopkins"]["graph_edge_count"], 4403)
         self.assertEqual(source_routes["src-hust-obc"]["committed_asset_count"], 10996)
@@ -6675,7 +6676,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 entry["source_id"]
                 for entry in data["priority_routes"]["public_asset_sources"]
             ],
-            ["src-hust-obc", "src-metmuseum-oracle-bone", "src-smithsonian-nmaa-oracle-bone"],
+            ["src-hust-obc", "src-metmuseum-oracle-bone", "src-obimd", "src-smithsonian-nmaa-oracle-bone"],
         )
         self.assertEqual(
             [
@@ -6707,7 +6708,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             for entry in data["source_routes"]
         }
         self.assertEqual(data["coverage"]["source_count"], 21)
-        self.assertEqual(data["coverage"]["graph_edge_count"], 117138)
+        self.assertEqual(data["coverage"]["graph_edge_count"], 127502)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(source_routes["src-hust-obc"]["route"], "open_graph_and_metadata_derivatives")
         self.assertEqual(source_routes["src-cambridge-hopkins"]["route"], "open_graph_and_metadata_derivatives")
@@ -12093,7 +12094,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 24)
+        self.assertEqual(len(rows), 25)
         by_edge_type = {row["edge_type"]: row for row in rows}
         by_key = {
             (row["graph_file"], row["source_id"], row["edge_type"]): row
@@ -12139,7 +12140,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             ]["edge_count"],
             "127",
         )
-        self.assertEqual(sum(int(row["edge_count"]) for row in rows), 117138)
+        self.assertEqual(sum(int(row["edge_count"]) for row in rows), 127502)
         self.assertEqual({row["generated_from"] for row in rows}, {"relationship_graph_jsonl"})
 
     def test_relationship_graph_node_degree_summary_preserves_degree_totals(self) -> None:
@@ -12150,9 +12151,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 91234)
-        self.assertEqual(sum(int(row["out_degree"]) for row in rows), 116810)
-        self.assertEqual(sum(int(row["in_degree"]) for row in rows), 116810)
+        self.assertEqual(len(rows), 101598)
+        self.assertEqual(sum(int(row["out_degree"]) for row in rows), 127174)
+        self.assertEqual(sum(int(row["in_degree"]) for row in rows), 127174)
         self.assertEqual(rows[0]["node_id"], "evobc-code-008")
         self.assertEqual(rows[0]["total_degree"], "10158")
         self.assertEqual(rows[0]["incoming_edge_type_counts"], "EVOBC_CATEGORY_HAS_SOURCE_CODE:10158")
@@ -12209,17 +12210,17 @@ class RepositorySkeletonTests(unittest.TestCase):
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         self.assertEqual(len(rows), 21)
-        self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 46)
-        self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 47)
+        self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 47)
+        self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 48)
         self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 62)
-        self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 10999)
-        self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 57931267)
-        self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 117138)
+        self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 21363)
+        self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 96318352)
+        self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 127502)
         self.assertEqual(sum(int(row["promotion_queue_candidate_count"]) for row in rows), 1588)
         by_source = {row["source_id"]: row for row in rows}
         self.assertEqual(by_source["src-hust-obc"]["promotion_queue_candidate_count"], "1588")
         self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "16295")
-        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44492")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "54856")
         self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51948")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "8")
@@ -12243,7 +12244,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["coverage_status"], "has_relationship_graph_derivatives")
         self.assertEqual(by_source["src-hust-obc"]["committed_asset_count"], "10996")
         self.assertEqual(by_source["src-hust-obc"]["committed_asset_bytes"], "53009139")
-        self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "5")
+        self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "6")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "8")
         self.assertEqual(by_source["src-cambridge-hopkins"]["coverage_status"], "has_relationship_graph_derivatives")
         self.assertEqual(by_source["src-metmuseum-oracle-bone"]["asset_rights_status_counts"], "public_domain_verified:2")
@@ -12263,13 +12264,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["context_pack_id"], "ai-context-relationship-graph-001")
         self.assertEqual(data["status"], "reviewed_metadata_only")
-        self.assertEqual(data["coverage"]["total_edge_count"], 117138)
-        self.assertEqual(data["coverage"]["node_count"], 91234)
+        self.assertEqual(data["coverage"]["total_edge_count"], 127502)
+        self.assertEqual(data["coverage"]["node_count"], 101598)
         self.assertEqual(data["coverage"]["source_count"], 4)
-        self.assertEqual(data["coverage"]["edge_type_count"], 24)
+        self.assertEqual(data["coverage"]["edge_type_count"], 25)
         by_source = {row["source_id"]: row for row in data["source_summaries"]}
         self.assertEqual(by_source["src-hust-obc"]["edge_count"], 16295)
-        self.assertEqual(by_source["src-obimd"]["edge_count"], 44492)
+        self.assertEqual(by_source["src-obimd"]["edge_count"], 54856)
         self.assertEqual(by_source["src-evobc"]["edge_count"], 51948)
         self.assertEqual(by_source["src-cambridge-hopkins"]["edge_count"], 4403)
         self.assertEqual(data["top_degree_nodes"][0]["node_id"], "evobc-code-008")
@@ -13534,16 +13535,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "093_data-quality-summary.json"
         )
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["dataset_count"], 27)
-        self.assertEqual(data["quality_status_counts"], {"needs_review": 2, "pass": 25})
-        self.assertEqual(data["totals"]["row_count"], 145336)
-        self.assertEqual(data["totals"]["issue_count"], 12733)
+        self.assertEqual(data["dataset_count"], 28)
+        self.assertEqual(data["quality_status_counts"], {"needs_review": 3, "pass": 25})
+        self.assertEqual(data["totals"]["row_count"], 166067)
+        self.assertEqual(data["totals"]["issue_count"], 23097)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
 
     def test_data_quality_audit_builder_checks_reference_integrity(self) -> None:
         module = load_data_quality_audit_module()
         rows = module.build_quality_rows(repo_root())
-        self.assertEqual(len(rows), 27)
+        self.assertEqual(len(rows), 28)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
@@ -13696,6 +13697,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_dataset["009_character-asset-graph-edges"]["quality_status"], "needs_review")
         self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["row_count"], "1737")
         self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["quality_status"], "needs_review")
+        self.assertEqual(by_dataset["011_component-asset-graph-edges"]["row_count"], "10364")
+        self.assertEqual(by_dataset["011_component-asset-graph-edges"]["quality_status"], "needs_review")
         self.assertTrue(
             all(
                 row["quality_status"] == "pass"
@@ -13704,6 +13707,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 not in {
                     "009_character-asset-graph-edges",
                     "010_cross-source-id-graph-edges",
+                    "011_component-asset-graph-edges",
                 }
             )
         )
@@ -15609,8 +15613,8 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "pending_human_review": 16,
             },
         )
-        self.assertEqual(data["totals"]["download_manifest_count"], 46)
-        self.assertEqual(data["totals"]["download_log_count"], 47)
+        self.assertEqual(data["totals"]["download_manifest_count"], 47)
+        self.assertEqual(data["totals"]["download_log_count"], 48)
         self.assertEqual(data["totals"]["metadata_profile_count"], 62)
         self.assertEqual(data["totals"]["graph_edge_count"], 117138)
         self.assertEqual(data["totals"]["candidate_queue_count"], 10996)

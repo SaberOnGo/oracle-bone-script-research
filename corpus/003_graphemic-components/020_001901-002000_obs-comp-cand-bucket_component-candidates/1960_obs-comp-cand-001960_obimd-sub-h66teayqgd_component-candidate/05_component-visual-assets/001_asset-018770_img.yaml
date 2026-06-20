@@ -1,0 +1,17 @@
+asset_id: asset-018770
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001960
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-h66teayqgd
+source_zip_member: Sub-character Images/knps4jrxz3/h66teayqgd/h66teayqgd.png
+file_size_bytes: 3132
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: b998909817946f8df16335e8b34abe54a48d1776a46e69da6d513d730c95ebd9
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

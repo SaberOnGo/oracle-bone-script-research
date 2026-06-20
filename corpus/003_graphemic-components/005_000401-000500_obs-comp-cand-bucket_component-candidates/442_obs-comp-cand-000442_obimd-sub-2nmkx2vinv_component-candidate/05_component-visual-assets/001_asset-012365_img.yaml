@@ -1,0 +1,17 @@
+asset_id: asset-012365
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000442
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-2nmkx2vinv
+source_zip_member: Sub-character Images/nqghhf5br6/2nmkx2vinv/2nmkx2vinv.png
+file_size_bytes: 4982
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 4e3f22a56b3562899d9386fa5dac488c7f5576a7fdc92157507d56543b6c4453
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-013853
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000855
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-fz1qkbjoia
+source_zip_member: Sub-character Images/ji97td3npi/fz1qkbjoia/fz1qkbjoia.png
+file_size_bytes: 2937
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: a802d3b286deabdedd851353add73e8e4de6566880b673d1a24675075e6012c8
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

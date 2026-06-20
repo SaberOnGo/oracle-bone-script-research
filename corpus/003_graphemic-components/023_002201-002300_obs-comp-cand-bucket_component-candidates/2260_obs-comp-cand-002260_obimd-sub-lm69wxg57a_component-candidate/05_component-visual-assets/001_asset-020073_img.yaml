@@ -1,0 +1,17 @@
+asset_id: asset-020073
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002260
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-lm69wxg57a
+source_zip_member: Sub-character Images/dcn46ntz0p/lm69wxg57a/lm69wxg57a.png
+file_size_bytes: 5663
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 6f20252ede76d496f83fbaac7c25b3d7a33e195756e85b317f3cda153f861c16
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

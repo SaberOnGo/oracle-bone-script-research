@@ -1,0 +1,17 @@
+asset_id: asset-015807
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001388
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-hzglrwxdtt
+source_zip_member: Sub-character Images/hzglrwxdtt/hzglrwxdtt/hzglrwxdtt.png
+file_size_bytes: 4028
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 8863c0babe2bf069c4325cf7333f2b60351fe72f8978e3ad8cc7694936dad043
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

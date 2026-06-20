@@ -1,0 +1,17 @@
+asset_id: asset-015481
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001243
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-ciduvuy3ar
+source_zip_member: Sub-character Images/ciduvuy3ar/ciduvuy3ar/ciduvuy3ar.png
+file_size_bytes: 4503
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 4817419557f3a48ed17d21f52da309e0cf274a4180121d99ee41ad795da7a198
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

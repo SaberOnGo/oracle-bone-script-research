@@ -1,0 +1,17 @@
+asset_id: asset-019339
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002012
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-gs24si06qj
+source_zip_member: Sub-character Images/gs24si06qj/gs24si06qj/gs24si06qj.png
+file_size_bytes: 4038
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 8f548bd79f8f5b3e78837950baa0d8265268a38b8c2d191412e020752654ddad
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

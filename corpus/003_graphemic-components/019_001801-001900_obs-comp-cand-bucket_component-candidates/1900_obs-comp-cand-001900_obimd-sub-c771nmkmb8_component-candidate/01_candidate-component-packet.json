@@ -58,14 +58,29 @@
       "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
     }
   ],
+  "component_visual_assets": [
+    {
+      "asset_id": "asset-018310",
+      "source_zip_member": "Sub-character Images/c771nmkmb8/c771nmkmb8/c771nmkmb8.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/05_component-visual-assets/001_asset-018310_img.png",
+      "checksum_sha256": "2a2e56f3e38e84a1d087219a3474a05ba34e61b2c4dd5ff95e14bfbd614709c4",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
   "route_files": [
     "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
     "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
     "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv",
+    "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv",
+    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv",
     "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
     "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/02_component-source-index.csv",
     "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/03_glyph-codepoint-index.csv",
-    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/04_glyph-codepoint-gallery.md"
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/04_glyph-codepoint-gallery.md",
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/06_component-visual-index.csv",
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/07_component-visual-gallery.md",
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1900_obs-comp-cand-001900_obimd-sub-c771nmkmb8_component-candidate/08_human-visual-review-sheet.md"
   ],
   "rights_status": "licensed_for_repository",
   "object_status": "dataset_candidate_not_promoted",

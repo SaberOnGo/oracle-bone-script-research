@@ -17,6 +17,7 @@ GRAPH_EDGE_FILES = [
     Path("corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"),
+    Path("corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"),
 ]
 DEFAULT_EDGE_TYPE_OUTPUT = Path(
     "corpus/009_statistics-and-derived-features/"

@@ -1,0 +1,17 @@
+asset_id: asset-017107
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001560
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-u5pens8hl2
+source_zip_member: Sub-character Images/u5pens8hl2/u5pens8hl2/u5pens8hl2.png
+file_size_bytes: 2322
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f06c78b29e76f4e02a394d9394158bf53afa27912819744b855774eb08a6eda5
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

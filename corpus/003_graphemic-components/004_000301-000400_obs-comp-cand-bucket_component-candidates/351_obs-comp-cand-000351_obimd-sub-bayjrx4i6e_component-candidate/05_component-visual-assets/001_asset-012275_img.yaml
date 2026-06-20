@@ -1,0 +1,17 @@
+asset_id: asset-012275
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000351
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-bayjrx4i6e
+source_zip_member: Sub-character Images/bayjrx4i6e/bayjrx4i6e/bayjrx4i6e.png
+file_size_bytes: 3711
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 785fa2a0bb871cfdeaa1c3160501334226a43fed44ddc7e34a5b8988bd3153b0
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

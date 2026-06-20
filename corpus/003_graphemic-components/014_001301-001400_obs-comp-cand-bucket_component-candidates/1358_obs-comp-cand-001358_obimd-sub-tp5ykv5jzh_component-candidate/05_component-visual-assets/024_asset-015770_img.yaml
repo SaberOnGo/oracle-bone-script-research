@@ -1,0 +1,17 @@
+asset_id: asset-015770
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001358
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-tp5ykv5jzh
+source_zip_member: Sub-character Images/tp5ykv5jzh/tp5ykv5jzh/tcd2snr363.png
+file_size_bytes: 3553
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ab4350b41fadc8edbb0ec00cf9940c2cd84c68dc6010bf08e29d4f2f18e6c59f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

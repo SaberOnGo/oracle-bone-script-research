@@ -1,0 +1,17 @@
+asset_id: asset-018075
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001818
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-qmspt85dhp
+source_zip_member: Sub-character Images/qmspt85dhp/qmspt85dhp/c2332plkmu.png
+file_size_bytes: 4519
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 0d56f5d261ac3e77571f3e2c41f2b61b8d1645388403a0cf01afb14ee113c347
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

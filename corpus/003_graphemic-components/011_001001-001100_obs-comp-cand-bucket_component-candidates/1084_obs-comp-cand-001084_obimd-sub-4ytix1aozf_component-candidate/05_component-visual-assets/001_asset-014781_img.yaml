@@ -1,0 +1,17 @@
+asset_id: asset-014781
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001084
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-4ytix1aozf
+source_zip_member: Sub-character Images/4ytix1aozf/4ytix1aozf/4ytix1aozf.png
+file_size_bytes: 2072
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 27852b73336362780aab7ac3dbba79a6c481fd2478f39b97dd0a4c74e9eceb6b
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

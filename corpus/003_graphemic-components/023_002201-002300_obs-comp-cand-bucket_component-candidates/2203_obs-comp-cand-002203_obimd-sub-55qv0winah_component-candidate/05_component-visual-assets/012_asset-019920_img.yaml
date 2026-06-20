@@ -1,0 +1,17 @@
+asset_id: asset-019920
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002203
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-55qv0winah
+source_zip_member: Sub-character Images/55qv0winah/55qv0winah/77zfvavdxo.png
+file_size_bytes: 2781
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 231d5b109dac223f598aca071a95a6a4810da14504ea41f917c25802be9f193f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

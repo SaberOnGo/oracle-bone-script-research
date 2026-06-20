@@ -1,0 +1,17 @@
+asset_id: asset-016717
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001527
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-hclsl73wg4
+source_zip_member: Sub-character Images/hclsl73wg4/hclsl73wg4/hvemyo1uep.png
+file_size_bytes: 3578
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 6344c3c6a2f9785f3f32eb69e4d04a1682108f0759eeee1ee73b88a7e1eff956
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

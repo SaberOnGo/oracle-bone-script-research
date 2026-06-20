@@ -1,0 +1,17 @@
+asset_id: asset-013540
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000778
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-xrunr8ile9
+source_zip_member: Sub-character Images/yrxflndwvy/xrunr8ile9/xrunr8ile9.png
+file_size_bytes: 3677
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 1d5c416772ddb6ee2148fbe4b080f405968119b1b53faa9b37269c8cdb0e325f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

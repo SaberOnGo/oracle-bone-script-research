@@ -1,0 +1,17 @@
+asset_id: asset-015047
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001106
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-awebxd6wg1
+source_zip_member: Sub-character Images/awebxd6wg1/awebxd6wg1/awebxd6wg1.png
+file_size_bytes: 3179
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: fb27b3f2f7d3918956672a1fa40bb8fdcd71948c7f0511d51ce8832825561adc
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-015250
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001144
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-0u6c7rk2ux
+source_zip_member: Sub-character Images/0u6c7rk2ux/0u6c7rk2ux/fx4e354srq.png
+file_size_bytes: 3165
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 21f54372a947294cc74336cd49e66b78a0156b719f11c03bf403279b529abf1c
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-015280
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001145
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-tpy5799qxk
+source_zip_member: Sub-character Images/tpy5799qxk/tpy5799qxk/tpy5799qxk.png
+file_size_bytes: 2984
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 59593f5c4854d5c6bd8952964005253b1ec8b923bcc46ce370c3368d064c4d15
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

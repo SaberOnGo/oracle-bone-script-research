@@ -1,0 +1,17 @@
+asset_id: asset-014192
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000970
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-d7mczw6osp
+source_zip_member: Sub-character Images/d7mczw6osp/d7mczw6osp/mfzpfp4acp.png
+file_size_bytes: 3056
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 04b8d07253e1343ded5f9a8a64fabdfb7eb08afe2041e56123da06ec9872e059
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

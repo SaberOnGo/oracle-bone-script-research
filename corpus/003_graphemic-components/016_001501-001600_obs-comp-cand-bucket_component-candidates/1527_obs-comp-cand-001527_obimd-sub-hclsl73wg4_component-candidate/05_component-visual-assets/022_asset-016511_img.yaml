@@ -1,0 +1,17 @@
+asset_id: asset-016511
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001527
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-hclsl73wg4
+source_zip_member: Sub-character Images/hclsl73wg4/hclsl73wg4/214v59wdj9.png
+file_size_bytes: 4388
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: fd0c1acca9b6fcb1d4b48344352a93a4ac464a492538f6e484edf4af5999eeae
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

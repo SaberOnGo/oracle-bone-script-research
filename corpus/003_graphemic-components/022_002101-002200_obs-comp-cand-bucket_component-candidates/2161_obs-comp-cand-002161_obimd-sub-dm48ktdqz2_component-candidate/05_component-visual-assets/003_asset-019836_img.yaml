@@ -1,0 +1,17 @@
+asset_id: asset-019836
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002161
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-dm48ktdqz2
+source_zip_member: Sub-character Images/u3lh7tekno/dm48ktdqz2/hol8b2ue3t.png
+file_size_bytes: 3164
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: cd588ae4b9bee201d35f0f014f877a1432b962e083744dad0d33c49e08b46b83
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

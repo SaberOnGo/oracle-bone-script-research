@@ -1,0 +1,17 @@
+asset_id: asset-017038
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001554
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-z640bkv6r7
+source_zip_member: Sub-character Images/z640bkv6r7/z640bkv6r7/payfy3sxdg.png
+file_size_bytes: 3634
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: b9ddd3855806d3a4461561c157cebcc8c1c5f4b61b34f5408c7aac1143a1f07d
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

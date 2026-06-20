@@ -1,0 +1,17 @@
+asset_id: asset-021167
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002628
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-b1pjnbqrdr
+source_zip_member: Sub-character Images/b1pjnbqrdr/b1pjnbqrdr/b1pjnbqrdr.png
+file_size_bytes: 2101
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 36b531856e9963e52ddbcfc3e14a0b33ecdd7fa87024d9671203583f6029f231
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

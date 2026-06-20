@@ -1,0 +1,17 @@
+asset_id: asset-018772
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001962
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-9vw70byryn
+source_zip_member: Sub-character Images/9vw70byryn/9vw70byryn/9vw70byryn.png
+file_size_bytes: 3111
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 70a2deab35e7c62fbc6c7564a5a9cc9564731d812bc9251b9b103f0f2b18fa84
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-016658
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001527
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-hclsl73wg4
+source_zip_member: Sub-character Images/hclsl73wg4/hclsl73wg4/dyelk2caym.png
+file_size_bytes: 4501
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 776de01da56e2338e2afcf49895c5579d335ff8996075e2a36e319dc03c842e0
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

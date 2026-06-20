@@ -1,0 +1,17 @@
+asset_id: asset-012373
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000450
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-k9fz66biv5
+source_zip_member: Sub-character Images/k9fz66biv5/k9fz66biv5/k9fz66biv5.png
+file_size_bytes: 5664
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f9e5f70d655cba39428def97b139676c7cd9fbe2b8b71800caa9cf125c3afe28
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

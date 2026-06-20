@@ -1,0 +1,17 @@
+asset_id: asset-013538
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000775
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-yrxflndwvy
+source_zip_member: Sub-character Images/yrxflndwvy/yrxflndwvy/yrxflndwvy.png
+file_size_bytes: 2557
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ee5a6719856b1eb011312a332c1c5b35c7455201777851c143bd3a7c1a4c7453
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

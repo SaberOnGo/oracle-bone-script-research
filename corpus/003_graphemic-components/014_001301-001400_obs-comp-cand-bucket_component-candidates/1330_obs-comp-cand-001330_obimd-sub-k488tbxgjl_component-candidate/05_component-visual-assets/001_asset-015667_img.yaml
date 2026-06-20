@@ -1,0 +1,17 @@
+asset_id: asset-015667
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001330
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-k488tbxgjl
+source_zip_member: Sub-character Images/k488tbxgjl/k488tbxgjl/k488tbxgjl.png
+file_size_bytes: 4034
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 6e58d53bf2ad3b161159983d9a3f7fb0bfb32f91f67395e5e25bff8cdfbe7a08
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

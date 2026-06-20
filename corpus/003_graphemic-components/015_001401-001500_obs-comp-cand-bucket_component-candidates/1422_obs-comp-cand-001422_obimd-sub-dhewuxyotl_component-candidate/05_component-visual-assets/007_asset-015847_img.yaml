@@ -1,0 +1,17 @@
+asset_id: asset-015847
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001422
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-dhewuxyotl
+source_zip_member: Sub-character Images/dhewuxyotl/dhewuxyotl/1fn0qnieyb.png
+file_size_bytes: 3744
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 70ca4f65b06c0c90431452808bebdd5447767c7ee8363b5edda40ba2f47b5af2
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

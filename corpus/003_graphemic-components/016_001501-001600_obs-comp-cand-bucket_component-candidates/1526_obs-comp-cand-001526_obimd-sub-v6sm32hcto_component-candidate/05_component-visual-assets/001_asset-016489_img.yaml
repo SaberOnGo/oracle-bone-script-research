@@ -1,0 +1,17 @@
+asset_id: asset-016489
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001526
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-v6sm32hcto
+source_zip_member: Sub-character Images/v6sm32hcto/v6sm32hcto/v6sm32hcto.png
+file_size_bytes: 5371
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f95b7c9e8bafd5852e4f1308fe7e67923ad4562aa3317f4f2b42f186aa444859
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -11,6 +11,11 @@ Single files should stay under `SIZE_LIMIT = 30 MiB`. If a research asset must e
 
 The HUST-OBC undeciphered-candidate glyph images are small object-local review images extracted from the registered large source package. The 607,933,810-byte raw zip remains outside regular Git under the large-source register; committed images keep per-asset source, checksum, rights-status, and risk-note rows here.
 
+The OBIMD component-candidate images are small object-local PNG review assets extracted from the registered `Sub-character Images.zip` package. The 40,436,910-byte raw zip remains outside regular Git in the ignored external archive; committed PNG derivatives keep per-asset source, checksum, technical profile, visual profile, rights-status, and risk-note rows here.
+
+简体中文：
+OBIMD 构件候选图像是从已登记 `Sub-character Images.zip` 来源包抽取的小型对象内 PNG 复核资产。40,436,910 字节的原始 zip 保留在已忽略外部归档中，不进入普通 Git；已提交 PNG 派生件在本目录保留逐项来源、checksum、技术 profile、视觉 profile、权利状态和风险提示记录。
+
 简体中文：
 本目录用于追踪图片、拓片、摹本、截图和下载资产的来源。研究需要时可以提交权利状态尚不完全明确的资产，但资产索引必须显示来源、权利状态和风险提示。
 

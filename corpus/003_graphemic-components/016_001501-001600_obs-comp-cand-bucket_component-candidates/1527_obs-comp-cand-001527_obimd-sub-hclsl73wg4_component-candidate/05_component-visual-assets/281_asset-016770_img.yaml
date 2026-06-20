@@ -1,0 +1,17 @@
+asset_id: asset-016770
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001527
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-hclsl73wg4
+source_zip_member: Sub-character Images/hclsl73wg4/hclsl73wg4/ljewrmxdgl.png
+file_size_bytes: 4442
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 8e9d421a60d9c7a37488397ad10651abea93d0011bd5d0fbb2e303dcbc067228
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,18 @@
+# Component Visual Gallery / 构件图像查看: obs-comp-cand-000129
+
+English:
+This page displays OBIMD subcharacter PNG assets extracted into this concrete corpus object directory for human review.
+
+简体中文：
+本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter PNG 资料，供人工复核使用。
+
+Boundary / 边界：dataset image candidate only; not a confirmed component form, component assignment, or decipherment claim.
+
+## asset-011541
+
+![asset-011541](05_component-visual-assets/001_asset-011541_img.png)
+
+- source_zip_member: `Sub-character Images/yvbokzhzmz/yvbokzhzmz/yvbokzhzmz.png`
+- checksum_sha256: `bcc1c318abef108b44ba419e7f9082a77d8fcf66b266cd9a3393ba57a128cbc6`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

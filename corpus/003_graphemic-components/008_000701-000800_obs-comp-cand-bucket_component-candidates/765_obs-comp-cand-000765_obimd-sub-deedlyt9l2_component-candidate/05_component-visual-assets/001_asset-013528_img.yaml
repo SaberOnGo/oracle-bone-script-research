@@ -1,0 +1,17 @@
+asset_id: asset-013528
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000765
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-deedlyt9l2
+source_zip_member: Sub-character Images/ohovbcjeax/deedlyt9l2/deedlyt9l2.png
+file_size_bytes: 2320
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 2945b8c34ae68027545e31e537aad176c62d589cfcb2c1d9a70f21ddf56195b5
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

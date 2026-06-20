@@ -1,0 +1,17 @@
+asset_id: asset-021193
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002644
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-gfha154t8w
+source_zip_member: Sub-character Images/gfha154t8w/gfha154t8w/gfha154t8w.png
+file_size_bytes: 2350
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 3f70cc0bc87629263a2f3f61bb938ab3f2beaa07002e5b1ff56b99872562c8db
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

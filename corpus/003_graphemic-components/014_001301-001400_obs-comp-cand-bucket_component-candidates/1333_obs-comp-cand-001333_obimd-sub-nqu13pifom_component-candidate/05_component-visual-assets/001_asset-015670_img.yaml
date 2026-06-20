@@ -1,0 +1,17 @@
+asset_id: asset-015670
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001333
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-nqu13pifom
+source_zip_member: Sub-character Images/aq5aoy9xbp/nqu13pifom/nqu13pifom.png
+file_size_bytes: 4616
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 027c57484f473bc7044eb29e8b68cc5f57857e36613f9685bd8626ab5d45fce8
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

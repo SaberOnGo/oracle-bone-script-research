@@ -10,6 +10,7 @@ Current tools:
 - `build_evobc_evolution_graph_edges.py`: builds reviewed metadata-only JSONL edges from EVOBC evolution category era/source count summaries.
 - `build_cambridge_hopkins_inscription_graph_edges.py`: builds reviewed metadata-only JSONL edges from Cambridge/Hopkins inscription crosswalk staging rows to source, download, period, classification-group, and external catalog-reference nodes.
 - `build_character_asset_graph_edges.py`: builds candidate JSONL edges from the asset source index so project-local character candidates can point to co-located local glyph image assets without making decipherment or component claims.
+- `build_component_asset_graph_edges.py`: builds candidate JSONL edges from the asset source index so OBIMD component candidates can point to co-located local subcharacter image assets without confirming component forms or assignments.
 - `build_cross_source_id_graph_edges.py`: builds candidate JSONL lookup-route edges from HUST/OBIMD/EVOBC codepoint crosswalk staging rows to HUST category, OBIMD candidate main-character, and EVOBC candidate evolution-category nodes without confirming identity, readings, components, or evolution chains.
 - `build_character_asset_graph_edges.py`：从资产来源登记表生成候选 JSONL 图谱边，让本项目字形候选能指向同一具体字目录中的本地图像资产；不提出释读、字形身份或构件结论。
 - `build_cross_source_id_graph_edges.py`：从 HUST/OBIMD/EVOBC codepoint crosswalk 暂存表生成候选 JSONL 查找路线边，连接 HUST 分类、OBIMD 候选主字和 EVOBC 候选演化分类节点；不确认同字关系、释读、构件或演化链。

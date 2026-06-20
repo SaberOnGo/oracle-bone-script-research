@@ -1,0 +1,17 @@
+asset_id: asset-012317
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000394
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-at88lnryep
+source_zip_member: Sub-character Images/at88lnryep/at88lnryep/at88lnryep.png
+file_size_bytes: 5123
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 4837ed993dec8b4e309dfaa76d06bc8bb208b0cd935ce6590bcb3eafbaa89270
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

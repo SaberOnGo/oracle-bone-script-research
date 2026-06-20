@@ -1,0 +1,17 @@
+asset_id: asset-017286
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001610
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-2qtimwiv3e
+source_zip_member: Sub-character Images/kei9slmf3p/2qtimwiv3e/2qtimwiv3e.png
+file_size_bytes: 3391
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 7106e4cd83e373b9eaa11406d877f57b546d2e3aa60fca34760979a1ebdbaeb8
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

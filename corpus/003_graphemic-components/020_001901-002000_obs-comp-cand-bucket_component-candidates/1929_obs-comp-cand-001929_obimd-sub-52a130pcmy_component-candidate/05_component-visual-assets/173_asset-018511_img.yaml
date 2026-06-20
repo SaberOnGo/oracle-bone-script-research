@@ -1,0 +1,17 @@
+asset_id: asset-018511
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001929
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-52a130pcmy
+source_zip_member: Sub-character Images/52a130pcmy/52a130pcmy/fishq6p1yz.png
+file_size_bytes: 4052
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 9c646f48603038ee42f1190ab60c11e3bf3c77f30a43a95d5e35bf9a448af89f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-019817
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002159
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-u3lh7tekno
+source_zip_member: Sub-character Images/u3lh7tekno/u3lh7tekno/iwh17qccxf.png
+file_size_bytes: 3066
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f590f87a63a7af13d073d792432af3b181b9b41566fd0083d8abfde5e7d08f80
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

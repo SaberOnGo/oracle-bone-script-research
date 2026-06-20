@@ -1,0 +1,17 @@
+asset_id: asset-021050
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002531
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-ch53nwd306
+source_zip_member: Sub-character Images/ch53nwd306/ch53nwd306/ch53nwd306.png
+file_size_bytes: 4080
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 2585300444c6a1b2f361563948e7e209a449fbaa3e7cf4d5f631081f566ab776
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

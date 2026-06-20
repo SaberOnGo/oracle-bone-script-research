@@ -1,0 +1,17 @@
+asset_id: asset-012736
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000500
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-iqrd876ttv
+source_zip_member: Sub-character Images/30vdsr9swu/iqrd876ttv/iqrd876ttv.png
+file_size_bytes: 5700
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 5c4e3dee40226caeec9046117b13d87c127a47aba5dd9f2a96d3f4742235c870
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

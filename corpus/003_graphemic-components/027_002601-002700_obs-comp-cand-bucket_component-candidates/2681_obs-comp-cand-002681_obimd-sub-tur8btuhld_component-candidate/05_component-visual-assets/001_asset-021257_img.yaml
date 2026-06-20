@@ -1,0 +1,17 @@
+asset_id: asset-021257
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002681
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-tur8btuhld
+source_zip_member: Sub-character Images/tur8btuhld/tur8btuhld/tur8btuhld.png
+file_size_bytes: 2582
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 64b4e083f64bc2608b0b7877e5695831197c339181dc8758c7dd98320aa26365
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

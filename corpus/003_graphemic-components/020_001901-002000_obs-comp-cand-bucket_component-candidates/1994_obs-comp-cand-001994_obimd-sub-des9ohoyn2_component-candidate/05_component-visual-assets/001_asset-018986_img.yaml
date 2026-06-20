@@ -1,0 +1,17 @@
+asset_id: asset-018986
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001994
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-des9ohoyn2
+source_zip_member: Sub-character Images/w49pivmpx3/des9ohoyn2/des9ohoyn2.png
+file_size_bytes: 3442
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: c9a5751c1cf67a9467cb4ef446745c9be5d3525f7bd0bc860ebcf437f5875323
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -100,7 +100,12 @@ def build_visual_profiles(asset_rows: list[dict[str, str]], root: Path) -> list[
     image_rows = [
         row
         for row in asset_rows
-        if row.get("asset_type") in {"museum_object_image", "glyph_candidate_image"}
+        if row.get("asset_type")
+        in {
+            "museum_object_image",
+            "glyph_candidate_image",
+            "obimd_component_candidate_image",
+        }
         and row.get("canonical_path")
     ]
     return [

@@ -1,0 +1,17 @@
+asset_id: asset-012057
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000294
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-1wismy95hz
+source_zip_member: Sub-character Images/1wismy95hz/1wismy95hz/xijbrt2cow.png
+file_size_bytes: 3711
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 7534dac12a57f1d928f4f60934e9c658cd8bce79fa0283dad0f1742dd3053126
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-019081
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001998
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-qmvfvw99v9
+source_zip_member: Sub-character Images/qmvfvw99v9/qmvfvw99v9/myohhbzgz1.png
+file_size_bytes: 3489
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 6bf48d442a30269339054efd84624778c8bdb70318f3d7dcf85e070f0a81af81
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

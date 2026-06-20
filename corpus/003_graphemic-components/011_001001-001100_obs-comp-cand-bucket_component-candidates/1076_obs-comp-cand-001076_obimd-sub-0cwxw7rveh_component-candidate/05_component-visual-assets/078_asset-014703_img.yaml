@@ -1,0 +1,17 @@
+asset_id: asset-014703
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001076
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-0cwxw7rveh
+source_zip_member: Sub-character Images/0cwxw7rveh/0cwxw7rveh/gs7gikrs70.png
+file_size_bytes: 3463
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f8dd511b68d6620d2d6e1a0bcf05f6b36801841cf1071fb68d6746014a22e5da
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

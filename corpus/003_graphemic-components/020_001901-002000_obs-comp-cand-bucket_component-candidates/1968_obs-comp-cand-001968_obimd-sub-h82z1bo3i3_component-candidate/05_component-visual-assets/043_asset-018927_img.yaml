@@ -1,0 +1,17 @@
+asset_id: asset-018927
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001968
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-h82z1bo3i3
+source_zip_member: Sub-character Images/h82z1bo3i3/h82z1bo3i3/kee5p1j27o.png
+file_size_bytes: 5245
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 149c99279df2123e7bdbc21c66c74797f963772c3841fb5fc8f8a6b2127152d0
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

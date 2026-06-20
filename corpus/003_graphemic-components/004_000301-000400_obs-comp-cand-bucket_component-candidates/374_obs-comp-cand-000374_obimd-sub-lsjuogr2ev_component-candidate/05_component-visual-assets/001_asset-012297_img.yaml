@@ -1,0 +1,17 @@
+asset_id: asset-012297
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000374
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-lsjuogr2ev
+source_zip_member: Sub-character Images/lsjuogr2ev/lsjuogr2ev/lsjuogr2ev.png
+file_size_bytes: 5010
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: cc441f35e39835bd47339472da94372e8b3afc0296c0a7cde6c3adf83c439eab
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

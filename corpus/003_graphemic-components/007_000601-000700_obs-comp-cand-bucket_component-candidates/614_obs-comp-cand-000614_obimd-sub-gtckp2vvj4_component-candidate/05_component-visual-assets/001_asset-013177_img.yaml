@@ -1,0 +1,17 @@
+asset_id: asset-013177
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000614
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-gtckp2vvj4
+source_zip_member: Sub-character Images/gtckp2vvj4/gtckp2vvj4/gtckp2vvj4.png
+file_size_bytes: 3537
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: c4594d0e0ce4e9a0c01c02292a780a653087d22df3dd2812735529fa2fe61a8d
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

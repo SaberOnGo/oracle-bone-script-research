@@ -1,0 +1,17 @@
+asset_id: asset-020626
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002450
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-fom5bv844r
+source_zip_member: Sub-character Images/fom5bv844r/fom5bv844r/5hktoi3tkp.png
+file_size_bytes: 1231
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: fa31df65c5803bf985425718f3d7a24921fda4926e89c9751607b85f38f6a8e0
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-017635
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001704
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-w4mg32kjp4
+source_zip_member: Sub-character Images/w4mg32kjp4/w4mg32kjp4/46js14kpo1.png
+file_size_bytes: 4770
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: cc24046d1c7f370ab2893b04a0d56940abe7b1760dd9a61aa0f1c7e6c318f618
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

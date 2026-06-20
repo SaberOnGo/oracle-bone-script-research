@@ -1,0 +1,17 @@
+asset_id: asset-021267
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002691
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-ulfvn5xmgm
+source_zip_member: Sub-character Images/ulfvn5xmgm/ulfvn5xmgm/ulfvn5xmgm.png
+file_size_bytes: 2552
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f53384011c8173a0c1f7362cc5655bf41d95c44c8634c8a347c23da51c23aa29
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

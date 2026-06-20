@@ -1,0 +1,17 @@
+asset_id: asset-017307
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001631
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-bg0evhjvox
+source_zip_member: Sub-character Images/bg0evhjvox/bg0evhjvox/bg0evhjvox.png
+file_size_bytes: 3897
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 7baa3c3c9dbc6b64763b7dee425f5e09a5a88b6cdb94af2499a8f39c12143faa
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

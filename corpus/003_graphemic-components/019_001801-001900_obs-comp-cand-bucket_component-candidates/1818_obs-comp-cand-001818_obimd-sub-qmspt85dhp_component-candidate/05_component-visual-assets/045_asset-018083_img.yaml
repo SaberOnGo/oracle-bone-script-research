@@ -1,0 +1,17 @@
+asset_id: asset-018083
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001818
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-qmspt85dhp
+source_zip_member: Sub-character Images/qmspt85dhp/qmspt85dhp/e78zyn8wb0.png
+file_size_bytes: 3650
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: bf17403b2d6781e32a06f8a970548f9c0013d001c341bd24686f52f45714e2db
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

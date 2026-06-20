@@ -1,0 +1,17 @@
+asset_id: asset-011529
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000117
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-yd2vacz3zh
+source_zip_member: Sub-character Images/xhfae21bpk/yd2vacz3zh/yd2vacz3zh.png
+file_size_bytes: 4711
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 83259cfb640e05bf9897fae1d215944d22ba33a14d801e5bacdd3a299cd226b7
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

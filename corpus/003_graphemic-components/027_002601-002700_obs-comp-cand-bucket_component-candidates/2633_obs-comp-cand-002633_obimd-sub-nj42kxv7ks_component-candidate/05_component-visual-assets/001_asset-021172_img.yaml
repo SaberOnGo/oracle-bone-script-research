@@ -1,0 +1,17 @@
+asset_id: asset-021172
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002633
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-nj42kxv7ks
+source_zip_member: Sub-character Images/nj42kxv7ks/nj42kxv7ks/nj42kxv7ks.png
+file_size_bytes: 3437
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ae3392794a59367d8d72308836243b419d342ea8ce5b8014afc0baf5d835141b
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

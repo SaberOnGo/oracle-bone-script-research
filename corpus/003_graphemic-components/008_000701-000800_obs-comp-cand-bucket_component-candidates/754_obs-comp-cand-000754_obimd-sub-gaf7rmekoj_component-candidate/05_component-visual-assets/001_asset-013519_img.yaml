@@ -1,0 +1,17 @@
+asset_id: asset-013519
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000754
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-gaf7rmekoj
+source_zip_member: Sub-character Images/gaf7rmekoj/gaf7rmekoj/gaf7rmekoj.png
+file_size_bytes: 3890
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: fb6165ddf74f659b3246e2e8a3d191ed4109522cc7434a17919c8da0631e1b07
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

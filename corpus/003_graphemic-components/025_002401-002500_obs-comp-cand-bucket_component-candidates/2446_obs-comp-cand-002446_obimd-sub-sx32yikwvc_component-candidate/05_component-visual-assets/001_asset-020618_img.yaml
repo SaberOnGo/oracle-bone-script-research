@@ -1,0 +1,17 @@
+asset_id: asset-020618
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002446
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-sx32yikwvc
+source_zip_member: Sub-character Images/sinjn961eq/sx32yikwvc/sx32yikwvc.png
+file_size_bytes: 3100
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 73633dc553fc60f51257827902c6db751395416ca16185a52bd3ec5464f3ef5b
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

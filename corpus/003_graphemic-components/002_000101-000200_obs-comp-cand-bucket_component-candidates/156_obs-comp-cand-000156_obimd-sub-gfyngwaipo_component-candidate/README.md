@@ -23,6 +23,7 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 - source_main_character_uid: `gfyngwaipo`
 - main_character_external_ref_id: `obimd-main-gfyngwaipo`
 - glyph_codepoint_link_count: `11`
+- component_visual_asset_count: `1`
 - rights_status: `licensed_for_repository`
 - review_status: `needs_human_component_review`
 
@@ -32,6 +33,10 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 - `02_component-source-index.csv`: source, download, rights, and review index.
 - `03_glyph-codepoint-index.csv`: OBIMD glyph-codepoint links for review.
 - `04_glyph-codepoint-gallery.md`: human-readable glyph/codepoint gallery.
+- `05_component-visual-assets/`: source-marked OBIMD subcharacter PNG review assets.
+- `06_component-visual-index.csv`: AI-readable visual asset index.
+- `07_component-visual-gallery.md`: human-readable component image gallery.
+- `08_human-visual-review-sheet.md`: manual visual review sheet.
 
 ## Next Review / 下一步复核
 
@@ -46,7 +51,13 @@ Route files / 路由文件:
 - `corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv`
 - `corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv`
 - `project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv`
+- `project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv`
+- `project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv`
+- `project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv`
 - `corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl`
 - `corpus/003_graphemic-components/002_000101-000200_obs-comp-cand-bucket_component-candidates/156_obs-comp-cand-000156_obimd-sub-gfyngwaipo_component-candidate/02_component-source-index.csv`
 - `corpus/003_graphemic-components/002_000101-000200_obs-comp-cand-bucket_component-candidates/156_obs-comp-cand-000156_obimd-sub-gfyngwaipo_component-candidate/03_glyph-codepoint-index.csv`
 - `corpus/003_graphemic-components/002_000101-000200_obs-comp-cand-bucket_component-candidates/156_obs-comp-cand-000156_obimd-sub-gfyngwaipo_component-candidate/04_glyph-codepoint-gallery.md`
+- `corpus/003_graphemic-components/002_000101-000200_obs-comp-cand-bucket_component-candidates/156_obs-comp-cand-000156_obimd-sub-gfyngwaipo_component-candidate/06_component-visual-index.csv`
+- `corpus/003_graphemic-components/002_000101-000200_obs-comp-cand-bucket_component-candidates/156_obs-comp-cand-000156_obimd-sub-gfyngwaipo_component-candidate/07_component-visual-gallery.md`
+- `corpus/003_graphemic-components/002_000101-000200_obs-comp-cand-bucket_component-candidates/156_obs-comp-cand-000156_obimd-sub-gfyngwaipo_component-candidate/08_human-visual-review-sheet.md`

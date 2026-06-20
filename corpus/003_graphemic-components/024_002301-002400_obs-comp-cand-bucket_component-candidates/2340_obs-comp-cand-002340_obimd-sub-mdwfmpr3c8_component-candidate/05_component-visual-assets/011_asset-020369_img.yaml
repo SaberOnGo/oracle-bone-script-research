@@ -1,0 +1,17 @@
+asset_id: asset-020369
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002340
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-mdwfmpr3c8
+source_zip_member: Sub-character Images/mdwfmpr3c8/mdwfmpr3c8/l3hjvhrraj.png
+file_size_bytes: 2331
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 5a86437cbe263d8596ae990e7a7fd7b549e147292f3278ae1c21e9c6f99aa680
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

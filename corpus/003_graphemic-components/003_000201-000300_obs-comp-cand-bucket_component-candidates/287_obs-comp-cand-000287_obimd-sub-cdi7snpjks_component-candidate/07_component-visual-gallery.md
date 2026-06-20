@@ -1,0 +1,432 @@
+# Component Visual Gallery / 构件图像查看: obs-comp-cand-000287
+
+English:
+This page displays OBIMD subcharacter PNG assets extracted into this concrete corpus object directory for human review.
+
+简体中文：
+本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter PNG 资料，供人工复核使用。
+
+Boundary / 边界：dataset image candidate only; not a confirmed component form, component assignment, or decipherment claim.
+
+## asset-011950
+
+![asset-011950](05_component-visual-assets/001_asset-011950_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/02ufik6rl9.png`
+- checksum_sha256: `15e80ce0a15402680c0741ba8e4f79694f9b5e56c6565b0d9e9f8005230171b4`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011951
+
+![asset-011951](05_component-visual-assets/002_asset-011951_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/0cu4cs7jmu.png`
+- checksum_sha256: `1cf6ca81d150210e16d0abb4c4dd3161196c8059f29ada72278ba758fb401ad4`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011952
+
+![asset-011952](05_component-visual-assets/003_asset-011952_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/0uznkgcgdy.png`
+- checksum_sha256: `6d0ee76c9565385765c8484b66def1fa0c9740afe6bc96d173b8bf4906b17676`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011953
+
+![asset-011953](05_component-visual-assets/004_asset-011953_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/1mn6j7jc7h.png`
+- checksum_sha256: `430207c39ebacd0fabc75b461d18dcd4e771f2abc0d07ffdcaba01c9e3e21e14`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011954
+
+![asset-011954](05_component-visual-assets/005_asset-011954_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/43dsrbvcys.png`
+- checksum_sha256: `e5c031f0708f9242ec5f1dc8bfb7ecf6487ecc23144830530b1226f40d508447`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011955
+
+![asset-011955](05_component-visual-assets/006_asset-011955_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/47p7lc0pxg.png`
+- checksum_sha256: `dfdad17a667bbdd3b6d95fefe2e630f6e7fd617c2d34215f416c321a4c67e0a6`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011956
+
+![asset-011956](05_component-visual-assets/007_asset-011956_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/5jtn0oejfe.png`
+- checksum_sha256: `be795feeb7971f32f49932ac1037f4d33b97db1436a332667e3022ea69d093b1`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011957
+
+![asset-011957](05_component-visual-assets/008_asset-011957_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/6sl81sxmth.png`
+- checksum_sha256: `c7b5ef5fedef3d6d99e95f4528aabad990200ebc776e222a9ad06c520490dfda`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011958
+
+![asset-011958](05_component-visual-assets/009_asset-011958_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/72lg3o6b0w.png`
+- checksum_sha256: `0d6df8323c24549bbee8ac3822f768eee65de1abaf50773a4c7ef013b3579b33`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011959
+
+![asset-011959](05_component-visual-assets/010_asset-011959_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/74ov5jlmtz.png`
+- checksum_sha256: `51987d460777626e15ec06876abd3a5666e3eb9b0b9e3c8db10cc38c8bad804a`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011960
+
+![asset-011960](05_component-visual-assets/011_asset-011960_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/7li9netmst.png`
+- checksum_sha256: `7cd81d96f73924396fe4ac9d90053eadf072db12ae54a96262a84c798418df1a`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011961
+
+![asset-011961](05_component-visual-assets/012_asset-011961_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/7psnnjicl1.png`
+- checksum_sha256: `c143f7106f368f8c412e8d42cb43a5e098b69e246843a112d5ae8e30d45c4e25`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011962
+
+![asset-011962](05_component-visual-assets/013_asset-011962_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/ackdj1zm79.png`
+- checksum_sha256: `9088e04001d6d71b2297d6c9d7e36532586452aacd173e70df6896048bc49d70`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011963
+
+![asset-011963](05_component-visual-assets/014_asset-011963_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/bjt70w5yvo.png`
+- checksum_sha256: `06a47e8c639fda84143271a8c98340c7681078dd4d3c426ecbe2fef73f2e62c6`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011964
+
+![asset-011964](05_component-visual-assets/015_asset-011964_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/cdi7snpjks.png`
+- checksum_sha256: `c7787d5d56b68e907f16880faf54a4e23e27a9fdd12d56b8c95e977df8844098`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011965
+
+![asset-011965](05_component-visual-assets/016_asset-011965_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/d8g1myvx5w.png`
+- checksum_sha256: `50356e2e69943d82e9908f2f56c6eefcdda90101abd9be38264132ea70f9e7a8`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011966
+
+![asset-011966](05_component-visual-assets/017_asset-011966_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/ecocvmmtsm.png`
+- checksum_sha256: `3bb713e3803ddb23cf2224c24ce0e05ea6a6be7c9326362bdb10eef305f6ac69`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011967
+
+![asset-011967](05_component-visual-assets/018_asset-011967_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/fa0d0g306p.png`
+- checksum_sha256: `38cbadb68d117a260831ceb2aeb0408f7991883644dab93d545259972b16107c`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011968
+
+![asset-011968](05_component-visual-assets/019_asset-011968_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/fa31amjd3a.png`
+- checksum_sha256: `7d153138afa5bc4cb4fbe48fe7f1e68dc78614591856f584e4f78d329b66f484`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011969
+
+![asset-011969](05_component-visual-assets/020_asset-011969_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/flofnb60vk.png`
+- checksum_sha256: `ac35522e282ab0fc71f927eaec4f9b14f27578afad6c2736c867ce50f78a54e7`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011970
+
+![asset-011970](05_component-visual-assets/021_asset-011970_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/fsu3yjh5f5.png`
+- checksum_sha256: `bb51a3a92d1c594cb44180149e524f2698a086ac774c7e7f7693267081d45b01`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011971
+
+![asset-011971](05_component-visual-assets/022_asset-011971_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/gam472wh0q.png`
+- checksum_sha256: `aab16c9703e087143a569bd3fcf4b81524abcc45f84af9abd212f734bffd4a14`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011972
+
+![asset-011972](05_component-visual-assets/023_asset-011972_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/hhw6tc8xke.png`
+- checksum_sha256: `b07145dfac22b60e4367edbc2bdd57d0504b83620697910c4b1e870706d086f6`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011973
+
+![asset-011973](05_component-visual-assets/024_asset-011973_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/ifhk7yehjo.png`
+- checksum_sha256: `562e991b8ff67d40208c7de3100a0e0c3e8ffb2e49fa1f3fe8079b708b3388bd`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011974
+
+![asset-011974](05_component-visual-assets/025_asset-011974_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/j7j09ks950.png`
+- checksum_sha256: `4fb0f745c1cf2d787c8f42022c5abb4eb41c8d962ed1de0b519c16f607995895`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011975
+
+![asset-011975](05_component-visual-assets/026_asset-011975_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/jr1uj03l57.png`
+- checksum_sha256: `755a63859646ac6c73f44321e23731a458cee274301990c9869a6b75388b1791`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011976
+
+![asset-011976](05_component-visual-assets/027_asset-011976_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/k2y56nvobj.png`
+- checksum_sha256: `b77a7d0624cfd0132176f5b4d615c7f7f7efbc04f91610c7016202d2e7347e4c`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011977
+
+![asset-011977](05_component-visual-assets/028_asset-011977_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/lkj4e20nga.png`
+- checksum_sha256: `a424c18d389975e5d6cf8ace1a1cc116cee0b849d8f5723b3fd52979d4aa9b96`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011978
+
+![asset-011978](05_component-visual-assets/029_asset-011978_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/m99aug2luj.png`
+- checksum_sha256: `f1676109b8993a412e95e2cc9d6ec0e4b5fa51b972eb2ce05e70bb738b4b5a96`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011979
+
+![asset-011979](05_component-visual-assets/030_asset-011979_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/mho6jri43i.png`
+- checksum_sha256: `bf710d7a4b48d5798dab68a7853e848c2d590a0261bbc99ce8bac1de3c89899f`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011980
+
+![asset-011980](05_component-visual-assets/031_asset-011980_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/oqazsrx83g.png`
+- checksum_sha256: `eac45df9e0e97eafe540d29829c1f18600b480928c76b6406f668177513b0753`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011981
+
+![asset-011981](05_component-visual-assets/032_asset-011981_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/pabz2tz1pk.png`
+- checksum_sha256: `a2015cb42928e566261b48b383dc5150eb216c8781eca869ec67edce578b9b7a`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011982
+
+![asset-011982](05_component-visual-assets/033_asset-011982_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/pcdwbmiabt.png`
+- checksum_sha256: `57c178e11381eaf90f4d635f8b112d1c6f8e7db2f2d58e11642cbda9769d6ea3`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011983
+
+![asset-011983](05_component-visual-assets/034_asset-011983_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/pd4s5dn4m0.png`
+- checksum_sha256: `6fe38554d4b397bb6803588103ca8f68a240082d982ca014a2969f613148e42f`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011984
+
+![asset-011984](05_component-visual-assets/035_asset-011984_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/pvz95t8afp.png`
+- checksum_sha256: `0b57f55548534a885ab950775608759466edcea27a814cd8cfc91c7818e4fbef`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011985
+
+![asset-011985](05_component-visual-assets/036_asset-011985_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/qlfepthmdc.png`
+- checksum_sha256: `683ab14ec35c642b84e49f908cc5fc9e7930d6e8128d4c279af4046626fa2691`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011986
+
+![asset-011986](05_component-visual-assets/037_asset-011986_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/rna0ivcdum.png`
+- checksum_sha256: `446df3e507550479223f0841fba9b9a6f7e24cb893fc5be766475c95c7b53ce2`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011987
+
+![asset-011987](05_component-visual-assets/038_asset-011987_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/srcb7o7gej.png`
+- checksum_sha256: `39d468d2e0832c2a344575e90c83673764dd03a7e9183c370018ef75eca558ad`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011988
+
+![asset-011988](05_component-visual-assets/039_asset-011988_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/t0mk8lvqmx.png`
+- checksum_sha256: `f50f248cdde7207d346a593da01eb20139cd784a3156b7fbe9eb25b859570ed8`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011989
+
+![asset-011989](05_component-visual-assets/040_asset-011989_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/t3q8ocoagl.png`
+- checksum_sha256: `1ebd508bab23731251050fd54d0da944b4091a035661d7ec9406ab2bd7d55a67`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011990
+
+![asset-011990](05_component-visual-assets/041_asset-011990_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/tob5xswz94.png`
+- checksum_sha256: `f7834f105dd47ba87ad632fd45219f06f9cd4b5da4758c0bfcdf87c9913840ae`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011991
+
+![asset-011991](05_component-visual-assets/042_asset-011991_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/unv0y7i2fp.png`
+- checksum_sha256: `90e4ff10758fb8aac0020460e8f91c1152eb77febf713944d3d27e17f432bb78`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011992
+
+![asset-011992](05_component-visual-assets/043_asset-011992_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/y6wstnxi9w.png`
+- checksum_sha256: `b5a073c882c36c072f23e41eda8e7ec489bc8c626af81d2d426dfc56708ffbf1`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011993
+
+![asset-011993](05_component-visual-assets/044_asset-011993_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/ygiv6sx39f.png`
+- checksum_sha256: `1dda09b750f149971c71fe6bd1ca3ff6fb26f35383f3bde954bf5397877cd6c8`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011994
+
+![asset-011994](05_component-visual-assets/045_asset-011994_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/yi1ur8sn5r.png`
+- checksum_sha256: `29d646a99a9a358aa7cba65cc8679758ee3e681b3d03f076ac711bfa9a700f0b`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011995
+
+![asset-011995](05_component-visual-assets/046_asset-011995_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/yrp1ehhz8l.png`
+- checksum_sha256: `ba44dda427b45a56b3466e8ba9c2ec995f95e5d4906ecece73df82270c035cf3`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+
+## asset-011996
+
+![asset-011996](05_component-visual-assets/047_asset-011996_img.png)
+
+- source_zip_member: `Sub-character Images/rlx0knkq0v/cdi7snpjks/ztt7dnye4b.png`
+- checksum_sha256: `c28a62d6d5c5c2d0fce0b77c11df1bf13f694ad586586a18ac6be2ef511bd3a8`
+- review_status: `needs_human_visual_review`
+- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

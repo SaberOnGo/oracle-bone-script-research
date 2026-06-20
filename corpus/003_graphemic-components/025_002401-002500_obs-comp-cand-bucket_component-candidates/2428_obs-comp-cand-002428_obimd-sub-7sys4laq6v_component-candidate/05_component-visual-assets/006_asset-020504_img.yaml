@@ -1,0 +1,17 @@
+asset_id: asset-020504
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002428
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-7sys4laq6v
+source_zip_member: Sub-character Images/7sys4laq6v/7sys4laq6v/3o0cdvr3sp.png
+file_size_bytes: 3397
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 570bc09be746257a1a2235826be3eea0e158d656b6be9dabc997b7751f4706b9
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

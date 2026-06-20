@@ -1,0 +1,17 @@
+asset_id: asset-020075
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002262
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-lxm12x4qq9
+source_zip_member: Sub-character Images/z501bkm67b/lxm12x4qq9/lxm12x4qq9.png
+file_size_bytes: 4154
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 9380d3e89f9b83c1662600261380d34bd8858bde5d1f1103603c901f6bd9a098
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

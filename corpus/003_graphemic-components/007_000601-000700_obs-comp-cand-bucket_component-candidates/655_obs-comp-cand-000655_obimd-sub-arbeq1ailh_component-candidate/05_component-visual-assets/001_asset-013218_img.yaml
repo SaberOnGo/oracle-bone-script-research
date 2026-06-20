@@ -1,0 +1,17 @@
+asset_id: asset-013218
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000655
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-arbeq1ailh
+source_zip_member: Sub-character Images/qh2w0s40kw/arbeq1ailh/arbeq1ailh.png
+file_size_bytes: 4835
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 10b3109c5d8b6fd20d0c71e5b4d3d4205397d0a9d358e2fcb092203e7b5c7266
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

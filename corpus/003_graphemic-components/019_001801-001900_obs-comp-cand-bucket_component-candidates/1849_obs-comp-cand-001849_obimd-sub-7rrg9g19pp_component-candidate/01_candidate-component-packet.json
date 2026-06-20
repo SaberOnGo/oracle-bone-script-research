@@ -149,14 +149,155 @@
       "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
     }
   ],
+  "component_visual_assets": [
+    {
+      "asset_id": "asset-018210",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/2djat6w4dx.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/001_asset-018210_img.png",
+      "checksum_sha256": "dfc0aaae259f620cbfb97fd2b45e8cf68e840135ccbf84803facb7d8f185c2ea",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018211",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/2q96z4zna4.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/002_asset-018211_img.png",
+      "checksum_sha256": "42de3b2d21e21859255743faea76292d314f93d5fc0e29f3d7a512c1be25440b",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018212",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/2y3r413wjm.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/003_asset-018212_img.png",
+      "checksum_sha256": "03045983b35bb4a389578c8ac535f9a585e3d874215ccab668a30cb5779dcd93",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018213",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/2yug19nbj3.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/004_asset-018213_img.png",
+      "checksum_sha256": "6876270458262cb8d0ed761bbaa5822d861abdf6d7c7a9e5a828553b47dac5f6",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018214",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/64cky5vs4s.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/005_asset-018214_img.png",
+      "checksum_sha256": "0364330501e73d8e236e4ea5a87320bb4f1c9c1b2e5a1de05f3da97879d15f17",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018215",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/7rrg9g19pp.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/006_asset-018215_img.png",
+      "checksum_sha256": "5d8753af32c3353a372483fc49cb73cd8e9b88502935d9c4355d1521ddb37bb2",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018216",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/arqqqebkzk.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/007_asset-018216_img.png",
+      "checksum_sha256": "fc6f84059b9194230bc4422043652f92852623b2cd8010aac6acbc1f1a7e1b33",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018217",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/azi00y7578.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/008_asset-018217_img.png",
+      "checksum_sha256": "07d13d6fb6a309517abae013261027b3a04c7220a8ae7fa2f3861be21012471e",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018218",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/c9ky3wb1h5.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/009_asset-018218_img.png",
+      "checksum_sha256": "35e826ea6feec290759f0930094b55b0214dbed5986f9f58934771fe19b28099",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018219",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/d14cmqdrw5.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/010_asset-018219_img.png",
+      "checksum_sha256": "d008f6122e4a6e8a4cc86b461bde3c56b449e37763804785c3209384da687ddd",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018220",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/fhtjbwry6k.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/011_asset-018220_img.png",
+      "checksum_sha256": "2059f69eb4c4159107160cca71f41182a27844fc872953abe2ce7179dd901ce8",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018221",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/g96mrn3khe.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/012_asset-018221_img.png",
+      "checksum_sha256": "1baa05ad61b893efc024842cf3f9b4e426de6a11c8353cb125f8c7cc59b04c88",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018222",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/l4xmrt7lwx.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/013_asset-018222_img.png",
+      "checksum_sha256": "49ef536ee970d3cb939252dacde97320d4703f2851eec9a47871d5b43cf08922",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018223",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/njl0l01fxx.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/014_asset-018223_img.png",
+      "checksum_sha256": "f4d8651faf444fc69a561a970ca7364876b8a837517ddaea0ba91dee0328e2b5",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018224",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/o68dm3noad.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/015_asset-018224_img.png",
+      "checksum_sha256": "077dce8759fb2bfb1bb39704152810dcd7424f9a474bdcfc04cfb59f5430a0ba",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018225",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/qkt24ht7mh.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/016_asset-018225_img.png",
+      "checksum_sha256": "e1f2397865fd578bcbccfffce2ef7a244dff0ac636f1886527277b682e716a6e",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018226",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/xc3pzdl33x.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/017_asset-018226_img.png",
+      "checksum_sha256": "1855fbfa05b9e15eee719ad1b18ee2c5cad740fcf5c08dc9b9e0392fbfb5c5f8",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018227",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/y24xjveo8l.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/018_asset-018227_img.png",
+      "checksum_sha256": "5233c5fc06ce06da1d334e1317b3cd8058739e1ad3b3de0d50345bc3a7c9c913",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-018228",
+      "source_zip_member": "Sub-character Images/mgs4xhu5g3/7rrg9g19pp/ypo9ptml68.png",
+      "local_asset_path": "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/05_component-visual-assets/019_asset-018228_img.png",
+      "checksum_sha256": "c66b9cd9afc748a40cc2ea7dca19013ce02659504c9ee750f9949e540e1f64c6",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
   "route_files": [
     "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
     "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
     "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv",
+    "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv",
+    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv",
     "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
     "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/02_component-source-index.csv",
     "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/03_glyph-codepoint-index.csv",
-    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/04_glyph-codepoint-gallery.md"
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/04_glyph-codepoint-gallery.md",
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/06_component-visual-index.csv",
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/07_component-visual-gallery.md",
+    "corpus/003_graphemic-components/019_001801-001900_obs-comp-cand-bucket_component-candidates/1849_obs-comp-cand-001849_obimd-sub-7rrg9g19pp_component-candidate/08_human-visual-review-sheet.md"
   ],
   "rights_status": "licensed_for_repository",
   "object_status": "dataset_candidate_not_promoted",

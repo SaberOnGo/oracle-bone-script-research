@@ -1,0 +1,17 @@
+asset_id: asset-015996
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001423
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-gwsh21hct4
+source_zip_member: Sub-character Images/dhewuxyotl/gwsh21hct4/ok996piat2.png
+file_size_bytes: 3496
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: b0a0603102288a2f40fabb9dc06d7320f8dbe8e1839a3759582a73a12cda094c
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

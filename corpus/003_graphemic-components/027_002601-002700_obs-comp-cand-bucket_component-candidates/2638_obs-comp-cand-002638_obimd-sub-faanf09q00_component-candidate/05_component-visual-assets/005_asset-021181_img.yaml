@@ -1,0 +1,17 @@
+asset_id: asset-021181
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002638
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-faanf09q00
+source_zip_member: Sub-character Images/faanf09q00/faanf09q00/adyfiwjulr.png
+file_size_bytes: 2782
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 9c31419407b8097e52ea3c846288719b4727a7ec6b7da1b45ce45e135fe3f34a
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-016149
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001496
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-qmsdu51da8
+source_zip_member: Sub-character Images/qmsdu51da8/qmsdu51da8/iod5csib0c.png
+file_size_bytes: 3946
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 7ff8f6466eeabb7d750ff2d2aed55bcee7b3bea6a384b8ad8dbcd17f3099238f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

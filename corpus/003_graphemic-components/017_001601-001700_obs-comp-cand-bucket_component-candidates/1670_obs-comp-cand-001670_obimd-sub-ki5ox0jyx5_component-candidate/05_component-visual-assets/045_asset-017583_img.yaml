@@ -1,0 +1,17 @@
+asset_id: asset-017583
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001670
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-ki5ox0jyx5
+source_zip_member: Sub-character Images/cixqnyxp9v/ki5ox0jyx5/we81gt54kv.png
+file_size_bytes: 4170
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 5b3962ad91fa13c2e81de9c2601f942ab81e532f0dca42dd4fb91ed06f0b47ba
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

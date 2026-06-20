@@ -1,0 +1,17 @@
+asset_id: asset-015654
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001317
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-ogt487t2u1
+source_zip_member: Sub-character Images/ogt487t2u1/ogt487t2u1/ogt487t2u1.png
+file_size_bytes: 4966
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: d048992885986295dc26e5c67528f239bc0d3ec0d25317c11ea145fd52c3647a
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

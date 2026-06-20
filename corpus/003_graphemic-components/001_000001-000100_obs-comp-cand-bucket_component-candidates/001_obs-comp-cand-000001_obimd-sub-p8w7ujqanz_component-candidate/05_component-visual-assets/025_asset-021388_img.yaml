@@ -1,0 +1,17 @@
+asset_id: asset-021388
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000001
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-p8w7ujqanz
+source_zip_member: Sub-character Images/p8w7ujqanz/p8w7ujqanz/ept76loiyh.png
+file_size_bytes: 3272
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 31d4da440bee3c5dbbeb7cde3f3364c09890693c09a74fd61e7fdb4cb2a8a30f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

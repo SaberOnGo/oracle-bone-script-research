@@ -1,0 +1,17 @@
+asset_id: asset-014596
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001046
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-r89cx7sv2l
+source_zip_member: Sub-character Images/r89cx7sv2l/r89cx7sv2l/r89cx7sv2l.png
+file_size_bytes: 3762
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 5ac976d3c4863789423f7501cc8ffb427c1a60acfdf21df4b3d4be905138c6e9
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

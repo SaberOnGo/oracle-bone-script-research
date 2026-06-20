@@ -1,0 +1,17 @@
+asset_id: asset-019686
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002129
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-yszlaw22lm
+source_zip_member: Sub-character Images/yszlaw22lm/yszlaw22lm/yszlaw22lm.png
+file_size_bytes: 3168
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 39287270eb14b430bbde1279689c6a093aa8ea88947c4eb51c495d2fa5c8dd21
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

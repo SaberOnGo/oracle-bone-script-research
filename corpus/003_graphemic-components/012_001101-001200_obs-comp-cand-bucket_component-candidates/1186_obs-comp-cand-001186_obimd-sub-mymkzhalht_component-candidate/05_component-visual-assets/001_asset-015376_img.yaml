@@ -1,0 +1,17 @@
+asset_id: asset-015376
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001186
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-mymkzhalht
+source_zip_member: Sub-character Images/mymkzhalht/mymkzhalht/mymkzhalht.png
+file_size_bytes: 4083
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: bc0fd6c0309cf0e461891ea722f980461bf9963228a27d6d8bbe0faf95fc9d4e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

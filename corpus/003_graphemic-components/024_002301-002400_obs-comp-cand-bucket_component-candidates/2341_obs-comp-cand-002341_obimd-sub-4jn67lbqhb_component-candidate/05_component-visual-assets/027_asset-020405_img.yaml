@@ -1,0 +1,17 @@
+asset_id: asset-020405
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002341
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-4jn67lbqhb
+source_zip_member: Sub-character Images/4jn67lbqhb/4jn67lbqhb/t7vanma88b.png
+file_size_bytes: 3904
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 600bf8e30a404c2f554097255a45f77a2f61465532c2e4981e52e0196f6b39b5
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

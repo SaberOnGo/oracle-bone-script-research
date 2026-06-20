@@ -1,0 +1,17 @@
+asset_id: asset-018236
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001857
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-nmwnjd5u4n
+source_zip_member: Sub-character Images/nmwnjd5u4n/nmwnjd5u4n/nmwnjd5u4n.png
+file_size_bytes: 1635
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 978da0ae33f0b1c4048ca5a889e7a9bc79a4da86c9230723ee12c609e9a55e4e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-013232
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000669
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-dmt62prazn
+source_zip_member: Sub-character Images/dmt62prazn/dmt62prazn/dmt62prazn.png
+file_size_bytes: 5132
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: b73d8dffd42398c7839f4698abda01c7216dd6df97ef06a42fe6a781373f08dc
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

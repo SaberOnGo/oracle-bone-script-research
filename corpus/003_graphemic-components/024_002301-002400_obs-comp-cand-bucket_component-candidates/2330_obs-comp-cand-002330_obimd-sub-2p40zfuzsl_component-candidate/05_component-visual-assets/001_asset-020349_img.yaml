@@ -1,0 +1,17 @@
+asset_id: asset-020349
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002330
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-2p40zfuzsl
+source_zip_member: Sub-character Images/2p40zfuzsl/2p40zfuzsl/2p40zfuzsl.png
+file_size_bytes: 4539
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: e9a74f6e7773cdd7dce7dda1cc07cfc8416d4c31ba9596d518a384d12e22a4f1
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

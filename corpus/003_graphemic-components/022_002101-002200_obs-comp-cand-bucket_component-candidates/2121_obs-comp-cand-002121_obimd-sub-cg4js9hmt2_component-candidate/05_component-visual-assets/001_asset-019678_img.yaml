@@ -1,0 +1,17 @@
+asset_id: asset-019678
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002121
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-cg4js9hmt2
+source_zip_member: Sub-character Images/yuucprnzb5/cg4js9hmt2/cg4js9hmt2.png
+file_size_bytes: 3511
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 0d9a13ca723d6f98c53fbe16b1a47718cf96103d5ddc22b72c2062a08bc7472a
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

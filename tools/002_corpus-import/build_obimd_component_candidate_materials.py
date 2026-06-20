@@ -9,9 +9,15 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import re
+import zipfile
 from collections import defaultdict
+from io import BytesIO
 from pathlib import Path
+
+from PIL import Image
 
 
 SUBCHARACTER_MAIN_STAGING = Path(
@@ -26,12 +32,34 @@ COMPONENT_ROOT = Path("corpus/003_graphemic-components")
 COMPONENT_ID_MAP = Path(
     "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv"
 )
+ASSET_ID_MAP = Path(
+    "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
+)
+ASSET_SOURCE_INDEX = Path(
+    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv"
+)
+ASSET_RIGHTS_REVIEW_LOG = Path(
+    "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
+)
+ASSET_TECHNICAL_PROFILE = Path(
+    "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv"
+)
+OBIMD_SUBCHARACTER_IMAGES_ZIP = Path(
+    "external_local_archive/source_packages/obimd/dl-obimd-subcharacter-images.zip"
+)
+OBIMD_IMAGE_SOURCE_URL = (
+    "https://huggingface.co/datasets/KLOBIP/OBIMD/resolve/main/"
+    "Hierarchical%20Character%20Metadata%20Supplement/"
+    "Sub-character%20Images.zip"
+)
 UPDATED_AT = "2026-06-20"
 BUCKET_SIZE = 100
 RECORD_TYPE = "graphemic_component_candidate"
 OBJECT_STATUS = "dataset_candidate_not_promoted"
 REVIEW_STATUS = "needs_human_component_review"
+IMAGE_REVIEW_STATUS = "needs_human_visual_review"
 RIGHTS_STATUS = "licensed_for_repository"
+IMAGE_DOWNLOAD_ID = "dl-obimd-subcharacter-images"
 RESEARCH_BOUNDARY = (
     "dataset_component_candidate_only_not_formal_component_record_not_component_assignment"
 )
@@ -39,6 +67,10 @@ CAUTION = (
     "OBIMD subcharacter metadata is useful for routing component review, but this "
     "object is not a confirmed graphemic component, not a component breakdown, and "
     "not a decipherment or oracle-character identity claim."
+)
+IMAGE_CAUTION = (
+    "OBIMD subcharacter image is a source-marked review asset only; it is not a "
+    "confirmed component form, component assignment, or decipherment conclusion."
 )
 
 MANIFEST_FIELDS = [
@@ -87,6 +119,30 @@ GLYPH_INDEX_FIELDS = [
     "updated_at",
 ]
 
+VISUAL_INDEX_FIELDS = [
+    "visual_index_id",
+    "candidate_component_id",
+    "asset_id",
+    "source_id",
+    "evidence_download_id",
+    "subcharacter_external_ref_id",
+    "source_zip_member",
+    "local_asset_path",
+    "file_size_bytes",
+    "image_format",
+    "pixel_width",
+    "pixel_height",
+    "color_mode",
+    "dpi_x",
+    "dpi_y",
+    "icc_profile_bytes",
+    "checksum_sha256",
+    "rights_status",
+    "review_status",
+    "caution",
+    "updated_at",
+]
+
 COMPONENT_MAP_FIELDS = [
     "project_id",
     "record_type",
@@ -95,6 +151,64 @@ COMPONENT_MAP_FIELDS = [
     "all_external_ref_ids",
     "source_ids",
     "rights_status",
+    "review_status",
+    "updated_at",
+]
+
+ASSET_MAP_FIELDS = [
+    "project_id",
+    "record_type",
+    "canonical_path",
+    "primary_external_ref_id",
+    "all_external_ref_ids",
+    "source_ids",
+    "rights_status",
+    "review_status",
+    "updated_at",
+]
+
+ASSET_SOURCE_FIELDS = [
+    "asset_id",
+    "asset_type",
+    "canonical_path",
+    "file_size_bytes",
+    "related_project_ids",
+    "primary_external_ref_id",
+    "source_ids",
+    "source_url",
+    "rights_status",
+    "risk_note",
+    "review_status",
+    "updated_at",
+]
+
+ASSET_RIGHTS_FIELDS = [
+    "review_id",
+    "asset_id",
+    "reviewer",
+    "rights_status_before",
+    "rights_status_after",
+    "evidence",
+    "reviewed_at",
+    "notes",
+]
+
+ASSET_TECHNICAL_FIELDS = [
+    "profile_id",
+    "asset_id",
+    "asset_path",
+    "image_format",
+    "pixel_width",
+    "pixel_height",
+    "color_mode",
+    "dpi_x",
+    "dpi_y",
+    "icc_profile_bytes",
+    "file_size_bytes",
+    "checksum_sha256",
+    "analysis_tool",
+    "analysis_scope",
+    "caution",
     "review_status",
     "updated_at",
 ]
@@ -115,6 +229,24 @@ def write_csv(path: Path, rows: list[dict[str, str]], fields: list[str]) -> None
         writer = csv.DictWriter(file, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def max_numeric_id(rows: list[dict[str, str]], field: str, prefix: str) -> int:
+    max_id = 0
+    pattern = re.compile(rf"^{re.escape(prefix)}(\d+)$")
+    for row in rows:
+        match = pattern.match(row.get(field, ""))
+        if match:
+            max_id = max(max_id, int(match.group(1)))
+    return max_id
+
+
+def asset_id(number: int) -> str:
+    return f"asset-{number:06d}"
 
 
 def bucket_dir(index: int) -> Path:
@@ -142,10 +274,16 @@ def route_files(directory: Path) -> list[str]:
         SUBCHARACTER_MAIN_STAGING.as_posix(),
         SUBCHARACTER_GLYPH_STAGING.as_posix(),
         COMPONENT_ID_MAP.as_posix(),
+        ASSET_ID_MAP.as_posix(),
+        ASSET_SOURCE_INDEX.as_posix(),
+        ASSET_RIGHTS_REVIEW_LOG.as_posix(),
         "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
         (directory / "02_component-source-index.csv").as_posix(),
         (directory / "03_glyph-codepoint-index.csv").as_posix(),
         (directory / "04_glyph-codepoint-gallery.md").as_posix(),
+        (directory / "06_component-visual-index.csv").as_posix(),
+        (directory / "07_component-visual-gallery.md").as_posix(),
+        (directory / "08_human-visual-review-sheet.md").as_posix(),
     ]
 
 
@@ -153,6 +291,7 @@ def packet_payload(
     index: int,
     main_row: dict[str, str],
     glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
     directory: Path,
 ) -> dict[str, object]:
     component_id = candidate_id(index)
@@ -181,6 +320,16 @@ def packet_payload(
                 "evidence_download_id": row["evidence_download_id"],
             }
             for row in glyph_rows
+        ],
+        "component_visual_assets": [
+            {
+                "asset_id": row["asset_id"],
+                "source_zip_member": row["source_zip_member"],
+                "local_asset_path": row["local_asset_path"],
+                "checksum_sha256": row["checksum_sha256"],
+                "review_status": row["review_status"],
+            }
+            for row in visual_rows
         ],
         "route_files": route_files(directory),
         "rights_status": RIGHTS_STATUS,
@@ -239,6 +388,7 @@ def readme_text(
     index: int,
     main_row: dict[str, str],
     glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
     directory: Path,
 ) -> str:
     component_id = candidate_id(index)
@@ -267,6 +417,7 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 - source_main_character_uid: `{main_row["source_main_character_uid"]}`
 - main_character_external_ref_id: `{main_row["main_character_external_ref_id"]}`
 - glyph_codepoint_link_count: `{len(glyph_rows)}`
+- component_visual_asset_count: `{len(visual_rows)}`
 - rights_status: `{RIGHTS_STATUS}`
 - review_status: `{REVIEW_STATUS}`
 
@@ -276,6 +427,10 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 - `02_component-source-index.csv`: source, download, rights, and review index.
 - `03_glyph-codepoint-index.csv`: OBIMD glyph-codepoint links for review.
 - `04_glyph-codepoint-gallery.md`: human-readable glyph/codepoint gallery.
+- `05_component-visual-assets/`: source-marked OBIMD subcharacter PNG review assets.
+- `06_component-visual-index.csv`: AI-readable visual asset index.
+- `07_component-visual-gallery.md`: human-readable component image gallery.
+- `08_human-visual-review-sheet.md`: manual visual review sheet.
 
 ## Next Review / 下一步复核
 
@@ -320,6 +475,74 @@ def gallery_text(
     return "\n".join(lines) + "\n"
 
 
+def visual_gallery_text(index: int, visual_rows: list[dict[str, str]]) -> str:
+    component_id = candidate_id(index)
+    lines = [
+        f"# Component Visual Gallery / 构件图像查看: {component_id}",
+        "",
+        "English:",
+        "This page displays OBIMD subcharacter PNG assets extracted into this concrete corpus object directory for human review.",
+        "",
+        "简体中文：",
+        "本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter PNG 资料，供人工复核使用。",
+        "",
+        "Boundary / 边界：dataset image candidate only; not a confirmed component form, component assignment, or decipherment claim.",
+        "",
+    ]
+    if not visual_rows:
+        lines.extend(
+            [
+                "No local OBIMD subcharacter image was found for this candidate in the registered source package.",
+                "",
+                "未在已登记来源包中找到此候选对应的本地图像。",
+            ]
+        )
+        return "\n".join(lines) + "\n"
+
+    for row in visual_rows:
+        local_path = row["local_asset_path"]
+        rel = local_path.split("/")[-2] + "/" + local_path.split("/")[-1]
+        lines.extend(
+            [
+                f"## {row['asset_id']}",
+                "",
+                f"![{row['asset_id']}]({rel})",
+                "",
+                f"- source_zip_member: `{row['source_zip_member']}`",
+                f"- checksum_sha256: `{row['checksum_sha256']}`",
+                f"- review_status: `{row['review_status']}`",
+                f"- caution: {row['caution']}",
+                "",
+            ]
+        )
+    return "\n".join(lines)
+
+
+def visual_review_sheet_text(index: int, visual_rows: list[dict[str, str]]) -> str:
+    component_id = candidate_id(index)
+    rows = "\n".join(
+        f"| `{row['asset_id']}` | `{row['source_zip_member']}` | pending | pending | pending | |"
+        for row in visual_rows
+    )
+    if not rows:
+        rows = "| no_local_image | not_found_in_registered_package | n/a | n/a | n/a | |"
+    return f"""# Human Visual Review Sheet / 人工图像复核表: {component_id}
+
+English:
+Use this sheet to review the local OBIMD subcharacter images before any later component or relationship promotion.
+
+简体中文：
+本表用于在后续提升为构件记录或关系前，人工复核本地 OBIMD subcharacter 图像。
+
+Boundary / 边界：
+These rows are review tasks only. They do not confirm a component form, component assignment, or decipherment.
+
+| Asset ID | Source zip member | Image legible? | Matches candidate UID? | Reuse acceptable? | Notes |
+| --- | --- | --- | --- | --- | --- |
+{rows}
+"""
+
+
 def manifest_row(
     index: int,
     main_row: dict[str, str],
@@ -362,6 +585,203 @@ def component_map_row(index: int, main_row: dict[str, str], directory: Path) -> 
     }
 
 
+def zip_images_by_subcharacter(zip_path: Path) -> dict[str, list[zipfile.ZipInfo]]:
+    images: dict[str, list[zipfile.ZipInfo]] = defaultdict(list)
+    if not zip_path.exists():
+        return images
+    with zipfile.ZipFile(zip_path) as archive:
+        for info in archive.infolist():
+            if info.is_dir() or not info.filename.lower().endswith(".png"):
+                continue
+            parts = info.filename.split("/")
+            if len(parts) >= 4 and parts[0] == "Sub-character Images":
+                sub_uid = parts[2]
+                images[sub_uid].append(info)
+    for sub_uid in images:
+        images[sub_uid].sort(key=lambda item: item.filename)
+    return images
+
+
+def existing_visual_asset_ids(root: Path) -> dict[str, str]:
+    existing: dict[str, str] = {}
+    for path in COMPONENT_ROOT.glob("*/*/06_component-visual-index.csv"):
+        full_path = root / path
+        if not full_path.exists():
+            continue
+        for row in read_csv_rows(full_path):
+            key = f"{row.get('candidate_component_id')}|{row.get('source_zip_member')}"
+            if row.get("asset_id"):
+                existing[key] = row["asset_id"]
+    return existing
+
+
+def visual_asset_rows(
+    root: Path,
+    index: int,
+    main_row: dict[str, str],
+    directory: Path,
+    image_infos: list[zipfile.ZipInfo],
+    archive: zipfile.ZipFile | None,
+    assigned_ids: dict[str, str],
+    next_asset_number: list[int],
+) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    component_id = candidate_id(index)
+    asset_dir = root / directory / "05_component-visual-assets"
+    asset_dir.mkdir(parents=True, exist_ok=True)
+
+    for visual_index, info in enumerate(image_infos, start=1):
+        key = f"{component_id}|{info.filename}"
+        if key not in assigned_ids:
+            assigned_ids[key] = asset_id(next_asset_number[0])
+            next_asset_number[0] += 1
+        current_asset_id = assigned_ids[key]
+        asset_path = (
+            directory
+            / "05_component-visual-assets"
+            / f"{visual_index:03d}_{current_asset_id}_img.png"
+        )
+        full_asset_path = root / asset_path
+        assert archive is not None
+        data = archive.read(info)
+        full_asset_path.parent.mkdir(parents=True, exist_ok=True)
+        full_asset_path.write_bytes(data)
+        checksum = sha256_bytes(data)
+        with Image.open(BytesIO(data)) as image:
+            image_format = image.format or "PNG"
+            pixel_width, pixel_height = image.size
+            color_mode = image.mode
+            dpi = image.info.get("dpi") or ("", "")
+            dpi_x = str(dpi[0]) if dpi and dpi[0] else ""
+            dpi_y = str(dpi[1]) if dpi and dpi[1] else ""
+            icc_profile_bytes = str(len(image.info.get("icc_profile", b"")))
+        yaml_path = full_asset_path.with_suffix(".yaml")
+        yaml_path.write_text(
+            "\n".join(
+                [
+                    f"asset_id: {current_asset_id}",
+                    "asset_type: obimd_component_candidate_image",
+                    f"candidate_component_id: {component_id}",
+                    "source_id: src-obimd",
+                    f"evidence_download_id: {IMAGE_DOWNLOAD_ID}",
+                    f"subcharacter_external_ref_id: {main_row['subcharacter_external_ref_id']}",
+                    f"source_zip_member: {info.filename}",
+                    f"file_size_bytes: {len(data)}",
+                    f"image_format: {image_format}",
+                    f"pixel_width: {pixel_width}",
+                    f"pixel_height: {pixel_height}",
+                    f"color_mode: {color_mode}",
+                    f"checksum_sha256: {checksum}",
+                    f"rights_status: {RIGHTS_STATUS}",
+                    f"review_status: {IMAGE_REVIEW_STATUS}",
+                    f"updated_at: {UPDATED_AT}",
+                    f"caution: {IMAGE_CAUTION}",
+                    "",
+                ]
+            ),
+            encoding="utf-8",
+        )
+        rows.append(
+            {
+                "visual_index_id": f"{component_id}-visual-{visual_index:04d}",
+                "candidate_component_id": component_id,
+                "asset_id": current_asset_id,
+                "source_id": "src-obimd",
+                "evidence_download_id": IMAGE_DOWNLOAD_ID,
+                "subcharacter_external_ref_id": main_row["subcharacter_external_ref_id"],
+                "source_zip_member": info.filename,
+                "local_asset_path": asset_path.as_posix(),
+                "file_size_bytes": str(len(data)),
+                "image_format": image_format,
+                "pixel_width": str(pixel_width),
+                "pixel_height": str(pixel_height),
+                "color_mode": color_mode,
+                "dpi_x": dpi_x,
+                "dpi_y": dpi_y,
+                "icc_profile_bytes": icc_profile_bytes,
+                "checksum_sha256": checksum,
+                "rights_status": RIGHTS_STATUS,
+                "review_status": IMAGE_REVIEW_STATUS,
+                "caution": IMAGE_CAUTION,
+                "updated_at": UPDATED_AT,
+            }
+        )
+    return rows
+
+
+def obimd_asset_source_row(row: dict[str, str]) -> dict[str, str]:
+    return {
+        "asset_id": row["asset_id"],
+        "asset_type": "obimd_component_candidate_image",
+        "canonical_path": row["local_asset_path"],
+        "file_size_bytes": row["file_size_bytes"],
+        "related_project_ids": row["candidate_component_id"],
+        "primary_external_ref_id": row["subcharacter_external_ref_id"],
+        "source_ids": row["source_id"],
+        "source_url": OBIMD_IMAGE_SOURCE_URL,
+        "rights_status": row["rights_status"],
+        "risk_note": row["caution"],
+        "review_status": row["review_status"],
+        "updated_at": UPDATED_AT,
+    }
+
+
+def obimd_asset_map_row(row: dict[str, str]) -> dict[str, str]:
+    return {
+        "project_id": row["asset_id"],
+        "record_type": "obimd_component_candidate_image",
+        "canonical_path": row["local_asset_path"],
+        "primary_external_ref_id": row["subcharacter_external_ref_id"],
+        "all_external_ref_ids": row["subcharacter_external_ref_id"],
+        "source_ids": row["source_id"],
+        "rights_status": row["rights_status"],
+        "review_status": row["review_status"],
+        "updated_at": UPDATED_AT,
+    }
+
+
+def obimd_asset_rights_row(row: dict[str, str]) -> dict[str, str]:
+    numeric = row["asset_id"].split("-")[-1]
+    return {
+        "review_id": f"asset-rights-review-{numeric}",
+        "asset_id": row["asset_id"],
+        "reviewer": "codex-agent",
+        "rights_status_before": "unreviewed",
+        "rights_status_after": row["rights_status"],
+        "evidence": (
+            "OBIMD dataset card and source register mark repository use as "
+            f"{RIGHTS_STATUS}; raw source package is registered and kept outside Git."
+        ),
+        "reviewed_at": UPDATED_AT,
+        "notes": row["caution"],
+    }
+
+
+def obimd_asset_technical_row(index: int, row: dict[str, str]) -> dict[str, str]:
+    return {
+        "profile_id": f"asset-image-profile-{index:06d}",
+        "asset_id": row["asset_id"],
+        "asset_path": row["local_asset_path"],
+        "image_format": row["image_format"],
+        "pixel_width": row["pixel_width"],
+        "pixel_height": row["pixel_height"],
+        "color_mode": row["color_mode"],
+        "dpi_x": row["dpi_x"],
+        "dpi_y": row["dpi_y"],
+        "icc_profile_bytes": row["icc_profile_bytes"],
+        "file_size_bytes": row["file_size_bytes"],
+        "checksum_sha256": row["checksum_sha256"],
+        "analysis_tool": "Pillow",
+        "analysis_scope": "image_technical_metadata_only",
+        "caution": (
+            "Technical profile records file properties only; it is not glyph "
+            "segmentation, component analysis, or paleographic interpretation."
+        ),
+        "review_status": IMAGE_REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_materials(root: Path) -> tuple[int, int]:
     main_rows = read_csv_rows(root / SUBCHARACTER_MAIN_STAGING)
     glyph_by_uid: dict[str, list[dict[str, str]]] = defaultdict(list)
@@ -370,48 +790,139 @@ def build_materials(root: Path) -> tuple[int, int]:
 
     manifest_by_bucket: dict[Path, list[dict[str, str]]] = defaultdict(list)
     component_map_rows: list[dict[str, str]] = []
+    asset_map_rows_existing = read_csv_rows(root / ASSET_ID_MAP)
+    asset_source_rows_existing = read_csv_rows(root / ASSET_SOURCE_INDEX)
+    asset_rights_rows_existing = read_csv_rows(root / ASSET_RIGHTS_REVIEW_LOG)
+    asset_technical_rows_existing = read_csv_rows(root / ASSET_TECHNICAL_PROFILE)
+    assigned_ids = existing_visual_asset_ids(root)
+    next_asset_number = [
+        max_numeric_id(asset_map_rows_existing, "project_id", "asset-") + 1
+    ]
+    image_infos_by_uid = zip_images_by_subcharacter(root / OBIMD_SUBCHARACTER_IMAGES_ZIP)
+    archive: zipfile.ZipFile | None = None
+    if (root / OBIMD_SUBCHARACTER_IMAGES_ZIP).exists():
+        archive = zipfile.ZipFile(root / OBIMD_SUBCHARACTER_IMAGES_ZIP)
+    all_visual_rows: list[dict[str, str]] = []
 
-    for index, main_row in enumerate(main_rows, start=1):
-        glyph_rows = glyph_by_uid[main_row["source_subcharacter_uid"]]
-        directory = object_dir(index, main_row["subcharacter_external_ref_id"])
-        full_directory = root / directory
-        full_directory.mkdir(parents=True, exist_ok=True)
-
-        (full_directory / "README.md").write_text(
-            readme_text(index, main_row, glyph_rows, directory),
-            encoding="utf-8",
-        )
-        (full_directory / "01_candidate-component-packet.json").write_text(
-            json.dumps(
-                packet_payload(index, main_row, glyph_rows, directory),
-                ensure_ascii=False,
-                indent=2,
+    try:
+        for index, main_row in enumerate(main_rows, start=1):
+            glyph_rows = glyph_by_uid[main_row["source_subcharacter_uid"]]
+            directory = object_dir(index, main_row["subcharacter_external_ref_id"])
+            full_directory = root / directory
+            full_directory.mkdir(parents=True, exist_ok=True)
+            image_infos = image_infos_by_uid.get(main_row["source_subcharacter_uid"], [])
+            visual_rows = visual_asset_rows(
+                root,
+                index,
+                main_row,
+                directory,
+                image_infos,
+                archive,
+                assigned_ids,
+                next_asset_number,
             )
-            + "\n",
-            encoding="utf-8",
-        )
-        write_csv(
-            full_directory / "02_component-source-index.csv",
-            source_index_rows(index, main_row),
-            SOURCE_INDEX_FIELDS,
-        )
-        write_csv(
-            full_directory / "03_glyph-codepoint-index.csv",
-            glyph_index_rows(index, glyph_rows),
-            GLYPH_INDEX_FIELDS,
-        )
-        (full_directory / "04_glyph-codepoint-gallery.md").write_text(
-            gallery_text(index, main_row, glyph_rows),
-            encoding="utf-8",
-        )
-        manifest_by_bucket[bucket_dir(index)].append(
-            manifest_row(index, main_row, glyph_rows, directory)
-        )
-        component_map_rows.append(component_map_row(index, main_row, directory))
+            all_visual_rows.extend(visual_rows)
+
+            (full_directory / "README.md").write_text(
+                readme_text(index, main_row, glyph_rows, visual_rows, directory),
+                encoding="utf-8",
+            )
+            (full_directory / "01_candidate-component-packet.json").write_text(
+                json.dumps(
+                    packet_payload(index, main_row, glyph_rows, visual_rows, directory),
+                    ensure_ascii=False,
+                    indent=2,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            write_csv(
+                full_directory / "02_component-source-index.csv",
+                source_index_rows(index, main_row),
+                SOURCE_INDEX_FIELDS,
+            )
+            write_csv(
+                full_directory / "03_glyph-codepoint-index.csv",
+                glyph_index_rows(index, glyph_rows),
+                GLYPH_INDEX_FIELDS,
+            )
+            (full_directory / "04_glyph-codepoint-gallery.md").write_text(
+                gallery_text(index, main_row, glyph_rows),
+                encoding="utf-8",
+            )
+            write_csv(
+                full_directory / "06_component-visual-index.csv",
+                visual_rows,
+                VISUAL_INDEX_FIELDS,
+            )
+            (full_directory / "07_component-visual-gallery.md").write_text(
+                visual_gallery_text(index, visual_rows),
+                encoding="utf-8",
+            )
+            (full_directory / "08_human-visual-review-sheet.md").write_text(
+                visual_review_sheet_text(index, visual_rows),
+                encoding="utf-8",
+            )
+            manifest_by_bucket[bucket_dir(index)].append(
+                manifest_row(index, main_row, glyph_rows, directory)
+            )
+            component_map_rows.append(component_map_row(index, main_row, directory))
+    finally:
+        if archive is not None:
+            archive.close()
 
     for bucket, rows in manifest_by_bucket.items():
         write_csv(root / bucket / "000_obimd-component-candidate-bucket-manifest.csv", rows, MANIFEST_FIELDS)
     write_csv(root / COMPONENT_ID_MAP, component_map_rows, COMPONENT_MAP_FIELDS)
+    non_obimd_asset_map = [
+        row
+        for row in asset_map_rows_existing
+        if row.get("record_type") != "obimd_component_candidate_image"
+    ]
+    non_obimd_asset_source = [
+        row
+        for row in asset_source_rows_existing
+        if row.get("asset_type") != "obimd_component_candidate_image"
+    ]
+    non_obimd_asset_rights = [
+        row
+        for row in asset_rights_rows_existing
+        if row.get("asset_id") not in {visual["asset_id"] for visual in all_visual_rows}
+    ]
+    non_obimd_asset_technical = [
+        row
+        for row in asset_technical_rows_existing
+        if row.get("asset_id") not in {visual["asset_id"] for visual in all_visual_rows}
+    ]
+    write_csv(
+        root / ASSET_ID_MAP,
+        non_obimd_asset_map + [obimd_asset_map_row(row) for row in all_visual_rows],
+        ASSET_MAP_FIELDS,
+    )
+    write_csv(
+        root / ASSET_SOURCE_INDEX,
+        non_obimd_asset_source
+        + [obimd_asset_source_row(row) for row in all_visual_rows],
+        ASSET_SOURCE_FIELDS,
+    )
+    write_csv(
+        root / ASSET_RIGHTS_REVIEW_LOG,
+        non_obimd_asset_rights
+        + [obimd_asset_rights_row(row) for row in all_visual_rows],
+        ASSET_RIGHTS_FIELDS,
+    )
+    write_csv(
+        root / ASSET_TECHNICAL_PROFILE,
+        non_obimd_asset_technical
+        + [
+            obimd_asset_technical_row(index, row)
+            for index, row in enumerate(
+                all_visual_rows,
+                start=len(non_obimd_asset_technical) + 1,
+            )
+        ],
+        ASSET_TECHNICAL_FIELDS,
+    )
     return len(main_rows), len(manifest_by_bucket)
 
 

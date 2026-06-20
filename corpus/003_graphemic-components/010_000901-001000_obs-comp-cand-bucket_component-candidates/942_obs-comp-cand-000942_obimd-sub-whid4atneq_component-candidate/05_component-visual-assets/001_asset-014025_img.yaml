@@ -1,0 +1,17 @@
+asset_id: asset-014025
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000942
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-whid4atneq
+source_zip_member: Sub-character Images/4jtkq6w8f6/whid4atneq/whid4atneq.png
+file_size_bytes: 5381
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 529b4b1344ffce50786f0b4099f921b43c08f5d63406383706667657634de251
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

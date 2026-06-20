@@ -1,0 +1,17 @@
+asset_id: asset-011519
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000107
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-z2y1vsfy32
+source_zip_member: Sub-character Images/z2y1vsfy32/z2y1vsfy32/z2y1vsfy32.png
+file_size_bytes: 5305
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 19c887fd8ab5f1f3e728a6306c0e4a80cef005e7b60b56e6847f728b0e67d6a6
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

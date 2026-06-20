@@ -1,0 +1,17 @@
+asset_id: asset-019611
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002113
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-mbvaikkj2d
+source_zip_member: Sub-character Images/hftl4m18q0/mbvaikkj2d/mbvaikkj2d.png
+file_size_bytes: 2880
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: e44817f1b10b1107c5963ed39093b9f484114f2f1a9044c9a743d2b68c4de93f
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-012268
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000344
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-70yhyiaqrl
+source_zip_member: Sub-character Images/70yhyiaqrl/70yhyiaqrl/70yhyiaqrl.png
+file_size_bytes: 5642
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 19d02d4fab989bda51a7a89af9ede9b9b976758bc5530c46f0a20669d827ae16
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

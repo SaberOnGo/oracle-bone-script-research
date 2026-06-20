@@ -1,0 +1,17 @@
+asset_id: asset-012718
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000482
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-wfew4citrk
+source_zip_member: Sub-character Images/x0wt5y5bs2/wfew4citrk/wfew4citrk.png
+file_size_bytes: 4234
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 5b7d64c855c3e0a70d5da29ac5c22d3004ca4eea97120178229cca7d57866c5d
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

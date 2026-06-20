@@ -1,0 +1,17 @@
+asset_id: asset-020031
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002218
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-h32m5ulkit
+source_zip_member: Sub-character Images/h32m5ulkit/h32m5ulkit/zwxgvgo31u.png
+file_size_bytes: 3310
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: fd9f114c89775ad0e47998076e4a0cd91977658a1ca72e0e6e9fe46029668829
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

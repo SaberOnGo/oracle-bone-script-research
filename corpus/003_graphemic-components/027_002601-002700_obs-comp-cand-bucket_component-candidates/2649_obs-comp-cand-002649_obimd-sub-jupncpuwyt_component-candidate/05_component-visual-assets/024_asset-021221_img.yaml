@@ -1,0 +1,17 @@
+asset_id: asset-021221
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002649
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-jupncpuwyt
+source_zip_member: Sub-character Images/jupncpuwyt/jupncpuwyt/x95uxr7e79.png
+file_size_bytes: 2244
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: a3f7c120de18d49129daf57af3daa2319d176040b1771d03b7386c2e399e7901
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

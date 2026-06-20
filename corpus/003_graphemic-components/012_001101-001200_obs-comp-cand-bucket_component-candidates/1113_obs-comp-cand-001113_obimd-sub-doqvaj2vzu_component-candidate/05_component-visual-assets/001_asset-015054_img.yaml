@@ -1,0 +1,17 @@
+asset_id: asset-015054
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001113
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-doqvaj2vzu
+source_zip_member: Sub-character Images/doqvaj2vzu/doqvaj2vzu/doqvaj2vzu.png
+file_size_bytes: 3307
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 178083c89f148f1eed298f1307d4781fe2ee1bb4b2e90967d2809745ba995b3e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

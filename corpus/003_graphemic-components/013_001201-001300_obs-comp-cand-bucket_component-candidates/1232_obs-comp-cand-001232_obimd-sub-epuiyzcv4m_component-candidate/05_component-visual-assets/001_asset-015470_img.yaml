@@ -1,0 +1,17 @@
+asset_id: asset-015470
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001232
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-epuiyzcv4m
+source_zip_member: Sub-character Images/epuiyzcv4m/epuiyzcv4m/epuiyzcv4m.png
+file_size_bytes: 4765
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 98347ec708732910b5d680eee5001cb90371d3a15c4836caf4720670aeb8e2f2
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

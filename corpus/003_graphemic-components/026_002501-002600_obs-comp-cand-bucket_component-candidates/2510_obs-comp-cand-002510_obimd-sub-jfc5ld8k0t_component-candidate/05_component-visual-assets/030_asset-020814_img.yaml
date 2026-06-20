@@ -1,0 +1,17 @@
+asset_id: asset-020814
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002510
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-jfc5ld8k0t
+source_zip_member: Sub-character Images/jfc5ld8k0t/jfc5ld8k0t/uachof1agl.png
+file_size_bytes: 3053
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: e813f03c7103b5af9f319712060818b2c944611222011d9e79bd5d0dd9327252
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

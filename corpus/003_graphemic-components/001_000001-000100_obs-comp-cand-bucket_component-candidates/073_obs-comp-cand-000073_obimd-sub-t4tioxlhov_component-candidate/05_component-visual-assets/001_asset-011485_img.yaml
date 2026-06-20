@@ -1,0 +1,17 @@
+asset_id: asset-011485
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000073
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-t4tioxlhov
+source_zip_member: Sub-character Images/t4tioxlhov/t4tioxlhov/t4tioxlhov.png
+file_size_bytes: 5165
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 981af5b5b81264928ed6add247caebf216186b79f7c35cbc39468378a728dfe2
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

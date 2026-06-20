@@ -1,0 +1,17 @@
+asset_id: asset-018109
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001818
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-qmspt85dhp
+source_zip_member: Sub-character Images/qmspt85dhp/qmspt85dhp/lpu4urj4ja.png
+file_size_bytes: 4314
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 28f282e5749c8a9143d556b7980d5732c37196d2f0ec25b0f18c12f7e05e8634
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

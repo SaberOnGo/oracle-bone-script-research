@@ -1,0 +1,17 @@
+asset_id: asset-015666
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001329
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-g5rxhh05vn
+source_zip_member: Sub-character Images/g5rxhh05vn/g5rxhh05vn/g5rxhh05vn.png
+file_size_bytes: 4450
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: c3d76d427ac03a3d02a27790217ae3f9de1e38087b47a0d5d873d777a5bac0a1
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

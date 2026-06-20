@@ -1,0 +1,17 @@
+asset_id: asset-014591
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001041
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-umalf001uf
+source_zip_member: Sub-character Images/umalf001uf/umalf001uf/umalf001uf.png
+file_size_bytes: 4080
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 963f9b1d6c31f6b92feb9605d92bb24a87dd38db26db4085520f16ab3445e8f5
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

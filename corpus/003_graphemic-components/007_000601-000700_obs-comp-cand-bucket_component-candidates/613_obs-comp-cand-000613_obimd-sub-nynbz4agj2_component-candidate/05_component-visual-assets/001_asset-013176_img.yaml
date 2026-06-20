@@ -1,0 +1,17 @@
+asset_id: asset-013176
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000613
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-nynbz4agj2
+source_zip_member: Sub-character Images/z403ojus93/nynbz4agj2/nynbz4agj2.png
+file_size_bytes: 2626
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: afa65ccd0b5c6000c7673abe2711187c9e074dd1f854acb4c4f8b84fe46ac80d
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

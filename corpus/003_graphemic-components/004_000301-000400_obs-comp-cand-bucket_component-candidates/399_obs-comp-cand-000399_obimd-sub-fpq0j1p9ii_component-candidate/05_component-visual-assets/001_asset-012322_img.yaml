@@ -1,0 +1,17 @@
+asset_id: asset-012322
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000399
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-fpq0j1p9ii
+source_zip_member: Sub-character Images/fpq0j1p9ii/fpq0j1p9ii/fpq0j1p9ii.png
+file_size_bytes: 4843
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 4a0b9d44cccda4f910a58dab2ea48be4199098daf6ceba441afac469ee874a0a
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

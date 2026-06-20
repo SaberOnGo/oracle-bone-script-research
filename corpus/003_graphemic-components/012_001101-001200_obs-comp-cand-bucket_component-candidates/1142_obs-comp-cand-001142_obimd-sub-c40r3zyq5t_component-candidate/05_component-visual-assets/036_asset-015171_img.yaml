@@ -1,0 +1,17 @@
+asset_id: asset-015171
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001142
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-c40r3zyq5t
+source_zip_member: Sub-character Images/c40r3zyq5t/c40r3zyq5t/ihg7mgzkcb.png
+file_size_bytes: 2316
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: dd28679702a23e3591ccf3b85f9df7d1478a83e41d3c793a1180e3f93fb2e356
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

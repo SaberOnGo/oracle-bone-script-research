@@ -1,0 +1,17 @@
+asset_id: asset-016050
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001473
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-xt31lpxkab
+source_zip_member: Sub-character Images/gqezg03aqo/xt31lpxkab/xt31lpxkab.png
+file_size_bytes: 3189
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 1ebb2e78633cc41842b68855106b61acaf78eb9c5118a2334e271a9a08556d31
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

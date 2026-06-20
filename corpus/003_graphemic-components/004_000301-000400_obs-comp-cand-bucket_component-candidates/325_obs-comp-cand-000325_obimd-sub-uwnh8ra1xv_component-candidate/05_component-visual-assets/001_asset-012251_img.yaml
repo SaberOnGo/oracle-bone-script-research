@@ -1,0 +1,17 @@
+asset_id: asset-012251
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000325
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-uwnh8ra1xv
+source_zip_member: Sub-character Images/vitvodung6/uwnh8ra1xv/uwnh8ra1xv.png
+file_size_bytes: 4268
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 16641ec115fb610db4f2a19d4d2f8542b54913fc5c4d835006a1061bf7348c2e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

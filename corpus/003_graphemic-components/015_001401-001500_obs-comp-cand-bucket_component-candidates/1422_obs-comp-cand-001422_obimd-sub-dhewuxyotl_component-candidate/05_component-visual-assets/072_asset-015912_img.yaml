@@ -1,0 +1,17 @@
+asset_id: asset-015912
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001422
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-dhewuxyotl
+source_zip_member: Sub-character Images/dhewuxyotl/dhewuxyotl/i8xcisc9vs.png
+file_size_bytes: 4412
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: c53b87b11bb9ecb534fd9d5d77f619aacae9651fa15749bae1d48a57681b743e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

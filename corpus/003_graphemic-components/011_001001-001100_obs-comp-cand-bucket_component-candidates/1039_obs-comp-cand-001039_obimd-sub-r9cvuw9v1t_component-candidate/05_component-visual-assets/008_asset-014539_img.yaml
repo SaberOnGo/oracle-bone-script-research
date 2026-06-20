@@ -1,0 +1,17 @@
+asset_id: asset-014539
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001039
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-r9cvuw9v1t
+source_zip_member: Sub-character Images/r9cvuw9v1t/r9cvuw9v1t/7glshlwotn.png
+file_size_bytes: 4174
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 7612577ff6e84b98c926c818864a811df8489e307b96bed3ed7e8f6c8e89316b
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

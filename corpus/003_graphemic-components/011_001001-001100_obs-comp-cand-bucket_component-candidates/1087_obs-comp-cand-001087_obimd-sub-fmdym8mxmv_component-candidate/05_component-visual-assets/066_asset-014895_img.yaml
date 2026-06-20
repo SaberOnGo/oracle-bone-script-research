@@ -1,0 +1,17 @@
+asset_id: asset-014895
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001087
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-fmdym8mxmv
+source_zip_member: Sub-character Images/fmdym8mxmv/fmdym8mxmv/zgnpfmoxq9.png
+file_size_bytes: 3090
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: eec6025fae379e36b1dd85100c8960a71b311348cd9e2cb38c0174445271a699
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

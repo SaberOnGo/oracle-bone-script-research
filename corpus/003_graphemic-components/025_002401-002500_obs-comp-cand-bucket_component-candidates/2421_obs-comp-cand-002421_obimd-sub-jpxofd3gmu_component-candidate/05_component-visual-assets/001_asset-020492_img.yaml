@@ -1,0 +1,17 @@
+asset_id: asset-020492
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002421
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-jpxofd3gmu
+source_zip_member: Sub-character Images/jpxofd3gmu/jpxofd3gmu/jpxofd3gmu.png
+file_size_bytes: 5671
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 33a4d6b9fdf4f4677d06811edf0432135ff8f03d07ebd9f3bb9a3e2e638ff1cd
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-019550
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002101
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-7cerpwngv3
+source_zip_member: Sub-character Images/7cerpwngv3/7cerpwngv3/gpv6wz4zjr.png
+file_size_bytes: 3443
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 8ffa8e09ee70afbfbca95f88d4c3d8577685fc43c362c535df078e88d09e0765
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

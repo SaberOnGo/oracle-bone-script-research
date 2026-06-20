@@ -1,0 +1,17 @@
+asset_id: asset-014041
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000958
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-l79u9elpco
+source_zip_member: Sub-character Images/l79u9elpco/l79u9elpco/l79u9elpco.png
+file_size_bytes: 6041
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 5559d5c5d7d6cacb10608f1ebee4176dc056966d58d20520e5f1e8843f85869c
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

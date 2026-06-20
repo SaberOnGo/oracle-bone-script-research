@@ -1,0 +1,17 @@
+asset_id: asset-017284
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001608
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-kei9slmf3p
+source_zip_member: Sub-character Images/kei9slmf3p/kei9slmf3p/kei9slmf3p.png
+file_size_bytes: 3401
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 106ef4c05c3434ce42e2a4a3d5c331e3b180bf0279db1e465755fad47f183230
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

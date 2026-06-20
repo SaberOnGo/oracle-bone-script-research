@@ -1,0 +1,17 @@
+asset_id: asset-011550
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000138
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-dtu9bl4faf
+source_zip_member: Sub-character Images/dtu9bl4faf/dtu9bl4faf/dtu9bl4faf.png
+file_size_bytes: 3088
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 251ca959e5b097f71467237a9c0cde19a3848713db7d82e113d182f7e24131e4
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

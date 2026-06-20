@@ -1,0 +1,17 @@
+asset_id: asset-012824
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000572
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-mkl3fx9uth
+source_zip_member: Sub-character Images/mkl3fx9uth/mkl3fx9uth/mkl3fx9uth.png
+file_size_bytes: 4668
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 1854b567b226de15d06b32d4d8a3fe5e25c645e57931ce7c4c2adc622dc06f4e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

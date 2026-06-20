@@ -1,0 +1,17 @@
+asset_id: asset-011925
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000283
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-dqfh2sd0is
+source_zip_member: Sub-character Images/g8k12dfmg6/dqfh2sd0is/dqfh2sd0is.png
+file_size_bytes: 5089
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 23e182031ceef913706cd94d9b01575f4849c8cdcf34f3ab5e7502bedadaa291
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-012727
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000491
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-u1n6kelf53
+source_zip_member: Sub-character Images/kfdhplatyr/u1n6kelf53/u1n6kelf53.png
+file_size_bytes: 4767
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: d8c87da1c8b2384ac878d748c310bd8757171bd3f4844c475615a956256c4e5b
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

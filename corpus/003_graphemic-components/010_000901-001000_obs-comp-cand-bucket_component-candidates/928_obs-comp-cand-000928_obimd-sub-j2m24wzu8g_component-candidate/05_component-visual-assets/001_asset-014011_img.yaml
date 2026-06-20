@@ -1,0 +1,17 @@
+asset_id: asset-014011
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000928
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-j2m24wzu8g
+source_zip_member: Sub-character Images/j2m24wzu8g/j2m24wzu8g/j2m24wzu8g.png
+file_size_bytes: 4175
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: d3329afd4e86f5757e94f305bfeaad24c06f17eb18a8face5e3fb0365fe3eea0
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

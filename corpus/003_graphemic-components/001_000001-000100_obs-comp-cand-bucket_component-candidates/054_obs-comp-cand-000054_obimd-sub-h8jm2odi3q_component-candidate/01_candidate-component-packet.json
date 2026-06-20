@@ -44,14 +44,50 @@
       "evidence_download_id": "dl-obimd-subchar-glyph-mapping"
     }
   ],
+  "component_visual_assets": [
+    {
+      "asset_id": "asset-011464",
+      "source_zip_member": "Sub-character Images/pkibwuo4bv/h8jm2odi3q/5h85dol85n.png",
+      "local_asset_path": "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/05_component-visual-assets/001_asset-011464_img.png",
+      "checksum_sha256": "203f92c6bbfd818e219cdf2d32b73ecdb4fbbf262a64667ff138fe1573484b2f",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-011465",
+      "source_zip_member": "Sub-character Images/pkibwuo4bv/h8jm2odi3q/h8jm2odi3q.png",
+      "local_asset_path": "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/05_component-visual-assets/002_asset-011465_img.png",
+      "checksum_sha256": "6fc9777e444b36f6f67f6525cfd65c8c9aa130e4d772d12cad3e8371c40fe5b7",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-011466",
+      "source_zip_member": "Sub-character Images/pkibwuo4bv/h8jm2odi3q/npy2ye6o6e.png",
+      "local_asset_path": "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/05_component-visual-assets/003_asset-011466_img.png",
+      "checksum_sha256": "076f0c7f9116aa4d18ed010a7590a42737add7712cf5aae2ca247f99e6a1835d",
+      "review_status": "needs_human_visual_review"
+    },
+    {
+      "asset_id": "asset-011467",
+      "source_zip_member": "Sub-character Images/pkibwuo4bv/h8jm2odi3q/tt6bc1zglc.png",
+      "local_asset_path": "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/05_component-visual-assets/004_asset-011467_img.png",
+      "checksum_sha256": "a002567ab00be031c593a39bd54d0d13d7331f1bef04a8ab6fc714f5cd2f1d57",
+      "review_status": "needs_human_visual_review"
+    }
+  ],
   "route_files": [
     "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
     "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
     "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv",
+    "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv",
+    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv",
     "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
     "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/02_component-source-index.csv",
     "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/03_glyph-codepoint-index.csv",
-    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/04_glyph-codepoint-gallery.md"
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/04_glyph-codepoint-gallery.md",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/06_component-visual-index.csv",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/07_component-visual-gallery.md",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/054_obs-comp-cand-000054_obimd-sub-h8jm2odi3q_component-candidate/08_human-visual-review-sheet.md"
   ],
   "rights_status": "licensed_for_repository",
   "object_status": "dataset_candidate_not_promoted",

@@ -1,0 +1,17 @@
+asset_id: asset-017311
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001635
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-g3hpga6qu2
+source_zip_member: Sub-character Images/g3hpga6qu2/g3hpga6qu2/g3hpga6qu2.png
+file_size_bytes: 4690
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 993f19dbb4fc887557dd2b7d8dd9b4a12bf448918ee93a0f7405f99e5dffaa78
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

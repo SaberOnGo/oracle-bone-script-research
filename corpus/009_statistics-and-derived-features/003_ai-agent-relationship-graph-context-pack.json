@@ -13,20 +13,21 @@
   ],
   "context_pack_id": "ai-context-relationship-graph-001",
   "coverage": {
-    "edge_type_count": 24,
-    "graph_file_count": 6,
+    "edge_type_count": 25,
+    "graph_file_count": 7,
     "graph_files": [
       "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
       "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
       "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
       "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
       "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
-      "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
+      "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl",
+      "corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"
     ],
-    "node_count": 91234,
+    "node_count": 101598,
     "source_count": 4,
     "top_node_limit": 20,
-    "total_edge_count": 117138
+    "total_edge_count": 127502
   },
   "generated_from": [
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv",
@@ -183,7 +184,7 @@
       "source_id": "src-hust-obc"
     },
     {
-      "edge_count": 44492,
+      "edge_count": 54856,
       "edge_types": [
         {
           "edge_count": 15,
@@ -204,6 +205,12 @@
           "unique_target_node_count": 22
         },
         {
+          "edge_count": 10364,
+          "edge_type": "COMPONENT_CANDIDATE_HAS_LOCAL_IMAGE_ASSET",
+          "unique_source_node_count": 2719,
+          "unique_target_node_count": 10364
+        },
+        {
           "edge_count": 41686,
           "edge_type": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT",
           "unique_source_node_count": 2747,
@@ -218,7 +225,8 @@
       ],
       "graph_files": [
         "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-        "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
+        "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl",
+        "corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"
       ],
       "label": "OBIMD component and glyph metadata",
       "source_id": "src-obimd"
@@ -369,6 +377,26 @@
       "total_degree": 1078
     },
     {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl;corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obs-comp-cand-001527",
+      "out_degree": 905,
+      "outgoing_edge_type_counts": "COMPONENT_CANDIDATE_HAS_LOCAL_IMAGE_ASSET:452;OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:452;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 905
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl;corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obs-comp-cand-001929",
+      "out_degree": 755,
+      "outgoing_edge_type_counts": "COMPONENT_CANDIDATE_HAS_LOCAL_IMAGE_ASSET:377;OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:377;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 755
+    },
+    {
       "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
       "in_degree": 612,
       "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_DOWNLOAD_RECORD:612",
@@ -389,44 +417,24 @@
       "total_degree": 612
     },
     {
-      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-      "in_degree": 0,
-      "incoming_edge_type_counts": "",
-      "node_id": "obs-comp-cand-001527",
-      "out_degree": 453,
-      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:452;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
-      "source_ids": "src-obimd",
-      "total_degree": 453
-    },
-    {
-      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
-      "in_degree": 0,
-      "incoming_edge_type_counts": "",
-      "node_id": "obs-comp-cand-001929",
-      "out_degree": 378,
-      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:377;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
-      "source_ids": "src-obimd",
-      "total_degree": 378
-    },
-    {
-      "graph_files": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
-      "in_degree": 291,
-      "incoming_edge_type_counts": "HAS_CAMBRIDGE_HOPKINS_PERIOD_LABEL:291",
-      "node_id": "cam-hopkins-period-i",
-      "out_degree": 0,
-      "outgoing_edge_type_counts": "",
-      "source_ids": "src-cambridge-hopkins",
-      "total_degree": 291
-    },
-    {
-      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl;corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",
       "in_degree": 0,
       "incoming_edge_type_counts": "",
       "node_id": "obs-comp-cand-000574",
-      "out_degree": 278,
-      "outgoing_edge_type_counts": "OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:277;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "out_degree": 555,
+      "outgoing_edge_type_counts": "COMPONENT_CANDIDATE_HAS_LOCAL_IMAGE_ASSET:277;OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:277;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
       "source_ids": "src-obimd",
-      "total_degree": 278
+      "total_degree": 555
+    },
+    {
+      "graph_files": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl;corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",
+      "in_degree": 0,
+      "incoming_edge_type_counts": "",
+      "node_id": "obs-comp-cand-000451",
+      "out_degree": 453,
+      "outgoing_edge_type_counts": "COMPONENT_CANDIDATE_HAS_LOCAL_IMAGE_ASSET:226;OBIMD_SUBCHARACTER_HAS_GLYPH_CODEPOINT:226;OBIMD_SUBCHARACTER_OF_MAIN_CHARACTER:1",
+      "source_ids": "src-obimd",
+      "total_degree": 453
     }
   ],
   "updated_at": "2026-06-04"

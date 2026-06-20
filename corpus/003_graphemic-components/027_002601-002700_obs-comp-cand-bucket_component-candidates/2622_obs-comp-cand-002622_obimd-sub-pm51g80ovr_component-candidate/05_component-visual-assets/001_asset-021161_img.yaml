@@ -1,0 +1,17 @@
+asset_id: asset-021161
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002622
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-pm51g80ovr
+source_zip_member: Sub-character Images/zqamwvhq33/pm51g80ovr/pm51g80ovr.png
+file_size_bytes: 3412
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 9804d6c527e767384eaa5aa4a2931702a0bb646d739a858250d5224f870c2eec
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

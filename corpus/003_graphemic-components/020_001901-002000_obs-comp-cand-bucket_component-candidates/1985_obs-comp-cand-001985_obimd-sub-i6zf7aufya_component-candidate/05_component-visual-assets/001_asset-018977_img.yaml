@@ -1,0 +1,17 @@
+asset_id: asset-018977
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001985
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-i6zf7aufya
+source_zip_member: Sub-character Images/qe26dg343r/i6zf7aufya/i6zf7aufya.png
+file_size_bytes: 3156
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ac3869ae25cf6ab5a1e44f8c239fe023158414d2b1bb6703dcd99a3901be543a
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

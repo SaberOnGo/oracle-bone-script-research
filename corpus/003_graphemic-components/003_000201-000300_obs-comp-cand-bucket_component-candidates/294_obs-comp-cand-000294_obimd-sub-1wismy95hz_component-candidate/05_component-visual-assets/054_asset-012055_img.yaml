@@ -1,0 +1,17 @@
+asset_id: asset-012055
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000294
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-1wismy95hz
+source_zip_member: Sub-character Images/1wismy95hz/1wismy95hz/wb5upony6z.png
+file_size_bytes: 4283
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 575accd94862712662b142dce5cf4c48256631c5ebb0a4ca7b24bb32a26b7665
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

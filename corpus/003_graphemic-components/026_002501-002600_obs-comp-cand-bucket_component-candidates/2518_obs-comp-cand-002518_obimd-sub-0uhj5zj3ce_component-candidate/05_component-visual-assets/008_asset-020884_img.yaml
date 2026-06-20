@@ -1,0 +1,17 @@
+asset_id: asset-020884
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002518
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-0uhj5zj3ce
+source_zip_member: Sub-character Images/0uhj5zj3ce/0uhj5zj3ce/6gri3sekyr.png
+file_size_bytes: 2739
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 25a8b3843575c7fcba1b5f05af646c8e6e8f4f1d338a41fbf799240b5ac730f9
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

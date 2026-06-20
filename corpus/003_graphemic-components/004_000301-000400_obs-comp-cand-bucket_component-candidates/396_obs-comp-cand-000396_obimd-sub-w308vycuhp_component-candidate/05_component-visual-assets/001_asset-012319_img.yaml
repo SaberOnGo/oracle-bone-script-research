@@ -1,0 +1,17 @@
+asset_id: asset-012319
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000396
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-w308vycuhp
+source_zip_member: Sub-character Images/w308vycuhp/w308vycuhp/w308vycuhp.png
+file_size_bytes: 5378
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: fb4f245776b7d93d22c882f3ee26fdf8fb5bbb09bb9d35cbbc329a5cae9d8102
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-020467
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002396
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-851hgfii12
+source_zip_member: Sub-character Images/ebp3zxjwi7/851hgfii12/851hgfii12.png
+file_size_bytes: 3615
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 70630c4a3441ab82f60bf2a3c8b6d412711fe892f5e0f6a4a1a3e0e1d81c9df2
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

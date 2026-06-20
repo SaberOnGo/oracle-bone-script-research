@@ -1,0 +1,17 @@
+asset_id: asset-015480
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001242
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-enzftgdap4
+source_zip_member: Sub-character Images/cdwgyw3kul/enzftgdap4/enzftgdap4.png
+file_size_bytes: 3233
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: a8415e58e29d2a9ad5770407e1a10113718f4e1adcfd0515ba2dca6f1931ff21
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-020938
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002524
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-jjm889wxay
+source_zip_member: Sub-character Images/jjm889wxay/jjm889wxay/el75pwkdj2.png
+file_size_bytes: 2277
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ee09277cf0f0295e45833d8c9ef9f2c0539ba286fd5184695df69b597d63692a
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

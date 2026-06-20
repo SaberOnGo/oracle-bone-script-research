@@ -1,0 +1,17 @@
+asset_id: asset-012798
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000552
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-ghaj284ctb
+source_zip_member: Sub-character Images/ghaj284ctb/ghaj284ctb/p31gxfg16f.png
+file_size_bytes: 5269
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 85de21c76fac5de7484860313365c3ffd1a68076599deb6a497d80293d908702
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

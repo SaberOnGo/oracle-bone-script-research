@@ -1,0 +1,17 @@
+asset_id: asset-011999
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000291
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-rkegfad4bl
+source_zip_member: Sub-character Images/rkegfad4bl/rkegfad4bl/rkegfad4bl.png
+file_size_bytes: 4760
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: bf282043332f735a9e9595f9bf70dc2b08761bc7d131efd953e2a1faf4da1ffd
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-016963
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001549
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-brine1xfcu
+source_zip_member: Sub-character Images/6hyn7a9bnx/brine1xfcu/brine1xfcu.png
+file_size_bytes: 3820
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 46157a92b7169107fe776dbe2c1227cb30587e46b47da1ad7a4e64a2a7f53e37
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-012823
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000571
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-kzzehs3b2j
+source_zip_member: Sub-character Images/kzzehs3b2j/kzzehs3b2j/kzzehs3b2j.png
+file_size_bytes: 4307
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 246991e4d08f4d10051eb88e72b68e1a95b073780902bf40e77bdfbb1fa8f96b
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

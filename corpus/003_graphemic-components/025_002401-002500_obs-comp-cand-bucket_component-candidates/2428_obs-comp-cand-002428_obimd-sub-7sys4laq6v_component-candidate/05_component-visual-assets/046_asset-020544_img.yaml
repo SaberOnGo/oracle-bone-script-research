@@ -1,0 +1,17 @@
+asset_id: asset-020544
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-002428
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-7sys4laq6v
+source_zip_member: Sub-character Images/7sys4laq6v/7sys4laq6v/st2wmrmkfc.png
+file_size_bytes: 3871
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 17761108ff81b7da2d4c9550e3486ba410c00b7f85670f122a041ddbe64c991e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-011110
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000015
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-no4gdlajf6
+source_zip_member: Sub-character Images/no4gdlajf6/no4gdlajf6/6onshtjigr.png
+file_size_bytes: 4057
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: f3b81101d275ef2270812dc6ca1a1fddd3f27b6dfe5adba5b87a47b672e74da9
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

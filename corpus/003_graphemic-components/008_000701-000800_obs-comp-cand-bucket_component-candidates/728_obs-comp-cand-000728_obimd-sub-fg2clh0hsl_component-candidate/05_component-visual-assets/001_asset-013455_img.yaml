@@ -1,0 +1,17 @@
+asset_id: asset-013455
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000728
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-fg2clh0hsl
+source_zip_member: Sub-character Images/fg2clh0hsl/fg2clh0hsl/fg2clh0hsl.png
+file_size_bytes: 3393
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 4576120075117d2818912d436e32af4e6724d5a8ea80e490446e948f55116e4e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

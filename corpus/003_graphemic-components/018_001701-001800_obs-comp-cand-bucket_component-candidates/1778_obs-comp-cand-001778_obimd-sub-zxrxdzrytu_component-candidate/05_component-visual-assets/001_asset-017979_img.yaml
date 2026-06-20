@@ -1,0 +1,17 @@
+asset_id: asset-017979
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001778
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-zxrxdzrytu
+source_zip_member: Sub-character Images/zxrxdzrytu/zxrxdzrytu/2rosze4pmd.png
+file_size_bytes: 3792
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ea66006758554cdaf03b177bbd5308485b2c06df93c875fa803f4801ffb0748c
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

@@ -1,0 +1,17 @@
+asset_id: asset-015507
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001269
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-wxd3235odg
+source_zip_member: Sub-character Images/frmptf4le7/wxd3235odg/wxd3235odg.png
+file_size_bytes: 4671
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: ea587cbef4c06769d326e823e5a2917d694aed31ba216114eec315887d5ecb0e
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

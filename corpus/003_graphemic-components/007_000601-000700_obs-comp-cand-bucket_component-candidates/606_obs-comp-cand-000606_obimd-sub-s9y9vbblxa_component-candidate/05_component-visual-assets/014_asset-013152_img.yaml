@@ -1,0 +1,17 @@
+asset_id: asset-013152
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000606
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-s9y9vbblxa
+source_zip_member: Sub-character Images/s9y9vbblxa/s9y9vbblxa/sssev3958r.png
+file_size_bytes: 3316
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 2620e26a4db817c102d5ac537d4131fb3ad4d2e60d81e706bcf859c3f4ceb499
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

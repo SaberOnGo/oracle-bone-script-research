@@ -1,0 +1,17 @@
+asset_id: asset-014997
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-001099
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-xlscyddubk
+source_zip_member: Sub-character Images/xlscyddubk/xlscyddubk/u4jnm5klkr.png
+file_size_bytes: 4034
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 7b44b0e592aad2a7979d12e3ed1ebb525ff825bc8f0ae8eafc64bd7800ca12f4
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

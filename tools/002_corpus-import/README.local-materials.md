@@ -35,10 +35,10 @@ Simplified Chinese:
 HUST-OBC 对象内资料批次覆盖 1,588 个已提升候选字目录和全部 9,408 个未释字候选目录。每个具体对象目录现在都把 AI packet、README、图像/来源索引、图像图库、人工复核表和带来源标记的小型本地复核图像放在同一个 `corpus/001_oracle-characters/` 对象路径内。
 
 English:
-The OBIMD component batch covers all 2,747 OBIMD subcharacter candidates. Each `obs-comp-cand-*` directory contains a README, candidate packet, source index, glyph-codepoint index, and glyph-codepoint gallery. These are review candidates only, not confirmed components or component assignments.
+The OBIMD component batch covers all 2,747 OBIMD subcharacter candidates and 10,364 object-local PNG review assets extracted from the registered `Sub-character Images.zip` source package. Each `obs-comp-cand-*` directory contains a README, candidate packet, source index, glyph-codepoint index, glyph-codepoint gallery, local component image assets, visual index, visual gallery, and human visual review sheet. These are review candidates only, not confirmed components or component assignments.
 
 Simplified Chinese:
-OBIMD 构件批次覆盖 2,747 个 OBIMD subcharacter 候选。每个 `obs-comp-cand-*` 目录包含 README、候选 packet、来源索引、glyph-codepoint 索引和 glyph-codepoint 页面。这些只是待复核候选，不是已确认构件或构件拆分结论。
+OBIMD 构件批次覆盖全部 2,747 个 OBIMD subcharacter 候选，以及从已登记 `Sub-character Images.zip` 来源包抽取的 10,364 个对象内 PNG 复核资产。每个 `obs-comp-cand-*` 目录包含 README、候选 packet、来源索引、glyph-codepoint 索引、glyph-codepoint gallery、本地构件图像资产、视觉索引、视觉 gallery 和人工视觉复核表。这些只是不作结论的待复核候选，不是已确认构件或构件归属。
 
 English:
 The Cambridge/Hopkins inscription crosswalk batch covers all 612 catalog crosswalk candidates. Each `obs-insc-cw-cand-*` directory contains a README, candidate packet, crosswalk source index, catalog-reference index, and human review sheet. These are catalog-review candidates only, not formal `obi-*` inscription records, object identity claims, transcriptions, readings, or decipherment conclusions.

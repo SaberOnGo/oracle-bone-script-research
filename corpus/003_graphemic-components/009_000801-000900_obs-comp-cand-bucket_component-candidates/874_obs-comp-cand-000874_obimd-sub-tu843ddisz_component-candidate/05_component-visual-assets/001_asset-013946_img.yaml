@@ -1,0 +1,17 @@
+asset_id: asset-013946
+asset_type: obimd_component_candidate_image
+candidate_component_id: obs-comp-cand-000874
+source_id: src-obimd
+evidence_download_id: dl-obimd-subcharacter-images
+subcharacter_external_ref_id: obimd-sub-tu843ddisz
+source_zip_member: Sub-character Images/o6m37o3l7o/tu843ddisz/tu843ddisz.png
+file_size_bytes: 3514
+image_format: PNG
+pixel_width: 250
+pixel_height: 250
+color_mode: L
+checksum_sha256: 4fabc346625be625db4504b2ef795215d110153f03dac9764cc001e740fcd121
+rights_status: licensed_for_repository
+review_status: needs_human_visual_review
+updated_at: 2026-06-20
+caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.

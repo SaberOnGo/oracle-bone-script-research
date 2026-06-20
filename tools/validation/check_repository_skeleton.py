@@ -4500,6 +4500,8 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_plan_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows:5",
+            "object_local_material_coverage_audit_rows:28166",
+            "object_local_material_coverage_summary_files:1",
         ],
         "formal_project_id_maps": [
             "candidate_inscription_crosswalk_map_rows:612",
@@ -7437,7 +7439,7 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         "research_sources_and_bibliography": {
             "downloaded_status": "mixed_or_partial",
             "source_pipeline_evidence_rows": "1043",
-            "review_queue_count": "1235",
+            "review_queue_count": "1060",
             "claim_boundary": "core_corpus_phase_coverage_not_review_outcome_not_scholarship",
         },
         "relationship_graph_and_statistics": {
@@ -7458,6 +7460,13 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
 
     for row in rows:
         area = row.get("corpus_area", "")
+        if area == "relationship_graph_and_statistics":
+            for expected_path in [
+                "188_object-local-material-coverage-audit.csv",
+                "189_object-local-material-coverage-summary.json",
+            ]:
+                if expected_path not in row.get("phase_evidence_paths", ""):
+                    issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} {area} missing {expected_path}")
         for field, expected_value in {
             "rights_decision_status": "no_new_rights_decision",
             "source_promotion_status": "not_promoted",

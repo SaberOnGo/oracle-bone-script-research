@@ -271,6 +271,8 @@ SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_PLAN = (
 SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST = (
     STAT_DIR / "185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv"
 )
+OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = STAT_DIR / "188_object-local-material-coverage-audit.csv"
+OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = STAT_DIR / "189_object-local-material-coverage-summary.json"
 
 
 def repo_root() -> Path:
@@ -999,6 +1001,8 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary_files": count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTES_SUMMARY),
                 "source_pipeline_missing_evidence_outcome_routes_assignment_plan_files": count_existing_file(root, SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_PLAN),
                 "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows": count_csv(root, SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST),
+                "object_local_material_coverage_audit_rows": count_csv(root, OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT),
+                "object_local_material_coverage_summary_files": count_existing_file(root, OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY),
             },
             "doc/public/user_research/",
             "pending_human_review",

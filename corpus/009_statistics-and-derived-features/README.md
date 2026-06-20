@@ -6,10 +6,12 @@ Current generated statistics:
 
 - `188_object-local-material-coverage-audit.csv`: repository-wide object-local material coverage audit for concrete character, component, evolution, inscription-crosswalk, collection-object, source-object, and topic-candidate directories. It records human-readable files, AI-readable packets/indexes, local review images, route galleries, source material access indexes, missing object-local files, and parallel-directory checks without promoting any record into scholarship.
 - `189_object-local-material-coverage-summary.json`: compact summary for 188, including corpus-area counts, image-bearing object counts, route-gallery object counts, metadata-only object counts, and the no-parallel-human-directory boundary.
+- `090_preprocessing-status-audit.csv` counts 188/189 under the review-queue/source-engineering status row, and `135_core-corpus-phase-coverage-matrix.csv` links them from the relationship-graph/statistics evidence paths. These links are preprocessing evidence only, not reviewed scholarship.
 
 简体中文补充：
 - `188_object-local-material-coverage-audit.csv`：面向全仓库具体对象目录的对象内资料覆盖审计，覆盖甲骨字、构件、演化、卜辞 crosswalk、馆藏对象、来源对象和研究主题候选目录。它记录人类可读文件、AI 可读 packet/index、本地复核图片、路线图、来源资料访问索引、缺失对象内文件和并行目录检查，不把任何记录提升为学术结论。
 - `189_object-local-material-coverage-summary.json`：188 的摘要，包含各 corpus 区域对象数、有图片对象数、有路线图对象数、metadata-only 对象数，以及“不另建并行人类目录”的边界。
+- `090_preprocessing-status-audit.csv` 会在复核队列/来源工程状态行中统计 188/189，`135_core-corpus-phase-coverage-matrix.csv` 会从关系图/派生统计证据路径链接它们。这些链接只属于预处理证据，不是已复核学术结论。
 
 - `133_ai-agent-source-pipeline-gap-review-checklist.csv`: not-started per-source checklist derived from 132, listing existing route files and required source-engineering review steps for every registered source while keeping evidence, rights, source promotion, corpus import, and decipherment outcomes empty.
 

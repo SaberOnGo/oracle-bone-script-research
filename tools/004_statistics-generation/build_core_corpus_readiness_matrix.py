@@ -1046,7 +1046,7 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             count_csv(root, "corpus/009_statistics-and-derived-features/012_ai-agent-graph-source-cross-review-queue.csv"),
             "corpus/008_relationship-graph/",
             "corpus/009_statistics-and-derived-features/012_ai-agent-graph-source-cross-review-queue.csv",
-            "review_graph_edges_as_candidate_routing_edges_before_any_semantic_promotion",
+            "review_graph_edges_and_object_local_material_coverage_before_any_semantic_promotion",
         ),
         make_row(
             "core-ready-010",

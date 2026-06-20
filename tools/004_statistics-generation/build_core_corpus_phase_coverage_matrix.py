@@ -170,7 +170,13 @@ SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_PLAN = Path(
 SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST = Path(
     "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv"
 )
-UPDATED_AT = "2026-06-19"
+OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
+    "corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv"
+)
+OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = Path(
+    "corpus/009_statistics-and-derived-features/189_object-local-material-coverage-summary.json"
+)
+UPDATED_AT = "2026-06-20"
 CLAIM_BOUNDARY = "core_corpus_phase_coverage_not_review_outcome_not_scholarship"
 CAUTION = (
     "Core corpus preprocessing phase coverage only; statuses summarize existing engineering "
@@ -411,6 +417,9 @@ def phase_evidence_paths(area: str, readiness: dict[str, str], audit: dict[str, 
         paths.append(SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_OUTCOME_WAVE_HANDOFF_ASSIGNMENT_OUTCOME_SOURCE_HANDOFF_OUTCOME_CHECKLIST_OUTCOME_ROUTES_SUMMARY.as_posix())
         paths.append(SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_PLAN.as_posix())
         paths.append(SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST.as_posix())
+    if area == "relationship_graph_and_statistics":
+        paths.append(OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT.as_posix())
+        paths.append(OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY.as_posix())
     unique_paths = []
     for path in paths:
         if path and path not in unique_paths:

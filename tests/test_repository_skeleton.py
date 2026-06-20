@@ -13798,6 +13798,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
+            "object_local_material_coverage_audit_rows:28166",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
+            "object_local_material_coverage_summary_files:1",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
             "source_engineering_second_wave_outcome_route_pack_files:1",
             by_type["review_queues"]["count_summary"],
         )
@@ -19108,6 +19116,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv", by_area["research_sources_and_bibliography"]["phase_evidence_paths"])
         self.assertEqual(by_area["relationship_graph_and_statistics"]["linked_status"], "present")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["verified_status"], "present")
+        self.assertIn("188_object-local-material-coverage-audit.csv", by_area["relationship_graph_and_statistics"]["phase_evidence_paths"])
+        self.assertIn("189_object-local-material-coverage-summary.json", by_area["relationship_graph_and_statistics"]["phase_evidence_paths"])
         self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
         self.assertTrue(all("preprocessing phase coverage only" in row["caution"] for row in rows))
 

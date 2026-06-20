@@ -197,7 +197,7 @@
       "review_priority": "targeted_review",
       "primary_entry_path": "corpus/008_relationship-graph/",
       "review_queue_path": "corpus/009_statistics-and-derived-features/012_ai-agent-graph-source-cross-review-queue.csv",
-      "next_action": "review_graph_edges_as_candidate_routing_edges_before_any_semantic_promotion",
+      "next_action": "review_graph_edges_and_object_local_material_coverage_before_any_semantic_promotion",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
       "updated_at": "2026-06-20"

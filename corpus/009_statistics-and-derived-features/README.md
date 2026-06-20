@@ -313,11 +313,16 @@ English supplement:
 - `136_source-pipeline-phase-coverage-matrix.csv` 是基于 134 生成的 21 行逐来源阶段矩阵。它记录每个来源的已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态、缺失或待复核阶段以及下一步复核步骤，不改变来源提升或权利裁定。
 
 English supplement:
-- `137_source-pipeline-phase-action-queue.csv` expands the 136 source phase matrix into 77 pending human-review actions. It is a preprocessing queue only: no evidence is collected, no rights decision is made, no source is promoted, no corpus records are imported, and no decipherment claim is made.
-- `138_source-pipeline-phase-action-result-scaffold.csv` is the empty result scaffold for the 77 rows in 137. It provides reviewed-outcome placeholders only and keeps evidence collection, rights decisions, source promotion, corpus import, and decipherment claims unset.
-- `139_source-pipeline-phase-action-route-summary.json` is a routing-only summary for the 77 empty result scaffold rows in 138. It groups routes by source, phase, and review lane, but does not record reviewed outcomes or promote any source.
+- `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` expose per-source counts for current source-phase action rows, missing-evidence action rows, and missing-evidence assignment checklist coverage. These are routing counts only; they do not record reviewed outcomes.
+- `137_source-pipeline-phase-action-queue.csv` expands the 136 source phase matrix into 62 pending human-review actions. It is a preprocessing queue only: no evidence is collected, no rights decision is made, no source is promoted, no corpus records are imported, and no decipherment claim is made.
+- `138_source-pipeline-phase-action-result-scaffold.csv` is the empty result scaffold for the 62 rows in 137. It provides reviewed-outcome placeholders only and keeps evidence collection, rights decisions, source promotion, corpus import, and decipherment claims unset.
+- `139_source-pipeline-phase-action-route-summary.json` is a routing-only summary for the 62 empty result scaffold rows in 138. It groups routes by source, phase, and review lane, but does not record reviewed outcomes or promote any source.
 
 简体中文补充：
-- `137_source-pipeline-phase-action-queue.csv` 把 136 来源阶段矩阵展开为 77 行待人工复核动作。它只属于预处理队列：不采集证据、不作权利裁定、不提升来源、不导入语料，也不提出释读结论。
-- `138_source-pipeline-phase-action-result-scaffold.csv` 是 137 中 77 行动作的空结果脚手架。它只提供复核 outcome 占位字段，证据采集、权利裁定、来源提升、语料导入和释读结论均保持未填写。
-- `139_source-pipeline-phase-action-route-summary.json` 是 138 中 77 行空结果脚手架的路线汇总。它按来源、阶段和复核 lane 分组，仅用于导航，不记录已复核 outcome，也不提升任何来源。
+- `094_source-processing-pipeline-audit.csv` 和 `095_source-processing-pipeline-summary.json` 会公开每个来源当前的来源阶段行动行、缺失证据行动行和缺失证据 assignment checklist 覆盖数。这些只是预处理路线统计，不记录已复核 outcome。
+- `137_source-pipeline-phase-action-queue.csv` 将 136 来源阶段矩阵展开为 62 条待人工复核行动。它只是预处理队列，不采集证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
+
+简体中文补充：
+- `137_source-pipeline-phase-action-queue.csv` 把 136 来源阶段矩阵展开为 62 行待人工复核动作。它只属于预处理队列：不采集证据、不作权利裁定、不提升来源、不导入语料，也不提出释读结论。
+- `138_source-pipeline-phase-action-result-scaffold.csv` 是 137 中 62 行动作的空结果脚手架。它只提供复核 outcome 占位字段，证据采集、权利裁定、来源提升、语料导入和释读结论均保持未填写。
+- `139_source-pipeline-phase-action-route-summary.json` 是 138 中 62 行空结果脚手架的路线汇总。它按来源、阶段和复核 lane 分组，仅用于导航，不记录已复核 outcome，也不提升任何来源。

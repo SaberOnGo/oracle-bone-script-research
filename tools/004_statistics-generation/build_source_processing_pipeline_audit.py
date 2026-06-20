@@ -18,7 +18,7 @@ from pathlib import Path
 
 OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/094_source-processing-pipeline-audit.csv")
 OUTPUT_JSON = Path("corpus/009_statistics-and-derived-features/095_source-processing-pipeline-summary.json")
-UPDATED_AT = "2026-06-19"
+UPDATED_AT = "2026-06-20"
 CAUTION = (
     "Source processing pipeline audit only; derived counts and graph links are "
     "provenance and routing infrastructure, not decipherment or identity claims."
@@ -42,6 +42,15 @@ HUST_PROMOTION_QUEUE = Path("corpus/001_oracle-characters/000_character-register
 UNDECIPHERED_INDEX = Path("corpus/001_oracle-characters/000_character-registers/003_undeciphered-oracle-characters-index.csv")
 HUST_CODEPOINT_CROSSWALK = Path("corpus/001_oracle-characters/000_character-registers/011_hust-obimd-evobc-codepoint-crosswalk-staging.csv")
 SOURCE_ROUTE_REVIEW_QUEUE = Path("corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv")
+SOURCE_PIPELINE_PHASE_ACTION_QUEUE = Path(
+    "corpus/009_statistics-and-derived-features/137_source-pipeline-phase-action-queue.csv"
+)
+SOURCE_PIPELINE_MISSING_EVIDENCE_ACTION_QUEUE = Path(
+    "corpus/009_statistics-and-derived-features/144_source-pipeline-phase-action-missing-evidence-action-queue.csv"
+)
+SOURCE_PIPELINE_MISSING_EVIDENCE_ASSIGNMENT_CHECKLIST = Path(
+    "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv"
+)
 GRAPH_EDGE_FILES = [
     Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"),
@@ -71,6 +80,14 @@ def split_values(value: str) -> list[str]:
 
 def count_by_field(rows: list[dict[str, str]], field: str) -> Counter[str]:
     return Counter(row.get(field, "") for row in rows if row.get(field, ""))
+
+
+def count_semicolon_field(rows: list[dict[str, str]], field: str) -> Counter[str]:
+    counts: Counter[str] = Counter()
+    for row in rows:
+        for value in split_values(row.get(field, "")):
+            counts[value] += 1
+    return counts
 
 
 def count_assets_by_source(asset_rows: list[dict[str, str]]) -> Counter[str]:
@@ -177,6 +194,9 @@ def build_pipeline_rows(root: Path) -> list[dict[str, str]]:
     undeciphered_rows = read_csv_rows(root / UNDECIPHERED_INDEX)
     codepoint_rows = read_csv_rows(root / HUST_CODEPOINT_CROSSWALK)
     route_review_rows = read_csv_rows(root / SOURCE_ROUTE_REVIEW_QUEUE)
+    phase_action_rows = read_csv_rows(root / SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
+    missing_evidence_action_rows = read_csv_rows(root / SOURCE_PIPELINE_MISSING_EVIDENCE_ACTION_QUEUE)
+    missing_evidence_assignment_rows = read_csv_rows(root / SOURCE_PIPELINE_MISSING_EVIDENCE_ASSIGNMENT_CHECKLIST)
 
     manifest_counts = count_by_field(manifest_rows, "source_id")
     field_map_counts = count_by_field(field_map_rows, "source_id")
@@ -194,6 +214,9 @@ def build_pipeline_rows(root: Path) -> list[dict[str, str]]:
     asset_counts = count_assets_by_source(asset_rows)
     graph_counts = graph_counts_by_source(root)
     route_review_counts = count_by_field(route_review_rows, "source_id")
+    phase_action_counts = count_by_field(phase_action_rows, "source_id")
+    missing_evidence_action_counts = count_by_field(missing_evidence_action_rows, "source_id")
+    missing_evidence_assignment_counts = count_semicolon_field(missing_evidence_assignment_rows, "source_ids")
 
     download_rows_by_source: dict[str, list[dict[str, str]]] = {}
     for row in download_log_rows:
@@ -245,6 +268,9 @@ def build_pipeline_rows(root: Path) -> list[dict[str, str]]:
             "cross_source_crosswalk_match_count": str(crosswalk_match_counts[source_id]),
             "graph_edge_count": str(graph_counts[source_id]),
             "source_route_review_queue_count": str(route_review_counts[source_id]),
+            "source_phase_action_count": str(phase_action_counts[source_id]),
+            "missing_evidence_action_count": str(missing_evidence_action_counts[source_id]),
+            "missing_evidence_assignment_count": str(missing_evidence_assignment_counts[source_id]),
             "download_status_counts": compact_counter(Counter(row.get("status", "") for row in source_download_rows)),
             "current_stage": current_stage,
             "next_entry_path": "corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv",
@@ -279,6 +305,9 @@ def build_summary(rows: list[dict[str, str]]) -> dict[str, object]:
             "cross_source_crosswalk_match_count",
             "graph_edge_count",
             "source_route_review_queue_count",
+            "source_phase_action_count",
+            "missing_evidence_action_count",
+            "missing_evidence_assignment_count",
         ]:
             totals[field] += int(row[field])
     return {

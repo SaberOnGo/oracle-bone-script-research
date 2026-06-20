@@ -4784,7 +4784,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} source_count should be 21")
     if summary.get("audit_csv_path") != SOURCE_PROCESSING_PIPELINE_AUDIT:
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} audit_csv_path changed")
-    if summary.get("updated_at") != "2026-06-19":
+    if summary.get("updated_at") != "2026-06-20":
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} updated_at changed")
     if "audits source-level preprocessing only" not in summary.get("completion_boundary", ""):
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} completion boundary changed")
@@ -4815,8 +4815,11 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "graph_edge_count": 117138,
         "large_source_register_count": 18,
         "metadata_profile_count": 62,
+        "missing_evidence_action_count": 32,
+        "missing_evidence_assignment_count": 18,
         "package_manifest_count": 36,
         "size_recorded_count": 48,
+        "source_phase_action_count": 62,
         "source_route_review_queue_count": 21,
     }
     if summary.get("totals") != expected_totals:
@@ -4830,6 +4833,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "asset_count": "10996",
             "graph_edge_count": "16295",
             "large_source_register_count": "1",
+            "source_phase_action_count": "1",
+            "missing_evidence_action_count": "0",
         },
         "src-obimd": {
             "current_stage": "pending_human_review",
@@ -4838,24 +4843,34 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "asset_count": "10364",
             "graph_edge_count": "44492",
             "large_source_register_count": "1",
+            "source_phase_action_count": "1",
+            "missing_evidence_action_count": "0",
         },
         "src-evobc": {
             "current_stage": "pending_human_review",
             "graph_edge_count": "51948",
             "large_source_register_count": "1",
+            "source_phase_action_count": "1",
+            "missing_evidence_action_count": "0",
         },
         "src-cambridge-hopkins": {
             "current_stage": "pending_human_review",
             "graph_edge_count": "4403",
             "downloaded_count": "1",
+            "source_phase_action_count": "1",
+            "missing_evidence_assignment_count": "1",
         },
         "src-xiaoxuetang-jiaguwen": {
             "current_stage": "structured",
             "access_boundary_or_error_count": "4",
+            "source_phase_action_count": "6",
+            "missing_evidence_action_count": "2",
         },
         "src-british-museum-oracle-bone": {
             "current_stage": "discovered_access_boundary_or_error",
             "downloaded_count": "0",
+            "source_phase_action_count": "7",
+            "missing_evidence_action_count": "4",
         },
     }
     for source_id, expected_values in expected_source_fragments.items():

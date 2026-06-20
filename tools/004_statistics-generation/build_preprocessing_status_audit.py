@@ -145,6 +145,9 @@ CORE_CORPUS_PHASE_GAP_ACTION_QUEUE = STAT_DIR / "192_core-corpus-phase-gap-actio
 RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
     STAT_DIR / "193_research-source-phase-gap-review-checklist.csv"
 )
+COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
+    STAT_DIR / "194_collection-provenance-phase-gap-review-checklist.csv"
+)
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = STAT_DIR / "136_source-pipeline-phase-coverage-matrix.csv"
 SOURCE_PIPELINE_PHASE_ACTION_QUEUE = STAT_DIR / "137_source-pipeline-phase-action-queue.csv"
 SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD = STAT_DIR / "138_source-pipeline-phase-action-result-scaffold.csv"
@@ -676,6 +679,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_ACTION_QUEUE)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
+                + count_csv(root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD)
@@ -825,6 +829,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, CORE_CORPUS_PHASE_COVERAGE_MATRIX)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_ACTION_QUEUE)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
+                + count_csv(root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY)
@@ -970,6 +975,9 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 "core_corpus_phase_gap_action_queue_rows": count_csv(root, CORE_CORPUS_PHASE_GAP_ACTION_QUEUE),
                 "research_source_phase_gap_review_checklist_rows": count_csv(
                     root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST
+                ),
+                "collection_provenance_phase_gap_review_checklist_rows": count_csv(
+                    root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST
                 ),
                 "source_pipeline_phase_coverage_rows": count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX),
                 "source_pipeline_phase_action_queue_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE),

@@ -879,6 +879,14 @@ RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "193_research-source-phase-gap-review-checklist.csv"
 )
+COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "194_collection-provenance-phase-gap-review-checklist.csv"
+)
+XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv"
+)
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "136_source-pipeline-phase-coverage-matrix.csv"
@@ -1756,6 +1764,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
+    COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
@@ -1971,6 +1980,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
+    "tools/004_statistics-generation/build_collection_provenance_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py",
@@ -4649,6 +4659,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "core_corpus_phase_coverage_rows:10",
             "core_corpus_phase_gap_action_queue_rows:20",
             "research_source_phase_gap_review_checklist_rows:5",
+            "collection_provenance_phase_gap_review_checklist_rows:3",
             "source_pipeline_phase_coverage_rows:21",
             "source_pipeline_phase_action_queue_rows:62",
             "source_pipeline_phase_action_result_scaffold_rows:62",
@@ -5571,7 +5582,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75227,
+        "staging_record_count": 75228,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5612,7 +5623,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "191",
+            "staging_record_count": "192",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7848,6 +7859,70 @@ def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
+    collection_rows, collection_issues = _read_csv_rows(root / COLLECTION_PROVENANCE_STAGING)
+    object_rows, object_issues = _read_csv_rows(root / COLLECTION_OBJECT_ID_SOURCE_MAP)
+    asset_rows, asset_issues = _read_csv_rows(root / ASSET_SOURCE_INDEX)
+    obm_rows, obm_issues = _read_csv_rows(root / XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE)
+    issues.extend(row_issues)
+    issues.extend(collection_issues)
+    issues.extend(object_issues)
+    issues.extend(asset_issues)
+    issues.extend(obm_issues)
+    if len(rows) != 3:
+        issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} should contain exactly 3 rows")
+
+    expected_phases = ["downloaded", "linked", "verified"]
+    expected_statuses = ["mixed_or_partial", "missing", "mixed_or_partial"]
+    if [row.get("phase_name", "") for row in rows] != expected_phases:
+        issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} phase order changed")
+    if [row.get("phase_status", "") for row in rows] != expected_statuses:
+        issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} phase status order changed")
+    if {row.get("corpus_area", "") for row in rows} != {"collection_provenance_assets"}:
+        issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} corpus area changed")
+
+    museum_asset_rows = [row for row in asset_rows if row.get("asset_type") == "museum_object_image"]
+    expected_counts = {
+        "collection_staging_count": str(len(collection_rows)),
+        "collection_object_map_count": str(len(object_rows)),
+        "museum_object_asset_count": str(len(museum_asset_rows)),
+        "obm_followup_route_count": str(len(obm_rows)),
+    }
+    for row in rows:
+        review_id = row.get("review_checklist_id", "")
+        if not review_id.startswith("collection-provenance-phase-gap-review-"):
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} review ID changed: {review_id}")
+        if row.get("review_priority") != "targeted_review":
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} review priority changed: {review_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
+        for field, expected_value in expected_counts.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if row.get("candidate_or_staging_boundary") != "metadata_or_reviewed_asset_not_raw_import":
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} boundary changed: {review_id}")
+        if row.get("claim_boundary") != "collection_provenance_phase_gap_review_checklist_not_review_outcome_not_scholarship":
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        for field, expected_value in {
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "collection_object_identity_claim_status": "no_collection_object_identity_claim",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if "collection provenance phase gap review checklist only" not in row.get("caution", ""):
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} caution changed: {review_id}")
+        for path in row.get("files_to_open", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
     return issues
 
 
@@ -24645,6 +24720,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
+    issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))

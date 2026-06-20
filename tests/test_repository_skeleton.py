@@ -45,6 +45,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_gap_review_outcome_handoff_scaffold,
     check_core_corpus_phase_gap_review_outcome_handoff_checklist,
     check_core_corpus_phase_gap_review_outcome_handoff_route_summary,
+    check_core_corpus_phase_gap_review_outcome_assignment_plan,
     check_character_candidate_phase_gap_review_checklist,
     check_research_source_phase_gap_review_checklist,
     check_published_research_note_phase_gap_review_checklist,
@@ -1314,6 +1315,15 @@ def load_core_corpus_phase_gap_review_outcome_handoff_checklist_module():
 def load_core_corpus_phase_gap_review_outcome_handoff_route_summary_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_handoff_route_summary.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_outcome_handoff_route_summary", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_review_outcome_assignment_plan_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_assignment_plan.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_outcome_assignment_plan", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19394,7 +19404,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "206")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "207")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -20170,6 +20180,81 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(route["corpus_import_status"] == "not_imported" for route in data["routes"]))
         self.assertTrue(all(route["reviewed_evidence_paths"] == "" for route in data["routes"]))
         self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
+
+    def test_core_corpus_phase_gap_review_outcome_assignment_plan_groups_208_routes(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_review_outcome_assignment_plan(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "209_core-corpus-phase-gap-review-outcome-assignment-plan.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["assignment_plan_id"], "core-corpus-phase-gap-review-outcome-assignment-plan-001")
+        self.assertEqual(
+            data["route_summary_path"],
+            "corpus/009_statistics-and-derived-features/208_core-corpus-phase-gap-review-outcome-handoff-route-summary.json",
+        )
+        self.assertEqual(data["assignment_item_count"], 20)
+        self.assertEqual(data["assignment_wave_count"], 2)
+        self.assertEqual(data["phase_status_counts"], {"missing": 9, "mixed_or_partial": 11})
+        self.assertEqual(data["assignment_status_counts"], {"planned_not_assigned": 20})
+        self.assertEqual(
+            data["handoff_readiness_status_counts"],
+            {"planned_for_core_corpus_phase_gap_outcome_review": 20},
+        )
+        self.assertIn("routing-only", data["caution"])
+        self.assertIn("not a reviewed outcome", data["caution"])
+        self.assertIn("not a decipherment conclusion", data["caution"])
+        self.assertEqual([wave["phase_status"] for wave in data["assignment_waves"]], ["missing", "mixed_or_partial"])
+        first = data["assignment_items"][0]
+        self.assertEqual(
+            first["assignment_plan_item_id"],
+            "core-corpus-phase-gap-review-outcome-assignment-001",
+        )
+        self.assertEqual(
+            first["summary_route_id"],
+            "core-corpus-phase-gap-review-outcome-handoff-summary-route-001",
+        )
+        self.assertEqual(first["assignment_status"], "planned_not_assigned")
+        self.assertEqual(first["handoff_readiness_status"], "planned_for_core_corpus_phase_gap_outcome_review")
+        self.assertEqual(first["reviewed_evidence_paths"], "")
+        self.assertEqual(first["reviewed_outcome_summary"], "")
+        self.assertEqual(first["reviewed_rights_decision"], "")
+        self.assertEqual(first["reviewed_source_or_candidate_promotion"], "")
+        self.assertEqual(first["reviewed_corpus_import"], "")
+        self.assertEqual(first["reviewed_decipherment_claim"], "")
+        self.assertTrue(all(item["evidence_collection_status"] == "not_collected" for item in data["assignment_items"]))
+        self.assertTrue(all(item["rights_decision_status"] == "no_rights_decision" for item in data["assignment_items"]))
+        self.assertTrue(all(item["source_promotion_status"] == "not_promoted" for item in data["assignment_items"]))
+        self.assertTrue(all(item["corpus_import_status"] == "not_imported" for item in data["assignment_items"]))
+        self.assertTrue(all(item["reviewed_evidence_paths"] == "" for item in data["assignment_items"]))
+        self.assertTrue(all(item["reviewed_outcome_summary"] == "" for item in data["assignment_items"]))
+
+    def test_core_corpus_phase_gap_review_outcome_assignment_plan_builder_uses_208_routes(self) -> None:
+        module = load_core_corpus_phase_gap_review_outcome_assignment_plan_module()
+        route_summary = module.read_json(
+            repo_root() / module.CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY
+        )
+        data = module.build_assignment_plan(route_summary)
+        self.assertEqual(data["assignment_item_count"], 20)
+        self.assertEqual(data["assignment_wave_count"], 2)
+        self.assertEqual(data["phase_status_counts"], {"missing": 9, "mixed_or_partial": 11})
+        self.assertEqual(
+            sorted(item["summary_route_id"] for item in data["assignment_items"]),
+            sorted(route["summary_route_id"] for route in route_summary["routes"]),
+        )
+        self.assertEqual(data["assignment_waves"][0]["phase_status"], "missing")
+        self.assertEqual(data["assignment_waves"][0]["assignment_item_count"], 9)
+        self.assertEqual(data["assignment_waves"][1]["phase_status"], "mixed_or_partial")
+        self.assertEqual(data["assignment_waves"][1]["assignment_item_count"], 11)
+        self.assertTrue(all(item["assignment_status"] == module.ASSIGNMENT_STATUS for item in data["assignment_items"]))
+        self.assertTrue(
+            all(item["handoff_readiness_status"] == module.HANDOFF_READINESS_STATUS for item in data["assignment_items"])
+        )
+        self.assertTrue(all(item["review_outcome_status"] == "not_started" for item in data["assignment_items"]))
+        self.assertTrue(all(item["evidence_collection_status"] == "not_collected" for item in data["assignment_items"]))
+        self.assertTrue(all(item["reviewed_evidence_paths"] == "" for item in data["assignment_items"]))
+        self.assertTrue(all(item["reviewed_outcome_summary"] == "" for item in data["assignment_items"]))
 
     def test_character_candidate_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:
         self.assertEqual(check_character_candidate_phase_gap_review_checklist(repo_root()), [])

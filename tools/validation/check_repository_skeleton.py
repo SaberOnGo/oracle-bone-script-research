@@ -923,6 +923,10 @@ CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "208_core-corpus-phase-gap-review-outcome-handoff-route-summary.json"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN = (
+    "corpus/009_statistics-and-derived-features/"
+    "209_core-corpus-phase-gap-review-outcome-assignment-plan.json"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
@@ -1875,6 +1879,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_SCAFFOLD,
     CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_CHECKLIST,
     CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY,
+    CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN,
     CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -2105,6 +2110,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_handoff_scaffold.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_handoff_checklist.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_handoff_route_summary.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_assignment_plan.py",
     "tools/004_statistics-generation/build_character_candidate_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py",
@@ -5717,7 +5723,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75242,
+        "staging_record_count": 75243,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5758,7 +5764,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "206",
+            "staging_record_count": "207",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -9097,6 +9103,204 @@ def check_core_corpus_phase_gap_review_outcome_handoff_route_summary(root: Path)
         for route_path in route.get("checklist_files_to_open", []):
             if route_path and not (root / route_path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY} missing routed file: {route_path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_review_outcome_assignment_plan(root: Path) -> list[str]:
+    issues: list[str] = []
+    try:
+        route_summary = json.loads(
+            (root / CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY).read_text(encoding="utf-8")
+        )
+        data = json.loads((root / CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN).read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        return [f"missing required path: {exc.filename}"]
+    except json.JSONDecodeError as exc:
+        return [f"invalid JSON while checking {CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN}: {exc.msg}"]
+
+    routes = route_summary.get("routes", [])
+    items = data.get("assignment_items", [])
+    waves = data.get("assignment_waves", [])
+    workstreams = data.get("corpus_area_workstreams", [])
+    if not isinstance(routes, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY} routes should be a list")
+        routes = []
+    if not isinstance(items, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} assignment_items should be a list")
+        items = []
+    if not isinstance(waves, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} assignment_waves should be a list")
+        waves = []
+    if not isinstance(workstreams, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} corpus_area_workstreams should be a list")
+        workstreams = []
+
+    expected_counts = {
+        "assignment_plan_id": "core-corpus-phase-gap-review-outcome-assignment-plan-001",
+        "route_summary_path": CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY,
+        "upstream_route_summary_id": route_summary.get("route_summary_id", ""),
+        "assignment_item_count": len(routes),
+        "assignment_wave_count": len({route.get("phase_status", "") for route in routes}),
+        "corpus_area_workstream_count": len({route.get("corpus_area", "") for route in routes}),
+        "corpus_area_count": len({route.get("corpus_area", "") for route in routes}),
+        "specialized_checklist_family_count": len(
+            {route.get("specialized_checklist_family", "") for route in routes}
+        ),
+        "phase_status_counts": dict(sorted(Counter(route.get("phase_status", "") for route in routes).items())),
+        "corpus_area_counts": dict(sorted(Counter(route.get("corpus_area", "") for route in routes).items())),
+        "specialized_checklist_family_counts": dict(
+            sorted(Counter(route.get("specialized_checklist_family", "") for route in routes).items())
+        ),
+        "assignment_status_counts": {"planned_not_assigned": len(routes)},
+        "handoff_readiness_status_counts": {
+            "planned_for_core_corpus_phase_gap_outcome_review": len(routes)
+        },
+        "review_outcome_status_counts": {"not_started": len(routes)},
+        "human_review_status_counts": {"pending_human_review": len(routes)},
+        "automation_boundary": "assignment_plan_only_no_core_corpus_phase_gap_outcome_capture",
+        "research_boundary": "core_corpus_phase_gap_review_outcome_assignment_plan_not_scholarship",
+    }
+    for key, expected_value in expected_counts.items():
+        if data.get(key) != expected_value:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} {key} changed")
+    for required_snippet in [
+        "routing-only",
+        "not collected evidence",
+        "not a reviewed outcome",
+        "not a rights decision",
+        "not source or candidate promotion",
+        "not a corpus import",
+        "not an identity claim",
+        "not a component assignment",
+        "not an evolution-chain assignment",
+        "not a decipherment conclusion",
+    ]:
+        if required_snippet not in data.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} missing caution: {required_snippet}")
+
+    route_ids = [str(route.get("summary_route_id", "")) for route in routes]
+    item_route_ids = [str(item.get("summary_route_id", "")) for item in items if isinstance(item, dict)]
+    if sorted(route_ids) != sorted(item_route_ids):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} route coverage changed")
+    if len(item_route_ids) != len(set(item_route_ids)):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} duplicate route assignments found")
+    assigned_wave_item_ids = [
+        str(item_id)
+        for wave in waves
+        if isinstance(wave, dict)
+        for item_id in wave.get("assignment_plan_item_ids", [])
+    ]
+    item_ids = [str(item.get("assignment_plan_item_id", "")) for item in items if isinstance(item, dict)]
+    if sorted(assigned_wave_item_ids) != sorted(item_ids):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} wave item coverage changed")
+
+    route_by_id = {str(route.get("summary_route_id", "")): route for route in routes if isinstance(route, dict)}
+    empty_fields = [
+        "phase_gap_outcome_reviewed",
+        "specialized_checklist_outcome_reviewed",
+        "reviewed_evidence_paths",
+        "reviewed_outcome_summary",
+        "reviewed_rights_decision",
+        "reviewed_source_or_candidate_promotion",
+        "reviewed_corpus_import",
+        "reviewed_decipherment_claim",
+        "required_followup_reviewed",
+        "human_reviewer_id",
+        "human_review_date",
+        "human_review_notes",
+    ]
+    status_fields = {
+        "assignment_status": "planned_not_assigned",
+        "handoff_readiness_status": "planned_for_core_corpus_phase_gap_outcome_review",
+        "review_outcome_status": "not_started",
+        "evidence_collection_status": "not_collected",
+        "rights_decision_status": "no_rights_decision",
+        "source_promotion_status": "not_promoted",
+        "corpus_import_status": "not_imported",
+        "decipherment_claim_status": "no_decipherment_claim",
+        "identity_claim_status": "no_identity_claim",
+        "component_claim_status": "no_component_claim",
+        "evolution_claim_status": "no_evolution_chain_claim",
+        "automation_boundary": "assignment_plan_only_no_core_corpus_phase_gap_outcome_capture",
+        "research_boundary": "core_corpus_phase_gap_review_outcome_assignment_plan_not_scholarship",
+    }
+    inherited_fields = [
+        "outcome_handoff_checklist_id",
+        "outcome_handoff_id",
+        "outcome_route_id",
+        "core_corpus_phase_gap_review_outcome_scaffold_id",
+        "handoff_review_checklist_id",
+        "handoff_id",
+        "review_route_id",
+        "review_index_id",
+        "gap_queue_id",
+        "source_phase_row_id",
+        "corpus_area",
+        "label_en",
+        "phase_name",
+        "phase_status",
+        "gap_type",
+        "review_priority",
+        "specialized_checklist_family",
+        "specialized_checklist_id",
+        "specialized_checklist_path",
+        "coverage_status",
+        "recommended_action",
+        "candidate_or_staging_boundary",
+        "outcome_handoff_checklist_path",
+        "outcome_handoff_scaffold_path",
+        "outcome_route_pack_path",
+        "outcome_scaffold_path",
+        "outcome_update_target_path",
+        "checklist_update_target_path",
+        "handoff_review_checklist_path",
+        "handoff_scaffold_path",
+        "previous_route_pack_path",
+        "review_index_path",
+        "handoff_review_status",
+        "handoff_status",
+        "route_status",
+        "human_review_status",
+    ]
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} item {index} should be an object")
+            continue
+        expected_item_id = f"core-corpus-phase-gap-review-outcome-assignment-{index:03d}"
+        if item.get("assignment_plan_item_id") != expected_item_id:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} item ID changed: {index}")
+        source_route = route_by_id.get(str(item.get("summary_route_id", "")))
+        if source_route is None:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} unknown route: {item.get('summary_route_id')}")
+            continue
+        for field in inherited_fields:
+            if item.get(field) != source_route.get(field):
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} {field} mismatch: {expected_item_id}")
+        for field, expected_value in status_fields.items():
+            if item.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} {field} changed: {expected_item_id}")
+        for empty_field in empty_fields:
+            if item.get(empty_field) != "":
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} {empty_field} should stay empty: {expected_item_id}")
+        if item.get("route_summary_path") != CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} route summary path changed: {expected_item_id}")
+        if "routing-only" not in item.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} item caution changed: {expected_item_id}")
+        for route_path in item.get("route_files_to_open", []):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} missing routed file: {route_path}")
+
+    for wave in waves:
+        if not isinstance(wave, dict):
+            continue
+        wave_items = [item for item in items if item.get("assignment_plan_item_id") in wave.get("assignment_plan_item_ids", [])]
+        if wave.get("assignment_item_count") != len(wave_items):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} wave count changed: {wave.get('assignment_wave_id')}")
+        if {item.get("phase_status") for item in wave_items} != {wave.get("phase_status")}:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} wave phase status changed: {wave.get('assignment_wave_id')}")
+        for field, expected_value in status_fields.items():
+            if field in wave and wave.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN} wave {field} changed: {wave.get('assignment_wave_id')}")
     return issues
 
 
@@ -26385,6 +26589,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_gap_review_outcome_handoff_scaffold(root))
     issues.extend(check_core_corpus_phase_gap_review_outcome_handoff_checklist(root))
     issues.extend(check_core_corpus_phase_gap_review_outcome_handoff_route_summary(root))
+    issues.extend(check_core_corpus_phase_gap_review_outcome_assignment_plan(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))

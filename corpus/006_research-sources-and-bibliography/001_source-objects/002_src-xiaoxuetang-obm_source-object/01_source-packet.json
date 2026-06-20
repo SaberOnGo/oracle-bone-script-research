@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-xiaoxuetang-obm",
+  "source_type": "online_database",
+  "title": "甲骨文合集材料來源表 / Source Table for Collection of Oracle Bone Inscriptions",
+  "provider": "Academia Sinica",
+  "authority_tier": "core_institutional",
+  "source_url": "https://xiaoxue.iis.sinica.edu.tw/obm",
+  "scope": "Heji material source table based on the 1999 printed source table; covers Heji plate/material source references.",
+  "adoption_status": "adopted_core",
+  "download_strategy": "Use for inscription/plate provenance; download small documentation and derived metadata only.",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Official source table; Heji identifiers are plate/material references and not universal character IDs.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/002_src-xiaoxuetang-obm_source-object",
+  "download_route_count": 4,
+  "package_route_count": 4,
+  "field_map_route_count": 6,
+  "metadata_profile_route_count": 0,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

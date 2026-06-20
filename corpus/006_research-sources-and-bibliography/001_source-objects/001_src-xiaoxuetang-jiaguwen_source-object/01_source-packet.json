@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-xiaoxuetang-jiaguwen",
+  "source_type": "online_database",
+  "title": "小學堂甲骨文資料庫 / Xiaoxuetang Oracle Bone Script Database",
+  "provider": "Academia Sinica",
+  "authority_tier": "core_institutional",
+  "source_url": "https://xiaoxue.iis.sinica.edu.tw/jiaguwen",
+  "scope": "Oracle character heads and glyph forms based mainly on Jiaguwen Bian; current landing page reports 2548 character heads and 24701 forms.",
+  "adoption_status": "adopted_core",
+  "download_strategy": "Use as the primary external character reference system; download only metadata/derived records unless asset rights are reviewed.",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Official academic database; automated downloads may be restricted and raw glyph images require source and rights review.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/001_src-xiaoxuetang-jiaguwen_source-object",
+  "download_route_count": 4,
+  "package_route_count": 2,
+  "field_map_route_count": 6,
+  "metadata_profile_route_count": 0,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

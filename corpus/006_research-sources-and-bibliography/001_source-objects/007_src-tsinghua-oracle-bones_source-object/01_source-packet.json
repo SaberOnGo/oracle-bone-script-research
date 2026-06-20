@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-tsinghua-oracle-bones",
+  "source_type": "library_collection",
+  "title": "Tsinghua University Library Oracle Bones Collection",
+  "provider": "Tsinghua University Library",
+  "authority_tier": "university_library_collection",
+  "source_url": "https://lib.tsinghua.edu.cn/en/info/1021/1442.htm",
+  "scope": "Official collection overview reporting over 1750 oracle bones and 1495 inscribed pieces; includes provenance through Hu Houxuan/Yu Shengwu/Chen Mengjia and UNESCO Memory context.",
+  "adoption_status": "adopted_collection_reference",
+  "download_strategy": "Use for collection-level provenance and institutional source trail; download page metadata only unless image rights are reviewed.",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Official library page; not a full searchable corpus endpoint by itself.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/007_src-tsinghua-oracle-bones_source-object",
+  "download_route_count": 1,
+  "package_route_count": 1,
+  "field_map_route_count": 2,
+  "metadata_profile_route_count": 3,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

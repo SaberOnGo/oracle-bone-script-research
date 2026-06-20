@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-yinqi-wenyuan",
+  "source_type": "online_database",
+  "title": "殷契文渊 / Oracle Bones Corpus",
+  "provider": "Key Laboratory of Oracle Bone Inscriptions Information Processing Anyang Normal University; CASS Oracle Studies Center",
+  "authority_tier": "scholarly_platform",
+  "source_url": "https://jgw.aynu.edu.cn/",
+  "scope": "Integrated oracle-bone platform with glyph, catalog, literature and knowledge-service sections.",
+  "adoption_status": "adopted_core_with_rights_caution",
+  "download_strategy": "Adopt as a professional discovery and cross-reference source; do not bulk download documents/images because the site disclaimer reports mixed third-party material.",
+  "rights_status": "source_marked_risk_noted",
+  "risk_note": "Professional and important platform, but rights status is mixed; use metadata and cross-check against institutional/catalog sources.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/005_src-yinqi-wenyuan_source-object",
+  "download_route_count": 1,
+  "package_route_count": 1,
+  "field_map_route_count": 0,
+  "metadata_profile_route_count": 2,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

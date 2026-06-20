@@ -1,0 +1,2 @@
+field_route_id,source_id,map_id,source_level,source_field_or_unit,source_meaning,target_record_type,target_project_field,import_action,rights_boundary,evidence_download_id,review_status,updated_at
+src-gbedobc-field-route-001,src-gbedobc,field-map-000023,dataset_statistic,756 groups; 3780 graph-based characters,Reported graph-based evolution dataset scale,graphic_evolution,source_scope_statistics,Use to plan graph/evolution import after package review,Not a primary paleographic source by itself,dl-gbedobc-repo-page,reviewed_metadata_only,2026-06-04

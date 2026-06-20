@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-gbedobc",
+  "source_type": "open_research_dataset",
+  "title": "GBEDOBC graph-based evolutionary dataset",
+  "provider": "Qingju Jiao et al. / npj Heritage Science / GitHub",
+  "authority_tier": "peer_reviewed_dataset",
+  "source_url": "https://github.com/BrisksHan/GBEDOBC",
+  "scope": "Graph-based evolutionary dataset linking oracle bone characters to later scripts.",
+  "adoption_status": "candidate_evolution_source",
+  "download_strategy": "Register as a candidate for graph/evolution-chain experiments; review data fields and rights before import.",
+  "rights_status": "source_marked_risk_noted",
+  "risk_note": "Useful for graph/evolution research and reports 756 groups/3780 graph-based characters, but not a primary corpus authority.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/020_src-gbedobc_source-object",
+  "download_route_count": 2,
+  "package_route_count": 2,
+  "field_map_route_count": 1,
+  "metadata_profile_route_count": 3,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

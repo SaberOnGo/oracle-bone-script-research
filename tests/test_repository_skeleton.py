@@ -109,6 +109,15 @@ def load_registered_source_metadata_profiles_module():
     return module
 
 
+def load_source_object_materials_module():
+    path = repo_root() / "tools/002_corpus-import/build_source_object_materials.py"
+    spec = importlib.util.spec_from_file_location("build_source_object_materials", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_label_crosswalk_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_validation_label_crosswalk.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_validation_label_crosswalk", path)
@@ -2722,7 +2731,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
-        self.assertEqual(len(rows), 28125)
+        self.assertEqual(len(rows), 28146)
         self.assertEqual(
             summary["corpus_area_counts"],
             {
@@ -2731,12 +2740,13 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "graphemic_component_candidates": 2747,
                 "inscription_crosswalk_candidates": 612,
                 "oracle_character_candidates": 10996,
+                "research_source_objects": 21,
             },
         )
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertEqual(summary["local_visual_asset_object_count"], 13715)
-        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 17129)
+        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 17150)
         self.assertNotIn("object_local_bundle_metadata_only", summary["material_bundle_status_counts"])
         by_project = {row["project_id"]: row for row in rows}
         self.assertEqual(
@@ -2759,19 +2769,44 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "2")
+        self.assertEqual(
+            by_project["src-xiaoxuetang-jiaguwen"]["material_bundle_status"],
+            "object_local_bundle_with_evidence_routes",
+        )
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
 
     def test_object_local_material_coverage_builder_keeps_candidate_boundaries(self) -> None:
         module = load_object_local_material_coverage_audit_module()
         rows = module.build_rows(repo_root())
         summary = module.build_summary(rows)
-        self.assertEqual(len(rows), 28125)
-        self.assertEqual(summary["human_entry_object_count"], 28125)
-        self.assertEqual(summary["ai_entry_object_count"], 28125)
+        self.assertEqual(len(rows), 28146)
+        self.assertEqual(summary["human_entry_object_count"], 28146)
+        self.assertEqual(summary["ai_entry_object_count"], 28146)
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertTrue(all(row["object_dir"].startswith("corpus/") for row in rows))
         self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
+
+    def test_source_object_materials_builder_keeps_source_routes_colocated(self) -> None:
+        module = load_source_object_materials_module()
+        result = module.build_materials(repo_root())
+        self.assertEqual(result["source_object_count"], 21)
+        object_dir = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "001_src-xiaoxuetang-jiaguwen_source-object"
+        )
+        self.assertTrue((object_dir / "README.md").is_file())
+        self.assertTrue((object_dir / "06_human-source-review-sheet.md").is_file())
+        packet = json.loads((object_dir / "01_source-packet.json").read_text(encoding="utf-8"))
+        self.assertEqual(packet["source_id"], "src-xiaoxuetang-jiaguwen")
+        self.assertEqual(packet["download_route_count"], 4)
+        self.assertEqual(packet["package_route_count"], 2)
+        self.assertEqual(packet["field_map_route_count"], 6)
+        self.assertEqual(packet["decipherment_claim_status"], "no_claim")
+        self.assertIn("not decipherment", packet["research_boundary"])
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
         module = load_hust_obc_undeciphered_local_materials_module()

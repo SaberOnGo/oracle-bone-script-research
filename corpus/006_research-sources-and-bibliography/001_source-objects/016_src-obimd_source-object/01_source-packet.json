@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-obimd",
+  "source_type": "open_research_dataset",
+  "title": "OBIMD: Oracle Bone Inscriptions Multi-modal Dataset",
+  "provider": "Key Laboratory of Oracle Bone Inscriptions Information Processing Anyang Normal University; Xiamen University; Tencent Youtu Lab; University of Cambridge; Scientific Data",
+  "authority_tier": "peer_reviewed_dataset",
+  "source_url": "https://www.nature.com/articles/s41597-026-06967-0",
+  "scope": "Multi-modal OBI dataset with 10077 oracle bone images, 93652 annotated characters, 21941 syntactically validated sentences, and reading sequences.",
+  "adoption_status": "candidate_large_source",
+  "download_strategy": "Download dataset card and code README; do not bulk download raw images before source/rights/size review.",
+  "rights_status": "licensed_for_repository",
+  "risk_note": "Dataset card reports CC-BY 4.0 while the GitHub README includes narrower academic-use wording; raw files remain large and need rights review before import.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/016_src-obimd_source-object",
+  "download_route_count": 7,
+  "package_route_count": 7,
+  "field_map_route_count": 9,
+  "metadata_profile_route_count": 5,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

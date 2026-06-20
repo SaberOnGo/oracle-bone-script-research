@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-nlc-oracle-world",
+  "source_type": "library_database",
+  "title": "甲骨世界 / Oracle Bones Database",
+  "provider": "National Library of China / Chinese Ancient Books Resource Platform",
+  "authority_tier": "national_library",
+  "source_url": "https://www.nlc.cn/",
+  "scope": "National Library of China oracle-bone holdings and Oracle World database evidence from official NLC PDFs; current notes report NLC holdings of 35651 oracle bones and Oracle World records for oracle-bone objects, images, rubbings and rubbing images.",
+  "adoption_status": "candidate_institutional_official_scope_confirmed",
+  "download_strategy": "Use as an official national-library collection and database-scope source; keep record import metadata-only until a stable current query endpoint and item-level access rules are confirmed.",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Official NLC materials confirm collection/database scope but not a stable current bulk endpoint; do not use mirrored summaries or third-party portals as source data.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/021_src-nlc-oracle-world_source-object",
+  "download_route_count": 2,
+  "package_route_count": 2,
+  "field_map_route_count": 4,
+  "metadata_profile_route_count": 7,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

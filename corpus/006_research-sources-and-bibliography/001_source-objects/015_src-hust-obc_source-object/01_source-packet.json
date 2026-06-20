@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-hust-obc",
+  "source_type": "open_research_dataset",
+  "title": "HUST-OBC: An open dataset for oracle bone character recognition and decipherment",
+  "provider": "Huazhong University of Science and Technology research team / Scientific Data",
+  "authority_tier": "peer_reviewed_dataset",
+  "source_url": "https://www.nature.com/articles/s41597-024-03807-x",
+  "scope": "Scientific Data dataset with 77064 images of 1588 deciphered characters and 62989 images of 9411 undeciphered characters; total 140053 images.",
+  "adoption_status": "candidate_large_source",
+  "download_strategy": "Register as large source package; do not commit raw dataset; extract indexes and derived metadata after license/source review.",
+  "rights_status": "source_marked_risk_noted",
+  "risk_note": "Dataset is directly relevant to 1500+ deciphered and undeciphered characters, but raw images are large, non-commercially licensed and compiled from diverse sources including an unreliable GuoXueDaShi split.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object",
+  "download_route_count": 7,
+  "package_route_count": 4,
+  "field_map_route_count": 7,
+  "metadata_profile_route_count": 11,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

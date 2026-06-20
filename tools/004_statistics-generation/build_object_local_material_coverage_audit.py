@@ -41,7 +41,9 @@ class ObjectSpec:
         self.route_files = route_files
 
 
-PROJECT_ID_PATTERN = re.compile(r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand)-\d{6}|coll-obj-cand-\d{5})")
+PROJECT_ID_PATTERN = re.compile(
+    r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
+)
 
 
 OBJECT_SPECS = [
@@ -100,6 +102,26 @@ OBJECT_SPECS = [
         (),
         ("03_visual-asset-index.csv", "04_visual-gallery.md"),
     ),
+    ObjectSpec(
+        "research_source_objects",
+        Path("corpus/006_research-sources-and-bibliography/001_source-objects"),
+        "*/01_source-packet.json",
+        ("README.md", "06_human-source-review-sheet.md"),
+        (
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "05_metadata-profile-route-index.csv",
+        ),
+        (),
+        (
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "05_metadata-profile-route-index.csv",
+        ),
+    ),
 ]
 
 FIELDNAMES = [
@@ -141,6 +163,7 @@ def project_id_for_packet(packet: dict[str, object], object_dir: Path) -> str:
         "candidate_component_id",
         "candidate_evolution_id",
         "candidate_collection_object_id",
+        "source_id",
     ):
         value = str(packet.get(key, ""))
         if value:

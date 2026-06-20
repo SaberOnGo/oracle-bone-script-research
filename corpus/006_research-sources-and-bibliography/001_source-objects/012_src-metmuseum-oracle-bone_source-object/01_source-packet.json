@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-metmuseum-oracle-bone",
+  "source_type": "museum_collection",
+  "title": "The Met oracle bone object records",
+  "provider": "The Metropolitan Museum of Art",
+  "authority_tier": "museum_collection",
+  "source_url": "https://www.metmuseum.org/art/collection/search/42045",
+  "scope": "Official Met collection and Open Access API records for oracle-bone objects including 42045 / 67.43.14 and 42022 / 18.56.71 with public-domain flags and image URLs.",
+  "adoption_status": "adopted_public_domain_sample_source",
+  "download_strategy": "Use as a public-domain museum object and image-URL metadata workflow sample; do not promote object metadata to paleographic decipherment evidence without scholarly cross-checking.",
+  "rights_status": "public_domain_verified",
+  "risk_note": "The Met API marks selected objects as public domain, but object metadata and image URLs can be revised and should retain object-level timestamps and source URLs.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/012_src-metmuseum-oracle-bone_source-object",
+  "download_route_count": 2,
+  "package_route_count": 2,
+  "field_map_route_count": 3,
+  "metadata_profile_route_count": 6,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

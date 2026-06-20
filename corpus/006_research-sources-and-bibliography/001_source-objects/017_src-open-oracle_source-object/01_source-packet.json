@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-open-oracle",
+  "source_type": "project_repository",
+  "title": "Open-Oracle project repository",
+  "provider": "Yuliang Liu research group",
+  "authority_tier": "scholarly_project",
+  "source_url": "https://github.com/Yuliang-Liu/Open-Oracle",
+  "scope": "Project hub linking HUST-OBC, EVOBC, OBSD and related oracle-bone AI research resources.",
+  "adoption_status": "adopted_project_index",
+  "download_strategy": "Use as a reviewed project index for datasets/methods/task framing; do not treat as primary paleographic authority by itself.",
+  "rights_status": "source_marked_risk_noted",
+  "risk_note": "Useful for locating academic datasets and AI task strategies; underlying dataset rights and source chains must be reviewed separately.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/017_src-open-oracle_source-object",
+  "download_route_count": 1,
+  "package_route_count": 1,
+  "field_map_route_count": 0,
+  "metadata_profile_route_count": 2,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

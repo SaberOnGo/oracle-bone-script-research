@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-penn-museum-oracle-bone",
+  "source_type": "museum_collection",
+  "title": "Penn Museum oracle bone object records",
+  "provider": "University of Pennsylvania Museum of Archaeology and Anthropology",
+  "authority_tier": "university_museum_collection",
+  "source_url": "https://www.penn.museum/collections/object/76960",
+  "scope": "Official Penn Museum object record for oracle bone 49-14-7A with object number, Anyang provenience, Shang Dynasty period, material, dimensions, display location, and credit line.",
+  "adoption_status": "adopted_collection_reference",
+  "download_strategy": "Use as an object-level university museum provenance and collection metadata source; do not treat museum display text as a paleographic decipherment authority.",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Official university museum object page; image and rights reuse require object-level review before raw asset import.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/011_src-penn-museum-oracle-bone_source-object",
+  "download_route_count": 1,
+  "package_route_count": 1,
+  "field_map_route_count": 3,
+  "metadata_profile_route_count": 4,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

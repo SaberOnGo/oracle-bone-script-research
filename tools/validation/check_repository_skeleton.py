@@ -2940,7 +2940,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "research_boundary",
         "decipherment_claim_status",
     }
-    if len(rows) != 28125:
+    if len(rows) != 28146:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} row count changed")
     if rows:
         missing_fields = required_fields - set(rows[0])
@@ -2955,12 +2955,13 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "graphemic_component_candidates": 2747,
         "inscription_crosswalk_candidates": 612,
         "oracle_character_candidates": 10996,
+        "research_source_objects": 21,
     }
     area_counts = Counter(row.get("corpus_area", "") for row in rows)
     if dict(sorted(area_counts.items())) != expected_area_counts:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} corpus area counts changed")
     expected_status_counts = {
-        "object_local_bundle_with_evidence_routes": 14410,
+        "object_local_bundle_with_evidence_routes": 14431,
         "object_local_bundle_with_review_image": 13715,
     }
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
@@ -2980,13 +2981,13 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         if "not_scholarship" not in boundary or "decipherment conclusions" not in boundary:
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} boundary missing caution: {row_id}")
     expected_summary_values = {
-        "object_directory_count": 28125,
+        "object_directory_count": 28146,
         "corpus_area_counts": expected_area_counts,
         "material_bundle_status_counts": expected_status_counts,
-        "human_entry_object_count": 28125,
-        "ai_entry_object_count": 28125,
+        "human_entry_object_count": 28146,
+        "ai_entry_object_count": 28146,
         "local_visual_asset_object_count": 13715,
-        "route_gallery_or_route_index_object_count": 17129,
+        "route_gallery_or_route_index_object_count": 17150,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
     }

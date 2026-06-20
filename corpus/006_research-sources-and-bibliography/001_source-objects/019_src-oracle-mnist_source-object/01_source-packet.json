@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-oracle-mnist",
+  "source_type": "open_research_dataset",
+  "title": "Oracle-MNIST dataset",
+  "provider": "Published research team / GitHub / Figshare / Science Data Bank",
+  "authority_tier": "peer_reviewed_dataset",
+  "source_url": "https://github.com/wm-bupt/oracle-mnist",
+  "scope": "Small benchmark dataset of oracle character images for machine learning; not a comprehensive decipherment corpus.",
+  "adoption_status": "candidate_ai_benchmark",
+  "download_strategy": "Register for AI benchmarking only; do not use as source of scholarly decipherment claims.",
+  "rights_status": "source_marked_risk_noted",
+  "risk_note": "Useful for recognition tests but too narrow for corpus construction.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/019_src-oracle-mnist_source-object",
+  "download_route_count": 1,
+  "package_route_count": 1,
+  "field_map_route_count": 0,
+  "metadata_profile_route_count": 2,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

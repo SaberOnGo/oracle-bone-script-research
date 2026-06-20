@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-evobc",
+  "source_type": "open_research_dataset",
+  "title": "EVOBC: Evolution Oracle Bone Characters Dataset",
+  "provider": "Yuliang Liu research group / arXiv / Open-Oracle",
+  "authority_tier": "peer_reviewed_or_preprint_dataset",
+  "source_url": "https://arxiv.org/abs/2401.12467",
+  "scope": "Large evolution dataset reported with 229170 images and 13714 character categories across six historical stages from oracle bone characters through clerical script.",
+  "adoption_status": "candidate_evolution_source",
+  "download_strategy": "Register as a candidate evolution-chain source; review linked dataset files and source chains before importing raw images.",
+  "rights_status": "source_marked_risk_noted",
+  "risk_note": "Useful for evolution-chain experiments, but source texts/websites and image rights need separate review before corpus import.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/018_src-evobc_source-object",
+  "download_route_count": 5,
+  "package_route_count": 3,
+  "field_map_route_count": 2,
+  "metadata_profile_route_count": 7,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

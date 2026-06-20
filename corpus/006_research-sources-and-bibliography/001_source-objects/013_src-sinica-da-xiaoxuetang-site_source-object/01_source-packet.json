@@ -1,0 +1,32 @@
+{
+  "record_type": "source_object_packet",
+  "source_id": "src-sinica-da-xiaoxuetang-site",
+  "source_type": "online_portal",
+  "title": "小學堂文字學資料庫 / Academia Sinica Digital Archives Xiaoxuetang Profile",
+  "provider": "Academia Sinica Digital Culture Center",
+  "authority_tier": "institutional_portal",
+  "source_url": "https://sinica.digitalarchives.tw/site_6071.html",
+  "scope": "Official Digital Archives profile for Xiaoxuetang as an integrated philology database covering oracle bone, bronze, Warring States, seal, regular-script, phonology, and dictionary-index resources.",
+  "adoption_status": "adopted_source_context",
+  "download_strategy": "Use as portal-level source context for Xiaoxuetang database selection; keep concrete record imports under the specific Xiaoxuetang source IDs.",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Portal description is database-level evidence and does not provide row-level character or inscription records.",
+  "review_status": "reviewed",
+  "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/013_src-sinica-da-xiaoxuetang-site_source-object",
+  "download_route_count": 1,
+  "package_route_count": 0,
+  "field_map_route_count": 1,
+  "metadata_profile_route_count": 3,
+  "local_files": [
+    "README.md",
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "06_human-source-review-sheet.md"
+  ],
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-20"
+}

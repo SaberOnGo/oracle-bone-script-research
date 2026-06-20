@@ -20,6 +20,8 @@ Simplified Chinese:
 - `02_evolution-source-index.csv`: source, download, rights, and route index.
 - `03_era-source-code-index.csv`: era/source code rows observed for this category.
 - `04_human-review-sheet.md`: human review sheet for source-chain, image, and cross-source checks.
+- `05_image-reference-route-index.csv`: object-local image-reference route index for humans and AI agents.
+- `06_image-reference-route-gallery.md`: object-local route gallery explaining where visual evidence still needs to be collected.
 
 ## Candidate Metadata / 候选 metadata
 

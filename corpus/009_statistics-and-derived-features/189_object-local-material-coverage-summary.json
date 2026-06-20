@@ -8,14 +8,14 @@
     "oracle_character_candidates": 10996
   },
   "material_bundle_status_counts": {
-    "object_local_bundle_metadata_only": 13742,
-    "object_local_bundle_with_evidence_routes": 668,
+    "object_local_bundle_metadata_only": 28,
+    "object_local_bundle_with_evidence_routes": 14382,
     "object_local_bundle_with_review_image": 13715
   },
   "human_entry_object_count": 28125,
   "ai_entry_object_count": 28125,
   "local_visual_asset_object_count": 13715,
-  "route_gallery_or_route_index_object_count": 668,
+  "route_gallery_or_route_index_object_count": 14382,
   "partial_or_missing_bundle_count": 0,
   "parallel_human_directory_count": 0,
   "research_boundary": "object_local_material_coverage_audit_not_scholarship; routes, images, candidate packets, and review sheets are preprocessing infrastructure, not identity, component, inscription, evolution, reading, or decipherment conclusions",

@@ -2480,12 +2480,15 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         issues.append(f"{evolution_map_path.relative_to(root).as_posix()} first project_id changed")
     if rows and rows[-1].get("project_id") != "obs-evo-cand-013714":
         issues.append(f"{evolution_map_path.relative_to(root).as_posix()} last project_id changed")
+    deep_route_check_indexes = {1, 5, 13714}
     required_files = [
         "README.md",
         "01_candidate-evolution-packet.json",
         "02_evolution-source-index.csv",
         "03_era-source-code-index.csv",
         "04_human-review-sheet.md",
+        "05_image-reference-route-index.csv",
+        "06_image-reference-route-gallery.md",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -2520,6 +2523,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "not a decipherment conclusion",
                 "03_era-source-code-index.csv",
                 "04_human-review-sheet.md",
+                "05_image-reference-route-index.csv",
+                "06_image-reference-route-gallery.md",
                 "本目录是一个 EVOBC 字形演化类别候选对象",
             ]:
                 if snippet not in text:
@@ -2542,6 +2547,10 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} evolution claim status changed")
             if packet.get("modern_character_identity_status") != "not_confirmed":
                 issues.append(f"{packet_path.relative_to(root).as_posix()} modern identity status changed")
+            if packet.get("local_image_status") != "not_collected_route_indexed":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} local image status changed")
+            if len(packet.get("image_reference_routes", [])) != 4:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} should contain four image reference routes")
             if "not an accepted paleographic correspondence" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing evolution boundary")
         source_index_path = object_dir / "02_evolution-source-index.csv"
@@ -2578,13 +2587,47 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [
                 "Do not record a formal correspondence",
+                "05_image-reference-route-index.csv",
+                "06_image-reference-route-gallery.md",
                 "not_formal_correspondence",
                 "no_claim",
-                "not_collected",
+                "not_collected_route_indexed",
                 "风险提示",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        route_index_path = object_dir / "05_image-reference-route-index.csv"
+        if index in deep_route_check_indexes and path_exists(route_index_path):
+            with route_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                route_rows = list(csv.DictReader(file))
+            if len(route_rows) != 4:
+                issues.append(f"{route_index_path.relative_to(root).as_posix()} should contain four route rows")
+            route_types = {route_row.get("route_type", "") for route_row in route_rows}
+            if route_types != {
+                "category_metadata_staging",
+                "list_metadata_staging",
+                "object_local_code_index",
+                "graph_edge_route",
+            }:
+                issues.append(f"{route_index_path.relative_to(root).as_posix()} route types changed")
+            for route_row in route_rows:
+                if route_row.get("project_id") != project_id:
+                    issues.append(f"{route_index_path.relative_to(root).as_posix()} project_id mismatch")
+                if route_row.get("local_image_status") != "not_collected_route_indexed":
+                    issues.append(f"{route_index_path.relative_to(root).as_posix()} local image status changed")
+                if route_row.get("review_status") != "needs_human_evolution_review":
+                    issues.append(f"{route_index_path.relative_to(root).as_posix()} review status changed")
+        route_gallery_path = object_dir / "06_image-reference-route-gallery.md"
+        if index in deep_route_check_indexes and path_exists(route_gallery_path):
+            route_gallery = route_gallery_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Image Reference Route Gallery",
+                "not_collected_route_indexed",
+                "not accepted paleographic correspondences",
+                "not evolution-chain conclusions",
+            ]:
+                if snippet not in route_gallery:
+                    issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
     return issues
 
 
@@ -2869,8 +2912,8 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
     if dict(sorted(area_counts.items())) != expected_area_counts:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} corpus area counts changed")
     expected_status_counts = {
-        "object_local_bundle_metadata_only": 13742,
-        "object_local_bundle_with_evidence_routes": 668,
+        "object_local_bundle_metadata_only": 28,
+        "object_local_bundle_with_evidence_routes": 14382,
         "object_local_bundle_with_review_image": 13715,
     }
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
@@ -2896,7 +2939,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "human_entry_object_count": 28125,
         "ai_entry_object_count": 28125,
         "local_visual_asset_object_count": 13715,
-        "route_gallery_or_route_index_object_count": 668,
+        "route_gallery_or_route_index_object_count": 14382,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
     }

@@ -92,6 +92,25 @@ CODE_INDEX_FIELDS = [
     "updated_at",
 ]
 
+IMAGE_ROUTE_FIELDS = [
+    "image_route_id",
+    "project_id",
+    "candidate_evolution_category_id",
+    "route_type",
+    "route_label",
+    "source_id",
+    "evidence_download_id",
+    "route_file_path",
+    "route_record_ref",
+    "image_reference_count",
+    "local_image_status",
+    "rights_status",
+    "review_status",
+    "research_boundary",
+    "caution",
+    "updated_at",
+]
+
 MANIFEST_FIELDS = [
     "project_id",
     "record_type",
@@ -99,6 +118,8 @@ MANIFEST_FIELDS = [
     "packet_path",
     "source_index_path",
     "code_index_path",
+    "image_reference_route_index_path",
+    "image_reference_route_gallery_path",
     "human_review_sheet_path",
     "source_character_label",
     "source_character_codepoints",
@@ -247,7 +268,64 @@ def route_files(directory: Path) -> list[str]:
         (directory / "02_evolution-source-index.csv").as_posix(),
         (directory / "03_era-source-code-index.csv").as_posix(),
         (directory / "04_human-review-sheet.md").as_posix(),
+        (directory / "05_image-reference-route-index.csv").as_posix(),
+        (directory / "06_image-reference-route-gallery.md").as_posix(),
     ]
+
+
+def image_route_rows(index: int, row: dict[str, str], code_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    pid = project_id(index)
+    category_id = row["candidate_evolution_category_id"]
+    routes = [
+        {
+            "image_route_id": f"{pid}-route-category-staging",
+            "route_type": "category_metadata_staging",
+            "route_label": "EVOBC category row with aggregate image-reference counts",
+            "evidence_download_id": row["evidence_download_id_key_value"],
+            "route_file_path": CATEGORY_STAGING.as_posix(),
+            "route_record_ref": category_id,
+            "image_reference_count": row["image_reference_count"],
+        },
+        {
+            "image_route_id": f"{pid}-route-list-staging",
+            "route_type": "list_metadata_staging",
+            "route_label": "EVOBC list rows summarized into era/source counts",
+            "evidence_download_id": row["evidence_download_id_list"],
+            "route_file_path": CATEGORY_STAGING.as_posix(),
+            "route_record_ref": row["source_category_id"],
+            "image_reference_count": row["image_reference_count"],
+        },
+        {
+            "image_route_id": f"{pid}-route-code-index",
+            "route_type": "object_local_code_index",
+            "route_label": "Object-local era/source code index for locating review buckets",
+            "evidence_download_id": row["evidence_download_id_list"],
+            "route_file_path": "03_era-source-code-index.csv",
+            "route_record_ref": ";".join(code_row["code_index_id"] for code_row in code_rows),
+            "image_reference_count": row["image_reference_count"],
+        },
+        {
+            "image_route_id": f"{pid}-route-evolution-graph",
+            "route_type": "graph_edge_route",
+            "route_label": "EVOBC relationship graph edges that reference this category",
+            "evidence_download_id": row["evidence_download_id_list"],
+            "route_file_path": EVOLUTION_GRAPH.as_posix(),
+            "route_record_ref": category_id,
+            "image_reference_count": row["image_reference_count"],
+        },
+    ]
+    shared = {
+        "project_id": pid,
+        "candidate_evolution_category_id": category_id,
+        "source_id": SOURCE_ID,
+        "local_image_status": "not_collected_route_indexed",
+        "rights_status": RIGHTS_STATUS,
+        "review_status": REVIEW_STATUS,
+        "research_boundary": RESEARCH_BOUNDARY,
+        "caution": CAUTION,
+        "updated_at": UPDATED_AT,
+    }
+    return [{**shared, **route} for route in routes]
 
 
 def packet_payload(
@@ -255,6 +333,7 @@ def packet_payload(
     row: dict[str, str],
     directory: Path,
     code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
 ) -> dict[str, object]:
     return {
         "project_id": project_id(index),
@@ -279,6 +358,8 @@ def packet_payload(
             "has_clerical_refs": row["has_clerical_refs"] == "true",
         },
         "code_index": code_rows,
+        "image_reference_routes": image_routes,
+        "local_image_status": "not_collected_route_indexed",
         "route_files": route_files(directory),
         "formal_correspondence_status": "not_formal_correspondence",
         "evolution_chain_claim_status": "no_claim",
@@ -320,6 +401,8 @@ Simplified Chinese:
 - `02_evolution-source-index.csv`: source, download, rights, and route index.
 - `03_era-source-code-index.csv`: era/source code rows observed for this category.
 - `04_human-review-sheet.md`: human review sheet for source-chain, image, and cross-source checks.
+- `05_image-reference-route-index.csv`: object-local image-reference route index for humans and AI agents.
+- `06_image-reference-route-gallery.md`: object-local route gallery explaining where visual evidence still needs to be collected.
 
 ## Candidate Metadata / 候选 metadata
 
@@ -342,6 +425,39 @@ Current status: `{REVIEW_STATUS}`. Reviewers must compare this candidate against
 """
 
 
+def image_route_gallery_text(index: int, row: dict[str, str], image_routes: list[dict[str, str]]) -> str:
+    route_lines = "\n".join(
+        "- `{image_route_id}` / `{route_type}`: {route_label}; route file `{route_file_path}`; status `{local_image_status}`.".format(**route)
+        for route in image_routes
+    )
+    return f"""# Image Reference Route Gallery / 图像引用路线图
+
+Project ID: `{project_id(index)}`
+
+EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
+
+English:
+This object has EVOBC image-reference metadata, but no local source image is collected here yet. The entries below are route cards for finding and reviewing visual evidence inside this same object directory and its registered source files.
+
+简体中文：
+本对象保存的是 EVOBC 图像引用 metadata，当前尚未在此目录内采集本地图像。下面的条目只是证据路线卡，用来指导后续在同一对象目录和已登记来源文件中查找、复核视觉证据。
+
+## Route Cards / 路线卡
+
+{route_lines}
+
+## Evidence Boundary / 证据边界
+
+- Local image status: `not_collected_route_indexed`
+- Formal correspondence: `not_formal_correspondence`
+- Evolution-chain claim: `no_claim`
+- Modern-character identity: `not_confirmed`
+- Review status: `{REVIEW_STATUS}`
+
+These route cards are preprocessing infrastructure only. They are not accepted paleographic correspondences, not evolution-chain conclusions, not modern-character identity confirmations, and not decipherment conclusions.
+"""
+
+
 def review_sheet_text(index: int, row: dict[str, str]) -> str:
     return f"""# Human Review Sheet / 人工复核表
 
@@ -353,6 +469,7 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 
 - Open `02_evolution-source-index.csv` and confirm source/download/checksum/right-status trail.
 - Open `03_era-source-code-index.csv` and treat era/source codes as dataset metadata only.
+- Open `05_image-reference-route-index.csv` and `06_image-reference-route-gallery.md` before collecting or reviewing visual evidence.
 - Locate or verify primary image references before using any visual evidence.
 - Compare against Xiaoxuetang/OBM, OBIMD, HUST-OBC, IHP/museum records, and inscription context before promotion.
 - Do not record a formal correspondence, evolution-chain conclusion, modern-character identity confirmation, or decipherment conclusion here.
@@ -362,7 +479,7 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 - Formal correspondence: `not_formal_correspondence`
 - Evolution-chain claim: `no_claim`
 - Modern-character identity: `not_confirmed`
-- Source image evidence: `not_collected`
+- Source image evidence: `not_collected_route_indexed`
 - Cross-source review: `needs_human_evolution_review`
 
 ## Caution / 风险提示
@@ -378,14 +495,17 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     for index, row in enumerate(category_rows, start=1):
         directory = object_dir(index, row)
         code_rows = code_index_rows(index, row, codebook)
+        image_routes = image_route_rows(index, row, code_rows)
         pid = project_id(index)
         outputs[pid] = {
             "object_dir": root / directory,
             "relative_object_dir": directory,
             "readme_text": readme_text(index, row, code_rows),
-            "packet": packet_payload(index, row, directory, code_rows),
+            "packet": packet_payload(index, row, directory, code_rows, image_routes),
             "source_rows": source_index_rows(index, row),
             "code_rows": code_rows,
+            "image_route_rows": image_routes,
+            "image_route_gallery_text": image_route_gallery_text(index, row, image_routes),
             "review_sheet_text": review_sheet_text(index, row),
             "map_row": {
                 "project_id": pid,
@@ -423,6 +543,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "packet_path": (directory / "01_candidate-evolution-packet.json").as_posix(),
                 "source_index_path": (directory / "02_evolution-source-index.csv").as_posix(),
                 "code_index_path": (directory / "03_era-source-code-index.csv").as_posix(),
+                "image_reference_route_index_path": (directory / "05_image-reference-route-index.csv").as_posix(),
+                "image_reference_route_gallery_path": (directory / "06_image-reference-route-gallery.md").as_posix(),
                 "human_review_sheet_path": (directory / "04_human-review-sheet.md").as_posix(),
                 "source_character_label": str(packet["source_character_label"]),
                 "source_character_codepoints": str(packet["source_character_codepoints"]),
@@ -448,6 +570,12 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         write_csv(directory / "02_evolution-source-index.csv", output["source_rows"], SOURCE_INDEX_FIELDS)  # type: ignore[arg-type]
         write_csv(directory / "03_era-source-code-index.csv", output["code_rows"], CODE_INDEX_FIELDS)  # type: ignore[arg-type]
+        write_csv(directory / "05_image-reference-route-index.csv", output["image_route_rows"], IMAGE_ROUTE_FIELDS)  # type: ignore[arg-type]
+        (directory / "06_image-reference-route-gallery.md").write_text(
+            str(output["image_route_gallery_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
         (directory / "04_human-review-sheet.md").write_text(
             str(output["review_sheet_text"]),
             encoding="utf-8",

@@ -2434,6 +2434,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "02_evolution-source-index.csv").exists())
             self.assertTrue((object_dir / "03_era-source-code-index.csv").exists())
             self.assertTrue((object_dir / "04_human-review-sheet.md").exists())
+            self.assertTrue((object_dir / "05_image-reference-route-index.csv").exists())
+            self.assertTrue((object_dir / "06_image-reference-route-gallery.md").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("本目录是一个 EVOBC 字形演化类别候选对象", readme_text)
@@ -2455,6 +2457,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_formal_correspondence", first["review_sheet_text"])
         self.assertEqual(first["packet"]["record_type"], "evolution_correspondence_candidate")
         self.assertEqual(first["packet"]["evolution_chain_claim_status"], "no_claim")
+        self.assertEqual(first["packet"]["local_image_status"], "not_collected_route_indexed")
+        self.assertEqual(len(first["image_route_rows"]), 4)
+        self.assertIn("Image Reference Route Gallery", first["image_route_gallery_text"])
         self.assertEqual(len(first["source_rows"]), 2)
         self.assertGreaterEqual(len(first["code_rows"]), 1)
 
@@ -2720,13 +2725,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertEqual(summary["local_visual_asset_object_count"], 13715)
-        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 668)
+        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 14382)
         by_project = {row["project_id"]: row for row in rows}
         self.assertEqual(
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(
+            by_project["obs-evo-cand-000001"]["material_bundle_status"],
+            "object_local_bundle_with_evidence_routes",
+        )
+        self.assertEqual(by_project["obs-evo-cand-000001"]["route_file_count"], "2")
         self.assertEqual(
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",

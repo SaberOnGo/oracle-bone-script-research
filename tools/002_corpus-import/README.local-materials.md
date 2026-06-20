@@ -47,10 +47,10 @@ Simplified Chinese:
 Cambridge/Hopkins 卜辞目录互证批次覆盖 612 个目录 crosswalk 候选。每个 `obs-insc-cw-cand-*` 目录包含 README、候选 packet、crosswalk 来源索引、目录引用索引、人工复核表、图版/文本路线索引和图版/文本路线图。这些只是目录复核与证据路线候选，不是正式 `obi-*` 卜辞记录、馆藏对象同一性结论、释文、卜辞读法或释读结论。
 
 English:
-The EVOBC evolution-category batch covers all 13,714 EVOBC dataset categories. Each `obs-evo-cand-*` directory contains a README, candidate packet, source index, era/source code index, and human review sheet. These are metadata candidates only, not accepted paleographic correspondences, evolution-chain conclusions, modern-character identity confirmations, or decipherment conclusions.
+The EVOBC evolution-category batch covers all 13,714 EVOBC dataset categories. Each `obs-evo-cand-*` directory contains a README, candidate packet, source index, era/source code index, human review sheet, image-reference route index, and image-reference route gallery. These are evidence-route candidates only, not accepted paleographic correspondences, evolution-chain conclusions, modern-character identity confirmations, or decipherment conclusions.
 
 Simplified Chinese:
-EVOBC 字形演化类别批次覆盖 13,714 个 EVOBC 数据集类别。每个 `obs-evo-cand-*` 目录包含 README、候选 packet、来源索引、时代码/source 码索引和人工复核表。这些只是 metadata 候选，不是已接受的古文字对应关系、字形演化链结论、现代字身份确认或释读结论。
+EVOBC 字形演化类别批次覆盖 13,714 个 EVOBC 数据集类别。每个 `obs-evo-cand-*` 目录包含 README、候选 packet、来源索引、时代码/source 码索引、人工复核表、图像引用路线索引和图像引用路线图。这些只是证据路线候选，不是已接受的古文字对应关系、字形演化链结论、现代字身份确认或释读结论。
 
 ## Validation / 校验
 

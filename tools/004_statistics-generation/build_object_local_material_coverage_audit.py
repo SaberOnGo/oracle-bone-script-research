@@ -65,9 +65,15 @@ OBJECT_SPECS = [
         "evolution_correspondence_candidates",
         Path("corpus/004_bronze-seal-modern-correspondences"),
         "*/*/01_candidate-evolution-packet.json",
-        ("README.md", "04_human-review-sheet.md"),
-        ("01_candidate-evolution-packet.json", "02_evolution-source-index.csv", "03_era-source-code-index.csv"),
+        ("README.md", "04_human-review-sheet.md", "06_image-reference-route-gallery.md"),
+        (
+            "01_candidate-evolution-packet.json",
+            "02_evolution-source-index.csv",
+            "03_era-source-code-index.csv",
+            "05_image-reference-route-index.csv",
+        ),
         (),
+        ("05_image-reference-route-index.csv", "06_image-reference-route-gallery.md"),
     ),
     ObjectSpec(
         "inscription_crosswalk_candidates",

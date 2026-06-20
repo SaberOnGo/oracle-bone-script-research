@@ -39,6 +39,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_gap_review_route_pack,
     check_core_corpus_phase_gap_review_handoff_scaffold,
     check_core_corpus_phase_gap_review_handoff_checklist,
+    check_core_corpus_phase_gap_review_handoff_route_summary,
     check_character_candidate_phase_gap_review_checklist,
     check_research_source_phase_gap_review_checklist,
     check_published_research_note_phase_gap_review_checklist,
@@ -1254,6 +1255,15 @@ def load_core_corpus_phase_gap_review_handoff_scaffold_module():
 def load_core_corpus_phase_gap_review_handoff_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_checklist.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_handoff_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_review_handoff_route_summary_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_route_summary.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_handoff_route_summary", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19334,7 +19344,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "200")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "201")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19709,6 +19719,85 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
         self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
         self.assertTrue(all("open_201_handoff_scaffold" in row["required_precheck_steps"] for row in rows))
+
+    def test_core_corpus_phase_gap_review_handoff_route_summary_indexes_202_checklist(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_review_handoff_route_summary(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "203_core-corpus-phase-gap-review-handoff-route-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_summary_id"], "core-corpus-phase-gap-review-handoff-route-summary-001")
+        self.assertEqual(
+            data["handoff_review_checklist_path"],
+            "corpus/009_statistics-and-derived-features/202_core-corpus-phase-gap-review-handoff-checklist.csv",
+        )
+        self.assertEqual(data["route_count"], 20)
+        self.assertEqual(data["handoff_count"], 20)
+        self.assertEqual(data["gap_count"], 20)
+        self.assertEqual(data["corpus_area_count"], 9)
+        self.assertEqual(data["specialized_checklist_family_count"], 6)
+        self.assertEqual(data["checklist_status_counts"], {"not_started": 20})
+        self.assertEqual(data["handoff_status_counts"], {"not_started": 20})
+        self.assertEqual(data["route_status_counts"], {"not_started": 20})
+        self.assertEqual(data["review_status_counts"], {"needs_human_review": 20})
+        self.assertEqual(data["human_review_status_counts"], {"pending_human_review": 20})
+        self.assertEqual(data["evidence_collection_status_counts"], {"not_collected": 20})
+        self.assertEqual(data["rights_decision_status_counts"], {"no_rights_decision": 20})
+        self.assertEqual(data["source_promotion_status_counts"], {"not_promoted": 20})
+        self.assertEqual(data["corpus_import_status_counts"], {"not_imported": 20})
+        self.assertEqual(data["decipherment_claim_status_counts"], {"no_decipherment_claim": 20})
+        self.assertEqual(
+            data["automation_boundary"],
+            "handoff_route_summary_only_no_core_corpus_phase_gap_outcome_capture",
+        )
+        self.assertEqual(
+            data["research_boundary"],
+            "core_corpus_phase_gap_review_handoff_route_summary_not_scholarship",
+        )
+        self.assertIn("routing-only", data["caution"])
+        self.assertEqual(len(data["routes"]), 20)
+        self.assertEqual(
+            data["routes"][0]["summary_route_id"],
+            "core-corpus-phase-gap-review-handoff-summary-route-001",
+        )
+        self.assertEqual(data["routes"][0]["handoff_id"], "core-corpus-phase-gap-review-handoff-001")
+        self.assertEqual(data["routes"][-1]["gap_queue_id"], "core-corpus-phase-gap-020")
+        self.assertIn(
+            "corpus/009_statistics-and-derived-features/202_core-corpus-phase-gap-review-handoff-checklist.csv",
+            data["routes"][0]["handoff_review_checklist_path"],
+        )
+        self.assertIn(
+            "corpus/009_statistics-and-derived-features/201_core-corpus-phase-gap-review-handoff-scaffold.json",
+            data["routes"][0]["handoff_files_to_open"],
+        )
+        self.assertEqual({route["reviewed_outcome_summary"] for route in data["routes"]}, {""})
+
+    def test_core_corpus_phase_gap_review_handoff_route_summary_builder_uses_202_checklist(self) -> None:
+        module = load_core_corpus_phase_gap_review_handoff_route_summary_module()
+        rows = module.read_csv_rows(repo_root() / module.CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST)
+        data = module.build_route_summary(rows)
+        self.assertEqual(data["route_count"], 20)
+        self.assertEqual(data["gap_count"], 20)
+        self.assertEqual(
+            data["specialized_checklist_family_counts"],
+            {
+                "character_candidate_phase_gap_review": 3,
+                "collection_provenance_phase_gap_review": 3,
+                "inscription_plate_crosswalk_phase_gap_review": 2,
+                "published_research_note_phase_gap_review": 4,
+                "research_source_phase_gap_review": 5,
+                "shape_component_evolution_verification_gap_review": 3,
+            },
+        )
+        self.assertEqual(data["routes"][0]["handoff_review_checklist_id"], "core-corpus-phase-gap-review-handoff-checklist-001")
+        self.assertEqual(data["routes"][-1]["handoff_review_checklist_id"], "core-corpus-phase-gap-review-handoff-checklist-020")
+        self.assertTrue(all(route["research_boundary"] == module.RESEARCH_BOUNDARY for route in data["routes"]))
+        self.assertTrue(all(route["automation_boundary"] == module.AUTOMATION_BOUNDARY for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_evidence_paths"] == "" for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
+        self.assertTrue(all("open_201_handoff_scaffold" in route["required_precheck_steps"] for route in data["routes"]))
 
     def test_character_candidate_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:
         self.assertEqual(check_character_candidate_phase_gap_review_checklist(repo_root()), [])

@@ -899,6 +899,10 @@ CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "202_core-corpus-phase-gap-review-handoff-checklist.csv"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "203_core-corpus-phase-gap-review-handoff-route-summary.json"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
@@ -1845,6 +1849,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_SCAFFOLD,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST,
+    CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY,
     CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -2069,6 +2074,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_route_pack.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_scaffold.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_checklist.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_route_summary.py",
     "tools/004_statistics-generation/build_character_candidate_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py",
@@ -5681,7 +5687,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75236,
+        "staging_record_count": 75237,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5722,7 +5728,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "200",
+            "staging_record_count": "201",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -8280,6 +8286,133 @@ def check_core_corpus_phase_gap_review_handoff_checklist(root: Path) -> list[str
         for checklist_path in row.get("handoff_files_to_open", "").split(";"):
             if checklist_path and not (root / checklist_path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST} missing handoff file: {checklist_path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_review_handoff_route_summary(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST)
+    issues.extend(row_issues)
+
+    path = root / CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return [f"missing required path: {CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY}"]
+    except json.JSONDecodeError as exc:
+        return [f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} invalid JSON: {exc.msg}"]
+
+    routes = data.get("routes", [])
+    if not isinstance(routes, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} routes should be a list")
+        routes = []
+
+    if data.get("route_summary_id") != "core-corpus-phase-gap-review-handoff-route-summary-001":
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} route summary ID changed")
+    if data.get("handoff_review_checklist_path") != CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} checklist path changed")
+    if data.get("route_count") != len(rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} route count should match 202 checklist")
+    if data.get("handoff_count") != len(rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} handoff count should match 202 checklist")
+    if data.get("gap_count") != len({row.get("gap_queue_id", "") for row in rows}):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} gap count should match 202 checklist")
+    if data.get("corpus_area_count") != len({row.get("corpus_area", "") for row in rows}):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} corpus area count changed")
+    if data.get("specialized_checklist_family_count") != len(
+        {row.get("specialized_checklist_family", "") for row in rows}
+    ):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} specialized checklist family count changed")
+    for field, expected_counts in {
+        "checklist_status_counts": {"not_started": len(rows)},
+        "handoff_status_counts": {"not_started": len(rows)},
+        "route_status_counts": {"not_started": len(rows)},
+        "review_status_counts": {"needs_human_review": len(rows)},
+        "human_review_status_counts": {"pending_human_review": len(rows)},
+        "evidence_collection_status_counts": {"not_collected": len(rows)},
+        "rights_decision_status_counts": {"no_rights_decision": len(rows)},
+        "source_promotion_status_counts": {"not_promoted": len(rows)},
+        "corpus_import_status_counts": {"not_imported": len(rows)},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": len(rows)},
+    }.items():
+        if data.get(field) != expected_counts:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} {field} changed")
+    if data.get("automation_boundary") != "handoff_route_summary_only_no_core_corpus_phase_gap_outcome_capture":
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} automation boundary changed")
+    if data.get("research_boundary") != "core_corpus_phase_gap_review_handoff_route_summary_not_scholarship":
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} research boundary changed")
+    if "routing-only" not in data.get("caution", ""):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} caution changed")
+    if len(routes) != len(rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} routes should match 202 checklist rows")
+
+    for index, (route, row) in enumerate(zip(routes, rows), start=1):
+        if not isinstance(route, dict):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} route {index} should be an object")
+            continue
+        expected_route_id = f"core-corpus-phase-gap-review-handoff-summary-route-{index:03d}"
+        if route.get("summary_route_id") != expected_route_id:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} summary route ID changed: {index}")
+        for field in [
+            "handoff_review_checklist_id",
+            "handoff_id",
+            "route_id",
+            "review_index_id",
+            "gap_queue_id",
+            "source_phase_row_id",
+            "corpus_area",
+            "phase_name",
+            "phase_status",
+            "specialized_checklist_family",
+            "specialized_checklist_id",
+            "specialized_checklist_path",
+        ]:
+            if route.get(field) != row.get(field):
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} {field} mismatch: {expected_route_id}")
+        for field, expected_value in {
+            "handoff_review_checklist_path": CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST,
+            "handoff_scaffold_path": CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_SCAFFOLD,
+            "route_pack_path": CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
+            "review_index_path": CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
+            "checklist_status": "not_started",
+            "handoff_status": "not_started",
+            "route_status": "not_started",
+            "review_status": "needs_human_review",
+            "human_review_status": "pending_human_review",
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "automation_boundary": "handoff_route_summary_only_no_core_corpus_phase_gap_outcome_capture",
+            "research_boundary": "core_corpus_phase_gap_review_handoff_route_summary_not_scholarship",
+        }.items():
+            if route.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} {field} changed: {expected_route_id}")
+        for field in [
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "reviewed_rights_decision",
+            "reviewed_source_or_candidate_promotion",
+            "reviewed_corpus_import",
+            "reviewed_decipherment_claim",
+        ]:
+            if route.get(field) != "":
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} {field} should stay empty: {expected_route_id}")
+        for step in [
+            "open_201_handoff_scaffold",
+            "open_200_route_pack",
+            "open_199_review_index",
+            "verify_empty_reviewed_outcome_fields_before_review",
+            "do_not_collect_evidence_or_record_outcome_in_checklist",
+        ]:
+            if step not in route.get("required_precheck_steps", []):
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} missing precheck step {step}: {expected_route_id}")
+        if "core corpus phase gap review handoff route summary is routing-only" not in route.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} route caution changed: {expected_route_id}")
+        for route_path in route.get("handoff_files_to_open", []):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY} missing handoff file: {route_path}")
     return issues
 
 
@@ -25562,6 +25695,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_gap_review_route_pack(root))
     issues.extend(check_core_corpus_phase_gap_review_handoff_scaffold(root))
     issues.extend(check_core_corpus_phase_gap_review_handoff_checklist(root))
+    issues.extend(check_core_corpus_phase_gap_review_handoff_route_summary(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))

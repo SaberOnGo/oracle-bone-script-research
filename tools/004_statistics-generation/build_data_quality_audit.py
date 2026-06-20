@@ -19,7 +19,7 @@ from typing import NamedTuple
 
 OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/092_data-quality-audit.csv")
 OUTPUT_JSON = Path("corpus/009_statistics-and-derived-features/093_data-quality-summary.json")
-UPDATED_AT = "2026-06-19"
+UPDATED_AT = "2026-06-20"
 CAUTION = (
     "Data-quality audit only; zero engineering issues here does not confirm "
     "oracle-character identity, readings, components, inscription context, "
@@ -90,6 +90,7 @@ REL_GRAPH_FILES = [
     Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"),
+    Path("corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl"),
 ]
 
 

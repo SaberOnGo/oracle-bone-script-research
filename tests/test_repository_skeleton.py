@@ -13809,16 +13809,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "093_data-quality-summary.json"
         )
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["dataset_count"], 28)
-        self.assertEqual(data["quality_status_counts"], {"needs_review": 3, "pass": 25})
-        self.assertEqual(data["totals"]["row_count"], 165973)
-        self.assertEqual(data["totals"]["issue_count"], 23097)
+        self.assertEqual(data["dataset_count"], 29)
+        self.assertEqual(data["quality_status_counts"], {"needs_review": 4, "pass": 25})
+        self.assertEqual(data["totals"]["row_count"], 166645)
+        self.assertEqual(data["totals"]["issue_count"], 23769)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
 
     def test_data_quality_audit_builder_checks_reference_integrity(self) -> None:
         module = load_data_quality_audit_module()
         rows = module.build_quality_rows(repo_root())
-        self.assertEqual(len(rows), 28)
+        self.assertEqual(len(rows), 29)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
@@ -13831,6 +13831,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_dataset["hust_obimd_evobc_codepoint_crosswalk"]["issue_count"], "0")
         self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["row_count"], "1737")
         self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["quality_status"], "needs_review")
+        self.assertEqual(by_dataset["012_cambridge-hopkins-topic-candidate-graph-edges"]["row_count"], "672")
+        self.assertEqual(
+            by_dataset["012_cambridge-hopkins-topic-candidate-graph-edges"]["quality_status"],
+            "needs_review",
+        )
+        self.assertEqual(
+            by_dataset["012_cambridge-hopkins-topic-candidate-graph-edges"]["issue_count"],
+            "672",
+        )
         self.assertEqual(
             by_dataset["cambridge_hopkins_inscription_crosswalk_review_queue"]["row_count"],
             "612",
@@ -13982,6 +13991,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                     "009_character-asset-graph-edges",
                     "010_cross-source-id-graph-edges",
                     "011_component-asset-graph-edges",
+                    "012_cambridge-hopkins-topic-candidate-graph-edges",
                 }
             )
         )

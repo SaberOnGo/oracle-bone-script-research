@@ -361,7 +361,7 @@ SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv"
 )
-UPDATED_AT = "2026-06-19"
+UPDATED_AT = "2026-06-20"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
     "counts do not confirm readings, identities, components, inscriptions, "

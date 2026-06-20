@@ -17,7 +17,7 @@ from pathlib import Path
 
 OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/090_preprocessing-status-audit.csv")
 OUTPUT_JSON = Path("corpus/009_statistics-and-derived-features/091_preprocessing-status-summary.json")
-UPDATED_AT = "2026-06-19"
+UPDATED_AT = "2026-06-20"
 CAUTION = (
     "Preprocessing audit only; all identity, component, evolution, inscription, "
     "and decipherment-facing rows remain candidates or review routes until "

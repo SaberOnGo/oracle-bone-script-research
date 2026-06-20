@@ -1,6 +1,6 @@
 {
   "summary_id": "preprocessing-status-summary-001",
-  "updated_at": "2026-06-19",
+  "updated_at": "2026-06-20",
   "audit_csv_path": "corpus/009_statistics-and-derived-features/090_preprocessing-status-audit.csv",
   "row_count": 11,
   "stage_counts": {
@@ -34,7 +34,7 @@
       "next_entry_path": "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
       "review_status": "reviewed_metadata_only",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-002",
@@ -46,7 +46,7 @@
       "next_entry_path": "project_registry/006_large-source-register/001_large-source-register.csv",
       "review_status": "reviewed_metadata_only",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-003",
@@ -58,7 +58,7 @@
       "next_entry_path": "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
       "review_status": "candidate_not_promoted",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-004",
@@ -70,7 +70,7 @@
       "next_entry_path": "corpus/001_oracle-characters/000_character-registers/003_undeciphered-oracle-characters-index.csv",
       "review_status": "candidate_not_promoted",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-005",
@@ -82,7 +82,7 @@
       "next_entry_path": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-006",
@@ -94,7 +94,7 @@
       "next_entry_path": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-007",
@@ -102,11 +102,11 @@
       "label_en": "Inscription, plate, and collection provenance staging",
       "label_zh": "卜辞、图版与馆藏出处暂存",
       "current_stage": "pending_human_review",
-      "count_summary": "cambridge_hopkins_crosswalk_review_queue_rows:612;cambridge_hopkins_graph_edges:4403;candidate_inscription_crosswalk_map_rows:612;candidate_inscription_crosswalk_packet_files:612;formal_inscription_id_map_rows:0;formal_inscription_record_files:0;xxt_obm_access_capture_rows:4;xxt_obm_review_logs:4",
+      "count_summary": "cambridge_hopkins_crosswalk_review_queue_rows:612;cambridge_hopkins_graph_edges:5075;candidate_inscription_crosswalk_map_rows:612;candidate_inscription_crosswalk_packet_files:612;formal_inscription_id_map_rows:0;formal_inscription_record_files:0;xxt_obm_access_capture_rows:4;xxt_obm_review_logs:4",
       "next_entry_path": "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/",
       "review_status": "metadata_only_pending_review",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-008",
@@ -118,7 +118,7 @@
       "next_entry_path": "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
       "review_status": "reviewed_assets_only",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-009",
@@ -126,11 +126,11 @@
       "label_en": "Candidate relationship graph edges and summaries",
       "label_zh": "候选关系图边与统计",
       "current_stage": "verified",
-      "count_summary": "edge_type_count:19;edge_type_summary_rows:25;graph_edge_rows:127174;node_degree_summary_rows:101598",
+      "count_summary": "edge_type_count:24;edge_type_summary_rows:30;graph_edge_rows:127846;node_degree_summary_rows:101619",
       "next_entry_path": "corpus/008_relationship-graph/",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-010",
@@ -142,7 +142,7 @@
       "next_entry_path": "doc/public/user_research/",
       "review_status": "pending_human_review",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     },
     {
       "audit_row_id": "pre-audit-011",
@@ -154,7 +154,7 @@
       "next_entry_path": "project_registry/002_project-id-to-source-reference-map/",
       "review_status": "mostly_unassigned_by_design",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-19"
+      "updated_at": "2026-06-20"
     }
   ]
 }

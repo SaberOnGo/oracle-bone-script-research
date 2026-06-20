@@ -4339,7 +4339,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} row_count should be 11")
     if summary.get("audit_csv_path") != PREPROCESSING_STATUS_AUDIT:
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} audit_csv_path changed")
-    if summary.get("updated_at") != "2026-06-19":
+    if summary.get("updated_at") != "2026-06-20":
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} updated_at changed")
     if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} completion boundary changed")
@@ -4407,7 +4407,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "candidate_inscription_crosswalk_packet_files:612",
             "formal_inscription_id_map_rows:0",
             "formal_inscription_record_files:0",
-            "cambridge_hopkins_graph_edges:4403",
+            "cambridge_hopkins_graph_edges:5075",
             "cambridge_hopkins_crosswalk_review_queue_rows:612",
             "xxt_obm_access_capture_rows:4",
         ],
@@ -4416,9 +4416,10 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "asset_id_map_rows:21363",
         ],
         "relationship_graph": [
-            "graph_edge_rows:127174",
-            "edge_type_count:19",
-            "node_degree_summary_rows:101598",
+            "graph_edge_rows:127846",
+            "edge_type_count:24",
+            "edge_type_summary_rows:30",
+            "node_degree_summary_rows:101619",
         ],
         "review_queues": [
             "review_log_files:78",
@@ -4516,7 +4517,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
 
     for row in audit_rows:
         area_type = row.get("area_type", "")
-        if row.get("updated_at") != "2026-06-19":
+        if row.get("updated_at") != "2026-06-20":
             issues.append(f"{PREPROCESSING_STATUS_AUDIT} updated_at changed: {area_type}")
         if "Preprocessing audit only" not in row.get("caution", ""):
             issues.append(f"{PREPROCESSING_STATUS_AUDIT} caution changed: {area_type}")
@@ -4552,17 +4553,17 @@ def check_data_quality_audit(root: Path) -> list[str]:
         issues.append(f"{DATA_QUALITY_SUMMARY} invalid JSON: {exc}")
         summary = {}
 
-    if len(audit_rows) != 28:
-        issues.append(f"{DATA_QUALITY_AUDIT} should contain exactly 28 rows")
-    if summary.get("dataset_count") != 28:
-        issues.append(f"{DATA_QUALITY_SUMMARY} dataset_count should be 28")
+    if len(audit_rows) != 29:
+        issues.append(f"{DATA_QUALITY_AUDIT} should contain exactly 29 rows")
+    if summary.get("dataset_count") != 29:
+        issues.append(f"{DATA_QUALITY_SUMMARY} dataset_count should be 29")
     if summary.get("audit_csv_path") != DATA_QUALITY_AUDIT:
         issues.append(f"{DATA_QUALITY_SUMMARY} audit_csv_path changed")
-    if summary.get("updated_at") != "2026-06-19":
+    if summary.get("updated_at") != "2026-06-20":
         issues.append(f"{DATA_QUALITY_SUMMARY} updated_at changed")
     if "does not promote candidate identities" not in summary.get("completion_boundary", ""):
         issues.append(f"{DATA_QUALITY_SUMMARY} completion boundary changed")
-    if summary.get("quality_status_counts") != {"needs_review": 3, "pass": 25}:
+    if summary.get("quality_status_counts") != {"needs_review": 4, "pass": 25}:
         issues.append(f"{DATA_QUALITY_SUMMARY} quality status counts changed")
 
     expected_dataset_counts = {
@@ -4594,12 +4595,13 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "009_character-asset-graph-edges": "10996",
         "010_cross-source-id-graph-edges": "1737",
         "011_component-asset-graph-edges": "10364",
+        "012_cambridge-hopkins-topic-candidate-graph-edges": "672",
     }
     by_dataset = {row.get("dataset_id", ""): row for row in audit_rows}
     expected_totals = {
-        "boundary_status_violation_count": 23097,
+        "boundary_status_violation_count": 23769,
         "duplicate_key_count": 0,
-        "issue_count": 23097,
+        "issue_count": 23769,
         "missing_path_count": 0,
         "missing_required_value_count": 0,
         "row_count": sum(int(row.get("row_count", "0") or 0) for row in audit_rows),
@@ -4619,6 +4621,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
             "009_character-asset-graph-edges": "10996",
             "010_cross-source-id-graph-edges": "1737",
             "011_component-asset-graph-edges": "10364",
+            "012_cambridge-hopkins-topic-candidate-graph-edges": "672",
         }
         expected_quality_status = "needs_review" if dataset_id in expected_review_datasets else "pass"
         expected_issue_count = expected_review_datasets.get(dataset_id, "0")
@@ -5313,7 +5316,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} core_area_count should be 10")
     if summary.get("matrix_csv_path") != CORE_CORPUS_READINESS_MATRIX:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} matrix_csv_path changed")
-    if summary.get("updated_at") != "2026-06-19":
+    if summary.get("updated_at") != "2026-06-20":
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} updated_at changed")
     if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} completion boundary changed")
@@ -5326,7 +5329,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
         "candidate_record_count": 11742,
-        "formal_record_count": 101652,
+        "formal_record_count": 101678,
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,

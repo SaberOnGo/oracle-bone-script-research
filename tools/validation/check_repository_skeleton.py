@@ -907,6 +907,10 @@ CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD = (
     "corpus/009_statistics-and-derived-features/"
     "204_core-corpus-phase-gap-review-outcome-scaffold.csv"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK = (
+    "corpus/009_statistics-and-derived-features/"
+    "205_core-corpus-phase-gap-review-outcome-route-pack.json"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
@@ -1855,6 +1859,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_ROUTE_SUMMARY,
     CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD,
+    CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK,
     CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -2081,6 +2086,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_checklist.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_route_summary.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_scaffold.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_route_pack.py",
     "tools/004_statistics-generation/build_character_candidate_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py",
@@ -5693,7 +5699,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75238,
+        "staging_record_count": 75239,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5734,7 +5740,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "202",
+            "staging_record_count": "203",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -8520,6 +8526,127 @@ def check_core_corpus_phase_gap_review_outcome_scaffold(root: Path) -> list[str]
         for route_path in row.get("handoff_files_to_open", "").split(";"):
             if route_path and not (root / route_path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD} missing handoff file: {route_path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_review_outcome_route_pack(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD)
+    issues.extend(row_issues)
+    try:
+        data = json.loads((root / CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return [f"missing required path: {CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK}"]
+    except json.JSONDecodeError as exc:
+        return [f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} invalid JSON: {exc.msg}"]
+
+    routes = data.get("routes", [])
+    if not isinstance(routes, list):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} routes should be a list")
+        routes = []
+    expected_counts = {
+        "route_pack_id": "core-corpus-phase-gap-review-outcome-route-pack-001",
+        "outcome_scaffold_path": CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD,
+        "route_pack_path": CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK,
+        "route_count": len(rows),
+        "gap_count": len({row.get("gap_queue_id", "") for row in rows}),
+        "corpus_area_count": len({row.get("corpus_area", "") for row in rows}),
+        "specialized_checklist_family_count": len(
+            {row.get("specialized_checklist_family", "") for row in rows}
+        ),
+        "route_status_counts": {"not_started": len(rows)},
+        "review_outcome_status_counts": {"not_started": len(rows)},
+        "evidence_collection_status_counts": {"not_collected": len(rows)},
+        "human_review_status_counts": {"pending_human_review": len(rows)},
+        "rights_decision_status_counts": {"no_rights_decision": len(rows)},
+        "source_promotion_status_counts": {"not_promoted": len(rows)},
+        "corpus_import_status_counts": {"not_imported": len(rows)},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": len(rows)},
+        "identity_claim_status_counts": {"no_identity_claim": len(rows)},
+        "component_claim_status_counts": {"no_component_claim": len(rows)},
+        "evolution_claim_status_counts": {"no_evolution_chain_claim": len(rows)},
+        "automation_boundary": "routing_only_no_core_corpus_phase_gap_outcome_capture",
+        "research_boundary": "core_corpus_phase_gap_review_outcome_route_pack_not_scholarship",
+    }
+    for key, expected_value in expected_counts.items():
+        if data.get(key) != expected_value:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} {key} changed")
+    if len(routes) != len(rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} route count should match 204 rows")
+    for required_snippet in [
+        "routing-only",
+        "not a reviewed outcome",
+        "not source or candidate promotion",
+        "not a component assignment",
+        "not a decipherment conclusion",
+    ]:
+        if required_snippet not in data.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} missing caution: {required_snippet}")
+
+    for index, (route, row) in enumerate(zip(routes, rows), start=1):
+        if not isinstance(route, dict):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} route {index} should be an object")
+            continue
+        expected_route_id = f"core-corpus-phase-gap-review-outcome-route-{index:03d}"
+        if route.get("outcome_route_id") != expected_route_id:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} route ID changed: {index}")
+        for route_field, row_field in {
+            "core_corpus_phase_gap_review_outcome_scaffold_id": "core_corpus_phase_gap_review_outcome_scaffold_id",
+            "summary_route_id": "summary_route_id",
+            "handoff_review_checklist_id": "handoff_review_checklist_id",
+            "handoff_id": "handoff_id",
+            "review_index_id": "review_index_id",
+            "gap_queue_id": "gap_queue_id",
+            "source_phase_row_id": "source_phase_row_id",
+            "corpus_area": "corpus_area",
+            "phase_name": "phase_name",
+            "phase_status": "phase_status",
+            "specialized_checklist_family": "specialized_checklist_family",
+            "specialized_checklist_id": "specialized_checklist_id",
+            "specialized_checklist_path": "specialized_checklist_path",
+            "review_outcome_status": "review_outcome_status",
+            "evidence_collection_status": "evidence_collection_status",
+            "human_review_status": "human_review_status",
+            "rights_decision_status": "rights_decision_status",
+            "source_promotion_status": "source_promotion_status",
+            "corpus_import_status": "corpus_import_status",
+            "decipherment_claim_status": "decipherment_claim_status",
+            "identity_claim_status": "identity_claim_status",
+            "component_claim_status": "component_claim_status",
+            "evolution_claim_status": "evolution_claim_status",
+        }.items():
+            if route.get(route_field) != row.get(row_field):
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} {route_field} mismatch: {expected_route_id}")
+        if route.get("review_route_id") != row.get("route_id"):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} review route mismatch: {expected_route_id}")
+        for list_field in [
+            "route_files_to_open",
+            "handoff_files_to_open",
+            "required_review_steps",
+            "required_precheck_steps",
+            "reserved_outcome_fields",
+        ]:
+            expected_list = [part for part in row.get(list_field, "").split(";") if part]
+            if route.get(list_field) != expected_list:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} {list_field} mismatch: {expected_route_id}")
+        for empty_field in [
+            "phase_gap_outcome_reviewed",
+            "specialized_checklist_outcome_reviewed",
+            "reviewed_evidence_paths",
+            "reviewed_outcome_summary",
+            "reviewed_rights_decision",
+            "reviewed_source_or_candidate_promotion",
+            "reviewed_corpus_import",
+            "reviewed_decipherment_claim",
+            "required_followup_reviewed",
+        ]:
+            if route.get(empty_field) != "":
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} {empty_field} should stay empty: {expected_route_id}")
+        if "routing-only" not in route.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} route caution changed: {expected_route_id}")
+        for route_path in route.get("route_files_to_open", []) + route.get("handoff_files_to_open", []):
+            if route_path and not (root / route_path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK} missing routed file: {route_path}")
     return issues
 
 
@@ -25804,6 +25931,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_gap_review_handoff_checklist(root))
     issues.extend(check_core_corpus_phase_gap_review_handoff_route_summary(root))
     issues.extend(check_core_corpus_phase_gap_review_outcome_scaffold(root))
+    issues.extend(check_core_corpus_phase_gap_review_outcome_route_pack(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))

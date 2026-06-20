@@ -41,6 +41,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_gap_review_handoff_checklist,
     check_core_corpus_phase_gap_review_handoff_route_summary,
     check_core_corpus_phase_gap_review_outcome_scaffold,
+    check_core_corpus_phase_gap_review_outcome_route_pack,
     check_character_candidate_phase_gap_review_checklist,
     check_research_source_phase_gap_review_checklist,
     check_published_research_note_phase_gap_review_checklist,
@@ -1274,6 +1275,15 @@ def load_core_corpus_phase_gap_review_handoff_route_summary_module():
 def load_core_corpus_phase_gap_review_outcome_scaffold_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_scaffold.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_outcome_scaffold", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_review_outcome_route_pack_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_route_pack.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_outcome_route_pack", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19354,7 +19364,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "202")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "203")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19872,6 +19882,63 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
         self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
         self.assertTrue(all("phase_gap_outcome_reviewed" in row["reserved_outcome_fields"] for row in rows))
+
+    def test_core_corpus_phase_gap_review_outcome_route_pack_indexes_204_scaffold(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_review_outcome_route_pack(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "205_core-corpus-phase-gap-review-outcome-route-pack.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["route_pack_id"], "core-corpus-phase-gap-review-outcome-route-pack-001")
+        self.assertEqual(data["outcome_scaffold_path"], "corpus/009_statistics-and-derived-features/204_core-corpus-phase-gap-review-outcome-scaffold.csv")
+        self.assertEqual(data["route_count"], 20)
+        self.assertEqual(data["gap_count"], 20)
+        self.assertEqual(data["route_status_counts"], {"not_started": 20})
+        self.assertEqual(data["review_outcome_status_counts"], {"not_started": 20})
+        self.assertEqual(data["evidence_collection_status_counts"], {"not_collected": 20})
+        self.assertEqual(data["human_review_status_counts"], {"pending_human_review": 20})
+        self.assertEqual(data["rights_decision_status_counts"], {"no_rights_decision": 20})
+        self.assertIn("routing-only", data["caution"])
+        self.assertIn("not a reviewed outcome", data["caution"])
+        self.assertIn("not a decipherment conclusion", data["caution"])
+        first = data["routes"][0]
+        self.assertEqual(first["outcome_route_id"], "core-corpus-phase-gap-review-outcome-route-001")
+        self.assertEqual(
+            first["core_corpus_phase_gap_review_outcome_scaffold_id"],
+            "core-corpus-phase-gap-review-outcome-scaffold-001",
+        )
+        self.assertEqual(first["summary_route_id"], "core-corpus-phase-gap-review-handoff-summary-route-001")
+        self.assertEqual(first["review_route_id"], "core-corpus-phase-gap-review-route-001")
+        self.assertEqual(first["route_status"], "not_started")
+        self.assertIn("open_199_review_index", first["required_precheck_steps"])
+        self.assertIn(first["specialized_checklist_path"], first["route_files_to_open"])
+        self.assertEqual(first["reviewed_evidence_paths"], "")
+        self.assertEqual(first["reviewed_outcome_summary"], "")
+        self.assertEqual(first["reviewed_rights_decision"], "")
+        self.assertEqual(first["reviewed_source_or_candidate_promotion"], "")
+        self.assertEqual(first["reviewed_corpus_import"], "")
+        self.assertEqual(first["reviewed_decipherment_claim"], "")
+        self.assertTrue(all(route["reviewed_evidence_paths"] == "" for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
+
+    def test_core_corpus_phase_gap_review_outcome_route_pack_builder_uses_204_scaffold(self) -> None:
+        module = load_core_corpus_phase_gap_review_outcome_route_pack_module()
+        scaffold_rows = module.read_csv_rows(repo_root() / module.CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD)
+        data = module.build_route_pack(scaffold_rows)
+        self.assertEqual(data["route_count"], 20)
+        self.assertEqual(
+            [route["core_corpus_phase_gap_review_outcome_scaffold_id"] for route in data["routes"]],
+            [row["core_corpus_phase_gap_review_outcome_scaffold_id"] for row in scaffold_rows],
+        )
+        self.assertEqual(data["routes"][0]["outcome_scaffold_path"], module.CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_SCAFFOLD.as_posix())
+        self.assertEqual(data["routes"][-1]["gap_queue_id"], "core-corpus-phase-gap-020")
+        self.assertTrue(all(route["route_status"] == module.ROUTE_STATUS for route in data["routes"]))
+        self.assertTrue(all(route["review_outcome_status"] == "not_started" for route in data["routes"]))
+        self.assertTrue(all(route["evidence_collection_status"] == "not_collected" for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_evidence_paths"] == "" for route in data["routes"]))
+        self.assertTrue(all(route["reviewed_outcome_summary"] == "" for route in data["routes"]))
 
     def test_character_candidate_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:
         self.assertEqual(check_character_candidate_phase_gap_review_checklist(repo_root()), [])

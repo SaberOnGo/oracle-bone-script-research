@@ -329,3 +329,9 @@ English supplement:
 
 Simplified Chinese supplement:
 - `build_published_research_note_phase_gap_review_checklist.py` 基于 core corpus phase gap queue 中的 published_research_notes 行生成 `197_published-research-note-phase-gap-review-checklist.csv`。该清单把复核者路由到 `research/`、`doc/public/user_research/` 和来源登记索引，同时保持用户/AI 草稿不进入 `research/`，除非经过人工复核并改写为带来源标记的学术笔记。
+
+English supplement:
+- `build_character_candidate_phase_gap_review_checklist.py` generates `198_character-candidate-phase-gap-review-checklist.csv` from the high-priority oracle_characters and undeciphered_oracle_character_candidates rows in the core corpus phase gap queue. It routes reviewers to HUST-OBC promotion queues, undeciphered-candidate indexes, evidence-readiness rows, and character object-local material audits while keeping every row candidate-only and unpromoted.
+
+Simplified Chinese supplement:
+- `build_character_candidate_phase_gap_review_checklist.py` 基于 core corpus phase gap queue 中高优先级的 oracle_characters 与 undeciphered_oracle_character_candidates 行生成 `198_character-candidate-phase-gap-review-checklist.csv`。该清单把复核者路由到 HUST-OBC 提升复核队列、未释字候选索引、证据就绪清单和单字对象内资料覆盖审计，同时保持所有记录为候选、未提升状态。

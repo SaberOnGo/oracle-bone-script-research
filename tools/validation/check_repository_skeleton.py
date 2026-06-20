@@ -655,6 +655,14 @@ AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv"
 )
+AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "051_ai-agent-hust-obc-undeciphered-candidate-review-queue.csv"
+)
+AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_READINESS_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "060_ai-agent-hust-obc-undeciphered-candidate-evidence-readiness-checklist.csv"
+)
 AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "006_ai-agent-public-domain-asset-context-pack.json"
@@ -874,6 +882,10 @@ CORE_CORPUS_PHASE_COVERAGE_MATRIX = (
 CORE_CORPUS_PHASE_GAP_ACTION_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "192_core-corpus-phase-gap-action-queue.csv"
+)
+CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "198_character-candidate-phase-gap-review-checklist.csv"
 )
 RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
@@ -1813,6 +1825,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_EVIDENCE_LEDGER,
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+    CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
     COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -2032,6 +2045,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py",
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
+    "tools/004_statistics-generation/build_character_candidate_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_collection_provenance_phase_gap_review_checklist.py",
@@ -5643,7 +5657,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75231,
+        "staging_record_count": 75232,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5684,7 +5698,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "195",
+            "staging_record_count": "196",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7858,6 +7872,86 @@ def check_core_corpus_phase_gap_action_queue(root: Path) -> list[str]:
         for path in row.get("phase_evidence_paths", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} missing evidence path: {path}")
+    return issues
+
+
+def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST)
+    promotion_rows, promotion_issues = _read_csv_rows(root / HUST_OBC_OBS_CHAR_PROMOTION_QUEUE)
+    bucket_rows, bucket_issues = _read_csv_rows(root / HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY)
+    undeciphered_rows, undeciphered_issues = _read_csv_rows(root / HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX)
+    review_rows, review_issues = _read_csv_rows(root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_QUEUE)
+    evidence_rows, evidence_issues = _read_csv_rows(root / AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE)
+    readiness_rows, readiness_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_READINESS_CHECKLIST
+    )
+    material_rows, material_issues = _read_csv_rows(root / CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT)
+    issues.extend(row_issues)
+    issues.extend(promotion_issues)
+    issues.extend(bucket_issues)
+    issues.extend(undeciphered_issues)
+    issues.extend(review_issues)
+    issues.extend(evidence_issues)
+    issues.extend(readiness_issues)
+    issues.extend(material_issues)
+    if len(rows) != 3:
+        issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} should contain exactly 3 rows")
+
+    expected_areas = [
+        "oracle_characters",
+        "undeciphered_oracle_character_candidates",
+        "undeciphered_oracle_character_candidates",
+    ]
+    expected_phases = ["verified", "linked", "verified"]
+    if [row.get("corpus_area", "") for row in rows] != expected_areas:
+        issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} corpus area order changed")
+    if [row.get("phase_name", "") for row in rows] != expected_phases:
+        issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} phase order changed")
+    if {row.get("phase_status", "") for row in rows} != {"missing"}:
+        issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} phase status changed")
+
+    expected_counts = {
+        "hust_promotion_review_count": str(len(promotion_rows)),
+        "hust_promotion_bucket_count": str(len(bucket_rows)),
+        "candidate_evidence_request_count": str(len(evidence_rows)),
+        "undeciphered_index_count": str(len(undeciphered_rows)),
+        "undeciphered_review_queue_count": str(len(review_rows)),
+        "undeciphered_evidence_readiness_count": str(len(readiness_rows)),
+        "character_object_material_audit_count": str(len(material_rows)),
+    }
+    for row in rows:
+        review_id = row.get("review_checklist_id", "")
+        if not review_id.startswith("character-candidate-phase-gap-review-"):
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} review ID changed: {review_id}")
+        if row.get("review_priority") != "high_batch_review":
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} review priority changed: {review_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
+        for field, expected_value in expected_counts.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if "src-hust-obc" not in row.get("source_ids", "").split(";"):
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} source IDs changed: {review_id}")
+        if row.get("candidate_or_staging_boundary") != "candidate_not_promoted":
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} boundary changed: {review_id}")
+        if row.get("claim_boundary") != "character_candidate_phase_gap_review_checklist_not_review_outcome_not_scholarship":
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        for field, expected_value in {
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "character_identity_claim_status": "no_character_identity_claim",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if "character candidate phase gap review checklist only" not in row.get("caution", ""):
+            issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} caution changed: {review_id}")
+        for path in row.get("files_to_open", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
     return issues
 
 
@@ -25056,6 +25150,7 @@ def main() -> int:
     issues.extend(check_core_corpus_readiness_matrix(root))
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
+    issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))

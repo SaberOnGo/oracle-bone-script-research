@@ -310,5 +310,11 @@ Simplified Chinese supplement:
 English supplement:
 - `build_core_corpus_readiness_matrix.py`, `build_core_corpus_phase_coverage_matrix.py`, and `build_preprocessing_status_audit.py` now count `171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json` as the current assignment outcome source handoff entry. This remains preprocessing navigation only: it does not collect evidence, record reviewed outcomes, decide rights, promote sources, import corpus records, or make decipherment claims.
 
+English supplement:
+- `build_inscription_plate_crosswalk_phase_gap_review_checklist.py` generates `195_inscription-plate-crosswalk-phase-gap-review-checklist.csv` from the core corpus phase gap queue and current Cambridge/Hopkins inscription crosswalk staging, review queue, project inscription source map, and object-local candidate packet routes. The checklist is preprocessing navigation only: it does not collect new evidence, decide rights, promote sources, import formal inscription records, confirm inscription identity, or make decipherment claims.
+
+Simplified Chinese supplement:
+- `build_inscription_plate_crosswalk_phase_gap_review_checklist.py` 基于 core corpus phase gap queue 和当前 Cambridge/Hopkins inscription crosswalk staging、review queue、project inscription source map 以及对象目录内的 candidate packet 路线，生成 `195_inscription-plate-crosswalk-phase-gap-review-checklist.csv`。该清单只作为预处理导航入口：不采集新证据、不裁定权利、不提升来源、不导入正式卜辞记录、不确认卜辞身份，也不提出释读结论。
+
 Simplified Chinese supplement:
 - `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json` 计为当前 assignment outcome source 的 handoff 入口。该入口仍然只用于预处理导航：不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。

@@ -883,6 +883,10 @@ COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "194_collection-provenance-phase-gap-review-checklist.csv"
 )
+INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv"
+)
 XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv"
@@ -1414,6 +1418,10 @@ CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY = (
     "corpus/002_oracle-bone-inscriptions/000_inscription-registers/"
     "003_cambridge-hopkins-classified-summary.csv"
 )
+ORACLE_INSCRIPTION_ID_SOURCE_MAP = (
+    "project_registry/002_project-id-to-source-reference-map/"
+    "002_oracle-inscription-id-source-map.csv"
+)
 COLLECTION_PROVENANCE_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "001_institutional-collection-provenance-staging.csv"
@@ -1765,6 +1773,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
+    INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST,
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
@@ -1981,6 +1990,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_collection_provenance_phase_gap_review_checklist.py",
+    "tools/004_statistics-generation/build_inscription_plate_crosswalk_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py",
@@ -5582,7 +5592,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75228,
+        "staging_record_count": 75229,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5623,7 +5633,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "192",
+            "staging_record_count": "193",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7923,6 +7933,94 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_inscription_plate_crosswalk_phase_gap_review_checklist(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST)
+    staging_rows, staging_issues = _read_csv_rows(root / CAMBRIDGE_HOPKINS_CROSSWALK_STAGING)
+    summary_rows, summary_issues = _read_csv_rows(root / CAMBRIDGE_HOPKINS_CLASSIFIED_SUMMARY)
+    review_rows, review_issues = _read_csv_rows(root / CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE)
+    map_rows, map_issues = _read_csv_rows(root / ORACLE_INSCRIPTION_ID_SOURCE_MAP)
+    issues.extend(row_issues)
+    issues.extend(staging_issues)
+    issues.extend(summary_issues)
+    issues.extend(review_issues)
+    issues.extend(map_issues)
+    if len(rows) != 2:
+        issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} should contain exactly 2 rows")
+
+    expected_phases = ["downloaded", "verified"]
+    expected_statuses = ["mixed_or_partial", "missing"]
+    if [row.get("phase_name", "") for row in rows] != expected_phases:
+        issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} phase order changed")
+    if [row.get("phase_status", "") for row in rows] != expected_statuses:
+        issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} phase status order changed")
+    if {row.get("corpus_area", "") for row in rows} != {"inscriptions_and_plate_crosswalks"}:
+        issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} corpus area changed")
+
+    candidate_map_rows = [
+        row for row in map_rows if row.get("record_type") == "inscription_crosswalk_candidate"
+    ]
+    candidate_packet_count = sum(
+        1
+        for path in (root / "corpus/002_oracle-bone-inscriptions").rglob(
+            "01_candidate-inscription-crosswalk-packet.json"
+        )
+        if path.is_file()
+    )
+    plate_route_index_count = sum(
+        1
+        for path in (root / "corpus/002_oracle-bone-inscriptions").rglob("05_plate-text-route-index.csv")
+        if path.is_file()
+    )
+    plate_gallery_count = sum(
+        1
+        for path in (root / "corpus/002_oracle-bone-inscriptions").rglob("06_plate-text-gallery.md")
+        if path.is_file()
+    )
+    expected_counts = {
+        "cambridge_hopkins_crosswalk_staging_count": str(len(staging_rows)),
+        "cambridge_hopkins_crosswalk_review_queue_count": str(len(review_rows)),
+        "inscription_source_map_count": str(len(candidate_map_rows)),
+        "candidate_packet_count": str(candidate_packet_count),
+        "plate_text_route_index_count": str(plate_route_index_count),
+        "plate_text_gallery_count": str(plate_gallery_count),
+        "classified_summary_count": str(len(summary_rows)),
+    }
+    for row in rows:
+        review_id = row.get("review_checklist_id", "")
+        if not review_id.startswith("inscription-plate-crosswalk-phase-gap-review-"):
+            issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} review ID changed: {review_id}")
+        if row.get("review_priority") != "targeted_review":
+            issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} review priority changed: {review_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
+        for field, expected_value in expected_counts.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if row.get("candidate_or_staging_boundary") != "staging_crosswalk_not_formal_inscription":
+            issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} boundary changed: {review_id}")
+        if row.get("claim_boundary") != (
+            "inscription_plate_crosswalk_phase_gap_review_checklist_not_review_outcome_not_scholarship"
+        ):
+            issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        for field, expected_value in {
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "inscription_identity_claim_status": "no_inscription_identity_claim",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if "inscription plate crosswalk phase gap review checklist only" not in row.get("caution", ""):
+            issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} caution changed: {review_id}")
+        for path in row.get("files_to_open", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
     return issues
 
 
@@ -24721,6 +24819,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
+    issues.extend(check_inscription_plate_crosswalk_phase_gap_review_checklist(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))

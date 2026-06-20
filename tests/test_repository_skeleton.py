@@ -37,6 +37,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_gap_action_queue,
     check_research_source_phase_gap_review_checklist,
     check_collection_provenance_phase_gap_review_checklist,
+    check_inscription_plate_crosswalk_phase_gap_review_checklist,
     check_source_pipeline_phase_coverage_matrix,
     check_source_pipeline_phase_action_queue,
     check_source_pipeline_phase_action_result_scaffold,
@@ -421,6 +422,17 @@ def load_research_source_phase_gap_review_checklist_module():
 def load_collection_provenance_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_collection_provenance_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location("build_collection_provenance_phase_gap_review_checklist", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_inscription_plate_crosswalk_phase_gap_review_checklist_module():
+    path = repo_root() / "tools/004_statistics-generation/build_inscription_plate_crosswalk_phase_gap_review_checklist.py"
+    spec = importlib.util.spec_from_file_location(
+        "build_inscription_plate_crosswalk_phase_gap_review_checklist", path
+    )
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19247,7 +19259,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "192")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "193")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19469,5 +19481,45 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("src-metmuseum-oracle-bone", first["museum_object_asset_source_ids"])
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
         self.assertTrue(all("collection provenance phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_inscription_plate_crosswalk_phase_gap_review_checklist_routes_crosswalk_gaps(self) -> None:
+        self.assertEqual(check_inscription_plate_crosswalk_phase_gap_review_checklist(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual({row["corpus_area"] for row in rows}, {"inscriptions_and_plate_crosswalks"})
+        self.assertEqual([row["phase_name"] for row in rows], ["downloaded", "verified"])
+        self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "missing"])
+        self.assertEqual({row["cambridge_hopkins_crosswalk_staging_count"] for row in rows}, {"612"})
+        self.assertEqual({row["cambridge_hopkins_crosswalk_review_queue_count"] for row in rows}, {"612"})
+        self.assertEqual({row["inscription_source_map_count"] for row in rows}, {"612"})
+        self.assertEqual({row["candidate_packet_count"] for row in rows}, {"612"})
+        self.assertEqual({row["classified_summary_count"] for row in rows}, {"25"})
+        self.assertTrue(all("098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv" in row["files_to_open"] for row in rows))
+        self.assertTrue(all("002_oracle-inscription-id-source-map.csv" in row["files_to_open"] for row in rows))
+        self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["corpus_import_status"] == "not_imported" for row in rows))
+        self.assertTrue(all(row["inscription_identity_claim_status"] == "no_inscription_identity_claim" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
+
+    def test_inscription_plate_crosswalk_phase_gap_review_checklist_builder_uses_gap_queue_and_crosswalk_routes(self) -> None:
+        module = load_inscription_plate_crosswalk_phase_gap_review_checklist_module()
+        rows = module.build_checklist_rows(repo_root())
+        self.assertEqual(len(rows), 2)
+        first = rows[0]
+        self.assertEqual(first["review_checklist_id"], "inscription-plate-crosswalk-phase-gap-review-001")
+        self.assertEqual(first["gap_queue_id"], "core-corpus-phase-gap-007")
+        self.assertEqual(first["candidate_or_staging_boundary"], "staging_crosswalk_not_formal_inscription")
+        self.assertEqual(first["source_ids"], "src-cambridge-hopkins")
+        self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertTrue(all("inscription plate crosswalk phase gap review checklist only" in row["caution"] for row in rows))
 if __name__ == "__main__":
     unittest.main()

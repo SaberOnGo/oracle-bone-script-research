@@ -25,6 +25,7 @@ python tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_mat
 python tools/002_corpus-import/build_evobc_evolution_candidate_materials.py --root .
 python tools/002_corpus-import/build_collection_object_candidate_materials.py --root .
 python tools/002_corpus-import/build_source_object_materials.py --root .
+python tools/002_corpus-import/build_cambridge_hopkins_topic_materials.py --root .
 ```
 
 ## Current Coverage / 当前覆盖范围

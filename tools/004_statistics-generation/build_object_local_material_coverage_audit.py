@@ -42,7 +42,7 @@ class ObjectSpec:
 
 
 PROJECT_ID_PATTERN = re.compile(
-    r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
+    r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand|topic-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
 )
 
 
@@ -122,6 +122,20 @@ OBJECT_SPECS = [
             "05_metadata-profile-route-index.csv",
         ),
     ),
+    ObjectSpec(
+        "research_topic_candidates",
+        Path("corpus/007_research-topics-and-grammar/001_topic-candidates"),
+        "*/01_topic-candidate-packet.json",
+        ("README.md", "05_human-topic-review-sheet.md"),
+        (
+            "01_topic-candidate-packet.json",
+            "02_topic-source-index.csv",
+            "03_period-count-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+        ),
+        (),
+        ("04_inscription-crosswalk-route-index.csv",),
+    ),
 ]
 
 FIELDNAMES = [
@@ -163,6 +177,7 @@ def project_id_for_packet(packet: dict[str, object], object_dir: Path) -> str:
         "candidate_component_id",
         "candidate_evolution_id",
         "candidate_collection_object_id",
+        "topic_candidate_id",
         "source_id",
     ):
         value = str(packet.get(key, ""))

@@ -1,0 +1,29 @@
+{
+  "canonical_path": "corpus/007_research-topics-and-grammar/001_topic-candidates/014_obs-topic-cand-000014_cam-hopkins-group-14_topic-candidate",
+  "caution": "Cambridge/Hopkins classified-table topic candidate only; not a grammar analysis result, not an accepted inscription topic assignment, not a transcription, not a reading, and not a decipherment conclusion.",
+  "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+  "grammar_analysis_status": "not_started",
+  "inscription_topic_claim_status": "no_claim",
+  "linked_crosswalk_candidate_count": 19,
+  "period_counts": {
+    "I": "16",
+    "II": "2",
+    "III": "1",
+    "IV": "-",
+    "V": "-"
+  },
+  "primary_external_ref_id": "cam-hopkins-group-14",
+  "record_type": "research_topic_candidate",
+  "research_boundary": "cambridge_hopkins_topic_candidate_preprocessing_only_not_scholarship",
+  "review_status": "needs_human_topic_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_group_number": "14",
+  "source_id": "src-cambridge-hopkins",
+  "source_summary_row_id": "cam-hopkins-summary-014",
+  "topic_assignment_status": "candidate_source_classification_not_reviewed",
+  "topic_candidate_id": "obs-topic-cand-000014",
+  "topic_label_en": "architecture",
+  "topic_label_zh": "建筑",
+  "total_count": "19",
+  "updated_at": "2026-06-20"
+}

@@ -1,0 +1,29 @@
+{
+  "canonical_path": "corpus/007_research-topics-and-grammar/001_topic-candidates/004_obs-topic-cand-000004_cam-hopkins-group-04_topic-candidate",
+  "caution": "Cambridge/Hopkins classified-table topic candidate only; not a grammar analysis result, not an accepted inscription topic assignment, not a transcription, not a reading, and not a decipherment conclusion.",
+  "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+  "grammar_analysis_status": "not_started",
+  "inscription_topic_claim_status": "no_claim",
+  "linked_crosswalk_candidate_count": 34,
+  "period_counts": {
+    "I": "12",
+    "II": "16",
+    "III": "1",
+    "IV": "-",
+    "V": "-"
+  },
+  "primary_external_ref_id": "cam-hopkins-group-04",
+  "record_type": "research_topic_candidate",
+  "research_boundary": "cambridge_hopkins_topic_candidate_preprocessing_only_not_scholarship",
+  "review_status": "needs_human_topic_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_group_number": "4",
+  "source_id": "src-cambridge-hopkins",
+  "source_summary_row_id": "cam-hopkins-summary-004",
+  "topic_assignment_status": "candidate_source_classification_not_reviewed",
+  "topic_candidate_id": "obs-topic-cand-000004",
+  "topic_label_en": "royal activities",
+  "topic_label_zh": "王事活动",
+  "total_count": "29",
+  "updated_at": "2026-06-20"
+}

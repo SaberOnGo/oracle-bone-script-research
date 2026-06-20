@@ -1,0 +1,6 @@
+period_count_id,topic_candidate_id,period_label,source_count_value,count_status,review_status,caution
+obs-topic-cand-000014-period-count-01,obs-topic-cand-000014,I,16,reported_count_present,reviewed_metadata_only,Reported classified-table count only; not a verified topic or grammar assignment.
+obs-topic-cand-000014-period-count-02,obs-topic-cand-000014,II,2,reported_count_present,reviewed_metadata_only,Reported classified-table count only; not a verified topic or grammar assignment.
+obs-topic-cand-000014-period-count-03,obs-topic-cand-000014,III,1,reported_count_present,reviewed_metadata_only,Reported classified-table count only; not a verified topic or grammar assignment.
+obs-topic-cand-000014-period-count-04,obs-topic-cand-000014,IV,-,reported_blank_or_dash,reviewed_metadata_only,Reported classified-table count only; not a verified topic or grammar assignment.
+obs-topic-cand-000014-period-count-05,obs-topic-cand-000014,V,-,reported_blank_or_dash,reviewed_metadata_only,Reported classified-table count only; not a verified topic or grammar assignment.

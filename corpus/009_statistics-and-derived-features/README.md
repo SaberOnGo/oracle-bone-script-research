@@ -4,6 +4,13 @@ This directory will store generated occurrence, co-occurrence, topic, period, si
 
 Current generated statistics:
 
+- `188_object-local-material-coverage-audit.csv`: repository-wide object-local material coverage audit for concrete character, component, evolution, inscription-crosswalk, and collection-object candidate directories. It records human-readable files, AI-readable packets/indexes, local review images, route galleries, missing object-local files, and parallel-directory checks without promoting any record into scholarship.
+- `189_object-local-material-coverage-summary.json`: compact summary for 188, including corpus-area counts, image-bearing object counts, route-gallery object counts, metadata-only object counts, and the no-parallel-human-directory boundary.
+
+简体中文补充：
+- `188_object-local-material-coverage-audit.csv`：面向全仓库具体对象目录的对象内资料覆盖审计，覆盖甲骨字、构件、演化、卜辞 crosswalk 和馆藏对象候选目录。它记录人类可读文件、AI 可读 packet/index、本地复核图片、路线图、缺失对象内文件和并行目录检查，不把任何记录提升为学术结论。
+- `189_object-local-material-coverage-summary.json`：188 的摘要，包含各 corpus 区域对象数、有图片对象数、有路线图对象数、metadata-only 对象数，以及“不另建并行人类目录”的边界。
+
 - `133_ai-agent-source-pipeline-gap-review-checklist.csv`: not-started per-source checklist derived from 132, listing existing route files and required source-engineering review steps for every registered source while keeping evidence, rights, source promotion, corpus import, and decipherment outcomes empty.
 
 简体中文补充：

@@ -1,0 +1,24 @@
+{
+  "object_directory_count": 28125,
+  "corpus_area_counts": {
+    "collection_object_candidates": 56,
+    "evolution_correspondence_candidates": 13714,
+    "graphemic_component_candidates": 2747,
+    "inscription_crosswalk_candidates": 612,
+    "oracle_character_candidates": 10996
+  },
+  "material_bundle_status_counts": {
+    "object_local_bundle_metadata_only": 13742,
+    "object_local_bundle_with_evidence_routes": 668,
+    "object_local_bundle_with_review_image": 13715
+  },
+  "human_entry_object_count": 28125,
+  "ai_entry_object_count": 28125,
+  "local_visual_asset_object_count": 13715,
+  "route_gallery_or_route_index_object_count": 668,
+  "partial_or_missing_bundle_count": 0,
+  "parallel_human_directory_count": 0,
+  "research_boundary": "object_local_material_coverage_audit_not_scholarship; routes, images, candidate packets, and review sheets are preprocessing infrastructure, not identity, component, inscription, evolution, reading, or decipherment conclusions",
+  "completion_boundary": "Coverage audit only; it identifies object-local material and route gaps without promoting candidate records or starting formal decipherment research.",
+  "updated_at": "2026-06-20"
+}

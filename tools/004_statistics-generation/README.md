@@ -6,6 +6,12 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `build_object_local_material_coverage_audit.py` generates `188_object-local-material-coverage-audit.csv` and `189_object-local-material-coverage-summary.json` across character, component, evolution, inscription-crosswalk, and collection-object candidate directories. It audits whether human-readable files, AI-readable packets/indexes, local review images, and route galleries are co-located inside the same concrete `corpus` object directory, without creating parallel human-only directories or promoting candidate evidence into scholarship.
+
+Simplified Chinese supplement:
+- `build_object_local_material_coverage_audit.py` 会跨甲骨字、构件、演化、卜辞 crosswalk 和馆藏对象候选目录生成 `188_object-local-material-coverage-audit.csv` 与 `189_object-local-material-coverage-summary.json`。它检查人类可读文件、AI 可读 packet/index、本地复核图像和路线图是否同处具体 `corpus` 对象目录内；不另建并行人类目录，也不把候选证据提升为学术结论。
+
+English supplement:
 - `build_character_object_material_coverage_audit.py` generates `186_character-object-material-coverage-audit.csv` and `187_character-object-material-coverage-summary.json` from concrete character object directories. It audits whether each object directory contains co-located human-readable materials (`README.md`, `04_visual-gallery.md`) and AI-readable materials (`01_*packet.json`, `02_visual-source-index.csv`) without creating a parallel human-only directory, collecting new evidence, promoting records, or making decipherment claims.
   It counts object-local `.jpg`, `.jpeg`, and `.png` files under `03_visual-assets/` as committed review images when computing local material coverage.
 

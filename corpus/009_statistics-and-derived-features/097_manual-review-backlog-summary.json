@@ -16,7 +16,7 @@
     "graph_edge_count": 220887,
     "manual_review_backlog_count": 13391,
     "review_queue_count": 13135,
-    "staging_record_count": 75199
+    "staging_record_count": 75201
   },
   "completion_boundary": "This summary is a preprocessing readiness and manual-review backlog index. It does not start formal decipherment research or confirm candidate scholarship.",
   "totals_note": "Totals are row-sums across readiness areas and may include shared derivatives exposed through both corpus-specific rows and the graph/statistics row.",
@@ -188,7 +188,7 @@
       "label_en": "Relationship graph and derived statistics",
       "label_zh": "关系图与派生统计",
       "formal_record_count": "101623",
-      "staging_record_count": "185",
+      "staging_record_count": "187",
       "candidate_record_count": "0",
       "graph_edge_count": "116810",
       "review_queue_count": "3",

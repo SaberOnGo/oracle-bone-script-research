@@ -8,14 +8,15 @@ Candidate crosswalk ID: `cam-hopkins-crosswalk-000520`
 
 - Open `02_crosswalk-source-index.csv` and verify the source/download trail.
 - Open `03_catalog-reference-index.csv` and compare all references against primary catalog or object records.
+- Open `05_plate-text-route-index.csv` and `06_plate-text-gallery.md` before searching for images or inscription text.
 - Confirm whether source images, object records, Heji/OBM records, and full inscription context have been collected.
 - Do not assign a formal `obi-*` ID from this sheet alone.
 - Do not record a transcription, inscription reading, object identity claim, or decipherment conclusion here.
 
 ## Current Evidence Status / 当前证据状态
 
-- Image evidence: `not_collected`
-- Text transcription: `not_collected`
+- Image evidence: `route_indexed_not_collected`
+- Text transcription: `route_indexed_not_collected`
 - Collection object match: `not_collected`
 - Formal inscription assignment: `not_assigned_formal_obi_id`
 - Review status: `needs_human_inscription_crosswalk_review`

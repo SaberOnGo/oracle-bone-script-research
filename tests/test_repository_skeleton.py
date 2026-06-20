@@ -27,6 +27,7 @@ from tools.validation.check_repository_skeleton import (
     check_evolution_candidate_local_materials,
     check_collection_object_candidate_local_materials,
     check_character_object_material_coverage_audit,
+    check_object_local_material_coverage_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
     check_source_processing_pipeline_audit,
@@ -1072,6 +1073,15 @@ def load_core_corpus_readiness_matrix_module():
 def load_character_object_material_coverage_audit_module():
     path = repo_root() / "tools/004_statistics-generation/build_character_object_material_coverage_audit.py"
     spec = importlib.util.spec_from_file_location("build_character_object_material_coverage_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_object_local_material_coverage_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_object_local_material_coverage_audit.py"
+    spec = importlib.util.spec_from_file_location("build_object_local_material_coverage_audit", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -2378,10 +2388,13 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "02_crosswalk-source-index.csv").exists())
             self.assertTrue((object_dir / "03_catalog-reference-index.csv").exists())
             self.assertTrue((object_dir / "04_human-review-sheet.md").exists())
+            self.assertTrue((object_dir / "05_plate-text-route-index.csv").exists())
+            self.assertTrue((object_dir / "06_plate-text-gallery.md").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
+            self.assertIn("route_indexed_not_collected", readme_text)
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
     def test_cambridge_hopkins_inscription_crosswalk_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
@@ -2397,7 +2410,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_assigned_formal_obi_id", first["review_sheet_text"])
         self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
+        self.assertEqual(first["packet"]["image_evidence_status"], "route_indexed_not_collected")
         self.assertEqual(len(first["catalog_rows"]), 4)
+        self.assertEqual(len(first["plate_routes"]), 5)
 
     def test_evolution_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_evolution_candidate_local_materials(repo_root()), [])
@@ -2674,6 +2689,60 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["object_sequence"], "000001")
         self.assertIn("corpus/001_oracle-characters", rows[0]["object_dir"])
         self.assertNotIn("doc/public/user_research", rows[0]["human_readme_path"])
+        self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
+
+    def test_object_local_material_coverage_audit_tracks_all_core_object_dirs(self) -> None:
+        self.assertEqual(check_object_local_material_coverage_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "188_object-local-material-coverage-audit.csv"
+        )
+        summary_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "189_object-local-material-coverage-summary.json"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(rows), 28125)
+        self.assertEqual(
+            summary["corpus_area_counts"],
+            {
+                "collection_object_candidates": 56,
+                "evolution_correspondence_candidates": 13714,
+                "graphemic_component_candidates": 2747,
+                "inscription_crosswalk_candidates": 612,
+                "oracle_character_candidates": 10996,
+            },
+        )
+        self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
+        self.assertEqual(summary["parallel_human_directory_count"], 0)
+        self.assertEqual(summary["local_visual_asset_object_count"], 13715)
+        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 668)
+        by_project = {row["project_id"]: row for row in rows}
+        self.assertEqual(
+            by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
+            "object_local_bundle_with_evidence_routes",
+        )
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(
+            by_project["obs-comp-cand-000001"]["material_bundle_status"],
+            "object_local_bundle_with_review_image",
+        )
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
+
+    def test_object_local_material_coverage_builder_keeps_candidate_boundaries(self) -> None:
+        module = load_object_local_material_coverage_audit_module()
+        rows = module.build_rows(repo_root())
+        summary = module.build_summary(rows)
+        self.assertEqual(len(rows), 28125)
+        self.assertEqual(summary["human_entry_object_count"], 28125)
+        self.assertEqual(summary["ai_entry_object_count"], 28125)
+        self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
+        self.assertEqual(summary["parallel_human_directory_count"], 0)
+        self.assertTrue(all(row["object_dir"].startswith("corpus/") for row in rows))
         self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
@@ -18762,7 +18831,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "185")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "187")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1235")
         self.assertEqual(

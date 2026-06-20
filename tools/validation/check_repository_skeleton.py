@@ -699,6 +699,14 @@ CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "187_character-object-material-coverage-summary.json"
 )
+OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "188_object-local-material-coverage-audit.csv"
+)
+OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "189_object-local-material-coverage-summary.json"
+)
 CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv"
@@ -1683,6 +1691,8 @@ REQUIRED_PATHS = [
     MANUAL_REVIEW_BACKLOG_SUMMARY,
     CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT,
     CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY,
+    OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT,
+    OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY,
     CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
     SOURCE_ENGINEERING_GAP_QUEUE,
     SOURCE_ENGINEERING_EXECUTION_MATRIX,
@@ -2344,6 +2354,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "02_crosswalk-source-index.csv",
         "03_catalog-reference-index.csv",
         "04_human-review-sheet.md",
+        "05_plate-text-route-index.csv",
+        "06_plate-text-gallery.md",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -2372,6 +2384,9 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "not a decipherment conclusion",
                 "03_catalog-reference-index.csv",
                 "04_human-review-sheet.md",
+                "05_plate-text-route-index.csv",
+                "06_plate-text-gallery.md",
+                "route_indexed_not_collected",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -2386,6 +2401,12 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{packet_path.relative_to(root).as_posix()} review_status changed")
             if packet.get("formal_inscription_assignment_status") != "not_assigned_formal_obi_id":
                 issues.append(f"{packet_path.relative_to(root).as_posix()} formal assignment status changed")
+            if packet.get("image_evidence_status") != "route_indexed_not_collected":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} image evidence status changed")
+            if packet.get("text_transcription_status") != "route_indexed_not_collected":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} text evidence status changed")
+            if len(packet.get("plate_and_text_evidence_routes", [])) != 5:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} plate/text route count changed")
             if "not a formal obi-* inscription record" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing inscription boundary")
         source_index_path = object_dir / "02_crosswalk-source-index.csv"
@@ -2411,9 +2432,30 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             if reference_types != {"yingguo", "cambridge_university_library", "chalfant", "heji"}:
                 issues.append(f"{catalog_index_path.relative_to(root).as_posix()} reference types changed")
         review_sheet_path = object_dir / "04_human-review-sheet.md"
+        route_index_path = object_dir / "05_plate-text-route-index.csv"
+        if path_exists(route_index_path):
+            with route_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                route_rows = list(csv.DictReader(file))
+            if len(route_rows) != 5:
+                issues.append(f"{route_index_path.relative_to(root).as_posix()} should contain five plate/text routes")
+            if any(route.get("review_status") != "needs_human_inscription_crosswalk_review" for route in route_rows):
+                issues.append(f"{route_index_path.relative_to(root).as_posix()} route review status changed")
+        route_gallery_path = object_dir / "06_plate-text-gallery.md"
+        if path_exists(route_gallery_path):
+            gallery = route_gallery_path.read_text(encoding="utf-8")
+            for snippet in [
+                "human-readable object-local route gallery",
+                "not_collected",
+                "not_confirmed_catalog_identity",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in gallery:
+                    issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [
+                "05_plate-text-route-index.csv",
+                "06_plate-text-gallery.md",
                 "Do not assign a formal `obi-*` ID",
                 "not an inscription reading",
                 "not a decipherment conclusion",
@@ -2779,6 +2821,90 @@ def check_character_object_material_coverage_audit(root: Path) -> list[str]:
         issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY} boundary missing caution")
     if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY} completion boundary changed")
+    return issues
+
+
+def check_object_local_material_coverage_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_path = root / OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT
+    summary_path = root / OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY
+    with audit_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    required_fields = {
+        "coverage_audit_id",
+        "corpus_area",
+        "project_id",
+        "record_type",
+        "object_dir",
+        "packet_path",
+        "human_file_count",
+        "ai_file_count",
+        "missing_human_files",
+        "missing_ai_files",
+        "local_visual_asset_count",
+        "route_file_count",
+        "parallel_human_directory_present",
+        "material_bundle_status",
+        "research_boundary",
+        "decipherment_claim_status",
+    }
+    if len(rows) != 28125:
+        issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} row count changed")
+    if rows:
+        missing_fields = required_fields - set(rows[0])
+        if missing_fields:
+            issues.append(
+                f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} missing fields: "
+                f"{', '.join(sorted(missing_fields))}"
+            )
+    expected_area_counts = {
+        "collection_object_candidates": 56,
+        "evolution_correspondence_candidates": 13714,
+        "graphemic_component_candidates": 2747,
+        "inscription_crosswalk_candidates": 612,
+        "oracle_character_candidates": 10996,
+    }
+    area_counts = Counter(row.get("corpus_area", "") for row in rows)
+    if dict(sorted(area_counts.items())) != expected_area_counts:
+        issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} corpus area counts changed")
+    expected_status_counts = {
+        "object_local_bundle_metadata_only": 13742,
+        "object_local_bundle_with_evidence_routes": 668,
+        "object_local_bundle_with_review_image": 13715,
+    }
+    status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
+    if dict(sorted(status_counts.items())) != expected_status_counts:
+        issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} status counts changed")
+    for row in rows:
+        row_id = row.get("coverage_audit_id", "")
+        if not row.get("object_dir", "").startswith("corpus/"):
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} object outside corpus: {row_id}")
+        if row.get("parallel_human_directory_present") != "false":
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} parallel human directory present: {row_id}")
+        if row.get("decipherment_claim_status") != "no_claim":
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} decipherment claim changed: {row_id}")
+        if row.get("missing_human_files") or row.get("missing_ai_files"):
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} missing object-local bundle file: {row_id}")
+        boundary = row.get("research_boundary", "")
+        if "not_scholarship" not in boundary or "decipherment conclusions" not in boundary:
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} boundary missing caution: {row_id}")
+    expected_summary_values = {
+        "object_directory_count": 28125,
+        "corpus_area_counts": expected_area_counts,
+        "material_bundle_status_counts": expected_status_counts,
+        "human_entry_object_count": 28125,
+        "ai_entry_object_count": 28125,
+        "local_visual_asset_object_count": 13715,
+        "route_gallery_or_route_index_object_count": 668,
+        "partial_or_missing_bundle_count": 0,
+        "parallel_human_directory_count": 0,
+    }
+    for key, expected in expected_summary_values.items():
+        if summary.get(key) != expected:
+            issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY} {key} changed")
+    if "formal decipherment research" not in summary.get("completion_boundary", ""):
+        issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY} completion boundary changed")
     return issues
 
 
@@ -5039,7 +5165,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13391,
         "review_queue_count": 13135,
-        "staging_record_count": 75199,
+        "staging_record_count": 75201,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5080,7 +5206,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "185",
+            "staging_record_count": "187",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -23930,6 +24056,7 @@ def main() -> int:
     issues.extend(check_evolution_candidate_local_materials(root))
     issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
+    issues.extend(check_object_local_material_coverage_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))

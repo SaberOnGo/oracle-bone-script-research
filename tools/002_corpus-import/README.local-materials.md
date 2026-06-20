@@ -41,10 +41,10 @@ Simplified Chinese:
 OBIMD 构件批次覆盖全部 2,747 个 OBIMD subcharacter 候选，以及从已登记 `Sub-character Images.zip` 来源包抽取的 10,364 个对象内 PNG 复核资产。每个 `obs-comp-cand-*` 目录包含 README、候选 packet、来源索引、glyph-codepoint 索引、glyph-codepoint gallery、本地构件图像资产、视觉索引、视觉 gallery 和人工视觉复核表。这些只是不作结论的待复核候选，不是已确认构件或构件归属。
 
 English:
-The Cambridge/Hopkins inscription crosswalk batch covers all 612 catalog crosswalk candidates. Each `obs-insc-cw-cand-*` directory contains a README, candidate packet, crosswalk source index, catalog-reference index, and human review sheet. These are catalog-review candidates only, not formal `obi-*` inscription records, object identity claims, transcriptions, readings, or decipherment conclusions.
+The Cambridge/Hopkins inscription crosswalk batch covers all 612 catalog crosswalk candidates. Each `obs-insc-cw-cand-*` directory contains a README, candidate packet, crosswalk source index, catalog-reference index, human review sheet, plate/text route index, and plate/text route gallery. These are catalog-review and evidence-route candidates only, not formal `obi-*` inscription records, object identity claims, transcriptions, readings, or decipherment conclusions.
 
 Simplified Chinese:
-Cambridge/Hopkins 卜辞目录互证批次覆盖 612 个目录 crosswalk 候选。每个 `obs-insc-cw-cand-*` 目录包含 README、候选 packet、crosswalk 来源索引、目录引用索引和人工复核表。这些只是目录复核候选，不是正式 `obi-*` 卜辞记录、馆藏对象同一性结论、释文、卜辞读法或释读结论。
+Cambridge/Hopkins 卜辞目录互证批次覆盖 612 个目录 crosswalk 候选。每个 `obs-insc-cw-cand-*` 目录包含 README、候选 packet、crosswalk 来源索引、目录引用索引、人工复核表、图版/文本路线索引和图版/文本路线图。这些只是目录复核与证据路线候选，不是正式 `obi-*` 卜辞记录、馆藏对象同一性结论、释文、卜辞读法或释读结论。
 
 English:
 The EVOBC evolution-category batch covers all 13,714 EVOBC dataset categories. Each `obs-evo-cand-*` directory contains a README, candidate packet, source index, era/source code index, and human review sheet. These are metadata candidates only, not accepted paleographic correspondences, evolution-chain conclusions, modern-character identity confirmations, or decipherment conclusions.

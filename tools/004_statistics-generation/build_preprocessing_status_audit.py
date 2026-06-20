@@ -174,6 +174,9 @@ CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN = (
 CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_CHECKLIST = (
     STAT_DIR / "210_core-corpus-phase-gap-review-outcome-assignment-checklist.csv"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_OUTCOME_SCAFFOLD = (
+    STAT_DIR / "211_core-corpus-phase-gap-review-outcome-assignment-outcome-scaffold.csv"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     STAT_DIR / "198_character-candidate-phase-gap-review-checklist.csv"
 )
@@ -734,6 +737,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_CHECKLIST)
+                + count_csv(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_OUTCOME_SCAFFOLD)
                 + count_csv(root, CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST)
@@ -900,6 +904,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_CHECKLIST)
+                + count_csv(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_OUTCOME_SCAFFOLD)
                 + count_csv(root, CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST)
@@ -1082,6 +1087,9 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 ),
                 "core_corpus_phase_gap_review_outcome_assignment_checklist_rows": count_csv(
                     root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_CHECKLIST
+                ),
+                "core_corpus_phase_gap_review_outcome_assignment_outcome_scaffold_rows": count_csv(
+                    root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_OUTCOME_SCAFFOLD
                 ),
                 "character_candidate_phase_gap_review_checklist_rows": count_csv(
                     root, CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST

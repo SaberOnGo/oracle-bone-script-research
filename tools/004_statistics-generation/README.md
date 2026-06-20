@@ -332,6 +332,8 @@ Simplified Chinese supplement:
 
 English supplement:
 - `build_character_candidate_phase_gap_review_checklist.py` generates `198_character-candidate-phase-gap-review-checklist.csv` from the high-priority oracle_characters and undeciphered_oracle_character_candidates rows in the core corpus phase gap queue. It routes reviewers to HUST-OBC promotion queues, undeciphered-candidate indexes, evidence-readiness rows, and character object-local material audits while keeping every row candidate-only and unpromoted.
+- `build_core_corpus_phase_gap_review_index.py` generates `199_core-corpus-phase-gap-review-index.csv` by joining every row in `192_core-corpus-phase-gap-action-queue.csv` to exactly one specialized review checklist row from `193` through `198`. The index is a navigation and coverage surface only: it does not collect evidence, record reviewed outcomes, decide rights, promote sources or candidates, import formal corpus records, or make decipherment claims.
 
 Simplified Chinese supplement:
 - `build_character_candidate_phase_gap_review_checklist.py` 基于 core corpus phase gap queue 中高优先级的 oracle_characters 与 undeciphered_oracle_character_candidates 行生成 `198_character-candidate-phase-gap-review-checklist.csv`。该清单把复核者路由到 HUST-OBC 提升复核队列、未释字候选索引、证据就绪清单和单字对象内资料覆盖审计，同时保持所有记录为候选、未提升状态。
+- `build_core_corpus_phase_gap_review_index.py` 会把 `192_core-corpus-phase-gap-action-queue.csv` 的每一行连接到 `193` 至 `198` 中唯一的专项复核清单行，生成 `199_core-corpus-phase-gap-review-index.csv`。该索引只作为导航与覆盖率入口：不采集证据、不记录已复核 outcome、不裁定权利、不提升来源或候选、不导入正式语料，也不提出释读结论。

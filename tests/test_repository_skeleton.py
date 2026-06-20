@@ -35,6 +35,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_readiness_matrix,
     check_core_corpus_phase_coverage_matrix,
     check_core_corpus_phase_gap_action_queue,
+    check_core_corpus_phase_gap_review_index,
     check_character_candidate_phase_gap_review_checklist,
     check_research_source_phase_gap_review_checklist,
     check_published_research_note_phase_gap_review_checklist,
@@ -1214,6 +1215,15 @@ def load_core_corpus_phase_coverage_matrix_module():
 def load_core_corpus_phase_gap_action_queue_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_action_queue", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_review_index_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_index.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_index", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19294,7 +19304,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "196")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "197")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19441,6 +19451,65 @@ class RepositorySkeletonTests(unittest.TestCase):
             "draft_or_bibliography_review_queue",
         )
         self.assertTrue(all("phase gap action queue only" in row["caution"] for row in rows))
+
+    def test_core_corpus_phase_gap_review_index_covers_all_gap_queue_rows(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_review_index(repo_root()), [])
+        index_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "199_core-corpus-phase-gap-review-index.csv"
+        )
+        gap_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "192_core-corpus-phase-gap-action-queue.csv"
+        )
+        with index_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        with gap_path.open("r", encoding="utf-8-sig", newline="") as file:
+            gap_rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(
+            [row["gap_queue_id"] for row in rows],
+            [row["gap_queue_id"] for row in gap_rows],
+        )
+        checklist_id_prefixes = {row["specialized_checklist_id"].rsplit("-", 1)[0] + "-" for row in rows}
+        self.assertEqual(
+            checklist_id_prefixes,
+            {
+                "character-candidate-phase-gap-review-",
+                "shape-component-evolution-verification-gap-review-",
+                "inscription-plate-crosswalk-phase-gap-review-",
+                "collection-provenance-phase-gap-review-",
+                "research-source-phase-gap-review-",
+                "published-research-note-phase-gap-review-",
+            },
+        )
+        self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
+        self.assertTrue(all(row["coverage_status"] == "covered_by_specialized_review_checklist" for row in rows))
+        self.assertTrue(all(row["index_status"] == "route_index_only" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["corpus_import_status"] == "not_imported" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
+
+    def test_core_corpus_phase_gap_review_index_builder_joins_specialized_checklists(self) -> None:
+        module = load_core_corpus_phase_gap_review_index_module()
+        rows = module.build_index_rows(repo_root())
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(rows[0]["gap_queue_id"], "core-corpus-phase-gap-001")
+        self.assertEqual(rows[-1]["gap_queue_id"], "core-corpus-phase-gap-020")
+        self.assertIn(
+            "198_character-candidate-phase-gap-review-checklist.csv",
+            rows[0]["specialized_checklist_path"],
+        )
+        self.assertIn(
+            "197_published-research-note-phase-gap-review-checklist.csv",
+            rows[-1]["specialized_checklist_path"],
+        )
+        self.assertTrue(all("core corpus phase gap review index only" in row["caution"] for row in rows))
+        self.assertTrue(all(row["claim_boundary"] == module.CLAIM_BOUNDARY for row in rows))
 
     def test_character_candidate_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:
         self.assertEqual(check_character_candidate_phase_gap_review_checklist(repo_root()), [])

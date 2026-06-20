@@ -883,6 +883,10 @@ CORE_CORPUS_PHASE_GAP_ACTION_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "192_core-corpus-phase-gap-action-queue.csv"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_INDEX = (
+    "corpus/009_statistics-and-derived-features/"
+    "199_core-corpus-phase-gap-review-index.csv"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
@@ -1825,6 +1829,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_EVIDENCE_LEDGER,
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+    CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
     CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -2045,6 +2050,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py",
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_review_index.py",
     "tools/004_statistics-generation/build_character_candidate_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py",
@@ -5657,7 +5663,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75232,
+        "staging_record_count": 75233,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5698,7 +5704,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "196",
+            "staging_record_count": "197",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7872,6 +7878,85 @@ def check_core_corpus_phase_gap_action_queue(root: Path) -> list[str]:
         for path in row.get("phase_evidence_paths", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} missing evidence path: {path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_review_index(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_GAP_REVIEW_INDEX)
+    gap_rows, gap_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_GAP_ACTION_QUEUE)
+    issues.extend(row_issues)
+    issues.extend(gap_issues)
+
+    checklist_paths = [
+        CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
+        SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST,
+        INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST,
+        COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
+        RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
+        PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
+    ]
+    checklist_rows_by_gap: dict[str, dict[str, str]] = {}
+    for checklist_path in checklist_paths:
+        checklist_rows, checklist_issues = _read_csv_rows(root / checklist_path)
+        issues.extend(checklist_issues)
+        for checklist_row in checklist_rows:
+            gap_id = checklist_row.get("gap_queue_id", "")
+            if gap_id in checklist_rows_by_gap:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} duplicate specialized gap route: {gap_id}")
+            checklist_rows_by_gap[gap_id] = {
+                **checklist_row,
+                "_checklist_path": checklist_path,
+            }
+
+    if len(rows) != 20:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} should contain exactly 20 rows")
+    if len(rows) != len(gap_rows):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} row count should match 192 gap queue")
+
+    index_gap_ids = [row.get("gap_queue_id", "") for row in rows]
+    gap_queue_ids = [row.get("gap_queue_id", "") for row in gap_rows]
+    if index_gap_ids != gap_queue_ids:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} gap order should match 192 gap queue")
+    if Counter(index_gap_ids) != Counter(gap_queue_ids):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} gap coverage should match 192 gap queue")
+
+    for row in rows:
+        review_id = row.get("review_index_id", "")
+        gap_id = row.get("gap_queue_id", "")
+        if not review_id.startswith("core-corpus-phase-gap-review-index-"):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} review index ID changed: {review_id}")
+        checklist_row = checklist_rows_by_gap.get(gap_id)
+        if checklist_row is None:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} missing specialized checklist route: {gap_id}")
+            continue
+        if row.get("specialized_checklist_path") != checklist_row.get("_checklist_path"):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} checklist path mismatch: {gap_id}")
+        if row.get("specialized_checklist_id") != checklist_row.get("review_checklist_id"):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} checklist ID mismatch: {gap_id}")
+        if row.get("specialized_checklist_row_status") != checklist_row.get("review_status"):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} checklist row status mismatch: {gap_id}")
+        if row.get("coverage_status") != "covered_by_specialized_review_checklist":
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} coverage status changed: {gap_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} review status changed: {gap_id}")
+        if row.get("claim_boundary") != "core_corpus_phase_gap_review_index_not_review_outcome_not_scholarship":
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} claim boundary changed: {gap_id}")
+        for field, expected_value in {
+            "index_status": "route_index_only",
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} {field} changed: {gap_id}")
+        if "core corpus phase gap review index only" not in row.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} caution changed: {gap_id}")
+        for path in row.get("files_to_open", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} missing file to open: {path}")
     return issues
 
 
@@ -25150,6 +25235,7 @@ def main() -> int:
     issues.extend(check_core_corpus_readiness_matrix(root))
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
+    issues.extend(check_core_corpus_phase_gap_review_index(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))

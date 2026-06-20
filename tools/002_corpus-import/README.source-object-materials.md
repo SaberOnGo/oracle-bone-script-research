@@ -19,6 +19,8 @@ Each concrete `src-*` source object directory contains:
 - `04_field-map-route-index.csv`: field mapping routes.
 - `05_metadata-profile-route-index.csv`: downloaded metadata profile routes.
 - `06_human-source-review-sheet.md`: human review checklist.
+- `07_material-access-index.md`: human-readable material/access index showing what source routes and metadata are available inside the same object directory.
+- `07_material-access-index.md`：对象内人类可读资料/访问索引，说明同一对象目录中已有的来源路线和 metadata 入口。
 
 ## Boundary / 边界
 

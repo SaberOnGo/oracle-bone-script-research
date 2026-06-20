@@ -2793,6 +2793,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "3")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-topic-cand-000001"]["corpus_area"], "research_topic_candidates")
         self.assertEqual(
@@ -2857,8 +2858,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertTrue((object_dir / "README.md").is_file())
         self.assertTrue((object_dir / "06_human-source-review-sheet.md").is_file())
+        self.assertTrue((object_dir / "07_material-access-index.md").is_file())
+        access_index_text = (object_dir / "07_material-access-index.md").read_text(encoding="utf-8")
+        self.assertIn("Material Access Index", access_index_text)
+        self.assertIn("Human-Readable Entrances", access_index_text)
+        self.assertIn("not a rights decision", access_index_text)
         packet = json.loads((object_dir / "01_source-packet.json").read_text(encoding="utf-8"))
         self.assertEqual(packet["source_id"], "src-xiaoxuetang-jiaguwen")
+        self.assertIn("07_material-access-index.md", packet["local_files"])
         self.assertEqual(packet["download_route_count"], 4)
         self.assertEqual(packet["package_route_count"], 2)
         self.assertEqual(packet["field_map_route_count"], 6)

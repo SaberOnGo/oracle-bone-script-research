@@ -188,6 +188,7 @@ def source_packet(
             "04_field-map-route-index.csv",
             "05_metadata-profile-route-index.csv",
             "06_human-source-review-sheet.md",
+            "07_material-access-index.md",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -247,6 +248,72 @@ These rows are preparation-stage source routes. They are not rights clearance, n
 {source["risk_note"]}
 
 这些记录只是准备阶段的来源路线。它们不是权利清理结论，不是正式导入决定，不是已确认字义或释读，不是构件归属，不是卜辞身份结论，也不是破译结论。
+"""
+
+
+def status_label(count: int, present_label: str) -> str:
+    if count > 0:
+        return present_label
+    return "not_present_in_current_registers"
+
+
+def material_access_index_text(
+    source: dict[str, str],
+    packet: dict[str, object],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    download_count = len(download_routes)
+    package_count = len(package_routes)
+    field_count = len(field_routes)
+    metadata_count = len(metadata_routes)
+    download_statuses = sorted({row.get("download_status", "") for row in download_routes if row.get("download_status")})
+    package_kinds = sorted({row.get("file_kind", "") for row in package_routes if row.get("file_kind")})
+    target_record_types = sorted({row.get("target_record_type", "") for row in field_routes if row.get("target_record_type")})
+    metadata_metrics = sorted({row.get("profile_metric", "") for row in metadata_routes if row.get("profile_metric")})
+    return f"""# {source["source_id"]} Material Access Index / {source["source_id"]} 资料访问索引
+
+English:
+This object-local index tells a human reviewer what source materials are currently visible in this same source directory and which AI-readable files carry the structured routes. It is a preparation-stage access map, not a rights decision or research conclusion.
+
+简体中文：
+本对象内索引说明人工复核者在同一个来源目录里可以看到哪些资料入口，以及哪些 AI 可读文件保存了结构化路线。它只是准备阶段的访问地图，不是权利结论，也不是学术结论。
+
+## Human-Readable Entrances / 人类可读入口
+
+| Material area | Local file | Current status | Count or signal |
+| --- | --- | --- | --- |
+| Source summary / 来源摘要 | `README.md` | present | source ID `{source["source_id"]}` |
+| Human review sheet / 人工复核表 | `06_human-source-review-sheet.md` | present | source provenance and rights checklist |
+| Download or access routes / 下载或访问路线 | `02_download-route-index.csv` | {status_label(download_count, "route_rows_present")} | {download_count} route row(s); statuses: {";".join(download_statuses) if download_statuses else "none"} |
+| Package or file manifest routes / 来源包或文件清单路线 | `03_package-route-index.csv` | {status_label(package_count, "route_rows_present")} | {package_count} route row(s); kinds: {";".join(package_kinds) if package_kinds else "none"} |
+| Field maps / 字段映射 | `04_field-map-route-index.csv` | {status_label(field_count, "field_rows_present")} | {field_count} row(s); target records: {";".join(target_record_types) if target_record_types else "none"} |
+| Downloaded metadata profiles / 已下载 metadata profile | `05_metadata-profile-route-index.csv` | {status_label(metadata_count, "profile_rows_present")} | {metadata_count} row(s); metrics: {";".join(metadata_metrics) if metadata_metrics else "none"} |
+
+## AI-Readable Entrances / AI 可读入口
+
+- Source packet / 来源 packet: `01_source-packet.json`
+- Download route table / 下载路线表: `02_download-route-index.csv`
+- Package route table / 来源包路线表: `03_package-route-index.csv`
+- Field-map route table / 字段映射路线表: `04_field-map-route-index.csv`
+- Metadata profile route table / metadata profile 路线表: `05_metadata-profile-route-index.csv`
+
+## Next Review Step / 下一步复核入口
+
+- Rights status / 权利状态: `{source["rights_status"]}`
+- Review status / 复核状态: `{source["review_status"]}`
+- Risk note / 风险提示: {source["risk_note"]}
+- Recommended next action / 建议下一步: inspect the route rows above, then decide whether source-safe visual/text derivatives can be added inside the relevant concrete corpus object directories.
+
+## Boundary / 边界
+
+English:
+This index does not collect new evidence, clear rights, promote a source, import corpus records, confirm a character identity, assign a component, identify an inscription, confirm an evolution chain, or make a decipherment conclusion.
+
+简体中文：
+本索引不采集新证据，不完成权利清理，不提升来源，不导入语料记录，不确认字形身份，不指定构件，不确认卜辞身份，不确认演化链，也不作释读结论。
 """
 
 
@@ -321,6 +388,18 @@ def build_materials(root: Path) -> dict[str, int]:
         write_csv(object_dir / "05_metadata-profile-route-index.csv", metadata_routes, METADATA_ROUTE_FIELDS)
         (object_dir / "06_human-source-review-sheet.md").write_text(
             review_sheet_text(source).rstrip() + "\n", encoding="utf-8"
+        )
+        (object_dir / "07_material-access-index.md").write_text(
+            material_access_index_text(
+                source,
+                packet,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ).rstrip()
+            + "\n",
+            encoding="utf-8",
         )
     return {"source_object_count": len(sources)}
 

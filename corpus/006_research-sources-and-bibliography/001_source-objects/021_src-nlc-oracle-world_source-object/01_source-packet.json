@@ -24,7 +24,8 @@
     "03_package-route-index.csv",
     "04_field-map-route-index.csv",
     "05_metadata-profile-route-index.csv",
-    "06_human-source-review-sheet.md"
+    "06_human-source-review-sheet.md",
+    "07_material-access-index.md"
   ],
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",

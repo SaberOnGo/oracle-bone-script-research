@@ -1013,10 +1013,12 @@ def build_quality_rows(root: Path) -> list[dict[str, str]]:
     source_ids = {row["source_id"] for row in read_csv_rows(root / SOURCE_INDEX)}
     download_ids = {row["download_id"] for row in read_csv_rows(root / SOURCE_DOWNLOAD_LOG)}
     large_source_ids = {row["source_package_id"] for row in read_csv_rows(root / LARGE_SOURCE_REGISTER)}
+    allowed_package_ids = set(large_source_ids)
+    allowed_package_ids.update(f"light-src-{source_id.removeprefix('src-')}" for source_id in source_ids)
 
     rows: list[dict[str, str]] = []
     for index, spec in enumerate(build_csv_specs(), start=1):
-        rows.append(csv_quality_row(root, spec, source_ids, download_ids, large_source_ids, index))
+        rows.append(csv_quality_row(root, spec, source_ids, download_ids, allowed_package_ids, index))
     offset = len(rows)
     for graph_index, graph_path in enumerate(REL_GRAPH_FILES, start=1):
         rows.append(graph_quality_row(root, graph_path, source_ids, offset + graph_index))

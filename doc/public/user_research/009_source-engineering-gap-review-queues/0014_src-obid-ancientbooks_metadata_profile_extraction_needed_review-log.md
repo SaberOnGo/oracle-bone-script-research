@@ -18,13 +18,13 @@
 - Source ID / 来源 ID: `src-obid-ancientbooks`
 - Gap type / 缺口类型: `metadata_profile_extraction_needed`
 - Priority rank / 优先级: `4`
-- Current stage / 当前阶段: `cleaned`
+- Current stage / 当前阶段: `structured`
 - Authority tier / 来源层级: `scholarly_commercial_platform`
 - Rights status / 权利状态: `source_marked_risk_noted`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-`current_stage=cleaned;download_status_counts=downloaded:1;downloaded_count=1;download_log_count=1;checksum_present_count=1;field_map_count=2;package_manifest_count=0;metadata_profile_count=0;graph_edge_count=0;downloaded_file_bytes=19582;gap_type=metadata_profile_extraction_needed`
+`current_stage=structured;download_status_counts=downloaded:1;downloaded_count=1;download_log_count=1;checksum_present_count=1;field_map_count=2;package_manifest_count=1;metadata_profile_count=0;graph_edge_count=0;downloaded_file_bytes=19582;gap_type=metadata_profile_extraction_needed`
 
 ## Route Files To Open / 待打开路线文件
 

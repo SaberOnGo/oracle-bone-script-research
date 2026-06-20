@@ -18,13 +18,13 @@
 - Source ID / 来源 ID: `src-xiaoxuetang-jiaguwen`
 - Gap type / 缺口类型: `access_boundary_or_error_followup`
 - Priority rank / 优先级: `1`
-- Current stage / 当前阶段: `cleaned`
+- Current stage / 当前阶段: `structured`
 - Authority tier / 来源层级: `core_institutional`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-`current_stage=cleaned;download_status_counts=download_error:2;downloaded_access_restricted_page:2;downloaded_count=2;download_log_count=4;checksum_present_count=2;field_map_count=6;package_manifest_count=0;metadata_profile_count=0;graph_edge_count=0;downloaded_file_bytes=73834;gap_type=access_boundary_or_error_followup`
+`current_stage=structured;download_status_counts=download_error:2;downloaded_access_restricted_page:2;downloaded_count=2;download_log_count=4;checksum_present_count=2;field_map_count=6;package_manifest_count=2;metadata_profile_count=0;graph_edge_count=0;downloaded_file_bytes=73834;gap_type=access_boundary_or_error_followup`
 
 ## Route Files To Open / 待打开路线文件
 

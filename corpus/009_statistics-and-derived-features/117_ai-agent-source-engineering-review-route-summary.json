@@ -13,7 +13,7 @@
   },
   "lane_count": 6,
   "route_pack_count": 6,
-  "total_route_count": 45,
+  "total_route_count": 22,
   "total_decision_filled_count": 0,
   "total_result_started_count": 0,
   "review_status": "route_summary_pending_source_engineering_review",
@@ -205,43 +205,25 @@
       "route_pack_id": "source-package-manifest-review-route-pack-001",
       "route_pack_path": "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json",
       "decision_field": "manifest_decision",
-      "route_count": 15,
-      "source_count": 15,
-      "priority_min": 6,
-      "priority_max": 6,
-      "gap_type_counts": {
-        "package_file_manifest_or_not_applicable_decision_needed": 15
-      },
-      "result_status_counts": {
-        "not_started": 15
-      },
-      "evidence_collection_status_counts": {
-        "not_collected": 15
-      },
-      "human_review_status_counts": {
-        "pending_human_review": 15
-      },
-      "rights_decision_status_counts": {
-        "no_new_rights_decision": 15
-      },
-      "source_promotion_status_counts": {
-        "not_promoted": 15
-      },
-      "corpus_import_status_counts": {
-        "not_imported": 15
-      },
-      "decipherment_claim_status_counts": {
-        "no_decipherment_claim": 15
-      },
+      "route_count": 0,
+      "source_count": 0,
+      "priority_min": 0,
+      "priority_max": 0,
+      "gap_type_counts": {},
+      "result_status_counts": {},
+      "evidence_collection_status_counts": {},
+      "human_review_status_counts": {},
+      "rights_decision_status_counts": {},
+      "source_promotion_status_counts": {},
+      "corpus_import_status_counts": {},
+      "decipherment_claim_status_counts": {},
       "decision_filled_count": 0,
       "result_started_count": 0,
-      "blocking_conditions": [
-        "no_raw_package_commit_without_manifest_or_explicit_not_applicable_decision"
-      ],
-      "first_next_action_id": "source-engineering-next-action-0021",
-      "first_source_id": "src-cambridge-hopkins",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_next-action-result.md",
+      "blocking_conditions": [],
+      "first_next_action_id": "",
+      "first_source_id": "",
+      "first_review_log_path": "",
+      "first_result_record_path": "",
       "review_status": "route_pack_pending_package_manifest_review",
       "research_boundary": "source_package_manifest_review_route_pack_not_reviewed_decision"
     },
@@ -250,43 +232,43 @@
       "route_pack_id": "source-safe-derived-record-review-route-pack-001",
       "route_pack_path": "corpus/009_statistics-and-derived-features/116_ai-agent-source-safe-derived-record-review-route-pack.json",
       "decision_field": "safe_derived_record_decision",
-      "route_count": 10,
-      "source_count": 10,
+      "route_count": 2,
+      "source_count": 2,
       "priority_min": 7,
       "priority_max": 7,
       "gap_type_counts": {
-        "safe_derived_record_decision_needed": 10
+        "safe_derived_record_decision_needed": 2
       },
       "result_status_counts": {
-        "not_started": 10
+        "not_started": 2
       },
       "evidence_collection_status_counts": {
-        "not_collected": 10
+        "not_collected": 2
       },
       "human_review_status_counts": {
-        "pending_human_review": 10
+        "pending_human_review": 2
       },
       "rights_decision_status_counts": {
-        "no_new_rights_decision": 10
+        "no_new_rights_decision": 2
       },
       "source_promotion_status_counts": {
-        "not_promoted": 10
+        "not_promoted": 2
       },
       "corpus_import_status_counts": {
-        "not_imported": 10
+        "not_imported": 2
       },
       "decipherment_claim_status_counts": {
-        "no_decipherment_claim": 10
+        "no_decipherment_claim": 2
       },
       "decision_filled_count": 0,
       "result_started_count": 0,
       "blocking_conditions": [
         "no_derived_record_promotion_without_source_marked_reviewed_boundary"
       ],
-      "first_next_action_id": "source-engineering-next-action-0036",
-      "first_source_id": "src-gbedobc",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_next-action-result.md",
+      "first_next_action_id": "source-engineering-next-action-0021",
+      "first_source_id": "src-sinica-da-xiaoxuetang-site",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
       "review_status": "route_pack_pending_safe_derived_record_review",
       "research_boundary": "source_safe_derived_record_review_route_pack_not_promotion_decision"
     }

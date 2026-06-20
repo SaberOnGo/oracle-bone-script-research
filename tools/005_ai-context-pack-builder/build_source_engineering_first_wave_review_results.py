@@ -240,7 +240,11 @@ def build_result_rows(root: Path) -> list[dict[str, str]]:
     )
 
     rows: list[dict[str, str]] = []
-    for index, item in enumerate(handoff["handoff_items"], start=1):
+    result_index = 0
+    for item in handoff["handoff_items"]:
+        if item.get("handoff_status") == "no_current_routes_after_pipeline_refresh":
+            continue
+        result_index += 1
         source_id = str(item["source_id"])
         gap_id = str(item["source_engineering_gap_id"])
         if gap_id not in snapshots:
@@ -259,7 +263,7 @@ def build_result_rows(root: Path) -> list[dict[str, str]]:
         lane = str(item["action_lane"])
         rows.append(
             {
-                "first_wave_result_id": f"source-engineering-first-wave-review-result-{index:04d}",
+                "first_wave_result_id": f"source-engineering-first-wave-review-result-{result_index:04d}",
                 "handoff_item_id": str(item["handoff_item_id"]),
                 "wave_id": str(item["wave_id"]),
                 "next_action_id": str(item["next_action_id"]),

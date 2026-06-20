@@ -24,9 +24,13 @@
     "route_selection_rule": "first_not_started_route_per_action_lane",
     "handoff_status": "ready_for_source_engineering_review_not_started",
     "action_lane_count": 6,
-    "total_upstream_route_count": 45,
-    "selected_route_count": 6,
-    "remaining_route_count_after_wave": 39,
+    "total_upstream_route_count": 22,
+    "selected_route_count": 5,
+    "no_current_route_lane_count": 1,
+    "no_current_route_lanes": [
+      "package_manifest_or_not_applicable_review"
+    ],
+    "remaining_route_count_after_wave": 17,
     "review_status": "wave_handoff_pending_source_engineering_review",
     "evidence_collection_status": "not_collected",
     "rights_decision_status": "no_new_rights_decision",
@@ -37,13 +41,13 @@
   "coverage": {
     "handoff_item_count": 6,
     "action_lane_count": 6,
-    "source_count": 4,
+    "source_count": 5,
     "review_log_count": 6,
     "result_record_count": 6,
-    "route_file_reference_count": 71,
-    "unique_route_file_count": 35,
+    "route_file_reference_count": 60,
+    "unique_route_file_count": 31,
     "decision_filled_count": 0,
-    "result_started_count": 0,
+    "result_started_count": 1,
     "action_lane_counts": {
       "access_boundary_followup": 1,
       "checksum_and_download_status_review": 1,
@@ -53,16 +57,20 @@
       "source_field_map_planning": 1
     },
     "handoff_status_counts": {
-      "ready_for_source_engineering_review_not_started": 6
+      "no_current_routes_after_pipeline_refresh": 1,
+      "ready_for_source_engineering_review_not_started": 5
     },
     "result_status_counts": {
-      "not_started": 6
+      "not_applicable_no_current_route": 1,
+      "not_started": 5
     },
     "evidence_collection_status_counts": {
-      "not_collected": 6
+      "not_applicable_no_current_route": 1,
+      "not_collected": 5
     },
     "human_review_status_counts": {
-      "pending_human_review": 6
+      "not_applicable_no_current_route": 1,
+      "pending_human_review": 5
     },
     "rights_decision_status_counts": {
       "no_new_rights_decision": 6
@@ -106,13 +114,9 @@
     "corpus/009_statistics-and-derived-features/108_ai-agent-source-field-map-scaffold.csv",
     "corpus/009_statistics-and-derived-features/109_ai-agent-source-field-map-review-checklist.csv",
     "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json",
-    "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_review-log.md",
-    "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_next-action-result.md",
-    "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
-    "project_registry/006_large-source-register/001_large-source-register.csv",
     "corpus/009_statistics-and-derived-features/116_ai-agent-source-safe-derived-record-review-route-pack.json",
-    "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_review-log.md",
-    "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_next-action-result.md"
+    "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+    "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md"
   ],
   "handoff_items": [
     {
@@ -378,59 +382,36 @@
       "route_pack_path": "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json",
       "decision_field": "manifest_decision",
       "decision_value": "",
-      "next_action_id": "source-engineering-next-action-0021",
-      "result_scaffold_id": "source-engineering-next-action-result-scaffold-0021",
-      "source_engineering_gap_id": "source-engineering-gap-0021",
-      "source_id": "src-cambridge-hopkins",
-      "gap_type": "package_file_manifest_or_not_applicable_decision_needed",
-      "priority_rank": 6,
-      "automation_scope": "manifest_gap_review_only",
-      "human_gate": "human_decides_package_manifest_needed_not_applicable_or_local_only",
-      "handoff_status": "ready_for_source_engineering_review_not_started",
-      "action_status": "ready_for_source_engineering_review",
-      "result_status": "not_started",
-      "evidence_collection_status": "not_collected",
-      "human_review_status": "pending_human_review",
+      "next_action_id": "",
+      "result_scaffold_id": "",
+      "source_engineering_gap_id": "",
+      "source_id": "",
+      "gap_type": "",
+      "priority_rank": 0,
+      "automation_scope": "no_current_routes_for_lane",
+      "human_gate": "",
+      "handoff_status": "no_current_routes_after_pipeline_refresh",
+      "action_status": "no_current_source_engineering_route",
+      "result_status": "not_applicable_no_current_route",
+      "evidence_collection_status": "not_applicable_no_current_route",
+      "human_review_status": "not_applicable_no_current_route",
       "rights_decision_status": "no_new_rights_decision",
       "source_promotion_status": "not_promoted",
       "corpus_import_status": "not_imported",
       "decipherment_claim_status": "no_decipherment_claim",
-      "blocking_condition": "no_raw_package_commit_without_manifest_or_explicit_not_applicable_decision",
-      "safe_to_automate_status": "metadata_review_safe_manifest_decision_requires_human",
-      "review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_review-log.md",
-      "result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_next-action-result.md",
-      "required_followup": [
-        "open_large_source_register",
-        "open_package_manifest",
-        "open_download_manifest",
-        "record_manifest_needed_or_not_applicable",
-        "keep_raw_package_outside_regular_git"
-      ],
-      "required_followup_count": 5,
-      "checklist_items": [
-        "open_large_source_register",
-        "open_package_manifest",
-        "open_download_manifest",
-        "record_manifest_needed_or_not_applicable",
-        "keep_raw_package_outside_regular_git"
-      ],
-      "checklist_item_count": 5,
+      "blocking_condition": "",
+      "safe_to_automate_status": "no_current_route_to_automate",
+      "review_log_path": "",
+      "result_record_path": "",
+      "required_followup": [],
+      "required_followup_count": 0,
+      "checklist_items": [],
+      "checklist_item_count": 0,
       "route_files_to_open": [
         "corpus/009_statistics-and-derived-features/117_ai-agent-source-engineering-review-route-summary.json",
-        "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json",
-        "corpus/009_statistics-and-derived-features/104_ai-agent-source-engineering-next-action-checklist.csv",
-        "corpus/009_statistics-and-derived-features/107_ai-agent-source-engineering-lane-route-pack.json",
-        "corpus/009_statistics-and-derived-features/103_ai-agent-source-engineering-gap-evidence-snapshot.csv",
-        "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_review-log.md",
-        "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-cambridge-hopkins_package_file_manifest_or_not_applicable_decision_needed_next-action-result.md",
-        "corpus/009_statistics-and-derived-features/094_source-processing-pipeline-audit.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv",
-        "project_registry/006_large-source-register/002_source-download-log.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
-        "corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv",
-        "project_registry/006_large-source-register/001_large-source-register.csv"
+        "corpus/009_statistics-and-derived-features/112_ai-agent-source-package-manifest-review-route-pack.json"
       ],
-      "route_file_count": 13,
+      "route_file_count": 2,
       "review_route_summary_path": "corpus/009_statistics-and-derived-features/117_ai-agent-source-engineering-review-route-summary.json",
       "research_boundary": "source_engineering_review_wave_handoff_not_review_result",
       "output_scope": "source_engineering_review_wave_handoff_scaffold_only",
@@ -444,10 +425,10 @@
       "route_pack_path": "corpus/009_statistics-and-derived-features/116_ai-agent-source-safe-derived-record-review-route-pack.json",
       "decision_field": "safe_derived_record_decision",
       "decision_value": "",
-      "next_action_id": "source-engineering-next-action-0036",
-      "result_scaffold_id": "source-engineering-next-action-result-scaffold-0036",
-      "source_engineering_gap_id": "source-engineering-gap-0036",
-      "source_id": "src-gbedobc",
+      "next_action_id": "source-engineering-next-action-0021",
+      "result_scaffold_id": "source-engineering-next-action-result-scaffold-0021",
+      "source_engineering_gap_id": "source-engineering-gap-0021",
+      "source_id": "src-sinica-da-xiaoxuetang-site",
       "gap_type": "safe_derived_record_decision_needed",
       "priority_rank": 7,
       "automation_scope": "derived_record_route_planning_only",
@@ -463,8 +444,8 @@
       "decipherment_claim_status": "no_decipherment_claim",
       "blocking_condition": "no_derived_record_promotion_without_source_marked_reviewed_boundary",
       "safe_to_automate_status": "planning_safe_derivative_promotion_blocked",
-      "review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_review-log.md",
-      "result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_next-action-result.md",
+      "review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+      "result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
       "required_followup": [
         "open_pipeline_audit",
         "open_coverage_summary",
@@ -487,8 +468,8 @@
         "corpus/009_statistics-and-derived-features/104_ai-agent-source-engineering-next-action-checklist.csv",
         "corpus/009_statistics-and-derived-features/107_ai-agent-source-engineering-lane-route-pack.json",
         "corpus/009_statistics-and-derived-features/103_ai-agent-source-engineering-gap-evidence-snapshot.csv",
-        "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_review-log.md",
-        "doc/public/user_research/009_source-engineering-gap-review-queues/0036_src-gbedobc_safe_derived_record_decision_needed_next-action-result.md",
+        "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+        "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
         "corpus/009_statistics-and-derived-features/094_source-processing-pipeline-audit.csv",
         "corpus/009_statistics-and-derived-features/007_source-coverage-summary.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",

@@ -2,8 +2,8 @@
 
 ## Status / 状态
 
-- Review log draft ID / 复核日志草稿 ID: `source-engineering-gap-review-log-draft-0012`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0012`
+- Review log draft ID / 复核日志草稿 ID: `source-engineering-gap-review-log-draft-0021`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0021`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -15,36 +15,35 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-cambridge-hopkins`
-- Gap type / 缺口类型: `metadata_profile_extraction_needed`
-- Priority rank / 优先级: `4`
+- Source ID / 来源 ID: `src-sinica-da-xiaoxuetang-site`
+- Gap type / 缺口类型: `safe_derived_record_decision_needed`
+- Priority rank / 优先级: `7`
 - Current stage / 当前阶段: `pending_human_review`
-- Authority tier / 来源层级: `university_library_collection`
+- Authority tier / 来源层级: `institutional_portal`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-`current_stage=pending_human_review;download_status_counts=downloaded:1;downloaded_count=1;download_log_count=1;checksum_present_count=1;field_map_count=2;package_manifest_count=1;metadata_profile_count=0;graph_edge_count=4403;downloaded_file_bytes=74132;gap_type=metadata_profile_extraction_needed`
+`current_stage=pending_human_review;download_status_counts=download_error:1;downloaded_count=0;download_log_count=1;checksum_present_count=0;field_map_count=1;package_manifest_count=0;metadata_profile_count=3;graph_edge_count=0;downloaded_file_bytes=0;gap_type=safe_derived_record_decision_needed`
 
 ## Route Files To Open / 待打开路线文件
 
 - `corpus/009_statistics-and-derived-features/094_source-processing-pipeline-audit.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv`
-- `project_registry/006_large-source-register/002_source-download-log.csv`
+- `corpus/009_statistics-and-derived-features/007_source-coverage-summary.csv`
 - `corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv`
 - `corpus/009_statistics-and-derived-features/009_ai-agent-source-route-review-queue.csv`
 
 ## Required Next Checks / 必需下一步检查
 
-- `open_download_log_and_source_register`
-  - English: Open download log and source register before metadata profile extraction.
-  - 简体中文：在抽取 metadata profile 前打开下载日志和来源登记表。
-- `extract_metadata_only_counts_or_scope_from_committed_evidence`
-  - English: Extract only metadata counts or scope from already committed evidence.
-  - 简体中文：只从已提交证据中抽取 metadata 计数或范围。
-- `record_review_status_and_no_scholarly_claim`
-  - English: Record review status and no scholarly claim.
-  - 简体中文：记录复核状态，并明确不形成学术结论。
+- `open_metadata_profile_source_route_and_rights_status`
+  - English: Open metadata profile, source route, and rights status before derivative decisions.
+  - 简体中文：在派生记录决策前打开 metadata profile、来源路线和权利状态。
+- `decide_next_safe_derivative_staging_or_review_queue`
+  - English: Decide the next safe derivative staging row or review queue.
+  - 简体中文：决定下一步安全的派生 staging 行或复核队列。
+- `record_no_corpus_promotion_without_source_marked_review`
+  - English: Record no corpus promotion without source-marked review.
+  - 简体中文：记录没有带来源标记的复核不得提升为语料。
 
 ## Evidence Collection / 证据收集
 

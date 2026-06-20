@@ -72,9 +72,7 @@ def load_first_route(root: Path, lane: dict[str, Any]) -> dict[str, Any]:
     route_pack_path = Path(str(lane["route_pack_path"]))
     route_pack = read_json(root / route_pack_path)
     routes = list(route_pack.get("routes", []))
-    if not routes:
-        raise ValueError(f"route pack has no routes: {route_pack_path.as_posix()}")
-    return routes[0]
+    return routes[0] if routes else {}
 
 
 def route_files_for_item(summary_path: Path, lane: dict[str, Any], route: dict[str, Any]) -> list[str]:
@@ -109,6 +107,47 @@ def route_files_for_item(summary_path: Path, lane: dict[str, Any], route: dict[s
 
 def handoff_item(root: Path, summary_path: Path, lane: dict[str, Any], wave_index: int) -> dict[str, Any]:
     route = load_first_route(root, lane)
+    if not route:
+        return {
+            "handoff_item_id": f"source-engineering-review-wave-handoff-{wave_index:04d}",
+            "wave_id": WAVE_ID,
+            "action_lane": lane["action_lane"],
+            "route_pack_id": lane["route_pack_id"],
+            "route_pack_path": lane["route_pack_path"],
+            "decision_field": str(lane["decision_field"]),
+            "decision_value": "",
+            "next_action_id": "",
+            "result_scaffold_id": "",
+            "source_engineering_gap_id": "",
+            "source_id": "",
+            "gap_type": "",
+            "priority_rank": int(lane.get("priority_min", 0) or 0),
+            "automation_scope": "no_current_routes_for_lane",
+            "human_gate": "",
+            "handoff_status": "no_current_routes_after_pipeline_refresh",
+            "action_status": "no_current_source_engineering_route",
+            "result_status": "not_applicable_no_current_route",
+            "evidence_collection_status": "not_applicable_no_current_route",
+            "human_review_status": "not_applicable_no_current_route",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+            "blocking_condition": "",
+            "safe_to_automate_status": "no_current_route_to_automate",
+            "review_log_path": "",
+            "result_record_path": "",
+            "required_followup": [],
+            "required_followup_count": 0,
+            "checklist_items": [],
+            "checklist_item_count": 0,
+            "route_files_to_open": unique_in_order([summary_path.as_posix(), str(lane.get("route_pack_path", ""))]),
+            "route_file_count": 2,
+            "review_route_summary_path": summary_path.as_posix(),
+            "research_boundary": RESEARCH_BOUNDARY,
+            "output_scope": OUTPUT_SCOPE,
+            "caution": CAUTION,
+        }
     decision_field = str(lane["decision_field"])
     required_followup = route.get("required_followup", route.get("required_review_steps", []))
     if isinstance(required_followup, str):
@@ -165,6 +204,16 @@ def build_wave_handoff_scaffold(root: Path, summary: dict[str, Any]) -> dict[str
         handoff_item(root, REVIEW_ROUTE_SUMMARY, lane, index)
         for index, lane in enumerate(lanes, start=1)
     ]
+    selected_items = [
+        item
+        for item in handoff_items
+        if item.get("handoff_status") != "no_current_routes_after_pipeline_refresh"
+    ]
+    no_route_lanes = [
+        str(item["action_lane"])
+        for item in handoff_items
+        if item.get("handoff_status") == "no_current_routes_after_pipeline_refresh"
+    ]
     route_files = unique_in_order(
         [
             route_file
@@ -201,8 +250,10 @@ def build_wave_handoff_scaffold(root: Path, summary: dict[str, Any]) -> dict[str
             "handoff_status": HANDOFF_STATUS,
             "action_lane_count": len(lanes),
             "total_upstream_route_count": summary.get("total_route_count", 0),
-            "selected_route_count": len(handoff_items),
-            "remaining_route_count_after_wave": int(summary.get("total_route_count", 0)) - len(handoff_items),
+            "selected_route_count": len(selected_items),
+            "no_current_route_lane_count": len(no_route_lanes),
+            "no_current_route_lanes": no_route_lanes,
+            "remaining_route_count_after_wave": int(summary.get("total_route_count", 0)) - len(selected_items),
             "review_status": "wave_handoff_pending_source_engineering_review",
             "evidence_collection_status": "not_collected",
             "rights_decision_status": "no_new_rights_decision",

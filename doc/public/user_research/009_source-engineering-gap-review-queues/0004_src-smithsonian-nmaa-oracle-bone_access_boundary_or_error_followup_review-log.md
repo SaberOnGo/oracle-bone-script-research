@@ -24,7 +24,7 @@
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-`current_stage=pending_human_review;download_status_counts=downloaded:1;http_error:1;downloaded_count=1;download_log_count=2;checksum_present_count=1;field_map_count=3;package_manifest_count=0;metadata_profile_count=3;graph_edge_count=0;downloaded_file_bytes=115569;gap_type=access_boundary_or_error_followup`
+`current_stage=pending_human_review;download_status_counts=downloaded:1;http_error:1;downloaded_count=1;download_log_count=2;checksum_present_count=1;field_map_count=3;package_manifest_count=1;metadata_profile_count=3;graph_edge_count=0;downloaded_file_bytes=115569;gap_type=access_boundary_or_error_followup`
 
 ## Route Files To Open / 待打开路线文件
 

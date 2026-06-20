@@ -6,10 +6,12 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `build_source_coverage_statistics.py` now folds `188_object-local-material-coverage-audit.csv` into `007_source-coverage-summary.csv`, adding per-source object-local bundle, local review-image object, route-object, and partial-bundle counts. `build_source_coverage_context_pack.py` carries the same fields into the source coverage context pack so AI Agents can open source routes with both derivative-count and object-local-material coverage visible. These counts are routing infrastructure only; they do not confirm source promotion, rights decisions, identity, component, inscription, evolution, reading, or decipherment claims.
 - `build_project_id_source_map_audit.py` generates `190_project-id-source-map-audit.csv` and `191_project-id-source-map-summary.json` from the six CSV maps under `project_registry/002_project-id-to-source-reference-map/`. It checks map-level row counts, canonical-path reachability, source-ID registration, external-reference fields, rights/review statuses, and next preprocessing entry points. This is a route-map integrity audit only: it does not confirm identity, reading, component, evolution, inscription, source promotion, or decipherment claims.
 - On Windows, the audit uses long-path-aware path checks so deeply bucketed object-local asset routes are evaluated as repository paths instead of false missing-path issues.
 
 Simplified Chinese supplement:
+- `build_source_coverage_statistics.py` 现在会把 `188_object-local-material-coverage-audit.csv` 汇入 `007_source-coverage-summary.csv`，为每个来源增加对象内资料包、本地复核图像对象、路线对象和部分缺失包计数。`build_source_coverage_context_pack.py` 会把同样字段带入 source coverage context pack，使 AI Agent 在打开来源路线时同时看到派生计数与对象内资料覆盖情况。这些计数只属于路由基础设施；不确认来源提升、权利决定、身份、构件、卜辞、演化、释读或破译结论。
 - `build_project_id_source_map_audit.py` 会从 `project_registry/002_project-id-to-source-reference-map/` 下的六个 CSV 映射表生成 `190_project-id-source-map-audit.csv` 和 `191_project-id-source-map-summary.json`。它检查映射表行数、规范路径是否可到达、来源 ID 是否已登记、外部引用字段、权利/复核状态，以及下一步预处理入口。该流程只做映射完整性审计，不确认身份、释读、构件、演化、卜辞、来源提升或释读结论。
 - 在 Windows 上，该审计会使用支持长路径的路径检查，避免把深层 bucket/object-local 资产路由误判为缺失路径。
 

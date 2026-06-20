@@ -18,6 +18,9 @@ DOWNLOADED_METADATA_PROFILE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"
 )
 ASSET_SOURCE_INDEX = Path("project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv")
+OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
+    "corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv"
+)
 RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY = Path(
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv"
 )
@@ -25,10 +28,11 @@ HUST_OBC_OBS_CHAR_PROMOTION_QUEUE = Path(
     "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv"
 )
 DEFAULT_OUTPUT = Path("corpus/009_statistics-and-derived-features/007_source-coverage-summary.csv")
-UPDATED_AT = "2026-06-10"
+UPDATED_AT = "2026-06-20"
 GENERATED_FROM = (
     "source_registers;download_manifest;download_log;metadata_profiles;"
-    "asset_source_index;relationship_graph_statistics;hust_obc_promotion_queue"
+    "asset_source_index;object_local_material_coverage;"
+    "relationship_graph_statistics;hust_obc_promotion_queue"
 )
 CAUTION = (
     "Coverage statistics only; inspect source register rows and source-specific "
@@ -53,6 +57,25 @@ def split_source_ids(value: str) -> list[str]:
     return [source_id for source_id in value.split(";") if source_id]
 
 
+def object_local_material_counts_by_source(rows: list[dict[str, str]]) -> dict[str, Counter[str]]:
+    counts = {
+        "object_local_material_bundle_count": Counter(),
+        "object_local_review_image_object_count": Counter(),
+        "object_local_route_object_count": Counter(),
+        "object_local_partial_bundle_count": Counter(),
+    }
+    for row in rows:
+        for source_id in split_source_ids(row.get("source_ids", "")):
+            counts["object_local_material_bundle_count"][source_id] += 1
+            if int(row.get("local_visual_asset_count", "0") or 0) > 0:
+                counts["object_local_review_image_object_count"][source_id] += 1
+            if int(row.get("route_file_count", "0") or 0) > 0:
+                counts["object_local_route_object_count"][source_id] += 1
+            if row.get("material_bundle_status") == "partial_or_missing_object_local_bundle":
+                counts["object_local_partial_bundle_count"][source_id] += 1
+    return counts
+
+
 def coverage_status(row: dict[str, str]) -> str:
     if int(row["graph_edge_count"]) > 0:
         return "has_relationship_graph_derivatives"
@@ -75,6 +98,7 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
     download_log_rows = read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     metadata_profile_rows = read_csv_rows(root / DOWNLOADED_METADATA_PROFILE)
     asset_rows = read_csv_rows(root / ASSET_SOURCE_INDEX)
+    object_local_rows = read_csv_rows(root / OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT)
     graph_edge_rows = read_csv_rows(root / RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY)
     promotion_queue_rows = read_csv_rows(root / HUST_OBC_OBS_CHAR_PROMOTION_QUEUE)
 
@@ -104,6 +128,8 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
             if file_size.isdigit():
                 asset_bytes[source_id] += int(file_size)
             asset_rights_counts[source_id][row["rights_status"]] += 1
+
+    object_local_counts = object_local_material_counts_by_source(object_local_rows)
 
     graph_edge_count: Counter[str] = Counter()
     graph_edge_type_count: dict[str, set[str]] = defaultdict(set)
@@ -139,6 +165,18 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
             "graph_edge_count": str(graph_edge_count[source_id]),
             "graph_edge_type_count": str(len(graph_edge_type_count[source_id])),
             "promotion_queue_candidate_count": str(promotion_candidate_count[source_id]),
+            "object_local_material_bundle_count": str(
+                object_local_counts["object_local_material_bundle_count"][source_id]
+            ),
+            "object_local_review_image_object_count": str(
+                object_local_counts["object_local_review_image_object_count"][source_id]
+            ),
+            "object_local_route_object_count": str(
+                object_local_counts["object_local_route_object_count"][source_id]
+            ),
+            "object_local_partial_bundle_count": str(
+                object_local_counts["object_local_partial_bundle_count"][source_id]
+            ),
             "coverage_status": "",
             "generated_from": GENERATED_FROM,
             "caution": CAUTION,

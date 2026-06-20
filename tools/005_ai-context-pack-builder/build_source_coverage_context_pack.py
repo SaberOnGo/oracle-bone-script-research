@@ -19,6 +19,9 @@ DOWNLOADED_METADATA_PROFILE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"
 )
 ASSET_SOURCE_INDEX = Path("project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv")
+OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
+    "corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv"
+)
 RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY = Path(
     "corpus/009_statistics-and-derived-features/001_relationship-graph-edge-type-summary.csv"
 )
@@ -26,7 +29,7 @@ HUST_OBC_OBS_CHAR_PROMOTION_QUEUE = Path(
     "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv"
 )
 DEFAULT_OUTPUT = Path("corpus/009_statistics-and-derived-features/008_ai-agent-source-coverage-context-pack.json")
-UPDATED_AT = "2026-06-10"
+UPDATED_AT = "2026-06-20"
 
 
 def repo_root() -> Path:
@@ -95,6 +98,10 @@ def source_entry(row: dict[str, str]) -> dict[str, object]:
         "graph_edge_count": int_value(row, "graph_edge_count"),
         "graph_edge_type_count": int_value(row, "graph_edge_type_count"),
         "promotion_queue_candidate_count": int_value(row, "promotion_queue_candidate_count"),
+        "object_local_material_bundle_count": int_value(row, "object_local_material_bundle_count"),
+        "object_local_review_image_object_count": int_value(row, "object_local_review_image_object_count"),
+        "object_local_route_object_count": int_value(row, "object_local_route_object_count"),
+        "object_local_partial_bundle_count": int_value(row, "object_local_partial_bundle_count"),
     }
 
 
@@ -143,6 +150,7 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
             SOURCE_DOWNLOAD_LOG.as_posix(),
             DOWNLOADED_METADATA_PROFILE.as_posix(),
             ASSET_SOURCE_INDEX.as_posix(),
+            OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT.as_posix(),
             RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY.as_posix(),
             HUST_OBC_OBS_CHAR_PROMOTION_QUEUE.as_posix(),
         ],
@@ -164,6 +172,18 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
             "committed_asset_bytes": sum(entry["committed_asset_bytes"] for entry in entries),
             "graph_edge_count": sum(entry["graph_edge_count"] for entry in entries),
             "promotion_queue_candidate_count": sum(entry["promotion_queue_candidate_count"] for entry in entries),
+            "object_local_material_bundle_count": sum(
+                entry["object_local_material_bundle_count"] for entry in entries
+            ),
+            "object_local_review_image_object_count": sum(
+                entry["object_local_review_image_object_count"] for entry in entries
+            ),
+            "object_local_route_object_count": sum(
+                entry["object_local_route_object_count"] for entry in entries
+            ),
+            "object_local_partial_bundle_count": sum(
+                entry["object_local_partial_bundle_count"] for entry in entries
+            ),
             "coverage_status_counts": dict(sorted(status_counts.items())),
             "authority_tier_counts": dict(sorted(authority_counts.items())),
             "rights_status_counts": dict(sorted(rights_counts.items())),

@@ -4376,10 +4376,11 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         by_source_id[source_id] = row
         if row.get("generated_from") != (
             "source_registers;download_manifest;download_log;metadata_profiles;"
-            "asset_source_index;relationship_graph_statistics;hust_obc_promotion_queue"
+            "asset_source_index;object_local_material_coverage;"
+            "relationship_graph_statistics;hust_obc_promotion_queue"
         ):
             issues.append(f"{SOURCE_COVERAGE_SUMMARY} generated_from changed: {source_id}")
-        if row.get("updated_at") != "2026-06-10":
+        if row.get("updated_at") != "2026-06-20":
             issues.append(f"{SOURCE_COVERAGE_SUMMARY} updated_at changed: {source_id}")
         if "Coverage statistics only" not in row.get("caution", ""):
             issues.append(f"{SOURCE_COVERAGE_SUMMARY} caution changed: {source_id}")
@@ -4393,6 +4394,10 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "graph_edge_count",
             "graph_edge_type_count",
             "promotion_queue_candidate_count",
+            "object_local_material_bundle_count",
+            "object_local_review_image_object_count",
+            "object_local_route_object_count",
+            "object_local_partial_bundle_count",
         ]:
             value = row.get(field, "")
             if not value.isdigit():
@@ -4410,6 +4415,10 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
         "promotion_queue_candidate_count": 1588,
+        "object_local_material_bundle_count": 28166,
+        "object_local_review_image_object_count": 13715,
+        "object_local_route_object_count": 17170,
+        "object_local_partial_bundle_count": 0,
     }
     for field, expected_value in expected_totals.items():
         if totals[field] != expected_value:
@@ -4432,6 +4441,10 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "graph_edge_count": "16295",
             "graph_edge_type_count": "6",
             "promotion_queue_candidate_count": "1588",
+            "object_local_material_bundle_count": "10997",
+            "object_local_review_image_object_count": "10996",
+            "object_local_route_object_count": "1",
+            "object_local_partial_bundle_count": "0",
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-obimd": {
@@ -4441,16 +4454,24 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "asset_rights_status_counts": "licensed_for_repository:10364",
             "graph_edge_count": "54856",
             "graph_edge_type_count": "6",
+            "object_local_material_bundle_count": "2748",
+            "object_local_review_image_object_count": "2719",
+            "object_local_route_object_count": "2748",
+            "object_local_partial_bundle_count": "0",
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-evobc": {
             "graph_edge_count": "51948",
             "graph_edge_type_count": "5",
+            "object_local_material_bundle_count": "13715",
+            "object_local_route_object_count": "13715",
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-cambridge-hopkins": {
             "graph_edge_count": "5075",
             "graph_edge_type_count": "13",
+            "object_local_material_bundle_count": "633",
+            "object_local_route_object_count": "633",
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-metmuseum-oracle-bone": {
@@ -5536,7 +5557,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75223,
+        "staging_record_count": 75225,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5577,7 +5598,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "187",
+            "staging_record_count": "189",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -14463,7 +14484,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} context_pack_id changed")
     if source_context_pack.get("status") != "reviewed_metadata_only":
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} status must stay reviewed_metadata_only")
-    if source_context_pack.get("updated_at") != "2026-06-10":
+    if source_context_pack.get("updated_at") != "2026-06-20":
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} updated_at changed")
     if source_context_pack.get("generated_from") != [
         SOURCE_COVERAGE_SUMMARY,
@@ -14472,6 +14493,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         SOURCE_DOWNLOAD_LOG,
         DOWNLOADED_METADATA_PROFILE,
         ASSET_SOURCE_INDEX,
+        OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT,
         RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY,
         HUST_OBC_OBS_CHAR_PROMOTION_QUEUE,
     ]:
@@ -14487,6 +14509,10 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
         "promotion_queue_candidate_count": 1588,
+        "object_local_material_bundle_count": 28166,
+        "object_local_review_image_object_count": 13715,
+        "object_local_route_object_count": 17170,
+        "object_local_partial_bundle_count": 0,
     }
     for key, value in expected_source_coverage.items():
         if source_coverage.get(key) != value:

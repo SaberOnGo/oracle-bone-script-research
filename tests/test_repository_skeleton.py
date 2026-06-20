@@ -34,6 +34,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_processing_pipeline_audit,
     check_core_corpus_readiness_matrix,
     check_core_corpus_phase_coverage_matrix,
+    check_core_corpus_phase_gap_action_queue,
     check_source_pipeline_phase_coverage_matrix,
     check_source_pipeline_phase_action_queue,
     check_source_pipeline_phase_action_result_scaffold,
@@ -1137,6 +1138,15 @@ def load_object_local_material_coverage_audit_module():
 def load_core_corpus_phase_coverage_matrix_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_coverage_matrix", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_action_queue_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_action_queue", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -13910,6 +13920,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
+            "core_corpus_phase_gap_action_queue_rows:20",
+            by_type["review_queues"]["count_summary"],
+        )
+        self.assertIn(
             "source_pipeline_phase_coverage_rows:21",
             by_type["review_queues"]["count_summary"],
         )
@@ -19205,7 +19219,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "189")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "190")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19302,5 +19316,55 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_area["published_research_notes"]["research_boundary_status"], "draft_or_bibliography_review_queue")
         self.assertEqual(by_area["research_sources_and_bibliography"]["claim_boundary"], module.CLAIM_BOUNDARY)
         self.assertTrue(all(row["next_action"].startswith("open_") or row["next_action"].startswith("review_") or row["next_action"].startswith("collect_") or row["next_action"].startswith("rewrite_") or row["next_action"].startswith("batch_") for row in rows))
+
+    def test_core_corpus_phase_gap_action_queue_expands_missing_phase_statuses(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_action_queue(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "192_core-corpus-phase-gap-action-queue.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 20)
+        status_counts = Counter(row["phase_status"] for row in rows)
+        self.assertEqual(status_counts, Counter({"missing": 9, "mixed_or_partial": 11}))
+        area_counts = Counter(row["corpus_area"] for row in rows)
+        self.assertEqual(area_counts["research_sources_and_bibliography"], 5)
+        self.assertEqual(area_counts["collection_provenance_assets"], 3)
+        by_gap = {(row["corpus_area"], row["phase_name"]): row for row in rows}
+        self.assertEqual(
+            by_gap[("undeciphered_oracle_character_candidates", "linked")]["recommended_action"],
+            "open_phase_evidence_then_collect_source_marked_evidence_for_priority_undeciphered_candidates_keep_no_identity_claim",
+        )
+        self.assertEqual(
+            by_gap[("research_sources_and_bibliography", "downloaded")]["phase_status"],
+            "mixed_or_partial",
+        )
+        self.assertIn(
+            "185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv",
+            by_gap[("research_sources_and_bibliography", "verified")]["phase_evidence_paths"],
+        )
+        self.assertTrue(all(row["rights_decision_status"] == "no_new_rights_decision" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["corpus_import_status"] == "not_imported" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
+
+    def test_core_corpus_phase_gap_action_queue_builder_uses_phase_matrix(self) -> None:
+        module = load_core_corpus_phase_gap_action_queue_module()
+        rows = module.build_gap_rows(repo_root())
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(rows[0]["gap_queue_id"], "core-corpus-phase-gap-001")
+        self.assertEqual(rows[0]["corpus_area"], "oracle_characters")
+        self.assertEqual(rows[0]["phase_name"], "verified")
+        self.assertEqual(rows[0]["phase_status"], "missing")
+        self.assertEqual(rows[0]["review_status"], "needs_human_review")
+        self.assertEqual(rows[0]["claim_boundary"], module.CLAIM_BOUNDARY)
+        by_gap = {(row["corpus_area"], row["phase_name"]): row for row in rows}
+        self.assertEqual(
+            by_gap[("published_research_notes", "linked")]["candidate_or_staging_boundary"],
+            "draft_or_bibliography_review_queue",
+        )
+        self.assertTrue(all("phase gap action queue only" in row["caution"] for row in rows))
 if __name__ == "__main__":
     unittest.main()

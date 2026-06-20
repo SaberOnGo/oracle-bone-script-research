@@ -871,6 +871,10 @@ CORE_CORPUS_PHASE_COVERAGE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "135_core-corpus-phase-coverage-matrix.csv"
 )
+CORE_CORPUS_PHASE_GAP_ACTION_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "192_core-corpus-phase-gap-action-queue.csv"
+)
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "136_source-pipeline-phase-coverage-matrix.csv"
@@ -1746,6 +1750,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_GAP_REVIEW_CHECKLIST,
     SOURCE_PIPELINE_EVIDENCE_LEDGER,
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
+    CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
@@ -1959,6 +1964,7 @@ REQUIRED_PATHS = [
     "tools/005_ai-context-pack-builder/build_source_pipeline_gap_review_checklist.py",
     "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py",
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py",
@@ -4635,6 +4641,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_gap_review_checklist_rows:21",
             "source_pipeline_evidence_ledger_rows:21",
             "core_corpus_phase_coverage_rows:10",
+            "core_corpus_phase_gap_action_queue_rows:20",
             "source_pipeline_phase_coverage_rows:21",
             "source_pipeline_phase_action_queue_rows:62",
             "source_pipeline_phase_action_result_scaffold_rows:62",
@@ -5557,7 +5564,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75225,
+        "staging_record_count": 75226,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5598,7 +5605,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "189",
+            "staging_record_count": "190",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7704,6 +7711,74 @@ def check_core_corpus_phase_coverage_matrix(root: Path) -> list[str]:
         for path in row.get("phase_evidence_paths", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_COVERAGE_MATRIX} missing evidence path: {path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_action_queue(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / CORE_CORPUS_PHASE_GAP_ACTION_QUEUE)
+    issues.extend(row_issues)
+    if len(rows) != 20:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} should contain exactly 20 rows")
+
+    phase_status_counts = Counter(row.get("phase_status", "") for row in rows)
+    if phase_status_counts != Counter({"mixed_or_partial": 11, "missing": 9}):
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} phase status distribution changed")
+    area_counts = Counter(row.get("corpus_area", "") for row in rows)
+    expected_area_counts = Counter(
+        {
+            "research_sources_and_bibliography": 5,
+            "published_research_notes": 4,
+            "collection_provenance_assets": 3,
+            "undeciphered_oracle_character_candidates": 2,
+            "inscriptions_and_plate_crosswalks": 2,
+            "oracle_characters": 1,
+            "cross_source_codepoint_routes": 1,
+            "graphemic_components": 1,
+            "evolution_correspondences": 1,
+        }
+    )
+    if area_counts != expected_area_counts:
+        issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} corpus area distribution changed")
+
+    by_gap = {(row.get("corpus_area", ""), row.get("phase_name", "")): row for row in rows}
+    expected_gaps = {
+        ("oracle_characters", "verified"): "missing",
+        ("undeciphered_oracle_character_candidates", "linked"): "missing",
+        ("undeciphered_oracle_character_candidates", "verified"): "missing",
+        ("research_sources_and_bibliography", "downloaded"): "mixed_or_partial",
+        ("research_sources_and_bibliography", "verified"): "mixed_or_partial",
+        ("published_research_notes", "linked"): "mixed_or_partial",
+    }
+    for gap_key, expected_status in expected_gaps.items():
+        row = by_gap.get(gap_key)
+        if row is None:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} missing gap row: {gap_key}")
+            continue
+        if row.get("phase_status") != expected_status:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} {gap_key} phase status changed")
+
+    for row in rows:
+        gap_id = row.get("gap_queue_id", "")
+        if not gap_id.startswith("core-corpus-phase-gap-"):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} gap ID changed: {gap_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} review status changed: {gap_id}")
+        if row.get("claim_boundary") != "core_corpus_phase_gap_action_queue_not_review_outcome_not_scholarship":
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} claim boundary changed: {gap_id}")
+        for field, expected_value in {
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} {field} changed: {gap_id}")
+        if "phase gap action queue only" not in row.get("caution", ""):
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} caution changed: {gap_id}")
+        for path in row.get("phase_evidence_paths", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} missing evidence path: {path}")
     return issues
 
 
@@ -24499,6 +24574,7 @@ def main() -> int:
     issues.extend(check_source_processing_pipeline_audit(root))
     issues.extend(check_core_corpus_readiness_matrix(root))
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
+    issues.extend(check_core_corpus_phase_gap_action_queue(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))

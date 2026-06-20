@@ -875,6 +875,10 @@ CORE_CORPUS_PHASE_GAP_ACTION_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "192_core-corpus-phase-gap-action-queue.csv"
 )
+RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "193_research-source-phase-gap-review-checklist.csv"
+)
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "136_source-pipeline-phase-coverage-matrix.csv"
@@ -1751,6 +1755,7 @@ REQUIRED_PATHS = [
     SOURCE_PIPELINE_EVIDENCE_LEDGER,
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+    RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
@@ -1965,6 +1970,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_source_pipeline_evidence_ledger.py",
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
+    "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py",
@@ -4642,6 +4648,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_evidence_ledger_rows:21",
             "core_corpus_phase_coverage_rows:10",
             "core_corpus_phase_gap_action_queue_rows:20",
+            "research_source_phase_gap_review_checklist_rows:5",
             "source_pipeline_phase_coverage_rows:21",
             "source_pipeline_phase_action_queue_rows:62",
             "source_pipeline_phase_action_result_scaffold_rows:62",
@@ -5564,7 +5571,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75226,
+        "staging_record_count": 75227,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5605,7 +5612,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "190",
+            "staging_record_count": "191",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -7779,6 +7786,68 @@ def check_core_corpus_phase_gap_action_queue(root: Path) -> list[str]:
         for path in row.get("phase_evidence_paths", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_ACTION_QUEUE} missing evidence path: {path}")
+    return issues
+
+
+def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
+    assignment_rows, assignment_issues = _read_csv_rows(root / SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST)
+    issues.extend(row_issues)
+    issues.extend(assignment_issues)
+    if len(rows) != 5:
+        issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} should contain exactly 5 rows")
+
+    expected_phases = ["downloaded", "unpacked", "extracted", "cleaned", "verified"]
+    if [row.get("phase_name", "") for row in rows] != expected_phases:
+        issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} phase order changed")
+    if {row.get("corpus_area", "") for row in rows} != {"research_sources_and_bibliography"}:
+        issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} corpus area changed")
+
+    assignment_ids = {row.get("assignment_checklist_id", "") for row in assignment_rows}
+    source_ids = {
+        source_id
+        for row in assignment_rows
+        for source_id in row.get("source_ids", "").split(";")
+        if source_id
+    }
+    if len(assignment_rows) != 5:
+        issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment group source changed")
+    if len(source_ids) != 18:
+        issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} source coverage changed")
+
+    for row in rows:
+        review_id = row.get("review_checklist_id", "")
+        if not review_id.startswith("research-source-phase-gap-review-"):
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} review ID changed: {review_id}")
+        if row.get("phase_status") != "mixed_or_partial":
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} phase status changed: {review_id}")
+        if row.get("review_priority") != "high_batch_review":
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} review priority changed: {review_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
+        if row.get("assignment_group_count") != "5":
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment group count changed: {review_id}")
+        if row.get("assignment_source_count_total") != "18":
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment source count changed: {review_id}")
+        if set(row.get("assignment_checklist_ids", "").split(";")) != assignment_ids:
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment IDs changed: {review_id}")
+        if row.get("claim_boundary") != "research_source_phase_gap_review_checklist_not_review_outcome_not_scholarship":
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        for field, expected_value in {
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if "research source phase gap review checklist only" not in row.get("caution", ""):
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} caution changed: {review_id}")
+        for path in row.get("files_to_open", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
     return issues
 
 
@@ -24575,6 +24644,7 @@ def main() -> int:
     issues.extend(check_core_corpus_readiness_matrix(root))
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
+    issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))

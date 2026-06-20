@@ -38,6 +38,7 @@ from tools.validation.check_repository_skeleton import (
     check_research_source_phase_gap_review_checklist,
     check_collection_provenance_phase_gap_review_checklist,
     check_inscription_plate_crosswalk_phase_gap_review_checklist,
+    check_shape_component_evolution_verification_gap_review_checklist,
     check_source_pipeline_phase_coverage_matrix,
     check_source_pipeline_phase_action_queue,
     check_source_pipeline_phase_action_result_scaffold,
@@ -432,6 +433,20 @@ def load_inscription_plate_crosswalk_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_inscription_plate_crosswalk_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location(
         "build_inscription_plate_crosswalk_phase_gap_review_checklist", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_shape_component_evolution_verification_gap_review_checklist_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/build_shape_component_evolution_verification_gap_review_checklist.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_shape_component_evolution_verification_gap_review_checklist", path
     )
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
@@ -19259,7 +19274,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "193")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "194")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -19521,5 +19536,58 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
         self.assertTrue(all("inscription plate crosswalk phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_shape_component_evolution_verification_gap_review_checklist_routes_verified_gaps(self) -> None:
+        self.assertEqual(check_shape_component_evolution_verification_gap_review_checklist(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "196_shape-component-evolution-verification-gap-review-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(
+            [row["corpus_area"] for row in rows],
+            ["cross_source_codepoint_routes", "graphemic_components", "evolution_correspondences"],
+        )
+        self.assertEqual({row["phase_name"] for row in rows}, {"verified"})
+        self.assertEqual({row["phase_status"] for row in rows}, {"missing"})
+        by_area = {row["corpus_area"]: row for row in rows}
+        self.assertEqual(by_area["cross_source_codepoint_routes"]["primary_staging_count"], "1588")
+        self.assertEqual(by_area["cross_source_codepoint_routes"]["primary_review_route_count"], "134")
+        self.assertEqual(by_area["cross_source_codepoint_routes"]["supporting_readiness_count"], "15")
+        self.assertEqual(by_area["graphemic_components"]["primary_staging_count"], "2747")
+        self.assertEqual(by_area["graphemic_components"]["supporting_staging_count"], "41686")
+        self.assertEqual(by_area["graphemic_components"]["project_id_map_count"], "2747")
+        self.assertEqual(by_area["graphemic_components"]["graph_edge_count"], "44433")
+        self.assertEqual(by_area["evolution_correspondences"]["primary_staging_count"], "13714")
+        self.assertEqual(by_area["evolution_correspondences"]["project_id_map_count"], "13714")
+        self.assertEqual(by_area["evolution_correspondences"]["graph_edge_count"], "51679")
+        self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
+        self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
+        self.assertTrue(all(row["corpus_import_status"] == "not_imported" for row in rows))
+        self.assertTrue(all(row["identity_claim_status"] == "no_identity_claim" for row in rows))
+        self.assertTrue(all(row["component_claim_status"] == "no_component_claim" for row in rows))
+        self.assertTrue(all(row["evolution_chain_claim_status"] == "no_evolution_chain_claim" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_decipherment_claim" for row in rows))
+
+    def test_shape_component_evolution_verification_gap_review_checklist_builder_uses_gap_queue_and_routes(self) -> None:
+        module = load_shape_component_evolution_verification_gap_review_checklist_module()
+        rows = module.build_checklist_rows(repo_root())
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["review_checklist_id"], "shape-component-evolution-verification-gap-review-001")
+        self.assertEqual(rows[0]["gap_queue_id"], "core-corpus-phase-gap-004")
+        self.assertEqual(rows[1]["candidate_or_staging_boundary"], "candidate_component_graph_not_formal_component")
+        self.assertEqual(rows[2]["candidate_or_staging_boundary"], "candidate_evolution_graph_not_formal_correspondence")
+        self.assertEqual(rows[0]["source_ids"], "src-evobc;src-hust-obc;src-obimd")
+        self.assertEqual(rows[1]["source_ids"], "src-obimd")
+        self.assertEqual(rows[2]["source_ids"], "src-evobc")
+        self.assertEqual(rows[0]["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertTrue(
+            all("shape component evolution verification gap review checklist only" in row["caution"] for row in rows)
+        )
 if __name__ == "__main__":
     unittest.main()

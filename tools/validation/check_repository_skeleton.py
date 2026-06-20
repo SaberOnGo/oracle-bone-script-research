@@ -887,6 +887,10 @@ INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv"
 )
+SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "196_shape-component-evolution-verification-gap-review-checklist.csv"
+)
 XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv"
@@ -1422,6 +1426,40 @@ ORACLE_INSCRIPTION_ID_SOURCE_MAP = (
     "project_registry/002_project-id-to-source-reference-map/"
     "002_oracle-inscription-id-source-map.csv"
 )
+CODEPOINT_CROSSWALK_STAGING = (
+    "corpus/001_oracle-characters/000_character-registers/"
+    "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"
+)
+CODEPOINT_CROSSWALK_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv"
+)
+CODEPOINT_EVIDENCE_READINESS_CHECKLIST = (
+    "corpus/009_statistics-and-derived-features/"
+    "048_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-readiness-checklist.csv"
+)
+COMPONENT_MAIN_STAGING = (
+    "corpus/003_graphemic-components/000_component-registers/"
+    "002_obimd-subcharacter-main-staging.csv"
+)
+COMPONENT_GLYPH_STAGING = (
+    "corpus/003_graphemic-components/000_component-registers/"
+    "003_obimd-subcharacter-glyph-staging.csv"
+)
+COMPONENT_ID_SOURCE_MAP = (
+    "project_registry/002_project-id-to-source-reference-map/"
+    "004_component-id-source-map.csv"
+)
+COMPONENT_GRAPH_EDGES = "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl"
+EVOLUTION_STAGING = (
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/"
+    "001_evobc-evolution-category-staging.csv"
+)
+EVOLUTION_ID_SOURCE_MAP = (
+    "project_registry/002_project-id-to-source-reference-map/"
+    "005_evolution-candidate-id-source-map.csv"
+)
+EVOLUTION_GRAPH_EDGES = "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
 COLLECTION_PROVENANCE_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "001_institutional-collection-provenance-staging.csv"
@@ -1774,6 +1812,7 @@ REQUIRED_PATHS = [
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
     INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST,
+    SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST,
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
@@ -1991,6 +2030,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_collection_provenance_phase_gap_review_checklist.py",
     "tools/004_statistics-generation/build_inscription_plate_crosswalk_phase_gap_review_checklist.py",
+    "tools/004_statistics-generation/build_shape_component_evolution_verification_gap_review_checklist.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_queue.py",
     "tools/004_statistics-generation/build_source_pipeline_phase_action_result_scaffold.py",
@@ -3653,6 +3693,11 @@ def _read_jsonl_rows(path: Path) -> tuple[list[dict[str, object]], list[str]]:
                 continue
             rows.append(value)
     return rows, issues
+
+
+def _count_jsonl_rows(path: Path) -> int:
+    with path.open("r", encoding="utf-8") as file:
+        return sum(1 for line in file if line.strip())
 
 
 def check_relationship_graph_edges(root: Path) -> list[str]:
@@ -5592,7 +5637,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75229,
+        "staging_record_count": 75230,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -5633,7 +5678,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "193",
+            "staging_record_count": "194",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -8021,6 +8066,126 @@ def check_inscription_plate_crosswalk_phase_gap_review_checklist(root: Path) -> 
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_shape_component_evolution_verification_gap_review_checklist(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST)
+    codepoint_rows, codepoint_issues = _read_csv_rows(root / CODEPOINT_CROSSWALK_STAGING)
+    codepoint_review_rows, codepoint_review_issues = _read_csv_rows(root / CODEPOINT_CROSSWALK_REVIEW_QUEUE)
+    codepoint_readiness_rows, codepoint_readiness_issues = _read_csv_rows(
+        root / CODEPOINT_EVIDENCE_READINESS_CHECKLIST
+    )
+    component_main_rows, component_main_issues = _read_csv_rows(root / COMPONENT_MAIN_STAGING)
+    component_glyph_rows, component_glyph_issues = _read_csv_rows(root / COMPONENT_GLYPH_STAGING)
+    component_map_rows, component_map_issues = _read_csv_rows(root / COMPONENT_ID_SOURCE_MAP)
+    evolution_rows, evolution_issues = _read_csv_rows(root / EVOLUTION_STAGING)
+    evolution_map_rows, evolution_map_issues = _read_csv_rows(root / EVOLUTION_ID_SOURCE_MAP)
+    issues.extend(row_issues)
+    issues.extend(codepoint_issues)
+    issues.extend(codepoint_review_issues)
+    issues.extend(codepoint_readiness_issues)
+    issues.extend(component_main_issues)
+    issues.extend(component_glyph_issues)
+    issues.extend(component_map_issues)
+    issues.extend(evolution_issues)
+    issues.extend(evolution_map_issues)
+    if len(rows) != 3:
+        issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} should contain exactly 3 rows")
+
+    expected_areas = [
+        "cross_source_codepoint_routes",
+        "graphemic_components",
+        "evolution_correspondences",
+    ]
+    if [row.get("corpus_area", "") for row in rows] != expected_areas:
+        issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} corpus area order changed")
+    if {row.get("phase_name", "") for row in rows} != {"verified"}:
+        issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} phase changed")
+    if {row.get("phase_status", "") for row in rows} != {"missing"}:
+        issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} phase status changed")
+
+    component_packet_count = sum(
+        1
+        for path in (root / "corpus/003_graphemic-components").rglob("01_candidate-component-packet.json")
+        if path.is_file()
+    )
+    evolution_packet_count = sum(
+        1
+        for path in (root / "corpus/004_bronze-seal-modern-correspondences").rglob(
+            "01_candidate-evolution-packet.json"
+        )
+        if path.is_file()
+    )
+    expected_by_area = {
+        "cross_source_codepoint_routes": {
+            "primary_staging_count": str(len(codepoint_rows)),
+            "supporting_staging_count": "0",
+            "project_id_map_count": "0",
+            "primary_review_route_count": str(len(codepoint_review_rows)),
+            "supporting_readiness_count": str(len(codepoint_readiness_rows)),
+            "graph_edge_count": "0",
+            "object_packet_count": "0",
+            "review_log_count": "0",
+            "candidate_or_staging_boundary": "candidate_crosswalk_not_identity_claim",
+        },
+        "graphemic_components": {
+            "primary_staging_count": str(len(component_main_rows)),
+            "supporting_staging_count": str(len(component_glyph_rows)),
+            "project_id_map_count": str(len(component_map_rows)),
+            "primary_review_route_count": "0",
+            "supporting_readiness_count": "0",
+            "graph_edge_count": str(_count_jsonl_rows(root / COMPONENT_GRAPH_EDGES)),
+            "object_packet_count": str(component_packet_count),
+            "review_log_count": "1",
+            "candidate_or_staging_boundary": "candidate_component_graph_not_formal_component",
+        },
+        "evolution_correspondences": {
+            "primary_staging_count": str(len(evolution_rows)),
+            "supporting_staging_count": "0",
+            "project_id_map_count": str(len(evolution_map_rows)),
+            "primary_review_route_count": "0",
+            "supporting_readiness_count": "0",
+            "graph_edge_count": str(_count_jsonl_rows(root / EVOLUTION_GRAPH_EDGES)),
+            "object_packet_count": str(evolution_packet_count),
+            "review_log_count": "1",
+            "candidate_or_staging_boundary": "candidate_evolution_graph_not_formal_correspondence",
+        },
+    }
+    for row in rows:
+        review_id = row.get("review_checklist_id", "")
+        area = row.get("corpus_area", "")
+        if not review_id.startswith("shape-component-evolution-verification-gap-review-"):
+            issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} review ID changed: {review_id}")
+        if row.get("review_priority") != "targeted_review":
+            issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} review priority changed: {review_id}")
+        if row.get("review_status") != "needs_human_review":
+            issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
+        for field, expected_value in expected_by_area.get(area, {}).items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if row.get("claim_boundary") != (
+            "shape_component_evolution_verification_gap_review_checklist_not_review_outcome_not_scholarship"
+        ):
+            issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        for field, expected_value in {
+            "evidence_collection_status": "not_collected",
+            "rights_decision_status": "no_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "corpus_import_status": "not_imported",
+            "identity_claim_status": "no_identity_claim",
+            "component_claim_status": "no_component_claim",
+            "evolution_chain_claim_status": "no_evolution_chain_claim",
+            "decipherment_claim_status": "no_decipherment_claim",
+        }.items():
+            if row.get(field) != expected_value:
+                issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        if "shape component evolution verification gap review checklist only" not in row.get("caution", ""):
+            issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} caution changed: {review_id}")
+        for path in row.get("files_to_open", "").split(";"):
+            if path and not (root / path).exists():
+                issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
     return issues
 
 
@@ -24820,6 +24985,7 @@ def main() -> int:
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
     issues.extend(check_inscription_plate_crosswalk_phase_gap_review_checklist(root))
+    issues.extend(check_shape_component_evolution_verification_gap_review_checklist(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))

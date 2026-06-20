@@ -151,6 +151,9 @@ COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
 INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST = (
     STAT_DIR / "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv"
 )
+SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST = (
+    STAT_DIR / "196_shape-component-evolution-verification-gap-review-checklist.csv"
+)
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = STAT_DIR / "136_source-pipeline-phase-coverage-matrix.csv"
 SOURCE_PIPELINE_PHASE_ACTION_QUEUE = STAT_DIR / "137_source-pipeline-phase-action-queue.csv"
 SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD = STAT_DIR / "138_source-pipeline-phase-action-result-scaffold.csv"
@@ -684,6 +687,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST)
+                + count_csv(root, SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD)
@@ -835,6 +839,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST)
+                + count_csv(root, SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE)
                 + count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD)
                 + count_existing_file(root, SOURCE_PIPELINE_PHASE_ACTION_ROUTE_SUMMARY)
@@ -986,6 +991,9 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 ),
                 "inscription_plate_crosswalk_phase_gap_review_checklist_rows": count_csv(
                     root, INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST
+                ),
+                "shape_component_evolution_verification_gap_review_checklist_rows": count_csv(
+                    root, SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST
                 ),
                 "source_pipeline_phase_coverage_rows": count_csv(root, SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX),
                 "source_pipeline_phase_action_queue_rows": count_csv(root, SOURCE_PIPELINE_PHASE_ACTION_QUEUE),

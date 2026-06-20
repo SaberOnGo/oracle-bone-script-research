@@ -316,5 +316,11 @@ English supplement:
 Simplified Chinese supplement:
 - `build_inscription_plate_crosswalk_phase_gap_review_checklist.py` 基于 core corpus phase gap queue 和当前 Cambridge/Hopkins inscription crosswalk staging、review queue、project inscription source map 以及对象目录内的 candidate packet 路线，生成 `195_inscription-plate-crosswalk-phase-gap-review-checklist.csv`。该清单只作为预处理导航入口：不采集新证据、不裁定权利、不提升来源、不导入正式卜辞记录、不确认卜辞身份，也不提出释读结论。
 
+English supplement:
+- `build_shape_component_evolution_verification_gap_review_checklist.py` generates `196_shape-component-evolution-verification-gap-review-checklist.csv` from the verified-missing codepoint, component, and evolution/correspondence rows in the core corpus phase gap queue. It links the rows to current HUST/OBIMD/EVOBC staging tables, project ID maps, graph edges, object-local candidate packets, and review routes while keeping every result candidate-only and unverified.
+
+Simplified Chinese supplement:
+- `build_shape_component_evolution_verification_gap_review_checklist.py` 基于 core corpus phase gap queue 中 codepoint、component 和 evolution/correspondence 的 verified missing 行，生成 `196_shape-component-evolution-verification-gap-review-checklist.csv`。该清单连接当前 HUST/OBIMD/EVOBC 暂存表、项目 ID 映射、图边、对象目录内 candidate packet 和复核路线；所有结果仍保持候选和未验证状态。
+
 Simplified Chinese supplement:
 - `build_core_corpus_readiness_matrix.py`、`build_core_corpus_phase_coverage_matrix.py` 和 `build_preprocessing_status_audit.py` 现在把 `171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json` 计为当前 assignment outcome source 的 handoff 入口。该入口仍然只用于预处理导航：不采集证据、不记录已复核 outcome、不裁定权利、不提升来源、不导入语料，也不提出释读结论。

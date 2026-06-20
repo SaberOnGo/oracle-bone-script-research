@@ -46,6 +46,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_gap_review_outcome_handoff_checklist,
     check_core_corpus_phase_gap_review_outcome_handoff_route_summary,
     check_core_corpus_phase_gap_review_outcome_assignment_plan,
+    check_core_corpus_phase_gap_review_outcome_assignment_checklist,
     check_character_candidate_phase_gap_review_checklist,
     check_research_source_phase_gap_review_checklist,
     check_published_research_note_phase_gap_review_checklist,
@@ -1324,6 +1325,15 @@ def load_core_corpus_phase_gap_review_outcome_handoff_route_summary_module():
 def load_core_corpus_phase_gap_review_outcome_assignment_plan_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_assignment_plan.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_outcome_assignment_plan", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_review_outcome_assignment_checklist_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_outcome_assignment_checklist.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_outcome_assignment_checklist", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -19404,7 +19414,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "207")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "208")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(
@@ -20255,6 +20265,72 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(item["evidence_collection_status"] == "not_collected" for item in data["assignment_items"]))
         self.assertTrue(all(item["reviewed_evidence_paths"] == "" for item in data["assignment_items"]))
         self.assertTrue(all(item["reviewed_outcome_summary"] == "" for item in data["assignment_items"]))
+
+    def test_core_corpus_phase_gap_review_outcome_assignment_checklist_routes_209_items(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_review_outcome_assignment_checklist(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "210_core-corpus-phase-gap-review-outcome-assignment-checklist.csv"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        self.assertEqual(len(rows), 20)
+        first = rows[0]
+        self.assertEqual(
+            first["assignment_checklist_id"],
+            "core-corpus-phase-gap-review-outcome-assignment-checklist-001",
+        )
+        self.assertEqual(first["assignment_plan_item_id"], "core-corpus-phase-gap-review-outcome-assignment-001")
+        self.assertEqual(first["assignment_wave_id"], "core-corpus-phase-gap-review-outcome-assignment-wave-001")
+        self.assertEqual(
+            first["summary_route_id"],
+            "core-corpus-phase-gap-review-outcome-handoff-summary-route-001",
+        )
+        self.assertEqual(first["checklist_status"], "not_started")
+        self.assertEqual(first["assignment_status"], "planned_not_assigned")
+        self.assertEqual(first["review_outcome_status"], "not_started")
+        self.assertEqual(first["evidence_collection_status"], "not_collected")
+        self.assertEqual(first["rights_decision_status"], "no_rights_decision")
+        self.assertEqual(first["source_promotion_status"], "not_promoted")
+        self.assertEqual(first["corpus_import_status"], "not_imported")
+        self.assertEqual(first["decipherment_claim_status"], "no_decipherment_claim")
+        self.assertEqual(first["identity_claim_status"], "no_identity_claim")
+        self.assertEqual(first["component_claim_status"], "no_component_claim")
+        self.assertEqual(first["evolution_claim_status"], "no_evolution_chain_claim")
+        self.assertIn("open_209_assignment_plan", first["required_assignment_check_steps"])
+        self.assertIn("open_208_outcome_handoff_route_summary", first["required_assignment_check_steps"])
+        self.assertIn("209_core-corpus-phase-gap-review-outcome-assignment-plan.json", first["assignment_files_to_open"])
+        self.assertIn("208_core-corpus-phase-gap-review-outcome-handoff-route-summary.json", first["assignment_files_to_open"])
+        self.assertEqual(first["reviewed_evidence_paths"], "")
+        self.assertEqual(first["reviewed_outcome_summary"], "")
+        self.assertEqual(first["reviewed_rights_decision"], "")
+        self.assertEqual(first["reviewed_source_or_candidate_promotion"], "")
+        self.assertEqual(first["reviewed_corpus_import"], "")
+        self.assertEqual(first["reviewed_decipherment_claim"], "")
+        self.assertIn("precheck surface only", first["caution"])
+        self.assertIn("not a decipherment conclusion", first["caution"])
+        self.assertTrue(all(row["checklist_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
+        self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
+
+    def test_core_corpus_phase_gap_review_outcome_assignment_checklist_builder_uses_209_plan(self) -> None:
+        module = load_core_corpus_phase_gap_review_outcome_assignment_checklist_module()
+        plan = module.read_json(repo_root() / module.CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_PLAN)
+        rows = module.build_checklist_rows(plan)
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(
+            [row["assignment_plan_item_id"] for row in rows],
+            [item["assignment_plan_item_id"] for item in plan["assignment_items"]],
+        )
+        self.assertEqual(rows[0]["assignment_wave_id"], "core-corpus-phase-gap-review-outcome-assignment-wave-001")
+        self.assertEqual(rows[-1]["gap_queue_id"], "core-corpus-phase-gap-019")
+        self.assertTrue(all(row["checklist_status"] == module.CHECKLIST_STATUS for row in rows))
+        self.assertTrue(all(row["assignment_status"] == "planned_not_assigned" for row in rows))
+        self.assertTrue(all(row["review_outcome_status"] == "not_started" for row in rows))
+        self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
+        self.assertTrue(all(row["reviewed_evidence_paths"] == "" for row in rows))
+        self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
 
     def test_character_candidate_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:
         self.assertEqual(check_character_candidate_phase_gap_review_checklist(repo_root()), [])

@@ -2270,8 +2270,10 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "02_component-source-index.csv",
         "03_glyph-codepoint-index.csv",
         "04_glyph-codepoint-gallery.md",
+        "09_component-visual-route-index.csv",
+        "10_component-visual-route-gallery.md",
     ]
-    sample_indexes = {1, len(rows)}
+    sample_indexes = {1, 70, len(rows)}
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
         if project_id != f"obs-comp-cand-{index:06d}":
@@ -2299,6 +2301,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "not a decipherment conclusion",
                 "03_glyph-codepoint-index.csv",
                 "04_glyph-codepoint-gallery.md",
+                "09_component-visual-route-index.csv",
+                "10_component-visual-route-gallery.md",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -2311,6 +2315,16 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} record_type changed")
             if packet.get("review_status") != "needs_human_component_review":
                 issues.append(f"{packet_path.relative_to(root).as_posix()} review_status changed")
+            if packet.get("local_image_status") not in {
+                "source_image_extracted",
+                "not_found_in_registered_source_package_route_indexed",
+            }:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} local_image_status changed")
+            route_files = [str(path) for path in packet.get("route_files", [])]
+            if not any(path.endswith("09_component-visual-route-index.csv") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing visual route index route")
+            if not any(path.endswith("10_component-visual-route-gallery.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing visual route gallery route")
             if "not a confirmed graphemic component" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
         glyph_index_path = object_dir / "03_glyph-codepoint-index.csv"
@@ -2330,6 +2344,40 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             for snippet in ["Glyph Codepoint Gallery", "dataset candidate only", "not a confirmed component image"]:
                 if snippet not in gallery_text:
                     issues.append(f"{gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        route_index_path = object_dir / "09_component-visual-route-index.csv"
+        if path_exists(route_index_path):
+            with route_index_path.open("r", encoding="utf-8-sig", newline="") as file:
+                route_rows = list(csv.DictReader(file))
+            if len(route_rows) != 4:
+                issues.append(f"{route_index_path.relative_to(root).as_posix()} visual route count changed")
+            route_types = {route_row.get("route_type", "") for route_row in route_rows}
+            expected_route_types = {
+                "source_package",
+                "source_metadata_staging",
+                "glyph_metadata_staging",
+                "object_local_visual_index",
+            }
+            if route_types != expected_route_types:
+                issues.append(f"{route_index_path.relative_to(root).as_posix()} visual route types changed")
+            for route_row in route_rows:
+                if route_row.get("candidate_component_id") != project_id:
+                    issues.append(f"{route_index_path.relative_to(root).as_posix()} candidate_component_id mismatch")
+                if route_row.get("review_status") != "needs_human_visual_review":
+                    issues.append(f"{route_index_path.relative_to(root).as_posix()} review_status changed")
+                if "not a confirmed component form" not in route_row.get("caution", ""):
+                    issues.append(f"{route_index_path.relative_to(root).as_posix()} caution missing component boundary")
+        visual_route_gallery_path = object_dir / "10_component-visual-route-gallery.md"
+        if path_exists(visual_route_gallery_path):
+            visual_route_text = visual_route_gallery_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Component Visual Route Gallery",
+                "local_image_status",
+                "not a confirmed component form",
+                "not a component assignment",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in visual_route_text:
+                    issues.append(f"{visual_route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
     return issues
 
 
@@ -2912,8 +2960,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
     if dict(sorted(area_counts.items())) != expected_area_counts:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} corpus area counts changed")
     expected_status_counts = {
-        "object_local_bundle_metadata_only": 28,
-        "object_local_bundle_with_evidence_routes": 14382,
+        "object_local_bundle_with_evidence_routes": 14410,
         "object_local_bundle_with_review_image": 13715,
     }
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
@@ -2939,7 +2986,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "human_entry_object_count": 28125,
         "ai_entry_object_count": 28125,
         "local_visual_asset_object_count": 13715,
-        "route_gallery_or_route_index_object_count": 14382,
+        "route_gallery_or_route_index_object_count": 17129,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
     }

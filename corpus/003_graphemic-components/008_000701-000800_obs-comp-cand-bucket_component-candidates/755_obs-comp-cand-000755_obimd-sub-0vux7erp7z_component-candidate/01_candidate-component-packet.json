@@ -73,6 +73,7 @@
     }
   ],
   "component_visual_assets": [],
+  "local_image_status": "not_found_in_registered_source_package_route_indexed",
   "route_files": [
     "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
     "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
@@ -86,7 +87,9 @@
     "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/04_glyph-codepoint-gallery.md",
     "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/06_component-visual-index.csv",
     "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/07_component-visual-gallery.md",
-    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/08_human-visual-review-sheet.md"
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/08_human-visual-review-sheet.md",
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/09_component-visual-route-index.csv",
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/755_obs-comp-cand-000755_obimd-sub-0vux7erp7z_component-candidate/10_component-visual-route-gallery.md"
   ],
   "rights_status": "licensed_for_repository",
   "object_status": "dataset_candidate_not_promoted",

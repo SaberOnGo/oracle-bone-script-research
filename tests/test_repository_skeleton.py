@@ -2356,16 +2356,27 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 2747)
         self.assertEqual(rows[0]["project_id"], "obs-comp-cand-000001")
         self.assertEqual(rows[-1]["project_id"], "obs-comp-cand-002747")
-        for row in [rows[0], rows[-1]]:
+        for row in [rows[0], rows[69], rows[-1]]:
             object_dir = repo_root() / row["canonical_path"]
             self.assertTrue((object_dir / "README.md").exists())
             self.assertTrue((object_dir / "01_candidate-component-packet.json").exists())
             self.assertTrue((object_dir / "02_component-source-index.csv").exists())
             self.assertTrue((object_dir / "03_glyph-codepoint-index.csv").exists())
             self.assertTrue((object_dir / "04_glyph-codepoint-gallery.md").exists())
+            self.assertTrue((object_dir / "09_component-visual-route-index.csv").exists())
+            self.assertTrue((object_dir / "10_component-visual-route-gallery.md").exists())
+            packet = json.loads((object_dir / "01_candidate-component-packet.json").read_text(encoding="utf-8"))
+            self.assertIn(
+                packet["local_image_status"],
+                {
+                    "source_image_extracted",
+                    "not_found_in_registered_source_package_route_indexed",
+                },
+            )
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed graphemic component", readme_text)
+            self.assertIn("09_component-visual-route-index.csv", readme_text)
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
     def test_inscription_crosswalk_candidate_local_materials_are_colocated(self) -> None:
@@ -2725,7 +2736,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertEqual(summary["local_visual_asset_object_count"], 13715)
-        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 14382)
+        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 17129)
+        self.assertNotIn("object_local_bundle_metadata_only", summary["material_bundle_status_counts"])
         by_project = {row["project_id"]: row for row in rows}
         self.assertEqual(
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
@@ -2741,6 +2753,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
+        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(
+            by_project["obs-comp-cand-000070"]["material_bundle_status"],
+            "object_local_bundle_with_evidence_routes",
+        )
+        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "2")
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
 
     def test_object_local_material_coverage_builder_keeps_candidate_boundaries(self) -> None:

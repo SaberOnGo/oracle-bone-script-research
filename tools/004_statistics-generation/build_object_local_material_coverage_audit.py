@@ -58,8 +58,15 @@ OBJECT_SPECS = [
         Path("corpus/003_graphemic-components"),
         "*/*/01_candidate-component-packet.json",
         ("README.md", "04_glyph-codepoint-gallery.md", "07_component-visual-gallery.md", "08_human-visual-review-sheet.md"),
-        ("01_candidate-component-packet.json", "02_component-source-index.csv", "03_glyph-codepoint-index.csv", "06_component-visual-index.csv"),
+        (
+            "01_candidate-component-packet.json",
+            "02_component-source-index.csv",
+            "03_glyph-codepoint-index.csv",
+            "06_component-visual-index.csv",
+            "09_component-visual-route-index.csv",
+        ),
         ("05_component-visual-assets",),
+        ("09_component-visual-route-index.csv", "10_component-visual-route-gallery.md"),
     ),
     ObjectSpec(
         "evolution_correspondence_candidates",

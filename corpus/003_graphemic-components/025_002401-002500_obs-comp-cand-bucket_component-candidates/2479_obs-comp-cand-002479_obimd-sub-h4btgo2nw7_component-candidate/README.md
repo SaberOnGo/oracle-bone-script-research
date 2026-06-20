@@ -37,6 +37,8 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 - `06_component-visual-index.csv`: AI-readable visual asset index.
 - `07_component-visual-gallery.md`: human-readable component image gallery.
 - `08_human-visual-review-sheet.md`: manual visual review sheet.
+- `09_component-visual-route-index.csv`: AI-readable visual source route and missing-image status index.
+- `10_component-visual-route-gallery.md`: human-readable visual source route gallery.
 
 ## Next Review / 下一步复核
 
@@ -61,3 +63,5 @@ Route files / 路由文件:
 - `corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2479_obs-comp-cand-002479_obimd-sub-h4btgo2nw7_component-candidate/06_component-visual-index.csv`
 - `corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2479_obs-comp-cand-002479_obimd-sub-h4btgo2nw7_component-candidate/07_component-visual-gallery.md`
 - `corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2479_obs-comp-cand-002479_obimd-sub-h4btgo2nw7_component-candidate/08_human-visual-review-sheet.md`
+- `corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2479_obs-comp-cand-002479_obimd-sub-h4btgo2nw7_component-candidate/09_component-visual-route-index.csv`
+- `corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2479_obs-comp-cand-002479_obimd-sub-h4btgo2nw7_component-candidate/10_component-visual-route-gallery.md`

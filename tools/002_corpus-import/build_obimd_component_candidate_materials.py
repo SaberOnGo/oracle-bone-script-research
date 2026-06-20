@@ -143,6 +143,24 @@ VISUAL_INDEX_FIELDS = [
     "updated_at",
 ]
 
+VISUAL_ROUTE_FIELDS = [
+    "visual_route_id",
+    "candidate_component_id",
+    "source_id",
+    "evidence_download_id",
+    "subcharacter_external_ref_id",
+    "source_package_path",
+    "source_package_url",
+    "source_subcharacter_uid",
+    "local_image_status",
+    "route_type",
+    "route_path",
+    "rights_status",
+    "review_status",
+    "caution",
+    "updated_at",
+]
+
 COMPONENT_MAP_FIELDS = [
     "project_id",
     "record_type",
@@ -284,6 +302,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "06_component-visual-index.csv").as_posix(),
         (directory / "07_component-visual-gallery.md").as_posix(),
         (directory / "08_human-visual-review-sheet.md").as_posix(),
+        (directory / "09_component-visual-route-index.csv").as_posix(),
+        (directory / "10_component-visual-route-gallery.md").as_posix(),
     ]
 
 
@@ -331,6 +351,11 @@ def packet_payload(
             }
             for row in visual_rows
         ],
+        "local_image_status": (
+            "source_image_extracted"
+            if visual_rows
+            else "not_found_in_registered_source_package_route_indexed"
+        ),
         "route_files": route_files(directory),
         "rights_status": RIGHTS_STATUS,
         "object_status": OBJECT_STATUS,
@@ -384,6 +409,62 @@ def glyph_index_rows(index: int, glyph_rows: list[dict[str, str]]) -> list[dict[
     return rows
 
 
+def visual_route_rows(
+    index: int,
+    main_row: dict[str, str],
+    visual_rows: list[dict[str, str]],
+    directory: Path,
+) -> list[dict[str, str]]:
+    component_id = candidate_id(index)
+    local_status = (
+        "source_image_extracted"
+        if visual_rows
+        else "not_found_in_registered_source_package_route_indexed"
+    )
+    route_specs = [
+        (
+            "source_package",
+            OBIMD_SUBCHARACTER_IMAGES_ZIP.as_posix(),
+        ),
+        (
+            "source_metadata_staging",
+            SUBCHARACTER_MAIN_STAGING.as_posix(),
+        ),
+        (
+            "glyph_metadata_staging",
+            SUBCHARACTER_GLYPH_STAGING.as_posix(),
+        ),
+        (
+            "object_local_visual_index",
+            (directory / "06_component-visual-index.csv").as_posix(),
+        ),
+    ]
+    return [
+        {
+            "visual_route_id": f"{component_id}-visual-route-{route_index:02d}",
+            "candidate_component_id": component_id,
+            "source_id": "src-obimd",
+            "evidence_download_id": IMAGE_DOWNLOAD_ID,
+            "subcharacter_external_ref_id": main_row["subcharacter_external_ref_id"],
+            "source_package_path": OBIMD_SUBCHARACTER_IMAGES_ZIP.as_posix(),
+            "source_package_url": OBIMD_IMAGE_SOURCE_URL,
+            "source_subcharacter_uid": main_row["source_subcharacter_uid"],
+            "local_image_status": local_status,
+            "route_type": route_type,
+            "route_path": route_path,
+            "rights_status": RIGHTS_STATUS,
+            "review_status": IMAGE_REVIEW_STATUS,
+            "caution": (
+                "Visual route metadata only; this records where to inspect the "
+                "OBIMD source package and object-local indexes, not a confirmed "
+                "component form, component assignment, or decipherment conclusion."
+            ),
+            "updated_at": UPDATED_AT,
+        }
+        for route_index, (route_type, route_path) in enumerate(route_specs, start=1)
+    ]
+
+
 def readme_text(
     index: int,
     main_row: dict[str, str],
@@ -431,6 +512,8 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 - `06_component-visual-index.csv`: AI-readable visual asset index.
 - `07_component-visual-gallery.md`: human-readable component image gallery.
 - `08_human-visual-review-sheet.md`: manual visual review sheet.
+- `09_component-visual-route-index.csv`: AI-readable visual source route and missing-image status index.
+- `10_component-visual-route-gallery.md`: human-readable visual source route gallery.
 
 ## Next Review / 下一步复核
 
@@ -541,6 +624,55 @@ These rows are review tasks only. They do not confirm a component form, componen
 | --- | --- | --- | --- | --- | --- |
 {rows}
 """
+
+
+def visual_route_gallery_text(
+    index: int,
+    main_row: dict[str, str],
+    visual_rows: list[dict[str, str]],
+    directory: Path,
+) -> str:
+    component_id = candidate_id(index)
+    local_status = (
+        "source_image_extracted"
+        if visual_rows
+        else "not_found_in_registered_source_package_route_indexed"
+    )
+    route_rows = visual_route_rows(index, main_row, visual_rows, directory)
+    lines = [
+        f"# Component Visual Route Gallery / 构件图像路线图: {component_id}",
+        "",
+        "English:",
+        "This object-local page records where a human or AI Agent should inspect OBIMD visual source material for this component candidate.",
+        "",
+        "简体中文：",
+        "本对象内页面记录人工或 AI Agent 应到哪里检查此构件候选的 OBIMD 图像来源材料。",
+        "",
+        f"- local_image_status: `{local_status}`",
+        f"- source_package_path: `{OBIMD_SUBCHARACTER_IMAGES_ZIP.as_posix()}`",
+        f"- source_package_url: `{OBIMD_IMAGE_SOURCE_URL}`",
+        f"- source_subcharacter_uid: `{main_row['source_subcharacter_uid']}`",
+        f"- subcharacter_external_ref_id: `{main_row['subcharacter_external_ref_id']}`",
+        "",
+        "Boundary / 边界：visual route metadata only; not a confirmed component form, not a component assignment, and not a decipherment conclusion.",
+        "",
+        "| Route type | Route path | Review status |",
+        "| --- | --- | --- |",
+    ]
+    for row in route_rows:
+        lines.append(
+            f"| `{row['route_type']}` | `{row['route_path']}` | `{row['review_status']}` |"
+        )
+    if not visual_rows:
+        lines.extend(
+            [
+                "",
+                "No local PNG asset was found for this candidate in the registered OBIMD source package during preprocessing.",
+                "",
+                "预处理期间未在已登记的 OBIMD 来源包中找到此候选对应的本地 PNG 资产。",
+            ]
+        )
+    return "\n".join(lines) + "\n"
 
 
 def manifest_row(
@@ -861,6 +993,15 @@ def build_materials(root: Path) -> tuple[int, int]:
             )
             (full_directory / "08_human-visual-review-sheet.md").write_text(
                 visual_review_sheet_text(index, visual_rows),
+                encoding="utf-8",
+            )
+            write_csv(
+                full_directory / "09_component-visual-route-index.csv",
+                visual_route_rows(index, main_row, visual_rows, directory),
+                VISUAL_ROUTE_FIELDS,
+            )
+            (full_directory / "10_component-visual-route-gallery.md").write_text(
+                visual_route_gallery_text(index, main_row, visual_rows, directory),
                 encoding="utf-8",
             )
             manifest_by_bucket[bucket_dir(index)].append(

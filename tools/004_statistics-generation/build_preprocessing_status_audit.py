@@ -165,6 +165,9 @@ CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_SCAFFOLD = (
 CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_CHECKLIST = (
     STAT_DIR / "207_core-corpus-phase-gap-review-outcome-handoff-checklist.csv"
 )
+CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY = (
+    STAT_DIR / "208_core-corpus-phase-gap-review-outcome-handoff-route-summary.json"
+)
 CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     STAT_DIR / "198_character-candidate-phase-gap-review-checklist.csv"
 )
@@ -722,6 +725,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK)
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_SCAFFOLD)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_CHECKLIST)
+                + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_csv(root, CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST)
@@ -885,6 +889,7 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ROUTE_PACK)
                 + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_SCAFFOLD)
                 + count_csv(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_CHECKLIST)
+                + count_existing_file(root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY)
                 + count_csv(root, CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST)
                 + count_csv(root, PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST)
@@ -1058,6 +1063,9 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 ),
                 "core_corpus_phase_gap_review_outcome_handoff_checklist_rows": count_csv(
                     root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_CHECKLIST
+                ),
+                "core_corpus_phase_gap_review_outcome_handoff_route_summary_files": count_existing_file(
+                    root, CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_HANDOFF_ROUTE_SUMMARY
                 ),
                 "character_candidate_phase_gap_review_checklist_rows": count_csv(
                     root, CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST

@@ -28,6 +28,7 @@ from tools.validation.check_repository_skeleton import (
     check_collection_object_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
+    check_project_id_source_map_audit,
     check_preprocessing_status_audit,
     check_data_quality_audit,
     check_source_processing_pipeline_audit,
@@ -390,6 +391,15 @@ def load_data_quality_audit_module():
 def load_source_processing_pipeline_audit_module():
     path = repo_root() / "tools/004_statistics-generation/build_source_processing_pipeline_audit.py"
     spec = importlib.util.spec_from_file_location("build_source_processing_pipeline_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_project_id_source_map_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_project_id_source_map_audit.py"
+    spec = importlib.util.spec_from_file_location("build_project_id_source_map_audit", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -13650,6 +13660,46 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
 
+    def test_project_id_source_map_audit_preserves_current_map_totals(self) -> None:
+        self.assertEqual(check_project_id_source_map_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "191_project-id-source-map-summary.json"
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["map_count"], 6)
+        self.assertEqual(data["total_row_count"], 38492)
+        self.assertEqual(
+            data["stage_counts"],
+            {"needs_map_review": 1, "registered_empty_map": 1, "validated_route_map": 4},
+        )
+        self.assertEqual(data["totals"]["missing_canonical_path_count"], 10996)
+        self.assertEqual(data["totals"]["missing_all_external_refs_count"], 1588)
+        self.assertEqual(data["totals"]["unknown_source_id_count"], 0)
+        self.assertIn("does not start formal decipherment research", data["completion_boundary"])
+        self.assertIn("not_scholarship", data["research_boundary"])
+
+    def test_project_id_source_map_audit_builder_validates_registry_routes(self) -> None:
+        module = load_project_id_source_map_audit_module()
+        rows = module.build_map_rows(repo_root())
+        self.assertEqual(len(rows), 6)
+        by_map_id = {row["map_id"]: row for row in rows}
+        self.assertEqual(by_map_id["oracle_character_id_source_map"]["row_count"], "0")
+        self.assertEqual(by_map_id["oracle_character_id_source_map"]["current_stage"], "registered_empty_map")
+        self.assertEqual(by_map_id["oracle_inscription_id_source_map"]["row_count"], "612")
+        self.assertEqual(by_map_id["component_id_source_map"]["row_count"], "2747")
+        self.assertEqual(by_map_id["evolution_candidate_id_source_map"]["row_count"], "13714")
+        self.assertEqual(by_map_id["collection_object_id_source_map"]["row_count"], "56")
+        self.assertEqual(by_map_id["asset_id_source_map"]["row_count"], "21363")
+        self.assertEqual(by_map_id["asset_id_source_map"]["current_stage"], "needs_map_review")
+        self.assertEqual(by_map_id["asset_id_source_map"]["missing_canonical_path_count"], "10996")
+        self.assertEqual(by_map_id["asset_id_source_map"]["missing_all_external_refs_count"], "1588")
+        self.assertIn("src-hust-obc:10996", by_map_id["asset_id_source_map"]["source_id_counts"])
+        self.assertIn("repair_missing_paths_or_source_refs_before_reuse", by_map_id["asset_id_source_map"]["next_action"])
+        self.assertTrue(all(row["unknown_source_id_count"] == "0" for row in rows))
+        self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
+
     def test_preprocessing_status_audit_builder_keeps_candidate_boundaries(self) -> None:
         module = load_preprocessing_status_audit_module()
         rows = module.build_audit_rows(repo_root())
@@ -13819,6 +13869,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_type["formal_project_id_maps"]["current_stage"], "structured")
         self.assertIn(
             "formal_character_map_rows:0",
+            by_type["formal_project_id_maps"]["count_summary"],
+        )
+        self.assertIn(
+            "candidate_evolution_map_rows:13714",
+            by_type["formal_project_id_maps"]["count_summary"],
+        )
+        self.assertIn(
+            "collection_object_map_rows:56",
+            by_type["formal_project_id_maps"]["count_summary"],
+        )
+        self.assertIn(
+            "project_id_source_map_audit_rows:6",
             by_type["formal_project_id_maps"]["count_summary"],
         )
         self.assertTrue(all("Preprocessing audit only" in row["caution"] for row in rows))
@@ -19068,7 +19130,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "187")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "189")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(

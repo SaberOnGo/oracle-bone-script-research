@@ -4,12 +4,16 @@ This directory will store generated occurrence, co-occurrence, topic, period, si
 
 Current generated statistics:
 
+- `190_project-id-source-map-audit.csv`: six-row audit of the project-local ID to source-reference maps under `project_registry/002_project-id-to-source-reference-map/`. It records row counts, canonical-path gaps, source-ID registration gaps, external-reference coverage, rights/review distributions, current preprocessing stage, and next map-review entry without promoting any candidate or asset row.
+- `191_project-id-source-map-summary.json`: compact summary for 190, including total mapped rows, map-stage counts, issue totals, and the no-scholarship/no-decipherment boundary.
 - `188_object-local-material-coverage-audit.csv`: repository-wide object-local material coverage audit for concrete character, component, evolution, inscription-crosswalk, collection-object, source-object, and topic-candidate directories. It records human-readable files, AI-readable packets/indexes, local review images, route galleries, source material access indexes, missing object-local files, and parallel-directory checks without promoting any record into scholarship.
 - `189_object-local-material-coverage-summary.json`: compact summary for 188, including corpus-area counts, image-bearing object counts, route-gallery object counts, metadata-only object counts, and the no-parallel-human-directory boundary.
 - `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` now roll up the `source_ids` from 188 into source-level object-local material bundle, review-image object, route object, and partial-bundle counts. These counts only help find the next preprocessing entrance for each source; they do not promote candidate objects, decide rights, import corpus records, or make decipherment claims.
 - `090_preprocessing-status-audit.csv` counts 188/189 under the review-queue/source-engineering status row, and `135_core-corpus-phase-coverage-matrix.csv` links them from the relationship-graph/statistics evidence paths. These links are preprocessing evidence only, not reviewed scholarship.
 
 Simplified Chinese supplement:
+- `190_project-id-source-map-audit.csv`：对 `project_registry/002_project-id-to-source-reference-map/` 下六个本项目 ID 到来源引用映射表进行审计，记录行数、规范路径缺口、来源 ID 登记缺口、外部引用覆盖、权利/复核状态分布、当前预处理阶段和下一步映射复核入口；不提升任何候选或资产记录。
+- `191_project-id-source-map-summary.json`：190 的摘要，包含映射总行数、映射阶段统计、问题总数，以及不作为学术结论/不作为释读结论的边界。
 - `094_source-processing-pipeline-audit.csv` 和 `095_source-processing-pipeline-summary.json` 现在会把 188 中的 `source_ids` 汇总为来源级对象内资料包、复核图像对象、路线对象和部分缺失包计数。这些计数只用于定位每个来源的下一步预处理入口；不提升候选对象、不裁定权利、不导入语料，也不提出释读结论。
 
 简体中文补充：

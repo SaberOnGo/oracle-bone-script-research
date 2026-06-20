@@ -41,6 +41,14 @@ CHAR_ID_MAP = Path("project_registry/002_project-id-to-source-reference-map/001_
 INSCRIPTION_ID_MAP = Path("project_registry/002_project-id-to-source-reference-map/002_oracle-inscription-id-source-map.csv")
 ASSET_ID_MAP = Path("project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv")
 COMPONENT_ID_MAP = Path("project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv")
+EVOLUTION_CANDIDATE_ID_MAP = Path(
+    "project_registry/002_project-id-to-source-reference-map/005_evolution-candidate-id-source-map.csv"
+)
+COLLECTION_OBJECT_ID_MAP = Path(
+    "project_registry/002_project-id-to-source-reference-map/006_collection-object-id-source-map.csv"
+)
+PROJECT_ID_SOURCE_MAP_AUDIT = Path("corpus/009_statistics-and-derived-features/190_project-id-source-map-audit.csv")
+PROJECT_ID_SOURCE_MAP_SUMMARY = Path("corpus/009_statistics-and-derived-features/191_project-id-source-map-summary.json")
 ACCEPTED_CHAR_INDEX = Path("corpus/001_oracle-characters/000_character-registers/001_all-oracle-characters-index.csv")
 UNDECIPHERED_INDEX = Path("corpus/001_oracle-characters/000_character-registers/003_undeciphered-oracle-characters-index.csv")
 HUST_VALIDATION_STAGING = Path("corpus/001_oracle-characters/000_character-registers/005_hust-obc-validation-class-staging.csv")
@@ -1017,7 +1025,9 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 structured=count_csv(root, CHAR_ID_MAP)
                 + count_csv(root, INSCRIPTION_ID_MAP)
                 + count_csv(root, ASSET_ID_MAP)
-                + count_csv(root, COMPONENT_ID_MAP),
+                + count_csv(root, COMPONENT_ID_MAP)
+                + count_csv(root, EVOLUTION_CANDIDATE_ID_MAP)
+                + count_csv(root, COLLECTION_OBJECT_ID_MAP),
             ),
             {
                 "formal_character_map_rows": count_csv(root, CHAR_ID_MAP),
@@ -1029,6 +1039,10 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                 ),
                 "formal_asset_map_rows": count_csv(root, ASSET_ID_MAP),
                 "formal_component_map_rows": count_csv(root, COMPONENT_ID_MAP),
+                "candidate_evolution_map_rows": count_csv(root, EVOLUTION_CANDIDATE_ID_MAP),
+                "collection_object_map_rows": count_csv(root, COLLECTION_OBJECT_ID_MAP),
+                "project_id_source_map_audit_rows": count_csv(root, PROJECT_ID_SOURCE_MAP_AUDIT),
+                "project_id_source_map_summary_files": count_existing_file(root, PROJECT_ID_SOURCE_MAP_SUMMARY),
             },
             "project_registry/002_project-id-to-source-reference-map/",
             "mostly_unassigned_by_design",

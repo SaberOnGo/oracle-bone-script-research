@@ -711,6 +711,14 @@ OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "189_object-local-material-coverage-summary.json"
 )
+PROJECT_ID_SOURCE_MAP_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "190_project-id-source-map-audit.csv"
+)
+PROJECT_ID_SOURCE_MAP_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "191_project-id-source-map-summary.json"
+)
 CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv"
@@ -1698,6 +1706,8 @@ REQUIRED_PATHS = [
     CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY,
     OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT,
     OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY,
+    PROJECT_ID_SOURCE_MAP_AUDIT,
+    PROJECT_ID_SOURCE_MAP_SUMMARY,
     CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
     SOURCE_ENGINEERING_GAP_QUEUE,
     SOURCE_ENGINEERING_EXECUTION_MATRIX,
@@ -1909,6 +1919,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_preprocessing_status_audit.py",
     "tools/004_statistics-generation/build_data_quality_audit.py",
     "tools/004_statistics-generation/build_source_processing_pipeline_audit.py",
+    "tools/004_statistics-generation/build_project_id_source_map_audit.py",
     "tools/004_statistics-generation/build_core_corpus_readiness_matrix.py",
     "tools/004_statistics-generation/build_source_engineering_gap_queue.py",
     "tools/004_statistics-generation/build_source_engineering_execution_matrix.py",
@@ -3005,6 +3016,156 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY} {key} changed")
     if "formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY} completion boundary changed")
+    return issues
+
+
+def check_project_id_source_map_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_rows, audit_issues = _read_csv_rows(root / PROJECT_ID_SOURCE_MAP_AUDIT)
+    issues.extend(audit_issues)
+
+    summary_path = root / PROJECT_ID_SOURCE_MAP_SUMMARY
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        issues.append(f"missing required path: {PROJECT_ID_SOURCE_MAP_SUMMARY}")
+        summary = {}
+    except json.JSONDecodeError as exc:
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_SUMMARY} invalid JSON: {exc}")
+        summary = {}
+
+    required_fields = {
+        "map_audit_id",
+        "map_id",
+        "record_family",
+        "map_path",
+        "row_count",
+        "nonempty_map_status",
+        "missing_canonical_path_count",
+        "unknown_source_id_count",
+        "missing_primary_external_ref_count",
+        "missing_all_external_refs_count",
+        "missing_source_ids_count",
+        "missing_rights_status_count",
+        "missing_review_status_count",
+        "rights_status_counts",
+        "review_status_counts",
+        "source_id_counts",
+        "current_stage",
+        "next_entry_path",
+        "next_action",
+        "research_boundary",
+        "decipherment_claim_status",
+        "updated_at",
+    }
+    if len(audit_rows) != 6:
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} should contain exactly 6 rows")
+    if audit_rows:
+        missing_fields = required_fields - set(audit_rows[0])
+        if missing_fields:
+            issues.append(
+                f"{PROJECT_ID_SOURCE_MAP_AUDIT} missing fields: "
+                f"{', '.join(sorted(missing_fields))}"
+            )
+
+    expected_row_counts = {
+        "oracle_character_id_source_map": "0",
+        "oracle_inscription_id_source_map": "612",
+        "asset_id_source_map": "21363",
+        "component_id_source_map": "2747",
+        "evolution_candidate_id_source_map": "13714",
+        "collection_object_id_source_map": "56",
+    }
+    expected_stages = {
+        "oracle_character_id_source_map": "registered_empty_map",
+        "oracle_inscription_id_source_map": "validated_route_map",
+        "asset_id_source_map": "needs_map_review",
+        "component_id_source_map": "validated_route_map",
+        "evolution_candidate_id_source_map": "validated_route_map",
+        "collection_object_id_source_map": "validated_route_map",
+    }
+    expected_issue_counts = {
+        "oracle_character_id_source_map": ("0", "0", "0"),
+        "oracle_inscription_id_source_map": ("0", "0", "0"),
+        "asset_id_source_map": ("10996", "1588", "0"),
+        "component_id_source_map": ("0", "0", "0"),
+        "evolution_candidate_id_source_map": ("0", "0", "0"),
+        "collection_object_id_source_map": ("0", "0", "0"),
+    }
+    by_map_id = {row.get("map_id", ""): row for row in audit_rows}
+    if set(by_map_id) != set(expected_row_counts):
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} map ID set changed")
+    for map_id, expected_row_count in expected_row_counts.items():
+        row = by_map_id.get(map_id, {})
+        if not row:
+            continue
+        if row.get("row_count") != expected_row_count:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} row count changed")
+        if row.get("current_stage") != expected_stages[map_id]:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} stage changed")
+        expected_missing_paths, expected_missing_refs, expected_unknown_sources = expected_issue_counts[map_id]
+        if row.get("missing_canonical_path_count") != expected_missing_paths:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} missing path count changed")
+        if row.get("missing_all_external_refs_count") != expected_missing_refs:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} missing all refs count changed")
+        if row.get("unknown_source_id_count") != expected_unknown_sources:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} unknown source count changed")
+        for empty_required_field in [
+            "missing_primary_external_ref_count",
+            "missing_source_ids_count",
+            "missing_rights_status_count",
+            "missing_review_status_count",
+        ]:
+            if row.get(empty_required_field) != "0":
+                issues.append(
+                    f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} {empty_required_field} changed"
+                )
+        if row.get("decipherment_claim_status") != "no_claim":
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} claim status changed")
+        boundary = row.get("research_boundary", "")
+        if "not_scholarship" not in boundary or "decipherment conclusions" not in boundary:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} boundary changed")
+        if row.get("updated_at") != "2026-06-20":
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_AUDIT} {map_id} updated_at changed")
+
+    expected_summary = {
+        "map_count": 6,
+        "total_row_count": 38492,
+        "stage_counts": {
+            "needs_map_review": 1,
+            "registered_empty_map": 1,
+            "validated_route_map": 4,
+        },
+        "record_family_counts": {
+            "asset": 1,
+            "collection_object_candidate": 1,
+            "component_candidate": 1,
+            "evolution_candidate": 1,
+            "oracle_character": 1,
+            "oracle_inscription_or_crosswalk_candidate": 1,
+        },
+        "totals": {
+            "row_count": 38492,
+            "missing_canonical_path_count": 10996,
+            "unknown_source_id_count": 0,
+            "missing_primary_external_ref_count": 0,
+            "missing_all_external_refs_count": 1588,
+            "missing_source_ids_count": 0,
+            "missing_rights_status_count": 0,
+            "missing_review_status_count": 0,
+        },
+    }
+    for key, expected_value in expected_summary.items():
+        if summary.get(key) != expected_value:
+            issues.append(f"{PROJECT_ID_SOURCE_MAP_SUMMARY} {key} changed")
+    if summary.get("audit_csv_path") != PROJECT_ID_SOURCE_MAP_AUDIT:
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_SUMMARY} audit_csv_path changed")
+    if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_SUMMARY} completion boundary changed")
+    if "not_scholarship" not in summary.get("research_boundary", ""):
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_SUMMARY} research boundary changed")
+    if isinstance(summary.get("rows"), list) and len(summary.get("rows", [])) != len(audit_rows):
+        issues.append(f"{PROJECT_ID_SOURCE_MAP_SUMMARY} embedded row count changed")
     return issues
 
 
@@ -4512,6 +4673,10 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "formal_inscription_map_rows:0",
             "formal_component_map_rows:2747",
             "formal_asset_map_rows:21363",
+            "candidate_evolution_map_rows:13714",
+            "collection_object_map_rows:56",
+            "project_id_source_map_audit_rows:6",
+            "project_id_source_map_summary_files:1",
         ],
     }
     for area_type, fragments in expected_fragments.items():
@@ -24289,6 +24454,7 @@ def main() -> int:
     issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_object_local_material_coverage_audit(root))
+    issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))

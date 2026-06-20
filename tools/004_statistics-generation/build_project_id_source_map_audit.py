@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 from collections import Counter
 from pathlib import Path
 
@@ -113,7 +114,10 @@ def canonical_path_exists(root: Path, value: str) -> bool:
     normalized = value.replace("\\", "/")
     if normalized.startswith(("external_", "tmp/", "_tmp/", "scratch/", ".working/", ".cache/")):
         return True
-    return (root / normalized).exists()
+    resolved = (root / normalized).resolve()
+    if os.name == "nt":
+        return os.path.exists("\\\\?\\" + str(resolved))
+    return resolved.exists()
 
 
 def status_for(row_count: int, issue_count: int) -> tuple[str, str, str]:

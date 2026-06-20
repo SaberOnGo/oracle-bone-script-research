@@ -1905,6 +1905,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py",
     "tools/002_corpus-import/build_character_local_materials.py",
     "tools/002_corpus-import/extract_hust_obc_local_glyph_images.py",
+    "tools/002_corpus-import/sync_asset_id_source_map_from_asset_index.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
     "tools/002_corpus-import/build_evobc_evolution_candidate_materials.py",
     "tools/002_corpus-import/build_collection_object_candidate_materials.py",
@@ -3079,7 +3080,7 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
     expected_stages = {
         "oracle_character_id_source_map": "registered_empty_map",
         "oracle_inscription_id_source_map": "validated_route_map",
-        "asset_id_source_map": "needs_map_review",
+        "asset_id_source_map": "validated_route_map",
         "component_id_source_map": "validated_route_map",
         "evolution_candidate_id_source_map": "validated_route_map",
         "collection_object_id_source_map": "validated_route_map",
@@ -3087,7 +3088,7 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
     expected_issue_counts = {
         "oracle_character_id_source_map": ("0", "0", "0"),
         "oracle_inscription_id_source_map": ("0", "0", "0"),
-        "asset_id_source_map": ("10996", "1588", "0"),
+        "asset_id_source_map": ("0", "0", "0"),
         "component_id_source_map": ("0", "0", "0"),
         "evolution_candidate_id_source_map": ("0", "0", "0"),
         "collection_object_id_source_map": ("0", "0", "0"),
@@ -3132,9 +3133,8 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
         "map_count": 6,
         "total_row_count": 38492,
         "stage_counts": {
-            "needs_map_review": 1,
             "registered_empty_map": 1,
-            "validated_route_map": 4,
+            "validated_route_map": 5,
         },
         "record_family_counts": {
             "asset": 1,
@@ -3146,10 +3146,10 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
         },
         "totals": {
             "row_count": 38492,
-            "missing_canonical_path_count": 10996,
+            "missing_canonical_path_count": 0,
             "unknown_source_id_count": 0,
             "missing_primary_external_ref_count": 0,
-            "missing_all_external_refs_count": 1588,
+            "missing_all_external_refs_count": 0,
             "missing_source_ids_count": 0,
             "missing_rights_status_count": 0,
             "missing_review_status_count": 0,

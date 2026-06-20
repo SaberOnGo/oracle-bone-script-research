@@ -7,9 +7,11 @@ Current tools:
 
 English supplement:
 - `build_project_id_source_map_audit.py` generates `190_project-id-source-map-audit.csv` and `191_project-id-source-map-summary.json` from the six CSV maps under `project_registry/002_project-id-to-source-reference-map/`. It checks map-level row counts, canonical-path reachability, source-ID registration, external-reference fields, rights/review statuses, and next preprocessing entry points. This is a route-map integrity audit only: it does not confirm identity, reading, component, evolution, inscription, source promotion, or decipherment claims.
+- On Windows, the audit uses long-path-aware path checks so deeply bucketed object-local asset routes are evaluated as repository paths instead of false missing-path issues.
 
 Simplified Chinese supplement:
 - `build_project_id_source_map_audit.py` 会从 `project_registry/002_project-id-to-source-reference-map/` 下的六个 CSV 映射表生成 `190_project-id-source-map-audit.csv` 和 `191_project-id-source-map-summary.json`。它检查映射表行数、规范路径是否可到达、来源 ID 是否已登记、外部引用字段、权利/复核状态，以及下一步预处理入口。该流程只做映射完整性审计，不确认身份、释读、构件、演化、卜辞、来源提升或释读结论。
+- 在 Windows 上，该审计会使用支持长路径的路径检查，避免把深层 bucket/object-local 资产路由误判为缺失路径。
 
 English supplement:
 - `188_object-local-material-coverage-audit.csv` now includes `source_ids` extracted from object packets, including nested source indexes. `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` use those IDs to expose source-level object-local material bundle, review-image object, route object, and partial-bundle counts. These are preprocessing navigation signals only: they do not promote candidate objects, decide rights, import corpus records, or make decipherment claims.

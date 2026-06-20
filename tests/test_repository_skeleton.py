@@ -218,6 +218,15 @@ def load_hust_obc_undeciphered_candidate_index_module():
     return module
 
 
+def load_asset_id_source_map_sync_module():
+    path = repo_root() / "tools/002_corpus-import/sync_asset_id_source_map_from_asset_index.py"
+    spec = importlib.util.spec_from_file_location("sync_asset_id_source_map_from_asset_index", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def filesystem_path(path):
     resolved = path.resolve()
     if os.name == "nt":
@@ -13672,10 +13681,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["total_row_count"], 38492)
         self.assertEqual(
             data["stage_counts"],
-            {"needs_map_review": 1, "registered_empty_map": 1, "validated_route_map": 4},
+            {"registered_empty_map": 1, "validated_route_map": 5},
         )
-        self.assertEqual(data["totals"]["missing_canonical_path_count"], 10996)
-        self.assertEqual(data["totals"]["missing_all_external_refs_count"], 1588)
+        self.assertEqual(data["totals"]["missing_canonical_path_count"], 0)
+        self.assertEqual(data["totals"]["missing_all_external_refs_count"], 0)
         self.assertEqual(data["totals"]["unknown_source_id_count"], 0)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("not_scholarship", data["research_boundary"])
@@ -13692,13 +13701,55 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_map_id["evolution_candidate_id_source_map"]["row_count"], "13714")
         self.assertEqual(by_map_id["collection_object_id_source_map"]["row_count"], "56")
         self.assertEqual(by_map_id["asset_id_source_map"]["row_count"], "21363")
-        self.assertEqual(by_map_id["asset_id_source_map"]["current_stage"], "needs_map_review")
-        self.assertEqual(by_map_id["asset_id_source_map"]["missing_canonical_path_count"], "10996")
-        self.assertEqual(by_map_id["asset_id_source_map"]["missing_all_external_refs_count"], "1588")
+        self.assertEqual(by_map_id["asset_id_source_map"]["current_stage"], "validated_route_map")
+        self.assertEqual(by_map_id["asset_id_source_map"]["missing_canonical_path_count"], "0")
+        self.assertEqual(by_map_id["asset_id_source_map"]["missing_all_external_refs_count"], "0")
         self.assertIn("src-hust-obc:10996", by_map_id["asset_id_source_map"]["source_id_counts"])
-        self.assertIn("repair_missing_paths_or_source_refs_before_reuse", by_map_id["asset_id_source_map"]["next_action"])
+        self.assertIn("use_map_as_object_local_route_index_and_continue_human_review", by_map_id["asset_id_source_map"]["next_action"])
         self.assertTrue(all(row["unknown_source_id_count"] == "0" for row in rows))
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
+
+    def test_asset_id_source_map_sync_fills_blank_hust_obc_routes_without_promoting_claims(self) -> None:
+        module = load_asset_id_source_map_sync_module()
+        map_rows = [
+            {
+                "project_id": "asset-000006",
+                "record_type": "",
+                "canonical_path": "",
+                "primary_external_ref_id": "hust-obc-cat-0001",
+                "all_external_ref_ids": "",
+                "source_ids": "src-hust-obc",
+                "rights_status": "source_marked_risk_noted",
+                "review_status": "needs_human_visual_review",
+                "updated_at": "2026-06-19",
+            }
+        ]
+        asset_rows = [
+            {
+                "asset_id": "asset-000006",
+                "asset_type": "glyph_candidate_image",
+                "canonical_path": "corpus/001_oracle-characters/example/001_asset-000006_hust-obc-cat-0001_glyph.png",
+                "primary_external_ref_id": "hust-obc-cat-0001",
+                "source_ids": "src-hust-obc",
+                "rights_status": "source_marked_risk_noted",
+                "review_status": "needs_human_visual_review",
+                "source_url": "https://ndownloader.figshare.com/files/48465988",
+            }
+        ]
+        rows, changes = module.sync_asset_map_rows(map_rows, asset_rows)
+        self.assertEqual(changes["rows_updated"], 1)
+        self.assertEqual(changes["record_type_filled"], 1)
+        self.assertEqual(changes["canonical_path_filled"], 1)
+        self.assertEqual(changes["all_external_ref_ids_filled"], 1)
+        self.assertEqual(rows[0]["record_type"], "glyph_candidate_image")
+        self.assertEqual(rows[0]["canonical_path"], asset_rows[0]["canonical_path"])
+        self.assertEqual(
+            rows[0]["all_external_ref_ids"],
+            "hust-obc-cat-0001;large-src-000001;dl-hust-obc-figshare-raw",
+        )
+        self.assertEqual(rows[0]["rights_status"], "source_marked_risk_noted")
+        self.assertEqual(rows[0]["review_status"], "needs_human_visual_review")
+        self.assertEqual(rows[0]["updated_at"], "2026-06-20")
 
     def test_preprocessing_status_audit_builder_keeps_candidate_boundaries(self) -> None:
         module = load_preprocessing_status_audit_module()

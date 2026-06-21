@@ -2731,6 +2731,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "02_component-source-index.csv").exists())
             self.assertTrue((object_dir / "03_glyph-codepoint-index.csv").exists())
             self.assertTrue((object_dir / "04_glyph-codepoint-gallery.md").exists())
+            self.assertTrue((object_dir / "06_component-visual-index.csv").exists())
+            self.assertTrue((object_dir / "07_component-visual-gallery.md").exists())
             self.assertTrue((object_dir / "09_component-visual-route-index.csv").exists())
             self.assertTrue((object_dir / "10_component-visual-route-gallery.md").exists())
             packet = json.loads((object_dir / "01_candidate-component-packet.json").read_text(encoding="utf-8"))
@@ -2745,6 +2747,41 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed graphemic component", readme_text)
             self.assertIn("09_component-visual-route-index.csv", readme_text)
+            self.assertIn("Concrete Questions To Check", readme_text)
+            self.assertIn("specific component-review questions", readme_text)
+            self.assertIn("Which OBIMD source image or route", readme_text)
+            self.assertIn("Which glyph-codepoint links", readme_text)
+            self.assertIn("before any formal component assignment", readme_text)
+            for line in readme_text.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
+            glyph_gallery = (object_dir / "04_glyph-codepoint-gallery.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Concrete Questions To Check", glyph_gallery)
+            self.assertIn("Which glyph-codepoint links", glyph_gallery)
+            self.assertIn("Which codepoints are private-use", glyph_gallery)
+            for line in glyph_gallery.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
+            visual_gallery = (object_dir / "07_component-visual-gallery.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Concrete Questions To Check", visual_gallery)
+            self.assertIn("Which local image should be opened first", visual_gallery)
+            self.assertIn("Which near-shape or variant comparison", visual_gallery)
+            for line in visual_gallery.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            route_gallery = (
+                object_dir / "10_component-visual-route-gallery.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Concrete Questions To Check", route_gallery)
+            self.assertIn("Which source package route", route_gallery)
+            self.assertIn("Which missing-image status", route_gallery)
+            for line in route_gallery.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
             self.assertFalse((object_dir.parent / "human-readable").exists())
             review_sheet = (object_dir / "08_human-visual-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet)

@@ -2543,6 +2543,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "02_component-source-index.csv",
         "03_glyph-codepoint-index.csv",
         "04_glyph-codepoint-gallery.md",
+        "06_component-visual-index.csv",
+        "07_component-visual-gallery.md",
         "08_human-visual-review-sheet.md",
         "09_component-visual-route-index.csv",
         "10_component-visual-route-gallery.md",
@@ -2577,9 +2579,20 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "04_glyph-codepoint-gallery.md",
                 "09_component-visual-route-index.csv",
                 "10_component-visual-route-gallery.md",
+                "Concrete Questions To Check",
+                "specific component-review questions",
+                "Which OBIMD source image or route",
+                "Which glyph-codepoint links",
+                "before any formal component assignment",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
         packet_path = object_dir / "01_candidate-component-packet.json"
         if path_exists(packet_path):
             packet = json.loads(packet_path.read_text(encoding="utf-8"))
@@ -2615,9 +2628,47 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         gallery_path = object_dir / "04_glyph-codepoint-gallery.md"
         if path_exists(gallery_path):
             gallery_text = gallery_path.read_text(encoding="utf-8")
-            for snippet in ["Glyph Codepoint Gallery", "dataset candidate only", "not a confirmed component image"]:
+            for snippet in [
+                "Glyph Codepoint Gallery",
+                "dataset candidate only",
+                "not a confirmed component image",
+                "Concrete Questions To Check",
+                "Which glyph-codepoint links",
+                "Which codepoints are private-use",
+            ]:
                 if snippet not in gallery_text:
                     issues.append(f"{gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(gallery_text.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{gallery_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        visual_gallery_path = object_dir / "07_component-visual-gallery.md"
+        if path_exists(visual_gallery_path):
+            visual_gallery_text = visual_gallery_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Component Visual Gallery",
+                "dataset image candidate only",
+                "not a confirmed component form",
+                "not a component assignment",
+                "not a decipherment claim",
+                "Concrete Questions To Check",
+                "Which local image should be opened first",
+                "Which near-shape or variant comparison",
+            ]:
+                if snippet not in visual_gallery_text:
+                    issues.append(f"{visual_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(visual_gallery_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{visual_gallery_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
         visual_review_sheet_path = object_dir / "08_human-visual-review-sheet.md"
         if path_exists(visual_review_sheet_path):
             review_sheet = visual_review_sheet_path.read_text(encoding="utf-8")
@@ -2667,9 +2718,18 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "not a confirmed component form",
                 "not a component assignment",
                 "not a decipherment conclusion",
+                "Concrete Questions To Check",
+                "Which source package route",
+                "Which missing-image status",
             ]:
                 if snippet not in visual_route_text:
                     issues.append(f"{visual_route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(visual_route_text.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{visual_route_gallery_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
     return issues
 
 

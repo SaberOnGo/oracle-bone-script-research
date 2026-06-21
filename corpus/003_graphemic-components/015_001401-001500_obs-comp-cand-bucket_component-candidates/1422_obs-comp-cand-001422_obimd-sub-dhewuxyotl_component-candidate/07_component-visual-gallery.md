@@ -1,1368 +1,1387 @@
 # Component Visual Gallery / 构件图像查看: obs-comp-cand-001422
 
 English:
-This page displays OBIMD subcharacter PNG assets extracted into this concrete corpus object directory for human review.
+This page displays OBIMD subcharacter PNG assets extracted into this concrete
+corpus object directory for human review.
 
 简体中文：
 本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter PNG 资料，供人工复核使用。
 
-Boundary / 边界：dataset image candidate only; not a confirmed component form, component assignment, or decipherment claim.
+Boundary / 边界：
+dataset image candidate only; not a confirmed component form, not a component
+assignment, and not a decipherment claim.
+- not a confirmed component form
+- not a component assignment
+- not a decipherment claim
+
+## Concrete Questions To Check / 具体待查问题
+
+- Which local image should be opened first?
+- 应先打开哪一张本地构件图像？
+- Which source zip member anchors this image?
+- 哪一个 source zip member 能定位这张图像？
+- Which near-shape or variant comparison is still missing?
+- 还缺哪些近形或异体比较？
+- Which character or inscription context should be checked next?
+- 下一步应核对哪些单字或卜辞上下文？
+- What evidence is missing before a component assignment?
+- 正式构件归属前还缺哪些证据？
 
 ## asset-015841
 
 ![asset-015841](05_component-visual-assets/001_asset-015841_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/013wy4ppyp.png`
-- checksum_sha256: `b9b0bf7b7a86584abf88f7144a8d2186bc5b3daf46df1280f1077eedf9c2a12d`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015842
 
 ![asset-015842](05_component-visual-assets/002_asset-015842_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/0er43dp1zj.png`
-- checksum_sha256: `37acd038e7548e234cc111b32ddbfa5ba116739f797880487240526223e81d9a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015843
 
 ![asset-015843](05_component-visual-assets/003_asset-015843_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/0juf0myxb2.png`
-- checksum_sha256: `36fdf01932e9cb5519093f7abdf341680c45b0bf1297e14b887e4d4a141d3737`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015844
 
 ![asset-015844](05_component-visual-assets/004_asset-015844_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/0mx4rjxc2m.png`
-- checksum_sha256: `00381363c66751b86cfd037782700e3f2e51d238f16da9ab99099c7336491788`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015845
 
 ![asset-015845](05_component-visual-assets/005_asset-015845_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/0w36v9tpet.png`
-- checksum_sha256: `98a4558d6ef87a25c933d6f56f62c252c9e9069a0aa45a3275dfb2b94447e9f2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015846
 
 ![asset-015846](05_component-visual-assets/006_asset-015846_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/1a87orajx0.png`
-- checksum_sha256: `bbaf1302387d5b451718d84173817a3e203d193466ae97a3e0b819ebe4301f26`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015847
 
 ![asset-015847](05_component-visual-assets/007_asset-015847_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/1fn0qnieyb.png`
-- checksum_sha256: `70ca4f65b06c0c90431452808bebdd5447767c7ee8363b5edda40ba2f47b5af2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015848
 
 ![asset-015848](05_component-visual-assets/008_asset-015848_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/1v5lzpy03j.png`
-- checksum_sha256: `838dde03799f754098f2a89562801f6e9d9d1ee1b6ac392e224273d528bdbab6`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015849
 
 ![asset-015849](05_component-visual-assets/009_asset-015849_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/2km22vb9hb.png`
-- checksum_sha256: `85ee7cb74b55d3e55d134b07b8aee16fd8dbb3a39588384e40cfcf688bf70483`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015850
 
 ![asset-015850](05_component-visual-assets/010_asset-015850_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/2otknefdgi.png`
-- checksum_sha256: `bc3f0823a57a447bbf17c578855c75768f731ac9409ad7fc4c60b74a6d9877b9`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015851
 
 ![asset-015851](05_component-visual-assets/011_asset-015851_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/2wyn50t86j.png`
-- checksum_sha256: `7cce27c5f73fcb23f0c588eff7b1f1c54aa7bd977f74bdda25652ce5e8ca24e4`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015852
 
 ![asset-015852](05_component-visual-assets/012_asset-015852_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/30olc9drs4.png`
-- checksum_sha256: `dae2f550835497b02483da54c988ef7f7c14042f69ee501c1df4d514605f1867`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015853
 
 ![asset-015853](05_component-visual-assets/013_asset-015853_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/32aln4zue6.png`
-- checksum_sha256: `2aa1fda6e041af2531f657dbc6adceb284a35308535c01f34ba1a55cf2e4c64c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015854
 
 ![asset-015854](05_component-visual-assets/014_asset-015854_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/36l18ta7lc.png`
-- checksum_sha256: `230111fdbc18763d118519fe12148c0b30b1b8b7854990f869720b27a4899320`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015855
 
 ![asset-015855](05_component-visual-assets/015_asset-015855_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/3c5npj9wco.png`
-- checksum_sha256: `5e4ec5c8e073f9a456359f2dc120e09e60ed25f33f9e60cc30586877f3d78536`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015856
 
 ![asset-015856](05_component-visual-assets/016_asset-015856_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/40omqtj2b4.png`
-- checksum_sha256: `62ead7831927deb5cbf543b340bc99ecd9ccbf4fefc24dc218a5ce08cc34418d`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015857
 
 ![asset-015857](05_component-visual-assets/017_asset-015857_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/450lufplr8.png`
-- checksum_sha256: `9241ee44123cfe8667535dbdff4e84f44e612d9c8b69e46cab6689b02347bceb`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015858
 
 ![asset-015858](05_component-visual-assets/018_asset-015858_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/491nh0l17w.png`
-- checksum_sha256: `1c05b989cfc5ec6ca83dab3ce1d08df1949e6020f6ae90e6800fcfc6e74479ed`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015859
 
 ![asset-015859](05_component-visual-assets/019_asset-015859_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/4hgx0ql33m.png`
-- checksum_sha256: `af5469fa89f25eb4d125074730f014459b25b858eec95aebd2abb9c79aebdf88`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015860
 
 ![asset-015860](05_component-visual-assets/020_asset-015860_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/4spvlpmudr.png`
-- checksum_sha256: `8d8ffa06f6b08146d9c28b08d39df38ec7857406bb1bcc1b9a99bf5402160190`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015861
 
 ![asset-015861](05_component-visual-assets/021_asset-015861_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/4tintrefpv.png`
-- checksum_sha256: `52fcacb5c77b3b8c27f4745f62278ca49c702c9c3ae3c627aeac34a6937da888`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015862
 
 ![asset-015862](05_component-visual-assets/022_asset-015862_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/4zh7t0mv0y.png`
-- checksum_sha256: `e02075dcfcabe0a5746903f8a6dba8dd575568a21a46e50ef03d423296831bca`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015863
 
 ![asset-015863](05_component-visual-assets/023_asset-015863_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/4zk5kfarwj.png`
-- checksum_sha256: `22b3b877cf89e4abb1d167afe2631be102862208c489a37d113358d8d1c9244d`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015864
 
 ![asset-015864](05_component-visual-assets/024_asset-015864_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/50791yam2d.png`
-- checksum_sha256: `785e4d5af0644ebcb79b74efff4498d3583aaedbc84ffdbbb360a193e3874ca2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015865
 
 ![asset-015865](05_component-visual-assets/025_asset-015865_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/632lys9gvn.png`
-- checksum_sha256: `83afefddd6c22375f4569f7dad0dd816794beda7dfd02b693866302435bdc924`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015866
 
 ![asset-015866](05_component-visual-assets/026_asset-015866_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/65olarn98a.png`
-- checksum_sha256: `61710b755f1d36376fb8d4537b3591d2ea86a706842cc1396410acc016b40a39`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015867
 
 ![asset-015867](05_component-visual-assets/027_asset-015867_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/6nmqcfoitv.png`
-- checksum_sha256: `f274d8a7cb078b24dd64f6c7ee95612ef05444537692553efe51e95da80f2dae`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015868
 
 ![asset-015868](05_component-visual-assets/028_asset-015868_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/6vinkt7oox.png`
-- checksum_sha256: `480a573fa0eca2af5ab72c38a211ba123451652a58138746f929779f770f70e1`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015869
 
 ![asset-015869](05_component-visual-assets/029_asset-015869_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/7i2wobu1qr.png`
-- checksum_sha256: `1b0c5570b7ae6ece39fb6a1b16e6207ae5470c0632e2ce01c41902ecf9cb4d64`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015870
 
 ![asset-015870](05_component-visual-assets/030_asset-015870_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/7is5yehvmk.png`
-- checksum_sha256: `9985e32c7b876d617deb080f233f988a292c3fa0f39d629f5bc4558bdb05cf5f`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015871
 
 ![asset-015871](05_component-visual-assets/031_asset-015871_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/7mi7detll3.png`
-- checksum_sha256: `ed7f552559b4252bd5a11ef4580d038f2f1675c36551f46bbf78b7f366f70193`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015872
 
 ![asset-015872](05_component-visual-assets/032_asset-015872_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/7rcdrgeidu.png`
-- checksum_sha256: `88af3ef0f8177df3df289acaa6f4513dba62dfba857ea9a4c7a40bcc6bb3184b`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015873
 
 ![asset-015873](05_component-visual-assets/033_asset-015873_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/8gm1x9mkm9.png`
-- checksum_sha256: `dd45deba9815a8a493dd0373985f96108def90dfaf93f3f60b327cdd3c5ac04f`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015874
 
 ![asset-015874](05_component-visual-assets/034_asset-015874_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/8ov484fnvc.png`
-- checksum_sha256: `12acc4814ce3d3f7213aa11c11b2e03afb8a722bd484ab93a09a5aa974d1b3e2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015875
 
 ![asset-015875](05_component-visual-assets/035_asset-015875_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/96i3ji0fyo.png`
-- checksum_sha256: `4d24904bdfbfcd9852afd3364d4c8982b8958daa856309df6182ef9cae609fb9`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015876
 
 ![asset-015876](05_component-visual-assets/036_asset-015876_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/9htwlr9qax.png`
-- checksum_sha256: `5bd6654d6291b09018db8c94cf6cdb9b9715fccf7e62cca913f72e39c276cb97`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015877
 
 ![asset-015877](05_component-visual-assets/037_asset-015877_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/9zbwlf84dy.png`
-- checksum_sha256: `6f91e4225cdc8852eb69a5f2289315f8d2659a138a55f88111c2301e8e3f0be0`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015878
 
 ![asset-015878](05_component-visual-assets/038_asset-015878_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/a573ufstp5.png`
-- checksum_sha256: `07029221e33dc21c5e331153d338e75bf41a99e8ac9a90203309594908d235d4`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015879
 
 ![asset-015879](05_component-visual-assets/039_asset-015879_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ac1peuewm9.png`
-- checksum_sha256: `2c8c0bb03e5556f62e1749def79cf419757adf1d6babc3dbbb392a48bdac72ab`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015880
 
 ![asset-015880](05_component-visual-assets/040_asset-015880_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/aw46gus6ao.png`
-- checksum_sha256: `257d378aa7c7d619709d42881dac2680aeb13c5d7451c1e2de9f9f5328ff08aa`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015881
 
 ![asset-015881](05_component-visual-assets/041_asset-015881_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/az6l2blens.png`
-- checksum_sha256: `3bc5088c9bc5036ba10d7f690a721acc74fe9ea24bbb3352474de2a62a2ee653`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015882
 
 ![asset-015882](05_component-visual-assets/042_asset-015882_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/b1r159pikf.png`
-- checksum_sha256: `b8ebb561aa5037b0fc960aefb25eb61b30f603129c262490c705eb34a89cef8e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015883
 
 ![asset-015883](05_component-visual-assets/043_asset-015883_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/b9llonb8b2.png`
-- checksum_sha256: `a300782169206e6679a3fdfffbd16d411a4e63788420fd159420c006b075d57e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015884
 
 ![asset-015884](05_component-visual-assets/044_asset-015884_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/bb82exatp2.png`
-- checksum_sha256: `df3baa0cea4e4446280c6138eedabc09ef9bbe04efa34eab2c76e4d01175da76`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015885
 
 ![asset-015885](05_component-visual-assets/045_asset-015885_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/bfu8qxqhcu.png`
-- checksum_sha256: `69d6e4012c875eb1daee8db0739a325db806ed6f2bdccd8a417994d1d2d246d7`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015886
 
 ![asset-015886](05_component-visual-assets/046_asset-015886_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/bjsfjdrcwl.png`
-- checksum_sha256: `0769c1180c12e30e4e5169ad2a547491b3b427c1666bb43a3d11ab69e9b39b2d`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015887
 
 ![asset-015887](05_component-visual-assets/047_asset-015887_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/brdzl8jurb.png`
-- checksum_sha256: `ab87b5f02fd04a841f6cac9cdce1718d584c1a201fd267e23561b75e47c34a56`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015888
 
 ![asset-015888](05_component-visual-assets/048_asset-015888_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/c1c3uwic3n.png`
-- checksum_sha256: `4ffe2f0c1aa1208c9885e47dc6c3eb4ae3bef97ba87b2ee5fee32ce32287ec96`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015889
 
 ![asset-015889](05_component-visual-assets/049_asset-015889_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ccjho3vk0e.png`
-- checksum_sha256: `e3a3a47f318bb092ab78d0707fca2479d9655fdd6fe28dec106575a01e62b5a0`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015890
 
 ![asset-015890](05_component-visual-assets/050_asset-015890_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/cfit826rgl.png`
-- checksum_sha256: `1023abe4ea693d64276e87d2dfa8c6b982d0b5a9a0ce8b2d9dc8c799e34b8c96`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015891
 
 ![asset-015891](05_component-visual-assets/051_asset-015891_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/cr75zwgt57.png`
-- checksum_sha256: `a1ec33dd201ebefe8f43faa02530eeaad69781980b9cd07840eb8f7abf1edcf6`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015892
 
 ![asset-015892](05_component-visual-assets/052_asset-015892_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/cy6g3f2t2g.png`
-- checksum_sha256: `4048b1cfa836171d12cbf69ffea050d0fc290e65901ec9aea7dc791f92006219`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015893
 
 ![asset-015893](05_component-visual-assets/053_asset-015893_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/czi6wbq1uw.png`
-- checksum_sha256: `4f5e948208d23452460c712a55bde909ddba64b4e47dcbd82c30700e8ef6858a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015894
 
 ![asset-015894](05_component-visual-assets/054_asset-015894_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/d5ugy4vazl.png`
-- checksum_sha256: `9cc36cbba6bd80d07f5cfeb8ecd13b8ed1f3d56f32f137912541bf1a763e6540`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015895
 
 ![asset-015895](05_component-visual-assets/055_asset-015895_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/d8jgti6xry.png`
-- checksum_sha256: `9387f73427b9ade4b58fc7a348d5850d39f5ef0665f4ea9a4283a489d3b12cbc`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015896
 
 ![asset-015896](05_component-visual-assets/056_asset-015896_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/dhewuxyotl.png`
-- checksum_sha256: `e608ed8a781bb87e715b6f85221f0ac598ac7759b2695475c4731f632c32a003`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015897
 
 ![asset-015897](05_component-visual-assets/057_asset-015897_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/dxrquvi9fm.png`
-- checksum_sha256: `4c283880142ac65ce2bce83503887e84d8fc2f5a2c3012797df54f0ddce83099`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015898
 
 ![asset-015898](05_component-visual-assets/058_asset-015898_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/e4m7op6zgc.png`
-- checksum_sha256: `fcc5b158c26d5bbf813dedbda31b87518d667fd140abbe0c053c3e926963dc9c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015899
 
 ![asset-015899](05_component-visual-assets/059_asset-015899_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/e5o9j1mpmh.png`
-- checksum_sha256: `e68f5c7a764db24ff752b04133ec04c0688ff3e5f1266d1d9188636603f27be4`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015900
 
 ![asset-015900](05_component-visual-assets/060_asset-015900_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/e7urkhrocf.png`
-- checksum_sha256: `9ee440c688ee415f188477cb0c8f0e1413ffa23c34582ac33bf76c97e79c1d03`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015901
 
 ![asset-015901](05_component-visual-assets/061_asset-015901_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/e918imjk18.png`
-- checksum_sha256: `198d11ca1f1fa8f4d07629d94113287c0d0fb401c7a2fe402348beaab5c3dbaa`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015902
 
 ![asset-015902](05_component-visual-assets/062_asset-015902_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/eixlg8knfx.png`
-- checksum_sha256: `a100b02503e3b17d58bfd2342d91df652db9229a902ca424604d3cfd867b315a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015903
 
 ![asset-015903](05_component-visual-assets/063_asset-015903_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/esnw4d4l5r.png`
-- checksum_sha256: `3d78e0a5895384aa4caa17b39f3a215e5f09bb53b22b5e53bc360fa233d622fd`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015904
 
 ![asset-015904](05_component-visual-assets/064_asset-015904_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/fqxkhw5kw7.png`
-- checksum_sha256: `90baa9a400f15592fc871ed1a547214cb59c73a4113ac2e47378d3853ef6c344`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015905
 
 ![asset-015905](05_component-visual-assets/065_asset-015905_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ftz7i7z6hw.png`
-- checksum_sha256: `e907b50ee1a31614da3bd0769fe6d2be3d14f79bff647a96befcdd869b04cb51`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015906
 
 ![asset-015906](05_component-visual-assets/066_asset-015906_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/gsea0ebhi8.png`
-- checksum_sha256: `50b553bbe9ede884972d12c99716d9a84911c2b9babb201fd206c0f6692c47e2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015907
 
 ![asset-015907](05_component-visual-assets/067_asset-015907_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/gys9nod995.png`
-- checksum_sha256: `8dc1fe6013918681f1693d2d48dca2cc844fb9d2290ea3c2cbd12fd3749a46bc`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015908
 
 ![asset-015908](05_component-visual-assets/068_asset-015908_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/h0978nzn74.png`
-- checksum_sha256: `5510501cf9ef785bd5b5cb5de999ef8e6e6b657486764763c5c2ffafd43c43a2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015909
 
 ![asset-015909](05_component-visual-assets/069_asset-015909_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/h6bo85gp4w.png`
-- checksum_sha256: `a11a15b664c62b48709398fec4ce5e5d7a985daa79b1047f34d925be1ca67d34`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015910
 
 ![asset-015910](05_component-visual-assets/070_asset-015910_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/hw46tqadbg.png`
-- checksum_sha256: `d09244a3e2d131cacc4f0f9a9c002fa1824ecfa4e87f09c6eea88887ecc6c8c6`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015911
 
 ![asset-015911](05_component-visual-assets/071_asset-015911_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/i1plbefylt.png`
-- checksum_sha256: `97d794f9fad9071d615f9203d403afdbf568a1427bdd2bc29c2e994d517bff0a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015912
 
 ![asset-015912](05_component-visual-assets/072_asset-015912_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/i8xcisc9vs.png`
-- checksum_sha256: `c53b87b11bb9ecb534fd9d5d77f619aacae9651fa15749bae1d48a57681b743e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015913
 
 ![asset-015913](05_component-visual-assets/073_asset-015913_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/idh39lje5d.png`
-- checksum_sha256: `23b9850a0b2b493c06e9d26b2c1a1b39a58d37705e9e1e4e13bef87091666392`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015914
 
 ![asset-015914](05_component-visual-assets/074_asset-015914_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/idnlaizjp1.png`
-- checksum_sha256: `72d8b809160b1bcda4509c05d79656fa9a0648b6737a5ca41d8c44b4623a1b21`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015915
 
 ![asset-015915](05_component-visual-assets/075_asset-015915_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ijwrunvr37.png`
-- checksum_sha256: `273b221c9f9f7e9d7b4bb85f0eb04130cde2d2411e4c040cf101b0274016663f`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015916
 
 ![asset-015916](05_component-visual-assets/076_asset-015916_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/iq3oeoot9p.png`
-- checksum_sha256: `19c68cc98982464b34e4e9d3f066ca2f64035355ba6ead96ae0b2c8e5df94870`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015917
 
 ![asset-015917](05_component-visual-assets/077_asset-015917_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/j7givwgu5c.png`
-- checksum_sha256: `5b9462e6022fb547e96e7fc21e464c02827863c2b0aada6eaf64c2098a5093c6`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015918
 
 ![asset-015918](05_component-visual-assets/078_asset-015918_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/j8fpn6843l.png`
-- checksum_sha256: `6345735d03a40bc81e89251342d56f481a0f3aab144d17631f99eaa65e871890`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015919
 
 ![asset-015919](05_component-visual-assets/079_asset-015919_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/jcqb68l0bd.png`
-- checksum_sha256: `954c4a18bd76f906387ff21ef3622e092c461bb96c65c887f74918e2aea116e7`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015920
 
 ![asset-015920](05_component-visual-assets/080_asset-015920_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/jcxuabb9z1.png`
-- checksum_sha256: `23ec623566c7c6766b738ec202f07b0ff69e1b5561df300a7b748c44231a0cd4`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015921
 
 ![asset-015921](05_component-visual-assets/081_asset-015921_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/jd4e4dg1oi.png`
-- checksum_sha256: `7617470838d8bc20227626eb40b24bc0d12222076e84247f8f7b37a14b76f734`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015922
 
 ![asset-015922](05_component-visual-assets/082_asset-015922_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/k59sxp89d5.png`
-- checksum_sha256: `6f48c239671593c904fcf263e80c30408b665ccfe79a12ea7f0618ae9f4c29a7`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015923
 
 ![asset-015923](05_component-visual-assets/083_asset-015923_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ktdqq8bf34.png`
-- checksum_sha256: `e166a876beff1333ff3e394d2c4ab1710ebb7f479286f0a081f27aa7e18f7862`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015924
 
 ![asset-015924](05_component-visual-assets/084_asset-015924_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/l5rtik9p09.png`
-- checksum_sha256: `ef824813960de72741b9507ec1d5312b27cf39949a7c752354cb1331df2001f9`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015925
 
 ![asset-015925](05_component-visual-assets/085_asset-015925_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/l61kq2d6nf.png`
-- checksum_sha256: `3d5270b9a0e12f6a7ca771bdd4ca4d3bd7b8fe337e108de86ea8a0d9c1d0841a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015926
 
 ![asset-015926](05_component-visual-assets/086_asset-015926_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/lgo8yea8x7.png`
-- checksum_sha256: `89c4e47fcabdf268c9716b0e988813df625b3aa0384e64eea6c181a7582c6ad2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015927
 
 ![asset-015927](05_component-visual-assets/087_asset-015927_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/li264tmdzz.png`
-- checksum_sha256: `73dd4e04e1e8715dbeec317bc96f95e1f40f56a6b491375484ed22d8b56bfbf6`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015928
 
 ![asset-015928](05_component-visual-assets/088_asset-015928_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/lpg7ajvq5z.png`
-- checksum_sha256: `a6780c18743df345399e8c7112b6090abcdc9d72ba5cef13d2c119d9b2092f4f`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015929
 
 ![asset-015929](05_component-visual-assets/089_asset-015929_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/lye19op17c.png`
-- checksum_sha256: `79a02711f470f89880989de6181af831f2bd7bf3aef8f9921f01a8a21bd5e7e1`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015930
 
 ![asset-015930](05_component-visual-assets/090_asset-015930_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/m934k6dvqk.png`
-- checksum_sha256: `47d1c7f6ad5680ce45c5e21f2996178d6b4e5f70fd3e9d595dcbf3675014e993`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015931
 
 ![asset-015931](05_component-visual-assets/091_asset-015931_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/mazgcgc0os.png`
-- checksum_sha256: `de15e43942d95cf32ccd9bbafd12bcdd2c63d3e5d1d33fa96e61b11a8252c736`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015932
 
 ![asset-015932](05_component-visual-assets/092_asset-015932_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/mh43fpr7kh.png`
-- checksum_sha256: `8a7b416569e2519a9941ba29d2ec47b2d33c7700597590d0d3abfa1bacbc900c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015933
 
 ![asset-015933](05_component-visual-assets/093_asset-015933_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/mkgjcs4wl1.png`
-- checksum_sha256: `34123a3b5905826c80d641112d7f3e1b83a2156c85d5e14038b5dcd89d2f1bec`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015934
 
 ![asset-015934](05_component-visual-assets/094_asset-015934_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/mxnmpblkyd.png`
-- checksum_sha256: `5cadf160ebfc6e1c0a6171ef663bf1f963a922ad84b58d621e6302b376172583`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015935
 
 ![asset-015935](05_component-visual-assets/095_asset-015935_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/n5gwau0urj.png`
-- checksum_sha256: `17234c1f5d1924491a374ee63ddc5180d54c56f3324605c54882d8da1af47865`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015936
 
 ![asset-015936](05_component-visual-assets/096_asset-015936_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/n7vgbzhdja.png`
-- checksum_sha256: `1eba81ba9f65525d589144ecf90926a70410c8c445c20fe6fd6949bbba06e545`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015937
 
 ![asset-015937](05_component-visual-assets/097_asset-015937_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ny67ak32h0.png`
-- checksum_sha256: `6d1a0b1fe6ea9e523c8309163b5f12925b8303685207eb2e60253f66c3d476a9`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015938
 
 ![asset-015938](05_component-visual-assets/098_asset-015938_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/obyqrr050l.png`
-- checksum_sha256: `86489eec744d67616cbc540c5a2fc7fc3a9741be7c8d2d4cc46e391bde19ff71`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015939
 
 ![asset-015939](05_component-visual-assets/099_asset-015939_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/ohqi6ze66c.png`
-- checksum_sha256: `2826409de4b6a1491067e05d3c0c14743d59a3284aeb21e62a2e32e27a9e5fff`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015940
 
 ![asset-015940](05_component-visual-assets/100_asset-015940_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/oi71hoeztz.png`
-- checksum_sha256: `775c7418b6532eec8fa0fbde35cfac221455d5fb74a651c25ab27cdc49e4d556`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015941
 
 ![asset-015941](05_component-visual-assets/101_asset-015941_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/p8gnayhgnz.png`
-- checksum_sha256: `d30fcdb578b759dc5e6439efe22f66b35d7d1aeddf4ae52444c62d8709ce690c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015942
 
 ![asset-015942](05_component-visual-assets/102_asset-015942_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/pnieub1l3u.png`
-- checksum_sha256: `fa7e10edda9a497cdf96471649f290ac27581b8d6cae57c358b39a1ddb2094e9`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015943
 
 ![asset-015943](05_component-visual-assets/103_asset-015943_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/qgkuextzi4.png`
-- checksum_sha256: `bb6c7bd13047ee0943ca92295d092f6deb3797a9dcd06fef7fce98fdbd379018`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015944
 
 ![asset-015944](05_component-visual-assets/104_asset-015944_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/qhvtaxm23i.png`
-- checksum_sha256: `3624334907117c99243207eeb04f5bc486f27a9627492671b66cfae429017e6c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015945
 
 ![asset-015945](05_component-visual-assets/105_asset-015945_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/r9tc78nvxq.png`
-- checksum_sha256: `06effbb9bfb8eb339984acabd0da612370eb5e941532a3ad5d45c9623233ca14`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015946
 
 ![asset-015946](05_component-visual-assets/106_asset-015946_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/rdx16kw9mp.png`
-- checksum_sha256: `b26bcab5a6e9ef75cc1b76ff07df054ebd30f83823218c0a50dbce2aefe49c6c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015947
 
 ![asset-015947](05_component-visual-assets/107_asset-015947_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/rgbo681ufa.png`
-- checksum_sha256: `95a32c72038c87866be23756e3900e950ca36db19649d098ea5e38cdb55b02ab`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015948
 
 ![asset-015948](05_component-visual-assets/108_asset-015948_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/rnaz141d13.png`
-- checksum_sha256: `1eda3c142529dd9319cfc20b7d00b142175e4c833c4b073121a7e31eb0865539`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015949
 
 ![asset-015949](05_component-visual-assets/109_asset-015949_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/rs27s9a4jm.png`
-- checksum_sha256: `c067014cb76e06024769e3a00933256eeb0c1699a23128ea398ee5d8ec967717`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015950
 
 ![asset-015950](05_component-visual-assets/110_asset-015950_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/rshabyu70r.png`
-- checksum_sha256: `a722931de59cfab932212bad695b974dfc3bfbea908385348dca076a9f91a364`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015951
 
 ![asset-015951](05_component-visual-assets/111_asset-015951_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/s0hjdhxv2b.png`
-- checksum_sha256: `c5972757eac52504c6d3d70b86b1c6c7ba61343a85f29745ec8c99a4caf6ff1a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015952
 
 ![asset-015952](05_component-visual-assets/112_asset-015952_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/s3in9x1kmr.png`
-- checksum_sha256: `e995dfa8dcfceabdbf92761c63cea3ad3118f8c27aa9f1f79de61a982fce6f0c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015953
 
 ![asset-015953](05_component-visual-assets/113_asset-015953_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/s8n7yrflra.png`
-- checksum_sha256: `acdf5f49873ba5d691af415b947bee7e981dfdd7750de50157485d409e30d1c8`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015954
 
 ![asset-015954](05_component-visual-assets/114_asset-015954_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/sc1h989zpz.png`
-- checksum_sha256: `191512b97d1add4e5ebd218e0bb7809ee11c1336d015d48d0ee567da290de75e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015955
 
 ![asset-015955](05_component-visual-assets/115_asset-015955_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/siynlfy24q.png`
-- checksum_sha256: `c47e53ee3b24c3549350dd7bd081c367c8338f138a2a2ef7caecf823475842da`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015956
 
 ![asset-015956](05_component-visual-assets/116_asset-015956_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/sj9a1fk97v.png`
-- checksum_sha256: `69d5380e6aa742699cdeca2c390aff8af6bc36a383e8fe498efc556587c6de09`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015957
 
 ![asset-015957](05_component-visual-assets/117_asset-015957_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/sk6xrr53io.png`
-- checksum_sha256: `54cca746abcee1907e58bf009e3bc4301eb53b6d296f154ade2af45affdd4805`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015958
 
 ![asset-015958](05_component-visual-assets/118_asset-015958_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/slacby8ou1.png`
-- checksum_sha256: `69442192299f356d4fb81cdbcb19db8f0a6d60170852876965b1441eb6a1adbf`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015959
 
 ![asset-015959](05_component-visual-assets/119_asset-015959_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/sudx59dqgd.png`
-- checksum_sha256: `836fd9ccb0f597781093072a6baffb6e9e5fb586dd8921ce31bc45e29426d806`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015960
 
 ![asset-015960](05_component-visual-assets/120_asset-015960_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/svwfvf1d4j.png`
-- checksum_sha256: `99be79b3b2fe18b9aeaec7acb8a27b6670d9caa2d570a60d3fad8221fbc9d26b`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015961
 
 ![asset-015961](05_component-visual-assets/121_asset-015961_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/t9iofmboew.png`
-- checksum_sha256: `16776cdd2d736dbd5a6603fa9bde32f05b52b42233eaf5ed3ef1941418f4ded3`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015962
 
 ![asset-015962](05_component-visual-assets/122_asset-015962_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/td1jod2iap.png`
-- checksum_sha256: `5ca9d2a408ef08558d6d247c9e1cc062c669ec4b46c2dc753c3027d5a3c6b1e7`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015963
 
 ![asset-015963](05_component-visual-assets/123_asset-015963_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/tss6sloxs7.png`
-- checksum_sha256: `ae0d2f1d6452c0d80757b127c12cf57cfa27a47c46ee0db5784ba65819b758d8`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015964
 
 ![asset-015964](05_component-visual-assets/124_asset-015964_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/tvrr1z04iw.png`
-- checksum_sha256: `1ced998cef3cb5871c0fe9ec59ad88829778197daac4f5b55ef2aa9e14286677`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015965
 
 ![asset-015965](05_component-visual-assets/125_asset-015965_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/tzp8pd7o1t.png`
-- checksum_sha256: `c0d1fccf9d317d8b5abe4bfa98c092b4feea95f8c523282f45a29cef3d5ea28a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015966
 
 ![asset-015966](05_component-visual-assets/126_asset-015966_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/u3kpgjh8d1.png`
-- checksum_sha256: `86c930e05242b653e25b35c7877ad799f66df0b49561b131e442eab417edc0d9`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015967
 
 ![asset-015967](05_component-visual-assets/127_asset-015967_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/u5pcr5cj4x.png`
-- checksum_sha256: `6bdbfec5b03d7f9894e2cf6cd83748009b586872ad4e14ee64566c52c9e911cc`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015968
 
 ![asset-015968](05_component-visual-assets/128_asset-015968_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/u9n0tbn356.png`
-- checksum_sha256: `80be90c58739dd8ee4be5d09628644b9d2db3ee3d4df999ad7f9cda79f1efc59`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015969
 
 ![asset-015969](05_component-visual-assets/129_asset-015969_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/umt23heqai.png`
-- checksum_sha256: `6f70b8cbb53110aa2d656acc67f81ddb329a989021655b3d72b1373c635e6cd1`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015970
 
 ![asset-015970](05_component-visual-assets/130_asset-015970_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/un5706sgh0.png`
-- checksum_sha256: `f1cc608dd31aa57bc045cb5c3e1be308761d1ddfa33712a28884f41e66e9941e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015971
 
 ![asset-015971](05_component-visual-assets/131_asset-015971_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/uv6bxnv051.png`
-- checksum_sha256: `d6b6268c91e82aa3717a8b9945cde39b760f95ae72030217eaf032a554031c69`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015972
 
 ![asset-015972](05_component-visual-assets/132_asset-015972_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/v6cjbyxi0a.png`
-- checksum_sha256: `c8a9798b291568b6222db34d558c361bf31f06218d72c95bebc3bc66b084f122`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015973
 
 ![asset-015973](05_component-visual-assets/133_asset-015973_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/vqfb58uft1.png`
-- checksum_sha256: `3adb4fbf9579ce9d88fde35c296a64281f0f2e6d0deb912ba44883172fc334a4`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015974
 
 ![asset-015974](05_component-visual-assets/134_asset-015974_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/vu75zkwxeb.png`
-- checksum_sha256: `adcbb6ad5a1884e9e160d328e8525fb2d749377146905759afae189740a6e721`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015975
 
 ![asset-015975](05_component-visual-assets/135_asset-015975_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/w0po40fdkh.png`
-- checksum_sha256: `872a7fc2423c6d9f9189ef24b7a9448595c9864d38a17cbc8e120b7648624d05`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015976
 
 ![asset-015976](05_component-visual-assets/136_asset-015976_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/w3jamozht6.png`
-- checksum_sha256: `f0aa7b310ed27c8ddbe41a5ed58c1ee0f566918d9996bee20b85e8f9aaa76bb2`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015977
 
 ![asset-015977](05_component-visual-assets/137_asset-015977_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/w4igazy904.png`
-- checksum_sha256: `f76320e03ccdc40faa128ff317db20067d20a12c048186a9c8c87c98273f821f`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015978
 
 ![asset-015978](05_component-visual-assets/138_asset-015978_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/wau3t9h43u.png`
-- checksum_sha256: `54ff454c71396cf079fef4bfdf10a23f47c007a88c47cda4176f101cff56d3ef`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015979
 
 ![asset-015979](05_component-visual-assets/139_asset-015979_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/wawx2bbymo.png`
-- checksum_sha256: `46be225e3f535d78c92e1302e921455b358abe92328ac6a8efb3d8b78ab19159`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015980
 
 ![asset-015980](05_component-visual-assets/140_asset-015980_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/wgkad6tzl1.png`
-- checksum_sha256: `2432119bf8c0f6072786835de237bda8e1c63f51d48797f5fc3535464ba6ac9c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015981
 
 ![asset-015981](05_component-visual-assets/141_asset-015981_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/wxcy5h3mmk.png`
-- checksum_sha256: `967deb65eefba13818612f5a6ce47133f06819392ca528e9b26d3965c93d410a`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015982
 
 ![asset-015982](05_component-visual-assets/142_asset-015982_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/xh7pgxlt22.png`
-- checksum_sha256: `2c9e1000897685c32be41330dbb13463f6dca43b65464712d0bceaf5979c5519`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015983
 
 ![asset-015983](05_component-visual-assets/143_asset-015983_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/xmyr9vxy3d.png`
-- checksum_sha256: `a47c2822dc8bc901b26c077d0e580f85e8a5908d17d0818cf40f70560000cb86`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015984
 
 ![asset-015984](05_component-visual-assets/144_asset-015984_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/xn9jjrsrsw.png`
-- checksum_sha256: `229ed243d000c262af013d76995fa7985213a130634401c86f736fc6f586d6a7`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015985
 
 ![asset-015985](05_component-visual-assets/145_asset-015985_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/yhwh8d9p2f.png`
-- checksum_sha256: `d10bb0de9eb923dfaf934a1ac2c96bbe8e8ad079ca90b3973a0279fa03fad3a3`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015986
 
 ![asset-015986](05_component-visual-assets/146_asset-015986_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/z33qcc6et0.png`
-- checksum_sha256: `c5b48682e70f22c5cdf1cae3d4a0e4c249c295061cd904e3ffe8a0d33aab5561`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015987
 
 ![asset-015987](05_component-visual-assets/147_asset-015987_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/zb9xr98zag.png`
-- checksum_sha256: `759b28abe60f9678b07b5b88d59ecb286023ebfd018752d8759bad2b9e9a2aa3`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015988
 
 ![asset-015988](05_component-visual-assets/148_asset-015988_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/zbah874gr0.png`
-- checksum_sha256: `0d174f7685fda52e6661a9fc19ecdf4c1132d5bd653f0f60369b02b0d1897a7c`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015989
 
 ![asset-015989](05_component-visual-assets/149_asset-015989_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/zim551ac0k.png`
-- checksum_sha256: `a10e069f4ba6ec50d7af947b3863ad5fd48dbb0a1ca22b2d435b40883a19bb46`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015990
 
 ![asset-015990](05_component-visual-assets/150_asset-015990_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/zrpb4ou1nm.png`
-- checksum_sha256: `085fcdb461fbb8039172e016a7d7527b512ba1d03de46d5d9e7d224e65ee08f8`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-015991
 
 ![asset-015991](05_component-visual-assets/151_asset-015991_img.png)
 
 - source_zip_member: `Sub-character Images/dhewuxyotl/dhewuxyotl/zxr8sh27y3.png`
-- checksum_sha256: `58043024a94d15d29cada9f46c2ca537c4fc4dc4547ee89785718b71eb8840b0`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.

@@ -1,36 +1,55 @@
 # Component Visual Gallery / 构件图像查看: obs-comp-cand-000225
 
 English:
-This page displays OBIMD subcharacter PNG assets extracted into this concrete corpus object directory for human review.
+This page displays OBIMD subcharacter PNG assets extracted into this concrete
+corpus object directory for human review.
 
 简体中文：
 本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter PNG 资料，供人工复核使用。
 
-Boundary / 边界：dataset image candidate only; not a confirmed component form, component assignment, or decipherment claim.
+Boundary / 边界：
+dataset image candidate only; not a confirmed component form, not a component
+assignment, and not a decipherment claim.
+- not a confirmed component form
+- not a component assignment
+- not a decipherment claim
+
+## Concrete Questions To Check / 具体待查问题
+
+- Which local image should be opened first?
+- 应先打开哪一张本地构件图像？
+- Which source zip member anchors this image?
+- 哪一个 source zip member 能定位这张图像？
+- Which near-shape or variant comparison is still missing?
+- 还缺哪些近形或异体比较？
+- Which character or inscription context should be checked next?
+- 下一步应核对哪些单字或卜辞上下文？
+- What evidence is missing before a component assignment?
+- 正式构件归属前还缺哪些证据？
 
 ## asset-011870
 
 ![asset-011870](05_component-visual-assets/001_asset-011870_img.png)
 
 - source_zip_member: `Sub-character Images/e4cn4k8l46/e4cn4k8l46/dqrcpum33k.png`
-- checksum_sha256: `68d2474410f1eb805243c032b01914af6632aaae294794bc3254384e9d53553e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-011871
 
 ![asset-011871](05_component-visual-assets/002_asset-011871_img.png)
 
 - source_zip_member: `Sub-character Images/e4cn4k8l46/e4cn4k8l46/e4cn4k8l46.png`
-- checksum_sha256: `3d86ce7ede09a449ed3f44f11c189b142be43d9b14cf1339b4a6b70b90a8ef65`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.
 
 ## asset-011872
 
 ![asset-011872](05_component-visual-assets/003_asset-011872_img.png)
 
 - source_zip_member: `Sub-character Images/e4cn4k8l46/e4cn4k8l46/y6gjad16n6.png`
-- checksum_sha256: `c4ccecfd8125f3f521751ffeb4f5b5409bf3f4e5cb878fc48b06ca8a365c0f2e`
+- checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
-- caution: OBIMD subcharacter image is a source-marked review asset only; it is not a confirmed component form, component assignment, or decipherment conclusion.
+- caution: source-marked review image only.

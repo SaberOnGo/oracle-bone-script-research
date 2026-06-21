@@ -475,21 +475,88 @@ def readme_text(
     directory: Path,
 ) -> str:
     component_id = candidate_id(index)
+    english_intro = wrap_markdown_line(
+        "This directory is the object-local research entrance for one OBIMD "
+        "subcharacter candidate. It keeps human-readable notes and AI-readable "
+        "indexes in the same concrete corpus object directory."
+    )
+    chinese_intro = wrap_markdown_line(
+        "本目录是一个 OBIMD subcharacter 候选对象的本地研究入口；"
+        "人类可读资料和 AI 可读索引放在同一个具体 corpus 对象目录中。"
+    )
+    english_boundary = wrap_markdown_line(
+        "This is not a confirmed graphemic component, not a component "
+        "breakdown, not an oracle-character identity claim, and not a "
+        "decipherment conclusion. It is a source-marked dataset candidate "
+        "awaiting human component review."
+    )
+    chinese_boundary = wrap_markdown_line(
+        "这不是已确认构件，不是构件拆分结论，不是甲骨字身份判断，"
+        "也不是释读结论；它只是带来源标记、等待人工复核的数据库"
+        "候选对象。"
+    )
+    english_review = wrap_markdown_line(
+        "Review the OBIMD hierarchy, local images, source routes, and "
+        "glyph-codepoint links against independent component, character, and "
+        "inscription evidence before promoting any formal component record or "
+        "graph relation."
+    )
+    chinese_review = wrap_markdown_line(
+        "在提升为正式构件记录或正式图谱关系前，需要把 OBIMD 层级、"
+        "本地图像、来源路线和 glyph-codepoint 线索同独立的构件、"
+        "单字和卜辞证据交叉复核。"
+    )
+    concrete_questions = [
+        "Which OBIMD source image or route should be opened first?",
+        "应先打开哪一张 OBIMD 来源图像或哪条来源路线？",
+        "Which glyph-codepoint links are only dataset clues?",
+        "哪些 glyph-codepoint 关系只是数据集线索？",
+        "Which local image, source zip member, or checksum needs review?",
+        "需要核对哪张本地图像、source zip member 或 checksum？",
+        "Which oracle character, inscription, or component source is relevant?",
+        "哪些甲骨单字、卜辞或构件来源与本候选有关？",
+        "Which near-shape or variant comparison is still missing?",
+        "还缺哪些近形或异体比较？",
+        "What evidence is still missing before any formal component assignment?",
+        "正式构件归属前还缺哪些证据？",
+    ]
+    question_lines = "\n".join(
+        line
+        for item in concrete_questions
+        for line in wrapped_bullet(item)
+    )
+    local_files = [
+        ("01_candidate-component-packet.json", "AI-readable candidate packet."),
+        ("02_component-source-index.csv", "Source, download, rights, and review index."),
+        ("03_glyph-codepoint-index.csv", "OBIMD glyph-codepoint links."),
+        ("04_glyph-codepoint-gallery.md", "Human glyph-codepoint gallery."),
+        ("05_component-visual-assets/", "Source-marked OBIMD PNG review assets."),
+        ("06_component-visual-index.csv", "AI-readable visual asset index."),
+        ("07_component-visual-gallery.md", "Human component image gallery."),
+        ("08_human-visual-review-sheet.md", "Manual visual review sheet."),
+        ("09_component-visual-route-index.csv", "AI-readable visual route index."),
+        ("10_component-visual-route-gallery.md", "Human visual route gallery."),
+    ]
+    local_file_lines = "\n".join(
+        line
+        for filename, note in local_files
+        for line in wrapped_bullet(f"`{filename}`: {note}")
+    )
     return f"""# {component_id} / OBIMD Subcharacter Candidate
 
 English:
-This directory is the object-local research entrance for one OBIMD subcharacter candidate. It contains human-readable notes and AI-readable indexes in the same concrete corpus object directory.
+{english_intro}
 
 Simplified Chinese:
-本目录是一个 OBIMD subcharacter 候选对象的本地研究入口；人类可读资料和 AI 可读索引放在同一个具体 corpus 对象目录中。
+{chinese_intro}
 
 ## Boundary / 边界
 
 English:
-This is not a confirmed graphemic component, not a component breakdown, not an oracle-character identity claim, and not a decipherment conclusion. It is a source-marked dataset candidate awaiting human component review.
+{english_boundary}
 
 简体中文：
-这不是已确认构件，不是构件拆分结论，不是甲骨字身份判断，也不是释读结论；它只是带来源标记、等待人工复核的数据库候选对象。
+{chinese_boundary}
 
 ## Source Snapshot / 来源快照
 
@@ -506,28 +573,25 @@ This is not a confirmed graphemic component, not a component breakdown, not an o
 
 ## Local Files / 本地文件
 
-- `01_candidate-component-packet.json`: AI-readable candidate packet.
-- `02_component-source-index.csv`: source, download, rights, and review index.
-- `03_glyph-codepoint-index.csv`: OBIMD glyph-codepoint links for review.
-- `04_glyph-codepoint-gallery.md`: human-readable glyph/codepoint gallery.
-- `05_component-visual-assets/`: source-marked OBIMD subcharacter PNG review assets.
-- `06_component-visual-index.csv`: AI-readable visual asset index.
-- `07_component-visual-gallery.md`: human-readable component image gallery.
-- `08_human-visual-review-sheet.md`: manual visual review sheet.
-- `09_component-visual-route-index.csv`: AI-readable visual source route and missing-image status index.
-- `10_component-visual-route-gallery.md`: human-readable visual source route gallery.
+{local_file_lines}
+
+## Concrete Questions To Check / 具体待查问题
+
+Use these specific component-review questions before recording conclusions.
+
+{question_lines}
 
 ## Next Review / 下一步复核
 
 English:
-Review the OBIMD hierarchy and glyph-codepoint links against independent component, character, and inscription evidence before promoting any formal component record or graph relation.
+{english_review}
 
 简体中文：
-在提升为正式构件记录或正式图谱关系前，需要把 OBIMD 层级和 glyph codepoint 线索同独立的构件、单字和卜辞证据交叉复核。
+{chinese_review}
 
 Route files / 路由文件:
 
-{chr(10).join(f"- `{path}`" for path in route_files(directory))}
+{chr(10).join(line for path in route_files(directory) for line in wrapped_bullet(Path(path).name))}
 """
 
 
@@ -537,16 +601,52 @@ def gallery_text(
     glyph_rows: list[dict[str, str]],
 ) -> str:
     component_id = candidate_id(index)
+    english_note = wrap_markdown_line(
+        "This page is a human-readable review surface for OBIMD "
+        "glyph-codepoint metadata. Some codepoints are private-use values and "
+        "may not render in every font."
+    )
+    chinese_note = wrap_markdown_line(
+        "本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于"
+        "私用区，可能无法在所有字体中正确显示。"
+    )
+    boundary_note = wrap_markdown_line(
+        "dataset candidate only; not a confirmed component image, component "
+        "assignment, or decipherment claim."
+    )
+    questions = [
+        "Which glyph-codepoint links are only dataset clues?",
+        "哪些 glyph-codepoint 关系只是数据集线索？",
+        "Which codepoints are private-use or font-dependent?",
+        "哪些码位属于私用区或依赖特定字体显示？",
+        "Which glyph text must be compared with a source image?",
+        "哪些 glyph text 必须回到来源图像比对？",
+        "What evidence is missing before a component assignment?",
+        "正式构件归属前还缺哪些证据？",
+    ]
+    question_lines = "\n".join(
+        line
+        for item in questions
+        for line in wrapped_bullet(item)
+    )
     lines = [
         f"# Glyph Codepoint Gallery / 字形码位查看: {component_id}",
         "",
         "English:",
-        "This page is a human-readable review surface for OBIMD glyph-codepoint metadata. Some codepoints are private-use values and may not render in every font.",
+        english_note,
         "",
         "简体中文：",
-        "本页用于人工查看 OBIMD glyph-codepoint metadata。部分码位属于私用区，可能无法在所有字体中正确显示。",
+        chinese_note,
         "",
-        "Boundary / 边界：dataset candidate only; not a confirmed component image, component assignment, or decipherment claim.",
+        "Boundary / 边界：",
+        boundary_note,
+        "- not a confirmed component form",
+        "- not a component assignment",
+        "- not a decipherment claim",
+        "",
+        "## Concrete Questions To Check / 具体待查问题",
+        "",
+        question_lines,
         "",
         "| Link ID | Glyph text | U+ codepoints | Review status |",
         "| --- | --- | --- | --- |",
@@ -562,22 +662,62 @@ def gallery_text(
 
 def visual_gallery_text(index: int, visual_rows: list[dict[str, str]]) -> str:
     component_id = candidate_id(index)
+    english_note = wrap_markdown_line(
+        "This page displays OBIMD subcharacter PNG assets extracted into this "
+        "concrete corpus object directory for human review."
+    )
+    chinese_note = wrap_markdown_line(
+        "本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter "
+        "PNG 资料，供人工复核使用。"
+    )
+    boundary_note = wrap_markdown_line(
+        "dataset image candidate only; not a confirmed component form, not a "
+        "component assignment, and not a decipherment claim."
+    )
+    questions = [
+        "Which local image should be opened first?",
+        "应先打开哪一张本地构件图像？",
+        "Which source zip member anchors this image?",
+        "哪一个 source zip member 能定位这张图像？",
+        "Which near-shape or variant comparison is still missing?",
+        "还缺哪些近形或异体比较？",
+        "Which character or inscription context should be checked next?",
+        "下一步应核对哪些单字或卜辞上下文？",
+        "What evidence is missing before a component assignment?",
+        "正式构件归属前还缺哪些证据？",
+    ]
+    question_lines = "\n".join(
+        line
+        for item in questions
+        for line in wrapped_bullet(item)
+    )
     lines = [
         f"# Component Visual Gallery / 构件图像查看: {component_id}",
         "",
         "English:",
-        "This page displays OBIMD subcharacter PNG assets extracted into this concrete corpus object directory for human review.",
+        english_note,
         "",
         "简体中文：",
-        "本页展示抽取到当前具体 corpus 对象目录内的 OBIMD subcharacter PNG 资料，供人工复核使用。",
+        chinese_note,
         "",
-        "Boundary / 边界：dataset image candidate only; not a confirmed component form, component assignment, or decipherment claim.",
+        "Boundary / 边界：",
+        boundary_note,
+        "- not a confirmed component form",
+        "- not a component assignment",
+        "- not a decipherment claim",
+        "",
+        "## Concrete Questions To Check / 具体待查问题",
+        "",
+        question_lines,
         "",
     ]
     if not visual_rows:
         lines.extend(
             [
-                "No local OBIMD subcharacter image was found for this candidate in the registered source package.",
+                wrap_markdown_line(
+                    "No local OBIMD subcharacter image was found for this "
+                    "candidate in the registered source package."
+                ),
                 "",
                 "未在已登记来源包中找到此候选对应的本地图像。",
             ]
@@ -594,9 +734,9 @@ def visual_gallery_text(index: int, visual_rows: list[dict[str, str]]) -> str:
                 f"![{row['asset_id']}]({rel})",
                 "",
                 f"- source_zip_member: `{row['source_zip_member']}`",
-                f"- checksum_sha256: `{row['checksum_sha256']}`",
+                "- checksum_sha256: see `06_component-visual-index.csv`.",
                 f"- review_status: `{row['review_status']}`",
-                f"- caution: {row['caution']}",
+                "- caution: source-marked review image only.",
                 "",
             ]
         )
@@ -695,22 +835,59 @@ def visual_route_gallery_text(
         else "not_found_in_registered_source_package_route_indexed"
     )
     route_rows = visual_route_rows(index, main_row, visual_rows, directory)
+    english_note = wrap_markdown_line(
+        "This object-local page records where a human or AI Agent should "
+        "inspect OBIMD visual source material for this component candidate."
+    )
+    chinese_note = wrap_markdown_line(
+        "本对象内页面记录人工或 AI Agent 应到哪里检查此构件候选的 "
+        "OBIMD 图像来源材料。"
+    )
+    boundary_note = wrap_markdown_line(
+        "Visual route metadata only; not a confirmed component form, not a "
+        "component assignment, and not a decipherment conclusion."
+    )
+    questions = [
+        "Which source package route should be opened first?",
+        "应先打开哪一条来源包路线？",
+        "Which missing-image status needs human confirmation?",
+        "哪一项缺图状态需要人工确认？",
+        "Which object-local visual index should be checked next?",
+        "下一步应核对哪个对象内视觉索引？",
+        "Which rights or source-package record must be reviewed?",
+        "还要复核哪些权利或来源包记录？",
+        "What evidence is missing before a component assignment?",
+        "正式构件归属前还缺哪些证据？",
+    ]
+    question_lines = "\n".join(
+        line
+        for item in questions
+        for line in wrapped_bullet(item)
+    )
     lines = [
         f"# Component Visual Route Gallery / 构件图像路线图: {component_id}",
         "",
         "English:",
-        "This object-local page records where a human or AI Agent should inspect OBIMD visual source material for this component candidate.",
+        english_note,
         "",
         "简体中文：",
-        "本对象内页面记录人工或 AI Agent 应到哪里检查此构件候选的 OBIMD 图像来源材料。",
+        chinese_note,
         "",
         f"- local_image_status: `{local_status}`",
-        f"- source_package_path: `{OBIMD_SUBCHARACTER_IMAGES_ZIP.as_posix()}`",
-        f"- source_package_url: `{OBIMD_IMAGE_SOURCE_URL}`",
+        "- source_package_path: see route table below.",
+        "- source_package_url: see `09_component-visual-route-index.csv`.",
         f"- source_subcharacter_uid: `{main_row['source_subcharacter_uid']}`",
         f"- subcharacter_external_ref_id: `{main_row['subcharacter_external_ref_id']}`",
         "",
-        "Boundary / 边界：visual route metadata only; not a confirmed component form, not a component assignment, and not a decipherment conclusion.",
+        "Boundary / 边界：",
+        boundary_note,
+        "- not a confirmed component form",
+        "- not a component assignment",
+        "- not a decipherment conclusion",
+        "",
+        "## Concrete Questions To Check / 具体待查问题",
+        "",
+        question_lines,
         "",
         "| Route type | Route path | Review status |",
         "| --- | --- | --- |",
@@ -723,7 +900,10 @@ def visual_route_gallery_text(
         lines.extend(
             [
                 "",
-                "No local PNG asset was found for this candidate in the registered OBIMD source package during preprocessing.",
+                wrap_markdown_line(
+                    "No local PNG asset was found for this candidate in the "
+                    "registered OBIMD source package during preprocessing."
+                ),
                 "",
                 "预处理期间未在已登记的 OBIMD 来源包中找到此候选对应的本地 PNG 资产。",
             ]

@@ -29,6 +29,7 @@ from tools.validation.check_repository_skeleton import (
     check_cambridge_hopkins_topic_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
+    check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
     check_source_rights_policy_human_entry,
     check_statistics_readme_human_entry,
@@ -2675,6 +2676,36 @@ class RepositorySkeletonTests(unittest.TestCase):
             "权利状态",
             "风险提示",
             "复核状态",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_oracle_characters_readme_is_human_research_entry(self) -> None:
+        self.assertEqual(check_oracle_characters_readme_human_entry(repo_root()), [])
+        readme_path = repo_root() / "corpus/001_oracle-characters/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Oracle Characters / 甲骨单字",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "human research dossier",
+            "glyph image",
+            "inscription context",
+            "variant",
+            "component",
+            "decipherment history",
+            "not a decipherment conclusion",
+            "字形图片",
+            "卜辞上下文",
+            "异体",
+            "构件",
+            "释读史",
         ]:
             self.assertIn(marker, text)
         for marker in ["缂", "闁", "鐢", "涓", "�"]:

@@ -4207,6 +4207,40 @@ def check_statistics_readme_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_statistics_generation_tools_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "tools/004_statistics-generation/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Statistics Generation Tools / 统计生成工具",
+        "Human Review Entry Order",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "object-local material coverage",
+        "source-processing pipeline",
+        "phase gap review",
+        "not a decipherment conclusion",
+        "不是释读结论",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    if "\ufffd" in text:
+        issues.append(f"{relative} contains replacement-character mojibake")
+    for marker in ["缂", "闁", "鐢", "涓"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_inscription_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/002_oracle-bone-inscriptions/README.md"
@@ -28097,6 +28131,7 @@ def main() -> int:
     issues.extend(check_research_topics_grammar_readme_human_entry(root))
     issues.extend(check_relationship_graph_readme_human_entry(root))
     issues.extend(check_statistics_readme_human_entry(root))
+    issues.extend(check_statistics_generation_tools_readme_human_entry(root))
     issues.extend(check_inscription_readme_human_entry(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))

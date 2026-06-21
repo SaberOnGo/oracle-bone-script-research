@@ -103,7 +103,7 @@
       "label_en": "Inscription, plate, and collection provenance staging",
       "label_zh": "卜辞、图版与馆藏出处暂存",
       "current_stage": "pending_human_review",
-      "count_summary": "cambridge_hopkins_crosswalk_review_queue_rows:612;cambridge_hopkins_graph_edges:5075;candidate_inscription_crosswalk_map_rows:612;candidate_inscription_crosswalk_packet_files:612;formal_inscription_id_map_rows:0;formal_inscription_record_files:0;xxt_obm_access_capture_rows:4;xxt_obm_review_logs:4",
+      "count_summary": "cambridge_hopkins_crosswalk_review_queue_rows:612;cambridge_hopkins_graph_edges:5075;candidate_inscription_crosswalk_dossier_indexes:612;candidate_inscription_crosswalk_human_dossiers:612;candidate_inscription_crosswalk_map_rows:612;candidate_inscription_crosswalk_packet_files:612;formal_inscription_id_map_rows:0;formal_inscription_record_files:0;xxt_obm_access_capture_rows:4;xxt_obm_review_logs:4",
       "next_entry_path": "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/",
       "review_status": "metadata_only_pending_review",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",

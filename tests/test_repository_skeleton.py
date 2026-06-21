@@ -2735,11 +2735,26 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "04_human-review-sheet.md").exists())
             self.assertTrue((object_dir / "05_plate-text-route-index.csv").exists())
             self.assertTrue((object_dir / "06_plate-text-gallery.md").exists())
+            self.assertTrue((object_dir / "07_human-inscription-dossier.md").exists())
+            self.assertTrue((object_dir / "08_inscription-dossier-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("route_indexed_not_collected", readme_text)
+            dossier_text = (object_dir / "07_human-inscription-dossier.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Human Inscription Dossier", dossier_text)
+            self.assertIn("Excavation site: `not_collected`", dossier_text)
+            self.assertIn("Linked character occurrences: `not_collected`", dossier_text)
+            dossier_index = json.loads(
+                (object_dir / "08_inscription-dossier-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertIn("07_human-inscription-dossier.md", dossier_index["human_readable_files"])
+            self.assertIn("linked_character_occurrences", dossier_index["uncollected_human_research_fields"])
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
     def test_cambridge_hopkins_inscription_crosswalk_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
@@ -2756,6 +2771,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
         self.assertEqual(first["packet"]["image_evidence_status"], "route_indexed_not_collected")
+        self.assertIn("Human Inscription Dossier", first["human_dossier_text"])
+        self.assertEqual(
+            first["dossier_index"]["record_type"],
+            "inscription_crosswalk_candidate_dossier_index",
+        )
         self.assertEqual(len(first["catalog_rows"]), 4)
         self.assertEqual(len(first["plate_routes"]), 5)
 

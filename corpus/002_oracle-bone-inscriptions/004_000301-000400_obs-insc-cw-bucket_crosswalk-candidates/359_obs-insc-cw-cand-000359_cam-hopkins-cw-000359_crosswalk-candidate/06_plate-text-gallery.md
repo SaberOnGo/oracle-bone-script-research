@@ -1,21 +1,46 @@
 # Plate And Text Route Gallery / 图版与文本路线图
+
 Project ID: `obs-insc-cw-cand-000359`
 
 Candidate crosswalk ID: `cam-hopkins-crosswalk-000359`
 
 English:
-This file is a human-readable object-local route gallery. It lists where a reviewer should look for plate images, object records, catalog entries, Heji/OBM references, OCR text, and full inscription context. It does not contain confirmed images or transcriptions.
+This file is a human-readable object-local route gallery. It lists where a
+reviewer should look for plate images, object records, catalog entries,
+Heji/OBM references, OCR text, and full inscription context. It does not
+contain confirmed images or transcriptions.
 
 简体中文：
-本文件是对象内的人类可读路线图，用来提示复核者到哪里寻找图版图片、馆藏对象记录、著录条目、合集/OBM 对应、OCR 文本和完整卜辞上下文。这里不包含已确认图片或释文。
+本文件是对象内的人类可读路线图，用来提示复核者到哪里寻找图版图片、馆藏对象记录、著录条目、合集或 OBM 对应、OCR
+文本和完整卜辞上下文。这里不包含已确认图片或释文。
 
 ## Routes / 路线
 
-- `cambridge_hopkins_finding_list`: Cambridge/Hopkins finding-list row `cam-hopkins-crosswalk-000359` [route_present_image_or_text_not_collected]
-- `yingguo_catalog_reference`: Yingguo suo cang jiagu ji reference `y2057` [route_present_image_or_text_not_collected]
-- `cambridge_university_library_reference`: Cambridge University Library object/reference number `538` [route_present_image_or_text_not_collected]
-- `chalfant_reference`: Chalfant reference `***` [route_missing_or_unassigned]
-- `heji_reference`: Heji reference `*****` [route_missing_or_unassigned]
+- Route: `cambridge_hopkins_finding_list`
+  Label: Cambridge/Hopkins finding-list row
+  Reference: `cam-hopkins-crosswalk-000359`
+  Status: `route_present_image_or_text_not_collected`
+  Review: `needs_human_inscription_crosswalk_review`
+- Route: `yingguo_catalog_reference`
+  Label: Yingguo suo cang jiagu ji reference
+  Reference: `y2057`
+  Status: `route_present_image_or_text_not_collected`
+  Review: `needs_human_inscription_crosswalk_review`
+- Route: `cambridge_university_library_reference`
+  Label: Cambridge University Library object/reference number
+  Reference: `538`
+  Status: `route_present_image_or_text_not_collected`
+  Review: `needs_human_inscription_crosswalk_review`
+- Route: `chalfant_reference`
+  Label: Chalfant reference
+  Reference: `***`
+  Status: `route_missing_or_unassigned`
+  Review: `needs_human_inscription_crosswalk_review`
+- Route: `heji_reference`
+  Label: Heji reference
+  Reference: `*****`
+  Status: `route_missing_or_unassigned`
+  Review: `needs_human_inscription_crosswalk_review`
 
 ## Evidence Status / 证据状态
 
@@ -27,4 +52,6 @@ This file is a human-readable object-local route gallery. It lists where a revie
 
 ## Boundary / 边界
 
-This route gallery is preprocessing infrastructure only. It is not a formal inscription record, not an image-rights decision, not a transcription, not an inscription reading, and not a decipherment conclusion.
+This route gallery is preprocessing infrastructure only. It is not a formal
+inscription record, not an image-rights decision, not a transcription, not
+an inscription reading, and not a decipherment conclusion.

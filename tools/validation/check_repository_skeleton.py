@@ -2638,6 +2638,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "04_human-review-sheet.md",
         "05_plate-text-route-index.csv",
         "06_plate-text-gallery.md",
+        "07_human-inscription-dossier.md",
+        "08_inscription-dossier-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -2668,6 +2670,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "04_human-review-sheet.md",
                 "05_plate-text-route-index.csv",
                 "06_plate-text-gallery.md",
+                "07_human-inscription-dossier.md",
+                "08_inscription-dossier-index.json",
                 "route_indexed_not_collected",
             ]:
                 if snippet not in text:
@@ -2723,6 +2727,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             if any(route.get("review_status") != "needs_human_inscription_crosswalk_review" for route in route_rows):
                 issues.append(f"{route_index_path.relative_to(root).as_posix()} route review status changed")
         route_gallery_path = object_dir / "06_plate-text-gallery.md"
+        human_dossier_path = object_dir / "07_human-inscription-dossier.md"
+        dossier_index_path = object_dir / "08_inscription-dossier-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             for snippet in [
@@ -2733,6 +2739,31 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             ]:
                 if snippet not in gallery:
                     issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        if path_exists(human_dossier_path):
+            human_dossier = human_dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Human Inscription Dossier",
+                "What A Human Can Read Here",
+                "Catalog Clues",
+                "Plate, Image, And Text Routes",
+                "Excavation site: `not_collected`",
+                "Linked character occurrences: `not_collected`",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in human_dossier:
+                    issues.append(f"{human_dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        if path_exists(dossier_index_path):
+            dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
+            if dossier_index.get("project_id") != project_id:
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if dossier_index.get("record_type") != "inscription_crosswalk_candidate_dossier_index":
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} record_type changed")
+            if dossier_index.get("human_review_status") != "needs_human_inscription_crosswalk_review":
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} human review status changed")
+            if "07_human-inscription-dossier.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if "linked_character_occurrences" not in dossier_index.get("uncollected_human_research_fields", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing linked character gap")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [

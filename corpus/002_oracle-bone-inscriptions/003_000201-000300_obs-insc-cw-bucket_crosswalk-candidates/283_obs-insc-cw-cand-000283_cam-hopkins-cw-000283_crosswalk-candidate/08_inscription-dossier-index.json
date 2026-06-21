@@ -1,0 +1,41 @@
+{
+  "ai_readable_files": [
+    "01_candidate-inscription-crosswalk-packet.json",
+    "02_crosswalk-source-index.csv",
+    "03_catalog-reference-index.csv",
+    "05_plate-text-route-index.csv"
+  ],
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000283",
+  "catalog_identity_claim_status": "not_confirmed_catalog_identity",
+  "catalog_reference_count": 4,
+  "caution": "This object is a Cambridge/Hopkins inscription crosswalk candidate only. It is metadata for catalog review; it is not a formal obi-* inscription record, not an object identity claim, not a transcription, not an inscription reading, and not a decipherment conclusion.",
+  "formal_inscription_assignment_status": "not_assigned_formal_obi_id",
+  "human_readable_files": [
+    "README.md",
+    "04_human-review-sheet.md",
+    "06_plate-text-gallery.md",
+    "07_human-inscription-dossier.md"
+  ],
+  "human_review_status": "needs_human_inscription_crosswalk_review",
+  "image_evidence_status": "route_indexed_not_collected",
+  "missing_reference_types": [
+    "chalfant",
+    "heji"
+  ],
+  "plate_text_route_count": 5,
+  "project_id": "obs-insc-cw-cand-000283",
+  "record_type": "inscription_crosswalk_candidate_dossier_index",
+  "research_boundary": "object_local_cambridge_hopkins_inscription_crosswalk_candidate_not_scholarship",
+  "text_transcription_status": "route_indexed_not_collected",
+  "uncollected_human_research_fields": [
+    "excavation_site",
+    "collection_object_record",
+    "findspot",
+    "batch_or_pit_context",
+    "plate_image_path",
+    "inscription_ocr",
+    "full_inscription_text",
+    "linked_character_occurrences"
+  ],
+  "updated_at": "2026-06-21"
+}

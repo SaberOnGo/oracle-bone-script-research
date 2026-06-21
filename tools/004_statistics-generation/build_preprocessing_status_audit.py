@@ -644,6 +644,14 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
                     root,
                     "corpus/002_oracle-bone-inscriptions/**/01_candidate-inscription-crosswalk-packet.json",
                 ),
+                "candidate_inscription_crosswalk_human_dossiers": count_files(
+                    root,
+                    "corpus/002_oracle-bone-inscriptions/**/07_human-inscription-dossier.md",
+                ),
+                "candidate_inscription_crosswalk_dossier_indexes": count_files(
+                    root,
+                    "corpus/002_oracle-bone-inscriptions/**/08_inscription-dossier-index.json",
+                ),
                 "formal_inscription_record_files": count_files(
                     root, "corpus/002_oracle-bone-inscriptions/**/inscription-record.json"
                 ),

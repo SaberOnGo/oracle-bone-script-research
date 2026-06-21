@@ -31,6 +31,7 @@ from tools.validation.check_repository_skeleton import (
     check_object_local_material_coverage_audit,
     check_project_id_source_map_audit,
     check_statistics_readme_human_entry,
+    check_inscription_readme_human_entry,
     check_preprocessing_status_audit,
     check_data_quality_audit,
     check_source_processing_pipeline_audit,
@@ -2582,6 +2583,27 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体待查问题", text)
         self.assertIn("object-local material coverage", text)
         self.assertIn("source-processing pipeline", text)
+        self.assertIn("not a decipherment conclusion", text)
+        self.assertNotIn("缂", text)
+        self.assertNotIn("闁", text)
+        self.assertNotIn("鐢", text)
+        self.assertNotIn("涓", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_inscription_readme_is_human_readable_entry(self) -> None:
+        self.assertEqual(check_inscription_readme_human_entry(repo_root()), [])
+        readme_path = repo_root() / "corpus/002_oracle-bone-inscriptions/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        self.assertIn("Oracle Bone Inscriptions / 甲骨卜辞", text)
+        self.assertIn("Concrete Questions To Check", text)
+        self.assertIn("具体待查问题", text)
+        self.assertIn("inscription number", text)
+        self.assertIn("图版号", text)
+        self.assertIn("著录来源", text)
+        self.assertIn("复核状态", text)
         self.assertIn("not a decipherment conclusion", text)
         self.assertNotIn("缂", text)
         self.assertNotIn("闁", text)

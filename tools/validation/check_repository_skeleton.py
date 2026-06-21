@@ -3798,6 +3798,37 @@ def check_statistics_readme_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_inscription_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "corpus/002_oracle-bone-inscriptions/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Oracle Bone Inscriptions / 甲骨卜辞",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "inscription number",
+        "图版号",
+        "著录来源",
+        "复核状态",
+        "not a decipherment conclusion",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    for marker in ["缂", "闁", "鐢", "涓"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_forbidden_paths(root: Path) -> list[str]:
     issues: list[str] = []
     for path in root.rglob("*"):
@@ -27647,6 +27678,7 @@ def main() -> int:
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_statistics_readme_human_entry(root))
+    issues.extend(check_inscription_readme_human_entry(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))
     issues.extend(check_forbidden_policy_text(root))

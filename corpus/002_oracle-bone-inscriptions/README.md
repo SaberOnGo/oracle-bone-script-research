@@ -1,29 +1,126 @@
 # Oracle Bone Inscriptions / 甲骨卜辞
 
 English:
-This directory will store full inscription records, context, character sequence indexes, topics, excavation context, and source references.
-
-Current registers:
-
-- `000_inscription-registers/001_all-inscriptions-index.csv`: accepted project inscription records.
-- `000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv`: Cambridge Hopkins finding-list staging crosswalk with 612 visible `y/c/h/j` reference rows.
-- `000_inscription-registers/003_cambridge-hopkins-classified-summary.csv`: Cambridge Hopkins classified table summary with 20 topic groups, official period totals, ancestor subgroups, and grand total.
-- `../009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv`: metadata-only per-row review queue for the 612 Cambridge/Hopkins crosswalk candidates.
-
-The Cambridge staging rows are institutional crosswalk metadata. They preserve Yingguo, Cambridge University Library, Chalfant, and Heji references, but must be checked against object records, Heji/OBM records, and source images before becoming formal `obi-*` inscription records.
-
-The 098 review queue is a preprocessing route only. It prioritizes rows with missing CUL, Chalfant, or Heji references and records that image evidence, text transcription, collection-object matching, and formal `obi-*` assignment are not collected.
-
-简体中文补充：
-`../009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv` 是 612 条 Cambridge/Hopkins crosswalk 候选的逐行 metadata-only 复核队列；它只安排缺失 CUL、Chalfant、Heji 引用和后续图像/对象/OBM 复核，不生成正式 `obi-*` 卜辞记录，也不记录释读结论。
+This directory is the human entry point for oracle inscription records,
+catalog crosswalk candidates, plate/text routes, and inscription-context
+preprocessing. It helps researchers open the relevant registers, candidate
+directories, source references, and review queues before any formal `obi-*`
+inscription record is created.
 
 简体中文：
-本目录将保存卜辞全文记录、上下文、字序索引、主题、出土信息和来源引用。
+本目录是甲骨卜辞记录、目录互证候选、图版/文本路线和卜辞语境
+预处理的人类入口。研究者应先从这里打开登记表、候选对象目录、
+来源引用和复核队列，再判断是否具备生成正式 `obi-*` 卜辞记录的
+条件。
 
-当前索引：
+## Boundary / 边界
 
-- `000_inscription-registers/001_all-inscriptions-index.csv`：正式本项目卜辞记录。
-- `000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv`：Cambridge Hopkins finding list 暂存 crosswalk，包含 612 条可见 `y/c/h/j` 编号行。
-- `000_inscription-registers/003_cambridge-hopkins-classified-summary.csv`：Cambridge Hopkins 分期分类汇总，包含 20 个主题组、官方分期合计、祖类补充组和总计。
+- Current Cambridge/Hopkins rows are crosswalk candidates.
+- They are not formal `obi-*` inscription records.
+- They are not transcriptions, readings, or decipherment conclusions.
+- They are not a decipherment conclusion.
+- They must be checked against plates, object records, Heji/OBM routes,
+  source images, and later human review notes before promotion.
+- 当前 Cambridge/Hopkins 行只是目录互证候选。
+- 它们不是正式 `obi-*` 卜辞记录。
+- 它们不是释文、读法或释读结论。
+- 进入正式记录前，必须复核图版、馆藏对象、《合集》/OBM 路线、
+  来源图像和后续人工复核记录。
 
-Cambridge 暂存行是机构清单 crosswalk metadata。它们保留《英国所藏甲骨集》、Cambridge University Library、Chalfant 和《甲骨文合集》编号，但进入正式 `obi-*` 卜辞记录前，必须再和馆藏对象记录、《合集》/OBM 记录及原始图像交叉复核。
+## Main Registers / 主要登记表
+
+- `000_inscription-registers/001_all-inscriptions-index.csv`
+  will hold accepted project inscription records.
+- `000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv`
+  stores 612 Cambridge/Hopkins finding-list crosswalk candidates.
+- `000_inscription-registers/003_cambridge-hopkins-classified-summary.csv`
+  summarizes 20 Cambridge/Hopkins topic and period groups.
+- `../009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-`
+  `inscription-crosswalk-review-queue.csv`
+  routes all 612 candidates into metadata-only human review.
+- `../009_statistics-and-derived-features/195_inscription-plate-`
+  `crosswalk-phase-gap-review-checklist.csv`
+  lists phase-gap checks for inscription and plate crosswalk work.
+
+## What A Human Should Inspect / 人工应检查什么
+
+- inscription number: candidate ID, Yingguo number, CUL number, Chalfant
+  number, Heji number, OBM route, and any old catalog number.
+- Text or OCR: full text, partial OCR, transcription route, or explicit
+  `not_collected` status.
+- Plate and image: 图版号, source image path, plate/text route index,
+  plate/text gallery, thumbnail status, and rights note.
+- Bibliographic route: 著录来源, page or plate reference, cited source,
+  and source-register row.
+- Object context: collection object, museum or library record, findspot,
+  excavation context, period, batch, and group.
+- Character links: related glyph candidates, character-sequence evidence,
+  and missing character-context checks.
+- Review status: 复核状态, reviewer route, missing evidence, and the next
+  human-gated action.
+
+人工复核时，应逐项确认：
+
+- 卜辞编号：候选 ID、《英国所藏甲骨集》号、CUL 号、Chalfant 号、
+  《合集》号、OBM 路线，以及其他旧著录号。
+- 全文或 OCR：是否已有全文、局部 OCR、释文路线，或明确标为
+  `not_collected`。
+- 图版和图像：图版号、来源图像路径、图版/文本路线索引、图版/
+  文本 gallery、缩略图状态和权利说明。
+- 著录路线：著录来源、页码或图版引用、被引用来源和来源登记行。
+- 对象语境：馆藏对象、博物馆或图书馆记录、出土地、发掘语境、
+  时期、批次和组类。
+- 字形关联：关联字形候选、字序证据，以及缺失的字形语境检查。
+- 复核状态：复核状态、复核者路线、缺失证据和下一步人工门控动作。
+
+## Object-Local Files / 对象内文件
+
+Each `obs-insc-cw-cand-*` candidate directory should keep the human and AI
+materials together in the same object directory:
+
+- `README.md`: local candidate overview and boundary.
+- `01_candidate-inscription-crosswalk-packet.json`: AI-readable packet.
+- `02_crosswalk-source-index.csv`: source and crosswalk references.
+- `03_catalog-reference-index.csv`: catalog-number route table.
+- `04_human-review-sheet.md`: human checklist.
+- `05_plate-text-route-index.csv`: plate and text route table.
+- `06_plate-text-gallery.md`: human-readable route gallery.
+- `07_human-inscription-dossier.md`: human dossier for inspection.
+- `08_inscription-dossier-index.json`: AI support index for the dossier.
+
+## Concrete Questions To Check / 具体待查问题
+
+- Which candidate lacks a Heji, CUL, Chalfant, OBM, or source-image route?
+- Which candidate has a catalog number but no object or plate evidence yet?
+- Which candidate has only metadata and no text/OCR or plate image?
+- Which candidate needs comparison with a collection object before `obi-*`
+  assignment can even be considered?
+- Which dossier records period, batch, or group only as a source hint?
+- Which missing item blocks further human review most directly?
+- 哪个候选还缺《合集》、CUL、Chalfant、OBM 或来源图像路线？
+- 哪个候选只有著录号，还没有对象或图版证据？
+- 哪个候选只有 metadata，没有全文/OCR 或图版图像？
+- 哪个候选必须先和馆藏对象比对，才可考虑是否进入 `obi-*`？
+- 哪个档案中的时期、批次或组类仍只是来源线索？
+- 哪个缺失项最直接阻断下一步人工复核？
+
+## Suggested Review Order / 建议复核顺序
+
+1. Open the candidate row in `002_cambridge-hopkins-crosswalk-staging.csv`.
+2. Open the matching `obs-insc-cw-cand-*` object directory.
+3. Read `07_human-inscription-dossier.md` before the JSON packet.
+4. Check `05_plate-text-route-index.csv` and `06_plate-text-gallery.md`.
+5. Compare catalog references with Heji, OBM, and collection-object routes.
+6. Record only reviewed route outcomes in the matching review scaffold.
+7. Do not create a formal `obi-*` record until evidence review justifies it.
+
+## Regeneration Notes / 再生成说明
+
+Object-local inscription crosswalk materials are generated by:
+
+- `tools/002_corpus-import/build_cambridge_hopkins_inscription_crosswalk_`
+  `materials.py`
+
+When inscription routes, candidate dossiers, or review queues change, rerun
+the relevant builder, then run repository validation and tests before
+committing.

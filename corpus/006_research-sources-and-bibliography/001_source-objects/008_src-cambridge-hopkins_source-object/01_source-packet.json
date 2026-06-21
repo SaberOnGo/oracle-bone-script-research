@@ -25,9 +25,11 @@
     "04_field-map-route-index.csv",
     "05_metadata-profile-route-index.csv",
     "06_human-source-review-sheet.md",
-    "07_material-access-index.md"
+    "07_material-access-index.md",
+    "08_source-processing-status.md",
+    "09_source-processing-status-index.json"
   ],
-  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, and field maps are not decipherment, identity, component, inscription, or correspondence conclusions",
+  "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",
-  "updated_at": "2026-06-20"
+  "updated_at": "2026-06-21"
 }

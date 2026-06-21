@@ -1,0 +1,73 @@
+{
+  "record_type": "source_processing_status_index",
+  "source_id": "src-tsinghua-oracle-bones",
+  "source_title": "Tsinghua University Library Oracle Bones Collection",
+  "rights_status": "metadata_only_until_verified",
+  "risk_note": "Official library page; not a full searchable corpus endpoint by itself.",
+  "phases": [
+    {
+      "phase": "discovered",
+      "status": "registered_source_row_present",
+      "evidence_file": "001_all-sources-index.csv",
+      "evidence_path": "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+      "evidence_count": 1,
+      "review_status": "reviewed"
+    },
+    {
+      "phase": "download_or_access",
+      "status": "download_or_access_routes_present",
+      "evidence_file": "02_download-route-index.csv",
+      "evidence_count": 1,
+      "status_values": [
+        "downloaded"
+      ],
+      "review_status": "metadata_route_needs_human_review"
+    },
+    {
+      "phase": "checksum_and_size",
+      "status": "partial_or_complete_checksum_size_evidence",
+      "evidence_file": "02_download-route-index.csv",
+      "checksum_row_count": 1,
+      "size_row_count": 1,
+      "local_temp_path_row_count": 1,
+      "review_status": "needs_human_source_review"
+    },
+    {
+      "phase": "package_manifest",
+      "status": "package_manifest_routes_present",
+      "evidence_file": "03_package-route-index.csv",
+      "evidence_count": 1,
+      "review_status": "needs_human_source_review"
+    },
+    {
+      "phase": "field_mapping",
+      "status": "field_map_routes_present",
+      "evidence_file": "04_field-map-route-index.csv",
+      "evidence_count": 2,
+      "target_record_types": [
+        "excavation_or_collection_context",
+        "source_record"
+      ],
+      "review_status": "candidate_mapping_needs_human_review"
+    },
+    {
+      "phase": "metadata_profile",
+      "status": "metadata_profile_rows_present",
+      "evidence_file": "05_metadata-profile-route-index.csv",
+      "evidence_count": 3,
+      "review_status": "needs_human_source_review"
+    },
+    {
+      "phase": "cleaned_structured_linked",
+      "status": "candidate_routes_available_not_final_import",
+      "evidence_file": "08_source-processing-status.md",
+      "evidence_count": 6,
+      "review_status": "pending_human_review"
+    }
+  ],
+  "missing_or_review_items": [],
+  "human_entry": "08_source-processing-status.md",
+  "research_boundary": "source_processing_status_preprocessing_only; statuses mark evidence availability and review work, not scholarly conclusions",
+  "decipherment_claim_status": "no_claim",
+  "updated_at": "2026-06-21"
+}

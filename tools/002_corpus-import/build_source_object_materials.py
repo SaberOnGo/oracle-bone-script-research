@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import textwrap
 from collections import defaultdict
 from pathlib import Path
 
@@ -17,7 +18,8 @@ FIELD_MAP = Path("corpus/006_research-sources-and-bibliography/000_source-regist
 PACKAGE_MANIFEST = Path("corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv")
 METADATA_PROFILE = Path("corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv")
 OUTPUT_ROOT = Path("corpus/006_research-sources-and-bibliography/001_source-objects")
-UPDATED_AT = "2026-06-20"
+UPDATED_AT = "2026-06-21"
+MAX_HUMAN_LINE_LENGTH = 80
 
 
 DOWNLOAD_ROUTE_FIELDS = [
@@ -101,6 +103,43 @@ def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> 
 
 def write_json(path: Path, data: dict[str, object]) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def wrapped(text: str, width: int = MAX_HUMAN_LINE_LENGTH) -> list[str]:
+    return textwrap.wrap(
+        text,
+        width=width,
+        break_long_words=True,
+        break_on_hyphens=False,
+    ) or [""]
+
+
+def bullet(label: str, value: object) -> list[str]:
+    prefix = f"- {label}: "
+    text = str(value) if value not in (None, "") else "not recorded"
+    return textwrap.wrap(
+        prefix + text,
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=True,
+        break_on_hyphens=False,
+    )
+
+
+def assert_human_line_width(path_label: str, text: str) -> None:
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if len(line) > MAX_HUMAN_LINE_LENGTH:
+            raise ValueError(f"{path_label}:{line_number} exceeds 80 chars: {line}")
+
+
+def write_human_markdown(path: Path, path_label: str, text: str) -> None:
+    text = text.rstrip() + "\n"
+    assert_human_line_width(path_label, text)
+    path.write_text(text, encoding="utf-8")
+
+
+def joined(values: list[str], fallback: str = "none") -> str:
+    return "; ".join(values) if values else fallback
 
 
 def source_dir_name(index: int, source_id: str) -> str:
@@ -189,11 +228,126 @@ def source_packet(
             "05_metadata-profile-route-index.csv",
             "06_human-source-review-sheet.md",
             "07_material-access-index.md",
+            "08_source-processing-status.md",
+            "09_source-processing-status-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
-            "download logs, package manifests, and field maps are not decipherment, "
-            "identity, component, inscription, or correspondence conclusions"
+            "download logs, package manifests, field maps, and status cards are "
+            "not decipherment, identity, component, inscription, or "
+            "correspondence conclusions"
+        ),
+        "decipherment_claim_status": "no_claim",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def phase_status(row_count: int, ready_status: str) -> str:
+    if row_count:
+        return ready_status
+    return "not_present_in_current_registers"
+
+
+def checksum_count(download_routes: list[dict[str, str]]) -> int:
+    return sum(1 for row in download_routes if row.get("checksum_sha256"))
+
+
+def sized_count(download_routes: list[dict[str, str]]) -> int:
+    return sum(1 for row in download_routes if row.get("file_size_bytes"))
+
+
+def local_temp_count(download_routes: list[dict[str, str]]) -> int:
+    return sum(1 for row in download_routes if row.get("local_temp_path"))
+
+
+def build_processing_status_index(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    download_statuses = sorted({row.get("download_status", "") for row in download_routes if row.get("download_status")})
+    target_record_types = sorted({row.get("target_record_type", "") for row in field_routes if row.get("target_record_type")})
+    phases = [
+        {
+            "phase": "discovered",
+            "status": "registered_source_row_present",
+            "evidence_file": SOURCE_INDEX.name,
+            "evidence_path": SOURCE_INDEX.as_posix(),
+            "evidence_count": 1,
+            "review_status": source["review_status"],
+        },
+        {
+            "phase": "download_or_access",
+            "status": phase_status(len(download_routes), "download_or_access_routes_present"),
+            "evidence_file": "02_download-route-index.csv",
+            "evidence_count": len(download_routes),
+            "status_values": download_statuses,
+            "review_status": "metadata_route_needs_human_review",
+        },
+        {
+            "phase": "checksum_and_size",
+            "status": "partial_or_complete_checksum_size_evidence",
+            "evidence_file": "02_download-route-index.csv",
+            "checksum_row_count": checksum_count(download_routes),
+            "size_row_count": sized_count(download_routes),
+            "local_temp_path_row_count": local_temp_count(download_routes),
+            "review_status": "needs_human_source_review",
+        },
+        {
+            "phase": "package_manifest",
+            "status": phase_status(len(package_routes), "package_manifest_routes_present"),
+            "evidence_file": "03_package-route-index.csv",
+            "evidence_count": len(package_routes),
+            "review_status": "needs_human_source_review",
+        },
+        {
+            "phase": "field_mapping",
+            "status": phase_status(len(field_routes), "field_map_routes_present"),
+            "evidence_file": "04_field-map-route-index.csv",
+            "evidence_count": len(field_routes),
+            "target_record_types": target_record_types,
+            "review_status": "candidate_mapping_needs_human_review",
+        },
+        {
+            "phase": "metadata_profile",
+            "status": phase_status(len(metadata_routes), "metadata_profile_rows_present"),
+            "evidence_file": "05_metadata-profile-route-index.csv",
+            "evidence_count": len(metadata_routes),
+            "review_status": "needs_human_source_review",
+        },
+        {
+            "phase": "cleaned_structured_linked",
+            "status": "candidate_routes_available_not_final_import",
+            "evidence_file": "08_source-processing-status.md",
+            "evidence_count": len(package_routes) + len(field_routes) + len(metadata_routes),
+            "review_status": "pending_human_review",
+        },
+    ]
+    missing = []
+    if not download_routes:
+        missing.append("download_or_access_route")
+    if not package_routes:
+        missing.append("package_manifest_route")
+    if not field_routes:
+        missing.append("field_map_route")
+    if not metadata_routes:
+        missing.append("metadata_profile_route")
+    if checksum_count(download_routes) < len(download_routes):
+        missing.append("checksum_for_some_download_routes")
+    return {
+        "record_type": "source_processing_status_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "rights_status": source["rights_status"],
+        "risk_note": source["risk_note"],
+        "phases": phases,
+        "missing_or_review_items": missing,
+        "human_entry": "08_source-processing-status.md",
+        "research_boundary": (
+            "source_processing_status_preprocessing_only; statuses mark evidence "
+            "availability and review work, not scholarly conclusions"
         ),
         "decipherment_claim_status": "no_claim",
         "updated_at": UPDATED_AT,
@@ -201,60 +355,67 @@ def source_packet(
 
 
 def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
-    return f"""# {source["source_id"]} Source Object / {source["source_id"]} 来源对象
-
-English:
-This directory is the co-located human and AI entrance for one registered research source. It keeps the readable summary, route indexes, package manifest links, metadata profile links, field-map links, and AI-readable packet inside the same concrete source object directory.
-
-简体中文：
-本目录是一个已登记研究来源的同目录人类/AI 入口。可读摘要、下载路线索引、来源包 manifest 线索、metadata profile 线索、字段映射线索和 AI 可读 packet 都放在同一个具体来源对象目录中。
-
-## Source Summary / 来源摘要
-
-- Source ID / 来源 ID: `{source["source_id"]}`
-- Type / 类型: `{source["source_type"]}`
-- Title / 标题: `{source["title"]}`
-- Provider / 提供方: `{source["provider"]}`
-- Authority tier / 权威等级: `{source["authority_tier"]}`
-- URL / 链接: {source["source_url"]}
-- Adoption status / 采用状态: `{source["adoption_status"]}`
-- Rights status / 权利状态: `{source["rights_status"]}`
-- Review status / 复核状态: `{source["review_status"]}`
-
-## Local Files / 本目录文件
-
-- AI-readable source packet / AI 可读来源包: `01_source-packet.json`
-- Download/access routes / 下载或访问路线: `02_download-route-index.csv`
-- Package/file manifest routes / 来源包和文件清单路线: `03_package-route-index.csv`
-- Field-map routes / 字段映射路线: `04_field-map-route-index.csv`
-- Downloaded metadata profile routes / 已下载 metadata profile 路线: `05_metadata-profile-route-index.csv`
-- Human review sheet / 人工复核表: `06_human-source-review-sheet.md`
-
-## Current Route Counts / 当前路线数量
-
-- Download route count / 下载路线数: `{packet["download_route_count"]}`
-- Package route count / 来源包路线数: `{packet["package_route_count"]}`
-- Field map route count / 字段映射路线数: `{packet["field_map_route_count"]}`
-- Metadata profile route count / metadata profile 路线数: `{packet["metadata_profile_route_count"]}`
-
-## Risk And Boundary / 风险与边界
-
-English:
-{source["risk_note"]}
-
-These rows are preparation-stage source routes. They are not rights clearance, not a formal import decision, not a confirmed character reading, not a component assignment, not an inscription identity, and not a decipherment conclusion.
-
-简体中文：
-{source["risk_note"]}
-
-这些记录只是准备阶段的来源路线。它们不是权利清理结论，不是正式导入决定，不是已确认字义或释读，不是构件归属，不是卜辞身份结论，也不是破译结论。
-"""
-
-
-def status_label(count: int, present_label: str) -> str:
-    if count > 0:
-        return present_label
-    return "not_present_in_current_registers"
+    lines = [
+        f"# {source['source_id']} Source Object",
+        "",
+        "## English",
+        *wrapped(
+            "This directory is the object-local human and AI entrance for one "
+            "registered research source. It keeps readable notes, route indexes, "
+            "processing status, review prompts, and machine-readable packets "
+            "inside the same concrete source object directory."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本目录是一个已登记研究来源的对象内入口。人类可读说明、访问路线、"
+            "处理状态、复核提示和 AI 可读索引都放在同一个具体来源对象目录中。"
+        ),
+        "",
+        "## Source Summary / 来源摘要",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Type / 类型", source["source_type"]),
+        *bullet("Title / 标题", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Authority tier / 权威等级", source["authority_tier"]),
+        *bullet("URL / 链接", source["source_url"]),
+        *bullet("Adoption status / 采用状态", source["adoption_status"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        "",
+        "## Local Entrances / 本目录入口",
+        *bullet("AI packet / AI 来源包", "01_source-packet.json"),
+        *bullet("Download routes / 下载或访问路线", "02_download-route-index.csv"),
+        *bullet("Package routes / 来源包清单路线", "03_package-route-index.csv"),
+        *bullet("Field maps / 字段映射路线", "04_field-map-route-index.csv"),
+        *bullet("Metadata profiles / 元数据概况路线", "05_metadata-profile-route-index.csv"),
+        *bullet("Human review / 人工复核单", "06_human-source-review-sheet.md"),
+        *bullet("Material index / 资料访问索引", "07_material-access-index.md"),
+        *bullet("Processing status / 处理状态卡", "08_source-processing-status.md"),
+        *bullet("Status JSON / 处理状态索引", "09_source-processing-status-index.json"),
+        "",
+        "## Route Counts / 路线数量",
+        *bullet("Download route count / 下载路线数", packet["download_route_count"]),
+        *bullet("Package route count / 来源包路线数", packet["package_route_count"]),
+        *bullet("Field map route count / 字段映射路线数", packet["field_map_route_count"]),
+        *bullet("Metadata profile route count / 元数据概况路线数", packet["metadata_profile_route_count"]),
+        "",
+        "## Risk And Boundary / 风险与边界",
+        *wrapped(str(source["risk_note"])),
+        "",
+        *wrapped(
+            "These rows are preparation-stage source routes. They are not rights "
+            "clearance, not an import decision, not a confirmed reading, not a "
+            "component assignment, not an inscription identity, and not a "
+            "decipherment conclusion."
+        ),
+        "",
+        *wrapped(
+            "这些记录只是准备阶段的来源路线。它们不是权利清理结论，不是导入决定，"
+            "不是已确认释读，不是构件归属，不是卜辞身份结论，也不是破译结论。"
+        ),
+    ]
+    return "\n".join(lines)
 
 
 def material_access_index_text(
@@ -265,86 +426,188 @@ def material_access_index_text(
     field_routes: list[dict[str, str]],
     metadata_routes: list[dict[str, str]],
 ) -> str:
-    download_count = len(download_routes)
-    package_count = len(package_routes)
-    field_count = len(field_routes)
-    metadata_count = len(metadata_routes)
     download_statuses = sorted({row.get("download_status", "") for row in download_routes if row.get("download_status")})
     package_kinds = sorted({row.get("file_kind", "") for row in package_routes if row.get("file_kind")})
     target_record_types = sorted({row.get("target_record_type", "") for row in field_routes if row.get("target_record_type")})
     metadata_metrics = sorted({row.get("profile_metric", "") for row in metadata_routes if row.get("profile_metric")})
-    return f"""# {source["source_id"]} Material Access Index / {source["source_id"]} 资料访问索引
-
-English:
-This object-local index tells a human reviewer what source materials are currently visible in this same source directory and which AI-readable files carry the structured routes. It is a preparation-stage access map, not a rights decision or research conclusion.
-
-简体中文：
-本对象内索引说明人工复核者在同一个来源目录里可以看到哪些资料入口，以及哪些 AI 可读文件保存了结构化路线。它只是准备阶段的访问地图，不是权利结论，也不是学术结论。
-
-## Human-Readable Entrances / 人类可读入口
-
-| Material area | Local file | Current status | Count or signal |
-| --- | --- | --- | --- |
-| Source summary / 来源摘要 | `README.md` | present | source ID `{source["source_id"]}` |
-| Human review sheet / 人工复核表 | `06_human-source-review-sheet.md` | present | source provenance and rights checklist |
-| Download or access routes / 下载或访问路线 | `02_download-route-index.csv` | {status_label(download_count, "route_rows_present")} | {download_count} route row(s); statuses: {";".join(download_statuses) if download_statuses else "none"} |
-| Package or file manifest routes / 来源包或文件清单路线 | `03_package-route-index.csv` | {status_label(package_count, "route_rows_present")} | {package_count} route row(s); kinds: {";".join(package_kinds) if package_kinds else "none"} |
-| Field maps / 字段映射 | `04_field-map-route-index.csv` | {status_label(field_count, "field_rows_present")} | {field_count} row(s); target records: {";".join(target_record_types) if target_record_types else "none"} |
-| Downloaded metadata profiles / 已下载 metadata profile | `05_metadata-profile-route-index.csv` | {status_label(metadata_count, "profile_rows_present")} | {metadata_count} row(s); metrics: {";".join(metadata_metrics) if metadata_metrics else "none"} |
-
-## AI-Readable Entrances / AI 可读入口
-
-- Source packet / 来源 packet: `01_source-packet.json`
-- Download route table / 下载路线表: `02_download-route-index.csv`
-- Package route table / 来源包路线表: `03_package-route-index.csv`
-- Field-map route table / 字段映射路线表: `04_field-map-route-index.csv`
-- Metadata profile route table / metadata profile 路线表: `05_metadata-profile-route-index.csv`
-
-## Next Review Step / 下一步复核入口
-
-- Rights status / 权利状态: `{source["rights_status"]}`
-- Review status / 复核状态: `{source["review_status"]}`
-- Risk note / 风险提示: {source["risk_note"]}
-- Recommended next action / 建议下一步: inspect the route rows above, then decide whether source-safe visual/text derivatives can be added inside the relevant concrete corpus object directories.
-
-## Boundary / 边界
-
-English:
-This index does not collect new evidence, clear rights, promote a source, import corpus records, confirm a character identity, assign a component, identify an inscription, confirm an evolution chain, or make a decipherment conclusion.
-
-简体中文：
-本索引不采集新证据，不完成权利清理，不提升来源，不导入语料记录，不确认字形身份，不指定构件，不确认卜辞身份，不确认演化链，也不作释读结论。
-"""
+    lines = [
+        f"# {source['source_id']} Material Access Index",
+        "",
+        "## English",
+        *wrapped(
+            "This object-local index tells a human reviewer what source "
+            "materials are visible here and which AI-readable files carry the "
+            "structured routes. It is an access map, not a rights decision."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本索引说明同一来源对象目录中有哪些资料入口，以及哪些 AI 可读文件保存"
+            "结构化路线。它只是访问地图，不是权利结论或学术结论。"
+        ),
+        "",
+        "## Human-Readable Entrances / 人类可读入口",
+        *bullet("Source summary / 来源摘要", "README.md"),
+        *bullet("Human review sheet / 人工复核单", "06_human-source-review-sheet.md"),
+        *bullet("Material access index / 资料访问索引", "07_material-access-index.md"),
+        *bullet("Processing status card / 处理状态卡", "08_source-processing-status.md"),
+        "",
+        "## AI-Readable Entrances / AI 可读入口",
+        *bullet("Source packet / 来源包", "01_source-packet.json"),
+        *bullet("Download route table / 下载路线表", "02_download-route-index.csv"),
+        *bullet("Package route table / 来源包路线表", "03_package-route-index.csv"),
+        *bullet("Field-map route table / 字段映射表", "04_field-map-route-index.csv"),
+        *bullet("Metadata profile table / 元数据概况表", "05_metadata-profile-route-index.csv"),
+        *bullet("Processing status JSON / 处理状态索引", "09_source-processing-status-index.json"),
+        "",
+        "## Route Signals / 路线信号",
+        *bullet("Download route count / 下载路线数", len(download_routes)),
+        *bullet("Download statuses / 下载状态", joined(download_statuses)),
+        *bullet("Package route count / 来源包路线数", len(package_routes)),
+        *bullet("Package kinds / 来源包类型", joined(package_kinds)),
+        *bullet("Field map count / 字段映射数", len(field_routes)),
+        *bullet("Target records / 目标记录", joined(target_record_types)),
+        *bullet("Metadata profile count / 元数据概况数", len(metadata_routes)),
+        *bullet("Profile metrics / 概况指标", joined(metadata_metrics)),
+        "",
+        "## Next Review Step / 下一步复核入口",
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        *bullet("Risk note / 风险提示", source["risk_note"]),
+        "",
+        *wrapped(
+            "Inspect the route rows above, then decide whether source-safe "
+            "visual or text derivatives can be added inside the relevant "
+            "concrete corpus object directories."
+        ),
+        "",
+        *wrapped(
+            "请先复核上述路线，再判断能否把安全的图像或文本派生记录放入对应的具体"
+            "语料对象目录。"
+        ),
+        "",
+        "## Boundary / 边界",
+        *wrapped(
+            "This index does not collect new evidence, clear rights, promote a "
+            "source, import corpus records, confirm a character identity, assign "
+            "a component, identify an inscription, confirm an evolution chain, "
+            "or make a decipherment conclusion."
+        ),
+        "",
+        *wrapped(
+            "本索引不采集新证据，不完成权利清理，不提升来源等级，不导入正式语料，"
+            "不确认字形身份，不指定构件，不确认卜辞身份，不确认演化链，也不作"
+            "释读结论。"
+        ),
+    ]
+    return "\n".join(lines)
 
 
 def review_sheet_text(source: dict[str, str]) -> str:
-    return f"""# {source["source_id"]} Human Source Review Sheet / {source["source_id"]} 人工来源复核表
+    lines = [
+        f"# {source['source_id']} Human Source Review Sheet",
+        "",
+        "## Review Scope / 复核范围",
+        *wrapped(
+            "Review source provenance, access status, package or file metadata, "
+            "field mapping, rights status, and whether any raw material is safe "
+            "to promote into object-local derived records."
+        ),
+        "",
+        *wrapped(
+            "只复核来源出处、访问状态、来源包或文件 metadata、字段映射、权利状态，"
+            "以及是否可以把某些原始资料提升为对象内派生记录。"
+        ),
+        "",
+        "## Checklist / 清单",
+        "- [ ] Source register row checked against `01_source-packet.json`",
+        "- [ ] Download routes checked in `02_download-route-index.csv`",
+        "- [ ] Package manifest checked in `03_package-route-index.csv`",
+        "- [ ] Field maps checked in `04_field-map-route-index.csv`",
+        "- [ ] Metadata profiles checked in `05_metadata-profile-route-index.csv`",
+        "- [ ] Processing card checked in `08_source-processing-status.md`",
+        "- [ ] Rights status reviewed before any asset promotion",
+        "- [ ] No reading, identity, component, or inscription claim added",
+        "",
+        "## Status / 状态",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", "needs_human_source_review"),
+        *bullet("Decipherment claim status / 释读结论状态", "no_claim"),
+    ]
+    return "\n".join(lines)
 
-## Review Scope / 复核范围
 
-English:
-Review only source provenance, access status, package/file metadata, field mapping, rights status, and whether any raw material is safe to promote into object-local derived records.
-
-简体中文：
-这里只复核来源出处、访问状态、来源包/文件 metadata、字段映射、权利状态，以及是否可以把某些原始资料提升为对象内派生记录。
-
-## Checklist / 清单
-
-- [ ] Source register row checked against `01_source-packet.json`
-- [ ] Download/access routes checked in `02_download-route-index.csv`
-- [ ] Package/file manifest routes checked in `03_package-route-index.csv`
-- [ ] Field-map routes checked in `04_field-map-route-index.csv`
-- [ ] Metadata profile routes checked in `05_metadata-profile-route-index.csv`
-- [ ] Rights status and risk note reviewed before any asset promotion
-- [ ] No reading, identity, component, inscription, or correspondence conclusion added
-
-## Status / 状态
-
-- Source ID / 来源 ID: `{source["source_id"]}`
-- Rights status / 权利状态: `{source["rights_status"]}`
-- Review status / 复核状态: `needs_human_source_review`
-- Decipherment claim status / 释读结论状态: `no_claim`
-"""
+def processing_status_text(
+    source: dict[str, str],
+    status_index: dict[str, object],
+) -> str:
+    lines = [
+        f"# {source['source_id']} Source Processing Status",
+        "",
+        "## English",
+        *wrapped(
+            "This card summarizes the current preprocessing stage for this "
+            "source. It shows what has evidence, what has only candidate routes, "
+            "and what still needs human review before formal research use."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本卡片汇总该来源目前的预处理阶段。它说明哪些环节已有证据，哪些只是"
+            "候选路线，哪些仍需人工复核后才能进入正式研究。"
+        ),
+        "",
+        "## Source / 来源",
+        *bullet("Title / 标题", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Risk note / 风险提示", source["risk_note"]),
+        "",
+        "## Phase Status / 阶段状态",
+    ]
+    for phase in status_index["phases"]:
+        lines.extend(
+            [
+                "",
+                f"### {phase['phase']}",
+                *bullet("Status / 状态", phase["status"]),
+                *bullet("Evidence file / 证据文件", phase["evidence_file"]),
+                *bullet("Evidence count / 证据数量", phase.get("evidence_count", "not recorded")),
+                *bullet("Review status / 复核状态", phase["review_status"]),
+            ]
+        )
+    missing = status_index["missing_or_review_items"]
+    lines.extend(
+        [
+            "",
+            "## Missing Or Review Items / 缺失或待复核项",
+            *bullet("Items / 项目", joined(list(missing), "none_recorded")),
+            "",
+            "## Human Next Step / 人工下一步",
+            *wrapped(
+                "Open the route CSV files listed above, compare them with the "
+                "source register and download log, and record whether derived "
+                "records can be safely created in the relevant corpus objects."
+            ),
+            "",
+            *wrapped(
+                "请打开上述路线 CSV，与来源登记和下载日志比对，并记录能否在相应语料"
+                "对象中安全生成派生记录。"
+            ),
+            "",
+            "## Boundary / 边界",
+            *wrapped(
+                "All statuses here are infrastructure statuses. They are not "
+                "scholarly conclusions and do not start formal decipherment work."
+            ),
+            "",
+            *wrapped(
+                "这里的所有状态都是资料工程状态，不是学术结论，也不开始正式释读研究。"
+            ),
+        ]
+    )
+    return "\n".join(lines)
 
 
 def build_materials(root: Path) -> dict[str, int]:
@@ -380,16 +643,27 @@ def build_materials(root: Path) -> dict[str, int]:
             field_routes,
             metadata_routes,
         )
-        (object_dir / "README.md").write_text(readme_text(source, packet).rstrip() + "\n", encoding="utf-8")
+        status_index = build_processing_status_index(
+            source,
+            download_routes,
+            package_routes,
+            field_routes,
+            metadata_routes,
+        )
+        write_human_markdown(object_dir / "README.md", f"{source_id}/README.md", readme_text(source, packet))
         write_json(object_dir / "01_source-packet.json", packet)
         write_csv(object_dir / "02_download-route-index.csv", download_routes, DOWNLOAD_ROUTE_FIELDS)
         write_csv(object_dir / "03_package-route-index.csv", package_routes, PACKAGE_ROUTE_FIELDS)
         write_csv(object_dir / "04_field-map-route-index.csv", field_routes, FIELD_ROUTE_FIELDS)
         write_csv(object_dir / "05_metadata-profile-route-index.csv", metadata_routes, METADATA_ROUTE_FIELDS)
-        (object_dir / "06_human-source-review-sheet.md").write_text(
-            review_sheet_text(source).rstrip() + "\n", encoding="utf-8"
+        write_human_markdown(
+            object_dir / "06_human-source-review-sheet.md",
+            f"{source_id}/06_human-source-review-sheet.md",
+            review_sheet_text(source),
         )
-        (object_dir / "07_material-access-index.md").write_text(
+        write_human_markdown(
+            object_dir / "07_material-access-index.md",
+            f"{source_id}/07_material-access-index.md",
             material_access_index_text(
                 source,
                 packet,
@@ -397,10 +671,14 @@ def build_materials(root: Path) -> dict[str, int]:
                 package_routes,
                 field_routes,
                 metadata_routes,
-            ).rstrip()
-            + "\n",
-            encoding="utf-8",
+            ),
         )
+        write_human_markdown(
+            object_dir / "08_source-processing-status.md",
+            f"{source_id}/08_source-processing-status.md",
+            processing_status_text(source, status_index),
+        )
+        write_json(object_dir / "09_source-processing-status-index.json", status_index)
     return {"source_object_count": len(sources)}
 
 

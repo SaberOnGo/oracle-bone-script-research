@@ -127,13 +127,19 @@ OBJECT_SPECS = [
         "research_source_objects",
         Path("corpus/006_research-sources-and-bibliography/001_source-objects"),
         "*/01_source-packet.json",
-        ("README.md", "06_human-source-review-sheet.md", "07_material-access-index.md"),
+        (
+            "README.md",
+            "06_human-source-review-sheet.md",
+            "07_material-access-index.md",
+            "08_source-processing-status.md",
+        ),
         (
             "01_source-packet.json",
             "02_download-route-index.csv",
             "03_package-route-index.csv",
             "04_field-map-route-index.csv",
             "05_metadata-profile-route-index.csv",
+            "09_source-processing-status-index.json",
         ),
         (),
         (

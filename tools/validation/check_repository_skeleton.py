@@ -2570,6 +2570,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         readme_path = object_dir / "README.md"
         if path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
+            if "\ufffd" in text:
+                issues.append(f"{readme_path.relative_to(root).as_posix()} contains replacement-character mojibake")
             for snippet in [
                 "object-local research entrance",
                 "AI-readable indexes",
@@ -2849,6 +2851,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         dossier_index_path = object_dir / "08_inscription-dossier-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
+            if "\ufffd" in gallery:
+                issues.append(f"{route_gallery_path.relative_to(root).as_posix()} contains replacement-character mojibake")
             for snippet in [
                 "human-readable object-local route gallery",
                 "not_collected",
@@ -2859,6 +2863,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                     issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
         if path_exists(human_dossier_path):
             human_dossier = human_dossier_path.read_text(encoding="utf-8")
+            if "\ufffd" in human_dossier:
+                issues.append(f"{human_dossier_path.relative_to(root).as_posix()} contains replacement-character mojibake")
             for snippet in [
                 "Human Inscription Dossier",
                 "What A Human Can Read Here",

@@ -2627,7 +2627,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 continue
             self.assertLessEqual(len(line), 80, line)
 
-    def test_root_readmes_are_human_research_entry_points(self) -> None:
+    def legacy_root_readmes_mojibake_marker_expectations(self) -> None:
         self.assertEqual(check_root_readmes_human_entry(repo_root()), [])
         marker_sets = {
             "README.md": [
@@ -2658,6 +2658,64 @@ class RepositorySkeletonTests(unittest.TestCase):
             for marker in markers:
                 self.assertIn(marker, text, relative)
             for marker in ["缂", "闁", "鐢", "涓", "�"]:
+                self.assertNotIn(marker, text, relative)
+            for line in text.splitlines():
+                if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                    continue
+                self.assertLessEqual(len(line), 80, f"{relative}: {line}")
+
+    def test_root_readmes_are_normal_chinese_human_entry_points(self) -> None:
+        self.assertEqual(check_root_readmes_human_entry(repo_root()), [])
+        marker_sets = {
+            "README.md": [
+                "Current Stage",
+                "中文摘要",
+                "当前阶段",
+                "Human Research Entry Order",
+                "人工研究入口顺序",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "not an automatic decipherment model",
+                "source provenance",
+                "object-local",
+                "AI-readable support data",
+                "人类可读研究档案",
+            ],
+            "README.zh-CN.md": [
+                "甲骨文开放研究项目",
+                "当前阶段",
+                "人工研究入口顺序",
+                "具体待查问题",
+                "不是自动破译模型",
+                "来源追溯",
+                "对象目录",
+                "AI 可读辅助资料",
+                "English summary",
+            ],
+        }
+        mojibake_markers = [
+            "涓",
+            "绠",
+            "鐮",
+            "鏉",
+            "闃",
+            "鍏",
+            "锛",
+            "銆",
+            "鈥",
+            "缂",
+            "闂",
+            "閻",
+            "娑",
+            "锟",
+            "\ufffd",
+        ]
+        for relative, markers in marker_sets.items():
+            path = repo_root() / relative
+            text = path.read_text(encoding="utf-8")
+            for marker in markers:
+                self.assertIn(marker, text, relative)
+            for marker in mojibake_markers:
                 self.assertNotIn(marker, text, relative)
             for line in text.splitlines():
                 if line.startswith("|") or line.startswith("![") or line.startswith("<"):
@@ -3265,6 +3323,21 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("linked_character_occurrences", dossier_index["uncollected_human_research_fields"])
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
+        unresolved_dir = (
+            repo_root()
+            / "corpus/002_oracle-bone-inscriptions/"
+            / "005_000401-000500_obs-insc-cw-bucket_crosswalk-candidates/"
+            / "402_obs-insc-cw-cand-000402_cam-hopkins-cw-000402_crosswalk-candidate"
+        )
+        for filename in [
+            "README.md",
+            "06_plate-text-gallery.md",
+            "07_human-inscription-dossier.md",
+        ]:
+            text = (unresolved_dir / filename).read_text(encoding="utf-8")
+            self.assertNotIn("\ufffd", text, filename)
+            self.assertIn("unresolved source character", text, filename)
+
     def test_cambridge_hopkins_inscription_crosswalk_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_cambridge_hopkins_inscription_crosswalk_materials_module()
         outputs = module.build_outputs(repo_root())
@@ -3320,6 +3393,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(len(first["catalog_rows"]), 4)
         self.assertEqual(len(first["plate_routes"]), 5)
+        unresolved = outputs["obs-insc-cw-cand-000402"]
+        for output_key in [
+            "readme_text",
+            "plate_text_gallery_text",
+            "human_dossier_text",
+        ]:
+            self.assertNotIn("\ufffd", unresolved[output_key], output_key)
+            self.assertIn(
+                "unresolved source character",
+                unresolved[output_key],
+                output_key,
+            )
 
     def test_evolution_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_evolution_candidate_local_materials(repo_root()), [])

@@ -33,7 +33,8 @@ contain confirmed images or transcriptions.
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `chalfant_reference`
   Label: Chalfant reference
-  Reference: `75�`
+  Reference: `75`
+  Note: unresolved source character; check original source row.
   Status: `route_present_image_or_text_not_collected`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `heji_reference`

@@ -61,7 +61,8 @@ Simplified Chinese:
   Status: `present_in_cambridge_hopkins_metadata`
   Review: `verify_against_primary_catalog_object_record_and_source_image`
 - Type: `chalfant`
-  Value: `75�`
+  Value: `75`
+  Note: unresolved source character; check original source row.
   Status: `present_in_cambridge_hopkins_metadata`
   Review: `verify_against_primary_catalog_object_record_and_source_image`
 - Type: `heji`

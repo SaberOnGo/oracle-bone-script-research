@@ -54,7 +54,8 @@ These labels are imported metadata, not a new chronological judgement.
   Status: `present_in_cambridge_hopkins_metadata`
   Review: `verify_against_primary_catalog_object_record_and_source_image`
 - Type: `chalfant`
-  Value: `75�`
+  Value: `75`
+  Note: unresolved source character; check original source row.
   Status: `present_in_cambridge_hopkins_metadata`
   Review: `verify_against_primary_catalog_object_record_and_source_image`
 - Type: `heji`
@@ -81,7 +82,8 @@ These labels are imported metadata, not a new chronological judgement.
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `chalfant_reference`
   Label: Chalfant reference
-  Reference: `75�`
+  Reference: `75`
+  Note: unresolved source character; check original source row.
   Status: `route_present_image_or_text_not_collected`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `heji_reference`

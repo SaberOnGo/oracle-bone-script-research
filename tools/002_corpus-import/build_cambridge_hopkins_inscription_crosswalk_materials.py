@@ -116,13 +116,23 @@ def assert_human_line_width(path_label: str, text: str) -> None:
             )
 
 
+def reference_value_markdown_lines(label: str, value: str) -> list[str]:
+    if "\ufffd" not in value:
+        return [f"  {label}: `{value or '(blank)'}`"]
+    cleaned = value.replace("\ufffd", "").strip() or "(blank)"
+    return [
+        f"  {label}: `{cleaned}`",
+        "  Note: unresolved source character; check original source row.",
+    ]
+
+
 def catalog_reference_markdown(catalog_rows: list[dict[str, str]]) -> str:
     lines: list[str] = []
     for ref in catalog_rows:
+        lines.append(f"- Type: `{ref['reference_type']}`")
+        lines.extend(reference_value_markdown_lines("Value", ref["reference_value"]))
         lines.extend(
             [
-                f"- Type: `{ref['reference_type']}`",
-                f"  Value: `{ref['reference_value'] or '(blank)'}`",
                 f"  Status: `{ref['reference_status']}`",
                 f"  Review: `{ref['required_review']}`",
             ]
@@ -137,7 +147,11 @@ def route_markdown(plate_routes: list[dict[str, str]]) -> str:
             [
                 f"- Route: `{route['route_type']}`",
                 f"  Label: {route['route_label']}",
-                f"  Reference: `{route['reference_value'] or '(blank)'}`",
+            ]
+        )
+        lines.extend(reference_value_markdown_lines("Reference", route["reference_value"]))
+        lines.extend(
+            [
                 f"  Status: `{route['evidence_status']}`",
                 f"  Review: `{route['review_status']}`",
             ]

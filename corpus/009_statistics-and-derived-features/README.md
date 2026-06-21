@@ -1,336 +1,131 @@
-# Statistics And Derived Features / 缂佺喕顓告稉搴㈡烦閻㈢喓澹掑?
+# Statistics And Derived Features / 统计与派生特征
+
 English:
-This directory will store generated occurrence, co-occurrence, topic, period, site, and similarity statistics.
-
-Current generated statistics:
-
-- `190_project-id-source-map-audit.csv`: six-row audit of the project-local ID to source-reference maps under `project_registry/002_project-id-to-source-reference-map/`. It records row counts, canonical-path gaps, source-ID registration gaps, external-reference coverage, rights/review distributions, current preprocessing stage, and next map-review entry without promoting any candidate or asset row.
-- `191_project-id-source-map-summary.json`: compact summary for 190, including total mapped rows, map-stage counts, issue totals, and the no-scholarship/no-decipherment boundary.
-- `188_object-local-material-coverage-audit.csv`: repository-wide object-local material coverage audit for concrete character, component, evolution, inscription-crosswalk, collection-object, source-object, and topic-candidate directories. It records human-readable files, AI-readable packets/indexes, local review images, route galleries, source material access indexes, missing object-local files, and parallel-directory checks without promoting any record into scholarship.
-- `189_object-local-material-coverage-summary.json`: compact summary for 188, including corpus-area counts, image-bearing object counts, route-gallery object counts, metadata-only object counts, and the no-parallel-human-directory boundary.
-- `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` now roll up the `source_ids` from 188 into source-level object-local material bundle, review-image object, route object, and partial-bundle counts. These counts only help find the next preprocessing entrance for each source; they do not promote candidate objects, decide rights, import corpus records, or make decipherment claims.
-- `090_preprocessing-status-audit.csv` counts 188/189 under the review-queue/source-engineering status row, and `135_core-corpus-phase-coverage-matrix.csv` links them from the relationship-graph/statistics evidence paths. These links are preprocessing evidence only, not reviewed scholarship.
-
-Simplified Chinese supplement:
-- `190_project-id-source-map-audit.csv`：对 `project_registry/002_project-id-to-source-reference-map/` 下六个本项目 ID 到来源引用映射表进行审计，记录行数、规范路径缺口、来源 ID 登记缺口、外部引用覆盖、权利/复核状态分布、当前预处理阶段和下一步映射复核入口；不提升任何候选或资产记录。
-- `191_project-id-source-map-summary.json`：190 的摘要，包含映射总行数、映射阶段统计、问题总数，以及不作为学术结论/不作为释读结论的边界。
-- `094_source-processing-pipeline-audit.csv` 和 `095_source-processing-pipeline-summary.json` 现在会把 188 中的 `source_ids` 汇总为来源级对象内资料包、复核图像对象、路线对象和部分缺失包计数。这些计数只用于定位每个来源的下一步预处理入口；不提升候选对象、不裁定权利、不导入语料，也不提出释读结论。
-
-简体中文补充：
-- `188_object-local-material-coverage-audit.csv`：面向全仓库具体对象目录的对象内资料覆盖审计，覆盖甲骨字、构件、演化、卜辞 crosswalk、馆藏对象、来源对象和研究主题候选目录。它记录人类可读文件、AI 可读 packet/index、本地复核图片、路线图、来源资料访问索引、缺失对象内文件和并行目录检查，不把任何记录提升为学术结论。
-- `189_object-local-material-coverage-summary.json`：188 的摘要，包含各 corpus 区域对象数、有图片对象数、有路线图对象数、metadata-only 对象数，以及“不另建并行人类目录”的边界。
-- `090_preprocessing-status-audit.csv` 会在复核队列/来源工程状态行中统计 188/189，`135_core-corpus-phase-coverage-matrix.csv` 会从关系图/派生统计证据路径链接它们。这些链接只属于预处理证据，不是已复核学术结论。
-
-- `133_ai-agent-source-pipeline-gap-review-checklist.csv`: not-started per-source checklist derived from 132, listing existing route files and required source-engineering review steps for every registered source while keeping evidence, rights, source promotion, corpus import, and decipherment outcomes empty.
-
-简体中文补充：
-- `133_ai-agent-source-pipeline-gap-review-checklist.csv`：从 132 派生的逐来源未开始复核清单，为每个已登记来源列出现有 route files 和必需来源工程复核步骤；证据、权利、来源提升、语料导入和释读 outcome 仍为空。
-
-- `132_ai-agent-source-pipeline-gap-matrix.csv`: 21-row source-level preprocessing gap matrix derived from the source register and 094 pipeline audit. It classifies review lanes only and does not decide rights, promote sources, import corpus records, or make decipherment claims.
-
-简体中文补充：
-- `132_ai-agent-source-pipeline-gap-matrix.csv`：21 行来源级预处理缺口矩阵，来源于来源登记表和 094 流水线审计。它只分类复核 lane，不作权利裁定、不提升来源、不导入语料，也不提出释读结论。
-
-- `124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv`: manifest for four empty second-wave source-engineering Markdown review drafts under `doc/public/user_research/`, generated from the 123 checklist while keeping evidence collection, rights decisions, source promotion, corpus import, identity, component, evolution, and decipherment claims blocked.
-- `125_ai-agent-source-engineering-second-wave-result-scaffold.csv`: empty result scaffold for the four 124 second-wave source-engineering review drafts, reserving source-level outcome fields while keeping every route not started, not collected, not promoted, not imported, and outside decipherment claims.
-- `126_ai-agent-source-engineering-second-wave-review-checklist.csv`: human-gated checklist for the four 125 second-wave result scaffold rows, listing route files, lane-specific review steps, assignment status, and non-promotion/non-import boundaries before any source-engineering outcome is recorded.
-- `127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv`: empty, human-gated outcome scaffold for the four 126 second-wave checklist rows. It reserves fields for reviewed source-engineering outcomes while keeping evidence, rights, promotion, import, identity, component, evolution, and decipherment claims uncollected or blocked.
-- `128_ai-agent-source-engineering-second-wave-outcome-route-pack.json`: routing-only JSON index for the four 127 outcome scaffold rows, grouped by source and review lane before any human-reviewed outcome is recorded.
-- `129_ai-agent-source-engineering-second-wave-outcome-handoff-scaffold.json`: planned handoff scaffold for the four 128 outcome routes, keeping reviewer assignment, evidence, outcomes, rights, promotion, import, identity, component, evolution, and decipherment decisions unset.
-- `130_ai-agent-source-engineering-second-wave-handoff-review-checklist.csv`: not-started pre-review checklist for the four 129 handoffs, requiring route-file and empty-outcome checks before any later reviewed source-engineering outcome is recorded.
-- `131_ai-agent-source-engineering-second-wave-handoff-route-summary.json`: routing-only summary for the four 130 checklist rows, grouping them by source, lane, and status without recording reviewed outcomes.
+This directory is the human entry point for generated statistics, coverage
+audits, route packs, review queues, and source-processing scaffolds. These
+files help researchers find what has been prepared, what still needs review,
+and which source or object route should be opened next.
 
 简体中文：
-- `124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv`：从 123 检查清单生成的四个第二波来源工程 Markdown 复核草稿 manifest；草稿位于 `doc/public/user_research/`，并继续阻断证据收集、权利决定、来源提升、语料导入、身份、构件、演化和释读结论。
-- `125_ai-agent-source-engineering-second-wave-result-scaffold.csv`：对应四个 124 第二波来源工程复核草稿的空结果脚手架；预留来源级 outcome 字段，并保持所有路线为未开始、未收集、未提升、未导入且不构成释读结论。
-- `126_ai-agent-source-engineering-second-wave-review-checklist.csv`：对应四个 125 第二波结果脚手架行的人工门控检查清单；在记录任何来源工程 outcome 前列出路线文件、按 lane 区分的复核步骤、分派状态以及不提升/不导入边界。
+本目录是统计、覆盖审计、路线包、复核队列和来源处理脚手架的人类入口。
+这些文件帮助研究者判断哪些资料已经预处理，哪些仍需复核，以及下一步
+应打开哪个来源、对象或证据路线。
 
-English supplement:
-- `127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv` is the next structured review surface after 126. It is not evidence, not a rights decision, not source promotion, not corpus import, and not a decipherment conclusion.
-- `128_ai-agent-source-engineering-second-wave-outcome-route-pack.json` is the route index after 127. It is not evidence, not an outcome record, not source promotion, not corpus import, and not a decipherment conclusion.
-- `129_ai-agent-source-engineering-second-wave-outcome-handoff-scaffold.json` is the planned handoff surface after 128. It is not evidence, not a reviewed outcome, not a rights decision, not source promotion, not corpus import, and not a decipherment conclusion.
-- `130_ai-agent-source-engineering-second-wave-handoff-review-checklist.csv` is the pre-review checklist after 129. It is not evidence, not a reviewed outcome, not a rights decision, not source promotion, not corpus import, and not a decipherment conclusion.
-- `131_ai-agent-source-engineering-second-wave-handoff-route-summary.json` is the route summary after 130. It is not evidence, not a reviewed outcome, not a rights decision, not source promotion, not corpus import, and not a decipherment conclusion.
+## Boundary / 边界
 
-简体中文补充：
-- `129_ai-agent-source-engineering-second-wave-outcome-handoff-scaffold.json` 是 128 之后的计划性交接入口。它不是证据、不是已复核 outcome、不是权利决定、不是来源提升、不是语料导入，也不是释读结论。
-- `130_ai-agent-source-engineering-second-wave-handoff-review-checklist.csv` 是 129 之后的前置复核清单。它不是证据、不是已复核 outcome、不是权利决定、不是来源提升、不是语料导入，也不是释读结论。
-- `131_ai-agent-source-engineering-second-wave-handoff-route-summary.json` 是 130 之后的路线汇总。它不是证据、不是已复核 outcome、不是权利决定、不是来源提升、不是语料导入，也不是释读结论。
+- These files are preprocessing and navigation evidence only.
+- They are not source evidence by themselves.
+- They are not rights decisions or source-promotion decisions.
+- They are not corpus imports or reviewed scholarly outcomes.
+- They are not a decipherment conclusion.
+- 这些文件只属于预处理和导航证据。
+- 它们本身不是来源证据、权利裁定或来源提升决定。
+- 它们不是语料导入结果，也不是已复核学术结论。
+- 它们不构成释读结论。
 
-简体中文补充：
-- `127_ai-agent-source-engineering-second-wave-review-outcome-scaffold.csv` 是 126 之后的结构化复核结果表面。它不是证据、不是权利裁定、不是来源提升、不是语料导入，也不是释读结论。
-- `128_ai-agent-source-engineering-second-wave-outcome-route-pack.json` 是 127 之后的路线索引。它不是证据、不是结果记录、不是来源提升、不是语料导入，也不是释读结论。
+## Main Human Entry Points / 主要人工入口
 
-- `001_relationship-graph-edge-type-summary.csv`: edge counts by graph file, source ID, and edge type.
-- `002_relationship-graph-node-degree-summary.csv`: in-degree, out-degree, source coverage, graph-file coverage, and edge-type counts by graph node.
-- `003_ai-agent-relationship-graph-context-pack.json`: compact AI Agent entry context built from relationship graph statistics.
-- `004_ai-agent-hust-obc-bucket-review-route-pack.json`: AI Agent route pack for the 16 HUST-OBC promotion-review buckets, linking each batch to manifests, graph files, source checks, and evidence gaps.
-- `005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv`: per-candidate queue for 1,588 HUST-OBC evidence-pack drafts, including required sections, route files, evidence gaps, and draft output paths under `doc/public/user_research/`.
-- `006_ai-agent-public-domain-asset-context-pack.json`: AI Agent routing context for committed public-domain image assets, rights review, technical metadata, and safe visual preprocessing metadata.
-- `007_source-coverage-summary.csv`: source-level coverage summary for download plans/logs, metadata profiles, committed public assets, relationship-graph derivatives, and HUST-OBC promotion-review candidates.
-- `008_ai-agent-source-coverage-context-pack.json`: AI Agent source-routing context pack built from the coverage summary, preserving source, rights, access, graph, asset, and candidate-queue boundaries before evidence collection.
-- `009_ai-agent-source-route-review-queue.csv`: per-source AI Agent review queue that prioritizes candidate, graph, public-asset, access-limited, metadata-profile, and download-log checks while keeping the work routing-only.
-- `010_ai-agent-source-route-review-result-scaffold.csv`: empty per-source route-review result scaffold, reserving not-collected review sections for source register, route file, rights/risk, size/checksum, promotion decision, evidence gap, and next artifact checks.
-- `011_ai-agent-source-route-review-results.csv`: reviewed metadata-only source-route results for graph-derived HUST-OBC, EVOBC, and OBIMD routes, confirming route files, derived counts, rights/risk boundaries, size/commit-policy boundaries, and next cross-source review actions without promoting raw assets, dataset labels, graph edges, or staging rows into scholarship.
-- `012_ai-agent-graph-source-cross-review-queue.csv`: three metadata-only cross-source review tasks for the first HUST-OBC, EVOBC, and OBIMD graph-derived routes, pointing agents to the required registers, staging rows, graph files, and review logs before any evidence-pack draft or source promotion.
-- `013_ai-agent-graph-source-cross-review-log-scaffold.csv`: empty log scaffold for the 012 cross-source review tasks, keeping source register, download log, package manifest, metadata profile, graph-edge, staging-row, counter-source, rights/risk, review-log, evidence-pack, and promotion-decision sections uncollected until source-marked review.
-- `014_ai-agent-graph-source-cross-review-log-draft-manifest.csv`: manifest for three empty Markdown cross-source review log drafts under `doc/public/user_research/002_cross-source-review-queues/`, keeping every evidence section `not_collected` and every promotion decision `not_decided`.
-- `015_ai-agent-graph-source-cross-review-log-results.csv`: metadata-only cross-source review log results for the three draft logs, confirming local route-file availability, registered counter sources, metadata/profile/download/package rows, graph-edge route counts, and staging-row refs without promoting any dataset labels, graph edges, component assignments, evolution chains, or decipherment conclusions.
-- `016_ai-agent-graph-source-evidence-collection-task-queue.csv`: per-source, per-section evidence-collection task queue derived from the 015 results, routing future agents to source register, download log, package manifest, metadata profile, graph-edge, staging-row, counter-source, rights/risk, and review-log checks while keeping all evidence uncollected.
-- `017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv`: manifest for three empty source-register evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, linked to 016 task rows and kept `not_collected`, `not_promoted`, and outside scholarship.
-- `018_ai-agent-graph-source-download-log-note-draft-manifest.csv`: manifest for three empty download-log evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the large-source download log without recording collected evidence, checksums, rights decisions, or source promotion.
-- `019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv`: manifest for three empty package-manifest evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to source package file manifests without recording file-size conclusions, checksum review, rights decisions, or source promotion.
-- `020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv`: manifest for three empty metadata-profile evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to downloaded metadata profile rows without recording collected metrics, rights decisions, source promotion, or decipherment conclusions.
-- `021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv`: manifest for three empty graph-edge evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to relationship graph JSONL files without recording collected edge evidence, component assignments, evolution-chain claims, or decipherment conclusions.
-- `022_ai-agent-graph-source-staging-row-note-draft-manifest.csv`: manifest for three empty staging-row evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents back to candidate and staging rows without promoting dataset rows into accepted characters, components, evolution chains, or scholarship.
-- `023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv`: manifest for three empty counter-source lookup evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the source register for later cross-source checks without claiming identity matches, source promotion, or decipherment conclusions.
-- `024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv`: manifest for three empty rights/risk review evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to source registers, metadata profiles, download logs, and package manifests without recording rights decisions, size conclusions, source promotion, or decipherment conclusions.
-- `025_ai-agent-graph-source-review-log-note-draft-manifest.csv`: manifest for three empty review-log evidence-collection note drafts under `doc/public/user_research/003_evidence-collection-tasks/`, routing agents to the metadata-only cross-source review results and draft review logs without recording collected evidence, human review conclusions, source promotion, or decipherment conclusions.
-- `026_ai-agent-graph-source-evidence-collection-route-pack.json`: AI Agent route pack that indexes the 017-025 graph-source evidence-collection note draft manifests, all 27 not-collected note drafts, and their route files without turning draft notes into collected evidence, rights decisions, source promotion, or decipherment conclusions.
-- `027_ai-agent-graph-source-evidence-collection-result-scaffold.csv`: empty result scaffold for all 27 graph-source evidence-collection routes, preserving note draft links, route files, and section actions while keeping all evidence, rights, promotion, and decipherment fields uncollected or no-claim.
-- `028_ai-agent-graph-source-evidence-collection-review-queue.csv`: review queue for the 27 graph-source evidence-collection result scaffold rows, routing agents to result rows, note drafts, route packs, manifests, route files, and counter sources before any evidence, rights decision, source promotion, or decipherment claim is recorded.
-- `029_ai-agent-graph-source-evidence-collection-review-route-summary.json`: routing summary for the 028 review queue, grouping the 27 review tasks by source and target evidence section while preserving not-collected, not-promoted, and no-claim boundaries.
-- `030_ai-agent-graph-source-evidence-collection-assignment-plan.json`: planned-not-assigned assignment plan that orders the 27 review tasks into 9 source-balanced waves while keeping all evidence, rights, promotion, and decipherment fields unchanged.
-- `031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json`: first-wave handoff scaffold for the `source_register` assignment wave, listing the three source-register handoff rows and required route files without collecting evidence, assigning owners, deciding rights, promoting sources, or making decipherment claims.
-- `032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv`: empty capture scaffold for the first-wave `source_register` handoff rows, reserving source-register provenance fields while leaving evidence values blank and keeping rights decisions, source promotion, and decipherment claims unset.
-- `033_ai-agent-graph-source-source-register-capture-review-checklist.csv`: not-started review checklist for the 032 source-register capture rows, requiring agents to open the capture row, source register, rights/risk fields, and boundary checks before any evidence value can be recorded.
-- `034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json`: second-wave handoff scaffold for the `download_log` assignment wave, listing the three download-log handoff rows and required route files without downloading files, recording checksums or size/access conclusions, deciding rights, promoting sources, or making decipherment claims.
-- `035_ai-agent-graph-source-download-log-evidence-capture-scaffold.csv`: empty capture scaffold for the second-wave `download_log` handoff rows, reserving download status, URL, size, checksum, local temp path, and risk-note evidence fields while keeping every evidence value blank and every rights, promotion, access, size, checksum, and decipherment status unset.
-- `036_ai-agent-graph-source-download-log-capture-review-checklist.csv`: not-started review checklist for the 035 download-log capture rows, requiring agents to open the download log, verify source/download IDs, URL, status, size, checksum, temp path, and risk note, and block rights inference, source promotion, and decipherment claims.
-- `037_ai-agent-graph-source-package-manifest-wave-handoff-scaffold.json`: third-wave handoff scaffold for the `package_manifest` assignment wave, listing the three package-manifest handoff rows and required route files without recording file sizes, checksums, storage-boundary conclusions, rights decisions, source promotion, or decipherment claims.
-- `038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv`: empty capture scaffold for the third-wave `package_manifest` handoff rows, reserving package file, source package, file name, file kind, source URL, size, download ID, checksum, commit policy, handling strategy, rights, and review-status evidence fields while keeping every evidence value blank and every review, rights, promotion, and decipherment status unset.
-- `039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv`: not-started review checklist for the 038 package-manifest capture rows, requiring agents to open the package manifest row, verify package/source package IDs, file name/kind/URL, file size/download ID, checksum boundary, commit policy, handling strategy, rights/review status, and block source promotion and decipherment claims.
-- `040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json`: metadata-only AI Agent routing context pack for the 1,588 HUST/OBIMD/EVOBC codepoint crosswalk candidates, summarizing OBIMD/EVOBC match coverage, source routes, sample rows, route files, and non-identity/non-decipherment cautions.
-- `041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv`: metadata-only review queue for the 134 HUST/OBIMD/EVOBC codepoint crosswalk rows with OBIMD or EVOBC matches, ordered by three-source matches, OBIMD-only matches, and EVOBC-only matches before any evidence collection.
-- `042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv`: manifest for 15 empty Markdown review-log drafts under `doc/public/user_research/004_codepoint-crosswalk-review-queues/`, limited to first-priority three-source codepoint matches and keeping all evidence sections `not_collected`.
-- `043_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-route-results.csv`: metadata-only route results for the 15 first-priority three-source codepoint review drafts, confirming candidate-packet, OBIMD/EVOBC staging-row, source-register, download-log, checksum, and route-file availability before evidence collection.
-- `044_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-capture-scaffold.csv`: not-started evidence-capture scaffold for the 15 reviewed route results, splitting each row into candidate-packet, source-register, and download-log capture tasks while keeping all evidence uncollected and all identity, reading, component, evolution-chain, and decipherment claims blocked.
-- `045_ai-agent-hust-obimd-evobc-codepoint-crosswalk-source-register-capture-results.csv`: reviewed metadata-only source-register capture results for the 15 source-register capture tasks, expanding them into 45 HUST-OBC, OBIMD, and EVOBC source rows with provider, authority tier, URL, rights status, risk note, and review status captured from the source register.
-- `046_ai-agent-hust-obimd-evobc-codepoint-crosswalk-download-log-capture-results.csv`: reviewed metadata-only download-log capture results for the 15 download-log capture tasks, expanding them into 75 rows for the five registered HUST-OBC, OBIMD, and EVOBC download IDs with URL, access status, file size, SHA-256 checksum, tmp path, and risk note copied from the large-source download log.
-- `047_ai-agent-hust-obimd-evobc-codepoint-crosswalk-candidate-packet-capture-results.csv`: reviewed metadata-only candidate-packet capture results for the 15 candidate-packet capture tasks, copying HUST-OBC candidate packet IDs, source category refs, dataset-label codepoints, packet statuses, rights/review values, and route refs for later cross-source review without promoting identity or decipherment claims.
-- `048_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-readiness-checklist.csv`: one-row-per-route metadata readiness checklist for the 15 first-priority codepoint crosswalk candidates, linking each 047 candidate-packet capture row with its three 045 source-register rows and five 046 download-log rows before human evidence-pack review, without treating readiness as source evidence or as an identity, reading, component, evolution-chain, rights, source-promotion, or decipherment conclusion.
-- `048_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-readiness-checklist.csv`閿涙岸娼伴崥?15 閺夛紕顑囨稉鈧导妯哄帥缁?codepoint crosswalk 閸婃瑩鈧娈戦柅鎰熅缁?metadata readiness checklist閿涘本濡稿В蹇旀蒋 047 閸婃瑩鈧瀵橀幑鏇″箯缂佹挻鐏夋稉搴☆嚠鎼存梻娈?3 閺?045 閺夈儲绨惂鏄忣唶鐞涘被鈧? 閺?046 娑撳娴囬弮銉ョ箶鐞涘奔瑕嗛懕鏃囨崳閺夈儻绱濇笟娑楁眽瀹?evidence-pack 婢跺秵鐗抽崜宥嗩梾閺屻儴绁弬娆愭Ц閸氾箓缍堟径鍥风幢鐠?readiness 娑撳秵妲搁弶銉︾爱鐠囦焦宓侀張顒冮煩閿涘奔绡冩稉宥嗘Ц闊偂鍞ら妴渚€鍣寸拠姹団偓浣圭€禒韬测偓浣圭川閸栨牠鎽奸妴浣规綀閸掆斂鈧焦娼靛┃鎰絹閸楀洦鍨ㄩ惍纾嬬槯缂佹捁顔戦妴?- `049_ai-agent-hust-obimd-evobc-codepoint-crosswalk-route-availability-snapshot.csv`: metadata-only route availability snapshot for all 134 HUST/OBIMD/EVOBC codepoint review tasks, linking each queue row to local HUST candidate packets, matched OBIMD/EVOBC staging rows, source-register rows, download-log rows, and review-log materialization status before expanding later evidence capture.
-- `050_ai-agent-hust-obc-undeciphered-candidate-context-pack.json`: metadata-only AI Agent context pack for all 9,408 HUST-OBC `obs-unk-*` undeciphered candidate rows, summarizing 95 bucket routes, 62,989 source image references, source-group coverage, rights/risk boundaries, and review rules before any identity, reading, assignment, component, evolution-chain, or decipherment claim.
-- `051_ai-agent-hust-obc-undeciphered-candidate-review-queue.csv`: metadata-only review queue for all 9,408 HUST-OBC `obs-unk-*` candidates, prioritizing route checks by source image count while keeping every row not collected, not promoted, and outside identity, reading, component, evolution-chain, or decipherment claims.
-- `052_ai-agent-hust-obc-undeciphered-candidate-review-log-draft-manifest.csv`: manifest for two empty Markdown review-log drafts under `doc/public/user_research/005_undeciphered-candidate-review-queues/`, limited to the highest-priority `image_count_050_plus` HUST-OBC `obs-unk-*` candidates and keeping all evidence sections `not_collected`.
-- `053_ai-agent-hust-obc-undeciphered-candidate-review-route-results.csv`: metadata-only route results for the two 052 draft logs, confirming local route-file, candidate-packet, source-register, large-source-register, download-log, size, and checksum availability before any evidence collection.
-- `054_ai-agent-hust-obc-undeciphered-candidate-evidence-capture-scaffold.csv`: empty evidence-capture scaffold for the two 053 route results, splitting each top undeciphered candidate into candidate-packet, source-register, large-source-register, and download-log capture tasks while leaving every evidence value blank.
-- `055_ai-agent-hust-obc-undeciphered-candidate-evidence-capture-review-checklist.csv`: not-started review checklist for the eight 054 capture scaffold rows, requiring agents to open 054, 053, and the cited source route before evidence capture while blocking rights, source-promotion, identity, formal assignment, reading, component, evolution-chain, and decipherment conclusions.
-- `056_ai-agent-hust-obc-undeciphered-candidate-source-register-capture-results.csv`: metadata-only capture results for the two 054/055 source-register tasks, copying reviewed HUST-OBC source-register fields without promoting source, rights, identity, formal assignment, component, evolution-chain, or decipherment conclusions.
-- `057_ai-agent-hust-obc-undeciphered-candidate-download-log-capture-results.csv`: metadata-only capture results for the two 054/055 download-log tasks, copying the registered HUST-OBC figshare raw-package download metadata without re-downloading files or inferring rights, identity, formal assignment, component, evolution-chain, or decipherment conclusions.
-- `058_ai-agent-hust-obc-undeciphered-candidate-large-source-register-capture-results.csv`: metadata-only capture results for the two 054/055 large-source-register tasks, copying HUST-OBC raw-package size, checksum, external storage hint, handling strategy, derived-record path list, rights status, and risk note while keeping the raw package outside Git.
-- `059_ai-agent-hust-obc-undeciphered-candidate-packet-capture-results.csv`: metadata-only capture results for the two 054/055 candidate-packet tasks, cross-checking local candidate packets against bucket manifests and the global undeciphered index before copying dataset candidate paths, image counts, first/last source-image paths, rights/risk values, and the 9,411 versus 9,408 class-count discrepancy.
-- `060_ai-agent-hust-obc-undeciphered-candidate-evidence-readiness-checklist.csv`: metadata-only readiness checklist for the two highest-priority HUST-OBC undeciphered candidates, linking 056 source-register, 057 download-log, 058 large-source-register, and 059 candidate-packet capture results before any human evidence-pack review.
-- `061_ai-agent-hust-obc-undeciphered-candidate-evidence-pack-scaffold-manifest.csv`: empty metadata-only evidence-pack scaffold manifest for the two 060-ready HUST-OBC undeciphered candidates, linking the 052 review-log drafts and 056-059 capture rows while marking every evidence section `not_collected` and explicitly staying outside the formal obs-char evidence-pack schema.
-- `062_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-task-queue.csv`: not-started evidence-collection queue split from 061 into 22 section-level tasks for the two top HUST-OBC undeciphered candidates, routing future collection for inscription context, neighboring characters, provenance, components, comparanda, support, opposition, open questions, and review logs without collecting evidence or making decipherment claims.
-- `063_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-note-draft-manifest.csv`: manifest for 22 empty Markdown collection-note drafts generated from 062 under `doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/`, preserving route-only, `not_collected`, non-identity, non-assignment, non-rights, non-promotion, and non-decipherment boundaries.
-- `064_ai-agent-hust-obc-undeciphered-candidate-source-metadata-evidence-capture-results.csv`: metadata-only capture results for the two source-references-and-asset-metadata collection-note routes, linking 063 note drafts and 062 tasks to reviewed 056 source-register, 057 download-log, 058 large-source-register, and 059 candidate-packet metadata without a new download, rights decision, source promotion, identity claim, or decipherment conclusion.
-- `064_ai-agent-hust-obc-undeciphered-candidate-source-metadata-evidence-capture-results.csv` (Simplified Chinese): 闂堛垹鎮滄稉銈嗘蒋 source-references-and-asset-metadata collection-note 鐠侯垳鏁遍惃?metadata-only 閹规洝骞忕紒鎾寸亯閿涘本濡?063 閼藉顭堥崪?062 娴犺濮熸潻鐐村复閸掓澘鍑℃径宥嗙壋閻?056 閺夈儲绨惂鏄忣唶閵?57 娑撳娴囬弮銉ョ箶閵?58 婢堆冪€烽弶銉︾爱閻ф槒顔囬崪?059 閸婃瑩鈧瀵?metadata閿涙稐绗夐柌宥嗘煀娑撳娴囬妴浣风瑝娴ｆ粍娼堥崚鈺佸枀鐎规哎鈧椒绗夐幓鎰磳閺夈儲绨妴浣风瑝婢圭増妲戦煬顐″敜閿涘奔绡冩稉宥勭稊闁插﹨顕扮紒鎾诡啈閵?- `065_ai-agent-hust-obc-undeciphered-candidate-source-metadata-note-update-results.csv`: metadata-only note-update results for the two source metadata collection notes, recording that 064 has been written into the corresponding Markdown notes under `doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/` while keeping human review not started and all identity, assignment, rights, source-promotion, component, evolution-chain, and decipherment claims blocked.
-- `065_ai-agent-hust-obc-undeciphered-candidate-source-metadata-note-update-results.csv` (Simplified Chinese): 闂堛垹鎮滄稉銈勫敜閺夈儲绨?metadata collection note 閻?metadata-only 閸愭瑥娲栫紒鎾寸亯閿涘矁顔囪ぐ?064 瀹告彃鍟撻崗?`doc/public/user_research/006_undeciphered-candidate-evidence-collection-tasks/` 娑撳顕惔?Markdown 鐠佹澘缍嶉敍娑楁眽瀹搞儱顦查弽闀愮矝閺堫亜绱戞慨瀣剁礉楠炲墎鎴风紒顓㈡▎閺傤叀闊╂禒濮愨偓浣诡劀瀵繐鍨庨柊宥冣偓浣规綀閸掆斂鈧焦娼靛┃鎰絹閸楀洢鈧焦鐎禒韬测偓浣圭川閸栨牠鎽奸崪宀勫櫞鐠囪崵绮ㄧ拋鎭掆偓?- `066_ai-agent-hust-obc-undeciphered-candidate-full-inscription-context-precheck-results.csv`: route-precheck results for the two full-inscription-context collection notes, recording that the current candidate packets have HUST-OBC dataset source-image paths but no primary catalog number, inscription transcription, Heji crosswalk, old catalog number, collection number, or excavation context captured yet.
-- `066_ai-agent-hust-obc-undeciphered-candidate-full-inscription-context-precheck-results.csv` (Simplified Chinese): 闂堛垹鎮滄稉銈勫敜 full-inscription-context collection note 閻ㄥ嫯鐭剧痪鍧楊暕濡偓缂佹挻鐏夐敍宀冾唶瑜版洖缍嬮崜宥呪偓娆撯偓澶婂瘶閸欘亝婀?HUST-OBC 閺佺増宓侀梿鍡樻降濠ф劕娴橀悧鍥熅瀵板嫸绱辩亸姘弓閹规洝骞忔稉鈧幍瀣啿瑜版洖褰块妴浣稿椽鏉堢偤鍣撮弬鍥モ偓浣碘偓濠傛値闂嗗棎鈧姘﹂崣澶屽偍瀵洏鈧焦妫拋妤€缍嶉崣鏋偓渚€顩挊蹇撳娇閹存牕鍤崷鐔剁瑐娑撳鏋冮妴?- `067_ai-agent-hust-obc-undeciphered-candidate-full-inscription-context-note-update-results.csv`: note-update results confirming that 066 route prechecks were written into the two full-inscription-context Markdown notes while keeping the section `not_collected` and blocking identity, assignment, rights, source-promotion, component, evolution-chain, and decipherment conclusions.
-- `067_ai-agent-hust-obc-undeciphered-candidate-full-inscription-context-note-update-results.csv` (Simplified Chinese): 鐠佹澘缍?066 鐠侯垳鍤庢０鍕梾瀹告彃鍟撻崗銉よ⒈娴?full-inscription-context Markdown 缁楁棁顔囬敍娑滎嚉缁旂姾濡禒宥勮礋 `not_collected`閿涘苯鑻熺紒褏鐢婚梼缁樻焽闊偂鍞ら妴浣诡劀瀵繐鍨庨柊宥冣偓浣规綀閸掆斂鈧焦娼靛┃鎰絹閸楀洢鈧焦鐎禒韬测偓浣圭川閸栨牠鎽奸崪宀勫櫞鐠囪崵绮ㄧ拋鎭掆偓?- `068_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-results.csv`: 111 metadata-only source-image path rows extracted from the registered external-local HUST-OBC raw zip for the two highest-priority undeciphered candidates; filename number tokens are recorded only as search hints and not as catalog or inscription context.
-- `068_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-results.csv` (Simplified Chinese): 娴犲骸鍑￠惂鏄忣唶閻ㄥ嫬顦婚柈銊︽拱閸?HUST-OBC 閸樼喎顫?zip 娑擃厺璐熸稉銈勯嚋閺堚偓妤傛ü绱崗鍫㈤獓閺堫亪鍣寸拠璇测偓娆撯偓澶嬪▕閸?111 閺夆剝娼靛┃鎰禈閻楀洩鐭惧?metadata閿涙稒鏋冩禒璺烘倳閺佹澘鐡?token 閸欘亙缍旀稉鐑橆梾缁便垺褰佺粈鐚寸礉娑撳秳缍旀稉楦挎啿瑜版洘鍨ㄩ崡婊嗙犯娑撳﹣绗呴弬鍥モ偓?- `069_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-summary.csv`: per-candidate summary for the 068 extraction, confirming 61/50 extracted path counts, candidate-level filename number-token ranges, external-local archive resolution, source rights status, and non-decipherment boundaries.
-- `069_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-summary.csv` (Simplified Chinese): 068 抽取的候选级汇总，确认 61/50 条路径计数、候选级文件名数字 token 范围、外部本地归档解析状态、来源权利状态和非释读边界。
-- `070_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-note-update-results.csv`: writes the 069 source-image-reference summaries back into the two full-inscription-context Markdown notes and records the note-update results while keeping filename number tokens as search hints only and blocking catalog confirmation, identity, rights, source-promotion, and decipherment conclusions.
-- `070_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-note-update-results.csv` (Simplified Chinese): 将 069 来源图片路径摘要回写到两份 full-inscription-context Markdown 草稿，并记录 note-update 结果；文件名数字 token 仅保留为检索提示，不得当作著录确认、身份、权利、来源提升或释读结论。
-- `071_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-route-probe-results.csv`: metadata-only official-route probe results for two Xiaoxuetang `jiaguwen?kaiOrder=` character-detail endpoints derived from 070 filename tokens, recording local TLS/access-boundary failures as route evidence only and blocking catalog, Heji, collection, identity, assignment, rights, source-promotion, and decipherment conclusions.
-- `071_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-route-probe-results.csv` (Simplified Chinese): 基于 070 文件名 token 派生的两条小學堂 `jiaguwen?kaiOrder=` 官方字符页 route probe 结果；仅记录本地 TLS/访问边界失败，不得当作著录、合集、馆藏、身份分配、权利、来源提升或释读结论。
-- `072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv`: metadata-only follow-up review queue for the two 071 Xiaoxuetang route probes, linking the route-probe row, 070 note-update row, note draft, source register, download manifest, and download log before any manual-browser or institutional-export follow-up.
-- `072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv` (Simplified Chinese): 承接两条 071 小學堂 route probe 的 metadata-only 后续复核队列，把 route-probe 行、070 note-update 行、草稿记录、来源登记、下载 manifest 和下载日志连到一起，供后续人工浏览或机构导出复核使用。
-- `073_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-log-draft-manifest.csv`: manifest for two empty Xiaoxuetang follow-up review-log drafts under `doc/public/user_research/007_xxt-jgw-route-probe-review-queues/`, keeping every review section `not_collected` and blocking catalog, Heji, collection, assignment, and decipherment claims.
-- `073_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-log-draft-manifest.csv` (Simplified Chinese): 位于 `doc/public/user_research/007_xxt-jgw-route-probe-review-queues/` 下的两份小學堂后续复核空白草稿 manifest；所有章节保持 `not_collected`，不得得出著录、合集、馆藏、分配或释读结论。
-- `074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv`: metadata-only follow-up review queue for four official Xiaoxuetang OBM access-restricted pages, linking source register, download manifest, download log, access-profile rows, and staged abbreviation rows when available before any manual-browser or institutional-export review.
-- `074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv` (Simplified Chinese): 面向四个小學堂 OBM 访问受限官方页面的 metadata-only 后续复核队列，把来源登记、下载 manifest、下载日志、访问画像以及可用的简称 staging 行连接起来，供后续人工浏览或机构导出复核使用。
-- `075_ai-agent-xxt-obm-access-boundary-review-log-draft-manifest.csv`: manifest for four empty OBM access-boundary review-log drafts under `doc/public/user_research/008_xxt-obm-access-boundary-review-queues/`, keeping every review section `not_collected` and blocking row-level import, old-catalog confirmation, holding match, inscription assignment, and decipherment claims.
-- `075_ai-agent-xxt-obm-access-boundary-review-log-draft-manifest.csv` (Simplified Chinese): 位于 `doc/public/user_research/008_xxt-obm-access-boundary-review-queues/` 下的四份 OBM 访问边界空白复核草稿 manifest；所有章节保持 `not_collected`，不得得出行级导入、旧著录确认、馆藏匹配、卜辞分配或释读结论。
-- `042_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-log-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/004_codepoint-crosswalk-review-queues/` 娑?15 娴犵晫鈹栭惂?Markdown 婢跺秵鐗抽弮銉ョ箶閼藉顭堥敍娑滃瘱閸ユ潙褰ч梽鎰儑娑撯偓娴兼ê鍘涚痪褌绗佸┃?codepoint 閸涙垝鑵戦敍灞惧閺堝鐦夐幑顔剧彿閼哄倷绻氶幐?`not_collected`閵?- `043_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-route-results.csv`閿涙俺顔囪ぐ?15 閺夛紕顑囨稉鈧导妯哄帥缁狙傜瑏濠?codepoint 婢跺秵鐗抽懡澶岊焾閻?metadata-only 鐠侯垳鏁辩紒鎾寸亯閿涘瞼鈥樼拋銈呪偓娆撯偓澶婂瘶閵嗕副BIMD/EVOBC staging 鐞涘被鈧焦娼靛┃鎰鐠佽埇鈧椒绗呮潪鑺ユ）韫囨ぜ鈧恭hecksum 閸?route file 閻ㄥ嫬褰查悽銊︹偓褝绱濇禒宥勭瑝鏉╂稑鍙嗙拠浣瑰祦閺€鍫曟肠閹存牠鍣寸拠鑽ょ波鐠佹亽鈧?- `044_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-capture-scaffold.csv`閿涙俺顔囪ぐ?15 閺夆€冲嚒婢跺秵鐗崇捄顖滄暠缂佹挻鐏夊ú鍓ф晸閸戣櫣娈?45 閺夆剝婀鈧慨瀣槈閹诡喗宕熼懢鐤壖閹靛鐏﹂敍灞惧Ω濮ｅ繑娼崐娆撯偓澶嬪閹存劕鈧瑩鈧绁弬娆忓瘶閵嗕焦娼靛┃鎰鐠佹澘鎷版稉瀣祰閺冦儱绻旀稉澶夐嚋閹规洝骞忔禒璇插閿涙稒澧嶉張澶庣槈閹诡喕绮涢張顏呮暪闂嗗棴绱濋獮鍫曟▎濮濄垼闊╂禒濮愨偓渚€鍣寸拠姹団偓浣圭€禒韬测偓浣圭川閸栨牠鎽奸幋鏍壃鐠囨垹绮ㄧ拋鎭掆偓?- `045_ai-agent-hust-obimd-evobc-codepoint-crosswalk-source-register-capture-results.csv`閿涙俺顔囪ぐ?15 閺?source-register 閹规洝骞忔禒璇插鐏炴洖绱戦崥搴ｆ畱 45 閺?reviewed metadata-only 閺夈儲绨惂鏄忣唶閹规洝骞忕紒鎾寸亯閿涘苯鍨庨崚顐ｅ▕閸?HUST-OBC閵嗕副BIMD閵嗕笒VOBC 閻ㄥ嫭褰佹笟娑欐煙閵嗕焦娼堟繛浣哥湴缁狙佲偓涔丷L閵嗕焦娼堥崚鈺冨Ц閹降鈧線顥撻梽鈺勵嚛閺勫骸鎷版径宥嗙壋閻樿埖鈧降鈧?- `046_ai-agent-hust-obimd-evobc-codepoint-crosswalk-download-log-capture-results.csv`閿涙俺顔囪ぐ?15 閺?download-log 閹规洝骞忔禒璇插鐏炴洖绱戦崥搴ｆ畱 75 閺?reviewed metadata-only 娑撳娴囬弮銉ョ箶閹规洝骞忕紒鎾寸亯閿涘矂鈧劒绗呮潪?ID 婢跺秴鍩?HUST-OBC閵嗕副BIMD閵嗕笒VOBC 瀹歌尙娅ョ拋?URL閵嗕浇顔栭梻顔惧Ц閹降鈧焦鏋冩禒璺恒亣鐏忓繈鈧讣HA-256閵嗕辜mp 鐠侯垰绶為崪宀勵棑闂勨晞顕╅弰搴涒偓?- `047_ai-agent-hust-obimd-evobc-codepoint-crosswalk-candidate-packet-capture-results.csv`閿涙俺顔囪ぐ?15 閺?candidate-packet 閹规洝骞忔禒璇插鐏炴洖绱戦崥搴ｆ畱 15 閺?reviewed metadata-only 閸婃瑩鈧瀵橀幑鏇″箯缂佹挻鐏夐敍灞筋槻閸?HUST-OBC 閸婃瑩鈧瀵?ID閵嗕焦娼靛┃鎰瀻缁绱╅悽銊ｂ偓浣规殶閹诡噣娉﹂弽鍥╊劮 codepoints閵嗕礁瀵橀悩鑸碘偓浣碘偓浣规綀閸?婢跺秵鐗抽崐鐓庢嫲閸氬海鐢绘禍銈呭级閺夈儲绨径宥嗙壋 route refs閿涘奔绲炬稉宥嗗絹閸楀洩闊╂禒鑺ュ灗闁插﹨顕扮紒鎾诡啈閵?
-缁犫偓娴ｆ挷鑵戦弬鍥风窗
-閺堫剛娲拌ぐ鏇炵殺娣囨繂鐡ㄩ悽鐔稿灇閻ㄥ嫬鍤悳鐗堫偧閺佽埇鈧礁鍙￠悳鑸偓浣峰瘜妫版ǜ鈧焦妞傛禒锝冣偓浣告勾閻愮懓鎷伴惄闀愭妧鎼达妇绮虹拋掳鈧?
-瑜版挸澧犲鑼晸閹存劗绮虹拋鈽呯窗
+- `090_preprocessing-status-audit.csv`
+  records high-level preprocessing status rows.
+- `094_source-processing-pipeline-audit.csv`
+  audits source-processing coverage and next entrances.
+- `095_source-processing-pipeline-summary.json`
+  summarizes the source-processing pipeline audit.
+- `132_ai-agent-source-pipeline-gap-matrix.csv`
+  groups per-source preprocessing gaps for human review.
+- `133_ai-agent-source-pipeline-gap-review-checklist.csv`
+  lists source-level review checks that still need people.
+- `134_ai-agent-source-pipeline-evidence-ledger.csv`
+  records per-source preprocessing evidence counts and route files.
+- `135_core-corpus-phase-coverage-matrix.csv`
+  summarizes phase coverage for core corpus areas.
+- `136_source-pipeline-phase-coverage-matrix.csv`
+  records source-level phase coverage and missing phases.
+- `137_source-pipeline-phase-action-queue.csv`
+  turns missing source phases into pending review actions.
+- `188_object-local-material-coverage-audit.csv`
+  audits object-local material coverage for human and AI files.
+- `189_object-local-material-coverage-summary.json`
+  summarizes object-local coverage counts and boundaries.
+- `190_project-id-source-map-audit.csv`
+  audits project-local ID to source-reference maps.
+- `191_project-id-source-map-summary.json`
+  summarizes project ID map coverage and issue counts.
 
-- `001_relationship-graph-edge-type-summary.csv`閿涙碍瀵滈崶鎹愭皑閺傚洣娆㈤妴浣规降濠?ID 閸滃矁绔熺猾璇茬€峰Ч鍥ㄢ偓鏄忕珶閺佷即鍣洪妴?- `002_relationship-graph-node-degree-summary.csv`閿涙碍瀵滈崶鎹愭皑閼哄倻鍋ｅЧ鍥ㄢ偓璇插弳鎼达负鈧礁鍤惔锔衡偓浣规降濠ф劘顩惄鏍モ偓浣告禈鐠嬭鲸鏋冩禒鎯邦洬閻╂牕鎷版潏鍦閸ㄥ顓搁弫鑸偓?- `003_ai-agent-relationship-graph-context-pack.json`閿涙矮绮犻崗宕囬兇閸ユ崘姘ㄧ紒鐔活吀閻㈢喐鍨氶惃鍕彛閸?AI Agent 閸忋儱褰涙稉濠佺瑓閺傚洤瀵橀妴?- `004_ai-agent-hust-obc-bucket-review-route-pack.json`閿涙岸娼伴崥?16 娑?HUST-OBC 閹绘劕宕屾径宥嗙壋 bucket 閻?AI Agent 鐠侯垳鏁遍崠鍜冪礉閹跺﹥鐦℃稉顏呭濞喡ょ箾閹恒儱鍩?manifest閵嗕礁娴樼拫杈ㄦ瀮娴犺翰鈧焦娼靛┃鎰壋妤犲苯鎷扮拠浣瑰祦缂傚搫褰涢妴?- `005_ai-agent-hust-obc-candidate-evidence-pack-request-queue.csv`閿涙岸娼伴崥?1,588 娑?HUST-OBC 閸婃瑩鈧娈戦柅鎰偓娆撯偓?evidence-pack 閼藉顭堢拠閿嬬湴闂冪喎鍨敍灞藉瘶閸氼偄绻€闂団偓缁旂姾濡妴浣界熅閻㈣鲸鏋冩禒韬测偓浣界槈閹诡喚宸遍崣锝忕礉娴犮儱寮?`doc/public/user_research/` 娑撳娈戦懡澶岊焾鏉堟挸鍤捄顖氱窞閵?- `006_ai-agent-public-domain-asset-context-pack.json`閿涙岸娼伴崥鎴濆嚒閹绘劒姘﹂崗顒€鍙℃０鍡楃厵閸ユ儳鍎氱挧鍕獓閻?AI Agent 鐠侯垳鏁辨稉濠佺瑓閺傚浄绱濋崠鍛儓閺夊啫鍩勬径宥嗙壋閵嗕焦濡ч張?metadata 閸滃苯鐣ㄩ崗銊潒鐟欏顣╂径鍕倞 metadata閵?- `007_source-coverage-summary.csv`閿涙碍娼靛┃鎰獓鐟曞棛娲婄紒鐔活吀閿涘本鐪归幀璁崇瑓鏉炲€燁吀閸?閺冦儱绻旈妴涔礶tadata profile閵嗕礁鍑￠幓鎰唉閸忣剙鍙℃０鍡楃厵鐠у嫪楠囬妴浣稿彠缁娴樼拫杈ㄦ烦閻㈢喕顔囪ぐ鏇炴嫲 HUST-OBC promotion-review 閸婃瑩鈧顩惄鏍モ偓?- `008_ai-agent-source-coverage-context-pack.json`閿涙矮绮?coverage summary 閻㈢喐鍨氶惃?AI Agent 閺夈儲绨捄顖滄暠娑撳﹣绗呴弬鍥у瘶閿涘苯婀弨鍫曟肠鐠囦焦宓侀崜宥勭箽閹镐焦娼靛┃鎰┾偓浣规綀閸掆斂鈧浇顔栭梻顔衡偓浣告禈鐠嬩究鈧浇绁禍褍鎷伴崐娆撯偓澶愭Е閸掓绔熼悾灞烩偓?- `009_ai-agent-source-route-review-queue.csv`閿涙岸鈧劖娼靛┃?AI Agent 婢跺秵鐗抽梼鐔峰灙閿涘奔绱崗鍫濈暔閹烘帒鈧瑩鈧鈧礁娴樼拫渚库偓浣稿彆閸忛亶顣崺鐔荤カ娴溠佲偓浣筋問闂傤喖褰堥梽鎰┾偓涔礶tadata profile 閸滃奔绗呮潪鑺ユ）韫囨顥呴弻銉礉楠炴湹绻氶幐浣风矌闂勬劘鐭鹃悽杈╂畱瀹搞儰缍旀潏鍦櫕閵?- `010_ai-agent-source-route-review-result-scaffold.csv`閿涙岸鈧劖娼靛┃?route-review 缁岃櫣娅х紒鎾寸亯妤犮劍鐏﹂敍灞艰礋閺夈儲绨惂鏄忣唶閵嗕购oute file閵嗕焦娼堥崚?妞嬪酣娅撻妴浣搞亣鐏?checksum閵嗕焦褰侀崡鍥у枀鐎规哎鈧浇鐦夐幑顔惧繁閸欙絽鎷版稉瀣╃娴溠呭⒖濡偓閺屻儵顣╅悾?not-collected 缁旂姾濡妴?- `011_ai-agent-source-route-review-results.csv`閿涙岸娼伴崥?graph-derived HUST-OBC閵嗕笒VOBC閵嗕副BIMD 鐠侯垳鏁遍惃?metadata-only 閺夈儲绨捄顖滄暠婢跺秵鐗崇紒鎾寸亯閿涘瞼鈥樼拋?route files閵嗕焦娣抽悽鐔活吀閺佽埇鈧焦娼堥崚?妞嬪酣娅撴潏鍦櫕閵嗕礁鏄傜€?閹绘劒姘︾粵鏍殣鏉堝湱鏅崪灞肩瑓娑撯偓濮濄儰姘﹂崣澶嬫降濠ф劕顦查弽绋垮З娴ｆ粣绱濇稉宥嗗Ω閸樼喎顫愮挧鍕獓閵嗕焦鏆熼幑顕€娉﹂弽鍥╊劮閵嗕礁娴樼拫杈珶閹?staging rows 閹绘劕宕屾稉鍝勵劅閺堫垳绮ㄧ拋鎭掆偓?- `012_ai-agent-graph-source-cross-review-queue.csv`閿涙岸娼伴崥鎴︻浕娑?HUST-OBC閵嗕笒VOBC閵嗕副BIMD graph-derived 鐠侯垳鏁遍惃鍕瑏閺?metadata-only 娴溿倕寮堕弶銉︾爱婢跺秵鐗虫禒璇插閿涘本瀵氶崥鎴濈箑闂団偓閻ф槒顔囩悰銊ｂ偓涔籺aging 鐞涘被鈧礁娴樼拫杈ㄦ瀮娴犺泛鎷版径宥嗙壋閺冦儱绻旈敍灞芥躬娴犺缍?evidence-pack 閼藉顭堥幋鏍ㄦ降濠ф劖褰侀崡鍥у娣囨繃瀵旈崙鍡楊槵闂冭埖顔屾潏鍦櫕閵?- `013_ai-agent-graph-source-cross-review-log-scaffold.csv`閿涙岸娼伴崥?012 娴溿倕寮堕弶銉︾爱婢跺秵鐗虫禒璇插閻ㄥ嫮鈹栭惂鑺ユ）韫囨顎囬弸璁圭礉閹跺﹥娼靛┃鎰鐠佽埇鈧椒绗呮潪鑺ユ）韫囨ぜ鈧礁瀵?manifest閵嗕沟etadata profile閵嗕礁娴樼拫杈珶閵嗕够taging 鐞涘被鈧礁寮介弻銉︽降濠ф劑鈧焦娼堥崚?妞嬪酣娅撻妴浣割槻閺嶅憡妫╄箛妞尖偓涔獀idence-pack 閸滃本褰侀崡鍥у枀鐎规氨鐝烽懞鍌欑箽閹镐椒璐熼張顏呮暪闂嗗棛濮搁幀渚婄礉缁涘绶熺敮锔芥降濠ф劖鐖ｇ拋鎵畱婢跺秵鐗抽妴?- `014_ai-agent-graph-source-cross-review-log-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/002_cross-source-review-queues/` 娑撳绗佹禒鐣屸敄閻?Markdown 娴溿倕寮堕弶銉︾爱婢跺秵鐗抽弮銉ョ箶閼藉顭堥敍灞惧閺堝鐦夐幑顔剧彿閼哄倷绻氶幐?`not_collected`閿涘本澧嶉張澶嬪絹閸楀洤鍠呯€规矮绻氶幐?`not_decided`閵?- `015_ai-agent-graph-source-cross-review-log-results.csv`閿涙岸娼伴崥鎴滅瑏娴犲€熷磸缁嬫寧妫╄箛妤冩畱 metadata-only 娴溿倕寮堕弶銉︾爱婢跺秵鐗抽弮銉ョ箶缂佹挻鐏夐敍宀€鈥樼拋銈嗘拱閸?route file 閸欘垳鏁ら幀褋鈧礁鍑￠惂鏄忣唶閸欏秵鐓￠弶銉︾爱閵嗕沟etadata/profile/download/package 鐞涘被鈧礁娴樼拫杈珶鐠侯垳鏁辩拋鈩冩殶閸?staging row 瀵洜鏁ら敍灞肩稻娑撳秵褰侀崡鍥︽崲娴ｆ洘鏆熼幑顕€娉﹂弽鍥╊劮閵嗕礁娴樼拫杈珶閵嗕焦鐎禒璺哄灲鐎规哎鈧焦绱ㄩ崠鏍懠閹存牠鍣寸拠鑽ょ波鐠佹亽鈧?- `016_ai-agent-graph-source-evidence-collection-task-queue.csv`閿涙矮绮?015 缂佹挻鐏夊ú鍓ф晸閻ㄥ嫰鈧劖娼靛┃鎰┾偓渚€鈧劗鐝烽懞鍌濈槈閹诡喗鏁归梿鍡曟崲閸旓繝妲﹂崚妤嬬礉閹跺﹤鎮楃紒?agent 鐠侯垳鏁遍崚鐗堟降濠ф劗娅ョ拋鑸偓浣风瑓鏉炶姤妫╄箛妞尖偓涔竌ckage manifest閵嗕沟etadata profile閵嗕礁娴樼拫杈珶閵嗕够taging 鐞涘被鈧礁寮介弻銉︽降濠ф劑鈧焦娼堥崚?妞嬪酣娅撻崪灞筋槻閺嶅憡妫╄箛妤侇梾閺屻儻绱濋崥灞炬娣囨繃瀵旈幍鈧張澶庣槈閹诡喕璐熼張顏呮暪闂嗗棛濮搁幀浣碘偓?- `017_ai-agent-graph-source-evidence-collection-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻ц姤娼靛┃鎰鐠佹媽鐦夐幑顔芥暪闂嗗棜顔囪ぐ鏇″磸缁嬪尅绱濇稉?016 娴犺濮熺悰宀€娴夋潻鐑囩礉楠炴湹绻氶幐?`not_collected`閵嗕梗not_promoted`閵嗕線娼€涳附婀崇紒鎾诡啈鏉堝湱鏅妴?- `018_ai-agent-graph-source-download-log-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻ф垝绗呮潪鑺ユ）韫囨鐦夐幑顔芥暪闂嗗棜顔囪ぐ鏇″磸缁嬪尅绱濋幎?agent 鐠侯垳鏁遍崚鏉裤亣閸ㄥ娼靛┃鎰瑓鏉炶姤妫╄箛妤嬬礉娴ｅ棔绗夌拋鏉跨秿瀹稿弶鏁归梿鍡氱槈閹诡喓鈧恭hecksum閵嗕焦娼堥崚鈺佸枀鐎规碍鍨ㄩ弶銉︾爱閹绘劕宕岄妴?- `019_ai-agent-graph-source-package-manifest-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?package manifest 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崚鐗堟降濠ф劕瀵橀弬鍥︽ manifest閿涘奔绲炬稉宥堫唶瑜版洘鏋冩禒璺恒亣鐏忓繒绮ㄧ拋鎭掆偓涔ecksum 婢跺秵鐗抽妴浣规綀閸掆晛鍠呯€规碍鍨ㄩ弶銉︾爱閹绘劕宕岄妴?- `020_ai-agent-graph-source-metadata-profile-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?metadata profile 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崚鏉垮嚒娑撳娴?metadata profile 鐞涘矉绱濇担鍡曠瑝鐠佹澘缍嶅鍙夋暪闂嗗棙瀵氶弽鍥モ偓浣规綀閸掆晛鍠呯€规哎鈧焦娼靛┃鎰絹閸楀洦鍨ㄩ柌濠咁嚢缂佹捁顔戦妴?- `021_ai-agent-graph-source-graph-edges-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?graph-edge 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崚鏉垮彠缁娴樼拫?JSONL 閺傚洣娆㈤敍灞肩稻娑撳秷顔囪ぐ鏇炲嚒閺€鍫曟肠閸ユ崘姘ㄦ潏纭呯槈閹诡喓鈧焦鐎禒璺哄灲鐎规哎鈧焦绱ㄩ崠鏍懠婢圭増妲戦幋鏍櫞鐠囪崵绮ㄧ拋鎭掆偓?- `022_ai-agent-graph-source-staging-row-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?staging-row 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崶鐐测偓娆撯偓澶婃嫲 staging 鐞涘矉绱濇担鍡曠瑝閹跺﹥鏆熼幑顕€娉︾悰灞惧絹閸楀洣璐熷鍙夊复閸欐鏁虫銊ョ摟閵嗕焦鐎禒韬测偓浣圭川閸栨牠鎽奸幋鏍ь劅閺堫垳绮ㄧ拋鎭掆偓?- `023_ai-agent-graph-source-counter-source-lookup-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?counter-source lookup 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崚鐗堟降濠ф劖鈧槒銆冩禒銉ょ┒閸氬海鐢荤捄銊︽降濠ф劕寮介弻銉礉娴ｅ棔绗夋竟鐗堟闊偂鍞ら崠褰掑帳閵嗕焦娼靛┃鎰絹閸楀洦鍨ㄩ柌濠咁嚢缂佹捁顔戦妴?- `024_ai-agent-graph-source-rights-risk-review-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?rights/risk review 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崚鐗堟降濠ф劖鈧槒銆冮妴涔礶tadata profile閵嗕椒绗呮潪鑺ユ）韫囨鎷?package manifest閿涘奔绲炬稉宥堫唶瑜版洘娼堥崚鈺佸枀鐎规哎鈧焦鏋冩禒璺恒亣鐏忓繒绮ㄧ拋鎭掆偓浣规降濠ф劖褰侀崡鍥ㄥ灗闁插﹨顕扮紒鎾诡啈閵?- `025_ai-agent-graph-source-review-log-note-draft-manifest.csv`閿涙俺顔囪ぐ?`doc/public/user_research/003_evidence-collection-tasks/` 娑撳绗佹禒鐣屸敄閻?review-log 鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾閿涘本濡?agent 鐠侯垳鏁遍崚?metadata-only 娴溿倕寮堕弶銉︾爱婢跺秵鐗崇紒鎾寸亯閸滃矁宕忕粙鍨槻閺嶅憡妫╄箛妤嬬礉娴ｅ棔绗夌拋鏉跨秿瀹稿弶鏁归梿鍡氱槈閹诡喓鈧椒姹夊銉ヮ槻閺嶅摜绮ㄧ拋鎭掆偓浣规降濠ф劖褰侀崡鍥ㄥ灗闁插﹨顕扮紒鎾诡啈閵?- `026_ai-agent-graph-source-evidence-collection-route-pack.json`閿涙I Agent 鐠侯垳鏁遍崠鍜冪礉缁便垹绱?017-025 閸ユ崘姘ㄩ弶銉︾爱鐠囦焦宓侀弨鍫曟肠鐠佹澘缍嶉懡澶岊焾 manifest閵嗕礁鍙忛柈?27 娴犺姤婀弨鍫曟肠 note draft 閸欏﹤鍙?route files閿涘奔绲炬稉宥嗗Ω閼藉顭堥幓鎰磳娑撳搫鍑￠弨鍫曟肠鐠囦焦宓侀妴浣规綀閸掆晛鍠呯€规哎鈧焦娼靛┃鎰絹閸楀洦鍨ㄩ柌濠咁嚢缂佹捁顔戦妴?- `027_ai-agent-graph-source-evidence-collection-result-scaffold.csv`閿涙岸娼伴崥鎴濆弿闁?27 閺?graph-source 鐠囦焦宓侀弨鍫曟肠鐠侯垳鏁遍惃鍕敄閻х晫绮ㄩ弸婊堫€囬弸璁圭礉娣囨繄鏆€ note draft 闁剧偓甯撮妴涔簅ute files 閸滃瞼鐝烽懞鍌氬З娴ｆ粣绱濋崥灞炬鐠佲晜澧嶉張澶庣槈閹诡喓鈧焦娼堥崚鈹库偓浣瑰絹閸楀洤鎷伴柌濠咁嚢鐎涙顔屾穱婵囧瘮閺堫亝鏁归梿鍡樺灗閺冪姴锛愰弰搴涒偓?- `028_ai-agent-graph-source-evidence-collection-review-queue.csv`閿涙岸娼伴崥?27 閺?graph-source 鐠囦焦宓侀弨鍫曟肠缂佹挻鐏夋銊︾仸鐞涘瞼娈戞径宥嗙壋闂冪喎鍨敍灞惧Ω agent 鐠侯垳鏁遍崚鎵波閺嬫粏顢戦妴涔秓te draft閵嗕购oute pack閵嗕沟anifest閵嗕购oute files 閸滃苯寮介弻銉︽降濠ф劧绱濋崷銊唶瑜版洑鎹㈡担鏇＄槈閹诡喓鈧焦娼堥崚鈺佸枀鐎规哎鈧焦娼靛┃鎰絹閸楀洦鍨ㄩ柌濠咁嚢婢圭増妲戦崜宥勭箽閹镐礁鍣径鍥▉濞堜絻绔熼悾灞烩偓?- `029_ai-agent-graph-source-evidence-collection-review-route-summary.json`閿涙岸娼伴崥?028 婢跺秵鐗抽梼鐔峰灙閻ㄥ嫯鐭鹃悽杈ㄦ喅鐟曚緤绱濋幐澶嬫降濠ф劕鎷伴惄顔界垼鐠囦焦宓佺粩鐘哄Ν濮瑰洦鈧?27 閺夆€愁槻閺嶉晲鎹㈤崝鈽呯礉閸氬本妞傛穱婵堟殌閺堫亝鏁归梿鍡愨偓浣规弓閹绘劕宕岄妴浣规￥闁插﹨顕版竟鐗堟閻ㄥ嫯绔熼悾灞烩偓?- `030_ai-agent-graph-source-evidence-collection-assignment-plan.json`閿涙lanned-not-assigned 閸掑棝鍘ょ拋鈥冲灊閿涘本濡?27 閺夆€愁槻閺嶉晲鎹㈤崝鈩冨笓閹?9 娑擃亝娼靛┃鎰綆鐞?wave閿涘苯鎮撻弮鏈电瑝閺€鐟板綁娴犺缍嶇拠浣瑰祦閵嗕焦娼堥崚鈹库偓浣瑰絹閸楀洦鍨ㄩ柌濠咁嚢鐎涙顔岄妴?- `031_ai-agent-graph-source-evidence-collection-wave-handoff-scaffold.json`閿涙岸娼伴崥?`source_register` 閸掑棝鍘?wave 閻ㄥ嫰顩诲▔顫唉閹恒儴鍓奸幍瀣仸閿涘苯鍨崙杞扮瑏閺夆剝娼靛┃鎰鐠侀姘﹂幒銉攽閸滃苯绻€妞ょ粯澧﹀鈧惃?route files閿涘奔绲炬稉宥嗘暪闂嗗棜鐦夐幑顔衡偓浣风瑝閸掑棝鍘?owner閵嗕椒绗夐崘鍐茬暰閺夊啫鍩勯妴浣风瑝閹绘劕宕岄弶銉︾爱閿涘奔绡冩稉宥嗗絹閸戞椽鍣寸拠璇诧紣閺勫簺鈧?- `032_ai-agent-graph-source-source-register-evidence-capture-scaffold.csv`閿涙岸娼伴崥鎴︻浕濞?`source_register` 娴溿倖甯寸悰宀€娈戠粚铏规鐠囦焦宓侀幑鏇″箯妤犮劍鐏﹂敍宀勵暕閻ｆ瑦娼靛┃鎰鐠佹澘鍤径鍕摟濞堢绱濋崥灞炬鐠佲晞鐦夐幑顔尖偓闂寸箽閹镐胶鈹栭惂鏂ょ礉閺夊啫鍩勯崘鍐茬暰閵嗕焦娼靛┃鎰絹閸楀洤鎷伴柌濠咁嚢婢圭増妲戞穱婵囧瘮閺堫亣顔曠純顔惧Ц閹降鈧?- `033_ai-agent-graph-source-source-register-capture-review-checklist.csv`閿涙岸娼伴崥?032 閺夈儲绨惂鏄忣唶閹规洝骞忕悰宀€娈戦張顏勭磻婵顦查弽?checklist閿涘矁顩﹀Ч?agent 閸︺劏顔囪ぐ鏇氭崲娴ｆ洝鐦夐幑顔尖偓鐓庡閸忓牊澧﹀鈧?capture row閵嗕焦娼靛┃鎰鐠佽埇鈧焦娼堥崚?妞嬪酣娅撶€涙顔岄崪宀冪珶閻ｅ本顥呴弻銉ｂ偓?- `034_ai-agent-graph-source-download-log-wave-handoff-scaffold.json`閿涙岸娼伴崥?`download_log` 閸掑棝鍘?wave 閻ㄥ嫮顑囨禍灞惧皾娴溿倖甯撮懘姘閺嬭绱濋崚妤€鍤稉澶嬫蒋娑撳娴囬弮銉ョ箶娴溿倖甯寸悰灞芥嫲韫囧懘銆忛幍鎾崇磻閻?route files閿涘奔绲炬稉宥勭瑓鏉炶姤鏋冩禒韬测偓浣风瑝鐠佹澘缍?checksum 閹存牕銇囩亸?鐠佸潡妫剁紒鎾诡啈閵嗕椒绗夐崘鍐茬暰閺夊啫鍩勯妴浣风瑝閹绘劕宕岄弶銉︾爱閿涘奔绡冩稉宥嗗絹閸戞椽鍣寸拠璇诧紣閺勫簺鈧?- `035_ai-agent-graph-source-download-log-evidence-capture-scaffold.csv`閿涙岸娼伴崥鎴狀儑娴滃本灏?`download_log` 娴溿倖甯寸悰宀€娈戠粚铏规鐠囦焦宓侀幑鏇″箯妤犮劍鐏﹂敍宀勵暕閻ｆ瑤绗呮潪鐣屽Ц閹降鈧箒RL閵嗕礁銇囩亸蹇嬧偓涔ecksum閵嗕焦婀伴崷棰佸閺冩儼鐭惧鍕嫲妞嬪酣娅撶拠瀛樻鐎涙顔岄敍灞芥倱閺冩儼顔€閹碘偓閺堝鐦夐幑顔尖偓闂寸箽閹镐胶鈹栭惂鏂ょ礉楠炴湹绻氶幐浣规綀閸掆斂鈧焦褰侀崡鍥モ偓浣筋問闂傤喓鈧礁銇囩亸蹇嬧偓涔ecksum 閸滃矂鍣寸拠鑽ゅЦ閹焦婀拋鍓х枂閵?- `036_ai-agent-graph-source-download-log-capture-review-checklist.csv`閿涙岸娼伴崥?035 娑撳娴囬弮銉ョ箶閹规洝骞忕悰宀€娈戦張顏勭磻婵顦查弽?checklist閿涘矁顩﹀Ч?agent 閹垫挸绱戞稉瀣祰閺冦儱绻旈獮鑸电壋鐎?source/download ID閵嗕箒RL閵嗕胶濮搁幀浣碘偓浣搞亣鐏忓繈鈧恭hecksum閵嗕椒澶嶉弮鎯扮熅瀵板嫬鎷版搴ㄦ珦鐠囧瓨妲戦敍灞芥倱閺冨爼妯嗗銏℃綀閸掆晜甯归弬顓溾偓浣规降濠ф劖褰侀崡鍥ф嫲闁插﹨顕版竟鐗堟閵?- `037_ai-agent-graph-source-package-manifest-wave-handoff-scaffold.json`閿涙岸娼伴崥?`package_manifest` 閸掑棝鍘?wave 閻ㄥ嫮顑囨稉澶嬪皾娴溿倖甯撮懘姘閺嬭绱濋崚妤€鍤稉澶嬫蒋 package manifest 娴溿倖甯寸悰灞芥嫲韫囧懘銆忛幍鎾崇磻閻?route files閿涘奔绲炬稉宥堫唶瑜版洘鏋冩禒璺恒亣鐏忓繈鈧恭hecksum閵嗕礁鐡ㄩ崒銊ㄧ珶閻ｅ瞼绮ㄧ拋鎭掆偓浣规綀閸掆晛鍠呯€规哎鈧焦娼靛┃鎰絹閸楀洦鍨ㄩ柌濠咁嚢婢圭増妲戦妴?- `038_ai-agent-graph-source-package-manifest-evidence-capture-scaffold.csv`閿涙岸娼伴崥鎴狀儑娑撳灏?`package_manifest` 娴溿倖甯寸悰宀€娈戠粚铏规鐠囦焦宓侀幑鏇″箯妤犮劍鐏﹂敍宀勵暕閻?package file閵嗕够ource package閵嗕焦鏋冩禒璺烘倳閵嗕焦鏋冩禒鍓佽閸ㄥ鈧焦娼靛┃?URL閵嗕礁銇囩亸蹇嬧偓涔╫wnload ID閵嗕恭hecksum閵嗕焦褰佹禍銈囩摜閻ｃ儯鈧礁顦╅悶鍡欑摜閻ｃ儯鈧焦娼堥崚鈺佹嫲婢跺秵鐗抽悩鑸碘偓浣哥摟濞堢绱濋崥灞炬鐠佲晜澧嶉張澶庣槈閹诡喖鈧棿绻氶幐浣衡敄閻ф枻绱濋獮鏈电箽閹镐礁顦查弽鎼炩偓浣规綀閸掆斂鈧焦褰侀崡鍥ф嫲闁插﹨顕伴悩鑸碘偓浣规弓鐠佸墽鐤嗛妴?- `039_ai-agent-graph-source-package-manifest-capture-review-checklist.csv`閿涙岸娼伴崥?038 package manifest 閹规洝骞忕悰宀€娈戦張顏勭磻婵顦查弽?checklist閿涘矁顩﹀Ч?agent 閹垫挸绱?package manifest 鐞涘苯鑻熼弽绋款嚠 package/source package ID閵嗕焦鏋冩禒璺烘倳/缁鐎?URL閵嗕焦鏋冩禒璺恒亣鐏?download ID閵嗕恭hecksum 鏉堝湱鏅妴浣瑰絹娴溿倗鐡ラ悾銉ｂ偓浣割槱閻炲棛鐡ラ悾銉ｂ偓浣规綀閸?婢跺秵鐗抽悩鑸碘偓渚婄礉閸氬本妞傞梼缁橆剾閺夈儲绨幓鎰磳閸滃矂鍣寸拠璇诧紣閺勫簺鈧?- `040_ai-agent-hust-obimd-evobc-codepoint-crosswalk-context-pack.json`閿涙岸娼伴崥?1,588 閺?HUST/OBIMD/EVOBC codepoint crosswalk 閸婃瑩鈧娈?metadata-only AI Agent 鐠侯垳鏁辨稉濠佺瑓閺傚洤瀵橀敍灞剧湽閹?OBIMD/EVOBC 閸涙垝鑵戠憰鍡欐磰閵嗕焦娼靛┃鎰熅閻究鈧焦鐗辨笟瀣攽閵嗕购oute files 閸滃瞼顩﹀銏ｉ煩娴?闁插﹨顕伴幒銊︽焽閻?caution閵?- `041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv`閿涙岸娼伴崥?134 閺夆€虫嚒娑?OBIMD 閹?EVOBC 閻?HUST/OBIMD/EVOBC codepoint crosswalk 鐞涘瞼娈?metadata-only 婢跺秵鐗抽梼鐔峰灙閿涘本瀵滄稉澶嬬爱閸涙垝鑵戦妴涓盉IMD-only閵嗕笒VOBC-only 閹烘帒绨敍宀€鏁ゆ禍搴ょ槈閹诡喗鏁归梿鍡楀閻ㄥ嫯鐭鹃悽鍗炲櫙婢跺洢鈧?- `044_ai-agent-hust-obimd-evobc-codepoint-crosswalk-evidence-capture-scaffold.csv`閿涙岸娼伴崥?15 閺夆€茬瑏濠?codepoint 鐠侯垳鏁辩紒鎾寸亯閻ㄥ嫭婀鈧慨瀣槈閹诡喗宕熼懢鐤壖閹靛鐏﹂敍灞惧Ω濮ｅ繑娼捄顖滄暠閹峰棙鍨氶崐娆撯偓澶庣カ閺傛瑥瀵橀妴浣规降濠ф劗娅ョ拋鏉挎嫲娑撳娴囬弮銉ョ箶娑撳閲滃鍛壋閺屻儰鎹㈤崝鈽呯礉娴ｅ棔绗夐崘娆忓弳瀹稿弶鏁归梿鍡氱槈閹诡喗鍨ㄩ柌濠咁嚢缂佹捁顔戦妴?- `045_ai-agent-hust-obimd-evobc-codepoint-crosswalk-source-register-capture-results.csv`閿涙岸娼伴崥?15 閺夆€茬瑏濠?codepoint 閺夈儲绨惂鏄忣唶娴犺濮熼惃?metadata 閹规洝骞忕紒鎾寸亯閿涘矂鈧劖娼靛┃鎰唶瑜?HUST-OBC閵嗕副BIMD閵嗕笒VOBC 閻?source register 鐠囦焦宓侀崐鐓庢嫲閺夊啫鍩?妞嬪酣娅撴潏鍦櫕閿涘奔绲炬稉宥嗗絹閸楀洣璐熺€涙鑸伴煬顐″敜閹存牠鍣寸拠鑽ょ波鐠佹亽鈧?- `046_ai-agent-hust-obimd-evobc-codepoint-crosswalk-download-log-capture-results.csv`閿涙岸娼伴崥?15 閺夆€茬瑏濠?codepoint 娑撳娴囬弮銉ョ箶娴犺濮熼惃?metadata 閹规洝骞忕紒鎾寸亯閿涘矂鈧劒绗呮潪?ID 鐠佹澘缍?URL閵嗕胶濮搁幀浣碘偓浣搞亣鐏忓繈鈧恭hecksum閵嗕辜mp 鐠侯垰绶為崪宀勵棑闂勨晞顕╅弰搴礉娴ｅ棔绗夐柌宥嗘煀娑撳娴囬妴浣风瑝娴ｆ粍娼堥崚鈺佸枀鐎规熬绱濇稊鐔剁瑝閹绘劕宕屾稉鍝勭摟瑜般垼闊╂禒鑺ュ灗闁插﹨顕扮紒鎾诡啈閵?- `047_ai-agent-hust-obimd-evobc-codepoint-crosswalk-candidate-packet-capture-results.csv`閿涙岸娼伴崥?15 閺夆€茬瑏濠?codepoint 閸婃瑩鈧瀵樻禒璇插閻?metadata 閹规洝骞忕紒鎾寸亯閿涘矂鈧劕鈧瑩鈧瀵樼拋鏉跨秿閺堫剙婀?HUST-OBC 閸婃瑩鈧鐡у▓闈涙嫲瀵板懍姘﹂崣澶婎槻閺?route refs閿涘奔绲炬稉宥咃紣閺勫氦闊╂禒钘夊爱闁板秲鈧焦鐎禒韬测偓浣圭川閸栨牠鎽奸幋鏍櫞鐠囪崵绮ㄧ拋鎭掆偓?
+## File Families / 文件族
 
-Recent additions / ���²��䣺
-- `076_ai-agent-xiaoxuetang-followup-route-pack.json`: combined routing-only pack that merges the 072/073 Xiaoxuetang JGW follow-up tasks with the 074/075 Xiaoxuetang OBM access-boundary tasks, indexing all six review routes, their draft logs, target sources, route files, and access-boundary cautions without turning them into source evidence, catalog facts, assignments, or decipherment conclusions.
-- `077_ai-agent-xiaoxuetang-followup-review-route-summary.json`: compact routing summary for the 076 combined Xiaoxuetang route pack, grouping the six follow-up tasks by follow-up family and target source so later agents can choose the next manual-browser or institutional-export route before opening route files or recording evidence.
-- `076_ai-agent-xiaoxuetang-followup-route-pack.json`��ͳһ����Сѧ�� JGW �� OBM �ĺ�������·�ɣ�ֻ��Ϊ AI Agent ѡ·����ڡ�
-- `077_ai-agent-xiaoxuetang-followup-review-route-summary.json`����ͳһ·�ɰ�����ժҪ���ȷ��塢��Ŀ����Դ���ٽ����˹���������ʸ�����
-- `078_ai-agent-xiaoxuetang-followup-assignment-plan.json`: planning-only assignment plan for the six Xiaoxuetang follow-up tasks, split into a first JGW route wave and a second OBM route wave without assigning owners, collecting evidence, confirming catalogs or collections, or making decipherment claims.
-- `079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json`: first-wave handoff scaffold derived from 078, opening the two JGW follow-up routes and their required files before any manual-browser or institutional-export evidence capture.
-- `078_ai-agent-xiaoxuetang-followup-assignment-plan.json`��6 ��Сѧ�ú�����������ļƻ�������ļ����ֳɵ�һ�� JGW �͵ڶ��� OBM�������� owner������֤����ȷ����¼/�ݲأ�Ҳ�����Ͷ��жϡ�
-- `079_ai-agent-xiaoxuetang-followup-wave-handoff-scaffold.json`���� 078 �����ĵ�һ�����ӽ��ּܣ��ȴ� 2 �� JGW follow-up ·�߼�������ļ����ٽ�������˹���������ʲ�֤��
-- `080_ai-agent-xiaoxuetang-followup-jgw-capture-scaffold.csv`: empty first-wave JGW follow-up capture scaffold for the two Xiaoxuetang character-page routes, reserving access outcome plus catalog, Heji crosswalk, collection match, and inscription-context availability fields while keeping every evidence value blank and every claim blocked.
-- `081_ai-agent-xiaoxuetang-followup-jgw-capture-review-checklist.csv`: not-started review checklist for the 080 rows, requiring agents to open the handoff row, review-log draft, route files, and registered source/download rows before recording any availability status.
-- `080_ai-agent-xiaoxuetang-followup-jgw-capture-scaffold.csv`��2 �� Xiaoxuetang ��ҳ·�ߵ��ײ��� capture scaffold��Ԥ�� access outcome��catalog��Heji��collection��inscription context �ɵ����ֶΣ�֤��ֵ���ֿհף������жϱ�����ϡ�
-- `081_ai-agent-xiaoxuetang-followup-jgw-capture-review-checklist.csv`����� 080 ��δ��ʼ checklist��Ҫ����� agent �ȿ� handoff �С�review-log �ݸ塢route files ���ѵǼ���Դ/�����У��ټ�¼�κ� availability ״̬��
-- `082_ai-agent-xiaoxuetang-followup-jgw-capture-results.csv`: reviewed metadata-only results for the two first-wave JGW follow-up capture rows, confirming the current TLS/access boundary and the current absence of catalog, Heji crosswalk, collection match, and inscription-context evidence from reviewed route files only.
-- `082_ai-agent-xiaoxuetang-followup-jgw-capture-results.csv`�������ײ� JGW follow-up capture row �� reviewed metadata-only ������ֻȷ�ϵ�ǰ TLS/���ʱ߽磬�Լ����Ѹ��� route files ����δ��� catalog��Heji��collection��inscription context ֤�ݡ�
-- `083_ai-agent-xxt-obm-access-boundary-capture-scaffold.csv`: empty capture scaffold for the four Xiaoxuetang OBM access-boundary follow-up routes, reserving access-profile and staged-abbreviation availability fields while keeping every evidence value blank and every old-catalog, holding, assignment, and decipherment claim blocked.
-- `084_ai-agent-xxt-obm-access-boundary-capture-review-checklist.csv`: not-started review checklist for the 083 OBM rows, requiring agents to open the 074 queue row, 075 draft, and cited route files before recording any access-profile or staging availability status.
-- `085_ai-agent-xxt-obm-access-boundary-capture-results.csv`: reviewed metadata-only capture results for the four OBM access-boundary follow-up routes, confirming the current access-restricted HTML boundary and the current availability or absence of registered access-profile and staged-abbreviation metadata only.
-- `083_ai-agent-xxt-obm-access-boundary-capture-scaffold.csv`：4 条 Xiaoxuetang OBM access-boundary follow-up 路线的空 capture scaffold，预留 access-profile 与 staged-abbreviation 可得性字段，证据值保持空白，旧著录、馆藏、分配和释读判断全部阻断。
-- `084_ai-agent-xxt-obm-access-boundary-capture-review-checklist.csv`：针对 083 OBM 行的未开始 review checklist，要求后续 agent 先打开 074 queue row、075 draft 和引用的 route files，再记录任何 access-profile 或 staging 可得性状态。
-- `085_ai-agent-xxt-obm-access-boundary-capture-results.csv`：4 条 OBM access-boundary follow-up 路线的 reviewed metadata-only capture results，只确认当前 access-restricted HTML 边界，以及已登记 access-profile / staged-abbreviation metadata 的可得或暂不可得状态。
-- `086_ai-agent-xiaoxuetang-followup-capture-route-pack.json`: combined routing-only pack for the reviewed 082 JGW and 085 OBM capture results, indexing all six capture-result routes, their route files, route-status snapshots, and next checks without turning the pack itself into source evidence or conclusions.
-- `087_ai-agent-xiaoxuetang-followup-capture-review-route-summary.json`: compact routing summary for the 086 capture-results route pack, grouping the six reviewed metadata-only capture-result routes by follow-up family and target source before any new manual follow-up or evidence promotion.
-- `086_ai-agent-xiaoxuetang-followup-capture-route-pack.json`：把 reviewed 的 082 JGW 与 085 OBM capture results 合并成统一 route pack，索引 6 条 capture-result 路线、route files、route-status snapshots 和 next checks，但不把它本身当作来源证据或结论。
-- `087_ai-agent-xiaoxuetang-followup-capture-review-route-summary.json`：从 086 capture-results route pack 生成简明 summary，按 follow-up family 和 target source 汇总 6 条 reviewed metadata-only capture-result 路线，供后续人工 follow-up 或证据提升前选路由。
-- `088_ai-agent-xiaoxuetang-followup-capture-assignment-plan.json`: planning-only assignment plan for the six reviewed Xiaoxuetang capture-result routes, split into a first JGW capture wave and a second OBM capture wave without assigning owners, collecting evidence, confirming catalogs or collections, or making decipherment claims.
-- `089_ai-agent-xiaoxuetang-followup-capture-wave-handoff-scaffold.json`: first-wave handoff scaffold derived from 088, opening the two JGW capture-result routes and their required files before any later manual-browser or institutional-export evidence collection.
-- `088_ai-agent-xiaoxuetang-followup-capture-assignment-plan.json`：6 条 reviewed Xiaoxuetang capture-result 路线的计划层分派文件，分成第一波 JGW capture 和第二波 OBM capture，不分配 owner，不采证，不确认著录/馆藏，也不做释读判断。
-- `089_ai-agent-xiaoxuetang-followup-capture-wave-handoff-scaffold.json`：由 088 派生的第一波交接脚手架，先打开 2 条 JGW capture-result 路线及其必需文件，再进入后续人工或机构访问采证。
+### Relationship Graph Statistics / 关系图统计
 
-English supplement:
-- `099_ai-agent-source-engineering-gap-queue.csv`: source-engineering gap queue derived from the current source pipeline and coverage audits, listing 45 metadata-only tasks for access-boundary follow-up, checksum/status review, metadata profile extraction, field-map creation, package-manifest/not-applicable decisions, and safe derived-record decisions without promoting sources or claims.
+- `001` to `003` summarize graph edge types, node degree, and AI context.
+- Use them to find graph coverage and graph-derived routing clues.
+- Do not treat graph edges as component, identity, or evolution conclusions.
 
-�������Ĳ��䣺
-- `099_ai-agent-source-engineering-gap-queue.csv`���ӵ�ǰ��Դ��ˮ�ߺ͸����������������Դ����ȱ�ڶ��У��г� 45 �� metadata-only �������ڷ��ʱ߽硢checksum/status��metadata profile��field map��package manifest/�������ж��Ͱ�ȫ������¼���ߣ���������Դ��Ҳ���γ�ѧ�����ۡ�
+### Source Route Review / 来源路线复核
 
-English supplement:
-- 100_ai-agent-source-engineering-execution-matrix.csv and 101_source-engineering-execution-summary.json summarize one preprocessing execution row per registered source from the 099 gap queue and 094 pipeline audit. They are metadata-only and do not download, import, clear rights, or promote scholarship.
+- `007` to `015` cover source coverage, route queues, and metadata results.
+- Use them to find source register, download log, package, and graph routes.
+- They are metadata-only review surfaces, not source promotion.
 
-简体中文补充：
-- 100_ai-agent-source-engineering-execution-matrix.csv 与 101_source-engineering-execution-summary.json 基于 099 缺口队列和 094 流水线审计，为每个已登记来源生成一条预处理执行入口；它们仅为 metadata-only，不下载、不导入、不清除权利风险，也不提升学术结论。
+### Evidence Collection Scaffolds / 证据收集脚手架
 
-English supplement:
-- 102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv indexes 45 empty source-engineering review-log drafts generated from the 099 gap queue. Each draft opens a concrete route for provenance, rights, checksum/access, manifest, field-map, metadata-profile, or safe-derivative review while preserving draft_not_collected and not_promoted boundaries.
+- `016` to `039` split source evidence work into not-collected tasks.
+- Use them to plan source-register, download-log, package, and rights review.
+- Empty scaffold rows must stay empty until a later human review pass.
 
-简体中文补充：
-- 102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv 索引 45 个从 099 缺口队列生成的空来源工程复核日志草稿；每个草稿为 provenance、权利、checksum/访问边界、manifest、field map、metadata profile 或安全派生记录复核提供具体入口，同时保持 draft_not_collected 和 not_promoted 边界。
+### Cross-Source And Candidate Queues / 跨来源与候选队列
 
-English supplement:
-- 103_ai-agent-source-engineering-gap-evidence-snapshot.csv records 45 metadata-only evidence snapshots for the current source-engineering gap queue. Each row links one 099 gap to its 102 draft, source-register facts, download/manifest/profile evidence already on disk, route-file availability, required next checks, and explicit not_promoted/not_imported/non-rights-decision boundaries.
+- `040` to `089` route HUST-OBC, OBIMD, EVOBC, Xiaoxuetang, and OBM checks.
+- Use them to find candidate packets, source rows, and download evidence.
+- They do not confirm identity, readings, components, or evolution chains.
 
-简体中文补充：
-- 103_ai-agent-source-engineering-gap-evidence-snapshot.csv 为当前来源工程缺口队列记录 45 条 metadata-only 证据快照。每行把一条 099 缺口与对应 102 草稿、来源登记事实、磁盘上已有的下载/manifest/profile 证据、route file 可用性、下一步检查和明确的 not_promoted/not_imported/不作权利裁定边界连接起来。
+### Source Engineering Pipeline / 来源工程流水线
 
-English supplement:
-- 104_ai-agent-source-engineering-next-action-checklist.csv turns the 103 metadata snapshot into a 45-row actionable preprocessing checklist. Rows group access-boundary, checksum/status, metadata-profile, field-map, package-manifest, and safe-derived-record decisions into review lanes without executing those actions or promoting any source or scholarly claim.
+- `094` to `185` organize source-processing gaps, actions, handoffs,
+  checklists, outcome scaffolds, and route summaries.
+- Use them to continue preprocessing before any source is promoted.
+- Rights, import, source promotion, and evidence outcomes remain human-gated.
 
-简体中文补充：
-- 104_ai-agent-source-engineering-next-action-checklist.csv 把 103 metadata 快照转换为 45 行可执行的预处理检查清单。各行把访问边界、checksum/status、metadata profile、field map、package manifest 和安全派生记录决策分入复核 lane，但不实际执行这些动作，也不提升任何来源或学术判断。
+### Object-Local And Project-ID Coverage / 对象内与 ID 覆盖
 
-English supplement:
-- 105_ai-agent-source-engineering-next-action-result-scaffold.csv is an empty 45-row result scaffold paired with the 104 checklist. It preserves not_started, not_collected, no_new_rights_decision, not_promoted, not_imported, and no_decipherment_claim statuses until a later reviewed source-engineering pass records real outcomes.
+- `186` to `191` audit object-local material bundles and ID-source maps.
+- Use them to check whether concrete object directories have human entries,
+  AI packets, route galleries, source indexes, and no parallel human folders.
+- These audits show readiness signals, not scholarly truth.
 
-简体中文补充：
-- 105_ai-agent-source-engineering-next-action-result-scaffold.csv 是与 104 检查清单配套的 45 行空结果脚手架。在后续经过复核的来源工程处理真正记录结果前，它保持 not_started、not_collected、no_new_rights_decision、not_promoted、not_imported 和 no_decipherment_claim 状态。
+## Concrete Questions To Check / 具体待查问题
 
-English supplement:
-- `106_ai-agent-source-engineering-lane-summary.csv` groups the 45 rows from `104_ai-agent-source-engineering-next-action-checklist.csv` and `105_ai-agent-source-engineering-next-action-result-scaffold.csv` into six review lanes. It is a planning and statistics surface only: every lane remains pending source-engineering review, not promoted, not imported, and explicitly outside decipherment claims.
+- Which source or corpus area has the largest remaining preprocessing gap?
+- Which object directory lacks a human-readable local research entrance?
+- Which source needs access, checksum, package manifest, or rights review?
+- Which route file should a human open before collecting new evidence?
+- Which generated queue is still only an empty scaffold?
+- Which rows are metadata-only and must not be promoted into scholarship?
+- Which statistics should be regenerated after object-local materials change?
+- 哪个来源或语料区仍有最大的预处理缺口？
+- 哪个对象目录还缺人类可读的本地研究入口？
+- 哪个来源还需要访问、checksum、package manifest 或权利复核？
+- 人工收集新证据前，应先打开哪一个路线文件？
+- 哪个生成队列仍只是空脚手架？
+- 哪些行只是 metadata，不能提升为学术结论？
+- 对象内资料改变后，哪些统计文件需要重新生成？
 
-简体中文补充：
-- `106_ai-agent-source-engineering-lane-summary.csv` 将 `104_ai-agent-source-engineering-next-action-checklist.csv` 与 `105_ai-agent-source-engineering-next-action-result-scaffold.csv` 的 45 行汇总为六个复核泳道。它只用于计划和统计：每个泳道仍处于待来源工程复核状态，未提升、未导入，并明确不构成释读结论。
+## Suggested Review Order / 建议复核顺序
 
-English supplement:
-- `107_ai-agent-source-engineering-lane-route-pack.json` is a routing-only source-engineering lane pack derived from 104, 105, and 106. It exposes six review lanes and their 45 not-started tasks as machine-readable next-entry metadata while preserving no-evidence-collected, no-new-rights-decision, not-promoted, not-imported, and no-decipherment-claim boundaries.
+1. Open `189_object-local-material-coverage-summary.json`.
+2. Open `188_object-local-material-coverage-audit.csv`.
+3. Open `135_core-corpus-phase-coverage-matrix.csv`.
+4. Open `136_source-pipeline-phase-coverage-matrix.csv`.
+5. Open `137_source-pipeline-phase-action-queue.csv`.
+6. Follow the cited source register, object directory, or route pack.
+7. Record reviewed outcomes only in the matching result scaffold or log.
 
-简体中文补充：
-- `107_ai-agent-source-engineering-lane-route-pack.json` 是由 104、105 和 106 派生的来源工程泳道路由包。它以机器可读方式暴露六个复核泳道和 45 个尚未开始的任务，作为后续入口 metadata；同时保持未采集证据、未作新权利裁定、未提升、未导入和不作释读结论的边界。
+## Regeneration Notes / 再生成说明
 
-English supplement:
-- `108_ai-agent-source-field-map-scaffold.csv` records four pending source-field-map scaffold rows derived from the 107 `source_field_map_planning` lane. These rows carry source-register provenance, rights/risk notes, review-log routes, and pending target-field placeholders while preserving no-new-rights-decision, not-promoted, not-imported, and no-decipherment-claim boundaries.
+Many files in this directory are generated by scripts under:
 
-简体中文补充：
-- `108_ai-agent-source-field-map-scaffold.csv` 记录从 107 的 `source_field_map_planning` 泳道派生出的 4 行待复核来源字段映射 scaffold。各行带有 source register 出处、权利/风险提示、复核日志路径和待确认目标字段占位，同时保持未作新权利裁定、未提升、未导入和不作释读结论的边界。
+- `tools/003_graph-generation/`
+- `tools/004_statistics-generation/`
+- `tools/005_ai-context-pack-builder/`
 
-English supplement:
-- `109_ai-agent-source-field-map-review-checklist.csv` records four not-started review checklist rows for pending source-field-map scaffolds. Each row links the 108 scaffold, source registry, existing field map, 107 route pack, and review log so later source-engineering review can verify rights/risk, source-field semantics, target record type, and import blockers before any promotion.
-
-简体中文补充：
-- `109_ai-agent-source-field-map-review-checklist.csv` 记录 4 行尚未开始的来源字段映射复核清单。每行连接 108 scaffold、来源登记表、现有 field map、107 route pack 和 review log，便于后续来源工程复核先确认权利/风险、来源字段语义、目标记录类型和导入阻断条件，再考虑任何提升。
-
-English supplement:
-- `110_ai-agent-source-field-map-review-result-scaffold.csv` records four empty result scaffold rows paired with the 109 source-field-map review checklist. The file reserves review outcome fields and blockers for later human review, but every row remains `not_started`, `pending_human_review`, `not_promoted`, `not_imported`, and `no_decipherment_claim`.
-
-English supplement:
-- `111_ai-agent-source-field-map-review-route-pack.json` links the 108 scaffold, 109 checklist, and 110 result scaffold into a single routing-only entry point for four pending source-field-map reviews. It is not a reviewed field map, not a rights decision, not a corpus import, and not a decipherment or identity claim.
-
-简体中文补充：
-- `111_ai-agent-source-field-map-review-route-pack.json` 把 108 scaffold、109 检查清单和 110 结果脚手架连接成一个只用于路由的入口，覆盖 4 个待复核 source-field-map 任务。它不是已复核字段映射，不是权利裁定，不是语料导入，也不是释读或身份结论。
-
-English supplement:
-- `112_ai-agent-source-package-manifest-review-route-pack.json` links the 104 source-engineering checklist and 105 empty result scaffold for the 15 `package_manifest_or_not_applicable_review` routes. It is a routing-only package-manifest review entry point and keeps every row `not_started`, `not_collected`, `not_promoted`, `not_imported`, and outside rights or decipherment decisions.
-
-简体中文补充：
-- `112_ai-agent-source-package-manifest-review-route-pack.json` 连接 104 来源工程检查清单和 105 空结果脚手架中的 15 条 `package_manifest_or_not_applicable_review` 路由。它只是 package manifest 复核入口；每条记录仍保持 `not_started`、`not_collected`、`not_promoted`、`not_imported`，不构成权利裁定或释读结论。
-
-English supplement:
-- `113_ai-agent-source-access-boundary-review-route-pack.json` links the 104 source-engineering checklist and 105 empty result scaffold for the six `access_boundary_followup` routes. It is a routing-only access-boundary review entry point: access outcomes stay empty, evidence stays uncollected, and content import remains blocked until human review.
-
-简体中文补充：
-- `113_ai-agent-source-access-boundary-review-route-pack.json` 连接 104 来源工程检查清单和 105 空结果脚手架中的 6 条 `access_boundary_followup` 路由。它只是访问边界复核入口：access outcome 仍为空，证据仍未采集，内容导入继续等待人工复核。
-
-English supplement:
-- `114_ai-agent-source-checksum-review-route-pack.json` links the 104 source-engineering checklist and 105 empty result scaffold for the five `checksum_and_download_status_review` routes. It is a routing-only checksum/download-status review entry point: checksum outcomes stay empty, evidence stays uncollected, and source/package promotion remains blocked until review.
-
-简体中文补充：
-- `114_ai-agent-source-checksum-review-route-pack.json` 连接 104 来源工程检查清单和 105 空结果脚手架中的 5 条 `checksum_and_download_status_review` 路由。它只是 checksum/download-status 复核入口：checksum outcome 仍为空，证据仍未采集，来源或资料包提升继续等待复核。
-
-简体中文补充：
-- `110_ai-agent-source-field-map-review-result-scaffold.csv` 记录 4 行与 109 来源字段映射复核清单配套的空结果脚手架。该文件只预留后续人工复核的结果字段和阻断项；每行仍保持 `not_started`、`pending_human_review`、`not_promoted`、`not_imported` 和 `no_decipherment_claim`。
-# Statistics And Derived Features Supplement / 统计与派生特征补充
-
-English supplement:
-- `115_ai-agent-source-metadata-profile-review-route-pack.json` links the 104 source-engineering checklist and 105 empty result scaffold for the five `metadata_profile_extraction_planning` routes. It is a routing-only metadata-profile review entry point: extraction decisions stay empty, evidence stays uncollected, and corpus import or source promotion remains blocked until review.
-
-简体中文补充：
-- `115_ai-agent-source-metadata-profile-review-route-pack.json` 连接 104 来源工程检查清单和 105 空结果脚手架中的 5 条 `metadata_profile_extraction_planning` 路由。它只是 metadata-profile 复核入口：抽取决定仍为空，证据仍未收集，语料导入和来源提升继续等待复核。
-
-English supplement:
-- `116_ai-agent-source-safe-derived-record-review-route-pack.json` links the 104 source-engineering checklist and 105 empty result scaffold for the ten `safe_derived_record_decision` routes. It is a routing-only safe-derived-record review entry point: promotion decisions stay empty, evidence stays uncollected, and source/corpus promotion remains blocked until review.
-
-简体中文补充：
-- `116_ai-agent-source-safe-derived-record-review-route-pack.json` 连接 104 来源工程检查清单和 105 空结果脚手架中的 10 条 `safe_derived_record_decision` 路由。它只是 safe-derived-record 复核入口：提升决定仍为空，证据仍未收集，来源或语料提升继续等待复核。
-
-English supplement:
-- `117_ai-agent-source-engineering-review-route-summary.json` summarizes the six source-engineering lane route packs 111-116 into one routing-only review execution index. It covers 45 pending routes and records lane-level decision fields, status counts, blocking conditions, and first review/result paths without recording reviewed outcomes or promoting any source.
-
-简体中文补充：
-- `117_ai-agent-source-engineering-review-route-summary.json` 将 111-116 六个 source-engineering lane route pack 汇总为一个只用于路由的复核执行索引。它覆盖 45 条待复核路线，并记录 lane 级决策字段、状态计数、阻断条件和首个 review/result 路径；不记录复核结论，也不提升任何来源。
-English supplement:
-- `118_ai-agent-source-engineering-review-wave-handoff-scaffold.json` opens the first not-started route from each of the six source-engineering review lanes as a first-wave handoff scaffold. It is a routing-only file for later reviewers: route files and planned result paths are listed, while evidence collection, rights decisions, source promotion, corpus import, and decipherment claims remain blocked.
-- `119_ai-agent-source-engineering-first-wave-review-results.csv` captures metadata-only first-wave results from the 118 handoff scaffold and existing local source-engineering evidence tables. It records current download/access status, checksum presence, package-manifest absence, metadata-profile counts, and field-map scaffold status for six routes, but keeps rights clearance, source promotion, corpus import, identity, component, evolution, and decipherment decisions pending human review.
-- `120_ai-agent-source-engineering-first-wave-result-record-manifest.csv` indexes the six Markdown result records materialized from 119 under `doc/public/user_research/009_source-engineering-gap-review-queues/`. It gives later reviewers a per-route entry point with evidence paths and boundary statuses, while keeping all scholarly and corpus-promotion decisions pending.
-- `121_ai-agent-source-engineering-first-wave-followup-queue.csv` routes the six materialized first-wave result records into conservative follow-up action types. It is a human-gated queue for source-engineering continuation, not an automated rights, import, promotion, identity, component, evolution, or decipherment decision.
-- `122_ai-agent-source-engineering-first-wave-source-status.csv` rolls the 119 route results and 121 follow-up queue into four source-level status rows. It summarizes first-wave blockers and next human-gated actions while keeping rights, source promotion, corpus import, identity, component, evolution, and decipherment decisions pending.
-- `123_ai-agent-source-engineering-second-wave-source-checklist.csv` turns the 122 source-level status rows into four next-step source-engineering checklist rows. Each row points to the source rollup, result records, and reviewed evidence paths while keeping the continuation human-gated and metadata-only.
-
-简体中文补充：
-- `122_ai-agent-source-engineering-first-wave-source-status.csv` 将 119 路线结果和 121 后续队列汇总为四条来源级状态记录。它只概括第一波阻断项和下一步人工门控动作，继续保持权利、来源提升、语料导入、身份、构件、演化和释读决定待复核。
-- `123_ai-agent-source-engineering-second-wave-source-checklist.csv` 将 122 来源级状态记录转换为四条下一步来源工程检查清单。每一行都指向来源汇总、结果记录和已复核证据路径，同时保持后续处理为人工门控和 metadata-only。
-
-简体中文补充：
-- `118_ai-agent-source-engineering-review-wave-handoff-scaffold.json` 把六个来源工程复核 lane 中各自第一条尚未开始的路线打开为第一波交接脚手架。它只是供后续复核者使用的路由文件：列出 route files 和计划结果路径，但继续阻断证据采集、权利裁定、来源提升、语料导入和释读结论。
-- `119_ai-agent-source-engineering-first-wave-review-results.csv` 从 118 交接脚手架和本地已有来源工程证据表捕获仅限元数据的第一波结果。它记录六条路线当前的下载/访问状态、checksum 是否存在、package manifest 缺失、metadata profile 数量和 field-map scaffold 状态，但权利许可、来源提升、语料导入、身份、构件、演化和释读决定仍然等待人工复核。
-- `120_ai-agent-source-engineering-first-wave-result-record-manifest.csv` 索引从 119 实体化到 `doc/public/user_research/009_source-engineering-gap-review-queues/` 的六个 Markdown 结果记录。它为后续复核者提供逐路线入口、证据路径和边界状态，同时所有学术判断和语料提升决定仍保持待复核。
-- `121_ai-agent-source-engineering-first-wave-followup-queue.csv` 把六个已实体化的第一波结果记录路由为保守的后续动作类型。它是供来源工程继续推进的人工门控队列，不是自动权利裁定、导入、提升、身份、构件、演化或释读决定。
-
-English supplement:
-- `134_ai-agent-source-pipeline-evidence-ledger.csv` is a 21-row per-source preprocessing evidence ledger derived from the 094 source-processing audit and 133 source-pipeline checklist. It summarizes existing evidence counts and route files only; it is not a reviewed evidence outcome, rights decision, source promotion, corpus import, or decipherment conclusion.
-
-简体中文补充：
-- `134_ai-agent-source-pipeline-evidence-ledger.csv` 是基于 094 来源处理流水线审计和 133 来源流水线清单生成的 21 行逐来源预处理证据账本。它只汇总现有证据计数和 route files；不是已复核证据 outcome、权利裁定、来源提升、语料导入或释读结论。
-
-English supplement:
-- `135_core-corpus-phase-coverage-matrix.csv` is a 10-row core-corpus phase matrix derived from 090, 096, and 134. It records discovered/downloaded/registered/unpacked/extracted/cleaned/structured/linked/verified/pending-review status signals and evidence paths for each core corpus area, while keeping all conclusions pending review.
-- `136_source-pipeline-phase-coverage-matrix.csv` is a 21-row per-source phase matrix derived from 134. It records each source's discovered/downloaded/registered/unpacked/extracted/cleaned/structured/linked/verified/pending-review status, missing or review-needed phases, and next review steps without changing source promotion or rights decisions.
-
-简体中文补充：
-- `135_core-corpus-phase-coverage-matrix.csv` 是基于 090、096 和 134 生成的 10 行核心语料阶段矩阵。它为每类核心语料记录已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态信号与证据路径，所有结论仍保持待复核。
-- `136_source-pipeline-phase-coverage-matrix.csv` 是基于 134 生成的 21 行逐来源阶段矩阵。它记录每个来源的已发现、已下载、已登记、已解包、已抽取、已清洗、已结构化、已关联、已验证和待复核状态、缺失或待复核阶段以及下一步复核步骤，不改变来源提升或权利裁定。
-
-English supplement:
-- `094_source-processing-pipeline-audit.csv` and `095_source-processing-pipeline-summary.json` expose per-source counts for current source-phase action rows, missing-evidence action rows, and missing-evidence assignment checklist coverage. These are routing counts only; they do not record reviewed outcomes.
-- `137_source-pipeline-phase-action-queue.csv` expands the 136 source phase matrix into 62 pending human-review actions. It is a preprocessing queue only: no evidence is collected, no rights decision is made, no source is promoted, no corpus records are imported, and no decipherment claim is made.
-- `138_source-pipeline-phase-action-result-scaffold.csv` is the empty result scaffold for the 62 rows in 137. It provides reviewed-outcome placeholders only and keeps evidence collection, rights decisions, source promotion, corpus import, and decipherment claims unset.
-- `139_source-pipeline-phase-action-route-summary.json` is a routing-only summary for the 62 empty result scaffold rows in 138. It groups routes by source, phase, and review lane, but does not record reviewed outcomes or promote any source.
-
-简体中文补充：
-- `094_source-processing-pipeline-audit.csv` 和 `095_source-processing-pipeline-summary.json` 会公开每个来源当前的来源阶段行动行、缺失证据行动行和缺失证据 assignment checklist 覆盖数。这些只是预处理路线统计，不记录已复核 outcome。
-- `137_source-pipeline-phase-action-queue.csv` 将 136 来源阶段矩阵展开为 62 条待人工复核行动。它只是预处理队列，不采集证据、不裁定权利、不提升来源、不导入语料，也不提出释读结论。
-
-简体中文补充：
-- `137_source-pipeline-phase-action-queue.csv` 把 136 来源阶段矩阵展开为 62 行待人工复核动作。它只属于预处理队列：不采集证据、不作权利裁定、不提升来源、不导入语料，也不提出释读结论。
-- `138_source-pipeline-phase-action-result-scaffold.csv` 是 137 中 62 行动作的空结果脚手架。它只提供复核 outcome 占位字段，证据采集、权利裁定、来源提升、语料导入和释读结论均保持未填写。
-- `139_source-pipeline-phase-action-route-summary.json` 是 138 中 62 行空结果脚手架的路线汇总。它按来源、阶段和复核 lane 分组，仅用于导航，不记录已复核 outcome，也不提升任何来源。
+When generated statistics or scaffolds change, rerun the matching builder,
+then run repository validation and tests before committing.

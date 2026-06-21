@@ -98,20 +98,28 @@ cross-source and human review are complete.
 
 ## 10. Missing Data / 缺失项
 
-- accepted reading and meaning
-- 已接受释读和意义
-- inscription occurrences and full text context
-- 出现卜辞和全文上下文
-- catalog, plate, and old-number crosswalks
-- 著录、图版和旧号互证
-- excavation site, collection, period, and batch
-- 出土地、馆藏、时期和批次
-- variant set and similar-form comparison
-- 异体集合和近形比较
-- component candidates and reviewer notes
-- 构件候选和复核记录
-- published bibliography and decipherment-history notes
-- 已发表书目和释读史记录
+### Concrete Questions To Check / 具体待查问题
+
+- Which source records identify obs-unk-005037 beyond the current packet?
+- 除当前 packet 外，哪些来源记录可以继续定位 obs-unk-005037？
+- Which inscriptions, plates, or catalog numbers need to be checked?
+- 需要核对哪些卜辞、图版或著录号？
+- Which full inscription texts or OCR routes preserve the context?
+- 哪些卜辞全文或 OCR 路线能补足上下文？
+- Which collection, findspot, period, or batch records are relevant?
+- 哪些馆藏、出土地、时期或批次记录与本对象有关？
+- Which variant, similar-form, or component-candidate routes exist?
+- 哪些异体、近形或构件候选路线需要打开核查？
+- Which bibliography records discuss the reading history or disputes?
+- 哪些书目记录涉及释读史、提出者或不同意见？
+- Which later-script, bronze, seal, or modern-form routes are only
+  candidate evidence and need human review?
+- 哪些后世字形、金文、小篆或今字路线仍只是候选证据，
+  需要人工复核？
+- Which rights, risk, checksum, and manifest records must be opened
+  before any image or source derivative is reused?
+- 下一步应打开哪些来源记录、权利记录、checksum 和 manifest，
+  才能复用图像或来源派生资料？
 
 ## 11. Local Files To Open / 本目录入口
 

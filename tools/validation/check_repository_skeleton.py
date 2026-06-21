@@ -2395,6 +2395,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 "人类研究档案",
                 "考古档案覆盖",
                 "缺失项",
+                "具体待查问题",
                 "不是已接受的今字",
             ],
             review_sheet_path: [

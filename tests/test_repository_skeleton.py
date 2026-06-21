@@ -2603,6 +2603,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "corpus/001_oracle-characters/079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
             / "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate",
         ]
+        mojibake_fragments = ("浜", "绠€", "鐮", "鏉ユ簮", "涓嶆槸")
         for target_dir in target_dirs:
             readme_text = (target_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("01_", readme_text)
@@ -2611,10 +2612,13 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not an accepted reading", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("不是已确认释读", readme_text)
+            self.assertIn("同一具体对象目录", readme_text)
+            for fragment in mojibake_fragments:
+                self.assertNotIn(fragment, readme_text)
             self.assertFalse((target_dir.parent / "human-readable").exists())
         extracted_readme = (target_dirs[-1] / "README.md").read_text(encoding="utf-8")
         self.assertIn("03_visual-assets/001_asset-000005_hust-X-006294_glyph.png", extracted_readme)
-        self.assertNotIn("Committed glyph image / 已提交字形图片: none in this directory yet", extracted_readme)
+        self.assertNotIn("Committed glyph image / 已提交字形图像: none in this directory yet", extracted_readme)
 
         visual_index_path = target_dirs[-1] / "02_visual-source-index.csv"
         with visual_index_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -2653,10 +2657,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("人类研究档案", dossier)
         self.assertIn("考古档案覆盖", dossier)
         self.assertIn("缺失项", dossier)
+        self.assertIn("具体待查问题", dossier)
+        self.assertIn("需要核对哪些卜辞、图版或著录号", dossier)
+        self.assertIn("下一步应打开哪些来源记录", dossier)
         self.assertIn("not_collected", dossier)
         self.assertIn("人工复核单", review)
         self.assertIn("未复核释读必须保持候选状态", review)
         self.assertIn("no_claim", review)
+        for fragment in ("浜", "绠€", "鐮", "缂哄け", "鑰冨彜"):
+            self.assertNotIn(fragment, dossier)
+            self.assertNotIn(fragment, review)
 
         index = json.loads(index_path.read_text(encoding="utf-8"))
         self.assertEqual(index["project_id"], "obs-char-000001")
@@ -2681,8 +2691,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("excavation site", first["dossier_text"])
         self.assertIn("人类研究档案", first["dossier_text"])
         self.assertIn("考古档案覆盖", first["dossier_text"])
+        self.assertIn("具体待查问题", first["dossier_text"])
+        self.assertIn("需要核对哪些卜辞、图版或著录号", first["dossier_text"])
         self.assertIn("decipherment conclusion", first["review_sheet_text"])
         self.assertIn("人工复核单", first["review_sheet_text"])
+        for fragment in ("浜", "绠€", "鐮", "缂哄け", "鑰冨彜"):
+            self.assertNotIn(fragment, first["dossier_text"])
+            self.assertNotIn(fragment, first["review_sheet_text"])
         self.assertEqual(
             first["index_data"]["human_language_coverage"]["simplified_chinese"],
             "present",
@@ -2695,7 +2710,6 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in text.splitlines():
                 if not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
-
     def test_component_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_component_candidate_local_materials(repo_root()), [])
 

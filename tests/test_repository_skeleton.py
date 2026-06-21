@@ -30,6 +30,7 @@ from tools.validation.check_repository_skeleton import (
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
     check_project_id_source_map_audit,
+    check_source_rights_policy_human_entry,
     check_statistics_readme_human_entry,
     check_inscription_readme_human_entry,
     check_root_readmes_human_entry,
@@ -2651,6 +2652,37 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if line.startswith("|") or line.startswith("![") or line.startswith("<"):
                     continue
                 self.assertLessEqual(len(line), 80, f"{relative}: {line}")
+
+    def test_source_rights_policy_is_human_review_entry(self) -> None:
+        self.assertEqual(check_source_rights_policy_human_entry(repo_root()), [])
+        readme_path = (
+            repo_root()
+            / "doc/project/002_source-rights-and-provenance-policy/README.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Source Rights And Provenance Policy / 来源权利与出处政策",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "source provenance",
+            "rights status",
+            "risk note",
+            "checksum",
+            "SIZE_LIMIT",
+            "project_registry/006_large-source-register/",
+            "not a decipherment conclusion",
+            "来源系统",
+            "权利状态",
+            "风险提示",
+            "复核状态",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
 
     def test_forbidden_path_patterns_absent(self) -> None:
         self.assertEqual(check_forbidden_paths(repo_root()), [])

@@ -1,59 +1,144 @@
 # Source Rights And Provenance Policy / 来源权利与出处政策
 
 English:
-External oracle bone images, scans, paper PDFs, large image sets, and research corpora may be downloaded or committed when they are necessary for research. Because oracle bone materials are scarce, the project should preserve useful source trails instead of discarding material too aggressively.
+This policy tells reviewers how to keep source provenance, rights status,
+risk note, size evidence, checksum, and review status beside each source
+material before formal oracle-bone research begins.
 
 简体中文：
-研究需要时，本仓库可以下载或提交外部甲骨图片、扫描件、论文 PDF、大型图片集和研究语料。甲骨文材料本来就稀缺，项目不应因为过度保守而轻易丢失可追溯资料链。
+本政策说明正式甲骨文研究开始前，如何把来源系统、出处链、
+权利状态、风险提示、大小证据、checksum 和复核状态放在
+每项资料旁边，供人类研究者核查。
+
+## Purpose / 用途
+
+English:
+The first goal is a human-readable source trail. AI-readable CSV, JSON,
+manifest, and graph data only help people search, compare, trace, and audit
+that trail.
+
+简体中文：
+首要目标是形成给人看的来源追溯链。AI 可读 CSV、JSON、
+manifest 和图边只用于帮助研究者检索、比较、追溯和审计。
 
 ## Required Provenance / 必需出处信息
 
-Every committed item should answer:
+English:
+Every source item, asset, OCR text, PDF note, image derivative, or database
+export should preserve these facts when they are known:
 
-每个提交的资料项都应回答：
+- source provenance and source system;
+- external ID, catalog number, page, plate, URL, or object record;
+- access route, access date, package name, and provider;
+- file name, file size, checksum, and package manifest;
+- rights status, risk note, and public-commit decision;
+- field map, extraction note, derived paths, and review status.
 
-- Where did it come from?
-- 资料来自哪里？
-- Which external ID, catalog number, URL, source package, page, plate, or object record identifies it?
-- 哪个外部 ID、著录号、URL、来源包、页码、图版或馆藏对象记录能定位它？
-- What rights status is known?
-- 已知权利状态是什么？
-- What redistribution or reuse risk exists?
-- 再分发或复用风险是什么？
-- Who or what process reviewed the metadata?
-- 由谁或哪个流程复核了 metadata？
+简体中文：
+每项来源资料、资产、OCR 文本、PDF 笔记、图片派生件或数据库
+导出，在可知时都应保留下列信息：
 
-## Size Rule / 大小规则
+- 来源出处和来源系统；
+- 外部 ID、著录号、页码、图版号、URL 或馆藏对象记录；
+- 访问路线、访问日期、来源包名称和提供方；
+- 文件名、文件大小、checksum 和 package manifest；
+- 权利状态、风险提示和是否公开提交的决定；
+- 字段映射、抽取说明、派生路径和复核状态。
 
-`SIZE_LIMIT` is 30 MiB per file. Downloaded or committed source materials should stay under this limit. If a file exceeds `SIZE_LIMIT`, record an exception and first consider splitting the file, extracting useful records, downsampling oversized images, or using a more efficient archival format. Files at or above 40 MiB must not be committed to regular Git.
+## Rights And Risk Status / 权利与风险状态
 
-`SIZE_LIMIT` 设为单文件 30 MiB。下载或提交的来源材料原则上应低于这个限制。如果文件超过 `SIZE_LIMIT`，必须登记特例，并优先考虑分包、抽取有用记录、对超大图片降采样，或改用更高效的归档格式。达到或超过 40 MiB 的文件不得提交到普通 Git。
+English:
+Rights status records what is known about reuse. It is not a license grant
+unless a reviewed license says so. A visible risk note must explain why the
+material is safe enough for public metadata, public small derivatives,
+metadata-only routing, or local-private storage.
 
-Large but important source packages should be registered in `project_registry/006_large-source-register/` instead of being discarded. Keep the raw package in ignored local storage or an external archive, then commit only provenance records, checksums, extraction notes, and reviewed derived records that fit the repository limits.
+Allowed status values include:
 
-超过限制但重要的来源包不应被丢弃，而应登记到 `project_registry/006_large-source-register/`。原始包放在已忽略的本地存储或外部归档中，仓库只提交出处记录、checksum、抽取说明和符合尺寸限制的复核后派生记录。
+- `source_marked_risk_noted`;
+- `metadata_only_until_verified`;
+- `public_domain_verified`;
+- `licensed_for_repository`;
+- `local_private_only`.
 
-## Temporary Materials / 临时材料
+简体中文：
+权利状态只记录目前知道的复用情况。除非有已复核许可，否则它
+不是授权声明。显式风险提示必须说明为什么该资料只能公开
+metadata、可以公开小型派生件、只能保留 metadata 路线，或必须
+放在本地私有位置。
 
-AI Agent temporary downloads, OCR intermediates, caches, vector indexes, unpacked archives, and generated experiment outputs must stay in ignored temporary directories such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/`.
+可用状态值包括：
 
-AI Agent 临时下载、OCR 中间产物、缓存、向量索引、解压目录和实验生成产物必须放在 `tmp/`、`_tmp/`、`scratch/`、`.working/` 或 `.cache/` 等已忽略临时目录。
+- `source_marked_risk_noted`；
+- `metadata_only_until_verified`；
+- `public_domain_verified`；
+- `licensed_for_repository`；
+- `local_private_only`。
 
-## Rights Status Values / 权利状态值
+## Large And Temporary Materials / 大文件与临时材料
 
-- `source_marked_risk_noted`: raw or derived material may be present, with source provenance and a visible risk note.
-- `source_marked_risk_noted`：可保存原始或派生材料，但必须标注来源和显式风险提示。
-- `metadata_only_until_verified`: metadata and references are preserved; raw material is not included yet.
-- `metadata_only_until_verified`：保留 metadata 和引用，暂不包含原始材料。
-- `public_domain_verified`: source is verified public domain.
-- `public_domain_verified`：来源已确认公版。
-- `licensed_for_repository`: source is licensed for repository use.
-- `licensed_for_repository`：来源已授权本仓库使用。
-- `local_private_only`: material may only be stored locally and must not be pushed.
-- `local_private_only`：只能本地保存，不得推送。
+English:
+`SIZE_LIMIT` is 30 MiB per file. Files at or above 40 MiB must not be
+committed to regular Git. Important large packages must be registered in
+`project_registry/006_large-source-register/` with storage hints,
+checksums, rights notes, risk notes, manifests, and derived paths.
+
+AI Agent scratch files, OCR caches, temporary downloads, unpacked archives,
+vector indexes, and experimental outputs must stay in ignored local areas
+such as `tmp/`, `_tmp/`, `scratch/`, `.working/`, or `.cache/`.
+
+简体中文：
+`SIZE_LIMIT` 是单文件 30 MiB。达到或超过 40 MiB 的文件不得
+提交到普通 Git。重要的大型来源包必须登记到
+`project_registry/006_large-source-register/`，并记录存放线索、
+checksum、权利说明、风险提示、manifest 和派生路径。
+
+AI Agent 草稿、OCR 缓存、临时下载、解压目录、向量索引和实验
+输出必须留在已忽略的本地区域，例如 `tmp/`、`_tmp/`、
+`scratch/`、`.working/` 或 `.cache/`。
+
+## Concrete Questions To Check / 具体待查问题
+
+- Which source system, catalog, museum, paper, book, or URL supplied it?
+- 哪个来源系统、著录、博物馆、论文、图书或 URL 提供了它？
+- Which external ID, page, plate, object record, or package locates it?
+- 哪个外部 ID、页码、图版号、馆藏对象记录或来源包能定位它？
+- Is the public repository keeping metadata, a small derivative, or raw data?
+- 公开仓库保留的是 metadata、小型派生件，还是原始资料？
+- What rights status and risk note are visible beside the material?
+- 该资料旁边可见的权利状态和风险提示是什么？
+- Is there a checksum, file size, package manifest, and field map?
+- 是否已有 checksum、文件大小、package manifest 和字段映射？
+- If the package exceeds `SIZE_LIMIT`, where is the raw package registered?
+- 如果来源包超过 `SIZE_LIMIT`，原始包登记在哪里？
+- Which derived paths let a reviewer audit the extraction route?
+- 哪些派生路径能让复核者审计抽取路线？
+- What review status remains pending, and who should check it next?
+- 还剩什么复核状态待完成，下一步应由谁检查？
+
+## Review Order / 复核顺序
+
+1. Open the human source note or object-local README first.
+2. Check the registry row and source ID map.
+3. Check the access log, checksum, file size, and package manifest.
+4. Check rights status and the visible risk note.
+5. Check derived records, field maps, and exception records.
+6. Record concrete missing questions instead of empty placeholders.
+
+复核时先读人类可读来源说明或对象内 README，再核对 registry
+行、来源 ID 映射、访问日志、checksum、文件大小、来源包清单、
+权利状态、风险提示、派生记录、字段映射和特例记录。缺失项要
+写成具体待查问题，不要用空话或空模板代替。
 
 ## Research Boundary / 研究边界
 
-Source availability, rights status, and route metadata do not confirm decipherment, component structure, inscription identity, or paleographic correspondence. They only say how the material may be inspected, reused, or reviewed.
+English:
+Source availability, rights status, route metadata, graph edges, staging
+rows, and derived indexes are review routes only. They are not scholarship,
+not source promotion, not corpus import approval, not a rights decision,
+and not a decipherment conclusion.
 
-来源可得性、权利状态和路径 metadata 不确认释读、构件结构、卜辞身份或古文字对应关系。它们只说明资料可以如何检查、复用或复核。
+简体中文：
+来源可得性、权利状态、路线 metadata、图边、staging 行和派生
+索引都只是复核路线。它们不是学术结论，不是来源提升，不是
+语料导入批准，不是权利决定，也不是释读结论。

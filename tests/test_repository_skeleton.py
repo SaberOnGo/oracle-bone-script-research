@@ -13974,11 +13974,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "091_preprocessing-status-summary.json"
         )
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["row_count"], 11)
+        self.assertEqual(data["row_count"], 12)
         self.assertEqual(
             data["stage_counts"],
-            {"pending_human_review": 6, "structured": 1, "verified": 4},
+            {"pending_human_review": 7, "structured": 1, "verified": 4},
         )
+        rows_by_area = {row["area_type"]: row for row in data["rows"]}
+        dossier_row = rows_by_area["character_object_research_dossiers"]
+        self.assertEqual(dossier_row["current_stage"], "pending_human_review")
+        self.assertEqual(dossier_row["next_entry_path"], "corpus/001_oracle-characters/")
+        self.assertIn("human_research_dossier_files:10996", dossier_row["count_summary"])
+        self.assertIn("human_review_sheet_files:10996", dossier_row["count_summary"])
+        self.assertIn("ai_research_dossier_index_files:10996", dossier_row["count_summary"])
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
 
     def test_project_id_source_map_audit_preserves_current_map_totals(self) -> None:
@@ -14066,7 +14073,7 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_preprocessing_status_audit_builder_keeps_candidate_boundaries(self) -> None:
         module = load_preprocessing_status_audit_module()
         rows = module.build_audit_rows(repo_root())
-        self.assertEqual(len(rows), 11)
+        self.assertEqual(len(rows), 12)
         by_type = {row["area_type"]: row for row in rows}
         self.assertEqual(by_type["oracle_character_candidates"]["current_stage"], "pending_human_review")
         self.assertIn(
@@ -14084,6 +14091,22 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "cambridge_hopkins_crosswalk_review_queue_rows:612",
             by_type["review_queues"]["count_summary"],
+        )
+        self.assertEqual(
+            by_type["character_object_research_dossiers"]["current_stage"],
+            "pending_human_review",
+        )
+        self.assertIn(
+            "human_research_dossier_files:10996",
+            by_type["character_object_research_dossiers"]["count_summary"],
+        )
+        self.assertIn(
+            "human_review_sheet_files:10996",
+            by_type["character_object_research_dossiers"]["count_summary"],
+        )
+        self.assertIn(
+            "ai_research_dossier_index_files:10996",
+            by_type["character_object_research_dossiers"]["count_summary"],
         )
         self.assertIn(
             "source_engineering_gap_queue_rows:22",

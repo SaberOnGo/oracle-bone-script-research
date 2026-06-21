@@ -6,6 +6,26 @@ Future statistics tools will generate occurrence, co-occurrence, period, topic, 
 Current tools:
 
 English supplement:
+- `build_preprocessing_status_audit.py` now includes the object-local
+  character research dossier row in `090_preprocessing-status-audit.csv`
+  and `091_preprocessing-status-summary.json`.
+- The row counts `05_human-research-dossier.md`,
+  `06_human-review-sheet.md`, and `07_research-dossier-index.json`
+  under concrete character object directories.
+- This proves a preprocessing entrance exists for human review. It does
+  not confirm readings, components, inscription identities, or
+  decipherment conclusions.
+
+Simplified Chinese supplement:
+- `build_preprocessing_status_audit.py` 现在会把单字对象内研究档案
+  计入 `090_preprocessing-status-audit.csv` 和
+  `091_preprocessing-status-summary.json`。
+- 该行统计具体单字对象目录下的 `05_human-research-dossier.md`、
+  `06_human-review-sheet.md` 和 `07_research-dossier-index.json`。
+- 这只证明人工复核入口已经存在；不确认释读、构件、卜辞身份或
+  破译结论。
+
+English supplement:
 - `build_collection_provenance_phase_gap_review_checklist.py` filters the collection-provenance rows from `192_core-corpus-phase-gap-action-queue.csv` and links them to collection staging, the collection-object source map, asset provenance indexes, and the Xiaoxuetang OBM access-boundary follow-up queue, producing `194_collection-provenance-phase-gap-review-checklist.csv`. It is a review entrance for downloaded, linked, and verified collection-provenance gaps only; it does not collect raw images, decide rights, confirm object identity, import corpus rows, or make decipherment claims.
 - `build_research_source_phase_gap_review_checklist.py` filters the research-source rows from `192_core-corpus-phase-gap-action-queue.csv` and links them to `185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv`, producing `193_research-source-phase-gap-review-checklist.csv`. It gives later reviewers one compact entrance for the `downloaded`, `unpacked`, `extracted`, `cleaned`, and `verified` research-source phase gaps while preserving no-evidence-collection, no-rights-decision, no-source-promotion, no-corpus-import, and no-decipherment boundaries.
 - `build_core_corpus_phase_gap_action_queue.py` expands `135_core-corpus-phase-coverage-matrix.csv` into `192_core-corpus-phase-gap-action-queue.csv`, one row per `missing` or `mixed_or_partial` core-corpus preprocessing phase. The queue preserves phase evidence paths, recommended next actions, and no-claim boundaries so AI Agents can open concrete gaps without treating candidates, route metadata, or drafts as reviewed scholarship.

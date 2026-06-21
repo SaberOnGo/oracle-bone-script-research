@@ -1,15 +1,16 @@
 {
   "summary_id": "preprocessing-status-summary-001",
-  "updated_at": "2026-06-20",
+  "updated_at": "2026-06-21",
   "audit_csv_path": "corpus/009_statistics-and-derived-features/090_preprocessing-status-audit.csv",
-  "row_count": 11,
+  "row_count": 12,
   "stage_counts": {
-    "pending_human_review": 6,
+    "pending_human_review": 7,
     "structured": 1,
     "verified": 4
   },
   "area_type_counts": {
     "assets": 1,
+    "character_object_research_dossiers": 1,
     "components_and_glyph_links": 1,
     "evolution_correspondence_candidates": 1,
     "formal_project_id_maps": 1,
@@ -34,7 +35,7 @@
       "next_entry_path": "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
       "review_status": "reviewed_metadata_only",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-002",
@@ -46,7 +47,7 @@
       "next_entry_path": "project_registry/006_large-source-register/001_large-source-register.csv",
       "review_status": "reviewed_metadata_only",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-003",
@@ -58,7 +59,7 @@
       "next_entry_path": "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
       "review_status": "candidate_not_promoted",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-004",
@@ -70,7 +71,7 @@
       "next_entry_path": "corpus/001_oracle-characters/000_character-registers/003_undeciphered-oracle-characters-index.csv",
       "review_status": "candidate_not_promoted",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-005",
@@ -82,7 +83,7 @@
       "next_entry_path": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-006",
@@ -94,7 +95,7 @@
       "next_entry_path": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-007",
@@ -106,7 +107,7 @@
       "next_entry_path": "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/",
       "review_status": "metadata_only_pending_review",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-008",
@@ -118,7 +119,7 @@
       "next_entry_path": "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
       "review_status": "reviewed_assets_only",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-009",
@@ -130,7 +131,7 @@
       "next_entry_path": "corpus/008_relationship-graph/",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-010",
@@ -142,10 +143,22 @@
       "next_entry_path": "doc/public/user_research/",
       "review_status": "pending_human_review",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     },
     {
       "audit_row_id": "pre-audit-011",
+      "area_type": "character_object_research_dossiers",
+      "label_en": "Object-local human research dossiers for character candidates",
+      "label_zh": "单字对象内人类研究档案",
+      "current_stage": "pending_human_review",
+      "count_summary": "ai_research_dossier_index_files:10996;character_candidate_packet_files:1588;character_object_material_coverage_audit_rows:10996;character_object_material_coverage_summary_files:1;human_research_dossier_files:10996;human_review_sheet_files:10996;undeciphered_candidate_packet_files:9408",
+      "next_entry_path": "corpus/001_oracle-characters/",
+      "review_status": "object_local_dossiers_pending_human_review",
+      "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
+      "updated_at": "2026-06-21"
+    },
+    {
+      "audit_row_id": "pre-audit-012",
       "area_type": "formal_project_id_maps",
       "label_en": "Formal project-local ID maps",
       "label_zh": "正式本项目 ID 映射表",
@@ -154,7 +167,7 @@
       "next_entry_path": "project_registry/002_project-id-to-source-reference-map/",
       "review_status": "mostly_unassigned_by_design",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-21"
     }
   ]
 }

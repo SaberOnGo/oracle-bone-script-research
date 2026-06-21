@@ -17,7 +17,7 @@ from pathlib import Path
 
 OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/090_preprocessing-status-audit.csv")
 OUTPUT_JSON = Path("corpus/009_statistics-and-derived-features/091_preprocessing-status-summary.json")
-UPDATED_AT = "2026-06-20"
+UPDATED_AT = "2026-06-21"
 CAUTION = (
     "Preprocessing audit only; all identity, component, evolution, inscription, "
     "and decipherment-facing rows remain candidates or review routes until "
@@ -338,6 +338,8 @@ SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST = (
 )
 OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = STAT_DIR / "188_object-local-material-coverage-audit.csv"
 OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = STAT_DIR / "189_object-local-material-coverage-summary.json"
+CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT = STAT_DIR / "186_character-object-material-coverage-audit.csv"
+CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY = STAT_DIR / "187_character-object-material-coverage-summary.json"
 
 
 def repo_root() -> Path:
@@ -468,6 +470,15 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
     )
     undeciphered_candidate_packet_count = count_files(
         root, "corpus/001_oracle-characters/**/01_undeciphered-candidate-packet.json"
+    )
+    character_human_dossier_count = count_files(
+        root, "corpus/001_oracle-characters/**/05_human-research-dossier.md"
+    )
+    character_human_review_sheet_count = count_files(
+        root, "corpus/001_oracle-characters/**/06_human-review-sheet.md"
+    )
+    character_ai_dossier_index_count = count_files(
+        root, "corpus/001_oracle-characters/**/07_research-dossier-index.json"
     )
 
     rows = [
@@ -1175,6 +1186,33 @@ def build_audit_rows(root: Path) -> list[dict[str, str]]:
         ),
         make_row(
             "pre-audit-011",
+            "character_object_research_dossiers",
+            "Object-local human research dossiers for character candidates",
+            "单字对象内人类研究档案",
+            classify_stage(
+                structured=character_human_dossier_count
+                + character_human_review_sheet_count
+                + character_ai_dossier_index_count,
+                review_queue=character_human_review_sheet_count,
+            ),
+            {
+                "ai_research_dossier_index_files": character_ai_dossier_index_count,
+                "character_candidate_packet_files": character_candidate_packet_count,
+                "character_object_material_coverage_audit_rows": count_csv(
+                    root, CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT
+                ),
+                "character_object_material_coverage_summary_files": count_existing_file(
+                    root, CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY
+                ),
+                "human_research_dossier_files": character_human_dossier_count,
+                "human_review_sheet_files": character_human_review_sheet_count,
+                "undeciphered_candidate_packet_files": undeciphered_candidate_packet_count,
+            },
+            "corpus/001_oracle-characters/",
+            "object_local_dossiers_pending_human_review",
+        ),
+        make_row(
+            "pre-audit-012",
             "formal_project_id_maps",
             "Formal project-local ID maps",
             "正式本项目 ID 映射表",

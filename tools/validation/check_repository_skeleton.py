@@ -4740,19 +4740,19 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} invalid JSON: {exc}")
         summary = {}
 
-    if len(audit_rows) != 11:
-        issues.append(f"{PREPROCESSING_STATUS_AUDIT} should contain exactly 11 rows")
-    if summary.get("row_count") != 11:
-        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} row_count should be 11")
+    if len(audit_rows) != 12:
+        issues.append(f"{PREPROCESSING_STATUS_AUDIT} should contain exactly 12 rows")
+    if summary.get("row_count") != 12:
+        issues.append(f"{PREPROCESSING_STATUS_SUMMARY} row_count should be 12")
     if summary.get("audit_csv_path") != PREPROCESSING_STATUS_AUDIT:
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} audit_csv_path changed")
-    if summary.get("updated_at") != "2026-06-20":
+    if summary.get("updated_at") != "2026-06-21":
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} updated_at changed")
     if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{PREPROCESSING_STATUS_SUMMARY} completion boundary changed")
 
     expected_stage_counts = {
-        "pending_human_review": 6,
+        "pending_human_review": 7,
         "structured": 1,
         "verified": 4,
     }
@@ -4761,6 +4761,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
 
     expected_area_types = {
         "assets",
+        "character_object_research_dossiers",
         "components_and_glyph_links",
         "evolution_correspondence_candidates",
         "formal_project_id_maps",
@@ -4913,6 +4914,15 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "object_local_material_coverage_audit_rows:28166",
             "object_local_material_coverage_summary_files:1",
         ],
+        "character_object_research_dossiers": [
+            "human_research_dossier_files:10996",
+            "human_review_sheet_files:10996",
+            "ai_research_dossier_index_files:10996",
+            "character_candidate_packet_files:1588",
+            "undeciphered_candidate_packet_files:9408",
+            "character_object_material_coverage_audit_rows:10996",
+            "character_object_material_coverage_summary_files:1",
+        ],
         "formal_project_id_maps": [
             "candidate_inscription_crosswalk_map_rows:612",
             "formal_character_map_rows:0",
@@ -4933,7 +4943,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
 
     for row in audit_rows:
         area_type = row.get("area_type", "")
-        if row.get("updated_at") != "2026-06-20":
+        if row.get("updated_at") != "2026-06-21":
             issues.append(f"{PREPROCESSING_STATUS_AUDIT} updated_at changed: {area_type}")
         if "Preprocessing audit only" not in row.get("caution", ""):
             issues.append(f"{PREPROCESSING_STATUS_AUDIT} caution changed: {area_type}")

@@ -2779,8 +2779,23 @@ class RepositorySkeletonTests(unittest.TestCase):
                 encoding="utf-8"
             )
             self.assertIn("Human Inscription Dossier", dossier_text)
+            self.assertIn("Concrete Questions To Check", dossier_text)
+            self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", dossier_text)
+            self.assertIn(
+                "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
+                "\u3001\u9875\u7801\u3001\u5408\u96c6\u53f7\u6216\u8457"
+                "\u5f55\u53f7",
+                dossier_text,
+            )
+            self.assertIn(
+                "\u54ea\u4e9b\u9986\u85cf\u3001\u51fa\u571f\u5730"
+                "\u3001\u65f6\u671f\u6216\u6279\u6b21\u8bb0\u5f55",
+                dossier_text,
+            )
             self.assertIn("Excavation site: `not_collected`", dossier_text)
             self.assertIn("Linked character occurrences: `not_collected`", dossier_text)
+            for fragment in ("浜", "绠€", "鐮", "缂哄け", "鍗滆緸"):
+                self.assertNotIn(fragment, dossier_text)
             dossier_index = json.loads(
                 (object_dir / "08_inscription-dossier-index.json").read_text(
                     encoding="utf-8"
@@ -2805,6 +2820,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
         self.assertEqual(first["packet"]["image_evidence_status"], "route_indexed_not_collected")
         self.assertIn("Human Inscription Dossier", first["human_dossier_text"])
+        self.assertIn("Concrete Questions To Check", first["human_dossier_text"])
+        self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", first["human_dossier_text"])
+        self.assertIn(
+            "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
+            "\u3001\u9875\u7801\u3001\u5408\u96c6\u53f7\u6216\u8457"
+            "\u5f55\u53f7",
+            first["human_dossier_text"],
+        )
+        for fragment in ("浜", "绠€", "鐮", "缂哄け", "鍗滆緸"):
+            self.assertNotIn(fragment, first["human_dossier_text"])
         self.assertEqual(
             first["dossier_index"]["record_type"],
             "inscription_crosswalk_candidate_dossier_index",

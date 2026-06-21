@@ -629,6 +629,25 @@ These labels are imported metadata, not a new chronological judgement.
 - Linked character occurrences: `not_collected`
 - Later-script correspondence: `not_applicable_to_this_record`
 
+### Concrete Questions To Check / 具体待查问题
+
+- Which plate numbers, page numbers, Heji IDs, or catalog numbers need review?
+- 需要核对哪些图版号、页码、合集号或著录号？
+- Which source route should be opened first for this crosswalk candidate?
+- 这个互证候选应先打开哪条来源路线？
+- Which object record or collection shelfmark can anchor the physical item?
+- 哪个馆藏对象记录或库藏号可以定位实物？
+- Which collection, findspot, period, or batch records are relevant?
+- 哪些馆藏、出土地、时期或批次记录与本对象有关？
+- Which image, rubbing, OCR, or full-text route can supply context?
+- 哪条图像、拓片、OCR 或全文路线可以补足上下文？
+- Which linked character occurrences are only candidates needing review?
+- 哪些关联字形或字序只是候选线索，仍需人工复核？
+- Which rights, checksum, manifest, or download-log records must be opened?
+- 下一步应打开哪些权利、checksum、manifest 或下载记录？
+- What evidence is still missing before any formal `obi-*` assignment?
+- 在任何正式 `obi-*` 分配前，还缺哪些证据？
+
 ## Review Entry Points / 复核入口
 
 - Start with `README.md`.

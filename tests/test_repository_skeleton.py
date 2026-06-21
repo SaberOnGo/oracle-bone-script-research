@@ -2949,6 +2949,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not an accepted paleographic correspondence", readme_text)
             self.assertIn("not an evolution-chain conclusion", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
+            self.assertIn("Concrete Questions To Check", readme_text)
+            self.assertIn("具体待查问题", readme_text)
+            self.assertIn("Which EVOBC image-reference route should be opened first?", readme_text)
+            self.assertIn("Which oracle inscription, collection, or findspot context is missing?", readme_text)
+            self.assertIn("What evidence is still missing before any formal correspondence claim?", readme_text)
+            for line in readme_text.splitlines():
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                self.assertLessEqual(len(line), 80, line)
             self.assertFalse((object_dir.parent / "human-readable").exists())
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet)
@@ -2958,6 +2967,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("还缺哪些卜辞、馆藏或出土地上下文？", review_sheet)
             self.assertIn("正式对应结论前还缺哪些证据？", review_sheet)
             for line in review_sheet.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            route_gallery = (object_dir / "06_image-reference-route-gallery.md").read_text(encoding="utf-8")
+            self.assertIn("Concrete Questions To Check", route_gallery)
+            self.assertIn("具体待查问题", route_gallery)
+            self.assertIn("Which EVOBC image-reference route should be opened first?", route_gallery)
+            self.assertIn("Which bronze, seal, or later-script route is only a dataset clue?", route_gallery)
+            self.assertIn("What evidence is still missing before any visual comparison?", route_gallery)
+            for line in route_gallery.splitlines():
+                if line.startswith("|") or line.startswith("!["):
+                    continue
                 self.assertLessEqual(len(line), 80, line)
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
@@ -2970,6 +2989,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("corpus/004_bronze-seal-modern-correspondences", last["object_dir"].as_posix())
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("not an accepted paleographic correspondence", first["readme_text"])
+        self.assertIn("Concrete Questions To Check", first["readme_text"])
+        self.assertIn("Which EVOBC image-reference route should be opened first?", first["readme_text"])
+        for line in first["readme_text"].splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
         self.assertIn("not_formal_correspondence", first["review_sheet_text"])
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn("具体待查问题", first["review_sheet_text"])
@@ -2984,6 +3009,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["packet"]["local_image_status"], "not_collected_route_indexed")
         self.assertEqual(len(first["image_route_rows"]), 4)
         self.assertIn("Image Reference Route Gallery", first["image_route_gallery_text"])
+        self.assertIn("Concrete Questions To Check", first["image_route_gallery_text"])
+        self.assertIn("Which bronze, seal, or later-script route is only a dataset clue?", first["image_route_gallery_text"])
+        for line in first["image_route_gallery_text"].splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
         self.assertEqual(len(first["source_rows"]), 2)
         self.assertGreaterEqual(len(first["code_rows"]), 1)
 

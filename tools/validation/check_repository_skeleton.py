@@ -2969,6 +2969,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "not an evolution-chain conclusion",
                 "not a confirmed modern-character identity",
                 "not a decipherment conclusion",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "Which EVOBC image-reference route should be opened first?",
+                "Which oracle inscription, collection, or findspot context is missing?",
+                "What evidence is still missing before any formal correspondence claim?",
                 "03_era-source-code-index.csv",
                 "04_human-review-sheet.md",
                 "05_image-reference-route-index.csv",
@@ -2977,6 +2982,14 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
         packet_path = object_dir / "01_candidate-evolution-packet.json"
         packet_image_reference_count = -1
         if path_exists(packet_path):
@@ -3076,12 +3089,25 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             route_gallery = route_gallery_path.read_text(encoding="utf-8")
             for snippet in [
                 "Image Reference Route Gallery",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "Which EVOBC image-reference route should be opened first?",
+                "Which bronze, seal, or later-script route is only a dataset clue?",
+                "What evidence is still missing before any visual comparison?",
                 "not_collected_route_indexed",
                 "not accepted paleographic correspondences",
                 "not evolution-chain conclusions",
             ]:
                 if snippet not in route_gallery:
                     issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(route_gallery.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{route_gallery_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
     return issues
 
 

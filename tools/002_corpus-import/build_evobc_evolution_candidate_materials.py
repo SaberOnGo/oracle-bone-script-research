@@ -275,6 +275,77 @@ def route_files(directory: Path) -> list[str]:
     ]
 
 
+def wrapped_paragraph(text: str) -> str:
+    return textwrap.fill(
+        text,
+        width=MAX_HUMAN_LINE_LENGTH,
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_bullet(text: str) -> list[str]:
+    return textwrap.wrap(
+        f"- {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def bullet_block(items: list[str]) -> str:
+    return "\n".join(line for item in items for line in wrapped_bullet(item))
+
+
+def code_rows_block(code_rows: list[dict[str, str]]) -> str:
+    lines: list[str] = []
+    for code in code_rows:
+        lines.extend(wrapped_bullet(f"{code['code_type']} `{code['code_value']}`"))
+        lines.extend(
+            textwrap.wrap(
+                f"  token: `{code['observed_token']}`",
+                width=MAX_HUMAN_LINE_LENGTH,
+                subsequent_indent="  ",
+                break_long_words=False,
+                break_on_hyphens=False,
+            )
+        )
+        lines.extend(
+            textwrap.wrap(
+                f"  image references: {code['code_image_reference_count']}",
+                width=MAX_HUMAN_LINE_LENGTH,
+                subsequent_indent="  ",
+                break_long_words=False,
+                break_on_hyphens=False,
+            )
+        )
+    return "\n".join(lines)
+
+
+def route_cards_block(image_routes: list[dict[str, str]]) -> str:
+    lines: list[str] = []
+    for route in image_routes:
+        lines.extend(wrapped_bullet(f"`{route['image_route_id']}`"))
+        for label, key in [
+            ("type", "route_type"),
+            ("label", "route_label"),
+            ("route file", "route_file_path"),
+            ("status", "local_image_status"),
+        ]:
+            value = Path(route[key]).name if key == "route_file_path" else route[key]
+            lines.extend(
+                textwrap.wrap(
+                    f"  {label}: `{value}`",
+                    width=MAX_HUMAN_LINE_LENGTH,
+                    subsequent_indent="  ",
+                    break_long_words=False,
+                    break_on_hyphens=False,
+                )
+            )
+    return "\n".join(lines)
+
+
 def image_route_rows(index: int, row: dict[str, str], code_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     pid = project_id(index)
     category_id = row["candidate_evolution_category_id"]
@@ -376,6 +447,101 @@ def packet_payload(
 
 
 def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]) -> str:
+    intro_en = wrapped_paragraph(
+        "This directory is the object-local research entrance for one EVOBC "
+        "category. Human-readable notes and AI-readable indexes are stored in "
+        "this same concrete corpus object directory."
+    )
+    intro_zh = wrapped_paragraph(
+        "本目录是一个 EVOBC 字形演化类别候选对象的本地研究入口。"
+        "人类可读说明、人工复核表和 AI 可读索引放在同一对象目录内。"
+    )
+    boundary_lines = bullet_block(
+        [
+            "This is not an accepted paleographic correspondence.",
+            "This is not an evolution-chain conclusion.",
+            "This is not a confirmed modern-character identity.",
+            "This is not a decipherment conclusion.",
+            "本对象只是演化或对应候选路线，不是正式古文字对应结论。",
+            "本对象不确认演化链、现代字身份或释读结论。",
+        ]
+    )
+    local_file_lines = bullet_block(
+        [
+            "`01_candidate-evolution-packet.json`: AI-readable candidate packet.",
+            "`02_evolution-source-index.csv`: source, download, rights, and route index.",
+            "`03_era-source-code-index.csv`: observed era/source code rows.",
+            "`04_human-review-sheet.md`: human source-chain review sheet.",
+            "`05_image-reference-route-index.csv`: object-local image route index.",
+            "`06_image-reference-route-gallery.md`: visual-evidence route gallery.",
+        ]
+    )
+    metadata_lines = bullet_block(
+        [
+            f"Project ID: `{project_id(index)}`",
+            f"EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`",
+            f"External category ref: `{primary_external_ref(row)}`",
+            f"Source label: `{row['source_character_label']}`",
+            f"Source codepoints: `{row['source_character_codepoints']}`",
+            f"Image reference count: `{row['image_reference_count']}`",
+            f"Era token counts: `{row['era_token_counts']}`",
+            f"Source token counts: `{row['source_token_counts']}`",
+        ]
+    )
+    question_lines = bullet_block(
+        [
+            "Which EVOBC image-reference route should be opened first?",
+            "Which source/download/checksum rows prove this candidate route?",
+            "Which era or source code labels are only dataset metadata?",
+            "Which bronze, seal, or later-script route is only a dataset clue?",
+            "Which oracle inscription, collection, or findspot context is missing?",
+            "Which Xiaoxuetang, OBIMD, HUST-OBC, IHP, or museum source should be checked?",
+            "What evidence is still missing before any formal correspondence claim?",
+            "应先打开哪条 EVOBC 图像引用路线？",
+            "哪些来源、下载记录或 checksum 行能证明这条候选路线？",
+            "哪些时期码、来源码、金文、小篆或后世字形路线只是数据集线索？",
+            "还缺哪些卜辞、馆藏、出土地、时期或著录上下文？",
+            "正式对应结论前还缺哪些可复核证据？",
+        ]
+    )
+    review_status = wrapped_paragraph(
+        f"Current status: `{REVIEW_STATUS}`. Reviewers must compare this "
+        "candidate against primary images, source-chain records, dictionaries, "
+        "inscription context, and stronger provenance sources before any formal "
+        "correspondence or evolution record is created."
+    )
+    return f"""# {project_id(index)} / EVOBC evolution-category candidate
+
+English:
+{intro_en}
+
+Simplified Chinese:
+{intro_zh}
+
+## Boundary / 边界
+
+{boundary_lines}
+
+## Local Files / 本目录文件
+
+{local_file_lines}
+
+## Candidate Metadata / 候选 metadata
+
+{metadata_lines}
+
+## Observed Code Rows / 观察到的代码行
+
+{code_rows_block(code_rows)}
+
+## Concrete Questions To Check / 具体待查问题
+
+{question_lines}
+
+## Review Status / 复核状态
+{review_status}
+"""
+
     code_lines = "\n".join(
         f"- {code['code_type']} {code['code_value']} / {code['observed_token']}: "
         f"{code['code_image_reference_count']} image references"
@@ -428,6 +594,69 @@ Current status: `{REVIEW_STATUS}`. Reviewers must compare this candidate against
 
 
 def image_route_gallery_text(index: int, row: dict[str, str], image_routes: list[dict[str, str]]) -> str:
+    intro_en = wrapped_paragraph(
+        "This object has EVOBC image-reference metadata, but no local source "
+        "image is collected here yet. The route cards below guide later visual "
+        "evidence review inside the same object directory and registered "
+        "source files."
+    )
+    intro_zh = wrapped_paragraph(
+        "本对象保存 EVOBC 图像引用 metadata，目前尚未采集本地图像。"
+        "下面条目只是证据路线卡，用来指导后续视觉证据复核。"
+    )
+    boundary_text = wrapped_paragraph(
+        "These route cards are preprocessing infrastructure only. They are not "
+        "accepted paleographic correspondences, not evolution-chain "
+        "conclusions, not modern-character identity confirmations, and not "
+        "decipherment conclusions."
+    )
+    question_lines = bullet_block(
+        [
+            "Which EVOBC image-reference route should be opened first?",
+            "Which route file and source download record should prove it?",
+            "Which bronze, seal, or later-script route is only a dataset clue?",
+            "Which local image, rubbing, hand copy, or plate is still missing?",
+            "Which oracle inscription, collection, or findspot context is missing?",
+            "What evidence is still missing before any visual comparison?",
+            "应先打开哪条 EVOBC 图像引用路线？",
+            "哪一个路线文件和下载记录能够支撑它？",
+            "哪些金文、小篆或后世字形路线只是数据集线索？",
+            "还缺哪些本地图像、拓片、摹本或图版？",
+            "视觉比较前还缺哪些可复核证据？",
+        ]
+    )
+    return f"""# Image Reference Route Gallery / 图像引用路线图
+Project ID: `{project_id(index)}`
+
+EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
+
+English:
+{intro_en}
+
+Simplified Chinese:
+{intro_zh}
+
+## Route Cards / 路线卡
+
+{route_cards_block(image_routes)}
+
+## Evidence Boundary / 证据边界
+
+- Local image status: `not_collected_route_indexed`
+- Formal correspondence: `not_formal_correspondence`
+- Evolution-chain claim: `no_claim`
+- Modern-character identity: `not_confirmed`
+- Boundary marker: `not accepted paleographic correspondences`
+- Boundary marker: `not evolution-chain conclusions`
+- Review status: `{REVIEW_STATUS}`
+
+{boundary_text}
+
+## Concrete Questions To Check / 具体待查问题
+
+{question_lines}
+"""
+
     route_lines = "\n".join(
         "- `{image_route_id}` / `{route_type}`: {route_label}; route file `{route_file_path}`; status `{local_image_status}`.".format(**route)
         for route in image_routes

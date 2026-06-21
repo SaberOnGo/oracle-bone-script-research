@@ -191,12 +191,17 @@ def dossier_text(
     visual = visual_summary(visual_rows)
     edge = edge_summary(edges)
     lines: list[str] = [
-        f"# {project_id} Human Research Dossier",
+        f"# {project_id} Human Research Dossier / 人类研究档案",
         "",
         para(
             "This object-local dossier is the human research entrance for this "
             "oracle-character candidate. It gathers current source routes, "
             "images, graph clues, and missing research sections in one place."
+        ),
+        "",
+        para(
+            "本文件是该甲骨单字候选对象的人类研究入口。它把现有来源路线、"
+            "字形图片、图谱线索和缺失研究项集中放在同一个对象目录内。"
         ),
         "",
         para(
@@ -206,7 +211,12 @@ def dossier_text(
             "needs_review."
         ),
         "",
-        "## 1. Identity And Status",
+        para(
+            "本页不确认读音、意义、构件归属、卜辞身份或释读结论。"
+            "未复核内容保持 candidate、not_collected 或 needs_review 状态。"
+        ),
+        "",
+        "## 1. Identity And Status / 身份与状态",
         "",
         bullet("project id", code_value(project_id)),
         bullet("primary external id", code_value(str(packet.get("primary_external_ref_id", "")))),
@@ -216,7 +226,7 @@ def dossier_text(
         bullet("review status", code_value(str(packet.get("review_status", "")))),
         bullet("promotion status", code_value(str(packet.get("promotion_status", "")))),
         "",
-        "## 2. Glyph And Visual Evidence",
+        "## 2. Glyph And Visual Evidence / 字形与图像证据",
         "",
         bullet("visual gallery", code_value("04_visual-gallery.md")),
         bullet("visual source index", code_value("02_visual-source-index.csv")),
@@ -226,7 +236,7 @@ def dossier_text(
         bullet("rights status", code_value(visual["rights"] or str(packet.get("rights_status", "")))),
         bullet("visual review", code_value(visual["review"] or "needs_human_visual_review")),
         "",
-        "## 3. Reading, Meaning, And Dataset Label",
+        "## 3. Reading, Meaning, And Dataset Label / 释读与来源标签",
         "",
         bullet("accepted reading", "`not_collected`"),
         bullet("accepted meaning", "`not_collected`"),
@@ -241,28 +251,33 @@ def dossier_text(
             "meaning until cross-source and human review are complete."
         ),
         "",
-        "## 4. Later-Script And Cross-Source Routes",
+        para(
+            "来源标签只是从数据集复制来的检索线索。跨来源和人工复核完成前，"
+            "它不是已接受的今字、读音或意义。"
+        ),
+        "",
+        "## 4. Later-Script And Cross-Source Routes / 后世字形路线",
         "",
         bullet("graph edge count", code_value(str(edge["edge_count"]))),
         bullet("codepoint routes", code_value(";".join(edge["codepoints"]))),
         bullet("cross-source status", code_value(";".join(edge["cross_source_statuses"]))),
         bullet("OBIMD/EvoBC route status", "`candidate_route_or_not_collected`"),
         "",
-        "## 5. Variants, Components, And Similar Forms",
+        "## 5. Variants, Components, And Similar Forms / 异体构件近形",
         "",
         bullet("variant set", "`not_collected`"),
         bullet("component analysis", "`not_collected`"),
         bullet("similar-form candidates", "`not_collected`"),
         bullet("review route", "`196_shape-component-evolution...checklist.csv`"),
         "",
-        "## 6. Inscription Occurrences And Text Context",
+        "## 6. Inscription Occurrences And Text Context / 卜辞出现",
         "",
         bullet("inscription occurrence count", "`not_collected`"),
         bullet("full inscription text", "`not_collected`"),
         bullet("plate or catalog number", "`not_collected`"),
         bullet("occurrence review route", "`195_inscription-plate...checklist.csv`"),
         "",
-        "## 7. Provenance, Findspot, Collection, And Period",
+        "## 7. Provenance, Findspot, Collection, And Period / 出处",
         "",
         bullet("source package", code_value(str(packet.get("source_package_id", "")))),
         bullet("download ids", code_value(";".join(packet.get("evidence_download_ids", [])))),
@@ -271,24 +286,43 @@ def dossier_text(
         bullet("period or batch", "`not_collected`"),
         bullet("rights status", code_value(str(packet.get("rights_status", "")))),
         "",
-        "## 8. Decipherment History And Disputes",
+        "## 8. Decipherment History And Disputes / 释读史争议",
         "",
         bullet("published interpretation notes", "`not_collected`"),
         bullet("decipherment history", "`not_collected`"),
         bullet("known disagreement", "`not_collected`"),
         bullet("human review status", short_code(str(packet.get("required_next_review", "")))),
         "",
-        "## 9. Missing Data",
+        "## 9. Archaeological Folder Coverage / 考古档案覆盖",
+        "",
+        bullet("glyph image", "`available_or_route_indexed`"),
+        bullet("variant forms", "`not_collected`"),
+        bullet("later-script links", "`candidate_or_not_collected`"),
+        bullet("inscription occurrences", "`not_collected`"),
+        bullet("catalog and plate routes", "`not_collected`"),
+        bullet("findspot and collection", "`not_collected`"),
+        bullet("period and batch", "`not_collected`"),
+        bullet("source evidence", "`available_or_route_indexed`"),
+        bullet("decipherment history", "`not_collected`"),
+        "",
+        "## 10. Missing Data / 缺失项",
         "",
         "- accepted reading and meaning",
+        "- 已接受释读和意义",
         "- inscription occurrences and full text context",
+        "- 出现卜辞和全文上下文",
         "- catalog, plate, and old-number crosswalks",
+        "- 著录、图版和旧号互证",
         "- excavation site, collection, period, and batch",
+        "- 出土地、馆藏、时期和批次",
         "- variant set and similar-form comparison",
+        "- 异体集合和近形比较",
         "- component candidates and reviewer notes",
+        "- 构件候选和复核记录",
         "- published bibliography and decipherment-history notes",
+        "- 已发表书目和释读史记录",
         "",
-        "## 10. Local Files To Open",
+        "## 11. Local Files To Open / 本目录入口",
         "",
         "- `01_*packet.json`",
         "- `02_visual-source-index.csv`",
@@ -296,12 +330,17 @@ def dossier_text(
         "- `06_human-review-sheet.md`",
         "- `07_research-dossier-index.json`",
         "",
-        "## Boundary",
+        "## Boundary / 边界",
         "",
         para(
             "This dossier is a preparation-stage research entrance. It records "
             "what is available and what is missing; it does not promote any "
             "candidate into formal scholarship."
+        ),
+        "",
+        para(
+            "本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，"
+            "不会把任何候选项提升为正式学术结论。"
         ),
     ]
     return "\n".join(lines).rstrip() + "\n"
@@ -309,7 +348,7 @@ def dossier_text(
 
 def review_sheet_text(project_id: str) -> str:
     lines = [
-        f"# {project_id} Human Review Sheet",
+        f"# {project_id} Human Review Sheet / 人工复核单",
         "",
         para(
             "Use this checklist before turning any candidate clue into a "
@@ -317,20 +356,35 @@ def review_sheet_text(project_id: str) -> str:
             "research notes."
         ),
         "",
-        "## Required Checks",
+        para(
+            "把任何候选线索写成更强研究判断前，先使用本复核单。"
+            "未检查项目不得进入正式研究笔记。"
+        ),
+        "",
+        "## Required Checks / 必须复核",
         "",
         "- [ ] Open the local glyph gallery.",
+        "- [ ] 打开本对象内字形图像页。",
         "- [ ] Verify source image and rights rows.",
+        "- [ ] 复核来源图像和权利状态行。",
         "- [ ] Check project ID and external IDs.",
+        "- [ ] 核对本项目 ID 和外部 ID。",
         "- [ ] Check codepoint and later-script routes.",
+        "- [ ] 核对 codepoint 和后世字形路线。",
         "- [ ] Search inscription occurrence and plate routes.",
+        "- [ ] 检索卜辞出现和图版路线。",
         "- [ ] Search collection, findspot, period, and batch routes.",
+        "- [ ] 检索馆藏、出土地、时期和批次路线。",
         "- [ ] Search component, variant, and similar-form routes.",
+        "- [ ] 检索构件、异体和近形路线。",
         "- [ ] Search published research and bibliography routes.",
+        "- [ ] 检索已发表研究和书目路线。",
         "- [ ] Record every source path used.",
+        "- [ ] 记录每条已使用来源路径。",
         "- [ ] Keep unverified readings marked as candidate.",
+        "- [ ] 未复核释读必须保持候选状态。",
         "",
-        "## Claim Status",
+        "## Claim Status / 判断状态",
         "",
         bullet("accepted reading", "`not_reviewed`"),
         bullet("accepted meaning", "`not_reviewed`"),
@@ -339,7 +393,7 @@ def review_sheet_text(project_id: str) -> str:
         bullet("later-script correspondence", "`not_reviewed`"),
         bullet("decipherment conclusion", "`no_claim`"),
         "",
-        "## Human Notes",
+        "## Human Notes / 人工记录",
         "",
         "- reviewer id: `not_recorded`",
         "- review date: `not_recorded`",
@@ -391,6 +445,22 @@ def ai_index(
             "component_candidates",
             "published_bibliography_and_decipherment_history",
         ],
+        "human_language_coverage": {
+            "english": "present",
+            "simplified_chinese": "present",
+            "line_width_limit": "80_chars_for_human_markdown",
+        },
+        "archaeological_folder_coverage": {
+            "glyph_images": "available_or_route_indexed",
+            "variant_forms": "not_collected",
+            "later_script_links": "candidate_or_not_collected",
+            "inscription_occurrences": "not_collected",
+            "catalog_and_plate_routes": "not_collected",
+            "findspot_and_collection": "not_collected",
+            "period_and_batch": "not_collected",
+            "source_evidence": "available_or_route_indexed",
+            "decipherment_history": "not_collected",
+        },
         "claim_boundary": "dossier_index_only_no_decipherment_claim",
     }
 

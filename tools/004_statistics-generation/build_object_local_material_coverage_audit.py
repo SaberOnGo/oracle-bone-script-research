@@ -52,8 +52,17 @@ OBJECT_SPECS = [
         "oracle_character_candidates",
         Path("corpus/001_oracle-characters"),
         "*/*/01_*packet.json",
-        ("README.md", "04_visual-gallery.md"),
-        ("01_*packet.json", "02_visual-source-index.csv"),
+        (
+            "README.md",
+            "04_visual-gallery.md",
+            "05_human-research-dossier.md",
+            "06_human-review-sheet.md",
+        ),
+        (
+            "01_*packet.json",
+            "02_visual-source-index.csv",
+            "07_research-dossier-index.json",
+        ),
         ("03_visual-assets",),
     ),
     ObjectSpec(

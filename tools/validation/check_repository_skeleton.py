@@ -2389,8 +2389,21 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
         human_markers = {
-            dossier_path: ["not_collected", "decipherment conclusion"],
-            review_sheet_path: ["not_reviewed", "no_claim"],
+            dossier_path: [
+                "not_collected",
+                "decipherment conclusion",
+                "人类研究档案",
+                "考古档案覆盖",
+                "缺失项",
+                "不是已接受的今字",
+            ],
+            review_sheet_path: [
+                "not_reviewed",
+                "no_claim",
+                "人工复核单",
+                "必须复核",
+                "未复核释读必须保持候选状态",
+            ],
         }
         for human_path, markers in human_markers.items():
             if not human_path.exists():
@@ -2417,6 +2430,27 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} project_id changed")
             if dossier_index.get("claim_boundary") != "dossier_index_only_no_decipherment_claim":
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} claim boundary changed")
+            language_coverage = dossier_index.get("human_language_coverage", {})
+            if language_coverage.get("simplified_chinese") != "present":
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} missing simplified Chinese coverage"
+                )
+            archaeological_coverage = dossier_index.get("archaeological_folder_coverage", {})
+            for coverage_key in [
+                "glyph_images",
+                "variant_forms",
+                "later_script_links",
+                "inscription_occurrences",
+                "catalog_and_plate_routes",
+                "findspot_and_collection",
+                "period_and_batch",
+                "source_evidence",
+                "decipherment_history",
+            ]:
+                if coverage_key not in archaeological_coverage:
+                    issues.append(
+                        f"{dossier_index_path.relative_to(root).as_posix()} missing coverage key {coverage_key}"
+                    )
             for expected_file in [
                 "05_human-research-dossier.md",
                 "06_human-review-sheet.md",

@@ -60,5 +60,21 @@
     "component_candidates",
     "published_bibliography_and_decipherment_history"
   ],
+  "human_language_coverage": {
+    "english": "present",
+    "simplified_chinese": "present",
+    "line_width_limit": "80_chars_for_human_markdown"
+  },
+  "archaeological_folder_coverage": {
+    "glyph_images": "available_or_route_indexed",
+    "variant_forms": "not_collected",
+    "later_script_links": "candidate_or_not_collected",
+    "inscription_occurrences": "not_collected",
+    "catalog_and_plate_routes": "not_collected",
+    "findspot_and_collection": "not_collected",
+    "period_and_batch": "not_collected",
+    "source_evidence": "available_or_route_indexed",
+    "decipherment_history": "not_collected"
+  },
   "claim_boundary": "dossier_index_only_no_decipherment_claim"
 }

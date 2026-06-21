@@ -2650,7 +2650,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Inscription Occurrences And Text Context", dossier)
         self.assertIn("Provenance, Findspot, Collection, And Period", dossier)
         self.assertIn("Decipherment History And Disputes", dossier)
+        self.assertIn("人类研究档案", dossier)
+        self.assertIn("考古档案覆盖", dossier)
+        self.assertIn("缺失项", dossier)
         self.assertIn("not_collected", dossier)
+        self.assertIn("人工复核单", review)
+        self.assertIn("未复核释读必须保持候选状态", review)
         self.assertIn("no_claim", review)
 
         index = json.loads(index_path.read_text(encoding="utf-8"))
@@ -2659,6 +2664,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("05_human-research-dossier.md", index["human_files"])
         self.assertIn("07_research-dossier-index.json", index["ai_files"])
         self.assertIn("accepted_reading_and_meaning", index["missing_sections"])
+        self.assertEqual(index["human_language_coverage"]["simplified_chinese"], "present")
+        self.assertIn("glyph_images", index["archaeological_folder_coverage"])
+        self.assertIn("decipherment_history", index["archaeological_folder_coverage"])
 
     def test_character_human_research_dossier_builder_covers_character_objects(self) -> None:
         module = load_character_human_research_dossiers_module()
@@ -2671,7 +2679,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("accepted meaning", first["dossier_text"])
         self.assertIn("inscription occurrence count", first["dossier_text"])
         self.assertIn("excavation site", first["dossier_text"])
+        self.assertIn("人类研究档案", first["dossier_text"])
+        self.assertIn("考古档案覆盖", first["dossier_text"])
         self.assertIn("decipherment conclusion", first["review_sheet_text"])
+        self.assertIn("人工复核单", first["review_sheet_text"])
+        self.assertEqual(
+            first["index_data"]["human_language_coverage"]["simplified_chinese"],
+            "present",
+        )
+        self.assertIn(
+            "inscription_occurrences",
+            first["index_data"]["archaeological_folder_coverage"],
+        )
         for text in [first["dossier_text"], first["review_sheet_text"]]:
             for line in text.splitlines():
                 if not line.startswith("!["):

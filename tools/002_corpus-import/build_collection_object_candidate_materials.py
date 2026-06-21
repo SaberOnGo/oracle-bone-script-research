@@ -8,6 +8,7 @@ import csv
 import json
 import os
 import re
+import textwrap
 from pathlib import Path
 
 
@@ -38,6 +39,7 @@ CAUTION = (
     "must not be treated as inscription identity, transcription, formal reading, "
     "component analysis, or decipherment conclusions."
 )
+MAX_HUMAN_LINE_LENGTH = 80
 
 STAGING_SPECS = [
     (
@@ -338,6 +340,25 @@ def metadata_lines(metadata: dict[str, str]) -> str:
     return "\n".join(f"- {key}: `{value}`" for key, value in metadata.items())
 
 
+def wrapped_bullet(text: str) -> str:
+    return textwrap.fill(
+        f"- {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_paragraph(text: str) -> str:
+    return textwrap.fill(
+        text,
+        width=MAX_HUMAN_LINE_LENGTH,
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
 def relative_link(from_dir: Path, target: str) -> str:
     if not target:
         return ""
@@ -429,6 +450,33 @@ This page is a human visual entrance only. It is not glyph segmentation, not com
 
 
 def review_sheet_text(index: int, row: dict[str, str]) -> str:
+    required_checks = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            "Open `02_collection-source-index.csv` and verify the source, download, and rights trail.",
+            "Open `03_visual-asset-index.csv` and confirm whether the image is committed, external-only, or missing.",
+            "Compare object-page labels against catalog references, collection provenance, and inscription context.",
+            "Do not record inscription identity, transcription, formal reading, component analysis, or decipherment conclusions here.",
+        ]
+    )
+    concrete_questions = "\n".join(
+        [
+            wrapped_bullet("Which collection object, thumbnail, or public image route should be opened first?"),
+            wrapped_bullet("Which accession, catalog, or object ID is only a source clue?"),
+            wrapped_bullet("Which findspot, period, batch, or plate provenance still needs checking?"),
+            wrapped_bullet("Which rights status or reuse risk must be rechecked before public use?"),
+            wrapped_bullet("Which inscription, glyph, or character link is only a candidate route?"),
+            wrapped_bullet("What evidence is still missing before any collection-object identity claim?"),
+            "",
+            "- 应先核对哪些馆藏对象、缩略图或公开图像路线？",
+            "- 哪些 accession、catalog 或 object ID 只是来源线索？",
+            "- 需要核对哪些出土地、时期、批次或图版出处？",
+            "- 公开使用前还要复核哪些权利状态或复用风险？",
+            "- 哪些卜辞、字形或单字关系只是候选路线？",
+            "- 正式馆藏对象身份结论前还缺哪些证据？",
+        ]
+    )
+    caution = wrapped_paragraph(CAUTION)
     return f"""# Human Review Sheet / 人工复核表
 
 Project ID: `{project_id(index)}`
@@ -437,10 +485,11 @@ Candidate collection object ID: `{row['candidate_collection_object_id']}`
 
 ## Required Checks / 必须复核
 
-- Open `02_collection-source-index.csv` and verify source/download/right-status trail.
-- Open `03_visual-asset-index.csv` and confirm whether the image is committed, external-only, or missing.
-- Compare object-page labels against catalog references, collection provenance, and inscription context.
-- Do not record inscription identity, transcription, formal reading, component analysis, or decipherment conclusions here.
+{required_checks}
+
+## Concrete Questions To Check / 具体待查问题
+
+{concrete_questions}
 
 ## Current Evidence Status / 当前证据状态
 
@@ -452,7 +501,7 @@ Candidate collection object ID: `{row['candidate_collection_object_id']}`
 
 ## Caution / 风险提示
 
-{CAUTION}
+{caution}
 """
 
 

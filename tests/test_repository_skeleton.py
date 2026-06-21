@@ -2939,6 +2939,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed inscription identity", readme_text)
             self.assertIn("not a transcription, formal reading, component analysis, or decipherment conclusion", readme_text)
+            review_sheet_text = (object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
+            self.assertIn("Concrete Questions To Check", review_sheet_text)
+            self.assertIn("具体待查问题", review_sheet_text)
+            self.assertIn("应先核对哪些馆藏对象、缩略图或公开图像路线？", review_sheet_text)
+            self.assertIn("哪些 accession、catalog 或 object ID 只是来源线索？", review_sheet_text)
+            self.assertIn("需要核对哪些出土地、时期、批次或图版出处？", review_sheet_text)
+            self.assertIn("正式馆藏对象身份结论前还缺哪些证据？", review_sheet_text)
+            for line in review_sheet_text.splitlines():
+                self.assertLessEqual(len(line), 80, line)
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         smithsonian_gallery = (
@@ -2977,6 +2986,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("object-local research entrance", first["readme_text"])
         self.assertIn("not_confirmed", first["review_sheet_text"])
+        self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
+        self.assertIn("具体待查问题", first["review_sheet_text"])
+        self.assertIn("应先核对哪些馆藏对象、缩略图或公开图像路线？", first["review_sheet_text"])
+        self.assertIn("哪些 accession、catalog 或 object ID 只是来源线索？", first["review_sheet_text"])
+        self.assertIn("需要核对哪些出土地、时期、批次或图版出处？", first["review_sheet_text"])
+        self.assertIn("正式馆藏对象身份结论前还缺哪些证据？", first["review_sheet_text"])
+        for line in first["review_sheet_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
         self.assertEqual(first["packet"]["record_type"], "collection_object_candidate")
         self.assertEqual(first["packet"]["object_identity_claim_status"], "not_confirmed")
         self.assertEqual(first["visual_rows"][0]["visual_entry_type"], "external_thumbnail_url_metadata_only")

@@ -3157,12 +3157,24 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [
                 "Do not record inscription identity",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "应先核对哪些馆藏对象、缩略图或公开图像路线？",
+                "哪些 accession、catalog 或 object ID 只是来源线索？",
+                "需要核对哪些出土地、时期、批次或图版出处？",
+                "正式馆藏对象身份结论前还缺哪些证据？",
                 "not_promoted_to_formal_inscription_record",
                 "not_collected",
                 "not_applicable_preprocessing_only",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(review_sheet.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{review_sheet_path.relative_to(root).as_posix()} line "
+                        f"{line_number} exceeds 80 characters"
+                    )
     if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:

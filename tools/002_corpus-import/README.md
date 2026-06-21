@@ -1,60 +1,164 @@
 # Corpus Import Tools / 语料导入工具
 
 English:
-Future import scripts will convert repository source files into PostgreSQL or other query stores.
+These tools turn reviewed source material into preparation records for human
+research. Their purpose is not to make a database first, but to preserve source
+routes, staging indexes, object-local materials, and review queues that a
+researcher can inspect before any formal corpus import.
 
-`download_source_manifest.py` downloads approved lightweight source pages into ignored `tmp/source_downloads/` and writes only the provenance log, size, checksum, and status into `project_registry/006_large-source-register/002_source-download-log.csv`.
+Simplified Chinese:
+这些工具把已登记、可追溯的来源资料整理成正式研究前的预处理记录。它们
+首先服务人类研究者核查来源、图像、著录和候选路线；数据库、JSON 或 CSV
+只是辅助检索、追溯和统计的工具。
 
-`build_registered_source_metadata_profiles.py` appends reviewed metadata-only profile rows derived from committed source registers and download logs. It does not re-download source pages or promote registered descriptions into scholarship.
+## Human Review Entry Order / 人工复核入口顺序
 
-Use `--download-id <id>` to download only selected manifest rows and merge those rows into the existing log without refreshing unrelated source timestamps.
+English:
+Use this import area in the same order as a source review:
 
-`build_evobc_evolution_staging.py` reads the logged EVOBC `Key&Value.json` and `List_of_EVOBC.json` files from ignored `tmp/source_downloads/`, then writes reviewed metadata-only staging indexes under `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`.
+1. Check the source package, download log, checksum, rights note, and risk note.
+2. Inspect the staging index before accepting any object or character route.
+3. Follow crosswalk rows only as candidate source routes.
+4. Build or inspect object-local materials inside the concrete object folder.
+5. Record missing evidence as concrete next checks before corpus import.
 
-`build_ihp_museum_object_staging.py` reads the logged IHP Museum Oracle Bones collection page from ignored `tmp/source_downloads/`, then writes object-level metadata staging records under `corpus/005_excavation-sites-periods-and-batches/000_collection-registers/`.
+Simplified Chinese:
+使用本目录时，应按来源复核的顺序处理：
 
-`build_hust_obc_validation_label_crosswalk.py` reads the logged HUST-OBC validation-class staging file and `ID_to_Chinese.json`, then writes OCR-label candidate crosswalk records under `corpus/001_oracle-characters/000_character-registers/`.
+1. 先检查来源包、下载日志、checksum、权利说明和风险提示。
+2. 在接受任何对象或单字路线前，先复核 staging index。
+3. crosswalk 行只能作为候选来源路线使用。
+4. 对象内资料必须生成或检查在具体对象目录内。
+5. 正式导入前，缺失证据必须写成具体下一步待查问题。
 
-`build_hust_obc_source_category_staging.py` expands HUST-OBC validation classes into source-category rows so the contiguous `0001..1781` category range can be reviewed before any formal project character import.
+## Source And Staging Scripts / 来源与暂存脚本
 
-`build_hust_obc_obs_char_promotion_queue.py` creates the reserved-only HUST-OBC promotion review queue with suggested `obs-char-*` IDs. The output is a review queue, not a formal character assignment.
+English:
+These scripts prepare source evidence without making scholarly claims:
 
-`build_hust_obc_promotion_bucket_manifests.py` partitions that promotion queue into 100-ID bucket manifests under `corpus/001_oracle-characters/` and writes `010_hust-obc-promotion-bucket-review-summary.csv` so reviewers and AI Agents can process the 1,588 candidates in smaller batches.
+- `download_source_manifest.py`
+- `build_lightweight_source_package_manifest.py`
+- `build_registered_source_metadata_profiles.py`
+- `build_evobc_evolution_staging.py`
+- `build_ihp_museum_object_staging.py`
+- `build_hust_obc_validation_label_crosswalk.py`
+- `build_hust_obc_source_category_staging.py`
+- `build_hust_obc_undeciphered_candidate_index.py`
 
-`build_hust_obc_first_bucket_candidate_packets.py` materializes the first 100 HUST-OBC promotion candidates into bucket-level `01_candidate-character-packet.json` files plus a manifest, while preserving the not-accepted, cross-source-review boundary.
+Simplified Chinese:
+这些脚本负责准备来源证据，但不提出学术结论：
 
-`build_hust_obc_candidate_packets.py` materializes all 1,588 HUST-OBC promotion candidates across the 16 bucket directories, writing one candidate packet per suggested `obs-char-*` path and one packet manifest per bucket.
+- `download_source_manifest.py`
+- `build_lightweight_source_package_manifest.py`
+- `build_registered_source_metadata_profiles.py`
+- `build_evobc_evolution_staging.py`
+- `build_ihp_museum_object_staging.py`
+- `build_hust_obc_validation_label_crosswalk.py`
+- `build_hust_obc_source_category_staging.py`
+- `build_hust_obc_undeciphered_candidate_index.py`
 
-`build_hust_obimd_evobc_codepoint_crosswalk.py` builds a metadata-only codepoint crosswalk from the 1,588 HUST-OBC promotion candidates to OBIMD main-character rows and EVOBC evolution-category rows. The output is a lookup route table only, not an identity claim or decipherment result.
+## Object-Local Materials / 对象内资料
 
-`build_hust_obc_undeciphered_candidate_index.py` reads the HUST-OBC raw figshare zip from local temporary or external archive storage, then writes a metadata-only `obs-unk-*` undeciphered candidate index plus configured candidate packet buckets. It currently materializes all observed HUST-OBC undeciphered candidates, `obs-unk-000001..obs-unk-009408`. It records source image paths and counts only; raw image files stay outside regular Git.
+English:
+These scripts make object-local materials for human review. They keep README
+pages, visual routes, source indexes, human review sheets, and AI support
+packets in the same concrete `corpus` object directory:
 
-简体中文：
-未来导入脚本会把仓库源文件转换到 PostgreSQL 或其他查询存储中。
+- `build_character_local_materials.py`
+- `build_character_human_research_dossiers.py`
+- `extract_hust_obc_local_glyph_images.py`
+- `build_hust_obc_undeciphered_local_materials.py`
+- `build_obimd_component_candidate_materials.py`
+- `build_cambridge_hopkins_inscription_crosswalk_materials.py`
+- `build_cambridge_hopkins_topic_materials.py`
+- `build_evobc_evolution_candidate_materials.py`
+- `build_collection_object_candidate_materials.py`
+- `build_source_object_materials.py`
 
-`download_source_manifest.py` 会把批准的轻量来源页面下载到已忽略的 `tmp/source_downloads/`，并只把出处日志、大小、校验和和状态写入 `project_registry/006_large-source-register/002_source-download-log.csv`。
+Simplified Chinese:
+这些脚本生成对象内人类复核资料。README、图像路线、来源索引、人工复核表
+和 AI 辅助 packet 必须放在同一个具体 `corpus` 对象目录内：
 
-使用 `--download-id <id>` 可以只下载指定 manifest 行，并把这些行合并进现有日志，避免刷新无关来源的时间戳。
+- `build_character_local_materials.py`
+- `build_character_human_research_dossiers.py`
+- `extract_hust_obc_local_glyph_images.py`
+- `build_hust_obc_undeciphered_local_materials.py`
+- `build_obimd_component_candidate_materials.py`
+- `build_cambridge_hopkins_inscription_crosswalk_materials.py`
+- `build_cambridge_hopkins_topic_materials.py`
+- `build_evobc_evolution_candidate_materials.py`
+- `build_collection_object_candidate_materials.py`
+- `build_source_object_materials.py`
 
-`build_evobc_evolution_staging.py` 会读取已登记的 EVOBC `Key&Value.json` 和 `List_of_EVOBC.json` 临时下载文件，并在 `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/` 下写出仅含 metadata 的复核暂存索引。
+## Cross-Source Routes / 跨来源路线
 
-`build_ihp_museum_object_staging.py` 会读取已登记的 IHP Museum Oracle Bones 馆藏页临时下载文件，并在 `corpus/005_excavation-sites-periods-and-batches/000_collection-registers/` 下写出对象级 metadata 暂存记录。
+English:
+These scripts create lookup or review routes across sources. A route may help a
+researcher find evidence, but it is not an identity claim:
 
-`build_hust_obc_validation_label_crosswalk.py` 会读取已登记的 HUST-OBC validation-class 暂存表和 `ID_to_Chinese.json`，并在 `corpus/001_oracle-characters/000_character-registers/` 下写出 OCR label 候选交叉记录。
+- `build_hust_obc_obs_char_promotion_queue.py`
+- `build_hust_obc_promotion_bucket_manifests.py`
+- `build_hust_obc_first_bucket_candidate_packets.py`
+- `build_hust_obc_candidate_packets.py`
+- `build_hust_obimd_evobc_codepoint_crosswalk.py`
+- `sync_asset_id_source_map_from_asset_index.py`
 
-`build_hust_obc_source_category_staging.py` 会把 HUST-OBC validation class 展开为 source-category 行，使连续的 `0001..1781` 类别范围可以在正式本项目单字导入前先被复核。
+Simplified Chinese:
+这些脚本建立跨来源检索或复核路线。路线可以帮助研究者找到证据，但不是
+对象同一性、同字关系或释读结论：
 
-`build_hust_obc_obs_char_promotion_queue.py` 会创建 HUST-OBC 提升复核队列，并给出保留建议性质的 `obs-char-*` ID。该输出只是复核队列，不是正式甲骨字分配。
+- `build_hust_obc_obs_char_promotion_queue.py`
+- `build_hust_obc_promotion_bucket_manifests.py`
+- `build_hust_obc_first_bucket_candidate_packets.py`
+- `build_hust_obc_candidate_packets.py`
+- `build_hust_obimd_evobc_codepoint_crosswalk.py`
+- `sync_asset_id_source_map_from_asset_index.py`
 
-`build_hust_obc_promotion_bucket_manifests.py` 会把该提升队列按 100 个 ID 一组切分到 `corpus/001_oracle-characters/` 下的 bucket manifest，并写出 `010_hust-obc-promotion-bucket-review-summary.csv`，方便复核者和 AI Agent 分批处理 1,588 个候选。
+## Concrete Questions To Check / 具体待查问题
 
-`build_hust_obc_first_bucket_candidate_packets.py` 会把前 100 个 HUST-OBC 提升候选落实为 bucket 下的 `01_candidate-character-packet.json` 文件和 manifest，同时保持“未接受、待跨来源复核”的边界。
+English:
+Before running or accepting an import result, answer these questions:
 
-`build_hust_obc_candidate_packets.py` 会把全部 1,588 个 HUST-OBC 提升候选落实到 16 个 bucket 目录中，为每个建议 `obs-char-*` 路径写出一个候选资料包，并为每个 bucket 写出一个 packet manifest。
+- Which source package or public page produced the source record?
+- Where are the access log, manifest, checksum, size, and rights status?
+- Which staging index shows the raw row before local object material exists?
+- Which concrete object folder contains the human-readable review material?
+- Which fields are still candidates, missing, disputed, or pending review?
+- Does any output look like a conclusion before source review is complete?
 
-`build_hust_obimd_evobc_codepoint_crosswalk.py` 会从 1,588 个 HUST-OBC 提升候选出发，按 metadata 中的 codepoint 序列对照 OBIMD main-character 行和 EVOBC evolution-category 行。输出只是一张检索路线表，不是同字确认或释读结果。
+Simplified Chinese:
+运行或接受导入结果前，应回答这些具体问题：
 
-`build_hust_obc_undeciphered_candidate_index.py` 会从本地临时区或外部归档中的 HUST-OBC figshare 原始 zip 读取目录结构，写出 metadata-only 的 `obs-unk-*` 未释读候选索引，并按配置生成候选 packet bucket。目前已落实全部已观测 HUST-OBC 未释读候选 `obs-unk-000001..obs-unk-009408`。它只记录来源图片路径和数量；原始图片文件保留在普通 Git 之外。
+- 该来源记录来自哪个来源包或公开网页？
+- 访问日志、manifest、checksum、大小和权利状态在哪里？
+- 哪个 staging index 显示了对象内资料生成前的原始行？
+- 哪个具体对象目录包含人类可读复核资料？
+- 哪些字段仍是候选、缺失、争议或待复核？
+- 是否有输出在来源复核完成前看起来像结论？
 
-�������Ĳ��䣺
-`build_registered_source_metadata_profiles.py` ������ύ����Դ�ǼǱ���������־��׷���Ѹ��˵� metadata-only profile �У�����������������Դҳ�棬Ҳ����ѵǼ���������Ϊѧ�����ۡ�
+## Research Boundary / 研究边界
+
+English:
+Import outputs are preparation evidence only.
+This is not a decipherment conclusion.
+It is not a confirmed character assignment, inscription identity claim, or
+accepted paleographic correspondence. Large raw packages stay in ignored local
+or external archives unless the large-source policy allows a reviewed
+derivative to be committed.
+
+Simplified Chinese:
+导入输出只是预处理证据，不是释读结论，不是已确认的单字分配，不是卜辞或
+馆藏对象同一性结论，也不是已接受的古文字对应。大型原始包应留在已忽略的
+本地或外部归档中；只有符合大型来源规则的已复核派生结果才能提交。
+
+## Validation / 校验
+
+English:
+After changing these workflows, run the repository skeleton validator, unit
+tests, and diff whitespace check. If a new workflow creates temporary or
+generated files, update `.gitignore`, validation, and tests in the same change.
+
+Simplified Chinese:
+修改这些流程后，需要运行仓库 skeleton validator、单元测试和 diff 空白检查。
+如果新增流程会产生临时或生成文件，必须在同一次修改中更新 `.gitignore`、
+validation 和 tests。

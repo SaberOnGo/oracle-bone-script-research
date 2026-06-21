@@ -36,6 +36,7 @@ from tools.validation.check_repository_skeleton import (
     check_project_id_source_map_audit,
     check_research_sources_bibliography_readme_human_entry,
     check_research_topics_grammar_readme_human_entry,
+    check_relationship_graph_readme_human_entry,
     check_source_rights_policy_human_entry,
     check_statistics_readme_human_entry,
     check_inscription_readme_human_entry,
@@ -2743,6 +2744,37 @@ class RepositorySkeletonTests(unittest.TestCase):
             "not a grammar conclusion",
             "not an inscription-topic assignment",
             "not a decipherment conclusion",
+        ]:
+            self.assertIn(marker, text)
+        self.assertNotIn("\ufffd", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_relationship_graph_readme_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_relationship_graph_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = repo_root() / "corpus/008_relationship-graph/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Relationship Graph",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "character-source",
+            "character-asset",
+            "character-component",
+            "character-variant",
+            "character-inscription",
+            "cross-source-id",
+            "evolution/correspondence",
+            "review route",
+            "not a decipherment conclusion",
+            "not a component assignment",
+            "not an inscription identity",
+            "not an accepted correspondence",
         ]:
             self.assertIn(marker, text)
         self.assertNotIn("\ufffd", text)

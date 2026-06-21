@@ -1,56 +1,121 @@
 # Large Source Material Handling / 大型来源资料处理
 
 English:
-Some oracle bone script sources are large because they come from professional databases, scans, PDF collections, image archives, OCR packages, or exported research datasets. Large does not mean useless, and the project should not discard important sources only because they exceed `SIZE_LIMIT`.
+Large source material includes database exports, scan sets, PDF collections,
+image archives, OCR packages, and research datasets. A large source package may
+be essential evidence, but regular Git must not become raw storage.
 
-简体中文：
-有些甲骨文来源资料会很大，因为它们来自专业数据库、扫描图、PDF 集合、图片包、OCR 包或研究数据导出。文件大不代表没有价值，项目不能因为超过 `SIZE_LIMIT` 就简单丢弃重要来源。
+Simplified Chinese:
+大型来源资料包括数据库导出、扫描集合、PDF 集合、图片包、OCR 包和研究
+数据集。大型 source package 可能是重要证据，但普通 Git 不能变成原始资料
+仓库。
+
+## Human Review Entry Order / 人工复核入口顺序
+
+English:
+Review a large source in this order:
+
+1. Open `project_registry/006_large-source-register/` first.
+2. Confirm the source package id, provider, access method, and storage hint.
+3. Check file size, checksum, rights status, risk note, and review status.
+4. Open package manifests, field maps, and extraction notes if they exist.
+5. Inspect reviewed derived records before any corpus or graph import.
+6. Record missing evidence as concrete next checks.
+
+Simplified Chinese:
+复核大型来源资料时，按以下顺序处理：
+
+1. 先打开 `project_registry/006_large-source-register/`。
+2. 确认 source package id、提供方、访问方式和存放线索。
+3. 核对文件大小、checksum、rights status、risk note 和复核状态。
+4. 如已有 package manifest、字段映射和抽取说明，应继续打开核查。
+5. 在任何 corpus 或图谱导入前，先检查已复核派生记录。
+6. 缺失证据必须写成具体下一步待查问题。
 
 ## Rule / 规则
 
 English:
-Preserve the research trail, but do not turn Git history into raw storage. GitHub warns on regular Git files above 50 MiB, blocks files above 100 MiB, recommends Git LFS for large binaries, and recommends storing programmatically generated files outside Git. See GitHub Docs: [About large files on GitHub](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github), [About Git Large File Storage](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage), and [Repository limits](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits).
+The repository `SIZE_LIMIT` is 30 MiB per file. Files above that limit need a
+recorded exception. Files at or above 40 MiB must not be committed to regular
+Git. Important oversized sources should be kept in ignored local storage or an
+approved external archive, with auditable manifests and reviewed derivatives in
+Git.
 
-简体中文：
-保留研究链路，但不要把 Git 历史变成原始资料仓库。GitHub 对普通 Git 文件超过 50 MiB 会警告，超过 100 MiB 会阻止；大二进制文件建议使用 Git LFS，程序生成文件建议放在 Git 外部。参见 GitHub 文档：[About large files on GitHub](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)、[About Git Large File Storage](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage)、[Repository limits](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits)。
+Simplified Chinese:
+本仓库 `SIZE_LIMIT` 为单文件 30 MiB。超过此限制的文件必须登记例外。
+达到或超过 40 MiB 的文件不得提交到普通 Git。重要超大来源应保存在已忽略
+本地存储或获批准的外部归档中，Git 中只保留可审计 manifest 和已复核派生
+记录。
 
-## Decision Order / 处理顺序
+## Concrete Questions To Check / 具体待查问题
 
-1. Register the source package in `project_registry/006_large-source-register/001_large-source-register.csv`.
-2. Keep the raw large package in an ignored local archive, institutional storage, object storage, Git LFS, GitHub Releases, or another external location after project approval. Do not commit it directly to regular Git.
-3. Record enough provenance to reproduce or audit it: source URL, provider, access method, download date, file size, checksum, rights status, risk note, and local or external storage hint.
-4. Extract useful research content into smaller records: metadata, bibliographic rows, OCR text, page-level image references, character records, inscription records, graph edges, or statistics.
-5. Commit only reviewed derived records that are source-marked and under `SIZE_LIMIT`.
-6. If a raw file is between 30 MiB and 40 MiB and must be committed, add it to `project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv` with mitigation and risk notes.
-7. If a raw file is 40 MiB or larger, do not commit it to regular Git.
+English:
+Before using a large source package, answer these questions:
 
-处理顺序：
+- Which registered source package is being used?
+- Where are its download or access record and checksum?
+- What is the rights status, risk note, and allowed research use?
+- Is the raw package outside regular Git, or is an exception recorded?
+- Which manifest lists files extracted from the package?
+- Which field map explains CSV, JSON, HTML, OCR, PDF, or image fields?
+- Which reviewed derived records can a human researcher open directly?
+- Which missing pages, images, fields, or permissions still need review?
 
-1. 先在 `project_registry/006_large-source-register/001_large-source-register.csv` 登记来源包。
-2. 原始大包经项目批准后放在已忽略的本地归档、机构存储、对象存储、Git LFS、GitHub Releases 或其他外部位置，不要直接提交到普通 Git。
-3. 记录足够复现和审计的信息：来源 URL、提供方、访问方式、下载日期、文件大小、checksum、权利状态、风险提示、本地或外部存放线索。
-4. 把有研究价值的内容抽取成更小的记录：metadata、书目行、OCR 文本、页级图片引用、甲骨字记录、卜辞记录、图谱边或统计结果。
-5. 只提交经过复核、标注来源且低于 `SIZE_LIMIT` 的派生记录。
-6. 如果原始文件在 30 MiB 到 40 MiB 之间且确实必须提交，写入 `project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv`，并记录缓解方式和风险提示。
-7. 如果原始文件达到或超过 40 MiB，不得提交到普通 Git。
+Simplified Chinese:
+使用大型来源包前，应回答这些具体问题：
+
+- 使用的是哪一个已登记 source package？
+- 它的下载或访问记录和 checksum 在哪里？
+- 权利状态、风险提示和允许的研究用途是什么？
+- 原始包是否在普通 Git 外部，或是否已有例外登记？
+- 哪个 manifest 列出从来源包抽取的文件？
+- 哪个字段映射解释 CSV、JSON、HTML、OCR、PDF 或图片字段？
+- 哪些已复核派生记录可以被人类研究者直接打开？
+- 哪些页码、图像、字段或许可仍需复核？
+
+## Derived Records / 派生记录
+
+English:
+Prefer reviewed derived records over raw packages in Git. Useful derivatives
+include bibliographic rows, page indexes, OCR text within rights limits,
+object-local image routes, character or inscription staging rows, source field
+maps, graph edges, statistics, and human review sheets. Each derivative must
+point back to its source package, manifest row, checksum, and review status.
+
+Simplified Chinese:
+Git 中优先保存已复核派生记录，而不是原始大包。可提交的派生记录包括书目
+行、页码索引、权利允许范围内的 OCR 文本、对象内图片路线、单字或卜辞暂存
+行、来源字段映射、图谱边、统计和人工复核表。每个派生记录都必须能追溯到
+source package、manifest 行、checksum 和复核状态。
 
 ## Strategies By Material Type / 按资料类型建议
 
-- Database dumps: commit schema, field map, sample rows, import notes, checksum, and split extracted tables; keep the raw dump outside Git.
-- 数据库导出：提交 schema、字段映射、样例行、导入说明、checksum 和拆分后的抽取表；原始 dump 放在 Git 外部。
-- PDF or scan collections: commit bibliographic metadata, page index, lawful OCR text, small extracted images when needed, and source references; keep full scans outside Git unless rights and size allow.
-- PDF 或扫描集合：提交书目 metadata、页码索引、合法范围内的 OCR 文本、必要小图和来源引用；全文扫描除非权利和尺寸都允许，否则放在 Git 外部。
-- Image archives: commit thumbnails or individual useful images under `SIZE_LIMIT`; keep high-resolution originals outside Git and record checksums.
-- 图片包：提交缩略图或低于 `SIZE_LIMIT` 的必要单图；高清原图放在 Git 外部并登记 checksum。
-- Website exports: commit crawl manifest, URL list, extraction script notes, and normalized records; keep raw crawl caches in ignored temporary or external storage.
-- 网站导出：提交 crawl manifest、URL 列表、抽取脚本说明和规范化记录；原始抓取缓存放在已忽略临时区或外部存储。
-- AI-generated intermediates: keep embeddings, OCR caches, vector indexes, model outputs, and unpacked archives in ignored temporary directories unless a reviewed small derivative is intentionally promoted.
-- AI 中间产物：embedding、OCR cache、向量索引、模型输出和解压目录默认放在已忽略临时目录；只有经过复核的小型派生结果才可以提升为正式记录。
+English:
+Use these strategies as review prompts:
 
-## Boundary / 边界
+- Database exports: keep schema, field map, sample rows, and checksums.
+- PDF or scan sets: keep bibliography, page index, legal OCR, and routes.
+- Image archives: keep selected review images or thumbnails under the limit.
+- Website exports: keep crawl manifest, URL list, and normalized records.
+- AI intermediates: keep caches and vector indexes in ignored storage.
+
+Simplified Chinese:
+可按资料类型使用以下复核提示：
+
+- 数据库导出：保留 schema、字段映射、样例行和 checksum。
+- PDF 或扫描集合：保留书目、页码索引、合法 OCR 和路线。
+- 图片包：保留低于限制的精选复核图像或缩略图。
+- 网站导出：保留 crawl manifest、URL 列表和规范化记录。
+- AI 中间产物：cache 和向量索引应留在已忽略存储区。
+
+## Research Boundary / 研究边界
 
 English:
-Large-source registration proves that a source trail exists. It does not prove that a reading, component assignment, inscription identity, or correspondence is correct.
+Large-source registration proves that a source trail exists. It is not a
+decipherment conclusion. It is not a component assignment, inscription identity
+claim, or accepted paleographic correspondence.
+This is not a decipherment conclusion.
 
-简体中文：
-大型来源登记只能证明存在来源链，不证明某个释读、构件归属、卜辞身份或字形对应是正确的。
+Simplified Chinese:
+大型来源登记只能证明存在来源链。它不是释读结论，不是构件归属结论，不是
+卜辞或馆藏对象同一性结论，也不是已接受的古文字对应。

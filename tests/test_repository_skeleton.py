@@ -42,6 +42,7 @@ from tools.validation.check_repository_skeleton import (
     check_graph_generation_tools_readme_human_entry,
     check_relationship_graph_readme_human_entry,
     check_source_rights_policy_human_entry,
+    check_large_source_material_handling_human_entry,
     check_statistics_readme_human_entry,
     check_statistics_generation_tools_readme_human_entry,
     check_inscription_readme_human_entry,
@@ -2829,6 +2830,37 @@ class RepositorySkeletonTests(unittest.TestCase):
             "权利状态",
             "风险提示",
             "复核状态",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_large_source_material_handling_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_large_source_material_handling_human_entry(repo_root()),
+            [],
+        )
+        readme_path = (
+            repo_root()
+            / "doc/project/006_large-source-material-handling/README.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Large Source Material Handling / 大型来源资料处理",
+            "Human Review Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "source package",
+            "checksum",
+            "rights status",
+            "risk note",
+            "reviewed derived records",
+            "not a decipherment conclusion",
+            "不是释读结论",
         ]:
             self.assertIn(marker, text)
         for marker in ["缂", "闁", "鐢", "涓", "�"]:

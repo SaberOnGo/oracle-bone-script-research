@@ -37,6 +37,7 @@ from tools.validation.check_repository_skeleton import (
     check_project_id_source_map_audit,
     check_research_sources_bibliography_readme_human_entry,
     check_research_topics_grammar_readme_human_entry,
+    check_graph_generation_tools_readme_human_entry,
     check_relationship_graph_readme_human_entry,
     check_source_rights_policy_human_entry,
     check_statistics_readme_human_entry,
@@ -2867,6 +2868,35 @@ class RepositorySkeletonTests(unittest.TestCase):
         ]:
             self.assertIn(marker, text)
         self.assertNotIn("\ufffd", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_graph_generation_tools_readme_is_human_readable_entry(self) -> None:
+        self.assertEqual(
+            check_graph_generation_tools_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = repo_root() / "tools/003_graph-generation/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Graph Generation Tools / 图谱生成工具",
+            "Human Review Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "character-source",
+            "character-asset",
+            "character-component",
+            "character-inscription",
+            "cross-source-id",
+            "evolution/correspondence",
+            "not a decipherment conclusion",
+            "不是释读结论",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
         for line in text.splitlines():
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):
                 continue

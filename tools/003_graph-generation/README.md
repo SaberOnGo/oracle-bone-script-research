@@ -1,29 +1,117 @@
 # Graph Generation Tools / 图谱生成工具
 
 English:
-Future graph generation tools will produce graph nodes and edges from structured records.
-
-Current tools:
-
-- `build_hust_obc_candidate_graph_edges.py`: builds reviewed metadata-only JSONL edges from the HUST-OBC validation class staging table and source category staging table.
-- `build_obimd_component_graph_edges.py`: builds reviewed metadata-only JSONL edges from OBIMD main-character, sub-character, and glyph-code-point staging tables.
-- `build_evobc_evolution_graph_edges.py`: builds reviewed metadata-only JSONL edges from EVOBC evolution category era/source count summaries.
-- `build_cambridge_hopkins_inscription_graph_edges.py`: builds reviewed metadata-only JSONL edges from Cambridge/Hopkins inscription crosswalk staging rows to source, download, period, classification-group, and external catalog-reference nodes.
-- `build_character_asset_graph_edges.py`: builds candidate JSONL edges from the asset source index so project-local character candidates can point to co-located local glyph image assets without making decipherment or component claims.
-- `build_component_asset_graph_edges.py`: builds candidate JSONL edges from the asset source index so OBIMD component candidates can point to co-located local subcharacter image assets without confirming component forms or assignments.
-- `build_cross_source_id_graph_edges.py`: builds candidate JSONL lookup-route edges from HUST/OBIMD/EVOBC codepoint crosswalk staging rows to HUST category, OBIMD candidate main-character, and EVOBC candidate evolution-category nodes without confirming identity, readings, components, or evolution chains.
-- `build_cambridge_hopkins_topic_graph_edges.py`: builds candidate JSONL edges from Cambridge/Hopkins topic candidates to source, download, classification-group, inscription-crosswalk routes, and unrouted crosswalk review bucket nodes without confirming grammar, inscription topic assignments, readings, or decipherment.
-- `build_character_asset_graph_edges.py`：从资产来源登记表生成候选 JSONL 图谱边，让本项目字形候选能指向同一具体字目录中的本地图像资产；不提出释读、字形身份或构件结论。
-- `build_cross_source_id_graph_edges.py`：从 HUST/OBIMD/EVOBC codepoint crosswalk 暂存表生成候选 JSONL 查找路线边，连接 HUST 分类、OBIMD 候选主字和 EVOBC 候选演化分类节点；不确认同字关系、释读、构件或演化链。
+These tools generate relationship graph edges for preprocessing review.
+They connect candidate characters, assets, components, inscriptions,
+sources, topics, and evolution routes so human researchers can find the next
+evidence trail. A graph edge is not a decipherment conclusion.
 
 简体中文：
-未来图谱生成工具会从结构化记录生成图谱节点和边。
+本目录工具生成预处理复核使用的关系图边。它们连接候选单字、资产、
+构件、卜辞、来源、主题和演化路线，帮助研究者找到下一条证据链。
 
-当前工具：
+## Purpose / 用途
 
-- `build_hust_obc_candidate_graph_edges.py`：从 HUST-OBC validation class 暂存表和 source category 暂存表生成仅限已复核元数据层面的 JSONL 图谱边。
-- `build_obimd_component_graph_edges.py`：从 OBIMD main-character、sub-character 和 glyph-code-point 暂存表生成仅限已复核元数据层面的 JSONL 图谱边。
-- `build_evobc_evolution_graph_edges.py`：从 EVOBC evolution category 的时代/来源计数摘要生成仅限已复核元数据层面的 JSONL 图谱边。
-- `build_cambridge_hopkins_inscription_graph_edges.py`：从 Cambridge/Hopkins 卜辞 crosswalk staging 行生成仅限已复核 metadata 层面的 JSONL 图谱边，连接来源、下载记录、时期、分类组和外部著录号节点。
-- `build_character_asset_graph_edges.py`：从资产来源登记表生成候选 JSONL 图谱边，让本项目字形候选能指向同一具体字目录中的本地图像资产；不提出释读、字形身份或构件结论。
-- `build_cross_source_id_graph_edges.py`：从 HUST/OBIMD/EVOBC codepoint crosswalk 暂存表生成候选 JSONL 查找路线边，连接 HUST 分类、OBIMD 候选主字和 EVOBC 候选演化分类节点；不确认同字关系、释读、构件或演化链。
+English:
+Graph edges are review routes. They are not confirmed readings, component
+assignments, inscription identities, accepted correspondences, or a
+decipherment conclusion. Open the object-local dossier or source note before
+using any edge as evidence.
+
+简体中文：
+图边只是复核路线。它们不是已确认释读、构件归属、卜辞身份、已接受
+对应关系，也不是释读结论。使用任何图边作为证据前，必须先打开对象
+内档案或来源说明。
+
+## Human Review Entry Order / 人工复核入口顺序
+
+1. Open the human README or dossier for the source object.
+2. Check the source registry, rights note, checksum, and manifest.
+3. Open the relevant graph edge JSONL file.
+4. Follow edge route fields back to concrete object directories.
+5. Compare with visual galleries, source indexes, and review sheets.
+6. Record any reviewed outcome in human-gated review files.
+7. Keep unreviewed graph links as candidate routes only.
+
+人工复核时，先打开来源对象的人类 README 或档案，再核对来源登记、
+权利说明、checksum 和 manifest。随后打开相关 JSONL 图边文件，并沿
+路线字段回到具体对象目录，结合图像 gallery、来源索引和复核表核查。
+未经人工复核的图边只能保持候选路线状态。
+
+## Edge Families / 图边家族
+
+- character-source:
+  HUST-OBC candidate source and validation-class routes.
+- character-asset:
+  character candidates to co-located local glyph image assets.
+- character-component:
+  character or component candidates to OBIMD component routes.
+- character-inscription:
+  character or topic routes to inscription crosswalk candidates.
+- cross-source-id:
+  HUST, OBIMD, and EVOBC codepoint lookup routes.
+- evolution/correspondence:
+  EVOBC evolution and later-script correspondence candidate routes.
+- topic-source:
+  Cambridge/Hopkins topic candidates to source and period routes.
+
+## Current Builders / 当前生成器
+
+- `build_hust_obc_candidate_graph_edges.py`
+  writes HUST-OBC candidate source and class edges.
+- `build_obimd_component_graph_edges.py`
+  writes OBIMD component candidate metadata edges.
+- `build_evobc_evolution_graph_edges.py`
+  writes EVOBC era and source-code route edges.
+- `build_cambridge_hopkins_inscription_graph_edges.py`
+  writes inscription crosswalk edges to sources and catalogs.
+- `build_character_asset_graph_edges.py`
+  writes character-to-local-glyph-asset candidate edges.
+- `build_component_asset_graph_edges.py`
+  writes component-to-local-image-asset candidate edges.
+- `build_cross_source_id_graph_edges.py`
+  writes HUST/OBIMD/EVOBC lookup-route edges.
+- `build_cambridge_hopkins_topic_graph_edges.py`
+  writes topic, period, and inscription-crosswalk route edges.
+
+## Concrete Questions To Check / 具体待查问题
+
+- Which edge file contains the route for this candidate object?
+- Which source row, package manifest, and checksum support the edge?
+- Which object-local dossier or review sheet should be opened first?
+- Does the edge point to a local image, route-only image, or metadata row?
+- Does the edge merely link codepoints, or does it have reviewed evidence?
+- Which component, inscription, or evolution link remains candidate-only?
+- Which graph edge must not be treated as a scholarly conclusion?
+
+- 哪个图边文件包含该候选对象的路线？
+- 哪条来源行、package manifest 和 checksum 支撑这条图边？
+- 应先打开哪个对象内档案或人工复核表？
+- 图边指向本地图像、仅路线图像，还是 metadata 行？
+- 图边只是连接 codepoint，还是已有复核证据？
+- 哪条构件、卜辞或演化路线仍只是候选？
+- 哪条图边不能被当作学术结论？
+
+## Boundaries / 边界
+
+English:
+The graph files support search, tracing, comparison, coverage checks, and
+review routing. They do not promote source rows, decide rights, import formal
+corpus records, confirm identity, assign components, accept correspondences,
+or make decipherment conclusions.
+
+简体中文：
+图谱文件服务于检索、追溯、比较、覆盖检查和复核路线。它们不提升
+来源行、不裁定权利、不导入正式语料、不确认身份、不归属构件、
+不接受对应关系，也不是释读结论。
+
+## Regeneration / 重新生成
+
+Run the relevant builder after changing graph input tables or object-local
+source routes. Then run:
+
+```powershell
+python tools/validation/check_repository_skeleton.py
+python -m unittest discover -s tests -v
+git diff --check
+```

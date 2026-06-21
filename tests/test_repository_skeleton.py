@@ -35,6 +35,7 @@ from tools.validation.check_repository_skeleton import (
     check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
     check_research_sources_bibliography_readme_human_entry,
+    check_research_topics_grammar_readme_human_entry,
     check_source_rights_policy_human_entry,
     check_statistics_readme_human_entry,
     check_inscription_readme_human_entry,
@@ -2714,6 +2715,34 @@ class RepositorySkeletonTests(unittest.TestCase):
             "not a rights decision",
             "source provenance",
             "human source review sheet",
+        ]:
+            self.assertIn(marker, text)
+        self.assertNotIn("\ufffd", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_research_topics_grammar_readme_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_research_topics_grammar_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = repo_root() / "corpus/007_research-topics-and-grammar/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Research Topics And Grammar",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "topic candidate",
+            "Cambridge/Hopkins",
+            "period-count index",
+            "inscription crosswalk route",
+            "unrouted crosswalk",
+            "human topic review sheet",
+            "not a grammar conclusion",
+            "not an inscription-topic assignment",
+            "not a decipherment conclusion",
         ]:
             self.assertIn(marker, text)
         self.assertNotIn("\ufffd", text)

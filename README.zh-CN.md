@@ -7,65 +7,94 @@
   </tr>
 </table>
 
-本项目是“甲骨文知识库 + 知识图谱 + AI Agent 研究助手 + 开放研究基础设施”。
+本项目是甲骨文资料整理、知识库、知识图谱和 AI Agent 研究助手框架。
+它的第一读者是甲骨文学家、考古学家和其他人类研究者；AI 使用的索引、
+JSON、CSV 和图边只是辅助资料。
 
-它不是自动破译甲骨文的模型，而是一个把甲骨单字、字形变体、构件候选、卜辞、馆藏/出土信息、来源引用、学术资料、图边、统计和 AI Agent 复核队列结构化的长期项目。目标是降低甲骨文研究的信息差和资料门槛，让普通人也能在规范证据框架下进行检索、比对、提问、假说生成和人工复核。
+本项目不是自动破译模型。AI 假说、数据集标签、图边和候选映射在经过
+来源证据和学术资料复核前，不能写成已确认学术结论。
 
-English summary: Oracle Bone Script Research is a knowledge base, knowledge graph, and AI Agent framework for democratizing access to oracle bone script research. It preserves source trails and review boundaries instead of presenting AI hypotheses as confirmed scholarship.
+English summary:
+Oracle Bone Script Research is an open research infrastructure project. Its
+main purpose is to provide human-readable, source-traceable dossiers for
+inspection, comparison, verification, and future research, with AI-readable
+support data kept secondary.
 
 ## 项目使命 / Mission
 
-用 AI Agent 推动甲骨文研究民主化，同时保留来源追溯、复核状态和研究边界。
+用开放资料基础设施降低甲骨文研究门槛，同时保留来源追溯、复核状态、
+权利边界和学术谨慎。
 
-Democratize access to oracle bone script research with AI agents while preserving source provenance, review status, and research boundaries.
-
-本项目重点整理：
-
-- 甲骨单字结构化记录和未释字候选
-- 字形图片、图片引用和来源 metadata
-- 构件候选和 glyph-codepoint 关系
-- 卜辞记录、著录记录和目录互证暂存表
-- 馆藏、出土、时期、批次和图版出处
-- 金文、小篆、后续文字阶段标签和现代 codepoint 对应候选
-- 书目、来源登记、下载日志、manifest 和权利风险说明
-- 关系图边、覆盖率统计、质量审计和复核队列
-- 支持透明假说工作的 AI Agent evidence pack 和复核脚手架
+Democratize access to oracle bone script research while preserving source
+provenance, review status, rights boundaries, and scholarly caution.
 
 ## 当前阶段 / Current Stage
 
-本仓库处于正式研究开始前的资料工程和预处理阶段。当前已经包含来源登记、下载日志、暂存表、对象内候选资料、图边、统计和校验工具。所有未确认内容都保持候选或待人工复核状态。
+本仓库处于正式甲骨文研究开始前的资料整理与预处理阶段。当前重点不是
+提出释读结论，而是把来源、图像、拓片、著录、卜辞、馆藏、时期、构件、
+异体、后世字形路线和文献线索整理成可追溯、可复核、可继续研究的档案。
 
-The repository is in the preprocessing and research-infrastructure stage. It already contains source registers, download logs, staging tables, object-local candidate materials, graph edges, statistics, and validation tools.
+AI 可读辅助资料包括 JSON、CSV、staging 表、manifest、关系图边和统计。
+这些文件服务于检索、追溯、比较和验证，不能替代对象内的人类研究档案。
 
-## 重要入口 / Important Entry Points
+## 人工研究入口顺序 / Human Research Entry Order
 
-- `AGENTS.md`：所有 AI agent 必须先读的规则。
-- `project_registry/`：仓库结构、命名规则、本项目 ID、外部来源引用、资产出处、大型来源登记和术语表。
-- `doc/project/`：项目政策和研究设计。
-- `corpus/`：甲骨字、卜辞、构件候选、字形对应候选、出处、图谱和统计记录。
-- `research/`：已有学术研究、已发表观点和书目记录。
-- `doc/public/user_research/`：用户和 AI Agent 的研究草稿、证据包、对比记录和复核记录。
-- `skills/`：AI Agent 可复用工作流。
-- `schemas/`：机器可校验的数据结构。
-- `tools/`：校验、导入、抽取、图谱、统计和 context pack 生成脚本。
-- `tests/`：仓库规则、脚本和数据契约测试。
-- `tmp/`：本地临时工作区，用于 AI Agent 草稿、临时下载、OCR 中间产物、缓存和生成性临时文件。
+1. 先读 `AGENTS.md`，确认仓库规则和研究边界。
+2. 打开 `doc/project/`，查看政策、来源、ID 和大文件规则。
+3. 打开 `project_registry/`，把本项目 ID 映射到来源引用。
+4. 进入 `corpus/` 下的具体对象目录。
+5. 先读人类 README、dossier 或 review sheet，再读 JSON packet。
+6. 检查图片、gallery、来源索引、路线索引和人工复核表。
+7. 统计和图谱只用于寻找下一条证据路线。
+8. 只记录已复核结果，不写未确认释读结论。
+
+## 重要入口 / Main Entry Points
+
+- `corpus/001_oracle-characters/`
+  保存甲骨单字和未释字候选目录。
+- `corpus/002_oracle-bone-inscriptions/`
+  保存卜辞和图版目录互证候选资料。
+- `corpus/003_graphemic-components/`
+  保存构件候选和视觉复核路线。
+- `corpus/004_bronze-seal-modern-correspondences/`
+  保存金文、小篆、今字和演化对应候选路线。
+- `corpus/005_excavation-sites-periods-and-batches/`
+  保存馆藏、出土地、时期和批次来源。
+- `corpus/006_research-sources-and-bibliography/`
+  保存来源对象、文献、下载路线和权利说明。
+- `corpus/008_relationship-graph/`
+  保存用于路线和覆盖检查的关系图边。
+- `corpus/009_statistics-and-derived-features/`
+  保存审计、复核队列和预处理统计。
+- `research/`
+  保存已有公开学术研究和有来源的书目笔记。
+- `doc/public/user_research/`
+  保存用户和 AI Agent 草稿，复核前不得混入 `research/`。
+
+## 具体待查问题 / Concrete Questions To Check
+
+- 哪个对象已有图片，却还缺人类可读研究档案？
+- 哪个来源还缺 checksum、package manifest、字段映射或风险说明？
+- 哪个单字候选还缺卜辞语境、馆藏语境、后世字形路线、异体说明或
+  释读史路线？
+- 哪个卜辞候选还缺全文/OCR、图版号、著录来源、《合集》/OBM 路线、
+  馆藏对象、时期、批次或复核状态？
+- 哪条文献记录还缺适用范围、证据等级、提出者、不同意见或引用关系？
+- 哪条图边只是路线，不能被当作学术结论？
 
 ## 研究边界 / Research Boundary
 
-AI Agent 输出属于草稿研究。未经复核前应放在 `doc/public/user_research/`；已有学术研究和已发表观点应放在 `research/`。
+数据集标签、图边、codepoint 匹配、构件候选、目录互证、字形演化和
+对应候选都只是路线证据。它们不是已确认释读、正式构件归属、卜辞身份、
+已接受古文字对应或释读结论。
 
-AI Agent output is draft research. It belongs under `doc/public/user_research/` until reviewed and rewritten with reliable sources. Existing scholarship belongs under `research/`.
+已有学术研究属于 `research/`。用户和 AI Agent 草稿属于
+`doc/public/user_research/`，未经人工复核并改写为有来源的学术笔记前，
+不得混入 `research/`。
 
-数据集标签、图边、codepoint 匹配、构件候选、目录互证和字形演化/对应候选都只是研究路径证据。不得把它们写成已确认释读、正式构件归属、卜辞身份或已接受的古文字对应关系。
+## 校验 / Validation
 
-Dataset labels, graph edges, codepoint matches, component candidates, catalog crosswalks, and evolution/correspondence candidates are routing evidence only, not confirmed scholarship.
-
-## AI Agent 快速开始 / Quick Start
-
-先读 `AGENTS.md`，再根据任务读取 `project_registry/`、`doc/project/`、`schemas/`、`skills/` 和 `tools/` 下的相关文件，然后再修改。
-
-Read `AGENTS.md` first, then read the relevant project registry, policy, schema, skill, and tool files before editing.
+提交仓库骨架、文档、schema、脚本或生成的预处理结果前运行：
 
 ```powershell
 python tools/validation/check_repository_skeleton.py
@@ -73,16 +102,8 @@ python -m unittest discover -s tests -v
 git diff --check
 ```
 
-## 来源与风险政策 / Source And Risk Policy
+推送前校验提交信息：
 
-研究需要时，可以下载或提交外部甲骨图片、扫描件、论文 PDF、大型图片集和研究语料。每个提交的资料项都必须注明来源、权利状态和显式风险提示，方便人类和 AI Agent 追溯出处并判断复用风险。
-
-External oracle bone images, scans, paper PDFs, large image sets, and research corpora may be downloaded or committed when they are useful for research. Every committed item must include provenance, rights status, and a visible risk note.
-
-`SIZE_LIMIT` 设为单文件 30 MiB。更大的文件需要登记特例，并优先考虑分包、降采样、压缩或抽取成结构化记录。达到或超过 40 MiB 的文件不得提交到普通 Git。
-
-`SIZE_LIMIT` is 30 MiB per file. Files at or above 40 MiB must not be committed to regular Git.
-
-超过限制但重要的来源包应登记到 `project_registry/006_large-source-register/`，原始包保存在已忽略的本地或外部存储中，Git 中只保留带来源标记的 manifest、checksum、抽取说明和已复核派生记录。
-
-Important source packages that exceed the limit should be registered in `project_registry/006_large-source-register/`, kept outside regular Git, and represented by source-marked manifests, checksums, extraction notes, and reviewed derived records.
+```powershell
+python tools/git/check_commit_messages.py --range origin/main..HEAD
+```

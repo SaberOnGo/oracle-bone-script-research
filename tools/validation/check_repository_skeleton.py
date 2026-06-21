@@ -3770,6 +3770,51 @@ def check_bilingual_markers(root: Path) -> list[str]:
     return issues
 
 
+def check_root_readmes_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    required_markers = {
+        "README.md": [
+            "Current Stage",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "not an automatic decipherment model",
+            "source provenance",
+            "object-local",
+            "AI-readable support data",
+            "中文摘要",
+            "具体待查问题",
+        ],
+        "README.zh-CN.md": [
+            "当前阶段",
+            "人工研究入口顺序",
+            "具体待查问题",
+            "不是自动破译模型",
+            "来源追溯",
+            "对象内",
+            "AI 可读辅助资料",
+            "English summary",
+        ],
+    }
+    for relative, markers in required_markers.items():
+        path = root / relative
+        if not path.exists():
+            issues.append(f"{relative} missing")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                issues.append(f"{relative} missing human-entry marker: {marker}")
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            if marker in text:
+                issues.append(f"{relative} contains mojibake marker: {marker}")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            if len(line) > 80:
+                issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_statistics_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/009_statistics-and-derived-features/README.md"
@@ -27677,6 +27722,7 @@ def main() -> int:
     issues.extend(check_source_object_human_material_quality(root))
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_bilingual_markers(root))
+    issues.extend(check_root_readmes_human_entry(root))
     issues.extend(check_statistics_readme_human_entry(root))
     issues.extend(check_inscription_readme_human_entry(root))
     issues.extend(check_forbidden_paths(root))

@@ -32,6 +32,7 @@ from tools.validation.check_repository_skeleton import (
     check_project_id_source_map_audit,
     check_statistics_readme_human_entry,
     check_inscription_readme_human_entry,
+    check_root_readmes_human_entry,
     check_preprocessing_status_audit,
     check_data_quality_audit,
     check_source_processing_pipeline_audit,
@@ -2613,6 +2614,43 @@ class RepositorySkeletonTests(unittest.TestCase):
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):
                 continue
             self.assertLessEqual(len(line), 80, line)
+
+    def test_root_readmes_are_human_research_entry_points(self) -> None:
+        self.assertEqual(check_root_readmes_human_entry(repo_root()), [])
+        marker_sets = {
+            "README.md": [
+                "Current Stage",
+                "Human Research Entry Order",
+                "Concrete Questions To Check",
+                "not an automatic decipherment model",
+                "source provenance",
+                "object-local",
+                "AI-readable support data",
+                "中文摘要",
+                "具体待查问题",
+            ],
+            "README.zh-CN.md": [
+                "当前阶段",
+                "人工研究入口顺序",
+                "具体待查问题",
+                "不是自动破译模型",
+                "来源追溯",
+                "对象内",
+                "AI 可读辅助资料",
+                "English summary",
+            ],
+        }
+        for relative, markers in marker_sets.items():
+            path = repo_root() / relative
+            text = path.read_text(encoding="utf-8")
+            for marker in markers:
+                self.assertIn(marker, text, relative)
+            for marker in ["缂", "闁", "鐢", "涓", "�"]:
+                self.assertNotIn(marker, text, relative)
+            for line in text.splitlines():
+                if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                    continue
+                self.assertLessEqual(len(line), 80, f"{relative}: {line}")
 
     def test_forbidden_path_patterns_absent(self) -> None:
         self.assertEqual(check_forbidden_paths(repo_root()), [])

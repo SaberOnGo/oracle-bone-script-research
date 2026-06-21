@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import os
+import textwrap
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -36,6 +37,7 @@ EXPECTED_RAW_SHA256 = "0d00a4de8dd9ce7b7495d7b26f3c80098ee9975b91615211dde02e569
 FIGSHARE_SOURCE_URL = "https://ndownloader.figshare.com/files/48465988"
 UPDATED_AT = "2026-06-20"
 LUMA_THRESHOLD = 140
+MAX_HUMAN_LINE_LENGTH = 80
 
 RISK_NOTE = (
     "HUST-OBC glyph candidate image extracted from registered large source package for "
@@ -106,6 +108,35 @@ def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str] | No
         writer = csv.DictWriter(file, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows([{field: row.get(field, "") for field in fieldnames} for row in rows])
+
+
+def wrapped_bullet(text: str) -> str:
+    return textwrap.fill(
+        f"- {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_check(text: str) -> str:
+    return textwrap.fill(
+        f"- [ ] {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_paragraph(text: str) -> str:
+    return textwrap.fill(
+        text,
+        width=MAX_HUMAN_LINE_LENGTH,
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
 
 
 def upsert_rows(path: Path, key: str, new_rows: list[dict[str, str]]) -> None:
@@ -405,23 +436,71 @@ The image shown here is source-marked preparation material for human visual revi
 
 
 def review_sheet_text(candidate: Candidate, asset_id: str) -> str:
+    english_scope = wrapped_paragraph(
+        "Review only whether the local image, packet, and source-route "
+        "metadata match the registered HUST-OBC source package. Do not record "
+        "a reading, identity confirmation, component conclusion, or "
+        "decipherment conclusion here."
+    )
+    chinese_scope = "\n".join(
+        [
+            "这里只复核本地图像、候选包和来源路线 metadata 是否对应已登记的",
+            "HUST-OBC 来源包。不要在此记录释读、身份确认、构件结论或破译结论。",
+        ]
+    )
+    checklist = "\n".join(
+        [
+            wrapped_check("Source image path checked against `02_visual-source-index.csv`"),
+            wrapped_check("Local review image opens and is readable"),
+            wrapped_check(f"Asset registry row checked: `{asset_id}`"),
+            wrapped_check("Rights and risk note reviewed"),
+            wrapped_check("No formal reading or identity claim added"),
+        ]
+    )
+    concrete_questions = "\n".join(
+        [
+            wrapped_bullet("Which HUST-OBC source image should be checked first?"),
+            wrapped_bullet(
+                "Which glyph, codepoint, or later-script route is only a "
+                "candidate clue?"
+            ),
+            wrapped_bullet(
+                "Which inscription, plate, collection, findspot, or period "
+                "context is still missing?"
+            ),
+            wrapped_bullet(
+                "Which rights status or source-package risk must be rechecked "
+                "before reuse?"
+            ),
+            wrapped_bullet(
+                "What evidence is still missing before any formal reading or "
+                "identity judgment?"
+            ),
+            "",
+            "- 应先核对哪一张 HUST-OBC 来源图像？",
+            "- 哪些字形、codepoint 或后世字形路线只是候选线索？",
+            "- 还缺哪些卜辞、图版、馆藏、出土地或时期上下文？",
+            "- 复用前还要复核哪些权利状态或来源包风险？",
+            "- 正式释读或身份判断前还缺哪些证据？",
+        ]
+    )
     return f"""# {candidate.project_id} Human Review Sheet / {candidate.project_id} 人工复核表
 
 ## Review Scope / 复核范围
 
 English:
-Review only whether the local image, packet, and source-route metadata match the registered HUST-OBC source package. Do not record a reading, identity confirmation, component conclusion, or decipherment conclusion here.
+{english_scope}
 
 简体中文：
-这里只复核本地图像、候选包和来源路线 metadata 是否对应已登记的 HUST-OBC 来源包。不要在此记录释读、身份确认、构件结论或破译结论。
+{chinese_scope}
 
 ## Checklist / 清单
 
-- [ ] Source image path checked against `02_visual-source-index.csv`
-- [ ] Local review image opens and is readable
-- [ ] Asset registry row checked: `{asset_id}`
-- [ ] Rights and risk note reviewed
-- [ ] No formal reading or identity claim added
+{checklist}
+
+## Concrete Questions To Check / 具体待查问题
+
+{concrete_questions}
 
 ## Status / 状态
 

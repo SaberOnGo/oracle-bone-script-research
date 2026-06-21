@@ -3353,6 +3353,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(by_project), 9408)
         self.assertIn("obs-unk-000001", by_project)
         self.assertIn("obs-unk-006294", by_project)
+        sample_candidates = [candidates[0], candidates[6293], candidates[-1]]
+        for candidate in sample_candidates:
+            asset_id = by_project[candidate.project_id]["asset_id"]
+            review_text = module.review_sheet_text(candidate, asset_id)
+            self.assertIn("Concrete Questions To Check", review_text)
+            self.assertIn("具体待查问题", review_text)
+            self.assertIn("应先核对哪一张 HUST-OBC 来源图像？", review_text)
+            self.assertIn("哪些字形、codepoint 或后世字形路线只是候选线索？", review_text)
+            self.assertIn("还缺哪些卜辞、图版、馆藏、出土地或时期上下文？", review_text)
+            self.assertIn("正式释读或身份判断前还缺哪些证据？", review_text)
+            for line in review_text.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            disk_review = (candidate.object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
+            self.assertIn("Concrete Questions To Check", disk_review)
+            self.assertIn("具体待查问题", disk_review)
+            for line in disk_review.splitlines():
+                self.assertLessEqual(len(line), 80, line)
 
     def test_public_domain_asset_records(self) -> None:
         self.assertEqual(check_asset_records(repo_root()), [])

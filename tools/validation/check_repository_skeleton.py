@@ -3260,6 +3260,47 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
     return issues
 
 
+def check_hust_obc_undeciphered_local_review_sheets(root: Path) -> list[str]:
+    issues: list[str] = []
+    rows, row_issues = _read_csv_rows(root / HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX)
+    issues.extend(row_issues)
+    if len(rows) != 9408:
+        issues.append(f"{HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX} should contain 9408 rows")
+        return issues
+    sample_rows = [rows[0], rows[6293], rows[-1]]
+    required_snippets = [
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "应先核对哪一张 HUST-OBC 来源图像？",
+        "哪些字形、codepoint 或后世字形路线只是候选线索？",
+        "还缺哪些卜辞、图版、馆藏、出土地或时期上下文？",
+        "正式释读或身份判断前还缺哪些证据？",
+        "No formal reading or identity claim added",
+        "Identity claim status / 身份结论状态: `no_identity_claim`",
+        "Decipherment claim status / 释读结论状态: `no_claim`",
+    ]
+    for row in sample_rows:
+        project_id = row.get("unknown_candidate_id", "")
+        packet_path = root / row.get("materialized_candidate_packet_path", "")
+        review_sheet_path = packet_path.parent / "05_human-review-sheet.md"
+        if not path_exists(review_sheet_path):
+            issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing")
+            continue
+        review_sheet = review_sheet_path.read_text(encoding="utf-8")
+        for snippet in required_snippets:
+            if snippet not in review_sheet:
+                issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        for line_number, line in enumerate(review_sheet.splitlines(), start=1):
+            if not line.startswith("|") and len(line) > 80:
+                issues.append(
+                    f"{review_sheet_path.relative_to(root).as_posix()} line "
+                    f"{line_number} exceeds 80 characters"
+                )
+        if project_id and project_id not in review_sheet:
+            issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing project ID")
+    return issues
+
+
 def check_character_object_material_coverage_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_path = root / CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT
@@ -27472,6 +27513,7 @@ def main() -> int:
     issues.extend(check_evolution_candidate_local_materials(root))
     issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_cambridge_hopkins_topic_candidate_local_materials(root))
+    issues.extend(check_hust_obc_undeciphered_local_review_sheets(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_object_local_material_coverage_audit(root))
     issues.extend(check_source_object_human_material_quality(root))

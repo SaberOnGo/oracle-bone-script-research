@@ -4395,6 +4395,46 @@ def check_corpus_import_topic_materials_readme_human_entry(
     return issues
 
 
+def check_lightweight_package_manifest_readme_human_entry(
+    root: Path,
+) -> list[str]:
+    issues: list[str] = []
+    relative = "tools/002_corpus-import/README.lightweight-package-manifest.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Lightweight Source Package Manifest / 轻量来源包清单",
+        "Human Review Entry Order",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "download log",
+        "checksum",
+        "file size",
+        "rights status",
+        "risk note",
+        "manifest row",
+        "derived path",
+        "not a decipherment conclusion",
+        "不是释读结论",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    if "\ufffd" in text:
+        issues.append(f"{relative} contains replacement-character mojibake")
+    for marker in ["缂", "闁", "鐢", "涓"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_statistics_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/009_statistics-and-derived-features/README.md"
@@ -28353,6 +28393,7 @@ def main() -> int:
     issues.extend(check_corpus_import_tools_readme_human_entry(root))
     issues.extend(check_corpus_import_local_materials_readme_human_entry(root))
     issues.extend(check_corpus_import_topic_materials_readme_human_entry(root))
+    issues.extend(check_lightweight_package_manifest_readme_human_entry(root))
     issues.extend(check_graph_generation_tools_readme_human_entry(root))
     issues.extend(check_relationship_graph_readme_human_entry(root))
     issues.extend(check_statistics_readme_human_entry(root))

@@ -40,6 +40,7 @@ from tools.validation.check_repository_skeleton import (
     check_corpus_import_tools_readme_human_entry,
     check_corpus_import_local_materials_readme_human_entry,
     check_corpus_import_topic_materials_readme_human_entry,
+    check_lightweight_package_manifest_readme_human_entry,
     check_graph_generation_tools_readme_human_entry,
     check_relationship_graph_readme_human_entry,
     check_source_rights_policy_human_entry,
@@ -2713,6 +2714,39 @@ class RepositorySkeletonTests(unittest.TestCase):
             "period count",
             "source route",
             "object-local materials",
+            "not a decipherment conclusion",
+            "不是释读结论",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_lightweight_package_manifest_readme_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_lightweight_package_manifest_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = (
+            repo_root()
+            / "tools/002_corpus-import/README.lightweight-package-manifest.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Lightweight Source Package Manifest / 轻量来源包清单",
+            "Human Review Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "download log",
+            "checksum",
+            "file size",
+            "rights status",
+            "risk note",
+            "manifest row",
+            "derived path",
             "not a decipherment conclusion",
             "不是释读结论",
         ]:

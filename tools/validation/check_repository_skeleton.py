@@ -3942,6 +3942,41 @@ def check_large_source_material_handling_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_large_source_register_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "project_registry/006_large-source-register/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Large Source Register / 大型来源登记表",
+        "Human Review Entry Order",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "001_large-source-register.csv",
+        "002_source-download-log.csv",
+        "checksum",
+        "rights status",
+        "risk note",
+        "reviewed derivatives",
+        "not a decipherment conclusion",
+        "不是释读结论",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    for marker in ["缂", "闁", "鐢", "涓", "�"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_oracle_characters_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/001_oracle-characters/README.md"
@@ -28270,6 +28305,7 @@ def main() -> int:
     issues.extend(check_ai_context_pack_builder_readme_human_entry(root))
     issues.extend(check_source_rights_policy_human_entry(root))
     issues.extend(check_large_source_material_handling_human_entry(root))
+    issues.extend(check_large_source_register_readme_human_entry(root))
     issues.extend(check_oracle_characters_readme_human_entry(root))
     issues.extend(check_graphemic_components_readme_human_entry(root))
     issues.extend(check_bronze_seal_modern_readme_human_entry(root))

@@ -4129,7 +4129,10 @@ def check_statistics_readme_human_entry(root: Path) -> list[str]:
         return issues
     text = path.read_text(encoding="utf-8")
     for marker in [
+        "Human Research Entry Order",
         "Concrete Questions To Check",
+        "statistics are navigation signals",
+        "human-fillable outcome scaffold",
         "具体待查问题",
         "object-local material coverage",
         "source-processing pipeline",

@@ -2588,7 +2588,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "corpus/009_statistics-and-derived-features/README.md"
         )
         text = readme_path.read_text(encoding="utf-8")
+        self.assertIn("Human Research Entry Order", text)
         self.assertIn("Concrete Questions To Check", text)
+        self.assertIn("statistics are navigation signals", text)
+        self.assertIn("human-fillable outcome scaffold", text)
         self.assertIn("具体待查问题", text)
         self.assertIn("object-local material coverage", text)
         self.assertIn("source-processing pipeline", text)

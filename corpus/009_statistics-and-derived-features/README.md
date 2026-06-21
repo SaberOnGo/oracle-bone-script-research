@@ -5,20 +5,26 @@ This directory is the human entry point for generated statistics, coverage
 audits, route packs, review queues, and source-processing scaffolds. These
 files help researchers find what has been prepared, what still needs review,
 and which source or object route should be opened next.
+The statistics are navigation signals for opening evidence routes, not
+substitutes for object-local dossiers, source records, or review sheets.
 
 简体中文：
 本目录是统计、覆盖审计、路线包、复核队列和来源处理脚手架的人类入口。
 这些文件帮助研究者判断哪些资料已经预处理，哪些仍需复核，以及下一步
 应打开哪个来源、对象或证据路线。
+这些统计只是帮助打开证据路线的导航信号，不能替代对象内档案、
+来源记录或人工复核表。
 
 ## Boundary / 边界
 
 - These files are preprocessing and navigation evidence only.
+- The statistics are navigation signals, not source or object evidence.
 - They are not source evidence by themselves.
 - They are not rights decisions or source-promotion decisions.
 - They are not corpus imports or reviewed scholarly outcomes.
 - They are not a decipherment conclusion.
 - 这些文件只属于预处理和导航证据。
+- 统计只是导航信号，不是来源证据或对象证据。
 - 它们本身不是来源证据、权利裁定或来源提升决定。
 - 它们不是语料导入结果，也不是已复核学术结论。
 - 它们不构成释读结论。
@@ -109,7 +115,7 @@ and which source or object route should be opened next.
 - 哪些行只是 metadata，不能提升为学术结论？
 - 对象内资料改变后，哪些统计文件需要重新生成？
 
-## Suggested Review Order / 建议复核顺序
+## Human Research Entry Order / 人工研究入口顺序
 
 1. Open `189_object-local-material-coverage-summary.json`.
 2. Open `188_object-local-material-coverage-audit.csv`.
@@ -118,6 +124,11 @@ and which source or object route should be opened next.
 5. Open `137_source-pipeline-phase-action-queue.csv`.
 6. Follow the cited source register, object directory, or route pack.
 7. Record reviewed outcomes only in the matching result scaffold or log.
+8. Use a human-fillable outcome scaffold only after source routes are checked.
+
+人工阅读时，先看覆盖摘要，再打开审计表和阶段矩阵。遇到缺口时，
+回到对应的来源登记、对象目录或路线包；只有证据路线已经核对后，
+才在人工可填写的 outcome scaffold 或日志中记录复核结果。
 
 ## Regeneration Notes / 再生成说明
 

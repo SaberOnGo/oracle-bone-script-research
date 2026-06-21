@@ -4011,6 +4011,44 @@ def check_excavation_sites_periods_batches_readme_human_entry(
     return issues
 
 
+def check_research_sources_bibliography_readme_human_entry(
+    root: Path,
+) -> list[str]:
+    issues: list[str] = []
+    relative = "corpus/006_research-sources-and-bibliography/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Research Sources And Bibliography",
+        "Human Research Entry Order",
+        "Concrete Questions To Check",
+        "source object",
+        "bibliography item",
+        "package manifest",
+        "field map",
+        "checksum",
+        "rights status",
+        "risk note",
+        "not a decipherment conclusion",
+        "not a rights decision",
+        "source provenance",
+        "human source review sheet",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    if "\ufffd" in text:
+        issues.append(f"{relative} contains replacement-character mojibake")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_statistics_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/009_statistics-and-derived-features/README.md"
@@ -27924,6 +27962,7 @@ def main() -> int:
     issues.extend(check_graphemic_components_readme_human_entry(root))
     issues.extend(check_bronze_seal_modern_readme_human_entry(root))
     issues.extend(check_excavation_sites_periods_batches_readme_human_entry(root))
+    issues.extend(check_research_sources_bibliography_readme_human_entry(root))
     issues.extend(check_statistics_readme_human_entry(root))
     issues.extend(check_inscription_readme_human_entry(root))
     issues.extend(check_forbidden_paths(root))

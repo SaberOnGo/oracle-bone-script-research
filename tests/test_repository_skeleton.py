@@ -34,6 +34,7 @@ from tools.validation.check_repository_skeleton import (
     check_graphemic_components_readme_human_entry,
     check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
+    check_research_sources_bibliography_readme_human_entry,
     check_source_rights_policy_human_entry,
     check_statistics_readme_human_entry,
     check_inscription_readme_human_entry,
@@ -2683,6 +2684,39 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(marker, text)
         for marker in ["缂", "闁", "鐢", "涓", "�"]:
             self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_research_sources_bibliography_readme_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_research_sources_bibliography_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/README.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Research Sources And Bibliography",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "source object",
+            "bibliography item",
+            "package manifest",
+            "field map",
+            "checksum",
+            "rights status",
+            "risk note",
+            "not a decipherment conclusion",
+            "not a rights decision",
+            "source provenance",
+            "human source review sheet",
+        ]:
+            self.assertIn(marker, text)
+        self.assertNotIn("\ufffd", text)
         for line in text.splitlines():
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):
                 continue

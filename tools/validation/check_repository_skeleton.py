@@ -33,6 +33,10 @@ COLLECTION_OBJECT_ID_SOURCE_MAP = (
     "project_registry/002_project-id-to-source-reference-map/"
     "006_collection-object-id-source-map.csv"
 )
+CAMBRIDGE_HOPKINS_TOPIC_INDEX = (
+    "corpus/007_research-topics-and-grammar/000_topic-registers/"
+    "001_cambridge-hopkins-topic-candidate-index.csv"
+)
 SOURCE_INDEX = "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv"
 SOURCE_INVENTORY = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
@@ -3179,6 +3183,80 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} IHP external thumbnail count changed")
+    return issues
+
+
+def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    index_path = root / CAMBRIDGE_HOPKINS_TOPIC_INDEX
+    with index_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    if len(rows) != 20:
+        issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} should contain 20 topic rows")
+    required_files = [
+        "README.md",
+        "01_topic-candidate-packet.json",
+        "02_topic-source-index.csv",
+        "03_period-count-index.csv",
+        "04_inscription-crosswalk-route-index.csv",
+        "05_human-topic-review-sheet.md",
+    ]
+    review_sheet_snippets = [
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "应先核对哪个 Cambridge/Hopkins 分组行和原始标签？",
+        "哪些 period count 只是来源表计数，仍待人工复核？",
+        "哪些 crosswalk 路线需要回到卜辞目录互证材料检查？",
+        "形成任何语法或主题归属结论前还缺哪些证据？",
+        "No grammar analysis or inscription-topic conclusion added",
+        "No transcription, reading, or decipherment conclusion added",
+        "Grammar analysis status / 语法分析状态: `not_started`",
+        "Inscription topic claim status / 卜辞主题结论状态: `no_claim`",
+    ]
+    for index, row in enumerate(rows, start=1):
+        topic_id = row.get("topic_candidate_id", "")
+        if topic_id != f"obs-topic-cand-{index:06d}":
+            issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} topic ID sequence changed: {topic_id}")
+        if row.get("record_type") != "research_topic_candidate":
+            issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} record_type changed: {topic_id}")
+        if row.get("review_status") != "needs_human_topic_review":
+            issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} review_status changed: {topic_id}")
+        if "not_scholarship" not in row.get("research_boundary", ""):
+            issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} boundary changed: {topic_id}")
+        object_dir = root / row.get("canonical_path", "")
+        if not path_exists(object_dir):
+            issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} missing object directory: {topic_id}")
+            continue
+        if "corpus/007_research-topics-and-grammar/001_topic-candidates/" not in object_dir.relative_to(root).as_posix():
+            issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_INDEX} object outside topic area: {topic_id}")
+        if path_exists(object_dir.parent / "human-readable"):
+            issues.append(f"{object_dir.parent.relative_to(root).as_posix()} has forbidden parallel human-readable directory")
+        for filename in required_files:
+            if not path_exists(object_dir / filename):
+                issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        packet_path = object_dir / "01_topic-candidate-packet.json"
+        if path_exists(packet_path):
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            if packet.get("topic_candidate_id") != topic_id:
+                issues.append(f"{packet_path.relative_to(root).as_posix()} topic ID mismatch")
+            if packet.get("grammar_analysis_status") != "not_started":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} grammar status changed")
+            if packet.get("inscription_topic_claim_status") != "no_claim":
+                issues.append(f"{packet_path.relative_to(root).as_posix()} topic claim status changed")
+            if "not a grammar analysis" not in packet.get("caution", ""):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing boundary")
+        review_sheet_path = object_dir / "05_human-topic-review-sheet.md"
+        if path_exists(review_sheet_path):
+            review_sheet = review_sheet_path.read_text(encoding="utf-8")
+            for snippet in review_sheet_snippets:
+                if snippet not in review_sheet:
+                    issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(review_sheet.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{review_sheet_path.relative_to(root).as_posix()} line "
+                        f"{line_number} exceeds 80 characters"
+                    )
     return issues
 
 
@@ -27393,6 +27471,7 @@ def main() -> int:
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
     issues.extend(check_evolution_candidate_local_materials(root))
     issues.extend(check_collection_object_candidate_local_materials(root))
+    issues.extend(check_cambridge_hopkins_topic_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_object_local_material_coverage_audit(root))
     issues.extend(check_source_object_human_material_quality(root))

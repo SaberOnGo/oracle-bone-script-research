@@ -7,6 +7,7 @@ import argparse
 import csv
 import json
 import re
+import textwrap
 from collections import defaultdict
 from pathlib import Path
 
@@ -126,6 +127,7 @@ CAUTION = (
     "analysis result, not an accepted inscription topic assignment, not a "
     "transcription, not a reading, and not a decipherment conclusion."
 )
+MAX_HUMAN_LINE_LENGTH = 80
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -145,6 +147,35 @@ def write_json(path: Path, data: dict[str, object]) -> None:
     path.write_text(
         json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
+    )
+
+
+def wrapped_bullet(text: str) -> str:
+    return textwrap.fill(
+        f"- {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_check(text: str) -> str:
+    return textwrap.fill(
+        f"- [ ] {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_paragraph(text: str) -> str:
+    return textwrap.fill(
+        text,
+        width=MAX_HUMAN_LINE_LENGTH,
+        break_long_words=False,
+        break_on_hyphens=False,
     )
 
 
@@ -356,24 +387,78 @@ This is only a source-classification candidate from a Cambridge/Hopkins metadata
 
 
 def review_sheet_text(project_id: str, row: dict[str, str]) -> str:
+    english_scope = wrapped_paragraph(
+        "Review whether the Cambridge/Hopkins classified-table group is useful "
+        "as a controlled vocabulary candidate for later inscription analysis. "
+        "Do not confirm grammar, topic assignments, readings, or decipherment "
+        "here."
+    )
+    chinese_scope = "\n".join(
+        [
+            "这里仅复核 Cambridge/Hopkins 分类表分组是否适合作为后续",
+            "卜辞分析的受控词表候选。不要在这里确认语法、主题归属、",
+            "读法或破译结论。",
+        ]
+    )
+    checklist = "\n".join(
+        [
+            wrapped_check("Source summary row checked in `02_topic-source-index.csv`"),
+            wrapped_check("Period counts checked in `03_period-count-index.csv`"),
+            wrapped_check(
+                "Crosswalk routes checked in `04_inscription-crosswalk-route-index.csv`"
+            ),
+            wrapped_check("Label wording reviewed as source metadata only"),
+            wrapped_check("No grammar analysis or inscription-topic conclusion added"),
+            wrapped_check("No transcription, reading, or decipherment conclusion added"),
+        ]
+    )
+    concrete_questions = "\n".join(
+        [
+            wrapped_bullet(
+                "Which Cambridge/Hopkins source group row and original label "
+                "should be checked first?"
+            ),
+            wrapped_bullet(
+                "Which period counts are only source-table counts and still "
+                "need human review?"
+            ),
+            wrapped_bullet(
+                "Which crosswalk routes should be checked against inscription "
+                "crosswalk materials?"
+            ),
+            wrapped_bullet(
+                "Which label wording could mislead readers if treated as a "
+                "confirmed topic?"
+            ),
+            wrapped_bullet(
+                "What evidence is still missing before any grammar or topic "
+                "assignment claim?"
+            ),
+            "",
+            "- 应先核对哪个 Cambridge/Hopkins 分组行和原始标签？",
+            "- 哪些 period count 只是来源表计数，仍待人工复核？",
+            "- 哪些 crosswalk 路线需要回到卜辞目录互证材料检查？",
+            "- 哪些标签措辞若被当成已确认主题，可能误导读者？",
+            "- 形成任何语法或主题归属结论前还缺哪些证据？",
+        ]
+    )
     return f"""# {project_id} Human Topic Review Sheet / {project_id} 人工主题复核表
 
 ## Review Scope / 复核范围
 
 English:
-Review whether the Cambridge/Hopkins classified-table group is useful as a controlled vocabulary candidate for later inscription analysis. Do not confirm grammar, topic assignments, readings, or decipherment here.
+{english_scope}
 
 简体中文：
-这里仅复核 Cambridge/Hopkins 分类表分组是否适合作为后续卜辞分析的受控词表候选。不要在这里确认语法、主题归属、读法或破译结论。
+{chinese_scope}
 
 ## Checklist / 清单
 
-- [ ] Source summary row checked in `02_topic-source-index.csv`
-- [ ] Period counts checked in `03_period-count-index.csv`
-- [ ] Crosswalk routes checked in `04_inscription-crosswalk-route-index.csv`
-- [ ] Label wording reviewed as source metadata only
-- [ ] No grammar analysis or inscription-topic conclusion added
-- [ ] No transcription, reading, or decipherment conclusion added
+{checklist}
+
+## Concrete Questions To Check / 具体待查问题
+
+{concrete_questions}
 
 ## Current Status / 当前状态
 - Source group / 来源分组: `{row["group_number"]}`

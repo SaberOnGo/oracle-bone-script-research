@@ -26,6 +26,7 @@ from tools.validation.check_repository_skeleton import (
     check_inscription_crosswalk_candidate_local_materials,
     check_evolution_candidate_local_materials,
     check_collection_object_candidate_local_materials,
+    check_cambridge_hopkins_topic_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
     check_project_id_source_map_audit,
@@ -3257,6 +3258,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(result["topic_candidate_count"], 20)
         self.assertEqual(result["topic_crosswalk_link_count"], 608)
         self.assertEqual(result["unrouted_crosswalk_link_count"], 4)
+        self.assertEqual(check_cambridge_hopkins_topic_candidate_local_materials(repo_root()), [])
         object_dir = (
             repo_root()
             / "corpus/007_research-topics-and-grammar/001_topic-candidates/"
@@ -3268,6 +3270,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(packet["grammar_analysis_status"], "not_started")
         self.assertEqual(packet["inscription_topic_claim_status"], "no_claim")
         self.assertIn("not a grammar analysis", packet["caution"])
+        review_sheet_text = (object_dir / "05_human-topic-review-sheet.md").read_text(encoding="utf-8")
+        self.assertIn("Concrete Questions To Check", review_sheet_text)
+        self.assertIn("具体待查问题", review_sheet_text)
+        self.assertIn("应先核对哪个 Cambridge/Hopkins 分组行和原始标签？", review_sheet_text)
+        self.assertIn("哪些 period count 只是来源表计数，仍待人工复核？", review_sheet_text)
+        self.assertIn("哪些 crosswalk 路线需要回到卜辞目录互证材料检查？", review_sheet_text)
+        self.assertIn("形成任何语法或主题归属结论前还缺哪些证据？", review_sheet_text)
+        for line in review_sheet_text.splitlines():
+            self.assertLessEqual(len(line), 80, line)
         with (object_dir / "04_inscription-crosswalk-route-index.csv").open(
             "r", encoding="utf-8-sig", newline=""
         ) as file:

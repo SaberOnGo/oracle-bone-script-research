@@ -1,0 +1,63 @@
+{
+  "project_id": "obs-char-000971",
+  "updated_at": "2026-06-21",
+  "object_dir": "corpus/001_oracle-characters/010_000901-001000_obs-char-bucket_oracle-characters/971_obs-char-000971_hust-obc-cat-1091_oracle-character",
+  "human_files": [
+    "README.md",
+    "04_visual-gallery.md",
+    "05_human-research-dossier.md",
+    "06_human-review-sheet.md"
+  ],
+  "ai_files": [
+    "01_candidate-character-packet.json",
+    "02_visual-source-index.csv",
+    "07_research-dossier-index.json"
+  ],
+  "packet_summary": {
+    "primary_external_ref_id": "hust-obc-cat-1091",
+    "source_id": "src-hust-obc",
+    "record_type": "oracle_character_candidate_packet",
+    "review_status": "needs_cross_source_review",
+    "decipherment_status": "unknown_until_cross_source_review",
+    "rights_status": "source_marked_risk_noted"
+  },
+  "visual_summary": {
+    "row_count": "1",
+    "image_count": "1",
+    "source_ref_count": "1",
+    "rights": "source_marked_risk_noted",
+    "review": "needs_human_visual_review"
+  },
+  "graph_summary": {
+    "edge_count": 2,
+    "edge_type_counts": {
+      "CHARACTER_HAS_HUST_OBC_CODEPOINT_LOOKUP_ROUTE": 1,
+      "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE": 1
+    },
+    "codepoints": [
+      "U+3839"
+    ],
+    "cross_source_statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "route_files": [
+      "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+      "corpus/001_oracle-characters/010_000901-001000_obs-char-bucket_oracle-characters/001_hust-obc-candidate-packet-manifest.csv",
+      "corpus/001_oracle-characters/010_000901-001000_obs-char-bucket_oracle-characters/971_obs-char-000971_hust-obc-cat-1091_oracle-character/01_candidate-character-packet.json",
+      "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+      "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+      "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+      "project_registry/006_large-source-register/002_source-download-log.csv"
+    ]
+  },
+  "missing_sections": [
+    "accepted_reading_and_meaning",
+    "inscription_occurrences",
+    "catalog_plate_old_number_crosswalks",
+    "excavation_collection_period_batch",
+    "variant_and_similar_form_sets",
+    "component_candidates",
+    "published_bibliography_and_decipherment_history"
+  ],
+  "claim_boundary": "dossier_index_only_no_decipherment_claim"
+}

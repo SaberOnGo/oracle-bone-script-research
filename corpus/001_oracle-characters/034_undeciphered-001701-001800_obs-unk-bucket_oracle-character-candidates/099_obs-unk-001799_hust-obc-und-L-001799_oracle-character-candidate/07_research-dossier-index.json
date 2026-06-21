@@ -1,0 +1,50 @@
+{
+  "project_id": "obs-unk-001799",
+  "updated_at": "2026-06-21",
+  "object_dir": "corpus/001_oracle-characters/034_undeciphered-001701-001800_obs-unk-bucket_oracle-character-candidates/099_obs-unk-001799_hust-obc-und-L-001799_oracle-character-candidate",
+  "human_files": [
+    "README.md",
+    "04_visual-gallery.md",
+    "05_human-research-dossier.md",
+    "06_human-review-sheet.md"
+  ],
+  "ai_files": [
+    "01_undeciphered-candidate-packet.json",
+    "02_visual-source-index.csv",
+    "07_research-dossier-index.json"
+  ],
+  "packet_summary": {
+    "primary_external_ref_id": "hust-obc-und-L-001799",
+    "source_id": "src-hust-obc",
+    "record_type": "oracle_character_undeciphered_candidate_packet",
+    "review_status": "reviewed_metadata_only",
+    "decipherment_status": "undeciphered_dataset_candidate_not_accepted_character",
+    "rights_status": "source_marked_risk_noted"
+  },
+  "visual_summary": {
+    "row_count": "1",
+    "image_count": "1",
+    "source_ref_count": "1",
+    "rights": "source_marked_risk_noted",
+    "review": "needs_human_visual_review"
+  },
+  "graph_summary": {
+    "edge_count": 1,
+    "edge_type_counts": {
+      "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE": 1
+    },
+    "codepoints": [],
+    "cross_source_statuses": [],
+    "route_files": []
+  },
+  "missing_sections": [
+    "accepted_reading_and_meaning",
+    "inscription_occurrences",
+    "catalog_plate_old_number_crosswalks",
+    "excavation_collection_period_batch",
+    "variant_and_similar_form_sets",
+    "component_candidates",
+    "published_bibliography_and_decipherment_history"
+  ],
+  "claim_boundary": "dossier_index_only_no_decipherment_claim"
+}

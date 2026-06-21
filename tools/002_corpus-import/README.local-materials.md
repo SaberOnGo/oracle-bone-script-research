@@ -18,6 +18,7 @@ Simplified Chinese:
 
 ```powershell
 python tools/002_corpus-import/build_character_local_materials.py --root .
+python tools/002_corpus-import/build_character_human_research_dossiers.py --root .
 python tools/002_corpus-import/extract_hust_obc_local_glyph_images.py --root .
 python tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py --root .
 python tools/002_corpus-import/build_obimd_component_candidate_materials.py --root .
@@ -29,6 +30,23 @@ python tools/002_corpus-import/build_cambridge_hopkins_topic_materials.py --root
 ```
 
 ## Current Coverage / 当前覆盖范围
+
+English:
+`build_character_human_research_dossiers.py` adds a human-first research
+dossier, human review sheet, and AI support index inside every prepared
+`obs-char-*` and `obs-unk-*` object directory. The Markdown pages are wrapped
+for human reading and keep ordinary lines at 80 characters or less. The
+dossiers list glyph evidence, later-script routes, inscription-context gaps,
+provenance, collection/findspot/period gaps, component and variant gaps,
+decipherment-history gaps, and next review actions without making any
+unreviewed scholarly claim.
+
+Simplified Chinese:
+`build_character_human_research_dossiers.py` 会在每个已准备的 `obs-char-*`
+和 `obs-unk-*` 对象目录内生成面向人类的研究档案、人工复核表和 AI 支撑索引。
+Markdown 页面按人类阅读体验换行，普通行保持在 80 字符以内。档案页列出字形证据、
+后世文字路线、卜辞语境缺口、来源、馆藏/出土/时期缺口、构件和异体缺口、
+释读史缺口以及下一步复核动作，但不写入任何未经复核的学术结论。
 
 English:
 The HUST-OBC local-material batch covers all 1,588 promoted candidate character directories and all 9,408 undeciphered candidate directories. Each concrete object directory now keeps its AI packet, README, visual/source index, visual gallery, human review sheet, and a small source-marked local review image together under the same `corpus/001_oracle-characters/` object path.

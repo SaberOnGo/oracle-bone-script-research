@@ -2059,6 +2059,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_undeciphered_candidate_index.py",
     "tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py",
     "tools/002_corpus-import/build_character_local_materials.py",
+    "tools/002_corpus-import/build_character_human_research_dossiers.py",
     "tools/002_corpus-import/extract_hust_obc_local_glyph_images.py",
     "tools/002_corpus-import/sync_asset_id_source_map_from_asset_index.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
@@ -2363,6 +2364,9 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         readme_path = object_dir / "README.md"
         visual_index_path = object_dir / "02_visual-source-index.csv"
         gallery_path = object_dir / "04_visual-gallery.md"
+        dossier_path = object_dir / "05_human-research-dossier.md"
+        review_sheet_path = object_dir / "06_human-review-sheet.md"
+        dossier_index_path = object_dir / "07_research-dossier-index.json"
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")
@@ -2384,6 +2388,43 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        human_markers = {
+            dossier_path: ["not_collected", "decipherment conclusion"],
+            review_sheet_path: ["not_reviewed", "no_claim"],
+        }
+        for human_path, markers in human_markers.items():
+            if not human_path.exists():
+                issues.append(f"{relative_dir} missing co-located {human_path.name}")
+                continue
+            human_text = human_path.read_text(encoding="utf-8")
+            for line_number, line in enumerate(human_text.splitlines(), start=1):
+                if len(line) > 80 and not line.startswith("!["):
+                    issues.append(
+                        f"{human_path.relative_to(root).as_posix()} line {line_number} exceeds 80 chars"
+                    )
+            for snippet in [project_id, *markers]:
+                if snippet not in human_text:
+                    issues.append(f"{human_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        if not dossier_index_path.exists():
+            issues.append(f"{relative_dir} missing co-located 07_research-dossier-index.json")
+        else:
+            try:
+                dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} invalid JSON: {exc}")
+                dossier_index = {}
+            if dossier_index.get("project_id") != project_id:
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} project_id changed")
+            if dossier_index.get("claim_boundary") != "dossier_index_only_no_decipherment_claim":
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} claim boundary changed")
+            for expected_file in [
+                "05_human-research-dossier.md",
+                "06_human-review-sheet.md",
+            ]:
+                if expected_file not in dossier_index.get("human_files", []):
+                    issues.append(
+                        f"{dossier_index_path.relative_to(root).as_posix()} missing human file {expected_file}"
+                    )
         if not visual_index_path.exists():
             issues.append(f"{relative_dir} missing co-located 02_visual-source-index.csv")
             continue

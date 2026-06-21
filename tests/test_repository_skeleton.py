@@ -277,6 +277,15 @@ def load_character_local_materials_module():
     return module
 
 
+def load_character_human_research_dossiers_module():
+    path = repo_root() / "tools/002_corpus-import/build_character_human_research_dossiers.py"
+    spec = importlib.util.spec_from_file_location("build_character_human_research_dossiers", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_undeciphered_local_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_undeciphered_local_materials", path)
@@ -2617,6 +2626,56 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(committed_rows), 1)
         self.assertEqual(committed_rows[0]["visual_material_status"], "committed_review_image_derivative")
         self.assertTrue(all(row["review_status"] == "needs_human_visual_review" for row in rows))
+
+    def test_character_human_research_dossiers_are_colocated_and_wrapped(self) -> None:
+        target_dir = (
+            repo_root()
+            / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/"
+            / "001_obs-char-000001_hust-obc-cat-0001_oracle-character"
+        )
+        dossier_path = target_dir / "05_human-research-dossier.md"
+        review_path = target_dir / "06_human-review-sheet.md"
+        index_path = target_dir / "07_research-dossier-index.json"
+        self.assertTrue(path_exists(dossier_path), dossier_path)
+        self.assertTrue(path_exists(review_path), review_path)
+        self.assertTrue(path_exists(index_path), index_path)
+
+        dossier = dossier_path.read_text(encoding="utf-8")
+        review = review_path.read_text(encoding="utf-8")
+        for text in [dossier, review]:
+            for line in text.splitlines():
+                if not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+        self.assertIn("Reading, Meaning, And Dataset Label", dossier)
+        self.assertIn("Inscription Occurrences And Text Context", dossier)
+        self.assertIn("Provenance, Findspot, Collection, And Period", dossier)
+        self.assertIn("Decipherment History And Disputes", dossier)
+        self.assertIn("not_collected", dossier)
+        self.assertIn("no_claim", review)
+
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        self.assertEqual(index["project_id"], "obs-char-000001")
+        self.assertEqual(index["claim_boundary"], "dossier_index_only_no_decipherment_claim")
+        self.assertIn("05_human-research-dossier.md", index["human_files"])
+        self.assertIn("07_research-dossier-index.json", index["ai_files"])
+        self.assertIn("accepted_reading_and_meaning", index["missing_sections"])
+
+    def test_character_human_research_dossier_builder_covers_character_objects(self) -> None:
+        module = load_character_human_research_dossiers_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 10996)
+        first = outputs["obs-char-000001"]
+        self.assertEqual(first["dossier_path"].parent, first["object_dir"])
+        self.assertEqual(first["review_sheet_path"].parent, first["object_dir"])
+        self.assertEqual(first["index_path"].parent, first["object_dir"])
+        self.assertIn("accepted meaning", first["dossier_text"])
+        self.assertIn("inscription occurrence count", first["dossier_text"])
+        self.assertIn("excavation site", first["dossier_text"])
+        self.assertIn("decipherment conclusion", first["review_sheet_text"])
+        for text in [first["dossier_text"], first["review_sheet_text"]]:
+            for line in text.splitlines():
+                if not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
 
     def test_component_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_component_candidate_local_materials(repo_root()), [])

@@ -3815,6 +3815,56 @@ def check_root_readmes_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_ai_context_pack_builder_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "tools/005_ai-context-pack-builder/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "AI Context Pack Builder / AI 上下文包生成器",
+        "Human Research Entry Order / 人工研究入口顺序",
+        "Concrete Questions To Check / 具体待查问题",
+        "AI context packs are support routes",
+        "not a decipherment conclusion",
+        "not reviewed scholarship",
+        "human-readable source trail",
+        "source-processing",
+        "outcome scaffold",
+        "不是释读结论",
+        "不是已复核学术成果",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    for marker in [
+        "涓",
+        "绠",
+        "鐮",
+        "鏉",
+        "闃",
+        "鍏",
+        "锛",
+        "銆",
+        "鈥",
+        "缂",
+        "闂",
+        "閻",
+        "娑",
+        "锟",
+        "\ufffd",
+    ]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_source_rights_policy_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "doc/project/002_source-rights-and-provenance-policy/README.md"
@@ -28031,6 +28081,7 @@ def main() -> int:
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_root_readmes_human_entry(root))
+    issues.extend(check_ai_context_pack_builder_readme_human_entry(root))
     issues.extend(check_source_rights_policy_human_entry(root))
     issues.extend(check_oracle_characters_readme_human_entry(root))
     issues.extend(check_graphemic_components_readme_human_entry(root))

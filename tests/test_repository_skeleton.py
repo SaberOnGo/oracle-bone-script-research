@@ -14,6 +14,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_paths,
     check_forbidden_top_level_dirs,
     check_ai_context_packs,
+    check_ai_context_pack_builder_readme_human_entry,
     check_ai_agent_evidence_pack_validator,
     check_asset_records,
     check_required_paths,
@@ -2941,6 +2942,53 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_tracked_temp_artifacts_absent(self) -> None:
         self.assertEqual(check_tracked_temp_artifacts(repo_root()), [])
+
+    def test_ai_context_pack_builder_readme_is_human_research_entry(self) -> None:
+        issues = check_ai_context_pack_builder_readme_human_entry(repo_root())
+        self.assertEqual(issues, [])
+
+        readme_path = repo_root() / "tools/005_ai-context-pack-builder/README.md"
+        readme_text = readme_path.read_text(encoding="utf-8")
+        required_snippets = [
+            "AI Context Pack Builder / AI 上下文包生成器",
+            "Human Research Entry Order / 人工研究入口顺序",
+            "Concrete Questions To Check / 具体待查问题",
+            "AI context packs are support routes",
+            "not a decipherment conclusion",
+            "not reviewed scholarship",
+            "human-readable source trail",
+            "source-processing",
+            "outcome scaffold",
+            "不是释读结论",
+            "不是已复核学术成果",
+        ]
+        mojibake_fragments = (
+            "涓",
+            "绠",
+            "鐮",
+            "鏉",
+            "闃",
+            "鍏",
+            "锛",
+            "銆",
+            "鈥",
+            "缂",
+            "闂",
+            "閻",
+            "娑",
+            "锟",
+            "\ufffd",
+        )
+        for snippet in required_snippets:
+            self.assertIn(snippet, readme_text)
+        for fragment in mojibake_fragments:
+            self.assertNotIn(fragment, readme_text)
+        for line_number, line in enumerate(readme_text.splitlines(), start=1):
+            self.assertLessEqual(
+                len(line),
+                80,
+                f"{readme_path.relative_to(repo_root())}:{line_number}",
+            )
 
     def test_character_directory_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_character_directory_local_materials(repo_root()), [])

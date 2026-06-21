@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import textwrap
 from pathlib import Path
 
 
@@ -30,6 +31,7 @@ EVOLUTION_ID_MAP = Path(
 )
 
 UPDATED_AT = "2026-06-20"
+MAX_HUMAN_LINE_LENGTH = 80
 BUCKET_SIZE = 100
 SOURCE_ID = "src-evobc"
 RECORD_TYPE = "evolution_correspondence_candidate"
@@ -458,7 +460,62 @@ These route cards are preprocessing infrastructure only. They are not accepted p
 """
 
 
+def wrapped_bullet(text: str) -> list[str]:
+    return textwrap.wrap(
+        f"- {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
 def review_sheet_text(index: int, row: dict[str, str]) -> str:
+    required_checks = [
+        "Open `02_evolution-source-index.csv` and confirm the source, download, "
+        "checksum, and rights-status trail.",
+        "Open `03_era-source-code-index.csv`; treat era/source codes as dataset "
+        "metadata only.",
+        "Open `05_image-reference-route-index.csv` and "
+        "`06_image-reference-route-gallery.md` before visual review.",
+        "Locate or verify primary image references before using visual evidence.",
+        "Compare Xiaoxuetang/OBM, OBIMD, HUST-OBC, IHP/museum records, and "
+        "inscription context before promotion.",
+        "Do not record a formal correspondence, evolution-chain conclusion, "
+        "modern-character identity, or decipherment conclusion here.",
+    ]
+    concrete_questions = [
+        "Which EVOBC image-reference route should be opened first?",
+        "应先打开哪些 EVOBC 图像引用路线？",
+        "Which source/download/checksum rows prove the route?",
+        "哪些来源、下载或 checksum 行能证明路线？",
+        "Which era or source code labels are only dataset metadata?",
+        "哪些时代码或来源码只是数据集 metadata？",
+        "Which bronze, seal, or later-script links are only candidates?",
+        "哪些金文、小篆或后世字形路线只是候选？",
+        "Which oracle inscription, collection, or findspot context is missing?",
+        "还缺哪些卜辞、馆藏或出土地上下文？",
+        "Which Xiaoxuetang, OBIMD, HUST-OBC, or museum source should be checked?",
+        "下一步应核对小学堂、OBIMD、HUST-OBC 还是博物馆来源？",
+        "What evidence is still missing before any formal correspondence claim?",
+        "正式对应结论前还缺哪些证据？",
+    ]
+    required_lines = "\n".join(
+        line
+        for item in required_checks
+        for line in wrapped_bullet(item)
+    )
+    question_lines = "\n".join(
+        line
+        for item in concrete_questions
+        for line in wrapped_bullet(item)
+    )
+    caution_lines = textwrap.fill(
+        CAUTION,
+        width=MAX_HUMAN_LINE_LENGTH,
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
     return f"""# Human Review Sheet / 人工复核表
 
 Project ID: `{project_id(index)}`
@@ -467,12 +524,11 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 
 ## Required Checks / 必须复核
 
-- Open `02_evolution-source-index.csv` and confirm source/download/checksum/right-status trail.
-- Open `03_era-source-code-index.csv` and treat era/source codes as dataset metadata only.
-- Open `05_image-reference-route-index.csv` and `06_image-reference-route-gallery.md` before collecting or reviewing visual evidence.
-- Locate or verify primary image references before using any visual evidence.
-- Compare against Xiaoxuetang/OBM, OBIMD, HUST-OBC, IHP/museum records, and inscription context before promotion.
-- Do not record a formal correspondence, evolution-chain conclusion, modern-character identity confirmation, or decipherment conclusion here.
+{required_lines}
+
+## Concrete Questions To Check / 具体待查问题
+
+{question_lines}
 
 ## Current Evidence Status / 当前证据状态
 
@@ -484,7 +540,7 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 
 ## Caution / 风险提示
 
-{CAUTION}
+{caution_lines}
 """
 
 

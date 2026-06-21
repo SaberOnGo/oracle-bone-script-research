@@ -2866,6 +2866,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not an evolution-chain conclusion", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertFalse((object_dir.parent / "human-readable").exists())
+            review_sheet = (object_dir / "04_human-review-sheet.md").read_text(encoding="utf-8")
+            self.assertIn("Concrete Questions To Check", review_sheet)
+            self.assertIn("具体待查问题", review_sheet)
+            self.assertIn("应先打开哪些 EVOBC 图像引用路线？", review_sheet)
+            self.assertIn("哪些金文、小篆或后世字形路线只是候选？", review_sheet)
+            self.assertIn("还缺哪些卜辞、馆藏或出土地上下文？", review_sheet)
+            self.assertIn("正式对应结论前还缺哪些证据？", review_sheet)
+            for line in review_sheet.splitlines():
+                self.assertLessEqual(len(line), 80, line)
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_evobc_evolution_candidate_materials_module()
@@ -2878,6 +2887,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("not an accepted paleographic correspondence", first["readme_text"])
         self.assertIn("not_formal_correspondence", first["review_sheet_text"])
+        self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
+        self.assertIn("具体待查问题", first["review_sheet_text"])
+        self.assertIn("应先打开哪些 EVOBC 图像引用路线？", first["review_sheet_text"])
+        self.assertIn("哪些金文、小篆或后世字形路线只是候选？", first["review_sheet_text"])
+        self.assertIn("还缺哪些卜辞、馆藏或出土地上下文？", first["review_sheet_text"])
+        self.assertIn("正式对应结论前还缺哪些证据？", first["review_sheet_text"])
+        for line in first["review_sheet_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
         self.assertEqual(first["packet"]["record_type"], "evolution_correspondence_candidate")
         self.assertEqual(first["packet"]["evolution_chain_claim_status"], "no_claim")
         self.assertEqual(first["packet"]["local_image_status"], "not_collected_route_indexed")

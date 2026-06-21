@@ -4357,6 +4357,44 @@ def check_corpus_import_local_materials_readme_human_entry(
     return issues
 
 
+def check_corpus_import_topic_materials_readme_human_entry(
+    root: Path,
+) -> list[str]:
+    issues: list[str] = []
+    relative = "tools/002_corpus-import/README.topic-materials.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Topic Materials Builder / 主题资料生成器",
+        "Human Review Entry Order",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "topic candidate",
+        "inscription crosswalk",
+        "period count",
+        "source route",
+        "object-local materials",
+        "not a decipherment conclusion",
+        "不是释读结论",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    if "\ufffd" in text:
+        issues.append(f"{relative} contains replacement-character mojibake")
+    for marker in ["缂", "闁", "鐢", "涓"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_statistics_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/009_statistics-and-derived-features/README.md"
@@ -28314,6 +28352,7 @@ def main() -> int:
     issues.extend(check_research_topics_grammar_readme_human_entry(root))
     issues.extend(check_corpus_import_tools_readme_human_entry(root))
     issues.extend(check_corpus_import_local_materials_readme_human_entry(root))
+    issues.extend(check_corpus_import_topic_materials_readme_human_entry(root))
     issues.extend(check_graph_generation_tools_readme_human_entry(root))
     issues.extend(check_relationship_graph_readme_human_entry(root))
     issues.extend(check_statistics_readme_human_entry(root))

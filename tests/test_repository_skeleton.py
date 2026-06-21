@@ -37,6 +37,7 @@ from tools.validation.check_repository_skeleton import (
     check_project_id_source_map_audit,
     check_research_sources_bibliography_readme_human_entry,
     check_research_topics_grammar_readme_human_entry,
+    check_corpus_import_local_materials_readme_human_entry,
     check_graph_generation_tools_readme_human_entry,
     check_relationship_graph_readme_human_entry,
     check_source_rights_policy_human_entry,
@@ -2623,6 +2624,35 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object-local material coverage",
             "source-processing pipeline",
             "phase gap review",
+            "not a decipherment conclusion",
+            "不是释读结论",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_corpus_import_local_materials_readme_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_corpus_import_local_materials_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = (
+            repo_root() / "tools/002_corpus-import/README.local-materials.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Object-Local Materials Builders / 对象内资料生成器",
+            "Human Review Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "object-local dossier",
+            "AI-readable support",
+            "visual gallery",
+            "source/provenance index",
             "not a decipherment conclusion",
             "不是释读结论",
         ]:

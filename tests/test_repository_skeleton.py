@@ -29,6 +29,7 @@ from tools.validation.check_repository_skeleton import (
     check_cambridge_hopkins_topic_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
+    check_graphemic_components_readme_human_entry,
     check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
     check_source_rights_policy_human_entry,
@@ -2706,6 +2707,39 @@ class RepositorySkeletonTests(unittest.TestCase):
             "异体",
             "构件",
             "释读史",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_graphemic_components_readme_is_human_research_entry(self) -> None:
+        self.assertEqual(
+            check_graphemic_components_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = repo_root() / "corpus/003_graphemic-components/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Graphemic Components / 字形构件",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "component candidate",
+            "glyph-codepoint",
+            "visual gallery",
+            "component visual route",
+            "variant",
+            "similar-form",
+            "not a decipherment conclusion",
+            "构件候选",
+            "字形构件",
+            "近形",
+            "异体",
+            "人工复核",
         ]:
             self.assertIn(marker, text)
         for marker in ["缂", "闁", "鐢", "涓", "�"]:

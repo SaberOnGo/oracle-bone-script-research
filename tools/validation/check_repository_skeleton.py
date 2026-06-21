@@ -3891,6 +3891,45 @@ def check_oracle_characters_readme_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_graphemic_components_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "corpus/003_graphemic-components/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Graphemic Components / 字形构件",
+        "Human Research Entry Order",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "component candidate",
+        "glyph-codepoint",
+        "visual gallery",
+        "component visual route",
+        "variant",
+        "similar-form",
+        "not a decipherment conclusion",
+        "构件候选",
+        "字形构件",
+        "近形",
+        "异体",
+        "人工复核",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    for marker in ["缂", "闁", "鐢", "涓", "�"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_statistics_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/009_statistics-and-derived-features/README.md"
@@ -27801,6 +27840,7 @@ def main() -> int:
     issues.extend(check_root_readmes_human_entry(root))
     issues.extend(check_source_rights_policy_human_entry(root))
     issues.extend(check_oracle_characters_readme_human_entry(root))
+    issues.extend(check_graphemic_components_readme_human_entry(root))
     issues.extend(check_statistics_readme_human_entry(root))
     issues.extend(check_inscription_readme_human_entry(root))
     issues.extend(check_forbidden_paths(root))

@@ -2834,9 +2834,22 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "Do not assign a formal `obi-*` ID",
                 "not an inscription reading",
                 "not a decipherment conclusion",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "Which plate, page, Heji, or catalog number",
+                "Which object record or collection shelfmark",
+                "Which image, rubbing, OCR, or full-text route",
+                "Which rights, checksum, manifest, or download log",
+                "before any formal `obi-*` assignment",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(review_sheet.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(
+                        f"{review_sheet_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
     return issues
 
 

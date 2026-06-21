@@ -2805,6 +2805,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn("Excavation site: `not_collected`", dossier_text)
             self.assertIn("Linked character occurrences: `not_collected`", dossier_text)
+            review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Concrete Questions To Check", review_sheet)
+            self.assertIn("specific questions", review_sheet)
+            self.assertIn("Which plate, page, Heji, or catalog number", review_sheet)
+            self.assertIn("Which object record or collection shelfmark", review_sheet)
+            self.assertIn("Which image, rubbing, OCR, or full-text route", review_sheet)
+            self.assertIn("Which rights, checksum, manifest, or download log", review_sheet)
+            self.assertIn("before any formal `obi-*` assignment", review_sheet)
+            for line in review_sheet.splitlines():
+                self.assertLessEqual(len(line), 80, line)
             for fragment in ("浜", "绠€", "鐮", "缂哄け", "鍗滆緸"):
                 self.assertNotIn(fragment, dossier_text)
             dossier_index = json.loads(
@@ -2827,6 +2839,30 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("not a formal `obi-*` inscription record", first["readme_text"])
         self.assertIn("not_assigned_formal_obi_id", first["review_sheet_text"])
+        self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
+        self.assertIn("specific questions", first["review_sheet_text"])
+        self.assertIn(
+            "Which plate, page, Heji, or catalog number",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "Which object record or collection shelfmark",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "Which image, rubbing, OCR, or full-text route",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "Which rights, checksum, manifest, or download log",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "before any formal `obi-*` assignment",
+            first["review_sheet_text"],
+        )
+        for line in first["review_sheet_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
         self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
         self.assertEqual(first["packet"]["image_evidence_status"], "route_indexed_not_collected")

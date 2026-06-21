@@ -29,6 +29,7 @@ from tools.validation.check_repository_skeleton import (
     check_cambridge_hopkins_topic_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
+    check_bronze_seal_modern_readme_human_entry,
     check_graphemic_components_readme_human_entry,
     check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
@@ -2743,6 +2744,42 @@ class RepositorySkeletonTests(unittest.TestCase):
         ]:
             self.assertIn(marker, text)
         for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_bronze_seal_modern_readme_is_human_research_entry(self) -> None:
+        self.assertEqual(
+            check_bronze_seal_modern_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = (
+            repo_root()
+            / "corpus/004_bronze-seal-modern-correspondences/README.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Bronze, Seal, And Modern Correspondences / 金文、小篆与今字对应",
+            "Human Research Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "EVOBC",
+            "evolution/correspondence candidate",
+            "bronze script",
+            "seal script",
+            "modern codepoint",
+            "not a decipherment conclusion",
+            "not an accepted paleographic correspondence",
+            "金文",
+            "小篆",
+            "今字",
+            "字形演化",
+            "人工复核",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "�"]:
             self.assertNotIn(marker, text)
         for line in text.splitlines():
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):

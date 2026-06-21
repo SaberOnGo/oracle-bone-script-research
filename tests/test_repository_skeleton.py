@@ -2745,6 +2745,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not a confirmed graphemic component", readme_text)
             self.assertIn("09_component-visual-route-index.csv", readme_text)
             self.assertFalse((object_dir.parent / "human-readable").exists())
+            review_sheet = (object_dir / "08_human-visual-review-sheet.md").read_text(encoding="utf-8")
+            self.assertIn("Concrete Questions To Check", review_sheet)
+            self.assertIn("具体待查问题", review_sheet)
+            self.assertIn("应先打开哪些 OBIMD 构件图像或路线？", review_sheet)
+            self.assertIn("哪些 glyph-codepoint 关系只是数据集线索？", review_sheet)
+            self.assertIn("需要核对哪些甲骨单字、卜辞或构件来源？", review_sheet)
+            self.assertIn("正式构件归属前还缺哪些证据？", review_sheet)
+            for line in review_sheet.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
 
     def test_inscription_crosswalk_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_inscription_crosswalk_candidate_local_materials(repo_root()), [])

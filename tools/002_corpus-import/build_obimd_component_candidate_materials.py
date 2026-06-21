@@ -12,6 +12,7 @@ import csv
 import hashlib
 import json
 import re
+import textwrap
 import zipfile
 from collections import defaultdict
 from io import BytesIO
@@ -53,6 +54,7 @@ OBIMD_IMAGE_SOURCE_URL = (
     "Sub-character%20Images.zip"
 )
 UPDATED_AT = "2026-06-20"
+MAX_HUMAN_LINE_LENGTH = 80
 BUCKET_SIZE = 100
 RECORD_TYPE = "graphemic_component_candidate"
 OBJECT_STATUS = "dataset_candidate_not_promoted"
@@ -601,6 +603,25 @@ def visual_gallery_text(index: int, visual_rows: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
+def wrap_markdown_line(text: str) -> str:
+    return textwrap.fill(
+        text,
+        width=MAX_HUMAN_LINE_LENGTH,
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
+def wrapped_bullet(text: str) -> list[str]:
+    return textwrap.wrap(
+        f"- {text}",
+        width=MAX_HUMAN_LINE_LENGTH,
+        subsequent_indent="  ",
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+
+
 def visual_review_sheet_text(index: int, visual_rows: list[dict[str, str]]) -> str:
     component_id = candidate_id(index)
     rows = "\n".join(
@@ -609,16 +630,51 @@ def visual_review_sheet_text(index: int, visual_rows: list[dict[str, str]]) -> s
     )
     if not rows:
         rows = "| no_local_image | not_found_in_registered_package | n/a | n/a | n/a | |"
+    english_note = wrap_markdown_line(
+        "Use this sheet to review the local OBIMD subcharacter images before any "
+        "later component or relationship promotion."
+    )
+    chinese_note = wrap_markdown_line(
+        "本表用于在后续提升为构件记录或关系前，人工复核本地 OBIMD "
+        "subcharacter 图像。"
+    )
+    boundary_note = wrap_markdown_line(
+        "These rows are review tasks only. They do not confirm a component form, "
+        "component assignment, or decipherment."
+    )
+    concrete_questions = [
+        "Which OBIMD component image or route should be opened first?",
+        "应先打开哪些 OBIMD 构件图像或路线？",
+        "Which source zip member and checksum prove the local image?",
+        "哪些 source zip member 和 checksum 能证明本地图像？",
+        "Which glyph-codepoint links are only dataset clues?",
+        "哪些 glyph-codepoint 关系只是数据集线索？",
+        "Which oracle character, inscription, or component source needs checking?",
+        "需要核对哪些甲骨单字、卜辞或构件来源？",
+        "Which near-shape or variant comparison is still missing?",
+        "还缺哪些近形或异体比较？",
+        "What evidence is still missing before any formal component assignment?",
+        "正式构件归属前还缺哪些证据？",
+    ]
+    question_lines = "\n".join(
+        line
+        for item in concrete_questions
+        for line in wrapped_bullet(item)
+    )
     return f"""# Human Visual Review Sheet / 人工图像复核表: {component_id}
 
 English:
-Use this sheet to review the local OBIMD subcharacter images before any later component or relationship promotion.
+{english_note}
 
 简体中文：
-本表用于在后续提升为构件记录或关系前，人工复核本地 OBIMD subcharacter 图像。
+{chinese_note}
 
 Boundary / 边界：
-These rows are review tasks only. They do not confirm a component form, component assignment, or decipherment.
+{boundary_note}
+
+## Concrete Questions To Check / 具体待查问题
+
+{question_lines}
 
 | Asset ID | Source zip member | Image legible? | Matches candidate UID? | Reuse acceptable? | Notes |
 | --- | --- | --- | --- | --- | --- |

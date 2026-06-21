@@ -2539,6 +2539,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "02_component-source-index.csv",
         "03_glyph-codepoint-index.csv",
         "04_glyph-codepoint-gallery.md",
+        "08_human-visual-review-sheet.md",
         "09_component-visual-route-index.csv",
         "10_component-visual-route-gallery.md",
     ]
@@ -2613,6 +2614,24 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             for snippet in ["Glyph Codepoint Gallery", "dataset candidate only", "not a confirmed component image"]:
                 if snippet not in gallery_text:
                     issues.append(f"{gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        visual_review_sheet_path = object_dir / "08_human-visual-review-sheet.md"
+        if path_exists(visual_review_sheet_path):
+            review_sheet = visual_review_sheet_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "应先打开哪些 OBIMD 构件图像或路线？",
+                "哪些 glyph-codepoint 关系只是数据集线索？",
+                "需要核对哪些甲骨单字、卜辞或构件来源？",
+                "正式构件归属前还缺哪些证据？",
+                "They do not confirm a component form",
+            ]:
+                if snippet not in review_sheet:
+                    issues.append(f"{visual_review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line in review_sheet.splitlines():
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(f"{visual_review_sheet_path.relative_to(root).as_posix()} line exceeds 80 chars")
+                    break
         route_index_path = object_dir / "09_component-visual-route-index.csv"
         if path_exists(route_index_path):
             with route_index_path.open("r", encoding="utf-8-sig", newline="") as file:

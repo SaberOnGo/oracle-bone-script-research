@@ -3307,6 +3307,52 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
     return issues
 
 
+def check_source_object_human_material_quality(root: Path) -> list[str]:
+    issues: list[str] = []
+    source_object_root = (
+        root / "corpus/006_research-sources-and-bibliography/001_source-objects"
+    )
+    object_dirs = sorted(path for path in source_object_root.iterdir() if path.is_dir())
+    if len(object_dirs) != 21:
+        issues.append("source object directory count changed")
+    required_files = {
+        "README.md": ["简体中文", "来源摘要", "风险与边界"],
+        "06_human-source-review-sheet.md": [
+            "来源出处复核",
+            "具体待查问题",
+            "哪些字段映射可以安全进入语料对象？",
+        ],
+        "07_material-access-index.md": [
+            "简体中文",
+            "资料访问索引",
+            "not a rights decision",
+        ],
+        "08_source-processing-status.md": [
+            "阶段状态",
+            "具体待查问题",
+            "应核对哪些下载、访问或 checksum 记录？",
+            "哪些字段映射可以安全进入语料对象？",
+        ],
+    }
+    mojibake_fragments = ("绠€", "闃舵", "鐘舶", "鐘舵", "缂哄け", "澶嶆牳")
+    for object_dir in object_dirs:
+        for filename, snippets in required_files.items():
+            path = object_dir / filename
+            if not path.is_file():
+                issues.append(f"{object_dir.name} missing {filename}")
+                continue
+            text = path.read_text(encoding="utf-8")
+            for snippet in snippets:
+                if snippet not in text:
+                    issues.append(f"{path.relative_to(root)} missing snippet: {snippet}")
+            for fragment in mojibake_fragments:
+                if fragment in text:
+                    issues.append(f"{path.relative_to(root)} contains mojibake: {fragment}")
+            if any(len(line) > 80 for line in text.splitlines()):
+                issues.append(f"{path.relative_to(root)} has a line over 80 chars")
+    return issues
+
+
 def check_project_id_source_map_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_rows, audit_issues = _read_csv_rows(root / PROJECT_ID_SOURCE_MAP_AUDIT)
@@ -27312,6 +27358,7 @@ def main() -> int:
     issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_object_local_material_coverage_audit(root))
+    issues.extend(check_source_object_human_material_quality(root))
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_forbidden_paths(root))

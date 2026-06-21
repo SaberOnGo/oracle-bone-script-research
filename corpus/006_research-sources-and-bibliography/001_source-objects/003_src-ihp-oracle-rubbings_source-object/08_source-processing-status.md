@@ -63,6 +63,14 @@ review before formal research use.
 ## Missing Or Review Items / 缺失或待复核项
 - Items / 项目: metadata_profile_route
 
+## Concrete Questions To Check / 具体待查问题
+- 应核对哪些下载、访问或 checksum 记录？
+- 哪些来源包 manifest 行需要打开原始路径复核？
+- 哪些字段映射可以安全进入语料对象？
+- 哪些 metadata profile 行提示数据质量或 OCR 风险？
+- 哪些权利状态或风险提示阻止公开提交原始资料？
+- 哪些派生记录路径仍缺少人工复核结论？
+
 ## Human Next Step / 人工下一步
 Open the route CSV files listed above, compare them with the source register and
 download log, and record whether derived records can be safely created in the

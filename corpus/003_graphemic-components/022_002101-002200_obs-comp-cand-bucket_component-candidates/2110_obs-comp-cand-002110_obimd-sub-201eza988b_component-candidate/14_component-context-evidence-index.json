@@ -1,0 +1,41 @@
+{
+  "ai_support_files": [
+    "01_candidate-component-packet.json",
+    "03_glyph-codepoint-index.csv",
+    "06_component-visual-index.csv",
+    "09_component-visual-route-index.csv",
+    "12_component-dossier-index.json",
+    "14_component-context-evidence-index.json"
+  ],
+  "candidate_component_id": "obs-comp-cand-002110",
+  "claim_boundary": "context_routes_only_not_component_assignment_not_decipherment",
+  "human_readable_files": [
+    "README.md",
+    "04_glyph-codepoint-gallery.md",
+    "07_component-visual-gallery.md",
+    "08_human-visual-review-sheet.md",
+    "11_human-component-dossier.md",
+    "13_component-context-evidence-dossier.md"
+  ],
+  "missing_or_review_fields": [
+    "near_shape_variant_and_component_comparison_to_check",
+    "oracle_character_and_inscription_context_to_check",
+    "source_manifest_checksum_and_rights_to_check",
+    "published_component_history_and_disputes_to_check"
+  ],
+  "primary_external_ref_id": "obimd-sub-201eza988b",
+  "record_type": "component_context_evidence_dossier_index",
+  "route_counts": {
+    "glyph_codepoint_rows": 3,
+    "visual_asset_rows": 1,
+    "visual_route_rows": 4
+  },
+  "source_summary": {
+    "evidence_download_id": "dl-obimd-subchar-main-mapping",
+    "source_id": "src-obimd",
+    "source_main_character_uid": "srhk7ugxm8",
+    "source_metadata_file": "Sub-character to Main-character Mapping.xlsx",
+    "source_subcharacter_uid": "201eza988b"
+  },
+  "updated_at": "2026-06-20"
+}

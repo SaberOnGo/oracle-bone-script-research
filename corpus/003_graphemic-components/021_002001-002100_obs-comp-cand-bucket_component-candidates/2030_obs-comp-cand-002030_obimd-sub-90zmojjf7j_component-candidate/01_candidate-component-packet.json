@@ -463,7 +463,9 @@
     "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/09_component-visual-route-index.csv",
     "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/10_component-visual-route-gallery.md",
     "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/11_human-component-dossier.md",
-    "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/12_component-dossier-index.json"
+    "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/12_component-dossier-index.json",
+    "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/13_component-context-evidence-dossier.md",
+    "corpus/003_graphemic-components/021_002001-002100_obs-comp-cand-bucket_component-candidates/2030_obs-comp-cand-002030_obimd-sub-90zmojjf7j_component-candidate/14_component-context-evidence-index.json"
   ],
   "rights_status": "licensed_for_repository",
   "object_status": "dataset_candidate_not_promoted",

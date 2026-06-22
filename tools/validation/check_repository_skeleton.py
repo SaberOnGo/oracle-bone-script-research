@@ -2615,6 +2615,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "10_component-visual-route-gallery.md",
         "11_human-component-dossier.md",
         "12_component-dossier-index.json",
+        "13_component-context-evidence-dossier.md",
+        "14_component-context-evidence-index.json",
     ]
     sample_indexes = {1, 70, len(rows)}
     for index, row in enumerate(rows, start=1):
@@ -2683,8 +2685,45 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing visual route gallery route")
             if not any(path.endswith("11_human-component-dossier.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component dossier route")
+            if not any(path.endswith("13_component-context-evidence-dossier.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing component context dossier route")
+            if not any(path.endswith("14_component-context-evidence-index.json") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing component context index route")
             if "not a confirmed graphemic component" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
+        context_dossier_path = object_dir / "13_component-context-evidence-dossier.md"
+        if path_exists(context_dossier_path):
+            context_text = context_dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "构件候选上下文复核档案",
+                "字形图片与构件观察",
+                "近形、异体与变体比较",
+                "单字、卜辞与上下文路线",
+                "来源证据、权利与 manifest",
+                "具体待查问题",
+                "不是构件归属结论",
+                "不是释读结论",
+                "需要比较哪些近形、异体或变体图像",
+            ]:
+                if snippet not in context_text:
+                    issues.append(f"{context_dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in context_text:
+                issues.append(f"{context_dossier_path.relative_to(root).as_posix()} contains not_collected filler")
+            for line_number, line in enumerate(context_text.splitlines(), start=1):
+                if not line.startswith("|") and not line.startswith("![") and len(line) > 80:
+                    issues.append(
+                        f"{context_dossier_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        context_index_path = object_dir / "14_component-context-evidence-index.json"
+        if path_exists(context_index_path):
+            context_index = json.loads(context_index_path.read_text(encoding="utf-8"))
+            if context_index.get("candidate_component_id") != project_id:
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} candidate_component_id mismatch")
+            if context_index.get("record_type") != "component_context_evidence_dossier_index":
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} record_type changed")
+            if context_index.get("claim_boundary") != "context_routes_only_not_component_assignment_not_decipherment":
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} claim_boundary changed")
         glyph_index_path = object_dir / "03_glyph-codepoint-index.csv"
         if path_exists(glyph_index_path):
             with glyph_index_path.open("r", encoding="utf-8-sig", newline="") as file:

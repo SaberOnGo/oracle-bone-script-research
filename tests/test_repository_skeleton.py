@@ -321,6 +321,15 @@ def load_character_context_evidence_dossiers_module():
     return module
 
 
+def load_obimd_component_candidate_materials_module():
+    path = repo_root() / "tools/002_corpus-import/build_obimd_component_candidate_materials.py"
+    spec = importlib.util.spec_from_file_location("build_obimd_component_candidate_materials", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_undeciphered_local_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_undeciphered_local_materials", path)
@@ -3773,6 +3782,66 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if not line.startswith("|"):
                     self.assertLessEqual(len(line), 80, line)
 
+    def test_component_context_evidence_dossiers_are_colocated_and_readable(self) -> None:
+        module = load_obimd_component_candidate_materials_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 2747)
+
+        for project_id in ["obs-comp-cand-000001", "obs-comp-cand-000070"]:
+            output = outputs[project_id]
+            object_dir = output["object_dir"]
+            dossier_path = object_dir / "13_component-context-evidence-dossier.md"
+            index_path = object_dir / "14_component-context-evidence-index.json"
+            self.assertTrue(path_exists(dossier_path), dossier_path)
+            self.assertTrue(path_exists(index_path), index_path)
+            self.assertEqual(dossier_path.parent, object_dir)
+            self.assertEqual(index_path.parent, object_dir)
+
+            dossier_text = dossier_path.read_text(encoding="utf-8")
+            self.assertIn("构件候选上下文复核档案", dossier_text)
+            self.assertIn("字形图片与构件观察", dossier_text)
+            self.assertIn("近形、异体与变体比较", dossier_text)
+            self.assertIn("单字、卜辞与上下文路线", dossier_text)
+            self.assertIn("来源证据、权利与 manifest", dossier_text)
+            self.assertIn("具体待查问题", dossier_text)
+            self.assertIn("不是构件归属结论", dossier_text)
+            self.assertIn("不是释读结论", dossier_text)
+            self.assertIn("需要比较哪些近形、异体或变体图像", dossier_text)
+            self.assertIn("哪些单字、卜辞、图版或著录路线", dossier_text)
+            self.assertNotIn("not_collected", dossier_text)
+            for fragment in ("濞?", "缁佺姭鍋?", "闁?", "缂傚倸鎼妵?"):
+                self.assertNotIn(fragment, dossier_text)
+            for line in dossier_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+
+            index = json.loads(index_path.read_text(encoding="utf-8"))
+            self.assertEqual(index["candidate_component_id"], project_id)
+            self.assertEqual(
+                index["record_type"],
+                "component_context_evidence_dossier_index",
+            )
+            self.assertIn(
+                "13_component-context-evidence-dossier.md",
+                index["human_readable_files"],
+            )
+            self.assertIn(
+                "14_component-context-evidence-index.json",
+                index["ai_support_files"],
+            )
+            self.assertEqual(
+                index["claim_boundary"],
+                "context_routes_only_not_component_assignment_not_decipherment",
+            )
+            self.assertIn(
+                "near_shape_variant_and_component_comparison_to_check",
+                index["missing_or_review_fields"],
+            )
+            self.assertIn(
+                "oracle_character_and_inscription_context_to_check",
+                index["missing_or_review_fields"],
+            )
+
     def test_inscription_crosswalk_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_inscription_crosswalk_candidate_local_materials(repo_root()), [])
 
@@ -4680,13 +4749,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "6")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["ai_file_count"], "7")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-comp-cand-000001"]["source_ids"], "src-obimd")
         self.assertEqual(
             by_project["obs-comp-cand-000070"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "6")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["ai_file_count"], "7")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "3")
         self.assertEqual(
             by_project["src-xiaoxuetang-jiaguwen"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",

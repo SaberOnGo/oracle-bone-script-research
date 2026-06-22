@@ -308,6 +308,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "10_component-visual-route-gallery.md").as_posix(),
         (directory / "11_human-component-dossier.md").as_posix(),
         (directory / "12_component-dossier-index.json").as_posix(),
+        (directory / "13_component-context-evidence-dossier.md").as_posix(),
+        (directory / "14_component-context-evidence-index.json").as_posix(),
     ]
 
 
@@ -1106,6 +1108,7 @@ def component_dossier_index_payload(
             (directory / "08_human-visual-review-sheet.md").as_posix(),
             (directory / "10_component-visual-route-gallery.md").as_posix(),
             (directory / "11_human-component-dossier.md").as_posix(),
+            (directory / "13_component-context-evidence-dossier.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-component-packet.json").as_posix(),
@@ -1114,6 +1117,7 @@ def component_dossier_index_payload(
             (directory / "06_component-visual-index.csv").as_posix(),
             (directory / "09_component-visual-route-index.csv").as_posix(),
             (directory / "12_component-dossier-index.json").as_posix(),
+            (directory / "14_component-context-evidence-index.json").as_posix(),
         ],
         "source_route_files": route_files(directory),
         "uncollected_human_research_fields": [
@@ -1131,6 +1135,248 @@ def component_dossier_index_payload(
         "review_status": REVIEW_STATUS,
         "updated_at": UPDATED_AT,
     }
+
+
+def short_join(values: list[str], limit: int = 2) -> str:
+    cleaned = [value for value in values if value]
+    if not cleaned:
+        return "待查"
+    shown = cleaned[:limit]
+    suffix = f"; 另有 {len(cleaned) - limit} 项" if len(cleaned) > limit else ""
+    return "; ".join(shown) + suffix
+
+
+def component_context_dossier_text(
+    index: int,
+    main_row: dict[str, str],
+    glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
+    route_rows: list[dict[str, str]],
+) -> str:
+    component_id = candidate_id(index)
+    glyph_values = sorted(
+        {row.get("glyph_codepoint_uplus", "") for row in glyph_rows if row}
+    )
+    visual_assets = sorted(
+        {row.get("asset_id", "") for row in visual_rows if row.get("asset_id")}
+    )
+    zip_members = sorted(
+        {
+            Path(row.get("source_zip_member", "")).name
+            for row in visual_rows
+            if row.get("source_zip_member")
+        }
+    )
+    route_types = sorted(
+        {row.get("route_type", "") for row in route_rows if row.get("route_type")}
+    )
+    lines = [
+        f"# {component_id} 构件候选上下文复核档案",
+        "",
+        wrap_markdown_line(
+            "本文件是构件候选对象目录内的人类可读复核入口。它把图像、"
+            "glyph-codepoint、近形异体比较、单字卜辞上下文、来源权利"
+            "和 manifest 待查路线集中到同一个对象目录。"
+        ),
+        "",
+        wrap_markdown_line(
+            "This dossier is a context review entrance for one component "
+            "candidate. It gathers object-local evidence routes without "
+            "promoting any route into a formal component assignment."
+        ),
+        "",
+        wrap_markdown_line(
+            "边界提示：这里记录的是候选路线，不是构件归属结论，"
+            "不是单字身份结论，也不是释读结论。"
+        ),
+        "",
+        "## 1. 候选身份与来源",
+        "",
+        f"- 构件候选 ID: `{component_id}`",
+        f"- 首选外部 ID: `{main_row['subcharacter_external_ref_id']}`",
+        f"- OBIMD subcharacter UID: `{main_row['source_subcharacter_uid']}`",
+        f"- OBIMD main character UID: `{main_row['source_main_character_uid']}`",
+        f"- 来源 ID: `{main_row['source_id']}`",
+        f"- 下载记录: `{main_row['evidence_download_id']}`",
+        f"- 复核状态: `{REVIEW_STATUS}`",
+        f"- 权利状态: `{RIGHTS_STATUS}`",
+        "",
+        "## 2. 字形图片与构件观察",
+        "",
+        f"- 本地图像数: `{len(visual_rows)}`",
+        f"- 视觉资产示例: {short_join(visual_assets)}",
+        f"- 来源 zip 成员示例: {short_join(zip_members)}",
+        "- 图像入口: `07_component-visual-gallery.md`",
+        "- 图像索引: `06_component-visual-index.csv`",
+        "- 图像路线: `09_component-visual-route-index.csv`",
+        "",
+        wrap_markdown_line(
+            "构件观察必须先回到图像和来源行；任何形体、笔画、残缺、"
+            "方向、比例或拆分判断都只能记为待复核观察，不能写成归属。"
+        ),
+        "",
+        "## 3. 近形、异体与变体比较",
+        "",
+        f"- glyph-codepoint 数: `{len(glyph_rows)}`",
+        f"- codepoint 示例: {short_join(glyph_values)}",
+        f"- 路线类型: {short_join(route_types)}",
+        "- codepoint 入口: `03_glyph-codepoint-index.csv`",
+        "- codepoint 图页: `04_glyph-codepoint-gallery.md`",
+        "",
+        wrap_markdown_line(
+            "近形、异体和变体比较需要独立来源互证。OBIMD 子构件关系、"
+            "PUA 码位或图像相似性都只是候选线索。"
+        ),
+        "",
+        "## 4. 单字、卜辞与上下文路线",
+        "",
+        "- 单字路线: 待查，需与 `corpus/001_oracle-characters/` 互证。",
+        "- 卜辞路线: 待查，需与卜辞编号、图版、著录和 OCR 互证。",
+        "- 字位上下文: 待查，需打开相关单字档案和卜辞候选档案。",
+        "- 图边文件: `006_obimd-component-graph-edges.jsonl`",
+        "",
+        wrap_markdown_line(
+            "构件候选不能单独证明某个甲骨单字的结构。必须先打开相关"
+            "单字、卜辞、图版和著录路线，记录证据来源和复核状态。"
+        ),
+        "",
+        "## 5. 来源证据、权利与 manifest",
+        "",
+        f"- source_metadata_file: `{main_row['source_metadata_file']}`",
+        "- source package: `dl-obimd-subcharacter-images`",
+        "- checksum: 见 `06_component-visual-index.csv`。",
+        "- manifest: 见本 bucket 的 `000_obimd-component-candidate-bucket-manifest.csv`。",
+        "- 权利复核: 见 asset rights index 和 review log。",
+        "",
+        "## 6. 具体待查问题",
+        "",
+        "- 需要比较哪些近形、异体或变体图像？",
+        "- 哪些单字、卜辞、图版或著录路线需要先打开？",
+        "- 哪些 glyph-codepoint 只是 PUA 或字体依赖线索？",
+        "- 哪个 source zip member、checksum 和 asset 权利记录支持图像？",
+        "- 哪些构件候选路线需要与独立来源互证？",
+        "- 正式构件归属前还缺哪些图像、卜辞、文献或来源证据？",
+        "",
+        "## 7. 本目录应先打开的文件",
+        "",
+        "- `README.md`",
+        "- `04_glyph-codepoint-gallery.md`",
+        "- `07_component-visual-gallery.md`",
+        "- `08_human-visual-review-sheet.md`",
+        "- `11_human-component-dossier.md`",
+        "- `13_component-context-evidence-dossier.md`",
+        "- `01_candidate-component-packet.json`",
+        "- `12_component-dossier-index.json`",
+        "- `14_component-context-evidence-index.json`",
+        "",
+        "## 8. 复核边界",
+        "",
+        wrap_markdown_line(
+            "本档案只服务预处理阶段的资料核查。任何构件命名、构件归属、"
+            "单字结构、卜辞身份或释读意见，都必须在正式研究阶段另行"
+            "人工复核后才能记录为学术说明。"
+        ),
+    ]
+    text = "\n".join(lines).rstrip() + "\n"
+    assert_human_line_width(text, f"{component_id}/13_component-context-evidence-dossier.md")
+    return text
+
+
+def component_context_index_payload(
+    index: int,
+    main_row: dict[str, str],
+    directory: Path,
+    glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
+    route_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "candidate_component_id": candidate_id(index),
+        "record_type": "component_context_evidence_dossier_index",
+        "primary_external_ref_id": main_row["subcharacter_external_ref_id"],
+        "updated_at": UPDATED_AT,
+        "human_readable_files": [
+            "README.md",
+            "04_glyph-codepoint-gallery.md",
+            "07_component-visual-gallery.md",
+            "08_human-visual-review-sheet.md",
+            "11_human-component-dossier.md",
+            "13_component-context-evidence-dossier.md",
+        ],
+        "ai_support_files": [
+            "01_candidate-component-packet.json",
+            "03_glyph-codepoint-index.csv",
+            "06_component-visual-index.csv",
+            "09_component-visual-route-index.csv",
+            "12_component-dossier-index.json",
+            "14_component-context-evidence-index.json",
+        ],
+        "source_summary": {
+            "source_id": main_row["source_id"],
+            "evidence_download_id": main_row["evidence_download_id"],
+            "source_metadata_file": main_row["source_metadata_file"],
+            "source_subcharacter_uid": main_row["source_subcharacter_uid"],
+            "source_main_character_uid": main_row["source_main_character_uid"],
+        },
+        "route_counts": {
+            "glyph_codepoint_rows": len(glyph_rows),
+            "visual_asset_rows": len(visual_rows),
+            "visual_route_rows": len(route_rows),
+        },
+        "missing_or_review_fields": [
+            "near_shape_variant_and_component_comparison_to_check",
+            "oracle_character_and_inscription_context_to_check",
+            "source_manifest_checksum_and_rights_to_check",
+            "published_component_history_and_disputes_to_check",
+        ],
+        "claim_boundary": (
+            "context_routes_only_not_component_assignment_not_decipherment"
+        ),
+    }
+
+
+def assert_human_line_width(text: str, label: str) -> None:
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("!["):
+            continue
+        if len(line) > MAX_HUMAN_LINE_LENGTH:
+            raise ValueError(f"{label}:{line_number} exceeds 80 chars: {line}")
+
+
+def build_outputs(root: Path) -> dict[str, dict[str, object]]:
+    main_rows = read_csv_rows(root / SUBCHARACTER_MAIN_STAGING)
+    glyph_by_uid: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in read_csv_rows(root / SUBCHARACTER_GLYPH_STAGING):
+        glyph_by_uid[row["source_subcharacter_uid"]].append(row)
+    outputs: dict[str, dict[str, object]] = {}
+    for index, main_row in enumerate(main_rows, start=1):
+        project_id = candidate_id(index)
+        directory = object_dir(index, main_row["subcharacter_external_ref_id"])
+        full_directory = root / directory
+        glyph_rows = glyph_by_uid[main_row["source_subcharacter_uid"]]
+        visual_rows = read_csv_rows(full_directory / "06_component-visual-index.csv")
+        route_rows = read_csv_rows(full_directory / "09_component-visual-route-index.csv")
+        outputs[project_id] = {
+            "object_dir": full_directory,
+            "context_dossier_path": full_directory / "13_component-context-evidence-dossier.md",
+            "context_index_path": full_directory / "14_component-context-evidence-index.json",
+            "context_dossier_text": component_context_dossier_text(
+                index,
+                main_row,
+                glyph_rows,
+                visual_rows,
+                route_rows,
+            ),
+            "context_index": component_context_index_payload(
+                index,
+                main_row,
+                directory,
+                glyph_rows,
+                visual_rows,
+                route_rows,
+            ),
+        }
+    return outputs
 
 
 def manifest_row(
@@ -1412,6 +1658,7 @@ def build_materials(root: Path) -> tuple[int, int]:
                 next_asset_number,
             )
             all_visual_rows.extend(visual_rows)
+            route_rows = visual_route_rows(index, main_row, visual_rows, directory)
 
             (full_directory / "README.md").write_text(
                 readme_text(index, main_row, glyph_rows, visual_rows, directory),
@@ -1455,7 +1702,7 @@ def build_materials(root: Path) -> tuple[int, int]:
             )
             write_csv(
                 full_directory / "09_component-visual-route-index.csv",
-                visual_route_rows(index, main_row, visual_rows, directory),
+                route_rows,
                 VISUAL_ROUTE_FIELDS,
             )
             (full_directory / "10_component-visual-route-gallery.md").write_text(
@@ -1475,6 +1722,33 @@ def build_materials(root: Path) -> tuple[int, int]:
             (full_directory / "12_component-dossier-index.json").write_text(
                 json.dumps(
                     component_dossier_index_payload(index, main_row, directory),
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            (full_directory / "13_component-context-evidence-dossier.md").write_text(
+                component_context_dossier_text(
+                    index,
+                    main_row,
+                    glyph_rows,
+                    visual_rows,
+                    route_rows,
+                ),
+                encoding="utf-8",
+            )
+            (full_directory / "14_component-context-evidence-index.json").write_text(
+                json.dumps(
+                    component_context_index_payload(
+                        index,
+                        main_row,
+                        directory,
+                        glyph_rows,
+                        visual_rows,
+                        route_rows,
+                    ),
                     ensure_ascii=False,
                     indent=2,
                     sort_keys=True,

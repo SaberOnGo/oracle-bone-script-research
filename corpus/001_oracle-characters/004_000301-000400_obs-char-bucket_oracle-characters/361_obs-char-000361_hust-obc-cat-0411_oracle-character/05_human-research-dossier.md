@@ -8,9 +8,9 @@ clues, and missing research sections in one place.
 
 Nothing on this page is a confirmed reading, meaning, component assignment,
 inscription identity, or decipherment conclusion. Unverified sections stay
-marked as candidate, not_collected, or needs_review.
+marked as candidate, source record, needs_review, or concrete pending checks.
 
-本页不确认读音、意义、构件归属、卜辞身份或释读结论。未复核内容保持 candidate、not_collected 或 needs_review 状态。
+本页不确认读音、意义、构件归属、卜辞身份或释读结论。未复核内容保持候选、来源记录、待查或待复核状态。
 
 ## 1. Identity And Status / 身份与状态
 
@@ -45,8 +45,8 @@ marked as candidate, not_collected, or needs_review.
 
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
-- accepted reading: `not_collected`
-- accepted meaning: `not_collected`
+- accepted reading: `待查：需要核对来源释读、释读史或争议记录`
+- accepted meaning: `待查：需要核对来源释义、语境和文献说明`
 - decipherment status: `unknown_until_cross_source_review`
 - dataset label status: `dataset_label_candidate_not_accepted_reading`
 - dataset label text: `㖑`
@@ -63,49 +63,49 @@ cross-source and human review are complete.
 - graph edge count: `2`
 - codepoint routes: `U+3591`
 - cross-source status: `no_obimd_or_evobc_codepoint_match`
-- OBIMD/EvoBC route status: `candidate_route_or_not_collected`
+- OBIMD/EvoBC route status: `候选路线：需要核对 OBIMD、EvoBC 和 cross-source 图边`
 
 ## 5. Variants, Components, And Similar Forms / 异体构件近形
 
-- variant set: `not_collected`
-- component analysis: `not_collected`
-- similar-form candidates: `not_collected`
+- variant set: `待查：需要核对异体、同版异写和来源分组记录`
+- component analysis: `待查：需要核对候选构件路线；不得写成构件归属`
+- similar-form candidates: `待查：需要核对近形字、误分组和图像相似路线`
 - review route: `196_shape-component-evolution...checklist.csv`
 
 ## 6. Inscription Occurrences And Text Context / 卜辞出现
 
-- inscription occurrence count: `not_collected`
-- full inscription text: `not_collected`
-- plate or catalog number: `not_collected`
+- inscription occurrence count: `待查：需要核对卜辞编号和字位出现记录`
+- full inscription text: `待查：需要核对卜辞全文或 OCR 路线`
+- plate or catalog number: `待查：需要核对图版号、著录号或合集号`
 - occurrence review route: `195_inscription-plate...checklist.csv`
 
 ## 7. Provenance, Findspot, Collection, And Period / 出处
 
-- source package: `not_collected`
+- source package: `待查：需要核对来源记录`
 - download ids: `dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese`
-- excavation site: `not_collected`
-- collection or museum: `not_collected`
-- period or batch: `not_collected`
+- excavation site: `待查：需要核对出土地、发掘单位或地点来源`
+- collection or museum: `待查：需要核对馆藏号、藏品页或库藏记录`
+- period or batch: `待查：需要核对时期、组类、坑位或批次记录`
 - rights status: `source_marked_risk_noted`
 
 ## 8. Decipherment History And Disputes / 释读史争议
 
-- published interpretation notes: `not_collected`
-- decipherment history: `not_collected`
-- known disagreement: `not_collected`
+- published interpretation notes: `待查：需要核对书目、论文或数据库说明`
+- decipherment history: `待查：需要核对提出者、释读过程和复核记录`
+- known disagreement: `待查：需要核对不同意见、争议和证据等级`
 - human review status: `compare_xiaoxuetang_obm_obimd_evobc_and_prima...`
 
 ## 9. Archaeological Folder Coverage / 考古档案覆盖
 
 - glyph image: `available_or_route_indexed`
-- variant forms: `not_collected`
-- later-script links: `candidate_or_not_collected`
-- inscription occurrences: `not_collected`
-- catalog and plate routes: `not_collected`
-- findspot and collection: `not_collected`
-- period and batch: `not_collected`
+- variant forms: `待查：需要打开异体和近形路线`
+- later-script links: `候选路线：需要人工复核金文、小篆或今字路线`
+- inscription occurrences: `待查：需要核对卜辞编号、全文或 OCR、图版号和字位`
+- catalog and plate routes: `待查：需要核对著录号、图版号、页码和合集号`
+- findspot and collection: `待查：需要核对出土地、馆藏号和对象记录`
+- period and batch: `待查：需要核对时期、组类、坑位或批次`
 - source evidence: `available_or_route_indexed`
-- decipherment history: `not_collected`
+- decipherment history: `待查：需要核对释读史、提出者和争议记录`
 
 ## 10. Missing Data / 缺失项
 

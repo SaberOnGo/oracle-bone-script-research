@@ -3536,7 +3536,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体待查问题", dossier)
         self.assertIn("需要核对哪些卜辞、图版或著录号", dossier)
         self.assertIn("下一步应打开哪些来源记录", dossier)
-        self.assertIn("not_collected", dossier)
+        self.assertIn("待查：需要核对来源释读、释读史或争议记录", dossier)
+        self.assertIn("待查：需要核对卜辞编号、全文或 OCR、图版号和字位", dossier)
+        self.assertNotIn("not_collected", dossier)
         self.assertIn("人工复核单", review)
         self.assertIn("未复核释读必须保持候选状态", review)
         self.assertIn("no_claim", review)
@@ -3569,6 +3571,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("考古档案覆盖", first["dossier_text"])
         self.assertIn("具体待查问题", first["dossier_text"])
         self.assertIn("需要核对哪些卜辞、图版或著录号", first["dossier_text"])
+        self.assertIn(
+            "待查：需要核对来源释读、释读史或争议记录",
+            first["dossier_text"],
+        )
+        self.assertNotIn("not_collected", first["dossier_text"])
         self.assertIn("decipherment conclusion", first["review_sheet_text"])
         self.assertIn("人工复核单", first["review_sheet_text"])
         for fragment in ("浜", "绠€", "鐮", "缂哄け", "鑰冨彜"):

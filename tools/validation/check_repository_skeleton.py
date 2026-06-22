@@ -2397,8 +2397,9 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
         human_markers = {
             dossier_path: [
-                "not_collected",
                 "decipherment conclusion",
+                "待查：需要核对来源释读、释读史或争议记录",
+                "待查：需要核对卜辞编号、全文或 OCR、图版号和字位",
                 "人类研究档案",
                 "考古档案覆盖",
                 "缺失项",
@@ -2430,6 +2431,10 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             for snippet in [project_id, *markers]:
                 if snippet not in human_text:
                     issues.append(f"{human_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if human_path.name == "05_human-research-dossier.md" and "not_collected" in human_text:
+                issues.append(
+                    f"{human_path.relative_to(root).as_posix()} contains not_collected in human dossier"
+                )
         if not dossier_index_path.exists():
             issues.append(f"{relative_dir} missing co-located 07_research-dossier-index.json")
         else:

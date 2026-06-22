@@ -120,12 +120,12 @@ def bullet(label: str, value: str) -> str:
 
 
 def code_value(value: str) -> str:
-    return f"`{value}`" if value else "`not_collected`"
+    return f"`{value}`" if value else "`待查：需要核对来源记录`"
 
 
 def short_code(value: str, limit: int = 48) -> str:
     if not value:
-        return "`not_collected`"
+        return "`待查：需要核对来源记录`"
     if len(value) <= limit:
         return f"`{value}`"
     return f"`{value[: limit - 3]}...`"
@@ -133,8 +133,16 @@ def short_code(value: str, limit: int = 48) -> str:
 
 def short_path(path: str) -> str:
     if not path:
-        return "not_collected"
+        return "待查：需要核对来源路径"
     return Path(path).name
+
+
+def pending(question: str) -> str:
+    return f"`待查：{question}`"
+
+
+def candidate_pending(question: str) -> str:
+    return f"`候选路线：{question}`"
 
 
 def dataset_label(packet: dict[str, Any]) -> dict[str, str]:
@@ -207,13 +215,13 @@ def dossier_text(
         para(
             "Nothing on this page is a confirmed reading, meaning, component "
             "assignment, inscription identity, or decipherment conclusion. "
-            "Unverified sections stay marked as candidate, not_collected, or "
-            "needs_review."
+            "Unverified sections stay marked as candidate, source record, "
+            "needs_review, or concrete pending checks."
         ),
         "",
         para(
             "本页不确认读音、意义、构件归属、卜辞身份或释读结论。"
-            "未复核内容保持 candidate、not_collected 或 needs_review 状态。"
+            "未复核内容保持候选、来源记录、待查或待复核状态。"
         ),
         "",
         "## 1. Identity And Status / 身份与状态",
@@ -249,8 +257,8 @@ def dossier_text(
         "",
         "## 3. Reading, Meaning, And Dataset Label / 释读与来源标签",
         "",
-        bullet("accepted reading", "`not_collected`"),
-        bullet("accepted meaning", "`not_collected`"),
+        bullet("accepted reading", pending("需要核对来源释读、释读史或争议记录")),
+        bullet("accepted meaning", pending("需要核对来源释义、语境和文献说明")),
         bullet("decipherment status", code_value(str(packet.get("decipherment_status", "")))),
         bullet("dataset label status", code_value(label.get("status", ""))),
         bullet("dataset label text", code_value(label.get("source_modern_label_candidate", ""))),
@@ -272,49 +280,52 @@ def dossier_text(
         bullet("graph edge count", code_value(str(edge["edge_count"]))),
         bullet("codepoint routes", code_value(";".join(edge["codepoints"]))),
         bullet("cross-source status", code_value(";".join(edge["cross_source_statuses"]))),
-        bullet("OBIMD/EvoBC route status", "`candidate_route_or_not_collected`"),
+        bullet(
+            "OBIMD/EvoBC route status",
+            candidate_pending("需要核对 OBIMD、EvoBC 和 cross-source 图边"),
+        ),
         "",
         "## 5. Variants, Components, And Similar Forms / 异体构件近形",
         "",
-        bullet("variant set", "`not_collected`"),
-        bullet("component analysis", "`not_collected`"),
-        bullet("similar-form candidates", "`not_collected`"),
+        bullet("variant set", pending("需要核对异体、同版异写和来源分组记录")),
+        bullet("component analysis", pending("需要核对候选构件路线；不得写成构件归属")),
+        bullet("similar-form candidates", pending("需要核对近形字、误分组和图像相似路线")),
         bullet("review route", "`196_shape-component-evolution...checklist.csv`"),
         "",
         "## 6. Inscription Occurrences And Text Context / 卜辞出现",
         "",
-        bullet("inscription occurrence count", "`not_collected`"),
-        bullet("full inscription text", "`not_collected`"),
-        bullet("plate or catalog number", "`not_collected`"),
+        bullet("inscription occurrence count", pending("需要核对卜辞编号和字位出现记录")),
+        bullet("full inscription text", pending("需要核对卜辞全文或 OCR 路线")),
+        bullet("plate or catalog number", pending("需要核对图版号、著录号或合集号")),
         bullet("occurrence review route", "`195_inscription-plate...checklist.csv`"),
         "",
         "## 7. Provenance, Findspot, Collection, And Period / 出处",
         "",
         bullet("source package", code_value(str(packet.get("source_package_id", "")))),
         bullet("download ids", code_value(";".join(packet.get("evidence_download_ids", [])))),
-        bullet("excavation site", "`not_collected`"),
-        bullet("collection or museum", "`not_collected`"),
-        bullet("period or batch", "`not_collected`"),
+        bullet("excavation site", pending("需要核对出土地、发掘单位或地点来源")),
+        bullet("collection or museum", pending("需要核对馆藏号、藏品页或库藏记录")),
+        bullet("period or batch", pending("需要核对时期、组类、坑位或批次记录")),
         bullet("rights status", code_value(str(packet.get("rights_status", "")))),
         "",
         "## 8. Decipherment History And Disputes / 释读史争议",
         "",
-        bullet("published interpretation notes", "`not_collected`"),
-        bullet("decipherment history", "`not_collected`"),
-        bullet("known disagreement", "`not_collected`"),
+        bullet("published interpretation notes", pending("需要核对书目、论文或数据库说明")),
+        bullet("decipherment history", pending("需要核对提出者、释读过程和复核记录")),
+        bullet("known disagreement", pending("需要核对不同意见、争议和证据等级")),
         bullet("human review status", short_code(str(packet.get("required_next_review", "")))),
         "",
         "## 9. Archaeological Folder Coverage / 考古档案覆盖",
         "",
         bullet("glyph image", "`available_or_route_indexed`"),
-        bullet("variant forms", "`not_collected`"),
-        bullet("later-script links", "`candidate_or_not_collected`"),
-        bullet("inscription occurrences", "`not_collected`"),
-        bullet("catalog and plate routes", "`not_collected`"),
-        bullet("findspot and collection", "`not_collected`"),
-        bullet("period and batch", "`not_collected`"),
+        bullet("variant forms", pending("需要打开异体和近形路线")),
+        bullet("later-script links", candidate_pending("需要人工复核金文、小篆或今字路线")),
+        bullet("inscription occurrences", pending("需要核对卜辞编号、全文或 OCR、图版号和字位")),
+        bullet("catalog and plate routes", pending("需要核对著录号、图版号、页码和合集号")),
+        bullet("findspot and collection", pending("需要核对出土地、馆藏号和对象记录")),
+        bullet("period and batch", pending("需要核对时期、组类、坑位或批次")),
         bullet("source evidence", "`available_or_route_indexed`"),
-        bullet("decipherment history", "`not_collected`"),
+        bullet("decipherment history", pending("需要核对释读史、提出者和争议记录")),
         "",
         "## 10. Missing Data / 缺失项",
         "",

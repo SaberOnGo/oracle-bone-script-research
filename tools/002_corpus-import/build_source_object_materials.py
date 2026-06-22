@@ -230,6 +230,8 @@ def source_packet(
             "07_material-access-index.md",
             "08_source-processing-status.md",
             "09_source-processing-status-index.json",
+            "10_source-evidence-dossier.md",
+            "11_source-evidence-dossier-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -352,6 +354,211 @@ def build_processing_status_index(
         "decipherment_claim_status": "no_claim",
         "updated_at": UPDATED_AT,
     }
+
+
+def source_evidence_dossier_index_payload(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    package_kinds = sorted({row.get("file_kind", "") for row in package_routes if row.get("file_kind")})
+    target_record_types = sorted(
+        {row.get("target_record_type", "") for row in field_routes if row.get("target_record_type")}
+    )
+    download_statuses = sorted(
+        {row.get("download_status", "") for row in download_routes if row.get("download_status")}
+    )
+    return {
+        "record_type": "source_evidence_dossier_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "human_readable_files": [
+            "README.md",
+            "06_human-source-review-sheet.md",
+            "07_material-access-index.md",
+            "08_source-processing-status.md",
+            "10_source-evidence-dossier.md",
+        ],
+        "ai_support_files": [
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "05_metadata-profile-route-index.csv",
+            "09_source-processing-status-index.json",
+            "11_source-evidence-dossier-index.json",
+        ],
+        "source_route_files": [
+            SOURCE_INDEX.as_posix(),
+            DOWNLOAD_MANIFEST.as_posix(),
+            DOWNLOAD_LOG.as_posix(),
+            PACKAGE_MANIFEST.as_posix(),
+            FIELD_MAP.as_posix(),
+            METADATA_PROFILE.as_posix(),
+            "10_source-evidence-dossier.md",
+        ],
+        "evidence_counts": {
+            "download_route_count": len(download_routes),
+            "checksum_route_count": checksum_count(download_routes),
+            "size_route_count": sized_count(download_routes),
+            "package_route_count": len(package_routes),
+            "field_map_route_count": len(field_routes),
+            "metadata_profile_route_count": len(metadata_routes),
+            "package_kinds": package_kinds,
+            "target_record_types": target_record_types,
+            "download_statuses": download_statuses,
+        },
+        "uncollected_human_research_fields": [
+            "bibliographic_citation_relationships",
+            "proposer_or_source_editor_review",
+            "different_opinions_or_disputes",
+            "license_text_review",
+            "derived_record_review_results",
+        ],
+        "claim_boundary": [
+            "no rights decision",
+            "no corpus import approval",
+            "no confirmed source promotion",
+            "no reading",
+            "no component assignment",
+            "no inscription identity",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_source_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def source_evidence_dossier_text(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    package_kinds = sorted({row.get("file_kind", "") for row in package_routes if row.get("file_kind")})
+    target_record_types = sorted(
+        {row.get("target_record_type", "") for row in field_routes if row.get("target_record_type")}
+    )
+    download_statuses = sorted(
+        {row.get("download_status", "") for row in download_routes if row.get("download_status")}
+    )
+    lines = [
+        "# Source Evidence Dossier / 来源证据档案",
+        "",
+        *wrapped(
+            "This human dossier gathers bibliography, access, download, "
+            "checksum, rights, risk, field-map, package, and derivative-route "
+            "evidence for one source object."
+        ),
+        "",
+        *wrapped(
+            "本档案整理来源对象的书目、访问、下载、checksum、权利、风险、"
+            "字段映射、来源包和派生路线证据。它服务后续人工复核，不给出"
+            "释读或权利结论。"
+        ),
+        "",
+        "## Bibliography And Source Identity / 书目与来源身份",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Title / 标题", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Source type / 来源类型", source["source_type"]),
+        *bullet("Source URL / 来源链接", source["source_url"]),
+        *bullet("Scope / 适用范围", source["scope"]),
+        *bullet("Authority tier / 证据等级", source["authority_tier"]),
+        *bullet("Adoption status / 采用状态", source["adoption_status"]),
+        "",
+        "## Access Download Checksum And Size / 访问、下载、checksum 与大小",
+        *bullet("Download route count / 下载路线数", len(download_routes)),
+        *bullet("Download statuses / 下载状态", joined(download_statuses)),
+        *bullet("Checksum route count / checksum 路线数", checksum_count(download_routes)),
+        *bullet("Size route count / 大小记录路线数", sized_count(download_routes)),
+        *bullet("Local temp route count / 临时路径路线数", local_temp_count(download_routes)),
+        *wrapped(
+            "Open `02_download-route-index.csv` before reusing any downloaded "
+            "file. Check URL, access date, checksum, file size, local archive "
+            "path, rights note, and review status."
+        ),
+        "",
+        *wrapped(
+            "复用任何下载文件前，应打开 `02_download-route-index.csv`，核对"
+            "链接、访问日期、checksum、大小、本地归档路径、权利说明和复核"
+            "状态。"
+        ),
+        "",
+        "## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录",
+        *bullet("Package route count / 来源包路线数", len(package_routes)),
+        *bullet("Package kinds / 来源包类型", joined(package_kinds)),
+        *bullet("Field map route count / 字段映射路线数", len(field_routes)),
+        *bullet("Target record types / 目标记录类型", joined(target_record_types)),
+        *bullet("Metadata route count / metadata 路线数", len(metadata_routes)),
+        *wrapped(
+            "Package rows, field maps, and metadata profiles are candidate "
+            "routes. They do not approve corpus import until a human reviewer "
+            "checks the source trail and target object directory."
+        ),
+        "",
+        *wrapped(
+            "来源包清单、字段映射和 metadata profile 只是候选路线。必须由"
+            "人工复核来源链和目标对象目录后，才可进入语料导入。"
+        ),
+        "",
+        "## Scope Evidence Level And Review Status / 适用范围、证据等级与复核状态",
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        *bullet("Risk note / 风险提示", source["risk_note"]),
+        *bullet("Processing status card / 处理状态卡", "08_source-processing-status.md"),
+        *bullet("Auxiliary JSON / 辅助 JSON", "11_source-evidence-dossier-index.json"),
+        "",
+        "## Citation Disagreement And Risk Notes / 引用、分歧与风险记录",
+        *bullet("Citation relationship / 引用关系", "not_collected; 待查具体书目和网页说明"),
+        *bullet("Proposer or editor / 提出者或整理者", "not_collected; 待查来源说明"),
+        *bullet("Different opinions / 不同意见", "not_collected; 待查论文或数据库说明"),
+        *bullet("Disputes / 争议", "not_collected; 待查复核记录"),
+        *wrapped(
+            "Do not treat absence of a dispute row as scholarly agreement. It "
+            "only means the current preprocessing register has not collected "
+            "that human review field yet."
+        ),
+        "",
+        *wrapped(
+            "没有争议行不等于学界已经一致，只表示当前预处理登记表尚未采集"
+            "这类人工复核字段。"
+        ),
+        "",
+        "## Concrete Questions To Check / 具体待查问题",
+        "- Which bibliography or database note defines this source?",
+        "- 哪条书目、论文、网页或数据库说明界定本来源？",
+        "- Which access, download, checksum, and size rows can be verified?",
+        "- 哪些访问、下载、checksum 和大小记录可以复核？",
+        "- Which package files are safe derived records rather than raw dumps?",
+        "- 哪些来源包文件是安全派生记录，而不是原始大包？",
+        "- Which field maps can enter concrete corpus object directories?",
+        "- 哪些字段映射可以进入具体语料对象目录？",
+        "- Which proposer, citation relation, disagreement, or dispute remains?",
+        "- 还缺哪位提出者、引用关系、不同意见或争议？",
+        "- Which rights or redistribution risk blocks public promotion?",
+        "- 哪些权利或再分发风险阻止公开提升？",
+        "",
+        "## Boundary / 边界",
+        "- not a rights decision",
+        "- not corpus import approval",
+        "- not a confirmed source promotion",
+        "- not a reading",
+        "- not a component assignment",
+        "- not an inscription identity",
+        "- not a decipherment conclusion",
+        "- 不是权利结论",
+        "- 不是语料导入批准",
+        "- 不是已确认来源提升",
+        "- 不是释读",
+        "- 不是构件归属",
+        "- 不是卜辞身份确认",
+        "- 不是破译结论",
+    ]
+    return "\n".join(lines)
 
 
 def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
@@ -735,6 +942,27 @@ def build_materials(root: Path) -> dict[str, int]:
             processing_status_text(source, status_index),
         )
         write_json(object_dir / "09_source-processing-status-index.json", status_index)
+        write_human_markdown(
+            object_dir / "10_source-evidence-dossier.md",
+            f"{source_id}/10_source-evidence-dossier.md",
+            source_evidence_dossier_text(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
+        )
+        write_json(
+            object_dir / "11_source-evidence-dossier-index.json",
+            source_evidence_dossier_index_payload(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
+        )
     return {"source_object_count": len(sources)}
 
 

@@ -3773,6 +3773,19 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         ],
     }
     mojibake_fragments = ("绠€", "闃舵", "鐘舶", "鐘舵", "缂哄け", "澶嶆牳")
+    required_files["10_source-evidence-dossier.md"] = [
+        "Source Evidence Dossier",
+        "来源证据档案",
+        "Bibliography And Source Identity",
+        "书目与来源身份",
+        "访问、下载、checksum 与大小",
+        "来源包清单、字段映射与派生记录",
+        "引用、分歧与风险记录",
+        "具体待查问题",
+        "not a rights decision",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+    ]
     for object_dir in object_dirs:
         for filename, snippets in required_files.items():
             path = object_dir / filename
@@ -3788,6 +3801,23 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                     issues.append(f"{path.relative_to(root)} contains mojibake: {fragment}")
             if any(len(line) > 80 for line in text.splitlines()):
                 issues.append(f"{path.relative_to(root)} has a line over 80 chars")
+        source_dossier_index_path = object_dir / "11_source-evidence-dossier-index.json"
+        if not source_dossier_index_path.is_file():
+            issues.append(f"{object_dir.name} missing 11_source-evidence-dossier-index.json")
+            continue
+        try:
+            source_dossier_index = json.loads(source_dossier_index_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            issues.append(f"{source_dossier_index_path.relative_to(root)} invalid JSON: {exc}")
+            continue
+        if source_dossier_index.get("record_type") != "source_evidence_dossier_index":
+            issues.append(f"{source_dossier_index_path.relative_to(root)} record_type changed")
+        if "10_source-evidence-dossier.md" not in source_dossier_index.get("human_readable_files", []):
+            issues.append(f"{source_dossier_index_path.relative_to(root)} missing human dossier link")
+        if "01_source-packet.json" not in source_dossier_index.get("ai_support_files", []):
+            issues.append(f"{source_dossier_index_path.relative_to(root)} missing source packet link")
+        if "no rights decision" not in source_dossier_index.get("claim_boundary", []):
+            issues.append(f"{source_dossier_index_path.relative_to(root)} missing rights boundary")
     return issues
 
 

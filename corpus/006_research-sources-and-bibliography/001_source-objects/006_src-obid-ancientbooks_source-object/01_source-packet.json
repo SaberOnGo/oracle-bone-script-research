@@ -27,7 +27,9 @@
     "06_human-source-review-sheet.md",
     "07_material-access-index.md",
     "08_source-processing-status.md",
-    "09_source-processing-status-index.json"
+    "09_source-processing-status-index.json",
+    "10_source-evidence-dossier.md",
+    "11_source-evidence-dossier-index.json"
   ],
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",

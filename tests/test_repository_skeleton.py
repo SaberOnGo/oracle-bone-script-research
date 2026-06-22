@@ -4433,7 +4433,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
-        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "4")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "5")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["source_ids"], "src-xiaoxuetang-jiaguwen")
         self.assertEqual(by_project["obs-topic-cand-000001"]["corpus_area"], "research_topic_candidates")
@@ -4548,6 +4548,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "07_material-access-index.md").is_file())
         self.assertTrue((object_dir / "08_source-processing-status.md").is_file())
         self.assertTrue((object_dir / "09_source-processing-status-index.json").is_file())
+        self.assertTrue((object_dir / "10_source-evidence-dossier.md").is_file())
+        self.assertTrue((object_dir / "11_source-evidence-dossier-index.json").is_file())
         access_index_text = (object_dir / "07_material-access-index.md").read_text(encoding="utf-8")
         self.assertIn("Material Access Index", access_index_text)
         self.assertIn("Human-Readable Entrances", access_index_text)
@@ -4579,11 +4581,48 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(status_index["record_type"], "source_processing_status_index")
         self.assertEqual(status_index["decipherment_claim_status"], "no_claim")
         self.assertIn("download_or_access", [phase["phase"] for phase in status_index["phases"]])
+        evidence_text = (object_dir / "10_source-evidence-dossier.md").read_text(encoding="utf-8")
+        self.assertIn("Source Evidence Dossier", evidence_text)
+        self.assertIn("来源证据档案", evidence_text)
+        self.assertIn("Bibliography And Source Identity", evidence_text)
+        self.assertIn("书目与来源身份", evidence_text)
+        self.assertIn("Access Download Checksum And Size", evidence_text)
+        self.assertIn("访问、下载、checksum 与大小", evidence_text)
+        self.assertIn("Package Manifest Field Map And Derivatives", evidence_text)
+        self.assertIn("来源包清单、字段映射与派生记录", evidence_text)
+        self.assertIn("Scope Evidence Level And Review Status", evidence_text)
+        self.assertIn("适用范围、证据等级与复核状态", evidence_text)
+        self.assertIn("Citation Disagreement And Risk Notes", evidence_text)
+        self.assertIn("引用、分歧与风险记录", evidence_text)
+        self.assertIn("Concrete Questions To Check", evidence_text)
+        self.assertIn("具体待查问题", evidence_text)
+        self.assertIn("not a rights decision", evidence_text)
+        self.assertIn("not corpus import approval", evidence_text)
+        self.assertIn("not a decipherment conclusion", evidence_text)
+        for line in evidence_text.splitlines():
+            if line.startswith("|"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        for fragment in ("缁犫偓", "闂冭埖", "閻樿埗", "閻樿埖"):
+            self.assertNotIn(fragment, evidence_text)
+        source_dossier_index = json.loads(
+            (object_dir / "11_source-evidence-dossier-index.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(source_dossier_index["record_type"], "source_evidence_dossier_index")
+        self.assertIn("10_source-evidence-dossier.md", source_dossier_index["human_readable_files"])
+        self.assertIn("01_source-packet.json", source_dossier_index["ai_support_files"])
+        self.assertIn(
+            "bibliographic_citation_relationships",
+            source_dossier_index["uncollected_human_research_fields"],
+        )
+        self.assertIn("no rights decision", source_dossier_index["claim_boundary"])
         packet = json.loads((object_dir / "01_source-packet.json").read_text(encoding="utf-8"))
         self.assertEqual(packet["source_id"], "src-xiaoxuetang-jiaguwen")
         self.assertIn("07_material-access-index.md", packet["local_files"])
         self.assertIn("08_source-processing-status.md", packet["local_files"])
         self.assertIn("09_source-processing-status-index.json", packet["local_files"])
+        self.assertIn("10_source-evidence-dossier.md", packet["local_files"])
+        self.assertIn("11_source-evidence-dossier-index.json", packet["local_files"])
         self.assertEqual(packet["download_route_count"], 4)
         self.assertEqual(packet["package_route_count"], 2)
         self.assertEqual(packet["field_map_route_count"], 6)
@@ -22080,7 +22119,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"153"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"225"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"267"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"

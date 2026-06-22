@@ -132,6 +132,7 @@ OBJECT_SPECS = [
             "06_human-source-review-sheet.md",
             "07_material-access-index.md",
             "08_source-processing-status.md",
+            "10_source-evidence-dossier.md",
         ),
         (
             "01_source-packet.json",
@@ -140,6 +141,7 @@ OBJECT_SPECS = [
             "04_field-map-route-index.csv",
             "05_metadata-profile-route-index.csv",
             "09_source-processing-status-index.json",
+            "11_source-evidence-dossier-index.json",
         ),
         (),
         (

@@ -3967,6 +3967,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "06_image-reference-route-gallery.md").exists())
             self.assertTrue((object_dir / "07_human-evolution-dossier.md").exists())
             self.assertTrue((object_dir / "08_evolution-dossier-index.json").exists())
+            self.assertTrue((object_dir / "09_cross-period-review-dossier.md").exists())
+            self.assertTrue((object_dir / "10_cross-period-review-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("本目录是一个 EVOBC 字形演化类别候选对象", readme_text)
@@ -4023,6 +4025,23 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if line.startswith("|") or line.startswith("!["):
                     continue
                 self.assertLessEqual(len(line), 80, line)
+            cross_period_dossier = (
+                object_dir / "09_cross-period-review-dossier.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("跨时期字形复核档案", cross_period_dossier)
+            self.assertIn("甲骨侧待查证据", cross_period_dossier)
+            self.assertIn("金文、小篆与后世字形路线", cross_period_dossier)
+            self.assertIn("今字与 codepoint 路线", cross_period_dossier)
+            self.assertIn("来源证据、争议与释读史路线", cross_period_dossier)
+            self.assertIn("具体待查问题", cross_period_dossier)
+            self.assertIn("这不是正式对应结论", cross_period_dossier)
+            self.assertIn("这不是释读结论", cross_period_dossier)
+            self.assertIn("哪一条 EVOBC 图像引用路线应先打开？", cross_period_dossier)
+            self.assertIn("哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？", cross_period_dossier)
+            for line in cross_period_dossier.splitlines():
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                self.assertLessEqual(len(line), 80, line)
             dossier_index = json.loads(
                 (object_dir / "08_evolution-dossier-index.json").read_text(
                     encoding="utf-8"
@@ -4051,6 +4070,29 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "no formal correspondence",
                 dossier_index["claim_boundary"],
+            )
+            cross_period_index = json.loads(
+                (object_dir / "10_cross-period-review-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                cross_period_index["record_type"],
+                "evolution_cross_period_review_index",
+            )
+            self.assertTrue(
+                any(
+                    file_path.endswith("09_cross-period-review-dossier.md")
+                    for file_path in cross_period_index["human_readable_files"]
+                )
+            )
+            self.assertIn(
+                "oracle_inscription_collection_findspot_period_batch",
+                cross_period_index["specific_missing_evidence"],
+            )
+            self.assertEqual(
+                cross_period_index["claim_status"]["decipherment"],
+                "no_decipherment_claim",
             )
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
@@ -4101,6 +4143,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Bibliography, Database, And Web Source Routes",
             first["human_dossier_text"],
         )
+        self.assertIn(
+            "跨时期字形复核档案",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "这不是释读结论",
+            first["cross_period_review_dossier_text"],
+        )
+        for line in first["cross_period_review_dossier_text"].splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
         for line in first["human_dossier_text"].splitlines():
             if line.startswith("|") or line.startswith("!["):
                 continue
@@ -4113,6 +4171,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             any(
                 file_path.endswith("07_human-evolution-dossier.md")
                 for file_path in first["dossier_index"]["human_readable_files"]
+            )
+        )
+        self.assertEqual(
+            first["cross_period_review_index"]["record_type"],
+            "evolution_cross_period_review_index",
+        )
+        self.assertTrue(
+            any(
+                file_path.endswith("09_cross-period-review-dossier.md")
+                for file_path in first["cross_period_review_index"]["human_readable_files"]
             )
         )
         self.assertTrue(

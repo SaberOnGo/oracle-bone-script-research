@@ -125,6 +125,8 @@ MANIFEST_FIELDS = [
     "human_review_sheet_path",
     "human_evolution_dossier_path",
     "evolution_dossier_index_path",
+    "cross_period_review_dossier_path",
+    "cross_period_review_index_path",
     "source_character_label",
     "source_character_codepoints",
     "image_reference_count",
@@ -276,6 +278,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "06_image-reference-route-gallery.md").as_posix(),
         (directory / "07_human-evolution-dossier.md").as_posix(),
         (directory / "08_evolution-dossier-index.json").as_posix(),
+        (directory / "09_cross-period-review-dossier.md").as_posix(),
+        (directory / "10_cross-period-review-index.json").as_posix(),
     ]
 
 
@@ -618,12 +622,14 @@ def dossier_index_payload(
             (directory / "04_human-review-sheet.md").as_posix(),
             (directory / "06_image-reference-route-gallery.md").as_posix(),
             (directory / "07_human-evolution-dossier.md").as_posix(),
+            (directory / "09_cross-period-review-dossier.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-evolution-packet.json").as_posix(),
             (directory / "02_evolution-source-index.csv").as_posix(),
             (directory / "03_era-source-code-index.csv").as_posix(),
             (directory / "05_image-reference-route-index.csv").as_posix(),
+            (directory / "10_cross-period-review-index.json").as_posix(),
         ],
         "source_route_files": route_files(directory),
         "code_row_count": len(code_rows),
@@ -640,6 +646,174 @@ def dossier_index_payload(
             "no formal correspondence; no evolution-chain conclusion; "
             "no modern-character identity; no decipherment conclusion"
         ),
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
+def cross_period_review_dossier_text(
+    index: int,
+    row: dict[str, str],
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> str:
+    pid = project_id(index)
+    intro = wrapped_paragraph(
+        "本文件是给人工复核者打开的跨时期字形复核档案。它把 EVOBC "
+        "候选路线、图像引用、时期/来源代码和下一步待查证据放在同一对象"
+        "目录内；它不是正式对应结论，也不是释读结论。"
+    )
+    identity_lines = bullet_block(
+        [
+            f"本项目 ID：`{pid}`",
+            f"EVOBC 候选类别 ID：`{row['candidate_evolution_category_id']}`",
+            f"外部类别引用：`{primary_external_ref(row)}`",
+            f"来源类别 ID：`{row['source_category_id']}`",
+            f"来源标签：`{row['source_character_label']}`",
+            f"来源 codepoints：`{row['source_character_codepoints']}`",
+            f"EVOBC 图像引用数量：`{row['image_reference_count']}`",
+            f"复核状态：`{REVIEW_STATUS}`",
+        ]
+    )
+    oracle_lines = bullet_block(
+        [
+            "先查是否有对应的甲骨实物、拓片、照片、图版或摹本。",
+            "再查甲骨侧卜辞编号、全文或 OCR、合集号、著录号和页码。",
+            "继续核对馆藏、出土地、时期、组类、批次和关联字形。",
+            "若只存在 EVOBC metadata，不得写成已确认甲骨字形对应。",
+        ]
+    )
+    later_script_lines = bullet_block(
+        [
+            "金文路线只作为待核对比较线索，须另查器物、铭文和著录。",
+            "小篆路线只作为后世字形比较线索，须另查字书和释读史。",
+            "后世字形或今字路线须记录来源、提出者和不同意见。",
+            "任何跨时期对应在人工复核前均保持候选和待查状态。",
+        ]
+    )
+    codepoint_lines = bullet_block(
+        [
+            "codepoint 和来源标签只是检索键，不确认今字身份。",
+            "若要记录今字对应，需先打开可复核字典、数据库或论文来源。",
+            "若来源之间有不同意见，应记录争议而不是合并成结论。",
+        ]
+    )
+    source_lines = bullet_block(
+        [
+            "先打开 `02_evolution-source-index.csv` 查来源与下载路线。",
+            "再打开 `03_era-source-code-index.csv` 查时期和来源代码。",
+            "再打开 `05_image-reference-route-index.csv` 查图像引用路线。",
+            "图边和统计只作检索路线，不作学术结论。",
+            "后续应核对小学堂、OBIMD、HUST-OBC、史语所和博物馆来源。",
+        ]
+    )
+    route_lines = route_cards_block(image_routes)
+    code_lines = code_rows_block(code_rows)
+    missing_lines = bullet_block(
+        [
+            "哪一条 EVOBC 图像引用路线应先打开？",
+            "哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？",
+            "哪一个金文器物、铭文、著录号或图版仍未核对？",
+            "哪一个小篆、字书、数据库或论文来源仍未核对？",
+            "哪一个今字 codepoint 只是检索键，尚不能作为对应结论？",
+            "是否存在释读史、提出者、不同意见或争议需要记录？",
+            "哪一条来源还缺 checksum、manifest、字段映射或权利复核？",
+        ]
+    )
+    boundary_lines = bullet_block(
+        [
+            "这不是正式对应结论。",
+            "这不是演化链结论。",
+            "这不是今字身份确认。",
+            "这不是释读结论。",
+            "所有未打开的一手材料、著录和论文均保持待查状态。",
+        ]
+    )
+    return f"""# {pid} 跨时期字形复核档案
+
+{intro}
+
+## 候选身份
+
+{identity_lines}
+
+## 甲骨侧待查证据
+
+{oracle_lines}
+
+## 金文、小篆与后世字形路线
+
+{later_script_lines}
+
+## 今字与 codepoint 路线
+
+{codepoint_lines}
+
+## 来源证据、争议与释读史路线
+
+{source_lines}
+
+## 已登记时期与来源代码
+
+{code_lines}
+
+## 图像引用路线卡
+
+{route_lines}
+
+## 具体待查问题
+
+{missing_lines}
+
+## 复核边界
+
+{boundary_lines}
+"""
+
+
+def cross_period_review_index_payload(
+    index: int,
+    row: dict[str, str],
+    directory: Path,
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "evolution_cross_period_review_index",
+        "candidate_evolution_category_id": row["candidate_evolution_category_id"],
+        "source_id": SOURCE_ID,
+        "human_readable_files": [
+            (directory / "README.md").as_posix(),
+            (directory / "04_human-review-sheet.md").as_posix(),
+            (directory / "06_image-reference-route-gallery.md").as_posix(),
+            (directory / "07_human-evolution-dossier.md").as_posix(),
+            (directory / "09_cross-period-review-dossier.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (directory / "01_candidate-evolution-packet.json").as_posix(),
+            (directory / "02_evolution-source-index.csv").as_posix(),
+            (directory / "03_era-source-code-index.csv").as_posix(),
+            (directory / "05_image-reference-route-index.csv").as_posix(),
+            (directory / "08_evolution-dossier-index.json").as_posix(),
+        ],
+        "specific_missing_evidence": [
+            "primary_image_rubbing_photo_plate_handcopy",
+            "oracle_inscription_collection_findspot_period_batch",
+            "bronze_object_inscription_catalog_plate",
+            "seal_script_dictionary_database_paper_source",
+            "modern_codepoint_identity_review",
+            "reading_history_proposer_disagreement_dispute",
+            "checksum_manifest_field_map_rights_review",
+        ],
+        "code_row_count": len(code_rows),
+        "image_route_count": len(image_routes),
+        "claim_status": {
+            "correspondence": "no_formal_correspondence_claim",
+            "evolution_chain": "no_evolution_chain_claim",
+            "modern_identity": "no_modern_identity_claim",
+            "decipherment": "no_decipherment_claim",
+        },
         "review_status": REVIEW_STATUS,
         "updated_at": UPDATED_AT,
     }
@@ -993,6 +1167,19 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "review_sheet_text": review_sheet_text(index, row),
             "human_dossier_text": human_dossier_text(index, row, code_rows, image_routes),
             "dossier_index": dossier_index_payload(index, row, directory, code_rows, image_routes),
+            "cross_period_review_dossier_text": cross_period_review_dossier_text(
+                index,
+                row,
+                code_rows,
+                image_routes,
+            ),
+            "cross_period_review_index": cross_period_review_index_payload(
+                index,
+                row,
+                directory,
+                code_rows,
+                image_routes,
+            ),
             "map_row": {
                 "project_id": pid,
                 "record_type": RECORD_TYPE,
@@ -1034,6 +1221,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "human_review_sheet_path": (directory / "04_human-review-sheet.md").as_posix(),
                 "human_evolution_dossier_path": (directory / "07_human-evolution-dossier.md").as_posix(),
                 "evolution_dossier_index_path": (directory / "08_evolution-dossier-index.json").as_posix(),
+                "cross_period_review_dossier_path": (directory / "09_cross-period-review-dossier.md").as_posix(),
+                "cross_period_review_index_path": (directory / "10_cross-period-review-index.json").as_posix(),
                 "source_character_label": str(packet["source_character_label"]),
                 "source_character_codepoints": str(packet["source_character_codepoints"]),
                 "image_reference_count": str(packet["image_reference_count"]),
@@ -1076,6 +1265,16 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (directory / "08_evolution-dossier-index.json").write_text(
             json.dumps(output["dossier_index"], ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "09_cross-period-review-dossier.md").write_text(
+            str(output["cross_period_review_dossier_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "10_cross-period-review-index.json").write_text(
+            json.dumps(output["cross_period_review_index"], ensure_ascii=False, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
             newline="\n",
         )

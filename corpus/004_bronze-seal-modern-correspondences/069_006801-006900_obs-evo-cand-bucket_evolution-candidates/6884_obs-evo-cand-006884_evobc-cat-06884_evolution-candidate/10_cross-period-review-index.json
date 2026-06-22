@@ -1,0 +1,39 @@
+{
+  "ai_support_files": [
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/01_candidate-evolution-packet.json",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/02_evolution-source-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/03_era-source-code-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/05_image-reference-route-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/08_evolution-dossier-index.json"
+  ],
+  "candidate_evolution_category_id": "evobc-evo-cat-06884",
+  "claim_status": {
+    "correspondence": "no_formal_correspondence_claim",
+    "decipherment": "no_decipherment_claim",
+    "evolution_chain": "no_evolution_chain_claim",
+    "modern_identity": "no_modern_identity_claim"
+  },
+  "code_row_count": 3,
+  "human_readable_files": [
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/README.md",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/04_human-review-sheet.md",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/06_image-reference-route-gallery.md",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/07_human-evolution-dossier.md",
+    "corpus/004_bronze-seal-modern-correspondences/069_006801-006900_obs-evo-cand-bucket_evolution-candidates/6884_obs-evo-cand-006884_evobc-cat-06884_evolution-candidate/09_cross-period-review-dossier.md"
+  ],
+  "image_route_count": 4,
+  "project_id": "obs-evo-cand-006884",
+  "record_type": "evolution_cross_period_review_index",
+  "review_status": "needs_human_evolution_review",
+  "source_id": "src-evobc",
+  "specific_missing_evidence": [
+    "primary_image_rubbing_photo_plate_handcopy",
+    "oracle_inscription_collection_findspot_period_batch",
+    "bronze_object_inscription_catalog_plate",
+    "seal_script_dictionary_database_paper_source",
+    "modern_codepoint_identity_review",
+    "reading_history_proposer_disagreement_dispute",
+    "checksum_manifest_field_map_rights_review"
+  ],
+  "updated_at": "2026-06-20"
+}

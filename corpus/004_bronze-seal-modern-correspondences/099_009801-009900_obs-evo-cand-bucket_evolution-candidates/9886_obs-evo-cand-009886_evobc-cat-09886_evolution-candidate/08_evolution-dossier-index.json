@@ -3,7 +3,8 @@
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/01_candidate-evolution-packet.json",
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/02_evolution-source-index.csv",
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/03_era-source-code-index.csv",
-    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/05_image-reference-route-index.csv"
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/05_image-reference-route-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/10_cross-period-review-index.json"
   ],
   "candidate_evolution_category_id": "evobc-evo-cat-09886",
   "claim_boundary": "no formal correspondence; no evolution-chain conclusion; no modern-character identity; no decipherment conclusion",
@@ -12,7 +13,8 @@
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/README.md",
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/04_human-review-sheet.md",
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/06_image-reference-route-gallery.md",
-    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/07_human-evolution-dossier.md"
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/07_human-evolution-dossier.md",
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/09_cross-period-review-dossier.md"
   ],
   "image_route_count": 4,
   "project_id": "obs-evo-cand-009886",
@@ -29,7 +31,9 @@
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/05_image-reference-route-index.csv",
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/06_image-reference-route-gallery.md",
     "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/07_human-evolution-dossier.md",
-    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/08_evolution-dossier-index.json"
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/08_evolution-dossier-index.json",
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/09_cross-period-review-dossier.md",
+    "corpus/004_bronze-seal-modern-correspondences/099_009801-009900_obs-evo-cand-bucket_evolution-candidates/9886_obs-evo-cand-009886_evobc-cat-09886_evolution-candidate/10_cross-period-review-index.json"
   ],
   "uncollected_human_research_fields": [
     "primary_images",

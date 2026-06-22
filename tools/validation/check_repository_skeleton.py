@@ -3052,6 +3052,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "06_image-reference-route-gallery.md",
         "07_human-evolution-dossier.md",
         "08_evolution-dossier-index.json",
+        "09_cross-period-review-dossier.md",
+        "10_cross-period-review-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3223,6 +3225,66 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                         f"{route_gallery_path.relative_to(root).as_posix()}:{line_number} "
                         "line exceeds 80 characters"
                     )
+        cross_period_dossier_path = object_dir / "09_cross-period-review-dossier.md"
+        if index in deep_route_check_indexes and path_exists(cross_period_dossier_path):
+            cross_period_dossier = cross_period_dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "跨时期字形复核档案",
+                "甲骨侧待查证据",
+                "金文、小篆与后世字形路线",
+                "今字与 codepoint 路线",
+                "来源证据、争议与释读史路线",
+                "具体待查问题",
+                "这不是正式对应结论",
+                "这不是释读结论",
+                "哪一条 EVOBC 图像引用路线应先打开？",
+                "哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？",
+                "哪一个今字 codepoint 只是检索键，尚不能作为对应结论？",
+            ]:
+                if snippet not in cross_period_dossier:
+                    issues.append(
+                        f"{cross_period_dossier_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for line_number, line in enumerate(cross_period_dossier.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{cross_period_dossier_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
+        cross_period_index_path = object_dir / "10_cross-period-review-index.json"
+        if index in deep_route_check_indexes and path_exists(cross_period_index_path):
+            cross_period_index = json.loads(
+                cross_period_index_path.read_text(encoding="utf-8")
+            )
+            if cross_period_index.get("record_type") != "evolution_cross_period_review_index":
+                issues.append(
+                    f"{cross_period_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            human_files = cross_period_index.get("human_readable_files", [])
+            if not any(
+                str(file_path).endswith("09_cross-period-review-dossier.md")
+                for file_path in human_files
+            ):
+                issues.append(
+                    f"{cross_period_index_path.relative_to(root).as_posix()} "
+                    "missing human review dossier route"
+                )
+            missing_evidence = cross_period_index.get("specific_missing_evidence", [])
+            if "oracle_inscription_collection_findspot_period_batch" not in missing_evidence:
+                issues.append(
+                    f"{cross_period_index_path.relative_to(root).as_posix()} "
+                    "missing oracle-side evidence question"
+                )
+            claim_status = cross_period_index.get("claim_status", {})
+            if claim_status.get("decipherment") != "no_decipherment_claim":
+                issues.append(
+                    f"{cross_period_index_path.relative_to(root).as_posix()} "
+                    "decipherment claim status changed"
+                )
     return issues
 
 

@@ -6,9 +6,11 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import textwrap
 from pathlib import Path
 
 
+MAX_HUMAN_MARKDOWN_LINE_LENGTH = 80
 OBS_CHAR_LOCAL_MATERIAL_LIMIT = 1588
 EXTRA_TARGET_PROJECT_IDS = ("obs-unk-005708", "obs-unk-006294")
 TARGET_PROJECT_IDS = tuple(
@@ -195,6 +197,31 @@ def relative_committed_images(object_dir: Path, committed_images: list[str]) -> 
     return "; ".join(values)
 
 
+def wrap_markdown_text(text: str) -> list[str]:
+    return textwrap.wrap(
+        text,
+        width=MAX_HUMAN_MARKDOWN_LINE_LENGTH,
+        break_long_words=True,
+        break_on_hyphens=False,
+    ) or [""]
+
+
+def append_wrapped_paragraph(lines: list[str], text: str) -> None:
+    lines.extend(wrap_markdown_text(text))
+
+
+def append_wrapped_bullet(lines: list[str], label: str, value: object) -> None:
+    lines.extend(
+        textwrap.wrap(
+            f"- {label}: {value}",
+            width=MAX_HUMAN_MARKDOWN_LINE_LENGTH,
+            subsequent_indent="  ",
+            break_long_words=True,
+            break_on_hyphens=False,
+        )
+    )
+
+
 def build_readme_text(
     project_id: str,
     object_dir: Path,
@@ -212,55 +239,117 @@ def build_readme_text(
     local_path = object_dir.as_posix()
     status_text = ", ".join(status_counts)
     committed_image_text = relative_committed_images(object_dir, committed_images)
-    return f"""# {project_id} Local Object Materials / {project_id} 本地对象资料
-
-English:
-This directory is the co-located working folder for this concrete oracle-character object. Human-readable notes, visual/source entrances, and AI-readable packet/index files stay together in this same object directory, not in a parallel human-only directory.
-
-简体中文：
-本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像和来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus` 或对象目录并行的“人类看的目录”。
-
-## Local Files / 本地文件
-
-- Human-readable page / 人类可读页面: `README.md`
-- Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
-- AI-readable candidate packet / AI 可读候选包: `{packet_name}`
-- AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
-
-## Object Summary / 对象摘要
-
-- Project ID / 项目 ID: `{project_id}`
-- Primary external reference / 首选外部参考: `{external_id}`
-- Source / 来源: `{source_id}`
-- Packet record type / 资料包类型: `{packet_record_type}`
-- Directory / 目录: `{local_path}`
-
-## Visual Material Status / 图像资料状态
-
-- Status / 状态: `{status_text}`
-- Source image reference rows / 来源图像路径引用行数: `{image_ref_count}`
-- Committed glyph image / 已提交字形图像: {committed_image_text}
-
-English:
-If `02_visual-source-index.csv` contains source image paths, those paths are source-package references only. The raw HUST-OBC package is registered as a large source and is not committed to normal Git. If the CSV has no source image path, the next preparation step is to restore or download the registered source package, extract a review-safe image derivative, and record rights/provenance before committing any image asset.
-
-简体中文：
-如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包内部路径引用。HUST-OBC 原始包已经按大型来源登记，不提交到普通 Git。如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记来源包，抽取适合复核的图像派生件，并在提交任何图像资产前记录权利、出处和风险。
-
-## Research Boundary / 研究边界
-
-English:
-This page is a preparation-stage object entrance. It is not an accepted character record, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
-
-简体中文：
-本页只是准备阶段的对象入口。它不是正式甲骨单字记录，不是已确认释读，不是构件结论，也不是破译结论。
-
-## Review Notes / 复核说明
-
-- Review status / 复核状态: `needs_human_visual_review`
-- Required next step / 下一步: open the packet, visual gallery, and visual/source index in this same directory, then compare against source registers, source package manifests, and cross-source evidence.
-- Boundary caution / 边界提示: {caution}
-"""
+    lines: list[str] = [
+        f"# {project_id} Local Object Materials / {project_id} 本地对象资料",
+        "",
+        "English:",
+    ]
+    append_wrapped_paragraph(
+        lines,
+        "This directory is the co-located working folder for this concrete "
+        "oracle-character object. Human-readable notes, visual/source "
+        "entrances, and AI-readable packet/index files stay together in this "
+        "same object directory, not in a parallel human-only directory.",
+    )
+    lines.extend(["", "简体中文："])
+    append_wrapped_paragraph(
+        lines,
+        "本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像和"
+        "来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 "
+        "`corpus` 或对象目录并行的“人类看的目录”。",
+    )
+    lines.extend(["", "## Local Files / 本地文件", ""])
+    append_wrapped_bullet(lines, "Human-readable page / 人类可读页面", "`README.md`")
+    append_wrapped_bullet(
+        lines,
+        "Human-readable visual gallery / 人类可读图像页",
+        "`04_visual-gallery.md`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "AI-readable candidate packet / AI 可读候选包",
+        f"`{packet_name}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "AI-readable visual/source index / AI 可读图像与来源索引",
+        "`02_visual-source-index.csv`",
+    )
+    lines.extend(["", "## Object Summary / 对象摘要", ""])
+    append_wrapped_bullet(lines, "Project ID / 项目 ID", f"`{project_id}`")
+    append_wrapped_bullet(
+        lines,
+        "Primary external reference / 首选外部参考",
+        f"`{external_id}`",
+    )
+    append_wrapped_bullet(lines, "Source / 来源", f"`{source_id}`")
+    append_wrapped_bullet(
+        lines,
+        "Packet record type / 资料包类型",
+        f"`{packet_record_type}`",
+    )
+    append_wrapped_bullet(lines, "Directory / 目录", f"`{local_path}`")
+    lines.extend(["", "## Visual Material Status / 图像资料状态", ""])
+    append_wrapped_bullet(lines, "Status / 状态", f"`{status_text}`")
+    append_wrapped_bullet(
+        lines,
+        "Source image reference rows / 来源图像路径引用行数",
+        f"`{image_ref_count}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Committed glyph image / 已提交字形图像",
+        committed_image_text,
+    )
+    lines.extend(["", "English:"])
+    append_wrapped_paragraph(
+        lines,
+        "If `02_visual-source-index.csv` contains source image paths, those "
+        "paths are source-package references only. The raw HUST-OBC package "
+        "is registered as a large source and is not committed to normal Git. "
+        "If the CSV has no source image path, the next preparation step is to "
+        "restore or download the registered source package, extract a "
+        "review-safe image derivative, and record rights/provenance before "
+        "committing any image asset.",
+    )
+    lines.extend(["", "简体中文："])
+    append_wrapped_paragraph(
+        lines,
+        "如果 `02_visual-source-index.csv` 中有来源图像路径，它们只是来源包"
+        "内部路径引用。HUST-OBC 原始包已经按大型来源登记，不提交到普通 Git。"
+        "如果 CSV 中还没有来源图像路径，下一步资料工程应先恢复或下载已登记"
+        "来源包，抽取适合复核的图像派生件，并在提交任何图像资产前记录权利、"
+        "出处和风险。",
+    )
+    lines.extend(["", "## Research Boundary / 研究边界", "", "English:"])
+    append_wrapped_paragraph(
+        lines,
+        "This page is a preparation-stage object entrance. It is not an "
+        "accepted character record, not an accepted reading, not a component "
+        "conclusion, and not a decipherment conclusion.",
+    )
+    lines.append("This is not a decipherment conclusion.")
+    lines.extend(["", "简体中文："])
+    append_wrapped_paragraph(
+        lines,
+        "本页只是准备阶段的对象入口。它不是正式甲骨单字记录，不是已确认释读，"
+        "不是构件结论，也不是破译结论。",
+    )
+    lines.extend(["", "## Review Notes / 复核说明", ""])
+    append_wrapped_bullet(
+        lines,
+        "Review status / 复核状态",
+        "`needs_human_visual_review`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Required next step / 下一步",
+        "open the packet, visual gallery, and visual/source index in this same "
+        "directory, then compare against source registers, source package "
+        "manifests, and cross-source evidence.",
+    )
+    append_wrapped_bullet(lines, "Boundary caution / 边界提示", caution)
+    return "\n".join(lines)
 
 
 def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_rows: list[dict[str, str]]) -> str:

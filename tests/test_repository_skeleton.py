@@ -4589,6 +4589,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(project_id, output["readme_text"])
             self.assertIn("co-located", output["readme_text"])
             self.assertIn("同一具体对象目录", output["readme_text"])
+            for line_number, line in enumerate(output["readme_text"].splitlines(), start=1):
+                if line.startswith("!["):
+                    continue
+                self.assertLessEqual(
+                    len(line),
+                    80,
+                    f"{project_id} README line {line_number} exceeds 80 chars",
+                )
             self.assertEqual(output["gallery_path"].parent, object_dir)
             self.assertIn("04_visual-gallery.md", output["readme_text"])
             self.assertIn(project_id, output["gallery_text"])

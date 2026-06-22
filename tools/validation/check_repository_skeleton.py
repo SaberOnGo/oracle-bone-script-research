@@ -2384,6 +2384,12 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             issues.append(f"{relative_dir} missing co-located README.md")
         else:
             text = readme_path.read_text(encoding="utf-8")
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if len(line) > 80 and not line.startswith("!["):
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 chars"
+                    )
             for snippet in [
                 "co-located working folder",
                 "同一具体对象目录",

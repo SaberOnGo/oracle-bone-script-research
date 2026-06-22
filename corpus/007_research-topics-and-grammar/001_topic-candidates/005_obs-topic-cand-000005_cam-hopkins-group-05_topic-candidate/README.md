@@ -14,6 +14,8 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 - `05_human-topic-review-sheet.md`: human review checklist.
 - `06_human-topic-dossier.md`: human-readable topic candidate dossier.
 - `07_topic-dossier-index.json`: AI-readable support index for the dossier.
+- `08_topic-literature-context-dossier.md`: human literature/context dossier.
+- `09_topic-literature-context-index.json`: AI-readable context support index.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `obs-topic-cand-000005`

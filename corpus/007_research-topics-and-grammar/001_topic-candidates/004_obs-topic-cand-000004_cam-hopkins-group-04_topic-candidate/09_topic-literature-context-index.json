@@ -1,0 +1,43 @@
+{
+  "ai_support_files": [
+    "01_topic-candidate-packet.json",
+    "07_topic-dossier-index.json",
+    "09_topic-literature-context-index.json"
+  ],
+  "claim_boundary": "candidate literature context only; no grammar conclusion; no inscription-topic assignment; no transcription; no reading; no decipherment conclusion",
+  "human_readable_files": [
+    "README.md",
+    "05_human-topic-review-sheet.md",
+    "06_human-topic-dossier.md",
+    "08_topic-literature-context-dossier.md"
+  ],
+  "linked_crosswalk_candidate_count": 34,
+  "literature_context_status": {
+    "alternate_labels": "not_collected_needs_review",
+    "applicable_scope": "candidate_route_only",
+    "bibliography_route": "source_table_recorded_needs_review",
+    "citation_relationship": "not_collected_needs_review",
+    "different_opinions": "not_collected_needs_review",
+    "evidence_level": "metadata_and_crosswalk_route_only",
+    "proposer": "cambridge_hopkins_source_table"
+  },
+  "missing_literature_questions": [
+    "which bibliography note, source page, or finding-list row supports the label",
+    "which cited inscription route should be opened first",
+    "which period, Heji, Yingguo, CUL, or Chalfant reference needs source checking",
+    "who proposed the label, and is the proposer only a source table",
+    "which alternate labels or disagreements remain uncollected",
+    "what evidence is missing before any grammar, topic, or historical claim"
+  ],
+  "record_type": "research_topic_literature_context_index",
+  "review_status": "needs_human_topic_review",
+  "source_evidence_files": [
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/003_cambridge-hopkins-classified-summary.csv",
+    "02_topic-source-index.csv",
+    "03_period-count-index.csv",
+    "04_inscription-crosswalk-route-index.csv"
+  ],
+  "source_group_number": "4",
+  "topic_candidate_id": "obs-topic-cand-000004",
+  "updated_at": "2026-06-20"
+}

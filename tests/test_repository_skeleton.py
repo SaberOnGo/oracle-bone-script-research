@@ -4712,6 +4712,56 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("01_topic-candidate-packet.json", dossier_index["ai_support_files"])
         self.assertIn("topic_label_scope_review", dossier_index["uncollected_human_research_fields"])
         self.assertIn("no grammar conclusion", dossier_index["claim_boundary"])
+        literature_context_path = object_dir / "08_topic-literature-context-dossier.md"
+        literature_context_index_path = object_dir / "09_topic-literature-context-index.json"
+        self.assertTrue(literature_context_path.exists())
+        self.assertTrue(literature_context_index_path.exists())
+        literature_context = literature_context_path.read_text(encoding="utf-8")
+        for marker in [
+            "Topic Literature And Inscription Context Dossier",
+            "主题文献与卜辞语境档案",
+            "Bibliography And Citation Route",
+            "书目与引用路线",
+            "Applicable Scope And Evidence Level",
+            "适用范围与证据等级",
+            "Inscription Context Routes",
+            "卜辞语境路线",
+            "Proposer Disagreement And Alternate Labels",
+            "提出者、不同意见与替代标签",
+            "Concrete Missing Literature Questions",
+            "具体缺失文献问题",
+            "candidate literature context only",
+            "not a grammar conclusion",
+            "not a decipherment conclusion",
+        ]:
+            self.assertIn(marker, literature_context)
+        for line in literature_context.splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        literature_context_index = json.loads(
+            literature_context_index_path.read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            literature_context_index["record_type"],
+            "research_topic_literature_context_index",
+        )
+        self.assertIn(
+            "08_topic-literature-context-dossier.md",
+            literature_context_index["human_readable_files"],
+        )
+        self.assertIn(
+            "04_inscription-crosswalk-route-index.csv",
+            literature_context_index["source_evidence_files"],
+        )
+        self.assertIn(
+            "which bibliography note, source page, or finding-list row supports the label",
+            literature_context_index["missing_literature_questions"],
+        )
+        self.assertIn(
+            "candidate literature context only",
+            literature_context_index["claim_boundary"],
+        )
         with (object_dir / "04_inscription-crosswalk-route-index.csv").open(
             "r", encoding="utf-8-sig", newline=""
         ) as file:

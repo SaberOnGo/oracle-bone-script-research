@@ -3588,6 +3588,8 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "05_human-topic-review-sheet.md",
         "06_human-topic-dossier.md",
         "07_topic-dossier-index.json",
+        "08_topic-literature-context-dossier.md",
+        "09_topic-literature-context-index.json",
     ]
     review_sheet_snippets = [
         "Concrete Questions To Check",
@@ -3695,6 +3697,80 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing topic scope gap")
             if "no grammar conclusion" not in dossier_index.get("claim_boundary", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing grammar boundary")
+        literature_context_path = object_dir / "08_topic-literature-context-dossier.md"
+        if path_exists(literature_context_path):
+            literature_context = literature_context_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Topic Literature And Inscription Context Dossier",
+                "主题文献与卜辞语境档案",
+                "Bibliography And Citation Route",
+                "书目与引用路线",
+                "Applicable Scope And Evidence Level",
+                "适用范围与证据等级",
+                "Inscription Context Routes",
+                "卜辞语境路线",
+                "Proposer Disagreement And Alternate Labels",
+                "提出者、不同意见与替代标签",
+                "Concrete Missing Literature Questions",
+                "具体缺失文献问题",
+                "candidate literature context only",
+                "not a grammar conclusion",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in literature_context:
+                    issues.append(
+                        f"{literature_context_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for line_number, line in enumerate(literature_context.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{literature_context_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        literature_context_index_path = object_dir / "09_topic-literature-context-index.json"
+        if path_exists(literature_context_index_path):
+            literature_context_index = json.loads(
+                literature_context_index_path.read_text(encoding="utf-8")
+            )
+            if literature_context_index.get("record_type") != (
+                "research_topic_literature_context_index"
+            ):
+                issues.append(
+                    f"{literature_context_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            if "08_topic-literature-context-dossier.md" not in (
+                literature_context_index.get("human_readable_files", [])
+            ):
+                issues.append(
+                    f"{literature_context_index_path.relative_to(root).as_posix()} "
+                    "missing human context dossier link"
+                )
+            if "04_inscription-crosswalk-route-index.csv" not in (
+                literature_context_index.get("source_evidence_files", [])
+            ):
+                issues.append(
+                    f"{literature_context_index_path.relative_to(root).as_posix()} "
+                    "missing crosswalk route evidence link"
+                )
+            if (
+                "which bibliography note, source page, or finding-list row supports the label"
+                not in literature_context_index.get("missing_literature_questions", [])
+            ):
+                issues.append(
+                    f"{literature_context_index_path.relative_to(root).as_posix()} "
+                    "missing bibliography question"
+                )
+            if "candidate literature context only" not in literature_context_index.get(
+                "claim_boundary", ""
+            ):
+                issues.append(
+                    f"{literature_context_index_path.relative_to(root).as_posix()} "
+                    "missing claim boundary"
+                )
     return issues
 
 

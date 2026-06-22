@@ -369,6 +369,8 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 - `05_human-topic-review-sheet.md`: human review checklist.
 - `06_human-topic-dossier.md`: human-readable topic candidate dossier.
 - `07_topic-dossier-index.json`: AI-readable support index for the dossier.
+- `08_topic-literature-context-dossier.md`: human literature/context dossier.
+- `09_topic-literature-context-index.json`: AI-readable context support index.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `{project_id}`
@@ -681,6 +683,190 @@ def topic_dossier_index_payload(
     }
 
 
+def topic_literature_context_dossier_text(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> str:
+    route_sample = routes[:8]
+    route_lines = "\n".join(
+        [
+            "| {crosswalk} | {period} | {yingguo} | {heji} |".format(
+                crosswalk=route["inscription_crosswalk_project_id"],
+                period=route["period_label"],
+                yingguo=route["yingguo_ref_id"] or "not_collected",
+                heji=route["heji_ref_id"] or "not_collected",
+            )
+            for route in route_sample
+        ]
+    )
+    if not route_lines:
+        route_lines = "| not_collected | not_collected | not_collected | not_collected |"
+    intro_en = wrapped_paragraph(
+        "This human-readable dossier records the bibliography, citation, "
+        "applicable-scope, evidence-level, inscription-context, proposer, "
+        "disagreement, and alternate-label checks needed before this topic "
+        "candidate can support later research."
+    )
+    intro_zh = wrapped_paragraph(
+        "本档案记录主题候选进入后续研究前需要复核的书目、引用、适用范围、"
+        "证据等级、卜辞语境、提出者、不同意见和替代标签问题。"
+    )
+    questions = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            (
+                "Which bibliography note, source page, or finding-list row "
+                "supports the label?"
+            ),
+            "哪条书目说明、来源页面或 finding-list 行支持该标签？",
+            "Which cited inscription route should be opened first?",
+            "应先打开哪条被引用的卜辞路线？",
+            (
+                "Which period, Heji, Yingguo, CUL, or Chalfant reference "
+                "needs source checking?"
+            ),
+            "哪项分期、合集、英粹、CUL 或 Chalfant 引用需要回源核对？",
+            "Who proposed the label, and is the proposer only a source table?",
+            "标签提出者是谁，当前是否只是来源表分类？",
+            "Which alternate labels or disagreements remain uncollected?",
+            "哪些替代标签或不同意见仍未收集？",
+            (
+                "What evidence is missing before any grammar, topic, or "
+                "historical claim?"
+            ),
+            "形成任何语法、主题或历史判断前还缺哪些证据？",
+        ]
+    )
+    return f"""# Topic Literature And Inscription Context Dossier / 主题文献与卜辞语境档案
+
+Topic candidate ID: `{project_id}`
+
+English:
+{intro_en}
+
+简体中文：
+{intro_zh}
+
+## Bibliography And Citation Route / 书目与引用路线
+
+| field | value |
+| --- | --- |
+| source id | {SOURCE_ID} |
+| download id | {DOWNLOAD_ID} |
+| source file | {CLASSIFIED_SUMMARY.as_posix()} |
+| source summary row | {row["summary_row_id"]} |
+| source group | {row["group_number"]} |
+| source label en | {row["group_label_en"]} |
+| source label zh | {row["group_label_zh"]} |
+
+## Applicable Scope And Evidence Level / 适用范围与证据等级
+
+| field | value |
+| --- | --- |
+| applicable scope | source-classification route for review |
+| evidence level | metadata and crosswalk route only |
+| review status | needs_human_topic_review |
+| grammar analysis status | not_started |
+| inscription topic claim status | no_claim |
+
+English:
+{wrapped_paragraph("The current evidence supports route finding, count checking, and bibliography review only. It does not establish a controlled grammar category, historical fact, or accepted topic assignment.")}
+
+简体中文：
+{wrapped_paragraph("当前证据只支持查找路线、核对计数和复核书目，不建立语法类别、历史事实或已接受的主题归属。")}
+
+## Inscription Context Routes / 卜辞语境路线
+
+| field | value |
+| --- | --- |
+| linked crosswalk route count | {len(routes)} |
+| route index | 04_inscription-crosswalk-route-index.csv |
+| sampled route count below | {len(route_sample)} |
+
+| crosswalk id | period | Yingguo route | Heji route |
+| --- | --- | --- | --- |
+{route_lines}
+
+## Proposer Disagreement And Alternate Labels / 提出者、不同意见与替代标签
+
+| field | current status |
+| --- | --- |
+| proposer or classifier | Cambridge/Hopkins source table |
+| citation relationship | not_collected; needs bibliography review |
+| different opinions | not_collected; needs scholarship review |
+| alternate labels | not_collected; needs source comparison |
+| applicability note | candidate literature context only |
+
+## Concrete Missing Literature Questions / 具体缺失文献问题
+
+{questions}
+
+## Review Boundary / 复核边界
+
+- candidate literature context only
+- not a grammar conclusion
+- not an inscription-topic assignment
+- not a transcription
+- not a reading
+- not a decipherment conclusion
+"""
+
+
+def topic_literature_context_index_payload(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "topic_candidate_id": project_id,
+        "record_type": "research_topic_literature_context_index",
+        "human_readable_files": [
+            "README.md",
+            "05_human-topic-review-sheet.md",
+            "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+        ],
+        "source_evidence_files": [
+            CLASSIFIED_SUMMARY.as_posix(),
+            "02_topic-source-index.csv",
+            "03_period-count-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+        ],
+        "ai_support_files": [
+            "01_topic-candidate-packet.json",
+            "07_topic-dossier-index.json",
+            "09_topic-literature-context-index.json",
+        ],
+        "source_group_number": row["group_number"],
+        "linked_crosswalk_candidate_count": len(routes),
+        "literature_context_status": {
+            "bibliography_route": "source_table_recorded_needs_review",
+            "citation_relationship": "not_collected_needs_review",
+            "applicable_scope": "candidate_route_only",
+            "evidence_level": "metadata_and_crosswalk_route_only",
+            "proposer": "cambridge_hopkins_source_table",
+            "different_opinions": "not_collected_needs_review",
+            "alternate_labels": "not_collected_needs_review",
+        },
+        "missing_literature_questions": [
+            "which bibliography note, source page, or finding-list row supports the label",
+            "which cited inscription route should be opened first",
+            "which period, Heji, Yingguo, CUL, or Chalfant reference needs source checking",
+            "who proposed the label, and is the proposer only a source table",
+            "which alternate labels or disagreements remain uncollected",
+            "what evidence is missing before any grammar, topic, or historical claim",
+        ],
+        "claim_boundary": (
+            "candidate literature context only; no grammar conclusion; no "
+            "inscription-topic assignment; no transcription; no reading; no "
+            "decipherment conclusion"
+        ),
+        "review_status": "needs_human_topic_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_materials(root: Path) -> dict[str, int]:
     summary_rows = [
         row
@@ -713,6 +899,14 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             output_dir / "07_topic-dossier-index.json",
             topic_dossier_index_payload(project_id, row, routes),
+        )
+        (output_dir / "08_topic-literature-context-dossier.md").write_text(
+            topic_literature_context_dossier_text(project_id, row, routes),
+            encoding="utf-8",
+        )
+        write_json(
+            output_dir / "09_topic-literature-context-index.json",
+            topic_literature_context_index_payload(project_id, row, routes),
         )
         topic_index_rows.append(
             {

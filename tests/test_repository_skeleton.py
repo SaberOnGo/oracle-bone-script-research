@@ -21844,9 +21844,31 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["corpus_area"] for row in rows}, {"published_research_notes"})
         self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
-        self.assertEqual({row["research_note_file_count"] for row in rows}, {"6"})
+        self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"153"})
         self.assertEqual({row["source_register_file_count"] for row in rows}, {"225"})
+        self.assertTrue(
+            all(
+                "research/001_published-scholarship-index/"
+                "002_published-scholarship-review-guide.md"
+                in row["research_note_route_paths"]
+                for row in rows
+            )
+        )
+        guide_path = (
+            repo_root()
+            / "research/001_published-scholarship-index/"
+            / "002_published-scholarship-review-guide.md"
+        )
+        guide_text = guide_path.read_text(encoding="utf-8")
+        self.assertIn("Published Scholarship Review Guide", guide_text)
+        self.assertIn("书目身份", guide_text)
+        self.assertIn("证据等级", guide_text)
+        self.assertIn("提出者", guide_text)
+        self.assertIn("争议", guide_text)
+        self.assertIn("不得写成已确认释读", guide_text)
+        for line in guide_text.splitlines():
+            self.assertLessEqual(len(line), 80, line)
         self.assertTrue(all("research/" in row["files_to_open"] for row in rows))
         self.assertTrue(all("doc/public/user_research/" in row["files_to_open"] for row in rows))
         self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
@@ -21868,6 +21890,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["candidate_or_staging_boundary"], "draft_or_bibliography_review_queue")
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
         self.assertIn("research/001_published-scholarship-index/README.md", first["research_note_route_paths"])
+        self.assertIn(
+            "research/001_published-scholarship-index/"
+            "002_published-scholarship-review-guide.md",
+            first["research_note_route_paths"],
+        )
+        self.assertIn(
+            "open_published_scholarship_review_guide",
+            first["required_review_steps"],
+        )
         self.assertIn("doc/public/user_research/README.md", first["draft_review_route_paths"])
         self.assertTrue(all("published research note phase gap review checklist only" in row["caution"] for row in rows))
 

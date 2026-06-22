@@ -22,6 +22,9 @@ OUTPUT_CSV = Path(
 RESEARCH_DIR = Path("research")
 USER_RESEARCH_DIR = Path("doc/public/user_research")
 SOURCE_REGISTER_DIR = Path("corpus/006_research-sources-and-bibliography")
+PUBLISHED_SCHOLARSHIP_REVIEW_GUIDE = Path(
+    "research/001_published-scholarship-index/002_published-scholarship-review-guide.md"
+)
 UPDATED_AT = "2026-06-20"
 CLAIM_BOUNDARY = "published_research_note_phase_gap_review_checklist_not_review_outcome_not_scholarship"
 CAUTION = (
@@ -34,6 +37,7 @@ CAUTION = (
 REQUIRED_REVIEW_STEPS = (
     "open_197_published_research_note_phase_gap_review_checklist;"
     "open_192_core_corpus_phase_gap_action_queue;"
+    "open_published_scholarship_review_guide;"
     "open_research_directory;"
     "open_doc_public_user_research_directory;"
     "open_source_register_index;"
@@ -76,7 +80,11 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
         if row["corpus_area"] == "published_research_notes"
     ]
     source_rows = read_csv_rows(root / SOURCE_INDEX)
-    research_note_route_paths = route_paths(root, RESEARCH_DIR, ("README.md",))
+    research_note_route_paths = route_paths(
+        root,
+        RESEARCH_DIR,
+        ("README.md", PUBLISHED_SCHOLARSHIP_REVIEW_GUIDE.name),
+    )
     draft_review_route_paths = route_paths(root, USER_RESEARCH_DIR, ("README.md", "*.md"))
     files_to_open = ";".join(
         [
@@ -85,6 +93,7 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
             path_text(SOURCE_INDEX),
             "research/",
             "doc/public/user_research/",
+            path_text(PUBLISHED_SCHOLARSHIP_REVIEW_GUIDE),
             research_note_route_paths,
             "doc/public/user_research/README.md",
         ]

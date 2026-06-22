@@ -348,6 +348,8 @@ def dossier_text(
         "- `04_visual-gallery.md`",
         "- `06_human-review-sheet.md`",
         "- `07_research-dossier-index.json`",
+        "- `08_character-context-evidence-dossier.md`",
+        "- `09_character-context-evidence-index.json`",
         "",
         "## Boundary / 边界",
         "",
@@ -439,11 +441,13 @@ def ai_index(
             "04_visual-gallery.md",
             "05_human-research-dossier.md",
             "06_human-review-sheet.md",
+            "08_character-context-evidence-dossier.md",
         ],
         "ai_files": [
             packet_name,
             "02_visual-source-index.csv",
             "07_research-dossier-index.json",
+            "09_character-context-evidence-index.json",
         ],
         "packet_summary": {
             "primary_external_ref_id": packet.get("primary_external_ref_id", ""),

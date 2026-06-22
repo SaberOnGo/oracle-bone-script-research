@@ -312,6 +312,15 @@ def load_character_human_research_dossiers_module():
     return module
 
 
+def load_character_context_evidence_dossiers_module():
+    path = repo_root() / "tools/002_corpus-import/build_character_context_evidence_dossiers.py"
+    spec = importlib.util.spec_from_file_location("build_character_context_evidence_dossiers", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_undeciphered_local_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_undeciphered_local_materials", path)
@@ -3568,6 +3577,63 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in text.splitlines():
                 if not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
+
+    def test_character_context_evidence_dossiers_are_colocated_and_readable(self) -> None:
+        module = load_character_context_evidence_dossiers_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 10996)
+
+        for project_id in ["obs-char-000001", "obs-unk-005708"]:
+            output = outputs[project_id]
+            object_dir = output["object_dir"]
+            dossier_path = object_dir / "08_character-context-evidence-dossier.md"
+            index_path = object_dir / "09_character-context-evidence-index.json"
+            self.assertEqual(dossier_path.parent, object_dir)
+            self.assertEqual(index_path.parent, object_dir)
+            self.assertTrue(path_exists(dossier_path), dossier_path)
+            self.assertTrue(path_exists(index_path), index_path)
+
+            dossier_text = dossier_path.read_text(encoding="utf-8")
+            self.assertIn("单字考古文字上下文档案", dossier_text)
+            self.assertIn("字形图片与观察入口", dossier_text)
+            self.assertIn("异体、近形与构件线索", dossier_text)
+            self.assertIn("卜辞、图版与著录路线", dossier_text)
+            self.assertIn("出土地、馆藏、时期与组类", dossier_text)
+            self.assertIn("释读史、争议与后世字形", dossier_text)
+            self.assertIn("具体待查问题", dossier_text)
+            self.assertIn("不是释读结论", dossier_text)
+            self.assertIn("需要核对哪些卜辞、图版、著录号或合集号", dossier_text)
+            self.assertIn("需要打开哪些来源、checksum、manifest 或权利记录", dossier_text)
+            self.assertNotIn("not_collected", dossier_text)
+            for fragment in ("娴?", "绁犫偓", "閻?", "缂傚搫銇?", "閼板啫褰?"):
+                self.assertNotIn(fragment, dossier_text)
+            for line in dossier_text.splitlines():
+                if not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+
+            index = json.loads(index_path.read_text(encoding="utf-8"))
+            self.assertEqual(index["project_id"], project_id)
+            self.assertEqual(
+                index["record_type"],
+                "character_context_evidence_dossier_index",
+            )
+            self.assertIn(
+                "08_character-context-evidence-dossier.md",
+                index["human_readable_files"],
+            )
+            self.assertIn("01_*packet.json", index["ai_support_files"])
+            self.assertEqual(
+                index["claim_boundary"],
+                "context_routes_only_not_decipherment_conclusion",
+            )
+            self.assertIn(
+                "inscription_text_context_to_check",
+                index["missing_or_review_fields"],
+            )
+            self.assertIn(
+                "source_manifest_checksum_and_rights_to_check",
+                index["missing_or_review_fields"],
+            )
     def test_component_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_component_candidate_local_materials(repo_root()), [])
 

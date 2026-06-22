@@ -6,12 +6,14 @@
     "README.md",
     "04_visual-gallery.md",
     "05_human-research-dossier.md",
-    "06_human-review-sheet.md"
+    "06_human-review-sheet.md",
+    "08_character-context-evidence-dossier.md"
   ],
   "ai_files": [
     "01_undeciphered-candidate-packet.json",
     "02_visual-source-index.csv",
-    "07_research-dossier-index.json"
+    "07_research-dossier-index.json",
+    "09_character-context-evidence-index.json"
   ],
   "packet_summary": {
     "primary_external_ref_id": "hust-obc-und-L-003590",

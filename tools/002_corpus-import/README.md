@@ -66,6 +66,7 @@ packets in the same concrete `corpus` object directory:
 
 - `build_character_local_materials.py`
 - `build_character_human_research_dossiers.py`
+- `build_character_context_evidence_dossiers.py`
 - `extract_hust_obc_local_glyph_images.py`
 - `build_hust_obc_undeciphered_local_materials.py`
 - `build_obimd_component_candidate_materials.py`
@@ -81,6 +82,7 @@ Simplified Chinese:
 
 - `build_character_local_materials.py`
 - `build_character_human_research_dossiers.py`
+- `build_character_context_evidence_dossiers.py`
 - `extract_hust_obc_local_glyph_images.py`
 - `build_hust_obc_undeciphered_local_materials.py`
 - `build_obimd_component_candidate_materials.py`

@@ -2064,6 +2064,7 @@ REQUIRED_PATHS = [
     "tools/002_corpus-import/build_hust_obc_undeciphered_local_materials.py",
     "tools/002_corpus-import/build_character_local_materials.py",
     "tools/002_corpus-import/build_character_human_research_dossiers.py",
+    "tools/002_corpus-import/build_character_context_evidence_dossiers.py",
     "tools/002_corpus-import/extract_hust_obc_local_glyph_images.py",
     "tools/002_corpus-import/sync_asset_id_source_map_from_asset_index.py",
     "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py",
@@ -2371,6 +2372,8 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         dossier_path = object_dir / "05_human-research-dossier.md"
         review_sheet_path = object_dir / "06_human-review-sheet.md"
         dossier_index_path = object_dir / "07_research-dossier-index.json"
+        context_dossier_path = object_dir / "08_character-context-evidence-dossier.md"
+        context_index_path = object_dir / "09_character-context-evidence-index.json"
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")
@@ -2463,10 +2466,68 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             for expected_file in [
                 "05_human-research-dossier.md",
                 "06_human-review-sheet.md",
+                "08_character-context-evidence-dossier.md",
             ]:
                 if expected_file not in dossier_index.get("human_files", []):
                     issues.append(
                         f"{dossier_index_path.relative_to(root).as_posix()} missing human file {expected_file}"
+                    )
+        if not context_dossier_path.exists():
+            issues.append(f"{relative_dir} missing co-located 08_character-context-evidence-dossier.md")
+        else:
+            context_text = context_dossier_path.read_text(encoding="utf-8")
+            for line_number, line in enumerate(context_text.splitlines(), start=1):
+                if len(line) > 80 and not line.startswith("!["):
+                    issues.append(
+                        f"{context_dossier_path.relative_to(root).as_posix()} line {line_number} exceeds 80 chars"
+                    )
+            for snippet in [
+                project_id,
+                "单字考古文字上下文档案",
+                "字形图片与观察入口",
+                "异体、近形与构件线索",
+                "卜辞、图版与著录路线",
+                "出土地、馆藏、时期与组类",
+                "释读史、争议与后世字形",
+                "具体待查问题",
+                "不是释读结论",
+                "需要核对哪些卜辞、图版、著录号或合集号",
+                "需要打开哪些来源、checksum、manifest 或权利记录",
+            ]:
+                if snippet not in context_text:
+                    issues.append(
+                        f"{context_dossier_path.relative_to(root).as_posix()} missing marker: {snippet}"
+                    )
+            for forbidden in ["not_collected", "娴?", "绁犫偓", "閻?", "缂傚搫銇?", "閼板啫褰?"]:
+                if forbidden in context_text:
+                    issues.append(
+                        f"{context_dossier_path.relative_to(root).as_posix()} contains forbidden marker: {forbidden}"
+                    )
+        if not context_index_path.exists():
+            issues.append(f"{relative_dir} missing co-located 09_character-context-evidence-index.json")
+        else:
+            try:
+                context_index = json.loads(context_index_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} invalid JSON: {exc}")
+                context_index = {}
+            if context_index.get("project_id") != project_id:
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} project_id changed")
+            if context_index.get("record_type") != "character_context_evidence_dossier_index":
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} record_type changed")
+            if context_index.get("claim_boundary") != "context_routes_only_not_decipherment_conclusion":
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} claim boundary changed")
+            if "08_character-context-evidence-dossier.md" not in context_index.get("human_readable_files", []):
+                issues.append(
+                    f"{context_index_path.relative_to(root).as_posix()} missing context dossier path"
+                )
+            for field in [
+                "inscription_text_context_to_check",
+                "source_manifest_checksum_and_rights_to_check",
+            ]:
+                if field not in context_index.get("missing_or_review_fields", []):
+                    issues.append(
+                        f"{context_index_path.relative_to(root).as_posix()} missing review field: {field}"
                     )
         if not visual_index_path.exists():
             issues.append(f"{relative_dir} missing co-located 02_visual-source-index.csv")

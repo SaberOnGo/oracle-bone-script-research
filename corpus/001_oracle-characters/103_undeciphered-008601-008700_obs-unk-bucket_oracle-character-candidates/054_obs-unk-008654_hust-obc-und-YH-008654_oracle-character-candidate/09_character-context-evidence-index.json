@@ -1,0 +1,71 @@
+{
+  "record_type": "character_context_evidence_dossier_index",
+  "project_id": "obs-unk-008654",
+  "updated_at": "2026-06-23",
+  "object_dir": "corpus/001_oracle-characters/103_undeciphered-008601-008700_obs-unk-bucket_oracle-character-candidates/054_obs-unk-008654_hust-obc-und-YH-008654_oracle-character-candidate",
+  "human_readable_files": [
+    "README.md",
+    "04_visual-gallery.md",
+    "05_human-research-dossier.md",
+    "06_human-review-sheet.md",
+    "08_character-context-evidence-dossier.md"
+  ],
+  "ai_support_files": [
+    "01_*packet.json",
+    "02_visual-source-index.csv",
+    "07_research-dossier-index.json",
+    "09_character-context-evidence-index.json"
+  ],
+  "packet_file": "01_undeciphered-candidate-packet.json",
+  "source_route_summary": {
+    "source_id": "src-hust-obc",
+    "primary_external_ref_id": "hust-obc-und-YH-008654",
+    "source_package_id": "large-src-000001",
+    "download_or_access_ids": [
+      "dl-hust-obc-figshare-raw"
+    ],
+    "source_metadata_files": [],
+    "route_files": []
+  },
+  "visual_route_summary": {
+    "row_count": "1",
+    "source_ref_count": "1",
+    "committed_image_count": "1",
+    "first_source_ref": "H_？_60CE1_0.png",
+    "first_committed_image": "001_asset-010245_hust-obc-und-YH-008654_glyph.jpg",
+    "rights_status": "source_marked_risk_noted",
+    "review_status": "needs_human_visual_review"
+  },
+  "graph_route_summary": {
+    "edge_count": 1,
+    "edge_type_counts": {
+      "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE": 1
+    },
+    "codepoints": [],
+    "cross_source_statuses": [],
+    "route_files": [],
+    "graph_files": [
+      "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
+    ]
+  },
+  "human_context_sections": [
+    "glyph_image_and_observation_routes",
+    "variant_near_shape_and_component_clues",
+    "inscription_plate_catalog_and_heji_routes",
+    "findspot_collection_period_and_group_routes",
+    "source_rights_risk_and_manifest_routes",
+    "decipherment_history_dispute_and_later_script_routes"
+  ],
+  "missing_or_review_fields": [
+    "glyph_observation_notes_to_review",
+    "variant_and_near_shape_routes_to_check",
+    "component_candidate_routes_to_check",
+    "inscription_text_context_to_check",
+    "plate_catalog_heji_and_old_number_to_check",
+    "findspot_collection_period_group_to_check",
+    "bibliography_decipherment_history_and_disputes_to_check",
+    "later_script_evolution_correspondence_to_check",
+    "source_manifest_checksum_and_rights_to_check"
+  ],
+  "claim_boundary": "context_routes_only_not_decipherment_conclusion"
+}

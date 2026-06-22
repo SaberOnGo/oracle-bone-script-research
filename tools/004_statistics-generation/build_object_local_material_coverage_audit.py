@@ -57,11 +57,13 @@ OBJECT_SPECS = [
             "04_visual-gallery.md",
             "05_human-research-dossier.md",
             "06_human-review-sheet.md",
+            "08_character-context-evidence-dossier.md",
         ),
         (
             "01_*packet.json",
             "02_visual-source-index.csv",
             "07_research-dossier-index.json",
+            "09_character-context-evidence-index.json",
         ),
         ("03_visual-assets",),
     ),

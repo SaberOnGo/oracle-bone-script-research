@@ -139,6 +139,8 @@ cross-source and human review are complete.
 - `04_visual-gallery.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
+- `08_character-context-evidence-dossier.md`
+- `09_character-context-evidence-index.json`
 
 ## Boundary / 边界
 

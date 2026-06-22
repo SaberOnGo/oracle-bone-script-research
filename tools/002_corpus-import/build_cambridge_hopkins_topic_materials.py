@@ -367,6 +367,8 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 - `03_period-count-index.csv`: period-count metadata from the classified table.
 - `04_inscription-crosswalk-route-index.csv`: route rows to inscription crosswalk candidates.
 - `05_human-topic-review-sheet.md`: human review checklist.
+- `06_human-topic-dossier.md`: human-readable topic candidate dossier.
+- `07_topic-dossier-index.json`: AI-readable support index for the dossier.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `{project_id}`
@@ -468,6 +470,217 @@ English:
 """
 
 
+def topic_dossier_text(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> str:
+    period_lines = "\n".join(
+        [
+            f"| I | {row['period_i_count']} |",
+            f"| II | {row['period_ii_count']} |",
+            f"| III | {row['period_iii_count']} |",
+            f"| IV | {row['period_iv_count']} |",
+            f"| V | {row['period_v_count']} |",
+        ]
+    )
+    first_routes = routes[:5]
+    route_lines = "\n".join(
+        [
+            "| {route_id} | {crosswalk_id} | {period} | {heji} |".format(
+                route_id=route["topic_crosswalk_route_id"],
+                crosswalk_id=route["inscription_crosswalk_project_id"],
+                period=route["period_label"],
+                heji=route["heji_ref_id"] or "not_collected",
+            )
+            for route in first_routes
+        ]
+    )
+    if not first_routes:
+        route_lines = "| not_collected | not_collected | not_collected | not_collected |"
+    questions = "\n".join(
+        [
+            wrapped_bullet(
+                "Which Cambridge/Hopkins bibliography or finding-list note "
+                "should be opened before trusting this topic label?"
+            ),
+            wrapped_bullet(
+                "Which period-count values need comparison with the source "
+                "classified table and inscription crosswalk rows?"
+            ),
+            wrapped_bullet(
+                "Which inscription crosswalk routes should be checked before "
+                "any topic or grammar discussion starts?"
+            ),
+            wrapped_bullet(
+                "Which later citation, proposer, disagreement, or alternate "
+                "classification has not yet been collected?"
+            ),
+            wrapped_bullet(
+                "What source evidence is missing before any grammar or "
+                "inscription-topic assignment can be reviewed?"
+            ),
+            "- 应先打开哪条 Cambridge/Hopkins 书目或 finding-list 说明，",
+            "  再信任这个主题标签？",
+            "- 哪些分期计数需要回到来源分类表和卜辞互证行核对？",
+            "- 哪些卜辞互证路线应在任何主题或语法讨论前先检查？",
+            "- 还缺哪些后续引用、提出者、不同意见或替代分类记录？",
+            "- 形成任何语法或卜辞主题归属复核前还缺哪些来源证据？",
+        ]
+    )
+    boundary = "\n".join(
+        [
+            "- not a grammar conclusion",
+            "- not an inscription-topic assignment",
+            "- not a transcription",
+            "- not a reading",
+            "- not a decipherment conclusion",
+            "- 不是语法结论",
+            "- 不是卜辞主题归属结论",
+            "- 不是释文",
+            "- 不是读法",
+            "- 不是释读结论",
+        ]
+    )
+    return f"""# Human Topic Dossier / 主题候选研究档案
+
+- Topic candidate ID / 主题候选 ID: `{project_id}`
+
+## Bibliography And Source Route / 书目与来源路线
+
+English:
+{wrapped_paragraph("This dossier records a Cambridge/Hopkins classified-table topic candidate as a source route for later human review. It does not add a grammar analysis or a topic conclusion.")}
+
+简体中文：
+本档案记录 Cambridge/Hopkins 分类表中的主题候选路线。
+它只供后续人工复核，不加入语法分析或主题结论。
+
+| field | value |
+| --- | --- |
+| source id | {SOURCE_ID} |
+| download id | {DOWNLOAD_ID} |
+| source file | {CLASSIFIED_SUMMARY.as_posix()} |
+| source summary row | {row["summary_row_id"]} |
+| source group | {row["group_number"]} |
+
+## Topic Label And Scope / 主题标签与范围
+
+| field | value |
+| --- | --- |
+| English source label | {row["group_label_en"]} |
+| Chinese source label | {row["group_label_zh"]} |
+| reported total | {row["total_count"]} |
+| candidate status | source_classification_candidate |
+
+English:
+{wrapped_paragraph("The label is a controlled-vocabulary route from the source table. It may help locate inscription groups for review, but it does not prove a semantic, ritual, grammatical, or historical category.")}
+
+简体中文：
+该标签只是来源表的受控词表路线。
+它可帮助研究者找到待核查卜辞群。
+它不证明语义、祭祀、语法或历史分类。
+
+## Period Counts And Inscription Routes / 分期计数与卜辞路线
+
+| period | source count |
+| --- | --- |
+{period_lines}
+
+| route summary | value |
+| --- | --- |
+| linked crosswalk route count | {len(routes)} |
+| route index | 04_inscription-crosswalk-route-index.csv |
+
+| route id | crosswalk id | period | Heji route |
+| --- | --- | --- | --- |
+{route_lines}
+
+## Evidence Level And Review Status / 证据等级与复核状态
+
+| field | value |
+| --- | --- |
+| evidence level | metadata_route_only |
+| rights status | metadata_only_until_verified |
+| review status | needs_human_topic_review |
+| grammar analysis status | not_started |
+| inscription topic claim status | no_claim |
+
+English:
+{wrapped_paragraph("The evidence currently supports routing and counting only. Human review must reopen the source table, crosswalk rows, and any cited scholarship before using the label in research.")}
+
+简体中文：
+当前证据只支持路线整理和计数核查。
+研究使用前，必须回到来源表、互证行和相关文献复核。
+
+## Citation And Disagreement Notes / 引用与分歧记录
+
+| field | value |
+| --- | --- |
+| citation relationship | not_collected |
+| proposer or classifier | Cambridge/Hopkins source table |
+| different opinions | not_collected |
+| alternate labels | not_collected |
+| scope note | candidate route for later review |
+
+## Concrete Questions To Check / 具体待查问题
+
+{questions}
+
+## Review Boundary / 复核边界
+
+{boundary}
+"""
+
+
+def topic_dossier_index_payload(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "topic_candidate_id": project_id,
+        "record_type": "research_topic_dossier_index",
+        "human_readable_files": [
+            "README.md",
+            "05_human-topic-review-sheet.md",
+            "06_human-topic-dossier.md",
+        ],
+        "ai_support_files": [
+            "01_topic-candidate-packet.json",
+            "02_topic-source-index.csv",
+            "03_period-count-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+            "07_topic-dossier-index.json",
+        ],
+        "source_route_files": [
+            CLASSIFIED_SUMMARY.as_posix(),
+            "02_topic-source-index.csv",
+            "03_period-count-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+            "06_human-topic-dossier.md",
+        ],
+        "source_group_number": row["group_number"],
+        "linked_crosswalk_candidate_count": len(routes),
+        "uncollected_human_research_fields": [
+            "topic_label_scope_review",
+            "bibliographic_citation_relationships",
+            "later_scholarship_discussion",
+            "different_opinions_or_alternate_classifications",
+            "inscription_context_review",
+            "grammar_analysis_review",
+        ],
+        "claim_boundary": [
+            "no grammar conclusion",
+            "no inscription-topic assignment",
+            "no transcription",
+            "no reading",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_topic_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_materials(root: Path) -> dict[str, int]:
     summary_rows = [
         row
@@ -493,6 +706,13 @@ def build_materials(root: Path) -> dict[str, int]:
         (output_dir / "README.md").write_text(readme_text(project_id, row, len(routes)), encoding="utf-8")
         (output_dir / "05_human-topic-review-sheet.md").write_text(
             review_sheet_text(project_id, row), encoding="utf-8"
+        )
+        (output_dir / "06_human-topic-dossier.md").write_text(
+            topic_dossier_text(project_id, row, routes), encoding="utf-8"
+        )
+        write_json(
+            output_dir / "07_topic-dossier-index.json",
+            topic_dossier_index_payload(project_id, row, routes),
         )
         topic_index_rows.append(
             {

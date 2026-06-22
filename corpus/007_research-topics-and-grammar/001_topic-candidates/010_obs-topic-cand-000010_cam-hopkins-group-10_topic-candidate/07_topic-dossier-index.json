@@ -1,0 +1,42 @@
+{
+  "ai_support_files": [
+    "01_topic-candidate-packet.json",
+    "02_topic-source-index.csv",
+    "03_period-count-index.csv",
+    "04_inscription-crosswalk-route-index.csv",
+    "07_topic-dossier-index.json"
+  ],
+  "claim_boundary": [
+    "no grammar conclusion",
+    "no inscription-topic assignment",
+    "no transcription",
+    "no reading",
+    "no decipherment conclusion"
+  ],
+  "human_readable_files": [
+    "README.md",
+    "05_human-topic-review-sheet.md",
+    "06_human-topic-dossier.md"
+  ],
+  "linked_crosswalk_candidate_count": 29,
+  "record_type": "research_topic_dossier_index",
+  "review_status": "needs_human_topic_review",
+  "source_group_number": "10",
+  "source_route_files": [
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/003_cambridge-hopkins-classified-summary.csv",
+    "02_topic-source-index.csv",
+    "03_period-count-index.csv",
+    "04_inscription-crosswalk-route-index.csv",
+    "06_human-topic-dossier.md"
+  ],
+  "topic_candidate_id": "obs-topic-cand-000010",
+  "uncollected_human_research_fields": [
+    "topic_label_scope_review",
+    "bibliographic_citation_relationships",
+    "later_scholarship_discussion",
+    "different_opinions_or_alternate_classifications",
+    "inscription_context_review",
+    "grammar_analysis_review"
+  ],
+  "updated_at": "2026-06-20"
+}

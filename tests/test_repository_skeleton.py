@@ -4486,6 +4486,39 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("形成任何语法或主题归属结论前还缺哪些证据？", review_sheet_text)
         for line in review_sheet_text.splitlines():
             self.assertLessEqual(len(line), 80, line)
+        dossier_text = (object_dir / "06_human-topic-dossier.md").read_text(encoding="utf-8")
+        for marker in [
+            "Human Topic Dossier",
+            "主题候选研究档案",
+            "Bibliography And Source Route",
+            "书目与来源路线",
+            "Topic Label And Scope",
+            "主题标签与范围",
+            "Period Counts And Inscription Routes",
+            "分期计数与卜辞路线",
+            "Evidence Level And Review Status",
+            "证据等级与复核状态",
+            "Citation And Disagreement Notes",
+            "引用与分歧记录",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "not a grammar conclusion",
+            "not an inscription-topic assignment",
+            "not a transcription",
+            "not a reading",
+            "not a decipherment conclusion",
+        ]:
+            self.assertIn(marker, dossier_text)
+        for line in dossier_text.splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        dossier_index = json.loads((object_dir / "07_topic-dossier-index.json").read_text(encoding="utf-8"))
+        self.assertEqual(dossier_index["record_type"], "research_topic_dossier_index")
+        self.assertIn("06_human-topic-dossier.md", dossier_index["human_readable_files"])
+        self.assertIn("01_topic-candidate-packet.json", dossier_index["ai_support_files"])
+        self.assertIn("topic_label_scope_review", dossier_index["uncollected_human_research_fields"])
+        self.assertIn("no grammar conclusion", dossier_index["claim_boundary"])
         with (object_dir / "04_inscription-crosswalk-route-index.csv").open(
             "r", encoding="utf-8-sig", newline=""
         ) as file:

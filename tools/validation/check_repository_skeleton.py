@@ -3425,6 +3425,8 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "03_period-count-index.csv",
         "04_inscription-crosswalk-route-index.csv",
         "05_human-topic-review-sheet.md",
+        "06_human-topic-dossier.md",
+        "07_topic-dossier-index.json",
     ]
     review_sheet_snippets = [
         "Concrete Questions To Check",
@@ -3482,6 +3484,56 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                         f"{review_sheet_path.relative_to(root).as_posix()} line "
                         f"{line_number} exceeds 80 characters"
                     )
+        dossier_path = object_dir / "06_human-topic-dossier.md"
+        if path_exists(dossier_path):
+            dossier = dossier_path.read_text(encoding="utf-8")
+            dossier_snippets = [
+                "Human Topic Dossier",
+                "主题候选研究档案",
+                "Bibliography And Source Route",
+                "书目与来源路线",
+                "Topic Label And Scope",
+                "主题标签与范围",
+                "Period Counts And Inscription Routes",
+                "分期计数与卜辞路线",
+                "Evidence Level And Review Status",
+                "证据等级与复核状态",
+                "Citation And Disagreement Notes",
+                "引用与分歧记录",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "not a grammar conclusion",
+                "not an inscription-topic assignment",
+                "not a transcription",
+                "not a reading",
+                "not a decipherment conclusion",
+            ]
+            for snippet in dossier_snippets:
+                if snippet not in dossier:
+                    issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(dossier.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{dossier_path.relative_to(root).as_posix()} line "
+                        f"{line_number} exceeds 80 characters"
+                    )
+        dossier_index_path = object_dir / "07_topic-dossier-index.json"
+        if path_exists(dossier_index_path):
+            dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
+            if dossier_index.get("record_type") != "research_topic_dossier_index":
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} record_type changed")
+            if "06_human-topic-dossier.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if "01_topic-candidate-packet.json" not in dossier_index.get("ai_support_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing packet support link")
+            if "topic_label_scope_review" not in dossier_index.get(
+                "uncollected_human_research_fields", []
+            ):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing topic scope gap")
+            if "no grammar conclusion" not in dossier_index.get("claim_boundary", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing grammar boundary")
     return issues
 
 

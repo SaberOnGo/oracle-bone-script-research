@@ -12,6 +12,8 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 - `03_period-count-index.csv`: period-count metadata from the classified table.
 - `04_inscription-crosswalk-route-index.csv`: route rows to inscription crosswalk candidates.
 - `05_human-topic-review-sheet.md`: human review checklist.
+- `06_human-topic-dossier.md`: human-readable topic candidate dossier.
+- `07_topic-dossier-index.json`: AI-readable support index for the dossier.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `obs-topic-cand-000008`

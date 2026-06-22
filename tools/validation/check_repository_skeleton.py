@@ -3690,6 +3690,8 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "07_topic-dossier-index.json",
         "08_topic-literature-context-dossier.md",
         "09_topic-literature-context-index.json",
+        "10_topic-citation-dispute-review-dossier.md",
+        "11_topic-citation-dispute-review-index.json",
     ]
     review_sheet_snippets = [
         "Concrete Questions To Check",
@@ -3774,6 +3776,8 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
             for snippet in dossier_snippets:
                 if snippet not in dossier:
                     issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in dossier:
+                issues.append(f"{dossier_path.relative_to(root).as_posix()} contains not_collected filler")
             for line_number, line in enumerate(dossier.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -3822,6 +3826,11 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                         f"{literature_context_path.relative_to(root).as_posix()} "
                         f"missing marker: {snippet}"
                     )
+            if "not_collected" in literature_context:
+                issues.append(
+                    f"{literature_context_path.relative_to(root).as_posix()} "
+                    "contains not_collected filler"
+                )
             for line_number, line in enumerate(literature_context.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -3870,6 +3879,67 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                 issues.append(
                     f"{literature_context_index_path.relative_to(root).as_posix()} "
                     "missing claim boundary"
+                )
+        citation_review_path = object_dir / "10_topic-citation-dispute-review-dossier.md"
+        if path_exists(citation_review_path):
+            citation_review = citation_review_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Topic Citation And Dispute Review Dossier",
+                "主题引用与争议复核档案",
+                "Citation Relationship Checks",
+                "引用关系核查",
+                "Proposer And Classification Trail",
+                "提出者与分类链",
+                "Disagreements And Alternate Labels",
+                "不同意见与替代标签",
+                "Specific Next Source Checks",
+                "具体下一步来源核查",
+                "not a grammar conclusion",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in citation_review:
+                    issues.append(
+                        f"{citation_review_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in citation_review:
+                issues.append(
+                    f"{citation_review_path.relative_to(root).as_posix()} "
+                    "contains not_collected filler"
+                )
+            for line_number, line in enumerate(citation_review.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{citation_review_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        citation_review_index_path = object_dir / "11_topic-citation-dispute-review-index.json"
+        if path_exists(citation_review_index_path):
+            citation_review_index = json.loads(
+                citation_review_index_path.read_text(encoding="utf-8")
+            )
+            if citation_review_index.get("record_type") != (
+                "research_topic_citation_dispute_review_index"
+            ):
+                issues.append(
+                    f"{citation_review_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            if "10_topic-citation-dispute-review-dossier.md" not in (
+                citation_review_index.get("human_readable_files", [])
+            ):
+                issues.append(
+                    f"{citation_review_index_path.relative_to(root).as_posix()} "
+                    "missing citation dispute dossier link"
+                )
+            if citation_review_index.get("claim_boundary") != (
+                "citation_and_dispute_routes_only_not_topic_or_decipherment_claim"
+            ):
+                issues.append(
+                    f"{citation_review_index_path.relative_to(root).as_posix()} "
+                    "claim boundary changed"
                 )
     return issues
 

@@ -197,6 +197,7 @@ OBJECT_SPECS = [
             "05_human-topic-review-sheet.md",
             "06_human-topic-dossier.md",
             "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
         ),
         (
             "01_topic-candidate-packet.json",
@@ -205,9 +206,14 @@ OBJECT_SPECS = [
             "04_inscription-crosswalk-route-index.csv",
             "07_topic-dossier-index.json",
             "09_topic-literature-context-index.json",
+            "11_topic-citation-dispute-review-index.json",
         ),
         (),
-        ("04_inscription-crosswalk-route-index.csv",),
+        (
+            "04_inscription-crosswalk-route-index.csv",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
+        ),
     ),
 ]
 

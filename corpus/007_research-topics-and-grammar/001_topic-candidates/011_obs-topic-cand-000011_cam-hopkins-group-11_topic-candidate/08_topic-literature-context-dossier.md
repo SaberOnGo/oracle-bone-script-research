@@ -62,9 +62,9 @@ fact, or accepted topic assignment.
 | field | current status |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
-| citation relationship | not_collected; needs bibliography review |
-| different opinions | not_collected; needs scholarship review |
-| alternate labels | not_collected; needs source comparison |
+| citation relationship | 待查: bibliography and source page review |
+| different opinions | 待查: later scholarship review |
+| alternate labels | 待查: source comparison and label review |
 | applicability note | candidate literature context only |
 
 ## Concrete Missing Literature Questions / 具体缺失文献问题

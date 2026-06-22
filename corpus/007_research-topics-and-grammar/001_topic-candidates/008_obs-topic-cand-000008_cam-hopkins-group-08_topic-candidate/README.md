@@ -16,6 +16,8 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 - `07_topic-dossier-index.json`: AI-readable support index for the dossier.
 - `08_topic-literature-context-dossier.md`: human literature/context dossier.
 - `09_topic-literature-context-index.json`: AI-readable context support index.
+- `10_topic-citation-dispute-review-dossier.md`: human citation/dispute review.
+- `11_topic-citation-dispute-review-index.json`: AI-readable review support index.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `obs-topic-cand-000008`

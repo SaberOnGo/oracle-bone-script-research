@@ -371,6 +371,8 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 - `07_topic-dossier-index.json`: AI-readable support index for the dossier.
 - `08_topic-literature-context-dossier.md`: human literature/context dossier.
 - `09_topic-literature-context-index.json`: AI-readable context support index.
+- `10_topic-citation-dispute-review-dossier.md`: human citation/dispute review.
+- `11_topic-citation-dispute-review-index.json`: AI-readable review support index.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `{project_id}`
@@ -493,13 +495,13 @@ def topic_dossier_text(
                 route_id=route["topic_crosswalk_route_id"],
                 crosswalk_id=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                heji=route["heji_ref_id"] or "not_collected",
+                heji=route["heji_ref_id"] or "待查: Heji route",
             )
             for route in first_routes
         ]
     )
     if not first_routes:
-        route_lines = "| not_collected | not_collected | not_collected | not_collected |"
+        route_lines = "| 待查: route | 待查: crosswalk | 待查: period | 待查: Heji |"
     questions = "\n".join(
         [
             wrapped_bullet(
@@ -618,10 +620,10 @@ English:
 
 | field | value |
 | --- | --- |
-| citation relationship | not_collected |
+| citation relationship | 待查: source page and bibliography note |
 | proposer or classifier | Cambridge/Hopkins source table |
-| different opinions | not_collected |
-| alternate labels | not_collected |
+| different opinions | 待查: later scholarship and alternate grouping |
+| alternate labels | 待查: source comparison and bibliography review |
 | scope note | candidate route for later review |
 
 ## Concrete Questions To Check / 具体待查问题
@@ -646,6 +648,8 @@ def topic_dossier_index_payload(
             "README.md",
             "05_human-topic-review-sheet.md",
             "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
         ],
         "ai_support_files": [
             "01_topic-candidate-packet.json",
@@ -653,6 +657,8 @@ def topic_dossier_index_payload(
             "03_period-count-index.csv",
             "04_inscription-crosswalk-route-index.csv",
             "07_topic-dossier-index.json",
+            "09_topic-literature-context-index.json",
+            "11_topic-citation-dispute-review-index.json",
         ],
         "source_route_files": [
             CLASSIFIED_SUMMARY.as_posix(),
@@ -660,6 +666,8 @@ def topic_dossier_index_payload(
             "03_period-count-index.csv",
             "04_inscription-crosswalk-route-index.csv",
             "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
         ],
         "source_group_number": row["group_number"],
         "linked_crosswalk_candidate_count": len(routes),
@@ -694,14 +702,16 @@ def topic_literature_context_dossier_text(
             "| {crosswalk} | {period} | {yingguo} | {heji} |".format(
                 crosswalk=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                yingguo=route["yingguo_ref_id"] or "not_collected",
-                heji=route["heji_ref_id"] or "not_collected",
+                yingguo=route["yingguo_ref_id"] or "待查: Yingguo route",
+                heji=route["heji_ref_id"] or "待查: Heji route",
             )
             for route in route_sample
         ]
     )
     if not route_lines:
-        route_lines = "| not_collected | not_collected | not_collected | not_collected |"
+        route_lines = (
+            "| 待查: crosswalk | 待查: period | 待查: Yingguo | 待查: Heji |"
+        )
     intro_en = wrapped_paragraph(
         "This human-readable dossier records the bibliography, citation, "
         "applicable-scope, evidence-level, inscription-context, proposer, "
@@ -793,9 +803,9 @@ English:
 | field | current status |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
-| citation relationship | not_collected; needs bibliography review |
-| different opinions | not_collected; needs scholarship review |
-| alternate labels | not_collected; needs source comparison |
+| citation relationship | 待查: bibliography and source page review |
+| different opinions | 待查: later scholarship review |
+| alternate labels | 待查: source comparison and label review |
 | applicability note | candidate literature context only |
 
 ## Concrete Missing Literature Questions / 具体缺失文献问题
@@ -826,6 +836,7 @@ def topic_literature_context_index_payload(
             "05_human-topic-review-sheet.md",
             "06_human-topic-dossier.md",
             "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
         ],
         "source_evidence_files": [
             CLASSIFIED_SUMMARY.as_posix(),
@@ -837,17 +848,18 @@ def topic_literature_context_index_payload(
             "01_topic-candidate-packet.json",
             "07_topic-dossier-index.json",
             "09_topic-literature-context-index.json",
+            "11_topic-citation-dispute-review-index.json",
         ],
         "source_group_number": row["group_number"],
         "linked_crosswalk_candidate_count": len(routes),
         "literature_context_status": {
             "bibliography_route": "source_table_recorded_needs_review",
-            "citation_relationship": "not_collected_needs_review",
+            "citation_relationship": "needs_bibliography_review",
             "applicable_scope": "candidate_route_only",
             "evidence_level": "metadata_and_crosswalk_route_only",
             "proposer": "cambridge_hopkins_source_table",
-            "different_opinions": "not_collected_needs_review",
-            "alternate_labels": "not_collected_needs_review",
+            "different_opinions": "needs_later_scholarship_review",
+            "alternate_labels": "needs_source_comparison_review",
         },
         "missing_literature_questions": [
             "which bibliography note, source page, or finding-list row supports the label",
@@ -861,6 +873,168 @@ def topic_literature_context_index_payload(
             "candidate literature context only; no grammar conclusion; no "
             "inscription-topic assignment; no transcription; no reading; no "
             "decipherment conclusion"
+        ),
+        "review_status": "needs_human_topic_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def topic_citation_dispute_review_dossier_text(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> str:
+    route_sample = routes[:6]
+    route_lines = "\n".join(
+        [
+            "| {crosswalk} | {period} | {yingguo} | {chalfant} |".format(
+                crosswalk=route["inscription_crosswalk_project_id"],
+                period=route["period_label"],
+                yingguo=route["yingguo_ref_id"] or "待查: Yingguo route",
+                chalfant=route["chalfant_ref_id"] or "待查: Chalfant route",
+            )
+            for route in route_sample
+        ]
+    )
+    if not route_lines:
+        route_lines = (
+            "| 待查: crosswalk | 待查: period | 待查: Yingguo | 待查: Chalfant |"
+        )
+    intro_en = wrapped_paragraph(
+        "This dossier is a human review map for citation relationships, "
+        "proposer/classifier evidence, disagreements, and alternate labels. "
+        "It keeps those checks next to the topic candidate before any formal "
+        "grammar or inscription-topic study begins."
+    )
+    intro_zh = "\n".join(
+        [
+            "本档案是主题候选的引用关系、提出者或分类者、不同意见",
+            "和替代标签复核地图。它只为正式语法或卜辞主题研究前的",
+            "资料整理服务。",
+        ]
+    )
+    questions = "\n".join(
+        [
+            wrapped_bullet(
+                "Which Cambridge/Hopkins source note or finding-list page "
+                "first states this label?"
+            ),
+            wrapped_bullet(
+                "Which inscription crosswalk rows cite the label through "
+                "Yingguo, CUL, Chalfant, or Heji routes?"
+            ),
+            wrapped_bullet(
+                "Which later publication repeats, narrows, rejects, or "
+                "renames the source classification?"
+            ),
+            wrapped_bullet(
+                "Which alternate labels must be compared before this label is "
+                "used in a research note?"
+            ),
+            "- 哪条 Cambridge/Hopkins 来源说明或 finding-list 页首先记录该标签？",
+            "- 哪些卜辞互证行通过英粹、CUL、Chalfant 或合集路线引用该标签？",
+            "- 哪些后出文献重复、缩小、反对或改称这个来源分类？",
+            "- 在研究笔记中使用该标签前，需要比较哪些替代标签？",
+        ]
+    )
+    return f"""# Topic Citation And Dispute Review Dossier / 主题引用与争议复核档案
+
+Topic candidate ID: `{project_id}`
+
+English:
+{intro_en}
+
+简体中文：
+{intro_zh}
+
+## Citation Relationship Checks / 引用关系核查
+
+| field | value |
+| --- | --- |
+| source id | {SOURCE_ID} |
+| download id | {DOWNLOAD_ID} |
+| source summary row | {row["summary_row_id"]} |
+| source group | {row["group_number"]} |
+| source label en | {row["group_label_en"]} |
+| source label zh | {row["group_label_zh"]} |
+
+## Proposer And Classification Trail / 提出者与分类链
+
+| field | value |
+| --- | --- |
+| proposer or classifier | Cambridge/Hopkins source table |
+| current evidence level | metadata and route evidence only |
+| bibliography route | 待查: source note and page route |
+| classification route | 待查: table row and crosswalk rows |
+| review status | needs_human_topic_review |
+
+## Disagreements And Alternate Labels / 不同意见与替代标签
+
+| field | value |
+| --- | --- |
+| different opinions | 待查: later scholarship and review notes |
+| alternate labels | 待查: source comparison and bibliography |
+| applicability risk | label may overstate a source classification |
+| claim status | no grammar or inscription-topic claim |
+
+## Crosswalk Citation Sample / 互证引用样例
+
+| crosswalk id | period | Yingguo route | Chalfant route |
+| --- | --- | --- | --- |
+{route_lines}
+
+## Specific Next Source Checks / 具体下一步来源核查
+
+{questions}
+
+## Review Boundary / 复核边界
+
+- citation and dispute routes only
+- not a grammar conclusion
+- not an inscription-topic assignment
+- not a transcription
+- not a reading
+- not a decipherment conclusion
+"""
+
+
+def topic_citation_dispute_review_index_payload(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "topic_candidate_id": project_id,
+        "record_type": "research_topic_citation_dispute_review_index",
+        "human_readable_files": [
+            "README.md",
+            "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
+        ],
+        "ai_support_files": [
+            "01_topic-candidate-packet.json",
+            "04_inscription-crosswalk-route-index.csv",
+            "07_topic-dossier-index.json",
+            "09_topic-literature-context-index.json",
+            "11_topic-citation-dispute-review-index.json",
+        ],
+        "source_evidence_files": [
+            CLASSIFIED_SUMMARY.as_posix(),
+            CROSSWALK_STAGING.as_posix(),
+            "02_topic-source-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+        ],
+        "source_group_number": row["group_number"],
+        "linked_crosswalk_candidate_count": len(routes),
+        "review_questions": [
+            "which source note or finding-list page first states this label",
+            "which crosswalk rows cite the label through catalog routes",
+            "which later publication repeats narrows rejects or renames it",
+            "which alternate labels must be compared before research use",
+        ],
+        "claim_boundary": (
+            "citation_and_dispute_routes_only_not_topic_or_decipherment_claim"
         ),
         "review_status": "needs_human_topic_review",
         "updated_at": UPDATED_AT,
@@ -907,6 +1081,14 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             output_dir / "09_topic-literature-context-index.json",
             topic_literature_context_index_payload(project_id, row, routes),
+        )
+        (output_dir / "10_topic-citation-dispute-review-dossier.md").write_text(
+            topic_citation_dispute_review_dossier_text(project_id, row, routes),
+            encoding="utf-8",
+        )
+        write_json(
+            output_dir / "11_topic-citation-dispute-review-index.json",
+            topic_citation_dispute_review_index_payload(project_id, row, routes),
         )
         topic_index_rows.append(
             {

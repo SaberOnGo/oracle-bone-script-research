@@ -2,22 +2,24 @@
   "ai_support_files": [
     "01_topic-candidate-packet.json",
     "07_topic-dossier-index.json",
-    "09_topic-literature-context-index.json"
+    "09_topic-literature-context-index.json",
+    "11_topic-citation-dispute-review-index.json"
   ],
   "claim_boundary": "candidate literature context only; no grammar conclusion; no inscription-topic assignment; no transcription; no reading; no decipherment conclusion",
   "human_readable_files": [
     "README.md",
     "05_human-topic-review-sheet.md",
     "06_human-topic-dossier.md",
-    "08_topic-literature-context-dossier.md"
+    "08_topic-literature-context-dossier.md",
+    "10_topic-citation-dispute-review-dossier.md"
   ],
   "linked_crosswalk_candidate_count": 34,
   "literature_context_status": {
-    "alternate_labels": "not_collected_needs_review",
+    "alternate_labels": "needs_source_comparison_review",
     "applicable_scope": "candidate_route_only",
     "bibliography_route": "source_table_recorded_needs_review",
-    "citation_relationship": "not_collected_needs_review",
-    "different_opinions": "not_collected_needs_review",
+    "citation_relationship": "needs_bibliography_review",
+    "different_opinions": "needs_later_scholarship_review",
     "evidence_level": "metadata_and_crosswalk_route_only",
     "proposer": "cambridge_hopkins_source_table"
   },

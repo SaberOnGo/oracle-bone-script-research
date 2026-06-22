@@ -83,10 +83,10 @@ the label in research.
 
 | field | value |
 | --- | --- |
-| citation relationship | not_collected |
+| citation relationship | 待查: source page and bibliography note |
 | proposer or classifier | Cambridge/Hopkins source table |
-| different opinions | not_collected |
-| alternate labels | not_collected |
+| different opinions | 待查: later scholarship and alternate grouping |
+| alternate labels | 待查: source comparison and bibliography review |
 | scope note | candidate route for later review |
 
 ## Concrete Questions To Check / 具体待查问题

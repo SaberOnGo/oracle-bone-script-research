@@ -1,0 +1,34 @@
+{
+  "ai_support_files": [
+    "01_topic-candidate-packet.json",
+    "04_inscription-crosswalk-route-index.csv",
+    "07_topic-dossier-index.json",
+    "09_topic-literature-context-index.json",
+    "11_topic-citation-dispute-review-index.json"
+  ],
+  "claim_boundary": "citation_and_dispute_routes_only_not_topic_or_decipherment_claim",
+  "human_readable_files": [
+    "README.md",
+    "06_human-topic-dossier.md",
+    "08_topic-literature-context-dossier.md",
+    "10_topic-citation-dispute-review-dossier.md"
+  ],
+  "linked_crosswalk_candidate_count": 86,
+  "record_type": "research_topic_citation_dispute_review_index",
+  "review_questions": [
+    "which source note or finding-list page first states this label",
+    "which crosswalk rows cite the label through catalog routes",
+    "which later publication repeats narrows rejects or renames it",
+    "which alternate labels must be compared before research use"
+  ],
+  "review_status": "needs_human_topic_review",
+  "source_evidence_files": [
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/003_cambridge-hopkins-classified-summary.csv",
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv",
+    "02_topic-source-index.csv",
+    "04_inscription-crosswalk-route-index.csv"
+  ],
+  "source_group_number": "1",
+  "topic_candidate_id": "obs-topic-cand-000001",
+  "updated_at": "2026-06-20"
+}

@@ -4773,7 +4773,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-topic-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "1")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["human_file_count"], "5")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["ai_file_count"], "7")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-topic-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertTrue(all(row["source_ids"] for row in rows))
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
@@ -4845,6 +4847,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             if line.startswith("|") or line.startswith("!["):
                 continue
             self.assertLessEqual(len(line), 80, line)
+        self.assertNotIn("not_collected", dossier_text)
         dossier_index = json.loads((object_dir / "07_topic-dossier-index.json").read_text(encoding="utf-8"))
         self.assertEqual(dossier_index["record_type"], "research_topic_dossier_index")
         self.assertIn("06_human-topic-dossier.md", dossier_index["human_readable_files"])
@@ -4878,6 +4881,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             if line.startswith("|") or line.startswith("!["):
                 continue
             self.assertLessEqual(len(line), 80, line)
+        self.assertNotIn("not_collected", literature_context)
         literature_context_index = json.loads(
             literature_context_index_path.read_text(encoding="utf-8")
         )
@@ -4900,6 +4904,50 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "candidate literature context only",
             literature_context_index["claim_boundary"],
+        )
+        citation_review_path = object_dir / "10_topic-citation-dispute-review-dossier.md"
+        citation_review_index_path = object_dir / "11_topic-citation-dispute-review-index.json"
+        self.assertTrue(citation_review_path.exists())
+        self.assertTrue(citation_review_index_path.exists())
+        citation_review = citation_review_path.read_text(encoding="utf-8")
+        for marker in [
+            "Topic Citation And Dispute Review Dossier",
+            "主题引用与争议复核档案",
+            "Citation Relationship Checks",
+            "引用关系核查",
+            "Proposer And Classification Trail",
+            "提出者与分类链",
+            "Disagreements And Alternate Labels",
+            "不同意见与替代标签",
+            "Specific Next Source Checks",
+            "具体下一步来源核查",
+            "not a grammar conclusion",
+            "not a decipherment conclusion",
+        ]:
+            self.assertIn(marker, citation_review)
+        self.assertNotIn("not_collected", citation_review)
+        for line in citation_review.splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        citation_review_index = json.loads(
+            citation_review_index_path.read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            citation_review_index["record_type"],
+            "research_topic_citation_dispute_review_index",
+        )
+        self.assertIn(
+            "10_topic-citation-dispute-review-dossier.md",
+            citation_review_index["human_readable_files"],
+        )
+        self.assertIn(
+            "11_topic-citation-dispute-review-index.json",
+            citation_review_index["ai_support_files"],
+        )
+        self.assertEqual(
+            citation_review_index["claim_boundary"],
+            "citation_and_dispute_routes_only_not_topic_or_decipherment_claim",
         )
         with (object_dir / "04_inscription-crosswalk-route-index.csv").open(
             "r", encoding="utf-8-sig", newline=""

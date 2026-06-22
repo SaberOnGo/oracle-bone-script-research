@@ -35,6 +35,7 @@ from tools.validation.check_repository_skeleton import (
     check_graphemic_components_readme_human_entry,
     check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
+    check_asset_source_rights_readme_human_entry,
     check_research_sources_bibliography_readme_human_entry,
     check_research_topics_grammar_readme_human_entry,
     check_corpus_validation_tools_readme_human_entry,
@@ -2683,6 +2684,39 @@ class RepositorySkeletonTests(unittest.TestCase):
             "source provenance",
             "graph edge",
             "statistics",
+            "not a decipherment conclusion",
+            "不是释读结论",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_asset_source_rights_readme_is_human_entry(self) -> None:
+        self.assertEqual(
+            check_asset_source_rights_readme_human_entry(repo_root()),
+            [],
+        )
+        readme_path = (
+            repo_root()
+            / "project_registry/004_asset-source-and-rights-index/README.md"
+        )
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Asset Source And Rights Index / 资产来源与权利索引",
+            "Human Review Entry Order",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "asset source index",
+            "rights review log",
+            "technical profile",
+            "visual profile",
+            "SIZE_LIMIT",
+            "large-source register",
+            "source provenance",
             "not a decipherment conclusion",
             "不是释读结论",
         ]:

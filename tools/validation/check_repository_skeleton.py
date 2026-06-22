@@ -4174,6 +4174,44 @@ def check_research_sources_bibliography_readme_human_entry(
     return issues
 
 
+def check_asset_source_rights_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "project_registry/004_asset-source-and-rights-index/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    text = path.read_text(encoding="utf-8")
+    for marker in [
+        "Asset Source And Rights Index / 资产来源与权利索引",
+        "Human Review Entry Order",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "asset source index",
+        "rights review log",
+        "technical profile",
+        "visual profile",
+        "SIZE_LIMIT",
+        "large-source register",
+        "source provenance",
+        "not a decipherment conclusion",
+        "不是释读结论",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    if "\ufffd" in text:
+        issues.append(f"{relative} contains replacement-character mojibake")
+    for marker in ["缂", "闁", "鐢", "涓"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_research_topics_grammar_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "corpus/007_research-topics-and-grammar/README.md"
@@ -28413,6 +28451,7 @@ def main() -> int:
     issues.extend(check_object_local_material_coverage_audit(root))
     issues.extend(check_source_object_human_material_quality(root))
     issues.extend(check_project_id_source_map_audit(root))
+    issues.extend(check_asset_source_rights_readme_human_entry(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_root_readmes_human_entry(root))
     issues.extend(check_ai_context_pack_builder_readme_human_entry(root))

@@ -1,28 +1,103 @@
 # Asset Source And Rights Index / 资产来源与权利索引
 
 English:
-Track image, rubbing, hand-copy, screenshot, and downloaded-asset provenance here. Rights-unclear assets may be committed when research needs them, but the asset index must show source provenance, rights status, and risk notes.
-
-Single files should stay under `SIZE_LIMIT = 30 MiB`. If a research asset must exceed that limit, record it in `003_size-limit-exceptions.csv`; files at or above 40 MiB must not be committed to regular Git and should be handled through `project_registry/006_large-source-register/`.
-
-`004_asset-image-technical-profile.csv` records technical image metadata for committed image assets, such as format, pixel size, color mode, DPI, ICC profile presence, checksum, and review boundary.
-
-`005_asset-image-visual-profile.csv` records deterministic visual preprocessing metadata for committed image assets, including a conservative luma-threshold candidate region, foreground pixel ratio, and mean luma. These rows are algorithmic metadata only; they are not glyph segmentation, component analysis, or paleographic interpretation.
-
-The HUST-OBC undeciphered-candidate glyph images are small object-local review images extracted from the registered large source package. The 607,933,810-byte raw zip remains outside regular Git under the large-source register; committed images keep per-asset source, checksum, rights-status, and risk-note rows here.
-
-The OBIMD component-candidate images are small object-local PNG review assets extracted from the registered `Sub-character Images.zip` package. The 40,436,910-byte raw zip remains outside regular Git in the ignored external archive; committed PNG derivatives keep per-asset source, checksum, technical profile, visual profile, rights-status, and risk-note rows here.
+This registry is the human review entry for image, rubbing, hand-copy,
+screenshot, and downloaded-asset provenance. It keeps asset source index rows,
+rights review log rows, size-limit exceptions, technical profile rows, and
+visual profile rows together before any image is used for formal research.
 
 简体中文：
-OBIMD 构件候选图像是从已登记 `Sub-character Images.zip` 来源包抽取的小型对象内 PNG 复核资产。40,436,910 字节的原始 zip 保留在已忽略外部归档中，不进入普通 Git；已提交 PNG 派生件在本目录保留逐项来源、checksum、技术 profile、视觉 profile、权利状态和风险提示记录。
+本注册表是图片、拓片、摹本、截图和下载资产出处的人工复核入口。它把
+asset source index、rights review log、尺寸例外、technical profile 和
+visual profile 放在一起，供正式研究前核查。
+
+## Human Review Entry Order / 人工复核入口顺序
+
+English:
+
+1. Open `001_asset-source-index.csv` and identify the asset row.
+2. Open `002_asset-rights-review-log.csv` for rights status and risk note.
+3. Check file size, checksum, source provenance, and public-commit decision.
+4. If the source package exceeds `SIZE_LIMIT`, open the large-source register.
+5. Check technical profile rows before using the image file itself.
+6. Treat visual profile rows as algorithmic metadata, not glyph analysis.
+7. Open the object-local dossier or review sheet before drawing conclusions.
 
 简体中文：
-本目录用于追踪图片、拓片、摹本、截图和下载资产的来源。研究需要时可以提交权利状态尚不完全明确的资产，但资产索引必须显示来源、权利状态和风险提示。
 
-单个文件原则上应低于 `SIZE_LIMIT = 30 MiB`。如果研究资产必须超过该限制，应写入 `003_size-limit-exceptions.csv`；达到或超过 40 MiB 的文件不得提交到普通 Git，应通过 `project_registry/006_large-source-register/` 处理。
+1. 先打开 `001_asset-source-index.csv`，确认资产行。
+2. 打开 `002_asset-rights-review-log.csv`，核查权利状态和风险提示。
+3. 核对文件大小、checksum、source provenance 和公开提交决定。
+4. 如果来源包超过 `SIZE_LIMIT`，继续打开 large-source register。
+5. 使用图像文件前，先核查 technical profile 行。
+6. visual profile 只是算法 metadata，不是字形分析。
+7. 得出任何结论前，先打开对象内 dossier 或人工复核表。
 
-`004_asset-image-technical-profile.csv` 记录已提交图像资产的技术 metadata，例如格式、像素尺寸、颜色模式、DPI、ICC profile、校验和以及复核边界。
+## Files / 文件
 
-`005_asset-image-visual-profile.csv` 记录已提交图像资产的确定性视觉预处理 metadata，包括保守亮度阈值候选区域、前景像素比例和平均亮度。这些记录只是算法 metadata，不是字形切分、构件分析或古文字学释读。
+English:
 
-HUST-OBC 未释字候选图像是从已登记大型来源包抽取的小型对象内复核图。607,933,810 字节的原始 zip 仍按大型来源登记保留在普通 Git 之外；已提交图像在本目录保留逐项来源、checksum、权利状态和风险提示记录。
+- `001_asset-source-index.csv`: asset source index and object route.
+- `002_asset-rights-review-log.csv`: rights review log and risk notes.
+- `003_size-limit-exceptions.csv`: reviewed `SIZE_LIMIT` exceptions.
+- `004_asset-image-technical-profile.csv`: technical profile metadata.
+- `005_asset-image-visual-profile.csv`: deterministic visual profile metadata.
+
+简体中文：
+
+- `001_asset-source-index.csv`：资产来源索引和对象路线。
+- `002_asset-rights-review-log.csv`：权利复核记录和风险提示。
+- `003_size-limit-exceptions.csv`：已复核的 `SIZE_LIMIT` 例外。
+- `004_asset-image-technical-profile.csv`：图像技术 profile metadata。
+- `005_asset-image-visual-profile.csv`：确定性视觉 profile metadata。
+
+## Concrete Questions To Check / 具体待查问题
+
+English:
+
+- Which source, catalog, package, object, or URL produced this asset?
+- Which checksum, file size, and technical profile identify the file?
+- Which rights status and risk note limit public repository use?
+- Is the raw package outside regular Git or listed as a size exception?
+- Which object-local dossier lets a human compare the image with context?
+- Which visual profile value is only a route for later manual inspection?
+
+简体中文：
+
+- 该资产来自哪个来源、著录、来源包、对象或 URL？
+- 哪个 checksum、文件大小和 technical profile 能定位文件？
+- 哪个 rights status 和 risk note 限制公开仓库使用？
+- 原始包是否在普通 Git 外部，或是否登记为尺寸例外？
+- 哪个对象内 dossier 能让人结合上下文比较图像？
+- 哪个 visual profile 数值只是后续人工检查路线？
+
+## Current Source Families / 当前来源族
+
+English:
+HUST-OBC undeciphered-candidate glyph images are small object-local review
+images derived from a registered large source package. The raw zip remains
+outside regular Git under the large-source register.
+
+OBIMD component-candidate images are small object-local PNG review assets
+derived from the registered `Sub-character Images.zip` package. The raw zip
+stays outside regular Git in the ignored external archive.
+
+简体中文：
+HUST-OBC 未释字候选图像是从已登记大型来源包抽取的小型对象内复核图。
+原始 zip 通过 large-source register 保留在普通 Git 外部。
+
+OBIMD 构件候选图像是从已登记 `Sub-character Images.zip` 来源包抽取的
+小型对象内 PNG 复核资产。原始 zip 保留在已忽略外部归档中。
+
+## Research Boundary / 研究边界
+
+English:
+Asset registration, rights review, technical profile, and visual profile rows
+are source and preprocessing evidence only. They are not rights clearance,
+glyph segmentation, component analysis, paleographic interpretation, accepted
+readings, or a decipherment conclusion. This is not a decipherment conclusion.
+
+简体中文：
+资产登记、权利复核、technical profile 和 visual profile 行只是来源和
+预处理证据。它们不是权利清理结论，不是字形切分、构件分析、古文字学
+解释、已接受释读或破译结论。它们不是释读结论。

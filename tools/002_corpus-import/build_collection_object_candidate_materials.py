@@ -121,6 +121,8 @@ MANIFEST_FIELDS = [
     "visual_index_path",
     "gallery_path",
     "human_review_sheet_path",
+    "human_collection_dossier_path",
+    "collection_dossier_index_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
@@ -400,6 +402,8 @@ This directory is the object-local research entrance for one museum or collectio
 - `03_visual-asset-index.csv`: committed asset, thumbnail URL, or missing-image status.
 - `04_visual-gallery.md`: human-facing image or thumbnail route sheet.
 - `05_human-review-sheet.md`: human review checklist.
+- `06_human-collection-dossier.md`: human collection object dossier.
+- `07_collection-dossier-index.json`: AI-readable dossier support index.
 
 ## Object Metadata / 对象 metadata
 
@@ -409,6 +413,190 @@ This directory is the object-local research entrance for one museum or collectio
 
 Current status: `{REVIEW_STATUS}`. Reviewers must verify source pages, rights status, object labels, image provenance, and inscription context before promotion.
 """
+
+
+def collection_dossier_text(
+    index: int,
+    row: dict[str, str],
+    metadata: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> str:
+    pid = project_id(index)
+    visual_status = visual_row.get("visual_entry_type", "unknown")
+    intro_en = wrapped_paragraph(
+        "This human-readable dossier gathers the object-level evidence a "
+        "researcher should inspect before trusting a museum or collection "
+        "object candidate: catalog clues, image route, source trail, rights "
+        "status, and the missing findspot, period, batch, plate, inscription, "
+        "and character context."
+    )
+    intro_zh = wrapped_paragraph(
+        "\u672c\u6863\u6848\u6c47\u603b\u590d\u6838\u9986\u85cf\u6216"
+        "\u51fa\u571f\u76f8\u5173\u5bf9\u8c61\u524d\u9700\u6253\u5f00"
+        "\u7684\u5bf9\u8c61\u5c42\u8bc1\u636e\uff1a\u8457\u5f55\u7ebf\u7d22"
+        "\u3001\u56fe\u50cf\u8def\u7ebf\u3001\u6765\u6e90\u94fe\u3001"
+        "\u6743\u5229\u72b6\u6001\uff0c\u4ee5\u53ca\u5c1a\u7f3a\u7684"
+        "\u51fa\u571f\u5730\u3001\u65f6\u671f\u3001\u6279\u6b21\u3001"
+        "\u56fe\u7248\u3001\u535c\u8f9e\u548c\u7532\u9aa8\u5355\u5b57"
+        "\u8bed\u5883\u3002"
+    )
+    boundary = wrapped_paragraph(
+        "This is not a confirmed collection object identity, not a confirmed "
+        "inscription identity, not a transcription, not a formal reading, and "
+        "not a decipherment conclusion."
+    )
+    metadata_rows = "\n".join(
+        f"| `{key}` | `{value}` |" for key, value in metadata.items()
+    )
+    if not metadata_rows:
+        metadata_rows = "| metadata | pending source-page review |"
+    questions = [
+        "Which museum object page, catalog row, or accession record should be opened first?",
+        "\u5e94\u5148\u6253\u5f00\u54ea\u4e2a\u9986\u85cf\u5bf9\u8c61"
+        "\u9875\u3001\u8457\u5f55\u884c\u6216\u767b\u8bb0\u53f7\u8bb0\u5f55\uff1f",
+        "Which image route is local, external-only, or still missing?",
+        "\u54ea\u6761\u56fe\u50cf\u8def\u7ebf\u662f\u672c\u5730\u3001"
+        "\u4ec5\u5916\u90e8\u6216\u4ecd\u7f3a\u5931\uff1f",
+        "Which findspot, period, batch, or plate provenance needs checking?",
+        "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u51fa\u571f\u5730\u3001"
+        "\u65f6\u671f\u3001\u6279\u6b21\u6216\u56fe\u7248\u51fa\u5904\uff1f",
+        "Which inscription, glyph, or oracle character route is only a candidate?",
+        "\u54ea\u4e9b\u535c\u8f9e\u3001\u5b57\u5f62\u6216"
+        "\u7532\u9aa8\u5355\u5b57\u8def\u7ebf\u4ecd\u53ea\u662f\u5019\u9009\uff1f",
+        "Which source, checksum, rights status, or risk note must be reviewed?",
+        "\u8fd8\u8981\u590d\u6838\u54ea\u4e9b\u6765\u6e90\u3001checksum"
+        "\u3001\u6743\u5229\u72b6\u6001\u6216\u98ce\u9669\u63d0\u793a\uff1f",
+        "What evidence is missing before any object identity claim?",
+        "\u5f62\u6210\u4efb\u4f55\u5bf9\u8c61\u8eab\u4efd\u7ed3\u8bba"
+        "\u524d\u8fd8\u7f3a\u54ea\u4e9b\u8bc1\u636e\uff1f",
+    ]
+    question_lines = "\n".join(wrapped_bullet(text) for text in questions)
+    lines = [
+        (
+            "# Human Collection Object Dossier / "
+            f"\u9986\u85cf\u5bf9\u8c61\u7814\u7a76\u6863\u6848: {pid}"
+        ),
+        "",
+        "English:",
+        intro_en,
+        "",
+        "\u7b80\u4f53\u4e2d\u6587\uff1a",
+        intro_zh,
+        "",
+        (
+            "## Object Identity And Catalog Clues / "
+            "\u9986\u85cf\u5bf9\u8c61\u4e0e\u8457\u5f55\u7ebf\u7d22"
+        ),
+        "",
+        f"- project_id: `{pid}`",
+        f"- candidate_collection_object_id: `{row['candidate_collection_object_id']}`",
+        f"- source_collection_item_id: `{row.get('source_collection_item_id', '')}`",
+        f"- accession_number: `{row.get('accession_number', '') or 'pending'}`",
+        "",
+        "| Metadata field | Source value |",
+        "| --- | --- |",
+        metadata_rows,
+        "",
+        "## Visual And Image Route / \u56fe\u50cf\u8def\u7ebf",
+        "",
+        f"- visual_entry_type: `{visual_status}`",
+        "- visual_index: `03_visual-asset-index.csv`",
+        "- visual_gallery: `04_visual-gallery.md`",
+        "",
+        (
+            "## Findspot Period Batch And Plate Checks / "
+            "\u51fa\u571f\u5730\u3001\u65f6\u671f\u3001\u6279\u6b21"
+            "\u4e0e\u56fe\u7248\u590d\u6838"
+        ),
+        "",
+        "- findspot_or_provenience: source metadata only; needs review",
+        "- period_or_date: source metadata only; needs review",
+        "- batch_context: not collected; needs source checking",
+        "- plate_or_catalog_context: not collected; needs source checking",
+        "",
+        (
+            "## Inscription And Character Links / "
+            "\u535c\u8f9e\u4e0e\u7532\u9aa8\u5355\u5b57\u5173\u8054"
+        ),
+        "",
+        "- inscription_identity_claim: `not_confirmed`",
+        "- transcription_status: `not_collected`",
+        "- character_link_status: candidate route only",
+        "",
+        (
+            "## Source Evidence And Rights Trail / "
+            "\u6765\u6e90\u8bc1\u636e\u4e0e\u6743\u5229\u94fe"
+        ),
+        "",
+        f"- source_id: `{source_row['source_id']}`",
+        f"- evidence_download_id: `{source_row['evidence_download_id']}`",
+        f"- rights_status: `{source_row['rights_status']}`",
+        f"- review_status: `{REVIEW_STATUS}`",
+        "",
+        "## Concrete Questions To Check / \u5177\u4f53\u5f85\u67e5\u95ee\u9898",
+        "",
+        question_lines,
+        "",
+        "## Review Boundary / \u590d\u6838\u8fb9\u754c",
+        "",
+        boundary,
+        "- not a confirmed collection object identity",
+        "- not a confirmed inscription identity",
+        "- not a transcription",
+        "- not a formal reading",
+        "- not a decipherment conclusion",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def collection_dossier_index_payload(
+    index: int,
+    relative_dir: Path,
+    row: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "collection_object_candidate_dossier_index",
+        "candidate_collection_object_id": row["candidate_collection_object_id"],
+        "human_readable_files": [
+            (relative_dir / "README.md").as_posix(),
+            (relative_dir / "04_visual-gallery.md").as_posix(),
+            (relative_dir / "05_human-review-sheet.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (relative_dir / "01_collection-object-packet.json").as_posix(),
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "07_collection-dossier-index.json").as_posix(),
+        ],
+        "source_route_files": [
+            source_row["source_file_path"],
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "04_visual-gallery.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+        ],
+        "uncollected_human_research_fields": [
+            "findspot_period_batch_plate_context",
+            "inscription_occurrence_context",
+            "oracle_character_context",
+            "catalog_publication_history",
+            "object_identity_review_history",
+        ],
+        "visual_entry_type": visual_row.get("visual_entry_type", ""),
+        "claim_boundary": (
+            "no confirmed collection object identity; no confirmed inscription "
+            "identity; no transcription; no formal reading; no decipherment "
+            "conclusion"
+        ),
+        "rights_status": source_row["rights_status"],
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
 
 
 def gallery_text(index: int, row: dict[str, str], visual_row: dict[str, str]) -> str:
@@ -530,6 +718,20 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "visual_rows": [vis_row],
             "gallery_text": gallery_text(index, row, vis_row),
             "review_sheet_text": review_sheet_text(index, row),
+            "dossier_text": collection_dossier_text(
+                index,
+                row,
+                metadata,
+                src_row,
+                vis_row,
+            ),
+            "dossier_index": collection_dossier_index_payload(
+                index,
+                relative_dir,
+                row,
+                src_row,
+                vis_row,
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -539,6 +741,8 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 "visual_index_path": (relative_dir / "03_visual-asset-index.csv").as_posix(),
                 "gallery_path": (relative_dir / "04_visual-gallery.md").as_posix(),
                 "human_review_sheet_path": (relative_dir / "05_human-review-sheet.md").as_posix(),
+                "human_collection_dossier_path": (relative_dir / "06_human-collection-dossier.md").as_posix(),
+                "collection_dossier_index_path": (relative_dir / "07_collection-dossier-index.json").as_posix(),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
                 "visual_entry_status": vis_row["visual_entry_type"],
@@ -587,6 +791,16 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (directory / "04_visual-gallery.md").write_text(str(output["gallery_text"]), encoding="utf-8", newline="\n")
         (directory / "05_human-review-sheet.md").write_text(
             str(output["review_sheet_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "06_human-collection-dossier.md").write_text(
+            str(output["dossier_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "07_collection-dossier-index.json").write_text(
+            json.dumps(output["dossier_index"], ensure_ascii=False, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
             newline="\n",
         )

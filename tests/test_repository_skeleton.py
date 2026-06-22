@@ -4082,10 +4082,13 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "03_visual-asset-index.csv").exists())
             self.assertTrue((object_dir / "04_visual-gallery.md").exists())
             self.assertTrue((object_dir / "05_human-review-sheet.md").exists())
+            self.assertTrue((object_dir / "06_human-collection-dossier.md").exists())
+            self.assertTrue((object_dir / "07_collection-dossier-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed inscription identity", readme_text)
             self.assertIn("not a transcription, formal reading, component analysis, or decipherment conclusion", readme_text)
+            self.assertIn("06_human-collection-dossier.md", readme_text)
             review_sheet_text = (object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet_text)
             self.assertIn("具体待查问题", review_sheet_text)
@@ -4095,6 +4098,60 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("正式馆藏对象身份结论前还缺哪些证据？", review_sheet_text)
             for line in review_sheet_text.splitlines():
                 self.assertLessEqual(len(line), 80, line)
+            dossier_text = (object_dir / "06_human-collection-dossier.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Human Collection Object Dossier", dossier_text)
+            self.assertIn("馆藏对象研究档案", dossier_text)
+            self.assertIn("Object Identity And Catalog Clues", dossier_text)
+            self.assertIn("馆藏对象与著录线索", dossier_text)
+            self.assertIn("Visual And Image Route", dossier_text)
+            self.assertIn("图像路线", dossier_text)
+            self.assertIn("Findspot Period Batch And Plate Checks", dossier_text)
+            self.assertIn("出土地", dossier_text)
+            self.assertIn("时期", dossier_text)
+            self.assertIn("批次", dossier_text)
+            self.assertIn("图版", dossier_text)
+            self.assertIn("Inscription And Character Links", dossier_text)
+            self.assertIn("卜辞", dossier_text)
+            self.assertIn("甲骨单字", dossier_text)
+            self.assertIn("Source Evidence And Rights Trail", dossier_text)
+            self.assertIn("Concrete Questions To Check", dossier_text)
+            self.assertIn("具体待查问题", dossier_text)
+            self.assertIn("not a confirmed collection object identity", dossier_text)
+            self.assertIn("not a decipherment conclusion", dossier_text)
+            for line in dossier_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            dossier_index = json.loads(
+                (object_dir / "07_collection-dossier-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                dossier_index["record_type"],
+                "collection_object_candidate_dossier_index",
+            )
+            self.assertTrue(
+                any(
+                    path.endswith("06_human-collection-dossier.md")
+                    for path in dossier_index["human_readable_files"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    path.endswith("01_collection-object-packet.json")
+                    for path in dossier_index["ai_support_files"]
+                )
+            )
+            self.assertIn(
+                "findspot_period_batch_plate_context",
+                dossier_index["uncollected_human_research_fields"],
+            )
+            self.assertIn(
+                "no confirmed collection object identity",
+                dossier_index["claim_boundary"],
+            )
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         smithsonian_gallery = (
@@ -4133,6 +4190,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("object-local research entrance", first["readme_text"])
         self.assertIn("not_confirmed", first["review_sheet_text"])
+        self.assertIn("Human Collection Object Dossier", first["dossier_text"])
+        self.assertIn("馆藏对象研究档案", first["dossier_text"])
+        self.assertIn("findspot_period_batch_plate_context", first["dossier_index"]["uncollected_human_research_fields"])
+        self.assertIn("no confirmed collection object identity", first["dossier_index"]["claim_boundary"])
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn("具体待查问题", first["review_sheet_text"])
         self.assertIn("应先核对哪些馆藏对象、缩略图或公开图像路线？", first["review_sheet_text"])

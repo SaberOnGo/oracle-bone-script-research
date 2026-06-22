@@ -24,6 +24,8 @@ External thumbnail URL metadata only: https://museum.sinica.edu.tw/_upload/image
 - `03_visual-asset-index.csv`: committed asset, thumbnail URL, or missing-image status.
 - `04_visual-gallery.md`: human-facing image or thumbnail route sheet.
 - `05_human-review-sheet.md`: human review checklist.
+- `06_human-collection-dossier.md`: human collection object dossier.
+- `07_collection-dossier-index.json`: AI-readable dossier support index.
 
 ## Object Metadata / 对象 metadata
 

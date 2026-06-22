@@ -1,0 +1,36 @@
+{
+  "ai_support_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/01_collection-object-packet.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/02_collection-source-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/03_visual-asset-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/07_collection-dossier-index.json"
+  ],
+  "candidate_collection_object_id": "ihp-mus-obj-00002",
+  "claim_boundary": "no confirmed collection object identity; no confirmed inscription identity; no transcription; no formal reading; no decipherment conclusion",
+  "human_readable_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/README.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/04_visual-gallery.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/05_human-review-sheet.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/06_human-collection-dossier.md"
+  ],
+  "project_id": "coll-obj-cand-00002",
+  "record_type": "collection_object_candidate_dossier_index",
+  "review_status": "needs_human_collection_object_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_route_files": [
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/002_ihp-museum-oracle-bone-object-staging.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/02_collection-source-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/03_visual-asset-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/04_visual-gallery.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/002_coll-obj-cand-00002_ihp-item-1214_collection-object-candidate/06_human-collection-dossier.md"
+  ],
+  "uncollected_human_research_fields": [
+    "findspot_period_batch_plate_context",
+    "inscription_occurrence_context",
+    "oracle_character_context",
+    "catalog_publication_history",
+    "object_identity_review_history"
+  ],
+  "updated_at": "2026-06-20",
+  "visual_entry_type": "external_thumbnail_url_metadata_only"
+}

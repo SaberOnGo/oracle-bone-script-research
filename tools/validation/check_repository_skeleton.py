@@ -3215,6 +3215,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         "03_visual-asset-index.csv",
         "04_visual-gallery.md",
         "05_human-review-sheet.md",
+        "06_human-collection-dossier.md",
+        "07_collection-dossier-index.json",
     ]
     expected_sources = {
         "src-ihp-museum-oracle-bones",
@@ -3260,6 +3262,7 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "not a transcription, formal reading, component analysis, or decipherment conclusion",
                 "04_visual-gallery.md",
                 "05_human-review-sheet.md",
+                "06_human-collection-dossier.md",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -3349,6 +3352,58 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                         f"{review_sheet_path.relative_to(root).as_posix()} line "
                         f"{line_number} exceeds 80 characters"
                     )
+        dossier_path = object_dir / "06_human-collection-dossier.md"
+        if path_exists(dossier_path):
+            dossier_text = dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Human Collection Object Dossier",
+                "馆藏对象研究档案",
+                "Object Identity And Catalog Clues",
+                "馆藏对象与著录线索",
+                "Visual And Image Route",
+                "图像路线",
+                "Findspot Period Batch And Plate Checks",
+                "出土地",
+                "时期",
+                "批次",
+                "图版",
+                "Inscription And Character Links",
+                "卜辞",
+                "甲骨单字",
+                "Source Evidence And Rights Trail",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "not a confirmed collection object identity",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in dossier_text:
+                    issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(dossier_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{dossier_path.relative_to(root).as_posix()} line "
+                        f"{line_number} exceeds 80 characters"
+                    )
+        dossier_index_path = object_dir / "07_collection-dossier-index.json"
+        if path_exists(dossier_index_path):
+            dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
+            if dossier_index.get("record_type") != "collection_object_candidate_dossier_index":
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} record_type changed")
+            human_files = [str(path) for path in dossier_index.get("human_readable_files", [])]
+            ai_files = [str(path) for path in dossier_index.get("ai_support_files", [])]
+            missing_fields = dossier_index.get("uncollected_human_research_fields", [])
+            if not any(path.endswith("06_human-collection-dossier.md") for path in human_files):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if not any(path.endswith("01_collection-object-packet.json") for path in ai_files):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing packet link")
+            if "findspot_period_batch_plate_context" not in missing_fields:
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing provenance gap")
+            if "no confirmed collection object identity" not in dossier_index.get("claim_boundary", ""):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing claim boundary")
     if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:

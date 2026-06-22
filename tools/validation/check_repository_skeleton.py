@@ -4221,6 +4221,8 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             for fragment in mojibake_fragments:
                 if fragment in text:
                     issues.append(f"{path.relative_to(root)} contains mojibake: {fragment}")
+            if filename == "10_source-evidence-dossier.md" and "not_collected" in text:
+                issues.append(f"{path.relative_to(root)} contains machine status in human dossier")
             if any(len(line) > 80 for line in text.splitlines()):
                 issues.append(f"{path.relative_to(root)} has a line over 80 chars")
         source_dossier_index_path = object_dir / "11_source-evidence-dossier-index.json"

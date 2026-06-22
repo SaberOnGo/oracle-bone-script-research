@@ -5067,6 +5067,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not a rights decision", evidence_text)
         self.assertIn("not corpus import approval", evidence_text)
         self.assertIn("not a decipherment conclusion", evidence_text)
+        self.assertNotIn("not_collected", evidence_text)
         for line in evidence_text.splitlines():
             if line.startswith("|"):
                 continue

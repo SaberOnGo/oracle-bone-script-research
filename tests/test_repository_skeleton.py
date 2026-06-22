@@ -35,6 +35,7 @@ from tools.validation.check_repository_skeleton import (
     check_graphemic_components_readme_human_entry,
     check_oracle_characters_readme_human_entry,
     check_project_id_source_map_audit,
+    check_project_registry_readme_human_entry,
     check_asset_source_rights_readme_human_entry,
     check_research_sources_bibliography_readme_human_entry,
     check_research_topics_grammar_readme_human_entry,
@@ -2665,6 +2666,32 @@ class RepositorySkeletonTests(unittest.TestCase):
         ]:
             self.assertIn(marker, text)
         for marker in ["缂?", "闂?", "閻?", "娑?", "锟?"]:
+            self.assertNotIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_project_registry_readme_is_human_readable_entry(self) -> None:
+        self.assertEqual(check_project_registry_readme_human_entry(repo_root()), [])
+        readme_path = repo_root() / "project_registry/README.md"
+        text = readme_path.read_text(encoding="utf-8")
+        for marker in [
+            "Project Registry / 项目登记表",
+            "Human Review Entry Order",
+            "人工复核入口顺序",
+            "Concrete Questions To Check",
+            "具体待查问题",
+            "source provenance",
+            "project-local ID",
+            "asset rights index",
+            "large-source register",
+            "object-local dossier",
+            "not a decipherment conclusion",
+            "不是释读结论",
+        ]:
+            self.assertIn(marker, text)
+        for marker in ["缂?", "闂?", "闁?", "濞?", "閿?"]:
             self.assertNotIn(marker, text)
         for line in text.splitlines():
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):

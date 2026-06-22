@@ -4403,6 +4403,47 @@ def check_schemas_readme_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_project_registry_readme_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = "project_registry/README.md"
+    path = root / relative
+    if not path.exists():
+        issues.append(f"{relative} missing")
+        return issues
+    try:
+        text = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as error:
+        issues.append(f"{relative} is not valid UTF-8: {error}")
+        return issues
+    for marker in [
+        "Project Registry / 项目登记表",
+        "Human Review Entry Order",
+        "人工复核入口顺序",
+        "Concrete Questions To Check",
+        "具体待查问题",
+        "source provenance",
+        "project-local ID",
+        "asset rights index",
+        "large-source register",
+        "object-local dossier",
+        "not a decipherment conclusion",
+        "不是释读结论",
+    ]:
+        if marker not in text:
+            issues.append(f"{relative} missing human-entry marker: {marker}")
+    if "\ufffd" in text:
+        issues.append(f"{relative} contains replacement-character mojibake")
+    for marker in ["缂?", "闂?", "闁?", "濞?", "閿?"]:
+        if marker in text:
+            issues.append(f"{relative} contains mojibake marker: {marker}")
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def check_corpus_import_tools_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "tools/002_corpus-import/README.md"
@@ -28534,6 +28575,7 @@ def main() -> int:
     issues.extend(check_object_local_material_coverage_audit(root))
     issues.extend(check_source_object_human_material_quality(root))
     issues.extend(check_project_id_source_map_audit(root))
+    issues.extend(check_project_registry_readme_human_entry(root))
     issues.extend(check_asset_source_rights_readme_human_entry(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_root_readmes_human_entry(root))

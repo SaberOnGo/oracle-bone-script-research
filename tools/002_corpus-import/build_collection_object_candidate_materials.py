@@ -123,6 +123,8 @@ MANIFEST_FIELDS = [
     "human_review_sheet_path",
     "human_collection_dossier_path",
     "collection_dossier_index_path",
+    "collection_provenance_evidence_dossier_path",
+    "collection_provenance_evidence_index_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
@@ -404,6 +406,8 @@ This directory is the object-local research entrance for one museum or collectio
 - `05_human-review-sheet.md`: human review checklist.
 - `06_human-collection-dossier.md`: human collection object dossier.
 - `07_collection-dossier-index.json`: AI-readable dossier support index.
+- `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
+- `09_collection-provenance-evidence-index.json`: AI-readable evidence index.
 
 ## Object Metadata / 对象 metadata
 
@@ -599,6 +603,195 @@ def collection_dossier_index_payload(
     }
 
 
+def collection_provenance_evidence_dossier_text(
+    index: int,
+    row: dict[str, str],
+    metadata: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> str:
+    pid = project_id(index)
+    intro = wrapped_paragraph(
+        "This dossier records the provenance evidence routes that must be "
+        "opened before a museum or collection object candidate can be used "
+        "for comparison, citation, or later formal research."
+    )
+    intro_zh = wrapped_paragraph(
+        "本档案记录馆藏或出土相关对象候选进入比较、引用或后续正式研究前"
+        "必须打开复核的来源证据路线。这里不确认对象身份、不确认卜辞身份，"
+        "也不作释读结论。"
+    )
+    boundary = wrapped_paragraph(
+        "All rows here are candidate evidence only. They preserve source, "
+        "rights, visual, catalog, and missing-context routes for human review; "
+        "they are not a decipherment conclusion."
+    )
+    source_table = "\n".join(
+        [
+            "| Evidence field | Route or value |",
+            "| --- | --- |",
+            f"| source_id | `{source_row['source_id']}` |",
+            f"| evidence_download_id | `{source_row['evidence_download_id']}` |",
+            f"| source_file_path | `{source_row['source_file_path']}` |",
+            f"| source_row_id | `{source_row['source_row_id']}` |",
+            f"| object_page_url | `{source_row.get('object_page_url', '')}` |",
+            f"| rights_status | `{source_row['rights_status']}` |",
+            f"| review_status | `{REVIEW_STATUS}` |",
+        ]
+    )
+    visual_table = "\n".join(
+        [
+            "| Visual field | Route or value |",
+            "| --- | --- |",
+            f"| visual_entry_type | `{visual_row.get('visual_entry_type', '')}` |",
+            f"| asset_id | `{visual_row.get('asset_id', '')}` |",
+            f"| asset_path | `{visual_row.get('asset_path', '')}` |",
+            f"| thumbnail_url | `{visual_row.get('thumbnail_url', '')}` |",
+            f"| source_image_url | `{visual_row.get('source_image_url', '')}` |",
+        ]
+    )
+    catalog_table_rows = [
+        "| Catalog field | Source value |",
+        "| --- | --- |",
+    ]
+    for key in [
+        "collection_name",
+        "source_collection_item_id",
+        "object_title_en",
+        "catalog_reference_text",
+        "accession_number",
+        "historical_period",
+        "object_date",
+        "provenience",
+        "geography",
+        "repository",
+    ]:
+        catalog_table_rows.append(f"| `{key}` | `{metadata.get(key, '')}` |")
+    questions = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            "Which source page or catalog row proves the object label route?",
+            "哪一个来源页面或著录行可以证明对象标签路线？",
+            (
+                "Which download log row records access time, checksum, size, "
+                "and rights status?"
+            ),
+            "哪一条下载记录写明访问时间、checksum、大小和权利状态？",
+            "Which findspot, period, batch, and plate facts still lack evidence?",
+            "哪些出土地、时期、批次和图版事实仍缺少证据？",
+            "Which inscription or character links are only candidate routes?",
+            "哪些卜辞或单字关联仍只是候选路线？",
+            "Which rights or reuse risks must be checked before public use?",
+            "公开使用前还要复核哪些权利或复用风险？",
+        ]
+    )
+    lines = [
+        (
+            "# Collection Provenance Evidence Dossier / "
+            f"馆藏来源证据档案: {pid}"
+        ),
+        "",
+        "English:",
+        intro,
+        "",
+        "简体中文：",
+        intro_zh,
+        "",
+        "## Catalog Page And Source Row / 著录页与来源行",
+        "",
+        source_table,
+        "",
+        "## Rights Checksum And Risk Route / 权利、checksum 与风险路线",
+        "",
+        "- rights_status is copied from the registered source row.",
+        "- checksum and file size must be checked in the source log or manifest.",
+        "- risk notes must be reviewed before reuse or publication.",
+        "- 权利状态来自登记来源行；checksum 与大小仍需打开记录复核。",
+        "",
+        "## Visual Asset Or Thumbnail Evidence / 图像资产或缩略图证据",
+        "",
+        visual_table,
+        "",
+        "## Findspot Period Batch Plate Evidence / 出土地、时期、批次与图版证据",
+        "",
+        "\n".join(catalog_table_rows),
+        "",
+        "## Inscription And Character Context To Verify / 卜辞与单字语境待复核",
+        "",
+        "- inscription_identity_claim: `not_confirmed`",
+        "- transcription_status: `not_collected`",
+        "- oracle_character_route_status: candidate route only",
+        "- plate_context_status: needs catalog or source-page checking",
+        "",
+        "## Concrete Missing Evidence Questions / 具体缺失证据问题",
+        "",
+        questions,
+        "",
+        "## Review Boundary / 复核边界",
+        "",
+        boundary,
+        "- candidate evidence only",
+        "- not a confirmed collection object identity",
+        "- not a confirmed inscription identity",
+        "- not a formal reading",
+        "- not a decipherment conclusion",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def collection_provenance_evidence_index_payload(
+    index: int,
+    relative_dir: Path,
+    row: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "collection_object_candidate_provenance_evidence_index",
+        "candidate_collection_object_id": row["candidate_collection_object_id"],
+        "human_readable_files": [
+            (relative_dir / "08_collection-provenance-evidence-dossier.md").as_posix(),
+            (relative_dir / "04_visual-gallery.md").as_posix(),
+            (relative_dir / "05_human-review-sheet.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+        ],
+        "source_evidence_files": [
+            source_row["source_file_path"],
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "04_visual-gallery.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (relative_dir / "01_collection-object-packet.json").as_posix(),
+            (relative_dir / "07_collection-dossier-index.json").as_posix(),
+            (relative_dir / "09_collection-provenance-evidence-index.json").as_posix(),
+        ],
+        "evidence_status": {
+            "catalog_page": "source_row_recorded_needs_human_review",
+            "download_log": "route_recorded_needs_checksum_size_review",
+            "visual_asset": visual_row.get("visual_entry_type", ""),
+            "findspot_period_batch_plate": "candidate_metadata_needs_review",
+            "inscription_character_context": "not_confirmed_candidate_route_only",
+        },
+        "missing_evidence_questions": [
+            "which source page or catalog row proves the object label route",
+            "which download log row records access time, checksum, size, and rights status",
+            "which findspot, period, batch, and plate facts still lack evidence",
+            "which inscription or character links are only candidate routes",
+            "which rights or reuse risks must be checked before public use",
+        ],
+        "claim_boundary": (
+            "candidate evidence only; no confirmed collection object identity; "
+            "no confirmed inscription identity; no transcription; no formal "
+            "reading; no decipherment conclusion"
+        ),
+        "rights_status": source_row["rights_status"],
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def gallery_text(index: int, row: dict[str, str], visual_row: dict[str, str]) -> str:
     if visual_row.get("asset_path"):
         rel_asset = relative_link(object_dir(index, row, "x"), visual_row["asset_path"])
@@ -732,6 +925,20 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 src_row,
                 vis_row,
             ),
+            "provenance_evidence_dossier_text": collection_provenance_evidence_dossier_text(
+                index,
+                row,
+                metadata,
+                src_row,
+                vis_row,
+            ),
+            "provenance_evidence_index": collection_provenance_evidence_index_payload(
+                index,
+                relative_dir,
+                row,
+                src_row,
+                vis_row,
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -743,6 +950,12 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 "human_review_sheet_path": (relative_dir / "05_human-review-sheet.md").as_posix(),
                 "human_collection_dossier_path": (relative_dir / "06_human-collection-dossier.md").as_posix(),
                 "collection_dossier_index_path": (relative_dir / "07_collection-dossier-index.json").as_posix(),
+                "collection_provenance_evidence_dossier_path": (
+                    relative_dir / "08_collection-provenance-evidence-dossier.md"
+                ).as_posix(),
+                "collection_provenance_evidence_index_path": (
+                    relative_dir / "09_collection-provenance-evidence-index.json"
+                ).as_posix(),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
                 "visual_entry_status": vis_row["visual_entry_type"],
@@ -801,6 +1014,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (directory / "07_collection-dossier-index.json").write_text(
             json.dumps(output["dossier_index"], ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "08_collection-provenance-evidence-dossier.md").write_text(
+            str(output["provenance_evidence_dossier_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "09_collection-provenance-evidence-index.json").write_text(
+            json.dumps(
+                output["provenance_evidence_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
             encoding="utf-8",
             newline="\n",
         )

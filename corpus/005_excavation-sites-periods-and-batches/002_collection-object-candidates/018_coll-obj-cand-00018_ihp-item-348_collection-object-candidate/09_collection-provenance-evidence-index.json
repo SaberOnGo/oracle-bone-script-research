@@ -1,0 +1,40 @@
+{
+  "ai_support_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/01_collection-object-packet.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/07_collection-dossier-index.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/09_collection-provenance-evidence-index.json"
+  ],
+  "candidate_collection_object_id": "ihp-mus-obj-00018",
+  "claim_boundary": "candidate evidence only; no confirmed collection object identity; no confirmed inscription identity; no transcription; no formal reading; no decipherment conclusion",
+  "evidence_status": {
+    "catalog_page": "source_row_recorded_needs_human_review",
+    "download_log": "route_recorded_needs_checksum_size_review",
+    "findspot_period_batch_plate": "candidate_metadata_needs_review",
+    "inscription_character_context": "not_confirmed_candidate_route_only",
+    "visual_asset": "external_thumbnail_url_metadata_only"
+  },
+  "human_readable_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/08_collection-provenance-evidence-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/04_visual-gallery.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/05_human-review-sheet.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/06_human-collection-dossier.md"
+  ],
+  "missing_evidence_questions": [
+    "which source page or catalog row proves the object label route",
+    "which download log row records access time, checksum, size, and rights status",
+    "which findspot, period, batch, and plate facts still lack evidence",
+    "which inscription or character links are only candidate routes",
+    "which rights or reuse risks must be checked before public use"
+  ],
+  "project_id": "coll-obj-cand-00018",
+  "record_type": "collection_object_candidate_provenance_evidence_index",
+  "review_status": "needs_human_collection_object_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_evidence_files": [
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/002_ihp-museum-oracle-bone-object-staging.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/02_collection-source-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/03_visual-asset-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/018_coll-obj-cand-00018_ihp-item-348_collection-object-candidate/04_visual-gallery.md"
+  ],
+  "updated_at": "2026-06-20"
+}

@@ -3323,6 +3323,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         "05_human-review-sheet.md",
         "06_human-collection-dossier.md",
         "07_collection-dossier-index.json",
+        "08_collection-provenance-evidence-dossier.md",
+        "09_collection-provenance-evidence-index.json",
     ]
     expected_sources = {
         "src-ihp-museum-oracle-bones",
@@ -3369,6 +3371,7 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "04_visual-gallery.md",
                 "05_human-review-sheet.md",
                 "06_human-collection-dossier.md",
+                "08_collection-provenance-evidence-dossier.md",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -3510,6 +3513,58 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing provenance gap")
             if "no confirmed collection object identity" not in dossier_index.get("claim_boundary", ""):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing claim boundary")
+        provenance_dossier_path = object_dir / "08_collection-provenance-evidence-dossier.md"
+        if path_exists(provenance_dossier_path):
+            provenance_text = provenance_dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Collection Provenance Evidence Dossier",
+                "馆藏来源证据档案",
+                "Catalog Page And Source Row",
+                "著录页与来源行",
+                "Rights Checksum And Risk Route",
+                "权利、checksum 与风险路线",
+                "Findspot Period Batch Plate Evidence",
+                "出土地、时期、批次与图版证据",
+                "Inscription And Character Context To Verify",
+                "卜辞与单字语境待复核",
+                "Concrete Missing Evidence Questions",
+                "具体缺失证据问题",
+                "candidate evidence only",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in provenance_text:
+                    issues.append(
+                        f"{provenance_dossier_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for line_number, line in enumerate(provenance_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{provenance_dossier_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        provenance_index_path = object_dir / "09_collection-provenance-evidence-index.json"
+        if path_exists(provenance_index_path):
+            provenance_index = json.loads(provenance_index_path.read_text(encoding="utf-8"))
+            if provenance_index.get("record_type") != (
+                "collection_object_candidate_provenance_evidence_index"
+            ):
+                issues.append(f"{provenance_index_path.relative_to(root).as_posix()} record_type changed")
+            human_files = [str(path) for path in provenance_index.get("human_readable_files", [])]
+            source_files = [str(path) for path in provenance_index.get("source_evidence_files", [])]
+            questions = provenance_index.get("missing_evidence_questions", [])
+            if not any(path.endswith("08_collection-provenance-evidence-dossier.md") for path in human_files):
+                issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if not any(path.endswith("02_collection-source-index.csv") for path in source_files):
+                issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing source index link")
+            if "which download log row records access time, checksum, size, and rights status" not in questions:
+                issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing checksum question")
+            if "candidate evidence only" not in provenance_index.get("claim_boundary", ""):
+                issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing claim boundary")
     if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:

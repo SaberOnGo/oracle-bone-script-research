@@ -26,6 +26,8 @@ External thumbnail URL metadata only: https://museum.sinica.edu.tw/_upload/image
 - `05_human-review-sheet.md`: human review checklist.
 - `06_human-collection-dossier.md`: human collection object dossier.
 - `07_collection-dossier-index.json`: AI-readable dossier support index.
+- `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
+- `09_collection-provenance-evidence-index.json`: AI-readable evidence index.
 
 ## Object Metadata / 对象 metadata
 

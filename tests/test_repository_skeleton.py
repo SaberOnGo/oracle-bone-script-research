@@ -4216,11 +4216,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "05_human-review-sheet.md").exists())
             self.assertTrue((object_dir / "06_human-collection-dossier.md").exists())
             self.assertTrue((object_dir / "07_collection-dossier-index.json").exists())
+            self.assertTrue((object_dir / "08_collection-provenance-evidence-dossier.md").exists())
+            self.assertTrue((object_dir / "09_collection-provenance-evidence-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed inscription identity", readme_text)
             self.assertIn("not a transcription, formal reading, component analysis, or decipherment conclusion", readme_text)
             self.assertIn("06_human-collection-dossier.md", readme_text)
+            self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
             review_sheet_text = (object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet_text)
             self.assertIn("具体待查问题", review_sheet_text)
@@ -4284,6 +4287,51 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "no confirmed collection object identity",
                 dossier_index["claim_boundary"],
             )
+            provenance_text = (
+                object_dir / "08_collection-provenance-evidence-dossier.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Collection Provenance Evidence Dossier", provenance_text)
+            self.assertIn("馆藏来源证据档案", provenance_text)
+            self.assertIn("Catalog Page And Source Row", provenance_text)
+            self.assertIn("著录页与来源行", provenance_text)
+            self.assertIn("Rights Checksum And Risk Route", provenance_text)
+            self.assertIn("权利、checksum 与风险路线", provenance_text)
+            self.assertIn("Findspot Period Batch Plate Evidence", provenance_text)
+            self.assertIn("出土地、时期、批次与图版证据", provenance_text)
+            self.assertIn("Inscription And Character Context To Verify", provenance_text)
+            self.assertIn("卜辞与单字语境待复核", provenance_text)
+            self.assertIn("Concrete Missing Evidence Questions", provenance_text)
+            self.assertIn("具体缺失证据问题", provenance_text)
+            self.assertIn("candidate evidence only", provenance_text)
+            self.assertIn("not a decipherment conclusion", provenance_text)
+            for line in provenance_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            provenance_index = json.loads(
+                (object_dir / "09_collection-provenance-evidence-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                provenance_index["record_type"],
+                "collection_object_candidate_provenance_evidence_index",
+            )
+            self.assertIn(
+                "08_collection-provenance-evidence-dossier.md",
+                ";".join(provenance_index["human_readable_files"]),
+            )
+            self.assertIn(
+                "02_collection-source-index.csv",
+                ";".join(provenance_index["source_evidence_files"]),
+            )
+            self.assertIn(
+                "which download log row records access time, checksum, size, and rights status",
+                provenance_index["missing_evidence_questions"],
+            )
+            self.assertIn(
+                "candidate evidence only",
+                provenance_index["claim_boundary"],
+            )
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         smithsonian_gallery = (
@@ -4326,6 +4374,19 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("馆藏对象研究档案", first["dossier_text"])
         self.assertIn("findspot_period_batch_plate_context", first["dossier_index"]["uncollected_human_research_fields"])
         self.assertIn("no confirmed collection object identity", first["dossier_index"]["claim_boundary"])
+        self.assertIn(
+            "Collection Provenance Evidence Dossier",
+            first["provenance_evidence_dossier_text"],
+        )
+        self.assertIn("馆藏来源证据档案", first["provenance_evidence_dossier_text"])
+        self.assertIn(
+            "which download log row records access time, checksum, size, and rights status",
+            first["provenance_evidence_index"]["missing_evidence_questions"],
+        )
+        self.assertIn(
+            "candidate evidence only",
+            first["provenance_evidence_index"]["claim_boundary"],
+        )
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn("具体待查问题", first["review_sheet_text"])
         self.assertIn("应先核对哪些馆藏对象、缩略图或公开图像路线？", first["review_sheet_text"])

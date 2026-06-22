@@ -90,6 +90,19 @@ These labels are imported metadata, not a new chronological judgement.
   Status: `route_present_image_or_text_not_collected`
   Review: `needs_human_inscription_crosswalk_review`
 
+## Text And OCR Quality Review / 文本与 OCR 质量复核
+
+- Full text or OCR status: `not_collected`
+- 全文或 OCR 状态：`not_collected`
+- Text quality status: `needs_primary_text_or_OCR_route_review`
+- 文本质量状态：`needs_primary_text_or_OCR_route_review`
+- Which unreadable, missing, or uncertain signs must be marked?
+- 哪些不可读、缺失或不确定字形必须标出？
+- Which source line, page, plate, OCR file, or catalog route supports it?
+- 哪条来源行、页码、图版、OCR 文件或著录路线支持它？
+- Do not turn OCR text or catalog labels into an inscription reading.
+- 不要把 OCR 文本或著录标签写成卜辞释读结论。
+
 ## Missing Or Not Yet Collected / 缺失或未采集
 
 - Missing reference types: `cambridge_university_library`

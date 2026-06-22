@@ -3686,6 +3686,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Human Inscription Dossier", dossier_text)
             self.assertIn("Concrete Questions To Check", dossier_text)
             self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", dossier_text)
+            self.assertIn("Text And OCR Quality Review", dossier_text)
+            self.assertIn("文本与 OCR 质量复核", dossier_text)
+            self.assertIn("Full text or OCR status", dossier_text)
+            self.assertIn("全文或 OCR 状态", dossier_text)
+            self.assertIn(
+                "Which unreadable, missing, or uncertain signs must be marked?",
+                dossier_text,
+            )
+            self.assertIn("哪些不可读、缺失或不确定字形必须标出？", dossier_text)
             self.assertIn(
                 "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
                 "\u3001\u9875\u7801\u3001\u5408\u96c6\u53f7\u6216\u8457"
@@ -3778,6 +3787,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Human Inscription Dossier", first["human_dossier_text"])
         self.assertIn("Concrete Questions To Check", first["human_dossier_text"])
         self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", first["human_dossier_text"])
+        self.assertIn("Text And OCR Quality Review", first["human_dossier_text"])
+        self.assertIn("文本与 OCR 质量复核", first["human_dossier_text"])
+        self.assertIn("Full text or OCR status", first["human_dossier_text"])
+        self.assertIn("全文或 OCR 状态", first["human_dossier_text"])
+        self.assertIn(
+            "Which unreadable, missing, or uncertain signs must be marked?",
+            first["human_dossier_text"],
+        )
+        self.assertIn("哪些不可读、缺失或不确定字形必须标出？", first["human_dossier_text"])
         self.assertIn(
             "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
             "\u3001\u9875\u7801\u3001\u5408\u96c6\u53f7\u6216\u8457"

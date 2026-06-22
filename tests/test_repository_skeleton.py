@@ -3731,6 +3731,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "06_plate-text-gallery.md").exists())
             self.assertTrue((object_dir / "07_human-inscription-dossier.md").exists())
             self.assertTrue((object_dir / "08_inscription-dossier-index.json").exists())
+            self.assertTrue((object_dir / "09_inscription-plate-evidence-dossier.md").exists())
+            self.assertTrue((object_dir / "10_inscription-plate-evidence-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
@@ -3764,6 +3766,46 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn("Excavation site: `not_collected`", dossier_text)
             self.assertIn("Linked character occurrences: `not_collected`", dossier_text)
+            plate_evidence_text = (
+                object_dir / "09_inscription-plate-evidence-dossier.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Inscription And Plate Evidence Dossier", plate_evidence_text)
+            self.assertIn("卜辞与图版证据档案", plate_evidence_text)
+            self.assertIn("Inscription Number And Text State", plate_evidence_text)
+            self.assertIn("卜辞编号与文本状态", plate_evidence_text)
+            self.assertIn("Plate Catalog Heji And Collection Routes", plate_evidence_text)
+            self.assertIn("图版、著录、合集与馆藏路线", plate_evidence_text)
+            self.assertIn("Findspot Period Batch And Linked Characters", plate_evidence_text)
+            self.assertIn("出土地、时期、批次与关联字形", plate_evidence_text)
+            self.assertIn("Text Quality Missing Items And Review Status", plate_evidence_text)
+            self.assertIn("文本质量、缺失项与复核状态", plate_evidence_text)
+            self.assertIn("Full text or OCR: `not_collected`", plate_evidence_text)
+            self.assertIn("Plate image path: `not_collected`", plate_evidence_text)
+            self.assertIn("not a formal inscription record", plate_evidence_text)
+            self.assertIn("not a decipherment conclusion", plate_evidence_text)
+            for line in plate_evidence_text.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            plate_evidence_index = json.loads(
+                (object_dir / "10_inscription-plate-evidence-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                plate_evidence_index["record_type"],
+                "inscription_plate_evidence_dossier_index",
+            )
+            self.assertIn(
+                "09_inscription-plate-evidence-dossier.md",
+                plate_evidence_index["human_readable_files"],
+            )
+            self.assertIn(
+                "05_plate-text-route-index.csv",
+                plate_evidence_index["ai_support_files"],
+            )
+            self.assertIn(
+                "full_inscription_text_or_ocr",
+                plate_evidence_index["missing_or_review_fields"],
+            )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
             )
@@ -3797,6 +3839,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "README.md",
             "06_plate-text-gallery.md",
             "07_human-inscription-dossier.md",
+            "09_inscription-plate-evidence-dossier.md",
         ]:
             text = (unresolved_dir / filename).read_text(encoding="utf-8")
             self.assertNotIn("\ufffd", text, filename)
@@ -3863,6 +3906,27 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             first["dossier_index"]["record_type"],
             "inscription_crosswalk_candidate_dossier_index",
+        )
+        self.assertIn("plate_evidence_dossier_text", first)
+        self.assertIn("plate_evidence_index", first)
+        self.assertIn(
+            "Inscription And Plate Evidence Dossier",
+            first["plate_evidence_dossier_text"],
+        )
+        self.assertIn("卜辞与图版证据档案", first["plate_evidence_dossier_text"])
+        self.assertIn(
+            "Full text or OCR: `not_collected`",
+            first["plate_evidence_dossier_text"],
+        )
+        for line in first["plate_evidence_dossier_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["plate_evidence_index"]["record_type"],
+            "inscription_plate_evidence_dossier_index",
+        )
+        self.assertIn(
+            "09_inscription-plate-evidence-dossier.md",
+            first["plate_evidence_index"]["human_readable_files"],
         )
         self.assertEqual(len(first["catalog_rows"]), 4)
         self.assertEqual(len(first["plate_routes"]), 5)

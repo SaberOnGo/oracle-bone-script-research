@@ -3,7 +3,8 @@
     "01_candidate-inscription-crosswalk-packet.json",
     "02_crosswalk-source-index.csv",
     "03_catalog-reference-index.csv",
-    "05_plate-text-route-index.csv"
+    "05_plate-text-route-index.csv",
+    "10_inscription-plate-evidence-index.json"
   ],
   "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000344",
   "catalog_identity_claim_status": "not_confirmed_catalog_identity",
@@ -14,7 +15,8 @@
     "README.md",
     "04_human-review-sheet.md",
     "06_plate-text-gallery.md",
-    "07_human-inscription-dossier.md"
+    "07_human-inscription-dossier.md",
+    "09_inscription-plate-evidence-dossier.md"
   ],
   "human_review_status": "needs_human_inscription_crosswalk_review",
   "image_evidence_status": "route_indexed_not_collected",

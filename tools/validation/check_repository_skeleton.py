@@ -2817,6 +2817,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "06_plate-text-gallery.md",
         "07_human-inscription-dossier.md",
         "08_inscription-dossier-index.json",
+        "09_inscription-plate-evidence-dossier.md",
+        "10_inscription-plate-evidence-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -2906,6 +2908,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         route_gallery_path = object_dir / "06_plate-text-gallery.md"
         human_dossier_path = object_dir / "07_human-inscription-dossier.md"
         dossier_index_path = object_dir / "08_inscription-dossier-index.json"
+        plate_evidence_path = object_dir / "09_inscription-plate-evidence-dossier.md"
+        plate_evidence_index_path = object_dir / "10_inscription-plate-evidence-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -2955,6 +2959,46 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
             if "linked_character_occurrences" not in dossier_index.get("uncollected_human_research_fields", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing linked character gap")
+        if path_exists(plate_evidence_path):
+            plate_evidence = plate_evidence_path.read_text(encoding="utf-8")
+            if "\ufffd" in plate_evidence:
+                issues.append(f"{plate_evidence_path.relative_to(root).as_posix()} contains replacement-character mojibake")
+            for snippet in [
+                "Inscription And Plate Evidence Dossier",
+                "卜辞与图版证据档案",
+                "Inscription Number And Text State",
+                "卜辞编号与文本状态",
+                "Plate Catalog Heji And Collection Routes",
+                "图版、著录、合集与馆藏路线",
+                "Findspot Period Batch And Linked Characters",
+                "出土地、时期、批次与关联字形",
+                "Text Quality Missing Items And Review Status",
+                "文本质量、缺失项与复核状态",
+                "Full text or OCR: `not_collected`",
+                "Plate image path: `not_collected`",
+                "not a formal inscription record",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in plate_evidence:
+                    issues.append(f"{plate_evidence_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(plate_evidence.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(
+                        f"{plate_evidence_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        if path_exists(plate_evidence_index_path):
+            plate_evidence_index = json.loads(plate_evidence_index_path.read_text(encoding="utf-8"))
+            if plate_evidence_index.get("project_id") != project_id:
+                issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if plate_evidence_index.get("record_type") != "inscription_plate_evidence_dossier_index":
+                issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} record_type changed")
+            if "09_inscription-plate-evidence-dossier.md" not in plate_evidence_index.get("human_readable_files", []):
+                issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing plate evidence dossier link")
+            if "05_plate-text-route-index.csv" not in plate_evidence_index.get("ai_support_files", []):
+                issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing plate route index link")
+            if "full_inscription_text_or_ocr" not in plate_evidence_index.get("missing_or_review_fields", []):
+                issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing text/OCR gap")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [

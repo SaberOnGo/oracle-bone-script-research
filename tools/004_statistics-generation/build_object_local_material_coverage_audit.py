@@ -103,6 +103,7 @@ OBJECT_SPECS = [
             "04_human-review-sheet.md",
             "06_plate-text-gallery.md",
             "07_human-inscription-dossier.md",
+            "09_inscription-plate-evidence-dossier.md",
         ),
         (
             "01_candidate-inscription-crosswalk-packet.json",
@@ -110,6 +111,7 @@ OBJECT_SPECS = [
             "03_catalog-reference-index.csv",
             "05_plate-text-route-index.csv",
             "08_inscription-dossier-index.json",
+            "10_inscription-plate-evidence-index.json",
         ),
         (),
         ("05_plate-text-route-index.csv", "06_plate-text-gallery.md"),

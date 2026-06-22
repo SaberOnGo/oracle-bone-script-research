@@ -39,6 +39,10 @@ Simplified Chinese:
   Human-readable dossier for this candidate inscription object.
 - `08_inscription-dossier-index.json`
   AI-readable index for the dossier and review gaps.
+- `09_inscription-plate-evidence-dossier.md`
+  Human-readable evidence dossier for text, OCR, plate, and catalog routes.
+- `10_inscription-plate-evidence-index.json`
+  AI-readable support index for the inscription and plate dossier.
 
 ## Candidate Metadata / 候选 metadata
 

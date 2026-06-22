@@ -2400,6 +2400,10 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 "考古档案覆盖",
                 "缺失项",
                 "具体待查问题",
+                "Glyph Observation Checklist",
+                "字形观察记录",
+                "哪些可见笔画、轮廓、残缺或不确定痕迹需要记录？",
+                "哪张来源图像或 gallery 条目支持每条观察？",
                 "不是已接受的今字",
             ],
             review_sheet_path: [

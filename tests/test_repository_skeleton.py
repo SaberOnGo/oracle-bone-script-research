@@ -3500,6 +3500,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Inscription Occurrences And Text Context", dossier)
         self.assertIn("Provenance, Findspot, Collection, And Period", dossier)
         self.assertIn("Decipherment History And Disputes", dossier)
+        self.assertIn("Glyph Observation Checklist", dossier)
+        self.assertIn("字形观察记录", dossier)
+        self.assertIn(
+            "Which visible strokes, outlines, breaks, or uncertain marks",
+            dossier,
+        )
+        self.assertIn("哪些可见笔画、轮廓、残缺或不确定痕迹需要记录？", dossier)
+        self.assertIn(
+            "Which source image or gallery item supports each observation?",
+            dossier,
+        )
+        self.assertIn("哪张来源图像或 gallery 条目支持每条观察？", dossier)
         self.assertIn("人类研究档案", dossier)
         self.assertIn("考古档案覆盖", dossier)
         self.assertIn("缺失项", dossier)

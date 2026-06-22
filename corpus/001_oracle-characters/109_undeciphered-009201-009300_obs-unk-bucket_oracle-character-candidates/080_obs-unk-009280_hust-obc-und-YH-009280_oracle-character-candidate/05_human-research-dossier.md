@@ -32,6 +32,17 @@ marked as candidate, not_collected, or needs_review.
 - rights status: `source_marked_risk_noted`
 - visual review: `needs_human_visual_review`
 
+### Glyph Observation Checklist / 字形观察记录
+
+- Which visible strokes, outlines, breaks, or uncertain marks
+  need review?
+- 哪些可见笔画、轮廓、残缺或不确定痕迹需要记录？
+- Which source image or gallery item supports each observation?
+- 哪张来源图像或 gallery 条目支持每条观察？
+- Which observation is only a source record rather than a reading
+  or component conclusion?
+- 哪条观察只是来源记录，而不是释读或构件结论？
+
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
 - accepted reading: `not_collected`

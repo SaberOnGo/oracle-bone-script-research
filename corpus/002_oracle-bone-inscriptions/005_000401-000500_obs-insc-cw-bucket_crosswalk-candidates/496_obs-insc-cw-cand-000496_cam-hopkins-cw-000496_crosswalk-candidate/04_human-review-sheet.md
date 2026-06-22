@@ -23,9 +23,9 @@ Candidate crosswalk ID: `cam-hopkins-crosswalk-000496`
 
 ## Current Evidence Status / 当前证据状态
 
-- Image evidence: `route_indexed_not_collected`
-- Text transcription: `route_indexed_not_collected`
-- Collection object match: `not_collected`
+- Image evidence: `待查: plate image or rubbing route`
+- Text transcription: `待查: primary text or OCR route`
+- Collection object match: `待查: CUL or catalog object record`
 - Formal inscription assignment: `not_assigned_formal_obi_id`
 - Review status: `needs_human_inscription_crosswalk_review`
 

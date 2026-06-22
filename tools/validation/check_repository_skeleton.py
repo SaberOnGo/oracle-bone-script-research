@@ -2951,7 +2951,7 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "06_plate-text-gallery.md",
                 "07_human-inscription-dossier.md",
                 "08_inscription-dossier-index.json",
-                "route_indexed_not_collected",
+                "待查: plate, image, OCR, text, and object routes",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -3016,7 +3016,7 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{route_gallery_path.relative_to(root).as_posix()} contains replacement-character mojibake")
             for snippet in [
                 "human-readable object-local route gallery",
-                "not_collected",
+                "待查: plate image or rubbing route",
                 "not_confirmed_catalog_identity",
                 "not a decipherment conclusion",
             ]:
@@ -3041,12 +3041,17 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "具体待查问题",
                 "需要核对哪些图版号、页码、合集号或著录号",
                 "哪些馆藏、出土地、时期或批次记录",
-                "Excavation site: `not_collected`",
-                "Linked character occurrences: `not_collected`",
+                "Excavation site: `待查: source route for findspot context`",
+                "Linked character occurrences: `待查: character occurrence routes`",
                 "not a decipherment conclusion",
             ]:
                 if snippet not in human_dossier:
                     issues.append(f"{human_dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in human_dossier:
+                issues.append(
+                    f"{human_dossier_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
         if path_exists(dossier_index_path):
             dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
             if dossier_index.get("project_id") != project_id:
@@ -3074,13 +3079,18 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "出土地、时期、批次与关联字形",
                 "Text Quality Missing Items And Review Status",
                 "文本质量、缺失项与复核状态",
-                "Full text or OCR: `not_collected`",
-                "Plate image path: `not_collected`",
+                "Full text or OCR: `待查: primary text or OCR route`",
+                "Plate image path: `待查: plate image or rubbing route`",
                 "not a formal inscription record",
                 "not a decipherment conclusion",
             ]:
                 if snippet not in plate_evidence:
                     issues.append(f"{plate_evidence_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in plate_evidence:
+                issues.append(
+                    f"{plate_evidence_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
             for line_number, line in enumerate(plate_evidence.splitlines(), start=1):
                 if len(line) > 80:
                     issues.append(

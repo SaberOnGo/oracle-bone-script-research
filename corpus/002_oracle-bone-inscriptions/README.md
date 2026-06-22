@@ -46,8 +46,8 @@ inscription record is created.
 
 - inscription number: candidate ID, Yingguo number, CUL number, Chalfant
   number, Heji number, OBM route, and any old catalog number.
-- Text or OCR: full text, partial OCR, transcription route, or explicit
-  `not_collected` status.
+- Text or OCR: full text, partial OCR, transcription route, or concrete
+  next-check questions in the object-local human dossier.
 - Plate and image: 图版号, source image path, plate/text route index,
   plate/text gallery, thumbnail status, and rights note.
 - Bibliographic route: 著录来源, page or plate reference, cited source,
@@ -63,8 +63,8 @@ inscription record is created.
 
 - 卜辞编号：候选 ID、《英国所藏甲骨集》号、CUL 号、Chalfant 号、
   《合集》号、OBM 路线，以及其他旧著录号。
-- 全文或 OCR：是否已有全文、局部 OCR、释文路线，或明确标为
-  `not_collected`。
+- 全文或 OCR：是否已有全文、局部 OCR、释文路线，或在对象内
+  人类档案中写成具体待查问题。
 - 图版和图像：图版号、来源图像路径、图版/文本路线索引、图版/
   文本 gallery、缩略图状态和权利说明。
 - 著录路线：著录来源、页码或图版引用、被引用来源和来源登记行。

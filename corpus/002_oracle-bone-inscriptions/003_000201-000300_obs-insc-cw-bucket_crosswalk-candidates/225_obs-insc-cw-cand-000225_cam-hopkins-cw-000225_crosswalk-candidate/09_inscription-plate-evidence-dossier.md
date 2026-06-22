@@ -8,8 +8,8 @@ Candidate crosswalk ID: `cam-hopkins-crosswalk-000225`
 
 - Formal `obi-*` ID: `not_assigned_formal_obi_id`
 - Source row number: `225`
-- Full text or OCR: `not_collected`
-- Full inscription transcription: `not_collected`
+- Full text or OCR: `待查: primary text or OCR route`
+- Full inscription transcription: `待查: primary transcription route`
 - Text quality: `needs_primary_text_or_OCR_route_review`
 - Review status: `needs_human_inscription_crosswalk_review`
 
@@ -21,8 +21,8 @@ treating any text, OCR, plate, catalog number, or object record as evidence.
 
 ## Plate Catalog Heji And Collection Routes / 图版、著录、合集与馆藏路线
 
-- Plate image path: `not_collected`
-- Local rubbing or photograph: `not_collected`
+- Plate image path: `待查: plate image or rubbing route`
+- Local rubbing or photograph: `待查: local image rights review`
 - Catalog route count: `4`
 - Plate and text route count: `5`
 - Present catalog refs: see `03_catalog-reference-index.csv`
@@ -39,11 +39,11 @@ Chalfant reference.
 - Period label: `I`
 - Classification group: `18`
 - Declared group count: `17`
-- Collection object record: `not_collected`
-- Excavation site: `not_collected`
-- Findspot: `not_collected`
-- Batch or pit context: `not_collected`
-- Linked character occurrences: `not_collected`
+- Collection object record: `待查: CUL or catalog object record`
+- Excavation site: `待查: source route for findspot context`
+- Findspot: `待查: excavation or findspot source route`
+- Batch or pit context: `待查: batch or pit context source route`
+- Linked character occurrences: `待查: character occurrence routes`
 
 The period and group labels come from imported metadata. They are review
 signals, not new chronological conclusions. Linked characters still need a

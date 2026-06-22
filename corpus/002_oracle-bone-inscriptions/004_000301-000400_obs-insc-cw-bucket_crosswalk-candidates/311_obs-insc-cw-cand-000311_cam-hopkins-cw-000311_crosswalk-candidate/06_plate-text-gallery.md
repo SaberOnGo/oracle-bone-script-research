@@ -19,34 +19,34 @@ contain confirmed images or transcriptions.
 - Route: `cambridge_hopkins_finding_list`
   Label: Cambridge/Hopkins finding-list row
   Reference: `cam-hopkins-crosswalk-000311`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `yingguo_catalog_reference`
   Label: Yingguo suo cang jiagu ji reference
   Reference: `y1965`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `cambridge_university_library_reference`
   Label: Cambridge University Library object/reference number
   Reference: `428`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `chalfant_reference`
   Label: Chalfant reference
   Reference: `79`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `heji_reference`
   Label: Heji reference
   Reference: `40948`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 
 ## Evidence Status / 证据状态
 
-- Local plate image: `not_collected`
-- Local OCR text: `not_collected`
-- Full inscription transcription: `not_collected`
+- Local plate image: `待查: plate image or rubbing route`
+- Local OCR text: `待查: primary OCR route`
+- Full inscription transcription: `待查: primary transcription route`
 - Object identity: `not_confirmed_catalog_identity`
 - Formal `obi-*` assignment: `not_assigned_formal_obi_id`
 

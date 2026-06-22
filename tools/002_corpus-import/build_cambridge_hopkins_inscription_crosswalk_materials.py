@@ -140,6 +140,14 @@ def catalog_reference_markdown(catalog_rows: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
+def human_route_status(status: str) -> str:
+    if status == "route_present_image_or_text_not_collected":
+        return "待查: open cited plate, image, text, or object route"
+    if status == "route_missing_or_unassigned":
+        return "待查: missing or unassigned catalog route"
+    return status
+
+
 def route_markdown(plate_routes: list[dict[str, str]]) -> str:
     lines: list[str] = []
     for route in plate_routes:
@@ -152,7 +160,7 @@ def route_markdown(plate_routes: list[dict[str, str]]) -> str:
         lines.extend(reference_value_markdown_lines("Reference", route["reference_value"]))
         lines.extend(
             [
-                f"  Status: `{route['evidence_status']}`",
+                f"  Status: `{human_route_status(route['evidence_status'])}`",
                 f"  Review: `{route['review_status']}`",
             ]
         )
@@ -458,12 +466,12 @@ Simplified Chinese:
 
 ## Plate And Text Evidence / 图版与文本证据
 
-Current status: `route_indexed_not_collected`.
+Current status: `待查: plate, image, OCR, text, and object routes`.
 
 Open `06_plate-text-gallery.md` for plate, object, Heji/OBM, and
 catalog routes.
 
-当前状态：`route_indexed_not_collected`。
+当前状态：`待查: plate, image, OCR, text, and object routes`。
 
 请打开同目录的 `06_plate-text-gallery.md`。
 
@@ -512,9 +520,9 @@ English:
 
 ## Evidence Status / 证据状态
 
-- Local plate image: `not_collected`
-- Local OCR text: `not_collected`
-- Full inscription transcription: `not_collected`
+- Local plate image: `待查: plate image or rubbing route`
+- Local OCR text: `待查: primary OCR route`
+- Full inscription transcription: `待查: primary transcription route`
 - Object identity: `not_confirmed_catalog_identity`
 - Formal `obi-*` assignment: `not_assigned_formal_obi_id`
 
@@ -552,9 +560,9 @@ Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
 
 ## Current Evidence Status / 当前证据状态
 
-- Image evidence: `route_indexed_not_collected`
-- Text transcription: `route_indexed_not_collected`
-- Collection object match: `not_collected`
+- Image evidence: `待查: plate image or rubbing route`
+- Text transcription: `待查: primary text or OCR route`
+- Collection object match: `待查: CUL or catalog object record`
 - Formal inscription assignment: `not_assigned_formal_obi_id`
 - Review status: `needs_human_inscription_crosswalk_review`
 
@@ -612,9 +620,9 @@ Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
 - Record type: `inscription_crosswalk_candidate`
 - Formal `obi-*` ID: `not_assigned_formal_obi_id`
 - Object identity: `not_confirmed_catalog_identity`
-- Plate image: `not_collected`
-- OCR text: `not_collected`
-- Full transcription: `not_collected`
+- Plate image: `待查: plate image or rubbing route`
+- OCR text: `待查: primary OCR route`
+- Full transcription: `待查: primary transcription route`
 - Review status: `needs_human_inscription_crosswalk_review`
 
 ## What A Human Can Read Here / 人可读内容
@@ -656,8 +664,8 @@ These labels are imported metadata, not a new chronological judgement.
 
 ## Text And OCR Quality Review / 文本与 OCR 质量复核
 
-- Full text or OCR status: `not_collected`
-- 全文或 OCR 状态：`not_collected`
+- Full text or OCR status: `待查: primary text or OCR route`
+- 全文或 OCR 状态：`待查: primary text or OCR route`
 - Text quality status: `needs_primary_text_or_OCR_route_review`
 - 文本质量状态：`needs_primary_text_or_OCR_route_review`
 - Which unreadable, missing, or uncertain signs must be marked?
@@ -670,14 +678,14 @@ These labels are imported metadata, not a new chronological judgement.
 ## Missing Or Not Yet Collected / 缺失或未采集
 
 - Missing reference types: `{missing_text}`
-- Excavation site: `not_collected`
-- Collection object record: `not_collected`
-- Findspot: `not_collected`
-- Batch or pit context: `not_collected`
-- Plate image path: `not_collected`
-- Inscription OCR: `not_collected`
-- Full inscription text: `not_collected`
-- Linked character occurrences: `not_collected`
+- Excavation site: `待查: source route for findspot context`
+- Collection object record: `待查: CUL or catalog object record`
+- Findspot: `待查: excavation or findspot source route`
+- Batch or pit context: `待查: batch or pit context source route`
+- Plate image path: `待查: plate image or rubbing route`
+- Inscription OCR: `待查: OCR source or legal text route`
+- Full inscription text: `待查: primary transcription source route`
+- Linked character occurrences: `待查: character occurrence routes`
 - Later-script correspondence: `not_applicable_to_this_record`
 
 ### Concrete Questions To Check / 具体待查问题
@@ -743,8 +751,8 @@ Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
 
 - Formal `obi-*` ID: `not_assigned_formal_obi_id`
 - Source row number: `{index}`
-- Full text or OCR: `not_collected`
-- Full inscription transcription: `not_collected`
+- Full text or OCR: `待查: primary text or OCR route`
+- Full inscription transcription: `待查: primary transcription route`
 - Text quality: `needs_primary_text_or_OCR_route_review`
 - Review status: `needs_human_inscription_crosswalk_review`
 
@@ -754,8 +762,8 @@ Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
 
 ## Plate Catalog Heji And Collection Routes / 图版、著录、合集与馆藏路线
 
-- Plate image path: `not_collected`
-- Local rubbing or photograph: `not_collected`
+- Plate image path: `待查: plate image or rubbing route`
+- Local rubbing or photograph: `待查: local image rights review`
 - Catalog route count: `{len(catalog_rows)}`
 - Plate and text route count: `{len(plate_routes)}`
 - Present catalog refs: see `03_catalog-reference-index.csv`
@@ -772,11 +780,11 @@ Chalfant reference.
 - Period label: `{row['period_label']}`
 - Classification group: `{row['group_number']}`
 - Declared group count: `{row['group_declared_count']}`
-- Collection object record: `not_collected`
-- Excavation site: `not_collected`
-- Findspot: `not_collected`
-- Batch or pit context: `not_collected`
-- Linked character occurrences: `not_collected`
+- Collection object record: `待查: CUL or catalog object record`
+- Excavation site: `待查: source route for findspot context`
+- Findspot: `待查: excavation or findspot source route`
+- Batch or pit context: `待查: batch or pit context source route`
+- Linked character occurrences: `待查: character occurrence routes`
 
 {paragraph("The period and group labels come from imported metadata. They are review signals, not new chronological conclusions. Linked characters still need a separate occurrence review before they can support character dossiers.")}
 

@@ -75,12 +75,12 @@ Simplified Chinese:
 
 ## Plate And Text Evidence / 图版与文本证据
 
-Current status: `route_indexed_not_collected`.
+Current status: `待查: plate, image, OCR, text, and object routes`.
 
 Open `06_plate-text-gallery.md` for plate, object, Heji/OBM, and
 catalog routes.
 
-当前状态：`route_indexed_not_collected`。
+当前状态：`待查: plate, image, OCR, text, and object routes`。
 
 请打开同目录的 `06_plate-text-gallery.md`。
 

@@ -9,9 +9,9 @@ Candidate crosswalk ID: `cam-hopkins-crosswalk-000245`
 - Record type: `inscription_crosswalk_candidate`
 - Formal `obi-*` ID: `not_assigned_formal_obi_id`
 - Object identity: `not_confirmed_catalog_identity`
-- Plate image: `not_collected`
-- OCR text: `not_collected`
-- Full transcription: `not_collected`
+- Plate image: `待查: plate image or rubbing route`
+- OCR text: `待查: primary OCR route`
+- Full transcription: `待查: primary transcription route`
 - Review status: `needs_human_inscription_crosswalk_review`
 
 ## What A Human Can Read Here / 人可读内容
@@ -67,33 +67,33 @@ These labels are imported metadata, not a new chronological judgement.
 - Route: `cambridge_hopkins_finding_list`
   Label: Cambridge/Hopkins finding-list row
   Reference: `cam-hopkins-crosswalk-000245`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `yingguo_catalog_reference`
   Label: Yingguo suo cang jiagu ji reference
   Reference: `y1591`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `cambridge_university_library_reference`
   Label: Cambridge University Library object/reference number
   Reference: `172`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `chalfant_reference`
   Label: Chalfant reference
   Reference: `619`
-  Status: `route_present_image_or_text_not_collected`
+  Status: `待查: open cited plate, image, text, or object route`
   Review: `needs_human_inscription_crosswalk_review`
 - Route: `heji_reference`
   Label: Heji reference
   Reference: `*****`
-  Status: `route_missing_or_unassigned`
+  Status: `待查: missing or unassigned catalog route`
   Review: `needs_human_inscription_crosswalk_review`
 
 ## Text And OCR Quality Review / 文本与 OCR 质量复核
 
-- Full text or OCR status: `not_collected`
-- 全文或 OCR 状态：`not_collected`
+- Full text or OCR status: `待查: primary text or OCR route`
+- 全文或 OCR 状态：`待查: primary text or OCR route`
 - Text quality status: `needs_primary_text_or_OCR_route_review`
 - 文本质量状态：`needs_primary_text_or_OCR_route_review`
 - Which unreadable, missing, or uncertain signs must be marked?
@@ -106,14 +106,14 @@ These labels are imported metadata, not a new chronological judgement.
 ## Missing Or Not Yet Collected / 缺失或未采集
 
 - Missing reference types: `heji`
-- Excavation site: `not_collected`
-- Collection object record: `not_collected`
-- Findspot: `not_collected`
-- Batch or pit context: `not_collected`
-- Plate image path: `not_collected`
-- Inscription OCR: `not_collected`
-- Full inscription text: `not_collected`
-- Linked character occurrences: `not_collected`
+- Excavation site: `待查: source route for findspot context`
+- Collection object record: `待查: CUL or catalog object record`
+- Findspot: `待查: excavation or findspot source route`
+- Batch or pit context: `待查: batch or pit context source route`
+- Plate image path: `待查: plate image or rubbing route`
+- Inscription OCR: `待查: OCR source or legal text route`
+- Full inscription text: `待查: primary transcription source route`
+- Linked character occurrences: `待查: character occurrence routes`
 - Later-script correspondence: `not_applicable_to_this_record`
 
 ### Concrete Questions To Check / 具体待查问题

@@ -3872,7 +3872,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
-            self.assertIn("route_indexed_not_collected", readme_text)
+            self.assertIn(
+                "待查: plate, image, OCR, text, and object routes",
+                readme_text,
+            )
             dossier_text = (object_dir / "07_human-inscription-dossier.md").read_text(
                 encoding="utf-8"
             )
@@ -3899,8 +3902,15 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "\u3001\u65f6\u671f\u6216\u6279\u6b21\u8bb0\u5f55",
                 dossier_text,
             )
-            self.assertIn("Excavation site: `not_collected`", dossier_text)
-            self.assertIn("Linked character occurrences: `not_collected`", dossier_text)
+            self.assertIn(
+                "Excavation site: `待查: source route for findspot context`",
+                dossier_text,
+            )
+            self.assertIn(
+                "Linked character occurrences: `待查: character occurrence routes`",
+                dossier_text,
+            )
+            self.assertNotIn("not_collected", dossier_text)
             plate_evidence_text = (
                 object_dir / "09_inscription-plate-evidence-dossier.md"
             ).read_text(encoding="utf-8")
@@ -3914,8 +3924,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("出土地、时期、批次与关联字形", plate_evidence_text)
             self.assertIn("Text Quality Missing Items And Review Status", plate_evidence_text)
             self.assertIn("文本质量、缺失项与复核状态", plate_evidence_text)
-            self.assertIn("Full text or OCR: `not_collected`", plate_evidence_text)
-            self.assertIn("Plate image path: `not_collected`", plate_evidence_text)
+            self.assertIn(
+                "Full text or OCR: `待查: primary text or OCR route`",
+                plate_evidence_text,
+            )
+            self.assertIn(
+                "Plate image path: `待查: plate image or rubbing route`",
+                plate_evidence_text,
+            )
+            self.assertNotIn("not_collected", plate_evidence_text)
             self.assertIn("not a formal inscription record", plate_evidence_text)
             self.assertIn("not a decipherment conclusion", plate_evidence_text)
             for line in plate_evidence_text.splitlines():
@@ -4050,7 +4067,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("卜辞与图版证据档案", first["plate_evidence_dossier_text"])
         self.assertIn(
-            "Full text or OCR: `not_collected`",
+            "Full text or OCR: `待查: primary text or OCR route`",
             first["plate_evidence_dossier_text"],
         )
         for line in first["plate_evidence_dossier_text"].splitlines():

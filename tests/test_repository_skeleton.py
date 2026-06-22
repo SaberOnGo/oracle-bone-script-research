@@ -3592,6 +3592,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "07_component-visual-gallery.md").exists())
             self.assertTrue((object_dir / "09_component-visual-route-index.csv").exists())
             self.assertTrue((object_dir / "10_component-visual-route-gallery.md").exists())
+            self.assertTrue((object_dir / "11_human-component-dossier.md").exists())
+            self.assertTrue((object_dir / "12_component-dossier-index.json").exists())
             packet = json.loads((object_dir / "01_candidate-component-packet.json").read_text(encoding="utf-8"))
             self.assertIn(
                 packet["local_image_status"],
@@ -3612,6 +3614,60 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in readme_text.splitlines():
                 if not line.startswith("|"):
                     self.assertLessEqual(len(line), 80, line)
+            dossier_text = (object_dir / "11_human-component-dossier.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Human Component Candidate Dossier", dossier_text)
+            self.assertIn("构件候选研究档案", dossier_text)
+            self.assertIn("Glyph Image Observation", dossier_text)
+            self.assertIn("字形图像观察", dossier_text)
+            self.assertIn("Near-Shape And Variant Review", dossier_text)
+            self.assertIn("近形", dossier_text)
+            self.assertIn("异体", dossier_text)
+            self.assertIn("Character And Inscription Routes", dossier_text)
+            self.assertIn("甲骨单字", dossier_text)
+            self.assertIn("卜辞", dossier_text)
+            self.assertIn("Source Evidence And Rights Trail", dossier_text)
+            self.assertIn("Missing Evidence And Next Checks", dossier_text)
+            self.assertIn("Concrete Questions To Check", dossier_text)
+            self.assertIn("具体待查问题", dossier_text)
+            self.assertIn("not a formal component assignment", dossier_text)
+            self.assertIn("not a decipherment conclusion", dossier_text)
+            for line in dossier_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            dossier_index = json.loads(
+                (object_dir / "12_component-dossier-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                dossier_index["record_type"],
+                "graphemic_component_candidate_dossier_index",
+            )
+            self.assertTrue(
+                any(
+                    path.endswith("11_human-component-dossier.md")
+                    for path in dossier_index["human_readable_files"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    path.endswith("01_candidate-component-packet.json")
+                    for path in dossier_index["ai_support_files"]
+                )
+            )
+            self.assertIn(
+                "near_shape_and_variant_comparison",
+                dossier_index["uncollected_human_research_fields"],
+            )
+            self.assertIn("no formal component assignment", dossier_index["claim_boundary"])
+            self.assertTrue(
+                any(
+                    path.endswith("11_human-component-dossier.md")
+                    for path in packet["route_files"]
+                )
+            )
             glyph_gallery = (object_dir / "04_glyph-codepoint-gallery.md").read_text(
                 encoding="utf-8"
             )

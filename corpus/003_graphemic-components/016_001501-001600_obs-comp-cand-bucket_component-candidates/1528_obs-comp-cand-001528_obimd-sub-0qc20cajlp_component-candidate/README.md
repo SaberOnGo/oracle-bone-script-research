@@ -88,3 +88,5 @@ Route files / 路由文件:
 - 08_human-visual-review-sheet.md
 - 09_component-visual-route-index.csv
 - 10_component-visual-route-gallery.md
+- 11_human-component-dossier.md
+- 12_component-dossier-index.json

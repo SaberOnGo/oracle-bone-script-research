@@ -306,6 +306,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "08_human-visual-review-sheet.md").as_posix(),
         (directory / "09_component-visual-route-index.csv").as_posix(),
         (directory / "10_component-visual-route-gallery.md").as_posix(),
+        (directory / "11_human-component-dossier.md").as_posix(),
+        (directory / "12_component-dossier-index.json").as_posix(),
     ]
 
 
@@ -911,6 +913,226 @@ def visual_route_gallery_text(
     return "\n".join(lines) + "\n"
 
 
+def component_dossier_text(
+    index: int,
+    main_row: dict[str, str],
+    glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
+    directory: Path,
+) -> str:
+    component_id = candidate_id(index)
+    local_status = (
+        "source_image_extracted"
+        if visual_rows
+        else "not_found_in_registered_source_package_route_indexed"
+    )
+    intro_en = wrap_markdown_line(
+        "This human-readable dossier gathers the object-local material needed "
+        "before any component review: source identifiers, local images, "
+        "glyph-codepoint clues, route files, rights evidence, and concrete "
+        "questions still requiring human verification."
+    )
+    intro_zh = wrap_markdown_line(
+        "\u672c\u6863\u6848\u6c47\u603b\u6784\u4ef6\u590d\u6838\u524d"
+        "\u9700\u8981\u6253\u5f00\u7684\u5bf9\u8c61\u5185\u6750\u6599\uff1a"
+        "\u6765\u6e90\u7f16\u53f7\u3001\u672c\u5730\u56fe\u50cf\u3001"
+        "glyph-codepoint \u7ebf\u7d22\u3001\u8def\u7ebf\u6587\u4ef6\u3001"
+        "\u6743\u5229\u8bc1\u636e\uff0c\u4ee5\u53ca\u4ecd\u9700"
+        "\u4eba\u5de5\u6838\u67e5\u7684\u5177\u4f53\u95ee\u9898\u3002"
+    )
+    boundary = wrap_markdown_line(
+        "This is not a formal component assignment, not a confirmed component "
+        "form, not an oracle-character identity claim, and not a decipherment "
+        "conclusion."
+    )
+    glyph_count = str(len(glyph_rows))
+    visual_count = str(len(visual_rows))
+    glyph_values = sorted({row["glyph_codepoint_uplus"] for row in glyph_rows if row})
+    glyph_sample = ", ".join(glyph_values[:2])
+    if len(glyph_values) > 2:
+        glyph_sample = f"{glyph_sample}, ..."
+    if not glyph_sample:
+        glyph_sample = "pending review"
+    visual_paths = "\n".join(
+        f"| `{row['asset_id']}` | `{Path(row['local_asset_path']).name}` |"
+        f" `{row['checksum_sha256']}` |"
+        for row in visual_rows
+    )
+    if not visual_paths:
+        visual_paths = (
+            "| no_local_image | not_found_in_registered_package | "
+            "pending source-package check |"
+        )
+    questions = [
+        "Which local image or source route should be opened first?",
+        "\u5e94\u5148\u6253\u5f00\u54ea\u4e00\u5f20\u672c\u5730"
+        "\u56fe\u50cf\u6216\u54ea\u4e00\u6761\u6765\u6e90\u8def\u7ebf\uff1f",
+        "Which glyph-codepoint links are private-use or font-dependent clues?",
+        "\u54ea\u4e9b glyph-codepoint \u5173\u7cfb\u5c5e\u4e8e"
+        "\u79c1\u7528\u533a\u6216\u4f9d\u8d56\u5b57\u4f53\u7684\u7ebf\u7d22\uff1f",
+        "Which near-shape and variant comparisons still need source checking?",
+        "\u8fd8\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u8fd1\u5f62"
+        "\u4e0e\u5f02\u4f53\u6bd4\u8f83\uff1f",
+        "Which oracle character and inscription routes should be opened next?",
+        "\u4e0b\u4e00\u6b65\u5e94\u6253\u5f00\u54ea\u4e9b"
+        "\u7532\u9aa8\u5355\u5b57\u4e0e\u535c\u8f9e\u8def\u7ebf\uff1f",
+        "Which source package, checksum, and rights rows prove the images?",
+        "\u54ea\u4e9b\u6765\u6e90\u5305\u3001checksum \u4e0e"
+        "\u6743\u5229\u8bb0\u5f55\u80fd\u8bc1\u660e\u8fd9\u4e9b\u56fe\u50cf\uff1f",
+        "What remains missing before any formal component assignment?",
+        "\u6b63\u5f0f\u6784\u4ef6\u5f52\u5c5e\u524d\u8fd8"
+        "\u7f3a\u54ea\u4e9b\u8bc1\u636e\uff1f",
+    ]
+    question_lines = "\n".join(
+        line for item in questions for line in wrapped_bullet(item)
+    )
+    lines = [
+        (
+            "# Human Component Candidate Dossier / "
+            f"\u6784\u4ef6\u5019\u9009\u7814\u7a76\u6863\u6848: {component_id}"
+        ),
+        "",
+        "English:",
+        intro_en,
+        "",
+        "\u7b80\u4f53\u4e2d\u6587\uff1a",
+        intro_zh,
+        "",
+        "## Candidate Identity / \u5019\u9009\u8eab\u4efd",
+        "",
+        f"- candidate_component_id: `{component_id}`",
+        f"- primary_external_ref_id: `{main_row['subcharacter_external_ref_id']}`",
+        f"- source_subcharacter_uid: `{main_row['source_subcharacter_uid']}`",
+        f"- source_main_character_uid: `{main_row['source_main_character_uid']}`",
+        f"- main_character_external_ref_id: `{main_row['main_character_external_ref_id']}`",
+        "- object_directory: see `12_component-dossier-index.json`",
+        "",
+        "## Glyph Image Observation / \u5b57\u5f62\u56fe\u50cf\u89c2\u5bdf",
+        "",
+        f"- local_image_status: `{local_status}`",
+        f"- visual_asset_count: `{visual_count}`",
+        f"- glyph_codepoint_count: `{glyph_count}`",
+        f"- glyph_codepoint_uplus_sample: `{glyph_sample}`",
+        "- full_glyph_codepoint_list: see `03_glyph-codepoint-index.csv`",
+        "",
+        "| Asset ID | Local image file | SHA-256 |",
+        "| --- | --- | --- |",
+        visual_paths,
+        "",
+        (
+            "## Near-Shape And Variant Review / "
+            "\u8fd1\u5f62\u4e0e\u5f02\u4f53\u590d\u6838"
+        ),
+        "",
+        wrap_markdown_line(
+            "No near-shape or variant judgment is made here. Reviewers should "
+            "compare the local image, glyph-codepoint clues, and independent "
+            "component sources before promoting any relationship."
+        ),
+        "",
+        wrap_markdown_line(
+            "\u6b64\u5904\u4e0d\u4f5c\u8fd1\u5f62\u6216\u5f02\u4f53"
+            "\u5224\u65ad\u3002\u590d\u6838\u8005\u5e94\u5148\u6bd4\u8f83"
+            "\u672c\u5730\u56fe\u50cf\u3001glyph-codepoint \u7ebf\u7d22"
+            "\u548c\u72ec\u7acb\u6784\u4ef6\u6765\u6e90\uff0c\u518d\u51b3\u5b9a"
+            "\u662f\u5426\u63d0\u5347\u5173\u7cfb\u3002"
+        ),
+        "",
+        (
+            "## Character And Inscription Routes / "
+            "\u7532\u9aa8\u5355\u5b57\u4e0e\u535c\u8f9e\u8def\u7ebf"
+        ),
+        "",
+        wrap_markdown_line(
+            "Open the object-local indexes and graph edges to trace possible "
+            "oracle character, inscription, and source routes. These routes "
+            "are lookup aids only."
+        ),
+        "",
+        "- `03_glyph-codepoint-index.csv`",
+        "- `04_glyph-codepoint-gallery.md`",
+        "- `09_component-visual-route-index.csv`",
+        "- `10_component-visual-route-gallery.md`",
+        "",
+        (
+            "## Source Evidence And Rights Trail / "
+            "\u6765\u6e90\u8bc1\u636e\u4e0e\u6743\u5229\u94fe"
+        ),
+        "",
+        f"- source_id: `{main_row['source_id']}`",
+        f"- evidence_download_id: `{main_row['evidence_download_id']}`",
+        f"- source_metadata_file: `{main_row['source_metadata_file']}`",
+        f"- rights_status: `{RIGHTS_STATUS}`",
+        f"- review_status: `{REVIEW_STATUS}`",
+        "",
+        (
+            "## Missing Evidence And Next Checks / "
+            "\u7f3a\u5931\u8bc1\u636e\u4e0e\u4e0b\u4e00\u6b65"
+        ),
+        "",
+        "- near_shape_and_variant_comparison",
+        "- oracle_character_context",
+        "- inscription_occurrence_context",
+        "- published_component_history",
+        "- reading_history_and_disputes",
+        "",
+        (
+            "## Concrete Questions To Check / "
+            "\u5177\u4f53\u5f85\u67e5\u95ee\u9898"
+        ),
+        "",
+        question_lines,
+        "",
+        "## Review Boundary / \u590d\u6838\u8fb9\u754c",
+        "",
+        boundary,
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def component_dossier_index_payload(
+    index: int,
+    main_row: dict[str, str],
+    directory: Path,
+) -> dict[str, object]:
+    return {
+        "candidate_component_id": candidate_id(index),
+        "record_type": "graphemic_component_candidate_dossier_index",
+        "primary_external_ref_id": main_row["subcharacter_external_ref_id"],
+        "human_readable_files": [
+            (directory / "README.md").as_posix(),
+            (directory / "04_glyph-codepoint-gallery.md").as_posix(),
+            (directory / "07_component-visual-gallery.md").as_posix(),
+            (directory / "08_human-visual-review-sheet.md").as_posix(),
+            (directory / "10_component-visual-route-gallery.md").as_posix(),
+            (directory / "11_human-component-dossier.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (directory / "01_candidate-component-packet.json").as_posix(),
+            (directory / "02_component-source-index.csv").as_posix(),
+            (directory / "03_glyph-codepoint-index.csv").as_posix(),
+            (directory / "06_component-visual-index.csv").as_posix(),
+            (directory / "09_component-visual-route-index.csv").as_posix(),
+            (directory / "12_component-dossier-index.json").as_posix(),
+        ],
+        "source_route_files": route_files(directory),
+        "uncollected_human_research_fields": [
+            "near_shape_and_variant_comparison",
+            "oracle_character_context",
+            "inscription_occurrence_context",
+            "published_component_history",
+            "reading_history_and_disputes",
+        ],
+        "claim_boundary": (
+            "no formal component assignment; no confirmed component form; "
+            "no oracle-character identity; no decipherment conclusion"
+        ),
+        "rights_status": RIGHTS_STATUS,
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def manifest_row(
     index: int,
     main_row: dict[str, str],
@@ -1238,6 +1460,26 @@ def build_materials(root: Path) -> tuple[int, int]:
             )
             (full_directory / "10_component-visual-route-gallery.md").write_text(
                 visual_route_gallery_text(index, main_row, visual_rows, directory),
+                encoding="utf-8",
+            )
+            (full_directory / "11_human-component-dossier.md").write_text(
+                component_dossier_text(
+                    index,
+                    main_row,
+                    glyph_rows,
+                    visual_rows,
+                    directory,
+                ),
+                encoding="utf-8",
+            )
+            (full_directory / "12_component-dossier-index.json").write_text(
+                json.dumps(
+                    component_dossier_index_payload(index, main_row, directory),
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n",
                 encoding="utf-8",
             )
             manifest_by_bucket[bucket_dir(index)].append(

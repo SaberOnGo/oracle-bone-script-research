@@ -2552,6 +2552,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "08_human-visual-review-sheet.md",
         "09_component-visual-route-index.csv",
         "10_component-visual-route-gallery.md",
+        "11_human-component-dossier.md",
+        "12_component-dossier-index.json",
     ]
     sample_indexes = {1, 70, len(rows)}
     for index, row in enumerate(rows, start=1):
@@ -2618,6 +2620,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing visual route index route")
             if not any(path.endswith("10_component-visual-route-gallery.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing visual route gallery route")
+            if not any(path.endswith("11_human-component-dossier.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing component dossier route")
             if "not a confirmed graphemic component" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
         glyph_index_path = object_dir / "03_glyph-codepoint-index.csv"
@@ -2736,6 +2740,55 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                         f"{visual_route_gallery_path.relative_to(root).as_posix()}:{line_number} "
                         "line exceeds 80 characters"
                     )
+        dossier_path = object_dir / "11_human-component-dossier.md"
+        if path_exists(dossier_path):
+            dossier_text = dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Human Component Candidate Dossier",
+                "构件候选研究档案",
+                "Glyph Image Observation",
+                "字形图像观察",
+                "Near-Shape And Variant Review",
+                "近形",
+                "异体",
+                "Character And Inscription Routes",
+                "甲骨单字",
+                "卜辞",
+                "Source Evidence And Rights Trail",
+                "Missing Evidence And Next Checks",
+                "Concrete Questions To Check",
+                "具体待查问题",
+                "not a formal component assignment",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in dossier_text:
+                    issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for line_number, line in enumerate(dossier_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{dossier_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        dossier_index_path = object_dir / "12_component-dossier-index.json"
+        if path_exists(dossier_index_path):
+            dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
+            if dossier_index.get("record_type") != "graphemic_component_candidate_dossier_index":
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} record_type changed")
+            human_files = [str(path) for path in dossier_index.get("human_readable_files", [])]
+            ai_files = [str(path) for path in dossier_index.get("ai_support_files", [])]
+            missing_fields = dossier_index.get("uncollected_human_research_fields", [])
+            if not any(path.endswith("11_human-component-dossier.md") for path in human_files):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if not any(path.endswith("01_candidate-component-packet.json") for path in ai_files):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing packet link")
+            if "near_shape_and_variant_comparison" not in missing_fields:
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing near-shape gap")
+            if "no formal component assignment" not in dossier_index.get("claim_boundary", ""):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing claim boundary")
     return issues
 
 

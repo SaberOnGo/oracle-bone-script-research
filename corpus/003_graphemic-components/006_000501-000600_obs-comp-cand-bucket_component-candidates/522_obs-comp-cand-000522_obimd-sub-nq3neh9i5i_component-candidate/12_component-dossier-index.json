@@ -1,0 +1,51 @@
+{
+  "ai_support_files": [
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/01_candidate-component-packet.json",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/02_component-source-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/03_glyph-codepoint-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/06_component-visual-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/09_component-visual-route-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/12_component-dossier-index.json"
+  ],
+  "candidate_component_id": "obs-comp-cand-000522",
+  "claim_boundary": "no formal component assignment; no confirmed component form; no oracle-character identity; no decipherment conclusion",
+  "human_readable_files": [
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/README.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/04_glyph-codepoint-gallery.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/07_component-visual-gallery.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/08_human-visual-review-sheet.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/10_component-visual-route-gallery.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/11_human-component-dossier.md"
+  ],
+  "primary_external_ref_id": "obimd-sub-nq3neh9i5i",
+  "record_type": "graphemic_component_candidate_dossier_index",
+  "review_status": "needs_human_component_review",
+  "rights_status": "licensed_for_repository",
+  "source_route_files": [
+    "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
+    "corpus/003_graphemic-components/000_component-registers/003_obimd-subcharacter-glyph-staging.csv",
+    "project_registry/002_project-id-to-source-reference-map/004_component-id-source-map.csv",
+    "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv",
+    "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
+    "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv",
+    "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/02_component-source-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/03_glyph-codepoint-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/04_glyph-codepoint-gallery.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/06_component-visual-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/07_component-visual-gallery.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/08_human-visual-review-sheet.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/09_component-visual-route-index.csv",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/10_component-visual-route-gallery.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/11_human-component-dossier.md",
+    "corpus/003_graphemic-components/006_000501-000600_obs-comp-cand-bucket_component-candidates/522_obs-comp-cand-000522_obimd-sub-nq3neh9i5i_component-candidate/12_component-dossier-index.json"
+  ],
+  "uncollected_human_research_fields": [
+    "near_shape_and_variant_comparison",
+    "oracle_character_context",
+    "inscription_occurrence_context",
+    "published_component_history",
+    "reading_history_and_disputes"
+  ],
+  "updated_at": "2026-06-20"
+}

@@ -36,7 +36,7 @@ Candidate collection object ID: `ihp-mus-obj-00019`
 
 - Object identity claim: `not_confirmed`
 - Formal inscription record: `not_promoted_to_formal_inscription_record`
-- Transcription: `not_collected`
+- Transcription: pending source-page or catalog transcription check
 - Decipherment: `not_applicable_preprocessing_only`
 - Review status: `needs_human_collection_object_review`
 

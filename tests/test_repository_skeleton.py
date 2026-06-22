@@ -4563,8 +4563,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("哪些 accession、catalog 或 object ID 只是来源线索？", first["review_sheet_text"])
         self.assertIn("需要核对哪些出土地、时期、批次或图版出处？", first["review_sheet_text"])
         self.assertIn("正式馆藏对象身份结论前还缺哪些证据？", first["review_sheet_text"])
+        self.assertNotIn("not_collected", first["review_sheet_text"])
         for line in first["review_sheet_text"].splitlines():
             self.assertLessEqual(len(line), 80, line)
+        self.assertNotIn("not_collected", first["dossier_text"])
+        self.assertNotIn("not collected", first["dossier_text"])
+        self.assertNotIn("not_collected", first["provenance_evidence_dossier_text"])
         self.assertEqual(first["packet"]["record_type"], "collection_object_candidate")
         self.assertEqual(first["packet"]["object_identity_claim_status"], "not_confirmed")
         self.assertEqual(first["visual_rows"][0]["visual_entry_type"], "external_thumbnail_url_metadata_only")
@@ -5071,6 +5075,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not corpus import approval", evidence_text)
         self.assertIn("not a decipherment conclusion", evidence_text)
         self.assertNotIn("not_collected", evidence_text)
+        self.assertNotIn("not collected", evidence_text)
         for line in evidence_text.splitlines():
             if line.startswith("|"):
                 continue

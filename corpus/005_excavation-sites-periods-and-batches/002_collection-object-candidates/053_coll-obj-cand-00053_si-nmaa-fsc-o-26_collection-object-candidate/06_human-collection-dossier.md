@@ -41,13 +41,13 @@ period, batch, plate, inscription, and character context.
 
 - findspot_or_provenience: source metadata only; needs review
 - period_or_date: source metadata only; needs review
-- batch_context: not collected; needs source checking
-- plate_or_catalog_context: not collected; needs source checking
+- batch_context: pending source-page or catalog batch check
+- plate_or_catalog_context: pending source-page or catalog plate check
 
 ## Inscription And Character Links / 卜辞与甲骨单字关联
 
 - inscription_identity_claim: `not_confirmed`
-- transcription_status: `not_collected`
+- transcription_status: pending source-page transcription check
 - character_link_status: candidate route only
 
 ## Source Evidence And Rights Trail / 来源证据与权利链

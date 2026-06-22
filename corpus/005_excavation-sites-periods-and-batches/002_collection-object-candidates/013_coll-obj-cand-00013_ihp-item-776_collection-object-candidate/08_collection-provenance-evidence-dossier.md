@@ -55,7 +55,7 @@ later formal research.
 ## Inscription And Character Context To Verify / 卜辞与单字语境待复核
 
 - inscription_identity_claim: `not_confirmed`
-- transcription_status: `not_collected`
+- transcription_status: pending source-page transcription check
 - oracle_character_route_status: candidate route only
 - plate_context_status: needs catalog or source-page checking
 

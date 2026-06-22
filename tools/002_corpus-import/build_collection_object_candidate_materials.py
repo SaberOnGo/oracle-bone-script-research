@@ -516,8 +516,8 @@ def collection_dossier_text(
         "",
         "- findspot_or_provenience: source metadata only; needs review",
         "- period_or_date: source metadata only; needs review",
-        "- batch_context: not collected; needs source checking",
-        "- plate_or_catalog_context: not collected; needs source checking",
+        "- batch_context: pending source-page or catalog batch check",
+        "- plate_or_catalog_context: pending source-page or catalog plate check",
         "",
         (
             "## Inscription And Character Links / "
@@ -525,7 +525,7 @@ def collection_dossier_text(
         ),
         "",
         "- inscription_identity_claim: `not_confirmed`",
-        "- transcription_status: `not_collected`",
+        "- transcription_status: pending source-page transcription check",
         "- character_link_status: candidate route only",
         "",
         (
@@ -719,7 +719,7 @@ def collection_provenance_evidence_dossier_text(
         "## Inscription And Character Context To Verify / 卜辞与单字语境待复核",
         "",
         "- inscription_identity_claim: `not_confirmed`",
-        "- transcription_status: `not_collected`",
+        "- transcription_status: pending source-page transcription check",
         "- oracle_character_route_status: candidate route only",
         "- plate_context_status: needs catalog or source-page checking",
         "",
@@ -876,7 +876,7 @@ Candidate collection object ID: `{row['candidate_collection_object_id']}`
 
 - Object identity claim: `not_confirmed`
 - Formal inscription record: `not_promoted_to_formal_inscription_record`
-- Transcription: `not_collected`
+- Transcription: pending source-page or catalog transcription check
 - Decipherment: `not_applicable_preprocessing_only`
 - Review status: `{REVIEW_STATUS}`
 

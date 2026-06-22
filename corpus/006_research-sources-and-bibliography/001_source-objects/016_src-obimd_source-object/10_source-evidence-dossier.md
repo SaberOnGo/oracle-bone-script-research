@@ -61,7 +61,8 @@ target object directory.
 - Different opinions / 不同意见: 待查：需要核对论文、数据库说明或复核记录中的不同意见。
 - Disputes / 争议: 待查：需要核对争议记录、复核记录和风险说明是否存在。
 Do not treat absence of a dispute row as scholarly agreement. It only means the
-current preprocessing register has not collected that human review field yet.
+current preprocessing register still needs a specific follow-up check for that
+human review field.
 
 没有争议行不等于学界已经一致，只表示当前预处理登记表尚未采集这类人工复核字段。
 

@@ -2868,6 +2868,11 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in dossier_text:
                     issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in dossier_text or "not collected" in dossier_text:
+                issues.append(
+                    f"{dossier_path.relative_to(root).as_posix()} "
+                    "contains collection placeholder text"
+                )
             for line_number, line in enumerate(dossier_text.splitlines(), start=1):
                 if (
                     not line.startswith("|")
@@ -3589,11 +3594,16 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "需要核对哪些出土地、时期、批次或图版出处？",
                 "正式馆藏对象身份结论前还缺哪些证据？",
                 "not_promoted_to_formal_inscription_record",
-                "not_collected",
+                "pending source-page or catalog transcription check",
                 "not_applicable_preprocessing_only",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in review_sheet:
+                issues.append(
+                    f"{review_sheet_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
             for line_number, line in enumerate(review_sheet.splitlines(), start=1):
                 if not line.startswith("|") and len(line) > 80:
                     issues.append(
@@ -3676,6 +3686,11 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                         f"{provenance_dossier_path.relative_to(root).as_posix()} "
                         f"missing marker: {snippet}"
                     )
+            if "not_collected" in provenance_text:
+                issues.append(
+                    f"{provenance_dossier_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
             for line_number, line in enumerate(provenance_text.splitlines(), start=1):
                 if (
                     not line.startswith("|")

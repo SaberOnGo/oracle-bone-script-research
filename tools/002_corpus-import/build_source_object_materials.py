@@ -531,8 +531,8 @@ def source_evidence_dossier_text(
         ),
         *wrapped(
             "Do not treat absence of a dispute row as scholarly agreement. It "
-            "only means the current preprocessing register has not collected "
-            "that human review field yet."
+            "only means the current preprocessing register still needs a "
+            "specific follow-up check for that human review field."
         ),
         "",
         *wrapped(

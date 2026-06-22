@@ -3290,11 +3290,16 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "正式对应结论前还缺哪些证据？",
                 "not_formal_correspondence",
                 "no_claim",
-                "not_collected_route_indexed",
+                "Source image evidence: 待查",
                 "风险提示",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in review_sheet:
+                issues.append(
+                    f"{review_sheet_path.relative_to(root).as_posix()} "
+                    "contains machine status in human review sheet"
+                )
         route_index_path = object_dir / "05_image-reference-route-index.csv"
         if index in deep_route_check_indexes and path_exists(route_index_path):
             with route_index_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -3326,12 +3331,18 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "Which EVOBC image-reference route should be opened first?",
                 "Which bronze, seal, or later-script route is only a dataset clue?",
                 "What evidence is still missing before any visual comparison?",
-                "not_collected_route_indexed",
+                "pending check: 待查",
+                "Local image evidence: 待查",
                 "not accepted paleographic correspondences",
                 "not evolution-chain conclusions",
             ]:
                 if snippet not in route_gallery:
                     issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in route_gallery:
+                issues.append(
+                    f"{route_gallery_path.relative_to(root).as_posix()} "
+                    "contains machine status in human route gallery"
+                )
             for line_number, line in enumerate(route_gallery.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -3340,6 +3351,14 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                         f"{route_gallery_path.relative_to(root).as_posix()}:{line_number} "
                         "line exceeds 80 characters"
                     )
+        human_dossier_path = object_dir / "07_human-evolution-dossier.md"
+        if index in deep_route_check_indexes and path_exists(human_dossier_path):
+            human_dossier = human_dossier_path.read_text(encoding="utf-8")
+            if "not_collected" in human_dossier:
+                issues.append(
+                    f"{human_dossier_path.relative_to(root).as_posix()} "
+                    "contains machine status in human evolution dossier"
+                )
         cross_period_dossier_path = object_dir / "09_cross-period-review-dossier.md"
         if index in deep_route_check_indexes and path_exists(cross_period_dossier_path):
             cross_period_dossier = cross_period_dossier_path.read_text(encoding="utf-8")
@@ -3361,6 +3380,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                         f"{cross_period_dossier_path.relative_to(root).as_posix()} "
                         f"missing marker: {snippet}"
                     )
+            if "not_collected" in cross_period_dossier:
+                issues.append(
+                    f"{cross_period_dossier_path.relative_to(root).as_posix()} "
+                    "contains machine status in human cross-period dossier"
+                )
             for line_number, line in enumerate(cross_period_dossier.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue

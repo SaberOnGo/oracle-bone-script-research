@@ -339,7 +339,6 @@ def route_cards_block(image_routes: list[dict[str, str]]) -> str:
             ("type", "route_type"),
             ("label", "route_label"),
             ("route file", "route_file_path"),
-            ("status", "local_image_status"),
         ]:
             value = Path(route[key]).name if key == "route_file_path" else route[key]
             lines.extend(
@@ -351,6 +350,15 @@ def route_cards_block(image_routes: list[dict[str, str]]) -> str:
                     break_on_hyphens=False,
                 )
             )
+        lines.extend(
+            textwrap.wrap(
+                "  pending check: 待查：打开路线文件后核对本地图像、拓片、摹本或图版。",
+                width=MAX_HUMAN_LINE_LENGTH,
+                subsequent_indent="  ",
+                break_long_words=False,
+                break_on_hyphens=False,
+            )
+        )
     return "\n".join(lines)
 
 
@@ -1015,7 +1023,7 @@ Simplified Chinese:
 
 ## Evidence Boundary / 证据边界
 
-- Local image status: `not_collected_route_indexed`
+- Local image evidence: 待查：需要打开路线文件核对本地图像、拓片、摹本或图版。
 - Formal correspondence: `not_formal_correspondence`
 - Evolution-chain claim: `no_claim`
 - Modern-character identity: `not_confirmed`
@@ -1052,7 +1060,7 @@ This object has EVOBC image-reference metadata, but no local source image is col
 
 ## Evidence Boundary / 证据边界
 
-- Local image status: `not_collected_route_indexed`
+- Local image evidence: 待查：需要打开路线文件核对本地图像、拓片、摹本或图版。
 - Formal correspondence: `not_formal_correspondence`
 - Evolution-chain claim: `no_claim`
 - Modern-character identity: `not_confirmed`
@@ -1137,7 +1145,7 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 - Formal correspondence: `not_formal_correspondence`
 - Evolution-chain claim: `no_claim`
 - Modern-character identity: `not_confirmed`
-- Source image evidence: `not_collected_route_indexed`
+- Source image evidence: 待查：需要打开图像路线文件核对来源图像证据。
 - Cross-source review: `needs_human_evolution_review`
 
 ## Caution / 风险提示

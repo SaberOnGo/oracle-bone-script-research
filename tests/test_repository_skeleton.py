@@ -4294,6 +4294,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Image Reference Route Gallery", first["image_route_gallery_text"])
         self.assertIn("Concrete Questions To Check", first["image_route_gallery_text"])
         self.assertIn("Which bronze, seal, or later-script route is only a dataset clue?", first["image_route_gallery_text"])
+        self.assertNotIn("not_collected", first["image_route_gallery_text"])
         for line in first["image_route_gallery_text"].splitlines():
             if line.startswith("|") or line.startswith("!["):
                 continue
@@ -4322,6 +4323,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "这不是释读结论",
             first["cross_period_review_dossier_text"],
         )
+        self.assertNotIn("not_collected", first["human_dossier_text"])
+        self.assertNotIn("not_collected", first["cross_period_review_dossier_text"])
         for line in first["cross_period_review_dossier_text"].splitlines():
             if line.startswith("|") or line.startswith("!["):
                 continue

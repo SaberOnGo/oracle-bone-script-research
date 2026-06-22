@@ -4145,7 +4145,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "human_entry_object_count": 28166,
         "ai_entry_object_count": 28166,
         "local_visual_asset_object_count": 13715,
-        "route_gallery_or_route_index_object_count": 17170,
+        "route_gallery_or_route_index_object_count": 28166,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
     }
@@ -6592,7 +6592,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "promotion_queue_candidate_count": 1588,
         "object_local_material_bundle_count": 28166,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 17170,
+        "object_local_route_object_count": 28166,
         "object_local_partial_bundle_count": 0,
     }
     for field, expected_value in expected_totals.items():
@@ -6618,7 +6618,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "promotion_queue_candidate_count": "1588",
             "object_local_material_bundle_count": "10997",
             "object_local_review_image_object_count": "10996",
-            "object_local_route_object_count": "1",
+            "object_local_route_object_count": "10997",
             "object_local_partial_bundle_count": "0",
             "coverage_status": "has_relationship_graph_derivatives",
         },
@@ -7197,7 +7197,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "object_local_material_bundle_count": 28166,
         "object_local_partial_bundle_count": 0,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 17170,
+        "object_local_route_object_count": 28166,
         "package_manifest_count": 36,
         "size_recorded_count": 48,
         "source_phase_action_count": 62,
@@ -7218,7 +7218,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "missing_evidence_action_count": "0",
             "object_local_material_bundle_count": "10997",
             "object_local_review_image_object_count": "10996",
-            "object_local_route_object_count": "1",
+            "object_local_route_object_count": "10997",
         },
         "src-obimd": {
             "current_stage": "pending_human_review",
@@ -19226,7 +19226,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "promotion_queue_candidate_count": 1588,
         "object_local_material_bundle_count": 28166,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 17170,
+        "object_local_route_object_count": 28166,
         "object_local_partial_bundle_count": 0,
     }
     for key, value in expected_source_coverage.items():

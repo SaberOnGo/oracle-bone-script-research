@@ -3614,7 +3614,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("需要核对哪些卜辞、图版、著录号或合集号", dossier_text)
             self.assertIn("需要打开哪些来源、checksum、manifest 或权利记录", dossier_text)
             self.assertNotIn("not_collected", dossier_text)
-            for fragment in ("娴?", "绁犫偓", "閻?", "缂傚搫銇?", "閼板啫褰?"):
+            for fragment in (
+                "涓",
+                "鍗",
+                "寰呮煡",
+                "绾跨储",
+                "闁",
+                "缂",
+                "鐢",
+            ):
                 self.assertNotIn(fragment, dossier_text)
             for line in dossier_text.splitlines():
                 if not line.startswith("!["):
@@ -4747,9 +4755,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertEqual(summary["local_visual_asset_object_count"], 13715)
-        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 17170)
+        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 28166)
         self.assertNotIn("object_local_bundle_metadata_only", summary["material_bundle_status_counts"])
         by_project = {row["project_id"]: row for row in rows}
+        self.assertEqual(
+            by_project["obs-char-000001"]["material_bundle_status"],
+            "object_local_bundle_with_review_image",
+        )
+        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-char-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
@@ -9060,7 +9074,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(data["coverage"]["object_local_material_bundle_count"], 28166)
         self.assertEqual(data["coverage"]["object_local_review_image_object_count"], 13715)
-        self.assertEqual(data["coverage"]["object_local_route_object_count"], 17170)
+        self.assertEqual(data["coverage"]["object_local_route_object_count"], 28166)
         self.assertEqual(data["coverage"]["object_local_partial_bundle_count"], 0)
         self.assertEqual(
             data["coverage"]["coverage_status_counts"],
@@ -9079,6 +9093,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(source_routes["src-hust-obc"]["graph_edge_count"], 16295)
         self.assertEqual(source_routes["src-hust-obc"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(source_routes["src-hust-obc"]["object_local_material_bundle_count"], 10997)
+        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 10997)
         self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 54856)
         self.assertEqual(source_routes["src-obimd"]["committed_asset_count"], 10364)
         self.assertEqual(source_routes["src-obimd"]["object_local_review_image_object_count"], 2719)
@@ -9136,7 +9151,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
         self.assertEqual(data["coverage"]["object_local_material_bundle_count"], 28166)
         self.assertEqual(source_routes["src-hust-obc"]["route"], "open_graph_and_metadata_derivatives")
-        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 1)
+        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 10997)
         self.assertEqual(source_routes["src-cambridge-hopkins"]["route"], "open_graph_and_metadata_derivatives")
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["route"], "open_asset_and_rights_records")
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
@@ -14731,13 +14746,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(sum(int(row["promotion_queue_candidate_count"]) for row in rows), 1588)
         self.assertEqual(sum(int(row["object_local_material_bundle_count"]) for row in rows), 28166)
         self.assertEqual(sum(int(row["object_local_review_image_object_count"]) for row in rows), 13715)
-        self.assertEqual(sum(int(row["object_local_route_object_count"]) for row in rows), 17170)
+        self.assertEqual(sum(int(row["object_local_route_object_count"]) for row in rows), 28166)
         self.assertEqual(sum(int(row["object_local_partial_bundle_count"]) for row in rows), 0)
         by_source = {row["source_id"]: row for row in rows}
         self.assertEqual(by_source["src-hust-obc"]["promotion_queue_candidate_count"], "1588")
         self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "16295")
         self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
         self.assertEqual(by_source["src-hust-obc"]["object_local_review_image_object_count"], "10996")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "10997")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "54856")
         self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2748")
         self.assertEqual(by_source["src-obimd"]["object_local_review_image_object_count"], "2719")
@@ -14767,6 +14783,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["committed_asset_count"], "10996")
         self.assertEqual(by_source["src-hust-obc"]["committed_asset_bytes"], "53009139")
         self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "10997")
         self.assertEqual(by_source["src-hust-obc"]["object_local_partial_bundle_count"], "0")
         self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "6")
         self.assertEqual(by_source["src-obimd"]["object_local_route_object_count"], "2748")
@@ -18276,7 +18293,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["totals"]["missing_evidence_assignment_count"], 18)
         self.assertEqual(data["totals"]["object_local_material_bundle_count"], 28166)
         self.assertEqual(data["totals"]["object_local_review_image_object_count"], 13715)
-        self.assertEqual(data["totals"]["object_local_route_object_count"], 17170)
+        self.assertEqual(data["totals"]["object_local_route_object_count"], 28166)
         self.assertEqual(data["totals"]["object_local_partial_bundle_count"], 0)
         self.assertIn("source-level preprocessing only", data["completion_boundary"])
 
@@ -18294,7 +18311,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["missing_evidence_action_count"], "0")
         self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
         self.assertEqual(by_source["src-hust-obc"]["object_local_review_image_object_count"], "10996")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "1")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "10997")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44492")
         self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2748")
         self.assertEqual(by_source["src-obimd"]["object_local_review_image_object_count"], "2719")

@@ -66,6 +66,10 @@ OBJECT_SPECS = [
             "09_character-context-evidence-index.json",
         ),
         ("03_visual-assets",),
+        (
+            "04_visual-gallery.md",
+            "08_character-context-evidence-dossier.md",
+        ),
     ),
     ObjectSpec(
         "graphemic_component_candidates",
@@ -254,6 +258,7 @@ def read_packet(path: Path) -> dict[str, object]:
 def project_id_for_packet(packet: dict[str, object], object_dir: Path) -> str:
     for key in (
         "project_id",
+        "suggested_oracle_character_id",
         "candidate_component_id",
         "candidate_evolution_id",
         "candidate_collection_object_id",

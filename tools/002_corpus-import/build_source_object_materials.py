@@ -531,6 +531,20 @@ def review_sheet_text(source: dict[str, str]) -> str:
             "以及是否可以把某些原始资料提升为对象内派生记录。"
         ),
         "",
+        "## Bibliographic And Database Scope Review / 文献与数据库适用范围复核",
+        *wrapped(
+            "For books, papers, web pages, museum records, and databases, record "
+            "the bibliography or source note, scope, evidence level, proposer "
+            "or provider, citation relationship, disagreements, and disputes "
+            "as review items before derived records are reused."
+        ),
+        "",
+        *wrapped(
+            "对图书、论文、网页、博物馆记录和数据库，应先记录书目或来源说明、"
+            "适用范围、证据等级、提出者或提供方、引用关系、不同意见和争议，"
+            "再复用任何派生记录。"
+        ),
+        "",
         "## Checklist / 清单",
         "- [ ] Source register row checked against `01_source-packet.json`",
         "- [ ] Download routes checked in `02_download-route-index.csv`",
@@ -554,6 +568,14 @@ def review_sheet_text(source: dict[str, str]) -> str:
         "- [ ] 哪些权利或再分发风险阻止公开提升？",
         "- [ ] Which object-local corpus directories should receive derivatives?",
         "- [ ] 哪些对象内语料目录应接收派生记录？",
+        "- [ ] Which bibliography, paper, web page, or database note defines",
+        "  this source?",
+        "- [ ] 哪条书目、论文、网页或数据库说明界定本来源？",
+        "- [ ] What scope and evidence level should be recorded?",
+        "- [ ] 应记录什么适用范围和证据等级？",
+        "- [ ] Which proposer, citation relation, disagreement, or dispute",
+        "  should be preserved?",
+        "- [ ] 哪位提出者、引用关系、不同意见或争议需要保留？",
         "",
         "## Status / 状态",
         *bullet("Source ID / 来源 ID", source["source_id"]),

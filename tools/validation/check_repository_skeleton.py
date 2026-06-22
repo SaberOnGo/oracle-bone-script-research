@@ -3582,6 +3582,11 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             "来源出处复核",
             "具体待查问题",
             "哪些字段映射可以安全进入语料对象？",
+            "Bibliographic And Database Scope Review",
+            "文献与数据库适用范围复核",
+            "哪条书目、论文、网页或数据库说明界定本来源？",
+            "应记录什么适用范围和证据等级？",
+            "哪位提出者、引用关系、不同意见或争议需要保留？",
         ],
         "07_material-access-index.md": [
             "简体中文",

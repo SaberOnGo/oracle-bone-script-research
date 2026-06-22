@@ -123,6 +123,8 @@ MANIFEST_FIELDS = [
     "image_reference_route_index_path",
     "image_reference_route_gallery_path",
     "human_review_sheet_path",
+    "human_evolution_dossier_path",
+    "evolution_dossier_index_path",
     "source_character_label",
     "source_character_codepoints",
     "image_reference_count",
@@ -272,6 +274,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "04_human-review-sheet.md").as_posix(),
         (directory / "05_image-reference-route-index.csv").as_posix(),
         (directory / "06_image-reference-route-gallery.md").as_posix(),
+        (directory / "07_human-evolution-dossier.md").as_posix(),
+        (directory / "08_evolution-dossier-index.json").as_posix(),
     ]
 
 
@@ -442,6 +446,201 @@ def packet_payload(
         "review_status": REVIEW_STATUS,
         "research_boundary": RESEARCH_BOUNDARY,
         "caution": CAUTION,
+        "updated_at": UPDATED_AT,
+    }
+
+
+def human_dossier_text(
+    index: int,
+    row: dict[str, str],
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> str:
+    pid = project_id(index)
+    intro_en = wrapped_paragraph(
+        "This dossier is the human-readable working file for one EVOBC "
+        "evolution or cross-period correspondence candidate. It records source "
+        "routes and concrete checks only; it is not a formal correspondence, "
+        "not an evolution-chain conclusion, and not a decipherment conclusion."
+    )
+    intro_zh = wrapped_paragraph(
+        "本档案是一个 EVOBC 字形演化或跨时期对应候选对象的人类可读工作档案。"
+        "这里记录来源路线、图像线索和具体待查问题，不作正式对应、演化链或释读结论。"
+    )
+    identity_lines = bullet_block(
+        [
+            f"Project ID: `{pid}`",
+            f"EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`",
+            f"External category reference: `{primary_external_ref(row)}`",
+            f"Source category ID: `{row['source_category_id']}`",
+            f"Source label: `{row['source_character_label']}`",
+            f"Source codepoints: `{row['source_character_codepoints']}`",
+            f"Image reference count in source metadata: `{row['image_reference_count']}`",
+            f"Review status: `{REVIEW_STATUS}`",
+        ]
+    )
+    route_lines = bullet_block(
+        [
+            "Open the EVOBC category staging CSV for the source category row.",
+            "Open the EVOBC era/source codebook CSV for code labels.",
+            "Open `05_image-reference-route-index.csv` before visual review.",
+            "Open `06_image-reference-route-gallery.md` for local route cards.",
+            "Open the EVOBC graph JSONL only as graph-derived routing.",
+            "Check source download records, checksums, rights notes, and manifests "
+            "before using any route as evidence.",
+        ]
+    )
+    stage_lines = bullet_block(
+        [
+            "甲骨 route: check whether the source row only has metadata flags, "
+            "or whether a primary oracle image, rubbing, plate, or inscription "
+            "context has been separately verified.",
+            "金文 route: treat bronze references as candidate route metadata until "
+            "a cited image, catalog, vessel context, and bibliography are checked.",
+            "小篆 route: treat seal-script links as later-script comparison clues, "
+            "not proof of identity or development.",
+            "后世字形 route: record only source-provided hints until dictionaries "
+            "and published scholarship are opened.",
+            "今字 route: codepoints and labels are lookup aids only; they do not "
+            "confirm modern-character identity.",
+        ]
+    )
+    code_lines = code_rows_block(code_rows)
+    image_route_lines = route_cards_block(image_routes)
+    bibliography_lines = bullet_block(
+        [
+            "Check Xiaoxuetang, OBIMD, HUST-OBC, IHP/Sinica, museum portals, "
+            "published catalog notes, and paper bibliography before promotion.",
+            "Record proposer, source, page or record ID, and disagreement status "
+            "when a published correspondence or variant history is later found.",
+            "Until bibliography is opened, keep this object as a route dossier "
+            "with no reviewed scholarly conclusion.",
+        ]
+    )
+    missing_lines = bullet_block(
+        [
+            "Which primary image, rubbing, hand copy, or plate corresponds to "
+            "each EVOBC image reference?",
+            "Which inscription number, collection number, findspot, period, "
+            "batch, or group should be checked for the oracle-side context?",
+            "Which bronze, seal, or later-script comparanda are cited by a "
+            "reviewed source rather than inferred from dataset labels?",
+            "Which modern codepoint route is only a lookup key, and which source "
+            "would be needed before recording identity?",
+            "Which bibliography, database page, or museum object page records "
+            "a reading history, dispute, or alternative opinion?",
+            "What evidence remains missing before any formal correspondence "
+            "or evolution-chain claim can be reviewed?",
+            "具体待查问题：先核对实物、拓片、照片、图版、著录和卜辞上下文，再记录 "
+            "金文、小篆、后世字形和今字路线的证据等级。",
+        ]
+    )
+    boundary_lines = bullet_block(
+        [
+            "No formal correspondence is recorded in this dossier.",
+            "This dossier is not an evolution-chain conclusion.",
+            "No evolution-chain conclusion is recorded in this dossier.",
+            "No modern-character identity is confirmed in this dossier.",
+            "No decipherment conclusion is recorded in this dossier.",
+            "本档案只服务资料整理和复核路线，不替代正式文字学研究。",
+        ]
+    )
+    return f"""# Human Evolution And Correspondence Dossier / 字形演化与对应候选档案
+
+Project ID: `{pid}`
+
+## Purpose / 用途
+
+{intro_en}
+
+{intro_zh}
+
+## Candidate Identity / 候选身份
+
+{identity_lines}
+
+## Source Image And Route Evidence / 来源图像与路线证据
+
+{route_lines}
+
+## Era And Source-Code Context / 时期与来源代码语境
+
+{code_lines}
+
+## Oracle, Bronze, Seal, And Later-Script Review
+
+{stage_lines}
+
+## Modern Codepoint Route Review / 今字 codepoint 路线复核
+
+{wrapped_paragraph(
+        "Modern codepoints, source labels, and category IDs are lookup routes. "
+        "They may guide comparison, but they are not accepted identities until "
+        "human reviewers verify images, inscriptions, catalogs, and scholarship."
+    )}
+
+## Image Reference Route Cards / 图像引用路线卡
+
+{image_route_lines}
+
+## Bibliography, Database, And Web Source Routes
+
+{bibliography_lines}
+
+## Missing Evidence And Next Checks / 缺失证据与下一步
+
+{missing_lines}
+
+## Concrete Questions To Check / 具体待查问题
+
+{missing_lines}
+
+## Review Boundary / 复核边界
+
+{boundary_lines}
+"""
+
+
+def dossier_index_payload(
+    index: int,
+    row: dict[str, str],
+    directory: Path,
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "evolution_correspondence_candidate_dossier_index",
+        "candidate_evolution_category_id": row["candidate_evolution_category_id"],
+        "source_id": SOURCE_ID,
+        "human_readable_files": [
+            (directory / "README.md").as_posix(),
+            (directory / "04_human-review-sheet.md").as_posix(),
+            (directory / "06_image-reference-route-gallery.md").as_posix(),
+            (directory / "07_human-evolution-dossier.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (directory / "01_candidate-evolution-packet.json").as_posix(),
+            (directory / "02_evolution-source-index.csv").as_posix(),
+            (directory / "03_era-source-code-index.csv").as_posix(),
+            (directory / "05_image-reference-route-index.csv").as_posix(),
+        ],
+        "source_route_files": route_files(directory),
+        "code_row_count": len(code_rows),
+        "image_route_count": len(image_routes),
+        "uncollected_human_research_fields": [
+            "primary_images",
+            "oracle_inscription_context",
+            "bronze_seal_later_script_comparanda",
+            "modern_codepoint_identity_review",
+            "bibliography_database_web_routes",
+            "reading_history_and_disputes",
+        ],
+        "claim_boundary": (
+            "no formal correspondence; no evolution-chain conclusion; "
+            "no modern-character identity; no decipherment conclusion"
+        ),
+        "review_status": REVIEW_STATUS,
         "updated_at": UPDATED_AT,
     }
 
@@ -792,6 +991,8 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "image_route_rows": image_routes,
             "image_route_gallery_text": image_route_gallery_text(index, row, image_routes),
             "review_sheet_text": review_sheet_text(index, row),
+            "human_dossier_text": human_dossier_text(index, row, code_rows, image_routes),
+            "dossier_index": dossier_index_payload(index, row, directory, code_rows, image_routes),
             "map_row": {
                 "project_id": pid,
                 "record_type": RECORD_TYPE,
@@ -831,6 +1032,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "image_reference_route_index_path": (directory / "05_image-reference-route-index.csv").as_posix(),
                 "image_reference_route_gallery_path": (directory / "06_image-reference-route-gallery.md").as_posix(),
                 "human_review_sheet_path": (directory / "04_human-review-sheet.md").as_posix(),
+                "human_evolution_dossier_path": (directory / "07_human-evolution-dossier.md").as_posix(),
+                "evolution_dossier_index_path": (directory / "08_evolution-dossier-index.json").as_posix(),
                 "source_character_label": str(packet["source_character_label"]),
                 "source_character_codepoints": str(packet["source_character_codepoints"]),
                 "image_reference_count": str(packet["image_reference_count"]),
@@ -863,6 +1066,16 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (directory / "04_human-review-sheet.md").write_text(
             str(output["review_sheet_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "07_human-evolution-dossier.md").write_text(
+            str(output["human_dossier_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "08_evolution-dossier-index.json").write_text(
+            json.dumps(output["dossier_index"], ensure_ascii=False, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
             newline="\n",
         )

@@ -3845,6 +3845,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "04_human-review-sheet.md").exists())
             self.assertTrue((object_dir / "05_image-reference-route-index.csv").exists())
             self.assertTrue((object_dir / "06_image-reference-route-gallery.md").exists())
+            self.assertTrue((object_dir / "07_human-evolution-dossier.md").exists())
+            self.assertTrue((object_dir / "08_evolution-dossier-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("本目录是一个 EVOBC 字形演化类别候选对象", readme_text)
@@ -3880,6 +3882,56 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if line.startswith("|") or line.startswith("!["):
                     continue
                 self.assertLessEqual(len(line), 80, line)
+            dossier_text = (
+                object_dir / "07_human-evolution-dossier.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Human Evolution And Correspondence Dossier", dossier_text)
+            self.assertIn("\u5b57\u5f62\u6f14\u5316\u4e0e\u5bf9\u5e94\u5019\u9009\u6863\u6848", dossier_text)
+            self.assertIn("Oracle, Bronze, Seal, And Later-Script Review", dossier_text)
+            self.assertIn("Modern Codepoint Route Review", dossier_text)
+            self.assertIn("Bibliography, Database, And Web Source Routes", dossier_text)
+            self.assertIn("Missing Evidence And Next Checks", dossier_text)
+            self.assertIn("Concrete Questions To Check", dossier_text)
+            self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", dossier_text)
+            self.assertIn("\u7532\u9aa8", dossier_text)
+            self.assertIn("\u91d1\u6587", dossier_text)
+            self.assertIn("\u5c0f\u7bc6", dossier_text)
+            self.assertIn("\u4eca\u5b57", dossier_text)
+            self.assertIn("not a formal correspondence", dossier_text)
+            self.assertIn("not an evolution-chain conclusion", dossier_text)
+            for line in dossier_text.splitlines():
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                self.assertLessEqual(len(line), 80, line)
+            dossier_index = json.loads(
+                (object_dir / "08_evolution-dossier-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                dossier_index["record_type"],
+                "evolution_correspondence_candidate_dossier_index",
+            )
+            self.assertTrue(
+                any(
+                    file_path.endswith("07_human-evolution-dossier.md")
+                    for file_path in dossier_index["human_readable_files"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    file_path.endswith("01_candidate-evolution-packet.json")
+                    for file_path in dossier_index["ai_support_files"]
+                )
+            )
+            self.assertIn(
+                "bronze_seal_later_script_comparanda",
+                dossier_index["uncollected_human_research_fields"],
+            )
+            self.assertIn(
+                "no formal correspondence",
+                dossier_index["claim_boundary"],
+            )
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_evobc_evolution_candidate_materials_module()
@@ -3917,6 +3969,38 @@ class RepositorySkeletonTests(unittest.TestCase):
             if line.startswith("|") or line.startswith("!["):
                 continue
             self.assertLessEqual(len(line), 80, line)
+        self.assertIn(
+            "Human Evolution And Correspondence Dossier",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "\u5b57\u5f62\u6f14\u5316\u4e0e\u5bf9\u5e94\u5019\u9009\u6863\u6848",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "Bibliography, Database, And Web Source Routes",
+            first["human_dossier_text"],
+        )
+        for line in first["human_dossier_text"].splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["dossier_index"]["record_type"],
+            "evolution_correspondence_candidate_dossier_index",
+        )
+        self.assertTrue(
+            any(
+                file_path.endswith("07_human-evolution-dossier.md")
+                for file_path in first["dossier_index"]["human_readable_files"]
+            )
+        )
+        self.assertTrue(
+            any(
+                route_file.endswith("08_evolution-dossier-index.json")
+                for route_file in first["packet"]["route_files"]
+            )
+        )
         self.assertEqual(len(first["source_rows"]), 2)
         self.assertGreaterEqual(len(first["code_rows"]), 1)
 

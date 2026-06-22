@@ -2953,6 +2953,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "04_human-review-sheet.md",
         "05_image-reference-route-index.csv",
         "06_image-reference-route-gallery.md",
+        "07_human-evolution-dossier.md",
+        "08_evolution-dossier-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")

@@ -115,7 +115,7 @@ def wrapped_bullet(text: str) -> str:
         f"- {text}",
         width=MAX_HUMAN_LINE_LENGTH,
         subsequent_indent="  ",
-        break_long_words=False,
+        break_long_words=True,
         break_on_hyphens=False,
     )
 
@@ -134,7 +134,7 @@ def wrapped_paragraph(text: str) -> str:
     return textwrap.fill(
         text,
         width=MAX_HUMAN_LINE_LENGTH,
-        break_long_words=False,
+        break_long_words=True,
         break_on_hyphens=False,
     )
 
@@ -509,6 +509,229 @@ English:
 - Identity claim status / 身份结论状态: `no_identity_claim`
 - Decipherment claim status / 释读结论状态: `no_claim`
 """
+
+
+def readme_text(candidate: Candidate, asset_id: str, asset_name: str) -> str:
+    lines = [
+        f"# {candidate.project_id} Local Object Materials / "
+        f"{candidate.project_id} 本地对象资料",
+        "",
+        "English:",
+        wrapped_paragraph(
+            "This directory is the co-located working folder for one "
+            "HUST-OBC undeciphered oracle-character candidate. "
+            "Human-readable notes, the visual gallery, review sheet, source "
+            "route, local image, and AI-readable packet stay together in this "
+            "concrete object directory."
+        ),
+        "",
+        "简体中文:",
+        wrapped_paragraph(
+            "本目录是一个 HUST-OBC 未释甲骨字候选的同目录工作资料夹。"
+            "人类可读说明、图像图廊、复核表、来源路线、本地图像和 AI "
+            "可读候选包都放在同一个具体对象目录内。"
+        ),
+        "",
+        "## Local Files / 本地文件",
+        "",
+        wrapped_bullet(
+            "AI-readable packet / AI 可读候选包: "
+            "`01_undeciphered-candidate-packet.json`"
+        ),
+        wrapped_bullet(
+            "AI-readable visual/source index / AI 可读图像与来源索引: "
+            "`02_visual-source-index.csv`"
+        ),
+        wrapped_bullet(
+            "Human-readable visual gallery / 人类可读图像图廊: "
+            "`04_visual-gallery.md`"
+        ),
+        wrapped_bullet(
+            "Human review sheet / 人工复核表: `05_human-review-sheet.md`"
+        ),
+        wrapped_bullet(
+            "Local review image / 本地复核图像: "
+            f"`03_visual-assets/{asset_name}`"
+        ),
+        "",
+        "## Object Summary / 对象摘要",
+        "",
+        wrapped_bullet(f"Project ID / 项目 ID: `{candidate.project_id}`"),
+        wrapped_bullet(
+            "Primary external reference / 首选外部参考: "
+            f"`{candidate.primary_external_ref_id}`"
+        ),
+        wrapped_bullet(
+            "Source group / 来源分组: "
+            f"`{candidate.source_group}` ({candidate.source_group_label})"
+        ),
+        wrapped_bullet(
+            f"Source class path / 来源分类路径: `{candidate.source_class_path}`"
+        ),
+        wrapped_bullet(
+            f"Source image path / 来源图像路径: `{candidate.source_image_path}`"
+        ),
+        wrapped_bullet(f"Asset ID / 资产 ID: `{asset_id}`"),
+        "",
+        "## Boundary / 边界",
+        "",
+        "English:",
+        wrapped_paragraph(
+            "This is a preparation-stage candidate packet and image entrance. "
+            "It is not an accepted character record, not an accepted reading, "
+            "not a component conclusion, and not a decipherment conclusion."
+        ),
+        "",
+        "简体中文:",
+        wrapped_paragraph(
+            "这是准备阶段的候选资料包和图像入口。它不是正式甲骨单字"
+            "记录，不是已确认释读，不是构件结论，也不是破译结论。"
+        ),
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def gallery_text(candidate: Candidate, asset_id: str, asset_name: str, metadata_name: str) -> str:
+    lines = [
+        f"# {candidate.project_id} Visual Gallery / {candidate.project_id} 图像资料页",
+        "",
+        "English:",
+        wrapped_paragraph(
+            "This human-readable gallery stays inside the same concrete "
+            "candidate directory as the AI-readable packet and visual/source "
+            "index."
+        ),
+        "",
+        "简体中文:",
+        wrapped_paragraph(
+            "本图像资料页与 AI 可读候选包、图像与来源索引放在同一个"
+            "具体候选目录内。"
+        ),
+        wrapped_bullet(
+            "Visual/source index / 图像与来源索引: `02_visual-source-index.csv`"
+        ),
+        "",
+        "## Review Image / 复核图像",
+        "",
+        f"![{candidate.project_id} glyph candidate](03_visual-assets/{asset_name})",
+        "",
+        wrapped_bullet(f"Asset ID / 资产 ID: `{asset_id}`"),
+        wrapped_bullet(f"Local image / 本地图像: `03_visual-assets/{asset_name}`"),
+        wrapped_bullet(
+            f"Local metadata / 本地 metadata: `03_visual-assets/{metadata_name}`"
+        ),
+        wrapped_bullet(
+            f"Source image path / 来源图像路径: `{candidate.source_image_path}`"
+        ),
+        wrapped_bullet(f"Source package / 来源包: `{candidate.source_package_id}`"),
+        wrapped_bullet(f"Download ID / 下载 ID: `{candidate.download_id}`"),
+        wrapped_bullet(f"Rights status / 权利状态: `{candidate.rights_status}`"),
+        wrapped_bullet(f"Risk note / 风险提示: {RISK_NOTE}"),
+        "",
+        "## Research Boundary / 研究边界",
+        "",
+        "English:",
+        wrapped_paragraph(
+            "The image shown here is source-marked preparation material for "
+            "human visual review. It is not an accepted glyph identity, not "
+            "an accepted reading, not a component conclusion, and not a "
+            "decipherment conclusion."
+        ),
+        "",
+        "简体中文:",
+        wrapped_paragraph(
+            "本页图像是带来源标记的准备阶段材料，用于人工视觉复核。"
+            "它不是已确认字形身份，不是已确认释读，不是构件结论，"
+            "也不是破译结论。"
+        ),
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def review_sheet_text(candidate: Candidate, asset_id: str) -> str:
+    english_scope = wrapped_paragraph(
+        "Review only whether the local image, packet, and source-route "
+        "metadata match the registered HUST-OBC source package. Do not record "
+        "a reading, identity confirmation, component conclusion, or "
+        "decipherment conclusion here."
+    )
+    chinese_scope = wrapped_paragraph(
+        "这里只复核本地图像、候选包和来源路线 metadata 是否对应已登记的 "
+        "HUST-OBC 来源包。不要在此记录释读、身份确认、构件结论或破译结论。"
+    )
+    checklist = "\n".join(
+        [
+            wrapped_check("Source image path checked against `02_visual-source-index.csv`"),
+            wrapped_check("Local review image opens and is readable"),
+            wrapped_check(f"Asset registry row checked: `{asset_id}`"),
+            wrapped_check("Rights and risk note reviewed"),
+            wrapped_check("No formal reading or identity claim added"),
+        ]
+    )
+    concrete_questions = "\n".join(
+        [
+            wrapped_bullet("Which HUST-OBC source image should be checked first?"),
+            wrapped_bullet(
+                "Which glyph, codepoint, or later-script route is only a "
+                "candidate clue?"
+            ),
+            wrapped_bullet(
+                "Which inscription, plate, collection, findspot, or period "
+                "context is still missing?"
+            ),
+            wrapped_bullet(
+                "Which rights status or source-package risk must be rechecked "
+                "before reuse?"
+            ),
+            wrapped_bullet(
+                "What evidence is still missing before any formal reading or "
+                "identity judgment?"
+            ),
+            "",
+            wrapped_bullet("应先核对哪一张 HUST-OBC 来源图像？"),
+            wrapped_bullet(
+                "哪些字形、codepoint 或后世字形路线只是候选线索？"
+            ),
+            wrapped_bullet(
+                "还缺哪些卜辞、图版、馆藏、出土地或时期上下文？"
+            ),
+            wrapped_bullet(
+                "复用前还要复核哪些权利状态或来源包风险？"
+            ),
+            wrapped_bullet(
+                "正式释读或身份判断前还缺哪些证据？"
+            ),
+        ]
+    )
+    return "\n".join(
+        [
+            f"# {candidate.project_id} Human Review Sheet / "
+            f"{candidate.project_id} 人工复核表",
+            "",
+            "## Review Scope / 复核范围",
+            "",
+            "English:",
+            english_scope,
+            "",
+            "简体中文:",
+            chinese_scope,
+            "",
+            "## Checklist / 清单",
+            "",
+            checklist,
+            "",
+            "## Concrete Questions To Check / 具体待查问题",
+            "",
+            concrete_questions,
+            "",
+            "## Status / 状态",
+            wrapped_bullet("Review status / 复核状态: `needs_human_visual_review`"),
+            wrapped_bullet("Promotion status / 提升状态: `not_promoted`"),
+            wrapped_bullet("Identity claim status / 身份结论状态: `no_identity_claim`"),
+            wrapped_bullet("Decipherment claim status / 释读结论状态: `no_claim`"),
+            "",
+        ]
+    )
 
 
 def asset_source_row(candidate: Candidate, asset_id: str, relative_asset_path: Path, output_path: Path) -> dict[str, str]:

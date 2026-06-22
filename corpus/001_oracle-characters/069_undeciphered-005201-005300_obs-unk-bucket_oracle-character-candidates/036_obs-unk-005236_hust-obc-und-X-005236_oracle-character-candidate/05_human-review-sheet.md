@@ -7,9 +7,8 @@ Review only whether the local image, packet, and source-route metadata match the
 registered HUST-OBC source package. Do not record a reading, identity
 confirmation, component conclusion, or decipherment conclusion here.
 
-简体中文：
-这里只复核本地图像、候选包和来源路线 metadata 是否对应已登记的
-HUST-OBC 来源包。不要在此记录释读、身份确认、构件结论或破译结论。
+简体中文:
+这里只复核本地图像、候选包和来源路线 metadata 是否对应已登记的 HUST-OBC 来源包。不要在此记录释读、身份确认、构件结论或破译结论。
 
 ## Checklist / 清单
 
@@ -35,7 +34,6 @@ HUST-OBC 来源包。不要在此记录释读、身份确认、构件结论或�
 - 正式释读或身份判断前还缺哪些证据？
 
 ## Status / 状态
-
 - Review status / 复核状态: `needs_human_visual_review`
 - Promotion status / 提升状态: `not_promoted`
 - Identity claim status / 身份结论状态: `no_identity_claim`

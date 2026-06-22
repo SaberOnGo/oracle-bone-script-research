@@ -1,10 +1,13 @@
 # obs-char-001349 Visual Gallery / obs-char-001349 图像资料页
 
 English:
-This human-readable gallery stays inside the same concrete oracle-character object directory as the AI-readable packet and visual/source index. It is a preparation-stage viewing surface for local review images, not a parallel human-only directory.
+This human-readable gallery stays inside the same concrete oracle-character
+object directory as the AI-readable packet and visual/source index. It is a
+preparation-stage viewing surface for local review images, not a parallel
+human-only directory.
 
-简体中文：
-本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
+简体中文:
+本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行人类目录。
 
 ## Object And Source / 对象与来源
 
@@ -18,20 +21,28 @@ This human-readable gallery stays inside the same concrete oracle-character obje
 ## Research Boundary / 研究边界
 
 English:
-Images shown here are source-marked preparation materials for human visual review. Each image is not an accepted glyph identity, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
+Images shown here are source-marked preparation materials for human visual
+review. Each image is not an accepted glyph identity, not an accepted reading,
+not a component conclusion, and not a decipherment conclusion.
 
-简体中文：
+简体中文:
 本页展示的图像只是带来源标记的准备阶段材料，用于人工视觉复核。它们不是已确认字形身份，不是已确认释读，不是构件结论，也不是破译结论。
 
 ## obs-char-001349-visual-source-001 / 图像条目
 
 ![obs-char-001349 glyph candidate](03_visual-assets/001_asset-001354_hust-obc-cat-1506_glyph.png)
 
-- Local image / 本地图像: `03_visual-assets/001_asset-001354_hust-obc-cat-1506_glyph.png`
-- Local metadata / 本地 metadata: `03_visual-assets/001_asset-001354_hust-obc-cat-1506_glyph.yaml`
-- Source image path / 来源图像路径: `HUST-OBC/deciphered/1506/G_1506_乙8710合22137子組.png`
+- Local image / 本地图像:
+  `03_visual-assets/001_asset-001354_hust-obc-cat-1506_glyph.png`
+- Local metadata / 本地 metadata:
+  `03_visual-assets/001_asset-001354_hust-obc-cat-1506_glyph.yaml`
+- Source image path / 来源图像路径:
+  `HUST-OBC/deciphered/1506/G_1506_乙8710合22137子組.png`
 - Source package / 来源包: `large-src-000001`
 - Download ID / 下载 ID: `dl-hust-obc-figshare-raw`
 - Rights status / 权利状态: `source_marked_risk_noted`
 - Review status / 复核状态: `needs_human_visual_review`
-- Risk note / 风险提示: HUST-OBC image derivative extracted from registered large source package for local preparation-stage visual review; rights signals conflict between Figshare and article page and this is not decipherment evidence.
+- Risk note / 风险提示: HUST-OBC image derivative extracted from registered large
+  source package for local preparation-stage visual review; rights signals
+  conflict between Figshare and article page and this is not decipherment
+  evidence.

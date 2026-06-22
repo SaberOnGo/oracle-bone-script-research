@@ -23,6 +23,7 @@ from tools.validation.check_repository_skeleton import (
     check_root_gitignore_patterns,
     check_hust_obc_undeciphered_candidates,
     check_character_directory_local_materials,
+    check_oracle_character_human_markdown_wrapping,
     check_component_candidate_local_materials,
     check_inscription_crosswalk_candidate_local_materials,
     check_evolution_candidate_local_materials,
@@ -338,6 +339,22 @@ def load_hust_obc_undeciphered_local_materials_module():
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
+
+
+def assert_human_markdown_lines_wrapped(testcase, text: str, context: str) -> None:
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        testcase.assertLessEqual(
+            len(line),
+            80,
+            f"{context} line {line_number} exceeds 80 chars: {line}",
+        )
+
+
+def assert_no_mojibake_fragments(testcase, text: str, context: str) -> None:
+    for fragment in ("绠€", "鍥", "鎵", "鏉", "閲", "鈥", "锟", "\ufffd"):
+        testcase.assertNotIn(fragment, text, f"{context} contains mojibake: {fragment}")
 
 
 def load_hust_obimd_evobc_codepoint_crosswalk_module():
@@ -3455,6 +3472,7 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_character_directory_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_character_directory_local_materials(repo_root()), [])
+        self.assertEqual(check_oracle_character_human_markdown_wrapping(repo_root()), [])
 
         target_dirs = [
             repo_root()
@@ -3476,7 +3494,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not an accepted reading", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("不是已确认释读", readme_text)
-            self.assertIn("同一具体对象目录", readme_text)
+            self.assertIn("对象目录", readme_text)
             for fragment in mojibake_fragments:
                 self.assertNotIn(fragment, readme_text)
             self.assertFalse((target_dir.parent / "human-readable").exists())
@@ -4601,6 +4619,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("04_visual-gallery.md", output["readme_text"])
             self.assertIn(project_id, output["gallery_text"])
             self.assertIn("not a decipherment conclusion", output["gallery_text"])
+            self.assertIn("简体中文", output["gallery_text"])
+            self.assertIn("图像资料页", output["gallery_text"])
+            assert_no_mojibake_fragments(
+                self,
+                output["gallery_text"],
+                f"{project_id} generated visual gallery",
+            )
+            assert_human_markdown_lines_wrapped(
+                self,
+                output["gallery_text"],
+                f"{project_id} generated visual gallery",
+            )
         image_rows = outputs["obs-unk-006294"]["visual_rows"]
         self.assertEqual(
             image_rows[0]["committed_image_path"],
@@ -5128,7 +5158,34 @@ class RepositorySkeletonTests(unittest.TestCase):
         sample_candidates = [candidates[0], candidates[6293], candidates[-1]]
         for candidate in sample_candidates:
             asset_id = by_project[candidate.project_id]["asset_id"]
+            readme_text = module.readme_text(
+                candidate,
+                asset_id,
+                f"001_{asset_id}_{candidate.primary_external_ref_id}_glyph.jpg",
+            )
+            gallery_text = module.gallery_text(
+                candidate,
+                asset_id,
+                f"001_{asset_id}_{candidate.primary_external_ref_id}_glyph.jpg",
+                f"001_{asset_id}_{candidate.primary_external_ref_id}_glyph.yaml",
+            )
             review_text = module.review_sheet_text(candidate, asset_id)
+            for generated_name, generated_text in [
+                ("README", readme_text),
+                ("visual gallery", gallery_text),
+                ("review sheet", review_text),
+            ]:
+                self.assertIn("简体中文", generated_text)
+                assert_no_mojibake_fragments(
+                    self,
+                    generated_text,
+                    f"{candidate.project_id} generated {generated_name}",
+                )
+                assert_human_markdown_lines_wrapped(
+                    self,
+                    generated_text,
+                    f"{candidate.project_id} generated {generated_name}",
+                )
             self.assertIn("Concrete Questions To Check", review_text)
             self.assertIn("具体待查问题", review_text)
             self.assertIn("应先核对哪一张 HUST-OBC 来源图像？", review_text)

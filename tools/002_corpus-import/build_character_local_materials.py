@@ -417,6 +417,142 @@ Images shown here are source-marked preparation materials for human visual revie
 """
 
 
+def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_rows: list[dict[str, str]]) -> str:
+    external_id = packet.get("primary_external_ref_id", "")
+    source_id = packet.get("source_id", "")
+    committed_rows = [row for row in visual_rows if row.get("committed_image_path")]
+    lines: list[str] = [
+        f"# {project_id} Visual Gallery / {project_id} 图像资料页",
+        "",
+        "English:",
+    ]
+    append_wrapped_paragraph(
+        lines,
+        "This human-readable gallery stays inside the same concrete "
+        "oracle-character object directory as the AI-readable packet and "
+        "visual/source index. It is a preparation-stage viewing surface for "
+        "local review images, not a parallel human-only directory.",
+    )
+    lines.extend(["", "简体中文:"])
+    append_wrapped_paragraph(
+        lines,
+        "本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨"
+        "文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行"
+        "人类目录。",
+    )
+    lines.extend(["", "## Object And Source / 对象与来源", ""])
+    append_wrapped_bullet(lines, "Project ID / 项目 ID", f"`{project_id}`")
+    append_wrapped_bullet(
+        lines,
+        "Primary external reference / 首选外部参考",
+        f"`{external_id}`",
+    )
+    append_wrapped_bullet(lines, "Source / 来源", f"`{source_id}`")
+    append_wrapped_bullet(lines, "AI packet / AI 资料包", f"`{packet_name}`")
+    append_wrapped_bullet(
+        lines,
+        "Visual/source index / 图像与来源索引",
+        "`02_visual-source-index.csv`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Committed local review images / 已提交本地复核图像数",
+        f"`{len(committed_rows)}`",
+    )
+    lines.extend(["", "## Research Boundary / 研究边界", "", "English:"])
+    append_wrapped_paragraph(
+        lines,
+        "Images shown here are source-marked preparation materials for human "
+        "visual review. Each image is not an accepted glyph identity, not an "
+        "accepted reading, not a component conclusion, and not a decipherment "
+        "conclusion.",
+    )
+    lines.extend(["", "简体中文:"])
+    append_wrapped_paragraph(
+        lines,
+        "本页展示的图像只是带来源标记的准备阶段材料，用于人工视觉复核。"
+        "它们不是已确认字形身份，不是已确认释读，不是构件结论，也不是"
+        "破译结论。",
+    )
+
+    if committed_rows:
+        for row in committed_rows:
+            asset_path = Path(row["committed_image_path"])
+            asset_name = asset_path.name
+            metadata_name = asset_path.with_suffix(".yaml").name
+            local_asset_path = f"03_visual-assets/{asset_name}"
+            local_metadata_path = f"03_visual-assets/{metadata_name}"
+            lines.extend(
+                [
+                    "",
+                    f"## {row['visual_source_index_id']} / 图像条目",
+                    "",
+                    f"![{project_id} glyph candidate]({local_asset_path})",
+                    "",
+                ]
+            )
+            append_wrapped_bullet(lines, "Local image / 本地图像", f"`{local_asset_path}`")
+            append_wrapped_bullet(
+                lines,
+                "Local metadata / 本地 metadata",
+                f"`{local_metadata_path}`",
+            )
+            append_wrapped_bullet(
+                lines,
+                "Source image path / 来源图像路径",
+                f"`{row.get('source_image_reference_path', '')}`",
+            )
+            append_wrapped_bullet(
+                lines,
+                "Source package / 来源包",
+                f"`{row.get('source_package_id', '')}`",
+            )
+            append_wrapped_bullet(
+                lines,
+                "Download ID / 下载 ID",
+                f"`{row.get('download_id', '')}`",
+            )
+            append_wrapped_bullet(
+                lines,
+                "Rights status / 权利状态",
+                f"`{row.get('rights_status', '')}`",
+            )
+            append_wrapped_bullet(
+                lines,
+                "Review status / 复核状态",
+                f"`{row.get('review_status', '')}`",
+            )
+            append_wrapped_bullet(
+                lines,
+                "Risk note / 风险提示",
+                row.get("risk_note", ""),
+            )
+    else:
+        lines.extend(
+            [
+                "",
+                "## No Committed Local Image Yet / 暂无已提交本地图像",
+                "",
+                "English:",
+            ]
+        )
+        append_wrapped_paragraph(
+            lines,
+            "This object currently has no committed local glyph image "
+            "derivative. Use `02_visual-source-index.csv` to inspect "
+            "source-image references and source-package routing before "
+            "extracting any review image into this same object directory.",
+        )
+        lines.extend(["", "简体中文:"])
+        append_wrapped_paragraph(
+            lines,
+            "本对象目前还没有已提交的本地字形图像派生件。请先查看 "
+            "`02_visual-source-index.csv` 中的来源图像引用和来源包路线，"
+            "再把可复核图像抽取到同一对象目录中。",
+        )
+    return "\n".join(lines) + "\n"
+
+
 def build_outputs(root: Path) -> dict[str, dict]:
     image_rows = read_image_reference_rows(root)
     outputs: dict[str, dict] = {}

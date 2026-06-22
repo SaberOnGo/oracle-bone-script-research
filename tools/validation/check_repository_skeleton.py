@@ -2392,7 +2392,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                     )
             for snippet in [
                 "co-located working folder",
-                "同一具体对象目录",
+                "对象目录",
                 "02_visual-source-index.csv",
                 "04_visual-gallery.md",
                 "not an accepted reading",
@@ -29236,11 +29236,26 @@ def check_source_registers(root: Path) -> list[str]:
     return issues
 
 
+def check_oracle_character_human_markdown_wrapping(root: Path) -> list[str]:
+    issues: list[str] = []
+    markdown_root = root / "corpus/001_oracle-characters"
+    for path in sorted(markdown_root.glob("**/*.md")):
+        text = path.read_text(encoding="utf-8")
+        relative = path.relative_to(root).as_posix()
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            if len(line) > 80:
+                issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
     issues.extend(check_required_paths(root))
     issues.extend(check_character_directory_local_materials(root))
+    issues.extend(check_oracle_character_human_markdown_wrapping(root))
     issues.extend(check_component_candidate_local_materials(root))
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
     issues.extend(check_evolution_candidate_local_materials(root))

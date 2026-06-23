@@ -353,26 +353,84 @@ def packet(
 
 
 def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
+    english_intro = wrapped_paragraph(
+        "This directory is the object-local entrance for a Cambridge/Hopkins "
+        "classified-table topic candidate. Human-readable notes, review "
+        "instructions, source routes, period-count metadata, crosswalk routes, "
+        "and the AI-readable packet are kept together in this same corpus "
+        "object directory."
+    )
+    chinese_intro = "\n".join(
+        [
+            "本目录是 Cambridge/Hopkins 分类表主题候选的对象内入口。",
+            "人类可读说明、复核说明、来源路线、分期计数 metadata、",
+            "crosswalk 路线和 AI 可读 packet 都放在同一个 corpus 对象",
+            "目录中。",
+        ]
+    )
+    file_entries = "\n".join(
+        [
+            wrapped_bullet(
+                "`01_topic-candidate-packet.json`: AI-readable topic candidate packet."
+            ),
+            wrapped_bullet("`02_topic-source-index.csv`: source and provenance route."),
+            wrapped_bullet(
+                "`03_period-count-index.csv`: period-count metadata from the "
+                "classified table."
+            ),
+            wrapped_bullet(
+                "`04_inscription-crosswalk-route-index.csv`: route rows to "
+                "inscription crosswalk candidates."
+            ),
+            wrapped_bullet("`05_human-topic-review-sheet.md`: human review checklist."),
+            wrapped_bullet(
+                "`06_human-topic-dossier.md`: human-readable topic candidate dossier."
+            ),
+            wrapped_bullet(
+                "`07_topic-dossier-index.json`: AI-readable support index for "
+                "the dossier."
+            ),
+            wrapped_bullet(
+                "`08_topic-literature-context-dossier.md`: human "
+                "literature/context dossier."
+            ),
+            wrapped_bullet(
+                "`09_topic-literature-context-index.json`: AI-readable context "
+                "support index."
+            ),
+            wrapped_bullet(
+                "`10_topic-citation-dispute-review-dossier.md`: human "
+                "citation/dispute review."
+            ),
+            wrapped_bullet(
+                "`11_topic-citation-dispute-review-index.json`: AI-readable "
+                "review support index."
+            ),
+        ]
+    )
+    english_boundary = wrapped_paragraph(
+        "This is only a source-classification candidate from a "
+        "Cambridge/Hopkins metadata table. It is not a grammar analysis "
+        "result, not an accepted inscription topic assignment, not a "
+        "transcription, not a reading, and not a decipherment conclusion."
+    )
+    chinese_boundary = "\n".join(
+        [
+            "这只是来自 Cambridge/Hopkins metadata 表的来源分类候选。",
+            "它不是语法分析结果，不是已确认卜辞主题归属，不是释文，",
+            "不是读法，也不是破译结论。",
+        ]
+    )
     return f"""# {project_id} Topic Candidate / {project_id} 主题候选
 
 English:
-This directory is the object-local entrance for a Cambridge/Hopkins classified-table topic candidate. Human-readable notes, review instructions, source routes, period-count metadata, crosswalk routes, and the AI-readable packet are kept together in this same `corpus/007_research-topics-and-grammar` object directory.
+{english_intro}
 
 简体中文：
-本目录是 Cambridge/Hopkins 分类表主题候选的对象内入口。人类可读说明、复核说明、来源路线、分期计数 metadata、crosswalk 路线和 AI 可读 packet 都放在同一个 `corpus/007_research-topics-and-grammar` 对象目录中。
+{chinese_intro}
 
 ## Local Files / 本目录文件
-- `01_topic-candidate-packet.json`: AI-readable topic candidate packet.
-- `02_topic-source-index.csv`: source and provenance route.
-- `03_period-count-index.csv`: period-count metadata from the classified table.
-- `04_inscription-crosswalk-route-index.csv`: route rows to inscription crosswalk candidates.
-- `05_human-topic-review-sheet.md`: human review checklist.
-- `06_human-topic-dossier.md`: human-readable topic candidate dossier.
-- `07_topic-dossier-index.json`: AI-readable support index for the dossier.
-- `08_topic-literature-context-dossier.md`: human literature/context dossier.
-- `09_topic-literature-context-index.json`: AI-readable context support index.
-- `10_topic-citation-dispute-review-dossier.md`: human citation/dispute review.
-- `11_topic-citation-dispute-review-index.json`: AI-readable review support index.
+{file_entries}
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `{project_id}`
@@ -385,10 +443,10 @@ This directory is the object-local entrance for a Cambridge/Hopkins classified-t
 ## Boundary / 边界
 
 English:
-This is only a source-classification candidate from a Cambridge/Hopkins metadata table. It is not a grammar analysis result, not an accepted inscription topic assignment, not a transcription, not a reading, and not a decipherment conclusion.
+{english_boundary}
 
 简体中文：
-这只是来自 Cambridge/Hopkins metadata 表的来源分类候选。它不是语法分析结果，不是已确认卜辞主题归属，不是释文，不是读法，也不是破译结论。
+{chinese_boundary}
 """
 
 
@@ -1063,12 +1121,14 @@ def build_materials(root: Path) -> dict[str, int]:
         write_csv(output_dir / "02_topic-source-index.csv", TOPIC_SOURCE_FIELDS, source_rows(project_id, row))
         write_csv(output_dir / "03_period-count-index.csv", PERIOD_COUNT_FIELDS, period_rows(project_id, row))
         write_csv(output_dir / "04_inscription-crosswalk-route-index.csv", ROUTE_FIELDS, routes)
-        (output_dir / "README.md").write_text(readme_text(project_id, row, len(routes)), encoding="utf-8")
+        (output_dir / "README.md").write_text(
+            readme_text(project_id, row, len(routes)), encoding="utf-8", newline="\n"
+        )
         (output_dir / "05_human-topic-review-sheet.md").write_text(
-            review_sheet_text(project_id, row), encoding="utf-8"
+            review_sheet_text(project_id, row), encoding="utf-8", newline="\n"
         )
         (output_dir / "06_human-topic-dossier.md").write_text(
-            topic_dossier_text(project_id, row, routes), encoding="utf-8"
+            topic_dossier_text(project_id, row, routes), encoding="utf-8", newline="\n"
         )
         write_json(
             output_dir / "07_topic-dossier-index.json",
@@ -1077,6 +1137,7 @@ def build_materials(root: Path) -> dict[str, int]:
         (output_dir / "08_topic-literature-context-dossier.md").write_text(
             topic_literature_context_dossier_text(project_id, row, routes),
             encoding="utf-8",
+            newline="\n",
         )
         write_json(
             output_dir / "09_topic-literature-context-index.json",
@@ -1085,6 +1146,7 @@ def build_materials(root: Path) -> dict[str, int]:
         (output_dir / "10_topic-citation-dispute-review-dossier.md").write_text(
             topic_citation_dispute_review_dossier_text(project_id, row, routes),
             encoding="utf-8",
+            newline="\n",
         )
         write_json(
             output_dir / "11_topic-citation-dispute-review-index.json",

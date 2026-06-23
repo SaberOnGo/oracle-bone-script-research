@@ -3753,6 +3753,13 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "10_topic-citation-dispute-review-dossier.md",
         "11_topic-citation-dispute-review-index.json",
     ]
+    human_markdown_files = [
+        "README.md",
+        "05_human-topic-review-sheet.md",
+        "06_human-topic-dossier.md",
+        "08_topic-literature-context-dossier.md",
+        "10_topic-citation-dispute-review-dossier.md",
+    ]
     review_sheet_snippets = [
         "Concrete Questions To Check",
         "具体待查问题",
@@ -3786,6 +3793,24 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         for filename in required_files:
             if not path_exists(object_dir / filename):
                 issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        for filename in human_markdown_files:
+            human_markdown_path = object_dir / filename
+            if not path_exists(human_markdown_path):
+                continue
+            human_markdown = human_markdown_path.read_text(encoding="utf-8")
+            if "\ufffd" in human_markdown:
+                issues.append(
+                    f"{human_markdown_path.relative_to(root).as_posix()} "
+                    "contains Unicode replacement characters"
+                )
+            for line_number, line in enumerate(human_markdown.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{human_markdown_path.relative_to(root).as_posix()} line "
+                        f"{line_number} exceeds 80 characters"
+                    )
         packet_path = object_dir / "01_topic-candidate-packet.json"
         if path_exists(packet_path):
             packet = json.loads(packet_path.read_text(encoding="utf-8"))

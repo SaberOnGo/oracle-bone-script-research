@@ -5047,6 +5047,31 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(unrouted_rows), 4)
         self.assertTrue(all(row["group_number"] == "unclassified" for row in unrouted_rows))
 
+    def test_cambridge_hopkins_topic_human_markdown_is_readable(self) -> None:
+        root = repo_root() / "corpus/007_research-topics-and-grammar/001_topic-candidates"
+        human_markdown_names = {
+            "README.md",
+            "05_human-topic-review-sheet.md",
+            "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
+        }
+        object_dirs = sorted(path for path in root.iterdir() if path.is_dir())
+        self.assertEqual(len(object_dirs), 20)
+        for object_dir in object_dirs:
+            for name in human_markdown_names:
+                path = object_dir / name
+                text = path.read_text(encoding="utf-8")
+                self.assertNotIn("\ufffd", text, path.as_posix())
+                for line_number, line in enumerate(text.splitlines(), start=1):
+                    if line.startswith("|") or line.startswith("!["):
+                        continue
+                    self.assertLessEqual(
+                        len(line),
+                        80,
+                        f"{path.as_posix()}:{line_number}: {line}",
+                    )
+
     def test_source_object_materials_builder_keeps_source_routes_colocated(self) -> None:
         module = load_source_object_materials_module()
         result = module.build_materials(repo_root())

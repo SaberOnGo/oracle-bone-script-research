@@ -3752,6 +3752,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in dossier_text.splitlines():
                 if not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
+                if line.startswith("- "):
+                    self.assertFalse(
+                        line.rstrip().endswith((": 待查", "：待查", ": `待查`", "：`待查`")),
+                        line,
+                    )
 
             index = json.loads(index_path.read_text(encoding="utf-8"))
             self.assertEqual(index["project_id"], project_id)

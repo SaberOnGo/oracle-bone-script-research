@@ -102,7 +102,7 @@ def para(text: str) -> str:
 
 def bullet(label: str, value: str) -> str:
     prefix = f"- {label}: "
-    text = value if value else "待查"
+    text = value if value else concrete_pending("需核对对象 packet、来源路线或图边记录")
     lines = textwrap.wrap(
         text,
         width=WIDTH - 2,
@@ -115,13 +115,17 @@ def bullet(label: str, value: str) -> str:
 
 
 def code(value: str) -> str:
-    return f"`{value}`" if value else "待查"
+    return f"`{value}`" if value else concrete_pending("需核对对象 packet、来源路线或图边记录")
+
+
+def concrete_pending(text: str) -> str:
+    return f"待查：{text}"
 
 
 def short_list(values: list[str], limit: int = 4) -> str:
     cleaned = [value for value in values if value]
     if not cleaned:
-        return "待查"
+        return concrete_pending("需核对对象目录内索引、来源路线或统计图边记录")
     shown = cleaned[:limit]
     suffix = f"; plus {len(cleaned) - limit} more" if len(cleaned) > limit else ""
     return "; ".join(shown) + suffix
@@ -281,7 +285,12 @@ def context_dossier_text(
         bullet("出土地", "待查：需从来源著录、馆藏对象或考古批次记录追溯"),
         bullet("馆藏", "待查：需核对馆藏号、对象记录和公开数据库路线"),
         bullet("时期与组类", "待查：需记录来源中的分期、组类和批次，不作新判断"),
-        bullet("来源包", code(str(packet.get("source_package_id", "")))),
+        bullet(
+            "来源包",
+            code(str(packet.get("source_package_id", "")))
+            if packet.get("source_package_id")
+            else concrete_pending("需核对 01_*packet.json、来源登记和来源包清单"),
+        ),
         bullet("下载或访问记录", short_list(downloads)),
         bullet("来源 metadata", short_list(source_metadata)),
         "",
@@ -289,7 +298,12 @@ def context_dossier_text(
         "",
         bullet("来源追溯", short_list([Path(value).name for value in route_files])),
         bullet("checksum 与 manifest", "待查：需打开来源登记、下载日志和来源包清单"),
-        bullet("权利风险", code(str(packet.get("risk_note", "")))),
+        bullet(
+            "权利风险",
+            code(str(packet.get("risk_note", "")))
+            if packet.get("risk_note")
+            else concrete_pending("需核对 rights_status、risk_note、来源登记和公开提交边界"),
+        ),
         bullet("公开提交边界", "元数据和小型派生图像需保留权利状态与风险提示"),
         "",
         "## 7. 释读史、争议与后世字形",

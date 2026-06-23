@@ -2492,6 +2492,13 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                     issues.append(
                         f"{context_dossier_path.relative_to(root).as_posix()} line {line_number} exceeds 80 chars"
                     )
+                if line.startswith("- ") and line.rstrip().endswith(
+                    (": 待查", "：待查", ": `待查`", "：`待查`")
+                ):
+                    issues.append(
+                        f"{context_dossier_path.relative_to(root).as_posix()} "
+                        f"line {line_number} has a non-specific pending field"
+                    )
             for snippet in [
                 project_id,
                 "单字考古文字上下文档案",

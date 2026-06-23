@@ -5,7 +5,9 @@ import importlib.util
 import json
 import os
 import sys
+import tempfile
 from collections import Counter
+from pathlib import Path
 
 from tools.validation.check_repository_skeleton import (
     check_bilingual_markers,
@@ -3052,6 +3054,104 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if line.startswith("|") or line.startswith("![") or line.startswith("<"):
                     continue
                 self.assertLessEqual(len(line), 80, f"{relative}: {line}")
+
+    def test_root_readmes_use_readable_chinese_markers(self) -> None:
+        marker_sets = {
+            "README.md": [
+                "中文摘要",
+                "项目使命",
+                "当前阶段",
+                "人工研究入口顺序",
+                "具体待查问题",
+                "人类可读研究档案",
+                "AI 可读辅助资料",
+            ],
+            "README.zh-CN.md": [
+                "甲骨文开放研究项目",
+                "项目使命",
+                "当前阶段",
+                "人工研究入口顺序",
+                "具体待查问题",
+                "来源追溯",
+                "人类研究档案",
+                "AI 可读辅助资料",
+            ],
+        }
+        mojibake_fragments = (
+            "绠€",
+            "鐢",
+            "楠",
+            "褰",
+            "浜哄",
+            "鍏蜂",
+            "鏉ユ",
+            "瀵硅",
+            "缂",
+            "閻",
+            "娑",
+            "\ufffd",
+        )
+        for relative, markers in marker_sets.items():
+            text = (repo_root() / relative).read_text(encoding="utf-8")
+            for marker in markers:
+                self.assertIn(marker, text, relative)
+            for fragment in mojibake_fragments:
+                self.assertNotIn(fragment, text, relative)
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                    continue
+                self.assertLessEqual(
+                    len(line),
+                    80,
+                    f"{relative}:{line_number}: {line}",
+                )
+
+    def test_root_readme_validator_rejects_common_mojibake_fragments(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_root = Path(temp_dir)
+            (temp_root / "README.md").write_text(
+                "\n".join(
+                    [
+                        "# Oracle Bone Script Research",
+                        "",
+                        "Current Stage",
+                        "Human Research Entry Order",
+                        "Concrete Questions To Check",
+                        "not an automatic decipherment model",
+                        "source provenance",
+                        "object-local",
+                        "AI-readable support data",
+                        "中文摘要",
+                        "具体待查问题",
+                        "甲骨文入口混入绠€浣撲腑鏂?乱码。",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            (temp_root / "README.zh-CN.md").write_text(
+                "\n".join(
+                    [
+                        "# 甲骨文开放研究项目",
+                        "",
+                        "当前阶段",
+                        "人工研究入口顺序",
+                        "具体待查问题",
+                        "不是自动破译模型",
+                        "来源追溯",
+                        "对象内",
+                        "AI 可读辅助资料",
+                        "English summary",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            issues = check_root_readmes_human_entry(temp_root)
+
+        self.assertTrue(
+            any("README.md contains mojibake marker" in issue for issue in issues),
+            issues,
+        )
 
     def test_source_rights_policy_is_human_review_entry(self) -> None:
         self.assertEqual(check_source_rights_policy_human_entry(repo_root()), [])

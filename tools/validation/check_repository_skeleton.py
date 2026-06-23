@@ -4504,6 +4504,22 @@ def check_bilingual_markers(root: Path) -> list[str]:
     return issues
 
 
+COMMON_CHINESE_MOJIBAKE_FRAGMENTS = (
+    "绠€",
+    "鐢",
+    "楠",
+    "褰",
+    "浜哄",
+    "鍏蜂",
+    "鏉ユ",
+    "瀵硅",
+    "缂",
+    "閻",
+    "娑",
+    "\ufffd",
+)
+
+
 def check_root_readmes_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     required_markers = {
@@ -4538,6 +4554,9 @@ def check_root_readmes_human_entry(root: Path) -> list[str]:
         for marker in markers:
             if marker not in text:
                 issues.append(f"{relative} missing human-entry marker: {marker}")
+        for marker in COMMON_CHINESE_MOJIBAKE_FRAGMENTS:
+            if marker in text:
+                issues.append(f"{relative} contains mojibake marker: {marker}")
         for marker in ["缂", "闁", "鐢", "涓", "�"]:
             if marker in text:
                 issues.append(f"{relative} contains mojibake marker: {marker}")

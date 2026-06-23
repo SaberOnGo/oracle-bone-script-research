@@ -3234,6 +3234,17 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "09_cross-period-review-dossier.md",
         "10_cross-period-review-index.json",
     ]
+    pending_check_anchors = [
+        "02_evolution-source-index.csv",
+        "03_era-source-code-index.csv",
+        "05_image-reference-route-index.csv",
+        "06_image-reference-route-gallery.md",
+        "07_human-evolution-dossier.md",
+        "09_cross-period-review-dossier.md",
+        "001_evobc-evolution-category-staging.csv",
+        "007_evobc-evolution-graph-edges.jsonl",
+        "project_registry/",
+    ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
         if project_id != f"obs-evo-cand-{index:06d}":
@@ -3410,6 +3421,12 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             for line_number, line in enumerate(route_gallery.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    if not any(marker in line for marker in pending_check_anchors):
+                        issues.append(
+                            f"{route_gallery_path.relative_to(root).as_posix()}:"
+                            f"{line_number} pending check lacks local evidence anchor"
+                        )
                 if len(line) > 80:
                     issues.append(
                         f"{route_gallery_path.relative_to(root).as_posix()}:{line_number} "
@@ -3423,6 +3440,15 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                     f"{human_dossier_path.relative_to(root).as_posix()} "
                     "contains machine status in human evolution dossier"
                 )
+            for line_number, line in enumerate(human_dossier.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    if not any(marker in line for marker in pending_check_anchors):
+                        issues.append(
+                            f"{human_dossier_path.relative_to(root).as_posix()}:"
+                            f"{line_number} pending check lacks local evidence anchor"
+                        )
         cross_period_dossier_path = object_dir / "09_cross-period-review-dossier.md"
         if index in deep_route_check_indexes and path_exists(cross_period_dossier_path):
             cross_period_dossier = cross_period_dossier_path.read_text(encoding="utf-8")
@@ -3452,6 +3478,12 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             for line_number, line in enumerate(cross_period_dossier.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    if not any(marker in line for marker in pending_check_anchors):
+                        issues.append(
+                            f"{cross_period_dossier_path.relative_to(root).as_posix()}:"
+                            f"{line_number} pending check lacks local evidence anchor"
+                        )
                 if len(line) > 80:
                     issues.append(
                         f"{cross_period_dossier_path.relative_to(root).as_posix()}:"

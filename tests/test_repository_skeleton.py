@@ -4339,6 +4339,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in route_gallery.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    self.assertTrue(
+                        any(
+                            marker in line
+                            for marker in [
+                                "02_evolution-source-index.csv",
+                                "03_era-source-code-index.csv",
+                                "05_image-reference-route-index.csv",
+                                "06_image-reference-route-gallery.md",
+                                "07_human-evolution-dossier.md",
+                                "09_cross-period-review-dossier.md",
+                                "001_evobc-evolution-category-staging.csv",
+                                "007_evobc-evolution-graph-edges.jsonl",
+                                "project_registry/",
+                            ]
+                        ),
+                        line,
+                    )
                 self.assertLessEqual(len(line), 80, line)
             dossier_text = (
                 object_dir / "07_human-evolution-dossier.md"
@@ -4360,6 +4378,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in dossier_text.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    self.assertTrue(
+                        any(
+                            marker in line
+                            for marker in [
+                                "02_evolution-source-index.csv",
+                                "03_era-source-code-index.csv",
+                                "05_image-reference-route-index.csv",
+                                "06_image-reference-route-gallery.md",
+                                "07_human-evolution-dossier.md",
+                                "09_cross-period-review-dossier.md",
+                                "001_evobc-evolution-category-staging.csv",
+                                "007_evobc-evolution-graph-edges.jsonl",
+                                "project_registry/",
+                            ]
+                        ),
+                        line,
+                    )
                 self.assertLessEqual(len(line), 80, line)
             cross_period_dossier = (
                 object_dir / "09_cross-period-review-dossier.md"
@@ -4377,6 +4413,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in cross_period_dossier.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    self.assertTrue(
+                        any(
+                            marker in line
+                            for marker in [
+                                "02_evolution-source-index.csv",
+                                "03_era-source-code-index.csv",
+                                "05_image-reference-route-index.csv",
+                                "06_image-reference-route-gallery.md",
+                                "07_human-evolution-dossier.md",
+                                "09_cross-period-review-dossier.md",
+                                "001_evobc-evolution-category-staging.csv",
+                                "007_evobc-evolution-graph-edges.jsonl",
+                                "project_registry/",
+                            ]
+                        ),
+                        line,
+                    )
                 self.assertLessEqual(len(line), 80, line)
             dossier_index = json.loads(
                 (object_dir / "08_evolution-dossier-index.json").read_text(

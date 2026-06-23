@@ -82,22 +82,22 @@ verify images, inscriptions, catalogs, and scholarship.
   type: `category_metadata_staging`
   label: `EVOBC category row with aggregate image-reference counts`
   route file: `001_evobc-evolution-category-staging.csv`
-  pending check: 待查：打开路线文件后核对本地图像、拓片、摹本或图版。
+  pending check: 待查：先开 `05_image-reference-route-index.csv` 核对图像路线。
 - `obs-evo-cand-001474-route-list-staging`
   type: `list_metadata_staging`
   label: `EVOBC list rows summarized into era/source counts`
   route file: `001_evobc-evolution-category-staging.csv`
-  pending check: 待查：打开路线文件后核对本地图像、拓片、摹本或图版。
+  pending check: 待查：先开 `05_image-reference-route-index.csv` 核对图像路线。
 - `obs-evo-cand-001474-route-code-index`
   type: `object_local_code_index`
   label: `Object-local era/source code index for locating review buckets`
   route file: `03_era-source-code-index.csv`
-  pending check: 待查：打开路线文件后核对本地图像、拓片、摹本或图版。
+  pending check: 待查：先开 `05_image-reference-route-index.csv` 核对图像路线。
 - `obs-evo-cand-001474-route-evolution-graph`
   type: `graph_edge_route`
   label: `EVOBC relationship graph edges that reference this category`
   route file: `007_evobc-evolution-graph-edges.jsonl`
-  pending check: 待查：打开路线文件后核对本地图像、拓片、摹本或图版。
+  pending check: 待查：先开 `05_image-reference-route-index.csv` 核对图像路线。
 
 ## Bibliography, Database, And Web Source Routes
 

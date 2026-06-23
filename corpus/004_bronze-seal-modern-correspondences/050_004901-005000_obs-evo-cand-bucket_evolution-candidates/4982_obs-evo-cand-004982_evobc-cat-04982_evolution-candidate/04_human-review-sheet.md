@@ -40,7 +40,7 @@ EVOBC category candidate ID: `evobc-evo-cat-04982`
 - Formal correspondence: `not_formal_correspondence`
 - Evolution-chain claim: `no_claim`
 - Modern-character identity: `not_confirmed`
-- Source image evidence: 待查：需要打开图像路线文件核对来源图像证据。
+- Source image evidence: 待查：先开 `05_image-reference-route-index.csv`。
 - Cross-source review: `needs_human_evolution_review`
 
 ## Caution / 风险提示

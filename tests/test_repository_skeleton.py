@@ -5363,9 +5363,32 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not a decipherment conclusion", evidence_text)
         self.assertNotIn("not_collected", evidence_text)
         self.assertNotIn("not collected", evidence_text)
-        for line in evidence_text.splitlines():
+        source_pending_anchors = (
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "07_material-access-index.md",
+            "08_source-processing-status.md",
+            "11_source-evidence-dossier-index.json",
+        )
+        evidence_lines = evidence_text.splitlines()
+        for line_index, line in enumerate(evidence_lines):
             if line.startswith("|"):
                 continue
+            if "\u5f85\u67e5\uff1a" in line or "\u5f85\u67e5\uff0c" in line:
+                following = []
+                for extra_line in evidence_lines[line_index + 1 :]:
+                    if extra_line.startswith("- "):
+                        break
+                    if extra_line.startswith("  "):
+                        following.append(extra_line)
+                        continue
+                    break
+                pending_block = "\n".join([line, *following])
+                self.assertTrue(
+                    any(anchor in pending_block for anchor in source_pending_anchors),
+                    pending_block,
+                )
             self.assertLessEqual(len(line), 80, line)
         for fragment in ("缁犫偓", "闂冭埖", "閻樿埗", "閻樿埖"):
             self.assertNotIn(fragment, evidence_text)

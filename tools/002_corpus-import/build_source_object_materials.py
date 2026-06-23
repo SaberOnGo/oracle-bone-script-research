@@ -515,19 +515,23 @@ def source_evidence_dossier_text(
         "## Citation Disagreement And Risk Notes / 引用、分歧与风险记录",
         *bullet(
             "Citation relationship / 引用关系",
-            "待查：需要核对具体书目、网页说明、引用关系或派生关系。",
+            "待查：先开 `07_material-access-index.md`、"
+            "`11_source-evidence-dossier-index.json`，再核对引用关系。",
         ),
         *bullet(
             "Proposer or editor / 提出者或整理者",
-            "待查：需要核对来源说明中的提出者、整理者或数据库编辑信息。",
+            "待查：先开 `07_material-access-index.md` 和"
+            "`04_field-map-route-index.csv` 核对提出者或整理者线索。",
         ),
         *bullet(
             "Different opinions / 不同意见",
-            "待查：需要核对论文、数据库说明或复核记录中的不同意见。",
+            "待查：先开 `07_material-access-index.md` 和"
+            "`08_source-processing-status.md` 核对不同意见线索。",
         ),
         *bullet(
             "Disputes / 争议",
-            "待查：需要核对争议记录、复核记录和风险说明是否存在。",
+            "待查：先开 `07_material-access-index.md`、"
+            "`08_source-processing-status.md` 和风险说明核对争议线索。",
         ),
         *wrapped(
             "Do not treat absence of a dispute row as scholarly agreement. It "

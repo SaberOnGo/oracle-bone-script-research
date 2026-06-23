@@ -4382,6 +4382,14 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "not corpus import approval",
         "not a decipherment conclusion",
     ]
+    source_pending_anchors = (
+        "02_download-route-index.csv",
+        "03_package-route-index.csv",
+        "04_field-map-route-index.csv",
+        "07_material-access-index.md",
+        "08_source-processing-status.md",
+        "11_source-evidence-dossier-index.json",
+    )
     for object_dir in object_dirs:
         for filename, snippets in required_files.items():
             path = object_dir / filename
@@ -4397,6 +4405,25 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                     issues.append(f"{path.relative_to(root)} contains mojibake: {fragment}")
             if filename == "10_source-evidence-dossier.md" and "not_collected" in text:
                 issues.append(f"{path.relative_to(root)} contains machine status in human dossier")
+            if filename == "10_source-evidence-dossier.md":
+                text_lines = text.splitlines()
+                for line_number, line in enumerate(text_lines, start=1):
+                    if "\u5f85\u67e5\uff1a" not in line and "\u5f85\u67e5\uff0c" not in line:
+                        continue
+                    following: list[str] = []
+                    for extra_line in text_lines[line_number:]:
+                        if extra_line.startswith("- "):
+                            break
+                        if extra_line.startswith("  "):
+                            following.append(extra_line)
+                            continue
+                        break
+                    pending_block = "\n".join([line, *following])
+                    if not any(anchor in pending_block for anchor in source_pending_anchors):
+                        issues.append(
+                            f"{path.relative_to(root)}:{line_number} pending check "
+                            "lacks local source evidence anchor"
+                        )
             if any(len(line) > 80 for line in text.splitlines()):
                 issues.append(f"{path.relative_to(root)} has a line over 80 chars")
         source_dossier_index_path = object_dir / "11_source-evidence-dossier-index.json"

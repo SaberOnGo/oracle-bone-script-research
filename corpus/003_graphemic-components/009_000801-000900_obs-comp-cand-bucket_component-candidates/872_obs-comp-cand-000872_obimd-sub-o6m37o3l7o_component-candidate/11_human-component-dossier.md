@@ -141,18 +141,18 @@ character, inscription, and source routes. These routes are lookup aids only.
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which local image or source route should be opened first?
-- 应先打开哪一张本地图像或哪一条来源路线？
+- Open 06_component-visual-index.csv and record image evidence.
+- 打开 06_component-visual-index.csv，记录图像证据。
 - Which glyph-codepoint links are private-use or font-dependent clues?
 - 哪些 glyph-codepoint 关系属于私用区或依赖字体的线索？
-- Which near-shape and variant comparisons still need source checking?
-- 还需要核对哪些近形与异体比较？
-- Which oracle character and inscription routes should be opened next?
-- 下一步应打开哪些甲骨单字与卜辞路线？
+- Open 09_component-visual-route-index.csv for missing-image routes.
+- 打开 09_component-visual-route-index.csv，核对缺失图像路线。
+- Open 13_component-context-evidence-dossier.md for character context.
+- 打开 13_component-context-evidence-dossier.md，核对单字与卜辞上下文。
 - Which source package, checksum, and rights rows prove the images?
 - 哪些来源包、checksum 与权利记录能证明这些图像？
-- What remains missing before any formal component assignment?
-- 正式构件归属前还缺哪些证据？
+- Record whether the missing route is image, near-shape, source, or context.
+- 记录缺口属于图像、近形、来源还是上下文路线。
 
 ## Review Boundary / 复核边界
 

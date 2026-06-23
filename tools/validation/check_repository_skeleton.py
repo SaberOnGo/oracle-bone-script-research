@@ -2697,12 +2697,20 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "10_component-visual-route-gallery.md",
                 "Concrete Questions To Check",
                 "specific component-review questions",
-                "Which OBIMD source image or route",
-                "Which glyph-codepoint links",
-                "before any formal component assignment",
+                "Open 06_component-visual-index.csv and name the source image row.",
+                "Open 09_component-visual-route-index.csv and name the missing route row.",
+                "Open 13_component-context-evidence-dossier.md for context routes.",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if (
+                "What evidence is still missing before any formal "
+                "component assignment?"
+            ) in text:
+                issues.append(
+                    f"{readme_path.relative_to(root).as_posix()} "
+                    "contains generic component-assignment pending question"
+                )
             for line_number, line in enumerate(text.splitlines(), start=1):
                 if not line.startswith("|") and len(line) > 80:
                     issues.append(
@@ -2828,11 +2836,16 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "not a component assignment",
                 "not a decipherment claim",
                 "Concrete Questions To Check",
-                "Which local image should be opened first",
-                "Which near-shape or variant comparison",
+                "Open 06_component-visual-index.csv and name the local image row.",
+                "Open 13_component-context-evidence-dossier.md for character context.",
             ]:
                 if snippet not in visual_gallery_text:
                     issues.append(f"{visual_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "Which near-shape or variant comparison is still missing?" in visual_gallery_text:
+                issues.append(
+                    f"{visual_gallery_path.relative_to(root).as_posix()} "
+                    "contains generic near-shape pending question"
+                )
             for line_number, line in enumerate(visual_gallery_text.splitlines(), start=1):
                 if (
                     not line.startswith("|")
@@ -2849,14 +2862,21 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             for snippet in [
                 "Concrete Questions To Check",
                 "具体待查问题",
-                "应先打开哪些 OBIMD 构件图像或路线？",
-                "哪些 glyph-codepoint 关系只是数据集线索？",
-                "需要核对哪些甲骨单字、卜辞或构件来源？",
-                "正式构件归属前还缺哪些证据？",
+                "打开 06_component-visual-index.csv，写明来源图像行。",
+                "打开 09_component-visual-route-index.csv，写明缺失路线行。",
+                "打开 13_component-context-evidence-dossier.md，核对上下文路线。",
                 "They do not confirm a component form",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{visual_review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if (
+                "What evidence is still missing before any formal "
+                "component assignment?"
+            ) in review_sheet:
+                issues.append(
+                    f"{visual_review_sheet_path.relative_to(root).as_posix()} "
+                    "contains generic component-assignment pending question"
+                )
             for line in review_sheet.splitlines():
                 if not line.startswith("|") and len(line) > 80:
                     issues.append(f"{visual_review_sheet_path.relative_to(root).as_posix()} line exceeds 80 chars")
@@ -2924,9 +2944,18 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "具体待查问题",
                 "not a formal component assignment",
                 "not a decipherment conclusion",
+                "Open 06_component-visual-index.csv and record image evidence.",
+                "Open 09_component-visual-route-index.csv for missing-image routes.",
+                "Open 13_component-context-evidence-dossier.md for character context.",
+                "Record whether the missing route is image, near-shape, source, or context.",
             ]:
                 if snippet not in dossier_text:
                     issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "What remains missing before any formal component assignment?" in dossier_text:
+                issues.append(
+                    f"{dossier_path.relative_to(root).as_posix()} "
+                    "contains generic component-assignment pending question"
+                )
             if "not_collected" in dossier_text or "not collected" in dossier_text:
                 issues.append(
                     f"{dossier_path.relative_to(root).as_posix()} "

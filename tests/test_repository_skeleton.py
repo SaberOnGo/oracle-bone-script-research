@@ -3821,9 +3821,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("09_component-visual-route-index.csv", readme_text)
             self.assertIn("Concrete Questions To Check", readme_text)
             self.assertIn("specific component-review questions", readme_text)
-            self.assertIn("Which OBIMD source image or route", readme_text)
-            self.assertIn("Which glyph-codepoint links", readme_text)
-            self.assertIn("before any formal component assignment", readme_text)
+            self.assertIn(
+                "Open 06_component-visual-index.csv and name the source image row.",
+                readme_text,
+            )
+            self.assertIn(
+                "Open 09_component-visual-route-index.csv and name the missing route row.",
+                readme_text,
+            )
+            self.assertIn(
+                "Open 13_component-context-evidence-dossier.md for context routes.",
+                readme_text,
+            )
+            self.assertNotIn(
+                "What evidence is still missing before any formal component assignment?",
+                readme_text,
+            )
             for line in readme_text.splitlines():
                 if not line.startswith("|"):
                     self.assertLessEqual(len(line), 80, line)
@@ -3846,6 +3859,26 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("具体待查问题", dossier_text)
             self.assertIn("not a formal component assignment", dossier_text)
             self.assertIn("not a decipherment conclusion", dossier_text)
+            self.assertIn(
+                "Open 06_component-visual-index.csv and record image evidence.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Open 09_component-visual-route-index.csv for missing-image routes.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Open 13_component-context-evidence-dossier.md for character context.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Record whether the missing route is image, near-shape, source, or context.",
+                dossier_text,
+            )
+            self.assertNotIn(
+                "What remains missing before any formal component assignment?",
+                dossier_text,
+            )
             for line in dossier_text.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
@@ -3894,8 +3927,18 @@ class RepositorySkeletonTests(unittest.TestCase):
                 encoding="utf-8"
             )
             self.assertIn("Concrete Questions To Check", visual_gallery)
-            self.assertIn("Which local image should be opened first", visual_gallery)
-            self.assertIn("Which near-shape or variant comparison", visual_gallery)
+            self.assertIn(
+                "Open 06_component-visual-index.csv and name the local image row.",
+                visual_gallery,
+            )
+            self.assertIn(
+                "Open 13_component-context-evidence-dossier.md for character context.",
+                visual_gallery,
+            )
+            self.assertNotIn(
+                "Which near-shape or variant comparison is still missing?",
+                visual_gallery,
+            )
             for line in visual_gallery.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
@@ -3911,11 +3954,35 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertFalse((object_dir.parent / "human-readable").exists())
             review_sheet = (object_dir / "08_human-visual-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet)
+            self.assertIn(
+                "Open 06_component-visual-index.csv and name the source image row.",
+                review_sheet,
+            )
+            self.assertIn(
+                "Open 09_component-visual-route-index.csv and name the missing route row.",
+                review_sheet,
+            )
+            self.assertIn(
+                "Open 13_component-context-evidence-dossier.md for context routes.",
+                review_sheet,
+            )
+            self.assertNotIn(
+                "What evidence is still missing before any formal component assignment?",
+                review_sheet,
+            )
             self.assertIn("具体待查问题", review_sheet)
-            self.assertIn("应先打开哪些 OBIMD 构件图像或路线？", review_sheet)
-            self.assertIn("哪些 glyph-codepoint 关系只是数据集线索？", review_sheet)
-            self.assertIn("需要核对哪些甲骨单字、卜辞或构件来源？", review_sheet)
-            self.assertIn("正式构件归属前还缺哪些证据？", review_sheet)
+            self.assertIn(
+                "打开 06_component-visual-index.csv，写明来源图像行。",
+                review_sheet,
+            )
+            self.assertIn(
+                "打开 09_component-visual-route-index.csv，写明缺失路线行。",
+                review_sheet,
+            )
+            self.assertIn(
+                "打开 13_component-context-evidence-dossier.md，核对上下文路线。",
+                review_sheet,
+            )
             for line in review_sheet.splitlines():
                 if not line.startswith("|"):
                     self.assertLessEqual(len(line), 80, line)

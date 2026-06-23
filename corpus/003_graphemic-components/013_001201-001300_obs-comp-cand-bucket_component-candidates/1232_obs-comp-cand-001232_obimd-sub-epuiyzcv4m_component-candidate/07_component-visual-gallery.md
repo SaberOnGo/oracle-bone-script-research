@@ -16,16 +16,14 @@ assignment, and not a decipherment claim.
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which local image should be opened first?
-- 应先打开哪一张本地构件图像？
-- Which source zip member anchors this image?
-- 哪一个 source zip member 能定位这张图像？
-- Which near-shape or variant comparison is still missing?
-- 还缺哪些近形或异体比较？
-- Which character or inscription context should be checked next?
-- 下一步应核对哪些单字或卜辞上下文？
-- What evidence is missing before a component assignment?
-- 正式构件归属前还缺哪些证据？
+- Open 06_component-visual-index.csv and name the local image row.
+- 打开 06_component-visual-index.csv，写明本地图像行。
+- Open 09_component-visual-route-index.csv and name the source route row.
+- 打开 09_component-visual-route-index.csv，写明来源路线行。
+- Open 13_component-context-evidence-dossier.md for character context.
+- 打开 13_component-context-evidence-dossier.md，核对单字与卜辞上下文。
+- Record the missing image, near-shape, source, or context route.
+- 记录缺失的图像、近形、来源或上下文路线。
 
 ## asset-015470
 

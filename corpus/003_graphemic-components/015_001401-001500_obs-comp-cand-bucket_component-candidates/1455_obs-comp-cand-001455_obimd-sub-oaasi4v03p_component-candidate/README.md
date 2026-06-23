@@ -48,18 +48,16 @@ source-marked dataset candidate awaiting human component review.
 
 Use these specific component-review questions before recording conclusions.
 
-- Which OBIMD source image or route should be opened first?
-- 应先打开哪一张 OBIMD 来源图像或哪条来源路线？
-- Which glyph-codepoint links are only dataset clues?
-- 哪些 glyph-codepoint 关系只是数据集线索？
-- Which local image, source zip member, or checksum needs review?
-- 需要核对哪张本地图像、source zip member 或 checksum？
-- Which oracle character, inscription, or component source is relevant?
-- 哪些甲骨单字、卜辞或构件来源与本候选有关？
-- Which near-shape or variant comparison is still missing?
-- 还缺哪些近形或异体比较？
-- What evidence is still missing before any formal component assignment?
-- 正式构件归属前还缺哪些证据？
+- Open 06_component-visual-index.csv and name the source image row.
+- 打开 06_component-visual-index.csv，写明来源图像行。
+- Open 09_component-visual-route-index.csv and name the missing route row.
+- 打开 09_component-visual-route-index.csv，写明缺失路线行。
+- Open 03_glyph-codepoint-index.csv and name dataset-only glyph links.
+- 打开 03_glyph-codepoint-index.csv，写明仅属数据集线索的字形关系。
+- Open 13_component-context-evidence-dossier.md for context routes.
+- 打开 13_component-context-evidence-dossier.md，核对上下文路线。
+- Record whether the missing route is image, near-shape, source, or context.
+- 记录缺口属于图像、近形、来源还是上下文路线。
 
 ## Next Review / 下一步复核
 

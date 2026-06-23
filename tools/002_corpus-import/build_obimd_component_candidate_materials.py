@@ -511,18 +511,22 @@ def readme_text(
         "单字和卜辞证据交叉复核。"
     )
     concrete_questions = [
-        "Which OBIMD source image or route should be opened first?",
-        "应先打开哪一张 OBIMD 来源图像或哪条来源路线？",
-        "Which glyph-codepoint links are only dataset clues?",
-        "哪些 glyph-codepoint 关系只是数据集线索？",
-        "Which local image, source zip member, or checksum needs review?",
-        "需要核对哪张本地图像、source zip member 或 checksum？",
-        "Which oracle character, inscription, or component source is relevant?",
-        "哪些甲骨单字、卜辞或构件来源与本候选有关？",
-        "Which near-shape or variant comparison is still missing?",
-        "还缺哪些近形或异体比较？",
-        "What evidence is still missing before any formal component assignment?",
-        "正式构件归属前还缺哪些证据？",
+        "Open 06_component-visual-index.csv and name the source image row.",
+        "\u6253\u5f00 06_component-visual-index.csv\uff0c\u5199\u660e"
+        "\u6765\u6e90\u56fe\u50cf\u884c\u3002",
+        "Open 09_component-visual-route-index.csv and name the missing route row.",
+        "\u6253\u5f00 09_component-visual-route-index.csv\uff0c"
+        "\u5199\u660e\u7f3a\u5931\u8def\u7ebf\u884c\u3002",
+        "Open 03_glyph-codepoint-index.csv and name dataset-only glyph links.",
+        "\u6253\u5f00 03_glyph-codepoint-index.csv\uff0c"
+        "\u5199\u660e\u4ec5\u5c5e\u6570\u636e\u96c6\u7ebf\u7d22\u7684"
+        "\u5b57\u5f62\u5173\u7cfb\u3002",
+        "Open 13_component-context-evidence-dossier.md for context routes.",
+        "\u6253\u5f00 13_component-context-evidence-dossier.md\uff0c"
+        "\u6838\u5bf9\u4e0a\u4e0b\u6587\u8def\u7ebf\u3002",
+        "Record whether the missing route is image, near-shape, source, or context.",
+        "\u8bb0\u5f55\u7f3a\u53e3\u5c5e\u4e8e\u56fe\u50cf\u3001"
+        "\u8fd1\u5f62\u3001\u6765\u6e90\u8fd8\u662f\u4e0a\u4e0b\u6587\u8def\u7ebf\u3002",
     ]
     question_lines = "\n".join(
         line
@@ -679,16 +683,18 @@ def visual_gallery_text(index: int, visual_rows: list[dict[str, str]]) -> str:
         "component assignment, and not a decipherment claim."
     )
     questions = [
-        "Which local image should be opened first?",
-        "应先打开哪一张本地构件图像？",
-        "Which source zip member anchors this image?",
-        "哪一个 source zip member 能定位这张图像？",
-        "Which near-shape or variant comparison is still missing?",
-        "还缺哪些近形或异体比较？",
-        "Which character or inscription context should be checked next?",
-        "下一步应核对哪些单字或卜辞上下文？",
-        "What evidence is missing before a component assignment?",
-        "正式构件归属前还缺哪些证据？",
+        "Open 06_component-visual-index.csv and name the local image row.",
+        "\u6253\u5f00 06_component-visual-index.csv\uff0c\u5199\u660e"
+        "\u672c\u5730\u56fe\u50cf\u884c\u3002",
+        "Open 09_component-visual-route-index.csv and name the source route row.",
+        "\u6253\u5f00 09_component-visual-route-index.csv\uff0c"
+        "\u5199\u660e\u6765\u6e90\u8def\u7ebf\u884c\u3002",
+        "Open 13_component-context-evidence-dossier.md for character context.",
+        "\u6253\u5f00 13_component-context-evidence-dossier.md\uff0c"
+        "\u6838\u5bf9\u5355\u5b57\u4e0e\u535c\u8f9e\u4e0a\u4e0b\u6587\u3002",
+        "Record the missing image, near-shape, source, or context route.",
+        "\u8bb0\u5f55\u7f3a\u5931\u7684\u56fe\u50cf\u3001\u8fd1\u5f62\u3001"
+        "\u6765\u6e90\u6216\u4e0a\u4e0b\u6587\u8def\u7ebf\u3002",
     ]
     question_lines = "\n".join(
         line
@@ -798,18 +804,22 @@ def visual_review_sheet_text(index: int, visual_rows: list[dict[str, str]]) -> s
         "component assignment, or decipherment."
     )
     concrete_questions = [
-        "Which OBIMD component image or route should be opened first?",
-        "应先打开哪些 OBIMD 构件图像或路线？",
-        "Which source zip member and checksum prove the local image?",
-        "哪些 source zip member 和 checksum 能证明本地图像？",
-        "Which glyph-codepoint links are only dataset clues?",
-        "哪些 glyph-codepoint 关系只是数据集线索？",
-        "Which oracle character, inscription, or component source needs checking?",
-        "需要核对哪些甲骨单字、卜辞或构件来源？",
-        "Which near-shape or variant comparison is still missing?",
-        "还缺哪些近形或异体比较？",
-        "What evidence is still missing before any formal component assignment?",
-        "正式构件归属前还缺哪些证据？",
+        "Open 06_component-visual-index.csv and name the source image row.",
+        "\u6253\u5f00 06_component-visual-index.csv\uff0c\u5199\u660e"
+        "\u6765\u6e90\u56fe\u50cf\u884c\u3002",
+        "Open 09_component-visual-route-index.csv and name the missing route row.",
+        "\u6253\u5f00 09_component-visual-route-index.csv\uff0c"
+        "\u5199\u660e\u7f3a\u5931\u8def\u7ebf\u884c\u3002",
+        "Open 03_glyph-codepoint-index.csv and name dataset-only glyph links.",
+        "\u6253\u5f00 03_glyph-codepoint-index.csv\uff0c"
+        "\u5199\u660e\u4ec5\u5c5e\u6570\u636e\u96c6\u7ebf\u7d22\u7684"
+        "\u5b57\u5f62\u5173\u7cfb\u3002",
+        "Open 13_component-context-evidence-dossier.md for context routes.",
+        "\u6253\u5f00 13_component-context-evidence-dossier.md\uff0c"
+        "\u6838\u5bf9\u4e0a\u4e0b\u6587\u8def\u7ebf\u3002",
+        "Record whether the missing route is image, near-shape, source, or context.",
+        "\u8bb0\u5f55\u7f3a\u53e3\u5c5e\u4e8e\u56fe\u50cf\u3001"
+        "\u8fd1\u5f62\u3001\u6765\u6e90\u8fd8\u662f\u4e0a\u4e0b\u6587\u8def\u7ebf\u3002",
     ]
     question_lines = "\n".join(
         line
@@ -973,24 +983,24 @@ def component_dossier_text(
             "pending source-package check |"
         )
     questions = [
-        "Which local image or source route should be opened first?",
-        "\u5e94\u5148\u6253\u5f00\u54ea\u4e00\u5f20\u672c\u5730"
-        "\u56fe\u50cf\u6216\u54ea\u4e00\u6761\u6765\u6e90\u8def\u7ebf\uff1f",
+        "Open 06_component-visual-index.csv and record image evidence.",
+        "\u6253\u5f00 06_component-visual-index.csv\uff0c\u8bb0\u5f55"
+        "\u56fe\u50cf\u8bc1\u636e\u3002",
         "Which glyph-codepoint links are private-use or font-dependent clues?",
         "\u54ea\u4e9b glyph-codepoint \u5173\u7cfb\u5c5e\u4e8e"
         "\u79c1\u7528\u533a\u6216\u4f9d\u8d56\u5b57\u4f53\u7684\u7ebf\u7d22\uff1f",
-        "Which near-shape and variant comparisons still need source checking?",
-        "\u8fd8\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u8fd1\u5f62"
-        "\u4e0e\u5f02\u4f53\u6bd4\u8f83\uff1f",
-        "Which oracle character and inscription routes should be opened next?",
-        "\u4e0b\u4e00\u6b65\u5e94\u6253\u5f00\u54ea\u4e9b"
-        "\u7532\u9aa8\u5355\u5b57\u4e0e\u535c\u8f9e\u8def\u7ebf\uff1f",
+        "Open 09_component-visual-route-index.csv for missing-image routes.",
+        "\u6253\u5f00 09_component-visual-route-index.csv\uff0c"
+        "\u6838\u5bf9\u7f3a\u5931\u56fe\u50cf\u8def\u7ebf\u3002",
+        "Open 13_component-context-evidence-dossier.md for character context.",
+        "\u6253\u5f00 13_component-context-evidence-dossier.md\uff0c"
+        "\u6838\u5bf9\u5355\u5b57\u4e0e\u535c\u8f9e\u4e0a\u4e0b\u6587\u3002",
         "Which source package, checksum, and rights rows prove the images?",
         "\u54ea\u4e9b\u6765\u6e90\u5305\u3001checksum \u4e0e"
         "\u6743\u5229\u8bb0\u5f55\u80fd\u8bc1\u660e\u8fd9\u4e9b\u56fe\u50cf\uff1f",
-        "What remains missing before any formal component assignment?",
-        "\u6b63\u5f0f\u6784\u4ef6\u5f52\u5c5e\u524d\u8fd8"
-        "\u7f3a\u54ea\u4e9b\u8bc1\u636e\uff1f",
+        "Record whether the missing route is image, near-shape, source, or context.",
+        "\u8bb0\u5f55\u7f3a\u53e3\u5c5e\u4e8e\u56fe\u50cf\u3001"
+        "\u8fd1\u5f62\u3001\u6765\u6e90\u8fd8\u662f\u4e0a\u4e0b\u6587\u8def\u7ebf\u3002",
     ]
     question_lines = "\n".join(
         line for item in questions for line in wrapped_bullet(item)

@@ -63,16 +63,18 @@ period, batch, plate, inscription, and character context.
 - Which museum object page, catalog row, or accession record should be opened
   first?
 - 应先打开哪个馆藏对象页、著录行或登记号记录？
-- Which image route is local, external-only, or still missing?
-- 哪条图像路线是本地、仅外部或仍缺失？
+- Which 03_visual-asset-index.csv row records local or external image status?
+- 哪一行 03_visual-asset-index.csv 记录本地或外部图像状态？
+- Which 02_collection-source-index.csv row records catalog and rights route?
+- 哪一行 02_collection-source-index.csv 记录著录和权利路线？
 - Which findspot, period, batch, or plate provenance needs checking?
 - 需要核对哪些出土地、时期、批次或图版出处？
 - Which inscription, glyph, or oracle character route is only a candidate?
 - 哪些卜辞、字形或甲骨单字路线仍只是候选？
 - Which source, checksum, rights status, or risk note must be reviewed?
 - 还要复核哪些来源、checksum、权利状态或风险提示？
-- What evidence is missing before any object identity claim?
-- 形成任何对象身份结论前还缺哪些证据？
+- Record the missing route type before any object identity claim.
+- 任何对象身份结论前，记录缺口属于哪类路线。
 
 ## Review Boundary / 复核边界
 

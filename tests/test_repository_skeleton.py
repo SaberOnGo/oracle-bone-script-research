@@ -4650,11 +4650,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
             review_sheet_text = (object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet_text)
+            self.assertIn(
+                "Open 02_collection-source-index.csv and name the missing source row.",
+                review_sheet_text,
+            )
+            self.assertIn(
+                "Open 03_visual-asset-index.csv and name the image route status.",
+                review_sheet_text,
+            )
+            self.assertNotIn(
+                "What evidence is still missing before any collection-object identity claim?",
+                review_sheet_text,
+            )
             self.assertIn("具体待查问题", review_sheet_text)
-            self.assertIn("应先核对哪些馆藏对象、缩略图或公开图像路线？", review_sheet_text)
+            self.assertIn("打开 02_collection-source-index.csv，写明待补来源行。", review_sheet_text)
+            self.assertIn("打开 03_visual-asset-index.csv，写明图像路线状态。", review_sheet_text)
             self.assertIn("哪些 accession、catalog 或 object ID 只是来源线索？", review_sheet_text)
-            self.assertIn("需要核对哪些出土地、时期、批次或图版出处？", review_sheet_text)
-            self.assertIn("正式馆藏对象身份结论前还缺哪些证据？", review_sheet_text)
+            self.assertIn("需核对哪些出土地、时期、批次或图版？", review_sheet_text)
+            self.assertIn("记录缺口属于来源、图像、权利还是上下文路线。", review_sheet_text)
             for line in review_sheet_text.splitlines():
                 self.assertLessEqual(len(line), 80, line)
             dossier_text = (object_dir / "06_human-collection-dossier.md").read_text(
@@ -4679,6 +4692,26 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("具体待查问题", dossier_text)
             self.assertIn("not a confirmed collection object identity", dossier_text)
             self.assertIn("not a decipherment conclusion", dossier_text)
+            self.assertIn(
+                "Which 03_visual-asset-index.csv row records local or external image status?",
+                dossier_text,
+            )
+            self.assertIn(
+                "Which 02_collection-source-index.csv row records catalog and rights route?",
+                dossier_text,
+            )
+            self.assertIn(
+                "Record the missing route type before any object identity claim.",
+                dossier_text,
+            )
+            self.assertNotIn(
+                "Which image route is local, external-only, or still missing?",
+                dossier_text,
+            )
+            self.assertNotIn(
+                "What evidence is missing before any object identity claim?",
+                dossier_text,
+            )
             for line in dossier_text.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
@@ -4812,16 +4845,55 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["provenance_evidence_index"]["claim_boundary"],
         )
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
+        self.assertIn(
+            "Open 02_collection-source-index.csv and name the missing source row.",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "Open 03_visual-asset-index.csv and name the image route status.",
+            first["review_sheet_text"],
+        )
+        self.assertNotIn(
+            "What evidence is still missing before any collection-object identity claim?",
+            first["review_sheet_text"],
+        )
         self.assertIn("具体待查问题", first["review_sheet_text"])
-        self.assertIn("应先核对哪些馆藏对象、缩略图或公开图像路线？", first["review_sheet_text"])
+        self.assertIn(
+            "打开 02_collection-source-index.csv，写明待补来源行。",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "打开 03_visual-asset-index.csv，写明图像路线状态。",
+            first["review_sheet_text"],
+        )
         self.assertIn("哪些 accession、catalog 或 object ID 只是来源线索？", first["review_sheet_text"])
-        self.assertIn("需要核对哪些出土地、时期、批次或图版出处？", first["review_sheet_text"])
-        self.assertIn("正式馆藏对象身份结论前还缺哪些证据？", first["review_sheet_text"])
+        self.assertIn("需核对哪些出土地、时期、批次或图版？", first["review_sheet_text"])
+        self.assertIn("记录缺口属于来源、图像、权利还是上下文路线。", first["review_sheet_text"])
         self.assertNotIn("not_collected", first["review_sheet_text"])
         for line in first["review_sheet_text"].splitlines():
             self.assertLessEqual(len(line), 80, line)
         self.assertNotIn("not_collected", first["dossier_text"])
         self.assertNotIn("not collected", first["dossier_text"])
+        self.assertIn(
+            "Which 03_visual-asset-index.csv row records local or external image status?",
+            first["dossier_text"],
+        )
+        self.assertIn(
+            "Which 02_collection-source-index.csv row records catalog and rights route?",
+            first["dossier_text"],
+        )
+        self.assertIn(
+            "Record the missing route type before any object identity claim.",
+            first["dossier_text"],
+        )
+        self.assertNotIn(
+            "Which image route is local, external-only, or still missing?",
+            first["dossier_text"],
+        )
+        self.assertNotIn(
+            "What evidence is missing before any object identity claim?",
+            first["dossier_text"],
+        )
         self.assertNotIn("not_collected", first["provenance_evidence_dossier_text"])
         self.assertEqual(first["packet"]["record_type"], "collection_object_candidate")
         self.assertEqual(first["packet"]["object_identity_claim_status"], "not_confirmed")

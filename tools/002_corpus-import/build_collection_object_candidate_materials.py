@@ -459,9 +459,12 @@ def collection_dossier_text(
         "Which museum object page, catalog row, or accession record should be opened first?",
         "\u5e94\u5148\u6253\u5f00\u54ea\u4e2a\u9986\u85cf\u5bf9\u8c61"
         "\u9875\u3001\u8457\u5f55\u884c\u6216\u767b\u8bb0\u53f7\u8bb0\u5f55\uff1f",
-        "Which image route is local, external-only, or still missing?",
-        "\u54ea\u6761\u56fe\u50cf\u8def\u7ebf\u662f\u672c\u5730\u3001"
-        "\u4ec5\u5916\u90e8\u6216\u4ecd\u7f3a\u5931\uff1f",
+        "Which 03_visual-asset-index.csv row records local or external image status?",
+        "\u54ea\u4e00\u884c 03_visual-asset-index.csv \u8bb0\u5f55"
+        "\u672c\u5730\u6216\u5916\u90e8\u56fe\u50cf\u72b6\u6001\uff1f",
+        "Which 02_collection-source-index.csv row records catalog and rights route?",
+        "\u54ea\u4e00\u884c 02_collection-source-index.csv \u8bb0\u5f55"
+        "\u8457\u5f55\u548c\u6743\u5229\u8def\u7ebf\uff1f",
         "Which findspot, period, batch, or plate provenance needs checking?",
         "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u51fa\u571f\u5730\u3001"
         "\u65f6\u671f\u3001\u6279\u6b21\u6216\u56fe\u7248\u51fa\u5904\uff1f",
@@ -471,9 +474,9 @@ def collection_dossier_text(
         "Which source, checksum, rights status, or risk note must be reviewed?",
         "\u8fd8\u8981\u590d\u6838\u54ea\u4e9b\u6765\u6e90\u3001checksum"
         "\u3001\u6743\u5229\u72b6\u6001\u6216\u98ce\u9669\u63d0\u793a\uff1f",
-        "What evidence is missing before any object identity claim?",
-        "\u5f62\u6210\u4efb\u4f55\u5bf9\u8c61\u8eab\u4efd\u7ed3\u8bba"
-        "\u524d\u8fd8\u7f3a\u54ea\u4e9b\u8bc1\u636e\uff1f",
+        "Record the missing route type before any object identity claim.",
+        "\u4efb\u4f55\u5bf9\u8c61\u8eab\u4efd\u7ed3\u8bba\u524d\uff0c"
+        "\u8bb0\u5f55\u7f3a\u53e3\u5c5e\u4e8e\u54ea\u7c7b\u8def\u7ebf\u3002",
     ]
     question_lines = "\n".join(wrapped_bullet(text) for text in questions)
     lines = [
@@ -841,20 +844,22 @@ def review_sheet_text(index: int, row: dict[str, str]) -> str:
         ]
     )
     concrete_questions = "\n".join(
-        [
-            wrapped_bullet("Which collection object, thumbnail, or public image route should be opened first?"),
-            wrapped_bullet("Which accession, catalog, or object ID is only a source clue?"),
-            wrapped_bullet("Which findspot, period, batch, or plate provenance still needs checking?"),
-            wrapped_bullet("Which rights status or reuse risk must be rechecked before public use?"),
-            wrapped_bullet("Which inscription, glyph, or character link is only a candidate route?"),
-            wrapped_bullet("What evidence is still missing before any collection-object identity claim?"),
-            "",
-            "- 应先核对哪些馆藏对象、缩略图或公开图像路线？",
-            "- 哪些 accession、catalog 或 object ID 只是来源线索？",
-            "- 需要核对哪些出土地、时期、批次或图版出处？",
-            "- 公开使用前还要复核哪些权利状态或复用风险？",
-            "- 哪些卜辞、字形或单字关系只是候选路线？",
-            "- 正式馆藏对象身份结论前还缺哪些证据？",
+        wrapped_bullet(text)
+        for text in [
+            "Open 02_collection-source-index.csv and name the missing source row.",
+            "Open 03_visual-asset-index.csv and name the image route status.",
+            "Which accession, catalog, or object ID is only a source clue?",
+            "Which findspot, period, batch, or plate provenance still needs checking?",
+            "Which rights status or reuse risk must be rechecked before public use?",
+            "Which inscription, glyph, or character link is only a candidate route?",
+            "Record missing source, visual, rights, or context route type.",
+            "打开 02_collection-source-index.csv，写明待补来源行。",
+            "打开 03_visual-asset-index.csv，写明图像路线状态。",
+            "哪些 accession、catalog 或 object ID 只是来源线索？",
+            "需核对哪些出土地、时期、批次或图版？",
+            "公开使用前还需复核哪些权利或风险？",
+            "哪些卜辞、字形或单字关联只是候选路线？",
+            "记录缺口属于来源、图像、权利还是上下文路线。",
         ]
     )
     caution = wrapped_paragraph(CAUTION)

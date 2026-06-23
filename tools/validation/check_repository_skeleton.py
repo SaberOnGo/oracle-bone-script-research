@@ -3696,16 +3696,28 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "Do not record inscription identity",
                 "Concrete Questions To Check",
                 "具体待查问题",
-                "应先核对哪些馆藏对象、缩略图或公开图像路线？",
+                "Open 02_collection-source-index.csv and name the missing source row.",
+                "Open 03_visual-asset-index.csv and name the image route status.",
+                "打开 02_collection-source-index.csv，写明待补来源行。",
+                "打开 03_visual-asset-index.csv，写明图像路线状态。",
                 "哪些 accession、catalog 或 object ID 只是来源线索？",
-                "需要核对哪些出土地、时期、批次或图版出处？",
-                "正式馆藏对象身份结论前还缺哪些证据？",
+                "需核对哪些出土地、时期、批次或图版？",
+                "记录缺口属于来源、图像、权利还是上下文路线。",
                 "not_promoted_to_formal_inscription_record",
                 "pending source-page or catalog transcription check",
                 "not_applicable_preprocessing_only",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for stale_snippet in [
+                "What evidence is still missing before any collection-object identity claim?",
+                "正式馆藏对象身份结论前还缺哪些证据？",
+            ]:
+                if stale_snippet in review_sheet:
+                    issues.append(
+                        f"{review_sheet_path.relative_to(root).as_posix()} "
+                        f"contains stale generic question: {stale_snippet}"
+                    )
             if "not_collected" in review_sheet:
                 issues.append(
                     f"{review_sheet_path.relative_to(root).as_posix()} "
@@ -3738,11 +3750,24 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "Source Evidence And Rights Trail",
                 "Concrete Questions To Check",
                 "具体待查问题",
+                "Which 03_visual-asset-index.csv row records local or external image status?",
+                "Which 02_collection-source-index.csv row records catalog and rights route?",
+                "Record the missing route type before any object identity claim.",
+                "记录缺口属于哪类路线",
                 "not a confirmed collection object identity",
                 "not a decipherment conclusion",
             ]:
                 if snippet not in dossier_text:
                     issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for stale_snippet in [
+                "Which image route is local, external-only, or still missing?",
+                "What evidence is missing before any object identity claim?",
+            ]:
+                if stale_snippet in dossier_text:
+                    issues.append(
+                        f"{dossier_path.relative_to(root).as_posix()} "
+                        f"contains stale generic question: {stale_snippet}"
+                    )
             for line_number, line in enumerate(dossier_text.splitlines(), start=1):
                 if (
                     not line.startswith("|")

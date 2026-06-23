@@ -4070,11 +4070,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("文本与 OCR 质量复核", dossier_text)
             self.assertIn("Full text or OCR status", dossier_text)
             self.assertIn("全文或 OCR 状态", dossier_text)
-            self.assertIn(
+            self.assertNotIn(
                 "Which unreadable, missing, or uncertain signs must be marked?",
                 dossier_text,
             )
-            self.assertIn("哪些不可读、缺失或不确定字形必须标出？", dossier_text)
+            self.assertIn(
+                "Which `05_plate-text-route-index.csv` row can supply OCR or text?",
+                dossier_text,
+            )
+            self.assertIn(
+                "Which route row shows unreadable, missing, or uncertain signs?",
+                dossier_text,
+            )
+            self.assertNotIn("哪些不可读、缺失或不确定字形必须标出？", dossier_text)
             self.assertIn(
                 "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
                 "\u3001\u9875\u7801\u3001\u5408\u96c6\u53f7\u6216\u8457"
@@ -4151,7 +4159,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Which object record or collection shelfmark", review_sheet)
             self.assertIn("Which image, rubbing, OCR, or full-text route", review_sheet)
             self.assertIn("Which rights, checksum, manifest, or download log", review_sheet)
-            self.assertIn("before any formal `obi-*` assignment", review_sheet)
+            self.assertNotIn(
+                "What evidence is still missing before any formal `obi-*` assignment?",
+                review_sheet,
+            )
+            self.assertIn(
+                "Open `03_catalog-reference-index.csv` and mark each blank reference.",
+                review_sheet,
+            )
+            self.assertIn(
+                "Open `05_plate-text-route-index.csv` before choosing image or OCR.",
+                review_sheet,
+            )
+            self.assertIn(
+                "Record each missing route type before any formal `obi-*` assignment.",
+                review_sheet,
+            )
             for line in review_sheet.splitlines():
                 self.assertLessEqual(len(line), 80, line)
             for fragment in ("浜", "绠€", "鐮", "缂哄け", "鍗滆緸"):
@@ -4226,11 +4249,19 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("文本与 OCR 质量复核", first["human_dossier_text"])
         self.assertIn("Full text or OCR status", first["human_dossier_text"])
         self.assertIn("全文或 OCR 状态", first["human_dossier_text"])
-        self.assertIn(
+        self.assertNotIn(
             "Which unreadable, missing, or uncertain signs must be marked?",
             first["human_dossier_text"],
         )
-        self.assertIn("哪些不可读、缺失或不确定字形必须标出？", first["human_dossier_text"])
+        self.assertIn(
+            "Which `05_plate-text-route-index.csv` row can supply OCR or text?",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "Which route row shows unreadable, missing, or uncertain signs?",
+            first["human_dossier_text"],
+        )
+        self.assertNotIn("哪些不可读、缺失或不确定字形必须标出？", first["human_dossier_text"])
         self.assertIn(
             "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
             "\u3001\u9875\u7801\u3001\u5408\u96c6\u53f7\u6216\u8457"

@@ -3104,18 +3104,27 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "文本与 OCR 质量复核",
                 "Full text or OCR status",
                 "全文或 OCR 状态",
-                "Which unreadable, missing, or uncertain signs must be marked?",
-                "哪些不可读、缺失或不确定字形必须标出？",
+                "Which `05_plate-text-route-index.csv` row can supply OCR or text?",
+                "Which route row shows unreadable, missing, or uncertain signs?",
                 "Concrete Questions To Check",
                 "具体待查问题",
                 "需要核对哪些图版号、页码、合集号或著录号",
                 "哪些馆藏、出土地、时期或批次记录",
+                "Open `03_catalog-reference-index.csv` and mark each blank reference.",
+                "Open `05_plate-text-route-index.csv` before choosing image or OCR.",
+                "Record each missing route type before any formal `obi-*` assignment.",
                 "Excavation site: `待查: source route for findspot context`",
                 "Linked character occurrences: `待查: character occurrence routes`",
                 "not a decipherment conclusion",
             ]:
                 if snippet not in human_dossier:
                     issues.append(f"{human_dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for forbidden in [
+                "Which unreadable, missing, or uncertain signs must be marked?",
+                "What evidence is still missing before any formal `obi-*` assignment?",
+            ]:
+                if forbidden in human_dossier:
+                    issues.append(f"{human_dossier_path.relative_to(root).as_posix()} generic pending question: {forbidden}")
             if "not_collected" in human_dossier:
                 issues.append(
                     f"{human_dossier_path.relative_to(root).as_posix()} "
@@ -3192,10 +3201,17 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "Which object record or collection shelfmark",
                 "Which image, rubbing, OCR, or full-text route",
                 "Which rights, checksum, manifest, or download log",
-                "before any formal `obi-*` assignment",
+                "Open `03_catalog-reference-index.csv` and mark each blank reference.",
+                "Open `05_plate-text-route-index.csv` before choosing image or OCR.",
+                "Record each missing route type before any formal `obi-*` assignment.",
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "What evidence is still missing before any formal `obi-*` assignment?" in review_sheet:
+                issues.append(
+                    f"{review_sheet_path.relative_to(root).as_posix()} "
+                    "contains generic formal-assignment pending question"
+                )
             for line_number, line in enumerate(review_sheet.splitlines(), start=1):
                 if len(line) > 80:
                     issues.append(

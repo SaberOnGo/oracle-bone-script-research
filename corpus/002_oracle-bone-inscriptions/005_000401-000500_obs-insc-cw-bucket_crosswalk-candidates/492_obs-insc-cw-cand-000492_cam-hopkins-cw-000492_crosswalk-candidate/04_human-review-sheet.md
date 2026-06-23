@@ -39,7 +39,9 @@ Use these specific questions before recording any conclusion.
 - Which image, rubbing, OCR, or full-text route can supply context?
 - Which linked character occurrence routes are only candidates?
 - Which rights, checksum, manifest, or download log needs review?
-- What evidence is still missing before any formal `obi-*` assignment?
+- Open `03_catalog-reference-index.csv` and mark each blank reference.
+- Open `05_plate-text-route-index.csv` before choosing image or OCR.
+- Record each missing route type before any formal `obi-*` assignment.
 
 - 应先核对哪一个图版号、页码、合集号或著录号？
 - 哪个馆藏对象记录或库藏号可以定位实物？
@@ -47,7 +49,9 @@ Use these specific questions before recording any conclusion.
 - 哪条图像、拓片、OCR 或全文路线可以补足上下文？
 - 哪些关联字形或字序路线仍只是候选线索？
 - 还要复核哪些权利、checksum、manifest 或下载记录？
-- 正式分配任何 `obi-*` 编号前还缺哪些证据？
+- 打开 `03_catalog-reference-index.csv` 标出空白著录引用。
+- 打开 `05_plate-text-route-index.csv` 后再选择图像或 OCR。
+- 正式分配任何 `obi-*` 编号前逐项记录缺失路线类型。
 
 ## Caution / 风险提示
 

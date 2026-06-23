@@ -576,7 +576,9 @@ Use these specific questions before recording any conclusion.
 - Which image, rubbing, OCR, or full-text route can supply context?
 - Which linked character occurrence routes are only candidates?
 - Which rights, checksum, manifest, or download log needs review?
-- What evidence is still missing before any formal `obi-*` assignment?
+- Open `03_catalog-reference-index.csv` and mark each blank reference.
+- Open `05_plate-text-route-index.csv` before choosing image or OCR.
+- Record each missing route type before any formal `obi-*` assignment.
 
 - 应先核对哪一个图版号、页码、合集号或著录号？
 - 哪个馆藏对象记录或库藏号可以定位实物？
@@ -584,7 +586,9 @@ Use these specific questions before recording any conclusion.
 - 哪条图像、拓片、OCR 或全文路线可以补足上下文？
 - 哪些关联字形或字序路线仍只是候选线索？
 - 还要复核哪些权利、checksum、manifest 或下载记录？
-- 正式分配任何 `obi-*` 编号前还缺哪些证据？
+- 打开 `03_catalog-reference-index.csv` 标出空白著录引用。
+- 打开 `05_plate-text-route-index.csv` 后再选择图像或 OCR。
+- 正式分配任何 `obi-*` 编号前逐项记录缺失路线类型。
 
 ## Caution / 风险提示
 
@@ -668,8 +672,10 @@ These labels are imported metadata, not a new chronological judgement.
 - 全文或 OCR 状态：`待查: primary text or OCR route`
 - Text quality status: `needs_primary_text_or_OCR_route_review`
 - 文本质量状态：`needs_primary_text_or_OCR_route_review`
-- Which unreadable, missing, or uncertain signs must be marked?
-- 哪些不可读、缺失或不确定字形必须标出？
+- Which `05_plate-text-route-index.csv` row can supply OCR or text?
+- 哪一行 `05_plate-text-route-index.csv` 可补 OCR 或全文？
+- Which route row shows unreadable, missing, or uncertain signs?
+- 哪一条路线行提示不可读、缺失或不确定字形？
 - Which source line, page, plate, OCR file, or catalog route supports it?
 - 哪条来源行、页码、图版、OCR 文件或著录路线支持它？
 - Do not turn OCR text or catalog labels into an inscription reading.
@@ -704,8 +710,12 @@ These labels are imported metadata, not a new chronological judgement.
 - 哪些关联字形或字序只是候选线索，仍需人工复核？
 - Which rights, checksum, manifest, or download-log records must be opened?
 - 下一步应打开哪些权利、checksum、manifest 或下载记录？
-- What evidence is still missing before any formal `obi-*` assignment?
-- 在任何正式 `obi-*` 分配前，还缺哪些证据？
+- Open `03_catalog-reference-index.csv` and mark each blank reference.
+- 打开 `03_catalog-reference-index.csv` 标出空白著录引用。
+- Open `05_plate-text-route-index.csv` before choosing image or OCR.
+- 打开 `05_plate-text-route-index.csv` 后再选择图像或 OCR。
+- Record each missing route type before any formal `obi-*` assignment.
+- 正式分配任何 `obi-*` 编号前逐项记录缺失路线类型。
 
 ## Review Entry Points / 复核入口
 

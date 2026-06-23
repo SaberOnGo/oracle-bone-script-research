@@ -86,10 +86,10 @@ the label in research.
 
 | field | value |
 | --- | --- |
-| citation relationship | 待查: source page and bibliography note |
+| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
 | proposer or classifier | Cambridge/Hopkins source table |
-| different opinions | 待查: later scholarship and alternate grouping |
-| alternate labels | 待查: source comparison and bibliography review |
+| different opinions | 待查: review Cambridge/Hopkins label against later bibliography notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
 | scope note | candidate route for later review |
 
 ## Concrete Questions To Check / 具体待查问题

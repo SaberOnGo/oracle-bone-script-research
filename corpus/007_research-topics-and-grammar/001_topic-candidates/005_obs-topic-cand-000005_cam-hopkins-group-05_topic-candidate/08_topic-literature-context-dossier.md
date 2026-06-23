@@ -64,9 +64,9 @@ fact, or accepted topic assignment.
 | field | current status |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
-| citation relationship | 待查: bibliography and source page review |
-| different opinions | 待查: later scholarship review |
-| alternate labels | 待查: source comparison and label review |
+| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and bibliography note |
+| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with source label alternatives |
 | applicability note | candidate literature context only |
 
 ## Concrete Missing Literature Questions / 具体缺失文献问题

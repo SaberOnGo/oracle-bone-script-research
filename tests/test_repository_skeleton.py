@@ -5197,8 +5197,27 @@ class RepositorySkeletonTests(unittest.TestCase):
                 path = object_dir / name
                 text = path.read_text(encoding="utf-8")
                 self.assertNotIn("\ufffd", text, path.as_posix())
+                self.assertNotIn("not_collected", text, path.as_posix())
                 for line_number, line in enumerate(text.splitlines(), start=1):
                     if line.startswith("|") or line.startswith("!["):
+                        if "\u5f85\u67e5:" in line:
+                            self.assertRegex(
+                                line,
+                                r"\u5f85\u67e5: (open|check|compare|verify|review) ",
+                                f"{path.as_posix()}:{line_number}: {line}",
+                            )
+                            self.assertTrue(
+                                any(
+                                    marker in line
+                                    for marker in [
+                                        "02_topic-source-index.csv",
+                                        "04_inscription-crosswalk-route-index.csv",
+                                        "Cambridge/Hopkins",
+                                        "source summary row",
+                                    ]
+                                ),
+                                f"{path.as_posix()}:{line_number}: {line}",
+                            )
                         continue
                     self.assertLessEqual(
                         len(line),

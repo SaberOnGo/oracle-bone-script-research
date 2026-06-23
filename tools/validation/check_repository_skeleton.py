@@ -3839,6 +3839,25 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                 )
             for line_number, line in enumerate(human_markdown.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
+                    if "\u5f85\u67e5:" in line:
+                        has_review_action = any(
+                            f"\u5f85\u67e5: {action} " in line
+                            for action in ["open", "check", "compare", "verify", "review"]
+                        )
+                        has_source_anchor = any(
+                            marker in line
+                            for marker in [
+                                "02_topic-source-index.csv",
+                                "04_inscription-crosswalk-route-index.csv",
+                                "Cambridge/Hopkins",
+                                "source summary row",
+                            ]
+                        )
+                        if not has_review_action or not has_source_anchor:
+                            issues.append(
+                                f"{human_markdown_path.relative_to(root).as_posix()} "
+                                f"line {line_number} has vague pending check"
+                            )
                     continue
                 if len(line) > 80:
                     issues.append(

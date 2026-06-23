@@ -30,16 +30,16 @@ inscription-topic study begins.
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
 | current evidence level | metadata and route evidence only |
-| bibliography route | 待查: source note and page route |
-| classification route | 待查: table row and crosswalk rows |
+| bibliography route | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
+| classification route | 待查: check 04_inscription-crosswalk-route-index.csv table row links |
 | review status | needs_human_topic_review |
 
 ## Disagreements And Alternate Labels / 不同意见与替代标签
 
 | field | value |
 | --- | --- |
-| different opinions | 待查: later scholarship and review notes |
-| alternate labels | 待查: source comparison and bibliography |
+| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
 | applicability risk | label may overstate a source classification |
 | claim status | no grammar or inscription-topic claim |
 

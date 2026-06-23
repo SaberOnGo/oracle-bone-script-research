@@ -553,7 +553,7 @@ def topic_dossier_text(
                 route_id=route["topic_crosswalk_route_id"],
                 crosswalk_id=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                heji=route["heji_ref_id"] or "待查: Heji route",
+                heji=route["heji_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Heji route",
             )
             for route in first_routes
         ]
@@ -678,10 +678,10 @@ English:
 
 | field | value |
 | --- | --- |
-| citation relationship | 待查: source page and bibliography note |
+| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
 | proposer or classifier | Cambridge/Hopkins source table |
-| different opinions | 待查: later scholarship and alternate grouping |
-| alternate labels | 待查: source comparison and bibliography review |
+| different opinions | 待查: review Cambridge/Hopkins label against later bibliography notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
 | scope note | candidate route for later review |
 
 ## Concrete Questions To Check / 具体待查问题
@@ -760,15 +760,15 @@ def topic_literature_context_dossier_text(
             "| {crosswalk} | {period} | {yingguo} | {heji} |".format(
                 crosswalk=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                yingguo=route["yingguo_ref_id"] or "待查: Yingguo route",
-                heji=route["heji_ref_id"] or "待查: Heji route",
+                yingguo=route["yingguo_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Yingguo route",
+                heji=route["heji_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Heji route",
             )
             for route in route_sample
         ]
     )
     if not route_lines:
         route_lines = (
-            "| 待查: crosswalk | 待查: period | 待查: Yingguo | 待查: Heji |"
+            "| 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Yingguo | 待查: check 04_inscription-crosswalk-route-index.csv Heji |"
         )
     intro_en = wrapped_paragraph(
         "This human-readable dossier records the bibliography, citation, "
@@ -861,9 +861,9 @@ English:
 | field | current status |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
-| citation relationship | 待查: bibliography and source page review |
-| different opinions | 待查: later scholarship review |
-| alternate labels | 待查: source comparison and label review |
+| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and bibliography note |
+| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with source label alternatives |
 | applicability note | candidate literature context only |
 
 ## Concrete Missing Literature Questions / 具体缺失文献问题
@@ -948,15 +948,15 @@ def topic_citation_dispute_review_dossier_text(
             "| {crosswalk} | {period} | {yingguo} | {chalfant} |".format(
                 crosswalk=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                yingguo=route["yingguo_ref_id"] or "待查: Yingguo route",
-                chalfant=route["chalfant_ref_id"] or "待查: Chalfant route",
+                yingguo=route["yingguo_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Yingguo route",
+                chalfant=route["chalfant_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Chalfant route",
             )
             for route in route_sample
         ]
     )
     if not route_lines:
         route_lines = (
-            "| 待查: crosswalk | 待查: period | 待查: Yingguo | 待查: Chalfant |"
+            "| 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Yingguo | 待查: check 04_inscription-crosswalk-route-index.csv Chalfant |"
         )
     intro_en = wrapped_paragraph(
         "This dossier is a human review map for citation relationships, "
@@ -1022,16 +1022,16 @@ English:
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
 | current evidence level | metadata and route evidence only |
-| bibliography route | 待查: source note and page route |
-| classification route | 待查: table row and crosswalk rows |
+| bibliography route | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
+| classification route | 待查: check 04_inscription-crosswalk-route-index.csv table row links |
 | review status | needs_human_topic_review |
 
 ## Disagreements And Alternate Labels / 不同意见与替代标签
 
 | field | value |
 | --- | --- |
-| different opinions | 待查: later scholarship and review notes |
-| alternate labels | 待查: source comparison and bibliography |
+| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
 | applicability risk | label may overstate a source classification |
 | claim status | no grammar or inscription-topic claim |
 

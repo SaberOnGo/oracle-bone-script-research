@@ -766,6 +766,17 @@ def wrapped_bullet(text: str) -> list[str]:
     )
 
 
+def compact_inline_sample(values: list[str], max_chars: int) -> str:
+    sample = ", ".join(values[:2])
+    if len(values) > 2:
+        sample = f"{sample}, ..."
+    if not sample:
+        return "pending review"
+    if len(sample) <= max_chars:
+        return sample
+    return f"{sample[: max_chars - 3].rstrip(' ,;')}..."
+
+
 def visual_review_sheet_text(index: int, visual_rows: list[dict[str, str]]) -> str:
     component_id = candidate_id(index)
     rows = "\n".join(
@@ -950,11 +961,7 @@ def component_dossier_text(
     glyph_count = str(len(glyph_rows))
     visual_count = str(len(visual_rows))
     glyph_values = sorted({row["glyph_codepoint_uplus"] for row in glyph_rows if row})
-    glyph_sample = ", ".join(glyph_values[:2])
-    if len(glyph_values) > 2:
-        glyph_sample = f"{glyph_sample}, ..."
-    if not glyph_sample:
-        glyph_sample = "pending review"
+    glyph_sample = compact_inline_sample(glyph_values, max_chars=44)
     visual_paths = "\n".join(
         f"| `{row['asset_id']}` | `{Path(row['local_asset_path']).name}` |"
         f" `{row['checksum_sha256']}` |"

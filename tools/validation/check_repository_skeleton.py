@@ -2629,6 +2629,15 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "13_component-context-evidence-dossier.md",
         "14_component-context-evidence-index.json",
     ]
+    human_markdown_files = [
+        "README.md",
+        "04_glyph-codepoint-gallery.md",
+        "07_component-visual-gallery.md",
+        "08_human-visual-review-sheet.md",
+        "10_component-visual-route-gallery.md",
+        "11_human-component-dossier.md",
+        "13_component-context-evidence-dossier.md",
+    ]
     sample_indexes = {1, 70, len(rows)}
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -2645,6 +2654,24 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         for filename in required_files:
             if not path_exists(object_dir / filename):
                 issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
+        for filename in human_markdown_files:
+            human_path = object_dir / filename
+            if not path_exists(human_path):
+                continue
+            human_text = human_path.read_text(encoding="utf-8")
+            if "\ufffd" in human_text:
+                issues.append(
+                    f"{human_path.relative_to(root).as_posix()} "
+                    "contains Unicode replacement characters"
+                )
+            for line_number, line in enumerate(human_text.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{human_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
         if index not in sample_indexes:
             continue
         readme_path = object_dir / "README.md"

@@ -23,7 +23,7 @@ verification.
 - local_image_status: `source_image_extracted`
 - visual_asset_count: `1`
 - glyph_codepoint_count: `21`
-- glyph_codepoint_uplus_sample: `U+A6981;U+A71EC;U+C35DD;U+FD997, U+FD998, ...`
+- glyph_codepoint_uplus_sample: `U+A6981;U+A71EC;U+C35DD;U+FD997, U+FD998...`
 - full_glyph_codepoint_list: see `03_glyph-codepoint-index.csv`
 
 | Asset ID | Local image file | SHA-256 |

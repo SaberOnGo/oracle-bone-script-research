@@ -3815,6 +3815,35 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if not line.startswith("|"):
                     self.assertLessEqual(len(line), 80, line)
 
+    def test_component_candidate_human_markdown_is_readable(self) -> None:
+        root = repo_root() / "corpus/003_graphemic-components"
+        human_markdown_names = {
+            "README.md",
+            "04_glyph-codepoint-gallery.md",
+            "07_component-visual-gallery.md",
+            "08_human-visual-review-sheet.md",
+            "10_component-visual-route-gallery.md",
+            "11_human-component-dossier.md",
+            "13_component-context-evidence-dossier.md",
+        }
+        object_dirs = sorted(
+            path for path in root.glob("*/*_component-candidate") if path.is_dir()
+        )
+        self.assertEqual(len(object_dirs), 2747)
+        for object_dir in object_dirs:
+            for name in human_markdown_names:
+                path = object_dir / name
+                text = path.read_text(encoding="utf-8")
+                self.assertNotIn("\ufffd", text, path.as_posix())
+                for line_number, line in enumerate(text.splitlines(), start=1):
+                    if line.startswith("|") or line.startswith("!["):
+                        continue
+                    self.assertLessEqual(
+                        len(line),
+                        80,
+                        f"{path.as_posix()}:{line_number}: {line}",
+                    )
+
     def test_component_context_evidence_dossiers_are_colocated_and_readable(self) -> None:
         module = load_obimd_component_candidate_materials_module()
         outputs = module.build_outputs(repo_root())

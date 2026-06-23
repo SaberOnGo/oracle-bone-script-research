@@ -43,9 +43,9 @@ component assignment.
 
 ## 4. 单字、卜辞与上下文路线
 
-- 单字路线: 待查，需与 `corpus/001_oracle-characters/` 互证。
-- 卜辞路线: 待查，需与卜辞编号、图版、著录和 OCR 互证。
-- 字位上下文: 待查，需打开相关单字档案和卜辞候选档案。
+- 单字路线: 待查，先开 `corpus/001_oracle-characters/` 互证。
+- 卜辞路线: 待查，先开 `corpus/002_oracle-bone-inscriptions/`。
+- 字位上下文: 待查，先开 `11_human-component-dossier.md` 及卜辞候选档案。
 - 图边文件: `006_obimd-component-graph-edges.jsonl`
 
 构件候选不能单独证明某个甲骨单字的结构。必须先打开相关单字、卜辞、图版和著录路线，记录证据来源和复核状态。

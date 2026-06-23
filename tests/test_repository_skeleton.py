@@ -3980,6 +3980,23 @@ class RepositorySkeletonTests(unittest.TestCase):
                 self.assertNotIn(fragment, dossier_text)
             for line in dossier_text.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
+                    if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                        self.assertTrue(
+                            any(
+                                marker in line
+                                for marker in [
+                                    "corpus/001_oracle-characters/",
+                                    "corpus/002_oracle-bone-inscriptions/",
+                                    "03_glyph-codepoint-index.csv",
+                                    "06_component-visual-index.csv",
+                                    "09_component-visual-route-index.csv",
+                                    "11_human-component-dossier.md",
+                                    "006_obimd-component-graph-edges.jsonl",
+                                    "project_registry/",
+                                ]
+                            ),
+                            line,
+                        )
                     self.assertLessEqual(len(line), 80, line)
 
             index = json.loads(index_path.read_text(encoding="utf-8"))

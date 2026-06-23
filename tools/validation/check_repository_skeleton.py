@@ -2755,6 +2755,25 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             if "not_collected" in context_text:
                 issues.append(f"{context_dossier_path.relative_to(root).as_posix()} contains not_collected filler")
             for line_number, line in enumerate(context_text.splitlines(), start=1):
+                if "\u5f85\u67e5\uff0c" in line or "\u5f85\u67e5\uff1a" in line:
+                    has_context_anchor = any(
+                        marker in line
+                        for marker in [
+                            "corpus/001_oracle-characters/",
+                            "corpus/002_oracle-bone-inscriptions/",
+                            "03_glyph-codepoint-index.csv",
+                            "06_component-visual-index.csv",
+                            "09_component-visual-route-index.csv",
+                            "11_human-component-dossier.md",
+                            "006_obimd-component-graph-edges.jsonl",
+                            "project_registry/",
+                        ]
+                    )
+                    if not has_context_anchor:
+                        issues.append(
+                            f"{context_dossier_path.relative_to(root).as_posix()}:"
+                            f"{line_number} pending check lacks local evidence anchor"
+                        )
                 if not line.startswith("|") and not line.startswith("![") and len(line) > 80:
                     issues.append(
                         f"{context_dossier_path.relative_to(root).as_posix()}:{line_number} "

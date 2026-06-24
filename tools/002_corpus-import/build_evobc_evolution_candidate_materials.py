@@ -531,20 +531,17 @@ def human_dossier_text(
     )
     missing_lines = bullet_block(
         [
-            "Which primary image, rubbing, hand copy, or plate corresponds to "
-            "each EVOBC image reference?",
-            "Which inscription number, collection number, findspot, period, "
-            "batch, or group should be checked for the oracle-side context?",
-            "Which bronze, seal, or later-script comparanda are cited by a "
-            "reviewed source rather than inferred from dataset labels?",
-            "Which modern codepoint route is only a lookup key, and which source "
-            "would be needed before recording identity?",
-            "Which bibliography, database page, or museum object page records "
-            "a reading history, dispute, or alternative opinion?",
-            "What evidence remains missing before any formal correspondence "
-            "or evolution-chain claim can be reviewed?",
-            "具体待查问题：先核对实物、拓片、照片、图版、著录和卜辞上下文，再记录 "
-            "金文、小篆、后世字形和今字路线的证据等级。",
+            "Open `05_image-reference-route-index.csv` for each image reference route.",
+            "Open `02_evolution-source-index.csv` for source, download, and rights rows.",
+            "Open `03_era-source-code-index.csv` before using era or source labels.",
+            "Open `09_cross-period-review-dossier.md` for oracle, bronze, seal, and modern-route gaps.",
+            "Record each missing source as image, inscription, bronze/seal, codepoint, bibliography, or rights trail.",
+            "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c"
+            "\u9010\u6761\u6838\u5bf9\u56fe\u50cf\u5f15\u7528\u8def\u7ebf\u3002",
+            "\u6253\u5f00 `02_evolution-source-index.csv`\uff0c"
+            "\u8bb0\u5f55\u6765\u6e90\u3001\u4e0b\u8f7d\u548c\u6743\u5229\u884c\u3002",
+            "\u6253\u5f00 `09_cross-period-review-dossier.md`\uff0c"
+            "\u8bb0\u5f55\u8de8\u65f6\u671f\u7f3a\u53e3\u5206\u7c7b\u3002",
         ]
     )
     boundary_lines = bullet_block(
@@ -719,13 +716,20 @@ def cross_period_review_dossier_text(
     code_lines = code_rows_block(code_rows)
     missing_lines = bullet_block(
         [
-            "哪一条 EVOBC 图像引用路线应先打开？",
-            "哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？",
-            "哪一个金文器物、铭文、著录号或图版仍未核对？",
-            "哪一个小篆、字书、数据库或论文来源仍未核对？",
-            "哪一个今字 codepoint 只是检索键，尚不能作为对应结论？",
-            "是否存在释读史、提出者、不同意见或争议需要记录？",
-            "哪一条来源还缺 checksum、manifest、字段映射或权利复核？",
+            "\u6253\u5f00 `02_evolution-source-index.csv`\uff0c"
+            "\u5199\u660e\u6765\u6e90\u548c\u4e0b\u8f7d\u8bc1\u636e\u884c\u3002",
+            "\u6253\u5f00 `03_era-source-code-index.csv`\uff0c"
+            "\u5199\u660e\u65f6\u671f\u548c\u6765\u6e90\u4ee3\u7801\u884c\u3002",
+            "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c"
+            "\u5199\u660e\u56fe\u50cf\u8def\u7ebf\u884c\u3002",
+            "\u6253\u5f00 `07_human-evolution-dossier.md`\uff0c"
+            "\u8bb0\u5f55\u8de8\u65f6\u671f\u7f3a\u53e3\u5206\u7c7b\u3002",
+            "\u6253\u5f00 `09_cross-period-review-dossier.md`\uff0c"
+            "\u9010\u9879\u8bb0\u5f55\u7532\u9aa8\u3001\u91d1\u6587\u3001"
+            "\u5c0f\u7bc6\u3001\u4eca\u5b57\u7f3a\u53e3\u3002",
+            "\u8bb0\u5f55\u7f3a\u53e3\u5c5e\u4e8e\u56fe\u50cf\u3001"
+            "\u535c\u8f9e\u3001\u91d1\u6587\u5c0f\u7bc6\u3001\u4eca\u5b57\u3001"
+            "\u6587\u732e\u8fd8\u662f\u6743\u5229\u6765\u6e90\u3002",
         ]
     )
     boundary_lines = bullet_block(
@@ -871,18 +875,17 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
     )
     question_lines = bullet_block(
         [
-            "Which EVOBC image-reference route should be opened first?",
-            "Which source/download/checksum rows prove this candidate route?",
-            "Which era or source code labels are only dataset metadata?",
-            "Which bronze, seal, or later-script route is only a dataset clue?",
-            "Which oracle inscription, collection, or findspot context is missing?",
-            "Which Xiaoxuetang, OBIMD, HUST-OBC, IHP, or museum source should be checked?",
-            "What evidence is still missing before any formal correspondence claim?",
-            "应先打开哪条 EVOBC 图像引用路线？",
-            "哪些来源、下载记录或 checksum 行能证明这条候选路线？",
-            "哪些时期码、来源码、金文、小篆或后世字形路线只是数据集线索？",
-            "还缺哪些卜辞、馆藏、出土地、时期或著录上下文？",
-            "正式对应结论前还缺哪些可复核证据？",
+            "Open `05_image-reference-route-index.csv` and name the first route row.",
+            "Open `02_evolution-source-index.csv` and name the evidence download rows.",
+            "Open `03_era-source-code-index.csv` and name dataset-only code rows.",
+            "Open `09_cross-period-review-dossier.md` before any correspondence claim.",
+            "Record whether the missing route is image, inscription, bronze/seal, codepoint, bibliography, or rights trail.",
+            "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c\u5199\u660e"
+            "\u56fe\u50cf\u8def\u7ebf\u884c\u3002",
+            "\u6253\u5f00 `02_evolution-source-index.csv`\uff0c\u5199\u660e"
+            "\u6765\u6e90\u548c\u4e0b\u8f7d\u8bc1\u636e\u884c\u3002",
+            "\u6253\u5f00 `09_cross-period-review-dossier.md`\uff0c"
+            "\u8bb0\u5f55\u8de8\u65f6\u671f\u7f3a\u53e3\u5206\u7c7b\u3002",
         ]
     )
     review_status = wrapped_paragraph(
@@ -993,17 +996,14 @@ def image_route_gallery_text(index: int, row: dict[str, str], image_routes: list
     )
     question_lines = bullet_block(
         [
-            "Which EVOBC image-reference route should be opened first?",
-            "Which route file and source download record should prove it?",
-            "Which bronze, seal, or later-script route is only a dataset clue?",
-            "Which local image, rubbing, hand copy, or plate is still missing?",
-            "Which oracle inscription, collection, or findspot context is missing?",
-            "What evidence is still missing before any visual comparison?",
-            "应先打开哪条 EVOBC 图像引用路线？",
-            "哪一个路线文件和下载记录能够支撑它？",
-            "哪些金文、小篆或后世字形路线只是数据集线索？",
-            "还缺哪些本地图像、拓片、摹本或图版？",
-            "视觉比较前还缺哪些可复核证据？",
+            "Open `05_image-reference-route-index.csv` and name the route row.",
+            "Open `02_evolution-source-index.csv` and name the source evidence row.",
+            "Open `03_era-source-code-index.csv` and name the era/source code row.",
+            "Record whether the missing route is image, rubbing, plate, context, or later-script source.",
+            "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c\u5199\u660e"
+            "\u56fe\u50cf\u8def\u7ebf\u884c\u3002",
+            "\u6253\u5f00 `02_evolution-source-index.csv`\uff0c\u5199\u660e"
+            "\u6765\u6e90\u8bc1\u636e\u884c\u3002",
         ]
     )
     return f"""# Image Reference Route Gallery / 图像引用路线图
@@ -1095,20 +1095,19 @@ def review_sheet_text(index: int, row: dict[str, str]) -> str:
         "modern-character identity, or decipherment conclusion here.",
     ]
     concrete_questions = [
-        "Which EVOBC image-reference route should be opened first?",
-        "应先打开哪些 EVOBC 图像引用路线？",
-        "Which source/download/checksum rows prove the route?",
-        "哪些来源、下载或 checksum 行能证明路线？",
-        "Which era or source code labels are only dataset metadata?",
-        "哪些时代码或来源码只是数据集 metadata？",
-        "Which bronze, seal, or later-script links are only candidates?",
-        "哪些金文、小篆或后世字形路线只是候选？",
-        "Which oracle inscription, collection, or findspot context is missing?",
-        "还缺哪些卜辞、馆藏或出土地上下文？",
-        "Which Xiaoxuetang, OBIMD, HUST-OBC, or museum source should be checked?",
-        "下一步应核对小学堂、OBIMD、HUST-OBC 还是博物馆来源？",
-        "What evidence is still missing before any formal correspondence claim?",
-        "正式对应结论前还缺哪些证据？",
+        "Open `02_evolution-source-index.csv` and name the source rows.",
+        "Open `03_era-source-code-index.csv` and name dataset-only codes.",
+        "Open `05_image-reference-route-index.csv` and name image route rows.",
+        "Open `09_cross-period-review-dossier.md` for missing context routes.",
+        "Record the missing evidence route before any correspondence claim.",
+        "\u6253\u5f00 `02_evolution-source-index.csv`\uff0c\u5199\u660e"
+        "\u6765\u6e90\u884c\u3002",
+        "\u6253\u5f00 `03_era-source-code-index.csv`\uff0c\u5199\u660e"
+        "\u6570\u636e\u96c6\u4ee3\u7801\u884c\u3002",
+        "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c\u5199\u660e"
+        "\u56fe\u50cf\u8def\u7ebf\u884c\u3002",
+        "\u6253\u5f00 `09_cross-period-review-dossier.md`\uff0c"
+        "\u8bb0\u5f55\u4e0a\u4e0b\u6587\u7f3a\u53e3\u3002",
     ]
     required_lines = "\n".join(
         line

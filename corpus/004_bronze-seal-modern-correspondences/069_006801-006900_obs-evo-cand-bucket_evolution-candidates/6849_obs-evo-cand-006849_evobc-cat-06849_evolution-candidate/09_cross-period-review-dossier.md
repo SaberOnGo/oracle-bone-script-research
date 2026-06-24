@@ -88,13 +88,12 @@
 
 ## 具体待查问题
 
-- 哪一条 EVOBC 图像引用路线应先打开？
-- 哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？
-- 哪一个金文器物、铭文、著录号或图版仍未核对？
-- 哪一个小篆、字书、数据库或论文来源仍未核对？
-- 哪一个今字 codepoint 只是检索键，尚不能作为对应结论？
-- 是否存在释读史、提出者、不同意见或争议需要记录？
-- 哪一条来源还缺 checksum、manifest、字段映射或权利复核？
+- 打开 `02_evolution-source-index.csv`，写明来源和下载证据行。
+- 打开 `03_era-source-code-index.csv`，写明时期和来源代码行。
+- 打开 `05_image-reference-route-index.csv`，写明图像路线行。
+- 打开 `07_human-evolution-dossier.md`，记录跨时期缺口分类。
+- 打开 `09_cross-period-review-dossier.md`，逐项记录甲骨、金文、小篆、今字缺口。
+- 记录缺口属于图像、卜辞、金文小篆、今字、文献还是权利来源。
 
 ## 复核边界
 

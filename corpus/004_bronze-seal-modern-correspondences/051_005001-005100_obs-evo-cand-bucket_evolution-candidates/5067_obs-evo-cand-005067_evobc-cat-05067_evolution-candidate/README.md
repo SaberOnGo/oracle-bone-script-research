@@ -63,18 +63,15 @@ Simplified Chinese:
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which EVOBC image-reference route should be opened first?
-- Which source/download/checksum rows prove this candidate route?
-- Which era or source code labels are only dataset metadata?
-- Which bronze, seal, or later-script route is only a dataset clue?
-- Which oracle inscription, collection, or findspot context is missing?
-- Which Xiaoxuetang, OBIMD, HUST-OBC, IHP, or museum source should be checked?
-- What evidence is still missing before any formal correspondence claim?
-- 应先打开哪条 EVOBC 图像引用路线？
-- 哪些来源、下载记录或 checksum 行能证明这条候选路线？
-- 哪些时期码、来源码、金文、小篆或后世字形路线只是数据集线索？
-- 还缺哪些卜辞、馆藏、出土地、时期或著录上下文？
-- 正式对应结论前还缺哪些可复核证据？
+- Open `05_image-reference-route-index.csv` and name the first route row.
+- Open `02_evolution-source-index.csv` and name the evidence download rows.
+- Open `03_era-source-code-index.csv` and name dataset-only code rows.
+- Open `09_cross-period-review-dossier.md` before any correspondence claim.
+- Record whether the missing route is image, inscription, bronze/seal,
+  codepoint, bibliography, or rights trail.
+- 打开 `05_image-reference-route-index.csv`，写明图像路线行。
+- 打开 `02_evolution-source-index.csv`，写明来源和下载证据行。
+- 打开 `09_cross-period-review-dossier.md`，记录跨时期缺口分类。
 
 ## Review Status / 复核状态
 Current status: `needs_human_evolution_review`. Reviewers must compare this

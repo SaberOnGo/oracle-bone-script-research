@@ -50,14 +50,10 @@ modern-character identity confirmations, and not decipherment conclusions.
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which EVOBC image-reference route should be opened first?
-- Which route file and source download record should prove it?
-- Which bronze, seal, or later-script route is only a dataset clue?
-- Which local image, rubbing, hand copy, or plate is still missing?
-- Which oracle inscription, collection, or findspot context is missing?
-- What evidence is still missing before any visual comparison?
-- 应先打开哪条 EVOBC 图像引用路线？
-- 哪一个路线文件和下载记录能够支撑它？
-- 哪些金文、小篆或后世字形路线只是数据集线索？
-- 还缺哪些本地图像、拓片、摹本或图版？
-- 视觉比较前还缺哪些可复核证据？
+- Open `05_image-reference-route-index.csv` and name the route row.
+- Open `02_evolution-source-index.csv` and name the source evidence row.
+- Open `03_era-source-code-index.csv` and name the era/source code row.
+- Record whether the missing route is image, rubbing, plate, context, or
+  later-script source.
+- 打开 `05_image-reference-route-index.csv`，写明图像路线行。
+- 打开 `02_evolution-source-index.csv`，写明来源证据行。

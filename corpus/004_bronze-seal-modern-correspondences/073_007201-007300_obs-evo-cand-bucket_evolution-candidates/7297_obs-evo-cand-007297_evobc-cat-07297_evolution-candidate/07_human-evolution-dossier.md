@@ -95,35 +95,29 @@ verify images, inscriptions, catalogs, and scholarship.
 
 ## Missing Evidence And Next Checks / 缺失证据与下一步
 
-- Which primary image, rubbing, hand copy, or plate corresponds to each EVOBC
-  image reference?
-- Which inscription number, collection number, findspot, period, batch, or group
-  should be checked for the oracle-side context?
-- Which bronze, seal, or later-script comparanda are cited by a reviewed source
-  rather than inferred from dataset labels?
-- Which modern codepoint route is only a lookup key, and which source would be
-  needed before recording identity?
-- Which bibliography, database page, or museum object page records a reading
-  history, dispute, or alternative opinion?
-- What evidence remains missing before any formal correspondence or
-  evolution-chain claim can be reviewed?
-- 具体待查问题：先核对实物、拓片、照片、图版、著录和卜辞上下文，再记录 金文、小篆、后世字形和今字路线的证据等级。
+- Open `05_image-reference-route-index.csv` for each image reference route.
+- Open `02_evolution-source-index.csv` for source, download, and rights rows.
+- Open `03_era-source-code-index.csv` before using era or source labels.
+- Open `09_cross-period-review-dossier.md` for oracle, bronze, seal, and
+  modern-route gaps.
+- Record each missing source as image, inscription, bronze/seal, codepoint,
+  bibliography, or rights trail.
+- 打开 `05_image-reference-route-index.csv`，逐条核对图像引用路线。
+- 打开 `02_evolution-source-index.csv`，记录来源、下载和权利行。
+- 打开 `09_cross-period-review-dossier.md`，记录跨时期缺口分类。
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which primary image, rubbing, hand copy, or plate corresponds to each EVOBC
-  image reference?
-- Which inscription number, collection number, findspot, period, batch, or group
-  should be checked for the oracle-side context?
-- Which bronze, seal, or later-script comparanda are cited by a reviewed source
-  rather than inferred from dataset labels?
-- Which modern codepoint route is only a lookup key, and which source would be
-  needed before recording identity?
-- Which bibliography, database page, or museum object page records a reading
-  history, dispute, or alternative opinion?
-- What evidence remains missing before any formal correspondence or
-  evolution-chain claim can be reviewed?
-- 具体待查问题：先核对实物、拓片、照片、图版、著录和卜辞上下文，再记录 金文、小篆、后世字形和今字路线的证据等级。
+- Open `05_image-reference-route-index.csv` for each image reference route.
+- Open `02_evolution-source-index.csv` for source, download, and rights rows.
+- Open `03_era-source-code-index.csv` before using era or source labels.
+- Open `09_cross-period-review-dossier.md` for oracle, bronze, seal, and
+  modern-route gaps.
+- Record each missing source as image, inscription, bronze/seal, codepoint,
+  bibliography, or rights trail.
+- 打开 `05_image-reference-route-index.csv`，逐条核对图像引用路线。
+- 打开 `02_evolution-source-index.csv`，记录来源、下载和权利行。
+- 打开 `09_cross-period-review-dossier.md`，记录跨时期缺口分类。
 
 ## Review Boundary / 复核边界
 

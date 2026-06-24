@@ -3323,9 +3323,9 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "not a decipherment conclusion",
                 "Concrete Questions To Check",
                 "具体待查问题",
-                "Which EVOBC image-reference route should be opened first?",
-                "Which oracle inscription, collection, or findspot context is missing?",
-                "What evidence is still missing before any formal correspondence claim?",
+                "Open `05_image-reference-route-index.csv` and name the first route row.",
+                "Open `02_evolution-source-index.csv` and name the evidence download rows.",
+                "Open `09_cross-period-review-dossier.md` before any correspondence claim.",
                 "03_era-source-code-index.csv",
                 "04_human-review-sheet.md",
                 "05_image-reference-route-index.csv",
@@ -3334,6 +3334,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "What evidence is still missing before any formal correspondence claim?" in text:
+                issues.append(
+                    f"{readme_path.relative_to(root).as_posix()} "
+                    "contains generic formal-correspondence pending question"
+                )
             for line_number, line in enumerate(text.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -3404,10 +3409,10 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "06_image-reference-route-gallery.md",
                 "Concrete Questions To Check",
                 "具体待查问题",
-                "应先打开哪些 EVOBC 图像引用路线？",
-                "哪些金文、小篆或后世字形路线只是候选？",
-                "还缺哪些卜辞、馆藏或出土地上下文？",
-                "正式对应结论前还缺哪些证据？",
+                "Open `02_evolution-source-index.csv` and name the source rows.",
+                "Open `03_era-source-code-index.csv` and name dataset-only codes.",
+                "Open `09_cross-period-review-dossier.md` for missing context routes.",
+                "打开 `05_image-reference-route-index.csv`，写明图像路线行。",
                 "not_formal_correspondence",
                 "no_claim",
                 "Source image evidence: 待查",
@@ -3415,6 +3420,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in review_sheet:
                     issues.append(f"{review_sheet_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "What evidence is still missing before any formal correspondence claim?" in review_sheet:
+                issues.append(
+                    f"{review_sheet_path.relative_to(root).as_posix()} "
+                    "contains generic formal-correspondence pending question"
+                )
             if "not_collected" in review_sheet:
                 issues.append(
                     f"{review_sheet_path.relative_to(root).as_posix()} "
@@ -3448,9 +3458,10 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "Image Reference Route Gallery",
                 "Concrete Questions To Check",
                 "具体待查问题",
-                "Which EVOBC image-reference route should be opened first?",
-                "Which bronze, seal, or later-script route is only a dataset clue?",
-                "What evidence is still missing before any visual comparison?",
+                "Open `05_image-reference-route-index.csv` and name the route row.",
+                "Open `02_evolution-source-index.csv` and name the source evidence row.",
+                "Record whether the missing route is image, rubbing, plate, context, or",
+                "later-script source.",
                 "pending check: 待查",
                 "Local image evidence: 待查",
                 "not accepted paleographic correspondences",
@@ -3458,6 +3469,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in route_gallery:
                     issues.append(f"{route_gallery_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "What evidence is still missing before any visual comparison?" in route_gallery:
+                issues.append(
+                    f"{route_gallery_path.relative_to(root).as_posix()} "
+                    "contains generic visual-comparison pending question"
+                )
             if "not_collected" in route_gallery:
                 issues.append(
                     f"{route_gallery_path.relative_to(root).as_posix()} "
@@ -3480,6 +3496,23 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         human_dossier_path = object_dir / "07_human-evolution-dossier.md"
         if index in deep_route_check_indexes and path_exists(human_dossier_path):
             human_dossier = human_dossier_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Open `05_image-reference-route-index.csv` for each image reference route.",
+                "Open `09_cross-period-review-dossier.md` for oracle, bronze, seal, and",
+                "modern-route gaps.",
+                "Record each missing source as image, inscription, bronze/seal, codepoint,",
+                "bibliography, or rights trail.",
+            ]:
+                if snippet not in human_dossier:
+                    issues.append(
+                        f"{human_dossier_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "What evidence remains missing before any formal correspondence" in human_dossier:
+                issues.append(
+                    f"{human_dossier_path.relative_to(root).as_posix()} "
+                    "contains generic formal-correspondence pending question"
+                )
             if "not_collected" in human_dossier:
                 issues.append(
                     f"{human_dossier_path.relative_to(root).as_posix()} "
@@ -3506,9 +3539,9 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "具体待查问题",
                 "这不是正式对应结论",
                 "这不是释读结论",
-                "哪一条 EVOBC 图像引用路线应先打开？",
-                "哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？",
-                "哪一个今字 codepoint 只是检索键，尚不能作为对应结论？",
+                "打开 `02_evolution-source-index.csv`，写明来源和下载证据行。",
+                "打开 `05_image-reference-route-index.csv`，写明图像路线行。",
+                "打开 `07_human-evolution-dossier.md`，记录跨时期缺口分类。",
             ]:
                 if snippet not in cross_period_dossier:
                     issues.append(

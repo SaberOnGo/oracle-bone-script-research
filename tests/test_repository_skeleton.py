@@ -4411,9 +4411,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("Concrete Questions To Check", readme_text)
             self.assertIn("具体待查问题", readme_text)
-            self.assertIn("Which EVOBC image-reference route should be opened first?", readme_text)
-            self.assertIn("Which oracle inscription, collection, or findspot context is missing?", readme_text)
-            self.assertIn("What evidence is still missing before any formal correspondence claim?", readme_text)
+            self.assertIn(
+                "Open `05_image-reference-route-index.csv` and name the first route row.",
+                readme_text,
+            )
+            self.assertIn(
+                "Open `02_evolution-source-index.csv` and name the evidence download rows.",
+                readme_text,
+            )
+            self.assertIn(
+                "Open `09_cross-period-review-dossier.md` before any correspondence claim.",
+                readme_text,
+            )
+            self.assertNotIn(
+                "What evidence is still missing before any formal correspondence claim?",
+                readme_text,
+            )
             for line in readme_text.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -4422,18 +4435,48 @@ class RepositorySkeletonTests(unittest.TestCase):
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet)
             self.assertIn("具体待查问题", review_sheet)
-            self.assertIn("应先打开哪些 EVOBC 图像引用路线？", review_sheet)
-            self.assertIn("哪些金文、小篆或后世字形路线只是候选？", review_sheet)
-            self.assertIn("还缺哪些卜辞、馆藏或出土地上下文？", review_sheet)
-            self.assertIn("正式对应结论前还缺哪些证据？", review_sheet)
+            self.assertIn(
+                "Open `02_evolution-source-index.csv` and name the source rows.",
+                review_sheet,
+            )
+            self.assertIn(
+                "Open `03_era-source-code-index.csv` and name dataset-only codes.",
+                review_sheet,
+            )
+            self.assertIn(
+                "Open `09_cross-period-review-dossier.md` for missing context routes.",
+                review_sheet,
+            )
+            self.assertIn(
+                "打开 `05_image-reference-route-index.csv`，写明图像路线行。",
+                review_sheet,
+            )
+            self.assertNotIn(
+                "What evidence is still missing before any formal correspondence claim?",
+                review_sheet,
+            )
             for line in review_sheet.splitlines():
                 self.assertLessEqual(len(line), 80, line)
             route_gallery = (object_dir / "06_image-reference-route-gallery.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", route_gallery)
             self.assertIn("具体待查问题", route_gallery)
-            self.assertIn("Which EVOBC image-reference route should be opened first?", route_gallery)
-            self.assertIn("Which bronze, seal, or later-script route is only a dataset clue?", route_gallery)
-            self.assertIn("What evidence is still missing before any visual comparison?", route_gallery)
+            self.assertIn(
+                "Open `05_image-reference-route-index.csv` and name the route row.",
+                route_gallery,
+            )
+            self.assertIn(
+                "Open `02_evolution-source-index.csv` and name the source evidence row.",
+                route_gallery,
+            )
+            self.assertIn(
+                "Record whether the missing route is image, rubbing, plate, context, or",
+                route_gallery,
+            )
+            self.assertIn("later-script source.", route_gallery)
+            self.assertNotIn(
+                "What evidence is still missing before any visual comparison?",
+                route_gallery,
+            )
             for line in route_gallery.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -4473,6 +4516,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("\u4eca\u5b57", dossier_text)
             self.assertIn("not a formal correspondence", dossier_text)
             self.assertIn("not an evolution-chain conclusion", dossier_text)
+            self.assertIn(
+                "Open `05_image-reference-route-index.csv` for each image reference route.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Open `09_cross-period-review-dossier.md` for oracle, bronze, seal, and",
+                dossier_text,
+            )
+            self.assertIn(
+                "Record each missing source as image, inscription, bronze/seal, codepoint,",
+                dossier_text,
+            )
+            self.assertIn("modern-route gaps.", dossier_text)
+            self.assertIn("bibliography, or rights trail.", dossier_text)
+            self.assertNotIn(
+                "What evidence remains missing before any formal correspondence",
+                dossier_text,
+            )
             for line in dossier_text.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -4506,8 +4567,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("具体待查问题", cross_period_dossier)
             self.assertIn("这不是正式对应结论", cross_period_dossier)
             self.assertIn("这不是释读结论", cross_period_dossier)
-            self.assertIn("哪一条 EVOBC 图像引用路线应先打开？", cross_period_dossier)
-            self.assertIn("哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？", cross_period_dossier)
+            self.assertIn(
+                "打开 `02_evolution-source-index.csv`，写明来源和下载证据行。",
+                cross_period_dossier,
+            )
+            self.assertIn(
+                "打开 `05_image-reference-route-index.csv`，写明图像路线行。",
+                cross_period_dossier,
+            )
+            self.assertIn(
+                "打开 `07_human-evolution-dossier.md`，记录跨时期缺口分类。",
+                cross_period_dossier,
+            )
             for line in cross_period_dossier.splitlines():
                 if line.startswith("|") or line.startswith("!["):
                     continue
@@ -4594,7 +4665,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("not an accepted paleographic correspondence", first["readme_text"])
         self.assertIn("Concrete Questions To Check", first["readme_text"])
-        self.assertIn("Which EVOBC image-reference route should be opened first?", first["readme_text"])
+        self.assertIn(
+            "Open `05_image-reference-route-index.csv` and name the first route row.",
+            first["readme_text"],
+        )
         for line in first["readme_text"].splitlines():
             if line.startswith("|") or line.startswith("!["):
                 continue
@@ -4602,10 +4676,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_formal_correspondence", first["review_sheet_text"])
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn("具体待查问题", first["review_sheet_text"])
-        self.assertIn("应先打开哪些 EVOBC 图像引用路线？", first["review_sheet_text"])
-        self.assertIn("哪些金文、小篆或后世字形路线只是候选？", first["review_sheet_text"])
-        self.assertIn("还缺哪些卜辞、馆藏或出土地上下文？", first["review_sheet_text"])
-        self.assertIn("正式对应结论前还缺哪些证据？", first["review_sheet_text"])
+        self.assertIn(
+            "Open `02_evolution-source-index.csv` and name the source rows.",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "打开 `05_image-reference-route-index.csv`，写明图像路线行。",
+            first["review_sheet_text"],
+        )
         for line in first["review_sheet_text"].splitlines():
             self.assertLessEqual(len(line), 80, line)
         self.assertEqual(first["packet"]["record_type"], "evolution_correspondence_candidate")
@@ -4614,7 +4692,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(first["image_route_rows"]), 4)
         self.assertIn("Image Reference Route Gallery", first["image_route_gallery_text"])
         self.assertIn("Concrete Questions To Check", first["image_route_gallery_text"])
-        self.assertIn("Which bronze, seal, or later-script route is only a dataset clue?", first["image_route_gallery_text"])
+        self.assertIn(
+            "Open `05_image-reference-route-index.csv` and name the route row.",
+            first["image_route_gallery_text"],
+        )
         self.assertNotIn("not_collected", first["image_route_gallery_text"])
         for line in first["image_route_gallery_text"].splitlines():
             if line.startswith("|") or line.startswith("!["):
@@ -4637,7 +4718,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["cross_period_review_dossier_text"],
         )
         self.assertIn(
-            "哪一个甲骨卜辞、馆藏、出土地或时期批次仍未核对？",
+            "打开 `02_evolution-source-index.csv`，写明来源和下载证据行。",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "打开 `05_image-reference-route-index.csv`，写明图像路线行。",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "打开 `07_human-evolution-dossier.md`，记录跨时期缺口分类。",
             first["cross_period_review_dossier_text"],
         )
         self.assertIn(

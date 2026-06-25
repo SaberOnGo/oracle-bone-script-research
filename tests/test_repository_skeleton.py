@@ -5361,10 +5361,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         review_sheet_text = (object_dir / "05_human-topic-review-sheet.md").read_text(encoding="utf-8")
         self.assertIn("Concrete Questions To Check", review_sheet_text)
         self.assertIn("具体待查问题", review_sheet_text)
-        self.assertIn("应先核对哪个 Cambridge/Hopkins 分组行和原始标签？", review_sheet_text)
-        self.assertIn("哪些 period count 只是来源表计数，仍待人工复核？", review_sheet_text)
-        self.assertIn("哪些 crosswalk 路线需要回到卜辞目录互证材料检查？", review_sheet_text)
-        self.assertIn("形成任何语法或主题归属结论前还缺哪些证据？", review_sheet_text)
+        self.assertIn("打开 `02_topic-source-index.csv`，写明 Cambridge/Hopkins 来源分组行", review_sheet_text)
+        self.assertIn("打开 `03_period-count-index.csv`，列出哪些分期计数只是来源表", review_sheet_text)
+        self.assertIn("打开 `04_inscription-crosswalk-route-index.csv`，写明第一条需要", review_sheet_text)
+        self.assertIn("打开 `08_topic-literature-context-dossier.md`，写明仍缺的书目", review_sheet_text)
+        self.assertNotIn(
+            "What evidence is still missing before any grammar or topic "
+            "assignment claim?",
+            review_sheet_text,
+        )
         for line in review_sheet_text.splitlines():
             self.assertLessEqual(len(line), 80, line)
         dossier_text = (object_dir / "06_human-topic-dossier.md").read_text(encoding="utf-8")

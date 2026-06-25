@@ -1,5 +1,4 @@
 # obs-topic-cand-000017 Human Topic Review Sheet / obs-topic-cand-000017 人工主题复核表
-
 ## Review Scope / 复核范围
 
 English:
@@ -8,9 +7,7 @@ controlled vocabulary candidate for later inscription analysis. Do not confirm
 grammar, topic assignments, readings, or decipherment here.
 
 简体中文：
-这里仅复核 Cambridge/Hopkins 分类表分组是否适合作为后续
-卜辞分析的受控词表候选。不要在这里确认语法、主题归属、
-读法或破译结论。
+这里只复核 Cambridge/Hopkins 分类表分组是否适合作为后续卜辞分析的受控词表候选。不要在这里确认语法、主题归属、读法或破译结论。
 
 ## Checklist / 清单
 
@@ -23,19 +20,21 @@ grammar, topic assignments, readings, or decipherment here.
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which Cambridge/Hopkins source group row and original label should be checked
-  first?
-- Which period counts are only source-table counts and still need human review?
-- Which crosswalk routes should be checked against inscription crosswalk
-  materials?
-- Which label wording could mislead readers if treated as a confirmed topic?
-- What evidence is still missing before any grammar or topic assignment claim?
-
-- 应先核对哪个 Cambridge/Hopkins 分组行和原始标签？
-- 哪些 period count 只是来源表计数，仍待人工复核？
-- 哪些 crosswalk 路线需要回到卜辞目录互证材料检查？
-- 哪些标签措辞若被当成已确认主题，可能误导读者？
-- 形成任何语法或主题归属结论前还缺哪些证据？
+- Open `02_topic-source-index.csv` and name the Cambridge/Hopkins source group
+  row and original label.
+- Open `03_period-count-index.csv` and list which period counts are only
+  source-table counts.
+- Open `04_inscription-crosswalk-route-index.csv` and name the first crosswalk
+  route that needs inscription-context review.
+- Open `06_human-topic-dossier.md` and record which label wording could mislead
+  readers if treated as a confirmed topic.
+- Open `08_topic-literature-context-dossier.md` and name missing bibliography,
+  proposer, alternate-label, or disagreement routes.
+- 打开 `02_topic-source-index.csv`，写明 Cambridge/Hopkins 来源分组行和原始标签。
+- 打开 `03_period-count-index.csv`，列出哪些分期计数只是来源表计数，仍待人工复核。
+- 打开 `04_inscription-crosswalk-route-index.csv`，写明第一条需要回到卜辞语境复核的 crosswalk 路线。
+- 打开 `06_human-topic-dossier.md`，记录哪些标签措辞若被当成已确认主题会误导读者。
+- 打开 `08_topic-literature-context-dossier.md`，写明仍缺的书目、提出者、替代标签或不同意见路线。
 
 ## Current Status / 当前状态
 - Source group / 来源分组: `17`

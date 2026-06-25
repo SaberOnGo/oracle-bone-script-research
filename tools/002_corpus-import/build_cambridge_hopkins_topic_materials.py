@@ -352,6 +352,8 @@ def packet(
     }
 
 
+
+
 def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
     english_intro = wrapped_paragraph(
         "This directory is the object-local entrance for a Cambridge/Hopkins "
@@ -360,51 +362,34 @@ def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
         "and the AI-readable packet are kept together in this same corpus "
         "object directory."
     )
-    chinese_intro = "\n".join(
-        [
-            "本目录是 Cambridge/Hopkins 分类表主题候选的对象内入口。",
-            "人类可读说明、复核说明、来源路线、分期计数 metadata、",
-            "crosswalk 路线和 AI 可读 packet 都放在同一个 corpus 对象",
-            "目录中。",
-        ]
+    chinese_intro = wrapped_paragraph(
+        "本目录是 Cambridge/Hopkins 分类表主题候选的对象内入口。人类可读"
+        "说明、复核说明、来源路线、分期计数、卜辞互证路线和 AI 辅助"
+        "packet 都放在同一个 corpus 对象目录中。"
     )
     file_entries = "\n".join(
         [
-            wrapped_bullet(
-                "`01_topic-candidate-packet.json`: AI-readable topic candidate packet."
-            ),
+            wrapped_bullet("`01_topic-candidate-packet.json`: AI-readable packet."),
             wrapped_bullet("`02_topic-source-index.csv`: source and provenance route."),
+            wrapped_bullet("`03_period-count-index.csv`: period-count metadata."),
             wrapped_bullet(
-                "`03_period-count-index.csv`: period-count metadata from the "
-                "classified table."
+                "`04_inscription-crosswalk-route-index.csv`: inscription "
+                "crosswalk route rows."
+            ),
+            wrapped_bullet("`05_human-topic-review-sheet.md`: human checklist."),
+            wrapped_bullet("`06_human-topic-dossier.md`: human topic dossier."),
+            wrapped_bullet("`07_topic-dossier-index.json`: AI support index."),
+            wrapped_bullet(
+                "`08_topic-literature-context-dossier.md`: literature/context "
+                "dossier."
+            ),
+            wrapped_bullet("`09_topic-literature-context-index.json`: AI index."),
+            wrapped_bullet(
+                "`10_topic-citation-dispute-review-dossier.md`: citation and "
+                "dispute review."
             ),
             wrapped_bullet(
-                "`04_inscription-crosswalk-route-index.csv`: route rows to "
-                "inscription crosswalk candidates."
-            ),
-            wrapped_bullet("`05_human-topic-review-sheet.md`: human review checklist."),
-            wrapped_bullet(
-                "`06_human-topic-dossier.md`: human-readable topic candidate dossier."
-            ),
-            wrapped_bullet(
-                "`07_topic-dossier-index.json`: AI-readable support index for "
-                "the dossier."
-            ),
-            wrapped_bullet(
-                "`08_topic-literature-context-dossier.md`: human "
-                "literature/context dossier."
-            ),
-            wrapped_bullet(
-                "`09_topic-literature-context-index.json`: AI-readable context "
-                "support index."
-            ),
-            wrapped_bullet(
-                "`10_topic-citation-dispute-review-dossier.md`: human "
-                "citation/dispute review."
-            ),
-            wrapped_bullet(
-                "`11_topic-citation-dispute-review-index.json`: AI-readable "
-                "review support index."
+                "`11_topic-citation-dispute-review-index.json`: AI support index."
             ),
         ]
     )
@@ -414,15 +399,12 @@ def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
         "result, not an accepted inscription topic assignment, not a "
         "transcription, not a reading, and not a decipherment conclusion."
     )
-    chinese_boundary = "\n".join(
-        [
-            "这只是来自 Cambridge/Hopkins metadata 表的来源分类候选。",
-            "它不是语法分析结果，不是已确认卜辞主题归属，不是释文，",
-            "不是读法，也不是破译结论。",
-        ]
+    chinese_boundary = wrapped_paragraph(
+        "这只是来自 Cambridge/Hopkins metadata 表的来源分类候选。它不是"
+        "语法分析结果，不是已接受的卜辞主题归属，不是释文，不是读法，"
+        "也不是破译结论。"
     )
     return f"""# {project_id} Topic Candidate / {project_id} 主题候选
-
 English:
 {english_intro}
 
@@ -457,12 +439,9 @@ def review_sheet_text(project_id: str, row: dict[str, str]) -> str:
         "Do not confirm grammar, topic assignments, readings, or decipherment "
         "here."
     )
-    chinese_scope = "\n".join(
-        [
-            "这里仅复核 Cambridge/Hopkins 分类表分组是否适合作为后续",
-            "卜辞分析的受控词表候选。不要在这里确认语法、主题归属、",
-            "读法或破译结论。",
-        ]
+    chinese_scope = wrapped_paragraph(
+        "这里只复核 Cambridge/Hopkins 分类表分组是否适合作为后续卜辞分析"
+        "的受控词表候选。不要在这里确认语法、主题归属、读法或破译结论。"
     )
     checklist = "\n".join(
         [
@@ -479,35 +458,48 @@ def review_sheet_text(project_id: str, row: dict[str, str]) -> str:
     concrete_questions = "\n".join(
         [
             wrapped_bullet(
-                "Which Cambridge/Hopkins source group row and original label "
-                "should be checked first?"
+                "Open `02_topic-source-index.csv` and name the Cambridge/Hopkins "
+                "source group row and original label."
             ),
             wrapped_bullet(
-                "Which period counts are only source-table counts and still "
-                "need human review?"
+                "Open `03_period-count-index.csv` and list which period counts are "
+                "only source-table counts."
             ),
             wrapped_bullet(
-                "Which crosswalk routes should be checked against inscription "
-                "crosswalk materials?"
+                "Open `04_inscription-crosswalk-route-index.csv` and name the first "
+                "crosswalk route that needs inscription-context review."
             ),
             wrapped_bullet(
-                "Which label wording could mislead readers if treated as a "
-                "confirmed topic?"
+                "Open `06_human-topic-dossier.md` and record which label wording "
+                "could mislead readers if treated as a confirmed topic."
             ),
             wrapped_bullet(
-                "What evidence is still missing before any grammar or topic "
-                "assignment claim?"
+                "Open `08_topic-literature-context-dossier.md` and name missing "
+                "bibliography, proposer, alternate-label, or disagreement routes."
             ),
-            "",
-            "- 应先核对哪个 Cambridge/Hopkins 分组行和原始标签？",
-            "- 哪些 period count 只是来源表计数，仍待人工复核？",
-            "- 哪些 crosswalk 路线需要回到卜辞目录互证材料检查？",
-            "- 哪些标签措辞若被当成已确认主题，可能误导读者？",
-            "- 形成任何语法或主题归属结论前还缺哪些证据？",
+            wrapped_bullet(
+                "打开 `02_topic-source-index.csv`，写明 Cambridge/Hopkins 来源分组行"
+                "和原始标签。"
+            ),
+            wrapped_bullet(
+                "打开 `03_period-count-index.csv`，列出哪些分期计数只是来源表"
+                "计数，仍待人工复核。"
+            ),
+            wrapped_bullet(
+                "打开 `04_inscription-crosswalk-route-index.csv`，写明第一条需要"
+                "回到卜辞语境复核的 crosswalk 路线。"
+            ),
+            wrapped_bullet(
+                "打开 `06_human-topic-dossier.md`，记录哪些标签措辞若被当成"
+                "已确认主题会误导读者。"
+            ),
+            wrapped_bullet(
+                "打开 `08_topic-literature-context-dossier.md`，写明仍缺的书目、"
+                "提出者、替代标签或不同意见路线。"
+            ),
         ]
     )
     return f"""# {project_id} Human Topic Review Sheet / {project_id} 人工主题复核表
-
 ## Review Scope / 复核范围
 
 English:
@@ -553,70 +545,79 @@ def topic_dossier_text(
                 route_id=route["topic_crosswalk_route_id"],
                 crosswalk_id=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                heji=route["heji_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Heji route",
+                heji=route["heji_ref_id"]
+                or "待查: check 04_inscription-crosswalk-route-index.csv Heji route",
             )
             for route in first_routes
         ]
     )
     if not first_routes:
-        route_lines = "| 待查: route | 待查: crosswalk | 待查: period | 待查: Heji |"
+        route_lines = "| 待查: check 04_inscription-crosswalk-route-index.csv route | 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Heji |"
     questions = "\n".join(
         [
             wrapped_bullet(
-                "Which Cambridge/Hopkins bibliography or finding-list note "
-                "should be opened before trusting this topic label?"
+                "Open `02_topic-source-index.csv` and verify the source id, "
+                "download id, group number, and rights status."
             ),
             wrapped_bullet(
-                "Which period-count values need comparison with the source "
-                "classified table and inscription crosswalk rows?"
+                "Open `03_period-count-index.csv` and record which reported "
+                "counts need comparison with inscription examples."
             ),
             wrapped_bullet(
-                "Which inscription crosswalk routes should be checked before "
-                "any topic or grammar discussion starts?"
+                "Open `04_inscription-crosswalk-route-index.csv` before any "
+                "topic or grammar discussion starts."
             ),
             wrapped_bullet(
-                "Which later citation, proposer, disagreement, or alternate "
-                "classification has not yet been collected?"
+                "Open `08_topic-literature-context-dossier.md` for bibliography, "
+                "scope, proposer, and disagreement gaps."
             ),
             wrapped_bullet(
-                "What source evidence is missing before any grammar or "
-                "inscription-topic assignment can be reviewed?"
+                "Open `10_topic-citation-dispute-review-dossier.md` before using "
+                "this label in a research note."
             ),
-            "- 应先打开哪条 Cambridge/Hopkins 书目或 finding-list 说明，",
-            "  再信任这个主题标签？",
-            "- 哪些分期计数需要回到来源分类表和卜辞互证行核对？",
-            "- 哪些卜辞互证路线应在任何主题或语法讨论前先检查？",
-            "- 还缺哪些后续引用、提出者、不同意见或替代分类记录？",
-            "- 形成任何语法或卜辞主题归属复核前还缺哪些来源证据？",
+            wrapped_bullet(
+                "打开 `02_topic-source-index.csv`，核对来源 ID、下载记录 ID、"
+                "分组号和权利状态。"
+            ),
+            wrapped_bullet(
+                "打开 `03_period-count-index.csv`，记录哪些来源计数需要与卜辞"
+                "实例互相核对。"
+            ),
+            wrapped_bullet(
+                "讨论任何主题或语法问题前，先打开 "
+                "`04_inscription-crosswalk-route-index.csv`。"
+            ),
+            wrapped_bullet(
+                "打开 `08_topic-literature-context-dossier.md`，检查书目、适用"
+                "范围、提出者和不同意见缺口。"
+            ),
+            wrapped_bullet(
+                "在研究笔记中使用该标签前，先打开 "
+                "`10_topic-citation-dispute-review-dossier.md`。"
+            ),
         ]
     )
-    boundary = "\n".join(
-        [
-            "- not a grammar conclusion",
-            "- not an inscription-topic assignment",
-            "- not a transcription",
-            "- not a reading",
-            "- not a decipherment conclusion",
-            "- 不是语法结论",
-            "- 不是卜辞主题归属结论",
-            "- 不是释文",
-            "- 不是读法",
-            "- 不是释读结论",
-        ]
+    intro_en = wrapped_paragraph(
+        "This dossier records a Cambridge/Hopkins classified-table topic "
+        "candidate as a source route for later human review. It does not add a "
+        "grammar analysis or a topic conclusion."
     )
+    intro_zh = wrapped_paragraph(
+        "本档案把 Cambridge/Hopkins 分类表主题候选整理成后续人工复核的"
+        "来源路线。它不新增语法分析，也不新增主题结论。"
+    )
+    source_note = "待查: open Cambridge/Hopkins source summary row and 02_topic-source-index.csv"
+    label_note = "待查: compare 02_topic-source-index.csv with later bibliography labels"
     return f"""# Human Topic Dossier / 主题候选研究档案
-
 - Topic candidate ID / 主题候选 ID: `{project_id}`
 
-## Bibliography And Source Route / 书目与来源路线
-
 English:
-{wrapped_paragraph("This dossier records a Cambridge/Hopkins classified-table topic candidate as a source route for later human review. It does not add a grammar analysis or a topic conclusion.")}
+{intro_en}
 
 简体中文：
-本档案记录 Cambridge/Hopkins 分类表中的主题候选路线。
-它只供后续人工复核，不加入语法分析或主题结论。
+{intro_zh}
 
+## Bibliography And Source Route / 书目与来源路线
 | field | value |
 | --- | --- |
 | source id | {SOURCE_ID} |
@@ -624,75 +625,52 @@ English:
 | source file | {CLASSIFIED_SUMMARY.as_posix()} |
 | source summary row | {row["summary_row_id"]} |
 | source group | {row["group_number"]} |
+| rights status | metadata_only_until_verified |
 
 ## Topic Label And Scope / 主题标签与范围
-
 | field | value |
 | --- | --- |
 | English source label | {row["group_label_en"]} |
 | Chinese source label | {row["group_label_zh"]} |
-| reported total | {row["total_count"]} |
-| candidate status | source_classification_candidate |
-
-English:
-{wrapped_paragraph("The label is a controlled-vocabulary route from the source table. It may help locate inscription groups for review, but it does not prove a semantic, ritual, grammatical, or historical category.")}
-
-简体中文：
-该标签只是来源表的受控词表路线。
-它可帮助研究者找到待核查卜辞群。
-它不证明语义、祭祀、语法或历史分类。
+| current scope | source-classification candidate for review |
+| claim status | no grammar or inscription-topic claim |
 
 ## Period Counts And Inscription Routes / 分期计数与卜辞路线
-
-| period | source count |
+| period | source-table count |
 | --- | --- |
 {period_lines}
-
-| route summary | value |
-| --- | --- |
-| linked crosswalk route count | {len(routes)} |
-| route index | 04_inscription-crosswalk-route-index.csv |
 
 | route id | crosswalk id | period | Heji route |
 | --- | --- | --- | --- |
 {route_lines}
 
 ## Evidence Level And Review Status / 证据等级与复核状态
-
 | field | value |
 | --- | --- |
-| evidence level | metadata_route_only |
-| rights status | metadata_only_until_verified |
+| evidence level | metadata and crosswalk route only |
 | review status | needs_human_topic_review |
 | grammar analysis status | not_started |
 | inscription topic claim status | no_claim |
 
-English:
-{wrapped_paragraph("The evidence currently supports routing and counting only. Human review must reopen the source table, crosswalk rows, and any cited scholarship before using the label in research.")}
-
-简体中文：
-当前证据只支持路线整理和计数核查。
-研究使用前，必须回到来源表、互证行和相关文献复核。
-
 ## Citation And Disagreement Notes / 引用与分歧记录
-
-| field | value |
+| field | current status |
 | --- | --- |
-| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
-| proposer or classifier | Cambridge/Hopkins source table |
-| different opinions | 待查: review Cambridge/Hopkins label against later bibliography notes |
-| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
-| scope note | candidate route for later review |
+| citation relationship | {source_note} |
+| alternate labels | {label_note} |
+| different opinions | 待查: review Cambridge/Hopkins label against scholarship notes |
 
 ## Concrete Questions To Check / 具体待查问题
-
 {questions}
 
 ## Review Boundary / 复核边界
 
-{boundary}
+- candidate topic route only
+- not a grammar conclusion
+- not an inscription-topic assignment
+- not a transcription
+- not a reading
+- not a decipherment conclusion
 """
-
 
 def topic_dossier_index_payload(
     project_id: str,
@@ -749,6 +727,8 @@ def topic_dossier_index_payload(
     }
 
 
+
+
 def topic_literature_context_dossier_text(
     project_id: str,
     row: dict[str, str],
@@ -760,16 +740,16 @@ def topic_literature_context_dossier_text(
             "| {crosswalk} | {period} | {yingguo} | {heji} |".format(
                 crosswalk=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                yingguo=route["yingguo_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Yingguo route",
-                heji=route["heji_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Heji route",
+                yingguo=route["yingguo_ref_id"]
+                or "待查: check 04_inscription-crosswalk-route-index.csv Yingguo route",
+                heji=route["heji_ref_id"]
+                or "待查: check 04_inscription-crosswalk-route-index.csv Heji route",
             )
             for route in route_sample
         ]
     )
     if not route_lines:
-        route_lines = (
-            "| 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Yingguo | 待查: check 04_inscription-crosswalk-route-index.csv Heji |"
-        )
+        route_lines = "| 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Yingguo | 待查: check 04_inscription-crosswalk-route-index.csv Heji |"
     intro_en = wrapped_paragraph(
         "This human-readable dossier records the bibliography, citation, "
         "applicable-scope, evidence-level, inscription-context, proposer, "
@@ -777,37 +757,50 @@ def topic_literature_context_dossier_text(
         "candidate can support later research."
     )
     intro_zh = wrapped_paragraph(
-        "本档案记录主题候选进入后续研究前需要复核的书目、引用、适用范围、"
-        "证据等级、卜辞语境、提出者、不同意见和替代标签问题。"
+        "本档案记录主题候选进入后续研究前需要复核的书目、引用、适用"
+        "范围、证据等级、卜辞语境、提出者、不同意见和替代标签问题。"
     )
     questions = "\n".join(
-        wrapped_bullet(text)
-        for text in [
-            (
-                "Which bibliography note, source page, or finding-list row "
-                "supports the label?"
+        [
+            wrapped_bullet(
+                "Open the Cambridge/Hopkins finding-list source summary row "
+                "and record which bibliography note supports the label."
             ),
-            "哪条书目说明、来源页面或 finding-list 行支持该标签？",
-            "Which cited inscription route should be opened first?",
-            "应先打开哪条被引用的卜辞路线？",
-            (
-                "Which period, Heji, Yingguo, CUL, or Chalfant reference "
-                "needs source checking?"
+            wrapped_bullet(
+                "Open `04_inscription-crosswalk-route-index.csv` and name the "
+                "first cited inscription route to inspect."
             ),
-            "哪项分期、合集、英粹、CUL 或 Chalfant 引用需要回源核对？",
-            "Who proposed the label, and is the proposer only a source table?",
-            "标签提出者是谁，当前是否只是来源表分类？",
-            "Which alternate labels or disagreements remain uncollected?",
-            "哪些替代标签或不同意见仍未收集？",
-            (
-                "What evidence is missing before any grammar, topic, or "
-                "historical claim?"
+            wrapped_bullet(
+                "Open `02_topic-source-index.csv` and compare the source label "
+                "with later bibliography labels."
             ),
-            "形成任何语法、主题或历史判断前还缺哪些证据？",
+            wrapped_bullet(
+                "Record whether the missing evidence is bibliography, cited "
+                "inscription, proposer, alternate label, or disagreement."
+            ),
+            wrapped_bullet(
+                "打开 Cambridge/Hopkins finding-list 来源摘要行，记录哪条书目"
+                "说明支持该标签。"
+            ),
+            wrapped_bullet(
+                "打开 `04_inscription-crosswalk-route-index.csv`，写明第一条"
+                "需要查看的被引卜辞路线。"
+            ),
+            wrapped_bullet(
+                "打开 `02_topic-source-index.csv`，把来源标签与后出书目标签"
+                "进行比较。"
+            ),
+            wrapped_bullet(
+                "记录缺失证据属于书目、被引卜辞、提出者、替代标签还是"
+                "不同意见。"
+            ),
         ]
     )
+    boundary_zh = wrapped_paragraph(
+        "当前证据只支持查找路线、核对计数和复核书目，不建立语法类别、"
+        "历史事实或已接受的主题归属。"
+    )
     return f"""# Topic Literature And Inscription Context Dossier / 主题文献与卜辞语境档案
-
 Topic candidate ID: `{project_id}`
 
 English:
@@ -817,7 +810,6 @@ English:
 {intro_zh}
 
 ## Bibliography And Citation Route / 书目与引用路线
-
 | field | value |
 | --- | --- |
 | source id | {SOURCE_ID} |
@@ -829,7 +821,6 @@ English:
 | source label zh | {row["group_label_zh"]} |
 
 ## Applicable Scope And Evidence Level / 适用范围与证据等级
-
 | field | value |
 | --- | --- |
 | applicable scope | source-classification route for review |
@@ -842,7 +833,7 @@ English:
 {wrapped_paragraph("The current evidence supports route finding, count checking, and bibliography review only. It does not establish a controlled grammar category, historical fact, or accepted topic assignment.")}
 
 简体中文：
-{wrapped_paragraph("当前证据只支持查找路线、核对计数和复核书目，不建立语法类别、历史事实或已接受的主题归属。")}
+{boundary_zh}
 
 ## Inscription Context Routes / 卜辞语境路线
 
@@ -861,9 +852,9 @@ English:
 | field | current status |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
-| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and bibliography note |
-| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
-| alternate labels | 待查: compare 02_topic-source-index.csv with source label alternatives |
+| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row |
+| different opinions | 待查: review Cambridge/Hopkins label against scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with source labels |
 | applicability note | candidate literature context only |
 
 ## Concrete Missing Literature Questions / 具体缺失文献问题
@@ -879,7 +870,6 @@ English:
 - not a reading
 - not a decipherment conclusion
 """
-
 
 def topic_literature_context_index_payload(
     project_id: str,
@@ -937,6 +927,8 @@ def topic_literature_context_index_payload(
     }
 
 
+
+
 def topic_citation_dispute_review_dossier_text(
     project_id: str,
     row: dict[str, str],
@@ -948,55 +940,61 @@ def topic_citation_dispute_review_dossier_text(
             "| {crosswalk} | {period} | {yingguo} | {chalfant} |".format(
                 crosswalk=route["inscription_crosswalk_project_id"],
                 period=route["period_label"],
-                yingguo=route["yingguo_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Yingguo route",
-                chalfant=route["chalfant_ref_id"] or "待查: check 04_inscription-crosswalk-route-index.csv Chalfant route",
+                yingguo=route["yingguo_ref_id"]
+                or "待查: check 04_inscription-crosswalk-route-index.csv Yingguo route",
+                chalfant=route["chalfant_ref_id"]
+                or "待查: check 04_inscription-crosswalk-route-index.csv Chalfant route",
             )
             for route in route_sample
         ]
     )
     if not route_lines:
-        route_lines = (
-            "| 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Yingguo | 待查: check 04_inscription-crosswalk-route-index.csv Chalfant |"
-        )
+        route_lines = "| 待查: check 04_inscription-crosswalk-route-index.csv crosswalk | 待查: check 04_inscription-crosswalk-route-index.csv period | 待查: check 04_inscription-crosswalk-route-index.csv Yingguo | 待查: check 04_inscription-crosswalk-route-index.csv Chalfant |"
     intro_en = wrapped_paragraph(
         "This dossier is a human review map for citation relationships, "
         "proposer/classifier evidence, disagreements, and alternate labels. "
         "It keeps those checks next to the topic candidate before any formal "
         "grammar or inscription-topic study begins."
     )
-    intro_zh = "\n".join(
-        [
-            "本档案是主题候选的引用关系、提出者或分类者、不同意见",
-            "和替代标签复核地图。它只为正式语法或卜辞主题研究前的",
-            "资料整理服务。",
-        ]
+    intro_zh = wrapped_paragraph(
+        "本档案是主题候选的引用关系、提出者或分类者、不同意见和替代"
+        "标签复核地图。它只为正式语法或卜辞主题研究前的资料整理服务。"
     )
     questions = "\n".join(
         [
             wrapped_bullet(
-                "Which Cambridge/Hopkins source note or finding-list page "
-                "first states this label?"
+                "Open the Cambridge/Hopkins source note or finding-list page "
+                "that first states this label."
             ),
             wrapped_bullet(
-                "Which inscription crosswalk rows cite the label through "
-                "Yingguo, CUL, Chalfant, or Heji routes?"
+                "Open `04_inscription-crosswalk-route-index.csv` and name "
+                "which Yingguo, CUL, Chalfant, or Heji route cites the label."
             ),
             wrapped_bullet(
-                "Which later publication repeats, narrows, rejects, or "
-                "renames the source classification?"
+                "Open later bibliography notes and record whether they repeat, "
+                "narrow, reject, or rename the source classification."
             ),
             wrapped_bullet(
-                "Which alternate labels must be compared before this label is "
-                "used in a research note?"
+                "Open `08_topic-literature-context-dossier.md` and name "
+                "alternate labels to compare before research use."
             ),
-            "- 哪条 Cambridge/Hopkins 来源说明或 finding-list 页首先记录该标签？",
-            "- 哪些卜辞互证行通过英粹、CUL、Chalfant 或合集路线引用该标签？",
-            "- 哪些后出文献重复、缩小、反对或改称这个来源分类？",
-            "- 在研究笔记中使用该标签前，需要比较哪些替代标签？",
+            wrapped_bullet(
+                "打开最早记录该标签的 Cambridge/Hopkins 来源说明或 finding-list 页。"
+            ),
+            wrapped_bullet(
+                "打开 `04_inscription-crosswalk-route-index.csv`，写明哪条"
+                "英粹、CUL、Chalfant 或合集路线引用该标签。"
+            ),
+            wrapped_bullet(
+                "打开后出书目笔记，记录其重复、缩小、反对还是改称该来源分类。"
+            ),
+            wrapped_bullet(
+                "打开 `08_topic-literature-context-dossier.md`，写明研究使用前"
+                "需要比较的替代标签。"
+            ),
         ]
     )
     return f"""# Topic Citation And Dispute Review Dossier / 主题引用与争议复核档案
-
 Topic candidate ID: `{project_id}`
 
 English:
@@ -1017,21 +1015,19 @@ English:
 | source label zh | {row["group_label_zh"]} |
 
 ## Proposer And Classification Trail / 提出者与分类链
-
 | field | value |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
 | current evidence level | metadata and route evidence only |
-| bibliography route | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
-| classification route | 待查: check 04_inscription-crosswalk-route-index.csv table row links |
+| bibliography route | 待查: open Cambridge/Hopkins finding-list source summary row |
+| classification route | 待查: check 04_inscription-crosswalk-route-index.csv rows |
 | review status | needs_human_topic_review |
 
 ## Disagreements And Alternate Labels / 不同意见与替代标签
-
 | field | value |
 | --- | --- |
-| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
-| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
+| different opinions | 待查: review Cambridge/Hopkins label against scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with bibliography labels |
 | applicability risk | label may overstate a source classification |
 | claim status | no grammar or inscription-topic claim |
 
@@ -1042,7 +1038,6 @@ English:
 {route_lines}
 
 ## Specific Next Source Checks / 具体下一步来源核查
-
 {questions}
 
 ## Review Boundary / 复核边界
@@ -1054,7 +1049,6 @@ English:
 - not a reading
 - not a decipherment conclusion
 """
-
 
 def topic_citation_dispute_review_index_payload(
     project_id: str,

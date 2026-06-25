@@ -1,5 +1,4 @@
 # Topic Citation And Dispute Review Dossier / 主题引用与争议复核档案
-
 Topic candidate ID: `obs-topic-cand-000005`
 
 English:
@@ -9,9 +8,7 @@ those checks next to the topic candidate before any formal grammar or
 inscription-topic study begins.
 
 简体中文：
-本档案是主题候选的引用关系、提出者或分类者、不同意见
-和替代标签复核地图。它只为正式语法或卜辞主题研究前的
-资料整理服务。
+本档案是主题候选的引用关系、提出者或分类者、不同意见和替代标签复核地图。它只为正式语法或卜辞主题研究前的资料整理服务。
 
 ## Citation Relationship Checks / 引用关系核查
 
@@ -25,21 +22,19 @@ inscription-topic study begins.
 | source label zh | 职官、刑罚 |
 
 ## Proposer And Classification Trail / 提出者与分类链
-
 | field | value |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
 | current evidence level | metadata and route evidence only |
-| bibliography route | 待查: open Cambridge/Hopkins finding-list source summary row and 02_topic-source-index.csv |
-| classification route | 待查: check 04_inscription-crosswalk-route-index.csv table row links |
+| bibliography route | 待查: open Cambridge/Hopkins finding-list source summary row |
+| classification route | 待查: check 04_inscription-crosswalk-route-index.csv rows |
 | review status | needs_human_topic_review |
 
 ## Disagreements And Alternate Labels / 不同意见与替代标签
-
 | field | value |
 | --- | --- |
-| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
-| alternate labels | 待查: compare 02_topic-source-index.csv with later bibliography labels |
+| different opinions | 待查: review Cambridge/Hopkins label against scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with bibliography labels |
 | applicability risk | label may overstate a source classification |
 | claim status | no grammar or inscription-topic claim |
 
@@ -55,19 +50,18 @@ inscription-topic study begins.
 | obs-insc-cw-cand-000494 | IV | y2422 | 200 |
 
 ## Specific Next Source Checks / 具体下一步来源核查
-
-- Which Cambridge/Hopkins source note or finding-list page first states this
-  label?
-- Which inscription crosswalk rows cite the label through Yingguo, CUL,
-  Chalfant, or Heji routes?
-- Which later publication repeats, narrows, rejects, or renames the source
-  classification?
-- Which alternate labels must be compared before this label is used in a
-  research note?
-- 哪条 Cambridge/Hopkins 来源说明或 finding-list 页首先记录该标签？
-- 哪些卜辞互证行通过英粹、CUL、Chalfant 或合集路线引用该标签？
-- 哪些后出文献重复、缩小、反对或改称这个来源分类？
-- 在研究笔记中使用该标签前，需要比较哪些替代标签？
+- Open the Cambridge/Hopkins source note or finding-list page that first states
+  this label.
+- Open `04_inscription-crosswalk-route-index.csv` and name which Yingguo, CUL,
+  Chalfant, or Heji route cites the label.
+- Open later bibliography notes and record whether they repeat, narrow, reject,
+  or rename the source classification.
+- Open `08_topic-literature-context-dossier.md` and name alternate labels to
+  compare before research use.
+- 打开最早记录该标签的 Cambridge/Hopkins 来源说明或 finding-list 页。
+- 打开 `04_inscription-crosswalk-route-index.csv`，写明哪条英粹、CUL、Chalfant 或合集路线引用该标签。
+- 打开后出书目笔记，记录其重复、缩小、反对还是改称该来源分类。
+- 打开 `08_topic-literature-context-dossier.md`，写明研究使用前需要比较的替代标签。
 
 ## Review Boundary / 复核边界
 

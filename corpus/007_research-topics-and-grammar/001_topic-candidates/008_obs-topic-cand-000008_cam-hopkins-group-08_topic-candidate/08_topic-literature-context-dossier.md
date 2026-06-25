@@ -1,5 +1,4 @@
 # Topic Literature And Inscription Context Dossier / 主题文献与卜辞语境档案
-
 Topic candidate ID: `obs-topic-cand-000008`
 
 English:
@@ -12,7 +11,6 @@ research.
 本档案记录主题候选进入后续研究前需要复核的书目、引用、适用范围、证据等级、卜辞语境、提出者、不同意见和替代标签问题。
 
 ## Bibliography And Citation Route / 书目与引用路线
-
 | field | value |
 | --- | --- |
 | source id | src-cambridge-hopkins |
@@ -24,7 +22,6 @@ research.
 | source label zh | 贡纳 |
 
 ## Applicable Scope And Evidence Level / 适用范围与证据等级
-
 | field | value |
 | --- | --- |
 | applicable scope | source-classification route for review |
@@ -65,25 +62,25 @@ fact, or accepted topic assignment.
 | field | current status |
 | --- | --- |
 | proposer or classifier | Cambridge/Hopkins source table |
-| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row and bibliography note |
-| different opinions | 待查: review Cambridge/Hopkins label against later scholarship notes |
-| alternate labels | 待查: compare 02_topic-source-index.csv with source label alternatives |
+| citation relationship | 待查: open Cambridge/Hopkins finding-list source summary row |
+| different opinions | 待查: review Cambridge/Hopkins label against scholarship notes |
+| alternate labels | 待查: compare 02_topic-source-index.csv with source labels |
 | applicability note | candidate literature context only |
 
 ## Concrete Missing Literature Questions / 具体缺失文献问题
 
-- Which bibliography note, source page, or finding-list row supports the label?
-- 哪条书目说明、来源页面或 finding-list 行支持该标签？
-- Which cited inscription route should be opened first?
-- 应先打开哪条被引用的卜辞路线？
-- Which period, Heji, Yingguo, CUL, or Chalfant reference needs source checking?
-- 哪项分期、合集、英粹、CUL 或 Chalfant 引用需要回源核对？
-- Who proposed the label, and is the proposer only a source table?
-- 标签提出者是谁，当前是否只是来源表分类？
-- Which alternate labels or disagreements remain uncollected?
-- 哪些替代标签或不同意见仍未收集？
-- What evidence is missing before any grammar, topic, or historical claim?
-- 形成任何语法、主题或历史判断前还缺哪些证据？
+- Open the Cambridge/Hopkins finding-list source summary row and record which
+  bibliography note supports the label.
+- Open `04_inscription-crosswalk-route-index.csv` and name the first cited
+  inscription route to inspect.
+- Open `02_topic-source-index.csv` and compare the source label with later
+  bibliography labels.
+- Record whether the missing evidence is bibliography, cited inscription,
+  proposer, alternate label, or disagreement.
+- 打开 Cambridge/Hopkins finding-list 来源摘要行，记录哪条书目说明支持该标签。
+- 打开 `04_inscription-crosswalk-route-index.csv`，写明第一条需要查看的被引卜辞路线。
+- 打开 `02_topic-source-index.csv`，把来源标签与后出书目标签进行比较。
+- 记录缺失证据属于书目、被引卜辞、提出者、替代标签还是不同意见。
 
 ## Review Boundary / 复核边界
 

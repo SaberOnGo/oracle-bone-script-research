@@ -3951,14 +3951,19 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
     review_sheet_snippets = [
         "Concrete Questions To Check",
         "具体待查问题",
-        "应先核对哪个 Cambridge/Hopkins 分组行和原始标签？",
-        "哪些 period count 只是来源表计数，仍待人工复核？",
-        "哪些 crosswalk 路线需要回到卜辞目录互证材料检查？",
-        "形成任何语法或主题归属结论前还缺哪些证据？",
+        "打开 `02_topic-source-index.csv`，写明 Cambridge/Hopkins 来源分组行",
+        "打开 `03_period-count-index.csv`，列出哪些分期计数只是来源表",
+        "打开 `04_inscription-crosswalk-route-index.csv`，写明第一条需要",
+        "打开 `08_topic-literature-context-dossier.md`，写明仍缺的书目",
         "No grammar analysis or inscription-topic conclusion added",
         "No transcription, reading, or decipherment conclusion added",
         "Grammar analysis status / 语法分析状态: `not_started`",
         "Inscription topic claim status / 卜辞主题结论状态: `no_claim`",
+    ]
+    generic_topic_questions = [
+        "What evidence is still missing before any grammar or topic assignment claim?",
+        "What evidence is missing before any grammar, topic, or historical claim?",
+        "What source evidence is missing before any grammar or inscription-topic",
     ]
     for index, row in enumerate(rows, start=1):
         topic_id = row.get("topic_candidate_id", "")
@@ -3991,6 +3996,17 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                     f"{human_markdown_path.relative_to(root).as_posix()} "
                     "contains Unicode replacement characters"
                 )
+            if "????" in human_markdown:
+                issues.append(
+                    f"{human_markdown_path.relative_to(root).as_posix()} "
+                    "contains question-mark mojibake"
+                )
+            for generic_question in generic_topic_questions:
+                if generic_question in human_markdown:
+                    issues.append(
+                        f"{human_markdown_path.relative_to(root).as_posix()} "
+                        f"contains generic topic question: {generic_question}"
+                    )
             for line_number, line in enumerate(human_markdown.splitlines(), start=1):
                 if line.startswith("|") or line.startswith("!["):
                     if "\u5f85\u67e5:" in line:

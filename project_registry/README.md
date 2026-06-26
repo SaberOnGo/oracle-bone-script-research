@@ -17,28 +17,22 @@ Use the registry in this order:
 
 1. Open the relevant object-local dossier or review sheet first.
 2. Open `001_repository-structure-and-naming-rules/` for path rules.
-3. Open `002_project-id-to-source-reference-map/` for project-local ID maps.
-4. Open `003_external-source-prefixes/` for source system abbreviations.
-5. Open `004_asset-source-and-rights-index/` for the asset rights index.
+3. Open `002_project-id-to-source-reference-map/` for ID maps.
+4. Open `003_external-source-prefixes/` for source abbreviations.
+5. Open `004_asset-source-and-rights-index/` for asset rights.
 6. Open `006_large-source-register/` for the large-source register.
 7. Return to the object-local dossier before recording review outcomes.
 
 简体中文：
-使用登记表时，按以下顺序处理：
-
-1. 先打开相关对象目录内档案或人工复核表。
-2. 打开 `001_repository-structure-and-naming-rules/` 查看路径规则。
-3. 打开 `002_project-id-to-source-reference-map/` 查看本项目 ID 映射。
-4. 打开 `003_external-source-prefixes/` 查看来源系统缩写。
-5. 打开 `004_asset-source-and-rights-index/` 查看资产权利索引。
-6. 打开 `006_large-source-register/` 查看大型来源登记。
-7. 记录复核结果前，回到对象目录内档案核对。
+使用登记表时，先打开对象目录内档案或人工复核表，再查路径规则、
+ID 映射、来源前缀、资产权利和大型来源登记。记录复核结果前，要
+回到对象目录内档案核对。
 
 ## Main Areas / 主要分区
 
-- `001_repository-structure-and-naming-rules/` records path and naming rules.
+- `001_repository-structure-and-naming-rules/` records path rules.
 - `002_project-id-to-source-reference-map/` maps repository IDs to sources.
-- `003_external-source-prefixes/` lists external source prefixes.
+- `003_external-source-prefixes/` lists source system abbreviations.
 - `004_asset-source-and-rights-index/` records asset provenance and rights.
 - `006_large-source-register/` records oversized or risky source packages.
 
@@ -64,10 +58,8 @@ Use the registry in this order:
 English:
 Registry rows are source provenance and routing records. They are not
 scholarship, not a rights decision, not corpus import approval, not an object
-identity claim, and not a decipherment conclusion. This is not a decipherment
-conclusion.
+identity claim, and not a decipherment conclusion.
 
 简体中文：
 登记表行只是来源追溯和复核路线记录。它们不是学术结论，不是权利
-决定，不是语料导入批准，不是对象身份判断，也不是释读结论。这不是
-释读结论。
+决定，不是语料导入批准，不是对象身份判断，也不是释读结论。

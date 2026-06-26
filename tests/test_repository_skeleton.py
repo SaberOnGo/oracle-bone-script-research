@@ -3089,7 +3089,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             "缂",
             "閻",
             "娑",
-            "\ufffd",
+            "涓",
+            "鏉",
+            "褰",
+            "�",
         )
         for relative, markers in marker_sets.items():
             text = (repo_root() / relative).read_text(encoding="utf-8")

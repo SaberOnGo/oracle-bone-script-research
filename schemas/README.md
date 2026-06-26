@@ -23,15 +23,9 @@ Use schemas in this order:
 7. Treat a passing schema check as structure-only validation.
 
 简体中文：
-使用 schema 时，按以下顺序处理：
-
-1. 先打开对象目录内的档案、复核表或来源说明。
-2. 核对来源追溯、权利状态和复核状态。
-3. 然后再打开 JSON、CSV、图边或 evidence-pack 文件。
-4. 用 schema 检查字段名、必需状态和路线结构。
-5. 资料不完整时，必须保留候选状态和复核状态。
-6. 缺失证据要写入人类可读文件中的具体待查问题。
-7. schema 通过只说明结构合格，不说明学术内容已确认。
+使用 schema 时，先打开对象目录内档案、复核表或来源说明；核对来源
+追溯、权利状态和复核状态后，再打开 JSON、CSV、图边或 evidence-pack
+文件。schema 只验证结构，不证明学术内容已经确认。
 
 ## Current Schema Areas / 当前 schema 分区
 
@@ -62,10 +56,9 @@ Use schemas in this order:
 English:
 A schema validates structure, not scholarly truth. Passing schema validation
 does not confirm a reading, component assignment, inscription identity,
-source identity, evolution route, or paleographic correspondence. It is not a
-decipherment conclusion. This is not a decipherment conclusion.
+source identity, evolution route, or paleographic correspondence.
+It is not a decipherment conclusion and not a scholarly confirmation.
 
 简体中文：
 schema 校验的是结构，不是学术真实性。通过 schema 不等于确认释读、
-构件归属、卜辞身份、来源身份、演化路线或古文字对应关系。它不是
-释读结论。这不是释读结论。
+构件归属、卜辞身份、来源身份、演化路线或古文字对应关系。它不是释读结论。

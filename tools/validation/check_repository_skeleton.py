@@ -4739,6 +4739,9 @@ COMMON_CHINESE_MOJIBAKE_FRAGMENTS = (
     "缂",
     "閻",
     "娑",
+    "涓",
+    "鏉",
+    "褰",
     "\ufffd",
 )
 

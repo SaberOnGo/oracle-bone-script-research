@@ -24,6 +24,25 @@ REVIEW_QUEUE = Path(
     "corpus/009_statistics-and-derived-features/"
     "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv"
 )
+SOURCE_INDEX = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "001_all-sources-index.csv"
+)
+SOURCE_FIELD_MAP = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "007_source-field-map.csv"
+)
+SOURCE_PACKAGE_MANIFEST = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "009_source-package-file-manifest.csv"
+)
+SOURCE_DOWNLOAD_LOG = Path(
+    "project_registry/006_large-source-register/002_source-download-log.csv"
+)
+SOURCE_OBJECT_DIR = Path(
+    "corpus/006_research-sources-and-bibliography/001_source-objects/"
+    "008_src-cambridge-hopkins_source-object"
+)
 INSCRIPTION_MAP = Path(
     "project_registry/002_project-id-to-source-reference-map/"
     "002_oracle-inscription-id-source-map.csv"
@@ -165,6 +184,86 @@ def route_markdown(plate_routes: list[dict[str, str]]) -> str:
             ]
         )
     return "\n".join(lines)
+
+
+def first_matching_row(
+    rows: list[dict[str, str]],
+    field: str,
+    value: str,
+) -> dict[str, str]:
+    for row in rows:
+        if row.get(field) == value:
+            return row
+    return {}
+
+
+def source_provenance_audit_markdown(
+    download_log_row: dict[str, str],
+    source_index_row: dict[str, str],
+    package_manifest_rows: list[dict[str, str]],
+    field_map_rows: list[dict[str, str]],
+) -> str:
+    manifest_row = package_manifest_rows[0] if package_manifest_rows else {}
+    field_map_ids = "; ".join(
+        row.get("map_id", "")
+        for row in field_map_rows
+        if row.get("map_id")
+    ) or "待查: source field map row"
+    checksum = download_log_row.get("checksum_sha256") or "待查: checksum"
+    risk_note = (
+        download_log_row.get("risk_note")
+        or source_index_row.get("risk_note")
+        or "待查: visible source risk note"
+    )
+    text = f"""## Source Provenance Audit / 来源追溯审计
+
+- Download log path:
+- `{SOURCE_DOWNLOAD_LOG.as_posix()}`
+- Download status: `{download_log_row.get('status', '待查: download status')}`
+- HTTP status: `{download_log_row.get('http_status', '待查: HTTP status')}`
+- File size bytes: `{download_log_row.get('file_size_bytes', '待查: size')}`
+- Checksum SHA-256:
+- `{checksum}`
+- Source object directory:
+- `corpus/006_research-sources-and-bibliography/001_source-objects/`
+- `008_src-cambridge-hopkins_source-object/`
+- Source object dossier: `10_source-evidence-dossier.md`
+- Source evidence index: `11_source-evidence-dossier-index.json`
+- Source register directory:
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+- Source register file: `001_all-sources-index.csv`
+- Package manifest: `009_source-package-file-manifest.csv`
+- Package file ID: `{manifest_row.get('package_file_id', '待查: package file')}`
+- Field map: `007_source-field-map.csv`
+- Field map rows: `{field_map_ids}`
+- Rights status: `{source_index_row.get('rights_status', '待查: rights')}`
+- Review status: `{source_index_row.get('review_status', '待查: review')}`
+- Risk note:
+{paragraph(risk_note)}
+
+This audit is a source route checklist. It does not confirm any inscription
+identity, image right, OCR text, transcription, or decipherment conclusion.
+
+本审计段只是来源路线清单，不确认卜辞身份、图像权利、OCR、释文或释读。
+"""
+    return text
+
+
+def research_slot_markdown() -> str:
+    return """## Component Scholarship And Relation Slots / 构件、文献与关系待查槽位
+
+- Component evidence: `待查: linked character and component routes`
+- 构件线索：`待查: 关联字形、构件或字位路线`
+- Scholarship and disputes: `待查: bibliography, proposer, dispute`
+- 文献与争议：`待查: 书目、提出者、释读史或不同意见`
+- Variant or later-script relations: `待查: variant, bronze, seal, modern`
+- 异体或后世关系：`待查: 异体、近形、金文、小篆或今字关系`
+
+These are review slots only. They do not assign components, readings,
+variant relations, or accepted scholarly positions.
+
+以上只是复核槽位，不确认构件、释读、异体关系或已接受学术意见。
+"""
 
 
 def repo_root() -> Path:
@@ -604,6 +703,7 @@ def human_dossier_text(
     project_id: str,
     catalog_rows: list[dict[str, str]],
     plate_routes: list[dict[str, str]],
+    source_audit: str,
 ) -> str:
     refs = catalog_reference_markdown(catalog_rows)
     routes = route_markdown(plate_routes)
@@ -648,6 +748,8 @@ known gaps, and the files that must be opened before formal research.
 - Rights status: `{row['rights_status']}`
 - Boundary: metadata route only, pending source review.
 
+{source_audit}
+
 ## Period And Group / 时期与组别
 
 - Period label: `{row['period_label']}`
@@ -680,6 +782,8 @@ These labels are imported metadata, not a new chronological judgement.
 - 哪条来源行、页码、图版、OCR 文件或著录路线支持它？
 - Do not turn OCR text or catalog labels into an inscription reading.
 - 不要把 OCR 文本或著录标签写成卜辞释读结论。
+
+{research_slot_markdown()}
 
 ## Missing Or Not Yet Collected / 缺失或未采集
 
@@ -740,6 +844,7 @@ def plate_evidence_dossier_text(
     project_id: str,
     catalog_rows: list[dict[str, str]],
     plate_routes: list[dict[str, str]],
+    source_audit: str,
 ) -> str:
     missing_refs = [
         ref["reference_type"]
@@ -808,6 +913,10 @@ Chalfant reference.
 - Missing relation evidence: `linked_character_occurrences`
 - Rights status: `{row['rights_status']}`
 - Evidence download ID: `{DOWNLOAD_ID}`
+
+{source_audit}
+
+{research_slot_markdown()}
 
 Concrete questions to check:
 
@@ -957,6 +1066,20 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     period_group_counts = Counter(
         f"{row['period_label']}|{row['group_number']}" for row in crosswalk_rows
     )
+    source_rows_for_audit = read_csv_rows(root / SOURCE_INDEX)
+    download_log_rows = read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    package_manifest_rows = read_csv_rows(root / SOURCE_PACKAGE_MANIFEST)
+    field_map_rows = read_csv_rows(root / SOURCE_FIELD_MAP)
+    source_audit = source_provenance_audit_markdown(
+        first_matching_row(download_log_rows, "download_id", DOWNLOAD_ID),
+        first_matching_row(source_rows_for_audit, "source_id", SOURCE_ID),
+        [
+            row
+            for row in package_manifest_rows
+            if row.get("source_id") == SOURCE_ID
+        ],
+        [row for row in field_map_rows if row.get("source_id") == SOURCE_ID],
+    )
     outputs: dict[str, dict[str, object]] = {}
     for index, row in enumerate(crosswalk_rows, start=1):
         project_id = project_id_for_index(index)
@@ -990,6 +1113,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 project_id,
                 catalog_rows,
                 plate_routes,
+                source_audit,
             ),
             "dossier_index": dossier_index(row, project_id, catalog_rows, plate_routes),
             "plate_evidence_dossier_text": plate_evidence_dossier_text(
@@ -998,6 +1122,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 project_id,
                 catalog_rows,
                 plate_routes,
+                source_audit,
             ),
             "plate_evidence_index": plate_evidence_index(
                 row,

@@ -4267,6 +4267,21 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("出土地、时期、批次与关联字形", plate_evidence_text)
             self.assertIn("Text Quality Missing Items And Review Status", plate_evidence_text)
             self.assertIn("文本质量、缺失项与复核状态", plate_evidence_text)
+            self.assertIn("Source Provenance Audit", plate_evidence_text)
+            self.assertIn("来源追溯审计", plate_evidence_text)
+            self.assertIn("Download log path", plate_evidence_text)
+            self.assertIn("project_registry/006_large-source-register/002_source-download-log.csv", plate_evidence_text)
+            self.assertIn("Download status: `downloaded`", plate_evidence_text)
+            self.assertIn("File size bytes: `74132`", plate_evidence_text)
+            self.assertIn("Checksum SHA-256", plate_evidence_text)
+            self.assertIn("f11bc30e9893e5d5b3d32371364d59503f100157aaa612800974883f5a78b4e7", plate_evidence_text)
+            self.assertIn("Source object dossier", plate_evidence_text)
+            self.assertIn("10_source-evidence-dossier.md", plate_evidence_text)
+            self.assertIn("Package manifest", plate_evidence_text)
+            self.assertIn("009_source-package-file-manifest.csv", plate_evidence_text)
+            self.assertIn("Field map", plate_evidence_text)
+            self.assertIn("007_source-field-map.csv", plate_evidence_text)
+            self.assertIn("Risk note", plate_evidence_text)
             self.assertIn(
                 "Full text or OCR: `待查: primary text or OCR route`",
                 plate_evidence_text,
@@ -4412,6 +4427,27 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Which route row shows unreadable, missing, or uncertain signs?",
             first["human_dossier_text"],
         )
+        self.assertIn("Source Provenance Audit", first["human_dossier_text"])
+        self.assertIn("来源追溯审计", first["human_dossier_text"])
+        self.assertIn("Download log path", first["human_dossier_text"])
+        self.assertIn(
+            "project_registry/006_large-source-register/002_source-download-log.csv",
+            first["human_dossier_text"],
+        )
+        self.assertIn("Download status: `downloaded`", first["human_dossier_text"])
+        self.assertIn("File size bytes: `74132`", first["human_dossier_text"])
+        self.assertIn("Checksum SHA-256", first["human_dossier_text"])
+        self.assertIn(
+            "f11bc30e9893e5d5b3d32371364d59503f100157aaa612800974883f5a78b4e7",
+            first["human_dossier_text"],
+        )
+        self.assertIn("Source object dossier", first["human_dossier_text"])
+        self.assertIn("10_source-evidence-dossier.md", first["human_dossier_text"])
+        self.assertIn("Component Scholarship And Relation Slots", first["human_dossier_text"])
+        self.assertIn("构件、文献与关系待查槽位", first["human_dossier_text"])
+        self.assertIn("Component evidence", first["human_dossier_text"])
+        self.assertIn("Scholarship and disputes", first["human_dossier_text"])
+        self.assertIn("Variant or later-script relations", first["human_dossier_text"])
         self.assertNotIn("哪些不可读、缺失或不确定字形必须标出？", first["human_dossier_text"])
         self.assertIn(
             "\u9700\u8981\u6838\u5bf9\u54ea\u4e9b\u56fe\u7248\u53f7"
@@ -4434,6 +4470,27 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("卜辞与图版证据档案", first["plate_evidence_dossier_text"])
         self.assertIn(
             "Full text or OCR: `待查: primary text or OCR route`",
+            first["plate_evidence_dossier_text"],
+        )
+        self.assertIn("Source Provenance Audit", first["plate_evidence_dossier_text"])
+        self.assertIn(
+            "project_registry/006_large-source-register/002_source-download-log.csv",
+            first["plate_evidence_dossier_text"],
+        )
+        self.assertIn(
+            "009_source-package-file-manifest.csv",
+            first["plate_evidence_dossier_text"],
+        )
+        self.assertIn("007_source-field-map.csv", first["plate_evidence_dossier_text"])
+        self.assertIn(
+            "Component Scholarship And Relation Slots",
+            first["plate_evidence_dossier_text"],
+        )
+        self.assertIn("构件、文献与关系待查槽位", first["plate_evidence_dossier_text"])
+        self.assertIn("Component evidence", first["plate_evidence_dossier_text"])
+        self.assertIn("Scholarship and disputes", first["plate_evidence_dossier_text"])
+        self.assertIn(
+            "Variant or later-script relations",
             first["plate_evidence_dossier_text"],
         )
         for line in first["plate_evidence_dossier_text"].splitlines():

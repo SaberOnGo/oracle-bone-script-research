@@ -33,6 +33,38 @@ known gaps, and the files that must be opened before formal research.
 - Rights status: `metadata_only_until_verified`
 - Boundary: metadata route only, pending source review.
 
+## Source Provenance Audit / 来源追溯审计
+
+- Download log path:
+- `project_registry/006_large-source-register/002_source-download-log.csv`
+- Download status: `downloaded`
+- HTTP status: `200`
+- File size bytes: `74132`
+- Checksum SHA-256:
+- `f11bc30e9893e5d5b3d32371364d59503f100157aaa612800974883f5a78b4e7`
+- Source object directory:
+- `corpus/006_research-sources-and-bibliography/001_source-objects/`
+- `008_src-cambridge-hopkins_source-object/`
+- Source object dossier: `10_source-evidence-dossier.md`
+- Source evidence index: `11_source-evidence-dossier-index.json`
+- Source register directory:
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+- Source register file: `001_all-sources-index.csv`
+- Package manifest: `009_source-package-file-manifest.csv`
+- Package file ID: `pkg-file-000015`
+- Field map: `007_source-field-map.csv`
+- Field map rows: `field-map-000019; field-map-000020`
+- Rights status: `metadata_only_until_verified`
+- Review status: `reviewed`
+- Risk note:
+Stored under ignored tmp directory; commit log/checksum only.
+
+This audit is a source route checklist. It does not confirm any inscription
+identity, image right, OCR text, transcription, or decipherment conclusion.
+
+本审计段只是来源路线清单，不确认卜辞身份、图像权利、OCR、释文或释读。
+
+
 ## Period And Group / 时期与组别
 
 - Period label: `II`
@@ -106,6 +138,21 @@ These labels are imported metadata, not a new chronological judgement.
 - 哪条来源行、页码、图版、OCR 文件或著录路线支持它？
 - Do not turn OCR text or catalog labels into an inscription reading.
 - 不要把 OCR 文本或著录标签写成卜辞释读结论。
+
+## Component Scholarship And Relation Slots / 构件、文献与关系待查槽位
+
+- Component evidence: `待查: linked character and component routes`
+- 构件线索：`待查: 关联字形、构件或字位路线`
+- Scholarship and disputes: `待查: bibliography, proposer, dispute`
+- 文献与争议：`待查: 书目、提出者、释读史或不同意见`
+- Variant or later-script relations: `待查: variant, bronze, seal, modern`
+- 异体或后世关系：`待查: 异体、近形、金文、小篆或今字关系`
+
+These are review slots only. They do not assign components, readings,
+variant relations, or accepted scholarly positions.
+
+以上只是复核槽位，不确认构件、释读、异体关系或已接受学术意见。
+
 
 ## Missing Or Not Yet Collected / 缺失或未采集
 

@@ -4648,6 +4648,32 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Oracle, Bronze, Seal, And Later-Script Review", dossier_text)
             self.assertIn("Modern Codepoint Route Review", dossier_text)
             self.assertIn("Bibliography, Database, And Web Source Routes", dossier_text)
+            self.assertIn("Source Provenance Audit", dossier_text)
+            self.assertIn("来源追溯审计", dossier_text)
+            self.assertIn("Download log path", dossier_text)
+            self.assertIn(
+                "project_registry/006_large-source-register/002_source-download-log.csv",
+                dossier_text,
+            )
+            self.assertIn("dl-evobc-key-value-json", dossier_text)
+            self.assertIn("dl-evobc-list-json", dossier_text)
+            self.assertIn("Download status: `downloaded`", dossier_text)
+            self.assertIn("File size bytes: `277219`", dossier_text)
+            self.assertIn("File size bytes: `23254733`", dossier_text)
+            self.assertIn("Checksum SHA-256", dossier_text)
+            self.assertIn(
+                "4cd93a859d975f00831f8b1db91069d859856f04314dc22a9e50aaff464bec38",
+                dossier_text,
+            )
+            self.assertIn(
+                "c81e0f6bc6a839fbd8a30788a2ffb30a9615fc12be00b85ae1f9e9a90e8ba1f7",
+                dossier_text,
+            )
+            self.assertIn("Package manifest", dossier_text)
+            self.assertIn("009_source-package-file-manifest.csv", dossier_text)
+            self.assertIn("Field map", dossier_text)
+            self.assertIn("007_source-field-map.csv", dossier_text)
+            self.assertIn("Risk note", dossier_text)
             self.assertIn("Missing Evidence And Next Checks", dossier_text)
             self.assertIn("Concrete Questions To Check", dossier_text)
             self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", dossier_text)
@@ -4705,6 +4731,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("金文、小篆与后世字形路线", cross_period_dossier)
             self.assertIn("今字与 codepoint 路线", cross_period_dossier)
             self.assertIn("来源证据、争议与释读史路线", cross_period_dossier)
+            self.assertIn("Source Provenance Audit", cross_period_dossier)
+            self.assertIn("来源追溯审计", cross_period_dossier)
+            self.assertIn("dl-evobc-key-value-json", cross_period_dossier)
+            self.assertIn("dl-evobc-list-json", cross_period_dossier)
+            self.assertIn(
+                "009_source-package-file-manifest.csv",
+                cross_period_dossier,
+            )
+            self.assertIn("007_source-field-map.csv", cross_period_dossier)
             self.assertIn("具体待查问题", cross_period_dossier)
             self.assertIn("这不是正式对应结论", cross_period_dossier)
             self.assertIn("这不是释读结论", cross_period_dossier)
@@ -4854,8 +4889,32 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Bibliography, Database, And Web Source Routes",
             first["human_dossier_text"],
         )
+        self.assertIn("Source Provenance Audit", first["human_dossier_text"])
+        self.assertIn("来源追溯审计", first["human_dossier_text"])
+        self.assertIn("dl-evobc-key-value-json", first["human_dossier_text"])
+        self.assertIn("dl-evobc-list-json", first["human_dossier_text"])
+        self.assertIn(
+            "4cd93a859d975f00831f8b1db91069d859856f04314dc22a9e50aaff464bec38",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "c81e0f6bc6a839fbd8a30788a2ffb30a9615fc12be00b85ae1f9e9a90e8ba1f7",
+            first["human_dossier_text"],
+        )
         self.assertIn(
             "跨时期字形复核档案",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "Source Provenance Audit",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "来源追溯审计",
+            first["cross_period_review_dossier_text"],
+        )
+        self.assertIn(
+            "009_source-package-file-manifest.csv",
             first["cross_period_review_dossier_text"],
         )
         self.assertIn(

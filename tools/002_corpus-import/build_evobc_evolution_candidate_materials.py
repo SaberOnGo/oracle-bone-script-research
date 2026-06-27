@@ -29,6 +29,21 @@ EVOLUTION_ID_MAP = Path(
     "project_registry/002_project-id-to-source-reference-map/"
     "005_evolution-candidate-id-source-map.csv"
 )
+SOURCE_REGISTER = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "001_all-sources-index.csv"
+)
+SOURCE_FIELD_MAP = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "007_source-field-map.csv"
+)
+SOURCE_PACKAGE_MANIFEST = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "009_source-package-file-manifest.csv"
+)
+SOURCE_DOWNLOAD_LOG = Path(
+    "project_registry/006_large-source-register/002_source-download-log.csv"
+)
 
 UPDATED_AT = "2026-06-20"
 MAX_HUMAN_LINE_LENGTH = 80
@@ -41,6 +56,17 @@ RIGHTS_STATUS = "source_marked_risk_noted"
 RESEARCH_BOUNDARY = (
     "evobc_evolution_category_candidate_only_not_formal_correspondence_not_evolution_chain"
 )
+HUMAN_LABEL_RISK_FRAGMENTS = [
+    "绠€",
+    "寰呮煡",
+    "绾跨储",
+    "鐮",
+    "閻",
+    "缂哄け",
+    "鑰冨彜",
+    "锟",
+    "\ufffd",
+]
 CAUTION = (
     "EVOBC category and image-reference metadata is useful for routing cross-period "
     "review, but this object is not an accepted paleographic correspondence, not an "
@@ -164,12 +190,30 @@ def parse_counts(value: str) -> dict[str, int]:
     return counts
 
 
+def first_matching_row(
+    rows: list[dict[str, str]],
+    key: str,
+    value: str,
+) -> dict[str, str]:
+    for row in rows:
+        if row.get(key) == value:
+            return row
+    return {}
+
+
 def project_id(index: int) -> str:
     return f"obs-evo-cand-{index:06d}"
 
 
 def primary_external_ref(row: dict[str, str]) -> str:
     return f"evobc-cat-{row['source_category_id']}"
+
+
+def human_source_label(row: dict[str, str]) -> str:
+    label = row["source_character_label"]
+    if any(fragment in label for fragment in HUMAN_LABEL_RISK_FRAGMENTS):
+        return "encoding-review-needed"
+    return label
 
 
 def bucket_dir(index: int) -> Path:
@@ -362,6 +406,130 @@ def route_cards_block(image_routes: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
+def source_provenance_audit_markdown(
+    source_rows: list[dict[str, str]],
+    source_register_rows: list[dict[str, str]],
+    download_log_rows: list[dict[str, str]],
+    package_manifest_rows: list[dict[str, str]],
+    field_map_rows: list[dict[str, str]],
+) -> str:
+    source_row = first_matching_row(source_register_rows, "source_id", SOURCE_ID)
+    field_rows = [row for row in field_map_rows if row.get("source_id") == SOURCE_ID]
+    package_rows = [
+        row for row in package_manifest_rows
+        if row.get("source_id") == SOURCE_ID
+    ]
+    source_title = source_row.get("title", "EVOBC source row")
+    source_rights = source_row.get("rights_status", RIGHTS_STATUS)
+    source_review = source_row.get("review_status", "reviewed_metadata_only")
+    source_risk = source_row.get(
+        "risk_note",
+        "Source image rights and source-chain authority require separate review.",
+    )
+    lines: list[str] = [
+        "## Source Provenance Audit / 来源追溯审计",
+        "",
+        *wrapped_bullet(f"Source register row: `{SOURCE_ID}` / {source_title}"),
+        *wrapped_bullet(f"Rights status: `{source_rights}`"),
+        *wrapped_bullet(f"Review status: `{source_review}`"),
+        *wrapped_bullet(
+            f"Download log path: `{SOURCE_DOWNLOAD_LOG.as_posix()}`"
+        ),
+        *wrapped_bullet(f"Package manifest: `{SOURCE_PACKAGE_MANIFEST.name}`"),
+        *wrapped_bullet(f"Field map: `{SOURCE_FIELD_MAP.name}`"),
+        *wrapped_bullet(f"Field map rows: `{len(field_rows)}`"),
+        *wrapped_bullet(f"Risk note: {source_risk}"),
+        "",
+    ]
+    for row in source_rows:
+        download_id = row["evidence_download_id"]
+        download = first_matching_row(
+            download_log_rows,
+            "download_id",
+            download_id,
+        )
+        package = first_matching_row(
+            package_rows,
+            "download_id",
+            download_id,
+        )
+        lines.extend(wrapped_bullet(f"Download ID: `{download_id}`"))
+        lines.extend(
+            wrapped_bullet(
+                f"Download status: `{download.get('status', 'missing')}`"
+            )
+        )
+        lines.extend(
+            wrapped_bullet(
+                f"HTTP status: `{download.get('http_status', 'missing')}`"
+            )
+        )
+        lines.extend(
+            wrapped_bullet(
+                "File size bytes: "
+                f"`{download.get('file_size_bytes', 'missing')}`"
+            )
+        )
+        lines.extend(wrapped_bullet("Checksum SHA-256:"))
+        lines.append(f"  `{download.get('checksum_sha256', 'missing')}`")
+        lines.extend(
+            wrapped_bullet(
+                "Package file ID: "
+                f"`{package.get('package_file_id', 'missing')}`"
+            )
+        )
+        lines.extend(
+            wrapped_bullet(
+                "Package file name: "
+                f"`{package.get('file_name', 'missing')}`"
+            )
+        )
+        lines.extend(
+            wrapped_bullet(
+                "Commit policy: "
+                f"`{package.get('commit_policy', 'missing')}`"
+            )
+        )
+    lines.extend(
+        [
+            "",
+            wrapped_paragraph(
+                "This audit is source-route evidence only. It does not confirm "
+                "a paleographic correspondence, an evolution chain, a modern "
+                "identity, image rights, or a decipherment conclusion."
+            ),
+        ]
+    )
+    return "\n".join(lines)
+
+
+def human_research_slot_markdown() -> str:
+    lines = bullet_block(
+        [
+            "字形 image check: compare primary image, rubbing, photograph, "
+            "handcopy, and damaged strokes before any visual comparison.",
+            "卜辞 check: record inscription number, full text or OCR, plate, "
+            "catalog, Heji or other catalog route, and page evidence.",
+            "出土 and 馆藏 check: record findspot, collection, period, 组类, "
+            "batch, and object provenance before cross-period comparison.",
+            "构件 and 组成 check: note component clues only after comparing "
+            "independent character dossiers and published component studies.",
+            "异体 and 近形 check: compare variant and near-shape evidence "
+            "against oracle, bronze, seal, and later-script examples.",
+            "金文, 小篆, 今字 check: keep bronze, seal, and modern codepoint "
+            "relations as candidate comparanda until sources are opened.",
+            "释读史 check: record scholar, proposer, paper, bibliography, "
+            "dispute, disagreement, and review status when found.",
+            "演化 and 关系 check: do not promote an evolution relation until "
+            "image, inscription, catalog, provenance, and period evidence agree.",
+        ]
+    )
+    return f"""## Human Research Review Slots / 人类研究复核槽位
+
+{lines}
+"""
+
+
 def image_route_rows(index: int, row: dict[str, str], code_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     pid = project_id(index)
     category_id = row["candidate_evolution_category_id"]
@@ -467,6 +635,7 @@ def human_dossier_text(
     row: dict[str, str],
     code_rows: list[dict[str, str]],
     image_routes: list[dict[str, str]],
+    source_audit: str,
 ) -> str:
     pid = project_id(index)
     intro_en = wrapped_paragraph(
@@ -485,7 +654,7 @@ def human_dossier_text(
             f"EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`",
             f"External category reference: `{primary_external_ref(row)}`",
             f"Source category ID: `{row['source_category_id']}`",
-            f"Source label: `{row['source_character_label']}`",
+            f"Source label for human review: `{human_source_label(row)}`",
             f"Source codepoints: `{row['source_character_codepoints']}`",
             f"Image reference count in source metadata: `{row['image_reference_count']}`",
             f"Review status: `{REVIEW_STATUS}`",
@@ -529,6 +698,7 @@ def human_dossier_text(
             "with no reviewed scholarly conclusion.",
         ]
     )
+    research_slot_lines = human_research_slot_markdown()
     missing_lines = bullet_block(
         [
             "Open `05_image-reference-route-index.csv` for each image reference route.",
@@ -596,6 +766,10 @@ Project ID: `{pid}`
 
 {bibliography_lines}
 
+{research_slot_lines}
+
+{source_audit}
+
 ## Missing Evidence And Next Checks / 缺失证据与下一步
 
 {missing_lines}
@@ -661,6 +835,7 @@ def cross_period_review_dossier_text(
     row: dict[str, str],
     code_rows: list[dict[str, str]],
     image_routes: list[dict[str, str]],
+    source_audit: str,
 ) -> str:
     pid = project_id(index)
     intro = wrapped_paragraph(
@@ -674,7 +849,7 @@ def cross_period_review_dossier_text(
             f"EVOBC 候选类别 ID：`{row['candidate_evolution_category_id']}`",
             f"外部类别引用：`{primary_external_ref(row)}`",
             f"来源类别 ID：`{row['source_category_id']}`",
-            f"来源标签：`{row['source_character_label']}`",
+            f"来源标签：`{human_source_label(row)}`",
             f"来源 codepoints：`{row['source_character_codepoints']}`",
             f"EVOBC 图像引用数量：`{row['image_reference_count']}`",
             f"复核状态：`{REVIEW_STATUS}`",
@@ -764,6 +939,8 @@ def cross_period_review_dossier_text(
 ## 来源证据、争议与释读史路线
 
 {source_lines}
+
+{source_audit}
 
 ## 已登记时期与来源代码
 
@@ -866,7 +1043,7 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
             f"Project ID: `{project_id(index)}`",
             f"EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`",
             f"External category ref: `{primary_external_ref(row)}`",
-            f"Source label: `{row['source_character_label']}`",
+            f"Source label for human review: `{human_source_label(row)}`",
             f"Source codepoints: `{row['source_character_codepoints']}`",
             f"Image reference count: `{row['image_reference_count']}`",
             f"Era token counts: `{row['era_token_counts']}`",
@@ -1156,29 +1333,48 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     category_rows = read_csv_rows(root / CATEGORY_STAGING)
     codebook = codebook_lookup(read_csv_rows(root / CODEBOOK_STAGING))
+    source_register_rows = read_csv_rows(root / SOURCE_REGISTER)
+    download_log_rows = read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    package_manifest_rows = read_csv_rows(root / SOURCE_PACKAGE_MANIFEST)
+    field_map_rows = read_csv_rows(root / SOURCE_FIELD_MAP)
     outputs: dict[str, dict[str, object]] = {}
     for index, row in enumerate(category_rows, start=1):
         directory = object_dir(index, row)
         code_rows = code_index_rows(index, row, codebook)
+        source_rows = source_index_rows(index, row)
         image_routes = image_route_rows(index, row, code_rows)
+        source_audit = source_provenance_audit_markdown(
+            source_rows,
+            source_register_rows,
+            download_log_rows,
+            package_manifest_rows,
+            field_map_rows,
+        )
         pid = project_id(index)
         outputs[pid] = {
             "object_dir": root / directory,
             "relative_object_dir": directory,
             "readme_text": readme_text(index, row, code_rows),
             "packet": packet_payload(index, row, directory, code_rows, image_routes),
-            "source_rows": source_index_rows(index, row),
+            "source_rows": source_rows,
             "code_rows": code_rows,
             "image_route_rows": image_routes,
             "image_route_gallery_text": image_route_gallery_text(index, row, image_routes),
             "review_sheet_text": review_sheet_text(index, row),
-            "human_dossier_text": human_dossier_text(index, row, code_rows, image_routes),
+            "human_dossier_text": human_dossier_text(
+                index,
+                row,
+                code_rows,
+                image_routes,
+                source_audit,
+            ),
             "dossier_index": dossier_index_payload(index, row, directory, code_rows, image_routes),
             "cross_period_review_dossier_text": cross_period_review_dossier_text(
                 index,
                 row,
                 code_rows,
                 image_routes,
+                source_audit,
             ),
             "cross_period_review_index": cross_period_review_index_payload(
                 index,

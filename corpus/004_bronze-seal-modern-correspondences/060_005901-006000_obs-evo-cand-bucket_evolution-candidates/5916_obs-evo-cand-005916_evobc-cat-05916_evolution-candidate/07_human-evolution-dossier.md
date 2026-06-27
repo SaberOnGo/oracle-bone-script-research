@@ -17,7 +17,7 @@ conclusion, and not a decipherment conclusion.
 - EVOBC category candidate ID: `evobc-evo-cat-05916`
 - External category reference: `evobc-cat-05916`
 - Source category ID: `05916`
-- Source label: `硾`
+- Source label for human review: `硾`
 - Source codepoints: `U+787E`
 - Image reference count in source metadata: `1`
 - Review status: `needs_human_evolution_review`
@@ -92,6 +92,63 @@ verify images, inscriptions, catalogs, and scholarship.
   published correspondence or variant history is later found.
 - Until bibliography is opened, keep this object as a route dossier with no
   reviewed scholarly conclusion.
+
+## Human Research Review Slots / 人类研究复核槽位
+
+- 字形 image check: compare primary image, rubbing, photograph, handcopy, and
+  damaged strokes before any visual comparison.
+- 卜辞 check: record inscription number, full text or OCR, plate, catalog, Heji or
+  other catalog route, and page evidence.
+- 出土 and 馆藏 check: record findspot, collection, period, 组类, batch, and object
+  provenance before cross-period comparison.
+- 构件 and 组成 check: note component clues only after comparing independent
+  character dossiers and published component studies.
+- 异体 and 近形 check: compare variant and near-shape evidence against oracle,
+  bronze, seal, and later-script examples.
+- 金文, 小篆, 今字 check: keep bronze, seal, and modern codepoint relations as
+  candidate comparanda until sources are opened.
+- 释读史 check: record scholar, proposer, paper, bibliography, dispute,
+  disagreement, and review status when found.
+- 演化 and 关系 check: do not promote an evolution relation until image,
+  inscription, catalog, provenance, and period evidence agree.
+
+
+## Source Provenance Audit / 来源追溯审计
+
+- Source register row: `src-evobc` / EVOBC: Evolution Oracle Bone Characters
+  Dataset
+- Rights status: `source_marked_risk_noted`
+- Review status: `reviewed`
+- Download log path:
+  `project_registry/006_large-source-register/002_source-download-log.csv`
+- Package manifest: `009_source-package-file-manifest.csv`
+- Field map: `007_source-field-map.csv`
+- Field map rows: `2`
+- Risk note: Useful for evolution-chain experiments, but source texts/websites
+  and image rights need separate review before corpus import.
+
+- Download ID: `dl-evobc-key-value-json`
+- Download status: `downloaded`
+- HTTP status: `200`
+- File size bytes: `277219`
+- Checksum SHA-256:
+  `4cd93a859d975f00831f8b1db91069d859856f04314dc22a9e50aaff464bec38`
+- Package file ID: `pkg-file-000012`
+- Package file name: `Key&Value.json`
+- Commit policy: `download_to_tmp_log_checksum_only`
+- Download ID: `dl-evobc-list-json`
+- Download status: `downloaded`
+- HTTP status: `200`
+- File size bytes: `23254733`
+- Checksum SHA-256:
+  `c81e0f6bc6a839fbd8a30788a2ffb30a9615fc12be00b85ae1f9e9a90e8ba1f7`
+- Package file ID: `pkg-file-000013`
+- Package file name: `List_of_EVOBC.json`
+- Commit policy: `download_to_tmp_log_checksum_only`
+
+This audit is source-route evidence only. It does not confirm a paleographic
+correspondence, an evolution chain, a modern identity, image rights, or a
+decipherment conclusion.
 
 ## Missing Evidence And Next Checks / 缺失证据与下一步
 

@@ -9,7 +9,7 @@
 - EVOBC 候选类别 ID：`evobc-evo-cat-09642`
 - 外部类别引用：`evobc-cat-09642`
 - 来源类别 ID：`09642`
-- 来源标签：`閻`
+- 来源标签：`encoding-review-needed`
 - 来源 codepoints：`U+95BB`
 - EVOBC 图像引用数量：`10`
 - 复核状态：`needs_human_evolution_review`
@@ -41,6 +41,43 @@
 - 再打开 `05_image-reference-route-index.csv` 查图像引用路线。
 - 图边和统计只作检索路线，不作学术结论。
 - 后续应核对小学堂、OBIMD、HUST-OBC、史语所和博物馆来源。
+
+## Source Provenance Audit / 来源追溯审计
+
+- Source register row: `src-evobc` / EVOBC: Evolution Oracle Bone Characters
+  Dataset
+- Rights status: `source_marked_risk_noted`
+- Review status: `reviewed`
+- Download log path:
+  `project_registry/006_large-source-register/002_source-download-log.csv`
+- Package manifest: `009_source-package-file-manifest.csv`
+- Field map: `007_source-field-map.csv`
+- Field map rows: `2`
+- Risk note: Useful for evolution-chain experiments, but source texts/websites
+  and image rights need separate review before corpus import.
+
+- Download ID: `dl-evobc-key-value-json`
+- Download status: `downloaded`
+- HTTP status: `200`
+- File size bytes: `277219`
+- Checksum SHA-256:
+  `4cd93a859d975f00831f8b1db91069d859856f04314dc22a9e50aaff464bec38`
+- Package file ID: `pkg-file-000012`
+- Package file name: `Key&Value.json`
+- Commit policy: `download_to_tmp_log_checksum_only`
+- Download ID: `dl-evobc-list-json`
+- Download status: `downloaded`
+- HTTP status: `200`
+- File size bytes: `23254733`
+- Checksum SHA-256:
+  `c81e0f6bc6a839fbd8a30788a2ffb30a9615fc12be00b85ae1f9e9a90e8ba1f7`
+- Package file ID: `pkg-file-000013`
+- Package file name: `List_of_EVOBC.json`
+- Commit policy: `download_to_tmp_log_checksum_only`
+
+This audit is source-route evidence only. It does not confirm a paleographic
+correspondence, an evolution chain, a modern identity, image rights, or a
+decipherment conclusion.
 
 ## 已登记时期与来源代码
 

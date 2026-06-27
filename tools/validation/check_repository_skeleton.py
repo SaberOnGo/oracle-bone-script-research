@@ -4526,6 +4526,31 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "not corpus import approval",
         "not a decipherment conclusion",
     ]
+    required_files["12_source-provenance-fact-matrix.md"] = [
+        "Source Provenance Fact Matrix",
+        "Human Review Order",
+        "Provenance Fact Matrix",
+        "Source identity",
+        "Access or download record",
+        "Checksum evidence",
+        "File size evidence",
+        "Rights status",
+        "Risk note",
+        "Package manifest",
+        "Field map",
+        "Derived paths",
+        "Review status",
+        "01_source-packet.json",
+        "02_download-route-index.csv",
+        "03_package-route-index.csv",
+        "04_field-map-route-index.csv",
+        "07_material-access-index.md",
+        "10_source-evidence-dossier.md",
+        "13_source-provenance-fact-matrix-index.json",
+        "not a rights decision",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+    ]
     source_pending_anchors = (
         "02_download-route-index.csv",
         "03_package-route-index.csv",
@@ -4587,6 +4612,25 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{source_dossier_index_path.relative_to(root)} missing source packet link")
         if "no rights decision" not in source_dossier_index.get("claim_boundary", []):
             issues.append(f"{source_dossier_index_path.relative_to(root)} missing rights boundary")
+        fact_matrix_index_path = object_dir / "13_source-provenance-fact-matrix-index.json"
+        if not fact_matrix_index_path.is_file():
+            issues.append(f"{object_dir.name} missing 13_source-provenance-fact-matrix-index.json")
+            continue
+        try:
+            fact_matrix_index = json.loads(fact_matrix_index_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} invalid JSON: {exc}")
+            continue
+        if fact_matrix_index.get("record_type") != "source_provenance_fact_matrix_index":
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} record_type changed")
+        if fact_matrix_index.get("fact_count") != 10:
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} fact_count changed")
+        if "12_source-provenance-fact-matrix.md" not in fact_matrix_index.get("human_readable_files", []):
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} missing human matrix link")
+        if "01_source-packet.json" not in fact_matrix_index.get("ai_support_files", []):
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} missing source packet link")
+        if "no rights decision" not in fact_matrix_index.get("claim_boundary", []):
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} missing rights boundary")
     return issues
 
 

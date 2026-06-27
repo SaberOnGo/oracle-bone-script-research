@@ -1,0 +1,93 @@
+{
+  "record_type": "source_provenance_fact_matrix_index",
+  "source_id": "src-metmuseum-oracle-bone",
+  "source_title": "The Met oracle bone object records",
+  "fact_count": 10,
+  "human_readable_files": [
+    "06_human-source-review-sheet.md",
+    "07_material-access-index.md",
+    "10_source-evidence-dossier.md",
+    "12_source-provenance-fact-matrix.md"
+  ],
+  "ai_support_files": [
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "09_source-processing-status-index.json",
+    "11_source-evidence-dossier-index.json"
+  ],
+  "facts": [
+    {
+      "fact": "Source identity",
+      "status": "present",
+      "evidence_files": "01_source-packet.json; 10_source-evidence-dossier.md",
+      "next_check": "Check source_id, title, provider, URL, scope, and authority tier."
+    },
+    {
+      "fact": "Access or download record",
+      "status": "present",
+      "evidence_files": "02_download-route-index.csv",
+      "next_check": "Check URL, access status, HTTP status, and local route notes."
+    },
+    {
+      "fact": "Checksum evidence",
+      "status": "present",
+      "evidence_files": "02_download-route-index.csv",
+      "next_check": "Confirm SHA-256 rows before reusing any downloaded file."
+    },
+    {
+      "fact": "File size evidence",
+      "status": "present",
+      "evidence_files": "02_download-route-index.csv; 03_package-route-index.csv",
+      "next_check": "Compare download sizes with package manifest file sizes."
+    },
+    {
+      "fact": "Rights status",
+      "status": "present",
+      "evidence_files": "01_source-packet.json; 03_package-route-index.csv",
+      "next_check": "Treat rights status as a review note, not a license grant."
+    },
+    {
+      "fact": "Risk note",
+      "status": "present",
+      "evidence_files": "01_source-packet.json; 07_material-access-index.md",
+      "next_check": "Keep the visible risk note beside any future derivative."
+    },
+    {
+      "fact": "Package manifest",
+      "status": "present",
+      "evidence_files": "03_package-route-index.csv",
+      "next_check": "Open package rows before treating files as reusable derivatives."
+    },
+    {
+      "fact": "Field map",
+      "status": "present",
+      "evidence_files": "04_field-map-route-index.csv",
+      "next_check": "Review source fields before moving data into corpus objects."
+    },
+    {
+      "fact": "Derived paths",
+      "status": "present",
+      "evidence_files": "06_human-source-review-sheet.md; 07_material-access-index.md; 08_source-processing-status.md; 10_source-evidence-dossier.md; 05_metadata-profile-route-index.csv",
+      "next_check": "Open human files first, then use JSON and CSV only as routes."
+    },
+    {
+      "fact": "Review status",
+      "status": "present",
+      "evidence_files": "01_source-packet.json; 08_source-processing-status.md",
+      "next_check": "Record unresolved items as concrete human follow-up questions."
+    }
+  ],
+  "claim_boundary": [
+    "no rights decision",
+    "no corpus import approval",
+    "no confirmed source promotion",
+    "no reading",
+    "no component assignment",
+    "no inscription identity",
+    "no decipherment conclusion"
+  ],
+  "review_status": "needs_human_source_review",
+  "updated_at": "2026-06-21"
+}

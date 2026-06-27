@@ -174,6 +174,7 @@ OBJECT_SPECS = [
             "07_material-access-index.md",
             "08_source-processing-status.md",
             "10_source-evidence-dossier.md",
+            "12_source-provenance-fact-matrix.md",
         ),
         (
             "01_source-packet.json",
@@ -183,6 +184,7 @@ OBJECT_SPECS = [
             "05_metadata-profile-route-index.csv",
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
+            "13_source-provenance-fact-matrix-index.json",
         ),
         (),
         (

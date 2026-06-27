@@ -31,6 +31,10 @@ Each concrete source object directory contains:
 - `07_material-access-index.md`: human-readable access map.
 - `08_source-processing-status.md`: human-readable phase status card.
 - `09_source-processing-status-index.json`: AI-readable phase status index.
+- `10_source-evidence-dossier.md`: human-readable source evidence dossier.
+- `11_source-evidence-dossier-index.json`: AI-readable dossier index.
+- `12_source-provenance-fact-matrix.md`: human-readable provenance fact matrix.
+- `13_source-provenance-fact-matrix-index.json`: AI-readable matrix index.
 
 ## Human Reading Rules / 人类阅读规则
 

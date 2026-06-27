@@ -232,6 +232,8 @@ def source_packet(
             "09_source-processing-status-index.json",
             "10_source-evidence-dossier.md",
             "11_source-evidence-dossier-index.json",
+            "12_source-provenance-fact-matrix.md",
+            "13_source-provenance-fact-matrix-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -380,6 +382,7 @@ def source_evidence_dossier_index_payload(
             "07_material-access-index.md",
             "08_source-processing-status.md",
             "10_source-evidence-dossier.md",
+            "12_source-provenance-fact-matrix.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -389,6 +392,7 @@ def source_evidence_dossier_index_payload(
             "05_metadata-profile-route-index.csv",
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
+            "13_source-provenance-fact-matrix-index.json",
         ],
         "source_route_files": [
             SOURCE_INDEX.as_posix(),
@@ -417,6 +421,123 @@ def source_evidence_dossier_index_payload(
             "license_text_review",
             "derived_record_review_results",
         ],
+        "claim_boundary": [
+            "no rights decision",
+            "no corpus import approval",
+            "no confirmed source promotion",
+            "no reading",
+            "no component assignment",
+            "no inscription identity",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_source_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def source_provenance_fact_rows(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    derived_files = [
+        "06_human-source-review-sheet.md",
+        "07_material-access-index.md",
+        "08_source-processing-status.md",
+        "10_source-evidence-dossier.md",
+    ]
+    if metadata_routes:
+        derived_files.append("05_metadata-profile-route-index.csv")
+    return [
+        {
+            "fact": "Source identity",
+            "status": "present" if source.get("source_id") and source.get("title") else "needs_review",
+            "evidence_files": "01_source-packet.json; 10_source-evidence-dossier.md",
+            "next_check": "Check source_id, title, provider, URL, scope, and authority tier.",
+        },
+        {
+            "fact": "Access or download record",
+            "status": "present" if download_routes else "missing_route",
+            "evidence_files": "02_download-route-index.csv",
+            "next_check": "Check URL, access status, HTTP status, and local route notes.",
+        },
+        {
+            "fact": "Checksum evidence",
+            "status": "present" if checksum_count(download_routes) else "needs_review",
+            "evidence_files": "02_download-route-index.csv",
+            "next_check": "Confirm SHA-256 rows before reusing any downloaded file.",
+        },
+        {
+            "fact": "File size evidence",
+            "status": "present" if sized_count(download_routes) else "needs_review",
+            "evidence_files": "02_download-route-index.csv; 03_package-route-index.csv",
+            "next_check": "Compare download sizes with package manifest file sizes.",
+        },
+        {
+            "fact": "Rights status",
+            "status": "present" if source.get("rights_status") else "needs_review",
+            "evidence_files": "01_source-packet.json; 03_package-route-index.csv",
+            "next_check": "Treat rights status as a review note, not a license grant.",
+        },
+        {
+            "fact": "Risk note",
+            "status": "present" if source.get("risk_note") else "needs_review",
+            "evidence_files": "01_source-packet.json; 07_material-access-index.md",
+            "next_check": "Keep the visible risk note beside any future derivative.",
+        },
+        {
+            "fact": "Package manifest",
+            "status": "present" if package_routes else "missing_route",
+            "evidence_files": "03_package-route-index.csv",
+            "next_check": "Open package rows before treating files as reusable derivatives.",
+        },
+        {
+            "fact": "Field map",
+            "status": "present" if field_routes else "missing_route",
+            "evidence_files": "04_field-map-route-index.csv",
+            "next_check": "Review source fields before moving data into corpus objects.",
+        },
+        {
+            "fact": "Derived paths",
+            "status": "present",
+            "evidence_files": "; ".join(derived_files),
+            "next_check": "Open human files first, then use JSON and CSV only as routes.",
+        },
+        {
+            "fact": "Review status",
+            "status": "present" if source.get("review_status") else "needs_review",
+            "evidence_files": "01_source-packet.json; 08_source-processing-status.md",
+            "next_check": "Record unresolved items as concrete human follow-up questions.",
+        },
+    ]
+
+
+def source_provenance_fact_matrix_index_payload(
+    source: dict[str, str],
+    fact_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "record_type": "source_provenance_fact_matrix_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "fact_count": len(fact_rows),
+        "human_readable_files": [
+            "06_human-source-review-sheet.md",
+            "07_material-access-index.md",
+            "10_source-evidence-dossier.md",
+            "12_source-provenance-fact-matrix.md",
+        ],
+        "ai_support_files": [
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "09_source-processing-status-index.json",
+            "11_source-evidence-dossier-index.json",
+        ],
+        "facts": fact_rows,
         "claim_boundary": [
             "no rights decision",
             "no corpus import approval",
@@ -791,6 +912,133 @@ def source_evidence_dossier_text(
     return "\n".join(lines)
 
 
+def source_provenance_fact_matrix_text(
+    source: dict[str, str],
+    fact_rows: list[dict[str, str]],
+) -> str:
+    lines = [
+        "# Source Provenance Fact Matrix / 来源追溯事实矩阵",
+        "",
+        *wrapped(
+            "This human matrix gives a fast review path for the required "
+            "provenance facts before any source material is reused."
+        ),
+        "",
+        *wrapped(
+            "本矩阵把来源对象必须核查的出处事实集中在同一页，供研究者在"
+            "复用任何材料前快速打开、核对和记录缺口。"
+        ),
+        "",
+        "## Human Review Order / 人工复核顺序",
+        "- Open `12_source-provenance-fact-matrix.md` first.",
+        "- Then open `10_source-evidence-dossier.md` for route detail.",
+        "- Use `13_source-provenance-fact-matrix-index.json` only as an index.",
+        "- Then use CSV or JSON files only as supporting route evidence.",
+        "- Do not treat this matrix as a rights or scholarship decision.",
+        "- 先读本矩阵，再读来源证据档案，最后才查看 CSV 或 JSON 路线。",
+        "- 本矩阵不作权利结论，也不作学术结论。",
+        "",
+        "## Source / 来源",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Title / 题名", source["title"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        "",
+        "## Provenance Fact Matrix / 出处事实矩阵",
+    ]
+    for index, row in enumerate(fact_rows, start=1):
+        lines.extend(
+            [
+                "",
+                f"### Fact {index:02d}: {row['fact']}",
+                *bullet("Status / 状态", row["status"]),
+                *bullet("Evidence files / 证据文件", row["evidence_files"]),
+                *bullet("Next check / 下一步核查", row["next_check"]),
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Human Research Slots / 人类研究槽位",
+            *wrapped(
+                "Glyph image and rubbing slot: check whether this source has a "
+                "visible glyph image, rubbing, photograph, or plate image that "
+                "can later support a concrete character dossier."
+            ),
+            "",
+            *wrapped(
+                "Inscription and catalog slot: check inscription text, OCR, "
+                "plate number, catalog number, Heji number, page, and text "
+                "quality before linking forms to inscriptions."
+            ),
+            "",
+            *wrapped(
+                "Provenance slot: check findspot, collection, museum object, "
+                "period, group, batch, and excavation note before using the "
+                "source for archaeological context."
+            ),
+            "",
+            *wrapped(
+                "Relation slot: treat variant, near-form, component, bronze, "
+                "seal, modern-character, and evolution relations as candidate "
+                "comparison evidence until reviewed."
+            ),
+            "",
+            *wrapped(
+                "Scholarship slot: keep bibliography, proposer, editor, "
+                "citation relation, disagreement, dispute, and scope limits "
+                "visible beside later human notes."
+            ),
+            "",
+            *wrapped(
+                "字形图像槽：核查本来源是否有字形图像、拓片、照片或图版。"
+            ),
+            *wrapped(
+                "卜辞著录槽：核查卜辞全文、OCR、图版号、著录号、合集号、页码"
+                "和文本质量。"
+            ),
+            *wrapped(
+                "出土背景槽：核查出土地、馆藏、博物馆对象、时期、组类、批次"
+                "和考古记录。"
+            ),
+            *wrapped(
+                "关系比较槽：异体、近形、构件、金文、小篆、今字和演化关系"
+                "只能作为候选比较证据。"
+            ),
+            *wrapped(
+                "学术争议槽：保留书目、提出者、整理者、引用关系、不同意见、"
+                "争议和适用范围限制。"
+            ),
+            "",
+            "## Concrete Next Checks / 具体待查问题",
+            "- Which access or download rows have dates, sizes, and checksums?",
+            "- Which package manifest rows describe reusable derived records?",
+            "- Which field maps can safely feed concrete corpus directories?",
+            "- Which rights or redistribution risk blocks public promotion?",
+            "- Which derived files should a human reviewer open first?",
+            "- 哪些访问或下载记录已有日期、大小和 checksum？",
+            "- 哪些来源包 manifest 行说明了可复核派生记录？",
+            "- 哪些字段映射可以安全进入具体语料对象目录？",
+            "- 哪些权利或再分发风险阻止公开提升？",
+            "- 人工复核者应先打开哪些派生文件？",
+            "",
+            "## Boundary / 边界",
+            "- not a rights decision",
+            "- not corpus import approval",
+            "- not a confirmed source promotion",
+            "- not a reading",
+            "- not a component assignment",
+            "- not an inscription identity",
+            "- not a decipherment conclusion",
+            "- 不是权利结论",
+            "- 不是语料导入批准",
+            "- 不是来源提升结论",
+            "- 不是释读、构件归属、卜辞身份或破译结论",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
     lines = [
         f"# {source['source_id']} Source Object",
@@ -1143,6 +1391,13 @@ def build_materials(root: Path) -> dict[str, int]:
             field_routes,
             metadata_routes,
         )
+        fact_rows = source_provenance_fact_rows(
+            source,
+            download_routes,
+            package_routes,
+            field_routes,
+            metadata_routes,
+        )
         write_human_markdown(object_dir / "README.md", f"{source_id}/README.md", readme_text(source, packet))
         write_json(object_dir / "01_source-packet.json", packet)
         write_csv(object_dir / "02_download-route-index.csv", download_routes, DOWNLOAD_ROUTE_FIELDS)
@@ -1192,6 +1447,15 @@ def build_materials(root: Path) -> dict[str, int]:
                 field_routes,
                 metadata_routes,
             ),
+        )
+        write_human_markdown(
+            object_dir / "12_source-provenance-fact-matrix.md",
+            f"{source_id}/12_source-provenance-fact-matrix.md",
+            source_provenance_fact_matrix_text(source, fact_rows),
+        )
+        write_json(
+            object_dir / "13_source-provenance-fact-matrix-index.json",
+            source_provenance_fact_matrix_index_payload(source, fact_rows),
         )
     return {"source_object_count": len(sources)}
 

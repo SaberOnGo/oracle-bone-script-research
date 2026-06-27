@@ -5512,7 +5512,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
-        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "5")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "6")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["source_ids"], "src-xiaoxuetang-jiaguwen")
         self.assertEqual(by_project["obs-topic-cand-000001"]["corpus_area"], "research_topic_candidates")
@@ -5776,6 +5776,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "09_source-processing-status-index.json").is_file())
         self.assertTrue((object_dir / "10_source-evidence-dossier.md").is_file())
         self.assertTrue((object_dir / "11_source-evidence-dossier-index.json").is_file())
+        self.assertTrue((object_dir / "12_source-provenance-fact-matrix.md").is_file())
+        self.assertTrue((object_dir / "13_source-provenance-fact-matrix-index.json").is_file())
         access_index_text = (object_dir / "07_material-access-index.md").read_text(encoding="utf-8")
         self.assertIn("Material Access Index", access_index_text)
         self.assertIn("Human-Readable Entrances", access_index_text)
@@ -5890,6 +5892,49 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(packet["field_map_route_count"], 6)
         self.assertEqual(packet["decipherment_claim_status"], "no_claim")
         self.assertIn("not decipherment", packet["research_boundary"])
+        fact_matrix_text = (object_dir / "12_source-provenance-fact-matrix.md").read_text(encoding="utf-8")
+        self.assertIn("Source Provenance Fact Matrix", fact_matrix_text)
+        self.assertIn("Human Review Order", fact_matrix_text)
+        self.assertIn("Provenance Fact Matrix", fact_matrix_text)
+        for required_fact in (
+            "Source identity",
+            "Access or download record",
+            "Checksum evidence",
+            "File size evidence",
+            "Rights status",
+            "Risk note",
+            "Package manifest",
+            "Field map",
+            "Derived paths",
+            "Review status",
+        ):
+            self.assertIn(required_fact, fact_matrix_text)
+        for local_anchor in (
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "07_material-access-index.md",
+            "10_source-evidence-dossier.md",
+            "13_source-provenance-fact-matrix-index.json",
+        ):
+            self.assertIn(local_anchor, fact_matrix_text)
+        self.assertIn("not a rights decision", fact_matrix_text)
+        self.assertIn("not corpus import approval", fact_matrix_text)
+        self.assertIn("not a decipherment conclusion", fact_matrix_text)
+        self.assertNotIn("not_collected", fact_matrix_text)
+        self.assertTrue(all(len(line) <= 80 for line in fact_matrix_text.splitlines()))
+        fact_matrix_index = json.loads(
+            (object_dir / "13_source-provenance-fact-matrix-index.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(fact_matrix_index["record_type"], "source_provenance_fact_matrix_index")
+        self.assertEqual(fact_matrix_index["fact_count"], 10)
+        self.assertIn("12_source-provenance-fact-matrix.md", fact_matrix_index["human_readable_files"])
+        self.assertIn("10_source-evidence-dossier.md", fact_matrix_index["human_readable_files"])
+        self.assertIn("01_source-packet.json", fact_matrix_index["ai_support_files"])
+        self.assertIn("no rights decision", fact_matrix_index["claim_boundary"])
+        self.assertIn("12_source-provenance-fact-matrix.md", packet["local_files"])
+        self.assertIn("13_source-provenance-fact-matrix-index.json", packet["local_files"])
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
         module = load_hust_obc_undeciphered_local_materials_module()
@@ -23484,7 +23529,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"153"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"267"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"309"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"

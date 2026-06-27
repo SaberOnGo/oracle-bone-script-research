@@ -1,0 +1,57 @@
+{
+  "project_id": "obs-xwalk-cand-001504",
+  "record_type": "codepoint_crosswalk_candidate",
+  "object_dir": "corpus/001_oracle-characters/127_001501-001588_obs-xwalk-bucket_codepoint-xwalk/004_obs-xwalk-cand-001504_xwalk-001504_codepoint-xwalk",
+  "crosswalk_candidate_id": "hust-obimd-evobc-xwalk-001504",
+  "suggested_oracle_character_id": "obs-char-001504",
+  "promotion_queue_id": "hust-obc-obs-char-promo-001504",
+  "hust_primary_external_ref_id": "hust-obc-cat-1689",
+  "hust_source_category_id": "1689",
+  "hust_label_candidate": "㪏",
+  "hust_label_codepoints": "U+3A8F",
+  "label_component_count": "1",
+  "has_multi_component_label": "false",
+  "candidate_packet_path": "corpus/001_oracle-characters/016_001501-001600_obs-char-bucket_oracle-characters/1504_obs-char-001504_hust-obc-cat-1689_oracle-character/01_candidate-character-packet.json",
+  "obimd_match_count": "0",
+  "obimd_candidate_main_character_ids": [],
+  "obimd_primary_external_ref_ids": [],
+  "evobc_match_count": "0",
+  "evobc_candidate_evolution_category_ids": [],
+  "evobc_primary_external_ref_ids": [],
+  "evobc_image_reference_count_total": "0",
+  "matched_source_ids": [
+    "src-hust-obc"
+  ],
+  "match_basis": "exact_unicode_codepoint_sequence_from_dataset_labels",
+  "cross_source_status": "no_obimd_or_evobc_codepoint_match",
+  "identity_claim_status": "no_identity_claim",
+  "promotion_status": "not_promoted",
+  "rights_status": "source_marked_risk_noted",
+  "review_status": "needs_cross_source_review",
+  "route_files": [
+    "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+    "corpus/001_oracle-characters/016_001501-001600_obs-char-bucket_oracle-characters/001_hust-obc-candidate-packet-manifest.csv",
+    "corpus/001_oracle-characters/016_001501-001600_obs-char-bucket_oracle-characters/1504_obs-char-001504_hust-obc-cat-1689_oracle-character/01_candidate-character-packet.json",
+    "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+    "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+    "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+    "project_registry/006_large-source-register/002_source-download-log.csv"
+  ],
+  "local_human_files": [
+    "README.md",
+    "04_human-codepoint-crosswalk-review-sheet.md",
+    "05_codepoint-crosswalk-route-gallery.md",
+    "06_human-codepoint-crosswalk-dossier.md",
+    "08_codepoint-crosswalk-fact-matrix.md"
+  ],
+  "local_ai_support_files": [
+    "01_codepoint-crosswalk-packet.json",
+    "02_codepoint-crosswalk-source-index.csv",
+    "03_codepoint-crosswalk-route-index.csv",
+    "07_codepoint-crosswalk-dossier-index.json",
+    "09_codepoint-crosswalk-fact-matrix-index.json"
+  ],
+  "research_boundary": "codepoint_crosswalk_candidate_metadata_only_not_identity_reading_component_evolution_or_decipherment_claim",
+  "caution": "Codepoint crosswalk candidate only. Exact dataset-label codepoint matches are lookup routes, not confirmed oracle-character identity, not accepted readings, not component assignments, not evolution-chain assignments, and not decipherment conclusions.",
+  "updated_at": "2026-06-28"
+}

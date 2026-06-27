@@ -379,6 +379,21 @@ def load_hust_obimd_evobc_codepoint_crosswalk_module():
     return module
 
 
+def load_hust_obimd_evobc_codepoint_crosswalk_materials_module():
+    path = (
+        repo_root()
+        / "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk_materials.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_hust_obimd_evobc_codepoint_crosswalk_materials",
+        path,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_hust_obc_candidate_graph_edges_module():
     path = repo_root() / "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py"
     spec = importlib.util.spec_from_file_location("build_hust_obc_candidate_graph_edges", path)
@@ -5759,6 +5774,145 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("doc/public/user_research", rows[0]["human_readme_path"])
         self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
 
+    def test_hust_obimd_evobc_codepoint_crosswalk_materials_are_object_local(self) -> None:
+        map_path = (
+            repo_root()
+            / "project_registry/002_project-id-to-source-reference-map/"
+            / "007_codepoint-crosswalk-id-source-map.csv"
+        )
+        with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+            map_rows = list(csv.DictReader(file))
+        self.assertEqual(len(map_rows), 1588)
+        self.assertEqual(map_rows[0]["project_id"], "obs-xwalk-cand-000001")
+        self.assertEqual(map_rows[-1]["project_id"], "obs-xwalk-cand-001588")
+        self.assertIn("hust-obimd-evobc-xwalk-000001", map_rows[0]["primary_external_ref_id"])
+        self.assertIn("corpus/001_oracle-characters/", map_rows[0]["canonical_path"])
+
+        for project_id in [
+            "obs-xwalk-cand-000001",
+            "obs-xwalk-cand-000047",
+            "obs-xwalk-cand-001588",
+        ]:
+            map_row = next(row for row in map_rows if row["project_id"] == project_id)
+            object_dir = repo_root() / map_row["canonical_path"]
+            required_files = [
+                "README.md",
+                "01_codepoint-crosswalk-packet.json",
+                "02_codepoint-crosswalk-source-index.csv",
+                "03_codepoint-crosswalk-route-index.csv",
+                "04_human-codepoint-crosswalk-review-sheet.md",
+                "05_codepoint-crosswalk-route-gallery.md",
+                "06_human-codepoint-crosswalk-dossier.md",
+                "07_codepoint-crosswalk-dossier-index.json",
+                "08_codepoint-crosswalk-fact-matrix.md",
+                "09_codepoint-crosswalk-fact-matrix-index.json",
+            ]
+            for filename in required_files:
+                self.assertTrue(path_exists(object_dir / filename), f"{project_id} {filename}")
+
+            readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+            fact_matrix_text = (object_dir / "08_codepoint-crosswalk-fact-matrix.md").read_text(
+                encoding="utf-8"
+            )
+            dossier_text = (object_dir / "06_human-codepoint-crosswalk-dossier.md").read_text(
+                encoding="utf-8"
+            )
+            human_texts = {
+                "README.md": readme_text,
+                "04_human-codepoint-crosswalk-review-sheet.md": (
+                    object_dir / "04_human-codepoint-crosswalk-review-sheet.md"
+                ).read_text(encoding="utf-8"),
+                "05_codepoint-crosswalk-route-gallery.md": (
+                    object_dir / "05_codepoint-crosswalk-route-gallery.md"
+                ).read_text(encoding="utf-8"),
+                "06_human-codepoint-crosswalk-dossier.md": dossier_text,
+                "08_codepoint-crosswalk-fact-matrix.md": fact_matrix_text,
+            }
+            for filename, text in human_texts.items():
+                self.assertNotIn("not_collected", text)
+                self.assertNotIn("not collected", text.lower())
+                assert_human_markdown_lines_wrapped(self, text, f"{project_id} {filename}")
+
+            for marker in [
+                "object-local research entrance",
+                "not confirmed oracle-character identity",
+                "not accepted readings",
+                "not component assignments",
+                "not evolution-chain assignments",
+                "not decipherment conclusions",
+                "Concrete Questions To Check",
+                "08_codepoint-crosswalk-fact-matrix.md",
+            ]:
+                self.assertIn(marker, readme_text)
+            for marker in [
+                "Codepoint Crosswalk Fact Matrix",
+                "Human Review Order",
+                "Source Codepoint Route",
+                "HUST candidate route",
+                "OBIMD route",
+                "EVOBC route",
+                "Source and rights trail",
+                "Missing evidence route",
+                "Review status",
+                "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv",
+                "01_candidate-character-packet.json",
+                "006_obimd-main-character-staging.csv",
+                "001_evobc-evolution-category-staging.csv",
+                "001_all-sources-index.csv",
+                "002_source-download-log.csv",
+                "not identity",
+                "not reading",
+                "not component",
+                "not evolution",
+                "not decipherment",
+            ]:
+                self.assertIn(marker, fact_matrix_text)
+            self.assertIn("glyph image", dossier_text)
+            self.assertIn("rubbing", dossier_text)
+            self.assertIn("inscription context", dossier_text)
+            self.assertIn("catalog number", dossier_text)
+            self.assertIn("findspot", dossier_text)
+
+            packet = json.loads((object_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8"))
+            self.assertEqual(packet["project_id"], project_id)
+            self.assertEqual(packet["record_type"], "codepoint_crosswalk_candidate")
+            self.assertEqual(packet["identity_claim_status"], "no_identity_claim")
+            self.assertEqual(packet["review_status"], "needs_cross_source_review")
+            self.assertIn("not confirmed oracle-character identity", packet["caution"])
+            self.assertNotIn("doc/public/user_research", packet["object_dir"])
+
+        three_packet_dir = repo_root() / next(
+            row["canonical_path"] for row in map_rows if row["project_id"] == "obs-xwalk-cand-000047"
+        )
+        three_packet = json.loads(
+            (three_packet_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(three_packet["matched_source_ids"], ["src-hust-obc", "src-obimd", "src-evobc"])
+        self.assertEqual(three_packet["cross_source_status"], "matched_obimd_and_evobc_by_codepoint")
+
+    def test_hust_obimd_evobc_codepoint_crosswalk_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_materials_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 1588)
+        first = outputs["obs-xwalk-cand-000001"]
+        three_source = outputs["obs-xwalk-cand-000047"]
+        self.assertEqual(first["packet"]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-000001")
+        self.assertEqual(first["packet"]["record_type"], "codepoint_crosswalk_candidate")
+        self.assertEqual(first["packet"]["matched_source_ids"], ["src-hust-obc"])
+        self.assertIn("corpus/001_oracle-characters", first["object_dir"].as_posix())
+        self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
+        self.assertIn("Codepoint Crosswalk Fact Matrix", first["fact_matrix_text"])
+        self.assertIn("not identity", first["fact_matrix_text"])
+        self.assertNotIn("not_collected", first["dossier_text"])
+        self.assertEqual(three_source["packet"]["matched_source_ids"], ["src-hust-obc", "src-obimd", "src-evobc"])
+        self.assertIn("OBIMD route", three_source["fact_matrix_text"])
+        self.assertIn("EVOBC route", three_source["fact_matrix_text"])
+        assert_human_markdown_lines_wrapped(
+            self,
+            three_source["fact_matrix_text"],
+            "obs-xwalk-cand-000047 generated fact matrix",
+        )
+
     def test_object_local_material_coverage_audit_tracks_all_core_object_dirs(self) -> None:
         self.assertEqual(check_object_local_material_coverage_audit(repo_root()), [])
         path = (
@@ -5774,10 +5928,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
-        self.assertEqual(len(rows), 28166)
+        self.assertEqual(len(rows), 29754)
         self.assertEqual(
             summary["corpus_area_counts"],
             {
+                "codepoint_crosswalk_candidates": 1588,
                 "collection_object_candidates": 56,
                 "evolution_correspondence_candidates": 13714,
                 "graphemic_component_candidates": 2747,
@@ -5790,7 +5945,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertEqual(summary["local_visual_asset_object_count"], 13715)
-        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 28166)
+        self.assertEqual(summary["route_gallery_or_route_index_object_count"], 29754)
         self.assertNotIn("object_local_bundle_metadata_only", summary["material_bundle_status_counts"])
         by_project = {row["project_id"]: row for row in rows}
         self.assertEqual(
@@ -5844,6 +5999,19 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_project["obs-topic-cand-000001"]["ai_file_count"], "7")
         self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-topic-cand-000001"]["source_ids"], "src-cambridge-hopkins")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["corpus_area"], "codepoint_crosswalk_candidates")
+        self.assertEqual(
+            by_project["obs-xwalk-cand-000001"]["material_bundle_status"],
+            "object_local_bundle_with_evidence_routes",
+        )
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["human_file_count"], "5")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["ai_file_count"], "5")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["source_ids"], "src-hust-obc")
+        self.assertEqual(
+            by_project["obs-xwalk-cand-000047"]["source_ids"],
+            "src-evobc;src-hust-obc;src-obimd",
+        )
         self.assertTrue(all(row["source_ids"] for row in rows))
         self.assertTrue(all(row["decipherment_claim_status"] == "no_claim" for row in rows))
 
@@ -5851,9 +6019,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_object_local_material_coverage_audit_module()
         rows = module.build_rows(repo_root())
         summary = module.build_summary(rows)
-        self.assertEqual(len(rows), 28166)
-        self.assertEqual(summary["human_entry_object_count"], 28166)
-        self.assertEqual(summary["ai_entry_object_count"], 28166)
+        self.assertEqual(len(rows), 29754)
+        self.assertEqual(summary["human_entry_object_count"], 29754)
+        self.assertEqual(summary["ai_entry_object_count"], 29754)
         self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
         self.assertEqual(summary["parallel_human_directory_count"], 0)
         self.assertTrue(all(row["object_dir"].startswith("corpus/") for row in rows))
@@ -10265,9 +10433,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["committed_asset_bytes"], 96318352)
         self.assertEqual(data["coverage"]["graph_edge_count"], 128174)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
-        self.assertEqual(data["coverage"]["object_local_material_bundle_count"], 28166)
+        self.assertEqual(data["coverage"]["object_local_material_bundle_count"], 29903)
         self.assertEqual(data["coverage"]["object_local_review_image_object_count"], 13715)
-        self.assertEqual(data["coverage"]["object_local_route_object_count"], 28166)
+        self.assertEqual(data["coverage"]["object_local_route_object_count"], 29903)
         self.assertEqual(data["coverage"]["object_local_partial_bundle_count"], 0)
         self.assertEqual(
             data["coverage"]["coverage_status_counts"],
@@ -10285,13 +10453,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(source_routes), 21)
         self.assertEqual(source_routes["src-hust-obc"]["graph_edge_count"], 16295)
         self.assertEqual(source_routes["src-hust-obc"]["promotion_queue_candidate_count"], 1588)
-        self.assertEqual(source_routes["src-hust-obc"]["object_local_material_bundle_count"], 10997)
-        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 10997)
+        self.assertEqual(source_routes["src-hust-obc"]["object_local_material_bundle_count"], 12585)
+        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 12585)
         self.assertEqual(source_routes["src-obimd"]["graph_edge_count"], 54856)
         self.assertEqual(source_routes["src-obimd"]["committed_asset_count"], 10364)
         self.assertEqual(source_routes["src-obimd"]["object_local_review_image_object_count"], 2719)
         self.assertEqual(source_routes["src-evobc"]["graph_edge_count"], 51948)
-        self.assertEqual(source_routes["src-evobc"]["object_local_route_object_count"], 13715)
+        self.assertEqual(source_routes["src-evobc"]["object_local_route_object_count"], 13842)
         self.assertEqual(source_routes["src-cambridge-hopkins"]["graph_edge_count"], 5075)
         self.assertEqual(source_routes["src-hust-obc"]["committed_asset_count"], 10996)
         self.assertEqual(source_routes["src-metmuseum-oracle-bone"]["committed_asset_count"], 2)
@@ -10342,9 +10510,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["source_count"], 21)
         self.assertEqual(data["coverage"]["graph_edge_count"], 128174)
         self.assertEqual(data["coverage"]["promotion_queue_candidate_count"], 1588)
-        self.assertEqual(data["coverage"]["object_local_material_bundle_count"], 28166)
+        self.assertEqual(data["coverage"]["object_local_material_bundle_count"], 29903)
         self.assertEqual(source_routes["src-hust-obc"]["route"], "open_graph_and_metadata_derivatives")
-        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 10997)
+        self.assertEqual(source_routes["src-hust-obc"]["object_local_route_object_count"], 12585)
         self.assertEqual(source_routes["src-cambridge-hopkins"]["route"], "open_graph_and_metadata_derivatives")
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["route"], "open_asset_and_rights_records")
         self.assertEqual(source_routes["src-smithsonian-nmaa-oracle-bone"]["committed_asset_count"], 1)
@@ -15937,21 +16105,21 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 96318352)
         self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 128174)
         self.assertEqual(sum(int(row["promotion_queue_candidate_count"]) for row in rows), 1588)
-        self.assertEqual(sum(int(row["object_local_material_bundle_count"]) for row in rows), 28166)
+        self.assertEqual(sum(int(row["object_local_material_bundle_count"]) for row in rows), 29903)
         self.assertEqual(sum(int(row["object_local_review_image_object_count"]) for row in rows), 13715)
-        self.assertEqual(sum(int(row["object_local_route_object_count"]) for row in rows), 28166)
+        self.assertEqual(sum(int(row["object_local_route_object_count"]) for row in rows), 29903)
         self.assertEqual(sum(int(row["object_local_partial_bundle_count"]) for row in rows), 0)
         by_source = {row["source_id"]: row for row in rows}
         self.assertEqual(by_source["src-hust-obc"]["promotion_queue_candidate_count"], "1588")
         self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "16295")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "12585")
         self.assertEqual(by_source["src-hust-obc"]["object_local_review_image_object_count"], "10996")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "12585")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "54856")
-        self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2748")
+        self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2770")
         self.assertEqual(by_source["src-obimd"]["object_local_review_image_object_count"], "2719")
         self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51948")
-        self.assertEqual(by_source["src-evobc"]["object_local_route_object_count"], "13715")
+        self.assertEqual(by_source["src-evobc"]["object_local_route_object_count"], "13842")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "5075")
         self.assertEqual(by_source["src-cambridge-hopkins"]["object_local_route_object_count"], "633")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "13")
@@ -15975,11 +16143,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["coverage_status"], "has_relationship_graph_derivatives")
         self.assertEqual(by_source["src-hust-obc"]["committed_asset_count"], "10996")
         self.assertEqual(by_source["src-hust-obc"]["committed_asset_bytes"], "53009139")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "12585")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "12585")
         self.assertEqual(by_source["src-hust-obc"]["object_local_partial_bundle_count"], "0")
         self.assertEqual(by_source["src-obimd"]["graph_edge_type_count"], "6")
-        self.assertEqual(by_source["src-obimd"]["object_local_route_object_count"], "2748")
+        self.assertEqual(by_source["src-obimd"]["object_local_route_object_count"], "2770")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_type_count"], "13")
         self.assertEqual(by_source["src-cambridge-hopkins"]["object_local_material_bundle_count"], "633")
         self.assertEqual(by_source["src-cambridge-hopkins"]["coverage_status"], "has_relationship_graph_derivatives")
@@ -17370,7 +17538,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
-            "object_local_material_coverage_audit_rows:28166",
+            "object_local_material_coverage_audit_rows:29754",
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
@@ -19484,9 +19652,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["totals"]["source_phase_action_count"], 62)
         self.assertEqual(data["totals"]["missing_evidence_action_count"], 32)
         self.assertEqual(data["totals"]["missing_evidence_assignment_count"], 18)
-        self.assertEqual(data["totals"]["object_local_material_bundle_count"], 28166)
+        self.assertEqual(data["totals"]["object_local_material_bundle_count"], 29903)
         self.assertEqual(data["totals"]["object_local_review_image_object_count"], 13715)
-        self.assertEqual(data["totals"]["object_local_route_object_count"], 28166)
+        self.assertEqual(data["totals"]["object_local_route_object_count"], 29903)
         self.assertEqual(data["totals"]["object_local_partial_bundle_count"], 0)
         self.assertIn("source-level preprocessing only", data["completion_boundary"])
 
@@ -19502,15 +19670,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-hust-obc"]["graph_edge_count"], "16295")
         self.assertEqual(by_source["src-hust-obc"]["source_phase_action_count"], "1")
         self.assertEqual(by_source["src-hust-obc"]["missing_evidence_action_count"], "0")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_material_bundle_count"], "12585")
         self.assertEqual(by_source["src-hust-obc"]["object_local_review_image_object_count"], "10996")
-        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "10997")
+        self.assertEqual(by_source["src-hust-obc"]["object_local_route_object_count"], "12585")
         self.assertEqual(by_source["src-obimd"]["graph_edge_count"], "44492")
-        self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2748")
+        self.assertEqual(by_source["src-obimd"]["object_local_material_bundle_count"], "2770")
         self.assertEqual(by_source["src-obimd"]["object_local_review_image_object_count"], "2719")
         self.assertEqual(by_source["src-evobc"]["graph_edge_count"], "51948")
-        self.assertEqual(by_source["src-evobc"]["object_local_material_bundle_count"], "13715")
-        self.assertEqual(by_source["src-evobc"]["object_local_route_object_count"], "13715")
+        self.assertEqual(by_source["src-evobc"]["object_local_material_bundle_count"], "13842")
+        self.assertEqual(by_source["src-evobc"]["object_local_route_object_count"], "13842")
         self.assertEqual(by_source["src-cambridge-hopkins"]["graph_edge_count"], "4403")
         self.assertEqual(by_source["src-cambridge-hopkins"]["current_stage"], "pending_human_review")
         self.assertEqual(by_source["src-cambridge-hopkins"]["missing_evidence_assignment_count"], "1")

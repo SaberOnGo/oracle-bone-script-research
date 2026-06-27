@@ -19,12 +19,14 @@ list, source IDs, rights status, review status, and update date.
 - `004_component-id-source-map.csv`: graphemic component candidate IDs.
 - `005_evolution-candidate-id-source-map.csv`: EVOBC candidate IDs.
 - `006_collection-object-id-source-map.csv`: collection object IDs.
+- `007_codepoint-crosswalk-id-source-map.csv`: codepoint crosswalk candidates.
 
 ## How To Use / 使用方式
 
 English:
 Open the relevant map when you need to move from a project-local ID such as
-`obs-char-*`, `obs-comp-cand-*`, `obs-insc-cw-cand-*`, or `obs-evo-cand-*`
+`obs-char-*`, `obs-comp-cand-*`, `obs-insc-cw-cand-*`, `obs-evo-cand-*`,
+or `obs-xwalk-cand-*`
 to the corresponding object directory and external source trail.
 
 简体中文：

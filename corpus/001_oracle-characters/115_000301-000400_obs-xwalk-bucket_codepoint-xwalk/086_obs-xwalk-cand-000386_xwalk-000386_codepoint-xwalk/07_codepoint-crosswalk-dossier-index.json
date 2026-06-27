@@ -1,0 +1,25 @@
+{
+  "project_id": "obs-xwalk-cand-000386",
+  "record_type": "codepoint_crosswalk_dossier_index",
+  "crosswalk_candidate_id": "hust-obimd-evobc-xwalk-000386",
+  "human_readable_files": [
+    "README.md",
+    "04_human-codepoint-crosswalk-review-sheet.md",
+    "05_codepoint-crosswalk-route-gallery.md",
+    "06_human-codepoint-crosswalk-dossier.md",
+    "08_codepoint-crosswalk-fact-matrix.md"
+  ],
+  "ai_support_files": [
+    "01_codepoint-crosswalk-packet.json",
+    "02_codepoint-crosswalk-source-index.csv",
+    "03_codepoint-crosswalk-route-index.csv",
+    "07_codepoint-crosswalk-dossier-index.json",
+    "09_codepoint-crosswalk-fact-matrix-index.json"
+  ],
+  "source_ids": [
+    "src-hust-obc"
+  ],
+  "claim_boundary": "candidate codepoint route only; no identity, reading, component, evolution, or decipherment conclusion",
+  "review_status": "needs_cross_source_review",
+  "updated_at": "2026-06-28"
+}

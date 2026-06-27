@@ -60,7 +60,11 @@ def project_id_from_dir(path: Path) -> str:
 
 def discover_packet_dirs(root: Path) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
-    for packet_path in sorted((root / OBJECT_ROOT).glob("*/*/01_*packet.json")):
+    packet_paths = [
+        *(root / OBJECT_ROOT).glob("*/*/01_candidate-character-packet.json"),
+        *(root / OBJECT_ROOT).glob("*/*/01_undeciphered-candidate-packet.json"),
+    ]
+    for packet_path in sorted(packet_paths):
         object_dir = packet_path.parent
         records.append(
             {

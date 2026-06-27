@@ -42,7 +42,7 @@ class ObjectSpec:
 
 
 PROJECT_ID_PATTERN = re.compile(
-    r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand|topic-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
+    r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand|topic-cand|xwalk-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
 )
 SOURCE_ID_PATTERN = re.compile(r"^src-[a-z0-9-]+$")
 
@@ -51,7 +51,30 @@ OBJECT_SPECS = [
     ObjectSpec(
         "oracle_character_candidates",
         Path("corpus/001_oracle-characters"),
-        "*/*/01_*packet.json",
+        "*/*/01_candidate-character-packet.json",
+        (
+            "README.md",
+            "04_visual-gallery.md",
+            "05_human-research-dossier.md",
+            "06_human-review-sheet.md",
+            "08_character-context-evidence-dossier.md",
+        ),
+        (
+            "01_*packet.json",
+            "02_visual-source-index.csv",
+            "07_research-dossier-index.json",
+            "09_character-context-evidence-index.json",
+        ),
+        ("03_visual-assets",),
+        (
+            "04_visual-gallery.md",
+            "08_character-context-evidence-dossier.md",
+        ),
+    ),
+    ObjectSpec(
+        "oracle_character_candidates",
+        Path("corpus/001_oracle-characters"),
+        "*/*/01_undeciphered-candidate-packet.json",
         (
             "README.md",
             "04_visual-gallery.md",
@@ -147,6 +170,30 @@ OBJECT_SPECS = [
         ),
         (),
         ("05_plate-text-route-index.csv", "06_plate-text-gallery.md"),
+    ),
+    ObjectSpec(
+        "codepoint_crosswalk_candidates",
+        Path("corpus/001_oracle-characters"),
+        "*/*/01_codepoint-crosswalk-packet.json",
+        (
+            "README.md",
+            "04_human-codepoint-crosswalk-review-sheet.md",
+            "05_codepoint-crosswalk-route-gallery.md",
+            "06_human-codepoint-crosswalk-dossier.md",
+            "08_codepoint-crosswalk-fact-matrix.md",
+        ),
+        (
+            "01_codepoint-crosswalk-packet.json",
+            "02_codepoint-crosswalk-source-index.csv",
+            "03_codepoint-crosswalk-route-index.csv",
+            "07_codepoint-crosswalk-dossier-index.json",
+            "09_codepoint-crosswalk-fact-matrix-index.json",
+        ),
+        (),
+        (
+            "03_codepoint-crosswalk-route-index.csv",
+            "05_codepoint-crosswalk-route-gallery.md",
+        ),
     ),
     ObjectSpec(
         "collection_object_candidates",

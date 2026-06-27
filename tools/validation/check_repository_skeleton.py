@@ -4695,7 +4695,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "research_boundary",
         "decipherment_claim_status",
     }
-    if len(rows) != 28166:
+    if len(rows) != 29754:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} row count changed")
     if rows:
         missing_fields = required_fields - set(rows[0])
@@ -4705,6 +4705,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
                 f"{', '.join(sorted(missing_fields))}"
             )
     expected_area_counts = {
+        "codepoint_crosswalk_candidates": 1588,
         "collection_object_candidates": 56,
         "evolution_correspondence_candidates": 13714,
         "graphemic_component_candidates": 2747,
@@ -4717,7 +4718,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
     if dict(sorted(area_counts.items())) != expected_area_counts:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} corpus area counts changed")
     expected_status_counts = {
-        "object_local_bundle_with_evidence_routes": 14451,
+        "object_local_bundle_with_evidence_routes": 16039,
         "object_local_bundle_with_review_image": 13715,
     }
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
@@ -4739,13 +4740,13 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         if "not_scholarship" not in boundary or "decipherment conclusions" not in boundary:
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} boundary missing caution: {row_id}")
     expected_summary_values = {
-        "object_directory_count": 28166,
+        "object_directory_count": 29754,
         "corpus_area_counts": expected_area_counts,
         "material_bundle_status_counts": expected_status_counts,
-        "human_entry_object_count": 28166,
-        "ai_entry_object_count": 28166,
+        "human_entry_object_count": 29754,
+        "ai_entry_object_count": 29754,
         "local_visual_asset_object_count": 13715,
-        "route_gallery_or_route_index_object_count": 28166,
+        "route_gallery_or_route_index_object_count": 29754,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
     }
@@ -7285,9 +7286,9 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
         "promotion_queue_candidate_count": 1588,
-        "object_local_material_bundle_count": 28166,
+        "object_local_material_bundle_count": 29903,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 28166,
+        "object_local_route_object_count": 29903,
         "object_local_partial_bundle_count": 0,
     }
     for field, expected_value in expected_totals.items():
@@ -7311,9 +7312,9 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "graph_edge_count": "16295",
             "graph_edge_type_count": "6",
             "promotion_queue_candidate_count": "1588",
-            "object_local_material_bundle_count": "10997",
+            "object_local_material_bundle_count": "12585",
             "object_local_review_image_object_count": "10996",
-            "object_local_route_object_count": "10997",
+            "object_local_route_object_count": "12585",
             "object_local_partial_bundle_count": "0",
             "coverage_status": "has_relationship_graph_derivatives",
         },
@@ -7324,17 +7325,17 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "asset_rights_status_counts": "licensed_for_repository:10364",
             "graph_edge_count": "54856",
             "graph_edge_type_count": "6",
-            "object_local_material_bundle_count": "2748",
+            "object_local_material_bundle_count": "2770",
             "object_local_review_image_object_count": "2719",
-            "object_local_route_object_count": "2748",
+            "object_local_route_object_count": "2770",
             "object_local_partial_bundle_count": "0",
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-evobc": {
             "graph_edge_count": "51948",
             "graph_edge_type_count": "5",
-            "object_local_material_bundle_count": "13715",
-            "object_local_route_object_count": "13715",
+            "object_local_material_bundle_count": "13842",
+            "object_local_route_object_count": "13842",
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-cambridge-hopkins": {
@@ -7559,7 +7560,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_plan_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows:5",
-            "object_local_material_coverage_audit_rows:28166",
+            "object_local_material_coverage_audit_rows:29754",
             "object_local_material_coverage_summary_files:1",
         ],
         "character_object_research_dossiers": [
@@ -7889,10 +7890,10 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "metadata_profile_count": 62,
         "missing_evidence_action_count": 32,
         "missing_evidence_assignment_count": 18,
-        "object_local_material_bundle_count": 28166,
+        "object_local_material_bundle_count": 29903,
         "object_local_partial_bundle_count": 0,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 28166,
+        "object_local_route_object_count": 29903,
         "package_manifest_count": 36,
         "size_recorded_count": 48,
         "source_phase_action_count": 62,
@@ -7911,9 +7912,9 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "large_source_register_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_action_count": "0",
-            "object_local_material_bundle_count": "10997",
+            "object_local_material_bundle_count": "12585",
             "object_local_review_image_object_count": "10996",
-            "object_local_route_object_count": "10997",
+            "object_local_route_object_count": "12585",
         },
         "src-obimd": {
             "current_stage": "pending_human_review",
@@ -7924,9 +7925,9 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "large_source_register_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_action_count": "0",
-            "object_local_material_bundle_count": "2748",
+            "object_local_material_bundle_count": "2770",
             "object_local_review_image_object_count": "2719",
-            "object_local_route_object_count": "2748",
+            "object_local_route_object_count": "2770",
         },
         "src-evobc": {
             "current_stage": "pending_human_review",
@@ -7934,8 +7935,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "large_source_register_count": "1",
             "source_phase_action_count": "1",
             "missing_evidence_action_count": "0",
-            "object_local_material_bundle_count": "13715",
-            "object_local_route_object_count": "13715",
+            "object_local_material_bundle_count": "13842",
+            "object_local_route_object_count": "13842",
         },
         "src-cambridge-hopkins": {
             "current_stage": "pending_human_review",
@@ -20259,9 +20260,9 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
         "promotion_queue_candidate_count": 1588,
-        "object_local_material_bundle_count": 28166,
+        "object_local_material_bundle_count": 29903,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 28166,
+        "object_local_route_object_count": 29903,
         "object_local_partial_bundle_count": 0,
     }
     for key, value in expected_source_coverage.items():
@@ -30233,12 +30234,103 @@ def check_oracle_character_human_markdown_wrapping(root: Path) -> list[str]:
     return issues
 
 
+def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]:
+    issues: list[str] = []
+    map_path = (
+        root
+        / "project_registry/002_project-id-to-source-reference-map/"
+        / "007_codepoint-crosswalk-id-source-map.csv"
+    )
+    with map_path.open("r", encoding="utf-8-sig", newline="") as file:
+        map_rows = list(csv.DictReader(file))
+    if len(map_rows) != 1588:
+        issues.append("codepoint crosswalk map row count changed")
+        return issues
+    expected_required_files = {
+        "README.md",
+        "01_codepoint-crosswalk-packet.json",
+        "02_codepoint-crosswalk-source-index.csv",
+        "03_codepoint-crosswalk-route-index.csv",
+        "04_human-codepoint-crosswalk-review-sheet.md",
+        "05_codepoint-crosswalk-route-gallery.md",
+        "06_human-codepoint-crosswalk-dossier.md",
+        "07_codepoint-crosswalk-dossier-index.json",
+        "08_codepoint-crosswalk-fact-matrix.md",
+        "09_codepoint-crosswalk-fact-matrix-index.json",
+    }
+    by_project = {row.get("project_id", ""): row for row in map_rows}
+    for expected_id in ["obs-xwalk-cand-000001", "obs-xwalk-cand-000047", "obs-xwalk-cand-001588"]:
+        map_row = by_project.get(expected_id)
+        if not map_row:
+            issues.append(f"codepoint crosswalk map missing {expected_id}")
+            continue
+        object_dir = root / map_row.get("canonical_path", "")
+        missing_files = [
+            filename
+            for filename in sorted(expected_required_files)
+            if not (object_dir / filename).exists()
+        ]
+        if missing_files:
+            issues.append(f"{expected_id} missing object-local files: {';'.join(missing_files)}")
+            continue
+        packet = json.loads((object_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8"))
+        if packet.get("project_id") != expected_id:
+            issues.append(f"{expected_id} packet project_id changed")
+        if packet.get("record_type") != "codepoint_crosswalk_candidate":
+            issues.append(f"{expected_id} packet record_type changed")
+        if packet.get("identity_claim_status") != "no_identity_claim":
+            issues.append(f"{expected_id} must stay no_identity_claim")
+        caution = packet.get("caution", "")
+        for marker in [
+            "not confirmed oracle-character identity",
+            "not accepted readings",
+            "not component assignments",
+            "not evolution-chain assignments",
+            "not decipherment conclusions",
+        ]:
+            if marker not in caution:
+                issues.append(f"{expected_id} caution missing {marker}")
+        readme = (object_dir / "README.md").read_text(encoding="utf-8")
+        dossier = (object_dir / "06_human-codepoint-crosswalk-dossier.md").read_text(encoding="utf-8")
+        fact_matrix = (object_dir / "08_codepoint-crosswalk-fact-matrix.md").read_text(encoding="utf-8")
+        for text_name, text in {
+            "README.md": readme,
+            "06_human-codepoint-crosswalk-dossier.md": dossier,
+            "08_codepoint-crosswalk-fact-matrix.md": fact_matrix,
+        }.items():
+            if "not_collected" in text or "not collected" in text.lower():
+                issues.append(f"{expected_id} {text_name} contains machine filler")
+        for marker in [
+            "object-local research entrance",
+            "Concrete Questions To Check",
+        ]:
+            if marker not in readme:
+                issues.append(f"{expected_id} README missing {marker}")
+        for marker in [
+            "Codepoint Crosswalk Fact Matrix",
+            "Human Review Order",
+            "Source Codepoint Route",
+            "HUST candidate route",
+            "OBIMD route",
+            "EVOBC route",
+            "not identity",
+            "not reading",
+            "not component",
+            "not evolution",
+            "not decipherment",
+        ]:
+            if marker not in fact_matrix:
+                issues.append(f"{expected_id} fact matrix missing {marker}")
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
     issues.extend(check_required_paths(root))
     issues.extend(check_character_directory_local_materials(root))
     issues.extend(check_oracle_character_human_markdown_wrapping(root))
+    issues.extend(check_codepoint_crosswalk_candidate_local_materials(root))
     issues.extend(check_component_candidate_local_materials(root))
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
     issues.extend(check_evolution_candidate_local_materials(root))

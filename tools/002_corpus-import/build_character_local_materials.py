@@ -60,7 +60,11 @@ def discover_target_dirs(root: Path) -> dict[str, dict[str, Path | str]]:
     target_ids = set(TARGET_PROJECT_IDS)
     object_root = root / "corpus/001_oracle-characters"
     targets: dict[str, dict[str, Path | str]] = {}
-    for packet_path in sorted(object_root.glob("*/*/01_*packet.json")):
+    packet_paths = [
+        *object_root.glob("*/*/01_candidate-character-packet.json"),
+        *object_root.glob("*/*/01_undeciphered-candidate-packet.json"),
+    ]
+    for packet_path in sorted(packet_paths):
         object_dir = packet_path.parent
         project_id = project_id_from_object_dir(object_dir)
         if project_id in target_ids:

@@ -102,7 +102,13 @@ def local_image_count(asset_dir: Path) -> int:
 
 def build_audit_rows(root: Path) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
-    packet_paths = sorted((root / CHARACTER_ROOT).glob("*/*/01_*packet.json"))
+    character_root = root / CHARACTER_ROOT
+    packet_paths = sorted(
+        [
+            *character_root.glob("*/*/01_candidate-character-packet.json"),
+            *character_root.glob("*/*/01_undeciphered-candidate-packet.json"),
+        ]
+    )
     for index, packet_path in enumerate(packet_paths, start=1):
         object_dir = packet_path.parent
         bucket_dir = object_dir.parent

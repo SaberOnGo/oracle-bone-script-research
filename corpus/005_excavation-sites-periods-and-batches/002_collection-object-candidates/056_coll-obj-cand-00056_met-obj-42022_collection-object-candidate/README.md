@@ -30,6 +30,8 @@ Committed image asset: `asset_id=asset-000002`.
 - `07_collection-dossier-index.json`: AI-readable dossier support index.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
 - `09_collection-provenance-evidence-index.json`: AI-readable evidence index.
+- `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
+- `11_collection-provenance-fact-matrix-index.json`: AI-readable fact index.
 
 ## Object Metadata / 对象 metadata
 

@@ -125,6 +125,8 @@ MANIFEST_FIELDS = [
     "collection_dossier_index_path",
     "collection_provenance_evidence_dossier_path",
     "collection_provenance_evidence_index_path",
+    "collection_provenance_fact_matrix_path",
+    "collection_provenance_fact_matrix_index_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
@@ -408,6 +410,8 @@ This directory is the object-local research entrance for one museum or collectio
 - `07_collection-dossier-index.json`: AI-readable dossier support index.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
 - `09_collection-provenance-evidence-index.json`: AI-readable evidence index.
+- `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
+- `11_collection-provenance-fact-matrix-index.json`: AI-readable fact index.
 
 ## Object Metadata / 对象 metadata
 
@@ -573,12 +577,14 @@ def collection_dossier_index_payload(
             (relative_dir / "04_visual-gallery.md").as_posix(),
             (relative_dir / "05_human-review-sheet.md").as_posix(),
             (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "10_collection-provenance-fact-matrix.md").as_posix(),
         ],
         "ai_support_files": [
             (relative_dir / "01_collection-object-packet.json").as_posix(),
             (relative_dir / "02_collection-source-index.csv").as_posix(),
             (relative_dir / "03_visual-asset-index.csv").as_posix(),
             (relative_dir / "07_collection-dossier-index.json").as_posix(),
+            (relative_dir / "11_collection-provenance-fact-matrix-index.json").as_posix(),
         ],
         "source_route_files": [
             source_row["source_file_path"],
@@ -795,6 +801,225 @@ def collection_provenance_evidence_index_payload(
     }
 
 
+def collection_provenance_fact_rows(
+    row: dict[str, str],
+    metadata: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> list[dict[str, str]]:
+    catalog_route = (
+        metadata.get("accession_number")
+        or metadata.get("source_collection_item_id")
+        or row.get("source_collection_item_id", "")
+        or "pending source-page review"
+    )
+    visual_route = visual_row.get("visual_entry_type", "pending visual review")
+    findspot = metadata.get("provenience") or metadata.get("geography")
+    period = metadata.get("historical_period") or metadata.get("object_date")
+    return [
+        {
+            "fact": "Collection object",
+            "status": "candidate object route; identity still needs review",
+            "evidence": "01_collection-object-packet.json; 06_human-collection-dossier.md",
+        },
+        {
+            "fact": "Catalog or accession route",
+            "status": f"{catalog_route}; source-page route only",
+            "evidence": "02_collection-source-index.csv; 06_human-collection-dossier.md",
+        },
+        {
+            "fact": "Image or visual route",
+            "status": f"{visual_route}; open gallery before visual use",
+            "evidence": "03_visual-asset-index.csv; 04_visual-gallery.md",
+        },
+        {
+            "fact": "Findspot or provenience",
+            "status": findspot or "pending findspot or provenience review",
+            "evidence": (
+                "06_human-collection-dossier.md; "
+                "08_collection-provenance-evidence-dossier.md"
+            ),
+        },
+        {
+            "fact": "Period or date",
+            "status": period or "pending period or date source review",
+            "evidence": (
+                "06_human-collection-dossier.md; "
+                "08_collection-provenance-evidence-dossier.md"
+            ),
+        },
+        {
+            "fact": "Batch or excavation context",
+            "status": "pending batch, pit, excavation, or plate context review",
+            "evidence": "08_collection-provenance-evidence-dossier.md",
+        },
+        {
+            "fact": "Inscription and character links",
+            "status": "candidate route only; no inscription identity claim",
+            "evidence": (
+                "06_human-collection-dossier.md; "
+                "08_collection-provenance-evidence-dossier.md"
+            ),
+        },
+        {
+            "fact": "Source and rights trail",
+            "status": f"{source_row['source_id']}; rights {source_row['rights_status']}",
+            "evidence": (
+                "02_collection-source-index.csv; "
+                "09_collection-provenance-evidence-index.json"
+            ),
+        },
+        {
+            "fact": "Risk note",
+            "status": "rights and reuse risk require human review before public use",
+            "evidence": "01_collection-object-packet.json; 03_visual-asset-index.csv",
+        },
+        {
+            "fact": "Review status",
+            "status": REVIEW_STATUS,
+            "evidence": (
+                "05_human-review-sheet.md; "
+                "09_collection-provenance-evidence-index.json"
+            ),
+        },
+    ]
+
+
+def collection_provenance_fact_matrix_text(
+    index: int,
+    row: dict[str, str],
+    fact_rows: list[dict[str, str]],
+) -> str:
+    pid = project_id(index)
+    intro = wrapped_paragraph(
+        "This matrix gives a compact human review order for the collection "
+        "object candidate. It points from each fact to the local evidence file "
+        "that must be opened before any comparison, citation, or later "
+        "research use."
+    )
+    intro_zh = wrapped_paragraph(
+        "\u672c\u77e9\u9635\u4e3a\u9986\u85cf\u5bf9\u8c61\u5019\u9009"
+        "\u63d0\u4f9b\u7b80\u660e\u7684\u4eba\u5de5\u590d\u6838\u987a\u5e8f\uff1b"
+        "\u6bcf\u4e2a\u4e8b\u5b9e\u90fd\u6307\u5411\u5fc5\u987b\u5148"
+        "\u6253\u5f00\u7684\u672c\u5730\u8bc1\u636e\u6587\u4ef6\u3002"
+    )
+    rows = "\n".join(
+        f"| {item['fact']} | {item['status']} | {item['evidence']} |"
+        for item in fact_rows
+    )
+    review_questions = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            "Open the catalog or accession source before trusting the label.",
+            "Open the visual index and gallery before using the object image.",
+            "Check findspot, period, batch, and plate evidence in the dossier.",
+            "Separate candidate inscription or character links from confirmed facts.",
+            "Review source, checksum, rights, and risk notes before public reuse.",
+            "Record the precise missing evidence route for the next researcher.",
+            (
+                "\u5148\u6838\u5bf9\u8457\u5f55\u6216\u767b\u8bb0\u6765\u6e90\uff0c"
+                "\u518d\u4fe1\u4efb\u5bf9\u8c61\u6807\u7b7e\u3002"
+            ),
+            (
+                "\u4f7f\u7528\u56fe\u50cf\u524d\uff0c\u5148\u6253\u5f00"
+                "\u56fe\u50cf\u7d22\u5f15\u548c\u56fe\u50cf\u5165\u53e3\u3002"
+            ),
+            (
+                "\u628a\u5019\u9009\u535c\u8f9e\u6216\u5355\u5b57\u5173\u8054"
+                "\u4e0e\u5df2\u786e\u8ba4\u4e8b\u5b9e\u5206\u5f00\u8bb0\u5f55\u3002"
+            ),
+        ]
+    )
+    lines = [
+        (
+            "# Collection Provenance Fact Matrix / "
+            f"\u9986\u85cf\u6765\u6e90\u4e8b\u5b9e\u77e9\u9635: {pid}"
+        ),
+        "",
+        "English:",
+        intro,
+        "",
+        "\u7b80\u4f53\u4e2d\u6587\uff1a",
+        intro_zh,
+        "",
+        "## Human Review Order / \u4eba\u5de5\u590d\u6838\u987a\u5e8f",
+        "",
+        "- Start with `10_collection-provenance-fact-matrix.md`.",
+        "- Then open `08_collection-provenance-evidence-dossier.md`.",
+        "- Use `02_collection-source-index.csv` for source and rights routes.",
+        "- Use `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.",
+        "- Use `11_collection-provenance-fact-matrix-index.json` only as support.",
+        "",
+        (
+            "## Collection Object Provenance Fact Matrix / "
+            "\u9986\u85cf\u5bf9\u8c61\u6765\u6e90\u4e8b\u5b9e\u77e9\u9635"
+        ),
+        "",
+        "| Fact | Current status | Local evidence to open |",
+        "| --- | --- | --- |",
+        rows,
+        "",
+        "## Concrete Review Questions / \u5177\u4f53\u590d\u6838\u95ee\u9898",
+        "",
+        review_questions,
+        "",
+        "## Review Boundary / \u590d\u6838\u8fb9\u754c",
+        "",
+        "- not a confirmed collection object identity",
+        "- not a confirmed inscription identity",
+        "- not a transcription",
+        "- not a formal reading",
+        "- not a decipherment conclusion",
+        f"- candidate_collection_object_id: `{row['candidate_collection_object_id']}`",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def collection_provenance_fact_matrix_index_payload(
+    index: int,
+    relative_dir: Path,
+    row: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+    fact_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "collection_provenance_fact_matrix_index",
+        "candidate_collection_object_id": row["candidate_collection_object_id"],
+        "fact_count": len(fact_rows),
+        "facts": fact_rows,
+        "human_readable_files": [
+            (relative_dir / "README.md").as_posix(),
+            (relative_dir / "04_visual-gallery.md").as_posix(),
+            (relative_dir / "05_human-review-sheet.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "08_collection-provenance-evidence-dossier.md").as_posix(),
+            (relative_dir / "10_collection-provenance-fact-matrix.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (relative_dir / "01_collection-object-packet.json").as_posix(),
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "07_collection-dossier-index.json").as_posix(),
+            (relative_dir / "09_collection-provenance-evidence-index.json").as_posix(),
+            (relative_dir / "11_collection-provenance-fact-matrix-index.json").as_posix(),
+        ],
+        "source_id": source_row["source_id"],
+        "rights_status": source_row["rights_status"],
+        "visual_entry_type": visual_row.get("visual_entry_type", ""),
+        "claim_boundary": [
+            "no confirmed collection object identity",
+            "no confirmed inscription identity",
+            "no transcription",
+            "no formal reading",
+            "no decipherment conclusion",
+        ],
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def gallery_text(index: int, row: dict[str, str], visual_row: dict[str, str]) -> str:
     if visual_row.get("asset_path"):
         rel_asset = relative_link(object_dir(index, row, "x"), visual_row["asset_path"])
@@ -907,6 +1132,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
         src_row = source_index_row(index, source_path, source_row_index, row)
         vis_row = visual_index_row(index, row, asset_row, technical_row, visual_profile_row)
         metadata = selected_metadata(row)
+        fact_rows = collection_provenance_fact_rows(row, metadata, src_row, vis_row)
         outputs[pid] = {
             "object_dir": root / relative_dir,
             "relative_object_dir": relative_dir,
@@ -944,6 +1170,23 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 src_row,
                 vis_row,
             ),
+            "collection_provenance_fact_matrix_text": (
+                collection_provenance_fact_matrix_text(
+                    index,
+                    row,
+                    fact_rows,
+                )
+            ),
+            "collection_provenance_fact_matrix_index": (
+                collection_provenance_fact_matrix_index_payload(
+                    index,
+                    relative_dir,
+                    row,
+                    src_row,
+                    vis_row,
+                    fact_rows,
+                )
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -960,6 +1203,12 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 ).as_posix(),
                 "collection_provenance_evidence_index_path": (
                     relative_dir / "09_collection-provenance-evidence-index.json"
+                ).as_posix(),
+                "collection_provenance_fact_matrix_path": (
+                    relative_dir / "10_collection-provenance-fact-matrix.md"
+                ).as_posix(),
+                "collection_provenance_fact_matrix_index_path": (
+                    relative_dir / "11_collection-provenance-fact-matrix-index.json"
                 ).as_posix(),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
@@ -1030,6 +1279,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (directory / "09_collection-provenance-evidence-index.json").write_text(
             json.dumps(
                 output["provenance_evidence_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "10_collection-provenance-fact-matrix.md").write_text(
+            str(output["collection_provenance_fact_matrix_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "11_collection-provenance-fact-matrix-index.json").write_text(
+            json.dumps(
+                output["collection_provenance_fact_matrix_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

@@ -1,0 +1,86 @@
+{
+  "ai_support_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/01_collection-object-packet.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/02_collection-source-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/03_visual-asset-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/07_collection-dossier-index.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/09_collection-provenance-evidence-index.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/11_collection-provenance-fact-matrix-index.json"
+  ],
+  "candidate_collection_object_id": "penn-mus-obj-00001",
+  "claim_boundary": [
+    "no confirmed collection object identity",
+    "no confirmed inscription identity",
+    "no transcription",
+    "no formal reading",
+    "no decipherment conclusion"
+  ],
+  "fact_count": 10,
+  "facts": [
+    {
+      "evidence": "01_collection-object-packet.json; 06_human-collection-dossier.md",
+      "fact": "Collection object",
+      "status": "candidate object route; identity still needs review"
+    },
+    {
+      "evidence": "02_collection-source-index.csv; 06_human-collection-dossier.md",
+      "fact": "Catalog or accession route",
+      "status": "49-14-7A; source-page route only"
+    },
+    {
+      "evidence": "03_visual-asset-index.csv; 04_visual-gallery.md",
+      "fact": "Image or visual route",
+      "status": "no_committed_visual_asset; open gallery before visual use"
+    },
+    {
+      "evidence": "06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md",
+      "fact": "Findspot or provenience",
+      "status": "Anyang"
+    },
+    {
+      "evidence": "06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md",
+      "fact": "Period or date",
+      "status": "Shang Dynasty"
+    },
+    {
+      "evidence": "08_collection-provenance-evidence-dossier.md",
+      "fact": "Batch or excavation context",
+      "status": "pending batch, pit, excavation, or plate context review"
+    },
+    {
+      "evidence": "06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md",
+      "fact": "Inscription and character links",
+      "status": "candidate route only; no inscription identity claim"
+    },
+    {
+      "evidence": "02_collection-source-index.csv; 09_collection-provenance-evidence-index.json",
+      "fact": "Source and rights trail",
+      "status": "src-penn-museum-oracle-bone; rights metadata_only_until_verified"
+    },
+    {
+      "evidence": "01_collection-object-packet.json; 03_visual-asset-index.csv",
+      "fact": "Risk note",
+      "status": "rights and reuse risk require human review before public use"
+    },
+    {
+      "evidence": "05_human-review-sheet.md; 09_collection-provenance-evidence-index.json",
+      "fact": "Review status",
+      "status": "needs_human_collection_object_review"
+    }
+  ],
+  "human_readable_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/README.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/04_visual-gallery.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/05_human-review-sheet.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/06_human-collection-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/08_collection-provenance-evidence-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/054_coll-obj-cand-00054_penn-obj-49-14-7a_collection-object-candidate/10_collection-provenance-fact-matrix.md"
+  ],
+  "project_id": "coll-obj-cand-00054",
+  "record_type": "collection_provenance_fact_matrix_index",
+  "review_status": "needs_human_collection_object_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_id": "src-penn-museum-oracle-bone",
+  "updated_at": "2026-06-20",
+  "visual_entry_type": "no_committed_visual_asset"
+}

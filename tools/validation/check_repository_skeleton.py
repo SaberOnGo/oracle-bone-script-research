@@ -3724,6 +3724,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         "07_collection-dossier-index.json",
         "08_collection-provenance-evidence-dossier.md",
         "09_collection-provenance-evidence-index.json",
+        "10_collection-provenance-fact-matrix.md",
+        "11_collection-provenance-fact-matrix-index.json",
     ]
     expected_sources = {
         "src-ihp-museum-oracle-bones",
@@ -3771,6 +3773,7 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "05_human-review-sheet.md",
                 "06_human-collection-dossier.md",
                 "08_collection-provenance-evidence-dossier.md",
+                "10_collection-provenance-fact-matrix.md",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -3999,6 +4002,74 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing checksum question")
             if "candidate evidence only" not in provenance_index.get("claim_boundary", ""):
                 issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing claim boundary")
+        fact_matrix_path = object_dir / "10_collection-provenance-fact-matrix.md"
+        if path_exists(fact_matrix_path):
+            fact_matrix_text = fact_matrix_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Collection Provenance Fact Matrix",
+                "Human Review Order",
+                "Collection Object Provenance Fact Matrix",
+                "Collection object",
+                "Catalog or accession route",
+                "Image or visual route",
+                "Findspot or provenience",
+                "Period or date",
+                "Batch or excavation context",
+                "Inscription and character links",
+                "Source and rights trail",
+                "Risk note",
+                "Review status",
+                "02_collection-source-index.csv",
+                "03_visual-asset-index.csv",
+                "04_visual-gallery.md",
+                "06_human-collection-dossier.md",
+                "08_collection-provenance-evidence-dossier.md",
+                "09_collection-provenance-evidence-index.json",
+                "11_collection-provenance-fact-matrix-index.json",
+                "not a confirmed collection object identity",
+                "not a confirmed inscription identity",
+                "not a transcription",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in fact_matrix_text:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for stale_snippet in ["not_collected", "not collected"]:
+                if stale_snippet in fact_matrix_text:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"contains placeholder: {stale_snippet}"
+                    )
+            for line_number, line in enumerate(fact_matrix_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        fact_matrix_index_path = object_dir / "11_collection-provenance-fact-matrix-index.json"
+        if path_exists(fact_matrix_index_path):
+            fact_matrix_index = json.loads(fact_matrix_index_path.read_text(encoding="utf-8"))
+            if fact_matrix_index.get("record_type") != "collection_provenance_fact_matrix_index":
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} record_type changed")
+            if fact_matrix_index.get("fact_count") != 10:
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} fact_count changed")
+            human_files = [str(path) for path in fact_matrix_index.get("human_readable_files", [])]
+            ai_files = [str(path) for path in fact_matrix_index.get("ai_support_files", [])]
+            claim_boundary = ";".join(
+                str(value) for value in fact_matrix_index.get("claim_boundary", [])
+            )
+            if not any(path.endswith("10_collection-provenance-fact-matrix.md") for path in human_files):
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing human matrix link")
+            if not any(path.endswith("09_collection-provenance-evidence-index.json") for path in ai_files):
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing evidence index link")
+            if "no decipherment conclusion" not in claim_boundary:
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing claim boundary")
     if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:

@@ -3,7 +3,8 @@
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/01_collection-object-packet.json",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/02_collection-source-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/03_visual-asset-index.csv",
-    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/07_collection-dossier-index.json"
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/07_collection-dossier-index.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/11_collection-provenance-fact-matrix-index.json"
   ],
   "candidate_collection_object_id": "ihp-mus-obj-00028",
   "claim_boundary": "no confirmed collection object identity; no confirmed inscription identity; no transcription; no formal reading; no decipherment conclusion",
@@ -11,7 +12,8 @@
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/README.md",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/04_visual-gallery.md",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/05_human-review-sheet.md",
-    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/06_human-collection-dossier.md"
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/06_human-collection-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/028_coll-obj-cand-00028_ihp-item-502_collection-object-candidate/10_collection-provenance-fact-matrix.md"
   ],
   "project_id": "coll-obj-cand-00028",
   "record_type": "collection_object_candidate_dossier_index",

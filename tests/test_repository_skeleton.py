@@ -5078,12 +5078,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "07_collection-dossier-index.json").exists())
             self.assertTrue((object_dir / "08_collection-provenance-evidence-dossier.md").exists())
             self.assertTrue((object_dir / "09_collection-provenance-evidence-index.json").exists())
+            self.assertTrue((object_dir / "10_collection-provenance-fact-matrix.md").exists())
+            self.assertTrue((object_dir / "11_collection-provenance-fact-matrix-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a confirmed inscription identity", readme_text)
             self.assertIn("not a transcription, formal reading, component analysis, or decipherment conclusion", readme_text)
             self.assertIn("06_human-collection-dossier.md", readme_text)
             self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
+            self.assertIn("10_collection-provenance-fact-matrix.md", readme_text)
             review_sheet_text = (object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet_text)
             self.assertIn(
@@ -5225,6 +5228,63 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "candidate evidence only",
                 provenance_index["claim_boundary"],
             )
+            fact_matrix_text = (
+                object_dir / "10_collection-provenance-fact-matrix.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Collection Provenance Fact Matrix", fact_matrix_text)
+            self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("Collection Object Provenance Fact Matrix", fact_matrix_text)
+            for snippet in [
+                "Collection object",
+                "Catalog or accession route",
+                "Image or visual route",
+                "Findspot or provenience",
+                "Period or date",
+                "Batch or excavation context",
+                "Inscription and character links",
+                "Source and rights trail",
+                "Risk note",
+                "Review status",
+                "02_collection-source-index.csv",
+                "03_visual-asset-index.csv",
+                "04_visual-gallery.md",
+                "06_human-collection-dossier.md",
+                "08_collection-provenance-evidence-dossier.md",
+                "09_collection-provenance-evidence-index.json",
+                "11_collection-provenance-fact-matrix-index.json",
+                "not a confirmed collection object identity",
+                "not a confirmed inscription identity",
+                "not a transcription",
+                "not a decipherment conclusion",
+            ]:
+                self.assertIn(snippet, fact_matrix_text)
+            self.assertNotIn("not_collected", fact_matrix_text)
+            self.assertNotIn("not collected", fact_matrix_text)
+            for line in fact_matrix_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            fact_matrix_index = json.loads(
+                (object_dir / "11_collection-provenance-fact-matrix-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                fact_matrix_index["record_type"],
+                "collection_provenance_fact_matrix_index",
+            )
+            self.assertEqual(fact_matrix_index["fact_count"], 10)
+            self.assertIn(
+                "10_collection-provenance-fact-matrix.md",
+                ";".join(fact_matrix_index["human_readable_files"]),
+            )
+            self.assertIn(
+                "09_collection-provenance-evidence-index.json",
+                ";".join(fact_matrix_index["ai_support_files"]),
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                ";".join(fact_matrix_index["claim_boundary"]),
+            )
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         smithsonian_gallery = (
@@ -5279,6 +5339,45 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "candidate evidence only",
             first["provenance_evidence_index"]["claim_boundary"],
+        )
+        self.assertIn(
+            "Collection Provenance Fact Matrix",
+            first["collection_provenance_fact_matrix_text"],
+        )
+        self.assertIn(
+            "Human Review Order",
+            first["collection_provenance_fact_matrix_text"],
+        )
+        self.assertIn(
+            "Collection Object Provenance Fact Matrix",
+            first["collection_provenance_fact_matrix_text"],
+        )
+        self.assertIn(
+            "not a confirmed collection object identity",
+            first["collection_provenance_fact_matrix_text"],
+        )
+        self.assertIn(
+            "not a confirmed inscription identity",
+            first["collection_provenance_fact_matrix_text"],
+        )
+        self.assertIn("not a transcription", first["collection_provenance_fact_matrix_text"])
+        self.assertIn(
+            "not a decipherment conclusion",
+            first["collection_provenance_fact_matrix_text"],
+        )
+        self.assertNotIn("not_collected", first["collection_provenance_fact_matrix_text"])
+        self.assertNotIn("not collected", first["collection_provenance_fact_matrix_text"])
+        for line in first["collection_provenance_fact_matrix_text"].splitlines():
+            if not line.startswith("|") and not line.startswith("!["):
+                self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["collection_provenance_fact_matrix_index"]["record_type"],
+            "collection_provenance_fact_matrix_index",
+        )
+        self.assertEqual(first["collection_provenance_fact_matrix_index"]["fact_count"], 10)
+        self.assertIn(
+            "no decipherment conclusion",
+            first["collection_provenance_fact_matrix_index"]["claim_boundary"],
         )
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn(

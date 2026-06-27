@@ -12714,6 +12714,48 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
         "museum_object_asset_count": str(len(museum_asset_rows)),
         "obm_followup_route_count": str(len(obm_rows)),
     }
+    required_collection_slots = {
+        "collection_object_id",
+        "institution",
+        "museum_object_record",
+        "accession_or_catalog_number",
+        "findspot",
+        "excavation_site",
+        "period",
+        "batch_or_pit_context",
+        "source_system",
+        "source_register_row",
+        "asset_source_row",
+        "asset_rights_row",
+        "image_or_object_route",
+        "file_size",
+        "checksum",
+        "rights_status",
+        "risk_note",
+        "public_commit_decision",
+        "raw_package_storage",
+        "review_status",
+    }
+    required_source_context_fields = {
+        "collection_staging_row",
+        "collection_object_id_source_map_row",
+        "asset_source_index_row",
+        "asset_rights_review_log_row",
+        "large_source_register_row",
+        "download_or_access_record",
+        "source_id",
+        "rights_status",
+        "risk_note",
+        "review_status",
+    }
+    required_next_checks = [
+        "Which institution, object record, accession or catalog number, and source system "
+        "identify this collection object?",
+        "Which findspot, excavation site, period, batch, or pit context remains missing?",
+        "Which asset source row, rights row, file size, checksum, and risk note limit public use?",
+        "Which object-local dossier or review sheet should be opened before comparing the image?",
+        "Which raw package or unclear image must stay outside regular Git until review?",
+    ]
     for row in rows:
         review_id = row.get("review_checklist_id", "")
         if not review_id.startswith("collection-provenance-phase-gap-review-"):
@@ -12729,6 +12771,19 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
             issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} boundary changed: {review_id}")
         if row.get("claim_boundary") != "collection_provenance_phase_gap_review_checklist_not_review_outcome_not_scholarship":
             issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        collection_slots = {
+            slot for slot in row.get("required_collection_provenance_slots", "").split(";") if slot
+        }
+        if not required_collection_slots.issubset(collection_slots):
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} collection slots changed: {review_id}")
+        source_context_fields = {
+            field for field in row.get("source_context_fields_to_verify", "").split(";") if field
+        }
+        if not required_source_context_fields.issubset(source_context_fields):
+            issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} source context fields changed: {review_id}")
+        for next_check in required_next_checks:
+            if next_check not in row.get("concrete_next_checks", ""):
+                issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} concrete next checks changed: {review_id}")
         for field, expected_value in {
             "evidence_collection_status": "not_collected",
             "rights_decision_status": "no_rights_decision",

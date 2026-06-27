@@ -23578,6 +23578,37 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["obm_followup_route_count"] for row in rows}, {"4"})
         self.assertTrue(all("001_institutional-collection-provenance-staging.csv" in row["files_to_open"] for row in rows))
         self.assertTrue(all("006_collection-object-id-source-map.csv" in row["files_to_open"] for row in rows))
+        required_slots = {
+            "collection_object_id",
+            "institution",
+            "museum_object_record",
+            "accession_or_catalog_number",
+            "findspot",
+            "excavation_site",
+            "period",
+            "batch_or_pit_context",
+            "source_system",
+            "source_register_row",
+            "asset_source_row",
+            "asset_rights_row",
+            "image_or_object_route",
+            "file_size",
+            "checksum",
+            "rights_status",
+            "risk_note",
+            "public_commit_decision",
+            "raw_package_storage",
+            "review_status",
+        }
+        for row in rows:
+            self.assertTrue(required_slots.issubset(set(row["required_collection_provenance_slots"].split(";"))))
+            self.assertIn("collection_staging_row", row["source_context_fields_to_verify"])
+            self.assertIn("collection_object_id_source_map_row", row["source_context_fields_to_verify"])
+            self.assertIn("asset_source_index_row", row["source_context_fields_to_verify"])
+            self.assertIn("asset_rights_review_log_row", row["source_context_fields_to_verify"])
+            self.assertIn("Which institution, object record, accession or catalog number, and source system identify this collection object?", row["concrete_next_checks"])
+            self.assertIn("Which findspot, excavation site, period, batch, or pit context remains missing?", row["concrete_next_checks"])
+            self.assertIn("Which asset source row, rights row, file size, checksum, and risk note limit public use?", row["concrete_next_checks"])
         self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
         self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
         self.assertTrue(all(row["source_promotion_status"] == "not_promoted" for row in rows))
@@ -23595,6 +23626,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("src-ihp-museum-oracle-bones", first["collection_source_ids"])
         self.assertIn("src-metmuseum-oracle-bone", first["museum_object_asset_source_ids"])
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertIn("findspot", first["required_collection_provenance_slots"])
+        self.assertIn("batch_or_pit_context", first["required_collection_provenance_slots"])
+        self.assertIn("asset_rights_row", first["required_collection_provenance_slots"])
+        self.assertIn("checksum", first["required_collection_provenance_slots"])
+        self.assertIn("collection_object_id_source_map_row", first["source_context_fields_to_verify"])
+        self.assertIn("asset_rights_review_log_row", first["source_context_fields_to_verify"])
+        self.assertIn("Which object-local dossier or review sheet should be opened before comparing the image?", first["concrete_next_checks"])
+        self.assertIn("Which raw package or unclear image must stay outside regular Git until review?", first["concrete_next_checks"])
         self.assertTrue(all("collection provenance phase gap review checklist only" in row["caution"] for row in rows))
 
     def test_inscription_plate_crosswalk_phase_gap_review_checklist_routes_crosswalk_gaps(self) -> None:

@@ -52,6 +52,48 @@ REQUIRED_REVIEW_STEPS = (
     "confirm_no_collection_object_identity_claim;"
     "confirm_no_decipherment_claim"
 )
+REQUIRED_COLLECTION_PROVENANCE_SLOTS = (
+    "collection_object_id;"
+    "institution;"
+    "museum_object_record;"
+    "accession_or_catalog_number;"
+    "findspot;"
+    "excavation_site;"
+    "period;"
+    "batch_or_pit_context;"
+    "source_system;"
+    "source_register_row;"
+    "asset_source_row;"
+    "asset_rights_row;"
+    "image_or_object_route;"
+    "file_size;"
+    "checksum;"
+    "rights_status;"
+    "risk_note;"
+    "public_commit_decision;"
+    "raw_package_storage;"
+    "review_status"
+)
+SOURCE_CONTEXT_FIELDS_TO_VERIFY = (
+    "collection_staging_row;"
+    "collection_object_id_source_map_row;"
+    "asset_source_index_row;"
+    "asset_rights_review_log_row;"
+    "large_source_register_row;"
+    "download_or_access_record;"
+    "source_id;"
+    "rights_status;"
+    "risk_note;"
+    "review_status"
+)
+CONCRETE_NEXT_CHECKS = (
+    "Which institution, object record, accession or catalog number, and source system "
+    "identify this collection object?;"
+    "Which findspot, excavation site, period, batch, or pit context remains missing?;"
+    "Which asset source row, rights row, file size, checksum, and risk note limit public use?;"
+    "Which object-local dossier or review sheet should be opened before comparing the image?;"
+    "Which raw package or unclear image must stay outside regular Git until review?"
+)
 
 
 def repo_root() -> Path:
@@ -140,6 +182,9 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
                 "obm_followup_source_ids": ";".join(obm_source_ids),
                 "files_to_open": files_to_open,
                 "required_review_steps": REQUIRED_REVIEW_STEPS,
+                "required_collection_provenance_slots": REQUIRED_COLLECTION_PROVENANCE_SLOTS,
+                "source_context_fields_to_verify": SOURCE_CONTEXT_FIELDS_TO_VERIFY,
+                "concrete_next_checks": CONCRETE_NEXT_CHECKS,
                 "recommended_action": gap_row["recommended_action"],
                 "candidate_or_staging_boundary": gap_row["candidate_or_staging_boundary"],
                 "claim_boundary": CLAIM_BOUNDARY,

@@ -15,6 +15,7 @@ from tools.validation.check_repository_skeleton import (
     check_forbidden_policy_text,
     check_forbidden_paths,
     check_forbidden_top_level_dirs,
+    check_human_research_material_gate,
     check_ai_context_packs,
     check_ai_context_pack_builder_readme_human_entry,
     check_ai_agent_evidence_pack_validator,
@@ -320,6 +321,16 @@ def load_character_context_evidence_dossiers_module():
     spec = importlib.util.spec_from_file_location("build_character_context_evidence_dossiers", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_human_research_material_gate_module():
+    path = repo_root() / "tools/validation/check_human_research_material_gate.py"
+    spec = importlib.util.spec_from_file_location("check_human_research_material_gate", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 
@@ -2628,6 +2639,53 @@ def load_ai_agent_evidence_pack_validator_module():
 class RepositorySkeletonTests(unittest.TestCase):
     def test_required_paths_exist(self) -> None:
         self.assertEqual(check_required_paths(repo_root()), [])
+
+    def test_human_research_material_gate_rejects_machine_route_drift(self) -> None:
+        module = load_human_research_material_gate_module()
+        text = (
+            "JSON CSV AI-readable machine-readable index packet route manifest "
+            "staging schema graph edge checklist validation field review status "
+            "结构化 索引 字段 路线 图边 校验 机器 模板"
+        )
+        score = module.DocumentScore(
+            path="corpus/example/README.md",
+            machine_hits=module.count_terms(text, module.MACHINE_ROUTE_TERMS),
+            research_hits=module.count_terms(text, module.HUMAN_RESEARCH_TERMS),
+            missing_slots=[
+                slot
+                for slot, pattern in module.RESEARCH_SLOT_PATTERNS.items()
+                if not module.re.search(pattern, text, flags=module.re.IGNORECASE)
+            ],
+            mojibake_hits=[],
+            modern_label_risk=False,
+        )
+        self.assertTrue(score.machine_dominant)
+        self.assertTrue(score.missing_core_research)
+
+    def test_human_research_material_gate_accepts_research_slots(self) -> None:
+        module = load_human_research_material_gate_module()
+        text = (
+            "字形图像和拓片照片记录当前候选形态。"
+            "释读史只记录学者提出者和争议，不作确认结论。"
+            "构件组成、异体、近形和同构件关系等待复核。"
+            "卜辞全文 OCR、图版、著录、合集和 catalog 路线待查。"
+            "出土、馆藏、时期、组类和 findspot provenance 待复核。"
+            "金文、小篆、今字和 variant 演化关系仅作比较线索。"
+        )
+        score = module.DocumentScore(
+            path="corpus/example/README.md",
+            machine_hits=module.count_terms(text, module.MACHINE_ROUTE_TERMS),
+            research_hits=module.count_terms(text, module.HUMAN_RESEARCH_TERMS),
+            missing_slots=[
+                slot
+                for slot, pattern in module.RESEARCH_SLOT_PATTERNS.items()
+                if not module.re.search(pattern, text, flags=module.re.IGNORECASE)
+            ],
+            mojibake_hits=[],
+            modern_label_risk=False,
+        )
+        self.assertFalse(score.machine_dominant)
+        self.assertFalse(score.missing_core_research)
 
     def test_bilingual_markers_exist(self) -> None:
         self.assertEqual(check_bilingual_markers(repo_root()), [])

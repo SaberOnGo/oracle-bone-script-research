@@ -60,6 +60,31 @@ SOURCE_FIELD_MAP = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "007_source-field-map.csv"
 )
+
+
+def check_human_research_material_gate(root: Path) -> list[str]:
+    script = root / "tools/validation/check_human_research_material_gate.py"
+    if not script.exists():
+        return ["missing human research material gate script"]
+    result = subprocess.run(
+        [sys.executable, str(script), "--root", str(root)],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    if result.returncode == 0:
+        return []
+    issues = [
+        line[2:]
+        for line in result.stdout.splitlines()
+        if line.startswith("- ")
+    ]
+    if issues:
+        return issues
+    return [result.stdout.strip() or result.stderr.strip()]
+
+
 IMPORT_READINESS_NOTES = (
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "008_first-stage-import-readiness-notes.md"
@@ -29589,6 +29614,7 @@ def main() -> int:
     issues.extend(check_statistics_readme_human_entry(root))
     issues.extend(check_statistics_generation_tools_readme_human_entry(root))
     issues.extend(check_inscription_readme_human_entry(root))
+    issues.extend(check_human_research_material_gate(root))
     issues.extend(check_forbidden_paths(root))
     issues.extend(check_forbidden_top_level_dirs(root))
     issues.extend(check_forbidden_policy_text(root))

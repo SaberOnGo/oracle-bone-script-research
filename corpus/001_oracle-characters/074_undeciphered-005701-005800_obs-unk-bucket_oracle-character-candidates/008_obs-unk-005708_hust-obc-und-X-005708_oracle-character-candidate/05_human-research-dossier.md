@@ -32,6 +32,61 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 - rights status: `source_marked_risk_noted`
 - visual review: `needs_human_visual_review`
 
+### Primary Visual Material / 主要图像材料
+
+#### Visual Item 1 / 图像条目 1
+
+- local review image: `corpus/001_oracle-characters/074_undeciphered-005701-00
+  5800_obs-unk-bucket_oracle-character-candidates/008_obs-unk-005708_hust-ob
+  c-und-X-005708_oracle-character-candidate/03_visual-assets/001_asset-00000
+  4_hust-X-005708_glyph.png`
+- source image reference: `HUST-OBC/undeciphered/X/1264/X_？_1176_1.png`
+- asset id: `asset-000004`
+- download id: `dl-hust-obc-figshare-raw`
+- source package: `large-src-000001`
+- rights status: `source_marked_risk_noted`
+- review status: `needs_human_visual_review`
+- risk note: `Raw package exceeds 40 MiB and is not committed. Figshare
+  metadata reports CC BY 4.0, while the Scientific Data article page uses CC
+  BY-NC-ND 4.0. Article reports 9411 undeciphered characters; zip directory
+  yielded 9408 candidate classes.`
+
+#### Visual Item 2 / 图像条目 2
+
+- local review image: `待查：需要核对来源记录`
+- source image reference: `HUST-OBC/undeciphered/X/1264/X_？_1176_2.png`
+- asset id: `待查：需要核对来源记录`
+- download id: `dl-hust-obc-figshare-raw`
+- source package: `large-src-000001`
+- rights status: `source_marked_risk_noted`
+- review status: `needs_human_visual_review`
+- risk note: `Raw package exceeds 40 MiB and is not committed. Figshare
+  metadata reports CC BY 4.0, while the Scientific Data article page uses CC
+  BY-NC-ND 4.0. Article reports 9411 undeciphered characters; zip directory
+  yielded 9408 candidate classes.`
+
+#### Visual Item 3 / 图像条目 3
+
+- local review image: `待查：需要核对来源记录`
+- source image reference: `HUST-OBC/undeciphered/X/1264/X_？_1176_3.png`
+- asset id: `待查：需要核对来源记录`
+- download id: `dl-hust-obc-figshare-raw`
+- source package: `large-src-000001`
+- rights status: `source_marked_risk_noted`
+- review status: `needs_human_visual_review`
+- risk note: `Raw package exceeds 40 MiB and is not committed. Figshare
+  metadata reports CC BY 4.0, while the Scientific Data article page uses CC
+  BY-NC-ND 4.0. Article reports 9411 undeciphered characters; zip directory
+  yielded 9408 candidate classes.`
+
+- more visual rows: `47 additional rows in 02_visual-source-index.csv`
+
+These rows identify source-marked review images and source-image routes. They
+are visual evidence entrances, not glyph analysis, component assignment,
+accepted reading, or rights clearance.
+
+这些行只标出带来源的复核图像和来源图片路线。它们是视觉证据入口，不是字形分析、构件归属、已接受释读或权利清理结论。
+
 ### Glyph Observation Checklist / 字形观察记录
 
 - Which visible strokes, outlines, breaks, or uncertain marks

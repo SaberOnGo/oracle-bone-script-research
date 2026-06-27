@@ -185,6 +185,64 @@ def visual_summary(rows: list[dict[str, str]]) -> dict[str, str]:
     }
 
 
+def primary_visual_material_lines(rows: list[dict[str, str]], limit: int = 3) -> list[str]:
+    lines: list[str] = [
+        "### Primary Visual Material / 主要图像材料",
+        "",
+    ]
+    if not rows:
+        lines.extend(
+            [
+                "- local review image: `待查：需要核对本对象图像来源`",
+                "- source image reference: `待查：需要核对来源包或图像清单`",
+                "",
+            ]
+        )
+        return lines
+    for index, row in enumerate(rows[:limit], start=1):
+        lines.extend(
+            [
+                f"#### Visual Item {index} / 图像条目 {index}",
+                "",
+                bullet("local review image", code_value(row.get("committed_image_path", ""))),
+                bullet("source image reference", code_value(row.get("source_image_reference_path", ""))),
+                bullet("asset id", code_value(row.get("asset_id", ""))),
+                bullet("download id", code_value(row.get("download_id", ""))),
+                bullet("source package", code_value(row.get("source_package_id", ""))),
+                bullet("rights status", code_value(row.get("rights_status", ""))),
+                bullet("review status", code_value(row.get("review_status", ""))),
+                bullet("risk note", code_value(row.get("risk_note", ""))),
+                "",
+            ]
+        )
+    if len(rows) > limit:
+        lines.extend(
+            [
+                bullet(
+                    "more visual rows",
+                    code_value(f"{len(rows) - limit} additional rows in 02_visual-source-index.csv"),
+                ),
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            para(
+                "These rows identify source-marked review images and source-image "
+                "routes. They are visual evidence entrances, not glyph analysis, "
+                "component assignment, accepted reading, or rights clearance."
+            ),
+            "",
+            para(
+                "这些行只标出带来源的复核图像和来源图片路线。它们是视觉证据"
+                "入口，不是字形分析、构件归属、已接受释读或权利清理结论。"
+            ),
+            "",
+        ]
+    )
+    return lines
+
+
 def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
     by_type: dict[str, int] = defaultdict(int)
     codepoints: list[str] = []
@@ -267,6 +325,7 @@ def dossier_text(
         bullet("rights status", code_value(visual["rights"] or str(packet.get("rights_status", "")))),
         bullet("visual review", code_value(visual["review"] or "needs_human_visual_review")),
         "",
+        *primary_visual_material_lines(visual_rows),
         "### Glyph Observation Checklist / 字形观察记录",
         "",
         "- Which visible strokes, outlines, breaks, or uncertain marks",

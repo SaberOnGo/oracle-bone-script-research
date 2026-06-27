@@ -3750,6 +3750,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("考古档案覆盖", first["dossier_text"])
         self.assertIn("具体待查问题", first["dossier_text"])
         self.assertIn("需要核对哪些卜辞、图版或著录号", first["dossier_text"])
+        self.assertIn("Primary Visual Material / 主要图像材料", first["dossier_text"])
+        self.assertIn("local review image", first["dossier_text"])
+        self.assertIn("source image reference", first["dossier_text"])
+        self.assertIn("asset id", first["dossier_text"])
+        self.assertIn("download id", first["dossier_text"])
+        self.assertIn("source package", first["dossier_text"])
+        self.assertIn("risk note", first["dossier_text"])
         self.assertIn(
             "待查：需要核对来源释读、释读史或争议记录",
             first["dossier_text"],

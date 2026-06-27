@@ -32,6 +32,31 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 - rights status: `source_marked_risk_noted`
 - visual review: `needs_human_visual_review`
 
+### Primary Visual Material / 主要图像材料
+
+#### Visual Item 1 / 图像条目 1
+
+- local review image: `corpus/001_oracle-characters/067_undeciphered-005001-00
+  5100_obs-unk-bucket_oracle-character-candidates/041_obs-unk-005041_hust-ob
+  c-und-X-005041_oracle-character-candidate/03_visual-assets/001_asset-00663
+  4_hust-obc-und-X-005041_glyph.jpg`
+- source image reference: `HUST-OBC/undeciphered/X/597/X_？_7571_1.png`
+- asset id: `asset-006634`
+- download id: `dl-hust-obc-figshare-raw`
+- source package: `large-src-000001`
+- rights status: `source_marked_risk_noted`
+- review status: `needs_human_visual_review`
+- risk note: `HUST-OBC glyph candidate image extracted from registered large
+  source package for preparation-stage object-local visual review; rights
+  signals conflict between Figshare package metadata and the Scientific Data
+  article page.`
+
+These rows identify source-marked review images and source-image routes. They
+are visual evidence entrances, not glyph analysis, component assignment,
+accepted reading, or rights clearance.
+
+这些行只标出带来源的复核图像和来源图片路线。它们是视觉证据入口，不是字形分析、构件归属、已接受释读或权利清理结论。
+
 ### Glyph Observation Checklist / 字形观察记录
 
 - Which visible strokes, outlines, breaks, or uncertain marks

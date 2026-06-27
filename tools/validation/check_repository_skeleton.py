@@ -3430,6 +3430,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "08_evolution-dossier-index.json",
         "09_cross-period-review-dossier.md",
         "10_cross-period-review-index.json",
+        "11_evolution-review-fact-matrix.md",
     ]
     pending_check_anchors = [
         "02_evolution-source-index.csv",
@@ -3438,6 +3439,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "06_image-reference-route-gallery.md",
         "07_human-evolution-dossier.md",
         "09_cross-period-review-dossier.md",
+        "11_evolution-review-fact-matrix.md",
         "001_evobc-evolution-category-staging.csv",
         "007_evobc-evolution-graph-edges.jsonl",
         "project_registry/",
@@ -3482,6 +3484,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "04_human-review-sheet.md",
                 "05_image-reference-route-index.csv",
                 "06_image-reference-route-gallery.md",
+                "11_evolution-review-fact-matrix.md",
                 "本目录是一个 EVOBC 字形演化类别候选对象",
             ]:
                 if snippet not in text:
@@ -3523,6 +3526,9 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} should contain four image reference routes")
             if "not an accepted paleographic correspondence" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing evolution boundary")
+            route_files = [str(path) for path in packet.get("route_files", [])]
+            if not any(path.endswith("11_evolution-review-fact-matrix.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing fact matrix route")
         source_index_path = object_dir / "02_evolution-source-index.csv"
         if path_exists(source_index_path):
             with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -3679,6 +3685,25 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                             f"{human_dossier_path.relative_to(root).as_posix()}:"
                             f"{line_number} pending check lacks local evidence anchor"
                         )
+        dossier_index_path = object_dir / "08_evolution-dossier-index.json"
+        if index in deep_route_check_indexes and path_exists(dossier_index_path):
+            dossier_index = json.loads(dossier_index_path.read_text(encoding="utf-8"))
+            if dossier_index.get("record_type") != "evolution_correspondence_candidate_dossier_index":
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            human_files = [str(path) for path in dossier_index.get("human_readable_files", [])]
+            if not any(path.endswith("07_human-evolution-dossier.md") for path in human_files):
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} "
+                    "missing human evolution dossier route"
+                )
+            if not any(path.endswith("11_evolution-review-fact-matrix.md") for path in human_files):
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} "
+                    "missing fact matrix route"
+                )
         cross_period_dossier_path = object_dir / "09_cross-period-review-dossier.md"
         if index in deep_route_check_indexes and path_exists(cross_period_dossier_path):
             cross_period_dossier = cross_period_dossier_path.read_text(encoding="utf-8")
@@ -3738,6 +3763,14 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                     f"{cross_period_index_path.relative_to(root).as_posix()} "
                     "missing human review dossier route"
                 )
+            if not any(
+                str(file_path).endswith("11_evolution-review-fact-matrix.md")
+                for file_path in human_files
+            ):
+                issues.append(
+                    f"{cross_period_index_path.relative_to(root).as_posix()} "
+                    "missing fact matrix route"
+                )
             missing_evidence = cross_period_index.get("specific_missing_evidence", [])
             if "oracle_inscription_collection_findspot_period_batch" not in missing_evidence:
                 issues.append(
@@ -3750,6 +3783,52 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                     f"{cross_period_index_path.relative_to(root).as_posix()} "
                     "decipherment claim status changed"
                 )
+        fact_matrix_path = object_dir / "11_evolution-review-fact-matrix.md"
+        if index in deep_route_check_indexes and path_exists(fact_matrix_path):
+            fact_matrix = fact_matrix_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Evolution Review Fact Matrix",
+                "Human Review Order",
+                "Evolution And Correspondence Fact Matrix",
+                "Evolution candidate",
+                "Oracle-side route",
+                "Bronze seal modern route",
+                "Image reference route",
+                "Era and source-code route",
+                "Graph edge route",
+                "Bibliography and dispute route",
+                "Source and rights trail",
+                "Missing evidence route",
+                "Review status",
+                "02_evolution-source-index.csv",
+                "03_era-source-code-index.csv",
+                "05_image-reference-route-index.csv",
+                "07_human-evolution-dossier.md",
+                "09_cross-period-review-dossier.md",
+                "not an accepted paleographic correspondence",
+                "not an evolution-chain conclusion",
+                "not a confirmed modern-character identity",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in fact_matrix:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for forbidden in ["not_collected", "not collected"]:
+                if forbidden in fact_matrix:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"contains machine filler: {forbidden}"
+                    )
+            for line_number, line in enumerate(fact_matrix.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
     return issues
 
 

@@ -111,6 +111,7 @@ OBJECT_SPECS = [
             "06_image-reference-route-gallery.md",
             "07_human-evolution-dossier.md",
             "09_cross-period-review-dossier.md",
+            "11_evolution-review-fact-matrix.md",
         ),
         (
             "01_candidate-evolution-packet.json",

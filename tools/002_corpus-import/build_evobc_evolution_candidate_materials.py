@@ -153,6 +153,7 @@ MANIFEST_FIELDS = [
     "evolution_dossier_index_path",
     "cross_period_review_dossier_path",
     "cross_period_review_index_path",
+    "evolution_review_fact_matrix_path",
     "source_character_label",
     "source_character_codepoints",
     "image_reference_count",
@@ -324,6 +325,7 @@ def route_files(directory: Path) -> list[str]:
         (directory / "08_evolution-dossier-index.json").as_posix(),
         (directory / "09_cross-period-review-dossier.md").as_posix(),
         (directory / "10_cross-period-review-index.json").as_posix(),
+        (directory / "11_evolution-review-fact-matrix.md").as_posix(),
     ]
 
 
@@ -802,6 +804,7 @@ def dossier_index_payload(
             (directory / "06_image-reference-route-gallery.md").as_posix(),
             (directory / "07_human-evolution-dossier.md").as_posix(),
             (directory / "09_cross-period-review-dossier.md").as_posix(),
+            (directory / "11_evolution-review-fact-matrix.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-evolution-packet.json").as_posix(),
@@ -978,6 +981,7 @@ def cross_period_review_index_payload(
             (directory / "06_image-reference-route-gallery.md").as_posix(),
             (directory / "07_human-evolution-dossier.md").as_posix(),
             (directory / "09_cross-period-review-dossier.md").as_posix(),
+            (directory / "11_evolution-review-fact-matrix.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-evolution-packet.json").as_posix(),
@@ -1024,8 +1028,28 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
             "This is not an evolution-chain conclusion.",
             "This is not a confirmed modern-character identity.",
             "This is not a decipherment conclusion.",
+            "Start with glyph image, rubbing, photo, plate, inscription, OCR, "
+            "catalog, and Heji evidence.",
+            "Check findspot, collection, period, group, batch, object record, "
+            "and excavation context.",
+            "Compare variant, near-shape, component, bronze, seal, later-script, "
+            "and modern-character evidence.",
+            "Record meaning, reading, bibliography, proposer, reading history, "
+            "dispute, disagreement, and open questions.",
             "本对象只是演化或对应候选路线，不是正式古文字对应结论。",
             "本对象不确认演化链、现代字身份或释读结论。",
+        ]
+    )
+    research_lines = bullet_block(
+        [
+            "Start with glyph image, rubbing, photo, plate, inscription, OCR, "
+            "catalog, and Heji evidence.",
+            "Check findspot, collection, period, group, batch, object record, "
+            "and excavation context.",
+            "Compare variant, near-shape, component, bronze, seal, later-script, "
+            "and modern-character evidence.",
+            "Record meaning, reading, bibliography, proposer, reading history, "
+            "dispute, disagreement, and open questions.",
         ]
     )
     local_file_lines = bullet_block(
@@ -1036,6 +1060,11 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
             "`04_human-review-sheet.md`: human source-chain review sheet.",
             "`05_image-reference-route-index.csv`: object-local image route index.",
             "`06_image-reference-route-gallery.md`: visual-evidence route gallery.",
+            "`07_human-evolution-dossier.md`: human evolution dossier.",
+            "`08_evolution-dossier-index.json`: AI support index for the dossier.",
+            "`09_cross-period-review-dossier.md`: cross-period human review dossier.",
+            "`10_cross-period-review-index.json`: AI support index for cross-period review.",
+            "`11_evolution-review-fact-matrix.md`: human first-read fact matrix.",
         ]
     )
     metadata_lines = bullet_block(
@@ -1330,6 +1359,159 @@ EVOBC category candidate ID: `{row['candidate_evolution_category_id']}`
 """
 
 
+def assert_human_line_width(text: str, label: str) -> None:
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("!["):
+            continue
+        if len(line) > MAX_HUMAN_LINE_LENGTH:
+            raise ValueError(
+                f"{label}:{line_number} line exceeds {MAX_HUMAN_LINE_LENGTH}: {line}"
+            )
+
+
+def evolution_review_fact_matrix_text(
+    index: int,
+    row: dict[str, str],
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> str:
+    pid = project_id(index)
+    intro_en = wrapped_paragraph(
+        "This human first-read matrix tells a reviewer what can be checked in "
+        "this EVOBC object directory before any paleographic, cross-period, "
+        "modern-character, meaning, reading, or decipherment claim is made."
+    )
+    intro_zh = wrapped_paragraph(
+        "\u672c\u77e9\u9635\u662f\u4eba\u5de5\u9996\u8bfb\u8def\u7ebf\uff0c"
+        "\u7528\u6765\u5c06\u5b57\u5f62\u56fe\u50cf\u3001\u535c\u8f9e\u3001"
+        "\u56fe\u7248\u3001\u8457\u5f55\u3001\u51fa\u571f\u3001\u9986\u85cf\u3001"
+        "\u65f6\u671f\u3001\u7ec4\u7c7b\u3001\u91d1\u6587\u3001\u5c0f\u7bc6\u3001"
+        "\u4eca\u5b57\u3001\u91ca\u8bfb\u53f2\u548c\u4e89\u8bae\u653e\u56de"
+        "\u540c\u4e00\u5bf9\u8c61\u76ee\u5f55\u5185\u590d\u6838\u3002"
+    )
+    review_order = bullet_block(
+        [
+            "Open `11_evolution-review-fact-matrix.md` first.",
+            "Then open `07_human-evolution-dossier.md` for the full dossier.",
+            "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+            "Use CSV, JSON, and graph files only as route support.",
+            "Record missing image, inscription, catalog, bibliography, rights, "
+            "meaning, reading, dispute, findspot, collection, period, and batch "
+            "evidence before any promotion.",
+        ]
+    )
+    table_rows = [
+        (
+            "Evolution candidate",
+            "Dataset category candidate only; no accepted correspondence.",
+            "`01_candidate-evolution-packet.json`; `07_human-evolution-dossier.md`",
+        ),
+        (
+            "Oracle-side route",
+            "Check image, rubbing, inscription, plate, catalog, Heji, findspot, collection, period, group, and batch evidence.",
+            "`09_cross-period-review-dossier.md`",
+        ),
+        (
+            "Bronze seal modern route",
+            "Treat bronze, seal, variant, component, modern codepoint, meaning, and reading links as candidates until sources are opened.",
+            "`09_cross-period-review-dossier.md`",
+        ),
+        (
+            "Image reference route",
+            f"{len(image_routes)} route rows; local visual evidence must still be opened from source routes.",
+            "`05_image-reference-route-index.csv`; `06_image-reference-route-gallery.md`",
+        ),
+        (
+            "Era and source-code route",
+            f"{len(code_rows)} era/source rows; dataset labels are search aids only.",
+            "`03_era-source-code-index.csv`",
+        ),
+        (
+            "Graph edge route",
+            "Graph route only; not an accepted paleographic correspondence.",
+            "`corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl`",
+        ),
+        (
+            "Bibliography and dispute route",
+            "Check proposer, bibliography, web database scope, reading history, dispute, and disagreement before any claim.",
+            "`research/`; `09_cross-period-review-dossier.md`",
+        ),
+        (
+            "Source and rights trail",
+            f"`{SOURCE_ID}` with rights status `{RIGHTS_STATUS}`.",
+            "`02_evolution-source-index.csv`; `project_registry/`",
+        ),
+        (
+            "Missing evidence route",
+            "Record exact gaps for image, inscription, bronze, seal, codepoint, bibliography, rights, findspot, collection, period, group, and batch.",
+            "`07_human-evolution-dossier.md`; `09_cross-period-review-dossier.md`",
+        ),
+        (
+            "Review status",
+            f"`{REVIEW_STATUS}`.",
+            "`08_evolution-dossier-index.json`; `10_cross-period-review-index.json`",
+        ),
+    ]
+    table_lines = [
+        "| Fact area | What a human reviewer can use | Open these routes |",
+        "| --- | --- | --- |",
+        *[f"| {area} | {fact} | {routes} |" for area, fact, routes in table_rows],
+    ]
+    concrete_questions = bullet_block(
+        [
+            "Open `02_evolution-source-index.csv` before trusting source rows.",
+            "Open `03_era-source-code-index.csv` before using era labels.",
+            "Open `05_image-reference-route-index.csv` before visual review.",
+            "Open `07_human-evolution-dossier.md` before recording gaps.",
+            "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+            "Record the exact missing source route before any promotion.",
+            "\u6253\u5f00 `02_evolution-source-index.csv`\uff0c"
+            "\u5148\u6838\u5bf9\u6765\u6e90\u548c\u4e0b\u8f7d\u884c\u3002",
+            "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c"
+            "\u5148\u6838\u5bf9\u56fe\u50cf\u548c\u56fe\u7248\u8def\u7ebf\u3002",
+            "\u6253\u5f00 `09_cross-period-review-dossier.md`\uff0c"
+            "\u5148\u8bb0\u5f55\u91d1\u6587\u3001\u5c0f\u7bc6\u3001"
+            "\u4eca\u5b57\u548c\u91ca\u8bfb\u4e89\u8bae\u7f3a\u53e3\u3002",
+        ]
+    )
+    boundary_lines = bullet_block(
+        [
+            "This is not an accepted paleographic correspondence.",
+            "This is not an evolution-chain conclusion.",
+            "This is not a confirmed modern-character identity.",
+            "This is not a decipherment conclusion.",
+            "All unopened primary images, rubbings, plates, catalogs, papers, "
+            "and database routes remain pending human review.",
+        ]
+    )
+    text = f"""# Evolution Review Fact Matrix / 字形演化复核事实矩阵: {pid}
+
+English:
+{intro_en}
+
+Simplified Chinese:
+{intro_zh}
+
+## Human Review Order
+
+{review_order}
+
+## Evolution And Correspondence Fact Matrix
+
+{chr(10).join(table_lines)}
+
+## Concrete Review Questions
+
+{concrete_questions}
+
+## Review Boundary
+
+{boundary_lines}
+"""
+    assert_human_line_width(text, f"{pid} fact matrix")
+    return text
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     category_rows = read_csv_rows(root / CATEGORY_STAGING)
     codebook = codebook_lookup(read_csv_rows(root / CODEBOOK_STAGING))
@@ -1383,6 +1565,13 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 code_rows,
                 image_routes,
             ),
+            "fact_matrix_path": root / directory / "11_evolution-review-fact-matrix.md",
+            "fact_matrix_text": evolution_review_fact_matrix_text(
+                index,
+                row,
+                code_rows,
+                image_routes,
+            ),
             "map_row": {
                 "project_id": pid,
                 "record_type": RECORD_TYPE,
@@ -1426,6 +1615,7 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "evolution_dossier_index_path": (directory / "08_evolution-dossier-index.json").as_posix(),
                 "cross_period_review_dossier_path": (directory / "09_cross-period-review-dossier.md").as_posix(),
                 "cross_period_review_index_path": (directory / "10_cross-period-review-index.json").as_posix(),
+                "evolution_review_fact_matrix_path": (directory / "11_evolution-review-fact-matrix.md").as_posix(),
                 "source_character_label": str(packet["source_character_label"]),
                 "source_character_codepoints": str(packet["source_character_codepoints"]),
                 "image_reference_count": str(packet["image_reference_count"]),
@@ -1478,6 +1668,11 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (directory / "10_cross-period-review-index.json").write_text(
             json.dumps(output["cross_period_review_index"], ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "11_evolution-review-fact-matrix.md").write_text(
+            str(output["fact_matrix_text"]),
             encoding="utf-8",
             newline="\n",
         )

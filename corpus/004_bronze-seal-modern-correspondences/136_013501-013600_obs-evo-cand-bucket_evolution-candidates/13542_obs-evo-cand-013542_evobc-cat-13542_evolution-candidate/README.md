@@ -14,6 +14,14 @@ Simplified Chinese:
 - This is not an evolution-chain conclusion.
 - This is not a confirmed modern-character identity.
 - This is not a decipherment conclusion.
+- Start with glyph image, rubbing, photo, plate, inscription, OCR, catalog, and
+  Heji evidence.
+- Check findspot, collection, period, group, batch, object record, and
+  excavation context.
+- Compare variant, near-shape, component, bronze, seal, later-script, and
+  modern-character evidence.
+- Record meaning, reading, bibliography, proposer, reading history, dispute,
+  disagreement, and open questions.
 - 本对象只是演化或对应候选路线，不是正式古文字对应结论。
 - 本对象不确认演化链、现代字身份或释读结论。
 
@@ -25,13 +33,18 @@ Simplified Chinese:
 - `04_human-review-sheet.md`: human source-chain review sheet.
 - `05_image-reference-route-index.csv`: object-local image route index.
 - `06_image-reference-route-gallery.md`: visual-evidence route gallery.
+- `07_human-evolution-dossier.md`: human evolution dossier.
+- `08_evolution-dossier-index.json`: AI support index for the dossier.
+- `09_cross-period-review-dossier.md`: cross-period human review dossier.
+- `10_cross-period-review-index.json`: AI support index for cross-period review.
+- `11_evolution-review-fact-matrix.md`: human first-read fact matrix.
 
 ## Candidate Metadata / 候选 metadata
 
 - Project ID: `obs-evo-cand-013542`
 - EVOBC category candidate ID: `evobc-evo-cat-13542`
 - External category ref: `evobc-cat-13542`
-- Source label: `𭥆`
+- Source label for human review: `𭥆`
 - Source codepoints: `U+2D946`
 - Image reference count: `2`
 - Era token counts: `SAC:2`

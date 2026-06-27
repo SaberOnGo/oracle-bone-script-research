@@ -4702,6 +4702,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "08_evolution-dossier-index.json").exists())
             self.assertTrue((object_dir / "09_cross-period-review-dossier.md").exists())
             self.assertTrue((object_dir / "10_cross-period-review-index.json").exists())
+            self.assertTrue((object_dir / "11_evolution-review-fact-matrix.md").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("本目录是一个 EVOBC 字形演化类别候选对象", readme_text)
@@ -4722,6 +4723,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "Open `09_cross-period-review-dossier.md` before any correspondence claim.",
                 readme_text,
             )
+            self.assertIn("11_evolution-review-fact-matrix.md", readme_text)
             self.assertNotIn(
                 "What evidence is still missing before any formal correspondence claim?",
                 readme_text,
@@ -4987,6 +4989,39 @@ class RepositorySkeletonTests(unittest.TestCase):
                 cross_period_index["claim_status"]["decipherment"],
                 "no_decipherment_claim",
             )
+            fact_matrix_text = (
+                object_dir / "11_evolution-review-fact-matrix.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Evolution Review Fact Matrix", fact_matrix_text)
+            self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("Evolution And Correspondence Fact Matrix", fact_matrix_text)
+            for snippet in [
+                "Evolution candidate",
+                "Oracle-side route",
+                "Bronze seal modern route",
+                "Image reference route",
+                "Era and source-code route",
+                "Graph edge route",
+                "Bibliography and dispute route",
+                "Source and rights trail",
+                "Missing evidence route",
+                "Review status",
+                "02_evolution-source-index.csv",
+                "03_era-source-code-index.csv",
+                "05_image-reference-route-index.csv",
+                "07_human-evolution-dossier.md",
+                "09_cross-period-review-dossier.md",
+                "not an accepted paleographic correspondence",
+                "not an evolution-chain conclusion",
+                "not a confirmed modern-character identity",
+                "not a decipherment conclusion",
+            ]:
+                self.assertIn(snippet, fact_matrix_text)
+            self.assertNotIn("not_collected", fact_matrix_text)
+            self.assertNotIn("not collected", fact_matrix_text)
+            for line in fact_matrix_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_evobc_evolution_candidate_materials_module()
@@ -5111,6 +5146,12 @@ class RepositorySkeletonTests(unittest.TestCase):
                 for file_path in first["dossier_index"]["human_readable_files"]
             )
         )
+        self.assertTrue(
+            any(
+                file_path.endswith("11_evolution-review-fact-matrix.md")
+                for file_path in first["dossier_index"]["human_readable_files"]
+            )
+        )
         self.assertEqual(
             first["cross_period_review_index"]["record_type"],
             "evolution_cross_period_review_index",
@@ -5123,7 +5164,28 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertTrue(
             any(
+                file_path.endswith("11_evolution-review-fact-matrix.md")
+                for file_path in first["cross_period_review_index"]["human_readable_files"]
+            )
+        )
+        self.assertIn("fact_matrix_path", first)
+        self.assertEqual(first["fact_matrix_path"].parent, first["object_dir"])
+        self.assertIn("Evolution Review Fact Matrix", first["fact_matrix_text"])
+        self.assertIn("Evolution And Correspondence Fact Matrix", first["fact_matrix_text"])
+        self.assertIn("not an evolution-chain conclusion", first["fact_matrix_text"])
+        self.assertNotIn("not_collected", first["fact_matrix_text"])
+        for line in first["fact_matrix_text"].splitlines():
+            if not line.startswith("|") and not line.startswith("!["):
+                self.assertLessEqual(len(line), 80, line)
+        self.assertTrue(
+            any(
                 route_file.endswith("08_evolution-dossier-index.json")
+                for route_file in first["packet"]["route_files"]
+            )
+        )
+        self.assertTrue(
+            any(
+                route_file.endswith("11_evolution-review-fact-matrix.md")
                 for route_file in first["packet"]["route_files"]
             )
         )
@@ -5747,6 +5809,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-evo-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
+        self.assertEqual(by_project["obs-evo-cand-000001"]["human_file_count"], "6")
         self.assertEqual(by_project["obs-evo-cand-000001"]["route_file_count"], "2")
         self.assertEqual(by_project["obs-evo-cand-000001"]["source_ids"], "src-evobc")
         self.assertEqual(

@@ -12839,6 +12839,23 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
             "object_packet_count": "0",
             "review_log_count": "0",
             "candidate_or_staging_boundary": "candidate_crosswalk_not_identity_claim",
+            "required_verification_slots": [
+                "source_codepoint",
+                "source_character_id",
+                "matched_project_character_route",
+                "matched_source_ids",
+                "readiness_route",
+                "promotion_review_route",
+                "missing_evidence",
+                "review_status",
+            ],
+            "concrete_next_checks": [
+                "Which source codepoint route is being compared?",
+                "Which project character route is the match candidate?",
+                "Which HUST, OBIMD, or EVOBC source row supports the route?",
+                "Which readiness or promotion review route must be opened?",
+                "What missing evidence or review status remains before identity review?",
+            ],
         },
         "graphemic_components": {
             "primary_staging_count": str(len(component_main_rows)),
@@ -12850,6 +12867,23 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
             "object_packet_count": str(component_packet_count),
             "review_log_count": "1",
             "candidate_or_staging_boundary": "candidate_component_graph_not_formal_component",
+            "required_verification_slots": [
+                "component_candidate_id",
+                "component_shape_label",
+                "glyph_image_route",
+                "host_character_route",
+                "subcharacter_source_row",
+                "component_graph_edge_route",
+                "missing_visual_evidence",
+                "review_status",
+            ],
+            "concrete_next_checks": [
+                "Which component candidate and source row are being checked?",
+                "Which glyph image or visual route supports the component candidate?",
+                "Which host character or object-local route must be opened?",
+                "Which graph edge is only a route and not a component claim?",
+                "What missing visual evidence or review status remains?",
+            ],
         },
         "evolution_correspondences": {
             "primary_staging_count": str(len(evolution_rows)),
@@ -12861,7 +12895,32 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
             "object_packet_count": str(evolution_packet_count),
             "review_log_count": "1",
             "candidate_or_staging_boundary": "candidate_evolution_graph_not_formal_correspondence",
+            "required_verification_slots": [
+                "evolution_candidate_id",
+                "oracle_source_route",
+                "bronze_seal_modern_route",
+                "correspondence_category",
+                "source_category_row",
+                "evolution_graph_edge_route",
+                "missing_comparison_evidence",
+                "review_status",
+            ],
+            "concrete_next_checks": [
+                "Which evolution candidate and source category row are being checked?",
+                "Which bronze, seal, or modern correspondence route supports the candidate?",
+                "Which oracle-source route must be opened before comparison?",
+                "Which graph edge is only a route and not an accepted correspondence?",
+                "What missing comparison evidence or review status remains?",
+            ],
         },
+    }
+    expected_source_context_fields = {
+        "source_id",
+        "source_register_row",
+        "external_reference",
+        "rights_status",
+        "risk_note",
+        "review_status",
     }
     for row in rows:
         review_id = row.get("review_checklist_id", "")
@@ -12873,8 +12932,22 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
         if row.get("review_status") != "needs_human_review":
             issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
         for field, expected_value in expected_by_area.get(area, {}).items():
-            if row.get(field) != expected_value:
+            if isinstance(expected_value, list):
+                actual_value = row.get(field, "")
+                for expected_item in expected_value:
+                    if expected_item not in actual_value:
+                        issues.append(
+                            f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} "
+                            f"{field} changed: {review_id}"
+                        )
+            elif row.get(field) != expected_value:
                 issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        source_context_fields = set(row.get("source_context_fields_to_verify", "").split(";"))
+        if not expected_source_context_fields.issubset(source_context_fields):
+            issues.append(
+                f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} "
+                f"source context fields changed: {review_id}"
+            )
         if row.get("claim_boundary") != (
             "shape_component_evolution_verification_gap_review_checklist_not_review_outcome_not_scholarship"
         ):

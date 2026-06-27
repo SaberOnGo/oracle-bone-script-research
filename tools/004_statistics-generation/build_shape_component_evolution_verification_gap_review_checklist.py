@@ -82,6 +82,73 @@ REQUIRED_REVIEW_STEPS = (
     "confirm_no_evolution_chain_claim;"
     "confirm_no_decipherment_claim"
 )
+SOURCE_CONTEXT_FIELDS_TO_VERIFY = (
+    "source_id;"
+    "source_register_row;"
+    "external_reference;"
+    "rights_status;"
+    "risk_note;"
+    "review_status"
+)
+AREA_REVIEW_FIELDS = {
+    "cross_source_codepoint_routes": {
+        "required_verification_slots": (
+            "source_codepoint;"
+            "source_character_id;"
+            "matched_project_character_route;"
+            "matched_source_ids;"
+            "readiness_route;"
+            "promotion_review_route;"
+            "missing_evidence;"
+            "review_status"
+        ),
+        "concrete_next_checks": (
+            "Which source codepoint route is being compared?;"
+            "Which project character route is the match candidate?;"
+            "Which HUST, OBIMD, or EVOBC source row supports the route?;"
+            "Which readiness or promotion review route must be opened?;"
+            "What missing evidence or review status remains before identity review?"
+        ),
+    },
+    "graphemic_components": {
+        "required_verification_slots": (
+            "component_candidate_id;"
+            "component_shape_label;"
+            "glyph_image_route;"
+            "host_character_route;"
+            "subcharacter_source_row;"
+            "component_graph_edge_route;"
+            "missing_visual_evidence;"
+            "review_status"
+        ),
+        "concrete_next_checks": (
+            "Which component candidate and source row are being checked?;"
+            "Which glyph image or visual route supports the component candidate?;"
+            "Which host character or object-local route must be opened?;"
+            "Which graph edge is only a route and not a component claim?;"
+            "What missing visual evidence or review status remains?"
+        ),
+    },
+    "evolution_correspondences": {
+        "required_verification_slots": (
+            "evolution_candidate_id;"
+            "oracle_source_route;"
+            "bronze_seal_modern_route;"
+            "correspondence_category;"
+            "source_category_row;"
+            "evolution_graph_edge_route;"
+            "missing_comparison_evidence;"
+            "review_status"
+        ),
+        "concrete_next_checks": (
+            "Which evolution candidate and source category row are being checked?;"
+            "Which bronze, seal, or modern correspondence route supports the candidate?;"
+            "Which oracle-source route must be opened before comparison?;"
+            "Which graph edge is only a route and not an accepted correspondence?;"
+            "What missing comparison evidence or review status remains?"
+        ),
+    },
+}
 
 
 def repo_root() -> Path:
@@ -146,6 +213,7 @@ def build_area_metrics(root: Path) -> dict[str, dict[str, str]]:
             "object_packet_count": "0",
             "review_log_count": "0",
             "source_ids": source_ids_from_rows(codepoint_rows, "matched_source_ids"),
+            **AREA_REVIEW_FIELDS["cross_source_codepoint_routes"],
             "files_to_open": unique_join(
                 [
                     path_text(OUTPUT_CSV),
@@ -169,6 +237,7 @@ def build_area_metrics(root: Path) -> dict[str, dict[str, str]]:
             ),
             "review_log_count": str(count_files(root, path_text(COMPONENT_REVIEW_LOG_DIR / "*.md"))),
             "source_ids": source_ids_from_rows(component_main_rows),
+            **AREA_REVIEW_FIELDS["graphemic_components"],
             "files_to_open": unique_join(
                 [
                     path_text(OUTPUT_CSV),
@@ -197,6 +266,7 @@ def build_area_metrics(root: Path) -> dict[str, dict[str, str]]:
             ),
             "review_log_count": str(count_files(root, path_text(EVOLUTION_REVIEW_LOG_DIR / "*.md"))),
             "source_ids": source_ids_from_rows(evolution_rows),
+            **AREA_REVIEW_FIELDS["evolution_correspondences"],
             "files_to_open": unique_join(
                 [
                     path_text(OUTPUT_CSV),
@@ -235,6 +305,7 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
                 "review_status": "needs_human_review",
                 **area_metrics,
                 "required_review_steps": REQUIRED_REVIEW_STEPS,
+                "source_context_fields_to_verify": SOURCE_CONTEXT_FIELDS_TO_VERIFY,
                 "recommended_action": gap_row["recommended_action"],
                 "candidate_or_staging_boundary": gap_row["candidate_or_staging_boundary"],
                 "claim_boundary": CLAIM_BOUNDARY,

@@ -12518,6 +12518,56 @@ def check_published_research_note_phase_gap_review_checklist(root: Path) -> list
                 issues.append(f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
         if "published research note phase gap review checklist only" not in row.get("caution", ""):
             issues.append(f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} caution changed: {review_id}")
+        required_content_slots = row.get("required_content_slots", "")
+        for expected_slot in [
+            "bibliographic_identity",
+            "source_trail",
+            "scope",
+            "evidence_level",
+            "citation_relation",
+            "reading_process_status",
+            "proposer_and_disagreement",
+            "dispute_record",
+            "review_status",
+        ]:
+            if expected_slot not in required_content_slots:
+                issues.append(
+                    f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} missing content slot "
+                    f"{expected_slot}: {review_id}"
+                )
+        source_trail_fields = row.get("source_trail_fields_to_verify", "")
+        for expected_field in [
+            "source_object_id",
+            "source_register_row",
+            "access_or_download_route",
+            "checksum",
+            "file_size",
+            "manifest",
+            "derived_path",
+            "rights_status",
+            "risk_note",
+            "review_status",
+        ]:
+            if expected_field not in source_trail_fields:
+                issues.append(
+                    f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} missing source trail field "
+                    f"{expected_field}: {review_id}"
+                )
+        concrete_next_checks = row.get("concrete_next_checks", "")
+        for expected_question in [
+            "Which source object and register row",
+            "Which page, plate, URL, catalog number, or object record",
+            "Which checksum, file size, manifest, or field map",
+            "Which corpus object can this source actually support?",
+            "Who is the proposer",
+            "Which disagreement or dispute",
+            "What exact source must be opened",
+        ]:
+            if expected_question not in concrete_next_checks:
+                issues.append(
+                    f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} missing concrete next check "
+                    f"{expected_question}: {review_id}"
+                )
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")

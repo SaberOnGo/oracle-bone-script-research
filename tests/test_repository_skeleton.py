@@ -23436,6 +23436,20 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertLessEqual(len(line), 80, line)
         self.assertTrue(all("research/" in row["files_to_open"] for row in rows))
         self.assertTrue(all("doc/public/user_research/" in row["files_to_open"] for row in rows))
+        self.assertTrue(
+            all("bibliographic_identity" in row["required_content_slots"] for row in rows)
+        )
+        self.assertTrue(all("source_trail" in row["required_content_slots"] for row in rows))
+        self.assertTrue(all("evidence_level" in row["required_content_slots"] for row in rows))
+        self.assertTrue(all("citation_relation" in row["required_content_slots"] for row in rows))
+        self.assertTrue(all("proposer_and_disagreement" in row["required_content_slots"] for row in rows))
+        self.assertTrue(all("dispute_record" in row["required_content_slots"] for row in rows))
+        self.assertTrue(all("source_object_id" in row["source_trail_fields_to_verify"] for row in rows))
+        self.assertTrue(all("checksum" in row["source_trail_fields_to_verify"] for row in rows))
+        self.assertTrue(all("manifest" in row["source_trail_fields_to_verify"] for row in rows))
+        self.assertTrue(all("Which source object and register row" in row["concrete_next_checks"] for row in rows))
+        self.assertTrue(all("Who is the proposer" in row["concrete_next_checks"] for row in rows))
+        self.assertTrue(all("Which disagreement or dispute" in row["concrete_next_checks"] for row in rows))
         self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
@@ -23464,6 +23478,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             "open_published_scholarship_review_guide",
             first["required_review_steps"],
         )
+        self.assertIn("bibliographic_identity", first["required_content_slots"])
+        self.assertIn("reading_process_status", first["required_content_slots"])
+        self.assertIn("source_object_id", first["source_trail_fields_to_verify"])
+        self.assertIn("derived_path", first["source_trail_fields_to_verify"])
+        self.assertIn("Which corpus object can this source actually support?", first["concrete_next_checks"])
         self.assertIn("doc/public/user_research/README.md", first["draft_review_route_paths"])
         self.assertTrue(all("published research note phase gap review checklist only" in row["caution"] for row in rows))
 

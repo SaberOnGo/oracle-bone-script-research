@@ -47,6 +47,40 @@ REQUIRED_REVIEW_STEPS = (
     "confirm_no_corpus_import;"
     "confirm_no_decipherment_claim"
 )
+REQUIRED_CONTENT_SLOTS = (
+    "bibliographic_identity;"
+    "source_trail;"
+    "scope;"
+    "evidence_level;"
+    "citation_relation;"
+    "reading_process_status;"
+    "proposer_and_disagreement;"
+    "dispute_record;"
+    "review_status"
+)
+SOURCE_TRAIL_FIELDS_TO_VERIFY = (
+    "source_object_id;"
+    "source_register_row;"
+    "access_or_download_route;"
+    "checksum;"
+    "file_size;"
+    "manifest;"
+    "derived_path;"
+    "rights_status;"
+    "risk_note;"
+    "review_status"
+)
+CONCRETE_NEXT_CHECKS = (
+    "Which source object and register row prove this bibliography item?;"
+    "Which page, plate, URL, catalog number, or object record locates it?;"
+    "Which checksum, file size, manifest, or field map supports the route?;"
+    "Which corpus object can this source actually support?;"
+    "What evidence level is justified by the opened source?;"
+    "Who is the proposer, and where is the proposal recorded?;"
+    "Which disagreement or dispute is documented, and where?;"
+    "Which user or AI draft must stay outside research until reviewed?;"
+    "What exact source must be opened before any note can be promoted?"
+)
 
 
 def repo_root() -> Path:
@@ -121,6 +155,9 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
                 "source_index_path": path_text(SOURCE_INDEX),
                 "files_to_open": files_to_open,
                 "required_review_steps": REQUIRED_REVIEW_STEPS,
+                "required_content_slots": REQUIRED_CONTENT_SLOTS,
+                "source_trail_fields_to_verify": SOURCE_TRAIL_FIELDS_TO_VERIFY,
+                "concrete_next_checks": CONCRETE_NEXT_CHECKS,
                 "recommended_action": gap_row["recommended_action"],
                 "candidate_or_staging_boundary": gap_row["candidate_or_staging_boundary"],
                 "claim_boundary": CLAIM_BOUNDARY,

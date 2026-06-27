@@ -3773,6 +3773,17 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
 
+    def test_character_human_research_dossier_builder_wraps_cjk_lines(self) -> None:
+        module = load_character_human_research_dossiers_module()
+        text = module.para(
+            "本文件必须把连续中文长句真正换行，不能因为句子中没有空格就超过"
+            "人类 Markdown 每行八十字符限制，也不能依赖终端自动折行来假装"
+            "文件内容已经适合人类阅读。这个测试还要覆盖对象目录档案中常见的"
+            "来源路线、字形图片、卜辞上下文、出土地馆藏时期和释读史争议说明。"
+        )
+        for line in text.splitlines():
+            self.assertLessEqual(len(line), 80, line)
+
     def test_character_context_evidence_dossiers_are_colocated_and_readable(self) -> None:
         module = load_character_context_evidence_dossiers_module()
         outputs = module.build_outputs(repo_root())

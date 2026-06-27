@@ -92,12 +92,35 @@ def graph_edges_by_source(root: Path) -> dict[str, list[dict[str, Any]]]:
 def wrap(text: str, width: int = WIDTH) -> list[str]:
     if not text:
         return [""]
-    return textwrap.wrap(
+    wrapped = textwrap.wrap(
         text,
         width=width,
         break_long_words=False,
         break_on_hyphens=False,
     ) or [""]
+    return split_overlong_lines(wrapped, width)
+
+
+def split_overlong_lines(
+    lines: list[str],
+    width: int = WIDTH,
+    subsequent_indent: str = "",
+) -> list[str]:
+    result: list[str] = []
+    for line in lines:
+        if len(line) <= width:
+            result.append(line)
+            continue
+        remaining = line
+        first = True
+        while len(remaining) > width:
+            limit = width if first else width - len(subsequent_indent)
+            result.append(remaining[:limit])
+            remaining = subsequent_indent + remaining[limit:]
+            first = False
+        if remaining:
+            result.append(remaining)
+    return result
 
 
 def para(text: str) -> str:
@@ -116,7 +139,7 @@ def bullet(label: str, value: str) -> str:
         break_long_words=False,
         break_on_hyphens=False,
     )
-    return "\n".join(lines)
+    return "\n".join(split_overlong_lines(lines, WIDTH, "  "))
 
 
 def code_value(value: str) -> str:

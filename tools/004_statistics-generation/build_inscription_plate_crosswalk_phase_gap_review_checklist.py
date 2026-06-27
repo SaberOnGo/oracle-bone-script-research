@@ -57,6 +57,40 @@ REQUIRED_REVIEW_STEPS = (
     "confirm_no_inscription_identity_claim;"
     "confirm_no_decipherment_claim"
 )
+REQUIRED_INSCRIPTION_DOSSIER_SLOTS = (
+    "inscription_number;"
+    "full_text_or_ocr;"
+    "plate_number;"
+    "catalog_source;"
+    "page_number;"
+    "heji_or_obm_route;"
+    "collection_object;"
+    "findspot;"
+    "period;"
+    "batch;"
+    "related_glyph_routes;"
+    "image_path;"
+    "text_quality;"
+    "missing_items;"
+    "review_status"
+)
+SOURCE_CONTEXT_FIELDS_TO_VERIFY = (
+    "source_id;"
+    "source_register_row;"
+    "catalog_reference;"
+    "page_or_plate;"
+    "rights_status;"
+    "risk_note;"
+    "review_status"
+)
+CONCRETE_NEXT_CHECKS = (
+    "Which inscription number or catalog crosswalk row identifies this candidate?;"
+    "Which full text or OCR route can be opened?;"
+    "Which plate number, page number, Heji route, or OBM route locates it?;"
+    "Which collection object, findspot, period, or batch is recorded?;"
+    "Which related glyph routes and image paths must be checked?;"
+    "What text quality, missing item, or review status remains?"
+)
 
 
 def repo_root() -> Path:
@@ -154,6 +188,9 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
                 "source_ids": ";".join(source_ids),
                 "files_to_open": files_to_open,
                 "required_review_steps": REQUIRED_REVIEW_STEPS,
+                "required_inscription_dossier_slots": REQUIRED_INSCRIPTION_DOSSIER_SLOTS,
+                "source_context_fields_to_verify": SOURCE_CONTEXT_FIELDS_TO_VERIFY,
+                "concrete_next_checks": CONCRETE_NEXT_CHECKS,
                 "recommended_action": gap_row["recommended_action"],
                 "candidate_or_staging_boundary": gap_row["candidate_or_staging_boundary"],
                 "claim_boundary": CLAIM_BOUNDARY,

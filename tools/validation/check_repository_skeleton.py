@@ -12691,6 +12691,40 @@ def check_inscription_plate_crosswalk_phase_gap_review_checklist(root: Path) -> 
         "plate_text_gallery_count": str(plate_gallery_count),
         "classified_summary_count": str(len(summary_rows)),
     }
+    expected_dossier_slots = {
+        "inscription_number",
+        "full_text_or_ocr",
+        "plate_number",
+        "catalog_source",
+        "page_number",
+        "heji_or_obm_route",
+        "collection_object",
+        "findspot",
+        "period",
+        "batch",
+        "related_glyph_routes",
+        "image_path",
+        "text_quality",
+        "missing_items",
+        "review_status",
+    }
+    expected_source_context_fields = {
+        "source_id",
+        "source_register_row",
+        "catalog_reference",
+        "page_or_plate",
+        "rights_status",
+        "risk_note",
+        "review_status",
+    }
+    expected_next_checks = [
+        "Which inscription number or catalog crosswalk row identifies this candidate?",
+        "Which full text or OCR route can be opened?",
+        "Which plate number, page number, Heji route, or OBM route locates it?",
+        "Which collection object, findspot, period, or batch is recorded?",
+        "Which related glyph routes and image paths must be checked?",
+        "What text quality, missing item, or review status remains?",
+    ]
     for row in rows:
         review_id = row.get("review_checklist_id", "")
         if not review_id.startswith("inscription-plate-crosswalk-phase-gap-review-"):
@@ -12702,6 +12736,25 @@ def check_inscription_plate_crosswalk_phase_gap_review_checklist(root: Path) -> 
         for field, expected_value in expected_counts.items():
             if row.get(field) != expected_value:
                 issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        dossier_slots = set(row.get("required_inscription_dossier_slots", "").split(";"))
+        if not expected_dossier_slots.issubset(dossier_slots):
+            issues.append(
+                f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} "
+                f"required inscription dossier slots changed: {review_id}"
+            )
+        source_context_fields = set(row.get("source_context_fields_to_verify", "").split(";"))
+        if not expected_source_context_fields.issubset(source_context_fields):
+            issues.append(
+                f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} "
+                f"source context fields changed: {review_id}"
+            )
+        next_checks = row.get("concrete_next_checks", "")
+        for check in expected_next_checks:
+            if check not in next_checks:
+                issues.append(
+                    f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} "
+                    f"concrete next check changed: {review_id}"
+                )
         if row.get("candidate_or_staging_boundary") != "staging_crosswalk_not_formal_inscription":
             issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} boundary changed: {review_id}")
         if row.get("claim_boundary") != (

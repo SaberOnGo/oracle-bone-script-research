@@ -23544,6 +23544,27 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["classified_summary_count"] for row in rows}, {"25"})
         self.assertTrue(all("098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv" in row["files_to_open"] for row in rows))
         self.assertTrue(all("002_oracle-inscription-id-source-map.csv" in row["files_to_open"] for row in rows))
+        required_slots = {
+            "inscription_number",
+            "full_text_or_ocr",
+            "plate_number",
+            "catalog_source",
+            "page_number",
+            "heji_or_obm_route",
+            "collection_object",
+            "findspot",
+            "period",
+            "batch",
+            "related_glyph_routes",
+            "image_path",
+            "text_quality",
+            "missing_items",
+            "review_status",
+        }
+        for row in rows:
+            self.assertTrue(required_slots.issubset(set(row["required_inscription_dossier_slots"].split(";"))))
+            self.assertIn("catalog_reference", row["source_context_fields_to_verify"])
+            self.assertIn("Which full text or OCR route can be opened?", row["concrete_next_checks"])
         self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
@@ -23562,6 +23583,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["candidate_or_staging_boundary"], "staging_crosswalk_not_formal_inscription")
         self.assertEqual(first["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertIn("inscription_number", first["required_inscription_dossier_slots"])
+        self.assertIn("image_path", first["required_inscription_dossier_slots"])
+        self.assertIn("catalog_reference", first["source_context_fields_to_verify"])
+        self.assertIn("Which full text or OCR route can be opened?", first["concrete_next_checks"])
         self.assertTrue(all("inscription plate crosswalk phase gap review checklist only" in row["caution"] for row in rows))
 
     def test_shape_component_evolution_verification_gap_review_checklist_routes_verified_gaps(self) -> None:

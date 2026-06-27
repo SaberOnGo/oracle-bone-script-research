@@ -23339,6 +23339,35 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["undeciphered_review_queue_count"] for row in rows}, {"9408"})
         self.assertTrue(all("009_hust-obc-obs-char-promotion-review-queue.csv" in row["files_to_open"] for row in rows))
         self.assertTrue(all("003_undeciphered-oracle-characters-index.csv" in row["files_to_open"] for row in rows))
+        required_slots = {
+            "glyph_image",
+            "glyph_observation",
+            "variant_forms",
+            "near_forms",
+            "component_clues",
+            "inscription_occurrence",
+            "inscription_context",
+            "plate_route",
+            "catalog_number",
+            "heji_number",
+            "findspot",
+            "collection",
+            "period",
+            "group",
+            "source_evidence",
+            "decipherment_history",
+            "dispute_notes",
+            "later_script_routes",
+            "missing_items",
+            "next_sources_to_check",
+        }
+        for row in rows:
+            self.assertTrue(required_slots.issubset(set(row["required_character_dossier_slots"].split(";"))))
+            self.assertIn("source_id", row["source_context_fields_to_verify"])
+            self.assertIn("rights_status", row["source_context_fields_to_verify"])
+            self.assertIn("Which glyph image and observation route can be opened?", row["concrete_next_checks"])
+            self.assertIn("Which inscription occurrence and context route supports this candidate?", row["concrete_next_checks"])
+            self.assertIn("Which decipherment-history or dispute route remains to be checked?", row["concrete_next_checks"])
         self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
@@ -23357,6 +23386,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["candidate_or_staging_boundary"], "candidate_not_promoted")
         self.assertIn("src-hust-obc", first["source_ids"])
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertIn("glyph_image", first["required_character_dossier_slots"])
+        self.assertIn("inscription_context", first["required_character_dossier_slots"])
+        self.assertIn("later_script_routes", first["required_character_dossier_slots"])
+        self.assertIn("Which glyph image and observation route can be opened?", first["concrete_next_checks"])
+        self.assertIn("field_map", first["source_context_fields_to_verify"])
+        self.assertIn("extraction_note", first["source_context_fields_to_verify"])
+        self.assertIn("Which source row, field map, or extraction note supports this route?", first["concrete_next_checks"])
         self.assertTrue(all("character candidate phase gap review checklist only" in row["caution"] for row in rows))
 
     def test_research_source_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:

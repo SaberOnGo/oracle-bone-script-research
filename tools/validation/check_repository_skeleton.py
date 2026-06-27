@@ -12359,6 +12359,48 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
         "undeciphered_evidence_readiness_count": str(len(readiness_rows)),
         "character_object_material_audit_count": str(len(material_rows)),
     }
+    expected_character_dossier_slots = {
+        "glyph_image",
+        "glyph_observation",
+        "variant_forms",
+        "near_forms",
+        "component_clues",
+        "inscription_occurrence",
+        "inscription_context",
+        "plate_route",
+        "catalog_number",
+        "heji_number",
+        "findspot",
+        "collection",
+        "period",
+        "group",
+        "source_evidence",
+        "decipherment_history",
+        "dispute_notes",
+        "later_script_routes",
+        "missing_items",
+        "next_sources_to_check",
+    }
+    expected_source_context_fields = {
+        "source_id",
+        "source_row",
+        "external_reference",
+        "field_map",
+        "extraction_note",
+        "rights_status",
+        "risk_note",
+        "review_status",
+    }
+    expected_next_checks = [
+        "Which glyph image and observation route can be opened?",
+        "Which variant, near-form, or component clue route must be compared?",
+        "Which inscription occurrence and context route supports this candidate?",
+        "Which plate, catalog number, Heji number, findspot, collection, period, or group route is present?",
+        "Which source row, field map, or extraction note supports this route?",
+        "Which decipherment-history or dispute route remains to be checked?",
+        "Which later-script route remains to be checked?",
+        "Which missing item or next source should be reviewed before promotion?",
+    ]
     for row in rows:
         review_id = row.get("review_checklist_id", "")
         if not review_id.startswith("character-candidate-phase-gap-review-"):
@@ -12370,6 +12412,25 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
         for field, expected_value in expected_counts.items():
             if row.get(field) != expected_value:
                 issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} {field} changed: {review_id}")
+        character_dossier_slots = set(row.get("required_character_dossier_slots", "").split(";"))
+        if not expected_character_dossier_slots.issubset(character_dossier_slots):
+            issues.append(
+                f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} "
+                f"required character dossier slots changed: {review_id}"
+            )
+        source_context_fields = set(row.get("source_context_fields_to_verify", "").split(";"))
+        if not expected_source_context_fields.issubset(source_context_fields):
+            issues.append(
+                f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} "
+                f"source context fields changed: {review_id}"
+            )
+        next_checks = row.get("concrete_next_checks", "")
+        for expected_question in expected_next_checks:
+            if expected_question not in next_checks:
+                issues.append(
+                    f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} "
+                    f"concrete next check changed: {review_id}"
+                )
         if "src-hust-obc" not in row.get("source_ids", "").split(";"):
             issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} source IDs changed: {review_id}")
         if row.get("candidate_or_staging_boundary") != "candidate_not_promoted":

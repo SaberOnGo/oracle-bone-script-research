@@ -54,6 +54,48 @@ REQUIRED_REVIEW_STEPS = (
     "confirm_no_character_identity_claim;"
     "confirm_no_decipherment_claim"
 )
+REQUIRED_CHARACTER_DOSSIER_SLOTS = (
+    "glyph_image;"
+    "glyph_observation;"
+    "variant_forms;"
+    "near_forms;"
+    "component_clues;"
+    "inscription_occurrence;"
+    "inscription_context;"
+    "plate_route;"
+    "catalog_number;"
+    "heji_number;"
+    "findspot;"
+    "collection;"
+    "period;"
+    "group;"
+    "source_evidence;"
+    "decipherment_history;"
+    "dispute_notes;"
+    "later_script_routes;"
+    "missing_items;"
+    "next_sources_to_check"
+)
+SOURCE_CONTEXT_FIELDS_TO_VERIFY = (
+    "source_id;"
+    "source_row;"
+    "external_reference;"
+    "field_map;"
+    "extraction_note;"
+    "rights_status;"
+    "risk_note;"
+    "review_status"
+)
+CONCRETE_NEXT_CHECKS = (
+    "Which glyph image and observation route can be opened?;"
+    "Which variant, near-form, or component clue route must be compared?;"
+    "Which inscription occurrence and context route supports this candidate?;"
+    "Which plate, catalog number, Heji number, findspot, collection, period, or group route is present?;"
+    "Which source row, field map, or extraction note supports this route?;"
+    "Which decipherment-history or dispute route remains to be checked?;"
+    "Which later-script route remains to be checked?;"
+    "Which missing item or next source should be reviewed before promotion?"
+)
 
 
 def repo_root() -> Path:
@@ -150,6 +192,9 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
                 "source_ids": source_ids,
                 "files_to_open": files_to_open,
                 "required_review_steps": REQUIRED_REVIEW_STEPS,
+                "required_character_dossier_slots": REQUIRED_CHARACTER_DOSSIER_SLOTS,
+                "source_context_fields_to_verify": SOURCE_CONTEXT_FIELDS_TO_VERIFY,
+                "concrete_next_checks": CONCRETE_NEXT_CHECKS,
                 "recommended_action": gap_row["recommended_action"],
                 "candidate_or_staging_boundary": gap_row["candidate_or_staging_boundary"],
                 "claim_boundary": CLAIM_BOUNDARY,

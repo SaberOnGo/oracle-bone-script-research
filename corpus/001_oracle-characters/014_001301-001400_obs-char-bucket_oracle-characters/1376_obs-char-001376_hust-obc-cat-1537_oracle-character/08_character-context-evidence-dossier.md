@@ -56,6 +56,41 @@ comparison, and audit.
   01_candidate-character-packet.json; 006_obimd-main-character-staging.csv;
   plus 3 more
 
+### Graph Evidence Routes
+
+These graph rows are evidence routes for human review. They do not confirm a
+reading, component assignment, inscription identity, or later-script
+correspondence.
+
+#### Graph Evidence Route 1
+
+- edge type: `CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE`
+- target node: `asset-001381`
+- graph file: `009_character-asset-graph-edges.jsonl`
+- review status: `needs_human_visual_review`
+- source ids: src-hust-obc
+- route files: 待查：需核对对象目录内索引、来源路线或统计图边记录
+- evidence note: Local visual asset edge from asset source registry; the
+  linked glyph image is a preparation-stage candidate and not decipherment
+  evidence, not a confirmed glyph identity, and not a component conclusion.
+
+#### Graph Evidence Route 2
+
+- edge type: `CHARACTER_HAS_HUST_OBC_CODEPOINT_LOOKUP_ROUTE`
+- target node: `hust-obc-cat-1537`
+- graph file: `010_cross-source-id-graph-edges.jsonl`
+- review status: `needs_cross_source_review`
+- source ids: src-hust-obc
+- route files: 009_hust-obc-obs-char-promotion-review-queue.csv;
+  001_hust-obc-candidate-packet-manifest.csv;
+  01_candidate-character-packet.json; 006_obimd-main-character-staging.csv;
+  plus 3 more
+- evidence note: Codepoint lookup-route edge from HUST/OBIMD/EVOBC crosswalk
+  staging; exact dataset-label codepoint matches are not confirmed
+  oracle-character identity, not accepted readings, not component
+  assignments, not evolution-chain assignments, and not decipherment
+  conclusions.
+
 ## 5. 出土地、馆藏、时期与组类
 
 - 出土地: 待查：需从来源著录、馆藏对象或考古批次记录追溯
@@ -76,6 +111,9 @@ comparison, and audit.
 - 公开提交边界: 元数据和小型派生图像需保留权利状态与风险提示
 
 ## 7. 释读史、争议与后世字形
+
+Dataset labels below are not an accepted reading, not the glyph itself, and
+not a decipherment conclusion.
 
 - 来源标签状态: `dataset_label_candidate_not_accepted_reading`
 - 来源标签文字: `㧷`

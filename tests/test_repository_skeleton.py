@@ -3817,6 +3817,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("不是释读结论", dossier_text)
             self.assertIn("需要核对哪些卜辞、图版、著录号或合集号", dossier_text)
             self.assertIn("需要打开哪些来源、checksum、manifest 或权利记录", dossier_text)
+            self.assertIn("Graph Evidence Routes", dossier_text)
+            self.assertIn("edge type", dossier_text)
+            self.assertIn("target node", dossier_text)
+            self.assertIn("graph file", dossier_text)
+            self.assertIn("evidence note", dossier_text)
             self.assertNotIn("not_collected", dossier_text)
             for fragment in (
                 "涓",

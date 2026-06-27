@@ -199,6 +199,64 @@ def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def graph_evidence_route_lines(
+    edges: list[dict[str, Any]],
+    limit: int = 4,
+) -> list[str]:
+    if not edges:
+        return [
+            "### Graph Evidence Routes",
+            "",
+            bullet(
+                "route status",
+                "待查：需生成或核对 character-source、character-asset、"
+                "character-inscription 等图边路线",
+            ),
+        ]
+
+    lines = [
+        "### Graph Evidence Routes",
+        "",
+        para(
+            "These graph rows are evidence routes for human review. They do "
+            "not confirm a reading, component assignment, inscription "
+            "identity, or later-script correspondence."
+        ),
+    ]
+    for index, edge in enumerate(edges[:limit], start=1):
+        route_files = [
+            Path(str(value)).name for value in edge.get("route_files", []) or []
+        ]
+        graph_file = Path(str(edge.get("graph_file", ""))).name
+        source_ids = [str(value) for value in edge.get("source_ids", []) or []]
+        lines.extend(
+            [
+                "",
+                f"#### Graph Evidence Route {index}",
+                "",
+                bullet("edge type", code(str(edge.get("edge_type", "")))),
+                bullet("target node", code(str(edge.get("target_node_id", "")))),
+                bullet("graph file", code(graph_file)),
+                bullet("review status", code(str(edge.get("review_status", "")))),
+                bullet("source ids", short_list(source_ids)),
+                bullet("route files", short_list(route_files)),
+                bullet("evidence note", str(edge.get("evidence_note", ""))),
+            ]
+        )
+    if len(edges) > limit:
+        lines.extend(
+            [
+                "",
+                bullet(
+                    "more graph routes",
+                    f"{len(edges) - limit} route(s) omitted here; "
+                    "open the graph files listed above.",
+                ),
+            ]
+        )
+    return lines
+
+
 def context_dossier_text(
     project_id: str,
     packet_name: str,
@@ -280,6 +338,8 @@ def context_dossier_text(
         bullet("现有 route 文件", short_list([Path(value).name for value in route_files])),
         bullet("图边 route 文件", short_list([Path(value).name for value in edge["route_files"]])),
         "",
+        *graph_evidence_route_lines(edges),
+        "",
         "## 5. 出土地、馆藏、时期与组类",
         "",
         bullet("出土地", "待查：需从来源著录、馆藏对象或考古批次记录追溯"),
@@ -307,6 +367,11 @@ def context_dossier_text(
         bullet("公开提交边界", "元数据和小型派生图像需保留权利状态与风险提示"),
         "",
         "## 7. 释读史、争议与后世字形",
+        "",
+        para(
+            "Dataset labels below are not an accepted reading, not the glyph "
+            "itself, and not a decipherment conclusion."
+        ),
         "",
         bullet("来源标签状态", code(label.get("status", ""))),
         bullet("来源标签文字", code(label.get("source_modern_label_candidate", ""))),

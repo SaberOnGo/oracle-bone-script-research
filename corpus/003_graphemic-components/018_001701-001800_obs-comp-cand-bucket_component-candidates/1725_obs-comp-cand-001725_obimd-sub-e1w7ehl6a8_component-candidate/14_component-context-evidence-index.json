@@ -15,7 +15,8 @@
     "07_component-visual-gallery.md",
     "08_human-visual-review-sheet.md",
     "11_human-component-dossier.md",
-    "13_component-context-evidence-dossier.md"
+    "13_component-context-evidence-dossier.md",
+    "15_component-review-fact-matrix.md"
   ],
   "missing_or_review_fields": [
     "near_shape_variant_and_component_comparison_to_check",

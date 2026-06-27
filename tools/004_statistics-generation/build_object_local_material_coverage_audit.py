@@ -80,8 +80,10 @@ OBJECT_SPECS = [
             "04_glyph-codepoint-gallery.md",
             "07_component-visual-gallery.md",
             "08_human-visual-review-sheet.md",
+            "10_component-visual-route-gallery.md",
             "11_human-component-dossier.md",
             "13_component-context-evidence-dossier.md",
+            "15_component-review-fact-matrix.md",
         ),
         (
             "01_candidate-component-packet.json",

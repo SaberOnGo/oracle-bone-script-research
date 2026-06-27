@@ -94,7 +94,8 @@
     "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/089_obs-comp-cand-000089_obimd-sub-w3kng3v1nh_component-candidate/11_human-component-dossier.md",
     "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/089_obs-comp-cand-000089_obimd-sub-w3kng3v1nh_component-candidate/12_component-dossier-index.json",
     "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/089_obs-comp-cand-000089_obimd-sub-w3kng3v1nh_component-candidate/13_component-context-evidence-dossier.md",
-    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/089_obs-comp-cand-000089_obimd-sub-w3kng3v1nh_component-candidate/14_component-context-evidence-index.json"
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/089_obs-comp-cand-000089_obimd-sub-w3kng3v1nh_component-candidate/14_component-context-evidence-index.json",
+    "corpus/003_graphemic-components/001_000001-000100_obs-comp-cand-bucket_component-candidates/089_obs-comp-cand-000089_obimd-sub-w3kng3v1nh_component-candidate/15_component-review-fact-matrix.md"
   ],
   "rights_status": "licensed_for_repository",
   "object_status": "dataset_candidate_not_promoted",

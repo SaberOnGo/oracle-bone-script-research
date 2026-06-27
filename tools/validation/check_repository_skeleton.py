@@ -2660,6 +2660,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "12_component-dossier-index.json",
         "13_component-context-evidence-dossier.md",
         "14_component-context-evidence-index.json",
+        "15_component-review-fact-matrix.md",
     ]
     human_markdown_files = [
         "README.md",
@@ -2669,6 +2670,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "10_component-visual-route-gallery.md",
         "11_human-component-dossier.md",
         "13_component-context-evidence-dossier.md",
+        "15_component-review-fact-matrix.md",
     ]
     sample_indexes = {1, 70, len(rows)}
     for index, row in enumerate(rows, start=1):
@@ -2725,6 +2727,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "Open 06_component-visual-index.csv and name the source image row.",
                 "Open 09_component-visual-route-index.csv and name the missing route row.",
                 "Open 13_component-context-evidence-dossier.md for context routes.",
+                "15_component-review-fact-matrix.md",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -2767,6 +2770,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component context dossier route")
             if not any(path.endswith("14_component-context-evidence-index.json") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component context index route")
+            if not any(path.endswith("15_component-review-fact-matrix.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing component fact matrix route")
             if "not a confirmed graphemic component" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
         context_dossier_path = object_dir / "13_component-context-evidence-dossier.md"
@@ -3006,12 +3011,73 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             missing_fields = dossier_index.get("uncollected_human_research_fields", [])
             if not any(path.endswith("11_human-component-dossier.md") for path in human_files):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if not any(path.endswith("15_component-review-fact-matrix.md") for path in human_files):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing component fact matrix link")
             if not any(path.endswith("01_candidate-component-packet.json") for path in ai_files):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing packet link")
             if "near_shape_and_variant_comparison" not in missing_fields:
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing near-shape gap")
             if "no formal component assignment" not in dossier_index.get("claim_boundary", ""):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing claim boundary")
+        fact_matrix_path = object_dir / "15_component-review-fact-matrix.md"
+        if path_exists(fact_matrix_path):
+            fact_matrix_text = fact_matrix_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Component Review Fact Matrix",
+                "Human Review Order",
+                "Component Candidate Review Fact Matrix",
+                "Component candidate",
+                "Glyph or codepoint route",
+                "Local visual evidence",
+                "Visual package route",
+                "Near-shape and variant review",
+                "Character and inscription context",
+                "Meaning or reading status",
+                "Scholarship and dispute route",
+                "Findspot collection period route",
+                "Source and rights trail",
+                "Missing evidence route",
+                "Review status",
+                "03_glyph-codepoint-index.csv",
+                "06_component-visual-index.csv",
+                "09_component-visual-route-index.csv",
+                "11_human-component-dossier.md",
+                "13_component-context-evidence-dossier.md",
+                "14_component-context-evidence-index.json",
+                "meaning or reading",
+                "释读",
+                "dispute",
+                "争议",
+                "findspot",
+                "collection",
+                "period",
+                "出土",
+                "not a confirmed graphemic component",
+                "not a formal component assignment",
+                "not an oracle-character identity",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in fact_matrix_text:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for stale_snippet in ["not_collected", "not collected"]:
+                if stale_snippet in fact_matrix_text:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()} "
+                        f"contains placeholder: {stale_snippet}"
+                    )
+            for line_number, line in enumerate(fact_matrix_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
     return issues
 
 

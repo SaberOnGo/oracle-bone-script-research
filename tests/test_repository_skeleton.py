@@ -3891,6 +3891,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "10_component-visual-route-gallery.md").exists())
             self.assertTrue((object_dir / "11_human-component-dossier.md").exists())
             self.assertTrue((object_dir / "12_component-dossier-index.json").exists())
+            self.assertTrue((object_dir / "15_component-review-fact-matrix.md").exists())
             packet = json.loads((object_dir / "01_candidate-component-packet.json").read_text(encoding="utf-8"))
             self.assertIn(
                 packet["local_image_status"],
@@ -3917,6 +3918,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "Open 13_component-context-evidence-dossier.md for context routes.",
                 readme_text,
             )
+            self.assertIn("15_component-review-fact-matrix.md", readme_text)
             self.assertNotIn(
                 "What evidence is still missing before any formal component assignment?",
                 readme_text,
@@ -3994,10 +3996,64 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("no formal component assignment", dossier_index["claim_boundary"])
             self.assertTrue(
                 any(
+                    path.endswith("15_component-review-fact-matrix.md")
+                    for path in dossier_index["human_readable_files"]
+                )
+            )
+            self.assertTrue(
+                any(
                     path.endswith("11_human-component-dossier.md")
                     for path in packet["route_files"]
                 )
             )
+            self.assertTrue(
+                any(
+                    path.endswith("15_component-review-fact-matrix.md")
+                    for path in packet["route_files"]
+                )
+            )
+            fact_matrix_text = (
+                object_dir / "15_component-review-fact-matrix.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Component Review Fact Matrix", fact_matrix_text)
+            self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("Component Candidate Review Fact Matrix", fact_matrix_text)
+            for snippet in [
+                "Component candidate",
+                "Glyph or codepoint route",
+                "Local visual evidence",
+                "Visual package route",
+                "Near-shape and variant review",
+                "Character and inscription context",
+                "Meaning or reading status",
+                "Scholarship and dispute route",
+                "Findspot collection period route",
+                "Source and rights trail",
+                "Missing evidence route",
+                "Review status",
+                "03_glyph-codepoint-index.csv",
+                "06_component-visual-index.csv",
+                "09_component-visual-route-index.csv",
+                "11_human-component-dossier.md",
+                "13_component-context-evidence-dossier.md",
+                "14_component-context-evidence-index.json",
+                "meaning or reading",
+                "释读",
+                "dispute",
+                "争议",
+                "Findspot collection period",
+                "出土",
+                "not a confirmed graphemic component",
+                "not a formal component assignment",
+                "not an oracle-character identity",
+                "not a decipherment conclusion",
+            ]:
+                self.assertIn(snippet, fact_matrix_text)
+            self.assertNotIn("not_collected", fact_matrix_text)
+            self.assertNotIn("not collected", fact_matrix_text)
+            for line in fact_matrix_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
             glyph_gallery = (object_dir / "04_glyph-codepoint-gallery.md").read_text(
                 encoding="utf-8"
             )
@@ -4081,6 +4137,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "10_component-visual-route-gallery.md",
             "11_human-component-dossier.md",
             "13_component-context-evidence-dossier.md",
+            "15_component-review-fact-matrix.md",
         }
         object_dirs = sorted(
             path for path in root.glob("*/*_component-candidate") if path.is_dir()
@@ -4176,6 +4233,27 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "oracle_character_and_inscription_context_to_check",
                 index["missing_or_review_fields"],
             )
+            fact_matrix_path = output["fact_matrix_path"]
+            self.assertEqual(fact_matrix_path.parent, object_dir)
+            self.assertTrue(path_exists(fact_matrix_path), fact_matrix_path)
+            self.assertEqual(
+                fact_matrix_path.name,
+                "15_component-review-fact-matrix.md",
+            )
+            fact_matrix_text = output["fact_matrix_text"]
+            self.assertIn("Component Review Fact Matrix", fact_matrix_text)
+            self.assertIn("Component Candidate Review Fact Matrix", fact_matrix_text)
+            self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("not a formal component assignment", fact_matrix_text)
+            self.assertIn("not a decipherment conclusion", fact_matrix_text)
+            self.assertIn("Meaning or reading status", fact_matrix_text)
+            self.assertIn("Scholarship and dispute route", fact_matrix_text)
+            self.assertIn("Findspot collection period route", fact_matrix_text)
+            self.assertIn("13_component-context-evidence-dossier.md", fact_matrix_text)
+            self.assertNotIn("not_collected", fact_matrix_text)
+            for line in fact_matrix_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
 
     def test_inscription_crosswalk_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_inscription_crosswalk_candidate_local_materials(repo_root()), [])
@@ -5675,7 +5753,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "6")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "8")
         self.assertEqual(by_project["obs-comp-cand-000001"]["ai_file_count"], "7")
         self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-comp-cand-000001"]["source_ids"], "src-obimd")
@@ -5683,7 +5761,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000070"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "6")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "8")
         self.assertEqual(by_project["obs-comp-cand-000070"]["ai_file_count"], "7")
         self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "3")
         self.assertEqual(

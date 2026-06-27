@@ -43,6 +43,11 @@ source-marked dataset candidate awaiting human component review.
 - `08_human-visual-review-sheet.md`: Manual visual review sheet.
 - `09_component-visual-route-index.csv`: AI-readable visual route index.
 - `10_component-visual-route-gallery.md`: Human visual route gallery.
+- `11_human-component-dossier.md`: Human component candidate dossier.
+- `12_component-dossier-index.json`: AI-readable dossier support index.
+- `13_component-context-evidence-dossier.md`: Human context evidence dossier.
+- `14_component-context-evidence-index.json`: AI-readable context support index.
+- `15_component-review-fact-matrix.md`: Human component review fact matrix.
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -90,3 +95,4 @@ Route files / 路由文件:
 - 12_component-dossier-index.json
 - 13_component-context-evidence-dossier.md
 - 14_component-context-evidence-index.json
+- 15_component-review-fact-matrix.md

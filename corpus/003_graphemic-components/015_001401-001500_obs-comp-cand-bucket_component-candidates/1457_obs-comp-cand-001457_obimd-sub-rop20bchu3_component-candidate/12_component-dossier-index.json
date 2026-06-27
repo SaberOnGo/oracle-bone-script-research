@@ -17,7 +17,8 @@
     "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/08_human-visual-review-sheet.md",
     "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/10_component-visual-route-gallery.md",
     "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/11_human-component-dossier.md",
-    "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/13_component-context-evidence-dossier.md"
+    "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/13_component-context-evidence-dossier.md",
+    "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/15_component-review-fact-matrix.md"
   ],
   "primary_external_ref_id": "obimd-sub-rop20bchu3",
   "record_type": "graphemic_component_candidate_dossier_index",
@@ -42,7 +43,8 @@
     "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/11_human-component-dossier.md",
     "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/12_component-dossier-index.json",
     "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/13_component-context-evidence-dossier.md",
-    "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/14_component-context-evidence-index.json"
+    "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/14_component-context-evidence-index.json",
+    "corpus/003_graphemic-components/015_001401-001500_obs-comp-cand-bucket_component-candidates/1457_obs-comp-cand-001457_obimd-sub-rop20bchu3_component-candidate/15_component-review-fact-matrix.md"
   ],
   "uncollected_human_research_fields": [
     "near_shape_and_variant_comparison",

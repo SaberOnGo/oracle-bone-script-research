@@ -30,6 +30,36 @@ review status.
 复用任何下载文件前，应打开
 `02_download-route-index.csv`，核对链接、访问日期、checksum、大小、本地归档路径、权利说明和复核状态。
 
+## Download Route Evidence / 下载路线证据
+
+### Route 001
+- Download ID / 下载 ID: dl-metmuseum-object-42045
+- Artifact kind / 资料类型: museum_object_json
+- Status / 状态: downloaded
+- HTTP status / HTTP 状态: 200
+- File size bytes / 文件大小 bytes: 1590
+- Checksum SHA-256 / checksum SHA-256:
+  74efc7255beeed6cf1400d86c336c5b97a5638a683956e83fa7216ad42f152b9
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径: tmp/source_downloads/dl-metmuseum-object-42045.json
+- Risk note / 风险提示: Stored under ignored tmp directory; commit log/checksum
+  only.
+- Review status / 复核状态: metadata_route_needs_human_review
+
+### Route 002
+- Download ID / 下载 ID: dl-metmuseum-object-42022
+- Artifact kind / 资料类型: museum_object_json
+- Status / 状态: downloaded
+- HTTP status / HTTP 状态: 200
+- File size bytes / 文件大小 bytes: 1504
+- Checksum SHA-256 / checksum SHA-256:
+  6476cda2ef3e03fefb80be4c9b725e78b460131f7246d0faff101066297545c0
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径: tmp/source_downloads/dl-metmuseum-object-42022.json
+- Risk note / 风险提示: Stored under ignored tmp directory; commit log/checksum
+  only.
+- Review status / 复核状态: metadata_route_needs_human_review
+
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
 - Package route count / 来源包路线数: 2
 - Package kinds / 来源包类型: lightweight_api_json
@@ -42,6 +72,209 @@ not approve corpus import until a human reviewer checks the source trail and
 target object directory.
 
 来源包清单、字段映射和 metadata profile 只是候选路线。必须由人工复核来源链和目标对象目录后，才可进入语料导入。
+
+## Package Manifest Evidence / 来源包清单证据
+
+### Route 001
+- Package file ID / 来源包文件 ID: pkg-file-000020
+- Source package ID / 来源包 ID: light-src-metmuseum-oracle-bone
+- File name / 文件名: dl-metmuseum-object-42022.json
+- File kind / 文件类型: lightweight_api_json
+- File size bytes / 文件大小 bytes: 1504
+- Download ID / 下载 ID: dl-metmuseum-object-42022
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Handling strategy / 处理策略: Lightweight source evidence is represented by
+  committed provenance, size, checksum, and derived metadata only; ignored tmp
+  downloads are not committed as source content.
+- Rights status / 权利状态: public_domain_verified
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Package file ID / 来源包文件 ID: pkg-file-000021
+- Source package ID / 来源包 ID: light-src-metmuseum-oracle-bone
+- File name / 文件名: dl-metmuseum-object-42045.json
+- File kind / 文件类型: lightweight_api_json
+- File size bytes / 文件大小 bytes: 1590
+- Download ID / 下载 ID: dl-metmuseum-object-42045
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Handling strategy / 处理策略: Lightweight source evidence is represented by
+  committed provenance, size, checksum, and derived metadata only; ignored tmp
+  downloads are not committed as source content.
+- Rights status / 权利状态: public_domain_verified
+- Review status / 复核状态: reviewed_metadata_only
+
+## Field Map Evidence / 字段映射证据
+
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000049
+- Source level / 来源层级: object_api_field
+- Source field or unit / 来源字段或单位: objectID; accessionNumber; objectURL
+- Source meaning / 来源含义: The Met object identity and official object page URL
+- Target record type / 目标记录类型: asset_metadata; excavation_or_collection_context
+- Target project field / 目标字段: source_collection_item_id; accession_number;
+  object_page_url
+- Import action / 导入动作: Use as stable museum-object external reference fields
+  for public-domain object staging
+- Rights boundary / 权利边界: Met object identity is museum-local and must not
+  replace project IDs
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42045
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000050
+- Source level / 来源层级: object_api_field
+- Source field or unit / 来源字段或单位: isPublicDomain; primaryImage
+- Source meaning / 来源含义: The Met public-domain flag and primary image URL
+- Target record type / 目标记录类型: asset_metadata
+- Target project field / 目标字段: rights_status; source_image_url
+- Import action / 导入动作: Use as public-domain image metadata workflow input while
+  retaining object-level provenance
+- Rights boundary / 权利边界: Public-domain flag is object/API metadata and should
+  be timestamped before reuse
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42045
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Field map ID / 字段映射 ID: field-map-000051
+- Source level / 来源层级: object_api_field
+- Source field or unit / 来源字段或单位: period; culture; medium; dimensions;
+  creditLine
+- Source meaning / 来源含义: The Met period culture material dimensions and
+  credit-line fields
+- Target record type / 目标记录类型: asset_metadata; excavation_or_collection_context
+- Target project field / 目标字段: historical_period; culture; medium; dimensions;
+  credit_line
+- Import action / 导入动作: Use as object-level museum metadata for staging and
+  cross-source review
+- Rights boundary / 权利边界: Museum descriptive metadata is not paleographic
+  decipherment evidence by itself
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42022
+- Review status / 复核状态: reviewed_metadata_only
+
+## Metadata Profile Evidence / 元数据概况证据
+
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000038
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42045
+- Metadata file / 元数据文件: 42045
+- Profile metric / 概况指标: object_id
+- Profile value / 概况值: 42045
+- Profile unit / 概况单位: met_object_id
+- Import relevance / 导入相关性: Confirms official The Met API object ID for oracle
+  bone 67.43.14
+- Caution / 提醒: Object ID is museum-local and not a project character ID
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000039
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42045
+- Metadata file / 元数据文件: 42045
+- Profile metric / 概况指标: accession_number
+- Profile value / 概况值: 67.43.14
+- Profile unit / 概况单位: met_accession_number
+- Import relevance / 导入相关性: Confirms official The Met accession number for
+  oracle bone 42045
+- Caution / 提醒: Accession number is object-level metadata and not paleographic
+  evidence
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000040
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42045
+- Metadata file / 元数据文件: 42045
+- Profile metric / 概况指标: is_public_domain
+- Profile value / 概况值: true
+- Profile unit / 概况单位: boolean
+- Import relevance / 导入相关性: Confirms The Met API public-domain flag for object
+  42045
+- Caution / 提醒: Public-domain flag should retain source URL and download
+  timestamp
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000041
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42022
+- Metadata file / 元数据文件: 42022
+- Profile metric / 概况指标: object_id
+- Profile value / 概况值: 42022
+- Profile unit / 概况单位: met_object_id
+- Import relevance / 导入相关性: Confirms official The Met API object ID for oracle
+  bone fragment 18.56.71
+- Caution / 提醒: Object ID is museum-local and not a project character ID
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Profile ID / 概况 ID: metadata-profile-000042
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42022
+- Metadata file / 元数据文件: 42022
+- Profile metric / 概况指标: accession_number
+- Profile value / 概况值: 18.56.71
+- Profile unit / 概况单位: met_accession_number
+- Import relevance / 导入相关性: Confirms official The Met accession number for
+  oracle bone fragment 42022
+- Caution / 提醒: Accession number is object-level metadata and not paleographic
+  evidence
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 006
+- Profile ID / 概况 ID: metadata-profile-000043
+- Evidence download ID / 证据下载 ID: dl-metmuseum-object-42022
+- Metadata file / 元数据文件: 42022
+- Profile metric / 概况指标: is_public_domain
+- Profile value / 概况值: true
+- Profile unit / 概况单位: boolean
+- Import relevance / 导入相关性: Confirms The Met API public-domain flag for object
+  42022
+- Caution / 提醒: Public-domain flag should retain source URL and download
+  timestamp
+- Review status / 复核状态: reviewed_metadata_only
+
+## Human Research Review Slots / 人工研究复核槽位
+
+Use the source rows above to decide what can be carried into a human object
+dossier. The first review task is not import; it is to identify visible glyph
+image, rubbing, photograph, plate, catalog, inscription, OCR, provenance,
+findspot, collection, period, group, variant, near-form, component,
+later-script, bibliography, citation, disagreement, and dispute evidence.
+
+- Glyph image and rubbing check / 字形图像与拓片检查:
+  复核：本来源是否提供可复核的字形图像、拓片、照片或图版页，以及这些材料能否放入具体单字、卜辞或图版档案。
+- Inscription and catalog context / 卜辞与著录上下文:
+  复核：本来源是否记录卜辞全文、OCR、图版号、页码、合集号、著录号或数据库编号，以及文本质量和缺失位置。
+- Provenance and dating context / 出处与年代背景:
+  复核：本来源是否记录出土地、馆藏、时期、组类、批次、收藏对象或考古背景；没有记录时要写成具体缺口。
+- Variant component relation check / 异体构件关系检查:
+  复核：本来源是否只提供候选异体、近形、构件、金文、小篆、今字或字形演化关系；不得直接写成确认结论。
+- Bibliography citation dispute check / 书目引用争议检查:
+  复核：本来源说明、书目、网页或论文中是否有提出者、引用关系、不同意见、争议或适用范围限制。
+- Rights and derivative decision / 权利与派生决定:
+  复核：本来源哪些图像、文本、OCR、索引、表格或统计结果可公开派生，哪些只能保留来源记录和人工复核问题。
+
+### Source-To-Dossier Research Lenses / 来源进入档案的研究视角
+
+Glyph image lens: compare each visible glyph image with its rubbing, photograph,
+plate, catalog note, and object provenance before it is copied into a character
+dossier.
+
+Inscription lens: compare inscription text, OCR text, catalog number, plate
+number, page number, Heji number, and text quality before linking a form to an
+inscription dossier.
+
+Provenance lens: check findspot, collection, period, group, batch, museum
+object, excavation note, and catalog provenance before using the source for
+dating or archaeological context.
+
+Form relation lens: treat variant, near-form, component, bronze-script,
+seal-script, modern-character, and evolution relations as candidate comparison
+evidence until reviewed.
+
+Scholarship lens: keep bibliography, citation, proposer, editor, scope,
+disagreement, dispute, and rights evidence visible beside any later human note
+derived from this source.
+
+Modern labels, dataset names, source fields, and download-route captions are not
+an accepted reading, glyph identity, component assignment, inscription identity,
+or historical correspondence.
 
 ## Scope Evidence Level And Review Status / 适用范围、证据等级与复核状态
 - Rights status / 权利状态: public_domain_verified
@@ -85,6 +318,7 @@ human review field.
 - not a rights decision
 - not corpus import approval
 - not a confirmed source promotion
+- not an accepted modern label or reading
 - not a reading
 - not a component assignment
 - not an inscription identity

@@ -30,6 +30,22 @@ review status.
 复用任何下载文件前，应打开
 `02_download-route-index.csv`，核对链接、访问日期、checksum、大小、本地归档路径、权利说明和复核状态。
 
+## Download Route Evidence / 下载路线证据
+
+### Route 001
+- Download ID / 下载 ID: dl-sinica-yinshang-oracle-vocabulary
+- Artifact kind / 资料类型: institutional_collection_profile
+- Status / 状态: download_error
+- HTTP status / HTTP 状态: not recorded
+- File size bytes / 文件大小 bytes: 0
+- Checksum SHA-256 / checksum SHA-256: not recorded
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径: not recorded
+- Risk note / 风险提示: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate
+  verify failed: Hostname mismatch, certificate is not valid for
+  'sinica.digitalarchives.tw'. (_ssl.c:1032)>
+- Review status / 复核状态: metadata_route_needs_human_review
+
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
 - Package route count / 来源包路线数: 0
 - Package kinds / 来源包类型: none
@@ -41,6 +57,119 @@ not approve corpus import until a human reviewer checks the source trail and
 target object directory.
 
 来源包清单、字段映射和 metadata profile 只是候选路线。必须由人工复核来源链和目标对象目录后，才可进入语料导入。
+
+## Package Manifest Evidence / 来源包清单证据
+
+No package manifest route is recorded in the current source registers. Treat
+reusable files as unverified until a manifest row is added.
+
+## Field Map Evidence / 字段映射证据
+
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000053
+- Source level / 来源层级: collection_description
+- Source field or unit / 来源字段或单位:
+  甲骨文合集;小屯南地甲骨;英國所藏甲骨集;東京大學東洋文化研究所所藏甲骨文字;懷特氏等所藏甲骨文集
+- Source meaning / 来源含义: Digital Archives profile statement on major corpus
+  sources
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: covered_source_corpora; inscription_corpus_scope
+- Import action / 导入动作: Use as institutional corpus-scope evidence for
+  inscription vocabulary planning
+- Rights boundary / 权利边界: Collection profile is not a row-level inscription
+  export
+- Evidence download ID / 证据下载 ID: dl-sinica-yinshang-oracle-vocabulary
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000054
+- Source level / 来源层级: collection_description
+- Source field or unit / 来源字段或单位:
+  天文;曆法;氣象;地理;方國;世系;家族;人物;職官;征伐;刑獄;農業;畜牧;田獵;交通;宗教;祭祀;疾病;生育;災禍
+- Source meaning / 来源含义: Digital Archives profile statement on topical
+  vocabulary coverage
+- Target record type / 目标记录类型: research_topic
+- Target project field / 目标字段: topic_taxonomy_seed; historical_context_scope
+- Import action / 导入动作: Use as a topic-planning seed for later controlled
+  vocabulary and grammar records
+- Rights boundary / 权利边界: Topic list is broad collection context and must not be
+  treated as per-inscription classification
+- Evidence download ID / 证据下载 ID: dl-sinica-yinshang-oracle-vocabulary
+- Review status / 复核状态: reviewed_metadata_only
+
+## Metadata Profile Evidence / 元数据概况证据
+
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000047
+- Evidence download ID / 证据下载 ID: dl-sinica-yinshang-oracle-vocabulary
+- Metadata file / 元数据文件: collection_3334351.html
+- Profile metric / 概况指标: yinshang_oracle_bone_piece_count
+- Profile value / 概况值: 52486
+- Profile unit / 概况单位: pieces
+- Import relevance / 导入相关性: Records official Digital Archives collection profile
+  scale for oracle-bone inscriptions
+- Caution / 提醒: Collection-level count is not a local imported row count
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000048
+- Evidence download ID / 证据下载 ID: dl-sinica-yinshang-oracle-vocabulary
+- Metadata file / 元数据文件: collection_3334351.html
+- Profile metric / 概况指标: yinshang_oracle_character_count_about
+- Profile value / 概况值: 1000000
+- Profile unit / 概况单位: characters
+- Import relevance / 导入相关性: Records official profile statement that the corpus
+  contains about one million characters
+- Caution / 提醒: Approximate count is collection context and not a verified local
+  token count
+- Review status / 复核状态: reviewed_metadata_only
+
+## Human Research Review Slots / 人工研究复核槽位
+
+Use the source rows above to decide what can be carried into a human object
+dossier. The first review task is not import; it is to identify visible glyph
+image, rubbing, photograph, plate, catalog, inscription, OCR, provenance,
+findspot, collection, period, group, variant, near-form, component,
+later-script, bibliography, citation, disagreement, and dispute evidence.
+
+- Glyph image and rubbing check / 字形图像与拓片检查:
+  复核：本来源是否提供可复核的字形图像、拓片、照片或图版页，以及这些材料能否放入具体单字、卜辞或图版档案。
+- Inscription and catalog context / 卜辞与著录上下文:
+  复核：本来源是否记录卜辞全文、OCR、图版号、页码、合集号、著录号或数据库编号，以及文本质量和缺失位置。
+- Provenance and dating context / 出处与年代背景:
+  复核：本来源是否记录出土地、馆藏、时期、组类、批次、收藏对象或考古背景；没有记录时要写成具体缺口。
+- Variant component relation check / 异体构件关系检查:
+  复核：本来源是否只提供候选异体、近形、构件、金文、小篆、今字或字形演化关系；不得直接写成确认结论。
+- Bibliography citation dispute check / 书目引用争议检查:
+  复核：本来源说明、书目、网页或论文中是否有提出者、引用关系、不同意见、争议或适用范围限制。
+- Rights and derivative decision / 权利与派生决定:
+  复核：本来源哪些图像、文本、OCR、索引、表格或统计结果可公开派生，哪些只能保留来源记录和人工复核问题。
+
+### Source-To-Dossier Research Lenses / 来源进入档案的研究视角
+
+Glyph image lens: compare each visible glyph image with its rubbing, photograph,
+plate, catalog note, and object provenance before it is copied into a character
+dossier.
+
+Inscription lens: compare inscription text, OCR text, catalog number, plate
+number, page number, Heji number, and text quality before linking a form to an
+inscription dossier.
+
+Provenance lens: check findspot, collection, period, group, batch, museum
+object, excavation note, and catalog provenance before using the source for
+dating or archaeological context.
+
+Form relation lens: treat variant, near-form, component, bronze-script,
+seal-script, modern-character, and evolution relations as candidate comparison
+evidence until reviewed.
+
+Scholarship lens: keep bibliography, citation, proposer, editor, scope,
+disagreement, dispute, and rights evidence visible beside any later human note
+derived from this source.
+
+Modern labels, dataset names, source fields, and download-route captions are not
+an accepted reading, glyph identity, component assignment, inscription identity,
+or historical correspondence.
 
 ## Scope Evidence Level And Review Status / 适用范围、证据等级与复核状态
 - Rights status / 权利状态: metadata_only_until_verified
@@ -83,6 +212,7 @@ human review field.
 - not a rights decision
 - not corpus import approval
 - not a confirmed source promotion
+- not an accepted modern label or reading
 - not a reading
 - not a component assignment
 - not an inscription identity

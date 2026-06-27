@@ -4203,6 +4203,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "08_inscription-dossier-index.json").exists())
             self.assertTrue((object_dir / "09_inscription-plate-evidence-dossier.md").exists())
             self.assertTrue((object_dir / "10_inscription-plate-evidence-index.json").exists())
+            self.assertTrue((object_dir / "11_inscription-review-fact-matrix.md").exists())
+            self.assertTrue((object_dir / "12_inscription-review-fact-matrix-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local research entrance", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
@@ -4316,6 +4318,62 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "full_inscription_text_or_ocr",
                 plate_evidence_index["missing_or_review_fields"],
             )
+            fact_matrix_text = (
+                object_dir / "11_inscription-review-fact-matrix.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Inscription Review Fact Matrix", fact_matrix_text)
+            self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("Inscription And Plate Fact Matrix", fact_matrix_text)
+            for required_fact in (
+                "Inscription number",
+                "Full text or OCR",
+                "Plate or rubbing image",
+                "Catalog references",
+                "Heji route",
+                "Collection object",
+                "Findspot period batch",
+                "Linked character occurrences",
+                "Rights and source trail",
+                "Review status",
+            ):
+                self.assertIn(required_fact, fact_matrix_text)
+            for local_anchor in (
+                "03_catalog-reference-index.csv",
+                "05_plate-text-route-index.csv",
+                "07_human-inscription-dossier.md",
+                "09_inscription-plate-evidence-dossier.md",
+                "10_inscription-plate-evidence-index.json",
+                "12_inscription-review-fact-matrix-index.json",
+            ):
+                self.assertIn(local_anchor, fact_matrix_text)
+            self.assertIn("not a formal inscription record", fact_matrix_text)
+            self.assertIn("not a transcription", fact_matrix_text)
+            self.assertIn("not a decipherment conclusion", fact_matrix_text)
+            self.assertNotIn("not_collected", fact_matrix_text)
+            for line in fact_matrix_text.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            fact_matrix_index = json.loads(
+                (object_dir / "12_inscription-review-fact-matrix-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                fact_matrix_index["record_type"],
+                "inscription_review_fact_matrix_index",
+            )
+            self.assertEqual(fact_matrix_index["fact_count"], 10)
+            self.assertIn(
+                "11_inscription-review-fact-matrix.md",
+                fact_matrix_index["human_readable_files"],
+            )
+            self.assertIn(
+                "10_inscription-plate-evidence-index.json",
+                fact_matrix_index["ai_support_files"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                fact_matrix_index["claim_boundary"],
+            )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
             )
@@ -4365,6 +4423,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "06_plate-text-gallery.md",
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
+            "11_inscription-review-fact-matrix.md",
         ]:
             text = (unresolved_dir / filename).read_text(encoding="utf-8")
             self.assertNotIn("\ufffd", text, filename)
@@ -4463,6 +4522,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("plate_evidence_dossier_text", first)
         self.assertIn("plate_evidence_index", first)
+        self.assertIn("review_fact_matrix_text", first)
+        self.assertIn("review_fact_matrix_index", first)
         self.assertIn(
             "Inscription And Plate Evidence Dossier",
             first["plate_evidence_dossier_text"],
@@ -4499,6 +4560,25 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["plate_evidence_index"]["record_type"],
             "inscription_plate_evidence_dossier_index",
         )
+        self.assertIn(
+            "Inscription Review Fact Matrix",
+            first["review_fact_matrix_text"],
+        )
+        self.assertIn("Human Review Order", first["review_fact_matrix_text"])
+        self.assertIn("Inscription And Plate Fact Matrix", first["review_fact_matrix_text"])
+        self.assertIn("Full text or OCR", first["review_fact_matrix_text"])
+        self.assertIn("Plate or rubbing image", first["review_fact_matrix_text"])
+        self.assertIn("Findspot period batch", first["review_fact_matrix_text"])
+        self.assertIn("Linked character occurrences", first["review_fact_matrix_text"])
+        self.assertIn("not a formal inscription record", first["review_fact_matrix_text"])
+        self.assertIn("not a decipherment conclusion", first["review_fact_matrix_text"])
+        for line in first["review_fact_matrix_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["review_fact_matrix_index"]["record_type"],
+            "inscription_review_fact_matrix_index",
+        )
+        self.assertEqual(first["review_fact_matrix_index"]["fact_count"], 10)
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
             first["plate_evidence_index"]["human_readable_files"],

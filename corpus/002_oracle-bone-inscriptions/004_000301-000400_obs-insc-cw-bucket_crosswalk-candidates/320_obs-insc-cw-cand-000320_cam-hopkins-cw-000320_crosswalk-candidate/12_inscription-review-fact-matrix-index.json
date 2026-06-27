@@ -1,0 +1,103 @@
+{
+  "ai_support_files": [
+    "01_candidate-inscription-crosswalk-packet.json",
+    "02_crosswalk-source-index.csv",
+    "03_catalog-reference-index.csv",
+    "05_plate-text-route-index.csv",
+    "08_inscription-dossier-index.json",
+    "10_inscription-plate-evidence-index.json",
+    "12_inscription-review-fact-matrix-index.json"
+  ],
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000320",
+  "claim_boundary": [
+    "no formal inscription record",
+    "no object identity claim",
+    "no transcription",
+    "no inscription reading",
+    "no corpus import approval",
+    "no decipherment conclusion"
+  ],
+  "fact_count": 10,
+  "facts": [
+    {
+      "evidence": "01_candidate-inscription-crosswalk-packet.json; 03_catalog-reference-index.csv",
+      "fact": "Inscription number",
+      "next_check": "check candidate ID, source row, and formal record status",
+      "status": "candidate row only; formal obi ID is not assigned"
+    },
+    {
+      "evidence": "05_plate-text-route-index.csv; 09_inscription-plate-evidence-dossier.md",
+      "fact": "Full text or OCR",
+      "next_check": "open plate or catalog route before recording text",
+      "status": "needs_primary_text_or_OCR_route_review"
+    },
+    {
+      "evidence": "05_plate-text-route-index.csv; 06_plate-text-gallery.md",
+      "fact": "Plate or rubbing image",
+      "next_check": "locate plate image, rubbing, or object image route",
+      "status": "route indexed; image rights and local file need review"
+    },
+    {
+      "evidence": "03_catalog-reference-index.csv",
+      "fact": "Catalog references",
+      "next_check": "compare Yingguo, CUL, Chalfant, and Heji references",
+      "status": "present_in_metadata_routes"
+    },
+    {
+      "evidence": "03_catalog-reference-index.csv; 05_plate-text-route-index.csv",
+      "fact": "Heji route",
+      "next_check": "open Heji or OBM route before using as text evidence",
+      "status": "present_in_metadata_route"
+    },
+    {
+      "evidence": "03_catalog-reference-index.csv; 07_human-inscription-dossier.md",
+      "fact": "Collection object",
+      "next_check": "check CUL or catalog object record and shelfmark",
+      "status": "present_in_metadata_route"
+    },
+    {
+      "evidence": "01_candidate-inscription-crosswalk-packet.json; 09_inscription-plate-evidence-dossier.md",
+      "fact": "Findspot period batch",
+      "next_check": "verify findspot, pit, batch, period, and group routes",
+      "status": "period and group imported; findspot and batch need review"
+    },
+    {
+      "evidence": "07_human-inscription-dossier.md; 05_plate-text-route-index.csv",
+      "fact": "Linked character occurrences",
+      "next_check": "record only candidate links until source signs are checked",
+      "status": "needs character occurrence and component route review"
+    },
+    {
+      "evidence": "02_crosswalk-source-index.csv; 09_inscription-plate-evidence-dossier.md",
+      "fact": "Rights and source trail",
+      "next_check": "review download log, checksum, manifest, and risk note",
+      "status": "metadata route rights status: metadata_only_until_verified"
+    },
+    {
+      "evidence": "04_human-review-sheet.md; 10_inscription-plate-evidence-index.json",
+      "fact": "Review status",
+      "next_check": "finish source, plate, text, and object checks first",
+      "status": "needs_human_inscription_crosswalk_review"
+    }
+  ],
+  "human_readable_files": [
+    "README.md",
+    "04_human-review-sheet.md",
+    "06_plate-text-gallery.md",
+    "07_human-inscription-dossier.md",
+    "09_inscription-plate-evidence-dossier.md",
+    "11_inscription-review-fact-matrix.md"
+  ],
+  "human_review_status": "needs_human_inscription_crosswalk_review",
+  "missing_or_review_fields": [
+    "full_inscription_text_or_ocr",
+    "plate_image_or_rubbing",
+    "collection_findspot_period_batch_context",
+    "linked_character_occurrences",
+    "rights_checksum_manifest_download_log_review",
+    "bibliography_reading_history_dispute_review"
+  ],
+  "project_id": "obs-insc-cw-cand-000320",
+  "record_type": "inscription_review_fact_matrix_index",
+  "updated_at": "2026-06-21"
+}

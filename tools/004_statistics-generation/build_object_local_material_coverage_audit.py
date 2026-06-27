@@ -131,6 +131,7 @@ OBJECT_SPECS = [
             "06_plate-text-gallery.md",
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
+            "11_inscription-review-fact-matrix.md",
         ),
         (
             "01_candidate-inscription-crosswalk-packet.json",
@@ -139,6 +140,7 @@ OBJECT_SPECS = [
             "05_plate-text-route-index.csv",
             "08_inscription-dossier-index.json",
             "10_inscription-plate-evidence-index.json",
+            "12_inscription-review-fact-matrix-index.json",
         ),
         (),
         ("05_plate-text-route-index.csv", "06_plate-text-gallery.md"),

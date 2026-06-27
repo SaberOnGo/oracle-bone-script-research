@@ -3042,6 +3042,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "08_inscription-dossier-index.json",
         "09_inscription-plate-evidence-dossier.md",
         "10_inscription-plate-evidence-index.json",
+        "11_inscription-review-fact-matrix.md",
+        "12_inscription-review-fact-matrix-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3133,6 +3135,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         dossier_index_path = object_dir / "08_inscription-dossier-index.json"
         plate_evidence_path = object_dir / "09_inscription-plate-evidence-dossier.md"
         plate_evidence_index_path = object_dir / "10_inscription-plate-evidence-index.json"
+        fact_matrix_path = object_dir / "11_inscription-review-fact-matrix.md"
+        fact_matrix_index_path = object_dir / "12_inscription-review-fact-matrix-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -3194,6 +3198,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} human review status changed")
             if "07_human-inscription-dossier.md" not in dossier_index.get("human_readable_files", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
+            if "11_inscription-review-fact-matrix.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing fact matrix link")
             if "linked_character_occurrences" not in dossier_index.get("uncollected_human_research_fields", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing linked character gap")
         if path_exists(plate_evidence_path):
@@ -3241,6 +3247,61 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing plate route index link")
             if "full_inscription_text_or_ocr" not in plate_evidence_index.get("missing_or_review_fields", []):
                 issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing text/OCR gap")
+        if path_exists(fact_matrix_path):
+            fact_matrix = fact_matrix_path.read_text(encoding="utf-8")
+            if "\ufffd" in fact_matrix:
+                issues.append(f"{fact_matrix_path.relative_to(root).as_posix()} contains replacement-character mojibake")
+            for snippet in [
+                "Inscription Review Fact Matrix",
+                "Human Review Order",
+                "Inscription And Plate Fact Matrix",
+                "Inscription number",
+                "Full text or OCR",
+                "Plate or rubbing image",
+                "Catalog references",
+                "Heji route",
+                "Collection object",
+                "Findspot period batch",
+                "Linked character occurrences",
+                "Rights and source trail",
+                "Review status",
+                "03_catalog-reference-index.csv",
+                "05_plate-text-route-index.csv",
+                "07_human-inscription-dossier.md",
+                "09_inscription-plate-evidence-dossier.md",
+                "10_inscription-plate-evidence-index.json",
+                "12_inscription-review-fact-matrix-index.json",
+                "not a formal inscription record",
+                "not a transcription",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in fact_matrix:
+                    issues.append(f"{fact_matrix_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in fact_matrix:
+                issues.append(
+                    f"{fact_matrix_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
+            for line_number, line in enumerate(fact_matrix.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(
+                        f"{fact_matrix_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        if path_exists(fact_matrix_index_path):
+            fact_matrix_index = json.loads(fact_matrix_index_path.read_text(encoding="utf-8"))
+            if fact_matrix_index.get("project_id") != project_id:
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if fact_matrix_index.get("record_type") != "inscription_review_fact_matrix_index":
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} record_type changed")
+            if fact_matrix_index.get("fact_count") != 10:
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} fact count changed")
+            if "11_inscription-review-fact-matrix.md" not in fact_matrix_index.get("human_readable_files", []):
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing fact matrix link")
+            if "10_inscription-plate-evidence-index.json" not in fact_matrix_index.get("ai_support_files", []):
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing plate evidence support link")
+            if "no decipherment conclusion" not in fact_matrix_index.get("claim_boundary", []):
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing decipherment boundary")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [

@@ -23413,6 +23413,34 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["assignment_group_count"] for row in rows}, {"5"})
         self.assertEqual({row["assignment_source_count_total"] for row in rows}, {"18"})
         self.assertTrue(all("185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv" in row["files_to_open"] for row in rows))
+        required_slots = {
+            "source_system",
+            "source_object",
+            "access_or_download_record",
+            "access_date",
+            "package_name",
+            "provider",
+            "file_name",
+            "file_size",
+            "checksum",
+            "package_manifest",
+            "rights_status",
+            "risk_note",
+            "public_commit_decision",
+            "field_map",
+            "extraction_note",
+            "derived_paths",
+            "review_status",
+        }
+        for row in rows:
+            self.assertTrue(required_slots.issubset(set(row["required_source_provenance_slots"].split(";"))))
+            self.assertIn("source_register_row", row["source_context_fields_to_verify"])
+            self.assertIn("download_log_row", row["source_context_fields_to_verify"])
+            self.assertIn("large_source_register_row", row["source_context_fields_to_verify"])
+            self.assertIn("rights_status", row["source_context_fields_to_verify"])
+            self.assertIn("Which source system, provider, catalog, book, paper, museum, or URL supplied this source?", row["concrete_next_checks"])
+            self.assertIn("Which access or download record, access date, package name, file size, and checksum locate it?", row["concrete_next_checks"])
+            self.assertIn("Which package manifest, field map, extraction note, and derived paths let a reviewer audit it?", row["concrete_next_checks"])
         self.assertTrue(all(row["review_status"] == "needs_human_review" for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["rights_decision_status"] == "no_rights_decision" for row in rows))
@@ -23430,6 +23458,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["phase_status"], "mixed_or_partial")
         self.assertEqual(first["assignment_checklist_ids"].count("source-pipeline-missing-evidence-outcome-routes-assignment-checklist-"), 5)
         self.assertEqual(first["claim_boundary"], module.CLAIM_BOUNDARY)
+        self.assertIn("source_system", first["required_source_provenance_slots"])
+        self.assertIn("checksum", first["required_source_provenance_slots"])
+        self.assertIn("package_manifest", first["required_source_provenance_slots"])
+        self.assertIn("field_map", first["required_source_provenance_slots"])
+        self.assertIn("derived_paths", first["required_source_provenance_slots"])
+        self.assertIn("source_register_row", first["source_context_fields_to_verify"])
+        self.assertIn("download_log_row", first["source_context_fields_to_verify"])
+        self.assertIn("Which rights status, risk note, and public-commit decision are visible beside it?", first["concrete_next_checks"])
+        self.assertIn("Which missing source, license, checksum, field, or review status remains?", first["concrete_next_checks"])
         self.assertTrue(all("research source phase gap review checklist only" in row["caution"] for row in rows))
 
     def test_published_research_note_phase_gap_review_checklist_routes_research_note_gaps(self) -> None:

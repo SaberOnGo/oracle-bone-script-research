@@ -42,6 +42,43 @@ REQUIRED_REVIEW_STEPS = (
     "confirm_no_decipherment_claim;"
     "do_not_collect_evidence_or_record_outcome_in_this_checklist"
 )
+REQUIRED_SOURCE_PROVENANCE_SLOTS = (
+    "source_system;"
+    "source_object;"
+    "access_or_download_record;"
+    "access_date;"
+    "package_name;"
+    "provider;"
+    "file_name;"
+    "file_size;"
+    "checksum;"
+    "package_manifest;"
+    "rights_status;"
+    "risk_note;"
+    "public_commit_decision;"
+    "field_map;"
+    "extraction_note;"
+    "derived_paths;"
+    "review_status"
+)
+SOURCE_CONTEXT_FIELDS_TO_VERIFY = (
+    "source_id;"
+    "source_register_row;"
+    "large_source_register_row;"
+    "download_log_row;"
+    "package_manifest_route;"
+    "field_map_route;"
+    "rights_status;"
+    "risk_note;"
+    "review_status"
+)
+CONCRETE_NEXT_CHECKS = (
+    "Which source system, provider, catalog, book, paper, museum, or URL supplied this source?;"
+    "Which access or download record, access date, package name, file size, and checksum locate it?;"
+    "Which package manifest, field map, extraction note, and derived paths let a reviewer audit it?;"
+    "Which rights status, risk note, and public-commit decision are visible beside it?;"
+    "Which missing source, license, checksum, field, or review status remains?"
+)
 
 
 def repo_root() -> Path:
@@ -115,6 +152,9 @@ def build_checklist_rows(root: Path) -> list[dict[str, str]]:
                 "assignment_checklist_path": path_text(SOURCE_PIPELINE_ASSIGNMENT_CHECKLIST),
                 "files_to_open": files_to_open,
                 "required_review_steps": REQUIRED_REVIEW_STEPS,
+                "required_source_provenance_slots": REQUIRED_SOURCE_PROVENANCE_SLOTS,
+                "source_context_fields_to_verify": SOURCE_CONTEXT_FIELDS_TO_VERIFY,
+                "concrete_next_checks": CONCRETE_NEXT_CHECKS,
                 "recommended_action": gap_row["recommended_action"],
                 "candidate_or_staging_boundary": gap_row["candidate_or_staging_boundary"],
                 "claim_boundary": CLAIM_BOUNDARY,

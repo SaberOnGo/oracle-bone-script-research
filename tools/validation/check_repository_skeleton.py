@@ -12481,6 +12481,43 @@ def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
         issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment group source changed")
     if len(source_ids) != 18:
         issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} source coverage changed")
+    required_source_slots = {
+        "source_system",
+        "source_object",
+        "access_or_download_record",
+        "access_date",
+        "package_name",
+        "provider",
+        "file_name",
+        "file_size",
+        "checksum",
+        "package_manifest",
+        "rights_status",
+        "risk_note",
+        "public_commit_decision",
+        "field_map",
+        "extraction_note",
+        "derived_paths",
+        "review_status",
+    }
+    required_source_context_fields = {
+        "source_id",
+        "source_register_row",
+        "large_source_register_row",
+        "download_log_row",
+        "package_manifest_route",
+        "field_map_route",
+        "rights_status",
+        "risk_note",
+        "review_status",
+    }
+    required_next_checks = [
+        "Which source system, provider, catalog, book, paper, museum, or URL supplied this source?",
+        "Which access or download record, access date, package name, file size, and checksum locate it?",
+        "Which package manifest, field map, extraction note, and derived paths let a reviewer audit it?",
+        "Which rights status, risk note, and public-commit decision are visible beside it?",
+        "Which missing source, license, checksum, field, or review status remains?",
+    ]
 
     for row in rows:
         review_id = row.get("review_checklist_id", "")
@@ -12500,6 +12537,17 @@ def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment IDs changed: {review_id}")
         if row.get("claim_boundary") != "research_source_phase_gap_review_checklist_not_review_outcome_not_scholarship":
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
+        source_slots = {slot for slot in row.get("required_source_provenance_slots", "").split(";") if slot}
+        if not required_source_slots.issubset(source_slots):
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} source provenance slots changed: {review_id}")
+        source_context_fields = {
+            field for field in row.get("source_context_fields_to_verify", "").split(";") if field
+        }
+        if not required_source_context_fields.issubset(source_context_fields):
+            issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} source context fields changed: {review_id}")
+        for next_check in required_next_checks:
+            if next_check not in row.get("concrete_next_checks", ""):
+                issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} concrete next checks changed: {review_id}")
         for field, expected_value in {
             "evidence_collection_status": "not_collected",
             "rights_decision_status": "no_rights_decision",

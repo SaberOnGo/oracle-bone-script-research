@@ -17970,6 +17970,18 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("Evidence items / 证据条目: none", first_text)
         self.assertIn("no rights clearance", first_text)
 
+    def test_source_engineering_gap_review_queue_has_no_empty_evidence_logs(self) -> None:
+        queue_dir = (
+            repo_root()
+            / "doc/public/user_research/009_source-engineering-gap-review-queues"
+        )
+        empty_evidence_files = []
+        for path in sorted(queue_dir.glob("*_review-log.md")):
+            text = path.read_text(encoding="utf-8")
+            if "Evidence items / 证据条目: none" in text:
+                empty_evidence_files.append(path.relative_to(repo_root()).as_posix())
+        self.assertEqual(empty_evidence_files, [])
+
     def test_source_engineering_gap_review_log_draft_builder_keeps_boundaries(self) -> None:
         module = load_source_engineering_gap_review_log_drafts_module()
         root = repo_root()

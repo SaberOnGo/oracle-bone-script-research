@@ -776,6 +776,9 @@ SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST = (
     "corpus/009_statistics-and-derived-features/"
     "102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv"
 )
+SOURCE_ENGINEERING_GAP_REVIEW_QUEUE_DIR = (
+    "doc/public/user_research/009_source-engineering-gap-review-queues"
+)
 SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT = (
     "corpus/009_statistics-and-derived-features/"
     "103_ai-agent-source-engineering-gap-evidence-snapshot.csv"
@@ -8589,6 +8592,12 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             for value in values:
                 if not (root / value).exists():
                     issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} missing path: {value}")
+    source_gap_review_queue_dir = root / SOURCE_ENGINEERING_GAP_REVIEW_QUEUE_DIR
+    for path in sorted(source_gap_review_queue_dir.glob("*_review-log.md")):
+        text = path.read_text(encoding="utf-8")
+        if "Evidence items / 证据条目: none" in text:
+            rel_path = path.relative_to(root).as_posix()
+            issues.append(f"{rel_path} still contains empty source-engineering evidence items")
     if len(source_gap_snapshot_rows) != expected_gap_row_count:
         issues.append(
             f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} should contain exactly {expected_gap_row_count} rows"

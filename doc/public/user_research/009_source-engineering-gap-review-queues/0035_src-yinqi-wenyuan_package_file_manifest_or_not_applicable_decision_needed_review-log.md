@@ -48,11 +48,29 @@
 
 ## Evidence Collection / 证据收集
 
-English: This draft intentionally contains no collected evidence yet. Add evidence only after opening the routed files and recording source, rights, checksum or access-boundary status.
+English: Existing local metadata has been materialized below for review.
+It does not create new source evidence, rights clearance, corpus import,
+oracle-character identity claim, or decipherment conclusion.
 
-简体中文：本草稿暂不包含已收集证据。只有在打开路线文件，并记录来源、权利、checksum 或访问边界状态后，才可补充证据。
+简体中文：以下只把本地已有 metadata 指标实体化为复核快照。
+这不是新的来源证据、权利清理、语料导入、甲骨单字身份判断，
+也不是释读结论。
 
-- Evidence items / 证据条目: none
+### Existing Metadata Snapshot / 已有 metadata 快照
+
+- current_stage: `pending_human_review`
+- download_status_counts: `downloaded:1`
+- downloaded_count: `1`
+- download_log_count: `1`
+- checksum_present_count: `1`
+- field_map_count: `0`
+- package_manifest_count: `0`
+- metadata_profile_count: `2`
+- graph_edge_count: `0`
+- downloaded_file_bytes: `32900`
+- gap_type: `package_file_manifest_or_not_applicable_decision_needed`
+
+- Evidence boundary / 证据边界: existing local metadata only
 - Derived record decision / 派生记录决策: not decided
 - Package manifest decision / 包清单决策: not decided
 - Field map decision / 字段映射决策: not decided

@@ -999,6 +999,10 @@ XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv"
 )
+XXT_OBM_ACCESS_BOUNDARY_REVIEW_LOG_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "075_ai-agent-xxt-obm-access-boundary-review-log-draft-manifest.csv"
+)
 SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX = (
     "corpus/009_statistics-and-derived-features/"
     "136_source-pipeline-phase-coverage-matrix.csv"
@@ -13021,11 +13025,13 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
     object_rows, object_issues = _read_csv_rows(root / COLLECTION_OBJECT_ID_SOURCE_MAP)
     asset_rows, asset_issues = _read_csv_rows(root / ASSET_SOURCE_INDEX)
     obm_rows, obm_issues = _read_csv_rows(root / XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE)
+    obm_log_rows, obm_log_issues = _read_csv_rows(root / XXT_OBM_ACCESS_BOUNDARY_REVIEW_LOG_DRAFT_MANIFEST)
     issues.extend(row_issues)
     issues.extend(collection_issues)
     issues.extend(object_issues)
     issues.extend(asset_issues)
     issues.extend(obm_issues)
+    issues.extend(obm_log_issues)
     if len(rows) != 3:
         issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} should contain exactly 3 rows")
 
@@ -13045,6 +13051,23 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
         "museum_object_asset_count": str(len(museum_asset_rows)),
         "obm_followup_route_count": str(len(obm_rows)),
     }
+    if len(obm_log_rows) != 4:
+        issues.append(f"{XXT_OBM_ACCESS_BOUNDARY_REVIEW_LOG_DRAFT_MANIFEST} should contain exactly 4 rows")
+    for row in obm_log_rows:
+        draft_path = row.get("draft_path", "")
+        if not draft_path:
+            issues.append(f"{XXT_OBM_ACCESS_BOUNDARY_REVIEW_LOG_DRAFT_MANIFEST} missing draft path")
+            continue
+        path = root / draft_path
+        try:
+            text = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            issues.append(f"{XXT_OBM_ACCESS_BOUNDARY_REVIEW_LOG_DRAFT_MANIFEST} missing draft: {draft_path}")
+            continue
+        if "Evidence items / 证据条目: none" in text:
+            issues.append(f"{draft_path} still contains empty XXT OBM evidence items")
+        if "Existing Access Boundary Snapshot / 已有访问边界快照" not in text:
+            issues.append(f"{draft_path} missing XXT OBM access boundary snapshot")
     required_collection_slots = {
         "collection_object_id",
         "institution",

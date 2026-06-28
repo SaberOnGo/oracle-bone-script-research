@@ -27,62 +27,190 @@
 
 ## Review Sections / 复核章节
 
-English: Keep every section empty until source-marked evidence is collected through a permitted route.
+English: Existing queue-074 metadata is materialized below for review.
+It is access-boundary evidence only, not row-level import proof,
+not an old-catalog confirmation, not a holding match, and not a
+decipherment conclusion.
 
-简体中文：在通过允许路径收集到带来源标记的证据前，所有章节都必须保持为空。
+简体中文：以下只把 074 队列已有 metadata 实体化为复核快照。
+这只是访问边界证据，不是行级导入证据、旧著录确认、
+馆藏匹配或释读结论。
+
+### Existing Access Boundary Snapshot / 已有访问边界快照
+
+- commit_policy: `download_to_tmp_log_checksum_only`
+- download_status: `downloaded_access_restricted_page`
+- http_status: `200`
+- logged_file_size_bytes: `36917`
+- logged_checksum_sha256:
+-   - `6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781`
+- profile_match_count: `7`
+- profile_ids:
+-   - `source-access-000006`
+-   - `source-access-000007`
+-   - `source-access-000008`
+-   - `source-access-000009`
+-   - `source-access-000010`
+-   - `source-access-000011`
+-   - `source-access-000012`
+- profile_areas:
+-   - `source_table_basis`
+-   - `source_table_fields`
+-   - `heji_range`
+-   - `simple_search_fields`
+-   - `old_catalog_abbrev_count`
+-   - `holding_abbrev_count`
+-   - `logged_download_boundary`
+- profile_review_statuses:
+-   - `source-access-000006=reviewed_metadata_only`
+-   - `source-access-000007=reviewed_metadata_only`
+-   - `source-access-000008=reviewed_metadata_only`
+-   - `source-access-000009=reviewed_metadata_only`
+-   - `source-access-000010=reviewed_metadata_only`
+-   - `source-access-000011=reviewed_metadata_only`
+-   - `source-access-000012=reviewed_metadata_only`
+- profile_normalized_values:
+-   - `source-access-000006=obm_1999_printed_source_table_basis`
+-   - `source-access-000007=heji_number`
+-   - `zhetuo_ref`
+-   - `selected_ref`
+-   - `duplicate_ref`
+-   - `join_ref`
+-   - `holding_ref`
+-   - `note`
+-   - `source-access-000008=heji_range=1-41956`
+-   - `source-access-000009=heji_number`
+-   - `old_catalog_ref`
+-   - `holding_ref`
+-   - `note`
+-   - `source-access-000010=old_catalog_book_abbrev_count=90`
+-   - `source-access-000011=holding_abbrev_count=211`
+-   - `source-access-000012=downloaded_access_restricted_page`
+- staging_row_count: `0`
+- staging_row_kind_counts: `not recorded in 074 queue`
+- staging_review_statuses: `not recorded in 074 queue`
+- route_file_count: `4`
+- missing_route_file_count: `0`
+- route_file_review_status: `reviewed_route_files_exist`
 
 ### Source Register Row / 来源登记行
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - source_id: `src-xiaoxuetang-obm`
+  - rights_status: `metadata_only_until_verified`
+  - risk_note:
+  -   - `Site returned an access-restricted HTML page`
+  -   - ` treat as access evidence only.`
 - Notes / 备注:
   - English: Verify source ID, download ID, rights status, and risk note.
   - 简体中文：打开来源行；核对来源 ID、下载 ID、权利状态和风险说明。
 
 ### Source Download Manifest Row / 来源下载 manifest 行
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - targeted_download_id: `dl-xxt-obm-example`
+  - targeted_url: `https://xiaoxue.iis.sinica.edu.tw/obm/Home/Example`
+  - artifact_kind: `source_table_rules_page`
+  - download_status: `downloaded_access_restricted_page`
 - Notes / 备注:
   - English: Confirm URL, artifact kind, status, and route files.
   - 简体中文：打开下载 manifest 行；确认 URL、资料类型、状态和路由文件。
 
 ### Download Log Row / 下载日志行
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - http_status: `200`
+  - logged_file_size_bytes: `36917`
+  - logged_checksum_sha256:
+  -   - `6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781`
 - Notes / 备注:
   - English: Verify access result, size, checksum, and timestamp.
   - 简体中文：打开下载日志行；核对访问结果、大小、checksum 和时间戳。
 
 ### Access Profile Rows / 访问画像行
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - profile_match_count: `7`
+  - profile_ids:
+  -   - `source-access-000006`
+  -   - `source-access-000007`
+  -   - `source-access-000008`
+  -   - `source-access-000009`
+  -   - `source-access-000010`
+  -   - `source-access-000011`
+  -   - `source-access-000012`
+  - profile_areas:
+  -   - `source_table_basis`
+  -   - `source_table_fields`
+  -   - `heji_range`
+  -   - `simple_search_fields`
+  -   - `old_catalog_abbrev_count`
+  -   - `holding_abbrev_count`
+  -   - `logged_download_boundary`
+  - profile_review_statuses:
+  -   - `source-access-000006=reviewed_metadata_only`
+  -   - `source-access-000007=reviewed_metadata_only`
+  -   - `source-access-000008=reviewed_metadata_only`
+  -   - `source-access-000009=reviewed_metadata_only`
+  -   - `source-access-000010=reviewed_metadata_only`
+  -   - `source-access-000011=reviewed_metadata_only`
+  -   - `source-access-000012=reviewed_metadata_only`
+  - profile_normalized_values:
+  -   - `source-access-000006=obm_1999_printed_source_table_basis`
+  -   - `source-access-000007=heji_number`
+  -   - `zhetuo_ref`
+  -   - `selected_ref`
+  -   - `duplicate_ref`
+  -   - `join_ref`
+  -   - `holding_ref`
+  -   - `note`
+  -   - `source-access-000008=heji_range=1-41956`
+  -   - `source-access-000009=heji_number`
+  -   - `old_catalog_ref`
+  -   - `holding_ref`
+  -   - `note`
+  -   - `source-access-000010=old_catalog_book_abbrev_count=90`
+  -   - `source-access-000011=holding_abbrev_count=211`
+  -   - `source-access-000012=downloaded_access_restricted_page`
 - Notes / 备注:
   - English: Verify access result, restriction status, and permitted route.
   - 简体中文：打开访问画像行；核对访问结果、受限状态和允许路线。
 
 ### Staging Rows When Available / 已存在的 staging 行
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - staging_row_count: `0`
+  - staging_row_kind_counts: `not recorded in 074 queue`
+  - staging_review_statuses: `not recorded in 074 queue`
 - Notes / 备注:
   - English: Open staging rows before old-catalog, holding, or row claims.
   - 简体中文：提出旧著录、馆藏或行级主张前，先打开 staging 行。
 
 ### Official Access Boundary / 官方访问边界
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - download_status: `downloaded_access_restricted_page`
+  - risk_note:
+  -   - `Site returned an access-restricted HTML page`
+  -   - ` treat as access evidence only.`
+  - commit_policy: `download_to_tmp_log_checksum_only`
 - Notes / 备注:
   - English: Check official boundary before public derivative decisions.
   - 简体中文：记录公开派生决定前，先核查官方页面访问边界。
 
 ### Review Log / 复核日志
 
-- Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+- Status / 状态: `metadata_captured_from_074_queue`
+- Evidence items / 证据条目:
+  - route_file_count: `4`
+  - missing_route_file_count: `0`
+  - route_file_review_status: `reviewed_route_files_exist`
 - Notes / 备注:
   - English: Record source-marked access observations; keep import claims empty.
   - 简体中文：只记录带来源标记的访问观察；保持导入和身份主张为空。

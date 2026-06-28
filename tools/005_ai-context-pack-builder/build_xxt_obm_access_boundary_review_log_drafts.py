@@ -39,6 +39,22 @@ OUTPUT_FIELDS = [
     "targeted_download_id",
     "targeted_url",
     "artifact_kind",
+    "commit_policy",
+    "download_status",
+    "http_status",
+    "logged_file_size_bytes",
+    "logged_checksum_sha256",
+    "profile_match_count",
+    "profile_ids",
+    "profile_areas",
+    "profile_review_statuses",
+    "profile_normalized_values",
+    "staging_row_count",
+    "staging_row_kind_counts",
+    "staging_review_statuses",
+    "route_file_count",
+    "missing_route_file_count",
+    "route_file_review_status",
     "draft_path",
     "source_queue_path",
     "route_files_to_open",
@@ -155,6 +171,22 @@ def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str
                 "targeted_download_id": row["targeted_download_id"],
                 "targeted_url": row["targeted_url"],
                 "artifact_kind": row["artifact_kind"],
+                "commit_policy": row["commit_policy"],
+                "download_status": row["download_status"],
+                "http_status": row["http_status"],
+                "logged_file_size_bytes": row["logged_file_size_bytes"],
+                "logged_checksum_sha256": row["logged_checksum_sha256"],
+                "profile_match_count": row["profile_match_count"],
+                "profile_ids": row["profile_ids"],
+                "profile_areas": row["profile_areas"],
+                "profile_review_statuses": row["profile_review_statuses"],
+                "profile_normalized_values": row["profile_normalized_values"],
+                "staging_row_count": row["staging_row_count"],
+                "staging_row_kind_counts": row["staging_row_kind_counts"],
+                "staging_review_statuses": row["staging_review_statuses"],
+                "route_file_count": row["route_file_count"],
+                "missing_route_file_count": row["missing_route_file_count"],
+                "route_file_review_status": row["route_file_review_status"],
                 "draft_path": row["expected_output_path"],
                 "source_queue_path": FOLLOWUP_REVIEW_QUEUE.as_posix(),
                 "route_files_to_open": row["route_files_to_open"],
@@ -179,6 +211,107 @@ def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str
             }
         )
     return rows
+
+
+def _display_value(value: str) -> str:
+    return value if value else "not recorded in 074 queue"
+
+
+def _split_long_value(value: str, limit: int = 68) -> list[str]:
+    if ";" in value:
+        return [part for part in value.split(";") if part]
+    words = value.split()
+    if len(words) <= 1:
+        return [value]
+    chunks: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > limit and current:
+            chunks.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        chunks.append(current)
+    return chunks
+
+
+def _field_lines(prefix: str, field: str, value: str) -> list[str]:
+    display_value = _display_value(value)
+    single_line = f"{prefix}{field}: `{display_value}`"
+    if len(single_line) <= 80:
+        return [single_line]
+    lines = [f"{prefix}{field}:"]
+    lines.extend(f"{prefix}  - `{part}`" for part in _split_long_value(display_value))
+    return lines
+
+
+def _snapshot_lines(row: dict[str, str]) -> list[str]:
+    fields = [
+        "commit_policy",
+        "download_status",
+        "http_status",
+        "logged_file_size_bytes",
+        "logged_checksum_sha256",
+        "profile_match_count",
+        "profile_ids",
+        "profile_areas",
+        "profile_review_statuses",
+        "profile_normalized_values",
+        "staging_row_count",
+        "staging_row_kind_counts",
+        "staging_review_statuses",
+        "route_file_count",
+        "missing_route_file_count",
+        "route_file_review_status",
+    ]
+    lines: list[str] = []
+    for field in fields:
+        lines.extend(_field_lines("- ", field, row.get(field, "")))
+    return lines
+
+
+SECTION_EVIDENCE_FIELDS = {
+    "source_register_row": ["source_id", "rights_status", "risk_note"],
+    "source_download_manifest_row": [
+        "targeted_download_id",
+        "targeted_url",
+        "artifact_kind",
+        "download_status",
+    ],
+    "download_log_row": [
+        "http_status",
+        "logged_file_size_bytes",
+        "logged_checksum_sha256",
+    ],
+    "access_profile_rows": [
+        "profile_match_count",
+        "profile_ids",
+        "profile_areas",
+        "profile_review_statuses",
+        "profile_normalized_values",
+    ],
+    "staging_rows_when_available": [
+        "staging_row_count",
+        "staging_row_kind_counts",
+        "staging_review_statuses",
+    ],
+    "official_access_boundary": ["download_status", "risk_note", "commit_policy"],
+    "review_log": [
+        "route_file_count",
+        "missing_route_file_count",
+        "route_file_review_status",
+    ],
+}
+
+
+def _section_evidence_lines(row: dict[str, str], section: str) -> list[str]:
+    fields = SECTION_EVIDENCE_FIELDS.get(section, [])
+    lines: list[str] = []
+    for field in fields:
+        lines.extend(_field_lines("  - ", field, row.get(field, "")))
+    return lines
 
 
 def build_markdown(row: dict[str, str]) -> str:
@@ -215,12 +348,25 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
             "## Review Sections / 复核章节",
             "",
-            "English: Keep every section empty until source-marked evidence is collected through a permitted route.",
-            "",
-            "简体中文：在通过允许路径收集到带来源标记的证据前，所有章节都必须保持为空。",
+            "English: Existing queue-074 metadata is materialized below for review.",
+            "It is access-boundary evidence only, not row-level import proof,",
+            "not an old-catalog confirmation, not a holding match, and not a",
+            "decipherment conclusion.",
             "",
         ]
     )
+    lines.extend(
+        [
+            "简体中文：以下只把 074 队列已有 metadata 实体化为复核快照。",
+            "这只是访问边界证据，不是行级导入证据、旧著录确认、",
+            "馆藏匹配或释读结论。",
+            "",
+            "### Existing Access Boundary Snapshot / 已有访问边界快照",
+            "",
+        ]
+    )
+    lines.extend(_snapshot_lines(row))
+    lines.append("")
     for section in review_sections:
         label_en, label_zh = SECTION_LABELS.get(section, (section, section))
         note_en, note_zh = SECTION_NOTES.get(
@@ -231,8 +377,9 @@ def build_markdown(row: dict[str, str]) -> str:
             [
                 f"### {label_en} / {label_zh}",
                 "",
-                "- Status / 状态: `not_collected`",
-                "- Evidence items / 证据条目: none",
+                "- Status / 状态: `metadata_captured_from_074_queue`",
+                "- Evidence items / 证据条目:",
+                *_section_evidence_lines(row, section),
                 "- Notes / 备注:",
                 f"  - English: {note_en}",
                 f"  - 简体中文：{note_zh}",

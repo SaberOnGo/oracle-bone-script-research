@@ -10333,6 +10333,45 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Verify source ID, download ID, rights status, and risk note", note_text)
         self.assertIn("核对来源 ID、下载 ID、权利状态和风险说明", note_text)
 
+    def test_xxt_obm_access_boundary_review_logs_materialize_queue_evidence(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "075_ai-agent-xxt-obm-access-boundary-review-log-draft-manifest.csv"
+        )
+        root = repo_root()
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        self.assertEqual(len(rows), 4)
+        first_text = (root / rows[0]["draft_path"]).read_text(encoding="utf-8")
+        self.assertIn("Existing Access Boundary Snapshot / 已有访问边界快照", first_text)
+        self.assertIn("download_status: `downloaded_access_restricted_page`", first_text)
+        self.assertIn("logged_checksum_sha256:", first_text)
+        self.assertIn("6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781", first_text)
+        self.assertIn("staging_row_count: `90`", first_text)
+        self.assertNotIn("Evidence items / 证据条目: none", first_text)
+
+    def test_xxt_obm_access_boundary_snapshot_lines_stay_human_readable(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "075_ai-agent-xxt-obm-access-boundary-review-log-draft-manifest.csv"
+        )
+        root = repo_root()
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+
+        long_lines = []
+        for row in rows:
+            text = (root / row["draft_path"]).read_text(encoding="utf-8")
+            start = text.index("### Existing Access Boundary Snapshot")
+            end = text.index("## Required Next Checks")
+            for line in text[start:end].splitlines():
+                if len(line) > 80:
+                    long_lines.append(line)
+        self.assertEqual(long_lines, [])
+
     def test_xxt_obm_access_boundary_review_log_drafts_builder(self) -> None:
         module = load_xxt_obm_access_boundary_review_log_drafts_module()
         root = repo_root()
@@ -10352,6 +10391,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Verify access result, restriction status, and permitted route", markdown)
         self.assertIn("核对访问结果、受限状态和允许路线", markdown)
         self.assertIn("not a Heji row import", markdown)
+        self.assertIn("Existing Access Boundary Snapshot / 已有访问边界快照", markdown)
+        self.assertIn("profile_match_count: `1`", markdown)
+        self.assertNotIn("Evidence items / 证据条目: none", markdown)
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

@@ -40,7 +40,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify staging fields, source route, candidate status, and gaps.
+  - 简体中文：核对 staging 行字段、来源路线、候选状态和缺失项。
 
 ## Review Log / 复核日志
 

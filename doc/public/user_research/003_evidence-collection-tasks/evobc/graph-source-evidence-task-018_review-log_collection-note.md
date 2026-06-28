@@ -40,7 +40,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Record source-marked review notes; keep promotion claims empty.
+  - 简体中文：只记录带来源标记的复核说明；保持提升主张为空。
 
 ## Review Log / 复核日志
 

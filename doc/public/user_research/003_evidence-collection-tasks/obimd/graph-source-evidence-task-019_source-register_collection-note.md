@@ -39,7 +39,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify source ID, external ref, rights, risk, and review status.
+  - 简体中文：核对来源 ID、外部引用、权利状态、风险说明和复核状态。
 
 ## Review Log / 复核日志
 

@@ -42,7 +42,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify graph route only; do not promote edges as source evidence.
+  - 简体中文：只核对图边路线；不得把图边提升为来源证据。
 
 ## Review Log / 复核日志
 

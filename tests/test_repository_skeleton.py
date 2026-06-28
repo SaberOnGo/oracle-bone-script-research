@@ -12069,6 +12069,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not a decipherment conclusion", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
 
+    def test_ai_agent_graph_source_evidence_collection_notes_name_next_checks(self) -> None:
+        module = load_graph_source_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE)
+        rows_by_section = {row["target_evidence_section"]: row for row in task_rows}
+
+        self.assertEqual(set(rows_by_section), set(module.SECTION_LABELS))
+        for section, task_row in rows_by_section.items():
+            markdown = module.build_markdown(task_row, f"test-{section}")
+            self.assertNotIn("- Notes / 备注: not collected.", markdown)
+            self.assertIn("- Notes / 备注:", markdown)
+            self.assertIn("  - English:", markdown)
+            self.assertIn("  - 简体中文：", markdown)
+
     def test_ai_agent_graph_source_download_log_note_drafts_are_empty(self) -> None:
         manifest_path = (
             repo_root()

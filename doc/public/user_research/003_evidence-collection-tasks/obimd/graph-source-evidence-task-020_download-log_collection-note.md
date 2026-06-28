@@ -39,7 +39,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify access date, package name, size, checksum, and status.
+  - 简体中文：核对访问日期、来源包名称、文件大小、checksum 和访问状态。
 
 ## Review Log / 复核日志
 

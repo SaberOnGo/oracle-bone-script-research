@@ -42,7 +42,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify rights, risk note, size boundary, and public-use limit.
+  - 简体中文：核对权利状态、风险说明、大小边界和公开使用限制。
 
 ## Review Log / 复核日志
 

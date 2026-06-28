@@ -67,6 +67,45 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "source_register": (
+        "Verify source ID, external ref, rights, risk, and review status.",
+        "核对来源 ID、外部引用、权利状态、风险说明和复核状态。",
+    ),
+    "download_log": (
+        "Verify access date, package name, size, checksum, and status.",
+        "核对访问日期、来源包名称、文件大小、checksum 和访问状态。",
+    ),
+    "package_manifest": (
+        "Verify file list, package path, extraction route, and gaps.",
+        "核对文件清单、来源包路径、抽取路线、checksum 和缺失项。",
+    ),
+    "metadata_profile": (
+        "Verify metadata fields, provider, derived paths, and review status.",
+        "核对 metadata 字段、提供方、派生路径和复核状态。",
+    ),
+    "graph_edges": (
+        "Verify graph route only; do not promote edges as source evidence.",
+        "只核对图边路线；不得把图边提升为来源证据。",
+    ),
+    "staging_row": (
+        "Verify staging fields, source route, candidate status, and gaps.",
+        "核对 staging 行字段、来源路线、候选状态和缺失项。",
+    ),
+    "counter_source_lookup": (
+        "Compare counter-source rows before any cross-source evidence note.",
+        "记录跨来源证据前，先比较反查来源行。",
+    ),
+    "rights_risk_review": (
+        "Verify rights, risk note, size boundary, and public-use limit.",
+        "核对权利状态、风险说明、大小边界和公开使用限制。",
+    ),
+    "review_log": (
+        "Record source-marked review notes; keep promotion claims empty.",
+        "只记录带来源标记的复核说明；保持提升主张为空。",
+    ),
+}
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
@@ -130,7 +169,9 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             "",
             "- Status / 状态: `not_collected`",
             "- Evidence items / 证据条目: none",
-            "- Notes / 备注: not collected.",
+            "- Notes / 备注:",
+            f"  - English: {SECTION_NOTES[row['target_evidence_section']][0]}",
+            f"  - 简体中文：{SECTION_NOTES[row['target_evidence_section']][1]}",
             "",
             "## Review Log / 复核日志",
             "",

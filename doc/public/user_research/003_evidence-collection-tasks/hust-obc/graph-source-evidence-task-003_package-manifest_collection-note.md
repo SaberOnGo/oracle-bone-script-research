@@ -40,7 +40,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify file list, package path, extraction route, and gaps.
+  - 简体中文：核对文件清单、来源包路径、抽取路线、checksum 和缺失项。
 
 ## Review Log / 复核日志
 

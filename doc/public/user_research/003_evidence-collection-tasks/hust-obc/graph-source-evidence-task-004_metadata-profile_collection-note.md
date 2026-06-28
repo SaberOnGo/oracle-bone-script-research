@@ -40,7 +40,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify metadata fields, provider, derived paths, and review status.
+  - 简体中文：核对 metadata 字段、提供方、派生路径和复核状态。
 
 ## Review Log / 复核日志
 

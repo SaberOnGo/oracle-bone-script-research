@@ -40,7 +40,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Compare counter-source rows before any cross-source evidence note.
+  - 简体中文：记录跨来源证据前，先比较反查来源行。
 
 ## Review Log / 复核日志
 

@@ -10810,7 +10810,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertFalse(any(row["expected_output_path"].startswith("research/") for row in rows))
         self.assertIn("not component assignments", rows[0]["caution"])
 
-    def test_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_are_empty(self) -> None:
+    def test_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_include_route_snapshot(self) -> None:
         manifest_path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -10854,6 +10854,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "no_identity_claim",
             "not_promoted",
             "Route Files To Open",
+            "Route Availability Snapshot",
+            "codepoint-route-availability-001",
+            "hust-obc-candidate-packet-000047",
+            "reviewed_route_files_exist",
+            "source_register_match_count",
+            "download_checksum_present_count",
+            "availability_metadata_captured_not_evidence",
+            "Concrete Next Checks",
             "Required Next Checks",
             "not a decipherment conclusion",
             # UTF-8 repair: corrupted multilingual assertion placeholder
@@ -10861,12 +10869,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         ]:
             self.assertIn(snippet, draft_text)
         self.assertIn(rows[0]["route_files_to_open"].split(";")[0], draft_text)
+        self.assertNotIn("Evidence items / 证据条目: none", draft_text)
 
     def test_hust_obimd_evobc_codepoint_crosswalk_review_log_draft_builder_links_queue(self) -> None:
         module = load_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_module()
         root = repo_root()
         queue_rows = module.read_csv_rows(root / module.CODEPOINT_CROSSWALK_REVIEW_QUEUE)
-        rows = module.build_draft_manifest_rows(queue_rows)
+        availability_rows = module.read_csv_rows(root / module.ROUTE_AVAILABILITY_SNAPSHOT)
+        rows = module.build_draft_manifest_rows(queue_rows, availability_rows)
 
         self.assertEqual(len(rows), 15)
         self.assertEqual(rows[0]["review_log_draft_id"], "codepoint-crosswalk-review-log-draft-001")
@@ -10876,6 +10886,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[-1]["crosswalk_candidate_id"], "hust-obimd-evobc-xwalk-001550")
         self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
         self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual(rows[0]["route_availability_id"], "codepoint-route-availability-001")
+        self.assertEqual(rows[0]["hust_candidate_packet_id"], "hust-obc-candidate-packet-000047")
+        self.assertEqual(rows[0]["source_register_match_count"], "3")
+        self.assertEqual(rows[0]["download_checksum_present_count"], "5")
         self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
         self.assertEqual({row["promotion_status"] for row in rows}, {"not_promoted"})
         self.assertTrue(all(row["source_queue_path"] == module.CODEPOINT_CROSSWALK_REVIEW_QUEUE.as_posix() for row in rows))
@@ -10883,23 +10897,31 @@ class RepositorySkeletonTests(unittest.TestCase):
 
         markdown = module.build_markdown(rows[0])
         self.assertIn("Route Files To Open", markdown)
-        self.assertIn("Evidence Sections", markdown)
+        self.assertIn("Route Availability Snapshot", markdown)
+        self.assertIn("codepoint-route-availability-001", markdown)
+        self.assertIn("availability_metadata_captured_not_evidence", markdown)
+        self.assertIn("Concrete Next Checks", markdown)
         self.assertIn("Required Next Checks", markdown)
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
+        self.assertNotIn("Evidence items / 证据条目: none", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
 
     def test_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_name_next_checks(self) -> None:
         module = load_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_module()
         root = repo_root()
         queue_rows = module.read_csv_rows(root / module.CODEPOINT_CROSSWALK_REVIEW_QUEUE)
-        rows = module.build_draft_manifest_rows(queue_rows)
+        availability_rows = module.read_csv_rows(root / module.ROUTE_AVAILABILITY_SNAPSHOT)
+        rows = module.build_draft_manifest_rows(queue_rows, availability_rows)
 
         section_notes = getattr(module, "SECTION_NOTES", {})
         self.assertEqual(set(section_notes), set(module.SECTION_LABELS))
         for row in rows:
             markdown = module.build_markdown(row)
             self.assertNotIn("not collected.", markdown)
+            self.assertNotIn("Evidence items / 证据条目: none", markdown)
+            self.assertIn("Route Availability Snapshot", markdown)
+            self.assertIn("Concrete Next Checks", markdown)
             self.assertIn("- Notes /", markdown)
             self.assertIn("  - English:", markdown)
             self.assertIn("  - 简体中文：", markdown)

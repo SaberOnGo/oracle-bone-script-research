@@ -21018,6 +21018,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
         row.get("codepoint_review_task_id", ""): row
         for row in codepoint_review_rows
     }
+    codepoint_availability_rows_for_drafts, codepoint_availability_issues_for_drafts = _read_csv_rows(
+        root / AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_ROUTE_AVAILABILITY_SNAPSHOT
+    )
+    issues.extend(codepoint_availability_issues_for_drafts)
+    codepoint_availability_rows_by_task_id = {
+        row.get("codepoint_review_task_id", ""): row
+        for row in codepoint_availability_rows_for_drafts
+    }
     if len(codepoint_draft_rows) != 15:
         issues.append(
             f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
@@ -21027,6 +21035,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         draft_id = row.get("review_log_draft_id", "")
         task_id = row.get("codepoint_review_task_id", "")
         source_row = review_rows_by_task_id.get(task_id, {})
+        availability_row = codepoint_availability_rows_by_task_id.get(task_id, {})
         if draft_id != f"codepoint-crosswalk-review-log-draft-{index:03d}":
             issues.append(
                 f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
@@ -21070,6 +21079,46 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 issues.append(
                     f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
                     f"{linked_field} does not match 041 queue: {draft_id}"
+                )
+        if not availability_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing 049 route availability row: {draft_id}"
+            )
+        for linked_field, source_field in {
+            "route_availability_id": "route_availability_id",
+            "hust_candidate_packet_id": "hust_candidate_packet_id",
+            "hust_candidate_packet_exists": "hust_candidate_packet_exists",
+            "hust_packet_status": "hust_packet_status",
+            "hust_packet_review_status": "hust_packet_review_status",
+            "hust_packet_rights_status": "hust_packet_rights_status",
+            "obimd_row_count": "obimd_row_count",
+            "obimd_source_uids": "obimd_source_uids",
+            "obimd_review_statuses": "obimd_review_statuses",
+            "obimd_rights_statuses": "obimd_rights_statuses",
+            "evobc_row_count": "evobc_row_count",
+            "evobc_source_category_ids": "evobc_source_category_ids",
+            "evobc_has_bronze_refs_any": "evobc_has_bronze_refs_any",
+            "evobc_has_seal_refs_any": "evobc_has_seal_refs_any",
+            "evobc_review_statuses": "evobc_review_statuses",
+            "evobc_rights_statuses": "evobc_rights_statuses",
+            "source_register_match_count": "source_register_match_count",
+            "source_register_rights_statuses": "source_register_rights_statuses",
+            "source_register_review_statuses": "source_register_review_statuses",
+            "download_log_match_count": "download_log_match_count",
+            "download_total_file_size_bytes": "download_total_file_size_bytes",
+            "download_checksum_present_count": "download_checksum_present_count",
+            "download_access_statuses": "download_access_statuses",
+            "route_file_count": "route_file_count",
+            "missing_route_file_count": "missing_route_file_count",
+            "route_file_review_status": "route_file_review_status",
+            "availability_status": "availability_status",
+            "route_availability_evidence_collection_status": "evidence_collection_status",
+        }.items():
+            if row.get(linked_field) != availability_row.get(source_field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
+                    f"{linked_field} does not match 049 route availability: {draft_id}"
                 )
         if row.get("draft_path") != source_row.get("expected_output_path"):
             issues.append(
@@ -21117,6 +21166,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 "no_identity_claim",
                 "not_promoted",
                 "Route Files To Open",
+                "Route Availability Snapshot",
+                row.get("route_availability_id", ""),
+                row.get("hust_candidate_packet_id", ""),
+                "reviewed_route_files_exist",
+                "source_register_match_count",
+                "download_checksum_present_count",
+                "availability_metadata_captured_not_evidence",
+                "Concrete Next Checks",
                 "Required Next Checks",
                 "not a decipherment conclusion",
                 "不是释读结论",
@@ -21133,6 +21190,11 @@ def check_ai_context_packs(root: Path) -> list[str]:
                         f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
                         f"draft missing route file {route_file}: {draft_id}"
                     )
+            if "Evidence items /" in draft_text:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBIMD_EVOBC_CODEPOINT_CROSSWALK_REVIEW_LOG_DRAFT_MANIFEST} "
+                    f"draft still contains empty evidence-item wording: {draft_id}"
+                )
         caution = row.get("caution", "")
         for required_snippet in [
             "routing scaffold only",

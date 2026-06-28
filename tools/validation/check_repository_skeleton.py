@@ -8424,7 +8424,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} core_area_count should be 10")
     if summary.get("matrix_csv_path") != CORE_CORPUS_READINESS_MATRIX:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} matrix_csv_path changed")
-    if summary.get("updated_at") != "2026-06-20":
+    if summary.get("updated_at") != "2026-06-28":
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} updated_at changed")
     if "does not start formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} completion boundary changed")
@@ -8436,12 +8436,12 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     if summary.get("review_priority_counts") != expected_priority_counts:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
-        "candidate_record_count": 11742,
-        "formal_record_count": 101678,
+        "candidate_record_count": 13196,
+        "formal_record_count": 101679,
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 13218,
         "review_queue_count": 12962,
-        "staging_record_count": 75246,
+        "staging_record_count": 75247,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -8463,7 +8463,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "9408",
         },
         "cross_source_codepoint_routes": {
-            "candidate_record_count": "134",
+            "candidate_record_count": "1588",
             "review_queue_count": "134",
         },
         "graphemic_components": {
@@ -8493,8 +8493,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_path": SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
         },
         "published_research_notes": {
-            "formal_record_count": "5",
-            "staging_record_count": "5",
+            "formal_record_count": "6",
+            "staging_record_count": "6",
             "review_queue_count": "151",
         },
     }

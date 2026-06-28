@@ -1,6 +1,6 @@
 {
   "summary_id": "manual-review-backlog-summary-001",
-  "updated_at": "2026-06-20",
+  "updated_at": "2026-06-28",
   "matrix_csv_path": "corpus/009_statistics-and-derived-features/096_core-corpus-readiness-matrix.csv",
   "core_area_count": 10,
   "readiness_stage_counts": {
@@ -11,12 +11,12 @@
     "targeted_review": 7
   },
   "totals": {
-    "candidate_record_count": 11742,
-    "formal_record_count": 101678,
+    "candidate_record_count": 13196,
+    "formal_record_count": 101679,
     "graph_edge_count": 220887,
     "manual_review_backlog_count": 13218,
     "review_queue_count": 12962,
-    "staging_record_count": 75246
+    "staging_record_count": 75247
   },
   "completion_boundary": "This summary is a preprocessing readiness and manual-review backlog index. It does not start formal decipherment research or confirm candidate scholarship.",
   "totals_note": "Totals are row-sums across readiness areas and may include shared derivatives exposed through both corpus-specific rows and the graph/statistics row.",
@@ -40,7 +40,7 @@
       "next_action": "batch_review_reserved_obs_char_candidates_before_any_formal_character_assignment",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-002",
@@ -60,7 +60,7 @@
       "next_action": "collect_source_marked_evidence_for_priority_undeciphered_candidates_keep_no_identity_claim",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-003",
@@ -69,7 +69,7 @@
       "label_zh": "HUST/OBIMD/EVOBC 码位检索路线",
       "formal_record_count": "0",
       "staging_record_count": "1588",
-      "candidate_record_count": "134",
+      "candidate_record_count": "1588",
       "graph_edge_count": "0",
       "review_queue_count": "134",
       "manual_review_backlog_count": "134",
@@ -80,7 +80,7 @@
       "next_action": "review_lookup_routes_as_evidence_paths_not_identity_or_reading_claims",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-004",
@@ -100,7 +100,7 @@
       "next_action": "review_obimd_component_routes_without_promoting_formal_component_ids",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-005",
@@ -120,7 +120,7 @@
       "next_action": "review_evolution_routes_as_dataset_links_not_formal_evolution_chains",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-006",
@@ -140,7 +140,7 @@
       "next_action": "expand_inscription_records_from_reviewed_catalog_crosswalks_and_access_boundary_routes",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-007",
@@ -160,7 +160,7 @@
       "next_action": "review_collection_metadata_and_keep_unclear_raw_images_outside_git",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-008",
@@ -180,7 +180,7 @@
       "next_action": "open_source_pipeline_missing_evidence_outcome_routes_assignment_checklist_then_assign_human_gated_source_outcome_reviews",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-009",
@@ -200,15 +200,15 @@
       "next_action": "review_graph_edges_and_object_local_material_coverage_before_any_semantic_promotion",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     },
     {
       "readiness_row_id": "core-ready-010",
       "corpus_area": "published_research_notes",
       "label_en": "Published-scholarship and bibliography note scaffolds",
       "label_zh": "已发表研究与书目笔记骨架",
-      "formal_record_count": "5",
-      "staging_record_count": "5",
+      "formal_record_count": "6",
+      "staging_record_count": "6",
       "candidate_record_count": "0",
       "graph_edge_count": "0",
       "review_queue_count": "151",
@@ -220,7 +220,7 @@
       "next_action": "rewrite_only_reviewed_source_marked_drafts_into_research_notes",
       "quality_status": "pass",
       "caution": "Core corpus readiness only; candidate, staging, graph, and review-queue counts do not confirm readings, identities, components, inscriptions, or evolution/correspondence claims.",
-      "updated_at": "2026-06-20"
+      "updated_at": "2026-06-28"
     }
   ]
 }

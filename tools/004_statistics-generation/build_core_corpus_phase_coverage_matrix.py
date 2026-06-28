@@ -176,7 +176,7 @@ OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
 OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = Path(
     "corpus/009_statistics-and-derived-features/189_object-local-material-coverage-summary.json"
 )
-UPDATED_AT = "2026-06-20"
+UPDATED_AT = "2026-06-28"
 CLAIM_BOUNDARY = "core_corpus_phase_coverage_not_review_outcome_not_scholarship"
 CAUTION = (
     "Core corpus preprocessing phase coverage only; statuses summarize existing engineering "

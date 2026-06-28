@@ -361,7 +361,7 @@ SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv"
 )
-UPDATED_AT = "2026-06-20"
+UPDATED_AT = "2026-06-28"
 CAUTION = (
     "Core corpus readiness only; candidate, staging, graph, and review-queue "
     "counts do not confirm readings, identities, components, inscriptions, "
@@ -804,7 +804,7 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
             "HUST/OBIMD/EVOBC 码位检索路线",
             0,
             count_csv(root, "corpus/001_oracle-characters/000_character-registers/011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"),
-            count_csv(root, "corpus/009_statistics-and-derived-features/041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv"),
+            count_files(root, "corpus/001_oracle-characters/**/01_codepoint-crosswalk-packet.json"),
             0,
             count_csv(root, "corpus/009_statistics-and-derived-features/041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv"),
             count_csv(root, "corpus/009_statistics-and-derived-features/041_ai-agent-hust-obimd-evobc-codepoint-crosswalk-review-queue.csv"),

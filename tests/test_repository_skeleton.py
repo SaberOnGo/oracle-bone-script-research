@@ -8545,7 +8545,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["task_status"] == "needs_metadata_route_review" for row in rows))
         self.assertFalse(any(row["expected_output_path"].startswith("research/") for row in rows))
 
-    def test_hust_obc_undeciphered_candidate_review_log_drafts_are_empty(self) -> None:
+    def test_hust_obc_undeciphered_candidate_review_log_drafts_include_route_readiness_snapshots(self) -> None:
         manifest_path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -8562,6 +8562,33 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["priority_bucket"] for row in rows}, {"image_count_050_plus"})
         self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
         self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual(
+            [row["route_result_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-route-result-0001",
+                "hust-obc-undeciphered-route-result-0002",
+            ],
+        )
+        self.assertEqual(
+            [row["readiness_check_id"] for row in rows],
+            [
+                "hust-obc-undeciphered-evidence-readiness-0001",
+                "hust-obc-undeciphered-evidence-readiness-0002",
+            ],
+        )
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual({row["candidate_packet_status"] for row in rows}, {"candidate_packet_exists"})
+        self.assertEqual({row["candidate_packet_review_status"] for row in rows}, {"reviewed_metadata_only"})
+        self.assertEqual({row["source_register_match_count"] for row in rows}, {"1"})
+        self.assertEqual({row["download_log_status"] for row in rows}, {"downloaded"})
+        self.assertEqual(
+            {row["overall_readiness_status"] for row in rows},
+            {"ready_for_human_evidence_pack_review_metadata_only"},
+        )
+        self.assertEqual({row["captured_section_count"] for row in rows}, {"4"})
+        self.assertEqual({row["required_section_count"] for row in rows}, {"4"})
+        self.assertEqual({row["blocking_issue_count"] for row in rows}, {"0"})
+        self.assertEqual({row["large_source_checksum_sha256_present"] for row in rows}, {"true"})
         self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
         self.assertEqual(
             {row["assignment_status"] for row in rows},
@@ -8586,8 +8613,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             "not_collected",
             "no_identity_claim",
             "Route Files To Open",
-            "Evidence Sections",
-            "Required Next Checks",
+            "Metadata Snapshot",
+            "Evidence Readiness Snapshot",
+            "Concrete Next Checks",
+            "hust-obc-undeciphered-route-result-0001",
+            "hust-obc-undeciphered-evidence-readiness-0001",
+            "reviewed_route_files_exist",
+            "candidate_packet_exists",
+            "reviewed_metadata_only",
+            "ready_for_human_evidence_pack_review_metadata_only",
+            "large_source_checksum_sha256",
             "not a decipherment conclusion",
             "未释读候选复核日志草稿",
             "obs-unk-006294",
@@ -8596,6 +8631,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(snippet, draft_text)
         for route_file in rows[0]["route_files_to_open"].split(";"):
             self.assertIn(route_file, draft_text)
+        self.assertNotIn("Evidence items /", draft_text)
         self.assertNotIn("- Notes / 备注: not collected.", draft_text)
         self.assertIn("verify candidate ID, image count, route, and review status", draft_text)
         self.assertIn("核对候选 ID、图片数量、路线和复核状态", draft_text)
@@ -8604,7 +8640,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_hust_obc_undeciphered_candidate_review_log_drafts_module()
         root = repo_root()
         queue_rows = module.read_csv_rows(root / module.REVIEW_QUEUE)
-        rows = module.build_draft_manifest_rows(queue_rows)
+        route_rows = module.read_csv_rows(root / module.REVIEW_ROUTE_RESULTS)
+        readiness_rows = module.read_csv_rows(root / module.EVIDENCE_READINESS_CHECKLIST)
+        rows = module.build_draft_manifest_rows(queue_rows, route_rows, readiness_rows)
 
         self.assertEqual(len(rows), 2)
         self.assertEqual(rows[0]["review_log_draft_id"], "hust-obc-undeciphered-review-log-draft-0001")
@@ -8615,15 +8653,29 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[1]["source_image_count"], "50")
         self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
         self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual(rows[0]["route_result_id"], "hust-obc-undeciphered-route-result-0001")
+        self.assertEqual(rows[0]["readiness_check_id"], "hust-obc-undeciphered-evidence-readiness-0001")
+        self.assertEqual(rows[0]["route_file_review_status"], "reviewed_route_files_exist")
+        self.assertEqual(rows[0]["candidate_packet_status"], "candidate_packet_exists")
+        self.assertEqual(rows[0]["candidate_packet_review_status"], "reviewed_metadata_only")
+        self.assertEqual(
+            rows[0]["overall_readiness_status"],
+            "ready_for_human_evidence_pack_review_metadata_only",
+        )
         self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
         self.assertTrue(all(row["source_queue_path"] == module.REVIEW_QUEUE.as_posix() for row in rows))
         self.assertFalse(any(row["draft_path"].startswith("research/") for row in rows))
 
         markdown = module.build_markdown(rows[0])
         self.assertIn("Route Files To Open", markdown)
-        self.assertIn("Evidence Sections", markdown)
-        self.assertIn("Required Next Checks", markdown)
+        self.assertIn("Metadata Snapshot", markdown)
+        self.assertIn("Evidence Readiness Snapshot", markdown)
+        self.assertIn("Concrete Next Checks", markdown)
+        self.assertIn("hust-obc-undeciphered-route-result-0001", markdown)
+        self.assertIn("hust-obc-undeciphered-evidence-readiness-0001", markdown)
+        self.assertIn("ready_for_human_evidence_pack_review_metadata_only", markdown)
         self.assertIn("not_collected", markdown)
+        self.assertNotIn("Evidence items /", markdown)
         self.assertNotIn("- Notes / 备注: not collected.", markdown)
         self.assertIn("verify source ID, provider, rights status, and risk note", markdown)
         self.assertIn("核对来源 ID、提供方、权利状态和风险说明", markdown)

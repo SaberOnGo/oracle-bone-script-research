@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build empty review-log drafts for top HUST-OBC undeciphered candidates."""
+"""Build metadata-backed review-log drafts for top HUST-OBC undeciphered candidates."""
 
 from __future__ import annotations
 
@@ -15,6 +15,14 @@ REVIEW_QUEUE = Path(
 DEFAULT_MANIFEST = Path(
     "corpus/009_statistics-and-derived-features/"
     "052_ai-agent-hust-obc-undeciphered-candidate-review-log-draft-manifest.csv"
+)
+REVIEW_ROUTE_RESULTS = Path(
+    "corpus/009_statistics-and-derived-features/"
+    "053_ai-agent-hust-obc-undeciphered-candidate-review-route-results.csv"
+)
+EVIDENCE_READINESS_CHECKLIST = Path(
+    "corpus/009_statistics-and-derived-features/"
+    "060_ai-agent-hust-obc-undeciphered-candidate-evidence-readiness-checklist.csv"
 )
 UPDATED_AT = "2026-06-11"
 TARGET_PRIORITY_BUCKET = "image_count_050_plus"
@@ -62,6 +70,37 @@ OUTPUT_FIELDS = [
     "route_files_to_open",
     "required_evidence_sections",
     "required_next_checks",
+    "route_result_id",
+    "route_file_review_status",
+    "draft_log_status",
+    "candidate_packet_status",
+    "candidate_packet_review_status",
+    "source_register_match_count",
+    "source_register_provider",
+    "source_register_authority_tier",
+    "source_register_rights_status",
+    "large_source_file_size_bytes",
+    "large_source_checksum_sha256",
+    "download_log_status",
+    "download_log_http_status",
+    "download_log_local_temp_path",
+    "readiness_check_id",
+    "candidate_packet_capture_result_id",
+    "source_register_capture_result_id",
+    "download_log_capture_result_id",
+    "large_source_register_capture_result_id",
+    "captured_section_count",
+    "required_section_count",
+    "candidate_packet_evidence_status",
+    "source_register_evidence_status",
+    "download_log_evidence_status",
+    "large_source_register_evidence_status",
+    "overall_readiness_status",
+    "missing_required_sections",
+    "blocking_issue_count",
+    "large_source_checksum_sha256_present",
+    "checklist_status",
+    "evidence_pack_action",
     "draft_status",
     "evidence_collection_status",
     "decipherment_status",
@@ -177,12 +216,120 @@ def _target_rows(queue_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return rows
 
 
-def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+def _index_by_draft_id(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+    return {row["review_log_draft_id"]: row for row in rows}
+
+
+def _copy_fields(row: dict[str, str], fields: list[str]) -> dict[str, str]:
+    return {field: row.get(field, "") for field in fields}
+
+
+def _field_lines(row: dict[str, str], fields: list[str]) -> list[str]:
+    lines: list[str] = []
+    for field in fields:
+        value = row.get(field, "")
+        lines.append(f"- `{field}`: `{value}`")
+    return lines
+
+
+def _metadata_snapshot_lines(row: dict[str, str]) -> list[str]:
+    lines = [
+        "## Metadata Snapshot / Metadata Snapshot",
+        "",
+        "These values are copied from reviewed route-result rows for human checking.",
+        "",
+    ]
+    lines.extend(_field_lines(row, ROUTE_SNAPSHOT_FIELDS))
+    lines.extend(
+        [
+            "",
+            "## Evidence Readiness Snapshot / Evidence Readiness Snapshot",
+            "",
+            "These values summarize metadata capture readiness only; they are not evidence conclusions.",
+            "",
+        ]
+    )
+    lines.extend(_field_lines(row, READINESS_SNAPSHOT_FIELDS))
+    return lines
+
+
+def _concrete_next_check_lines(row: dict[str, str], next_checks: list[str]) -> list[str]:
+    lines = [
+        "## Concrete Next Checks / Concrete Next Checks",
+        "",
+        "- Open the 053 route-result row and verify every local route before adding evidence.",
+        "- Open the 060 readiness row and cross-check 056, 057, 058, and 059 capture rows.",
+        "- Cross-check Xiaoxuetang, OBIMD, Heji, or primary inscription context before any identity or reading claim.",
+    ]
+    for check in next_checks:
+        label_en, label_zh = NEXT_CHECK_LABELS.get(check, (check, check))
+        lines.extend(
+            [
+                f"- `{check}`",
+                f"  - English: {label_en}",
+                f"  - Simplified Chinese: {label_zh}",
+            ]
+        )
+    readiness_checks = _split_compact(row.get("required_next_checks", ""))
+    for check in readiness_checks:
+        if check not in next_checks:
+            lines.append(f"- `{check}`")
+    return lines
+
+
+ROUTE_SNAPSHOT_FIELDS = [
+    "route_result_id",
+    "route_file_review_status",
+    "draft_log_status",
+    "candidate_packet_status",
+    "candidate_packet_review_status",
+    "source_register_match_count",
+    "source_register_provider",
+    "source_register_authority_tier",
+    "source_register_rights_status",
+    "large_source_file_size_bytes",
+    "large_source_checksum_sha256",
+    "download_log_status",
+    "download_log_http_status",
+    "download_log_local_temp_path",
+]
+
+READINESS_SNAPSHOT_FIELDS = [
+    "readiness_check_id",
+    "candidate_packet_capture_result_id",
+    "source_register_capture_result_id",
+    "download_log_capture_result_id",
+    "large_source_register_capture_result_id",
+    "captured_section_count",
+    "required_section_count",
+    "candidate_packet_evidence_status",
+    "source_register_evidence_status",
+    "download_log_evidence_status",
+    "large_source_register_evidence_status",
+    "overall_readiness_status",
+    "missing_required_sections",
+    "blocking_issue_count",
+    "large_source_checksum_sha256_present",
+    "checklist_status",
+    "evidence_pack_action",
+]
+
+
+def build_draft_manifest_rows(
+    queue_rows: list[dict[str, str]],
+    route_rows: list[dict[str, str]],
+    readiness_rows: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    route_by_draft_id = _index_by_draft_id(route_rows)
+    readiness_by_draft_id = _index_by_draft_id(readiness_rows)
     rows: list[dict[str, str]] = []
     for index, row in enumerate(_target_rows(queue_rows), start=1):
+        draft_id = f"hust-obc-undeciphered-review-log-draft-{index:04d}"
+        route_row = route_by_draft_id[draft_id]
+        readiness_row = readiness_by_draft_id[draft_id]
         rows.append(
             {
-                "review_log_draft_id": f"hust-obc-undeciphered-review-log-draft-{index:04d}",
+                "review_log_draft_id": draft_id,
                 "undeciphered_review_task_id": row["undeciphered_review_task_id"],
                 "context_pack_id": row["context_pack_id"],
                 "unknown_candidate_id": row["unknown_candidate_id"],
@@ -205,6 +352,8 @@ def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str
                 "route_files_to_open": row["route_files_to_open"],
                 "required_evidence_sections": row["required_evidence_sections"],
                 "required_next_checks": row["required_next_checks"],
+                **_copy_fields(route_row, ROUTE_SNAPSHOT_FIELDS),
+                **_copy_fields(readiness_row, READINESS_SNAPSHOT_FIELDS),
                 "draft_status": DRAFT_STATUS,
                 "evidence_collection_status": EVIDENCE_COLLECTION_STATUS,
                 "decipherment_status": row["decipherment_status"],
@@ -329,6 +478,105 @@ def build_markdown(row: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
+def build_markdown(row: dict[str, str]) -> str:
+    route_files = _split_compact(row["route_files_to_open"])
+    evidence_sections = _split_compact(row["required_evidence_sections"])
+    next_checks = _split_compact(row["required_next_checks"])
+    lines = [
+        "# HUST-OBC Undeciphered Candidate Review Log Draft / HUST-OBC 未释读候选复核日志草稿",
+        "",
+        "## Status / Status",
+        "",
+        f"- Review log draft ID: `{row['review_log_draft_id']}`",
+        f"- Undeciphered review task ID: `{row['undeciphered_review_task_id']}`",
+        f"- Draft status: `{DRAFT_STATUS}`",
+        f"- Evidence collection status: `{EVIDENCE_COLLECTION_STATUS}`",
+        f"- Identity claim status: `{IDENTITY_CLAIM_STATUS}`",
+        f"- Assignment status: `{ASSIGNMENT_STATUS}`",
+        f"- Promotion status: `{PROMOTION_STATUS}`",
+        f"- Rights decision status: `{RIGHTS_DECISION_STATUS}`",
+        f"- Source promotion status: `{SOURCE_PROMOTION_STATUS}`",
+        f"- Research boundary: `{RESEARCH_BOUNDARY}`",
+        f"- Updated at: `{UPDATED_AT}`",
+        "",
+        "## Candidate Route / Candidate Route",
+        "",
+        f"- Context pack ID: `{row['context_pack_id']}`",
+        f"- Unknown candidate ID: `{row['unknown_candidate_id']}`",
+        f"- Primary external ref ID: `{row['primary_external_ref_id']}`",
+        f"- Source ID: `{row['source_id']}`",
+        f"- Source package ID: `{row['source_package_id']}`",
+        f"- Evidence download ID: `{row['evidence_download_id']}`",
+        f"- Priority bucket: `{row['priority_bucket']}`",
+        f"- Source group: `{row['source_group']}`",
+        f"- Source group label: `{row['source_group_label']}`",
+        f"- Source class ID: `{row['source_class_id']}`",
+        f"- Source class path: `{row['source_class_path']}`",
+        f"- Source image count: `{row['source_image_count']}`",
+        f"- Bucket directory: `{row['bucket_directory']}`",
+        f"- Candidate packet path: `{row['candidate_packet_path']}`",
+        "",
+        "## Route Files To Open / Route Files To Open",
+        "",
+    ]
+    lines.extend(f"- `{route_file}`" for route_file in route_files)
+    lines.extend([""])
+    lines.extend(_metadata_snapshot_lines(row))
+    lines.extend(
+        [
+            "",
+            "## Evidence Sections / Evidence Sections",
+            "",
+            "English: Each section carries a metadata snapshot for human checking before evidence capture.",
+            "",
+            "Simplified Chinese: Check source-marked evidence before recording conclusions.",
+            "",
+        ]
+    )
+    for section in evidence_sections:
+        label_en, label_zh = SECTION_LABELS.get(section, (section, section))
+        note_en, note_zh = SECTION_NOTES.get(
+            section,
+            ("Open routed evidence before recording notes.", "Open routed evidence before recording notes."),
+        )
+        lines.extend(
+            [
+                f"### {label_en} / {label_zh}",
+                "",
+                "- Status: `not_collected_metadata_snapshot`",
+                "- Metadata snapshot: route and readiness rows are listed above.",
+                "- Human review task:",
+                f"  - English: {note_en}",
+                f"  - Simplified Chinese: {note_zh}",
+                "",
+            ]
+        )
+    lines.extend(_concrete_next_check_lines(row, next_checks))
+    lines.extend(
+        [
+            "",
+            "## Rights And Risk / Rights And Risk",
+            "",
+            f"- Rights status: `{row['rights_status']}`",
+            f"- Risk note: {row['risk_note']}",
+            "",
+            "## Review Log / Review Log",
+            "",
+            "- Status: `created_from_051_review_queue`",
+            "- Evidence collection: `not_collected`",
+            "- Decision: no identity, reading, obs-char assignment, component, evolution-chain, or decipherment decision.",
+            "",
+            "## Caution / Caution",
+            "",
+            f"English: {CAUTION_EN}",
+            "",
+            f"Simplified Chinese: {CAUTION_ZH}",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as file:
@@ -347,12 +595,16 @@ def write_markdown_drafts(root: Path, rows: list[dict[str, str]]) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--queue", default=str(REVIEW_QUEUE))
+    parser.add_argument("--route-results", default=str(REVIEW_ROUTE_RESULTS))
+    parser.add_argument("--readiness-checklist", default=str(EVIDENCE_READINESS_CHECKLIST))
     parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST))
     args = parser.parse_args(argv)
 
     root = repo_root()
     queue_rows = read_csv_rows(root / args.queue)
-    manifest_rows = build_draft_manifest_rows(queue_rows)
+    route_rows = read_csv_rows(root / args.route_results)
+    readiness_rows = read_csv_rows(root / args.readiness_checklist)
+    manifest_rows = build_draft_manifest_rows(queue_rows, route_rows, readiness_rows)
     write_markdown_drafts(root, manifest_rows)
     write_csv(root / args.manifest, manifest_rows)
     print(f"wrote={len(manifest_rows)} manifest={(root / args.manifest).relative_to(root)}")

@@ -688,6 +688,14 @@ AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "051_ai-agent-hust-obc-undeciphered-candidate-review-queue.csv"
 )
+AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "052_ai-agent-hust-obc-undeciphered-candidate-review-log-draft-manifest.csv"
+)
+AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_ROUTE_RESULTS = (
+    "corpus/009_statistics-and-derived-features/"
+    "053_ai-agent-hust-obc-undeciphered-candidate-review-route-results.csv"
+)
 AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_READINESS_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "060_ai-agent-hust-obc-undeciphered-candidate-evidence-readiness-checklist.csv"
@@ -12664,6 +12672,12 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
     bucket_rows, bucket_issues = _read_csv_rows(root / HUST_OBC_PROMOTION_BUCKET_REVIEW_SUMMARY)
     undeciphered_rows, undeciphered_issues = _read_csv_rows(root / HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX)
     review_rows, review_issues = _read_csv_rows(root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_QUEUE)
+    draft_rows, draft_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST
+    )
+    route_rows, route_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_ROUTE_RESULTS
+    )
     evidence_rows, evidence_issues = _read_csv_rows(root / AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE)
     readiness_rows, readiness_issues = _read_csv_rows(
         root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_READINESS_CHECKLIST
@@ -12674,6 +12688,8 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
     issues.extend(bucket_issues)
     issues.extend(undeciphered_issues)
     issues.extend(review_issues)
+    issues.extend(draft_issues)
+    issues.extend(route_issues)
     issues.extend(evidence_issues)
     issues.extend(readiness_issues)
     issues.extend(material_issues)
@@ -12702,6 +12718,76 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
         "undeciphered_evidence_readiness_count": str(len(readiness_rows)),
         "character_object_material_audit_count": str(len(material_rows)),
     }
+    route_by_draft_id = {row.get("review_log_draft_id", ""): row for row in route_rows}
+    readiness_by_draft_id = {row.get("review_log_draft_id", ""): row for row in readiness_rows}
+    if len(draft_rows) != 2:
+        issues.append(
+            f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST} "
+            "should contain exactly 2 rows"
+        )
+    for row in draft_rows:
+        draft_id = row.get("review_log_draft_id", "")
+        route = route_by_draft_id.get(draft_id, {})
+        readiness = readiness_by_draft_id.get(draft_id, {})
+        if not route:
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing 053 route result for {draft_id}"
+            )
+        if not readiness:
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing 060 readiness row for {draft_id}"
+            )
+        expected_pairs = {
+            "route_result_id": route.get("route_result_id", ""),
+            "route_file_review_status": "reviewed_route_files_exist",
+            "candidate_packet_status": "candidate_packet_exists",
+            "candidate_packet_review_status": "reviewed_metadata_only",
+            "source_register_match_count": "1",
+            "download_log_status": "downloaded",
+            "readiness_check_id": readiness.get("readiness_check_id", ""),
+            "overall_readiness_status": "ready_for_human_evidence_pack_review_metadata_only",
+            "captured_section_count": "4",
+            "required_section_count": "4",
+            "blocking_issue_count": "0",
+            "large_source_checksum_sha256_present": "true",
+        }
+        for field, expected_value in expected_pairs.items():
+            if row.get(field) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST} "
+                    f"{field} changed for {draft_id}"
+                )
+        draft_path = row.get("draft_path", "")
+        if not draft_path:
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing draft path for {draft_id}"
+            )
+            continue
+        path = root / draft_path
+        try:
+            text = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing draft file for {draft_id}: {draft_path}"
+            )
+            continue
+        for snippet in [
+            "Metadata Snapshot",
+            "Evidence Readiness Snapshot",
+            "Concrete Next Checks",
+            row.get("route_result_id", ""),
+            row.get("readiness_check_id", ""),
+            "ready_for_human_evidence_pack_review_metadata_only",
+            "large_source_checksum_sha256",
+        ]:
+            if snippet and snippet not in text:
+                issues.append(f"{draft_path} missing HUST-OBC undeciphered metadata snapshot: {snippet}")
+        if "Evidence items /" in text:
+            issues.append(f"{draft_path} still contains empty HUST-OBC undeciphered evidence items")
     expected_character_dossier_slots = {
         "glyph_image",
         "glyph_observation",

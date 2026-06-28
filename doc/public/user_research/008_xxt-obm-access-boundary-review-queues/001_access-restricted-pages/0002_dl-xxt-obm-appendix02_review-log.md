@@ -36,60 +36,74 @@ English: Keep every section empty until source-marked evidence is collected thro
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify source ID, download ID, rights status, and risk note.
+  - 简体中文：打开来源行；核对来源 ID、下载 ID、权利状态和风险说明。
 
 ### Source Download Manifest Row / 来源下载 manifest 行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Confirm URL, artifact kind, status, and route files.
+  - 简体中文：打开下载 manifest 行；确认 URL、资料类型、状态和路由文件。
 
 ### Download Log Row / 下载日志行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify access result, size, checksum, and timestamp.
+  - 简体中文：打开下载日志行；核对访问结果、大小、checksum 和时间戳。
 
 ### Access Profile Rows / 访问画像行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify access result, restriction status, and permitted route.
+  - 简体中文：打开访问画像行；核对访问结果、受限状态和允许路线。
 
 ### Staging Rows When Available / 已存在的 staging 行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open staging rows before old-catalog, holding, or row claims.
+  - 简体中文：提出旧著录、馆藏或行级主张前，先打开 staging 行。
 
 ### Official Access Boundary / 官方访问边界
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Check official boundary before public derivative decisions.
+  - 简体中文：记录公开派生决定前，先核查官方页面访问边界。
 
 ### Review Log / 复核日志
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Record source-marked access observations; keep import claims empty.
+  - 简体中文：只记录带来源标记的访问观察；保持导入和身份主张为空。
 
 ## Required Next Checks / 必需下一步检查
 
 - `open_registered_source_and_download_rows`
-  - English: Open the registered source row, download-manifest row, and download-log row.
+  - English: Open registered source, manifest, and download-log rows.
   - 简体中文：打开已登记的来源行、下载 manifest 行和下载日志行。
 - `open_access_profile_rows`
   - English: Open the cited OBM access-profile rows.
   - 简体中文：打开被引用的 OBM 访问画像行。
 - `open_staging_rows_before_old_catalog_or_holding_claims`
-  - English: Open staged abbreviation rows before any old-catalog or holding claim.
+  - English: Open staging rows before old-catalog or holding claims.
   - 简体中文：在提出旧著录或拓藏/馆藏主张前先打开已分期的简称行。
 - `use_manual_browser_or_institutional_export_before_any_row_level_claim`
-  - English: Use a manual browser or institutional export path before any row-level claim.
+  - English: Use browser or institutional export before row-level claims.
   - 简体中文：在提出任何行级主张前，先使用人工浏览或机构导出路径。
 - `record_no_identity_assignment_or_decipherment_claim`
-  - English: Record that this follow-up makes no identity, assignment, or decipherment claim.
+  - English: Record no identity, assignment, or decipherment claim.
   - 简体中文：记录本后续复核不提出身份、分配或释读结论。
 
 ## Rights And Risk / 权利与风险

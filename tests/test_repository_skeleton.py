@@ -10295,6 +10295,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Xiaoxuetang OBM Access Boundary Review Log Draft", note_text)
         self.assertIn("created_from_074_followup_review_queue", note_text)
         self.assertIn("open_staging_rows_before_old_catalog_or_holding_claims", note_text)
+        self.assertNotIn("- Notes / 备注: not collected.", note_text)
+        self.assertIn("Verify source ID, download ID, rights status, and risk note", note_text)
+        self.assertIn("核对来源 ID、下载 ID、权利状态和风险说明", note_text)
 
     def test_xxt_obm_access_boundary_review_log_drafts_builder(self) -> None:
         module = load_xxt_obm_access_boundary_review_log_drafts_module()
@@ -10311,6 +10314,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         markdown = module.build_markdown(rows[0])
         self.assertIn("Access Profile Rows", markdown)
         self.assertIn("open_staging_rows_before_old_catalog_or_holding_claims", markdown)
+        self.assertNotIn("- Notes / 备注: not collected.", markdown)
+        self.assertIn("Verify access result, restriction status, and permitted route", markdown)
+        self.assertIn("核对访问结果、受限状态和允许路线", markdown)
         self.assertIn("not a Heji row import", markdown)
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:

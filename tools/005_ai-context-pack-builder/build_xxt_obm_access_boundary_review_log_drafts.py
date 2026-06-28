@@ -72,9 +72,40 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "source_register_row": (
+        "Verify source ID, download ID, rights status, and risk note.",
+        "打开来源行；核对来源 ID、下载 ID、权利状态和风险说明。",
+    ),
+    "source_download_manifest_row": (
+        "Confirm URL, artifact kind, status, and route files.",
+        "打开下载 manifest 行；确认 URL、资料类型、状态和路由文件。",
+    ),
+    "download_log_row": (
+        "Verify access result, size, checksum, and timestamp.",
+        "打开下载日志行；核对访问结果、大小、checksum 和时间戳。",
+    ),
+    "access_profile_rows": (
+        "Verify access result, restriction status, and permitted route.",
+        "打开访问画像行；核对访问结果、受限状态和允许路线。",
+    ),
+    "staging_rows_when_available": (
+        "Open staging rows before old-catalog, holding, or row claims.",
+        "提出旧著录、馆藏或行级主张前，先打开 staging 行。",
+    ),
+    "official_access_boundary": (
+        "Check official boundary before public derivative decisions.",
+        "记录公开派生决定前，先核查官方页面访问边界。",
+    ),
+    "review_log": (
+        "Record source-marked access observations; keep import claims empty.",
+        "只记录带来源标记的访问观察；保持导入和身份主张为空。",
+    ),
+}
+
 NEXT_CHECK_LABELS = {
     "open_registered_source_and_download_rows": (
-        "Open the registered source row, download-manifest row, and download-log row.",
+        "Open registered source, manifest, and download-log rows.",
         "打开已登记的来源行、下载 manifest 行和下载日志行。",
     ),
     "open_access_profile_rows": (
@@ -82,7 +113,7 @@ NEXT_CHECK_LABELS = {
         "打开被引用的 OBM 访问画像行。",
     ),
     "open_staging_rows_before_old_catalog_or_holding_claims": (
-        "Open staged abbreviation rows before any old-catalog or holding claim.",
+        "Open staging rows before old-catalog or holding claims.",
         "在提出旧著录或拓藏/馆藏主张前先打开已分期的简称行。",
     ),
     "review_access_boundary_before_manual_followup": (
@@ -90,11 +121,11 @@ NEXT_CHECK_LABELS = {
         "在任何人工后续操作前先复核访问边界。",
     ),
     "use_manual_browser_or_institutional_export_before_any_row_level_claim": (
-        "Use a manual browser or institutional export path before any row-level claim.",
+        "Use browser or institutional export before row-level claims.",
         "在提出任何行级主张前，先使用人工浏览或机构导出路径。",
     ),
     "record_no_identity_assignment_or_decipherment_claim": (
-        "Record that this follow-up makes no identity, assignment, or decipherment claim.",
+        "Record no identity, assignment, or decipherment claim.",
         "记录本后续复核不提出身份、分配或释读结论。",
     ),
 }
@@ -192,13 +223,19 @@ def build_markdown(row: dict[str, str]) -> str:
     )
     for section in review_sections:
         label_en, label_zh = SECTION_LABELS.get(section, (section, section))
+        note_en, note_zh = SECTION_NOTES.get(
+            section,
+            ("Open routed evidence before recording notes.", "记录备注前先打开路由证据。"),
+        )
         lines.extend(
             [
                 f"### {label_en} / {label_zh}",
                 "",
                 "- Status / 状态: `not_collected`",
                 "- Evidence items / 证据条目: none",
-                "- Notes / 备注: not collected.",
+                "- Notes / 备注:",
+                f"  - English: {note_en}",
+                f"  - 简体中文：{note_zh}",
                 "",
             ]
         )

@@ -120,6 +120,67 @@ def _split_compact(value: str) -> list[str]:
     return [item for item in value.split(";") if item]
 
 
+def _wrapped_path_parts(value: str, limit: int = 68) -> list[str]:
+    parts = value.split("/")
+    lines: list[str] = []
+    current = ""
+    for part in parts:
+        candidate = part if not current else f"{current}/{part}"
+        if len(candidate) <= limit:
+            current = candidate
+            continue
+        if current:
+            lines.append(current)
+        current = part
+    if current:
+        lines.append(current)
+    return [line if index == len(lines) - 1 else f"{line}/" for index, line in enumerate(lines)]
+
+
+def _pair_lines(label: str, value: str) -> list[str]:
+    if "/" in value and len(value) > 68:
+        return [f"- {label}:"] + [f"  - `{part}`" for part in _wrapped_path_parts(value)]
+    return [f"- {label}:", f"  - `{value}`"]
+
+
+def _task_snapshot_lines(row: dict[str, str]) -> list[str]:
+    counter_source_count = str(len(_split_compact(row["counter_source_ids_to_check"])))
+    values = [
+        ("Status / 状态", "not_collected_route_snapshot"),
+        (
+            "Task queue source / 任务队列来源",
+            GRAPH_SOURCE_EVIDENCE_COLLECTION_TASK_QUEUE.as_posix(),
+        ),
+        ("Task ID / 任务 ID", row["evidence_collection_task_id"]),
+        ("Cross-review result ID / 交叉复核结果 ID", row["cross_review_result_id"]),
+        ("Cross-review task ID / 交叉复核任务 ID", row["cross_review_task_id"]),
+        ("Source ID / 来源 ID", row["source_id"]),
+        ("Primary review record ID / 主复核记录 ID", row["primary_review_record_id"]),
+        ("Primary external ref ID / 首选外部引用 ID", row["primary_external_ref_id"]),
+        ("Source record ID / 来源记录 ID", row["source_record_id"]),
+        ("Target evidence section / 目标证据章节", row["target_evidence_section"]),
+        ("Route file count / 路由文件数量", row["route_file_count"]),
+        ("Counter-source count / 反查来源数量", counter_source_count),
+        ("Expected note path / 预期记录路径", row["expected_output_path"]),
+        ("Collection scope / 收集范围", row["collection_scope"]),
+        ("Task status / 任务状态", row["task_status"]),
+        ("Research boundary / 研究边界", row["research_boundary"]),
+    ]
+    lines: list[str] = []
+    for label, value in values:
+        lines.extend(_pair_lines(label, value))
+    return lines
+
+
+def _open_question_lines(row: dict[str, str]) -> list[str]:
+    return [
+        "- Which exact row in the route file supports this source route?",
+        "- Which checksum, file size, rights note, or manifest still needs review?",
+        "- Which counter-source row must be checked before any promotion?",
+        f"- Does `{row['primary_external_ref_id']}` remain only a candidate route?",
+    ]
+
+
 def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
     route_files = _split_compact(row["route_files_to_open"])
     counter_sources = _split_compact(row["counter_source_ids_to_check"])
@@ -168,7 +229,23 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             f"### {section_label_en} / {section_label_zh}",
             "",
             "- Status / 状态: `not_collected`",
-            "- Evidence items / 证据条目: none",
+            "",
+            "## Task Evidence Snapshot / 任务证据快照",
+            "",
+        ]
+    )
+    lines.extend(_task_snapshot_lines(row))
+    lines.extend(
+        [
+            "",
+            "## Concrete Next Checks / 具体下一步待查",
+            "",
+        ]
+    )
+    lines.extend(_open_question_lines(row))
+    lines.extend(
+        [
+            "",
             "- Notes / 备注:",
             f"  - English: {SECTION_NOTES[row['target_evidence_section']][0]}",
             f"  - 简体中文：{SECTION_NOTES[row['target_evidence_section']][1]}",
@@ -176,7 +253,7 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             "## Review Log / 复核日志",
             "",
             "- Status / 状态: `created_from_016_task_queue`",
-            "- Note / 备注: Empty draft created for later source-marked evidence collection.",
+            "- Note / 备注: Draft carries task-route facts for later source-marked review.",
             "",
             "## Caution / 警示",
             "",

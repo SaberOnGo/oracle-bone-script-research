@@ -23699,6 +23699,8 @@ def check_ai_context_packs(root: Path) -> list[str]:
             "not_promoted",
             "Route Files To Open",
             "Counter Sources To Check",
+            "Task Evidence Snapshot",
+            "not_collected_route_snapshot",
             "created_from_016_task_queue",
             "not a decipherment conclusion",
             "不是释读结论",
@@ -23707,6 +23709,22 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 issues.append(
                     f"{row.get('note_draft_path', '')} missing note snippet: "
                     f"{required_snippet}"
+                )
+        if "Evidence items /" in note_text:
+            issues.append(
+                f"{row.get('note_draft_path', '')} should carry task evidence "
+                "snapshot instead of empty evidence items"
+            )
+        for linked_snippet in [
+            task_id,
+            row.get("source_id", ""),
+            row.get("primary_review_record_id", ""),
+            row.get("primary_external_ref_id", ""),
+        ]:
+            if linked_snippet and linked_snippet not in note_text:
+                issues.append(
+                    f"{row.get('note_draft_path', '')} missing task snapshot "
+                    f"value: {linked_snippet}"
                 )
 
     download_log_note_draft_rows, download_log_note_draft_issues = _read_csv_rows(

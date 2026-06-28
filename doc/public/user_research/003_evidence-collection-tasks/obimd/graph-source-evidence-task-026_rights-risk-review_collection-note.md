@@ -41,7 +41,51 @@
 ### Rights And Risk Review / 权利与风险复核
 
 - Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+
+## Task Evidence Snapshot / 任务证据快照
+
+- Status / 状态:
+  - `not_collected_route_snapshot`
+- Task queue source / 任务队列来源:
+  - `corpus/009_statistics-and-derived-features/`
+  - `016_ai-agent-graph-source-evidence-collection-task-queue.csv`
+- Task ID / 任务 ID:
+  - `graph-source-evidence-task-026`
+- Cross-review result ID / 交叉复核结果 ID:
+  - `graph-source-cross-review-result-003`
+- Cross-review task ID / 交叉复核任务 ID:
+  - `graph-source-cross-review-003`
+- Source ID / 来源 ID:
+  - `src-obimd`
+- Primary review record ID / 主复核记录 ID:
+  - `obimd-sub-cand-000001`
+- Primary external ref ID / 首选外部引用 ID:
+  - `obimd-sub-p8w7ujqanz`
+- Source record ID / 来源记录 ID:
+  - `p8w7ujqanz`
+- Target evidence section / 目标证据章节:
+  - `rights_risk_review`
+- Route file count / 路由文件数量:
+  - `4`
+- Counter-source count / 反查来源数量:
+  - `5`
+- Expected note path / 预期记录路径:
+  - `doc/public/user_research/003_evidence-collection-tasks/obimd/`
+  - `graph-source-evidence-task-026_rights-risk-review_collection-note.md`
+- Collection scope / 收集范围:
+  - `collect_rights_risk_and_size_boundary_notes`
+- Task status / 任务状态:
+  - `not_started`
+- Research boundary / 研究边界:
+  - `evidence_collection_task_queue_not_scholarship`
+
+## Concrete Next Checks / 具体下一步待查
+
+- Which exact row in the route file supports this source route?
+- Which checksum, file size, rights note, or manifest still needs review?
+- Which counter-source row must be checked before any promotion?
+- Does `obimd-sub-p8w7ujqanz` remain only a candidate route?
+
 - Notes / 备注:
   - English: Verify rights, risk note, size boundary, and public-use limit.
   - 简体中文：核对权利状态、风险说明、大小边界和公开使用限制。
@@ -49,7 +93,7 @@
 ## Review Log / 复核日志
 
 - Status / 状态: `created_from_016_task_queue`
-- Note / 备注: Empty draft created for later source-marked evidence collection.
+- Note / 备注: Draft carries task-route facts for later source-marked review.
 
 ## Caution / 警示
 

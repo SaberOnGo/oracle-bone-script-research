@@ -12109,7 +12109,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
 
-    def test_ai_agent_graph_source_evidence_collection_note_drafts_are_empty(self) -> None:
+    def test_ai_agent_graph_source_evidence_collection_note_drafts_include_task_snapshot(self) -> None:
         manifest_path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -12150,6 +12150,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Route Files To Open", text)
             self.assertIn("created_from_016_task_queue", text)
             self.assertIn("not_collected", text)
+            self.assertIn("Task Evidence Snapshot", text)
+            self.assertIn("not_collected_route_snapshot", text)
+            self.assertIn(row["source_id"], text)
+            self.assertIn(row["primary_review_record_id"], text)
+            self.assertIn(row["primary_external_ref_id"], text)
+            self.assertNotIn("Evidence items /", text)
             self.assertIn("not a decipherment conclusion", text)
             # UTF-8 repair: corrupted multilingual assertion placeholder
 
@@ -12171,6 +12177,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Evidence Collection Note", markdown)
         self.assertIn("created_from_016_task_queue", markdown)
         self.assertIn("not_collected", markdown)
+        self.assertIn("Task Evidence Snapshot", markdown)
+        self.assertIn("not_collected_route_snapshot", markdown)
+        self.assertIn("hust-obc-evidence-request-000001", markdown)
+        self.assertNotIn("Evidence items /", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
 
@@ -12183,6 +12193,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(set(rows_by_section), set(module.SECTION_LABELS))
         for section, task_row in rows_by_section.items():
             markdown = module.build_markdown(task_row, f"test-{section}")
+            self.assertNotIn("Evidence items /", markdown)
+            self.assertIn("Task Evidence Snapshot", markdown)
+            self.assertIn(task_row["evidence_collection_task_id"], markdown)
+            self.assertIn(task_row["source_id"], markdown)
+            self.assertIn(task_row["route_file_count"], markdown)
             self.assertNotIn("- Notes / 备注: not collected.", markdown)
             self.assertIn("- Notes / 备注:", markdown)
             self.assertIn("  - English:", markdown)

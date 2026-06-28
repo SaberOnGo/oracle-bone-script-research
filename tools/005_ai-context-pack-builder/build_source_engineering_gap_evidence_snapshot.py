@@ -283,15 +283,84 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerows(rows)
 
 
+def none_if_blank(value: str) -> str:
+    return value if value else "none"
+
+
+def review_log_evidence_block(row: dict[str, str]) -> str:
+    lines = [
+        "## Evidence Collection / 证据收集",
+        "",
+        "English: Existing metadata has been captured from routed records.",
+        "It remains metadata-only and does not promote source content.",
+        "",
+        "简体中文：已从路线记录捕获现有 metadata。",
+        "这些内容仍为 metadata-only，不提升为来源正文。",
+        "",
+        "## Existing Metadata Snapshot / 已有 metadata 快照",
+        "",
+        f"- Evidence snapshot ID / 证据快照 ID: `{row['evidence_snapshot_id']}`",
+        f"- Evidence status / 证据状态: `{row['evidence_status']}`",
+        f"- Source review status / 来源复核状态: `{row['source_review_status']}`",
+        f"- Rights status / 权利状态: `{row['rights_status']}`",
+        f"- Download manifest IDs / 下载 manifest ID: `{none_if_blank(row['download_manifest_ids'])}`",
+        f"- Download log IDs / 下载日志 ID: `{none_if_blank(row['download_log_ids'])}`",
+        f"- download_log_status_counts: `{none_if_blank(row['download_log_status_counts'])}`",
+        f"- download_log_http_status_counts: `{none_if_blank(row['download_log_http_status_counts'])}`",
+        f"- download_log_file_size_bytes_total: `{row['download_log_file_size_bytes_total']}`",
+        f"- download_log_checksum_present_count: `{row['download_log_checksum_present_count']}`",
+        f"- package_file_ids: `{none_if_blank(row['package_file_ids'])}`",
+        f"- metadata_profile_ids: `{none_if_blank(row['metadata_profile_ids'])}`",
+        f"- Route file missing count / 缺失路线文件数: `{row['route_file_missing_count']}`",
+        "",
+        "## Snapshot Boundary / 快照边界",
+        "",
+        f"- Rights decision status / 权利决策状态: `{row['rights_decision_status']}`",
+        f"- Source promotion status / 来源提升状态: `{row['source_promotion_status']}`",
+        f"- Corpus import status / 语料导入状态: `{row['corpus_import_status']}`",
+        "- Identity, component, evolution, and decipherment claims: `blocked`",
+        "- 身份、构件、演化链和释读结论：`blocked`",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def write_review_log_snapshot_notes(root: Path, rows: list[dict[str, str]]) -> int:
+    written = 0
+    start_marker = "## Evidence Collection / 证据收集"
+    end_marker = "## Review Log / 复核日志"
+    for row in rows:
+        draft_path = row.get("draft_path", "")
+        if not draft_path:
+            continue
+        path = root / draft_path
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        start = text.find(start_marker)
+        end = text.find(end_marker)
+        if start == -1 or end == -1 or end <= start:
+            continue
+        updated = text[:start] + review_log_evidence_block(row) + "\n" + text[end:]
+        path.write_text(updated, encoding="utf-8", newline="\n")
+        written += 1
+    return written
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build source-engineering gap evidence snapshot.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
+    parser.add_argument("--skip-markdown", action="store_true")
     args = parser.parse_args(argv)
 
     root = repo_root()
     rows = build_snapshot_rows(root)
     write_csv(root / args.output, rows)
-    print(f"wrote={len(rows)} output={(root / args.output).relative_to(root)}")
+    markdown_written = 0 if args.skip_markdown else write_review_log_snapshot_notes(root, rows)
+    print(
+        f"wrote={len(rows)} markdown_written={markdown_written} "
+        f"output={(root / args.output).relative_to(root)}"
+    )
     return 0
 
 

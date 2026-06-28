@@ -17938,7 +17938,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("does not download raw material", summary["completion_boundary"])
 
-    def test_source_engineering_gap_review_log_drafts_are_empty_scaffolds(self) -> None:
+    def test_source_engineering_gap_review_logs_include_snapshot_evidence(self) -> None:
         path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -17962,8 +17962,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["source_promotion_status"] for row in rows}, {"not_promoted"})
         self.assertTrue(all((repo_root() / row["draft_path"]).exists() for row in rows))
         first_text = (repo_root() / rows[0]["draft_path"]).read_text(encoding="utf-8")
-        self.assertIn("Evidence items /", first_text)
-        self.assertIn("none", first_text)
+        self.assertIn("Existing Metadata Snapshot / 已有 metadata 快照", first_text)
+        self.assertIn("source-engineering-gap-evidence-snapshot-0001", first_text)
+        self.assertIn("http_error:1", first_text)
+        self.assertIn("403:1", first_text)
+        self.assertIn("download_log_file_size_bytes_total: `0`", first_text)
+        self.assertNotIn("Evidence items / 证据条目: none", first_text)
         self.assertIn("no rights clearance", first_text)
 
     def test_source_engineering_gap_review_log_draft_builder_keeps_boundaries(self) -> None:

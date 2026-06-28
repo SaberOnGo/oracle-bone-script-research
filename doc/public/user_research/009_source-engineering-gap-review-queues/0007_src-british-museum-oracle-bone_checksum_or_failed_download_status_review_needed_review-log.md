@@ -47,15 +47,35 @@
 
 ## Evidence Collection / 证据收集
 
-English: This draft intentionally contains no collected evidence yet. Add evidence only after opening the routed files and recording source, rights, checksum or access-boundary status.
+English: Existing metadata has been captured from routed records.
+It remains metadata-only and does not promote source content.
 
-简体中文：本草稿暂不包含已收集证据。只有在打开路线文件，并记录来源、权利、checksum 或访问边界状态后，才可补充证据。
+简体中文：已从路线记录捕获现有 metadata。
+这些内容仍为 metadata-only，不提升为来源正文。
 
-- Evidence items / 证据条目: none
-- Derived record decision / 派生记录决策: not decided
-- Package manifest decision / 包清单决策: not decided
-- Field map decision / 字段映射决策: not decided
-- Metadata profile decision / metadata profile 决策: not decided
+## Existing Metadata Snapshot / 已有 metadata 快照
+
+- Evidence snapshot ID / 证据快照 ID: `source-engineering-gap-evidence-snapshot-0007`
+- Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
+- Source review status / 来源复核状态: `reviewed`
+- Rights status / 权利状态: `metadata_only_until_verified`
+- Download manifest IDs / 下载 manifest ID: `dl-british-museum-oa-165`
+- Download log IDs / 下载日志 ID: `dl-british-museum-oa-165`
+- download_log_status_counts: `http_error:1`
+- download_log_http_status_counts: `403:1`
+- download_log_file_size_bytes_total: `0`
+- download_log_checksum_present_count: `0`
+- package_file_ids: `none`
+- metadata_profile_ids: `none`
+- Route file missing count / 缺失路线文件数: `0`
+
+## Snapshot Boundary / 快照边界
+
+- Rights decision status / 权利决策状态: `no_new_rights_decision`
+- Source promotion status / 来源提升状态: `not_promoted`
+- Corpus import status / 语料导入状态: `not_imported`
+- Identity, component, evolution, and decipherment claims: `blocked`
+- 身份、构件、演化链和释读结论：`blocked`
 
 ## Review Log / 复核日志
 

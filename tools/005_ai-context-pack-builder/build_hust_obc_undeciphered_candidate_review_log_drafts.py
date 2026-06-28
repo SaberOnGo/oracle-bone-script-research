@@ -88,6 +88,41 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "undeciphered_index_row": (
+        "Open the cited index row; verify candidate ID, image count, route, and review status.",
+        "打开被引用索引行；核对候选 ID、图片数量、路线和复核状态。",
+    ),
+    "bucket_manifest_row": (
+        "Open the bucket manifest row; confirm bucket range, path, image count, and status.",
+        "打开分桶 manifest 行；确认分桶区间、路径、图片数量和状态。",
+    ),
+    "candidate_packet": (
+        "Open the local packet; verify glyph image routes, source refs, rights, and gaps.",
+        "打开本地资料包；核对字形图片路线、来源引用、权利和缺失项。",
+    ),
+    "source_register_row": (
+        "Open the source register row; verify source ID, provider, rights status, and risk note.",
+        "打开来源登记行；核对来源 ID、提供方、权利状态和风险说明。",
+    ),
+    "large_source_register_row": (
+        "Open the large-source row; confirm raw storage, checksum, size, and derivatives.",
+        "打开大型来源登记行；确认原始存放、checksum、大小和派生记录。",
+    ),
+    "download_log_row": (
+        "Open the download log row; verify access date, size, checksum, and package name.",
+        "打开下载日志行；核对访问日期、大小、checksum 和来源包名称。",
+    ),
+    "rights_risk_boundary": (
+        "Compare register and download rights fields before any public asset decision.",
+        "公开资产或派生文本前，对照登记和下载日志中的权利字段。",
+    ),
+    "review_log": (
+        "Record only source-marked observations; keep identity and reading claims empty.",
+        "只记录带来源标记的观察；保持身份和释读结论为空。",
+    ),
+}
+
 NEXT_CHECK_LABELS = {
     "open_undeciphered_index_row": (
         "Open the cited undeciphered-candidate index row.",
@@ -243,13 +278,19 @@ def build_markdown(row: dict[str, str]) -> str:
     )
     for section in evidence_sections:
         label_en, label_zh = SECTION_LABELS.get(section, (section, section))
+        note_en, note_zh = SECTION_NOTES.get(
+            section,
+            ("Open routed evidence before recording notes.", "记录备注前先打开路由证据。"),
+        )
         lines.extend(
             [
                 f"### {label_en} / {label_zh}",
                 "",
                 "- Status / 状态: `not_collected`",
                 "- Evidence items / 证据条目: none",
-                "- Notes / 备注: not collected.",
+                "- Notes / 备注:",
+                f"  - English: {note_en}",
+                f"  - 简体中文：{note_zh}",
                 "",
             ]
         )

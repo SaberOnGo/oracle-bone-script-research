@@ -8596,6 +8596,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(snippet, draft_text)
         for route_file in rows[0]["route_files_to_open"].split(";"):
             self.assertIn(route_file, draft_text)
+        self.assertNotIn("- Notes / 备注: not collected.", draft_text)
+        self.assertIn("verify candidate ID, image count, route, and review status", draft_text)
+        self.assertIn("核对候选 ID、图片数量、路线和复核状态", draft_text)
 
     def test_hust_obc_undeciphered_candidate_review_log_draft_builder_links_queue(self) -> None:
         module = load_hust_obc_undeciphered_candidate_review_log_drafts_module()
@@ -8621,6 +8624,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Evidence Sections", markdown)
         self.assertIn("Required Next Checks", markdown)
         self.assertIn("not_collected", markdown)
+        self.assertNotIn("- Notes / 备注: not collected.", markdown)
+        self.assertIn("verify source ID, provider, rights status, and risk note", markdown)
+        self.assertIn("核对来源 ID、提供方、权利状态和风险说明", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
 

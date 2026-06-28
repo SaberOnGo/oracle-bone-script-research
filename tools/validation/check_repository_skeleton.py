@@ -23369,6 +23369,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     f"{required_snippet}: {log_id}"
                 )
 
+    cross_review_result_rows, cross_review_result_issues = _read_csv_rows(
+        root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS
+    )
+    issues.extend(cross_review_result_issues)
+    cross_review_result_rows_by_draft_id = {
+        row.get("draft_log_id", ""): row
+        for row in cross_review_result_rows
+    }
     cross_review_draft_rows, cross_review_draft_issues = _read_csv_rows(
         root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST
     )
@@ -23400,6 +23408,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         cross_review_log_id = row.get("cross_review_log_id", "")
         source_id = row.get("source_id", "")
         scaffold_row = cross_review_log_rows_by_id.get(cross_review_log_id, {})
+        result_row = cross_review_result_rows_by_draft_id.get(draft_log_id, {})
         if draft_log_id != f"graph-source-cross-review-draft-{index:03d}":
             issues.append(
                 f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} "
@@ -23425,6 +23434,46 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 issues.append(
                     f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} {linked_field} "
                     f"does not match scaffold: {draft_log_id}"
+                )
+        if not result_row:
+            issues.append(
+                f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} missing 015 result link: "
+                f"{draft_log_id}"
+            )
+        for draft_field, result_field in {
+            "cross_review_result_id": "cross_review_result_id",
+            "route_file_count": "route_file_count",
+            "missing_route_file_count": "missing_route_file_count",
+            "route_file_review_status": "route_file_review_status",
+            "required_counter_source_count": "required_counter_source_count",
+            "registered_counter_source_count": "registered_counter_source_count",
+            "counter_source_lookup_status": "counter_source_lookup_status",
+            "download_log_count": "download_log_count",
+            "download_log_review_status": "download_log_review_status",
+            "package_manifest_count": "package_manifest_count",
+            "package_manifest_review_status": "package_manifest_review_status",
+            "metadata_profile_metric_count": "metadata_profile_metric_count",
+            "metadata_profile_review_status": "metadata_profile_review_status",
+            "graph_route_file_count": "graph_route_file_count",
+            "graph_edge_route_line_count": "graph_edge_route_line_count",
+            "primary_graph_edge_count": "primary_graph_edge_count",
+            "graph_edge_review_status": "graph_edge_review_status",
+            "staging_row_count": "staging_row_count",
+            "staging_record_refs": "staging_record_refs",
+            "staging_row_review_status": "staging_row_review_status",
+            "draft_log_status": "draft_log_status",
+            "rights_status": "rights_status",
+            "rights_risk_review_status": "rights_risk_review_status",
+            "promotion_decision_status": "promotion_decision_status",
+            "evidence_pack_draft_status": "evidence_pack_draft_status",
+            "result_research_boundary": "research_boundary",
+            "result_output_scope": "output_scope",
+            "result_review_note": "review_note",
+        }.items():
+            if row.get(draft_field) != result_row.get(result_field):
+                issues.append(
+                    f"{AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST} {draft_field} "
+                    f"does not match 015 result: {draft_log_id}"
                 )
         expected_draft_path = expected_draft_paths.get(source_id)
         if row.get("draft_log_path") != expected_draft_path:
@@ -23466,6 +23515,12 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 "Route Files To Open",
                 "Required Counter Sources",
                 "Evidence Sections",
+                "Cross-Review Metadata Snapshot",
+                row.get("cross_review_result_id", ""),
+                "reviewed_route_files_exist",
+                "reviewed_all_required_counter_sources_registered",
+                "reviewed_rights_boundary_metadata_only",
+                "Concrete Next Checks",
                 "created_from_013_scaffold",
                 "not a decipherment conclusion",
                 "不是释读结论",
@@ -23474,6 +23529,10 @@ def check_ai_context_packs(root: Path) -> list[str]:
                     issues.append(
                         f"{expected_draft_path} missing draft text snippet: {required_snippet}"
                     )
+            if "Evidence items /" in draft_text:
+                issues.append(
+                    f"{expected_draft_path} still contains empty evidence-item wording"
+                )
 
     cross_review_result_rows, cross_review_result_issues = _read_csv_rows(
         root / AI_AGENT_GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS

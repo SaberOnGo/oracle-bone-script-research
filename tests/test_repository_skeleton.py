@@ -11921,7 +11921,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in scaffold_rows))
         self.assertTrue(all(row["promotion_decision_status"] != "promoted" for row in scaffold_rows))
 
-    def test_ai_agent_graph_source_cross_review_log_drafts_are_empty(self) -> None:
+    def test_ai_agent_graph_source_cross_review_log_drafts_include_metadata_snapshot(self) -> None:
         manifest_path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -11938,6 +11938,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["cross_review_log_id"], "graph-source-cross-review-log-001")
         self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
         self.assertEqual(rows[0]["evidence_section_status"], "not_collected")
+        self.assertEqual(rows[0]["cross_review_result_id"], "graph-source-cross-review-result-001")
+        self.assertEqual(rows[0]["route_file_review_status"], "reviewed_route_files_exist")
+        self.assertEqual(rows[0]["download_log_count"], "7")
+        self.assertEqual(rows[0]["package_manifest_count"], "4")
+        self.assertEqual(rows[0]["metadata_profile_metric_count"], "11")
+        self.assertEqual(rows[0]["rights_risk_review_status"], "reviewed_rights_boundary_metadata_only")
         self.assertEqual(rows[0]["research_boundary"], "user_research_draft_not_scholarship")
         self.assertEqual(
             rows[0]["draft_log_path"],
@@ -11963,15 +11969,23 @@ class RepositorySkeletonTests(unittest.TestCase):
             "not_collected",
             "not_decided",
             "created_from_013_scaffold",
+            "Cross-Review Metadata Snapshot",
+            "graph-source-cross-review-result-001",
+            "reviewed_route_files_exist",
+            "reviewed_all_required_counter_sources_registered",
+            "reviewed_rights_boundary_metadata_only",
+            "Concrete Next Checks",
             "not a decipherment conclusion",
         ]:
             self.assertIn(snippet, draft_text)
+        self.assertNotIn("Evidence items /", draft_text)
 
     def test_ai_agent_graph_source_cross_review_log_draft_builder_links_scaffold(self) -> None:
         module = load_graph_source_cross_review_log_drafts_module()
         root = repo_root()
         scaffold_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD)
-        rows = module.build_draft_manifest_rows(scaffold_rows)
+        result_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS)
+        rows = module.build_draft_manifest_rows(scaffold_rows, result_rows)
         self.assertEqual(len(rows), 3)
         self.assertEqual(rows[0]["draft_log_id"], "graph-source-cross-review-draft-001")
         self.assertEqual(rows[0]["cross_review_log_id"], scaffold_rows[0]["cross_review_log_id"])
@@ -11980,6 +11994,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[2]["source_id"], "src-obimd")
         self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
         self.assertEqual(rows[0]["evidence_section_status"], "not_collected")
+        self.assertEqual(rows[0]["cross_review_result_id"], "graph-source-cross-review-result-001")
+        self.assertEqual(rows[0]["route_file_count"], "11")
+        self.assertEqual(rows[0]["staging_row_count"], "3")
         self.assertEqual(rows[0]["research_boundary"], "user_research_draft_not_scholarship")
         self.assertEqual(
             rows[0]["draft_log_path"],
@@ -11991,13 +12008,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             scaffold_rows[0]["route_files_to_open"],
         )
         self.assertTrue(all("confirmed scholarship" not in row["caution"] for row in rows))
-        markdown = module.build_markdown(scaffold_rows[0], rows[0]["draft_log_id"])
+        markdown = module.build_markdown(scaffold_rows[0], rows[0]["draft_log_id"], rows[0])
         self.assertIn("hust-obc-evidence-request-000001", markdown)
         self.assertIn("Route Files To Open", markdown)
         self.assertIn("Required Counter Sources", markdown)
-        self.assertIn("Evidence Sections", markdown)
+        self.assertIn("Cross-Review Metadata Snapshot", markdown)
+        self.assertIn("graph-source-cross-review-result-001", markdown)
+        self.assertIn("Concrete Next Checks", markdown)
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
+        self.assertNotIn("Evidence items /", markdown)
 
     def test_ai_agent_graph_source_cross_review_log_drafts_name_next_checks(self) -> None:
         module = load_graph_source_cross_review_log_drafts_module()
@@ -12006,9 +12026,14 @@ class RepositorySkeletonTests(unittest.TestCase):
 
         section_notes = getattr(module, "SECTION_NOTES", {})
         self.assertEqual(set(section_notes), set(module.SECTION_LABELS))
-        for scaffold_row in scaffold_rows:
-            markdown = module.build_markdown(scaffold_row, "test-cross-review-log")
+        result_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS)
+        rows = module.build_draft_manifest_rows(scaffold_rows, result_rows)
+        for scaffold_row, row in zip(scaffold_rows, rows):
+            markdown = module.build_markdown(scaffold_row, "test-cross-review-log", row)
             self.assertNotIn("not collected.", markdown)
+            self.assertNotIn("Evidence items /", markdown)
+            self.assertIn("Cross-Review Metadata Snapshot", markdown)
+            self.assertIn("Concrete Next Checks", markdown)
             self.assertIn("- Notes /", markdown)
             self.assertIn("  - English:", markdown)
             self.assertIn("  - 简体中文：", markdown)

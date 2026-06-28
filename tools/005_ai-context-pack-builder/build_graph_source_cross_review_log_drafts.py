@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build empty Markdown drafts from graph-source cross-review log scaffolds."""
+"""Build human-readable Markdown drafts from graph-source cross-review routes."""
 
 from __future__ import annotations
 
@@ -13,6 +13,9 @@ GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD = Path(
 )
 GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST = Path(
     "corpus/009_statistics-and-derived-features/014_ai-agent-graph-source-cross-review-log-draft-manifest.csv"
+)
+GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS = Path(
+    "corpus/009_statistics-and-derived-features/015_ai-agent-graph-source-cross-review-log-results.csv"
 )
 UPDATED_AT = "2026-06-10"
 RESEARCH_BOUNDARY = "user_research_draft_not_scholarship"
@@ -90,6 +93,34 @@ OUTPUT_FIELDS = [
     "route_files_to_open",
     "required_counter_source_ids",
     "required_evidence_sections",
+    "cross_review_result_id",
+    "route_file_count",
+    "missing_route_file_count",
+    "route_file_review_status",
+    "required_counter_source_count",
+    "registered_counter_source_count",
+    "counter_source_lookup_status",
+    "download_log_count",
+    "download_log_review_status",
+    "package_manifest_count",
+    "package_manifest_review_status",
+    "metadata_profile_metric_count",
+    "metadata_profile_review_status",
+    "graph_route_file_count",
+    "graph_edge_route_line_count",
+    "primary_graph_edge_count",
+    "graph_edge_review_status",
+    "staging_row_count",
+    "staging_record_refs",
+    "staging_row_review_status",
+    "draft_log_status",
+    "rights_status",
+    "rights_risk_review_status",
+    "promotion_decision_status",
+    "evidence_pack_draft_status",
+    "result_research_boundary",
+    "result_output_scope",
+    "result_review_note",
     "draft_status",
     "evidence_section_status",
     "research_boundary",
@@ -111,6 +142,10 @@ def _split_compact(value: str) -> list[str]:
     return [item for item in value.split(";") if item]
 
 
+def _results_by_draft_id(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+    return {row["draft_log_id"]: row for row in rows}
+
+
 def _slug_for_row(row: dict[str, str]) -> str:
     source_id = row["source_id"]
     if source_id == "src-hust-obc":
@@ -130,7 +165,66 @@ def _draft_path_for_row(row: dict[str, str], index: int) -> str:
     )
 
 
-def build_markdown(row: dict[str, str], draft_log_id: str) -> str:
+def _pair_lines(label: str, value: str) -> list[str]:
+    if ";" in value:
+        return [f"- {label}:"] + [f"  - `{part}`" for part in _split_compact(value)]
+    return [f"- {label}: `{value}`"]
+
+
+def _metadata_snapshot_lines(row: dict[str, str]) -> list[str]:
+    pairs = [
+        ("Cross-review result ID", row["cross_review_result_id"]),
+        ("Result source", GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS.as_posix()),
+        ("Route file count", row["route_file_count"]),
+        ("Missing route file count", row["missing_route_file_count"]),
+        ("Route file review status", row["route_file_review_status"]),
+        ("Required counter source count", row["required_counter_source_count"]),
+        ("Registered counter source count", row["registered_counter_source_count"]),
+        ("Counter-source lookup status", row["counter_source_lookup_status"]),
+        ("Download log count", row["download_log_count"]),
+        ("Download log review status", row["download_log_review_status"]),
+        ("Package manifest count", row["package_manifest_count"]),
+        ("Package manifest review status", row["package_manifest_review_status"]),
+        ("Metadata profile metric count", row["metadata_profile_metric_count"]),
+        ("Metadata profile review status", row["metadata_profile_review_status"]),
+        ("Graph route file count", row["graph_route_file_count"]),
+        ("Graph edge route line count", row["graph_edge_route_line_count"]),
+        ("Primary graph edge count", row["primary_graph_edge_count"]),
+        ("Graph edge review status", row["graph_edge_review_status"]),
+        ("Staging row count", row["staging_row_count"]),
+        ("Staging record refs", row["staging_record_refs"]),
+        ("Staging row review status", row["staging_row_review_status"]),
+        ("Draft log status", row["draft_log_status"]),
+        ("Rights status", row["rights_status"]),
+        ("Rights risk review status", row["rights_risk_review_status"]),
+        ("Promotion decision status", row["promotion_decision_status"]),
+        ("Evidence pack draft status", row["evidence_pack_draft_status"]),
+        ("Result research boundary", row["result_research_boundary"]),
+        ("Result output scope", row["result_output_scope"]),
+    ]
+    lines: list[str] = []
+    for label, value in pairs:
+        lines.extend(_pair_lines(label, value))
+    return lines
+
+
+def _concrete_next_check_lines(row: dict[str, str]) -> list[str]:
+    return [
+        "- Which source-register row proves the source identity and rights status?",
+        "- Which download-log and package-manifest rows prove the access route?",
+        "- Which graph edge files should be opened before any cross-source claim?",
+        "- Which staging rows or object-local dossiers should be compared first?",
+        "- Which counter-source rows still need human review before evidence capture?",
+        f"- Does `{row['primary_review_record_id']}` remain unpromoted and undeciphered?",
+    ]
+
+
+def build_markdown(
+    row: dict[str, str],
+    draft_log_id: str,
+    manifest_row: dict[str, str] | None = None,
+) -> str:
+    manifest_row = manifest_row or {}
     route_files = _split_compact(row["route_files_to_open"])
     counter_sources = _split_compact(row["required_counter_source_ids"])
     evidence_sections = _split_compact(row["required_evidence_sections"])
@@ -175,9 +269,17 @@ def build_markdown(row: dict[str, str], draft_log_id: str) -> str:
             "",
             "## Evidence Sections / 证据章节",
             "",
-            "English: All sections are intentionally empty until source-marked evidence is collected.",
+            "English: These sections record route availability only; they are not source evidence or scholarship.",
             "",
-            "简体中文：所有章节在收集带来源标记的证据前都必须保持为空。",
+            "简体中文：以下章节只记录路线可用性；不是来源证据，也不是学术结论。",
+            "",
+            "## Cross-Review Metadata Snapshot / 交叉复核 metadata 快照",
+            "",
+            *_metadata_snapshot_lines(manifest_row),
+            "",
+            "## Concrete Next Checks / 具体下一步待查",
+            "",
+            *_concrete_next_check_lines(row),
             "",
         ]
     )
@@ -187,8 +289,8 @@ def build_markdown(row: dict[str, str], draft_log_id: str) -> str:
             [
                 f"### {label_en} / {label_zh}",
                 "",
-                "- Status / 状态: `not_collected`",
-                "- Evidence items / 证据条目: none",
+                "- Status / 状态: `not_collected_metadata_snapshot`",
+                "- Metadata snapshot / metadata 快照: see `Cross-Review Metadata Snapshot` above.",
                 "- Notes / 备注:",
                 f"  - English: {SECTION_NOTES[section][0]}",
                 f"  - 简体中文：{SECTION_NOTES[section][1]}",
@@ -213,11 +315,16 @@ def build_markdown(row: dict[str, str], draft_log_id: str) -> str:
     return "\n".join(lines)
 
 
-def build_draft_manifest_rows(scaffold_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+def build_draft_manifest_rows(
+    scaffold_rows: list[dict[str, str]],
+    result_rows: list[dict[str, str]] | None = None,
+) -> list[dict[str, str]]:
+    results_by_draft_id = _results_by_draft_id(result_rows or [])
     rows: list[dict[str, str]] = []
     for index, row in enumerate(scaffold_rows, start=1):
         draft_log_id = f"graph-source-cross-review-draft-{index:03d}"
         draft_log_path = _draft_path_for_row(row, index)
+        result_row = results_by_draft_id.get(draft_log_id, {})
         rows.append(
             {
                 "draft_log_id": draft_log_id,
@@ -232,6 +339,34 @@ def build_draft_manifest_rows(scaffold_rows: list[dict[str, str]]) -> list[dict[
                 "route_files_to_open": row["route_files_to_open"],
                 "required_counter_source_ids": row["required_counter_source_ids"],
                 "required_evidence_sections": row["required_evidence_sections"],
+                "cross_review_result_id": result_row.get("cross_review_result_id", ""),
+                "route_file_count": result_row.get("route_file_count", ""),
+                "missing_route_file_count": result_row.get("missing_route_file_count", ""),
+                "route_file_review_status": result_row.get("route_file_review_status", ""),
+                "required_counter_source_count": result_row.get("required_counter_source_count", ""),
+                "registered_counter_source_count": result_row.get("registered_counter_source_count", ""),
+                "counter_source_lookup_status": result_row.get("counter_source_lookup_status", ""),
+                "download_log_count": result_row.get("download_log_count", ""),
+                "download_log_review_status": result_row.get("download_log_review_status", ""),
+                "package_manifest_count": result_row.get("package_manifest_count", ""),
+                "package_manifest_review_status": result_row.get("package_manifest_review_status", ""),
+                "metadata_profile_metric_count": result_row.get("metadata_profile_metric_count", ""),
+                "metadata_profile_review_status": result_row.get("metadata_profile_review_status", ""),
+                "graph_route_file_count": result_row.get("graph_route_file_count", ""),
+                "graph_edge_route_line_count": result_row.get("graph_edge_route_line_count", ""),
+                "primary_graph_edge_count": result_row.get("primary_graph_edge_count", ""),
+                "graph_edge_review_status": result_row.get("graph_edge_review_status", ""),
+                "staging_row_count": result_row.get("staging_row_count", ""),
+                "staging_record_refs": result_row.get("staging_record_refs", ""),
+                "staging_row_review_status": result_row.get("staging_row_review_status", ""),
+                "draft_log_status": result_row.get("draft_log_status", ""),
+                "rights_status": result_row.get("rights_status", ""),
+                "rights_risk_review_status": result_row.get("rights_risk_review_status", ""),
+                "promotion_decision_status": result_row.get("promotion_decision_status", ""),
+                "evidence_pack_draft_status": result_row.get("evidence_pack_draft_status", ""),
+                "result_research_boundary": result_row.get("research_boundary", ""),
+                "result_output_scope": result_row.get("output_scope", ""),
+                "result_review_note": result_row.get("review_note", ""),
                 "draft_status": STATUS,
                 "evidence_section_status": "not_collected",
                 "research_boundary": RESEARCH_BOUNDARY,
@@ -255,20 +390,23 @@ def write_markdown_drafts(root: Path, scaffold_rows: list[dict[str, str]], manif
         output_path = root / manifest_row["draft_log_path"]
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(
-            build_markdown(scaffold_row, manifest_row["draft_log_id"]),
+            build_markdown(scaffold_row, manifest_row["draft_log_id"], manifest_row),
             encoding="utf-8",
+            newline="\n",
         )
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--scaffold", default=str(GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD))
+    parser.add_argument("--results", default=str(GRAPH_SOURCE_CROSS_REVIEW_LOG_RESULTS))
     parser.add_argument("--manifest", default=str(GRAPH_SOURCE_CROSS_REVIEW_LOG_DRAFT_MANIFEST))
     args = parser.parse_args(argv)
 
     root = repo_root()
     scaffold_rows = read_csv_rows(root / args.scaffold)
-    manifest_rows = build_draft_manifest_rows(scaffold_rows)
+    result_rows = read_csv_rows(root / args.results)
+    manifest_rows = build_draft_manifest_rows(scaffold_rows, result_rows)
     write_markdown_drafts(root, scaffold_rows, manifest_rows)
     write_csv(root / args.manifest, manifest_rows)
     print(f"wrote={len(manifest_rows)} manifest={(root / args.manifest).relative_to(root)}")

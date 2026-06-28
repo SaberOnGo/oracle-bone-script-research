@@ -55,7 +55,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Record only visible clues; no component assignment yet.
+  - 简体中文：只记录可见线索，暂不作构件归属。
 
 ## Review Log / 复核日志
 

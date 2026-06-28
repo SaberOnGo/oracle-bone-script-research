@@ -9556,6 +9556,24 @@ class RepositorySkeletonTests(unittest.TestCase):
         # UTF-8 repair: corrupted multilingual assertion placeholder
         self.assertIn("063_ai-agent", module.DEFAULT_MANIFEST.as_posix())
 
+    def test_hust_obc_undeciphered_candidate_evidence_collection_notes_name_next_checks(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module()
+        root = repo_root()
+        task_rows = module.read_csv_rows(root / module.TASK_QUEUE)
+        rows = module.build_note_manifest_rows(task_rows)
+
+        section_notes = getattr(module, "SECTION_NOTES", {})
+        self.assertEqual(set(section_notes), set(module.SECTION_LABELS))
+        for task_row, manifest_row in zip(task_rows, rows, strict=True):
+            markdown = module.build_markdown(
+                task_row,
+                manifest_row["evidence_collection_note_draft_id"],
+            )
+            self.assertNotIn("not collected.", markdown)
+            self.assertIn("- Source-marked notes /", markdown)
+            self.assertIn("  - English:", markdown)
+            self.assertIn("  - 简体中文：", markdown)
+
     def test_hust_obc_undeciphered_candidate_source_metadata_evidence_capture_results(self) -> None:
         path = (
             repo_root()

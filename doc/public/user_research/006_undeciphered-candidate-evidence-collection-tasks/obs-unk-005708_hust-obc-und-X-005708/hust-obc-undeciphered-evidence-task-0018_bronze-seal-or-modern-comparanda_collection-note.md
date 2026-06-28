@@ -55,7 +55,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Keep later-script links as candidate comparison routes only.
+  - 简体中文：后世字形只作候选比较路线。
 
 ## Review Log / 复核日志
 

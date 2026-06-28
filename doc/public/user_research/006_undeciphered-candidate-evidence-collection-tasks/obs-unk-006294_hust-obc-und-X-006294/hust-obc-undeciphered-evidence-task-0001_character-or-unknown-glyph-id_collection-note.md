@@ -54,7 +54,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Open the candidate packet and verify the external unknown ID.
+  - 简体中文：打开候选 packet，核对外部未释字 ID。
 
 ## Review Log / 复核日志
 

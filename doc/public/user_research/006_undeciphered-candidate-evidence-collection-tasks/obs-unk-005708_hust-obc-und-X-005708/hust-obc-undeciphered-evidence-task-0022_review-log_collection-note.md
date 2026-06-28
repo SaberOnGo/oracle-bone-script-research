@@ -53,7 +53,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Record no identity, reading, assignment, or decipherment claim.
+  - 简体中文：记录不作身份、释读、归属或破译结论。
 
 ## Review Log / 复核日志
 

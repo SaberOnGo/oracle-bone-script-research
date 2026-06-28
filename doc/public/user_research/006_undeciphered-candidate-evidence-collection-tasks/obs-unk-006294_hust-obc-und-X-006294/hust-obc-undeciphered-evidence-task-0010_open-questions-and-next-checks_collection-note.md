@@ -55,7 +55,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Name missing images, inscriptions, sources, and review steps.
+  - 简体中文：点名缺失图像、卜辞、来源和复核步骤。
 
 ## Review Log / 复核日志
 

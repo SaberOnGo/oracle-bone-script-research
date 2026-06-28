@@ -55,7 +55,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Verify catalog, period, batch, findspot, and collection routes.
+  - 简体中文：核对著录、时期、批次、出土地和馆藏路线。
 
 ## Review Log / 复核日志
 

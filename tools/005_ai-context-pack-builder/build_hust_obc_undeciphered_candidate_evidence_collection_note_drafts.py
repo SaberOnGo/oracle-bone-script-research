@@ -57,6 +57,53 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "character_or_unknown_glyph_id": (
+        "Open the candidate packet and verify the external unknown ID.",
+        "打开候选 packet，核对外部未释字 ID。",
+    ),
+    "source_references_and_asset_metadata": (
+        "Open source and asset rows before recording any evidence.",
+        "记录证据前先打开来源和资产行。",
+    ),
+    "full_inscription_context": (
+        "Find inscription context or record the exact missing route.",
+        "查找卜辞上下文，或记录具体缺失路线。",
+    ),
+    "neighboring_characters": (
+        "Check adjacent glyph routes before naming neighboring signs.",
+        "命名邻近字前先核对相邻字形路线。",
+    ),
+    "component_breakdown_and_variant_notes": (
+        "Record only visible clues; no component assignment yet.",
+        "只记录可见线索，暂不作构件归属。",
+    ),
+    "excavation_period_and_catalog_provenance": (
+        "Verify catalog, period, batch, findspot, and collection routes.",
+        "核对著录、时期、批次、出土地和馆藏路线。",
+    ),
+    "bronze_seal_or_modern_comparanda": (
+        "Keep later-script links as candidate comparison routes only.",
+        "后世字形只作候选比较路线。",
+    ),
+    "supporting_evidence": (
+        "Collect source-marked support before stating any hypothesis.",
+        "提出假说前先收集带来源支持证据。",
+    ),
+    "opposing_evidence": (
+        "Record counterevidence and disputes before any hypothesis.",
+        "提出假说前记录反证和争议。",
+    ),
+    "open_questions_and_next_checks": (
+        "Name missing images, inscriptions, sources, and review steps.",
+        "点名缺失图像、卜辞、来源和复核步骤。",
+    ),
+    "review_log": (
+        "Record no identity, reading, assignment, or decipherment claim.",
+        "记录不作身份、释读、归属或破译结论。",
+    ),
+}
+
 OUTPUT_FIELDS = [
     "evidence_collection_note_draft_id",
     "evidence_collection_task_id",
@@ -180,7 +227,9 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             "",
             "- Status / 状态: `not_collected`",
             "- Evidence items / 证据条目: none",
-            "- Source-marked notes / 带来源标记备注: not collected.",
+            "- Source-marked notes / 带来源标记备注:",
+            f"  - English: {SECTION_NOTES[row['target_evidence_section']][0]}",
+            f"  - 简体中文：{SECTION_NOTES[row['target_evidence_section']][1]}",
             "",
             "## Review Log / 复核日志",
             "",

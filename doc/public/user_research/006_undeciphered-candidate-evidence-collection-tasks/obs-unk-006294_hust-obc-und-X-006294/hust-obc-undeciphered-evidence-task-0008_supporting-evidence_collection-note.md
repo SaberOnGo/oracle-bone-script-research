@@ -55,7 +55,9 @@
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Source-marked notes / 带来源标记备注: not collected.
+- Source-marked notes / 带来源标记备注:
+  - English: Collect source-marked support before stating any hypothesis.
+  - 简体中文：提出假说前先收集带来源支持证据。
 
 ## Review Log / 复核日志
 

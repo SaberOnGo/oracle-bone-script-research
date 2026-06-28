@@ -51,55 +51,73 @@ English: All sections are intentionally empty until source-marked evidence is co
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Compare source ID, external ref, rights, risk, and review status.
+  - 简体中文：核对来源 ID、外部引用、权利、风险和复核状态。
 
 ### Download Log / 下载日志
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open access log before treating the route as usable evidence.
+  - 简体中文：先打开访问日志，再判断路线能否作为证据线索。
 
 ### Package Manifest / 包 manifest
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Check package file list, checksum route, extraction note, and gaps.
+  - 简体中文：核对来源包清单、checksum 路线、抽取说明和缺失项。
 
 ### Metadata Profile / metadata 画像
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify metadata fields and keep provider labels as source records.
+  - 简体中文：核对 metadata 字段，并把提供方标签保持为来源记录。
 
 ### Graph Edges / 图谱边
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Use graph edges only as routes; do not treat them as scholarship.
+  - 简体中文：图边只作复核路线，不得当作学术结论。
 
 ### Staging Row / staging 行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Compare staging rows with object-local dossier before any claim.
+  - 简体中文：提出任何判断前，先与对象目录内档案互核 staging 行。
 
 ### Counter-Source Lookup / 反查来源
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open each counter-source row before writing cross-source evidence.
+  - 简体中文：写跨来源证据前，逐项打开反查来源行。
 
 ### Rights And Risk Review / 权利与风险复核
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Check rights, risk note, size boundary, and public-use limit.
+  - 简体中文：核对权利、风险说明、大小边界和公开使用限制。
 
 ### Review Log / 复核日志
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Record only source-marked review notes; leave promotion undecided.
+  - 简体中文：只记录带来源标记的复核说明，提升结论保持未定。
 
 ## Review Log / 复核日志
 

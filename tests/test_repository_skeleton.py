@@ -11854,6 +11854,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not_collected", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
 
+    def test_ai_agent_graph_source_cross_review_log_drafts_name_next_checks(self) -> None:
+        module = load_graph_source_cross_review_log_drafts_module()
+        root = repo_root()
+        scaffold_rows = module.read_csv_rows(root / module.GRAPH_SOURCE_CROSS_REVIEW_LOG_SCAFFOLD)
+
+        section_notes = getattr(module, "SECTION_NOTES", {})
+        self.assertEqual(set(section_notes), set(module.SECTION_LABELS))
+        for scaffold_row in scaffold_rows:
+            markdown = module.build_markdown(scaffold_row, "test-cross-review-log")
+            self.assertNotIn("not collected.", markdown)
+            self.assertIn("- Notes /", markdown)
+            self.assertIn("  - English:", markdown)
+            self.assertIn("  - 简体中文：", markdown)
+
     def test_ai_agent_graph_source_cross_review_log_results_are_metadata_only(self) -> None:
         results_path = (
             repo_root()

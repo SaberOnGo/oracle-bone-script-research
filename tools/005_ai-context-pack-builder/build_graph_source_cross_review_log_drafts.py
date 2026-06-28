@@ -38,6 +38,45 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "source_register": (
+        "Compare source ID, external ref, rights, risk, and review status.",
+        "核对来源 ID、外部引用、权利、风险和复核状态。",
+    ),
+    "download_log": (
+        "Open access log before treating the route as usable evidence.",
+        "先打开访问日志，再判断路线能否作为证据线索。",
+    ),
+    "package_manifest": (
+        "Check package file list, checksum route, extraction note, and gaps.",
+        "核对来源包清单、checksum 路线、抽取说明和缺失项。",
+    ),
+    "metadata_profile": (
+        "Verify metadata fields and keep provider labels as source records.",
+        "核对 metadata 字段，并把提供方标签保持为来源记录。",
+    ),
+    "graph_edges": (
+        "Use graph edges only as routes; do not treat them as scholarship.",
+        "图边只作复核路线，不得当作学术结论。",
+    ),
+    "staging_row": (
+        "Compare staging rows with object-local dossier before any claim.",
+        "提出任何判断前，先与对象目录内档案互核 staging 行。",
+    ),
+    "counter_source_lookup": (
+        "Open each counter-source row before writing cross-source evidence.",
+        "写跨来源证据前，逐项打开反查来源行。",
+    ),
+    "rights_risk_review": (
+        "Check rights, risk note, size boundary, and public-use limit.",
+        "核对权利、风险说明、大小边界和公开使用限制。",
+    ),
+    "review_log": (
+        "Record only source-marked review notes; leave promotion undecided.",
+        "只记录带来源标记的复核说明，提升结论保持未定。",
+    ),
+}
+
 OUTPUT_FIELDS = [
     "draft_log_id",
     "cross_review_log_id",
@@ -150,7 +189,9 @@ def build_markdown(row: dict[str, str], draft_log_id: str) -> str:
                 "",
                 "- Status / 状态: `not_collected`",
                 "- Evidence items / 证据条目: none",
-                "- Notes / 备注: not collected.",
+                "- Notes / 备注:",
+                f"  - English: {SECTION_NOTES[section][0]}",
+                f"  - 简体中文：{SECTION_NOTES[section][1]}",
                 "",
             ]
         )

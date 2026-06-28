@@ -71,6 +71,37 @@
 - `corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv`
 - `project_registry/006_large-source-register/001_large-source-register.csv`
 
+## Task Evidence Snapshot / 任务证据快照
+
+- Status / 状态: `not_collected_route_snapshot`
+- Base review status / 基础复核状态: `created_from_062_task_queue`
+- Task queue source / 任务队列来源: `corpus/009_statistics-and-derived-features/062_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-task-queue.csv`
+- Task ID / 任务 ID: `hust-obc-undeciphered-evidence-task-0003`
+- Evidence pack scaffold ID / 证据包脚手架 ID: `hust-obc-undeciphered-evidence-pack-scaffold-0001`
+- Unknown candidate ID / 未知候选 ID: `obs-unk-006294`
+- Primary external ref ID / 首选外部引用 ID: `hust-obc-und-X-006294`
+- Readiness check ID / readiness check ID: `hust-obc-undeciphered-evidence-readiness-0001`
+- Route result ID / 路由结果 ID: `hust-obc-undeciphered-route-result-0001`
+- Review log draft ID / 复核日志草稿 ID: `hust-obc-undeciphered-review-log-draft-0001`
+- Target evidence section / 目标证据章节: `full_inscription_context`
+- Route file count / 路由文件数量: `6`
+- Candidate packet capture ID / 候选 packet 捕获 ID: `hust-obc-undeciphered-candidate-packet-capture-result-0001`
+- Source metadata capture ID / 来源 metadata 捕获 ID: `hust-obc-undeciphered-source-metadata-evidence-capture-result-0001`
+- Collection scope / 收集范围: `find_and_collect_source_marked_inscription_or_catalog_context_when_available`
+- Required next checks / 必需下一步检查:
+  - `open_069_summary_row`
+  - `open_068_detail_rows`
+  - `search_xiaoxuetang_jiaguwen_and_obm`
+  - `verify_filename_number_tokens_before_any_catalog_or_inscription_context_claim`
+- Research boundary / 研究边界: `hust_obc_undeciphered_candidate_evidence_collection_task_queue_not_scholarship`
+
+## Concrete Next Checks / 具体下一步待查
+
+- Which 062 task row confirms this inscription-context collection route?
+- Which 069 summary row and 068 detail rows supply the image paths?
+- Which catalog, Heji, collection, or excavation context remains missing?
+- Does `hust-obc-und-X-006294` remain only an unpromoted route?
+
 ## Required Next Checks / 后续必查项
 
 - Open 069 summary row and 068 detail rows before using any filename token / 在使用任何文件名 token 前先打开 069 摘要行和 068 明细行。

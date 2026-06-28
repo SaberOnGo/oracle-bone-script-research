@@ -54,7 +54,57 @@
 ### Neighboring Characters / 周边字
 
 - Status / 状态: `not_collected`
-- Evidence items / 证据条目: none
+
+## Task Evidence Snapshot / 任务证据快照
+
+- Status / 状态:
+  - `not_collected_route_snapshot`
+- Task queue source / 任务队列来源:
+  - `corpus/009_statistics-and-derived-features/`
+  - `062_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-task-queue.csv`
+- Task ID / 任务 ID:
+  - `hust-obc-undeciphered-evidence-task-0004`
+- Evidence pack scaffold ID / 证据包脚手架 ID:
+  - `hust-obc-undeciphered-evidence-pack-scaffold-0001`
+- Unknown candidate ID / 未知候选 ID:
+  - `obs-unk-006294`
+- Primary external ref ID / 首选外部引用 ID:
+  - `hust-obc-und-X-006294`
+- Readiness check ID / readiness check ID:
+  - `hust-obc-undeciphered-evidence-readiness-0001`
+- Route result ID / 路由结果 ID:
+  - `hust-obc-undeciphered-route-result-0001`
+- Review log draft ID / 复核日志草稿 ID:
+  - `hust-obc-undeciphered-review-log-draft-0001`
+- Target evidence section / 目标证据章节:
+  - `neighboring_characters`
+- Route file count / 路由文件数量:
+  - `6`
+- Candidate packet capture ID / 候选 packet 捕获 ID:
+  - `hust-obc-undeciphered-candidate-packet-capture-result-0001`
+- Source register capture ID / 来源登记捕获 ID:
+  - `hust-obc-undeciphered-source-register-capture-result-0001`
+- Download log capture ID / 下载日志捕获 ID:
+  - `hust-obc-undeciphered-download-log-capture-result-0001`
+- Large source capture ID / 大型来源捕获 ID:
+  - `hust-obc-undeciphered-large-source-capture-result-0001`
+- Collection scope / 收集范围:
+  - `collect_source_marked_neighboring_character_context_when_available`
+- Required next checks / 必需下一步检查:
+  - `open_062_task_row`
+  - `open_061_scaffold_row`
+  - `open_route_files`
+  - `record_source_marked_evidence_only_after_verification`
+- Research boundary / 研究边界:
+  - `hust_obc_undeciphered_candidate_evidence_collection_task_queue_not_scholarship`
+
+## Concrete Next Checks / 具体下一步待查
+
+- Which candidate packet row confirms this unknown candidate route?
+- Which source, download, and large-source capture rows should be opened?
+- Which image, inscription, catalog, or context field remains missing?
+- Does `hust-obc-und-X-006294` remain only an unpromoted route?
+
 - Source-marked notes / 带来源标记备注:
   - English: Check adjacent glyph routes before naming neighboring signs.
   - 简体中文：命名邻近字前先核对相邻字形路线。
@@ -62,7 +112,7 @@
 ## Review Log / 复核日志
 
 - Status / 状态: `created_from_062_task_queue`
-- Decision / 决定: no evidence collected and no identity, reading, formal assignment, component, evolution-chain, rights, source-promotion, or decipherment decision.
+- Decision / 决定: route facts recorded for later source-marked review; no identity, reading, formal assignment, component, evolution-chain, rights, source-promotion, or decipherment decision.
 
 ## Caution / 警示
 

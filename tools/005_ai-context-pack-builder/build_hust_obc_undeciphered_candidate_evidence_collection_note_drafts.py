@@ -154,6 +154,73 @@ def _split_compact(value: str) -> list[str]:
     return [item for item in value.split(";") if item]
 
 
+def _wrapped_path_parts(value: str, limit: int = 68) -> list[str]:
+    parts = value.split("/")
+    lines: list[str] = []
+    current = ""
+    for part in parts:
+        candidate = part if not current else f"{current}/{part}"
+        if len(candidate) <= limit:
+            current = candidate
+            continue
+        if current:
+            lines.append(current)
+        current = part
+    if current:
+        lines.append(current)
+    return [line if index == len(lines) - 1 else f"{line}/" for index, line in enumerate(lines)]
+
+
+def _pair_lines(label: str, value: str) -> list[str]:
+    if ";" in value:
+        return [f"- {label}:"] + [f"  - `{part}`" for part in _split_compact(value)]
+    if "/" in value and len(value) > 68:
+        return [f"- {label}:"] + [f"  - `{part}`" for part in _wrapped_path_parts(value)]
+    return [f"- {label}:", f"  - `{value}`"]
+
+
+def _markdown_path_lines(value: str) -> list[str]:
+    if len(value) <= 68:
+        return [f"- `{value}`"]
+    return [f"- `{part}`" for part in _wrapped_path_parts(value)]
+
+
+def _task_snapshot_lines(row: dict[str, str]) -> list[str]:
+    values = [
+        ("Status / 状态", "not_collected_route_snapshot"),
+        ("Task queue source / 任务队列来源", TASK_QUEUE.as_posix()),
+        ("Task ID / 任务 ID", row["evidence_collection_task_id"]),
+        ("Evidence pack scaffold ID / 证据包脚手架 ID", row["evidence_pack_scaffold_id"]),
+        ("Unknown candidate ID / 未知候选 ID", row["unknown_candidate_id"]),
+        ("Primary external ref ID / 首选外部引用 ID", row["primary_external_ref_id"]),
+        ("Readiness check ID / readiness check ID", row["readiness_check_id"]),
+        ("Route result ID / 路由结果 ID", row["route_result_id"]),
+        ("Review log draft ID / 复核日志草稿 ID", row["review_log_draft_id"]),
+        ("Target evidence section / 目标证据章节", row["target_evidence_section"]),
+        ("Route file count / 路由文件数量", row["route_file_count"]),
+        ("Candidate packet capture ID / 候选 packet 捕获 ID", row["candidate_packet_capture_result_id"]),
+        ("Source register capture ID / 来源登记捕获 ID", row["source_register_capture_result_id"]),
+        ("Download log capture ID / 下载日志捕获 ID", row["download_log_capture_result_id"]),
+        ("Large source capture ID / 大型来源捕获 ID", row["large_source_register_capture_result_id"]),
+        ("Collection scope / 收集范围", row["collection_scope"]),
+        ("Required next checks / 必需下一步检查", row["required_next_checks"]),
+        ("Research boundary / 研究边界", row["research_boundary"]),
+    ]
+    lines: list[str] = []
+    for label, value in values:
+        lines.extend(_pair_lines(label, value))
+    return lines
+
+
+def _open_question_lines(row: dict[str, str]) -> list[str]:
+    return [
+        "- Which candidate packet row confirms this unknown candidate route?",
+        "- Which source, download, and large-source capture rows should be opened?",
+        "- Which image, inscription, catalog, or context field remains missing?",
+        f"- Does `{row['primary_external_ref_id']}` remain only an unpromoted route?",
+    ]
+
+
 def _require_task(row: dict[str, str]) -> None:
     required = {
         "task_status": "not_started",
@@ -226,7 +293,23 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             f"### {section_label_en} / {section_label_zh}",
             "",
             "- Status / 状态: `not_collected`",
-            "- Evidence items / 证据条目: none",
+            "",
+            "## Task Evidence Snapshot / 任务证据快照",
+            "",
+        ]
+    )
+    lines.extend(_task_snapshot_lines(row))
+    lines.extend(
+        [
+            "",
+            "## Concrete Next Checks / 具体下一步待查",
+            "",
+        ]
+    )
+    lines.extend(_open_question_lines(row))
+    lines.extend(
+        [
+            "",
             "- Source-marked notes / 带来源标记备注:",
             f"  - English: {SECTION_NOTES[row['target_evidence_section']][0]}",
             f"  - 简体中文：{SECTION_NOTES[row['target_evidence_section']][1]}",
@@ -234,7 +317,7 @@ def build_markdown(row: dict[str, str], note_draft_id: str) -> str:
             "## Review Log / 复核日志",
             "",
             "- Status / 状态: `created_from_062_task_queue`",
-            "- Decision / 决定: no evidence collected and no identity, reading, formal assignment, component, evolution-chain, rights, source-promotion, or decipherment decision.",
+            "- Decision / 决定: route facts recorded for later source-marked review; no identity, reading, formal assignment, component, evolution-chain, rights, source-promotion, or decipherment decision.",
             "",
             "## Caution / 警示",
             "",

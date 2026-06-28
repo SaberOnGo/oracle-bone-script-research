@@ -127,6 +127,50 @@ def _bullet_items(value: str) -> list[str]:
     return [f"- `{item}`" for item in _list_items(value)]
 
 
+def _pair_lines(label: str, value: str) -> list[str]:
+    if ";" in value:
+        return [f"- {label}:"] + [f"  - `{part}`" for part in _list_items(value)]
+    return [f"- {label}: `{value}`"]
+
+
+def _task_snapshot_lines(row: dict[str, str]) -> list[str]:
+    values = [
+        ("Status / 状态", "not_collected_route_snapshot"),
+        ("Base review status / 基础复核状态", "created_from_062_task_queue"),
+        ("Task queue source / 任务队列来源", row["task_queue_source_path"]),
+        ("Task ID / 任务 ID", row["evidence_collection_task_id"]),
+        ("Evidence pack scaffold ID / 证据包脚手架 ID", row["evidence_pack_scaffold_id"]),
+        ("Unknown candidate ID / 未知候选 ID", row["unknown_candidate_id"]),
+        ("Primary external ref ID / 首选外部引用 ID", row["primary_external_ref_id"]),
+        ("Readiness check ID / readiness check ID", row["readiness_check_id"]),
+        ("Route result ID / 路由结果 ID", row["route_result_id"]),
+        ("Review log draft ID / 复核日志草稿 ID", row["review_log_draft_id"]),
+        ("Target evidence section / 目标证据章节", row["target_evidence_section"]),
+        ("Route file count / 路由文件数量", str(len(_list_items(row["route_files_to_open"])))),
+        ("Candidate packet capture ID / 候选 packet 捕获 ID", row["candidate_packet_capture_result_id"]),
+        ("Source metadata capture ID / 来源 metadata 捕获 ID", row["source_metadata_evidence_capture_result_id"]),
+        ("Collection scope / 收集范围", row["task_collection_scope"]),
+        ("Required next checks / 必需下一步检查", row["required_next_checks"]),
+        (
+            "Research boundary / 研究边界",
+            "hust_obc_undeciphered_candidate_evidence_collection_task_queue_not_scholarship",
+        ),
+    ]
+    lines: list[str] = []
+    for label, value in values:
+        lines.extend(_pair_lines(label, value))
+    return lines
+
+
+def _open_question_lines(row: dict[str, str]) -> list[str]:
+    return [
+        "- Which 062 task row confirms this inscription-context collection route?",
+        "- Which 069 summary row and 068 detail rows supply the image paths?",
+        "- Which catalog, Heji, collection, or excavation context remains missing?",
+        f"- Does `{row['primary_external_ref_id']}` remain only an unpromoted route?",
+    ]
+
+
 def merge_rows(
     precheck_rows: list[dict[str, str]],
     summary_rows: list[dict[str, str]],
@@ -215,6 +259,14 @@ def build_markdown(row: dict[str, str]) -> str:
         "## Route Files To Open / 待打开路径文件",
         "",
         *route_files,
+        "",
+        "## Task Evidence Snapshot / 任务证据快照",
+        "",
+        *_task_snapshot_lines(row),
+        "",
+        "## Concrete Next Checks / 具体下一步待查",
+        "",
+        *_open_question_lines(row),
         "",
         "## Required Next Checks / 后续必查项",
         "",

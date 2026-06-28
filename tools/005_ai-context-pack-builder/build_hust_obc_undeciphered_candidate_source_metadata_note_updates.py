@@ -103,6 +103,52 @@ def _bullet_paths(value: str) -> list[str]:
     return [f"- `{item}`" for item in _list_items(value)]
 
 
+def _pair_lines(label: str, value: str) -> list[str]:
+    if ";" in value:
+        return [f"- {label}:"] + [f"  - `{part}`" for part in _list_items(value)]
+    return [f"- {label}: `{value}`"]
+
+
+def _task_snapshot_lines(row: dict[str, str]) -> list[str]:
+    values = [
+        ("Status / 状态", "not_collected_route_snapshot"),
+        ("Base review status / 基础复核状态", "created_from_062_task_queue"),
+        ("Task queue source / 任务队列来源", row["task_queue_source_path"]),
+        ("Task ID / 任务 ID", row["evidence_collection_task_id"]),
+        ("Evidence pack scaffold ID / 证据包脚手架 ID", row["evidence_pack_scaffold_id"]),
+        ("Unknown candidate ID / 未知候选 ID", row["unknown_candidate_id"]),
+        ("Primary external ref ID / 首选外部引用 ID", row["primary_external_ref_id"]),
+        ("Readiness check ID / readiness check ID", row["readiness_check_id"]),
+        ("Route result ID / 路由结果 ID", row["route_result_id"]),
+        ("Review log draft ID / 复核日志草稿 ID", row["review_log_draft_id"]),
+        ("Target evidence section / 目标证据章节", row["target_evidence_section"]),
+        ("Route file count / 路由文件数量", str(len(_list_items(row["route_files_to_open"])))),
+        ("Candidate packet capture ID / 候选 packet 捕获 ID", row["candidate_packet_capture_result_id"]),
+        ("Source register capture ID / 来源登记捕获 ID", row["source_register_capture_result_id"]),
+        ("Download log capture ID / 下载日志捕获 ID", row["download_log_capture_result_id"]),
+        ("Large source capture ID / 大型来源捕获 ID", row["large_source_register_capture_result_id"]),
+        ("Collection scope / 收集范围", row["task_collection_scope"]),
+        ("Required next checks / 必需下一步检查", row["required_next_checks"]),
+        (
+            "Research boundary / 研究边界",
+            "hust_obc_undeciphered_candidate_evidence_collection_task_queue_not_scholarship",
+        ),
+    ]
+    lines: list[str] = []
+    for label, value in values:
+        lines.extend(_pair_lines(label, value))
+    return lines
+
+
+def _open_question_lines(row: dict[str, str]) -> list[str]:
+    return [
+        "- Which 062 task row confirms this source metadata collection route?",
+        "- Which 064 capture row supplies each source-marked metadata field?",
+        "- Which primary catalog or inscription context remains uncollected?",
+        f"- Does `{row['primary_external_ref_id']}` remain only an unpromoted route?",
+    ]
+
+
 def build_markdown(row: dict[str, str]) -> str:
     route_hints = _bullet_paths(row["route_hints"])
     route_files = _bullet_paths(row["route_files_to_open"])
@@ -212,6 +258,14 @@ def build_markdown(row: dict[str, str]) -> str:
         f"- Zip-observed undeciphered image count / zip 观测未释读图片数: `{row['zip_observed_undeciphered_image_count']}`",
         f"- Materialization status / 物化状态: `{row['candidate_materialization_status']}`",
         f"- Candidate packet review status / 候选包复核状态: `{row['candidate_packet_review_status']}`",
+        "",
+        "## Task Evidence Snapshot / 任务证据快照",
+        "",
+        *_task_snapshot_lines(row),
+        "",
+        "## Concrete Next Checks / 具体下一步待查",
+        "",
+        *_open_question_lines(row),
         "",
         "## Evidence Collection / 证据收集",
         "",

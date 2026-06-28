@@ -9481,7 +9481,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("061_ai-agent", rows[0]["route_files_to_open"])
         self.assertIn("062_ai-agent", module.DEFAULT_OUTPUT.as_posix())
 
-    def test_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_are_empty(self) -> None:
+    def test_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_include_task_snapshot(self) -> None:
         manifest_path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -9528,10 +9528,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             "created_from_062_task_queue",
             "Evidence collection status /",
             "not_collected",
+            "Task Evidence Snapshot",
+            "not_collected_route_snapshot",
+            "hust-obc-undeciphered-evidence-task-0001",
+            "obs-unk-006294",
+            "hust-obc-und-X-006294",
             "not a decipherment conclusion",
             # UTF-8 repair: corrupted multilingual assertion placeholder
         ]:
             self.assertIn(snippet, first_text)
+        self.assertNotIn("Evidence items /", first_text)
 
     def test_hust_obc_undeciphered_candidate_evidence_collection_note_draft_builder_links_tasks(self) -> None:
         module = load_hust_obc_undeciphered_candidate_evidence_collection_note_drafts_module()
@@ -9552,6 +9558,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         markdown = module.build_markdown(task_rows[0], rows[0]["evidence_collection_note_draft_id"])
         self.assertIn("open_061_scaffold_row", markdown)
         self.assertIn("not_collected", markdown)
+        self.assertIn("Task Evidence Snapshot", markdown)
+        self.assertIn("not_collected_route_snapshot", markdown)
+        self.assertIn("hust-obc-undeciphered-evidence-task-0001", markdown)
+        self.assertIn("obs-unk-006294", markdown)
+        self.assertIn("hust-obc-und-X-006294", markdown)
+        self.assertNotIn("Evidence items /", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
         self.assertIn("063_ai-agent", module.DEFAULT_MANIFEST.as_posix())
@@ -9569,6 +9581,12 @@ class RepositorySkeletonTests(unittest.TestCase):
                 task_row,
                 manifest_row["evidence_collection_note_draft_id"],
             )
+            self.assertNotIn("Evidence items /", markdown)
+            self.assertIn("Task Evidence Snapshot", markdown)
+            self.assertIn(task_row["evidence_collection_task_id"], markdown)
+            self.assertIn(task_row["unknown_candidate_id"], markdown)
+            self.assertIn(task_row["primary_external_ref_id"], markdown)
+            self.assertIn(task_row["route_file_count"], markdown)
             self.assertNotIn("not collected.", markdown)
             self.assertIn("- Source-marked notes /", markdown)
             self.assertIn("  - English:", markdown)
@@ -9762,6 +9780,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("https://ndownloader.figshare.com/files/48465988", markdown)
         self.assertIn("607933810", markdown)
         self.assertIn("HUST-OBC/undeciphered/X/1850/", markdown)
+        self.assertIn("Task Evidence Snapshot", markdown)
+        self.assertIn("not_collected_route_snapshot", markdown)
+        self.assertIn("created_from_062_task_queue", markdown)
+        self.assertIn("Concrete Next Checks", markdown)
         self.assertIn("Evidence item count", markdown)
         self.assertIn("not a decipherment conclusion", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
@@ -9770,6 +9792,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         note_text = note_path.read_text(encoding="utf-8")
         self.assertIn("metadata_captured_from_064", note_text)
         self.assertIn("source_metadata_collected_metadata_only", note_text)
+        self.assertIn("Task Evidence Snapshot", note_text)
+        self.assertIn("created_from_062_task_queue", note_text)
+        self.assertIn("Concrete Next Checks", note_text)
         self.assertIn("hust-obc-undeciphered-source-register-capture-result-0001", note_text)
         self.assertIn("not a decipherment conclusion", note_text)
 
@@ -10056,6 +10081,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             markdown,
         )
         self.assertIn("search hints only", markdown)
+        self.assertIn("Task Evidence Snapshot", markdown)
+        self.assertIn("not_collected_route_snapshot", markdown)
+        self.assertIn("created_from_062_task_queue", markdown)
+        self.assertIn("Concrete Next Checks", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
 
         note_path = root / rows[0]["note_draft_path"]
@@ -10065,6 +10094,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             "full_inscription_context_not_collected_with_source_image_reference_paths_recorded",
             note_text,
         )
+        self.assertIn("Task Evidence Snapshot", note_text)
+        self.assertIn("created_from_062_task_queue", note_text)
+        self.assertIn("Concrete Next Checks", note_text)
         self.assertIn("filename_tokens_only_not_catalog_confirmation", note_text)
         self.assertIn("HUST-OBC/undeciphered/X/1850/", note_text)
 

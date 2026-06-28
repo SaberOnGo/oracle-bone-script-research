@@ -692,6 +692,14 @@ AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_READINESS_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "060_ai-agent-hust-obc-undeciphered-candidate-evidence-readiness-checklist.csv"
 )
+AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_TASK_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "062_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-task-queue.csv"
+)
+AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "063_ai-agent-hust-obc-undeciphered-candidate-evidence-collection-note-draft-manifest.csv"
+)
 AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "006_ai-agent-public-domain-asset-context-pack.json"
@@ -13015,6 +13023,126 @@ def check_published_research_note_phase_gap_review_checklist(root: Path) -> list
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_hust_obc_undeciphered_candidate_evidence_collection_notes(root: Path) -> list[str]:
+    issues: list[str] = []
+    task_rows, task_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_TASK_QUEUE
+    )
+    manifest_rows, manifest_issues = _read_csv_rows(
+        root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST
+    )
+    issues.extend(task_issues)
+    issues.extend(manifest_issues)
+    if len(task_rows) != 22:
+        issues.append(
+            f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_TASK_QUEUE} "
+            "should contain exactly 22 rows"
+        )
+    if len(manifest_rows) != 22:
+        issues.append(
+            f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+            "should contain exactly 22 rows"
+        )
+    task_rows_by_id = {
+        row.get("evidence_collection_task_id", ""): row
+        for row in task_rows
+    }
+    for index, row in enumerate(manifest_rows, start=1):
+        note_id = row.get("evidence_collection_note_draft_id", "")
+        task_id = row.get("evidence_collection_task_id", "")
+        task_row = task_rows_by_id.get(task_id, {})
+        if note_id != f"hust-obc-undeciphered-evidence-note-draft-{index:04d}":
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"note ID sequence changed: {note_id}"
+            )
+        if not task_row:
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"missing 062 task link: {note_id}"
+            )
+            continue
+        for linked_field in [
+            "evidence_pack_scaffold_id",
+            "readiness_check_id",
+            "route_result_id",
+            "review_log_draft_id",
+            "undeciphered_review_task_id",
+            "context_pack_id",
+            "unknown_candidate_id",
+            "primary_external_ref_id",
+            "target_evidence_section",
+            "route_hints",
+            "route_files_to_open",
+            "candidate_packet_capture_result_id",
+            "source_register_capture_result_id",
+            "download_log_capture_result_id",
+            "large_source_register_capture_result_id",
+        ]:
+            if row.get(linked_field) != task_row.get(linked_field):
+                issues.append(
+                    f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                    f"{linked_field} does not match 062 task: {note_id}"
+                )
+        if row.get("note_draft_path") != task_row.get("expected_output_path"):
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"note path does not match 062 expected output: {note_id}"
+            )
+        for key, expected_value in {
+            "task_queue_source_path": AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_TASK_QUEUE,
+            "note_status": "draft_not_collected",
+            "evidence_collection_status": "not_collected",
+            "human_review_status": "not_started",
+            "formal_schema_compatibility_status": "not_formal_obs_char_schema",
+            "identity_claim_status": "no_identity_claim",
+            "assignment_status": "unknown_candidate_id_not_formal_obs_char_assignment",
+            "decipherment_claim_status": "no_claim",
+            "component_claim_status": "no_claim",
+            "evolution_chain_claim_status": "no_claim",
+            "rights_decision_status": "no_new_rights_decision",
+            "source_promotion_status": "not_promoted",
+            "research_boundary": "hust_obc_undeciphered_candidate_evidence_collection_note_draft_not_scholarship",
+            "updated_at": "2026-06-11",
+        }.items():
+            if row.get(key) != expected_value:
+                issues.append(
+                    f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                    f"{key} changed: {note_id}"
+                )
+        note_path = root / row.get("note_draft_path", "")
+        if not note_path.exists():
+            issues.append(
+                f"{AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_COLLECTION_NOTE_DRAFT_MANIFEST} "
+                f"missing note draft file: {note_id}"
+            )
+            continue
+        note_text = note_path.read_text(encoding="utf-8")
+        for required_snippet in [
+            "HUST-OBC Undeciphered Candidate",
+            "Task Evidence Snapshot",
+            "not_collected_route_snapshot",
+            "Concrete Next Checks",
+            "created_from_062_task_queue",
+            "not a decipherment conclusion",
+            task_id,
+            row.get("unknown_candidate_id", ""),
+            row.get("primary_external_ref_id", ""),
+            row.get("candidate_packet_capture_result_id", ""),
+        ]:
+            if required_snippet and required_snippet not in note_text:
+                issues.append(
+                    f"{row.get('note_draft_path', '')} missing note snippet: "
+                    f"{required_snippet}"
+                )
+        if "Evidence items /" in note_text:
+            issues.append(
+                f"{row.get('note_draft_path', '')} should carry task evidence "
+                "snapshot instead of empty evidence items"
+            )
     return issues
 
 
@@ -30463,6 +30591,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_gap_review_outcome_assignment_outcome_scaffold(root))
     issues.extend(check_core_corpus_phase_gap_review_outcome_assignment_outcome_route_summary(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
+    issues.extend(check_hust_obc_undeciphered_candidate_evidence_collection_notes(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))

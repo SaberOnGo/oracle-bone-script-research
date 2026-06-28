@@ -13307,6 +13307,11 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
         for path in (root / "corpus/003_graphemic-components").rglob("01_candidate-component-packet.json")
         if path.is_file()
     )
+    codepoint_packet_count = sum(
+        1
+        for path in (root / "corpus/001_oracle-characters").rglob("01_codepoint-crosswalk-packet.json")
+        if path.is_file()
+    )
     evolution_packet_count = sum(
         1
         for path in (root / "corpus/004_bronze-seal-modern-correspondences").rglob(
@@ -13322,7 +13327,7 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
             "primary_review_route_count": str(len(codepoint_review_rows)),
             "supporting_readiness_count": str(len(codepoint_readiness_rows)),
             "graph_edge_count": "0",
-            "object_packet_count": "0",
+            "object_packet_count": str(codepoint_packet_count),
             "review_log_count": "0",
             "candidate_or_staging_boundary": "candidate_crosswalk_not_identity_claim",
             "required_verification_slots": [

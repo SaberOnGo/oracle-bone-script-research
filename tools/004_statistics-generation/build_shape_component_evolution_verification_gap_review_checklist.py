@@ -52,7 +52,7 @@ EVOLUTION_ID_SOURCE_MAP = Path(
 EVOLUTION_GRAPH_EDGES = Path("corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl")
 EVOLUTION_REVIEW_LOG_DIR = Path("doc/public/user_research/002_cross-source-review-queues/evobc")
 
-UPDATED_AT = "2026-06-20"
+UPDATED_AT = "2026-06-28"
 TARGET_AREAS = [
     "cross_source_codepoint_routes",
     "graphemic_components",
@@ -202,6 +202,10 @@ def build_area_metrics(root: Path) -> dict[str, dict[str, str]]:
     component_map_rows = read_csv_rows(root / COMPONENT_ID_SOURCE_MAP)
     evolution_rows = read_csv_rows(root / EVOLUTION_STAGING)
     evolution_map_rows = read_csv_rows(root / EVOLUTION_ID_SOURCE_MAP)
+    codepoint_packet_count = count_files(
+        root,
+        "corpus/001_oracle-characters/**/01_codepoint-crosswalk-packet.json",
+    )
     return {
         "cross_source_codepoint_routes": {
             "primary_staging_count": str(len(codepoint_rows)),
@@ -210,7 +214,7 @@ def build_area_metrics(root: Path) -> dict[str, dict[str, str]]:
             "primary_review_route_count": str(len(codepoint_review_rows)),
             "supporting_readiness_count": str(len(codepoint_readiness_rows)),
             "graph_edge_count": "0",
-            "object_packet_count": "0",
+            "object_packet_count": str(codepoint_packet_count),
             "review_log_count": "0",
             "source_ids": source_ids_from_rows(codepoint_rows, "matched_source_ids"),
             **AREA_REVIEW_FIELDS["cross_source_codepoint_routes"],

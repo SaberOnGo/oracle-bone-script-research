@@ -44,29 +44,53 @@
 
 ### Route IDs / 路由 ID
 
-- `source-pipeline-phase-action-missing-evidence-route-033`
-- `source-pipeline-phase-action-missing-evidence-route-034`
+- `source-pipeline-phase-action-missing-evidence-route-023`
+- `source-pipeline-phase-action-missing-evidence-route-024`
 
 ### Action IDs / 动作 ID
 
-- `source-pipeline-phase-action-missing-evidence-033`
-- `source-pipeline-phase-action-missing-evidence-034`
+- `source-pipeline-phase-action-missing-evidence-023`
+- `source-pipeline-phase-action-missing-evidence-024`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
-- `source-pipeline-phase-action-missing-evidence-result-033`
-- `source-pipeline-phase-action-missing-evidence-result-034`
+- `source-pipeline-phase-action-missing-evidence-result-023`
+- `source-pipeline-phase-action-missing-evidence-result-024`
 
-## Review Outcome Placeholder / 复核结果占位
+## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 
-English: No reviewed evidence has been collected in this draft. Fill this section only after opening the routed files and preserving source, rights, manifest, large-source, metadata-profile, and field-map boundaries.
+English: Current source-register and provenance rows are
+summarized here before any human outcome review.
 
-简体中文：本草稿尚未收集已复核证据。只有在打开路由文件，并保留来源、权利、manifest、大型来源、metadata profile 和 field-map 边界后，才可填写本节。
+简体中文：这里先汇总当前来源登记和追溯行，
+不替代后续人工结论复核。
 
-- Reviewed evidence paths / 已复核证据路径: none
-- Reviewed outcome summary / 已复核结果摘要: not decided
-- Required follow-up / 必需后续动作: not decided
+- all_sources_index_row_count: `1`
+- downloaded_metadata_profile_row_count: `2`
+- large_source_register_row_count: `0`
+- source_download_log_row_count: `1`
+- source_field_map_row_count: `2`
+- source_package_file_manifest_row_count: `0`
+- all_sources_review_status_counts: `reviewed:1`
+- metadata_profile_ids: `metadata-profile-000047;metadata-profile-000048`
+- large_source_package_ids: `none`
+- source_download_log_ids: `dl-sinica-yinshang-oracle-vocabulary`
+- source_field_map_ids: `field-map-000053;field-map-000054`
+- source_package_file_ids: `none`
 
+## Review Outcome Boundary / 复核结果边界
+
+English: These rows are source and route evidence only.
+They do not decide rights, promote a source, import corpus rows,
+or make any decipherment claim.
+
+简体中文：这些行只作为来源和路线证据。
+它们不作权利裁定，不提升来源，不导入语料，
+也不提出任何释读结论。
+
+- Reviewed evidence paths / 已复核证据路径: pending human review
+- Reviewed outcome summary / 已复核结果摘要: pending human review
+- Required follow-up / 必需后续动作: open the routed rows above
 ## Boundary Status / 边界状态
 
 - Rights decision status / 权利裁定状态: `no_new_rights_decision`

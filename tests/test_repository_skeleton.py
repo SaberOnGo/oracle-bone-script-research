@@ -20526,7 +20526,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Source Pipeline Missing-Evidence Review Draft", text)
         self.assertIn("src-british-museum-oracle-bone", text)
         self.assertIn("downloaded_metadata_profile", text)
-        self.assertIn("No reviewed evidence has been collected in this draft", text)
+        self.assertIn("Existing Source Metadata Snapshot", text)
+        self.assertIn("all_sources_index_row_count: `1`", text)
+        self.assertIn("downloaded_metadata_profile_row_count: `0`", text)
+        self.assertIn("source_package_file_manifest_row_count: `0`", text)
+        self.assertNotIn("No reviewed evidence has been collected in this draft", text)
         self.assertIn("not a decipherment conclusion", text)
         self.assertFalse(rows[0]["draft_path"].startswith("research/"))
 

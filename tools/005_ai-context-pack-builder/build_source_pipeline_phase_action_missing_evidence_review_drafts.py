@@ -17,6 +17,28 @@ SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_SOURCE_SUMMARY = Path(
     "corpus/009_statistics-and-derived-features/"
     "147_source-pipeline-phase-action-missing-evidence-source-summary.csv"
 )
+ALL_SOURCES_INDEX = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "001_all-sources-index.csv"
+)
+DOWNLOADED_METADATA_PROFILE = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "010_downloaded-metadata-profile.csv"
+)
+LARGE_SOURCE_REGISTER = Path(
+    "project_registry/006_large-source-register/001_large-source-register.csv"
+)
+SOURCE_DOWNLOAD_LOG = Path(
+    "project_registry/006_large-source-register/002_source-download-log.csv"
+)
+SOURCE_FIELD_MAP = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "007_source-field-map.csv"
+)
+SOURCE_PACKAGE_FILE_MANIFEST = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "009_source-package-file-manifest.csv"
+)
 DEFAULT_MANIFEST = Path(
     "corpus/009_statistics-and-derived-features/"
     "148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv"
@@ -84,6 +106,55 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
 
 def split_semicolon(value: str) -> list[str]:
     return [part for part in value.split(";") if part]
+
+
+def ids_from_rows(rows: list[dict[str, str]], field: str) -> str:
+    values: list[str] = []
+    for row in rows:
+        value = row.get(field, "")
+        if value and value not in values:
+            values.append(value)
+    return ";".join(values) if values else "none"
+
+
+def status_counts(rows: list[dict[str, str]], field: str) -> str:
+    counts: dict[str, int] = {}
+    for row in rows:
+        value = row.get(field, "") or "blank"
+        counts[value] = counts.get(value, 0) + 1
+    if not counts:
+        return "none"
+    return ";".join(f"{key}:{counts[key]}" for key in sorted(counts))
+
+
+def rows_for_source(root: Path, path: Path, source_id: str) -> list[dict[str, str]]:
+    full_path = root / path
+    if not full_path.exists():
+        return []
+    return [row for row in read_csv_rows(full_path) if row.get("source_id") == source_id]
+
+
+def collect_source_metadata_snapshot(root: Path, source_id: str) -> dict[str, str]:
+    all_sources = rows_for_source(root, ALL_SOURCES_INDEX, source_id)
+    metadata_profiles = rows_for_source(root, DOWNLOADED_METADATA_PROFILE, source_id)
+    large_sources = rows_for_source(root, LARGE_SOURCE_REGISTER, source_id)
+    download_logs = rows_for_source(root, SOURCE_DOWNLOAD_LOG, source_id)
+    field_maps = rows_for_source(root, SOURCE_FIELD_MAP, source_id)
+    package_files = rows_for_source(root, SOURCE_PACKAGE_FILE_MANIFEST, source_id)
+    return {
+        "all_sources_index_row_count": str(len(all_sources)),
+        "downloaded_metadata_profile_row_count": str(len(metadata_profiles)),
+        "large_source_register_row_count": str(len(large_sources)),
+        "source_download_log_row_count": str(len(download_logs)),
+        "source_field_map_row_count": str(len(field_maps)),
+        "source_package_file_manifest_row_count": str(len(package_files)),
+        "all_sources_review_status_counts": status_counts(all_sources, "review_status"),
+        "metadata_profile_ids": ids_from_rows(metadata_profiles, "profile_id"),
+        "large_source_package_ids": ids_from_rows(large_sources, "source_package_id"),
+        "source_download_log_ids": ids_from_rows(download_logs, "download_id"),
+        "source_field_map_ids": ids_from_rows(field_maps, "map_id"),
+        "source_package_file_ids": ids_from_rows(package_files, "package_file_id"),
+    }
 
 
 def draft_path(index: int, source_id: str) -> str:
@@ -241,6 +312,56 @@ def build_markdown(row: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
+def metadata_snapshot_markdown(snapshot: dict[str, str]) -> str:
+    lines = [
+        "## Existing Source Metadata Snapshot / 已有来源 metadata 快照",
+        "",
+        "English: Current source-register and provenance rows are",
+        "summarized here before any human outcome review.",
+        "",
+        "简体中文：这里先汇总当前来源登记和追溯行，",
+        "不替代后续人工结论复核。",
+        "",
+        f"- all_sources_index_row_count: `{snapshot['all_sources_index_row_count']}`",
+        f"- downloaded_metadata_profile_row_count: `{snapshot['downloaded_metadata_profile_row_count']}`",
+        f"- large_source_register_row_count: `{snapshot['large_source_register_row_count']}`",
+        f"- source_download_log_row_count: `{snapshot['source_download_log_row_count']}`",
+        f"- source_field_map_row_count: `{snapshot['source_field_map_row_count']}`",
+        f"- source_package_file_manifest_row_count: `{snapshot['source_package_file_manifest_row_count']}`",
+        f"- all_sources_review_status_counts: `{snapshot['all_sources_review_status_counts']}`",
+        f"- metadata_profile_ids: `{snapshot['metadata_profile_ids']}`",
+        f"- large_source_package_ids: `{snapshot['large_source_package_ids']}`",
+        f"- source_download_log_ids: `{snapshot['source_download_log_ids']}`",
+        f"- source_field_map_ids: `{snapshot['source_field_map_ids']}`",
+        f"- source_package_file_ids: `{snapshot['source_package_file_ids']}`",
+        "",
+        "## Review Outcome Boundary / 复核结果边界",
+        "",
+        "English: These rows are source and route evidence only.",
+        "They do not decide rights, promote a source, import corpus rows,",
+        "or make any decipherment claim.",
+        "",
+        "简体中文：这些行只作为来源和路线证据。",
+        "它们不作权利裁定，不提升来源，不导入语料，",
+        "也不提出任何释读结论。",
+        "",
+        "- Reviewed evidence paths / 已复核证据路径: pending human review",
+        "- Reviewed outcome summary / 已复核结果摘要: pending human review",
+        "- Required follow-up / 必需后续动作: open the routed rows above",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def build_markdown_with_snapshot(row: dict[str, str], snapshot: dict[str, str]) -> str:
+    text = build_markdown(row)
+    start_marker = "## Review Outcome Placeholder"
+    end_marker = "## Boundary Status"
+    start = text.index(start_marker)
+    end = text.index(end_marker)
+    return text[:start] + metadata_snapshot_markdown(snapshot) + text[end:]
+
+
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
@@ -253,7 +374,8 @@ def write_markdown_drafts(root: Path, rows: list[dict[str, str]]) -> None:
     for row in rows:
         path = root / row["draft_path"]
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(build_markdown(row), encoding="utf-8")
+        snapshot = collect_source_metadata_snapshot(root, row["source_id"])
+        path.write_text(build_markdown_with_snapshot(row, snapshot), encoding="utf-8")
 
 
 def main(argv: list[str] | None = None) -> int:

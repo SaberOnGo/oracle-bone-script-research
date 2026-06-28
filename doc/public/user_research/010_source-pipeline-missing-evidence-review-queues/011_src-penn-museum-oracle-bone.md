@@ -19,23 +19,20 @@
 
 ## Missing Evidence / 缺失证据
 
-- Missing route count / 缺失路由数: `2`
-- Missing file role count / 缺失文件角色数: `2`
+- Missing route count / 缺失路由数: `1`
+- Missing file role count / 缺失文件角色数: `1`
 
 ### Missing file roles / 缺失文件角色
 
 - `large_source_register`
-- `source_package_file_manifest`
 
 ### Files to open / 待打开文件
 
 - `project_registry/006_large-source-register/001_large-source-register.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv`
 
 ### Required review actions / 必需复核动作
 
 - `review_large_source_register_applicability_or_mark_not_applicable`
-- `review_package_manifest_applicability_or_create_row`
 
 ## Route References / 路由引用
 
@@ -44,29 +41,50 @@
 
 ### Route IDs / 路由 ID
 
-- `source-pipeline-phase-action-missing-evidence-route-029`
-- `source-pipeline-phase-action-missing-evidence-route-030`
+- `source-pipeline-phase-action-missing-evidence-route-020`
 
 ### Action IDs / 动作 ID
 
-- `source-pipeline-phase-action-missing-evidence-029`
-- `source-pipeline-phase-action-missing-evidence-030`
+- `source-pipeline-phase-action-missing-evidence-020`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
-- `source-pipeline-phase-action-missing-evidence-result-029`
-- `source-pipeline-phase-action-missing-evidence-result-030`
+- `source-pipeline-phase-action-missing-evidence-result-020`
 
-## Review Outcome Placeholder / 复核结果占位
+## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 
-English: No reviewed evidence has been collected in this draft. Fill this section only after opening the routed files and preserving source, rights, manifest, large-source, metadata-profile, and field-map boundaries.
+English: Current source-register and provenance rows are
+summarized here before any human outcome review.
 
-简体中文：本草稿尚未收集已复核证据。只有在打开路由文件，并保留来源、权利、manifest、大型来源、metadata profile 和 field-map 边界后，才可填写本节。
+简体中文：这里先汇总当前来源登记和追溯行，
+不替代后续人工结论复核。
 
-- Reviewed evidence paths / 已复核证据路径: none
-- Reviewed outcome summary / 已复核结果摘要: not decided
-- Required follow-up / 必需后续动作: not decided
+- all_sources_index_row_count: `1`
+- downloaded_metadata_profile_row_count: `4`
+- large_source_register_row_count: `0`
+- source_download_log_row_count: `1`
+- source_field_map_row_count: `3`
+- source_package_file_manifest_row_count: `1`
+- all_sources_review_status_counts: `reviewed:1`
+- metadata_profile_ids: `metadata-profile-000034;metadata-profile-000035;metadata-profile-000036;metadata-profile-000037`
+- large_source_package_ids: `none`
+- source_download_log_ids: `dl-penn-museum-49-14-7a`
+- source_field_map_ids: `field-map-000046;field-map-000047;field-map-000048`
+- source_package_file_ids: `pkg-file-000027`
 
+## Review Outcome Boundary / 复核结果边界
+
+English: These rows are source and route evidence only.
+They do not decide rights, promote a source, import corpus rows,
+or make any decipherment claim.
+
+简体中文：这些行只作为来源和路线证据。
+它们不作权利裁定，不提升来源，不导入语料，
+也不提出任何释读结论。
+
+- Reviewed evidence paths / 已复核证据路径: pending human review
+- Reviewed outcome summary / 已复核结果摘要: pending human review
+- Required follow-up / 必需后续动作: open the routed rows above
 ## Boundary Status / 边界状态
 
 - Rights decision status / 权利裁定状态: `no_new_rights_decision`

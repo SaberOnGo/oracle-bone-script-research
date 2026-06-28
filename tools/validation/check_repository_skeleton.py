@@ -14440,11 +14440,18 @@ def check_source_pipeline_phase_action_missing_evidence_review_drafts(root: Path
         for snippet in [
             "Source Pipeline Missing-Evidence Review Draft",
             row.get("source_id", ""),
-            "No reviewed evidence has been collected in this draft",
+            "Existing Source Metadata Snapshot",
+            "all_sources_index_row_count",
+            "source_package_file_manifest_row_count",
             "not a decipherment conclusion",
         ]:
             if snippet and snippet not in text:
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} draft missing snippet: {row_id}")
+        if "No reviewed evidence has been collected in this draft" in text:
+            issues.append(
+                f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} "
+                f"draft still has empty evidence placeholder: {row_id}"
+            )
     return issues
 
 

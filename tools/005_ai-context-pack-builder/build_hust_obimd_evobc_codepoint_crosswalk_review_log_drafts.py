@@ -79,6 +79,41 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "crosswalk_row": (
+        "Open 011 crosswalk row; compare HUST, OBIMD, and EVOBC IDs.",
+        "打开 011 crosswalk 行，核对三方 ID。",
+    ),
+    "hust_candidate_packet": (
+        "Open the HUST packet; treat packet fields as review routes.",
+        "打开 HUST packet；字段只作复核路线。",
+    ),
+    "obimd_main_character_staging_row": (
+        "Verify the OBIMD row; do not promote main-character matches.",
+        "核对 OBIMD 行；不得提升主字匹配。",
+    ),
+    "evobc_evolution_category_staging_row": (
+        "Verify EVOBC row and image refs; keep evolution links candidate.",
+        "核对 EVOBC 行和图像引用；演化仅为候选。",
+    ),
+    "source_register": (
+        "Verify source rows for HUST, OBIMD, EVOBC rights and risk.",
+        "核对三方来源、权利和风险说明。",
+    ),
+    "download_log": (
+        "Check access or download logs before using source evidence.",
+        "使用证据前先查访问或下载日志。",
+    ),
+    "rights_risk_boundary": (
+        "Record rights and risk limits before evidence capture.",
+        "采集证据前记录权利和风险边界。",
+    ),
+    "review_log": (
+        "Record no identity, reading, component, evolution, or claim.",
+        "记录不作身份、释读、构件或演化结论。",
+    ),
+}
+
 NEXT_CHECK_LABELS = {
     "open_codepoint_crosswalk_row": (
         "Open the cited codepoint crosswalk row.",
@@ -97,7 +132,7 @@ NEXT_CHECK_LABELS = {
         "打开 EVOBC 演化类别暂存行。",
     ),
     "verify_source_register_and_download_log_rights_risk": (
-        "Verify source register, download log, rights status, and risk note before evidence capture.",
+        "Check source rows, download log, rights, and risk before capture.",
         "记录证据前先复核来源登记、下载日志、权利状态和风险说明。",
     ),
     "record_no_identity_or_decipherment_claim": (
@@ -231,7 +266,9 @@ def build_markdown(row: dict[str, str]) -> str:
                 "",
                 "- Status / 状态: `not_collected`",
                 "- Evidence items / 证据条目: none",
-                "- Notes / 备注: not collected.",
+                "- Notes / 备注:",
+                f"  - English: {SECTION_NOTES[section][0]}",
+                f"  - 简体中文：{SECTION_NOTES[section][1]}",
                 "",
             ]
         )

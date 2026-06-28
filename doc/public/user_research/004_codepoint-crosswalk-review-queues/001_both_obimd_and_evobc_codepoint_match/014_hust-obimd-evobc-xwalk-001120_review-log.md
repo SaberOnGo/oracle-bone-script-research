@@ -49,49 +49,65 @@ English: All sections are deliberately empty until source-marked evidence is col
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open 011 crosswalk row; compare HUST, OBIMD, and EVOBC IDs.
+  - 简体中文：打开 011 crosswalk 行，核对三方 ID。
 
 ### HUST Candidate Packet / HUST 候选资料包
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open the HUST packet; treat packet fields as review routes.
+  - 简体中文：打开 HUST packet；字段只作复核路线。
 
 ### OBIMD Main Character Staging Row / OBIMD 主字暂存行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify the OBIMD row; do not promote main-character matches.
+  - 简体中文：核对 OBIMD 行；不得提升主字匹配。
 
 ### EVOBC Evolution Category Staging Row / EVOBC 演化类别暂存行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify EVOBC row and image refs; keep evolution links candidate.
+  - 简体中文：核对 EVOBC 行和图像引用；演化仅为候选。
 
 ### Source Register / 来源登记表
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify source rows for HUST, OBIMD, EVOBC rights and risk.
+  - 简体中文：核对三方来源、权利和风险说明。
 
 ### Download Log / 下载日志
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Check access or download logs before using source evidence.
+  - 简体中文：使用证据前先查访问或下载日志。
 
 ### Rights And Risk Boundary / 权利与风险边界
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Record rights and risk limits before evidence capture.
+  - 简体中文：采集证据前记录权利和风险边界。
 
 ### Review Log / 复核日志
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Record no identity, reading, component, evolution, or claim.
+  - 简体中文：记录不作身份、释读、构件或演化结论。
 
 ## Required Next Checks / 必需下一步检查
 
@@ -108,7 +124,7 @@ English: All sections are deliberately empty until source-marked evidence is col
   - English: Open the EVOBC evolution-category staging row.
   - 简体中文：打开 EVOBC 演化类别暂存行。
 - `verify_source_register_and_download_log_rights_risk`
-  - English: Verify source register, download log, rights status, and risk note before evidence capture.
+  - English: Check source rows, download log, rights, and risk before capture.
   - 简体中文：记录证据前先复核来源登记、下载日志、权利状态和风险说明。
 - `record_no_identity_or_decipherment_claim`
   - English: Record that this task makes no identity or decipherment claim.

@@ -10797,6 +10797,21 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not a decipherment conclusion", markdown)
         # UTF-8 repair: corrupted multilingual assertion placeholder
 
+    def test_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_name_next_checks(self) -> None:
+        module = load_hust_obimd_evobc_codepoint_crosswalk_review_log_drafts_module()
+        root = repo_root()
+        queue_rows = module.read_csv_rows(root / module.CODEPOINT_CROSSWALK_REVIEW_QUEUE)
+        rows = module.build_draft_manifest_rows(queue_rows)
+
+        section_notes = getattr(module, "SECTION_NOTES", {})
+        self.assertEqual(set(section_notes), set(module.SECTION_LABELS))
+        for row in rows:
+            markdown = module.build_markdown(row)
+            self.assertNotIn("not collected.", markdown)
+            self.assertIn("- Notes /", markdown)
+            self.assertIn("  - English:", markdown)
+            self.assertIn("  - 简体中文：", markdown)
+
     def test_hust_obimd_evobc_codepoint_crosswalk_review_route_results_are_metadata_only(self) -> None:
         path = (
             repo_root()

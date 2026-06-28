@@ -44,49 +44,65 @@ English: Keep every section empty until source-marked evidence is collected thro
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open the 071 route-probe row and record the exact access failure.
+  - 简体中文：打开 071 route-probe 行，记录具体访问失败原因。
 
 ### Note Update Result / note update 结果
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Open the 070 note-update row before editing context notes.
+  - 简体中文：修改上下文备注前，先打开 070 note-update 行。
 
 ### Full Inscription Context Note / 完整卜辞上下文草稿
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Check the linked note draft; keep missing context as questions.
+  - 简体中文：核对关联备注草稿；缺失上下文写成具体问题。
 
 ### Source Register Row / 来源登记行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify Xiaoxuetang source identity, scope, rights, and risk note.
+  - 简体中文：核对小学堂来源身份、范围、权利和风险说明。
 
 ### Source Download Manifest Row / 来源下载 manifest 行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify manifest row, targeted URL, file size, and checksum route.
+  - 简体中文：核对 manifest 行、目标 URL、文件大小和 checksum 路线。
 
 ### Download Log Row / 下载日志行
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Verify download log status before treating the page as reachable.
+  - 简体中文：把页面视为可访问前，先核对下载日志状态。
 
 ### Official Access Boundary / 官方访问边界
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Use manual browser or institutional export before catalog claims.
+  - 简体中文：提出著录主张前，先用人工浏览或机构导出路线。
 
 ### Review Log / 复核日志
 
 - Status / 状态: `not_collected`
 - Evidence items / 证据条目: none
-- Notes / 备注: not collected.
+- Notes / 备注:
+  - English: Record no identity, assignment, or decipherment claim in this log.
+  - 简体中文：本日志只记录不作身份、分配或释读结论。
 
 ## Required Next Checks / 必需下一步检查
 
@@ -100,13 +116,13 @@ English: Keep every section empty until source-marked evidence is collected thro
   - English: Open the linked full-inscription-context note draft.
   - 简体中文：打开关联的完整卜辞上下文草稿。
 - `verify_registered_xxt_source_and_download_rows`
-  - English: Verify the registered Xiaoxuetang source row, download-manifest row, and download-log row.
+  - English: Verify the Xiaoxuetang source, manifest, and download-log rows.
   - 简体中文：复核已登记的小學堂来源行、下载 manifest 行和下载日志行。
 - `use_manual_browser_or_institutional_export_before_any_catalog_claim`
-  - English: Use a manual browser or institutional export path before any catalog or inscription-context claim.
+  - English: Use manual browser or export before any catalog claim.
   - 简体中文：在提出任何著录或卜辞上下文主张前，先使用人工浏览或机构导出路径。
 - `record_no_identity_assignment_or_decipherment_claim`
-  - English: Record that this follow-up makes no identity, assignment, or decipherment claim.
+  - English: Record no identity, assignment, or decipherment claim.
   - 简体中文：记录本后续复核不提出身份、分配或释读结论。
 
 ## Rights And Risk / 权利与风险

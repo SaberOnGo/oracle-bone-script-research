@@ -10220,6 +10220,22 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("open_071_route_probe_result", markdown)
         self.assertIn("not catalog confirmation", markdown)
 
+    def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_name_next_checks(self) -> None:
+        module = load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_module()
+        root = repo_root()
+        rows = module.build_draft_manifest_rows(
+            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE)
+        )
+
+        section_notes = getattr(module, "SECTION_NOTES", {})
+        self.assertEqual(set(section_notes), set(module.SECTION_LABELS))
+        for row in rows:
+            markdown = module.build_markdown(row)
+            self.assertNotIn("not collected.", markdown)
+            self.assertIn("- Notes /", markdown)
+            self.assertIn("  - English:", markdown)
+            self.assertIn("  - 简体中文：", markdown)
+
     def test_xxt_obm_access_boundary_followup_review_queue(self) -> None:
         path = (
             repo_root()

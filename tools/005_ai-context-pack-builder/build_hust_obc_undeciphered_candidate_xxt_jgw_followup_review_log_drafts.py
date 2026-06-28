@@ -80,6 +80,41 @@ SECTION_LABELS = {
     "review_log": ("Review Log", "复核日志"),
 }
 
+SECTION_NOTES = {
+    "route_probe_result": (
+        "Open the 071 route-probe row and record the exact access failure.",
+        "打开 071 route-probe 行，记录具体访问失败原因。",
+    ),
+    "note_update_result": (
+        "Open the 070 note-update row before editing context notes.",
+        "修改上下文备注前，先打开 070 note-update 行。",
+    ),
+    "full_inscription_context_note": (
+        "Check the linked note draft; keep missing context as questions.",
+        "核对关联备注草稿；缺失上下文写成具体问题。",
+    ),
+    "source_register_row": (
+        "Verify Xiaoxuetang source identity, scope, rights, and risk note.",
+        "核对小学堂来源身份、范围、权利和风险说明。",
+    ),
+    "source_download_manifest_row": (
+        "Verify manifest row, targeted URL, file size, and checksum route.",
+        "核对 manifest 行、目标 URL、文件大小和 checksum 路线。",
+    ),
+    "download_log_row": (
+        "Verify download log status before treating the page as reachable.",
+        "把页面视为可访问前，先核对下载日志状态。",
+    ),
+    "official_access_boundary": (
+        "Use manual browser or institutional export before catalog claims.",
+        "提出著录主张前，先用人工浏览或机构导出路线。",
+    ),
+    "review_log": (
+        "Record no identity, assignment, or decipherment claim in this log.",
+        "本日志只记录不作身份、分配或释读结论。",
+    ),
+}
+
 NEXT_CHECK_LABELS = {
     "open_071_route_probe_result": (
         "Open the cited 071 route-probe result row.",
@@ -94,15 +129,15 @@ NEXT_CHECK_LABELS = {
         "打开关联的完整卜辞上下文草稿。",
     ),
     "verify_registered_xxt_source_and_download_rows": (
-        "Verify the registered Xiaoxuetang source row, download-manifest row, and download-log row.",
+        "Verify the Xiaoxuetang source, manifest, and download-log rows.",
         "复核已登记的小學堂来源行、下载 manifest 行和下载日志行。",
     ),
     "use_manual_browser_or_institutional_export_before_any_catalog_claim": (
-        "Use a manual browser or institutional export path before any catalog or inscription-context claim.",
+        "Use manual browser or export before any catalog claim.",
         "在提出任何著录或卜辞上下文主张前，先使用人工浏览或机构导出路径。",
     ),
     "record_no_identity_assignment_or_decipherment_claim": (
-        "Record that this follow-up makes no identity, assignment, or decipherment claim.",
+        "Record no identity, assignment, or decipherment claim.",
         "记录本后续复核不提出身份、分配或释读结论。",
     ),
 }
@@ -218,7 +253,9 @@ def build_markdown(row: dict[str, str]) -> str:
                 "",
                 "- Status / 状态: `not_collected`",
                 "- Evidence items / 证据条目: none",
-                "- Notes / 备注: not collected.",
+                "- Notes / 备注:",
+                f"  - English: {SECTION_NOTES[section][0]}",
+                f"  - 简体中文：{SECTION_NOTES[section][1]}",
                 "",
             ]
         )

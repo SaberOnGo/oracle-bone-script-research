@@ -1049,10 +1049,10 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         "",
         "## English",
         *wrapped(
-            "This directory is the object-local human and AI entrance for one "
-            "registered research source. It keeps readable notes, route indexes, "
-            "processing status, review prompts, and machine-readable packets "
-            "inside the same concrete source object directory."
+            "This directory is the object-local human source research entrance "
+            "for one registered research source. Open the human source summary, "
+            "review sheet, material access index, processing status, evidence "
+            "dossier, and fact matrix before using structured support files."
         ),
         "",
         "## 简体中文",
@@ -1072,22 +1072,100 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Rights status / 权利状态", source["rights_status"]),
         *bullet("Review status / 复核状态", source["review_status"]),
         "",
-        "## Local Entrances / 本目录入口",
-        *bullet("AI packet / AI 来源包", "01_source-packet.json"),
+        "## Source Research Review Slots / 来源研究复核槽位",
+        *wrapped(
+            "Glyph image and rubbing: check whether this source provides glyph "
+            "images, rubbings, photographs, plates, or catalog images that can "
+            "be reviewed inside character, inscription, or plate dossiers."
+        ),
+        "",
+        *wrapped(
+            "Inscription and catalog: record which inscription text, OCR, plate "
+            "number, catalog number, page, Heji number, or text-quality note can "
+            "be traced before linking a form to an inscription dossier."
+        ),
+        "",
+        *wrapped(
+            "Provenance and archaeology: check findspot, collection, museum "
+            "object, period, group, batch, excavation note, and catalog "
+            "provenance before using this source for dating or context."
+        ),
+        "",
+        *wrapped(
+            "Form relations: keep variant, near-form, component, bronze-script, "
+            "seal-script, modern-character, and evolution relations as candidate "
+            "comparison evidence until human review is complete."
+        ),
+        "",
+        *wrapped(
+            "Scholarship and dispute: record bibliography, citation relation, "
+            "proposer, editor, scope, evidence level, disagreement, and dispute "
+            "before reusing this source in a human research note."
+        ),
+        "",
+        *wrapped(
+            "Rights and derivatives: decide which image, text, OCR, table, or "
+            "statistics derivative can be public, and which material must remain "
+            "metadata-only or local-private."
+        ),
+        "",
+        *wrapped(
+            "字形图像与拓片：核对本来源是否提供可复核的字形图像、拓片、照片、图版、"
+            "著录图像，并判断能否进入单字、卜辞或图版档案。"
+        ),
+        "",
+        *wrapped(
+            "卜辞与著录：记录可追溯的卜辞全文、OCR、图版号、著录号、页码、合集号"
+            "和文本质量说明，再关联到卜辞档案。"
+        ),
+        "",
+        *wrapped(
+            "出土与考古：核对出土地、馆藏、博物馆对象、时期、组类、批次、发掘说明"
+            "和著录出处，再用于断代或考古语境。"
+        ),
+        "",
+        *wrapped(
+            "字形关系：异体、近形、构件、金文、小篆、今字和字形演化关系只能作为"
+            "候选比较证据，等待人工复核。"
+        ),
+        "",
+        *wrapped(
+            "文献与争议：记录书目、引用关系、提出者、整理者、适用范围、证据等级、"
+            "不同意见和争议，再写入人类研究札记。"
+        ),
+        "",
+        "## Human Source Dossier Entrances / 人类来源档案入口",
+        *bullet("Source summary / 来源摘要", "README.md"),
+        *bullet("Human review / 人工复核单", "06_human-source-review-sheet.md"),
+        *bullet("Material index / 资料访问索引", "07_material-access-index.md"),
+        *bullet("Processing status / 处理状态卡", "08_source-processing-status.md"),
+        *bullet("Evidence dossier / 来源证据档案", "10_source-evidence-dossier.md"),
+        *bullet("Fact matrix / 来源事实矩阵", "12_source-provenance-fact-matrix.md"),
+        "",
+        "## Structured Support Entrances / 结构化辅助入口",
+        *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
         *bullet("Download routes / 下载或访问路线", "02_download-route-index.csv"),
         *bullet("Package routes / 来源包清单路线", "03_package-route-index.csv"),
         *bullet("Field maps / 字段映射路线", "04_field-map-route-index.csv"),
         *bullet("Metadata profiles / 元数据概况路线", "05_metadata-profile-route-index.csv"),
-        *bullet("Human review / 人工复核单", "06_human-source-review-sheet.md"),
-        *bullet("Material index / 资料访问索引", "07_material-access-index.md"),
-        *bullet("Processing status / 处理状态卡", "08_source-processing-status.md"),
-        *bullet("Status JSON / 处理状态索引", "09_source-processing-status-index.json"),
+        *bullet("Status index / 处理状态索引", "09_source-processing-status-index.json"),
         "",
-        "## Route Counts / 路线数量",
-        *bullet("Download route count / 下载路线数", packet["download_route_count"]),
-        *bullet("Package route count / 来源包路线数", packet["package_route_count"]),
-        *bullet("Field map route count / 字段映射路线数", packet["field_map_route_count"]),
-        *bullet("Metadata profile route count / 元数据概况路线数", packet["metadata_profile_route_count"]),
+        *wrapped(
+            "Structured support files only serve the human source dossier. They "
+            "must not replace the source summary, review sheet, evidence "
+            "dossier, fact matrix, rights note, or concrete next-check questions."
+        ),
+        "",
+        *wrapped(
+            "结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、"
+            "事实矩阵、权利说明或具体待查问题。"
+        ),
+        "",
+        "## Evidence Counts / 证据计数",
+        *bullet("Download evidence count / 下载证据数", packet["download_route_count"]),
+        *bullet("Package evidence count / 来源包证据数", packet["package_route_count"]),
+        *bullet("Field-map evidence count / 字段映射证据数", packet["field_map_route_count"]),
+        *bullet("Metadata profile count / 元数据概况数", packet["metadata_profile_route_count"]),
         "",
         "## Risk And Boundary / 风险与边界",
         *wrapped(str(source["risk_note"])),
@@ -1125,13 +1203,13 @@ def material_access_index_text(
         "## English",
         *wrapped(
             "This object-local index tells a human reviewer what source "
-            "materials are visible here and which AI-readable files carry the "
-            "structured routes. It is an access map, not a rights decision."
+            "materials are visible here and which structured support files "
+            "carry the route data. It is an access map, not a rights decision."
         ),
         "",
         "## 简体中文",
         *wrapped(
-            "本索引说明同一来源对象目录中有哪些资料入口，以及哪些 AI 可读文件保存"
+            "本索引说明同一来源对象目录中有哪些资料入口，以及哪些结构化辅助文件保存"
             "结构化路线。它只是访问地图，不是权利结论或学术结论。"
         ),
         "",
@@ -1141,13 +1219,24 @@ def material_access_index_text(
         *bullet("Material access index / 资料访问索引", "07_material-access-index.md"),
         *bullet("Processing status card / 处理状态卡", "08_source-processing-status.md"),
         "",
-        "## AI-Readable Entrances / AI 可读入口",
-        *bullet("Source packet / 来源包", "01_source-packet.json"),
+        "## Structured Support Entrances / 结构化辅助入口",
+        *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
         *bullet("Download route table / 下载路线表", "02_download-route-index.csv"),
         *bullet("Package route table / 来源包路线表", "03_package-route-index.csv"),
         *bullet("Field-map route table / 字段映射表", "04_field-map-route-index.csv"),
         *bullet("Metadata profile table / 元数据概况表", "05_metadata-profile-route-index.csv"),
         *bullet("Processing status JSON / 处理状态索引", "09_source-processing-status-index.json"),
+        "",
+        *wrapped(
+            "Structured support files only serve the human source dossier. They "
+            "must not replace the source summary, review sheet, evidence "
+            "dossier, fact matrix, rights note, or concrete next-check questions."
+        ),
+        "",
+        *wrapped(
+            "结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、"
+            "事实矩阵、权利说明或具体待查问题。"
+        ),
         "",
         "## Route Signals / 路线信号",
         *bullet("Download route count / 下载路线数", len(download_routes)),

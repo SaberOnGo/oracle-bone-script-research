@@ -2935,7 +2935,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Concrete Questions To Check",
             "具体待查问题",
             "object-local dossier",
-            "AI-readable support",
+            "structured support",
             "visual gallery",
             "source/provenance index",
             "not a decipherment conclusion",
@@ -6400,9 +6400,29 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "11_source-evidence-dossier-index.json").is_file())
         self.assertTrue((object_dir / "12_source-provenance-fact-matrix.md").is_file())
         self.assertTrue((object_dir / "13_source-provenance-fact-matrix-index.json").is_file())
+        readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+        readme_opening = readme_text.split("## Source Summary", 1)[0]
+        self.assertIn("object-local human source research entrance", readme_text)
+        self.assertIn("Human Source Dossier Entrances", readme_text)
+        self.assertIn("Structured Support Entrances", readme_text)
+        self.assertIn(
+            "Structured support files only serve the human source dossier",
+            readme_text,
+        )
+        self.assertNotIn("human and AI entrance", readme_opening)
+        self.assertNotIn("AI packet", readme_text)
+        self.assertNotIn("machine-readable packets", readme_opening)
         access_index_text = (object_dir / "07_material-access-index.md").read_text(encoding="utf-8")
         self.assertIn("Material Access Index", access_index_text)
         self.assertIn("Human-Readable Entrances", access_index_text)
+        self.assertIn("Structured Support Entrances", access_index_text)
+        self.assertIn(
+            "Structured support files only serve the human source dossier",
+            access_index_text,
+        )
+        access_opening = access_index_text.split("## Human-Readable Entrances", 1)[0]
+        self.assertNotIn("AI-readable files", access_opening)
+        self.assertNotIn("AI-Readable Entrances", access_index_text)
         self.assertIn("简体中文", access_index_text)
         self.assertIn("资料访问索引", access_index_text)
         self.assertIn("not a rights decision", access_index_text)

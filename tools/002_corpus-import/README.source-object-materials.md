@@ -22,7 +22,7 @@ Each concrete source object directory contains:
 每个具体来源对象目录包含：
 
 - `README.md`: human-readable source summary and boundary.
-- `01_source-packet.json`: AI-readable source packet.
+- `01_source-packet.json`: structured support source packet.
 - `02_download-route-index.csv`: download and access route index.
 - `03_package-route-index.csv`: source package and file manifest routes.
 - `04_field-map-route-index.csv`: field mapping routes.
@@ -30,11 +30,11 @@ Each concrete source object directory contains:
 - `06_human-source-review-sheet.md`: human review checklist.
 - `07_material-access-index.md`: human-readable access map.
 - `08_source-processing-status.md`: human-readable phase status card.
-- `09_source-processing-status-index.json`: AI-readable phase status index.
+- `09_source-processing-status-index.json`: structured phase status index.
 - `10_source-evidence-dossier.md`: human-readable source evidence dossier.
-- `11_source-evidence-dossier-index.json`: AI-readable dossier index.
+- `11_source-evidence-dossier-index.json`: structured dossier index.
 - `12_source-provenance-fact-matrix.md`: human-readable provenance fact matrix.
-- `13_source-provenance-fact-matrix-index.json`: AI-readable matrix index.
+- `13_source-provenance-fact-matrix-index.json`: structured matrix index.
 
 ## Human Reading Rules / 人类阅读规则
 

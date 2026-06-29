@@ -2,11 +2,11 @@
 
 ## English
 This object-local index tells a human reviewer what source materials are visible
-here and which AI-readable files carry the structured routes. It is an access
+here and which structured support files carry the route data. It is an access
 map, not a rights decision.
 
 ## 简体中文
-本索引说明同一来源对象目录中有哪些资料入口，以及哪些 AI 可读文件保存结构化路线。它只是访问地图，不是权利结论或学术结论。
+本索引说明同一来源对象目录中有哪些资料入口，以及哪些结构化辅助文件保存结构化路线。它只是访问地图，不是权利结论或学术结论。
 
 ## Human-Readable Entrances / 人类可读入口
 - Source summary / 来源摘要: README.md
@@ -14,13 +14,19 @@ map, not a rights decision.
 - Material access index / 资料访问索引: 07_material-access-index.md
 - Processing status card / 处理状态卡: 08_source-processing-status.md
 
-## AI-Readable Entrances / AI 可读入口
-- Source packet / 来源包: 01_source-packet.json
+## Structured Support Entrances / 结构化辅助入口
+- Structured source packet / 结构化来源包: 01_source-packet.json
 - Download route table / 下载路线表: 02_download-route-index.csv
 - Package route table / 来源包路线表: 03_package-route-index.csv
 - Field-map route table / 字段映射表: 04_field-map-route-index.csv
 - Metadata profile table / 元数据概况表: 05_metadata-profile-route-index.csv
 - Processing status JSON / 处理状态索引: 09_source-processing-status-index.json
+
+Structured support files only serve the human source dossier. They must not
+replace the source summary, review sheet, evidence dossier, fact matrix, rights
+note, or concrete next-check questions.
+
+结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、事实矩阵、权利说明或具体待查问题。
 
 ## Route Signals / 路线信号
 - Download route count / 下载路线数: 4

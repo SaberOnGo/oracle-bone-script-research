@@ -4852,7 +4852,15 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
     if len(object_dirs) != 21:
         issues.append("source object directory count changed")
     required_files = {
-        "README.md": ["简体中文", "来源摘要", "风险与边界"],
+        "README.md": [
+            "简体中文",
+            "来源摘要",
+            "风险与边界",
+            "object-local human source research entrance",
+            "Human Source Dossier Entrances",
+            "Structured Support Entrances",
+            "Structured support files only serve the human source dossier",
+        ],
         "06_human-source-review-sheet.md": [
             "来源出处复核",
             "具体待查问题",
@@ -4867,6 +4875,8 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             "简体中文",
             "资料访问索引",
             "not a rights decision",
+            "Structured Support Entrances",
+            "Structured support files only serve the human source dossier",
         ],
         "08_source-processing-status.md": [
             "阶段状态",
@@ -4937,6 +4947,28 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                     issues.append(f"{path.relative_to(root)} contains mojibake: {fragment}")
             if filename == "10_source-evidence-dossier.md" and "not_collected" in text:
                 issues.append(f"{path.relative_to(root)} contains machine status in human dossier")
+            if filename == "README.md":
+                opening = text.split("## Source Summary", 1)[0]
+                for forbidden in [
+                    "human and AI entrance",
+                    "AI packet",
+                    "machine-readable packets",
+                ]:
+                    if forbidden in opening or forbidden in text:
+                        issues.append(
+                            f"{path.relative_to(root)} contains source-entry "
+                            f"machine-first wording: {forbidden}"
+                        )
+            if filename == "07_material-access-index.md":
+                opening = text.split("## Human-Readable Entrances", 1)[0]
+                if "AI-readable files" in opening:
+                    issues.append(
+                        f"{path.relative_to(root)} opens with AI-readable files"
+                    )
+                if "AI-Readable Entrances" in text:
+                    issues.append(
+                        f"{path.relative_to(root)} contains AI-readable entrance heading"
+                    )
             if filename == "10_source-evidence-dossier.md":
                 text_lines = text.splitlines()
                 for line_number, line in enumerate(text_lines, start=1):
@@ -5938,7 +5970,7 @@ def check_corpus_import_local_materials_readme_human_entry(
         "Concrete Questions To Check",
         "具体待查问题",
         "object-local dossier",
-        "AI-readable support",
+        "structured support",
         "visual gallery",
         "source/provenance index",
         "not a decipherment conclusion",

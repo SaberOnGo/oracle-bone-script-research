@@ -3,12 +3,13 @@
 English:
 These builders prepare object-local research folders for human review first.
 Each concrete `corpus` object keeps its object-local dossier, images,
-source/provenance index, review sheet, and AI-readable support packet together.
-The packet helps retrieval and audit work; it does not replace the dossier.
+source/provenance index, review sheet, and structured support packet together.
+The support packet helps retrieval and audit work; it does not replace the
+dossier.
 
 Simplified Chinese:
 这些生成器优先服务人工复核。每个具体 `corpus` 对象目录内同时放置对象内
-档案、图像、来源/出处索引、复核表和 AI-readable support packet。packet
+档案、图像、来源/出处索引、复核表和结构化辅助 packet。packet
 只辅助检索、追溯和校验，不能替代人类可读档案。
 
 ## Human Review Entry Order / 人工复核入口顺序
@@ -20,7 +21,7 @@ Use a generated object folder in this order:
 2. Inspect the glyph image, visual gallery, or route gallery.
 3. Check the source/provenance index and any rights or risk notes.
 4. Read the human review sheet for missing items and next checks.
-5. Use the AI packet only after the human evidence route is clear.
+5. Use the support packet only after the human evidence route is clear.
 
 Simplified Chinese:
 使用生成后的对象目录时，建议按以下顺序复核：
@@ -29,7 +30,7 @@ Simplified Chinese:
 2. 再检查字形图片、visual gallery 或 route gallery。
 3. 核对 source/provenance index 以及权利、风险提示。
 4. 阅读人工复核表中的缺失项和下一步待查来源。
-5. 人工证据路线清楚后，再用 AI packet 辅助检索。
+5. 人工证据路线清楚后，再用辅助 packet 辅助检索。
 
 ## Current Object Families / 当前对象范围
 

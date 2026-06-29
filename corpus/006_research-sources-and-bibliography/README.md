@@ -19,7 +19,7 @@ into scholarship.
 ## Human Research Entry Order / 人工研究入口顺序
 
 1. Open the relevant source object under `001_source-objects/`.
-2. Read the source object `README.md` before the AI packet.
+2. Read the source object `README.md` before structured support files.
 3. Check the `06_human-source-review-sheet.md` review sheet.
 4. Check `07_material-access-index.md` for local access routes.
 5. Compare the download route, package manifest, and checksum records.
@@ -46,7 +46,7 @@ into scholarship.
 Each source object should keep these files together:
 
 - `README.md`: human source overview, scope, and boundary.
-- `01_source-packet.json`: AI-readable support packet.
+- `01_source-packet.json`: structured support packet for source routes.
 - `02_download-route-index.csv`: access and download route index.
 - `03_package-route-index.csv`: package manifest route index.
 - `04_field-map-route-index.csv`: field mapping route index.
@@ -75,6 +75,27 @@ A human source or bibliography item should let a reviewer check:
 访问路线、文件大小、checksum 和 manifest；字段映射、OCR 或解析
 说明、派生路径；权利状态、风险提示、公开提交决定；复核路线、
 待查问题、复核状态；以及已收集到的提出者、不同意见和争议。
+
+## Source-To-Research Review Slots / 来源进入研究档案的复核槽位
+
+- Glyph image and rubbing: check whether a source provides glyph images,
+  rubbings, photographs, plates, or catalog images for character dossiers.
+- Inscription and catalog: check inscription text, OCR, plate number, catalog
+  number, page, Heji number, and text quality before linking a form.
+- Provenance and archaeology: check findspot, collection, museum object,
+  period, group, batch, excavation note, and catalog provenance.
+- Form relations: keep variant, near-form, component, bronze-script,
+  seal-script, modern-character, and evolution relations in candidate status.
+- Scholarship and dispute: record bibliography, citation relation, proposer,
+  editor, scope, evidence level, disagreement, and dispute.
+- Rights and derivative review: decide which image, text, OCR, table, or
+  statistics derivative can be public, metadata-only, or local-private.
+
+来源进入研究档案前，应复核字形图像、拓片、照片、图版、著录图像、
+卜辞全文、OCR、图版号、著录号、页码、合集号、出土地、馆藏、
+时期、组类、批次、发掘说明、异体、近形、构件、金文、小篆、今字、
+字形演化、书目、引用关系、提出者、适用范围、证据等级、不同意见、
+争议、权利状态和可公开派生范围。
 
 ## Concrete Questions To Check / 具体待查问题
 

@@ -18232,6 +18232,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             repo_root()
             / "doc/public/user_research/009_source-engineering-gap-review-queues"
         )
+        manifest_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv"
+        )
+        with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
+            manifest_paths = {row["draft_path"] for row in csv.DictReader(file)}
+        review_log_paths = {
+            path.relative_to(repo_root()).as_posix()
+            for path in sorted(queue_dir.glob("*_review-log.md"))
+        }
+        self.assertEqual(review_log_paths, manifest_paths)
+
         empty_evidence_files = []
         for path in sorted(queue_dir.glob("*_review-log.md")):
             text = path.read_text(encoding="utf-8")
@@ -18239,7 +18252,18 @@ class RepositorySkeletonTests(unittest.TestCase):
                 empty_evidence_files.append(path.relative_to(repo_root()).as_posix())
             if "Evidence items /" in text:
                 empty_evidence_files.append(path.relative_to(repo_root()).as_posix())
+            if "not decided" in text:
+                empty_evidence_files.append(path.relative_to(repo_root()).as_posix())
         self.assertEqual(empty_evidence_files, [])
+        long_lines: list[tuple[str, int, int]] = []
+        for path in sorted(queue_dir.glob("*.md")):
+            text = path.read_text(encoding="utf-8")
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if len(line) > 80:
+                    long_lines.append(
+                        (path.relative_to(repo_root()).as_posix(), line_number, len(line))
+                    )
+        self.assertEqual(long_lines, [])
 
     def test_source_engineering_gap_review_log_draft_builder_keeps_boundaries(self) -> None:
         module = load_source_engineering_gap_review_log_drafts_module()
@@ -18986,7 +19010,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("no_decipherment_claim", text)
             self.assertIn("not a new download", text)
             for source_path in row["reviewed_evidence_paths"].split(";"):
-                self.assertIn(source_path, text)
+                self.assertIn(Path(source_path).name, text)
                 self.assertTrue((repo_root() / source_path).exists(), source_path)
 
     def test_source_engineering_first_wave_result_records_builder_uses_119_rows(self) -> None:
@@ -24419,7 +24443,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
-        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"153"})
+        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
         self.assertEqual({row["source_register_file_count"] for row in rows}, {"309"})
         self.assertTrue(
             all(

@@ -2,18 +2,22 @@
 
 ## Status / 状态
 
-- First-wave result ID / 第一波结果 ID: `source-engineering-first-wave-review-result-0004`
+- First-wave result ID / 第一波结果 ID:
+  - `source-engineering-first-wave-review-result-0004`
 - Handoff item ID / 交接项 ID: `source-engineering-review-wave-handoff-0004`
 - Next action ID / 下一动作 ID: `source-engineering-next-action-0017`
 - Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0017`
-- Evidence snapshot ID / 证据快照 ID: `source-engineering-gap-evidence-snapshot-0017`
+- Evidence snapshot ID / 证据快照 ID:
+  - `source-engineering-gap-evidence-snapshot-0017`
 - Result status / 结果状态: `metadata_captured_from_existing_records`
 - Evidence collection status / 证据收集状态: `existing_metadata_captured`
 - Human review status / 人工复核状态: `metadata_reviewed_pending_human_decision`
-- Research boundary / 研究边界: `source_engineering_first_wave_result_record_metadata_only_not_scholarship`
+- Research boundary / 研究边界:
+  - `source_engineering_first_wave_result_record_metadata_only_not_scholarship`
 - Updated at / 更新时间: `2026-06-19`
 
-English: This is a metadata-only review result materialized from existing local records.
+English: This is a metadata-only review result materialized from existing
+  local records.
 
 简体中文：本记录仅把本地已有记录中的元数据复核结果实体化。
 
@@ -21,19 +25,22 @@ English: This is a metadata-only review result materialized from existing local 
 
 - Source ID / 来源 ID: `src-ihp-museum-oracle-bones`
 - Title / 标题: `Oracle Bones Collection Page`
-- Provider / 提供方: `Museum of the Institute of History and Philology Academia Sinica`
+- Provider / 提供方:
+  - `Museum of the Institute of History and Philology Academia Sinica`
 - Source URL / 来源 URL: `https://museum.sinica.edu.tw/en/collection/32/`
 - Authority tier / 来源层级: `core_institutional`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Risk note / 风险提示: Official museum page; image reuse requires museum policy review.
+- Risk note / 风险提示: Official museum page; image reuse requires museum policy
+  review.
 
 ## Metadata Result / 元数据结果
 
 - Action lane / 动作线: `source_field_map_planning`
-- Gap type / 缺口类型: ``
+- Gap type / 缺口类型: `none`
 - Pipeline current stage / 流水线当前阶段: `pending_human_review`
 - Decision field / 决策字段: `field_map_decision`
-- Decision value / 决策值: `field_map_scaffold_exists_semantics_pending_human_review`
+- Decision value / 决策值:
+  - `field_map_scaffold_exists_semantics_pending_human_review`
 - Download manifest IDs / 下载 manifest ID: `dl-ihp-museum-oracle-bones`
 - Download log IDs / 下载日志 ID: `dl-ihp-museum-oracle-bones`
 - download_log_status_counts: `downloaded:1`
@@ -58,14 +65,21 @@ English: This is a metadata-only review result materialized from existing local 
 
 ## Reviewed Evidence Paths / 已复核证据路径
 
-- `corpus/009_statistics-and-derived-features/118_ai-agent-source-engineering-review-wave-handoff-scaffold.json`
-- `corpus/009_statistics-and-derived-features/103_ai-agent-source-engineering-gap-evidence-snapshot.csv`
-- `corpus/009_statistics-and-derived-features/094_source-processing-pipeline-audit.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv`
+- `corpus/009_statistics-and-derived-features/`
+  `118_ai-agent-source-engineering-review-wave-handoff-scaffold.json`
+- `corpus/009_statistics-and-derived-features/`
+  `103_ai-agent-source-engineering-gap-evidence-snapshot.csv`
+- `corpus/009_statistics-and-derived-features/`
+  `094_source-processing-pipeline-audit.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+  `001_all-sources-index.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+  `003_source-download-manifest.csv`
 - `project_registry/006_large-source-register/002_source-download-log.csv`
-- `corpus/009_statistics-and-derived-features/108_ai-agent-source-field-map-scaffold.csv`
-- `corpus/009_statistics-and-derived-features/110_ai-agent-source-field-map-review-result-scaffold.csv`
+- `corpus/009_statistics-and-derived-features/`
+  `108_ai-agent-source-field-map-scaffold.csv`
+- `corpus/009_statistics-and-derived-features/`
+  `110_ai-agent-source-field-map-review-result-scaffold.csv`
 
 ## Required Next Checks / 后续必检项
 
@@ -79,6 +93,15 @@ English: This is a metadata-only review result materialized from existing local 
 
 ## Caution / 警示
 
-English: This result record materializes metadata already captured in 119. It is not a new download, not checksum recalculation, not a rights decision, not source promotion, not corpus import, not an oracle-character identity claim, not a component assignment, not an evolution-chain assignment, and not a decipherment conclusion.
+- Rights decision boundary / 权利决策边界: not a rights decision
 
-简体中文：本记录只实体化 119 中已经捕获的元数据；它不是新的下载，不是 checksum 复算，不是权利裁定，不是来源提升，不是语料导入，不是甲骨单字身份判断，不是构件判断，不是演化链判断，也不是释读结论。
+English: This result record materializes metadata already captured in 119.
+  It is not a new download, not checksum recalculation, not a rights
+  decision, not source promotion, not corpus import, not an oracle-character
+  identity claim, not a component assignment, not an evolution-chain
+  assignment, and not a decipherment conclusion.
+
+简体中文：本记录只实体化 119 中已经捕获的元数据；
+它不是新的下载，不是 checksum 复算，不是权利裁定，
+不是来源提升，不是语料导入，不是甲骨单字身份判断，
+不是构件判断，不是演化链判断，也不是释读结论。

@@ -2,18 +2,22 @@
 
 ## Status / 状态
 
-- First-wave result ID / 第一波结果 ID: `source-engineering-first-wave-review-result-0005`
+- First-wave result ID / 第一波结果 ID:
+  - `source-engineering-first-wave-review-result-0005`
 - Handoff item ID / 交接项 ID: `source-engineering-review-wave-handoff-0005`
 - Next action ID / 下一动作 ID: `source-engineering-next-action-0021`
 - Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0021`
-- Evidence snapshot ID / 证据快照 ID: `source-engineering-gap-evidence-snapshot-0021`
+- Evidence snapshot ID / 证据快照 ID:
+  - `source-engineering-gap-evidence-snapshot-0021`
 - Result status / 结果状态: `metadata_captured_from_existing_records`
 - Evidence collection status / 证据收集状态: `existing_metadata_captured`
 - Human review status / 人工复核状态: `metadata_reviewed_pending_human_decision`
-- Research boundary / 研究边界: `source_engineering_first_wave_result_record_metadata_only_not_scholarship`
+- Research boundary / 研究边界:
+  - `source_engineering_first_wave_result_record_metadata_only_not_scholarship`
 - Updated at / 更新时间: `2026-06-19`
 
-English: This is a metadata-only review result materialized from existing local records.
+English: This is a metadata-only review result materialized from existing
+  local records.
 
 简体中文：本记录仅把本地已有记录中的元数据复核结果实体化。
 
@@ -22,10 +26,12 @@ English: This is a metadata-only review result materialized from existing local 
 - Source ID / 来源 ID: `src-cambridge-hopkins`
 - Title / 标题: `Hopkins Collection of Chinese Oracle Bones Finding List`
 - Provider / 提供方: `Cambridge University Library`
-- Source URL / 来源 URL: `https://www.lib.cam.ac.uk/collections/departments/chinese-collections/chinese-collections-te-cang-yu-zhuan-cang/finding-list`
+- Source URL / 来源 URL: `https://www.lib.cam.ac.uk/collections/departments/chine`
+  `se-collections/chinese-collections-te-cang-yu-zhuan-cang/finding-list`
 - Authority tier / 来源层级: `university_library_collection`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Risk note / 风险提示: Official university library finding list; linked digitized assets require separate rights and IIIF review.
+- Risk note / 风险提示: Official university library finding list; linked
+  digitized assets require separate rights and IIIF review.
 
 ## Metadata Result / 元数据结果
 
@@ -42,9 +48,9 @@ English: This is a metadata-only review result materialized from existing local 
 - download_log_checksum_present_count: `1`
 - package_manifest_row_count: `0`
 - metadata_profile_metric_count: `0`
-- metadata_profile_ids: ``
-- field_map_scaffold_id: ``
-- field_map_review_status: ``
+- metadata_profile_ids: `none`
+- field_map_scaffold_id: `none`
+- field_map_review_status: `none`
 
 ## Boundary Status / 边界状态
 
@@ -58,14 +64,21 @@ English: This is a metadata-only review result materialized from existing local 
 
 ## Reviewed Evidence Paths / 已复核证据路径
 
-- `corpus/009_statistics-and-derived-features/118_ai-agent-source-engineering-review-wave-handoff-scaffold.json`
-- `corpus/009_statistics-and-derived-features/103_ai-agent-source-engineering-gap-evidence-snapshot.csv`
-- `corpus/009_statistics-and-derived-features/094_source-processing-pipeline-audit.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv`
+- `corpus/009_statistics-and-derived-features/`
+  `118_ai-agent-source-engineering-review-wave-handoff-scaffold.json`
+- `corpus/009_statistics-and-derived-features/`
+  `103_ai-agent-source-engineering-gap-evidence-snapshot.csv`
+- `corpus/009_statistics-and-derived-features/`
+  `094_source-processing-pipeline-audit.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+  `001_all-sources-index.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+  `003_source-download-manifest.csv`
 - `project_registry/006_large-source-register/002_source-download-log.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+  `009_source-package-file-manifest.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-registers/`
+  `010_downloaded-metadata-profile.csv`
 
 ## Required Next Checks / 后续必检项
 
@@ -83,6 +96,15 @@ English: This is a metadata-only review result materialized from existing local 
 
 ## Caution / 警示
 
-English: This result record materializes metadata already captured in 119. It is not a new download, not checksum recalculation, not a rights decision, not source promotion, not corpus import, not an oracle-character identity claim, not a component assignment, not an evolution-chain assignment, and not a decipherment conclusion.
+- Rights decision boundary / 权利决策边界: not a rights decision
 
-简体中文：本记录只实体化 119 中已经捕获的元数据；它不是新的下载，不是 checksum 复算，不是权利裁定，不是来源提升，不是语料导入，不是甲骨单字身份判断，不是构件判断，不是演化链判断，也不是释读结论。
+English: This result record materializes metadata already captured in 119.
+  It is not a new download, not checksum recalculation, not a rights
+  decision, not source promotion, not corpus import, not an oracle-character
+  identity claim, not a component assignment, not an evolution-chain
+  assignment, and not a decipherment conclusion.
+
+简体中文：本记录只实体化 119 中已经捕获的元数据；
+它不是新的下载，不是 checksum 复算，不是权利裁定，
+不是来源提升，不是语料导入，不是甲骨单字身份判断，
+不是构件判断，不是演化链判断，也不是释读结论。

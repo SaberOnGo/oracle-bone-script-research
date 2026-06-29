@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import textwrap
 from pathlib import Path
 
 
@@ -72,8 +73,77 @@ def split_semicolon(value: str) -> list[str]:
     return [part for part in value.split(";") if part]
 
 
-def kv_line(label: str, value: str) -> str:
-    return f"- {label}: `{value}`"
+def wrap_code_value(prefix: str, value: str, *, width: int = 80) -> list[str]:
+    if not value:
+        return [f"{prefix}`none`"]
+    if len(f"{prefix}`{value}`") > width and len(f"  - `{value}`") <= width:
+        return [prefix.rstrip(), f"  - `{value}`"]
+    first_limit = max(8, width - len(prefix) - 2)
+    chunks = textwrap.wrap(
+        value,
+        width=first_limit,
+        break_long_words=True,
+        break_on_hyphens=True,
+    )
+    if not chunks:
+        return [f"{prefix}`none`"]
+    lines = [f"{prefix}`{chunks[0]}`"]
+    remainder = value[len(chunks[0]) :].lstrip("-_/; ")
+    for chunk in textwrap.wrap(
+        remainder,
+        width=width - 4,
+        break_long_words=True,
+        break_on_hyphens=True,
+    ):
+        lines.append(f"  `{chunk}`")
+    return lines
+
+
+def kv_lines(label: str, value: str) -> list[str]:
+    return wrap_code_value(f"- {label}: ", value)
+
+
+def path_value_lines(value: str) -> list[str]:
+    if len(f"- `{value}`") <= 80:
+        return [f"- `{value}`"]
+    path = Path(value)
+    parent = path.parent.as_posix()
+    name = path.name
+    lines: list[str] = []
+    if parent and parent != ".":
+        lines.extend(wrap_code_value("- ", f"{parent}/"))
+        lines.extend(wrap_code_value("  ", name))
+    else:
+        lines.extend(wrap_code_value("- ", name))
+    return lines
+
+
+def paragraph_lines(
+    text: str,
+    *,
+    prefix: str = "",
+    continuation_prefix: str = "  ",
+    width: int = 76,
+) -> list[str]:
+    first_width = width - len(prefix)
+    continuation_width = width - len(continuation_prefix)
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    current_width = first_width
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > current_width and current:
+            line_prefix = prefix if not lines else continuation_prefix
+            lines.append(f"{line_prefix}{current}")
+            current = word
+            current_width = continuation_width
+        else:
+            current = candidate
+    if current:
+        line_prefix = prefix if not lines else continuation_prefix
+        lines.append(f"{line_prefix}{current}")
+    return lines
 
 
 def build_manifest_rows(source_rows: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -119,64 +189,79 @@ def build_markdown(row: dict[str, str]) -> str:
         "",
         "## Status / 状态",
         "",
-        kv_line("First-wave result ID / 第一波结果 ID", row["first_wave_result_id"]),
-        kv_line("Handoff item ID / 交接项 ID", row["handoff_item_id"]),
-        kv_line("Next action ID / 下一动作 ID", row["next_action_id"]),
-        kv_line("Source engineering gap ID / 来源工程缺口 ID", row["source_engineering_gap_id"]),
-        kv_line("Evidence snapshot ID / 证据快照 ID", row["evidence_snapshot_id"]),
-        kv_line("Result status / 结果状态", row["result_status"]),
-        kv_line("Evidence collection status / 证据收集状态", row["evidence_collection_status"]),
-        kv_line("Human review status / 人工复核状态", row["human_review_status"]),
-        kv_line("Research boundary / 研究边界", RESEARCH_BOUNDARY),
-        kv_line("Updated at / 更新时间", UPDATED_AT),
-        "",
-        "English: This is a metadata-only review result materialized from existing local records.",
-        "",
-        "简体中文：本记录仅把本地已有记录中的元数据复核结果实体化。",
-        "",
-        "## Source / 来源",
-        "",
-        kv_line("Source ID / 来源 ID", row["source_id"]),
-        kv_line("Title / 标题", row["source_title"]),
-        kv_line("Provider / 提供方", row["provider"]),
-        kv_line("Source URL / 来源 URL", row["source_url"]),
-        kv_line("Authority tier / 来源层级", row["authority_tier"]),
-        kv_line("Rights status / 权利状态", row["rights_status"]),
-        f"- Risk note / 风险提示: {row['risk_note']}",
-        "",
-        "## Metadata Result / 元数据结果",
-        "",
-        kv_line("Action lane / 动作线", row["action_lane"]),
-        kv_line("Gap type / 缺口类型", row["gap_type"]),
-        kv_line("Pipeline current stage / 流水线当前阶段", row["pipeline_current_stage"]),
-        kv_line("Decision field / 决策字段", row["decision_field"]),
-        kv_line("Decision value / 决策值", row["decision_value"]),
-        kv_line("Download manifest IDs / 下载 manifest ID", row["download_manifest_ids"]),
-        kv_line("Download log IDs / 下载日志 ID", row["download_log_ids"]),
-        kv_line("download_log_status_counts", row["download_log_status_counts"]),
-        kv_line("download_log_http_status_counts", row["download_log_http_status_counts"]),
-        kv_line("download_log_file_size_bytes_total", row["download_log_file_size_bytes_total"]),
-        kv_line("download_log_checksum_present_count", row["download_log_checksum_present_count"]),
-        kv_line("package_manifest_row_count", row["package_manifest_row_count"]),
-        kv_line("metadata_profile_metric_count", row["metadata_profile_metric_count"]),
-        kv_line("metadata_profile_ids", row["metadata_profile_ids"]),
-        kv_line("field_map_scaffold_id", row["field_map_scaffold_id"]),
-        kv_line("field_map_review_status", row["field_map_review_status"]),
-        "",
-        "## Boundary Status / 边界状态",
-        "",
-        kv_line("Rights decision status / 权利决策状态", row["rights_decision_status"]),
-        kv_line("Source promotion status / 来源提升状态", row["source_promotion_status"]),
-        kv_line("Corpus import status / 语料导入状态", row["corpus_import_status"]),
-        kv_line("Decipherment claim status / 释读结论状态", row["decipherment_claim_status"]),
-        kv_line("Identity claim status / 身份判断状态", row["identity_claim_status"]),
-        kv_line("Component claim status / 构件判断状态", row["component_claim_status"]),
-        kv_line("Evolution claim status / 演化链判断状态", row["evolution_claim_status"]),
-        "",
-        "## Reviewed Evidence Paths / 已复核证据路径",
-        "",
     ]
-    lines.extend(f"- `{path}`" for path in evidence_paths)
+    for label, value in [
+        ("First-wave result ID / 第一波结果 ID", row["first_wave_result_id"]),
+        ("Handoff item ID / 交接项 ID", row["handoff_item_id"]),
+        ("Next action ID / 下一动作 ID", row["next_action_id"]),
+        ("Source engineering gap ID / 来源工程缺口 ID", row["source_engineering_gap_id"]),
+        ("Evidence snapshot ID / 证据快照 ID", row["evidence_snapshot_id"]),
+        ("Result status / 结果状态", row["result_status"]),
+        ("Evidence collection status / 证据收集状态", row["evidence_collection_status"]),
+        ("Human review status / 人工复核状态", row["human_review_status"]),
+        ("Research boundary / 研究边界", RESEARCH_BOUNDARY),
+        ("Updated at / 更新时间", UPDATED_AT),
+    ]:
+        lines.extend(kv_lines(label, value))
+    lines.extend(
+        [
+            "",
+            *paragraph_lines(
+                "This is a metadata-only review result materialized from "
+                "existing local records.",
+                prefix="English: ",
+            ),
+            "",
+            "简体中文：本记录仅把本地已有记录中的元数据复核结果实体化。",
+            "",
+            "## Source / 来源",
+            "",
+        ]
+    )
+    for label, value in [
+        ("Source ID / 来源 ID", row["source_id"]),
+        ("Title / 标题", row["source_title"]),
+        ("Provider / 提供方", row["provider"]),
+        ("Source URL / 来源 URL", row["source_url"]),
+        ("Authority tier / 来源层级", row["authority_tier"]),
+        ("Rights status / 权利状态", row["rights_status"]),
+    ]:
+        lines.extend(kv_lines(label, value))
+    lines.extend(paragraph_lines(row["risk_note"], prefix="- Risk note / 风险提示: "))
+    lines.extend(["", "## Metadata Result / 元数据结果", ""])
+    for label, value in [
+        ("Action lane / 动作线", row["action_lane"]),
+        ("Gap type / 缺口类型", row["gap_type"]),
+        ("Pipeline current stage / 流水线当前阶段", row["pipeline_current_stage"]),
+        ("Decision field / 决策字段", row["decision_field"]),
+        ("Decision value / 决策值", row["decision_value"]),
+        ("Download manifest IDs / 下载 manifest ID", row["download_manifest_ids"]),
+        ("Download log IDs / 下载日志 ID", row["download_log_ids"]),
+        ("download_log_status_counts", row["download_log_status_counts"]),
+        ("download_log_http_status_counts", row["download_log_http_status_counts"]),
+        ("download_log_file_size_bytes_total", row["download_log_file_size_bytes_total"]),
+        ("download_log_checksum_present_count", row["download_log_checksum_present_count"]),
+        ("package_manifest_row_count", row["package_manifest_row_count"]),
+        ("metadata_profile_metric_count", row["metadata_profile_metric_count"]),
+        ("metadata_profile_ids", row["metadata_profile_ids"]),
+        ("field_map_scaffold_id", row["field_map_scaffold_id"]),
+        ("field_map_review_status", row["field_map_review_status"]),
+    ]:
+        lines.extend(kv_lines(label, value))
+    lines.extend(["", "## Boundary Status / 边界状态", ""])
+    for label, value in [
+        ("Rights decision status / 权利决策状态", row["rights_decision_status"]),
+        ("Source promotion status / 来源提升状态", row["source_promotion_status"]),
+        ("Corpus import status / 语料导入状态", row["corpus_import_status"]),
+        ("Decipherment claim status / 释读结论状态", row["decipherment_claim_status"]),
+        ("Identity claim status / 身份判断状态", row["identity_claim_status"]),
+        ("Component claim status / 构件判断状态", row["component_claim_status"]),
+        ("Evolution claim status / 演化链判断状态", row["evolution_claim_status"]),
+    ]:
+        lines.extend(kv_lines(label, value))
+    lines.extend(["", "## Reviewed Evidence Paths / 已复核证据路径", ""])
+    for path in evidence_paths:
+        lines.extend(path_value_lines(path))
     lines.extend(
         [
             "",
@@ -184,7 +269,8 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
         ]
     )
-    lines.extend(f"- `{value}`" for value in required_next_checks)
+    for value in required_next_checks:
+        lines.extend(wrap_code_value("- ", value))
     lines.extend(
         [
             "",
@@ -192,15 +278,25 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
         ]
     )
-    lines.extend(f"- `{value}`" for value in required_followup)
+    for value in required_followup:
+        lines.extend(wrap_code_value("- ", value))
     lines.extend(
         [
             "",
             "## Caution / 警示",
             "",
-            f"English: {CAUTION}",
+            "- Rights decision boundary / 权利决策边界: not a rights decision",
             "",
-            "简体中文：本记录只实体化 119 中已经捕获的元数据；它不是新的下载，不是 checksum 复算，不是权利裁定，不是来源提升，不是语料导入，不是甲骨单字身份判断，不是构件判断，不是演化链判断，也不是释读结论。",
+        ]
+    )
+    lines.extend(paragraph_lines(CAUTION, prefix="English: "))
+    lines.extend(
+        [
+            "",
+            "简体中文：本记录只实体化 119 中已经捕获的元数据；",
+            "它不是新的下载，不是 checksum 复算，不是权利裁定，",
+            "不是来源提升，不是语料导入，不是甲骨单字身份判断，",
+            "不是构件判断，不是演化链判断，也不是释读结论。",
             "",
         ]
     )

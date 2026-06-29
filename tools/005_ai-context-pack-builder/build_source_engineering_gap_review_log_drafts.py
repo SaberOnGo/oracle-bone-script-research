@@ -20,6 +20,7 @@ DEFAULT_MANIFEST = Path(
     "corpus/009_statistics-and-derived-features/"
     "102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv"
 )
+REVIEW_QUEUE_DIR = Path("doc/public/user_research/009_source-engineering-gap-review-queues")
 EVIDENCE_SNAPSHOT = Path(
     "corpus/009_statistics-and-derived-features/"
     "103_ai-agent-source-engineering-gap-evidence-snapshot.csv"
@@ -394,6 +395,13 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
 
 
 def write_markdown_drafts(root: Path, rows: list[dict[str, str]]) -> None:
+    expected_paths = {row["draft_path"] for row in rows}
+    queue_dir = root / REVIEW_QUEUE_DIR
+    if queue_dir.exists():
+        for path in sorted(queue_dir.glob("*_review-log.md")):
+            rel_path = path.relative_to(root).as_posix()
+            if rel_path not in expected_paths:
+                path.unlink()
     for row in rows:
         draft_path = root / row["draft_path"]
         draft_path.parent.mkdir(parents=True, exist_ok=True)

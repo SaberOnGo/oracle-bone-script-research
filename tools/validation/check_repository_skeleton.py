@@ -7514,7 +7514,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "node_degree_summary_rows:101619",
         ],
         "review_queues": [
-            "review_log_files:78",
+            "review_log_files:53",
             "evidence_collection_note_files:49",
             "undeciphered_review_queue_rows:9408",
             "cambridge_hopkins_crosswalk_review_queue_rows:612",
@@ -8635,11 +8635,25 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
                 if len(line) > 80:
                     issues.append(f"{draft_path}:{line_number} exceeds human Markdown line width")
     source_gap_review_queue_dir = root / SOURCE_ENGINEERING_GAP_REVIEW_QUEUE_DIR
+    expected_review_log_paths = {
+        row.get("draft_path", "") for row in source_gap_draft_rows if row.get("draft_path", "")
+    }
+    actual_review_log_paths = {
+        path.relative_to(root).as_posix()
+        for path in sorted(source_gap_review_queue_dir.glob("*_review-log.md"))
+    }
+    for stale_path in sorted(actual_review_log_paths - expected_review_log_paths):
+        issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} stale review log: {stale_path}")
+    for missing_path in sorted(expected_review_log_paths - actual_review_log_paths):
+        issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} missing review log: {missing_path}")
     for path in sorted(source_gap_review_queue_dir.glob("*_review-log.md")):
         text = path.read_text(encoding="utf-8")
         if "Evidence items / 证据条目: none" in text:
             rel_path = path.relative_to(root).as_posix()
             issues.append(f"{rel_path} still contains empty source-engineering evidence items")
+        if "not decided" in text:
+            rel_path = path.relative_to(root).as_posix()
+            issues.append(f"{rel_path} still contains vague source-engineering decision placeholder")
     if len(source_gap_snapshot_rows) != expected_gap_row_count:
         issues.append(
             f"{SOURCE_ENGINEERING_GAP_EVIDENCE_SNAPSHOT} should contain exactly {expected_gap_row_count} rows"
@@ -9532,7 +9546,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
                         f"record text missing {required_text}: {record_path}"
                     )
             for evidence_path in row.get("reviewed_evidence_paths", "").split(";"):
-                if evidence_path and evidence_path not in record_text:
+                if evidence_path and Path(evidence_path).name not in record_text:
                     issues.append(
                         f"{SOURCE_ENGINEERING_FIRST_WAVE_RESULT_RECORD_MANIFEST} "
                         f"record missing evidence path {evidence_path}: {record_path}"

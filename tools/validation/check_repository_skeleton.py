@@ -3944,9 +3944,10 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         readme_path = object_dir / "README.md"
         if path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
+            normalized_text = " ".join(text.split())
             for snippet in [
                 "object-local research entrance",
-                "AI-readable packet/index files",
+                "Structured support files only serve the human collection dossier",
                 "not a confirmed inscription identity",
                 "not a transcription, formal reading, component analysis, or decipherment conclusion",
                 "04_visual-gallery.md",
@@ -3955,8 +3956,17 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "08_collection-provenance-evidence-dossier.md",
                 "10_collection-provenance-fact-matrix.md",
             ]:
-                if snippet not in text:
+                if snippet not in normalized_text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for forbidden in [
+                "AI-readable packet/index files",
+                "AI-readable object candidate packet",
+            ]:
+                if forbidden in text:
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()} "
+                        f"contains machine-first marker: {forbidden}"
+                    )
         packet_path = object_dir / "01_collection-object-packet.json"
         if path_exists(packet_path):
             packet = json.loads(packet_path.read_text(encoding="utf-8"))

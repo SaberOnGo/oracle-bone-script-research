@@ -3377,6 +3377,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "not a decipherment conclusion",
         ]:
             self.assertIn(marker, text)
+        self.assertNotIn("JSON packet", text)
+        self.assertNotIn("AI-readable support packet", text)
         self.assertNotIn("\ufffd", text)
         for line in text.splitlines():
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):
@@ -5294,9 +5296,21 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "10_collection-provenance-fact-matrix.md").exists())
             self.assertTrue((object_dir / "11_collection-provenance-fact-matrix-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+            normalized_readme_text = " ".join(readme_text.split())
             self.assertIn("object-local research entrance", readme_text)
+            self.assertIn(
+                "Structured support files only serve the human collection dossier",
+                normalized_readme_text,
+            )
+            readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
+            self.assertNotIn("AI-readable packet/index files", readme_opening)
+            self.assertNotIn("AI-readable object candidate packet", readme_text)
             self.assertIn("not a confirmed inscription identity", readme_text)
-            self.assertIn("not a transcription, formal reading, component analysis, or decipherment conclusion", readme_text)
+            self.assertIn(
+                "not a transcription, formal reading, component analysis, "
+                "or decipherment conclusion",
+                normalized_readme_text,
+            )
             self.assertIn("06_human-collection-dossier.md", readme_text)
             self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
             self.assertIn("10_collection-provenance-fact-matrix.md", readme_text)
@@ -6104,6 +6118,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(packet["grammar_analysis_status"], "not_started")
         self.assertEqual(packet["inscription_topic_claim_status"], "no_claim")
         self.assertIn("not a grammar analysis", packet["caution"])
+        readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
+        self.assertIn(
+            "Structured support files only serve the human topic dossier",
+            readme_text,
+        )
+        readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
+        self.assertNotIn("AI-readable packet", readme_opening)
+        self.assertNotIn("JSON packet", readme_opening)
         review_sheet_text = (object_dir / "05_human-topic-review-sheet.md").read_text(encoding="utf-8")
         self.assertIn("Concrete Questions To Check", review_sheet_text)
         self.assertIn("具体待查问题", review_sheet_text)

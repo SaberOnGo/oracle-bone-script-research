@@ -21,16 +21,17 @@ or decipherment conclusions.
 
 1. Open `000_topic-registers/001_cambridge-hopkins-topic-candidate-index.csv`.
 2. Find the matching `obs-topic-cand-*` object directory.
-3. Read the object `README.md` before the JSON packet.
+3. Read the object README, human dossier, and review sheet first.
 4. Check `05_human-topic-review-sheet.md` for the human review state.
 5. Check `02_topic-source-index.csv` for the source and group route.
 6. Check `03_period-count-index.csv` for period-count index evidence.
 7. Check `04_inscription-crosswalk-route-index.csv` for routed inscriptions.
-8. Compare unrouted crosswalk rows before making any follow-up queue.
+8. Compare unrouted crosswalk rows before recording follow-up checks.
 
-人工复核时，先看主题候选登记表和对象内 README，再看人工主题复核表、
-来源索引、时期计数索引、卜辞互证路线和未路由互证行。JSON packet、
-staging 表和图边只辅助检索、追溯与排队，不能替代人工主题档案。
+人工复核时，先看主题候选登记表、对象内 README、人类主题档案和
+人工主题复核表，再看来源索引、时期计数索引、卜辞互证路线和
+未路由互证行。结构化辅助文件只辅助检索、追溯和复核，不能替代
+人工主题档案。
 
 ## Current Materials / 当前资料
 
@@ -48,13 +49,13 @@ staging 表和图边只辅助检索、追溯与排队，不能替代人工主题
 Each topic candidate directory should keep these files together:
 
 - `README.md`: human topic candidate overview and boundary.
-- `01_topic-candidate-packet.json`: AI-readable support packet.
+- `01_topic-candidate-packet.json`: structured candidate support packet.
 - `02_topic-source-index.csv`: source, group, and topic route index.
 - `03_period-count-index.csv`: period-count index for review.
 - `04_inscription-crosswalk-route-index.csv`: inscription crosswalk route.
 - `05_human-topic-review-sheet.md`: human topic review sheet.
 
-对象目录内同时放人类可读资料和 AI 可读辅助资料。不要在主题候选目录
+对象目录内同时放人类可读资料和结构化辅助资料。不要在主题候选目录
 旁边另建并行的人类目录。
 
 ## Topic Dossier Content / 主题档案内容

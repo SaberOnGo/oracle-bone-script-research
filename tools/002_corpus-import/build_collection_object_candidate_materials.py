@@ -343,7 +343,18 @@ def packet_payload(
 
 
 def metadata_lines(metadata: dict[str, str]) -> str:
-    return "\n".join(f"- {key}: `{value}`" for key, value in metadata.items())
+    lines: list[str] = []
+    for key, value in metadata.items():
+        lines.append(
+            textwrap.fill(
+                f"- {key}: `{value}`",
+                width=MAX_HUMAN_LINE_LENGTH,
+                subsequent_indent="  ",
+                break_long_words=True,
+                break_on_hyphens=False,
+            )
+        )
+    return "\n".join(lines)
 
 
 def wrapped_bullet(text: str) -> str:
@@ -378,22 +389,98 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
         rel_asset = relative_link(object_dir(index, row, "x"), asset_path)
         image_note = f"Committed image asset: `asset_id={visual_row['asset_id']}`.\n\n![object image]({rel_asset})"
     elif visual_row.get("thumbnail_url"):
-        image_note = f"External thumbnail URL metadata only: {visual_row['thumbnail_url']}"
+        image_note = (
+            "External thumbnail URL metadata only.\n\n"
+            "See `thumbnail_url` in Object Metadata."
+        )
+
+    english_intro = wrapped_paragraph(
+        "This directory is the object-local research entrance for one museum "
+        "or collection object candidate. Human-readable notes, visual routes, "
+        "review prompts, and provenance dossiers are the primary materials. "
+        "Structured support files only serve the human collection dossier, "
+        "source tracing, comparison, and review."
+    )
+    chinese_intro = "\n".join(
+        [
+            "本目录是一个馆藏或出土相关对象候选的对象内研究入口。",
+            "人类可读说明、图像入口、复核提示和出处档案是主体资料。",
+            "结构化辅助文件只服务人类馆藏档案、来源追溯、比较和复核。",
+        ]
+    )
+    boundary_entries = "\n".join(
+        [
+            wrapped_bullet("This is not a confirmed inscription identity."),
+            wrapped_bullet(
+                "This is not a transcription, formal reading, component "
+                "analysis, or decipherment conclusion."
+            ),
+            wrapped_bullet(
+                "Object labels and image links are source metadata for review only."
+            ),
+            "- 本对象不是已确认的卜辞身份，不是释文、正式释读、构件分析或"
+            "\n  破译结论；馆藏标签和图像链接只作为待复核来源 metadata。",
+        ]
+    )
+    file_entries = "\n".join(
+        [
+            wrapped_bullet(
+                "`01_collection-object-packet.json`: structured candidate "
+                "support packet."
+            ),
+            wrapped_bullet(
+                "`02_collection-source-index.csv`: source, download, rights, "
+                "and route index."
+            ),
+            wrapped_bullet(
+                "`03_visual-asset-index.csv`: committed asset, thumbnail URL, "
+                "or missing-image status."
+            ),
+            wrapped_bullet(
+                "`04_visual-gallery.md`: human-facing image or thumbnail route sheet."
+            ),
+            wrapped_bullet("`05_human-review-sheet.md`: human review checklist."),
+            wrapped_bullet(
+                "`06_human-collection-dossier.md`: human collection object dossier."
+            ),
+            wrapped_bullet(
+                "`07_collection-dossier-index.json`: structured dossier support index."
+            ),
+            wrapped_bullet(
+                "`08_collection-provenance-evidence-dossier.md`: human source "
+                "evidence dossier."
+            ),
+            wrapped_bullet(
+                "`09_collection-provenance-evidence-index.json`: structured "
+                "evidence index."
+            ),
+            wrapped_bullet(
+                "`10_collection-provenance-fact-matrix.md`: human provenance "
+                "fact matrix."
+            ),
+            wrapped_bullet(
+                "`11_collection-provenance-fact-matrix-index.json`: structured "
+                "fact index."
+            ),
+        ]
+    )
+    status_note = wrapped_paragraph(
+        f"Current status: `{REVIEW_STATUS}`. Reviewers must verify source "
+        "pages, rights status, object labels, image provenance, and inscription "
+        "context before promotion."
+    )
 
     return f"""# {project_id(index)} collection object candidate
 
 English:
-This directory is the object-local research entrance for one museum or collection object candidate. Human-readable notes, visual routes, review prompts, and AI-readable packet/index files are stored together in this concrete `corpus/005_excavation-sites-periods-and-batches` object directory.
+{english_intro}
 
 简体中文：
-本目录是一个馆藏或出土相关对象候选的对象内研究入口。人类可读说明、图像入口、复核提示和 AI 可读 packet/index 文件放在同一个具体 `corpus/005_excavation-sites-periods-and-batches` 对象目录里，不另建并行的人类资料目录。
+{chinese_intro}
 
 ## Boundary / 边界
 
-- This is not a confirmed inscription identity.
-- This is not a transcription, formal reading, component analysis, or decipherment conclusion.
-- Object labels and image links are source metadata for review only.
-- 本对象不是已确认的卜辞身份，不是释文、正式释读、构件分析或破译结论；馆藏标签和图像链接只作为待复核来源 metadata。
+{boundary_entries}
 
 ## Visual Entrance / 图像入口
 
@@ -401,17 +488,7 @@ This directory is the object-local research entrance for one museum or collectio
 
 ## Local Files / 本目录文件
 
-- `01_collection-object-packet.json`: AI-readable object candidate packet.
-- `02_collection-source-index.csv`: source, download, rights, and route index.
-- `03_visual-asset-index.csv`: committed asset, thumbnail URL, or missing-image status.
-- `04_visual-gallery.md`: human-facing image or thumbnail route sheet.
-- `05_human-review-sheet.md`: human review checklist.
-- `06_human-collection-dossier.md`: human collection object dossier.
-- `07_collection-dossier-index.json`: AI-readable dossier support index.
-- `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
-- `09_collection-provenance-evidence-index.json`: AI-readable evidence index.
-- `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
-- `11_collection-provenance-fact-matrix-index.json`: AI-readable fact index.
+{file_entries}
 
 ## Object Metadata / 对象 metadata
 
@@ -419,7 +496,7 @@ This directory is the object-local research entrance for one museum or collectio
 
 ## Review Status / 复核状态
 
-Current status: `{REVIEW_STATUS}`. Reviewers must verify source pages, rights status, object labels, image provenance, and inscription context before promotion.
+{status_note}
 """
 
 

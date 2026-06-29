@@ -49,7 +49,7 @@ Researchers should inspect collection and provenance materials in this order:
 
 1. Read this README to understand the provenance boundary.
 2. Open a concrete `coll-obj-cand-*` directory under the candidate area.
-3. Read the object-local README before the AI packet.
+3. Read the human dossier, evidence dossier, and review sheet first.
 4. Check source indexes, visual galleries, and thumbnail route notes.
 5. Compare institution, shelfmark, findspot, period, and batch evidence.
 6. Fill the human review sheet before recording any reviewed outcome.
@@ -59,7 +59,7 @@ Researchers should inspect collection and provenance materials in this order:
 
 1. 先读本 README，确认出处资料边界。
 2. 进入候选区下具体的 `coll-obj-cand-*` 目录。
-3. 先读对象内 README，再读 AI packet。
+3. 先读人类档案、证据档案和人工复核表。
 4. 检查来源索引、图像 gallery 和 thumbnail route 说明。
 5. 核对机构、架藏号、出土地、时期和批次证据。
 6. 写入任何复核结果前，先填写人工复核表。
@@ -68,17 +68,17 @@ Researchers should inspect collection and provenance materials in this order:
 
 English:
 Each collection object candidate directory should keep human-readable review
-materials and AI-readable support files together. The structured files help
+materials and structured support files together. The structured files help
 trace source routes, but the object-local human dossier remains primary.
 
 简体中文：
-每个馆藏对象候选目录都应同时保存人类可读复核资料和 AI 可读辅助文件。
+每个馆藏对象候选目录都应同时保存人类可读复核资料和结构化辅助文件。
 结构化文件用于追溯来源路线，但对象内人类档案仍是主体。
 
 Expected object-local files:
 
 - `README.md`: human overview, source status, and review boundary.
-- `01_collection-object-packet.json`: AI-readable candidate packet.
+- `01_collection-object-packet.json`: structured candidate support packet.
 - `02_collection-source-index.csv`: collection source route table.
 - `03_visual-asset-or-thumbnail-route-index.csv`: image or thumbnail route.
 - `04_visual-gallery.md`: readable visual or route gallery.

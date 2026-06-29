@@ -358,18 +358,57 @@ def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
     english_intro = wrapped_paragraph(
         "This directory is the object-local entrance for a Cambridge/Hopkins "
         "classified-table topic candidate. Human-readable notes, review "
-        "instructions, source routes, period-count metadata, crosswalk routes, "
-        "and the AI-readable packet are kept together in this same corpus "
-        "object directory."
+        "instructions, source routes, period-count metadata, and crosswalk "
+        "routes are the primary review materials. Structured support files "
+        "only serve the human topic dossier, source tracing, comparison, and "
+        "review."
     )
     chinese_intro = wrapped_paragraph(
         "本目录是 Cambridge/Hopkins 分类表主题候选的对象内入口。人类可读"
-        "说明、复核说明、来源路线、分期计数、卜辞互证路线和 AI 辅助"
-        "packet 都放在同一个 corpus 对象目录中。"
+        "说明、复核说明、来源路线、分期计数和卜辞互证路线是主体复核"
+        "资料。结构化辅助文件只服务人类主题档案、来源追溯、比较和复核。"
+    )
+    human_research_slots = "\n".join(
+        [
+            "## Human Research Slots / 人类研究槽位",
+            "",
+            wrapped_bullet(
+                "Glyph and image: no glyph image, rubbing, or photograph is "
+                "assigned here; check linked inscription and plate evidence "
+                "before any graphic comparison."
+            ),
+            wrapped_bullet(
+                "Inscription and catalog: compare full inscription text, OCR, "
+                "plate number, catalog wording, and Heji or OBM references "
+                "before any topic claim."
+            ),
+            wrapped_bullet(
+                "Components and variants: no component, variant, near-form, "
+                "bronze, seal, modern-character, or relation claim is accepted "
+                "without source-backed comparison."
+            ),
+            wrapped_bullet(
+                "Scholarship and dispute: record bibliography, proposer, "
+                "disagreement, and dispute only when collected from reviewed "
+                "sources."
+            ),
+            wrapped_bullet(
+                "Provenance and period: treat collection, findspot, period, "
+                "group, and batch fields as source clues pending human review."
+            ),
+            "- 字形和图像：本目录不指定字形图片、拓片或照片；需先核对卜辞和图版证据。",
+            "- 卜辞和著录：正式归类前，应比较全文、OCR、图版号、著录文字和合集线索。",
+            "- 构件和关系：构件、异体、近形、金文、小篆、今字和关系均只是待查槽位。",
+            "- 文献和争议：只有来源已收集时，才记录书目、提出者、不同意见和争议。",
+            "- 出处和时期：馆藏、出土地、时期、组类和批次都按来源线索待人工复核。",
+        ]
     )
     file_entries = "\n".join(
         [
-            wrapped_bullet("`01_topic-candidate-packet.json`: AI-readable packet."),
+            wrapped_bullet(
+                "`01_topic-candidate-packet.json`: structured candidate "
+                "support packet."
+            ),
             wrapped_bullet("`02_topic-source-index.csv`: source and provenance route."),
             wrapped_bullet("`03_period-count-index.csv`: period-count metadata."),
             wrapped_bullet(
@@ -378,18 +417,23 @@ def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
             ),
             wrapped_bullet("`05_human-topic-review-sheet.md`: human checklist."),
             wrapped_bullet("`06_human-topic-dossier.md`: human topic dossier."),
-            wrapped_bullet("`07_topic-dossier-index.json`: AI support index."),
+            wrapped_bullet(
+                "`07_topic-dossier-index.json`: structured dossier support index."
+            ),
             wrapped_bullet(
                 "`08_topic-literature-context-dossier.md`: literature/context "
                 "dossier."
             ),
-            wrapped_bullet("`09_topic-literature-context-index.json`: AI index."),
+            wrapped_bullet(
+                "`09_topic-literature-context-index.json`: structured context index."
+            ),
             wrapped_bullet(
                 "`10_topic-citation-dispute-review-dossier.md`: citation and "
                 "dispute review."
             ),
             wrapped_bullet(
-                "`11_topic-citation-dispute-review-index.json`: AI support index."
+                "`11_topic-citation-dispute-review-index.json`: structured "
+                "citation support index."
             ),
         ]
     )
@@ -410,6 +454,8 @@ English:
 
 简体中文：
 {chinese_intro}
+
+{human_research_slots}
 
 ## Local Files / 本目录文件
 {file_entries}

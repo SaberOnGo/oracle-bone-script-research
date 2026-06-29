@@ -4037,6 +4037,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Component Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
             self.assertIn("Component Candidate Review Fact Matrix", fact_matrix_text)
+            fact_matrix_opening = fact_matrix_text.split(
+                "## Component Candidate Review Fact Matrix", maxsplit=1
+            )[0]
+            self.assertIn("structured route files", fact_matrix_opening)
+            self.assertIn(
+                "结构化路线文件只作检索、追溯和复核辅助",
+                fact_matrix_opening,
+            )
+            self.assertNotIn("CSV", fact_matrix_opening)
+            self.assertNotIn("JSON", fact_matrix_opening)
             for snippet in [
                 "Component candidate",
                 "Glyph or codepoint route",
@@ -4263,6 +4273,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Component Review Fact Matrix", fact_matrix_text)
             self.assertIn("Component Candidate Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
+            fact_matrix_opening = fact_matrix_text.split(
+                "## Component Candidate Review Fact Matrix", maxsplit=1
+            )[0]
+            self.assertIn("structured route files", fact_matrix_opening)
+            self.assertIn(
+                "结构化路线文件只作检索、追溯和复核辅助",
+                fact_matrix_opening,
+            )
+            self.assertNotIn("CSV", fact_matrix_opening)
+            self.assertNotIn("JSON", fact_matrix_opening)
             self.assertIn("not a formal component assignment", fact_matrix_text)
             self.assertIn("not a decipherment conclusion", fact_matrix_text)
             self.assertIn("Meaning or reading status", fact_matrix_text)
@@ -5028,6 +5048,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Evolution Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
             self.assertIn("Evolution And Correspondence Fact Matrix", fact_matrix_text)
+            fact_matrix_opening = fact_matrix_text.split(
+                "## Evolution And Correspondence Fact Matrix", maxsplit=1
+            )[0]
+            self.assertIn("structured route files", fact_matrix_opening)
+            self.assertIn(
+                "结构化路线文件只作检索、追溯和复核辅助",
+                fact_matrix_opening,
+            )
+            self.assertNotIn("CSV", fact_matrix_opening)
+            self.assertNotIn("JSON", fact_matrix_opening)
             for snippet in [
                 "Evolution candidate",
                 "Oracle-side route",
@@ -5205,6 +5235,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(first["fact_matrix_path"].parent, first["object_dir"])
         self.assertIn("Evolution Review Fact Matrix", first["fact_matrix_text"])
         self.assertIn("Evolution And Correspondence Fact Matrix", first["fact_matrix_text"])
+        fact_matrix_opening = first["fact_matrix_text"].split(
+            "## Evolution And Correspondence Fact Matrix", maxsplit=1
+        )[0]
+        self.assertIn("structured route files", fact_matrix_opening)
+        self.assertIn(
+            "结构化路线文件只作检索、追溯和复核辅助",
+            fact_matrix_opening,
+        )
+        self.assertNotIn("CSV", fact_matrix_opening)
+        self.assertNotIn("JSON", fact_matrix_opening)
         self.assertIn("not an evolution-chain conclusion", first["fact_matrix_text"])
         self.assertNotIn("not_collected", first["fact_matrix_text"])
         for line in first["fact_matrix_text"].splitlines():

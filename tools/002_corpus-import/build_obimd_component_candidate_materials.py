@@ -1488,7 +1488,8 @@ def component_review_fact_matrix_text(
         "- Open `15_component-review-fact-matrix.md` first.",
         "- Then open `11_human-component-dossier.md`.",
         "- Open `13_component-context-evidence-dossier.md` before context use.",
-        "- Use CSV and JSON files only as route and verification support.",
+        "- Use structured route files only as secondary route support.",
+        "- 结构化路线文件只作检索、追溯和复核辅助。",
         "",
         (
             "## Component Candidate Review Fact Matrix / "

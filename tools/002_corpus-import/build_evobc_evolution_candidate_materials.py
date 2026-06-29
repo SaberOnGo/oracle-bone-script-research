@@ -1394,7 +1394,8 @@ def evolution_review_fact_matrix_text(
             "Open `11_evolution-review-fact-matrix.md` first.",
             "Then open `07_human-evolution-dossier.md` for the full dossier.",
             "Open `09_cross-period-review-dossier.md` before correspondence claims.",
-            "Use CSV, JSON, and graph files only as route support.",
+            "Use structured route files only as secondary route support.",
+            "结构化路线文件只作检索、追溯和复核辅助。",
             "Record missing image, inscription, catalog, bibliography, rights, "
             "meaning, reading, dispute, findspot, collection, period, and batch "
             "evidence before any promotion.",

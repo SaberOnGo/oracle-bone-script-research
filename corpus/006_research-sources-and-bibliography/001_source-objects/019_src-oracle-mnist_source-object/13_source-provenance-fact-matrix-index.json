@@ -70,7 +70,7 @@
       "fact": "Derived paths",
       "status": "present",
       "evidence_files": "06_human-source-review-sheet.md; 07_material-access-index.md; 08_source-processing-status.md; 10_source-evidence-dossier.md; 05_metadata-profile-route-index.csv",
-      "next_check": "Open human files first, then use JSON and CSV only as routes."
+      "next_check": "Open human files first, then use structured support indexes only as routes."
     },
     {
       "fact": "Review status",

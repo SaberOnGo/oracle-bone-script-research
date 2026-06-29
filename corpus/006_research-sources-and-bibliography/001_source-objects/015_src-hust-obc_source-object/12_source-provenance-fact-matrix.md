@@ -9,9 +9,10 @@ before any source material is reused.
 - Open `12_source-provenance-fact-matrix.md` first.
 - Then open `10_source-evidence-dossier.md` for route detail.
 - Use `13_source-provenance-fact-matrix-index.json` only as an index.
-- Then use CSV or JSON files only as supporting route evidence.
+- Then use structured route files only as supporting route evidence.
 - Do not treat this matrix as a rights or scholarship decision.
-- 先读本矩阵，再读来源证据档案，最后才查看 CSV 或 JSON 路线。
+- 先读本矩阵，再读来源证据档案。
+- 结构化路线文件只作辅助路线证据。
 - 本矩阵不作权利结论，也不作学术结论。
 
 ## Source / 来源
@@ -72,8 +73,8 @@ before any source material is reused.
 - Evidence files / 证据文件: 06_human-source-review-sheet.md;
   07_material-access-index.md; 08_source-processing-status.md;
   10_source-evidence-dossier.md; 05_metadata-profile-route-index.csv
-- Next check / 下一步核查: Open human files first, then use JSON and CSV only as
-  routes.
+- Next check / 下一步核查: Open human files first, then use structured support
+  indexes only as routes.
 
 ### Fact 10: Review status
 - Status / 状态: present

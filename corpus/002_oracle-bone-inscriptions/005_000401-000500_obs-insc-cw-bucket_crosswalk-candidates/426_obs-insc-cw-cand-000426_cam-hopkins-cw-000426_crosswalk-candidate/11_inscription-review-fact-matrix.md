@@ -7,12 +7,12 @@ Candidate crosswalk ID: `cam-hopkins-crosswalk-000426`
 ## Human Review Order / 人工复核顺序
 
 Open this Inscription And Plate Fact Matrix first, then open
-`09_inscription-plate-evidence-dossier.md`, and then use the CSV and JSON
-files only as route support.
+`09_inscription-plate-evidence-dossier.md`. Use structured route files only
+as secondary route support.
 
 先读本卜辞与图版事实矩阵，再读
 `09_inscription-plate-evidence-dossier.md`。
-CSV 和 JSON 只作检索、追溯和复核辅助。
+结构化路线文件只作检索、追溯和复核辅助。
 
 ## Inscription And Plate Fact Matrix
 

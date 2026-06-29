@@ -4421,6 +4421,13 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Inscription Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
             self.assertIn("Inscription And Plate Fact Matrix", fact_matrix_text)
+            fact_matrix_opening = fact_matrix_text.split(
+                "## Inscription And Plate Fact Matrix", maxsplit=1
+            )[0]
+            self.assertIn("structured route files", fact_matrix_opening)
+            self.assertIn("结构化路线文件只作检索、追溯和复核辅助", fact_matrix_opening)
+            self.assertNotIn("CSV", fact_matrix_opening)
+            self.assertNotIn("JSON", fact_matrix_opening)
             for required_fact in (
                 "Inscription number",
                 "Full text or OCR",
@@ -4663,6 +4670,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("Human Review Order", first["review_fact_matrix_text"])
         self.assertIn("Inscription And Plate Fact Matrix", first["review_fact_matrix_text"])
+        review_fact_opening = first["review_fact_matrix_text"].split(
+            "## Inscription And Plate Fact Matrix", maxsplit=1
+        )[0]
+        self.assertIn("structured route files", review_fact_opening)
+        self.assertIn("结构化路线文件只作检索、追溯和复核辅助", review_fact_opening)
+        self.assertNotIn("CSV", review_fact_opening)
+        self.assertNotIn("JSON", review_fact_opening)
         self.assertIn("Full text or OCR", first["review_fact_matrix_text"])
         self.assertIn("Plate or rubbing image", first["review_fact_matrix_text"])
         self.assertIn("Findspot period batch", first["review_fact_matrix_text"])
@@ -6388,6 +6402,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Source Provenance Fact Matrix", fact_matrix_text)
         self.assertIn("Human Review Order", fact_matrix_text)
         self.assertIn("Provenance Fact Matrix", fact_matrix_text)
+        source_fact_opening = fact_matrix_text.split(
+            "## Source / 来源", maxsplit=1
+        )[0]
+        self.assertIn("structured route files", source_fact_opening)
+        self.assertIn("结构化路线文件只作辅助路线证据", source_fact_opening)
+        self.assertNotIn("CSV", source_fact_opening)
+        self.assertNotIn("JSON", source_fact_opening)
         for required_fact in (
             "Source identity",
             "Access or download record",

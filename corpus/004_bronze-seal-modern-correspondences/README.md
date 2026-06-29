@@ -76,7 +76,8 @@ JSON 与 CSV 只用于检索、追溯、比较和审计人类档案，不能替�
 Expected object-local files:
 
 - `README.md`: human overview, source status, and boundary.
-- `01_candidate-evolution-packet.json`: AI-readable candidate packet.
+- `01_candidate-evolution-packet.json`: structured support packet for the
+  human evolution dossier.
 - `02_evolution-source-index.csv`: EVOBC source route table.
 - `03_era-source-code-index.csv`: era and source code table.
 - `04_human-review-sheet.md`: manual review sheet.

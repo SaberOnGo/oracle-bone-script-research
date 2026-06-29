@@ -1014,13 +1014,15 @@ def cross_period_review_index_payload(
 
 def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]) -> str:
     intro_en = wrapped_paragraph(
-        "This directory is the object-local research entrance for one EVOBC "
-        "category. Human-readable notes and AI-readable indexes are stored in "
-        "this same concrete corpus object directory."
+        "This directory is the object-local human research entrance for one "
+        "EVOBC evolution or correspondence candidate. Start with the human "
+        "evolution dossier, then use source, image-route, code, and structured "
+        "support files only to trace and verify the human-readable evidence."
     )
     intro_zh = wrapped_paragraph(
-        "本目录是一个 EVOBC 字形演化类别候选对象的本地研究入口。"
-        "人类可读说明、人工复核表和 AI 可读索引放在同一对象目录内。"
+        "本目录是一个 EVOBC 字形演化或对应候选对象的对象内人类研究入口。"
+        "先阅读人类演化档案，再用来源、图像路线、代码和结构化辅助文件追溯、"
+        "核查人类可读证据。"
     )
     boundary_lines = bullet_block(
         [
@@ -1054,16 +1056,16 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
     )
     local_file_lines = bullet_block(
         [
-            "`01_candidate-evolution-packet.json`: AI-readable candidate packet.",
+            "`01_candidate-evolution-packet.json`: structured support packet for the human dossier.",
             "`02_evolution-source-index.csv`: source, download, rights, and route index.",
             "`03_era-source-code-index.csv`: observed era/source code rows.",
             "`04_human-review-sheet.md`: human source-chain review sheet.",
             "`05_image-reference-route-index.csv`: object-local image route index.",
             "`06_image-reference-route-gallery.md`: visual-evidence route gallery.",
             "`07_human-evolution-dossier.md`: human evolution dossier.",
-            "`08_evolution-dossier-index.json`: AI support index for the dossier.",
+            "`08_evolution-dossier-index.json`: structured support index for dossier gaps.",
             "`09_cross-period-review-dossier.md`: cross-period human review dossier.",
-            "`10_cross-period-review-index.json`: AI support index for cross-period review.",
+            "`10_cross-period-review-index.json`: structured support index for cross-period review.",
             "`11_evolution-review-fact-matrix.md`: human first-read fact matrix.",
         ]
     )
@@ -1112,6 +1114,25 @@ Simplified Chinese:
 
 {boundary_lines}
 
+## Human Evolution And Correspondence Review Slots / 演化对应复核槽位
+
+Structured support files only serve the human evolution dossier.
+
+结构化辅助文件只服务本对象内的人类演化档案。
+
+- Compare EVOBC image routes with local visual and source evidence.
+- Check oracle, bronze, seal, later-script, and modern-character routes.
+- Link only source-backed inscription, plate, collection, and period context.
+- Record meaning, reading, proposer, bibliography, and dispute as pending.
+- Check source, rights, manifest, field map, and extraction evidence.
+- Keep every missing item as a concrete question before formal research.
+- 比较 EVOBC 图像路线和对象内视觉、来源证据。
+- 核查甲骨、金文、小篆、后世字形和今字路线。
+- 只关联有来源支持的卜辞、图版、馆藏和时期语境。
+- 将字义、读法、提出者、文献和争议状态标为待查。
+- 核对来源、权利、manifest、字段映射和抽取证据。
+- 正式研究前，所有缺失项都必须写成具体问题。
+
 ## Local Files / 本目录文件
 
 {local_file_lines}
@@ -1140,7 +1161,7 @@ Simplified Chinese:
     return f"""# {project_id(index)} / EVOBC evolution-category candidate
 
 English:
-This directory is the object-local research entrance for one EVOBC category. Human-readable notes and AI-readable indexes are stored in this same concrete `corpus/004_bronze-seal-modern-correspondences` object directory.
+This directory is the object-local human research entrance for one EVOBC evolution or correspondence candidate. Structured support files only serve the human evolution dossier in this same concrete `corpus/004_bronze-seal-modern-correspondences` object directory.
 
 Simplified Chinese:
 本目录是一个 EVOBC 字形演化类别候选对象的本地研究入口。人类可读说明、人工复核表和 AI 可读索引都放在同一个具体 `corpus/004_bronze-seal-modern-correspondences` 对象目录中，不另建并行的人类资料目录。
@@ -1155,7 +1176,7 @@ Simplified Chinese:
 
 ## Local Files / 本目录文件
 
-- `01_candidate-evolution-packet.json`: AI-readable candidate packet.
+- `01_candidate-evolution-packet.json`: structured support packet for the human dossier.
 - `02_evolution-source-index.csv`: source, download, rights, and route index.
 - `03_era-source-code-index.csv`: era/source code rows observed for this category.
 - `04_human-review-sheet.md`: human review sheet for source-chain, image, and cross-source checks.

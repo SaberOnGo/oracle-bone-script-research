@@ -4784,8 +4784,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "10_cross-period-review-index.json").exists())
             self.assertTrue((object_dir / "11_evolution-review-fact-matrix.md").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
-            self.assertIn("object-local research entrance", readme_text)
-            self.assertIn("本目录是一个 EVOBC 字形演化类别候选对象", readme_text)
+            readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
+            self.assertIn("object-local human research entrance", readme_text)
+            self.assertIn("Human Evolution And Correspondence Review Slots", readme_text)
+            self.assertIn(
+                "Structured support files only serve the human evolution dossier",
+                readme_text,
+            )
+            self.assertNotIn("AI-readable", readme_opening)
+            self.assertNotIn("AI-readable indexes", readme_text)
+            self.assertNotIn("AI-readable candidate packet", readme_text)
             self.assertIn("not an accepted paleographic correspondence", readme_text)
             self.assertIn("not an evolution-chain conclusion", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)

@@ -3517,8 +3517,9 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         if path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
             for snippet in [
-                "object-local research entrance",
-                "AI-readable indexes",
+                "object-local human research entrance",
+                "Human Evolution And Correspondence Review Slots",
+                "Structured support files only serve the human evolution dossier",
                 "not an accepted paleographic correspondence",
                 "not an evolution-chain conclusion",
                 "not a confirmed modern-character identity",
@@ -3533,10 +3534,18 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "05_image-reference-route-index.csv",
                 "06_image-reference-route-gallery.md",
                 "11_evolution-review-fact-matrix.md",
-                "本目录是一个 EVOBC 字形演化类别候选对象",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for forbidden in [
+                "AI-readable indexes",
+                "AI-readable candidate packet",
+            ]:
+                if forbidden in text:
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()} "
+                        f"contains machine-first marker: {forbidden}"
+                    )
             if "What evidence is still missing before any formal correspondence claim?" in text:
                 issues.append(
                     f"{readme_path.relative_to(root).as_posix()} "

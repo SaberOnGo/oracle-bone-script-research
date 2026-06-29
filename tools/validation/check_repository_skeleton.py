@@ -8624,6 +8624,16 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             for value in values:
                 if not (root / value).exists():
                     issues.append(f"{SOURCE_ENGINEERING_GAP_REVIEW_LOG_DRAFT_MANIFEST} missing path: {value}")
+        draft_path = row.get("draft_path", "")
+        if draft_path:
+            text = (root / draft_path).read_text(encoding="utf-8")
+            if "Existing Metadata Snapshot / 已有 metadata 快照" not in text:
+                issues.append(f"{draft_path} missing source-engineering metadata snapshot")
+            if "Evidence items /" in text:
+                issues.append(f"{draft_path} still contains empty source-engineering evidence items")
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(f"{draft_path}:{line_number} exceeds human Markdown line width")
     source_gap_review_queue_dir = root / SOURCE_ENGINEERING_GAP_REVIEW_QUEUE_DIR
     for path in sorted(source_gap_review_queue_dir.glob("*_review-log.md")):
         text = path.read_text(encoding="utf-8")

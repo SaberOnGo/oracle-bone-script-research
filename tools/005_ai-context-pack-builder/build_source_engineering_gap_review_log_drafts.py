@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build empty review-log drafts for source-engineering gap tasks.
+"""Build review-log drafts for source-engineering gap tasks.
 
 These drafts turn the 099 source-engineering gap queue into human/agent review
-work surfaces. They are route scaffolds only: no evidence is collected here and
-no source, rights, corpus, identity, or decipherment claim is promoted.
+work surfaces. They materialize existing route metadata from the 103 snapshot
+without promoting source, rights, corpus, identity, or decipherment claims.
 """
 
 from __future__ import annotations
@@ -19,6 +19,10 @@ SOURCE_ENGINEERING_GAP_QUEUE = Path(
 DEFAULT_MANIFEST = Path(
     "corpus/009_statistics-and-derived-features/"
     "102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv"
+)
+EVIDENCE_SNAPSHOT = Path(
+    "corpus/009_statistics-and-derived-features/"
+    "103_ai-agent-source-engineering-gap-evidence-snapshot.csv"
 )
 UPDATED_AT = "2026-06-19"
 DRAFT_STATUS = "draft_not_collected"
@@ -153,6 +157,78 @@ def split_values(value: str) -> list[str]:
     return [item for item in value.split(";") if item]
 
 
+def split_long_value(value: str, limit: int = 68) -> list[str]:
+    if ";" in value:
+        return [part for part in value.split(";") if part]
+    if "/" in value and " " not in value:
+        chunks: list[str] = []
+        current = ""
+        for part in value.split("/"):
+            token = f"{part}/"
+            candidate = f"{current}{token}"
+            if len(candidate) > limit and current:
+                chunks.append(current.rstrip("/"))
+                current = token
+            else:
+                current = candidate
+        if current:
+            chunks.append(current.rstrip("/"))
+        return chunks
+    words = value.split()
+    if len(words) <= 1:
+        return [value]
+    chunks: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > limit and current:
+            chunks.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        chunks.append(current)
+    return chunks
+
+
+def field_lines(prefix: str, field: str, value: str) -> list[str]:
+    display = value if value else "none"
+    line = f"{prefix}{field}: `{display}`"
+    if len(line) <= 80:
+        return [line]
+    lines = [f"{prefix}{field}:"]
+    lines.extend(f"{prefix}  - `{part}`" for part in split_long_value(display))
+    return lines
+
+
+def paragraph_lines(
+    prefix: str, text: str, limit: int = 76, continuation_prefix: str | None = None
+) -> list[str]:
+    continuation = prefix if continuation_prefix is None else continuation_prefix
+    lines: list[str] = []
+    current = ""
+    for word in text.split():
+        candidate = f"{current} {word}".strip()
+        if len(f"{prefix}{candidate}") > limit and current:
+            line_prefix = prefix if not lines else continuation
+            lines.append(f"{line_prefix}{current}")
+            current = word
+        else:
+            current = candidate
+    if current:
+        line_prefix = prefix if not lines else continuation
+        lines.append(f"{line_prefix}{current}")
+    return lines
+
+
+def snapshot_by_gap_id(root: Path | None = None) -> dict[str, dict[str, str]]:
+    base = repo_root() if root is None else root
+    path = base / EVIDENCE_SNAPSHOT
+    if not path.exists():
+        return {}
+    return {row["source_engineering_gap_id"]: row for row in read_csv_rows(path)}
+
+
 def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     for index, row in enumerate(queue_rows, start=1):
@@ -188,39 +264,42 @@ def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str
 def build_markdown(row: dict[str, str]) -> str:
     route_files = split_values(row["route_files_to_open"])
     next_checks = split_values(row["required_next_checks"])
+    snapshot = snapshot_by_gap_id().get(row["source_engineering_gap_id"], {})
     lines = [
         "# Source Engineering Gap Review Log Draft / 来源工程缺口复核日志草稿",
         "",
         "## Status / 状态",
         "",
-        f"- Review log draft ID / 复核日志草稿 ID: `{row['review_log_draft_id']}`",
-        f"- Source engineering gap ID / 来源工程缺口 ID: `{row['source_engineering_gap_id']}`",
-        f"- Draft status / 草稿状态: `{row['draft_status']}`",
-        f"- Evidence collection status / 证据收集状态: `{row['evidence_collection_status']}`",
-        f"- Human review status / 人工复核状态: `{row['human_review_status']}`",
-        f"- Rights decision status / 权利决策状态: `{row['rights_decision_status']}`",
-        f"- Source promotion status / 来源提升状态: `{row['source_promotion_status']}`",
-        f"- Commit policy boundary / 提交边界: `{row['commit_policy_boundary']}`",
-        f"- Research boundary / 研究边界: `{row['research_boundary']}`",
-        f"- Updated at / 更新时间: `{row['updated_at']}`",
-        "",
-        "## Source Route / 来源路线",
-        "",
-        f"- Source ID / 来源 ID: `{row['source_id']}`",
-        f"- Gap type / 缺口类型: `{row['gap_type']}`",
-        f"- Priority rank / 优先级: `{row['priority_rank']}`",
-        f"- Current stage / 当前阶段: `{row['current_stage']}`",
-        f"- Authority tier / 来源层级: `{row['authority_tier']}`",
-        f"- Rights status / 权利状态: `{row['rights_status']}`",
-        "",
-        "## Observed Gap Evidence / 已观察缺口证据",
-        "",
-        f"`{row['observed_gap_evidence']}`",
-        "",
-        "## Route Files To Open / 待打开路线文件",
-        "",
     ]
-    lines.extend(f"- `{route_file}`" for route_file in route_files)
+    for label, field in [
+        ("Review log draft ID / 复核日志草稿 ID", "review_log_draft_id"),
+        ("Source engineering gap ID / 来源工程缺口 ID", "source_engineering_gap_id"),
+        ("Draft status / 草稿状态", "draft_status"),
+        ("Evidence collection status / 证据收集状态", "evidence_collection_status"),
+        ("Human review status / 人工复核状态", "human_review_status"),
+        ("Rights decision status / 权利决策状态", "rights_decision_status"),
+        ("Source promotion status / 来源提升状态", "source_promotion_status"),
+        ("Commit policy boundary / 提交边界", "commit_policy_boundary"),
+        ("Research boundary / 研究边界", "research_boundary"),
+        ("Updated at / 更新时间", "updated_at"),
+    ]:
+        lines.extend(field_lines("- ", label, row[field]))
+    lines.extend(["", "## Source Route / 来源路线", ""])
+    for label, field in [
+        ("Source ID / 来源 ID", "source_id"),
+        ("Gap type / 缺口类型", "gap_type"),
+        ("Priority rank / 优先级", "priority_rank"),
+        ("Current stage / 当前阶段", "current_stage"),
+        ("Authority tier / 来源层级", "authority_tier"),
+        ("Rights status / 权利状态", "rights_status"),
+    ]:
+        lines.extend(field_lines("- ", label, row[field]))
+    lines.extend(["", "## Observed Gap Evidence / 已观察缺口证据", ""])
+    for item in split_values(row["observed_gap_evidence"]):
+        lines.extend(field_lines("- ", "Observed item / 已观察项", item))
+    lines.extend(["", "## Route Files To Open / 待打开路线文件", ""])
+    for route_file in route_files:
+        lines.extend(field_lines("- ", "Route file / 路线文件", route_file))
     lines.extend(
         [
             "",
@@ -233,35 +312,73 @@ def build_markdown(row: dict[str, str]) -> str:
         lines.extend(
             [
                 f"- `{check}`",
-                f"  - English: {label_en}",
-                f"  - 简体中文：{label_zh}",
             ]
         )
+        lines.extend(paragraph_lines("  - English: ", label_en, continuation_prefix="    "))
+        lines.extend(paragraph_lines("  - 简体中文：", label_zh, continuation_prefix="    "))
     lines.extend(
         [
             "",
             "## Evidence Collection / 证据收集",
             "",
-            "English: This draft intentionally contains no collected evidence yet. Add evidence only after opening the routed files and recording source, rights, checksum or access-boundary status.",
+            "English: Existing metadata has been captured from routed records.",
+            "It remains metadata-only and does not promote source content.",
             "",
-            "简体中文：本草稿暂不包含已收集证据。只有在打开路线文件，并记录来源、权利、checksum 或访问边界状态后，才可补充证据。",
+            "简体中文：已从路线记录捕获现有 metadata。",
+            "这些内容仍为 metadata-only，不提升为来源正文。",
             "",
-            "- Evidence items / 证据条目: none",
-            "- Derived record decision / 派生记录决策: not decided",
-            "- Package manifest decision / 包清单决策: not decided",
-            "- Field map decision / 字段映射决策: not decided",
-            "- Metadata profile decision / metadata profile 决策: not decided",
+            "## Existing Metadata Snapshot / 已有 metadata 快照",
+            "",
+        ]
+    )
+    for label, field in [
+        ("Evidence snapshot ID / 证据快照 ID", "evidence_snapshot_id"),
+        ("Evidence status / 证据状态", "evidence_status"),
+        ("Source review status / 来源复核状态", "source_review_status"),
+        ("Rights status / 权利状态", "rights_status"),
+        ("Download manifest IDs / 下载 manifest ID", "download_manifest_ids"),
+        ("Download log IDs / 下载日志 ID", "download_log_ids"),
+        ("download_log_status_counts", "download_log_status_counts"),
+        ("download_log_http_status_counts", "download_log_http_status_counts"),
+        ("download_log_file_size_bytes_total", "download_log_file_size_bytes_total"),
+        ("download_log_checksum_present_count", "download_log_checksum_present_count"),
+        ("package_file_ids", "package_file_ids"),
+        ("metadata_profile_ids", "metadata_profile_ids"),
+        ("Route file missing count / 缺失路线文件数", "route_file_missing_count"),
+    ]:
+        lines.extend(field_lines("- ", label, snapshot.get(field, "")))
+    lines.extend(
+        [
+            "",
+            "## Snapshot Boundary / 快照边界",
+            "",
+        ]
+    )
+    for label, field in [
+        ("Rights decision status / 权利决策状态", "rights_decision_status"),
+        ("Source promotion status / 来源提升状态", "source_promotion_status"),
+        ("Corpus import status / 语料导入状态", "corpus_import_status"),
+    ]:
+        lines.extend(field_lines("- ", label, snapshot.get(field, "")))
+    lines.extend(
+        [
+            "- Identity, component, evolution, and decipherment claims:",
+            "  - `blocked`",
+            "- 身份、构件、演化链和释读结论：",
+            "  - `blocked`",
             "",
             "## Review Log / 复核日志",
             "",
             "- Status / 状态: `created_from_099_source_engineering_gap_queue`",
-            "- Decision / 决定: no rights clearance, no source promotion, no corpus import, no identity claim, and no decipherment conclusion.",
+            "- Decision / 决定:",
+            "  - no rights clearance, no source promotion, no corpus import,",
+            "    no identity claim, and no decipherment conclusion.",
             "",
             "## Caution / 警示",
             "",
-            f"English: {CAUTION_EN}",
+            *paragraph_lines("English: ", CAUTION_EN, continuation_prefix="  "),
             "",
-            f"简体中文：{CAUTION_ZH}",
+            *paragraph_lines("简体中文：", CAUTION_ZH, continuation_prefix="  "),
             "",
         ]
     )

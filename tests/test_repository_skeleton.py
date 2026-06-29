@@ -18212,6 +18212,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("download_log_file_size_bytes_total: `0`", first_text)
         self.assertNotIn("Evidence items / 证据条目: none", first_text)
         self.assertIn("no rights clearance", first_text)
+        long_lines = []
+        empty_evidence_paths = []
+        for row in rows:
+            path = repo_root() / row["draft_path"]
+            text = path.read_text(encoding="utf-8")
+            if "Evidence items /" in text:
+                empty_evidence_paths.append(path.relative_to(repo_root()).as_posix())
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if len(line) > 80:
+                    long_lines.append(
+                        (path.relative_to(repo_root()).as_posix(), line_number, line)
+                    )
+        self.assertEqual(empty_evidence_paths, [])
+        self.assertEqual(long_lines, [])
 
     def test_source_engineering_gap_review_queue_has_no_empty_evidence_logs(self) -> None:
         queue_dir = (
@@ -18222,6 +18236,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         for path in sorted(queue_dir.glob("*_review-log.md")):
             text = path.read_text(encoding="utf-8")
             if "Evidence items / 证据条目: none" in text:
+                empty_evidence_files.append(path.relative_to(repo_root()).as_posix())
+            if "Evidence items /" in text:
                 empty_evidence_files.append(path.relative_to(repo_root()).as_posix())
         self.assertEqual(empty_evidence_files, [])
 
@@ -18238,7 +18254,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(rows[0]["source_promotion_status"], "not_promoted")
         markdown = module.build_markdown(rows[0])
         self.assertIn("Source Engineering Gap Review Log Draft", markdown)
-        self.assertIn("This draft intentionally contains no collected evidence yet", markdown)
+        self.assertIn("Existing Metadata Snapshot / 已有 metadata 快照", markdown)
+        self.assertIn("source-engineering-gap-evidence-snapshot-0001", markdown)
+        self.assertIn("download_log_status_counts: `http_error:1`", markdown)
+        self.assertNotIn("Evidence items /", markdown)
         self.assertIn("not a corpus import", markdown)
 
     def test_source_engineering_gap_evidence_snapshot_records_existing_metadata(self) -> None:

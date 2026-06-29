@@ -7,8 +7,10 @@
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `not_started`
-- Formal schema compatibility / 正式 schema 兼容状态: `not_formal_inscription_or_obs_char_schema`
-- Research boundary / 研究边界: `xxt_obm_access_boundary_review_log_draft_not_scholarship`
+- Formal schema compatibility / 正式 schema 兼容状态:
+-   - `not_formal_inscription_or_obs_char_schema`
+- Research boundary / 研究边界:
+-   - `xxt_obm_access_boundary_review_log_draft_not_scholarship`
 - Updated at / 更新时间: `2026-06-11`
 
 ## Route / 路由
@@ -20,11 +22,21 @@
 
 ## Route Files To Open / 待打开路由文件
 
-- `corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv`
-- `project_registry/006_large-source-register/002_source-download-log.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/011_core-institutional-access-profile.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-registers/012_obm-abbreviation-staging.csv`
+- Route file / 路由文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `001_all-sources-index.csv`
+- Route file / 路由文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `003_source-download-manifest.csv`
+- Route file / 路由文件:
+-   - `project_registry/006_large-source-register`
+-   - `002_source-download-log.csv`
+- Route file / 路由文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `011_core-institutional-access-profile.csv`
+- Route file / 路由文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `012_obm-abbreviation-staging.csv`
 
 ## Review Sections / 复核章节
 
@@ -66,12 +78,13 @@ decipherment conclusion.
 ### Source Register Row / 来源登记行
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - source_id: `src-xiaoxuetang-obm`
-  - rights_status: `metadata_only_until_verified`
-  - risk_note:
-  -   - `Site returned an access-restricted HTML page`
-  -   - ` treat as access evidence only.`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Source row / 来源行:
+    - source_id: `src-xiaoxuetang-obm`
+    - rights_status: `metadata_only_until_verified`
+    - risk_note:
+    -   - `Site returned an access-restricted HTML page`
+    -   - ` treat as access evidence only.`
 - Notes / 备注:
   - English: Verify source ID, download ID, rights status, and risk note.
   - 简体中文：打开来源行；核对来源 ID、下载 ID、权利状态和风险说明。
@@ -79,11 +92,12 @@ decipherment conclusion.
 ### Source Download Manifest Row / 来源下载 manifest 行
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - targeted_download_id: `dl-xxt-obm-appendix02`
-  - targeted_url: `https://xiaoxue.iis.sinica.edu.tw/obm/Home/Appendix02`
-  - artifact_kind: `holding_abbreviation_appendix`
-  - download_status: `downloaded_access_restricted_page`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Download manifest row / 下载 manifest 行:
+    - targeted_download_id: `dl-xxt-obm-appendix02`
+    - targeted_url: `https://xiaoxue.iis.sinica.edu.tw/obm/Home/Appendix02`
+    - artifact_kind: `holding_abbreviation_appendix`
+    - download_status: `downloaded_access_restricted_page`
 - Notes / 备注:
   - English: Confirm URL, artifact kind, status, and route files.
   - 简体中文：打开下载 manifest 行；确认 URL、资料类型、状态和路由文件。
@@ -91,11 +105,12 @@ decipherment conclusion.
 ### Download Log Row / 下载日志行
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - http_status: `200`
-  - logged_file_size_bytes: `36917`
-  - logged_checksum_sha256:
-  -   - `6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Download log row / 下载日志行:
+    - http_status: `200`
+    - logged_file_size_bytes: `36917`
+    - logged_checksum_sha256:
+    -   - `6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781`
 - Notes / 备注:
   - English: Verify access result, size, checksum, and timestamp.
   - 简体中文：打开下载日志行；核对访问结果、大小、checksum 和时间戳。
@@ -103,13 +118,14 @@ decipherment conclusion.
 ### Access Profile Rows / 访问画像行
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - profile_match_count: `1`
-  - profile_ids: `source-access-000017`
-  - profile_areas: `appendix_staging_boundary`
-  - profile_review_statuses: `source-access-000017=reviewed_metadata_only`
-  - profile_normalized_values:
-  -   - `source-access-000017=holding_abbrev_rows_staged=211`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Access profile row(s) / 访问画像行:
+    - profile_match_count: `1`
+    - profile_ids: `source-access-000017`
+    - profile_areas: `appendix_staging_boundary`
+    - profile_review_statuses: `source-access-000017=reviewed_metadata_only`
+    - profile_normalized_values:
+    -   - `source-access-000017=holding_abbrev_rows_staged=211`
 - Notes / 备注:
   - English: Verify access result, restriction status, and permitted route.
   - 简体中文：打开访问画像行；核对访问结果、受限状态和允许路线。
@@ -117,15 +133,16 @@ decipherment conclusion.
 ### Staging Rows When Available / 已存在的 staging 行
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - staging_row_count: `211`
-  - staging_row_kind_counts: `holding_abbreviation=211`
-  - staging_review_statuses:
-  -   - `obm-holding-abbrev-0001=reviewed_metadata_only`
-  -   - `obm-holding-abbrev-0002=reviewed_metadata_only`
-  -   - `obm-holding-abbrev-0003=reviewed_metadata_only`
-  -   - `obm-holding-abbrev-0004=reviewed_metadata_only`
-  -   - `obm-holding-abbrev-0005=reviewed_metadata_only`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Staging row(s) / staging 行:
+    - staging_row_count: `211`
+    - staging_row_kind_counts: `holding_abbreviation=211`
+    - staging_review_statuses:
+    -   - `obm-holding-abbrev-0001=reviewed_metadata_only`
+    -   - `obm-holding-abbrev-0002=reviewed_metadata_only`
+    -   - `obm-holding-abbrev-0003=reviewed_metadata_only`
+    -   - `obm-holding-abbrev-0004=reviewed_metadata_only`
+    -   - `obm-holding-abbrev-0005=reviewed_metadata_only`
 - Notes / 备注:
   - English: Open staging rows before old-catalog, holding, or row claims.
   - 简体中文：提出旧著录、馆藏或行级主张前，先打开 staging 行。
@@ -133,12 +150,13 @@ decipherment conclusion.
 ### Official Access Boundary / 官方访问边界
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - download_status: `downloaded_access_restricted_page`
-  - risk_note:
-  -   - `Site returned an access-restricted HTML page`
-  -   - ` treat as access evidence only.`
-  - commit_policy: `download_to_tmp_log_checksum_only`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Access boundary fields / 访问边界字段:
+    - download_status: `downloaded_access_restricted_page`
+    - risk_note:
+    -   - `Site returned an access-restricted HTML page`
+    -   - ` treat as access evidence only.`
+    - commit_policy: `download_to_tmp_log_checksum_only`
 - Notes / 备注:
   - English: Check official boundary before public derivative decisions.
   - 简体中文：记录公开派生决定前，先核查官方页面访问边界。
@@ -146,10 +164,11 @@ decipherment conclusion.
 ### Review Log / 复核日志
 
 - Status / 状态: `metadata_captured_from_074_queue`
-- Evidence items / 证据条目:
-  - route_file_count: `5`
-  - missing_route_file_count: `0`
-  - route_file_review_status: `reviewed_route_files_exist`
+- Queue Metadata Snapshot / 队列 metadata 快照:
+  - Route review fields / 路由复核字段:
+    - route_file_count: `5`
+    - missing_route_file_count: `0`
+    - route_file_review_status: `reviewed_route_files_exist`
 - Notes / 备注:
   - English: Record source-marked access observations; keep import claims empty.
   - 简体中文：只记录带来源标记的访问观察；保持导入和身份主张为空。
@@ -175,16 +194,25 @@ decipherment conclusion.
 ## Rights And Risk / 权利与风险
 
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Risk note / 风险说明: Site returned an access-restricted HTML page; treat as access evidence only.
+- Risk note / 风险说明:
+  - Site returned an access-restricted HTML page; treat as access evidence
+  - only.
 
 ## Review Log / 复核日志
 
 - Status / 状态: `created_from_074_followup_review_queue`
 - Evidence collection / 证据收集: `not_collected`
-- Decision / 决定: no row-level import, no old-catalog confirmation, no holding match, no inscription assignment, and no decipherment conclusion.
+- Decision / 决定:
+  - no row-level import, no old-catalog confirmation, no holding
+    match, no inscription assignment, and no decipherment conclusion.
 
 ## Caution / 警示
 
-English: This draft is a routing scaffold only for Xiaoxuetang OBM access-boundary follow-up. It is not source evidence, not a Heji row import, not an old-catalog confirmation, not a holding or collection match, not a formal inscription assignment, and not a decipherment conclusion.
+English: This draft is a routing scaffold only for Xiaoxuetang OBM
+  access-boundary follow-up. It is not source evidence, not a Heji
+  row import, not an old-catalog confirmation, not a holding or
+  collection match, not a formal inscription assignment, and not a
+  decipherment conclusion.
 
-简体中文：本草稿只是小學堂 OBM 访问边界后续复核的路由脚手架；不是来源证据，不是《合集》行导入，不是旧著录确认，不是馆藏/拓藏匹配，不是正式卜辞分配，也不是释读结论。
+简体中文：本草稿只是小學堂 OBM
+  访问边界后续复核的路由脚手架；不是来源证据，不是《合集》行导入，不是旧著录确认，不是馆藏/拓藏匹配，不是正式卜辞分配，也不是释读结论。

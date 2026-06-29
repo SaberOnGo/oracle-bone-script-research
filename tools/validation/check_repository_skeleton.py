@@ -13391,10 +13391,24 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
         except FileNotFoundError:
             issues.append(f"{XXT_OBM_ACCESS_BOUNDARY_REVIEW_LOG_DRAFT_MANIFEST} missing draft: {draft_path}")
             continue
-        if "Evidence items / 证据条目: none" in text:
+        if "Evidence items /" in text:
             issues.append(f"{draft_path} still contains empty XXT OBM evidence items")
+        if "not recorded in 074 queue" in text:
+            issues.append(f"{draft_path} still contains queue-status filler text")
         if "Existing Access Boundary Snapshot / 已有访问边界快照" not in text:
             issues.append(f"{draft_path} missing XXT OBM access boundary snapshot")
+        if "Queue Metadata Snapshot / 队列 metadata 快照" not in text:
+            issues.append(f"{draft_path} missing XXT OBM queue metadata snapshot")
+        if (
+            "missing; see concrete questions below" in text
+            and "Concrete Missing-Item Questions / 具体缺失项待查问题" not in text
+        ):
+            issues.append(f"{draft_path} has missing fields without concrete questions")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{draft_path}:{line_number} exceeds human Markdown line width"
+                )
     required_collection_slots = {
         "collection_object_id",
         "institution",

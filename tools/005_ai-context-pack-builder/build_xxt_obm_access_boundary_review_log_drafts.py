@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build empty review-log drafts for Xiaoxuetang OBM access-boundary follow-up tasks."""
+"""Build review-log drafts for Xiaoxuetang OBM access-boundary follow-up tasks."""
 
 from __future__ import annotations
 
@@ -214,12 +214,26 @@ def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str
 
 
 def _display_value(value: str) -> str:
-    return value if value else "not recorded in 074 queue"
+    return value if value else "missing; see concrete questions below"
 
 
 def _split_long_value(value: str, limit: int = 68) -> list[str]:
     if ";" in value:
         return [part for part in value.split(";") if part]
+    if "/" in value and " " not in value:
+        chunks: list[str] = []
+        current = ""
+        for part in value.split("/"):
+            token = f"{part}/"
+            candidate = f"{current}{token}"
+            if len(candidate) > limit and current:
+                chunks.append(current.rstrip("/"))
+                current = token
+            else:
+                current = candidate
+        if current:
+            chunks.append(current.rstrip("/"))
+        return chunks
     words = value.split()
     if len(words) <= 1:
         return [value]
@@ -235,6 +249,26 @@ def _split_long_value(value: str, limit: int = 68) -> list[str]:
     if current:
         chunks.append(current)
     return chunks
+
+
+def _paragraph_lines(
+    prefix: str, text: str, limit: int = 76, continuation_prefix: str | None = None
+) -> list[str]:
+    continuation = prefix if continuation_prefix is None else continuation_prefix
+    lines: list[str] = []
+    current = ""
+    for word in text.split():
+        candidate = f"{current} {word}".strip()
+        if len(f"{prefix}{candidate}") > limit and current:
+            line_prefix = prefix if not lines else continuation
+            lines.append(f"{line_prefix}{current}")
+            current = word
+        else:
+            current = candidate
+    if current:
+        line_prefix = prefix if not lines else continuation
+        lines.append(f"{line_prefix}{current}")
+    return lines
 
 
 def _field_lines(prefix: str, field: str, value: str) -> list[str]:
@@ -305,12 +339,58 @@ SECTION_EVIDENCE_FIELDS = {
     ],
 }
 
+SECTION_MISSING_QUESTIONS = {
+    "access_profile_rows": [
+        (
+            "Which 011_core-institutional-access-profile rows match this route?",
+            "本路线是否有对应的 011_core-institutional-access-profile 行？",
+        )
+    ],
+    "staging_rows_when_available": [
+        (
+            "Which 012_obm-abbreviation-staging rows match this route?",
+            "本路线是否有对应的 012_obm-abbreviation-staging 行？",
+        ),
+        (
+            "Does the OBM page require browser or institutional export for rows?",
+            "官方 OBM 页面是否只通过人工浏览或机构导出提供简称行？",
+        ),
+    ],
+}
+
+SECTION_SNAPSHOT_HEADINGS = {
+    "source_register_row": ("Source row", "来源行"),
+    "source_download_manifest_row": ("Download manifest row", "下载 manifest 行"),
+    "download_log_row": ("Download log row", "下载日志行"),
+    "access_profile_rows": ("Access profile row(s)", "访问画像行"),
+    "staging_rows_when_available": ("Staging row(s)", "staging 行"),
+    "official_access_boundary": ("Access boundary fields", "访问边界字段"),
+    "review_log": ("Route review fields", "路由复核字段"),
+}
+
 
 def _section_evidence_lines(row: dict[str, str], section: str) -> list[str]:
     fields = SECTION_EVIDENCE_FIELDS.get(section, [])
     lines: list[str] = []
     for field in fields:
-        lines.extend(_field_lines("  - ", field, row.get(field, "")))
+        lines.extend(_field_lines("    - ", field, row.get(field, "")))
+    return lines
+
+
+def _section_missing_question_lines(row: dict[str, str], section: str) -> list[str]:
+    if section == "access_profile_rows" and row.get("profile_match_count") != "0":
+        return []
+    if section == "staging_rows_when_available" and row.get("staging_row_count") != "0":
+        return []
+    questions = SECTION_MISSING_QUESTIONS.get(section, [])
+    lines: list[str] = []
+    for question_en, question_zh in questions:
+        lines.extend(
+            [
+                f"  - English: {question_en}",
+                f"  - 简体中文：{question_zh}",
+            ]
+        )
     return lines
 
 
@@ -323,26 +403,29 @@ def build_markdown(row: dict[str, str]) -> str:
         "",
         "## Status / 状态",
         "",
-        f"- Review log draft ID / 复核日志草稿 ID: `{row['review_log_draft_id']}`",
-        f"- Follow-up review task ID / 后续复核任务 ID: `{row['obm_followup_review_task_id']}`",
-        f"- Draft status / 草稿状态: `{row['draft_status']}`",
-        f"- Evidence collection status / 证据收集状态: `{row['evidence_collection_status']}`",
-        f"- Human review status / 人工复核状态: `{row['human_review_status']}`",
-        f"- Formal schema compatibility / 正式 schema 兼容状态: `{row['formal_schema_compatibility_status']}`",
-        f"- Research boundary / 研究边界: `{row['research_boundary']}`",
-        f"- Updated at / 更新时间: `{row['updated_at']}`",
-        "",
-        "## Route / 路由",
-        "",
-        f"- Source ID / 来源 ID: `{row['source_id']}`",
-        f"- Targeted download ID / 目标下载 ID: `{row['targeted_download_id']}`",
-        f"- Targeted URL / 目标 URL: `{row['targeted_url']}`",
-        f"- Artifact kind / 资料类型: `{row['artifact_kind']}`",
-        "",
-        "## Route Files To Open / 待打开路由文件",
-        "",
     ]
-    lines.extend(f"- `{route_file}`" for route_file in route_files)
+    for label, field in [
+        ("Review log draft ID / 复核日志草稿 ID", "review_log_draft_id"),
+        ("Follow-up review task ID / 后续复核任务 ID", "obm_followup_review_task_id"),
+        ("Draft status / 草稿状态", "draft_status"),
+        ("Evidence collection status / 证据收集状态", "evidence_collection_status"),
+        ("Human review status / 人工复核状态", "human_review_status"),
+        ("Formal schema compatibility / 正式 schema 兼容状态", "formal_schema_compatibility_status"),
+        ("Research boundary / 研究边界", "research_boundary"),
+        ("Updated at / 更新时间", "updated_at"),
+    ]:
+        lines.extend(_field_lines("- ", label, row[field]))
+    lines.extend(["", "## Route / 路由", ""])
+    for label, field in [
+        ("Source ID / 来源 ID", "source_id"),
+        ("Targeted download ID / 目标下载 ID", "targeted_download_id"),
+        ("Targeted URL / 目标 URL", "targeted_url"),
+        ("Artifact kind / 资料类型", "artifact_kind"),
+    ]:
+        lines.extend(_field_lines("- ", label, row[field]))
+    lines.extend(["", "## Route Files To Open / 待打开路由文件", ""])
+    for route_file in route_files:
+        lines.extend(_field_lines("- ", "Route file / 路由文件", route_file))
     lines.extend(
         [
             "",
@@ -378,14 +461,30 @@ def build_markdown(row: dict[str, str]) -> str:
                 f"### {label_en} / {label_zh}",
                 "",
                 "- Status / 状态: `metadata_captured_from_074_queue`",
-                "- Evidence items / 证据条目:",
-                *_section_evidence_lines(row, section),
+                "- Queue Metadata Snapshot / 队列 metadata 快照:",
+            ]
+        )
+        snapshot_en, snapshot_zh = SECTION_SNAPSHOT_HEADINGS.get(
+            section, ("Queue row", "队列行")
+        )
+        lines.append(f"  - {snapshot_en} / {snapshot_zh}:")
+        lines.extend(_section_evidence_lines(row, section))
+        lines.extend(
+            [
                 "- Notes / 备注:",
                 f"  - English: {note_en}",
                 f"  - 简体中文：{note_zh}",
-                "",
             ]
         )
+        missing_question_lines = _section_missing_question_lines(row, section)
+        if missing_question_lines:
+            lines.extend(
+                [
+                    "- Concrete Missing-Item Questions / 具体缺失项待查问题:",
+                    *missing_question_lines,
+                ]
+            )
+        lines.append("")
     lines.extend(["## Required Next Checks / 必需下一步检查", ""])
     for check in next_checks:
         label_en, label_zh = NEXT_CHECK_LABELS.get(check, (check, check))
@@ -401,20 +500,27 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
             "## Rights And Risk / 权利与风险",
             "",
-            f"- Rights status / 权利状态: `{row['rights_status']}`",
-            f"- Risk note / 风险说明: {row['risk_note']}",
+        ]
+    )
+    lines.extend(_field_lines("- ", "Rights status / 权利状态", row["rights_status"]))
+    lines.extend(
+        [
+            "- Risk note / 风险说明:",
+            *_paragraph_lines("  - ", row["risk_note"]),
             "",
             "## Review Log / 复核日志",
             "",
             "- Status / 状态: `created_from_074_followup_review_queue`",
             "- Evidence collection / 证据收集: `not_collected`",
-            "- Decision / 决定: no row-level import, no old-catalog confirmation, no holding match, no inscription assignment, and no decipherment conclusion.",
+            "- Decision / 决定:",
+            "  - no row-level import, no old-catalog confirmation, no holding",
+            "    match, no inscription assignment, and no decipherment conclusion.",
             "",
             "## Caution / 警示",
             "",
-            f"English: {CAUTION_EN}",
+            *_paragraph_lines("English: ", CAUTION_EN, continuation_prefix="  "),
             "",
-            f"简体中文：{CAUTION_ZH}",
+            *_paragraph_lines("简体中文：", CAUTION_ZH, continuation_prefix="  "),
             "",
         ]
     )

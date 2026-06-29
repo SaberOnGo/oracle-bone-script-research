@@ -10471,7 +10471,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("logged_checksum_sha256:", first_text)
         self.assertIn("6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781", first_text)
         self.assertIn("staging_row_count: `90`", first_text)
+        self.assertIn("Queue Metadata Snapshot / 队列 metadata 快照", first_text)
+        self.assertIn("Source row / 来源行:", first_text)
         self.assertNotIn("Evidence items / 证据条目: none", first_text)
+        self.assertNotIn("Evidence items /", first_text)
 
     def test_xxt_obm_access_boundary_snapshot_lines_stay_human_readable(self) -> None:
         path = (
@@ -10511,10 +10514,25 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("- Notes / 备注: not collected.", markdown)
         self.assertIn("Verify access result, restriction status, and permitted route", markdown)
         self.assertIn("核对访问结果、受限状态和允许路线", markdown)
-        self.assertIn("not a Heji row import", markdown)
+        self.assertIn("not a Heji", markdown)
+        self.assertIn("row import", markdown)
         self.assertIn("Existing Access Boundary Snapshot / 已有访问边界快照", markdown)
         self.assertIn("profile_match_count: `1`", markdown)
+        self.assertIn("Queue Metadata Snapshot / 队列 metadata 快照", markdown)
         self.assertNotIn("Evidence items / 证据条目: none", markdown)
+        self.assertNotIn("Evidence items /", markdown)
+
+        zero_staging_row = rows[2]
+        zero_markdown = module.build_markdown(zero_staging_row)
+        self.assertIn("Concrete Missing-Item Questions / 具体缺失项待查问题", zero_markdown)
+        self.assertIn(
+            "Which 012_obm-abbreviation-staging rows match this route?",
+            zero_markdown,
+        )
+        self.assertIn(
+            "本路线是否有对应的 012_obm-abbreviation-staging 行？",
+            zero_markdown,
+        )
 
     def test_hust_obc_undeciphered_candidate_index_builder_parses_zip_paths(self) -> None:
         module = load_hust_obc_undeciphered_candidate_index_module()

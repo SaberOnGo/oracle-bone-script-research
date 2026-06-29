@@ -425,18 +425,6 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
     file_entries = "\n".join(
         [
             wrapped_bullet(
-                "`01_collection-object-packet.json`: structured candidate "
-                "support packet."
-            ),
-            wrapped_bullet(
-                "`02_collection-source-index.csv`: source, download, rights, "
-                "and route index."
-            ),
-            wrapped_bullet(
-                "`03_visual-asset-index.csv`: committed asset, thumbnail URL, "
-                "or missing-image status."
-            ),
-            wrapped_bullet(
                 "`04_visual-gallery.md`: human-facing image or thumbnail route sheet."
             ),
             wrapped_bullet("`05_human-review-sheet.md`: human review checklist."),
@@ -444,19 +432,32 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
                 "`06_human-collection-dossier.md`: human collection object dossier."
             ),
             wrapped_bullet(
-                "`07_collection-dossier-index.json`: structured dossier support index."
-            ),
-            wrapped_bullet(
                 "`08_collection-provenance-evidence-dossier.md`: human source "
                 "evidence dossier."
             ),
             wrapped_bullet(
-                "`09_collection-provenance-evidence-index.json`: structured "
-                "evidence index."
-            ),
-            wrapped_bullet(
                 "`10_collection-provenance-fact-matrix.md`: human provenance "
                 "fact matrix."
+            ),
+            "\n## Structured Support Files / 结构化辅助文件\n",
+            wrapped_bullet(
+                "`01_collection-object-packet.json`: structured candidate "
+                "support packet."
+            ),
+            wrapped_bullet(
+                "`02_collection-source-index.csv`: source, download, rights, "
+                "and route support table."
+            ),
+            wrapped_bullet(
+                "`03_visual-asset-index.csv`: committed asset, thumbnail URL, "
+                "or missing-image status."
+            ),
+            wrapped_bullet(
+                "`07_collection-dossier-index.json`: structured dossier support index."
+            ),
+            wrapped_bullet(
+                "`09_collection-provenance-evidence-index.json`: structured "
+                "evidence index."
             ),
             wrapped_bullet(
                 "`11_collection-provenance-fact-matrix-index.json`: structured "

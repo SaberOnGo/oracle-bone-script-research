@@ -78,11 +78,20 @@ trace source routes, but the object-local human dossier remains primary.
 Expected object-local files:
 
 - `README.md`: human overview, source status, and review boundary.
-- `01_collection-object-packet.json`: structured candidate support packet.
-- `02_collection-source-index.csv`: collection source route table.
-- `03_visual-asset-or-thumbnail-route-index.csv`: image or thumbnail route.
 - `04_visual-gallery.md`: readable visual or route gallery.
 - `05_human-review-sheet.md`: manual review sheet.
+- `06_human-collection-dossier.md`: human collection object dossier.
+- `08_collection-provenance-evidence-dossier.md`: human evidence dossier.
+- `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
+
+Structured support files serve those human files:
+
+- `01_collection-object-packet.json`: structured candidate support packet.
+- `02_collection-source-index.csv`: collection source support table.
+- `03_visual-asset-index.csv`: image or thumbnail support table.
+- `07_collection-dossier-index.json`: structured dossier support index.
+- `09_collection-provenance-evidence-index.json`: evidence support index.
+- `11_collection-provenance-fact-matrix-index.json`: fact support index.
 
 ## Dossier Questions / 档案待查内容
 

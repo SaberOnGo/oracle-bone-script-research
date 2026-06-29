@@ -55,7 +55,10 @@ inscription record is created.
 - Object context: collection object, museum or library record, findspot,
   excavation context, period, batch, and group.
 - Character links: related glyph candidates, character-sequence evidence,
-  and missing character-context checks.
+  component clues, variants, near forms, later-script relations, and missing
+  character-context checks.
+- Scholarship context: bibliography, cited catalog scope, proposer or
+  reviewer notes, disputes, and disagreement routes.
 - Review status: 复核状态, reviewer route, missing evidence, and the next
   human-gated action.
 
@@ -71,22 +74,34 @@ inscription record is created.
 - 对象语境：馆藏对象、博物馆或图书馆记录、出土地、发掘语境、
   时期、批次和组类。
 - 字形关联：关联字形候选、字序证据，以及缺失的字形语境检查。
+- 构件与关系：构件线索、异体、近形、金文、小篆、今字和后续
+  关系路线。
+- 学术语境：书目、著录适用范围、提出者、复核者说明、争议和
+  不同意见路线。
 - 复核状态：复核状态、复核者路线、缺失证据和下一步人工门控动作。
 
 ## Object-Local Files / 对象内文件
 
-Each `obs-insc-cw-cand-*` candidate directory should keep the human and AI
-materials together in the same object directory:
+Each `obs-insc-cw-cand-*` candidate directory should keep human-readable
+materials and structured support together in the same object directory.
+Open the human files first:
 
 - `README.md`: local candidate overview and boundary.
-- `01_candidate-inscription-crosswalk-packet.json`: AI-readable packet.
-- `02_crosswalk-source-index.csv`: source and crosswalk references.
-- `03_catalog-reference-index.csv`: catalog-number route table.
-- `04_human-review-sheet.md`: human checklist.
-- `05_plate-text-route-index.csv`: plate and text route table.
-- `06_plate-text-gallery.md`: human-readable route gallery.
+- `06_plate-text-gallery.md`: human-readable plate and text route gallery.
 - `07_human-inscription-dossier.md`: human dossier for inspection.
-- `08_inscription-dossier-index.json`: AI support index for the dossier.
+- `09_inscription-plate-evidence-dossier.md`: human evidence dossier.
+- `11_inscription-review-fact-matrix.md`: human fact matrix.
+- `04_human-review-sheet.md`: human checklist.
+
+Structured support files serve the human dossier and review trail:
+
+- `01_candidate-inscription-crosswalk-packet.json`: support packet.
+- `02_crosswalk-source-index.csv`: source and crosswalk references.
+- `03_catalog-reference-index.csv`: catalog-number support table.
+- `05_plate-text-route-index.csv`: plate and text support table.
+- `08_inscription-dossier-index.json`: support index for the dossier.
+- `10_inscription-plate-evidence-index.json`: support evidence index.
+- `12_inscription-review-fact-matrix-index.json`: support fact index.
 
 ## Concrete Questions To Check / 具体待查问题
 

@@ -42,26 +42,33 @@ Structured support files only serve the human inscription and plate dossier.
 
 ## Local Files / 本目录文件
 
-- `01_candidate-inscription-crosswalk-packet.json`
-  Structured support packet for this human dossier.
-- `02_crosswalk-source-index.csv`
-  Source, rights, and route index.
-- `03_catalog-reference-index.csv`
-  Yingguo, CUL, Chalfant, and Heji reference index.
-- `04_human-review-sheet.md`
-  Human review sheet for catalog and image/context checks.
-- `05_plate-text-route-index.csv`
-  Plate, image, catalog, and text-evidence route index.
 - `06_plate-text-gallery.md`
   Human-readable route gallery for plate/image/text evidence.
 - `07_human-inscription-dossier.md`
   Human-readable dossier for this candidate inscription object.
-- `08_inscription-dossier-index.json`
-  Structured support index for dossier gaps and review status.
 - `09_inscription-plate-evidence-dossier.md`
   Human-readable evidence dossier for text, OCR, plate, and catalog routes.
+- `11_inscription-review-fact-matrix.md`
+  Human-readable fact matrix for inscription, plate, and review status.
+- `04_human-review-sheet.md`
+  Human review sheet for catalog and image/context checks.
+
+## Structured Support Files / 结构化辅助文件
+
+- `01_candidate-inscription-crosswalk-packet.json`
+  Structured support packet for this human dossier.
+- `02_crosswalk-source-index.csv`
+  Source, rights, and route support table.
+- `03_catalog-reference-index.csv`
+  Yingguo, CUL, Chalfant, and Heji reference support table.
+- `05_plate-text-route-index.csv`
+  Plate, image, catalog, and text-evidence support table.
+- `08_inscription-dossier-index.json`
+  Structured support index for dossier gaps and review status.
 - `10_inscription-plate-evidence-index.json`
   Structured support index for inscription and plate evidence.
+- `12_inscription-review-fact-matrix-index.json`
+  Structured support index for the fact matrix.
 
 ## Candidate Metadata / 候选 metadata
 

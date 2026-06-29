@@ -3024,6 +3024,17 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("著录来源", text)
         self.assertIn("复核状态", text)
         self.assertIn("not a decipherment conclusion", text)
+        file_section = text.split("## Object-Local Files", maxsplit=1)[1].split(
+            "## Concrete Questions To Check", maxsplit=1
+        )[0]
+        self.assertLess(
+            file_section.index("07_human-inscription-dossier.md"),
+            file_section.index("01_candidate-inscription-crosswalk-packet.json"),
+        )
+        self.assertLess(
+            file_section.index("06_plate-text-gallery.md"),
+            file_section.index("05_plate-text-route-index.csv"),
+        )
         self.assertNotIn("缂", text)
         self.assertNotIn("闁", text)
         self.assertNotIn("鐢", text)
@@ -3574,9 +3585,34 @@ class RepositorySkeletonTests(unittest.TestCase):
             "人工复核",
         ]:
             self.assertIn(marker, text)
+        file_section = text.split("## Object-Local Materials", maxsplit=1)[1].split(
+            "## Dossier Questions", maxsplit=1
+        )[0]
+        self.assertLess(
+            file_section.index("06_human-collection-dossier.md"),
+            file_section.index("01_collection-object-packet.json"),
+        )
+        self.assertLess(
+            file_section.index("05_human-review-sheet.md"),
+            file_section.index("02_collection-source-index.csv"),
+        )
         for marker in ["缂", "闁", "鐢", "�"]:
             self.assertNotIn(marker, text)
         for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+        asset_readme_path = (
+            repo_root()
+            / "corpus/005_excavation-sites-periods-and-batches/"
+            / "001_public-domain-object-image-assets/README.md"
+        )
+        asset_text = asset_readme_path.read_text(encoding="utf-8")
+        self.assertIn("Public-domain Object Image Assets", asset_text)
+        self.assertIn("not formal paleographic readings", asset_text)
+        self.assertIn("不是正式古文字释读", asset_text)
+        for line in asset_text.splitlines():
             if line.startswith("|") or line.startswith("![") or line.startswith("<"):
                 continue
             self.assertLessEqual(len(line), 80, line)
@@ -4358,6 +4394,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "待查: plate, image, OCR, text, and object routes",
                 readme_text,
+            )
+            self.assertLess(
+                readme_text.index("07_human-inscription-dossier.md"),
+                readme_text.index("01_candidate-inscription-crosswalk-packet.json"),
+            )
+            self.assertLess(
+                readme_text.index("09_inscription-plate-evidence-dossier.md"),
+                readme_text.index("05_plate-text-route-index.csv"),
             )
             dossier_text = (object_dir / "07_human-inscription-dossier.md").read_text(
                 encoding="utf-8"
@@ -5358,6 +5402,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("06_human-collection-dossier.md", readme_text)
             self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
             self.assertIn("10_collection-provenance-fact-matrix.md", readme_text)
+            self.assertLess(
+                readme_text.index("06_human-collection-dossier.md"),
+                readme_text.index("01_collection-object-packet.json"),
+            )
+            self.assertLess(
+                readme_text.index("10_collection-provenance-fact-matrix.md"),
+                readme_text.index("02_collection-source-index.csv"),
+            )
             review_sheet_text = (object_dir / "05_human-review-sheet.md").read_text(encoding="utf-8")
             self.assertIn("Concrete Questions To Check", review_sheet_text)
             self.assertIn(

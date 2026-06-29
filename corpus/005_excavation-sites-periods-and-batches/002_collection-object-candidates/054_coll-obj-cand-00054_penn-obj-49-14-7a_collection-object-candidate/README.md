@@ -27,17 +27,21 @@ No committed image asset is available for this object yet.
 
 ## Local Files / 本目录文件
 
-- `01_collection-object-packet.json`: structured candidate support packet.
-- `02_collection-source-index.csv`: source, download, rights, and route index.
-- `03_visual-asset-index.csv`: committed asset, thumbnail URL, or missing-image
-  status.
 - `04_visual-gallery.md`: human-facing image or thumbnail route sheet.
 - `05_human-review-sheet.md`: human review checklist.
 - `06_human-collection-dossier.md`: human collection object dossier.
-- `07_collection-dossier-index.json`: structured dossier support index.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
-- `09_collection-provenance-evidence-index.json`: structured evidence index.
 - `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
+
+## Structured Support Files / 结构化辅助文件
+
+- `01_collection-object-packet.json`: structured candidate support packet.
+- `02_collection-source-index.csv`: source, download, rights, and route support
+  table.
+- `03_visual-asset-index.csv`: committed asset, thumbnail URL, or missing-image
+  status.
+- `07_collection-dossier-index.json`: structured dossier support index.
+- `09_collection-provenance-evidence-index.json`: structured evidence index.
 - `11_collection-provenance-fact-matrix-index.json`: structured fact index.
 
 ## Object Metadata / 对象 metadata

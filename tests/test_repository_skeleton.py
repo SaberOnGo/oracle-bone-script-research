@@ -562,6 +562,21 @@ def load_collection_provenance_phase_gap_review_checklist_module():
     return module
 
 
+def load_collection_provenance_phase_gap_human_guide_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_collection_provenance_phase_gap_human_guide.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_collection_provenance_phase_gap_human_guide", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_inscription_plate_crosswalk_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_inscription_plate_crosswalk_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location(
@@ -24934,6 +24949,72 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Which object-local dossier or review sheet should be opened before comparing the image?", first["concrete_next_checks"])
         self.assertIn("Which raw package or unclear image must stay outside regular Git until review?", first["concrete_next_checks"])
         self.assertTrue(all("collection provenance phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_collection_provenance_phase_gap_human_guide_exists(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "215_collection-provenance-phase-gap-human-guide.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        required_markers = [
+            "Collection Provenance Phase Gap Human Guide",
+            "Human Review Entry Order",
+            "Open the object-local collection dossier first",
+            "194_collection-provenance-phase-gap-review-checklist.csv",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "001_institutional-collection-provenance-staging.csv",
+            "006_collection-object-id-source-map.csv",
+            "001_asset-source-index.csv",
+            "002_asset-rights-review-log.csv",
+            "downloaded: `mixed_or_partial`",
+            "linked: `missing`",
+            "verified: `mixed_or_partial`",
+            "collection object candidates: 56",
+            "museum object assets: 3",
+            "institution, object record, accession, or catalog number",
+            "findspot, excavation site, period, batch, or pit context",
+            "file size, checksum, rights status, and risk note",
+            "raw package or unclear image stays outside regular Git",
+            "not a rights decision",
+            "not a source promotion",
+            "not a collection-object identity claim",
+            "not a decipherment conclusion",
+            "not confirmed scholarship",
+        ]
+        for marker in required_markers:
+            self.assertIn(marker, text, marker)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_collection_provenance_phase_gap_human_guide_builder(self) -> None:
+        module = load_collection_provenance_phase_gap_human_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("checklist rows: 3", text)
+        self.assertIn("collection staging rows: 4", text)
+        self.assertIn("collection object candidates: 56", text)
+        self.assertIn("museum object assets: 3", text)
+        self.assertIn("OBM follow-up routes: 4", text)
+        self.assertIn("source id: `src-ihp-museum-oracle-bones`", text)
+        self.assertIn("downloaded: `mixed_or_partial`", text)
+        self.assertIn("linked: `missing`", text)
+        self.assertIn("verified: `mixed_or_partial`", text)
+        self.assertIn("Open `06_human-collection-dossier.md` first.", text)
+        self.assertIn("Open `08_collection-provenance-evidence-dossier.md`.", text)
+        self.assertIn("Which asset source row, rights review row", text)
+        self.assertIn("Which raw package or unclear image", text)
+        self.assertIn("Do not import raw or unclear images", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_collection_provenance_phase_gap_human_guide_is_validated(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(module, "check_collection_provenance_phase_gap_human_guide")
+        self.assertEqual(check(repo_root()), [])
 
     def test_inscription_plate_crosswalk_phase_gap_review_checklist_routes_crosswalk_gaps(self) -> None:
         self.assertEqual(check_inscription_plate_crosswalk_phase_gap_review_checklist(repo_root()), [])

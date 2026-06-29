@@ -1019,6 +1019,10 @@ COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "194_collection-provenance-phase-gap-review-checklist.csv"
 )
+COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "215_collection-provenance-phase-gap-human-guide.md"
+)
 INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv"
@@ -1959,6 +1963,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
     CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE,
+    COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE,
     INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE,
     CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_SCAFFOLD,
@@ -13714,6 +13719,59 @@ def check_collection_provenance_phase_gap_review_checklist(root: Path) -> list[s
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_collection_provenance_phase_gap_human_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE}"]
+
+    required_markers = [
+        "Collection Provenance Phase Gap Human Guide",
+        "Human Review Entry Order",
+        "Open the object-local collection dossier first",
+        COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        COLLECTION_PROVENANCE_STAGING,
+        COLLECTION_OBJECT_ID_SOURCE_MAP,
+        ASSET_SOURCE_INDEX,
+        ASSET_RIGHTS_REVIEW_LOG,
+        "downloaded: `mixed_or_partial`",
+        "linked: `missing`",
+        "verified: `mixed_or_partial`",
+        "collection object candidates: 56",
+        "museum object assets: 3",
+        "institution, object record, accession, or catalog number",
+        "findspot, excavation site, period, batch, or pit context",
+        "file size, checksum, rights status, and risk note",
+        "raw package or unclear image stays outside regular Git",
+        "not a rights decision",
+        "not a source promotion",
+        "not a collection-object identity claim",
+        "not a decipherment conclusion",
+        "not confirmed scholarship",
+        "具体待查问题",
+        "不得根据本指南导入原始或不清楚图像",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(
+                f"{COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE} "
+                f"missing marker: {marker}"
+            )
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE}:"
+                f"{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31222,6 +31280,7 @@ def main() -> int:
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
+    issues.extend(check_collection_provenance_phase_gap_human_guide(root))
     issues.extend(check_inscription_plate_crosswalk_phase_gap_review_checklist(root))
     issues.extend(check_inscription_plate_crosswalk_phase_gap_human_guide(root))
     issues.extend(check_shape_component_evolution_verification_gap_review_checklist(root))

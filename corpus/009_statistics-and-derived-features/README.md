@@ -110,6 +110,9 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `214` specializes the 195 inscription and plate crosswalk checklist.
 - Open it before using inscription plate route tables or review queues.
 - It is not a formal `obi-*` record or decipherment conclusion.
+- `215` specializes the 194 collection provenance checklist.
+- Open it before using collection, object-map, asset, or rights routes.
+- It is not a rights decision, source promotion, or identity claim.
 
 Use this guide to return each phase gap to concrete research evidence:
 glyph images, rubbings, photographs, plates, inscription text, OCR, catalog

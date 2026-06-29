@@ -20827,6 +20827,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("No reviewed evidence has been collected in this draft", text)
         self.assertIn("not a decipherment conclusion", text)
         self.assertFalse(rows[0]["draft_path"].startswith("research/"))
+        long_lines: list[tuple[str, int, int]] = []
+        for row in rows:
+            draft_text = (repo_root() / row["draft_path"]).read_text(encoding="utf-8")
+            self.assertIn("Existing Source Metadata Snapshot", draft_text)
+            self.assertNotIn("No reviewed evidence has been collected in this draft", draft_text)
+            for line_number, line in enumerate(draft_text.splitlines(), start=1):
+                if len(line) > 80:
+                    long_lines.append((row["draft_path"], line_number, len(line)))
+        self.assertEqual(long_lines, [])
 
     def test_source_pipeline_phase_action_missing_evidence_review_draft_builder_uses_147_summary(self) -> None:
         module = load_source_pipeline_phase_action_missing_evidence_review_drafts_module()

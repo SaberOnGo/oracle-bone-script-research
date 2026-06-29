@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import textwrap
 from pathlib import Path
 
 
@@ -202,8 +203,46 @@ def build_manifest_rows(source_rows: list[dict[str, str]]) -> list[dict[str, str
     return rows
 
 
+def wrap_code_value(prefix: str, value: str, *, width: int = 80) -> list[str]:
+    """Render one Markdown field without exceeding the human line limit."""
+    if not value:
+        return [f"{prefix}`none`"]
+    first_limit = max(8, width - len(prefix) - 2)
+    first_chunks = textwrap.wrap(
+        value,
+        width=first_limit,
+        break_long_words=True,
+        break_on_hyphens=True,
+    )
+    if not first_chunks:
+        return [f"{prefix}`none`"]
+    lines = [f"{prefix}`{first_chunks[0]}`"]
+    remainder = value[len(first_chunks[0]) :].lstrip("-_/; ")
+    for chunk in textwrap.wrap(
+        remainder,
+        width=width - 4,
+        break_long_words=True,
+        break_on_hyphens=True,
+    ):
+        lines.append(f"  `{chunk}`")
+    return lines
+
+
+def field_line(label: str, value: str) -> list[str]:
+    return wrap_code_value(f"- {label}: ", value)
+
+
+def paragraph(text: str, *, width: int = 76) -> list[str]:
+    return textwrap.wrap(text, width=width, break_long_words=False, break_on_hyphens=False)
+
+
 def bullet_list(values: list[str]) -> list[str]:
-    return [f"- `{value}`" for value in values] if values else ["- none"]
+    if not values:
+        return ["- none"]
+    lines: list[str] = []
+    for value in values:
+        lines.extend(wrap_code_value("- ", value))
+    return lines
 
 
 def build_markdown(row: dict[str, str]) -> str:
@@ -212,29 +251,50 @@ def build_markdown(row: dict[str, str]) -> str:
         "",
         "## Status / 状态",
         "",
-        f"- Review draft ID / 复核草稿 ID: `{row['review_draft_id']}`",
-        f"- Source summary ID / 来源汇总 ID: `{row['source_summary_id']}`",
-        f"- Draft status / 草稿状态: `{row['draft_status']}`",
-        f"- Evidence collection status / 证据收集状态: `{row['evidence_collection_status']}`",
-        f"- Human review status / 人工复核状态: `{row['human_review_status']}`",
-        f"- Research boundary / 研究边界: `{row['research_boundary']}`",
-        f"- Updated at / 更新时间: `{row['updated_at']}`",
-        "",
-        "## Source / 来源",
-        "",
-        f"- Source ID / 来源 ID: `{row['source_id']}`",
-        f"- Source type / 来源类型: `{row['source_type']}`",
-        f"- Rights status / 权利状态: `{row['rights_status']}`",
-        f"- Pipeline gap status / 流水线缺口状态: `{row['pipeline_gap_status']}`",
-        "",
-        "## Missing Evidence / 缺失证据",
-        "",
-        f"- Missing route count / 缺失路由数: `{row['missing_route_count']}`",
-        f"- Missing file role count / 缺失文件角色数: `{row['missing_file_role_count']}`",
-        "",
-        "### Missing file roles / 缺失文件角色",
-        "",
     ]
+    for label, value in [
+        ("Review draft ID / 复核草稿 ID", row["review_draft_id"]),
+        ("Source summary ID / 来源汇总 ID", row["source_summary_id"]),
+        ("Draft status / 草稿状态", row["draft_status"]),
+        ("Evidence collection status / 证据收集状态", row["evidence_collection_status"]),
+        ("Human review status / 人工复核状态", row["human_review_status"]),
+        ("Research boundary / 研究边界", row["research_boundary"]),
+        ("Updated at / 更新时间", row["updated_at"]),
+    ]:
+        lines.extend(field_line(label, value))
+    lines.extend(
+        [
+            "",
+            "## Source / 来源",
+            "",
+        ]
+    )
+    for label, value in [
+        ("Source ID / 来源 ID", row["source_id"]),
+        ("Source type / 来源类型", row["source_type"]),
+        ("Rights status / 权利状态", row["rights_status"]),
+        ("Pipeline gap status / 流水线缺口状态", row["pipeline_gap_status"]),
+    ]:
+        lines.extend(field_line(label, value))
+    lines.extend(
+        [
+            "",
+            "## Missing Evidence / 缺失证据",
+            "",
+        ]
+    )
+    for label, value in [
+        ("Missing route count / 缺失路由数", row["missing_route_count"]),
+        ("Missing file role count / 缺失文件角色数", row["missing_file_role_count"]),
+    ]:
+        lines.extend(field_line(label, value))
+    lines.extend(
+        [
+            "",
+            "### Missing file roles / 缺失文件角色",
+            "",
+        ]
+    )
     lines.extend(bullet_list(split_semicolon(row["missing_file_roles"])))
     lines.extend(
         [
@@ -257,8 +317,12 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
             "## Route References / 路由引用",
             "",
-            f"- Source summary path / 来源汇总路径: `{row['source_summary_path']}`",
-            f"- Route summary path / 路由汇总路径: `{row['route_summary_path']}`",
+        ]
+    )
+    lines.extend(field_line("Source summary path / 来源汇总路径", row["source_summary_path"]))
+    lines.extend(field_line("Route summary path / 路由汇总路径", row["route_summary_path"]))
+    lines.extend(
+        [
             "",
             "### Route IDs / 路由 ID",
             "",
@@ -286,9 +350,22 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
             "## Review Outcome Placeholder / 复核结果占位",
             "",
-            "English: No reviewed evidence has been collected in this draft. Fill this section only after opening the routed files and preserving source, rights, manifest, large-source, metadata-profile, and field-map boundaries.",
+        ]
+    )
+    lines.extend(
+        paragraph(
+            "English: No reviewed evidence has been collected in this draft. "
+            "Fill this section only after opening the routed files and "
+            "preserving source, rights, manifest, large-source, "
+            "metadata-profile, and field-map boundaries."
+        )
+    )
+    lines.extend(
+        [
             "",
-            "简体中文：本草稿尚未收集已复核证据。只有在打开路由文件，并保留来源、权利、manifest、大型来源、metadata profile 和 field-map 边界后，才可填写本节。",
+            "简体中文：本草稿尚未收集已复核证据。只有在打开路由文件，",
+            "并保留来源、权利、manifest、大型来源、metadata profile",
+            "和 field-map 边界后，才可填写本节。",
             "",
             "- Reviewed evidence paths / 已复核证据路径: none",
             "- Reviewed outcome summary / 已复核结果摘要: not decided",
@@ -296,16 +373,29 @@ def build_markdown(row: dict[str, str]) -> str:
             "",
             "## Boundary Status / 边界状态",
             "",
-            f"- Rights decision status / 权利裁定状态: `{row['rights_decision_status']}`",
-            f"- Source promotion status / 来源提升状态: `{row['source_promotion_status']}`",
-            f"- Corpus import status / 语料导入状态: `{row['corpus_import_status']}`",
-            f"- Decipherment claim status / 释读结论状态: `{row['decipherment_claim_status']}`",
+        ]
+    )
+    for label, value in [
+        ("Rights decision status / 权利裁定状态", row["rights_decision_status"]),
+        ("Source promotion status / 来源提升状态", row["source_promotion_status"]),
+        ("Corpus import status / 语料导入状态", row["corpus_import_status"]),
+        ("Decipherment claim status / 释读结论状态", row["decipherment_claim_status"]),
+    ]:
+        lines.extend(field_line(label, value))
+    lines.extend(
+        [
             "",
             "## Caution / 警示",
             "",
-            f"English: {CAUTION}",
+        ]
+    )
+    lines.extend(paragraph(f"English: {CAUTION}"))
+    lines.extend(
+        [
             "",
-            "简体中文：本来源流水线缺失证据复核草稿只作为人工复核工作界面；它不是已收集证据，不是已复核结果，不是权利裁定，不是来源提升，不是语料导入，也不是释读结论。",
+            "简体中文：本来源流水线缺失证据复核草稿只作为人工复核工作界面；",
+            "它不是已收集证据，不是已复核结果，不是权利裁定，",
+            "不是来源提升，不是语料导入，也不是释读结论。",
             "",
         ]
     )
@@ -322,34 +412,57 @@ def metadata_snapshot_markdown(snapshot: dict[str, str]) -> str:
         "简体中文：这里先汇总当前来源登记和追溯行，",
         "不替代后续人工结论复核。",
         "",
-        f"- all_sources_index_row_count: `{snapshot['all_sources_index_row_count']}`",
-        f"- downloaded_metadata_profile_row_count: `{snapshot['downloaded_metadata_profile_row_count']}`",
-        f"- large_source_register_row_count: `{snapshot['large_source_register_row_count']}`",
-        f"- source_download_log_row_count: `{snapshot['source_download_log_row_count']}`",
-        f"- source_field_map_row_count: `{snapshot['source_field_map_row_count']}`",
-        f"- source_package_file_manifest_row_count: `{snapshot['source_package_file_manifest_row_count']}`",
-        f"- all_sources_review_status_counts: `{snapshot['all_sources_review_status_counts']}`",
-        f"- metadata_profile_ids: `{snapshot['metadata_profile_ids']}`",
-        f"- large_source_package_ids: `{snapshot['large_source_package_ids']}`",
-        f"- source_download_log_ids: `{snapshot['source_download_log_ids']}`",
-        f"- source_field_map_ids: `{snapshot['source_field_map_ids']}`",
-        f"- source_package_file_ids: `{snapshot['source_package_file_ids']}`",
-        "",
-        "## Review Outcome Boundary / 复核结果边界",
-        "",
-        "English: These rows are source and route evidence only.",
-        "They do not decide rights, promote a source, import corpus rows,",
-        "or make any decipherment claim.",
-        "",
-        "简体中文：这些行只作为来源和路线证据。",
-        "它们不作权利裁定，不提升来源，不导入语料，",
-        "也不提出任何释读结论。",
-        "",
-        "- Reviewed evidence paths / 已复核证据路径: pending human review",
-        "- Reviewed outcome summary / 已复核结果摘要: pending human review",
-        "- Required follow-up / 必需后续动作: open the routed rows above",
-        "",
     ]
+    for key in [
+        "all_sources_index_row_count",
+        "downloaded_metadata_profile_row_count",
+        "large_source_register_row_count",
+        "source_download_log_row_count",
+        "source_field_map_row_count",
+        "source_package_file_manifest_row_count",
+        "all_sources_review_status_counts",
+        "metadata_profile_ids",
+        "large_source_package_ids",
+        "source_download_log_ids",
+        "source_field_map_ids",
+        "source_package_file_ids",
+    ]:
+        lines.extend(field_line(key, snapshot[key]))
+    lines.extend(
+        [
+            "",
+            "## Review Outcome Boundary / 复核结果边界",
+            "",
+            "English: These rows are source and route evidence only.",
+            "They do not decide rights, promote a source, import corpus rows,",
+            "or make any decipherment claim.",
+            "",
+            "简体中文：这些行只作为来源和路线证据。",
+            "它们不作权利裁定，不提升来源，不导入语料，",
+            "也不提出任何释读结论。",
+            "",
+            "- Reviewed evidence paths / 已复核证据路径: pending human review",
+            "- Reviewed outcome summary / 已复核结果摘要: pending human review",
+            "- Required follow-up / 必需后续动作:",
+            "  open source summary, route summary, source register,",
+            "  large-source register, field-map, metadata-profile,",
+            "  and package-manifest rows listed above.",
+            "",
+            "### Concrete Next Review Questions / 具体下一步复核问题",
+            "",
+            "- Which source-register row proves this source identity?",
+            "- Which missing role is genuinely not applicable?",
+            "- Which manifest, field-map, or profile row must be created?",
+            "- Which rights or risk note blocks public derivatives?",
+            "",
+            "- 哪一条来源登记行能证明本来源身份？",
+            "- 哪个缺失角色确实不适用？",
+            "- 哪条 manifest、field-map 或 profile 行必须补建？",
+            "- 哪项权利或风险说明会阻止公开派生资料？",
+            "",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 

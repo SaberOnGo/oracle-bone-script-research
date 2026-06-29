@@ -3,11 +3,13 @@
 ## Status / 状态
 
 - Review draft ID / 复核草稿 ID: `source-pipeline-missing-evidence-review-draft-008`
-- Source summary ID / 来源汇总 ID: `source-pipeline-phase-action-missing-evidence-source-summary-008`
+- Source summary ID / 来源汇总 ID: `source-pipeline-phase-action-missing-evidence-`
+  `source-summary-008`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
-- Research boundary / 研究边界: `source_pipeline_phase_action_missing_evidence_review_draft_not_scholarship`
+- Research boundary / 研究边界: `source_pipeline_phase_action_missing_evidence_revi`
+  `ew_draft_not_scholarship`
 - Updated at / 更新时间: `2026-06-19`
 
 ## Source / 来源
@@ -29,7 +31,8 @@
 
 ### Files to open / 待打开文件
 
-- `corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv`
+- `corpus/006_research-sources-and-bibliography/000_source-`
+  `registers/010_downloaded-metadata-profile.csv`
 - `project_registry/006_large-source-register/001_large-source-register.csv`
 
 ### Required review actions / 必需复核动作
@@ -39,8 +42,12 @@
 
 ## Route References / 路由引用
 
-- Source summary path / 来源汇总路径: `corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv`
-- Route summary path / 路由汇总路径: `corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json`
+- Source summary path / 来源汇总路径: `corpus/009_statistics-and-derived-`
+  `features/147_source-pipeline-phase-action-missing-evidence-source-`
+  `summary.csv`
+- Route summary path / 路由汇总路径: `corpus/009_statistics-and-derived-`
+  `features/146_source-pipeline-phase-action-missing-evidence-route-`
+  `summary.json`
 
 ### Route IDs / 路由 ID
 
@@ -90,7 +97,23 @@ or make any decipherment claim.
 
 - Reviewed evidence paths / 已复核证据路径: pending human review
 - Reviewed outcome summary / 已复核结果摘要: pending human review
-- Required follow-up / 必需后续动作: open the routed rows above
+- Required follow-up / 必需后续动作:
+  open source summary, route summary, source register,
+  large-source register, field-map, metadata-profile,
+  and package-manifest rows listed above.
+
+### Concrete Next Review Questions / 具体下一步复核问题
+
+- Which source-register row proves this source identity?
+- Which missing role is genuinely not applicable?
+- Which manifest, field-map, or profile row must be created?
+- Which rights or risk note blocks public derivatives?
+
+- 哪一条来源登记行能证明本来源身份？
+- 哪个缺失角色确实不适用？
+- 哪条 manifest、field-map 或 profile 行必须补建？
+- 哪项权利或风险说明会阻止公开派生资料？
+
 ## Boundary Status / 边界状态
 
 - Rights decision status / 权利裁定状态: `no_new_rights_decision`
@@ -100,6 +123,11 @@ or make any decipherment claim.
 
 ## Caution / 警示
 
-English: This source pipeline missing-evidence review draft is a human-review work surface only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion.
+English: This source pipeline missing-evidence review draft is a
+human-review work surface only. It is not collected evidence, not a reviewed
+outcome, not a rights decision, not source promotion, not a corpus import,
+and not a decipherment conclusion.
 
-简体中文：本来源流水线缺失证据复核草稿只作为人工复核工作界面；它不是已收集证据，不是已复核结果，不是权利裁定，不是来源提升，不是语料导入，也不是释读结论。
+简体中文：本来源流水线缺失证据复核草稿只作为人工复核工作界面；
+它不是已收集证据，不是已复核结果，不是权利裁定，
+不是来源提升，不是语料导入，也不是释读结论。

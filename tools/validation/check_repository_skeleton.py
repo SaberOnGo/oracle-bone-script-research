@@ -14852,6 +14852,12 @@ def check_source_pipeline_phase_action_missing_evidence_review_drafts(root: Path
                 f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} "
                 f"draft still has empty evidence placeholder: {row_id}"
             )
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} "
+                    f"draft line too long: {row_id} line {line_number}"
+                )
     return issues
 
 

@@ -544,6 +544,21 @@ def load_research_source_phase_gap_review_checklist_module():
     return module
 
 
+def load_research_source_phase_gap_human_guide_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_research_source_phase_gap_human_guide.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_research_source_phase_gap_human_guide", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_published_research_note_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_published_research_note_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location("build_published_research_note_phase_gap_review_checklist", path)
@@ -24744,6 +24759,71 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Which rights status, risk note, and public-commit decision are visible beside it?", first["concrete_next_checks"])
         self.assertIn("Which missing source, license, checksum, field, or review status remains?", first["concrete_next_checks"])
         self.assertTrue(all("research source phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_research_source_phase_gap_human_guide_exists(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "216_research-source-phase-gap-human-guide.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        required_markers = [
+            "Research Source Phase Gap Human Guide",
+            "Human Review Entry Order",
+            "Open the source-object dossier first",
+            "193_research-source-phase-gap-review-checklist.csv",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv",
+            "001_all-sources-index.csv",
+            "downloaded: `mixed_or_partial`",
+            "unpacked: `mixed_or_partial`",
+            "extracted: `mixed_or_partial`",
+            "cleaned: `mixed_or_partial`",
+            "verified: `mixed_or_partial`",
+            "assignment groups: 5",
+            "assignment source ids: 18",
+            "source-pipeline-missing-evidence-outcome-routes-assignment-checklist-004:7",
+            "source system, provider, catalog, book, paper, museum, or URL",
+            "access or download record, access date, package name",
+            "file size and checksum",
+            "package manifest, field map, extraction note",
+            "rights status, risk note, and public-commit decision",
+            "derived paths",
+            "not a rights decision",
+            "not source promotion",
+            "not corpus import approval",
+            "not a decipherment conclusion",
+            "not confirmed scholarship",
+        ]
+        for marker in required_markers:
+            self.assertIn(marker, text, marker)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_research_source_phase_gap_human_guide_builder(self) -> None:
+        module = load_research_source_phase_gap_human_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("checklist rows: 5", text)
+        self.assertIn("assignment groups: 5", text)
+        self.assertIn("assignment source ids: 18", text)
+        self.assertIn("downloaded: `mixed_or_partial`", text)
+        self.assertIn("verified: `mixed_or_partial`", text)
+        self.assertIn("Open `01_source-packet.json` only after", text)
+        self.assertIn("Open `07_material-access-index.md`.", text)
+        self.assertIn("Which source package, manifest, field map", text)
+        self.assertIn("Which safe derived record or object-local dossier", text)
+        self.assertIn("Do not record reviewed outcomes in this guide.", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_research_source_phase_gap_human_guide_is_validated(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(module, "check_research_source_phase_gap_human_guide")
+        self.assertEqual(check(repo_root()), [])
 
     def test_published_research_note_phase_gap_review_checklist_routes_research_note_gaps(self) -> None:
         self.assertEqual(check_published_research_note_phase_gap_review_checklist(repo_root()), [])

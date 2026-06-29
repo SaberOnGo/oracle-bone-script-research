@@ -107,6 +107,9 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `213` summarizes the 192-212 phase-gap review routes in Markdown.
 - Open it before using the CSV or JSON route tables for phase-gap review.
 - It is a human reading guide, not a reviewed outcome or import decision.
+- `216` specializes the 193 research-source phase gap checklist.
+- Open it before using source-pipeline assignment or outcome routes.
+- It is not a rights decision, source promotion, or corpus import approval.
 - `214` specializes the 195 inscription and plate crosswalk checklist.
 - Open it before using inscription plate route tables or review queues.
 - It is not a formal `obi-*` record or decipherment conclusion.

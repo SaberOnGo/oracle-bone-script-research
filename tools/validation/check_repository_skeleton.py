@@ -1011,6 +1011,10 @@ RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "193_research-source-phase-gap-review-checklist.csv"
 )
+RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "216_research-source-phase-gap-human-guide.md"
+)
 PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "197_published-research-note-phase-gap-review-checklist.csv"
@@ -1963,6 +1967,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
     CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE,
+    RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE,
     COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE,
     INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE,
     CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
@@ -13329,6 +13334,62 @@ def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_research_source_phase_gap_human_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE}"]
+
+    required_markers = [
+        "Research Source Phase Gap Human Guide",
+        "Human Review Entry Order",
+        "Open the source-object dossier first",
+        RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
+        SOURCE_INDEX,
+        "downloaded: `mixed_or_partial`",
+        "unpacked: `mixed_or_partial`",
+        "extracted: `mixed_or_partial`",
+        "cleaned: `mixed_or_partial`",
+        "verified: `mixed_or_partial`",
+        "assignment groups: 5",
+        "assignment source ids: 18",
+        "source-pipeline-missing-evidence-outcome-routes-assignment-checklist-004:7",
+        "source system, provider, catalog, book, paper, museum, or URL",
+        "access or download record, access date, package name",
+        "file size and checksum",
+        "package manifest, field map, extraction note",
+        "rights status, risk note, and public-commit decision",
+        "derived paths",
+        "not a rights decision",
+        "not source promotion",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+        "not confirmed scholarship",
+        "具体待查问题",
+        "不得在本指南中记录复核结论",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(
+                f"{RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE} "
+                f"missing marker: {marker}"
+            )
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE}:"
+                f"{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31278,6 +31339,7 @@ def main() -> int:
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
     issues.extend(check_hust_obc_undeciphered_candidate_evidence_collection_notes(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
+    issues.extend(check_research_source_phase_gap_human_guide(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_human_guide(root))

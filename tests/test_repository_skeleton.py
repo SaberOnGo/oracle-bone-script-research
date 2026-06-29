@@ -24805,6 +24805,44 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("doc/public/user_research/README.md", first["draft_review_route_paths"])
         self.assertTrue(all("published research note phase gap review checklist only" in row["caution"] for row in rows))
 
+    def test_research_readmes_are_human_scholarship_review_entries(self) -> None:
+        readme_paths = [
+            repo_root() / "research/README.md",
+            repo_root() / "research/001_published-scholarship-index/README.md",
+            repo_root() / "research/002_decipherment-history/README.md",
+            repo_root() / "research/003_scholarly-arguments-and-disputes/README.md",
+            repo_root() / "research/004_bibliographic-notes/README.md",
+        ]
+        required_markers = [
+            "Human Review Entry Order",
+            "Required Content",
+            "Concrete Questions To Check",
+            "bibliographic identity",
+            "source trail",
+            "scope",
+            "evidence level",
+            "citation relation",
+            "reading process status",
+            "proposer",
+            "disagreement",
+            "dispute",
+            "not a decipherment conclusion",
+            "not confirmed scholarship",
+        ]
+        for readme_path in readme_paths:
+            text = readme_path.read_text(encoding="utf-8")
+            for marker in required_markers:
+                self.assertIn(marker, text, f"{readme_path}: {marker}")
+            for line in text.splitlines():
+                if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                    continue
+                self.assertLessEqual(len(line), 80, f"{readme_path}: {line}")
+
+    def test_research_readmes_are_checked_by_repository_skeleton(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(module, "check_published_research_readmes_human_entry")
+        self.assertEqual(check(repo_root()), [])
+
     def test_collection_provenance_phase_gap_review_checklist_routes_asset_gaps(self) -> None:
         self.assertEqual(check_collection_provenance_phase_gap_review_checklist(repo_root()), [])
         path = (

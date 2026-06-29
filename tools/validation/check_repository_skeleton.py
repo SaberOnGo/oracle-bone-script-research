@@ -1758,6 +1758,10 @@ REQUIRED_PATHS = [
     "project_registry/006_large-source-register/001_large-source-register.csv",
     SOURCE_DOWNLOAD_LOG,
     "research/README.md",
+    "research/001_published-scholarship-index/README.md",
+    "research/002_decipherment-history/README.md",
+    "research/003_scholarly-arguments-and-disputes/README.md",
+    "research/004_bibliographic-notes/README.md",
     "skills/README.md",
     "skills/oracle-character-record-curation/SKILL.md",
     "skills/source-provenance-review/SKILL.md",
@@ -5254,6 +5258,51 @@ def check_root_readmes_human_entry(root: Path) -> list[str]:
             if marker in text:
                 issues.append(f"{relative} contains mojibake marker: {marker}")
         for marker in ["缂", "闁", "鐢", "涓", "�"]:
+            if marker in text:
+                issues.append(f"{relative} contains mojibake marker: {marker}")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            if len(line) > 80:
+                issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    return issues
+
+
+def check_published_research_readmes_human_entry(root: Path) -> list[str]:
+    issues: list[str] = []
+    relatives = [
+        "research/README.md",
+        "research/001_published-scholarship-index/README.md",
+        "research/002_decipherment-history/README.md",
+        "research/003_scholarly-arguments-and-disputes/README.md",
+        "research/004_bibliographic-notes/README.md",
+    ]
+    required_markers = [
+        "Human Review Entry Order",
+        "Required Content",
+        "Concrete Questions To Check",
+        "bibliographic identity",
+        "source trail",
+        "scope",
+        "evidence level",
+        "citation relation",
+        "reading process status",
+        "proposer",
+        "disagreement",
+        "dispute",
+        "not a decipherment conclusion",
+        "not confirmed scholarship",
+    ]
+    for relative in relatives:
+        path = root / relative
+        if not path.exists():
+            issues.append(f"{relative} missing")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for marker in required_markers:
+            if marker not in text:
+                issues.append(f"{relative} missing human-entry marker: {marker}")
+        for marker in ["\ufffd"]:
             if marker in text:
                 issues.append(f"{relative} contains mojibake marker: {marker}")
         for line_number, line in enumerate(text.splitlines(), start=1):
@@ -31059,6 +31108,7 @@ def main() -> int:
     issues.extend(check_asset_source_rights_readme_human_entry(root))
     issues.extend(check_bilingual_markers(root))
     issues.extend(check_root_readmes_human_entry(root))
+    issues.extend(check_published_research_readmes_human_entry(root))
     issues.extend(check_ai_context_pack_builder_readme_human_entry(root))
     issues.extend(check_source_rights_policy_human_entry(root))
     issues.extend(check_large_source_material_handling_human_entry(root))

@@ -14855,6 +14855,7 @@ def check_source_pipeline_phase_action_missing_evidence_review_drafts(root: Path
             "Source Pipeline Missing-Evidence Review Draft",
             row.get("source_id", ""),
             "Existing Source Metadata Snapshot",
+            "Candidate evidence paths to inspect",
             "all_sources_index_row_count",
             "source_package_file_manifest_row_count",
             "not a decipherment conclusion",
@@ -14866,6 +14867,17 @@ def check_source_pipeline_phase_action_missing_evidence_review_drafts(root: Path
                 f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} "
                 f"draft still has empty evidence placeholder: {row_id}"
             )
+        for line in text.splitlines():
+            if line.startswith("- Reviewed evidence paths") and "pending human review" in line:
+                issues.append(
+                    f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} "
+                    f"draft has pending evidence-path placeholder: {row_id}"
+                )
+            if line.startswith("- Reviewed outcome summary") and "pending human review" in line:
+                issues.append(
+                    f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} "
+                    f"draft has pending outcome-summary placeholder: {row_id}"
+                )
         for line_number, line in enumerate(text.splitlines(), start=1):
             if len(line) > 80:
                 issues.append(

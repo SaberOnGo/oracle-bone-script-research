@@ -20849,6 +20849,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("downloaded_metadata_profile_row_count: `0`", text)
         self.assertIn("source_package_file_manifest_row_count: `0`", text)
         self.assertNotIn("No reviewed evidence has been collected in this draft", text)
+        self.assertIn("Candidate evidence paths to inspect", text)
         self.assertIn("not a decipherment conclusion", text)
         self.assertFalse(rows[0]["draft_path"].startswith("research/"))
         long_lines: list[tuple[str, int, int]] = []
@@ -20856,6 +20857,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             draft_text = (repo_root() / row["draft_path"]).read_text(encoding="utf-8")
             self.assertIn("Existing Source Metadata Snapshot", draft_text)
             self.assertNotIn("No reviewed evidence has been collected in this draft", draft_text)
+            self.assertIn("Candidate evidence paths to inspect", draft_text)
+            for draft_line in draft_text.splitlines():
+                self.assertFalse(
+                    draft_line.startswith("- Reviewed evidence paths")
+                    and "pending human review" in draft_line
+                )
+                self.assertFalse(
+                    draft_line.startswith("- Reviewed outcome summary")
+                    and "pending human review" in draft_line
+                )
             for line_number, line in enumerate(draft_text.splitlines(), start=1):
                 if len(line) > 80:
                     long_lines.append((row["draft_path"], line_number, len(line)))

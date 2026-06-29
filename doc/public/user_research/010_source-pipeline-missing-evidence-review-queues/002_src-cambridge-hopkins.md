@@ -95,8 +95,28 @@ or make any decipherment claim.
 它们不作权利裁定，不提升来源，不导入语料，
 也不提出任何释读结论。
 
-- Reviewed evidence paths / 已复核证据路径: pending human review
-- Reviewed outcome summary / 已复核结果摘要: pending human review
+### Candidate evidence paths to inspect / 候选待查证据路径
+
+English: Open these routed source files before recording any
+reviewed outcome. They are candidate evidence paths only.
+
+简体中文：记录任何已复核结果前，先打开下列来源文件路线。
+这些只是候选待查证据路径。
+
+- `corpus/006_research-sources-and-bibliography/000_source-`
+  `registers/010_downloaded-metadata-profile.csv`
+- `project_registry/006_large-source-register/001_large-source-register.csv`
+
+### Current snapshot IDs / 当前快照 ID
+
+- download log ids / 下载记录 ID: `dl-cambridge-hopkins-finding-list`
+- metadata profile ids / metadata profile ID: `none`
+- large source package ids / 大型来源包 ID: `none`
+- source field map ids / 字段映射 ID: `field-map-000019;field-map-000020`
+- package file ids / package file ID: `pkg-file-000015`
+
+- Reviewed evidence paths / 已复核证据路径: none reviewed yet
+- Reviewed outcome summary / 已复核结果摘要: no reviewed outcome yet
 - Required follow-up / 必需后续动作:
   open source summary, route summary, source register,
   large-source register, field-map, metadata-profile,

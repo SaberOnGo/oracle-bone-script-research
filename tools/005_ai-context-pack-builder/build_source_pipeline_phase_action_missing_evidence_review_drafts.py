@@ -402,7 +402,7 @@ def build_markdown(row: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
-def metadata_snapshot_markdown(snapshot: dict[str, str]) -> str:
+def metadata_snapshot_markdown(row: dict[str, str], snapshot: dict[str, str]) -> str:
     lines = [
         "## Existing Source Metadata Snapshot / 已有来源 metadata 快照",
         "",
@@ -441,8 +441,37 @@ def metadata_snapshot_markdown(snapshot: dict[str, str]) -> str:
             "它们不作权利裁定，不提升来源，不导入语料，",
             "也不提出任何释读结论。",
             "",
-            "- Reviewed evidence paths / 已复核证据路径: pending human review",
-            "- Reviewed outcome summary / 已复核结果摘要: pending human review",
+            "### Candidate evidence paths to inspect / 候选待查证据路径",
+            "",
+            "English: Open these routed source files before recording any",
+            "reviewed outcome. They are candidate evidence paths only.",
+            "",
+            "简体中文：记录任何已复核结果前，先打开下列来源文件路线。",
+            "这些只是候选待查证据路径。",
+            "",
+        ]
+    )
+    lines.extend(bullet_list(split_semicolon(row["files_to_open"])))
+    lines.extend(
+        [
+            "",
+            "### Current snapshot IDs / 当前快照 ID",
+            "",
+        ]
+    )
+    for label, key in [
+        ("download log ids / 下载记录 ID", "source_download_log_ids"),
+        ("metadata profile ids / metadata profile ID", "metadata_profile_ids"),
+        ("large source package ids / 大型来源包 ID", "large_source_package_ids"),
+        ("source field map ids / 字段映射 ID", "source_field_map_ids"),
+        ("package file ids / package file ID", "source_package_file_ids"),
+    ]:
+        lines.extend(field_line(label, snapshot[key]))
+    lines.extend(
+        [
+            "",
+            "- Reviewed evidence paths / 已复核证据路径: none reviewed yet",
+            "- Reviewed outcome summary / 已复核结果摘要: no reviewed outcome yet",
             "- Required follow-up / 必需后续动作:",
             "  open source summary, route summary, source register,",
             "  large-source register, field-map, metadata-profile,",
@@ -472,7 +501,7 @@ def build_markdown_with_snapshot(row: dict[str, str], snapshot: dict[str, str]) 
     end_marker = "## Boundary Status"
     start = text.index(start_marker)
     end = text.index(end_marker)
-    return text[:start] + metadata_snapshot_markdown(snapshot) + text[end:]
+    return text[:start] + metadata_snapshot_markdown(row, snapshot) + text[end:]
 
 
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:

@@ -2,7 +2,7 @@
 
 English:
 This human-readable gallery stays inside the same concrete candidate directory
-as the AI-readable packet and visual/source index.
+as the structured support packet and visual/source index.
 
 简体中文:
 本图像资料页与 AI 可读候选包、图像与来源索引放在同一个具体候选目录内。

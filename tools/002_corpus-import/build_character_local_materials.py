@@ -226,6 +226,18 @@ def append_wrapped_bullet(lines: list[str], label: str, value: object) -> None:
     )
 
 
+def append_wrapped_plain_bullet(lines: list[str], text: str) -> None:
+    lines.extend(
+        textwrap.wrap(
+            f"- {text}",
+            width=MAX_HUMAN_MARKDOWN_LINE_LENGTH,
+            subsequent_indent="  ",
+            break_long_words=True,
+            break_on_hyphens=False,
+        )
+    )
+
+
 def build_readme_text(
     project_id: str,
     object_dir: Path,
@@ -250,10 +262,10 @@ def build_readme_text(
     ]
     append_wrapped_paragraph(
         lines,
-        "This directory is the co-located working folder for this concrete "
-        "oracle-character object. Human-readable notes, visual/source "
-        "entrances, and AI-readable packet/index files stay together in this "
-        "same object directory, not in a parallel human-only directory.",
+        "This directory is the object-local human research entrance for this "
+        "concrete oracle-character object. Start with the human dossier, "
+        "visual gallery, source route, and review questions; use structured "
+        "support files only to trace and verify the human-readable evidence.",
     )
     lines.extend(["", "简体中文："])
     append_wrapped_paragraph(
@@ -271,14 +283,40 @@ def build_readme_text(
     )
     append_wrapped_bullet(
         lines,
-        "AI-readable candidate packet / AI 可读候选包",
+        "Structured support candidate packet / 结构化辅助候选包",
         f"`{packet_name}`",
     )
     append_wrapped_bullet(
         lines,
-        "AI-readable visual/source index / AI 可读图像与来源索引",
+        "Structured support visual/source index / 结构化辅助图像来源索引",
         "`02_visual-source-index.csv`",
     )
+    lines.extend(
+        [
+            "",
+            "## Human Oracle Character Review Slots / 甲骨单字人工复核槽位",
+            "",
+            "Structured support files only serve the human oracle-character dossier.",
+            "",
+            "结构化辅助文件只服务本对象内的人类甲骨单字档案。",
+            "",
+        ]
+    )
+    for question in [
+        "Open the visual gallery and record visible strokes or damage.",
+        "Check source image, catalog, plate, collection, and period routes.",
+        "Name variant, near-form, component, and later-script routes as pending.",
+        "Keep readings, identities, disputes, and bibliography as review tasks.",
+        "Check rights, checksum, source package, manifest, and field map.",
+        "Write every missing item as a concrete question before research.",
+        "先打开图像图库，记录可见笔画、残缺或疑点。",
+        "核对来源图像、著录、图版、馆藏和时期路线。",
+        "将异体、近形、构件和后世字形路线标为待复核。",
+        "释读、身份、争议和文献关系只记为待查任务。",
+        "核对权利、checksum、来源包、manifest 和字段映射。",
+        "正式研究前，所有缺失项都写成具体问题。",
+    ]:
+        append_wrapped_plain_bullet(lines, question)
     lines.extend(["", "## Object Summary / 对象摘要", ""])
     append_wrapped_bullet(lines, "Project ID / 项目 ID", f"`{project_id}`")
     append_wrapped_bullet(
@@ -395,7 +433,7 @@ This object currently has no committed local glyph image derivative. Use `02_vis
     return f"""# {project_id} Visual Gallery / {project_id} 图像资料页
 
 English:
-This human-readable gallery stays inside the same concrete oracle-character object directory as the AI-readable packet and visual/source index. It is a preparation-stage viewing surface for local review images, not a parallel human-only directory.
+This human-readable gallery stays inside the same concrete oracle-character object directory as the structured support packet and visual/source index. It is a preparation-stage viewing surface for local review images, not a parallel human-only directory.
 
 简体中文：
 本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行“人类看的目录”。
@@ -405,7 +443,7 @@ This human-readable gallery stays inside the same concrete oracle-character obje
 - Project ID / 项目 ID: `{project_id}`
 - Primary external reference / 首选外部参考: `{external_id}`
 - Source / 来源: `{source_id}`
-- AI packet / AI 资料包: `{packet_name}`
+- Structured support packet / 结构化辅助包: `{packet_name}`
 - Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
 - Committed local review images / 已提交本地复核图像数: `{len(committed_rows)}`
 
@@ -433,9 +471,9 @@ def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_r
     append_wrapped_paragraph(
         lines,
         "This human-readable gallery stays inside the same concrete "
-        "oracle-character object directory as the AI-readable packet and "
-        "visual/source index. It is a preparation-stage viewing surface for "
-        "local review images, not a parallel human-only directory.",
+        "oracle-character object directory as the structured support packet "
+        "and visual/source index. It is a preparation-stage viewing surface "
+        "for local review images, not a parallel human-only directory.",
     )
     lines.extend(["", "简体中文:"])
     append_wrapped_paragraph(
@@ -452,7 +490,7 @@ def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_r
         f"`{external_id}`",
     )
     append_wrapped_bullet(lines, "Source / 来源", f"`{source_id}`")
-    append_wrapped_bullet(lines, "AI packet / AI 资料包", f"`{packet_name}`")
+    append_wrapped_bullet(lines, "Structured support packet / 结构化辅助包", f"`{packet_name}`")
     append_wrapped_bullet(
         lines,
         "Visual/source index / 图像与来源索引",

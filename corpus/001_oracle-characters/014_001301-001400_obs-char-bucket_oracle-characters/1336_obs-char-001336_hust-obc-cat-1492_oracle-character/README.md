@@ -1,10 +1,10 @@
 # obs-char-001336 Local Object Materials / obs-char-001336 本地对象资料
 
 English:
-This directory is the co-located working folder for this concrete
-oracle-character object. Human-readable notes, visual/source entrances, and
-AI-readable packet/index files stay together in this same object directory, not
-in a parallel human-only directory.
+This directory is the object-local human research entrance for this concrete
+oracle-character object. Start with the human dossier, visual gallery, source
+route, and review questions; use structured support files only to trace and
+verify the human-readable evidence.
 
 简体中文：
 本目录是这个具体甲骨文字对象的同位工作目录。人类可读说明、图像和来源入口、AI 可读资料包和索引都放在同一具体对象目录中，不另建与 `corpus`
@@ -14,8 +14,29 @@ in a parallel human-only directory.
 
 - Human-readable page / 人类可读页面: `README.md`
 - Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
-- AI-readable candidate packet / AI 可读候选包: `01_candidate-character-packet.json`
-- AI-readable visual/source index / AI 可读图像与来源索引: `02_visual-source-index.csv`
+- Structured support candidate packet / 结构化辅助候选包:
+  `01_candidate-character-packet.json`
+- Structured support visual/source index / 结构化辅助图像来源索引:
+  `02_visual-source-index.csv`
+
+## Human Oracle Character Review Slots / 甲骨单字人工复核槽位
+
+Structured support files only serve the human oracle-character dossier.
+
+结构化辅助文件只服务本对象内的人类甲骨单字档案。
+
+- Open the visual gallery and record visible strokes or damage.
+- Check source image, catalog, plate, collection, and period routes.
+- Name variant, near-form, component, and later-script routes as pending.
+- Keep readings, identities, disputes, and bibliography as review tasks.
+- Check rights, checksum, source package, manifest, and field map.
+- Write every missing item as a concrete question before research.
+- 先打开图像图库，记录可见笔画、残缺或疑点。
+- 核对来源图像、著录、图版、馆藏和时期路线。
+- 将异体、近形、构件和后世字形路线标为待复核。
+- 释读、身份、争议和文献关系只记为待查任务。
+- 核对权利、checksum、来源包、manifest 和字段映射。
+- 正式研究前，所有缺失项都写成具体问题。
 
 ## Object Summary / 对象摘要
 

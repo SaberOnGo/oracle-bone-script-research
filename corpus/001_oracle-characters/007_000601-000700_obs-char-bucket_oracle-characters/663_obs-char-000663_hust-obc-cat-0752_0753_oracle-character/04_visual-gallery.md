@@ -2,8 +2,8 @@
 
 English:
 This human-readable gallery stays inside the same concrete oracle-character
-object directory as the AI-readable packet and visual/source index. It is a
-preparation-stage viewing surface for local review images, not a parallel
+object directory as the structured support packet and visual/source index. It is
+a preparation-stage viewing surface for local review images, not a parallel
 human-only directory.
 
 简体中文:
@@ -14,7 +14,7 @@ human-only directory.
 - Project ID / 项目 ID: `obs-char-000663`
 - Primary external reference / 首选外部参考: `hust-obc-cat-0752_0753`
 - Source / 来源: `src-hust-obc`
-- AI packet / AI 资料包: `01_candidate-character-packet.json`
+- Structured support packet / 结构化辅助包: `01_candidate-character-packet.json`
 - Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
 - Committed local review images / 已提交本地复核图像数: `1`
 

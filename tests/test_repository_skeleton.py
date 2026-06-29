@@ -3666,6 +3666,17 @@ class RepositorySkeletonTests(unittest.TestCase):
         mojibake_fragments = ("浜", "绠€", "鐮", "鏉ユ簮", "涓嶆槸")
         for target_dir in target_dirs:
             readme_text = (target_dir / "README.md").read_text(encoding="utf-8")
+            readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
+            self.assertIn("object-local human research entrance", readme_text)
+            self.assertIn("Human Oracle Character Review Slots", readme_text)
+            self.assertIn(
+                "Structured support files only serve the human oracle-character dossier",
+                readme_text,
+            )
+            self.assertNotIn("AI-readable", readme_opening)
+            self.assertNotIn("AI-readable candidate packet", readme_text)
+            self.assertNotIn("AI-readable packet", readme_text)
+            self.assertNotIn("AI-readable visual/source index", readme_text)
             self.assertIn("01_", readme_text)
             self.assertIn("02_visual-source-index.csv", readme_text)
             self.assertIn("04_visual-gallery.md", readme_text)
@@ -5708,7 +5719,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertEqual(output["visual_index_path"].parent, object_dir)
             self.assertNotIn("doc/public/user_research", output["readme_path"].as_posix())
             self.assertIn(project_id, output["readme_text"])
-            self.assertIn("co-located", output["readme_text"])
+            self.assertIn("object-local human research entrance", output["readme_text"])
+            self.assertIn("Human Oracle Character Review Slots", output["readme_text"])
+            self.assertIn(
+                "Structured support files only serve the human oracle-character dossier",
+                output["readme_text"],
+            )
+            readme_opening = output["readme_text"].split("## Boundary", maxsplit=1)[0]
+            self.assertNotIn("AI-readable", readme_opening)
+            self.assertNotIn("AI-readable candidate packet", output["readme_text"])
+            self.assertNotIn("AI-readable packet", output["readme_text"])
+            self.assertNotIn("AI-readable visual/source index", output["readme_text"])
             self.assertIn("同一具体对象目录", output["readme_text"])
             for line_number, line in enumerate(output["readme_text"].splitlines(), start=1):
                 if line.startswith("!["):
@@ -6570,6 +6591,16 @@ class RepositorySkeletonTests(unittest.TestCase):
                 f"001_{asset_id}_{candidate.primary_external_ref_id}_glyph.yaml",
             )
             review_text = module.review_sheet_text(candidate, asset_id)
+            readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
+            self.assertIn("object-local human research entrance", readme_text)
+            self.assertIn("Human Oracle Character Review Slots", readme_text)
+            self.assertIn(
+                "Structured support files only serve the human oracle-character dossier",
+                readme_text,
+            )
+            self.assertNotIn("AI-readable", readme_opening)
+            self.assertNotIn("AI-readable packet", readme_text)
+            self.assertNotIn("AI-readable visual/source index", readme_text)
             for generated_name, generated_text in [
                 ("README", readme_text),
                 ("visual gallery", gallery_text),

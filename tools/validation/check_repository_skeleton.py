@@ -2451,7 +2451,9 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                         f"line {line_number} exceeds 80 chars"
                     )
             for snippet in [
-                "co-located working folder",
+                "object-local human research entrance",
+                "Human Oracle Character Review Slots",
+                "Structured support files only serve the human oracle-character dossier",
                 "对象目录",
                 "02_visual-source-index.csv",
                 "04_visual-gallery.md",
@@ -2461,6 +2463,22 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            readme_opening = text.split("## Boundary", maxsplit=1)[0]
+            if "AI-readable" in readme_opening:
+                issues.append(
+                    f"{readme_path.relative_to(root).as_posix()} "
+                    "opening contains machine-first marker: AI-readable"
+                )
+            for forbidden in [
+                "AI-readable candidate packet",
+                "AI-readable packet",
+                "AI-readable visual/source index",
+            ]:
+                if forbidden in text:
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()} "
+                        f"contains machine-first marker: {forbidden}"
+                    )
         human_markers = {
             dossier_path: [
                 "decipherment conclusion",

@@ -3838,6 +3838,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("graph file", dossier_text)
             self.assertIn("evidence note", dossier_text)
             self.assertNotIn("not_collected", dossier_text)
+            opening = "\n".join(dossier_text.splitlines()[:10])
+            self.assertIn("结构化辅助文件只作为检索、追溯、比较和审计工具", opening)
+            self.assertNotIn("JSON", opening)
+            self.assertNotIn("CSV", opening)
             for fragment in (
                 "涓",
                 "鍗",

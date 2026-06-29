@@ -2,9 +2,11 @@
 
 本文件是单字对象目录内的人类可读上下文档案。它把已经存在的图片入口、来源路线、图边线索和待查问题集中到同一目录，供甲骨文学、考古学和人类研究者继续核查。
 
+结构化辅助文件只作为检索、追溯、比较和审计工具。
+
 This dossier is a human-readable context entrance for the same object
-directory. JSON and CSV files remain support tools for search, tracing,
-comparison, and audit.
+directory. Structured support files remain secondary tools for search,
+tracing, comparison, and audit.
 
 边界提示：本文件只整理预处理阶段证据路线，不是释读结论，不是构件归属结论，不是卜辞身份确认，也不是后世字形对应结论。
 

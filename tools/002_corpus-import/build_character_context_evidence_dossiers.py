@@ -287,10 +287,12 @@ def context_dossier_text(
             "文学、考古学和人类研究者继续核查。"
         ),
         "",
+        "结构化辅助文件只作为检索、追溯、比较和审计工具。",
+        "",
         para(
             "This dossier is a human-readable context entrance for the same "
-            "object directory. JSON and CSV files remain support tools for "
-            "search, tracing, comparison, and audit."
+            "object directory. Structured support files remain secondary "
+            "tools for search, tracing, comparison, and audit."
         ),
         "",
         para(

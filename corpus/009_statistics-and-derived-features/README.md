@@ -57,6 +57,8 @@ substitutes for object-local dossiers, source records, or review sheets.
   audits project-local ID to source-reference maps.
 - `191_project-id-source-map-summary.json`
   summarizes project ID map coverage and issue counts.
+- `213_core-corpus-phase-gap-human-review-guide.md`
+  gives a human-readable guide before opening the 192-212 route tables.
 
 ## File Families / 文件族
 
@@ -97,6 +99,23 @@ substitutes for object-local dossiers, source records, or review sheets.
 - Use them to check whether concrete object directories have human entries,
   AI packets, route galleries, source indexes, and no parallel human folders.
 - These audits show readiness signals, not scholarly truth.
+
+### Human Phase-Gap Guide / 人工阶段缺口指南
+
+- `213` summarizes the 192-212 phase-gap review routes in Markdown.
+- Open it before using the CSV or JSON route tables for phase-gap review.
+- It is a human reading guide, not a reviewed outcome or import decision.
+
+Use this guide to return each phase gap to concrete research evidence:
+glyph images, rubbings, photographs, plates, inscription text, OCR, catalog
+numbers, collection numbers, findspot, collection, period, group, batch,
+component, variant, near-form, bronze, seal, modern-form, bibliography,
+reading history, proposer, different opinions, and disputes.
+
+使用本指南时，应把每个阶段缺口回到具体研究证据：字形图像、拓片、
+照片、图版、卜辞全文、OCR、著录号、合集号、出土地、馆藏、时期、
+组类、批次、构件、异体、近形、金文、小篆、今字、书目、释读史、
+提出者、不同意见和争议。
 
 ## Concrete Questions To Check / 具体待查问题
 

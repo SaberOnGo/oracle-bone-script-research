@@ -66,6 +66,7 @@ from tools.validation.check_repository_skeleton import (
     check_core_corpus_phase_coverage_matrix,
     check_core_corpus_phase_gap_action_queue,
     check_core_corpus_phase_gap_review_index,
+    check_core_corpus_phase_gap_human_review_guide,
     check_core_corpus_phase_gap_review_route_pack,
     check_core_corpus_phase_gap_review_handoff_scaffold,
     check_core_corpus_phase_gap_review_handoff_checklist,
@@ -1335,6 +1336,15 @@ def load_core_corpus_phase_gap_action_queue_module():
 def load_core_corpus_phase_gap_review_index_module():
     path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_review_index.py"
     spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_review_index", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_core_corpus_phase_gap_human_review_guide_module():
+    path = repo_root() / "tools/004_statistics-generation/build_core_corpus_phase_gap_human_review_guide.py"
+    spec = importlib.util.spec_from_file_location("build_core_corpus_phase_gap_human_review_guide", path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -23681,6 +23691,48 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertTrue(all("core corpus phase gap review index only" in row["caution"] for row in rows))
         self.assertTrue(all(row["claim_boundary"] == module.CLAIM_BOUNDARY for row in rows))
+
+    def test_core_corpus_phase_gap_human_review_guide_is_readable_entry(self) -> None:
+        self.assertEqual(check_core_corpus_phase_gap_human_review_guide(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "213_core-corpus-phase-gap-human-review-guide.md"
+        )
+        self.assertTrue(path.exists(), path)
+        text = path.read_text(encoding="utf-8")
+        for marker in [
+            "Core Corpus Phase Gap Human Review Guide",
+            "Human Review Entry Order",
+            "Concrete Questions To Check",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "199_core-corpus-phase-gap-review-index.csv",
+            "not a reviewed outcome",
+            "not a decipherment conclusion",
+            "具体待查问题",
+            "不是释读结论",
+        ]:
+            self.assertIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_core_corpus_phase_gap_human_review_guide_builder_uses_routes(self) -> None:
+        script_path = (
+            repo_root()
+            / "tools/004_statistics-generation/"
+            / "build_core_corpus_phase_gap_human_review_guide.py"
+        )
+        self.assertTrue(script_path.exists(), script_path)
+        module = load_core_corpus_phase_gap_human_review_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("gap rows: 20", text)
+        self.assertIn("research_sources_and_bibliography: 5", text)
+        self.assertIn("collection_provenance_assets: 3", text)
+        self.assertIn("human-readable dossier", text)
+        self.assertIn("not a reviewed outcome", text)
+        self.assertIn("不是复核结论", text)
 
     def test_core_corpus_phase_gap_review_route_pack_indexes_199_routes(self) -> None:
         self.assertEqual(check_core_corpus_phase_gap_review_route_pack(repo_root()), [])

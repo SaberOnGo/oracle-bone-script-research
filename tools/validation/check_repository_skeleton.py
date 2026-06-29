@@ -935,6 +935,10 @@ CORE_CORPUS_PHASE_GAP_REVIEW_INDEX = (
     "corpus/009_statistics-and-derived-features/"
     "199_core-corpus-phase-gap-review-index.csv"
 )
+CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "213_core-corpus-phase-gap-human-review-guide.md"
+)
 CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK = (
     "corpus/009_statistics-and-derived-features/"
     "200_core-corpus-phase-gap-review-route-pack.json"
@@ -1946,6 +1950,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_COVERAGE_MATRIX,
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
+    CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE,
     CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_SCAFFOLD,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST,
@@ -2182,6 +2187,7 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_core_corpus_phase_coverage_matrix.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_action_queue.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_index.py",
+    "tools/004_statistics-generation/build_core_corpus_phase_gap_human_review_guide.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_route_pack.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_scaffold.py",
     "tools/004_statistics-generation/build_core_corpus_phase_gap_review_handoff_checklist.py",
@@ -10899,6 +10905,43 @@ def check_core_corpus_phase_gap_review_index(root: Path) -> list[str]:
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CORE_CORPUS_PHASE_GAP_REVIEW_INDEX} missing file to open: {path}")
+    return issues
+
+
+def check_core_corpus_phase_gap_human_review_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE}"]
+
+    required_markers = [
+        "Core Corpus Phase Gap Human Review Guide",
+        "Human Review Entry Order",
+        "Concrete Questions To Check",
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
+        "gap rows: 20",
+        "research_sources_and_bibliography: 5",
+        "collection_provenance_assets: 3",
+        "not a reviewed outcome",
+        "not a decipherment conclusion",
+        "具体待查问题",
+        "不是复核结论",
+        "不是释读结论",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(f"{CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE} missing marker: {marker}")
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE}:{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31058,6 +31101,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_coverage_matrix(root))
     issues.extend(check_core_corpus_phase_gap_action_queue(root))
     issues.extend(check_core_corpus_phase_gap_review_index(root))
+    issues.extend(check_core_corpus_phase_gap_human_review_guide(root))
     issues.extend(check_core_corpus_phase_gap_review_route_pack(root))
     issues.extend(check_core_corpus_phase_gap_review_handoff_scaffold(root))
     issues.extend(check_core_corpus_phase_gap_review_handoff_checklist(root))

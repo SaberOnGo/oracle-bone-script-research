@@ -55,7 +55,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `190_project-id-source-map-audit.csv`.
 - Core phase gap review:
   `192_core-corpus-phase-gap-action-queue.csv` through
-  the `212_*outcome-route-summary.json` route summary.
+  the `212_*outcome-route-summary.json` route summary, plus
+  `213_core-corpus-phase-gap-human-review-guide.md`.
 
 ## Current Review Surfaces / 当前复核入口
 
@@ -74,6 +75,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Joined review index and handoff route packs:
   `199_core-corpus-phase-gap-review-index.csv` through
   the `212_*outcome-route-summary.json` route summary.
+- Human-readable phase-gap guide:
+  `213_core-corpus-phase-gap-human-review-guide.md`.
 
 ## Concrete Questions To Check / 具体待查问题
 

@@ -3165,8 +3165,9 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         if path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
             for snippet in [
-                "object-local research entrance",
-                "AI-readable indexes",
+                "object-local human research entrance",
+                "Human Inscription And Plate Review Slots",
+                "Structured support files only serve the human inscription and plate dossier",
                 "not a formal `obi-*` inscription record",
                 "not an object identity claim",
                 "not a transcription or inscription reading",
@@ -30816,14 +30817,20 @@ def check_source_registers(root: Path) -> list[str]:
 def check_oracle_character_human_markdown_wrapping(root: Path) -> list[str]:
     issues: list[str] = []
     markdown_root = root / "corpus/001_oracle-characters"
-    for path in sorted(markdown_root.glob("**/*.md")):
-        text = path.read_text(encoding="utf-8")
-        relative = path.relative_to(root).as_posix()
-        for line_number, line in enumerate(text.splitlines(), start=1):
-            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+    for dirpath, dirnames, filenames in os.walk(markdown_root):
+        dirnames.sort()
+        for filename in sorted(filenames):
+            if not filename.endswith(".md"):
                 continue
-            if len(line) > 80:
-                issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+            path = Path(dirpath) / filename
+            relative = path.relative_to(root).as_posix()
+            with path.open("r", encoding="utf-8") as file:
+                for line_number, line in enumerate(file, start=1):
+                    line = line.rstrip("\r\n")
+                    if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                        continue
+                    if len(line) > 80:
+                        issues.append(f"{relative}:{line_number} line exceeds 80 characters")
     return issues
 
 

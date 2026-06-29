@@ -1,14 +1,14 @@
 # obs-insc-cw-cand-000278 Cambridge/Hopkins inscription candidate
 
 English:
-This is an object-local research entrance for a Cambridge/Hopkins
-inscription crosswalk candidate. The human-readable notes, plate/catalog
-routes, and AI-readable indexes are stored in this same concrete corpus
-object directory.
+This is an object-local human research entrance for a Cambridge/Hopkins
+inscription crosswalk candidate. Start with the inscription and plate
+dossier, then use the catalog routes and structured support files only to
+trace, compare, and verify the human-readable evidence.
 
 Simplified Chinese:
-这是 Cambridge/Hopkins 卜辞目录互证候选的对象内研究入口。人类可读说明、图版与著录路线、AI
-可读索引都放在本对象目录内，不另建平行目录。
+这是 Cambridge/Hopkins
+卜辞目录互证候选的对象内人类研究入口。先阅读卜辞与图版档案，再用著录路线和结构化辅助文件追溯、比较、核查人类可读证据，不另建平行目录。
 
 ## Boundary / 边界
 
@@ -21,10 +21,29 @@ Simplified Chinese:
 - 这不是释文或卜辞读法。
 - 这不是释读结论。
 
+## Human Inscription And Plate Review Slots / 卜辞图版复核槽位
+
+Structured support files only serve the human inscription and plate dossier.
+
+结构化辅助文件只服务本对象内的人类卜辞与图版档案。
+
+- Confirm the inscription number, plate number, catalog number, and page.
+- Check Heji/OBM, collection, findspot, period, group, and batch context.
+- Locate image, rubbing, OCR, full text, and text-quality evidence routes.
+- List linked character forms, variants, components, and later-script clues.
+- Record bibliography, source scope, disagreements, and remaining questions.
+- Keep every missing item as a concrete question before formal research.
+- 核对卜辞号、图版号、著录号和页码。
+- 核查合集/OBM、馆藏、出土地、时期、组类和批次。
+- 查找图片、拓片、OCR、全文和文本质量证据路线。
+- 列出关联字形、异体、构件和后世字形线索。
+- 记录书目、资料范围、不同意见和剩余待查问题。
+- 正式研究前，所有缺失项都必须写成具体问题。
+
 ## Local Files / 本目录文件
 
 - `01_candidate-inscription-crosswalk-packet.json`
-  AI-readable candidate packet.
+  Structured support packet for this human dossier.
 - `02_crosswalk-source-index.csv`
   Source, rights, and route index.
 - `03_catalog-reference-index.csv`
@@ -38,11 +57,11 @@ Simplified Chinese:
 - `07_human-inscription-dossier.md`
   Human-readable dossier for this candidate inscription object.
 - `08_inscription-dossier-index.json`
-  AI-readable index for the dossier and review gaps.
+  Structured support index for dossier gaps and review status.
 - `09_inscription-plate-evidence-dossier.md`
   Human-readable evidence dossier for text, OCR, plate, and catalog routes.
 - `10_inscription-plate-evidence-index.json`
-  AI-readable support index for the inscription and plate dossier.
+  Structured support index for inscription and plate evidence.
 
 ## Candidate Metadata / 候选 metadata
 

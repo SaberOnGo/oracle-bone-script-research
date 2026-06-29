@@ -4325,7 +4325,13 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "11_inscription-review-fact-matrix.md").exists())
             self.assertTrue((object_dir / "12_inscription-review-fact-matrix-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
-            self.assertIn("object-local research entrance", readme_text)
+            self.assertIn("object-local human research entrance", readme_text)
+            self.assertIn("Human Inscription And Plate Review Slots", readme_text)
+            self.assertIn(
+                "Structured support files only serve the human inscription and plate dossier",
+                readme_text,
+            )
+            self.assertNotIn("AI-readable indexes", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn(
@@ -4565,6 +4571,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("corpus/002_oracle-bone-inscriptions", last["object_dir"].as_posix())
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("not a formal `obi-*` inscription record", first["readme_text"])
+        readme_opening = first["readme_text"].split("## Boundary", maxsplit=1)[0]
+        self.assertIn("Human Inscription And Plate Review Slots", first["readme_text"])
+        self.assertIn(
+            "Structured support files only serve the human inscription and plate dossier",
+            first["readme_text"],
+        )
+        self.assertNotIn("AI-readable", readme_opening)
+        self.assertNotIn("AI-readable candidate packet", first["readme_text"])
+        self.assertNotIn("AI-readable index", first["readme_text"])
         self.assertIn("not_assigned_formal_obi_id", first["review_sheet_text"])
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn("specific questions", first["review_sheet_text"])

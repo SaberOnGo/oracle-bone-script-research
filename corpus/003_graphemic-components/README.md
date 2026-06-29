@@ -71,7 +71,8 @@ human directory.
 Expected object-local files:
 
 - `README.md`: human overview, source status, and review boundary.
-- `01_candidate-component-packet.json`: AI-readable candidate packet.
+- `01_candidate-component-packet.json`: structured support packet for the
+  human component dossier.
 - `02_component-source-index.csv`: source table and package route.
 - `03_glyph-codepoint-index.csv`: glyph-codepoint relationship table.
 - `04_glyph-codepoint-gallery.md`: readable glyph-codepoint gallery.

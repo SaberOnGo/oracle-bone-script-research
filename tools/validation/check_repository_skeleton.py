@@ -2749,8 +2749,9 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             if "\ufffd" in text:
                 issues.append(f"{readme_path.relative_to(root).as_posix()} contains replacement-character mojibake")
             for snippet in [
-                "object-local research entrance",
-                "AI-readable indexes",
+                "object-local human research entrance",
+                "Human Component Review Slots",
+                "Structured support files only serve the human component dossier",
                 "not a confirmed graphemic component",
                 "not a decipherment conclusion",
                 "03_glyph-codepoint-index.csv",
@@ -2766,6 +2767,17 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            for forbidden in [
+                "AI-readable indexes",
+                "AI-readable candidate packet",
+                "AI-readable visual asset index",
+                "AI-readable visual route index",
+            ]:
+                if forbidden in text:
+                    issues.append(
+                        f"{readme_path.relative_to(root).as_posix()} "
+                        f"contains machine-first marker: {forbidden}"
+                    )
             if (
                 "What evidence is still missing before any formal "
                 "component assignment?"

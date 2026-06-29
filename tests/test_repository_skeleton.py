@@ -3922,7 +3922,17 @@ class RepositorySkeletonTests(unittest.TestCase):
                 },
             )
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
-            self.assertIn("object-local research entrance", readme_text)
+            readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
+            self.assertIn("object-local human research entrance", readme_text)
+            self.assertIn("Human Component Review Slots", readme_text)
+            self.assertIn(
+                "Structured support files only serve the human component dossier",
+                readme_text,
+            )
+            self.assertNotIn("AI-readable", readme_opening)
+            self.assertNotIn("AI-readable candidate packet", readme_text)
+            self.assertNotIn("AI-readable visual asset index", readme_text)
+            self.assertNotIn("AI-readable visual route index", readme_text)
             self.assertIn("not a confirmed graphemic component", readme_text)
             self.assertIn("09_component-visual-route-index.csv", readme_text)
             self.assertIn("Concrete Questions To Check", readme_text)

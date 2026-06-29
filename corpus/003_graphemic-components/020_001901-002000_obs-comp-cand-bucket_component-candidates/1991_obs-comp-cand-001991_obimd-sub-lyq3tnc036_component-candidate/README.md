@@ -1,12 +1,14 @@
 # obs-comp-cand-001991 / OBIMD Subcharacter Candidate
 
 English:
-This directory is the object-local research entrance for one OBIMD subcharacter
-candidate. It keeps human-readable notes and AI-readable indexes in the same
-concrete corpus object directory.
+This directory is the object-local human research entrance for one OBIMD
+subcharacter candidate. Start with the human component dossier, then use the
+source, visual, route, and structured support files only to trace and verify the
+human-readable evidence.
 
 Simplified Chinese:
-本目录是一个 OBIMD subcharacter 候选对象的本地研究入口；人类可读资料和 AI 可读索引放在同一个具体 corpus 对象目录中。
+本目录是一个 OBIMD subcharacter
+候选对象的对象内人类研究入口。先阅读人类构件档案，再用来源、图像、路线和结构化辅助文件追溯、核查人类可读证据。
 
 ## Boundary / 边界
 
@@ -17,6 +19,25 @@ source-marked dataset candidate awaiting human component review.
 
 简体中文：
 这不是已确认构件，不是构件拆分结论，不是甲骨字身份判断，也不是释读结论；它只是带来源标记、等待人工复核的数据库候选对象。
+
+## Human Component Review Slots / 构件复核槽位
+
+Structured support files only serve the human component dossier.
+
+结构化辅助文件只服务本对象内的人类构件档案。
+
+- Compare the OBIMD subcharacter image with local visual evidence.
+- Check near-shape, variant, and component-splitting candidates.
+- Link only source-backed character and inscription context routes.
+- Record meaning, reading, scholarship, and dispute status as pending.
+- Check source, rights, manifest, field map, and extraction evidence.
+- Keep every missing item as a concrete question before formal research.
+- 比较 OBIMD subcharacter 图像和对象内视觉证据。
+- 核查近形、异体、变体和构件拆分候选。
+- 只关联有来源支持的单字和卜辞上下文路线。
+- 将字义、读法、文献和争议状态标为待查。
+- 核对来源、权利、manifest、字段映射和抽取证据。
+- 正式研究前，所有缺失项都必须写成具体问题。
 
 ## Source Snapshot / 来源快照
 
@@ -33,20 +54,23 @@ source-marked dataset candidate awaiting human component review.
 
 ## Local Files / 本地文件
 
-- `01_candidate-component-packet.json`: AI-readable candidate packet.
+- `01_candidate-component-packet.json`: Structured support packet for this human
+  dossier.
 - `02_component-source-index.csv`: Source, download, rights, and review index.
 - `03_glyph-codepoint-index.csv`: OBIMD glyph-codepoint links.
 - `04_glyph-codepoint-gallery.md`: Human glyph-codepoint gallery.
 - `05_component-visual-assets/`: Source-marked OBIMD PNG review assets.
-- `06_component-visual-index.csv`: AI-readable visual asset index.
+- `06_component-visual-index.csv`: Structured support index for visual assets.
 - `07_component-visual-gallery.md`: Human component image gallery.
 - `08_human-visual-review-sheet.md`: Manual visual review sheet.
-- `09_component-visual-route-index.csv`: AI-readable visual route index.
+- `09_component-visual-route-index.csv`: Structured support index for visual
+  routes.
 - `10_component-visual-route-gallery.md`: Human visual route gallery.
 - `11_human-component-dossier.md`: Human component candidate dossier.
-- `12_component-dossier-index.json`: AI-readable dossier support index.
+- `12_component-dossier-index.json`: Structured support index for dossier gaps.
 - `13_component-context-evidence-dossier.md`: Human context evidence dossier.
-- `14_component-context-evidence-index.json`: AI-readable context support index.
+- `14_component-context-evidence-index.json`: Structured support index for
+  context routes.
 - `15_component-review-fact-matrix.md`: Human component review fact matrix.
 
 ## Concrete Questions To Check / 具体待查问题

@@ -1023,6 +1023,10 @@ INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv"
 )
+INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "214_inscription-plate-crosswalk-phase-gap-human-guide.md"
+)
 SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "196_shape-component-evolution-verification-gap-review-checklist.csv"
@@ -1955,6 +1959,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
     CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
     CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE,
+    INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE,
     CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_SCAFFOLD,
     CORE_CORPUS_PHASE_GAP_REVIEW_HANDOFF_CHECKLIST,
@@ -13850,6 +13855,53 @@ def check_inscription_plate_crosswalk_phase_gap_review_checklist(root: Path) -> 
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_inscription_plate_crosswalk_phase_gap_human_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE}"]
+
+    required_markers = [
+        "Inscription Plate Crosswalk Phase Gap Human Guide",
+        "卜辞图版互证阶段缺口人工复核指南",
+        "Human Review Entry Order",
+        "Open the object-local inscription dossier first",
+        INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST,
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
+        "downloaded: `mixed_or_partial`",
+        "verified: `missing`",
+        "full text or OCR",
+        "plate number, page number, Heji route, or OBM route",
+        "collection object, findspot, period, or batch",
+        "components, variants, and related glyph relations",
+        "scholarship, catalog history, proposer, and disputes",
+        "not a formal inscription record",
+        "not a decipherment conclusion",
+        "not confirmed scholarship",
+        "具体待查问题",
+        "不得根据本指南创建正式 `obi-*` 记录",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(
+                f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE} "
+                f"missing marker: {marker}"
+            )
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE}:"
+                f"{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31171,6 +31223,7 @@ def main() -> int:
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
     issues.extend(check_inscription_plate_crosswalk_phase_gap_review_checklist(root))
+    issues.extend(check_inscription_plate_crosswalk_phase_gap_human_guide(root))
     issues.extend(check_shape_component_evolution_verification_gap_review_checklist(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))

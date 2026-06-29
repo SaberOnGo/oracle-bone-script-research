@@ -573,6 +573,21 @@ def load_inscription_plate_crosswalk_phase_gap_review_checklist_module():
     return module
 
 
+def load_inscription_plate_crosswalk_phase_gap_human_guide_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_inscription_plate_crosswalk_phase_gap_human_guide.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_inscription_plate_crosswalk_phase_gap_human_guide", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_shape_component_evolution_verification_gap_review_checklist_module():
     path = (
         repo_root()
@@ -24984,6 +24999,66 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("catalog_reference", first["source_context_fields_to_verify"])
         self.assertIn("Which full text or OCR route can be opened?", first["concrete_next_checks"])
         self.assertTrue(all("inscription plate crosswalk phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_inscription_plate_crosswalk_phase_gap_human_guide_exists(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "214_inscription-plate-crosswalk-phase-gap-human-guide.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        required_markers = [
+            "Inscription Plate Crosswalk Phase Gap Human Guide",
+            "卜辞图版互证阶段缺口人工复核指南",
+            "Human Review Entry Order",
+            "Open the object-local inscription dossier first",
+            "195_inscription-plate-crosswalk-phase-gap-review-checklist.csv",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
+            "downloaded: `mixed_or_partial`",
+            "verified: `missing`",
+            "full text or OCR",
+            "plate number, page number, Heji route, or OBM route",
+            "collection object, findspot, period, or batch",
+            "components, variants, and related glyph relations",
+            "scholarship, catalog history, proposer, and disputes",
+            "not a formal inscription record",
+            "not a decipherment conclusion",
+            "not confirmed scholarship",
+        ]
+        for marker in required_markers:
+            self.assertIn(marker, text, marker)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_inscription_plate_crosswalk_phase_gap_human_guide_builder(self) -> None:
+        module = load_inscription_plate_crosswalk_phase_gap_human_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("inscription candidates: 612", text)
+        self.assertIn("plate/text route indexes: 612", text)
+        self.assertIn("plate/text galleries: 612", text)
+        self.assertIn("source id: `src-cambridge-hopkins`", text)
+        self.assertIn("downloaded: `mixed_or_partial`", text)
+        self.assertIn("verified: `missing`", text)
+        self.assertIn("Open `07_human-inscription-dossier.md` first.", text)
+        self.assertIn("Open `09_inscription-plate-evidence-dossier.md`.", text)
+        self.assertIn("Which components, variants, or near-form relations", text)
+        self.assertIn("Which scholarship note, proposer, or dispute", text)
+        self.assertIn("Do not create a formal `obi-*` record", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_inscription_plate_crosswalk_phase_gap_human_guide_is_validated(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(
+            module,
+            "check_inscription_plate_crosswalk_phase_gap_human_guide",
+        )
+        self.assertEqual(check(repo_root()), [])
 
     def test_shape_component_evolution_verification_gap_review_checklist_routes_verified_gaps(self) -> None:
         self.assertEqual(check_shape_component_evolution_verification_gap_review_checklist(repo_root()), [])

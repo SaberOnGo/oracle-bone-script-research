@@ -56,7 +56,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Core phase gap review:
   `192_core-corpus-phase-gap-action-queue.csv` through
   the `212_*outcome-route-summary.json` route summary, plus
-  `213_core-corpus-phase-gap-human-review-guide.md`.
+  `213_core-corpus-phase-gap-human-review-guide.md` and
+  `214_inscription-plate-crosswalk-phase-gap-human-guide.md`.
 
 ## Current Review Surfaces / 当前复核入口
 
@@ -66,6 +67,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `194_collection-provenance-phase-gap-review-checklist.csv`.
 - Inscription and plate crosswalk gaps:
   `195_inscription-plate-crosswalk-phase-gap-review-checklist.csv`.
+- Inscription and plate crosswalk human guide:
+  `214_inscription-plate-crosswalk-phase-gap-human-guide.md`.
 - Shape, component, and evolution verification gaps:
   `196_shape-component-evolution-verification-gap-review-checklist.csv`.
 - Published research note gaps:

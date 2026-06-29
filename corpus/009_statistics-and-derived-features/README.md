@@ -59,6 +59,8 @@ substitutes for object-local dossiers, source records, or review sheets.
   summarizes project ID map coverage and issue counts.
 - `213_core-corpus-phase-gap-human-review-guide.md`
   gives a human-readable guide before opening the 192-212 route tables.
+- `214_inscription-plate-crosswalk-phase-gap-human-guide.md`
+  gives a human-readable guide for inscription and plate phase gaps.
 
 ## File Families / 文件族
 
@@ -105,6 +107,9 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `213` summarizes the 192-212 phase-gap review routes in Markdown.
 - Open it before using the CSV or JSON route tables for phase-gap review.
 - It is a human reading guide, not a reviewed outcome or import decision.
+- `214` specializes the 195 inscription and plate crosswalk checklist.
+- Open it before using inscription plate route tables or review queues.
+- It is not a formal `obi-*` record or decipherment conclusion.
 
 Use this guide to return each phase gap to concrete research evidence:
 glyph images, rubbings, photographs, plates, inscription text, OCR, catalog

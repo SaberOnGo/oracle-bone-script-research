@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build empty follow-up review-log drafts for Xiaoxuetang route probes."""
+"""Build metadata-backed follow-up review-log drafts for Xiaoxuetang route probes."""
 
 from __future__ import annotations
 
 import argparse
 import csv
+import json
 from pathlib import Path
 
 
@@ -15,6 +16,10 @@ FOLLOWUP_REVIEW_QUEUE = Path(
 DEFAULT_MANIFEST = Path(
     "corpus/009_statistics-and-derived-features/"
     "073_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-log-draft-manifest.csv"
+)
+FOLLOWUP_ROUTE_SUMMARY = Path(
+    "corpus/009_statistics-and-derived-features/"
+    "077_ai-agent-xiaoxuetang-followup-review-route-summary.json"
 )
 UPDATED_AT = "2026-06-11"
 DRAFT_STATUS = "draft_not_collected"
@@ -51,6 +56,17 @@ OUTPUT_FIELDS = [
     "route_files_to_open",
     "required_review_sections",
     "required_next_checks",
+    "followup_family_id",
+    "followup_family_label",
+    "followup_method",
+    "target_source_id",
+    "artifact_kind",
+    "route_file_count",
+    "missing_route_file_count",
+    "route_file_review_status",
+    "official_access_boundary_status",
+    "family_review_task_count",
+    "family_route_file_count",
     "draft_status",
     "evidence_collection_status",
     "human_review_status",
@@ -152,13 +168,30 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(file))
 
 
+def read_json(path: Path) -> dict[str, object]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def _split_compact(value: str) -> list[str]:
     return [part for part in value.split(";") if part]
 
 
-def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+def _family_summaries_by_id(summary: dict[str, object]) -> dict[str, dict[str, object]]:
+    rows = summary.get("family_summaries", [])
+    return {str(row["followup_family_id"]): row for row in rows}  # type: ignore[index]
+
+
+def build_draft_manifest_rows(
+    queue_rows: list[dict[str, str]],
+    route_summary: dict[str, object],
+) -> list[dict[str, str]]:
+    family_summaries = _family_summaries_by_id(route_summary)
     rows: list[dict[str, str]] = []
     for index, row in enumerate(queue_rows, start=1):
+        followup_family_id = row["priority_bucket"]
+        family = family_summaries[followup_family_id]
+        artifact_kinds = family.get("artifact_kinds", [])
+        artifact_kind = str(artifact_kinds[0]) if artifact_kinds else ""
         rows.append(
             {
                 "review_log_draft_id": f"hust-obc-xxt-followup-review-log-draft-{index:04d}",
@@ -177,6 +210,17 @@ def build_draft_manifest_rows(queue_rows: list[dict[str, str]]) -> list[dict[str
                 "route_files_to_open": row["route_files_to_open"],
                 "required_review_sections": row["required_review_sections"],
                 "required_next_checks": row["required_next_checks"],
+                "followup_family_id": followup_family_id,
+                "followup_family_label": str(family["followup_family_label"]),
+                "followup_method": row["followup_method"],
+                "target_source_id": row["target_source_id"],
+                "artifact_kind": artifact_kind,
+                "route_file_count": row["route_file_count"],
+                "missing_route_file_count": row["missing_route_file_count"],
+                "route_file_review_status": row["route_file_review_status"],
+                "official_access_boundary_status": row["official_access_boundary_status"],
+                "family_review_task_count": str(family["review_task_count"]),
+                "family_route_file_count": str(family["route_file_count"]),
                 "draft_status": DRAFT_STATUS,
                 "evidence_collection_status": EVIDENCE_COLLECTION_STATUS,
                 "human_review_status": row["human_review_status"],
@@ -294,6 +338,132 @@ def build_markdown(row: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
+SNAPSHOT_FIELDS = [
+    "followup_family_id",
+    "followup_family_label",
+    "followup_method",
+    "target_source_id",
+    "artifact_kind",
+    "route_file_count",
+    "missing_route_file_count",
+    "route_file_review_status",
+    "official_access_boundary_status",
+    "family_review_task_count",
+    "family_route_file_count",
+]
+
+
+def _field_lines(row: dict[str, str], fields: list[str]) -> list[str]:
+    return [f"- `{field}`: `{row.get(field, '')}`" for field in fields]
+
+
+def build_markdown(row: dict[str, str]) -> str:
+    route_files = _split_compact(row["route_files_to_open"])
+    review_sections = _split_compact(row["required_review_sections"])
+    next_checks = _split_compact(row["required_next_checks"])
+    lines = [
+        "# Xiaoxuetang Route Follow-up Review Log Draft / Xiaoxuetang 后续复核日志草稿",
+        "",
+        "## Status / Status",
+        "",
+        f"- Review log draft ID: `{row['review_log_draft_id']}`",
+        f"- Follow-up review task ID: `{row['xxt_followup_review_task_id']}`",
+        f"- Draft status: `{row['draft_status']}`",
+        f"- Evidence collection status: `{row['evidence_collection_status']}`",
+        f"- Human review status: `{row['human_review_status']}`",
+        f"- Formal schema compatibility: `{row['formal_schema_compatibility_status']}`",
+        f"- Identity claim status: `{row['identity_claim_status']}`",
+        f"- Assignment status: `{row['assignment_status']}`",
+        f"- Research boundary: `{row['research_boundary']}`",
+        f"- Updated at: `{row['updated_at']}`",
+        "",
+        "## Route / Route",
+        "",
+        f"- Route probe result ID: `{row['route_probe_result_id']}`",
+        f"- Note update result ID: `{row['note_update_result_id']}`",
+        f"- Context pack ID: `{row['context_pack_id']}`",
+        f"- Unknown candidate ID: `{row['unknown_candidate_id']}`",
+        f"- Primary external ref ID: `{row['primary_external_ref_id']}`",
+        f"- Targeted download ID: `{row['targeted_download_id']}`",
+        f"- Targeted URL: `{row['targeted_url']}`",
+        f"- Filename probe token: `{row['candidate_filename_number_probe_token']}`",
+        f"- Linked note draft: `{row['note_draft_path']}`",
+        "",
+        "## Xiaoxuetang Follow-up Route Snapshot / Xiaoxuetang Follow-up Route Snapshot",
+        "",
+        "These values summarize the 072 task row and 077 family route summary for human review.",
+        "",
+    ]
+    lines.extend(_field_lines(row, SNAPSHOT_FIELDS))
+    lines.extend(
+        [
+            "",
+            "## Route Files To Open / Route Files To Open",
+            "",
+        ]
+    )
+    lines.extend(f"- `{route_file}`" for route_file in route_files)
+    lines.extend(
+        [
+            "",
+            "## Review Sections / Review Sections",
+            "",
+            "English: Each section records what a human reviewer should verify next.",
+            "",
+            "简体中文：每一节只记录下一步人工应核查的来源路线。",
+            "",
+        ]
+    )
+    for section in review_sections:
+        label_en, label_zh = SECTION_LABELS.get(section, (section, section))
+        note_en, note_zh = SECTION_NOTES[section]
+        lines.extend(
+            [
+                f"### {label_en} / {label_zh}",
+                "",
+                "- Status: `not_collected_metadata_snapshot`",
+                "- Metadata snapshot: route and access-boundary values are listed above.",
+                "- Human review task:",
+                f"  - English: {note_en}",
+                f"  - 简体中文：{note_zh}",
+                "",
+            ]
+        )
+    lines.extend(["## Concrete Next Checks / Concrete Next Checks", ""])
+    for check in next_checks:
+        label_en, label_zh = NEXT_CHECK_LABELS.get(check, (check, check))
+        lines.extend(
+            [
+                f"- `{check}`",
+                f"  - English: {label_en}",
+                f"  - 简体中文：{label_zh}",
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Rights And Risk / Rights And Risk",
+            "",
+            f"- Rights status: `{row['rights_status']}`",
+            f"- Risk note: {row['risk_note']}",
+            "",
+            "## Review Log / Review Log",
+            "",
+            "- Status: `created_from_072_followup_review_queue`",
+            "- Evidence collection: `not_collected`",
+            "- Decision: no catalog confirmation, no Heji crosswalk, no collection match, no obs-char assignment, and no decipherment conclusion.",
+            "",
+            "## Caution / Caution",
+            "",
+            f"English: {CAUTION_EN}",
+            "",
+            f"简体中文：{CAUTION_ZH}",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as file:
@@ -312,6 +482,7 @@ def write_markdown_drafts(root: Path, rows: list[dict[str, str]]) -> None:
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--queue", default=str(FOLLOWUP_REVIEW_QUEUE))
+    parser.add_argument("--route-summary", default=str(FOLLOWUP_ROUTE_SUMMARY))
     parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST))
     return parser.parse_args(argv)
 
@@ -319,7 +490,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     root = repo_root()
-    manifest_rows = build_draft_manifest_rows(read_csv_rows(root / args.queue))
+    manifest_rows = build_draft_manifest_rows(
+        read_csv_rows(root / args.queue),
+        read_json(root / args.route_summary),
+    )
     write_markdown_drafts(root, manifest_rows)
     write_csv(root / args.manifest, manifest_rows)
     print(f"wrote={len(manifest_rows)} manifest={(root / args.manifest).relative_to(root)}")

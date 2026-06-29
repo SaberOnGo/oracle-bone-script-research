@@ -10292,6 +10292,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual({row["draft_status"] for row in rows}, {"draft_not_collected"})
         self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
+        self.assertEqual(
+            {row["followup_family_id"] for row in rows},
+            {"xxt_jgw_tls_access_boundary_followup"},
+        )
+        self.assertEqual(
+            {row["followup_method"] for row in rows},
+            {"manual_browser_or_institutional_export_required"},
+        )
+        self.assertEqual({row["target_source_id"] for row in rows}, {"src-xiaoxuetang-jiaguwen"})
+        self.assertEqual({row["artifact_kind"] for row in rows}, {"xiaoxuetang_jgw_character_detail_page"})
+        self.assertEqual({row["route_file_count"] for row in rows}, {"6"})
+        self.assertEqual({row["missing_route_file_count"] for row in rows}, {"0"})
+        self.assertEqual({row["route_file_review_status"] for row in rows}, {"reviewed_route_files_exist"})
+        self.assertEqual(
+            {row["official_access_boundary_status"] for row in rows},
+            {"direct_official_character_page_not_collected_due_tls_or_access_boundary"},
+        )
         self.assertEqual({row["identity_claim_status"] for row in rows}, {"no_identity_claim"})
         self.assertEqual({row["decipherment_claim_status"] for row in rows}, {"no_claim"})
         self.assertEqual({row["component_claim_status"] for row in rows}, {"no_claim"})
@@ -10301,32 +10318,52 @@ class RepositorySkeletonTests(unittest.TestCase):
         note_path = root / rows[0]["draft_path"]
         note_text = note_path.read_text(encoding="utf-8")
         self.assertIn("Xiaoxuetang Route Follow-up Review Log Draft", note_text)
+        self.assertIn("Xiaoxuetang Follow-up Route Snapshot", note_text)
+        self.assertIn("xxt_jgw_tls_access_boundary_followup", note_text)
+        self.assertIn("reviewed_route_files_exist", note_text)
+        self.assertIn("direct_official_character_page_not_collected_due_tls_or_access_boundary", note_text)
+        self.assertIn("Concrete Next Checks", note_text)
         self.assertIn("created_from_072_followup_review_queue", note_text)
         self.assertIn("open_071_route_probe_result", note_text)
         self.assertIn("manual browser or institutional export path", note_text)
+        self.assertNotIn("Evidence items /", note_text)
 
     def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_builder(self) -> None:
         module = load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_module()
         root = repo_root()
+        summary = module.read_json(root / module.FOLLOWUP_ROUTE_SUMMARY)
         rows = module.build_draft_manifest_rows(
-            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE)
+            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE),
+            summary,
         )
 
         self.assertEqual(len(rows), 2)
         self.assertEqual(rows[0]["review_log_draft_id"], "hust-obc-xxt-followup-review-log-draft-0001")
         self.assertEqual(rows[0]["targeted_download_id"], "dl-xxt-jgw-kaiorder-0502")
         self.assertEqual(rows[1]["targeted_download_id"], "dl-xxt-jgw-kaiorder-1176")
+        self.assertEqual(rows[0]["followup_family_id"], "xxt_jgw_tls_access_boundary_followup")
+        self.assertEqual(rows[0]["route_file_review_status"], "reviewed_route_files_exist")
+        self.assertEqual(
+            rows[0]["official_access_boundary_status"],
+            "direct_official_character_page_not_collected_due_tls_or_access_boundary",
+        )
         self.assertIn("073_ai-agent", module.DEFAULT_MANIFEST.as_posix())
         markdown = module.build_markdown(rows[0])
         self.assertIn("Route Probe Result", markdown)
+        self.assertIn("Xiaoxuetang Follow-up Route Snapshot", markdown)
+        self.assertIn("reviewed_route_files_exist", markdown)
+        self.assertIn("Concrete Next Checks", markdown)
         self.assertIn("open_071_route_probe_result", markdown)
         self.assertIn("not catalog confirmation", markdown)
+        self.assertNotIn("Evidence items /", markdown)
 
     def test_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_name_next_checks(self) -> None:
         module = load_hust_obc_undeciphered_candidate_xxt_jgw_followup_review_log_drafts_module()
         root = repo_root()
+        summary = module.read_json(root / module.FOLLOWUP_ROUTE_SUMMARY)
         rows = module.build_draft_manifest_rows(
-            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE)
+            module.read_csv_rows(root / module.FOLLOWUP_REVIEW_QUEUE),
+            summary,
         )
 
         section_notes = getattr(module, "SECTION_NOTES", {})
@@ -10334,7 +10371,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         for row in rows:
             markdown = module.build_markdown(row)
             self.assertNotIn("not collected.", markdown)
-            self.assertIn("- Notes /", markdown)
+            self.assertIn("- Human review task:", markdown)
             self.assertIn("  - English:", markdown)
             self.assertIn("  - 简体中文：", markdown)
 

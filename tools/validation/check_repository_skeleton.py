@@ -991,6 +991,18 @@ CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
 )
+HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_QUEUE = (
+    "corpus/009_statistics-and-derived-features/"
+    "072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv"
+)
+HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST = (
+    "corpus/009_statistics-and-derived-features/"
+    "073_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-log-draft-manifest.csv"
+)
+XIAOXUETANG_FOLLOWUP_REVIEW_ROUTE_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "077_ai-agent-xiaoxuetang-followup-review-route-summary.json"
+)
 RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "193_research-source-phase-gap-review-checklist.csv"
@@ -12678,6 +12690,12 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
     route_rows, route_issues = _read_csv_rows(
         root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_REVIEW_ROUTE_RESULTS
     )
+    xxt_followup_rows, xxt_followup_issues = _read_csv_rows(
+        root / HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_QUEUE
+    )
+    xxt_followup_draft_rows, xxt_followup_draft_issues = _read_csv_rows(
+        root / HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST
+    )
     evidence_rows, evidence_issues = _read_csv_rows(root / AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE)
     readiness_rows, readiness_issues = _read_csv_rows(
         root / AI_AGENT_HUST_OBC_UNDECIPHERED_CANDIDATE_EVIDENCE_READINESS_CHECKLIST
@@ -12690,6 +12708,8 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
     issues.extend(review_issues)
     issues.extend(draft_issues)
     issues.extend(route_issues)
+    issues.extend(xxt_followup_issues)
+    issues.extend(xxt_followup_draft_issues)
     issues.extend(evidence_issues)
     issues.extend(readiness_issues)
     issues.extend(material_issues)
@@ -12788,6 +12808,99 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
                 issues.append(f"{draft_path} missing HUST-OBC undeciphered metadata snapshot: {snippet}")
         if "Evidence items /" in text:
             issues.append(f"{draft_path} still contains empty HUST-OBC undeciphered evidence items")
+    try:
+        xxt_summary = json.loads(
+            (root / XIAOXUETANG_FOLLOWUP_REVIEW_ROUTE_SUMMARY).read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        xxt_summary = {}
+        issues.append(f"missing required path: {XIAOXUETANG_FOLLOWUP_REVIEW_ROUTE_SUMMARY}")
+    family_by_id = {
+        str(row.get("followup_family_id", "")): row
+        for row in xxt_summary.get("family_summaries", [])
+    }
+    xxt_queue_by_task = {
+        row.get("xxt_followup_review_task_id", ""): row
+        for row in xxt_followup_rows
+    }
+    if len(xxt_followup_draft_rows) != 2:
+        issues.append(
+            f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+            "should contain exactly 2 rows"
+        )
+    for row in xxt_followup_draft_rows:
+        draft_id = row.get("review_log_draft_id", "")
+        task_id = row.get("xxt_followup_review_task_id", "")
+        queue_row = xxt_queue_by_task.get(task_id, {})
+        family = family_by_id.get(row.get("followup_family_id", ""), {})
+        if not queue_row:
+            issues.append(
+                f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing 072 queue row for {draft_id}"
+            )
+            continue
+        for field in [
+            "followup_method",
+            "target_source_id",
+            "route_file_count",
+            "missing_route_file_count",
+            "route_file_review_status",
+            "official_access_boundary_status",
+        ]:
+            if row.get(field) != queue_row.get(field):
+                issues.append(
+                    f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                    f"{field} does not match 072 queue: {draft_id}"
+                )
+        if row.get("followup_family_id") != "xxt_jgw_tls_access_boundary_followup":
+            issues.append(
+                f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"family changed: {draft_id}"
+            )
+        if row.get("route_file_review_status") != "reviewed_route_files_exist":
+            issues.append(
+                f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"route review status changed: {draft_id}"
+            )
+        if row.get("artifact_kind") != "xiaoxuetang_jgw_character_detail_page":
+            issues.append(
+                f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"artifact kind changed: {draft_id}"
+            )
+        if family:
+            if row.get("family_review_task_count") != str(family.get("review_task_count", "")):
+                issues.append(
+                    f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                    f"family task count changed: {draft_id}"
+                )
+            if row.get("family_route_file_count") != str(family.get("route_file_count", "")):
+                issues.append(
+                    f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                    f"family route file count changed: {draft_id}"
+                )
+        draft_path = row.get("draft_path", "")
+        path = root / draft_path
+        try:
+            text = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            issues.append(
+                f"{HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_LOG_DRAFT_MANIFEST} "
+                f"missing draft file: {draft_path}"
+            )
+            continue
+        for snippet in [
+            "Xiaoxuetang Follow-up Route Snapshot",
+            "Concrete Next Checks",
+            row.get("followup_family_id", ""),
+            row.get("route_file_review_status", ""),
+            row.get("official_access_boundary_status", ""),
+            "created_from_072_followup_review_queue",
+            "not catalog confirmation",
+        ]:
+            if snippet and snippet not in text:
+                issues.append(f"{draft_path} missing Xiaoxuetang follow-up snippet: {snippet}")
+        if "Evidence items /" in text:
+            issues.append(f"{draft_path} still contains empty Xiaoxuetang follow-up evidence items")
     expected_character_dossier_slots = {
         "glyph_image",
         "glyph_observation",

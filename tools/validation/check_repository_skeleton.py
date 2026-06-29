@@ -9719,6 +9719,10 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             draft_id,
             task_id,
             row.get("source_id", ""),
+            "First-Wave Source Status Snapshot",
+            "download_log_status_counts",
+            "metadata_profile_metric_count_total",
+            "Concrete Next Review Questions",
             "not a rights decision",
             "not a decipherment conclusion",
             "not_collected",
@@ -9733,11 +9737,24 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             for value in [part for part in row.get(field, "").split(";") if part]:
                 if not (root / value).exists():
                     issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} missing {field}: {value}")
-                if value not in draft_text:
+                leaf = value.split("/")[-1]
+                expected_leaf_text = leaf if len(leaf) <= 68 else leaf.split("_")[-1]
+                if expected_leaf_text not in draft_text:
                     issues.append(
                         f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} draft missing "
                         f"{field} path: {value}"
                     )
+        if "This draft intentionally contains no collected evidence yet" in draft_text:
+            issues.append(
+                f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} draft still "
+                f"contains empty evidence wording: {draft_path}"
+            )
+        for line_number, line in enumerate(draft_text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} "
+                    f"{draft_path}:{line_number} exceeds human Markdown line width"
+                )
         if "not a rights decision" not in row.get("caution", ""):
             issues.append(f"{SOURCE_ENGINEERING_SECOND_WAVE_REVIEW_DRAFT_MANIFEST} caution changed: {draft_id}")
     if len(source_engineering_second_wave_result_scaffold) != 4:

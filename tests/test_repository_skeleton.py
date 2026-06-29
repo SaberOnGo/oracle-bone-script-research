@@ -19303,8 +19303,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("not_imported", text)
             self.assertIn("no_decipherment_claim", text)
             self.assertIn("not a rights decision", text)
+            self.assertIn("First-Wave Source Status Snapshot", text)
+            self.assertIn("download_log_status_counts", text)
+            self.assertIn("metadata_profile_metric_count_total", text)
+            self.assertIn("Concrete Next Review Questions", text)
+            self.assertNotIn(
+                "This draft intentionally contains no collected evidence yet",
+                text,
+            )
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                self.assertLessEqual(
+                    len(line),
+                    80,
+                    f"{row['draft_path']}:{line_number}: {line}",
+                )
             for source_path in row["required_inputs"].split(";"):
-                self.assertIn(source_path, text)
+                leaf = source_path.split("/")[-1]
+                expected_leaf_text = leaf if len(leaf) <= 68 else leaf.split("_")[-1]
+                self.assertIn(expected_leaf_text, text)
 
     def test_source_engineering_second_wave_review_drafts_builder_uses_123_rows(self) -> None:
         module = load_source_engineering_second_wave_review_drafts_module()
@@ -19322,6 +19338,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         markdown = module.build_markdown(checklist_rows[0], manifest_rows[0])
         self.assertIn("access_and_checksum_boundary_resolution", markdown)
         self.assertIn("manual_access_boundary_review_required", markdown)
+        self.assertIn("First-Wave Source Status Snapshot", markdown)
+        self.assertIn("download_log_status_counts: `http_error:1`", markdown)
+        self.assertIn("Concrete Next Review Questions", markdown)
+        self.assertNotIn("This draft intentionally contains no collected evidence yet", markdown)
         self.assertIn("not a rights decision", markdown)
 
     def test_source_engineering_second_wave_result_scaffold_is_empty(self) -> None:

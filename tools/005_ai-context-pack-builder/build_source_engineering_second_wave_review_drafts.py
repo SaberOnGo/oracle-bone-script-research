@@ -2,9 +2,9 @@
 """Materialize second-wave source-engineering review drafts from 123.
 
 These drafts are human-review work surfaces for source-level continuation
-tasks. They are empty metadata-only scaffolds: no evidence is collected, no
-rights decision is made, no source is promoted, no corpus row is imported, and
-no identity, component, evolution, or decipherment claim is made.
+tasks. They summarize existing first-wave source-status metadata without
+making a rights decision, promoting a source, importing a corpus row, or making
+identity, component, evolution, or decipherment claims.
 """
 
 from __future__ import annotations
@@ -15,8 +15,15 @@ from pathlib import Path
 
 
 STAT_DIR = Path("corpus/009_statistics-and-derived-features")
-SECOND_WAVE_SOURCE_CHECKLIST = STAT_DIR / "123_ai-agent-source-engineering-second-wave-source-checklist.csv"
-DEFAULT_MANIFEST = STAT_DIR / "124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv"
+FIRST_WAVE_SOURCE_STATUS = (
+    STAT_DIR / "122_ai-agent-source-engineering-first-wave-source-status.csv"
+)
+SECOND_WAVE_SOURCE_CHECKLIST = (
+    STAT_DIR / "123_ai-agent-source-engineering-second-wave-source-checklist.csv"
+)
+DEFAULT_MANIFEST = (
+    STAT_DIR / "124_ai-agent-source-engineering-second-wave-review-draft-manifest.csv"
+)
 
 UPDATED_AT = "2026-06-19"
 DRAFT_STATUS = "draft_not_collected"
@@ -89,6 +96,96 @@ def split_values(value: str) -> list[str]:
     return [part for part in value.split(";") if part]
 
 
+def split_long_value(value: str, limit: int = 68) -> list[str]:
+    if ";" in value:
+        return [part for part in value.split(";") if part]
+    if "/" in value and " " not in value:
+        chunks: list[str] = []
+        current = ""
+        for part in value.split("/"):
+            if len(part) > limit:
+                if current:
+                    chunks.append(current.rstrip("/"))
+                    current = ""
+                chunks.extend(split_long_value(part, limit))
+                continue
+            token = f"{part}/"
+            candidate = f"{current}{token}"
+            if len(candidate) > limit and current:
+                chunks.append(current.rstrip("/"))
+                current = token
+            else:
+                current = candidate
+        if current:
+            chunks.append(current.rstrip("/"))
+        return chunks
+    words = value.split()
+    if len(words) <= 1:
+        for separator in ["_", "-"]:
+            if separator in value:
+                chunks: list[str] = []
+                current = ""
+                for part in value.split(separator):
+                    token = f"{part}{separator}"
+                    candidate = f"{current}{token}"
+                    if len(candidate) > limit and current:
+                        chunks.append(current.rstrip(separator))
+                        current = token
+                    else:
+                        current = candidate
+                if current:
+                    chunks.append(current.rstrip(separator))
+                return chunks
+        return [value]
+    chunks: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > limit and current:
+            chunks.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        chunks.append(current)
+    return chunks
+
+
+def field_lines(prefix: str, field: str, value: str) -> list[str]:
+    display = value if value else "none"
+    line = f"{prefix}{field}: `{display}`"
+    if len(line) <= 80:
+        return [line]
+    lines = [f"{prefix}{field}:"]
+    lines.extend(f"{prefix}  - `{part}`" for part in split_long_value(display))
+    return lines
+
+
+def paragraph_lines(prefix: str, text: str, limit: int = 76) -> list[str]:
+    lines: list[str] = []
+    current = ""
+    for word in text.split():
+        candidate = f"{current} {word}".strip()
+        if len(f"{prefix}{candidate}") > limit and current:
+            line_prefix = prefix if not lines else "  "
+            lines.append(f"{line_prefix}{current}")
+            current = word
+        else:
+            current = candidate
+    if current:
+        line_prefix = prefix if not lines else "  "
+        lines.append(f"{line_prefix}{current}")
+    return lines
+
+
+def source_status_by_id(root: Path | None = None) -> dict[str, dict[str, str]]:
+    base = repo_root() if root is None else root
+    path = base / FIRST_WAVE_SOURCE_STATUS
+    if not path.exists():
+        return {}
+    return {row["source_status_id"]: row for row in read_csv_rows(path)}
+
+
 def build_manifest_rows(checklist_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     for index, row in enumerate(checklist_rows, start=1):
@@ -127,91 +224,144 @@ def build_manifest_rows(checklist_rows: list[dict[str, str]]) -> list[dict[str, 
 
 
 def bullet_list(values: list[str]) -> list[str]:
-    return [f"- `{value}`" for value in values] if values else ["- none"]
+    if not values:
+        return ["- none"]
+    lines: list[str] = []
+    for value in values:
+        lines.extend(field_lines("- ", "Path / 路径", value))
+    return lines
+
+
+def value_bullet_list(values: list[str], label: str) -> list[str]:
+    if not values:
+        return ["- none"]
+    lines: list[str] = []
+    for value in values:
+        lines.extend(field_lines("- ", label, value))
+    return lines
+
+
+def next_review_questions(row: dict[str, str]) -> list[str]:
+    lane = row["source_action_lane"]
+    questions = [
+        "Which source-status and result records prove this boundary?",
+        "Which rights, checksum, manifest, or field-map item remains pending?",
+        "What exact human decision is required before source promotion?",
+    ]
+    if lane == "access_and_checksum_boundary_resolution":
+        questions.append("Which access route explains the HTTP or checksum boundary?")
+    elif lane == "metadata_profile_and_package_manifest_decision":
+        questions.append("Which metadata profile and package manifest scope is usable?")
+    elif lane == "field_map_semantics_review":
+        questions.append("Which field-map semantics are safe for metadata-only review?")
+    elif lane == "safe_derived_record_decision":
+        questions.append("Which derived rows can stay public as reviewed metadata?")
+    return questions
 
 
 def build_markdown(checklist_row: dict[str, str], manifest_row: dict[str, str]) -> str:
+    del checklist_row
+    status_snapshot = source_status_by_id().get(manifest_row["source_status_id"], {})
     lines = [
         "# Source Engineering Second-Wave Review Draft / 来源工程第二波复核草稿",
         "",
         "## Status / 状态",
         "",
-        f"- Review draft ID / 复核草稿 ID: `{manifest_row['review_draft_id']}`",
-        f"- Continuation task ID / 后续任务 ID: `{manifest_row['continuation_task_id']}`",
-        f"- Source status ID / 来源状态 ID: `{manifest_row['source_status_id']}`",
-        f"- Draft status / 草稿状态: `{manifest_row['draft_status']}`",
-        f"- Evidence collection status / 证据收集状态: `{manifest_row['evidence_collection_status']}`",
-        f"- Human review status / 人工复核状态: `{manifest_row['human_review_status']}`",
-        f"- Research boundary / 研究边界: `{manifest_row['research_boundary']}`",
-        f"- Updated at / 更新时间: `{manifest_row['updated_at']}`",
-        "",
-        "## Source / 来源",
-        "",
-        f"- Source ID / 来源 ID: `{manifest_row['source_id']}`",
-        f"- First-wave status / 第一波状态: `{manifest_row['source_first_wave_status']}`",
-        f"- Source action lane / 来源动作泳道: `{manifest_row['source_action_lane']}`",
-        "",
-        "## Objective / 目标",
-        "",
-        f"`{manifest_row['source_level_objective']}`",
-        "",
-        "## Blockers / 阻断项",
-        "",
     ]
-    lines.extend(bullet_list(split_values(manifest_row["blocker_summary"])))
+    for label, field in [
+        ("Review draft ID / 复核草稿 ID", "review_draft_id"),
+        ("Continuation task ID / 后续任务 ID", "continuation_task_id"),
+        ("Source status ID / 来源状态 ID", "source_status_id"),
+        ("Draft status / 草稿状态", "draft_status"),
+        ("Evidence collection status / 证据收集状态", "evidence_collection_status"),
+        ("Human review status / 人工复核状态", "human_review_status"),
+        ("Research boundary / 研究边界", "research_boundary"),
+        ("Updated at / 更新时间", "updated_at"),
+    ]:
+        lines.extend(field_lines("- ", label, manifest_row[field]))
+    lines.extend(["", "## Source / 来源", ""])
+    for label, field in [
+        ("Source ID / 来源 ID", "source_id"),
+        ("First-wave status / 第一波状态", "source_first_wave_status"),
+        ("Source action lane / 来源动作泳道", "source_action_lane"),
+    ]:
+        lines.extend(field_lines("- ", label, manifest_row[field]))
+    lines.extend(["", "## Objective / 目标", ""])
     lines.extend(
-        [
-            "",
-            "## Required Inputs / 必须打开的输入",
-            "",
-        ]
+        value_bullet_list(split_values(manifest_row["source_level_objective"]), "Objective / 目标")
     )
+    lines.extend(["", "## Blockers / 阻断项", ""])
+    lines.extend(value_bullet_list(split_values(manifest_row["blocker_summary"]), "Blocker / 阻断项"))
+    lines.extend(["", "## Required Inputs / 必须打开的输入", ""])
     lines.extend(bullet_list(split_values(manifest_row["required_inputs"])))
-    lines.extend(
-        [
-            "",
-            "## Result Records / 结果记录",
-            "",
-        ]
-    )
+    lines.extend(["", "## Result Records / 结果记录", ""])
     lines.extend(bullet_list(split_values(manifest_row["result_record_paths"])))
-    lines.extend(
-        [
-            "",
-            "## Reviewed Evidence Paths / 已复核证据路径",
-            "",
-        ]
-    )
+    lines.extend(["", "## Reviewed Evidence Paths / 已复核证据路径", ""])
     lines.extend(bullet_list(split_values(manifest_row["reviewed_evidence_paths"])))
+    lines.extend(["", "## First-Wave Source Status Snapshot / 第一波来源状态快照", ""])
+    for label, field in [
+        ("first_wave_result_count", "first_wave_result_count"),
+        ("followup_task_count", "followup_task_count"),
+        ("decision_values", "decision_values"),
+        ("pipeline_current_stages", "pipeline_current_stages"),
+        ("download_log_ids", "download_log_ids"),
+        ("download_log_status_counts", "download_log_status_counts"),
+        ("download_log_http_status_counts", "download_log_http_status_counts"),
+        (
+            "download_log_checksum_present_count_total",
+            "download_log_checksum_present_count_total",
+        ),
+        ("metadata_profile_ids", "metadata_profile_ids"),
+        ("metadata_profile_metric_count_total", "metadata_profile_metric_count_total"),
+        ("package_manifest_row_count_total", "package_manifest_row_count_total"),
+        ("field_map_scaffold_ids", "field_map_scaffold_ids"),
+        ("rights_statuses", "rights_statuses"),
+        ("remaining_blockers", "remaining_blockers"),
+        ("next_recommended_action", "next_recommended_action"),
+    ]:
+        lines.extend(field_lines("- ", label, status_snapshot.get(field, "")))
+    lines.extend(["", "## Concrete Next Review Questions / 具体下一步复核问题", ""])
+    lines.extend(value_bullet_list(next_review_questions(manifest_row), "Question / 问题"))
+    lines.extend(["", "## Boundary Status / 边界状态", ""])
+    for label, field in [
+        ("Rights decision status / 权利决定状态", "rights_decision_status"),
+        ("Source promotion status / 来源提升状态", "source_promotion_status"),
+        ("Corpus import status / 语料导入状态", "corpus_import_status"),
+        ("Decipherment claim status / 释读结论状态", "decipherment_claim_status"),
+        ("Identity claim status / 身份判断状态", "identity_claim_status"),
+        ("Component claim status / 构件判断状态", "component_claim_status"),
+        ("Evolution claim status / 演化链判断状态", "evolution_claim_status"),
+    ]:
+        lines.extend(field_lines("- ", label, manifest_row[field]))
     lines.extend(
         [
-            "",
-            "## Boundary Status / 边界状态",
-            "",
-            f"- Rights decision status / 权利决定状态: `{manifest_row['rights_decision_status']}`",
-            f"- Source promotion status / 来源提升状态: `{manifest_row['source_promotion_status']}`",
-            f"- Corpus import status / 语料导入状态: `{manifest_row['corpus_import_status']}`",
-            f"- Decipherment claim status / 释读结论状态: `{manifest_row['decipherment_claim_status']}`",
-            f"- Identity claim status / 身份判断状态: `{manifest_row['identity_claim_status']}`",
-            f"- Component claim status / 构件判断状态: `{manifest_row['component_claim_status']}`",
-            f"- Evolution claim status / 演化链判断状态: `{manifest_row['evolution_claim_status']}`",
             "",
             "## Review Notes / 复核记录",
             "",
-            "English: This draft intentionally contains no collected evidence yet. Record reviewed evidence only after opening the required inputs and preserving source, rights, checksum/access, manifest, field-map, or derivative-record boundaries.",
+            "English: Existing first-wave metadata is summarized here.",
+            "It remains metadata-only until human source review records",
+            "a decision in the routed result files.",
             "",
-            "简体中文：本草稿暂不包含已收集证据。只有在打开必须输入并保留来源、权利、checksum/访问、manifest、field-map 或派生记录边界后，才可记录复核证据。",
+            "简体中文：这里汇总的是第一波 metadata。",
+            "在人工来源复核写入路线结果文件前，仍保持 metadata-only。",
             "",
-            "- Review outcome / 复核结果: not decided",
-            "- Rights outcome / 权利结果: no_new_rights_decision",
-            "- Promotion outcome / 提升结果: not_promoted",
-            "- Import outcome / 导入结果: not_imported",
+            "- Review outcome / 复核结果: `pending_human_review`",
+            "- Rights outcome / 权利结果: `no_new_rights_decision`",
+            "- Promotion outcome / 提升结果: `not_promoted`",
+            "- Import outcome / 导入结果: `not_imported`",
+            "- Boundary phrase / 边界短语: `not a decipherment conclusion`",
             "",
             "## Caution / 警示",
             "",
-            f"English: {CAUTION}",
+        ]
+    )
+    lines.extend(paragraph_lines("English: ", CAUTION))
+    lines.extend(
+        [
             "",
-            "简体中文：本第二波来源复核草稿仅用于 metadata-only 路由；不是已收集证据，不是权利决定，不是来源提升，不是语料导入，不是身份判断，不是构件归属，不是演化链归属，也不是释读结论。",
+            "简体中文：本第二波来源复核草稿仅用于 metadata-only 路由；",
+            "不是权利决定，不是来源提升，不是语料导入，不是身份判断，",
+            "不是构件归属，不是演化链归属，也不是释读结论。",
             "",
         ]
     )

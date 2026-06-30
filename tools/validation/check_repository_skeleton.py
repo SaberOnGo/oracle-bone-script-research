@@ -1019,6 +1019,10 @@ PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "197_published-research-note-phase-gap-review-checklist.csv"
 )
+PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "217_published-research-note-phase-gap-human-guide.md"
+)
 COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "194_collection-provenance-phase-gap-review-checklist.csv"
@@ -1968,6 +1972,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_REVIEW_INDEX,
     CORE_CORPUS_PHASE_GAP_HUMAN_REVIEW_GUIDE,
     RESEARCH_SOURCE_PHASE_GAP_HUMAN_GUIDE,
+    PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE,
     COLLECTION_PROVENANCE_PHASE_GAP_HUMAN_GUIDE,
     INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_HUMAN_GUIDE,
     CORE_CORPUS_PHASE_GAP_REVIEW_ROUTE_PACK,
@@ -13508,6 +13513,68 @@ def check_published_research_note_phase_gap_review_checklist(root: Path) -> list
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE}"]
+
+    required_markers = [
+        "Published Research Note Phase Gap Human Guide",
+        "Human Review Entry Order",
+        "Open the source-object dossier first",
+        PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        SOURCE_INDEX,
+        "002_published-scholarship-review-guide.md",
+        "research/",
+        "doc/public/user_research/",
+        "extracted: `mixed_or_partial`",
+        "cleaned: `mixed_or_partial`",
+        "linked: `mixed_or_partial`",
+        "verified: `missing`",
+        "research note files: 7",
+        "user or AI draft review files: 128",
+        "source register files: 309",
+        "bibliographic identity",
+        "source trail",
+        "scope",
+        "evidence level",
+        "citation relation",
+        "reading process status",
+        "proposer",
+        "disagreement",
+        "dispute",
+        "Which page, plate, URL, catalog number, or object record",
+        "Which proposer, disagreement, or dispute",
+        "Do not move user or AI drafts into `research/`",
+        "not a rights decision",
+        "not draft promotion",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+        "not confirmed scholarship",
+        "不得把任何一行写成已确认学术结论或释读结论",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(
+                f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE} "
+                f"missing marker: {marker}"
+            )
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE}:"
+                f"{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31341,6 +31408,7 @@ def main() -> int:
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_human_guide(root))
     issues.extend(check_published_research_note_phase_gap_review_checklist(root))
+    issues.extend(check_published_research_note_phase_gap_human_guide(root))
     issues.extend(check_collection_provenance_phase_gap_review_checklist(root))
     issues.extend(check_collection_provenance_phase_gap_human_guide(root))
     issues.extend(check_inscription_plate_crosswalk_phase_gap_review_checklist(root))

@@ -568,6 +568,21 @@ def load_published_research_note_phase_gap_review_checklist_module():
     return module
 
 
+def load_published_research_note_phase_gap_human_guide_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_published_research_note_phase_gap_human_guide.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_published_research_note_phase_gap_human_guide", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_collection_provenance_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_collection_provenance_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location("build_collection_provenance_phase_gap_review_checklist", path)
@@ -24914,6 +24929,77 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Which corpus object can this source actually support?", first["concrete_next_checks"])
         self.assertIn("doc/public/user_research/README.md", first["draft_review_route_paths"])
         self.assertTrue(all("published research note phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_published_research_note_phase_gap_human_guide_exists(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "217_published-research-note-phase-gap-human-guide.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        required_markers = [
+            "Published Research Note Phase Gap Human Guide",
+            "Human Review Entry Order",
+            "Open the source-object dossier first",
+            "197_published-research-note-phase-gap-review-checklist.csv",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "001_all-sources-index.csv",
+            "002_published-scholarship-review-guide.md",
+            "research/",
+            "doc/public/user_research/",
+            "extracted: `mixed_or_partial`",
+            "cleaned: `mixed_or_partial`",
+            "linked: `mixed_or_partial`",
+            "verified: `missing`",
+            "research note files: 7",
+            "user or AI draft review files: 128",
+            "source register files: 309",
+            "bibliographic identity",
+            "source trail",
+            "scope",
+            "evidence level",
+            "citation relation",
+            "reading process status",
+            "proposer",
+            "disagreement",
+            "dispute",
+            "not a rights decision",
+            "not draft promotion",
+            "not corpus import approval",
+            "not a decipherment conclusion",
+            "not confirmed scholarship",
+        ]
+        for marker in required_markers:
+            self.assertIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_published_research_note_phase_gap_human_guide_builder(self) -> None:
+        module = load_published_research_note_phase_gap_human_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("checklist rows: 4", text)
+        self.assertIn("research note files: 7", text)
+        self.assertIn("user or AI draft review files: 128", text)
+        self.assertIn("source register files: 309", text)
+        self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
+        self.assertIn(
+            "Which page, plate, URL, catalog number, or object record",
+            text,
+        )
+        self.assertIn("Which proposer, disagreement, or dispute", text)
+        self.assertIn("Do not move user or AI drafts into `research/`", text)
+        self.assertIn("Do not write any row as confirmed scholarship.", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_published_research_note_phase_gap_human_guide_is_validated(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(module, "check_published_research_note_phase_gap_human_guide")
+        self.assertEqual(check(repo_root()), [])
 
     def test_research_readmes_are_human_scholarship_review_entries(self) -> None:
         readme_paths = [

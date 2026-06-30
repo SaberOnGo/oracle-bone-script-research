@@ -61,6 +61,8 @@ substitutes for object-local dossiers, source records, or review sheets.
   gives a human-readable guide before opening the 192-212 route tables.
 - `214_inscription-plate-crosswalk-phase-gap-human-guide.md`
   gives a human-readable guide for inscription and plate phase gaps.
+- `217_published-research-note-phase-gap-human-guide.md`
+  gives a human-readable guide for published research note gaps.
 
 ## File Families / 文件族
 
@@ -110,6 +112,9 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `216` specializes the 193 research-source phase gap checklist.
 - Open it before using source-pipeline assignment or outcome routes.
 - It is not a rights decision, source promotion, or corpus import approval.
+- `217` specializes the 197 published research note checklist.
+- Open it before promoting any bibliography, web, database, or draft note.
+- It is not draft promotion, corpus import approval, or scholarship.
 - `214` specializes the 195 inscription and plate crosswalk checklist.
 - Open it before using inscription plate route tables or review queues.
 - It is not a formal `obi-*` record or decipherment conclusion.

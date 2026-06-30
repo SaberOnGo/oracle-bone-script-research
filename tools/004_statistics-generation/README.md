@@ -59,7 +59,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `213_core-corpus-phase-gap-human-review-guide.md`,
   `216_research-source-phase-gap-human-guide.md`,
   `214_inscription-plate-crosswalk-phase-gap-human-guide.md`,
-  `215_collection-provenance-phase-gap-human-guide.md`.
+  `215_collection-provenance-phase-gap-human-guide.md`,
+  `217_published-research-note-phase-gap-human-guide.md`.
 
 ## Current Review Surfaces / 当前复核入口
 
@@ -79,6 +80,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `196_shape-component-evolution-verification-gap-review-checklist.csv`.
 - Published research note gaps:
   `197_published-research-note-phase-gap-review-checklist.csv`.
+- Published research note human guide:
+  `217_published-research-note-phase-gap-human-guide.md`.
 - Character candidate phase gaps:
   `198_character-candidate-phase-gap-review-checklist.csv`.
 - Joined review index and handoff route packs:

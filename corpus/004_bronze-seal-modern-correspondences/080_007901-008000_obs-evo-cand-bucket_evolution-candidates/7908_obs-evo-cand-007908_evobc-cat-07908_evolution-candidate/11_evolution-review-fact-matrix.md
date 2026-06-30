@@ -19,6 +19,13 @@ Simplified Chinese:
   reading, dispute, findspot, collection, period, and batch evidence before any
   promotion.
 
+## Human Comparison Order / 人工比对顺序
+
+- Open `07_human-evolution-dossier.md` before route tables.
+- Open image and source route indexes only after the human dossier.
+- Open `09_cross-period-review-dossier.md` before correspondence claims.
+- Do not promote graph or codepoint routes into evolution evidence.
+
 ## Evolution And Correspondence Fact Matrix
 
 | Fact area | What a human reviewer can use | Open these routes |

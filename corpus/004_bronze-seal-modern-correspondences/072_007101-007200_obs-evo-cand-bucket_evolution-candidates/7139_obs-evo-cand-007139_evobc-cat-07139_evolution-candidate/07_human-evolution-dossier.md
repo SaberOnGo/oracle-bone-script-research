@@ -111,6 +111,13 @@ verify images, inscriptions, catalogs, and scholarship.
 - Until bibliography is opened, keep this object as a route dossier with no
   reviewed scholarly conclusion.
 
+## Human Comparison Order / 人工比对顺序
+
+- Open `07_human-evolution-dossier.md` before route tables.
+- Open image and source route indexes only after the human dossier.
+- Open `09_cross-period-review-dossier.md` before correspondence claims.
+- Do not promote graph or codepoint routes into evolution evidence.
+
 ## Human Research Review Slots / 人类研究复核槽位
 
 - 字形 image check: compare primary image, rubbing, photograph, handcopy, and

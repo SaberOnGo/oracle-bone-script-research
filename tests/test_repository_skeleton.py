@@ -5077,6 +5077,23 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Modern Codepoint Route Review", dossier_text)
             self.assertIn("Bibliography, Database, And Web Source Routes", dossier_text)
             self.assertIn("Source Provenance Audit", dossier_text)
+            self.assertIn("Human Comparison Order", dossier_text)
+            self.assertIn(
+                "Open `07_human-evolution-dossier.md` before route tables.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Open image and source route indexes only after the human dossier.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Do not promote graph or codepoint routes into evolution evidence.",
+                dossier_text,
+            )
             self.assertIn("来源追溯审计", dossier_text)
             self.assertIn("Download log path", dossier_text)
             self.assertIn(
@@ -5262,6 +5279,23 @@ class RepositorySkeletonTests(unittest.TestCase):
             ).read_text(encoding="utf-8")
             self.assertIn("Evolution Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("Human Comparison Order", fact_matrix_text)
+            self.assertIn(
+                "Open `07_human-evolution-dossier.md` before route tables.",
+                fact_matrix_text,
+            )
+            self.assertIn(
+                "Open image and source route indexes only after the human dossier.",
+                fact_matrix_text,
+            )
+            self.assertIn(
+                "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+                fact_matrix_text,
+            )
+            self.assertIn(
+                "Do not promote graph or codepoint routes into evolution evidence.",
+                fact_matrix_text,
+            )
             self.assertIn("Evolution And Correspondence Fact Matrix", fact_matrix_text)
             fact_matrix_opening = fact_matrix_text.split(
                 "## Evolution And Correspondence Fact Matrix", maxsplit=1
@@ -5360,6 +5394,23 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Bibliography, Database, And Web Source Routes",
             first["human_dossier_text"],
         )
+        self.assertIn("Human Comparison Order", first["human_dossier_text"])
+        self.assertIn(
+            "Open `07_human-evolution-dossier.md` before route tables.",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "Open image and source route indexes only after the human dossier.",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+            first["human_dossier_text"],
+        )
+        self.assertIn(
+            "Do not promote graph or codepoint routes into evolution evidence.",
+            first["human_dossier_text"],
+        )
         self.assertIn("Source Provenance Audit", first["human_dossier_text"])
         self.assertIn("来源追溯审计", first["human_dossier_text"])
         self.assertIn("dl-evobc-key-value-json", first["human_dossier_text"])
@@ -5449,6 +5500,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("fact_matrix_path", first)
         self.assertEqual(first["fact_matrix_path"].parent, first["object_dir"])
         self.assertIn("Evolution Review Fact Matrix", first["fact_matrix_text"])
+        self.assertIn("Human Comparison Order", first["fact_matrix_text"])
+        self.assertIn(
+            "Open `07_human-evolution-dossier.md` before route tables.",
+            first["fact_matrix_text"],
+        )
+        self.assertIn(
+            "Open image and source route indexes only after the human dossier.",
+            first["fact_matrix_text"],
+        )
+        self.assertIn(
+            "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+            first["fact_matrix_text"],
+        )
+        self.assertIn(
+            "Do not promote graph or codepoint routes into evolution evidence.",
+            first["fact_matrix_text"],
+        )
         self.assertIn("Evolution And Correspondence Fact Matrix", first["fact_matrix_text"])
         fact_matrix_opening = first["fact_matrix_text"].split(
             "## Evolution And Correspondence Fact Matrix", maxsplit=1

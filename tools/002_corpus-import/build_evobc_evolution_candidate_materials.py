@@ -352,6 +352,28 @@ def bullet_block(items: list[str]) -> str:
     return "\n".join(line for item in items for line in wrapped_bullet(item))
 
 
+def human_comparison_order_markdown() -> str:
+    return "\n".join(
+        [
+            "## Human Comparison Order / 人工比对顺序",
+            "",
+            *wrapped_bullet(
+                "Open `07_human-evolution-dossier.md` before route tables."
+            ),
+            *wrapped_bullet(
+                "Open image and source route indexes only after the human dossier."
+            ),
+            *wrapped_bullet(
+                "Open `09_cross-period-review-dossier.md` before correspondence "
+                "claims."
+            ),
+            *wrapped_bullet(
+                "Do not promote graph or codepoint routes into evolution evidence."
+            ),
+        ]
+    )
+
+
 def code_rows_block(code_rows: list[dict[str, str]]) -> str:
     lines: list[str] = []
     for code in code_rows:
@@ -767,6 +789,8 @@ Project ID: `{pid}`
 ## Bibliography, Database, And Web Source Routes
 
 {bibliography_lines}
+
+{human_comparison_order_markdown()}
 
 {research_slot_lines}
 
@@ -1517,6 +1541,8 @@ Simplified Chinese:
 ## Human Review Order
 
 {review_order}
+
+{human_comparison_order_markdown()}
 
 ## Evolution And Correspondence Fact Matrix
 

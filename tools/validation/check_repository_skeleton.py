@@ -3790,6 +3790,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         if index in deep_route_check_indexes and path_exists(human_dossier_path):
             human_dossier = human_dossier_path.read_text(encoding="utf-8")
             for snippet in [
+                "Human Comparison Order",
+                "Open `07_human-evolution-dossier.md` before route tables.",
+                "Open image and source route indexes only after the human dossier.",
+                "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+                "Do not promote graph or codepoint routes into evolution evidence.",
                 "Open `05_image-reference-route-index.csv` for each image reference route.",
                 "Open `09_cross-period-review-dossier.md` for oracle, bronze, seal, and",
                 "modern-route gaps.",
@@ -3924,6 +3929,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             for snippet in [
                 "Evolution Review Fact Matrix",
                 "Human Review Order",
+                "Human Comparison Order",
+                "Open `07_human-evolution-dossier.md` before route tables.",
+                "Open image and source route indexes only after the human dossier.",
+                "Open `09_cross-period-review-dossier.md` before correspondence claims.",
+                "Do not promote graph or codepoint routes into evolution evidence.",
                 "Evolution And Correspondence Fact Matrix",
                 "Evolution candidate",
                 "Oracle-side route",

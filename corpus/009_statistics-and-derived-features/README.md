@@ -65,6 +65,8 @@ substitutes for object-local dossiers, source records, or review sheets.
   gives a human-readable guide for published research note gaps.
 - `218_character-candidate-phase-gap-human-guide.md`
   gives a human-readable guide for character candidate phase gaps.
+- `219_shape-component-evolution-phase-gap-human-guide.md`
+  gives a human-readable guide for shape, component, and evolution gaps.
 
 ## File Families / 文件族
 
@@ -104,6 +106,14 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `186` to `191` audit object-local material bundles and ID-source maps.
 - Use them to check whether concrete object directories have human entries,
   AI packets, route galleries, source indexes, and no parallel human folders.
+
+### Core Corpus Phase Gap Review / 核心语料阶段缺口复核
+
+- `192` to `219` route missing or partial preprocessing phases.
+- Use `214` to `219` as human-readable entrances into object dossiers,
+  sources, inscriptions, plates, published notes, candidates, components,
+  and evolution/correspondence candidates.
+- Do not treat these guides or checklists as reviewed outcomes.
 - These audits show readiness signals, not scholarly truth.
 
 ### Human Phase-Gap Guide / 人工阶段缺口指南

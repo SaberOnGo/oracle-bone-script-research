@@ -1047,6 +1047,10 @@ SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "196_shape-component-evolution-verification-gap-review-checklist.csv"
 )
+SHAPE_COMPONENT_EVOLUTION_PHASE_GAP_HUMAN_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "219_shape-component-evolution-phase-gap-human-guide.md"
+)
 XXT_OBM_ACCESS_BOUNDARY_FOLLOWUP_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "074_ai-agent-xxt-obm-access-boundary-followup-review-queue.csv"
@@ -1999,6 +2003,7 @@ REQUIRED_PATHS = [
     COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
     INSCRIPTION_PLATE_CROSSWALK_PHASE_GAP_REVIEW_CHECKLIST,
     SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST,
+    SHAPE_COMPONENT_EVOLUTION_PHASE_GAP_HUMAN_GUIDE,
     SOURCE_PIPELINE_PHASE_COVERAGE_MATRIX,
     SOURCE_PIPELINE_PHASE_ACTION_QUEUE,
     SOURCE_PIPELINE_PHASE_ACTION_RESULT_SCAFFOLD,
@@ -14366,6 +14371,69 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_shape_component_evolution_phase_gap_human_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / SHAPE_COMPONENT_EVOLUTION_PHASE_GAP_HUMAN_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {SHAPE_COMPONENT_EVOLUTION_PHASE_GAP_HUMAN_GUIDE}"]
+
+    required_markers = [
+        "Shape Component Evolution Phase Gap Human Guide",
+        "Human Review Entry Order",
+        "Open the concrete character, component, or evolution object first",
+        SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST,
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv",
+        "002_obimd-subcharacter-main-staging.csv",
+        "001_evobc-evolution-category-staging.csv",
+        "006_obimd-component-graph-edges.jsonl",
+        "007_evobc-evolution-graph-edges.jsonl",
+        "cross_source_codepoint_routes: verified `missing`",
+        "graphemic_components: verified `missing`",
+        "evolution_correspondences: verified `missing`",
+        "codepoint staging rows: 1588",
+        "component candidate rows: 2747",
+        "component glyph rows: 41686",
+        "evolution candidate rows: 13714",
+        "component graph edges: 44433",
+        "evolution graph edges: 51679",
+        "source codepoint",
+        "component candidate",
+        "component shape label",
+        "glyph image route",
+        "host character route",
+        "oracle source route",
+        "bronze, seal, or modern route",
+        "correspondence category",
+        "variant and near-form comparison",
+        "not an identity confirmation",
+        "not a component assignment",
+        "not an accepted evolution correspondence",
+        "not confirmed scholarship",
+        "not a decipherment conclusion",
+        "不得从本指南确认构件",
+        "不得从本指南接受演化链",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(
+                f"{SHAPE_COMPONENT_EVOLUTION_PHASE_GAP_HUMAN_GUIDE} "
+                f"missing marker: {marker}"
+            )
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{SHAPE_COMPONENT_EVOLUTION_PHASE_GAP_HUMAN_GUIDE}:"
+                f"{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31495,6 +31563,7 @@ def main() -> int:
     issues.extend(check_inscription_plate_crosswalk_phase_gap_review_checklist(root))
     issues.extend(check_inscription_plate_crosswalk_phase_gap_human_guide(root))
     issues.extend(check_shape_component_evolution_verification_gap_review_checklist(root))
+    issues.extend(check_shape_component_evolution_phase_gap_human_guide(root))
     issues.extend(check_source_pipeline_phase_coverage_matrix(root))
     issues.extend(check_source_pipeline_phase_action_queue(root))
     issues.extend(check_source_pipeline_phase_action_result_scaffold(root))

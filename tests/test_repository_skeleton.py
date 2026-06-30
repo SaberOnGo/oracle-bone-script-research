@@ -535,6 +535,21 @@ def load_character_candidate_phase_gap_review_checklist_module():
     return module
 
 
+def load_shape_component_evolution_phase_gap_human_guide_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_shape_component_evolution_phase_gap_human_guide.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_shape_component_evolution_phase_gap_human_guide", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_character_candidate_phase_gap_human_guide_module():
     path = (
         repo_root()
@@ -24715,6 +24730,78 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("extraction_note", first["source_context_fields_to_verify"])
         self.assertIn("Which source row, field map, or extraction note supports this route?", first["concrete_next_checks"])
         self.assertTrue(all("character candidate phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_shape_component_evolution_phase_gap_human_guide_exists(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "219_shape-component-evolution-phase-gap-human-guide.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        required_markers = [
+            "Shape Component Evolution Phase Gap Human Guide",
+            "Human Review Entry Order",
+            "Open the concrete character, component, or evolution object first",
+            "196_shape-component-evolution-verification-gap-review-checklist.csv",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv",
+            "002_obimd-subcharacter-main-staging.csv",
+            "001_evobc-evolution-category-staging.csv",
+            "006_obimd-component-graph-edges.jsonl",
+            "007_evobc-evolution-graph-edges.jsonl",
+            "cross_source_codepoint_routes: verified `missing`",
+            "graphemic_components: verified `missing`",
+            "evolution_correspondences: verified `missing`",
+            "codepoint staging rows: 1588",
+            "component candidate rows: 2747",
+            "component glyph rows: 41686",
+            "evolution candidate rows: 13714",
+            "component graph edges: 44433",
+            "evolution graph edges: 51679",
+            "source codepoint",
+            "component candidate",
+            "component shape label",
+            "glyph image route",
+            "host character route",
+            "oracle source route",
+            "bronze, seal, or modern route",
+            "correspondence category",
+            "variant and near-form comparison",
+            "not an identity confirmation",
+            "not a component assignment",
+            "not an accepted evolution correspondence",
+            "not confirmed scholarship",
+            "not a decipherment conclusion",
+        ]
+        for marker in required_markers:
+            self.assertIn(marker, text, marker)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_shape_component_evolution_phase_gap_human_guide_builder(self) -> None:
+        module = load_shape_component_evolution_phase_gap_human_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("checklist rows: 3", text)
+        self.assertIn("codepoint staging rows: 1588", text)
+        self.assertIn("component candidate rows: 2747", text)
+        self.assertIn("evolution candidate rows: 13714", text)
+        self.assertIn("Open an `obs-char-*`, component, or evolution folder.", text)
+        self.assertIn("Which glyph image or visual route", text)
+        self.assertIn("Which variant, near form, or component clue", text)
+        self.assertIn("Which bronze, seal, or modern correspondence", text)
+        self.assertIn("Do not confirm a component from this guide.", text)
+        self.assertIn("Do not accept an evolution chain from this guide.", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_shape_component_evolution_phase_gap_human_guide_is_validated(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(module, "check_shape_component_evolution_phase_gap_human_guide")
+        self.assertEqual(check(repo_root()), [])
 
     def test_character_candidate_phase_gap_human_guide_exists(self) -> None:
         path = (

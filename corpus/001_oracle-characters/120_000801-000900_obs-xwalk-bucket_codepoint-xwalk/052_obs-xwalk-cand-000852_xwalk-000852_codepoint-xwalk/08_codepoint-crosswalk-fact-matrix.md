@@ -20,6 +20,14 @@
 | Missing evidence route | `matched_obimd_and_evobc_by_codepoint` | not decipherment |
 | Review status | `needs_cross_source_review` | needs human cross-source review |
 
+## Human Comparison Order / 人工比对顺序
+
+- Open the matched oracle-character human dossier first.
+- Open local glyph images, rubbing routes, and plate routes.
+- Compare OBIMD and EVOBC rows only after the glyph dossier.
+- Record disagreement before any promotion review.
+- Do not promote this codepoint route into identity.
+
 ## Required Routes / 必查路线
 
 | Route | File | Human action |

@@ -6175,6 +6175,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("inscription context", dossier_text)
             self.assertIn("catalog number", dossier_text)
             self.assertIn("findspot", dossier_text)
+            for marker in [
+                "Human Comparison Order",
+                "Open the matched oracle-character human dossier first.",
+                "Compare OBIMD and EVOBC rows only after the glyph dossier.",
+                "Record disagreement before any promotion review.",
+                "Do not promote this codepoint route into identity.",
+            ]:
+                self.assertIn(marker, dossier_text)
+                self.assertIn(marker, fact_matrix_text)
 
             packet = json.loads((object_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8"))
             self.assertEqual(packet["project_id"], project_id)
@@ -6205,6 +6214,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("corpus/001_oracle-characters", first["object_dir"].as_posix())
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("Codepoint Crosswalk Fact Matrix", first["fact_matrix_text"])
+        self.assertIn("Human Comparison Order", first["dossier_text"])
+        self.assertIn("Human Comparison Order", first["fact_matrix_text"])
+        self.assertIn("Open the matched oracle-character human dossier first.", first["dossier_text"])
+        self.assertIn("Do not promote this codepoint route into identity.", first["fact_matrix_text"])
         self.assertIn("not identity", first["fact_matrix_text"])
         self.assertNotIn("not_collected", first["dossier_text"])
         self.assertEqual(three_source["packet"]["matched_source_ids"], ["src-hust-obc", "src-obimd", "src-evobc"])

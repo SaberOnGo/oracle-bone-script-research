@@ -430,6 +430,20 @@ def concrete_questions(row: dict[str, str]) -> list[str]:
     ]
 
 
+def human_comparison_order_markdown() -> str:
+    return "\n".join(
+        [
+            "## Human Comparison Order / 人工比对顺序",
+            "",
+            bullet("Open the matched oracle-character human dossier first."),
+            bullet("Open local glyph images, rubbing routes, and plate routes."),
+            bullet("Compare OBIMD and EVOBC rows only after the glyph dossier."),
+            bullet("Record disagreement before any promotion review."),
+            bullet("Do not promote this codepoint route into identity."),
+        ]
+    )
+
+
 def render_readme(project_id: str, row: dict[str, str]) -> str:
     lines = [
         f"# {project_id} Codepoint Crosswalk Candidate",
@@ -569,6 +583,8 @@ def render_dossier(project_id: str, row: dict[str, str]) -> str:
         "",
         source_table(row),
         "",
+        human_comparison_order_markdown(),
+        "",
         "## Material Evidence To Open / 需打开的实物证据",
         "",
         bullet("glyph image, rubbing, and photograph routes"),
@@ -651,6 +667,8 @@ def render_fact_matrix(
             f"| Review status | `{row['review_status']}` | "
             "needs human cross-source review |"
         ),
+        "",
+        human_comparison_order_markdown(),
         "",
         "## Required Routes / 必查路线",
         "",

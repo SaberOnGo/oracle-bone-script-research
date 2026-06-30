@@ -14,6 +14,14 @@ claim can be reviewed.
 | OBIMD | `pending route` | 0 codepoint match rows |
 | EVOBC | `evobc-cat-00055` | 1 codepoint match rows |
 
+## Human Comparison Order / 人工比对顺序
+
+- Open the matched oracle-character human dossier first.
+- Open local glyph images, rubbing routes, and plate routes.
+- Compare OBIMD and EVOBC rows only after the glyph dossier.
+- Record disagreement before any promotion review.
+- Do not promote this codepoint route into identity.
+
 ## Material Evidence To Open / 需打开的实物证据
 
 - glyph image, rubbing, and photograph routes

@@ -31614,10 +31614,15 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         for marker in [
             "Codepoint Crosswalk Fact Matrix",
             "Human Review Order",
+            "Human Comparison Order",
             "Source Codepoint Route",
             "HUST candidate route",
             "OBIMD route",
             "EVOBC route",
+            "Open the matched oracle-character human dossier first.",
+            "Compare OBIMD and EVOBC rows only after the glyph dossier.",
+            "Record disagreement before any promotion review.",
+            "Do not promote this codepoint route into identity.",
             "not identity",
             "not reading",
             "not component",
@@ -31626,6 +31631,15 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         ]:
             if marker not in fact_matrix:
                 issues.append(f"{expected_id} fact matrix missing {marker}")
+        for marker in [
+            "Human Comparison Order",
+            "Open the matched oracle-character human dossier first.",
+            "Compare OBIMD and EVOBC rows only after the glyph dossier.",
+            "Record disagreement before any promotion review.",
+            "Do not promote this codepoint route into identity.",
+        ]:
+            if marker not in dossier:
+                issues.append(f"{expected_id} dossier missing {marker}")
     return issues
 
 

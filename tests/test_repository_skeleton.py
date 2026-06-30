@@ -535,6 +535,21 @@ def load_character_candidate_phase_gap_review_checklist_module():
     return module
 
 
+def load_character_candidate_phase_gap_human_guide_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_character_candidate_phase_gap_human_guide.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_character_candidate_phase_gap_human_guide", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_research_source_phase_gap_review_checklist_module():
     path = repo_root() / "tools/004_statistics-generation/build_research_source_phase_gap_review_checklist.py"
     spec = importlib.util.spec_from_file_location("build_research_source_phase_gap_review_checklist", path)
@@ -24700,6 +24715,87 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("extraction_note", first["source_context_fields_to_verify"])
         self.assertIn("Which source row, field map, or extraction note supports this route?", first["concrete_next_checks"])
         self.assertTrue(all("character candidate phase gap review checklist only" in row["caution"] for row in rows))
+
+    def test_character_candidate_phase_gap_human_guide_exists(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "218_character-candidate-phase-gap-human-guide.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        required_markers = [
+            "Character Candidate Phase Gap Human Guide",
+            "Human Review Entry Order",
+            "Open the concrete character object directory first",
+            "198_character-candidate-phase-gap-review-checklist.csv",
+            "192_core-corpus-phase-gap-action-queue.csv",
+            "009_hust-obc-obs-char-promotion-review-queue.csv",
+            "003_undeciphered-oracle-characters-index.csv",
+            "186_character-object-material-coverage-audit.csv",
+            "oracle_characters: verified `missing`",
+            "undeciphered_oracle_character_candidates: linked `missing`",
+            "undeciphered_oracle_character_candidates: verified `missing`",
+            "HUST promotion review rows: 1588",
+            "candidate evidence request rows: 1588",
+            "undeciphered index rows: 9408",
+            "undeciphered review queue rows: 9408",
+            "character object material audit rows: 10996",
+            "glyph image",
+            "glyph observation",
+            "variant forms",
+            "near forms",
+            "component clues",
+            "inscription occurrence",
+            "inscription context",
+            "plate",
+            "catalog number",
+            "Heji number",
+            "findspot",
+            "collection",
+            "period",
+            "group",
+            "source evidence",
+            "decipherment history",
+            "dispute notes",
+            "later script routes",
+            "missing items",
+            "next sources to check",
+            "not a rights decision",
+            "not candidate promotion",
+            "not formal character import",
+            "not a character identity claim",
+            "not a decipherment conclusion",
+            "not confirmed scholarship",
+        ]
+        for marker in required_markers:
+            self.assertIn(marker, text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_character_candidate_phase_gap_human_guide_builder(self) -> None:
+        module = load_character_candidate_phase_gap_human_guide_module()
+        text = module.build_markdown(repo_root())
+        self.assertIn("checklist rows: 3", text)
+        self.assertIn("HUST promotion review rows: 1588", text)
+        self.assertIn("undeciphered index rows: 9408", text)
+        self.assertIn("character object material audit rows: 10996", text)
+        self.assertIn("Open a sample `obs-char-*` or `obs-unk-*` folder.", text)
+        self.assertIn("Which glyph image, rubbing, photograph, or plate", text)
+        self.assertIn("Which inscription occurrence and context", text)
+        self.assertIn("Which decipherment history, proposer, or dispute", text)
+        self.assertIn("Do not promote candidates from this guide.", text)
+        self.assertIn("Do not write any candidate as confirmed scholarship.", text)
+        for line in text.splitlines():
+            if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+
+    def test_character_candidate_phase_gap_human_guide_is_validated(self) -> None:
+        module = importlib.import_module("tools.validation.check_repository_skeleton")
+        check = getattr(module, "check_character_candidate_phase_gap_human_guide")
+        self.assertEqual(check(repo_root()), [])
 
     def test_research_source_phase_gap_review_checklist_routes_high_priority_gaps(self) -> None:
         self.assertEqual(check_research_source_phase_gap_review_checklist(repo_root()), [])

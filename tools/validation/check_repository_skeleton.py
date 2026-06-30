@@ -995,6 +995,10 @@ CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST = (
     "corpus/009_statistics-and-derived-features/"
     "198_character-candidate-phase-gap-review-checklist.csv"
 )
+CHARACTER_CANDIDATE_PHASE_GAP_HUMAN_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "218_character-candidate-phase-gap-human-guide.md"
+)
 HUST_OBC_UNDECIPHERED_CANDIDATE_XXT_JGW_FOLLOWUP_REVIEW_QUEUE = (
     "corpus/009_statistics-and-derived-features/"
     "072_ai-agent-hust-obc-undeciphered-candidate-xxt-jgw-followup-review-queue.csv"
@@ -1989,6 +1993,7 @@ REQUIRED_PATHS = [
     CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_OUTCOME_SCAFFOLD,
     CORE_CORPUS_PHASE_GAP_REVIEW_OUTCOME_ASSIGNMENT_OUTCOME_ROUTE_SUMMARY,
     CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
+    CHARACTER_CANDIDATE_PHASE_GAP_HUMAN_GUIDE,
     RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST,
     PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
     COLLECTION_PROVENANCE_PHASE_GAP_REVIEW_CHECKLIST,
@@ -13229,6 +13234,81 @@ def check_character_candidate_phase_gap_review_checklist(root: Path) -> list[str
         for path in row.get("files_to_open", "").split(";"):
             if path and not (root / path).exists():
                 issues.append(f"{CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST} missing file to open: {path}")
+    return issues
+
+
+def check_character_candidate_phase_gap_human_guide(root: Path) -> list[str]:
+    issues: list[str] = []
+    path = root / CHARACTER_CANDIDATE_PHASE_GAP_HUMAN_GUIDE
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing required path: {CHARACTER_CANDIDATE_PHASE_GAP_HUMAN_GUIDE}"]
+
+    required_markers = [
+        "Character Candidate Phase Gap Human Guide",
+        "Human Review Entry Order",
+        "Open the concrete character object directory first",
+        CHARACTER_CANDIDATE_PHASE_GAP_REVIEW_CHECKLIST,
+        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
+        "009_hust-obc-obs-char-promotion-review-queue.csv",
+        "003_undeciphered-oracle-characters-index.csv",
+        CHARACTER_OBJECT_MATERIAL_COVERAGE_AUDIT,
+        "oracle_characters: verified `missing`",
+        "undeciphered_oracle_character_candidates: linked `missing`",
+        "undeciphered_oracle_character_candidates: verified `missing`",
+        "HUST promotion review rows: 1588",
+        "candidate evidence request rows: 1588",
+        "undeciphered index rows: 9408",
+        "undeciphered review queue rows: 9408",
+        "character object material audit rows: 10996",
+        "glyph image",
+        "glyph observation",
+        "variant forms",
+        "near forms",
+        "component clues",
+        "inscription occurrence",
+        "inscription context",
+        "plate",
+        "catalog number",
+        "Heji number",
+        "findspot",
+        "collection",
+        "period",
+        "group",
+        "source evidence",
+        "decipherment history",
+        "dispute notes",
+        "later script routes",
+        "missing items",
+        "next sources to check",
+        "Which glyph image, rubbing, photograph, or plate",
+        "Which inscription occurrence and context",
+        "Which decipherment history, proposer, or dispute",
+        "Do not promote candidates from this guide.",
+        "not a rights decision",
+        "not candidate promotion",
+        "not formal character import",
+        "not a character identity claim",
+        "not a decipherment conclusion",
+        "not confirmed scholarship",
+        "不得把任何候选写成已确认学术结论或释读结论",
+    ]
+    for marker in required_markers:
+        if marker not in text:
+            issues.append(
+                f"{CHARACTER_CANDIDATE_PHASE_GAP_HUMAN_GUIDE} "
+                f"missing marker: {marker}"
+            )
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+            continue
+        if len(line) > 80:
+            issues.append(
+                f"{CHARACTER_CANDIDATE_PHASE_GAP_HUMAN_GUIDE}:"
+                f"{line_number} line longer than 80 chars"
+            )
     return issues
 
 
@@ -31404,6 +31484,7 @@ def main() -> int:
     issues.extend(check_core_corpus_phase_gap_review_outcome_assignment_outcome_scaffold(root))
     issues.extend(check_core_corpus_phase_gap_review_outcome_assignment_outcome_route_summary(root))
     issues.extend(check_character_candidate_phase_gap_review_checklist(root))
+    issues.extend(check_character_candidate_phase_gap_human_guide(root))
     issues.extend(check_hust_obc_undeciphered_candidate_evidence_collection_notes(root))
     issues.extend(check_research_source_phase_gap_review_checklist(root))
     issues.extend(check_research_source_phase_gap_human_guide(root))

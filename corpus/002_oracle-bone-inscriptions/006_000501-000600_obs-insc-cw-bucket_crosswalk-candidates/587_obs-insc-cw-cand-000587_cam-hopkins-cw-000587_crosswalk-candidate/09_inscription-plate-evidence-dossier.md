@@ -34,6 +34,19 @@ Open `03_catalog-reference-index.csv` and `05_plate-text-route-index.csv`
 before using a plate, Heji number, catalog number, CUL object route, or
 Chalfant reference.
 
+## Priority Review Order / 优先复核顺序
+
+- Open `03_catalog-reference-index.csv` first.
+- 先打开 `03_catalog-reference-index.csv`。
+- Open `05_plate-text-route-index.csv` second.
+- 第二步打开 `05_plate-text-route-index.csv`。
+- Open `10_source-evidence-dossier.md` third.
+- 第三步打开 `10_source-evidence-dossier.md`。
+- Use `06_plate-text-gallery.md` only after those source checks.
+- 完成上述来源核查后，再使用 `06_plate-text-gallery.md`。
+- Do not assign a formal `obi-*` ID before this order.
+- 完成此顺序前，不要分配正式 `obi-*` 编号。
+
 ## Findspot Period Batch And Linked Characters / 出土地、时期、批次与关联字形
 
 - Period label: `V`

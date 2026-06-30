@@ -4527,6 +4527,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Text And OCR Quality Review", dossier_text)
             self.assertIn("文本与 OCR 质量复核", dossier_text)
             self.assertIn("Full text or OCR status", dossier_text)
+            self.assertIn("Priority Review Order", dossier_text)
+            self.assertIn("Open `03_catalog-reference-index.csv` first.", dossier_text)
+            self.assertIn("Open `05_plate-text-route-index.csv` second.", dossier_text)
+            self.assertIn("Open `10_source-evidence-dossier.md` third.", dossier_text)
+            self.assertIn("Do not assign a formal `obi-*` ID before this order.", dossier_text)
             self.assertIn("全文或 OCR 状态", dossier_text)
             self.assertNotIn(
                 "Which unreadable, missing, or uncertain signs must be marked?",
@@ -4597,6 +4602,11 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "Plate image path: `待查: plate image or rubbing route`",
                 plate_evidence_text,
             )
+            self.assertIn("Priority Review Order", plate_evidence_text)
+            self.assertIn("Open `03_catalog-reference-index.csv` first.", plate_evidence_text)
+            self.assertIn("Open `05_plate-text-route-index.csv` second.", plate_evidence_text)
+            self.assertIn("Open `10_source-evidence-dossier.md` third.", plate_evidence_text)
+            self.assertIn("Do not assign a formal `obi-*` ID before this order.", plate_evidence_text)
             self.assertNotIn("not_collected", plate_evidence_text)
             self.assertIn("not a formal inscription record", plate_evidence_text)
             self.assertIn("not a decipherment conclusion", plate_evidence_text)

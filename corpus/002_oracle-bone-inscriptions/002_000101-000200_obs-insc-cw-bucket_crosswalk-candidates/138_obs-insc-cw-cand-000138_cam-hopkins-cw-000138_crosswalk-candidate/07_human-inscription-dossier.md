@@ -122,6 +122,19 @@ These labels are imported metadata, not a new chronological judgement.
   Status: `待查: missing or unassigned catalog route`
   Review: `needs_human_inscription_crosswalk_review`
 
+## Priority Review Order / 优先复核顺序
+
+- Open `03_catalog-reference-index.csv` first.
+- 先打开 `03_catalog-reference-index.csv`。
+- Open `05_plate-text-route-index.csv` second.
+- 第二步打开 `05_plate-text-route-index.csv`。
+- Open `10_source-evidence-dossier.md` third.
+- 第三步打开 `10_source-evidence-dossier.md`。
+- Use `06_plate-text-gallery.md` only after those source checks.
+- 完成上述来源核查后，再使用 `06_plate-text-gallery.md`。
+- Do not assign a formal `obi-*` ID before this order.
+- 完成此顺序前，不要分配正式 `obi-*` 编号。
+
 ## Text And OCR Quality Review / 文本与 OCR 质量复核
 
 - Full text or OCR status: `待查: primary text or OCR route`

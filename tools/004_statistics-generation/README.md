@@ -50,7 +50,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `135_core-corpus-phase-coverage-matrix.csv`.
 - Object-local material coverage:
   `186_character-object-material-coverage-audit.csv`,
-  `188_object-local-material-coverage-audit.csv`.
+  `188_object-local-material-coverage-audit.csv`,
+  `220_object-local-human-research-depth-audit.csv`,
+  `221_object-local-human-research-depth-summary.json`.
 - Project ID route integrity:
   `190_project-id-source-map-audit.csv`.
 - Core phase gap review:
@@ -102,6 +104,7 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Which source lacks checksum, package manifest, field map, or risk note?
 - Which phase is missing, mixed, partial, or waiting for human review?
 - Which object-local material coverage row points to a partial bundle?
+- Which object corpus area still needs human research depth review?
 - Which source-processing pipeline row needs a concrete evidence route?
 - Which phase gap review row opens the most direct next source file?
 - Which human-fillable outcome scaffold is still empty by design?

@@ -764,6 +764,14 @@ OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "189_object-local-material-coverage-summary.json"
 )
+OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "220_object-local-human-research-depth-audit.csv"
+)
+OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY = (
+    "corpus/009_statistics-and-derived-features/"
+    "221_object-local-human-research-depth-summary.json"
+)
 PROJECT_ID_SOURCE_MAP_AUDIT = (
     "corpus/009_statistics-and-derived-features/"
     "190_project-id-source-map-audit.csv"
@@ -1936,6 +1944,8 @@ REQUIRED_PATHS = [
     CHARACTER_OBJECT_MATERIAL_COVERAGE_SUMMARY,
     OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT,
     OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY,
+    OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT,
+    OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY,
     PROJECT_ID_SOURCE_MAP_AUDIT,
     PROJECT_ID_SOURCE_MAP_SUMMARY,
     CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
@@ -4880,6 +4890,142 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY} {key} changed")
     if "formal decipherment research" not in summary.get("completion_boundary", ""):
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY} completion boundary changed")
+    return issues
+
+
+def check_object_local_human_research_depth_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    audit_path = root / OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT
+    summary_path = root / OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY
+    with audit_path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    required_fields = {
+        "depth_audit_id",
+        "corpus_area",
+        "object_count",
+        "human_entry_object_count",
+        "ai_entry_object_count",
+        "complete_bundle_object_count",
+        "representative_human_files_to_open",
+        "required_human_slots",
+        "concrete_depth_questions",
+        "coverage_source_file",
+        "human_first_boundary",
+        "depth_review_status",
+        "claim_boundary",
+    }
+    if len(rows) != 8:
+        issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} row count changed")
+    if rows:
+        missing_fields = required_fields - set(rows[0])
+        if missing_fields:
+            issues.append(
+                f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} missing fields: "
+                f"{', '.join(sorted(missing_fields))}"
+            )
+    expected_area_counts = {
+        "codepoint_crosswalk_candidates": 1588,
+        "collection_object_candidates": 56,
+        "evolution_correspondence_candidates": 13714,
+        "graphemic_component_candidates": 2747,
+        "inscription_crosswalk_candidates": 612,
+        "oracle_character_candidates": 10996,
+        "research_source_objects": 21,
+        "research_topic_candidates": 20,
+    }
+    by_area = {row.get("corpus_area", ""): row for row in rows}
+    if set(by_area) != set(expected_area_counts):
+        issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} corpus areas changed")
+    required_slot_markers = {
+        "oracle_character_candidates": [
+            "glyph_observation",
+            "inscription_context",
+            "decipherment_history",
+            "later_script_routes",
+        ],
+        "inscription_crosswalk_candidates": [
+            "inscription_number",
+            "ocr_or_full_text",
+            "plate_number",
+            "text_quality",
+        ],
+        "graphemic_component_candidates": [
+            "component_boundary",
+            "near_shape",
+            "host_character",
+        ],
+        "evolution_correspondence_candidates": [
+            "bronze_seal_modern_route",
+            "cross_period_comparison",
+        ],
+        "codepoint_crosswalk_candidates": [
+            "source_codepoint",
+            "matched_project_character_route",
+        ],
+        "collection_object_candidates": [
+            "institution",
+            "findspot",
+            "rights_status",
+        ],
+        "research_source_objects": [
+            "checksum",
+            "package_manifest",
+            "field_map",
+            "derived_paths",
+        ],
+        "research_topic_candidates": [
+            "bibliographic_identity",
+            "citation_relation",
+            "different_opinions",
+            "dispute_record",
+        ],
+    }
+    for area, expected_count in expected_area_counts.items():
+        row = by_area.get(area)
+        if row is None:
+            continue
+        row_id = row.get("depth_audit_id", "")
+        if row.get("object_count") != str(expected_count):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} object count changed: {area}")
+        if row.get("human_entry_object_count") != str(expected_count):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} human entry count changed: {area}")
+        if row.get("ai_entry_object_count") != str(expected_count):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} ai entry count changed: {area}")
+        if row.get("complete_bundle_object_count") != str(expected_count):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} bundle count changed: {area}")
+        if not row.get("representative_human_files_to_open", "").startswith("corpus/"):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} missing representative human file: {row_id}")
+        if row.get("coverage_source_file") != OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT:
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} coverage source changed: {row_id}")
+        if row.get("depth_review_status") != "needs_human_research_depth_review":
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} review status changed: {row_id}")
+        if not row.get("human_first_boundary", "").startswith("human dossier first"):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} human-first boundary changed: {row_id}")
+        claim_boundary = row.get("claim_boundary", "")
+        if "not_scholarship" not in claim_boundary or "no_decipherment_claim" not in claim_boundary:
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} claim boundary changed: {row_id}")
+        slots = row.get("required_human_slots", "")
+        for marker in required_slot_markers[area]:
+            if marker not in slots:
+                issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} missing slot {marker}: {row_id}")
+        if "Which " not in row.get("concrete_depth_questions", ""):
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} missing concrete question: {row_id}")
+    expected_summary_values = {
+        "area_count": 8,
+        "object_directory_count": 29754,
+        "human_entry_object_count": 29754,
+        "ai_entry_object_count": 29754,
+        "complete_bundle_object_count": 29754,
+        "partial_or_missing_bundle_count": 0,
+        "parallel_human_directory_count": 0,
+        "depth_review_status_counts": {"needs_human_research_depth_review": 8},
+    }
+    for key, expected in expected_summary_values.items():
+        if summary.get(key) != expected:
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY} {key} changed")
+    if "routes humans to object-local dossiers" not in summary.get("completion_boundary", ""):
+        issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY} completion boundary changed")
     return issues
 
 
@@ -31488,6 +31634,7 @@ def main() -> int:
     issues.extend(check_hust_obc_undeciphered_local_review_sheets(root))
     issues.extend(check_character_object_material_coverage_audit(root))
     issues.extend(check_object_local_material_coverage_audit(root))
+    issues.extend(check_object_local_human_research_depth_audit(root))
     issues.extend(check_source_object_human_material_quality(root))
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_project_registry_readme_human_entry(root))

@@ -1,0 +1,16 @@
+{
+  "area_count": 8,
+  "object_directory_count": 29754,
+  "human_entry_object_count": 29754,
+  "ai_entry_object_count": 29754,
+  "complete_bundle_object_count": 29754,
+  "partial_or_missing_bundle_count": 0,
+  "parallel_human_directory_count": 0,
+  "depth_review_status_counts": {
+    "needs_human_research_depth_review": 8
+  },
+  "human_first_boundary": "human dossier first; structured support files only route reviewers back to object-local evidence",
+  "claim_boundary": "object_local_human_research_depth_audit_not_scholarship;no_identity_claim;no_component_claim;no_evolution_claim;no_decipherment_claim",
+  "completion_boundary": "Depth audit only; it routes humans to object-local dossiers and does not complete formal research, source promotion, or decipherment.",
+  "updated_at": "2026-06-30"
+}

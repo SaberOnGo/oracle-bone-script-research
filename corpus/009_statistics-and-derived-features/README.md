@@ -53,6 +53,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   audits object-local material coverage for human and AI files.
 - `189_object-local-material-coverage-summary.json`
   summarizes object-local coverage counts and boundaries.
+- `220_object-local-human-research-depth-audit.csv`
+  audits human dossier depth slots by object corpus area.
+- `221_object-local-human-research-depth-summary.json`
+  summarizes human-first dossier depth review status.
 - `190_project-id-source-map-audit.csv`
   audits project-local ID to source-reference maps.
 - `191_project-id-source-map-summary.json`
@@ -106,6 +110,10 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `186` to `191` audit object-local material bundles and ID-source maps.
 - Use them to check whether concrete object directories have human entries,
   AI packets, route galleries, source indexes, and no parallel human folders.
+- `220` and `221` audit whether each object corpus area has explicit
+  human research slots to review before formal scholarship starts.
+- These depth audits route reviewers to object-local human dossiers.
+- They do not replace the dossiers, visual galleries, or review sheets.
 
 ### Core Corpus Phase Gap Review / 核心语料阶段缺口复核
 

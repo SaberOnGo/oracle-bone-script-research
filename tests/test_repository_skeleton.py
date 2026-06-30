@@ -34,6 +34,7 @@ from tools.validation.check_repository_skeleton import (
     check_cambridge_hopkins_topic_candidate_local_materials,
     check_character_object_material_coverage_audit,
     check_object_local_material_coverage_audit,
+    check_object_local_human_research_depth_audit,
     check_bronze_seal_modern_readme_human_entry,
     check_excavation_sites_periods_batches_readme_human_entry,
     check_graphemic_components_readme_human_entry,
@@ -1399,6 +1400,20 @@ def load_character_object_material_coverage_audit_module():
 def load_object_local_material_coverage_audit_module():
     path = repo_root() / "tools/004_statistics-generation/build_object_local_material_coverage_audit.py"
     spec = importlib.util.spec_from_file_location("build_object_local_material_coverage_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_object_local_human_research_depth_audit_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/build_object_local_human_research_depth_audit.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_object_local_human_research_depth_audit", path
+    )
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -6305,6 +6320,62 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(all(row["object_dir"].startswith("corpus/") for row in rows))
         self.assertTrue(all(row["source_ids"].startswith("src-") for row in rows))
         self.assertTrue(all("not_scholarship" in row["research_boundary"] for row in rows))
+
+    def test_object_local_human_research_depth_audit_routes_dossier_slots(self) -> None:
+        self.assertEqual(check_object_local_human_research_depth_audit(repo_root()), [])
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "220_object-local-human-research-depth-audit.csv"
+        )
+        summary_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "221_object-local-human-research-depth-summary.json"
+        )
+        with path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(rows), 8)
+        self.assertEqual(summary["object_directory_count"], 29754)
+        self.assertEqual(summary["human_entry_object_count"], 29754)
+        self.assertEqual(summary["ai_entry_object_count"], 29754)
+        self.assertEqual(summary["area_count"], 8)
+        self.assertEqual(summary["partial_or_missing_bundle_count"], 0)
+        self.assertEqual(summary["parallel_human_directory_count"], 0)
+        self.assertEqual(summary["depth_review_status_counts"], {"needs_human_research_depth_review": 8})
+        by_area = {row["corpus_area"]: row for row in rows}
+        self.assertEqual(by_area["oracle_character_candidates"]["object_count"], "10996")
+        self.assertIn("glyph_observation", by_area["oracle_character_candidates"]["required_human_slots"])
+        self.assertIn("inscription_context", by_area["oracle_character_candidates"]["required_human_slots"])
+        self.assertIn("decipherment_history", by_area["oracle_character_candidates"]["required_human_slots"])
+        self.assertIn("04_visual-gallery.md", by_area["oracle_character_candidates"]["representative_human_files_to_open"])
+        self.assertIn(
+            "Which concrete source, plate, or inscription should a human open next?",
+            by_area["oracle_character_candidates"]["concrete_depth_questions"],
+        )
+        self.assertIn("inscription_number", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn("ocr_or_full_text", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn("plate_number", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn("component_boundary", by_area["graphemic_component_candidates"]["required_human_slots"])
+        self.assertIn("near_shape", by_area["graphemic_component_candidates"]["required_human_slots"])
+        self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])
+        self.assertIn("field_map", by_area["research_source_objects"]["required_human_slots"])
+        self.assertIn("citation_relation", by_area["research_topic_candidates"]["required_human_slots"])
+        self.assertTrue(all(row["human_first_boundary"].startswith("human dossier first") for row in rows))
+        self.assertTrue(all(row["claim_boundary"].endswith("no_decipherment_claim") for row in rows))
+
+    def test_object_local_human_research_depth_builder_uses_coverage_audit(self) -> None:
+        module = load_object_local_human_research_depth_audit_module()
+        coverage_rows = module.read_csv_rows(repo_root() / module.COVERAGE_AUDIT)
+        rows = module.build_rows(repo_root(), coverage_rows)
+        summary = module.build_summary(rows)
+        self.assertEqual(len(rows), 8)
+        self.assertEqual(sum(int(row["object_count"]) for row in rows), 29754)
+        self.assertEqual(summary["object_directory_count"], 29754)
+        self.assertTrue(all(row["coverage_source_file"].endswith("188_object-local-material-coverage-audit.csv") for row in rows))
+        self.assertTrue(all("not_scholarship" in row["claim_boundary"] for row in rows))
+        self.assertTrue(all("JSON" not in row["human_first_boundary"] for row in rows))
 
     def test_cambridge_hopkins_topic_materials_builder_keeps_topic_routes_candidate_only(self) -> None:
         module = load_cambridge_hopkins_topic_materials_module()
@@ -23574,7 +23645,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "210")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "212")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(

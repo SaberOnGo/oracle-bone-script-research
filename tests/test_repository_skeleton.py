@@ -4123,6 +4123,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 encoding="utf-8"
             )
             self.assertIn("Human Component Candidate Dossier", dossier_text)
+            self.assertIn("Human Comparison Order", dossier_text)
             self.assertIn("构件候选研究档案", dossier_text)
             self.assertIn("Glyph Image Observation", dossier_text)
             self.assertIn("字形图像观察", dossier_text)
@@ -4152,6 +4153,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn(
                 "Record whether the missing route is image, near-shape, source, or context.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Open `11_human-component-dossier.md` before route tables.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Compare glyph images before graph or CSV routes.",
+                dossier_text,
+            )
+            self.assertIn(
+                "Do not promote graph or visual routes into component assignments.",
                 dossier_text,
             )
             self.assertNotIn(
@@ -4210,6 +4223,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             ).read_text(encoding="utf-8")
             self.assertIn("Component Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
+            self.assertIn("Human Comparison Order", fact_matrix_text)
             self.assertIn("Component Candidate Review Fact Matrix", fact_matrix_text)
             fact_matrix_opening = fact_matrix_text.split(
                 "## Component Candidate Review Fact Matrix", maxsplit=1
@@ -4250,6 +4264,10 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "not a formal component assignment",
                 "not an oracle-character identity",
                 "not a decipherment conclusion",
+                "Open `11_human-component-dossier.md` before route tables.",
+                "Compare glyph images before graph or CSV routes.",
+                "Open `13_component-context-evidence-dossier.md` before context use.",
+                "Do not promote graph or visual routes into component assignments.",
             ]:
                 self.assertIn(snippet, fact_matrix_text)
             self.assertNotIn("not_collected", fact_matrix_text)

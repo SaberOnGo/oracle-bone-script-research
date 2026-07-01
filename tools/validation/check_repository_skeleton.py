@@ -3086,6 +3086,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "Source Evidence And Rights Trail",
                 "Missing Evidence And Next Checks",
                 "Concrete Questions To Check",
+                "Human Comparison Order",
                 "具体待查问题",
                 "not a formal component assignment",
                 "not a decipherment conclusion",
@@ -3093,6 +3094,9 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "Open 09_component-visual-route-index.csv for missing-image routes.",
                 "Open 13_component-context-evidence-dossier.md for character context.",
                 "Record whether the missing route is image, near-shape, source, or context.",
+                "Open `11_human-component-dossier.md` before route tables.",
+                "Compare glyph images before graph or CSV routes.",
+                "Do not promote graph or visual routes into component assignments.",
             ]:
                 if snippet not in dossier_text:
                     issues.append(f"{dossier_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -3140,6 +3144,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             for snippet in [
                 "Component Review Fact Matrix",
                 "Human Review Order",
+                "Human Comparison Order",
                 "Component Candidate Review Fact Matrix",
                 "Component candidate",
                 "Glyph or codepoint route",
@@ -3171,6 +3176,10 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 "not a formal component assignment",
                 "not an oracle-character identity",
                 "not a decipherment conclusion",
+                "Open `11_human-component-dossier.md` before route tables.",
+                "Compare glyph images before graph or CSV routes.",
+                "Open `13_component-context-evidence-dossier.md` before context use.",
+                "Do not promote graph or visual routes into component assignments.",
             ]:
                 if snippet not in fact_matrix_text:
                     issues.append(

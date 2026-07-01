@@ -1032,6 +1032,11 @@ def component_dossier_text(
     question_lines = "\n".join(
         line for item in questions for line in wrapped_bullet(item)
     )
+    comparison_order = "\n".join(
+        line
+        for item in human_component_comparison_order_items()
+        for line in wrapped_bullet(item)
+    )
     lines = [
         (
             "# Human Component Candidate Dossier / "
@@ -1043,6 +1048,10 @@ def component_dossier_text(
         "",
         "\u7b80\u4f53\u4e2d\u6587\uff1a",
         intro_zh,
+        "",
+        "## Human Comparison Order / \u4eba\u5de5\u6bd4\u8f83\u987a\u5e8f",
+        "",
+        comparison_order,
         "",
         "## Candidate Identity / \u5019\u9009\u8eab\u4efd",
         "",
@@ -1134,6 +1143,27 @@ def component_dossier_text(
         boundary,
     ]
     return "\n".join(lines) + "\n"
+
+
+def human_component_comparison_order_items() -> list[str]:
+    return [
+        "Open `11_human-component-dossier.md` before route tables.",
+        "Compare glyph images before graph or CSV routes.",
+        "Open `13_component-context-evidence-dossier.md` before context use.",
+        "Do not promote graph or visual routes into component assignments.",
+        (
+            "\u5148\u6253\u5f00 11_human-component-dossier.md\uff0c"
+            "\u518d\u4f7f\u7528\u8def\u7ebf\u8868\u3002"
+        ),
+        (
+            "\u5148\u6bd4\u8f83\u5b57\u5f62\u56fe\u50cf\uff0c"
+            "\u518d\u67e5\u56fe\u8fb9\u6216 CSV \u8def\u7ebf\u3002"
+        ),
+        (
+            "\u4e0d\u5f97\u628a\u56fe\u8fb9\u6216\u56fe\u50cf\u8def\u7ebf"
+            "\u63d0\u5347\u4e3a\u6784\u4ef6\u5f52\u5c5e\u3002"
+        ),
+    ]
 
 
 def component_dossier_index_payload(
@@ -1495,6 +1525,11 @@ def component_review_fact_matrix_text(
         ]
         for line in wrapped_bullet(item)
     )
+    comparison_order = "\n".join(
+        line
+        for item in human_component_comparison_order_items()
+        for line in wrapped_bullet(item)
+    )
     lines = [
         f"# Component Review Fact Matrix / \u6784\u4ef6\u590d\u6838\u4e8b\u5b9e\u77e9\u9635: {component_id}",
         "",
@@ -1520,6 +1555,10 @@ def component_review_fact_matrix_text(
         "| Fact | Current status | Local evidence to open |",
         "| --- | --- | --- |",
         table,
+        "",
+        "## Human Comparison Order / \u4eba\u5de5\u6bd4\u8f83\u987a\u5e8f",
+        "",
+        comparison_order,
         "",
         "## Concrete Review Questions / \u5177\u4f53\u590d\u6838\u95ee\u9898",
         "",

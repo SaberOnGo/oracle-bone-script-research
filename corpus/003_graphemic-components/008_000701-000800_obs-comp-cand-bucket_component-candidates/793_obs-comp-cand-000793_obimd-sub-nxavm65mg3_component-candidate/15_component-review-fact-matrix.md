@@ -34,6 +34,16 @@ formal component assignment.
 | Missing evidence route | record whether the gap is image, near-shape, source, or context | 08_human-visual-review-sheet.md; 13_component-context-evidence-dossier.md |
 | Review status | needs_human_component_review | 12_component-dossier-index.json; 14_component-context-evidence-index.json |
 
+## Human Comparison Order / 人工比较顺序
+
+- Open `11_human-component-dossier.md` before route tables.
+- Compare glyph images before graph or CSV routes.
+- Open `13_component-context-evidence-dossier.md` before context use.
+- Do not promote graph or visual routes into component assignments.
+- 先打开 11_human-component-dossier.md，再使用路线表。
+- 先比较字形图像，再查图边或 CSV 路线。
+- 不得把图边或图像路线提升为构件归属。
+
 ## Concrete Review Questions / 具体复核问题
 
 - Open the component dossier before using any CSV route.

@@ -9,6 +9,16 @@ verification.
 简体中文：
 本档案汇总构件复核前需要打开的对象内材料：来源编号、本地图像、glyph-codepoint 线索、路线文件、权利证据，以及仍需人工核查的具体问题。
 
+## Human Comparison Order / 人工比较顺序
+
+- Open `11_human-component-dossier.md` before route tables.
+- Compare glyph images before graph or CSV routes.
+- Open `13_component-context-evidence-dossier.md` before context use.
+- Do not promote graph or visual routes into component assignments.
+- 先打开 11_human-component-dossier.md，再使用路线表。
+- 先比较字形图像，再查图边或 CSV 路线。
+- 不得把图边或图像路线提升为构件归属。
+
 ## Candidate Identity / 候选身份
 
 - candidate_component_id: `obs-comp-cand-002553`

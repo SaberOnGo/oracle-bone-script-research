@@ -68,14 +68,14 @@
   },
   "archaeological_folder_coverage": {
     "glyph_images": "available_or_route_indexed",
-    "variant_forms": "not_collected",
-    "later_script_links": "candidate_or_not_collected",
-    "inscription_occurrences": "not_collected",
-    "catalog_and_plate_routes": "not_collected",
-    "findspot_and_collection": "not_collected",
-    "period_and_batch": "not_collected",
+    "variant_forms": "needs_human_variant_review_route",
+    "later_script_links": "candidate_route_needs_human_review",
+    "inscription_occurrences": "needs_inscription_plate_text_review_route",
+    "catalog_and_plate_routes": "needs_catalog_plate_crosswalk_review_route",
+    "findspot_and_collection": "needs_findspot_collection_review_route",
+    "period_and_batch": "needs_period_group_batch_review_route",
     "source_evidence": "available_or_route_indexed",
-    "decipherment_history": "not_collected"
+    "decipherment_history": "needs_bibliography_and_dispute_review_route"
   },
   "claim_boundary": "dossier_index_only_no_decipherment_claim"
 }

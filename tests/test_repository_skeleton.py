@@ -3913,6 +3913,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(index["human_language_coverage"]["simplified_chinese"], "present")
         self.assertIn("glyph_images", index["archaeological_folder_coverage"])
         self.assertIn("decipherment_history", index["archaeological_folder_coverage"])
+        self.assertFalse(
+            any(
+                "not_collected" in value
+                for value in index["archaeological_folder_coverage"].values()
+            )
+        )
+        self.assertEqual(
+            index["archaeological_folder_coverage"]["variant_forms"],
+            "needs_human_variant_review_route",
+        )
+        self.assertEqual(
+            index["archaeological_folder_coverage"]["decipherment_history"],
+            "needs_bibliography_and_dispute_review_route",
+        )
 
     def test_character_human_research_dossier_builder_covers_character_objects(self) -> None:
         module = load_character_human_research_dossiers_module()
@@ -3953,6 +3967,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "inscription_occurrences",
             first["index_data"]["archaeological_folder_coverage"],
+        )
+        self.assertFalse(
+            any(
+                "not_collected" in value
+                for value in first["index_data"]["archaeological_folder_coverage"].values()
+            )
+        )
+        self.assertEqual(
+            first["index_data"]["archaeological_folder_coverage"]["inscription_occurrences"],
+            "needs_inscription_plate_text_review_route",
         )
         for text in [first["dossier_text"], first["review_sheet_text"]]:
             for line in text.splitlines():

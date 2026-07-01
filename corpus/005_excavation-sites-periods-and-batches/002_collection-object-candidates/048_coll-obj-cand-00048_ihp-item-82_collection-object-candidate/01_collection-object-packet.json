@@ -38,7 +38,7 @@
     "source_row_id": "48",
     "updated_at": "2026-06-20"
   },
-  "transcription_status": "not_collected",
+  "transcription_status": "needs_source_page_transcription_review_route",
   "updated_at": "2026-06-20",
   "visual_index": {
     "asset_id": "",

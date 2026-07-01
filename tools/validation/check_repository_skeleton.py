@@ -4118,7 +4118,10 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} object identity status changed")
             if packet.get("inscription_record_status") != "not_promoted_to_formal_inscription_record":
                 issues.append(f"{packet_path.relative_to(root).as_posix()} inscription status changed")
-            if packet.get("transcription_status") != "not_collected":
+            if (
+                packet.get("transcription_status")
+                != "needs_source_page_transcription_review_route"
+            ):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} transcription status changed")
             if "must not be treated as inscription identity" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing collection boundary")

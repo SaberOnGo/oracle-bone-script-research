@@ -5641,6 +5641,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "09_collection-provenance-evidence-index.json").exists())
             self.assertTrue((object_dir / "10_collection-provenance-fact-matrix.md").exists())
             self.assertTrue((object_dir / "11_collection-provenance-fact-matrix-index.json").exists())
+            packet = json.loads(
+                (object_dir / "01_collection-object-packet.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                packet["transcription_status"],
+                "needs_source_page_transcription_review_route",
+            )
+            self.assertNotIn("not_collected", packet["transcription_status"])
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             normalized_readme_text = " ".join(readme_text.split())
             self.assertIn("object-local research entrance", readme_text)
@@ -6013,6 +6023,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("not_collected", first["provenance_evidence_dossier_text"])
         self.assertEqual(first["packet"]["record_type"], "collection_object_candidate")
         self.assertEqual(first["packet"]["object_identity_claim_status"], "not_confirmed")
+        self.assertEqual(
+            first["packet"]["transcription_status"],
+            "needs_source_page_transcription_review_route",
+        )
+        self.assertNotIn("not_collected", first["packet"]["transcription_status"])
         self.assertEqual(first["visual_rows"][0]["visual_entry_type"], "external_thumbnail_url_metadata_only")
         self.assertEqual(smithsonian["visual_rows"][0]["asset_id"], "asset-000003")
         self.assertEqual(penn["visual_rows"][0]["visual_entry_type"], "no_committed_visual_asset")

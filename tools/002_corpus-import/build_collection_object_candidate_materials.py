@@ -331,7 +331,7 @@ def packet_payload(
         "visual_index": visual_row,
         "object_identity_claim_status": "not_confirmed",
         "inscription_record_status": "not_promoted_to_formal_inscription_record",
-        "transcription_status": "not_collected",
+        "transcription_status": "needs_source_page_transcription_review_route",
         "decipherment_status": "not_applicable_preprocessing_only",
         "project_import_status": row["project_import_status"],
         "rights_status": row["rights_status"],

@@ -4774,6 +4774,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn("07_human-inscription-dossier.md", dossier_index["human_readable_files"])
             self.assertIn("linked_character_occurrences", dossier_index["uncollected_human_research_fields"])
+            self.assertEqual(
+                dossier_index["image_evidence_status"],
+                "needs_plate_image_or_rubbing_review_route",
+            )
+            self.assertEqual(
+                dossier_index["text_transcription_status"],
+                "needs_primary_text_or_ocr_review_route",
+            )
+            self.assertNotIn("not_collected", dossier_index["image_evidence_status"])
+            self.assertNotIn("not_collected", dossier_index["text_transcription_status"])
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         unresolved_dir = (
@@ -4839,7 +4849,20 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertLessEqual(len(line), 80, line)
         self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
-        self.assertEqual(first["packet"]["image_evidence_status"], "route_indexed_not_collected")
+        self.assertEqual(
+            first["packet"]["image_evidence_status"],
+            "needs_plate_image_or_rubbing_review_route",
+        )
+        self.assertEqual(
+            first["packet"]["text_transcription_status"],
+            "needs_primary_text_or_ocr_review_route",
+        )
+        self.assertEqual(
+            first["packet"]["collection_object_match_status"],
+            "needs_collection_object_review_route",
+        )
+        self.assertNotIn("not_collected", first["dossier_index"]["image_evidence_status"])
+        self.assertNotIn("not_collected", first["dossier_index"]["text_transcription_status"])
         self.assertIn("Human Inscription Dossier", first["human_dossier_text"])
         self.assertIn("Concrete Questions To Check", first["human_dossier_text"])
         self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", first["human_dossier_text"])

@@ -3282,10 +3282,21 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{packet_path.relative_to(root).as_posix()} review_status changed")
             if packet.get("formal_inscription_assignment_status") != "not_assigned_formal_obi_id":
                 issues.append(f"{packet_path.relative_to(root).as_posix()} formal assignment status changed")
-            if packet.get("image_evidence_status") != "route_indexed_not_collected":
+            if (
+                packet.get("image_evidence_status")
+                != "needs_plate_image_or_rubbing_review_route"
+            ):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} image evidence status changed")
-            if packet.get("text_transcription_status") != "route_indexed_not_collected":
+            if (
+                packet.get("text_transcription_status")
+                != "needs_primary_text_or_ocr_review_route"
+            ):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} text evidence status changed")
+            if (
+                packet.get("collection_object_match_status")
+                != "needs_collection_object_review_route"
+            ):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} collection object status changed")
             if len(packet.get("plate_and_text_evidence_routes", [])) != 5:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} plate/text route count changed")
             if "not a formal obi-* inscription record" not in packet.get("caution", ""):
@@ -3396,6 +3407,16 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
             if "11_inscription-review-fact-matrix.md" not in dossier_index.get("human_readable_files", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing fact matrix link")
+            if (
+                dossier_index.get("image_evidence_status")
+                != "needs_plate_image_or_rubbing_review_route"
+            ):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} image evidence status changed")
+            if (
+                dossier_index.get("text_transcription_status")
+                != "needs_primary_text_or_ocr_review_route"
+            ):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} text evidence status changed")
             if "linked_character_occurrences" not in dossier_index.get("uncollected_human_research_fields", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing linked character gap")
         if path_exists(plate_evidence_path):

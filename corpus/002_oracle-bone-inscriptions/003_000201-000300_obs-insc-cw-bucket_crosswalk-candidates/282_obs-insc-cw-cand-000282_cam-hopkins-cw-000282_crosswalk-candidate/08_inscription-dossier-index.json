@@ -21,7 +21,7 @@
     "11_inscription-review-fact-matrix.md"
   ],
   "human_review_status": "needs_human_inscription_crosswalk_review",
-  "image_evidence_status": "route_indexed_not_collected",
+  "image_evidence_status": "needs_plate_image_or_rubbing_review_route",
   "missing_reference_types": [
     "chalfant",
     "heji"
@@ -30,7 +30,7 @@
   "project_id": "obs-insc-cw-cand-000282",
   "record_type": "inscription_crosswalk_candidate_dossier_index",
   "research_boundary": "object_local_cambridge_hopkins_inscription_crosswalk_candidate_not_scholarship",
-  "text_transcription_status": "route_indexed_not_collected",
+  "text_transcription_status": "needs_primary_text_or_ocr_review_route",
   "uncollected_human_research_fields": [
     "excavation_site",
     "collection_object_record",

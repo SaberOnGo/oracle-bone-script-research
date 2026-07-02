@@ -7126,16 +7126,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("CSV", source_fact_opening)
         self.assertNotIn("JSON", source_fact_opening)
         for required_fact in (
-            "Source identity",
-            "Access or download record",
-            "Checksum evidence",
-            "File size evidence",
-            "Rights status",
-            "Risk note",
-            "Package manifest",
-            "Field map",
-            "Derived paths",
-            "Review status",
+            "Source identity / 来源身份",
+            "Access or download record / 访问或下载记录",
+            "Checksum evidence / 校验和证据",
+            "File size evidence / 文件大小证据",
+            "Rights status / 权利状态",
+            "Risk note / 风险提示",
+            "Package manifest / 来源包清单",
+            "Field map / 字段映射",
+            "Derived paths / 派生路径",
+            "Review status / 复核状态",
         ):
             self.assertIn(required_fact, fact_matrix_text)
         for local_anchor in (

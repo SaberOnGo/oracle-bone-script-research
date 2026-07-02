@@ -23,51 +23,51 @@ before any source material is reused.
 
 ## Provenance Fact Matrix / 出处事实矩阵
 
-### Fact 01: Source identity
+### Fact 01: Source identity / 来源身份
 - Status / 状态: present
 - Evidence files / 证据文件: 01_source-packet.json; 10_source-evidence-dossier.md
 - Next check / 下一步核查: Check source_id, title, provider, URL, scope, and
   authority tier.
 
-### Fact 02: Access or download record
+### Fact 02: Access or download record / 访问或下载记录
 - Status / 状态: present
 - Evidence files / 证据文件: 02_download-route-index.csv
 - Next check / 下一步核查: Check URL, access status, HTTP status, and local route
   notes.
 
-### Fact 03: Checksum evidence
+### Fact 03: Checksum evidence / 校验和证据
 - Status / 状态: present
 - Evidence files / 证据文件: 02_download-route-index.csv
 - Next check / 下一步核查: Confirm SHA-256 rows before reusing any downloaded file.
 
-### Fact 04: File size evidence
+### Fact 04: File size evidence / 文件大小证据
 - Status / 状态: present
 - Evidence files / 证据文件: 02_download-route-index.csv; 03_package-route-index.csv
 - Next check / 下一步核查: Compare download sizes with package manifest file sizes.
 
-### Fact 05: Rights status
+### Fact 05: Rights status / 权利状态
 - Status / 状态: present
 - Evidence files / 证据文件: 01_source-packet.json; 03_package-route-index.csv
 - Next check / 下一步核查: Treat rights status as a review note, not a license grant.
 
-### Fact 06: Risk note
+### Fact 06: Risk note / 风险提示
 - Status / 状态: present
 - Evidence files / 证据文件: 01_source-packet.json; 07_material-access-index.md
 - Next check / 下一步核查: Keep the visible risk note beside any future derivative.
 
-### Fact 07: Package manifest
+### Fact 07: Package manifest / 来源包清单
 - Status / 状态: present
 - Evidence files / 证据文件: 03_package-route-index.csv
 - Next check / 下一步核查: Open package rows before treating files as reusable
   derivatives.
 
-### Fact 08: Field map
+### Fact 08: Field map / 字段映射
 - Status / 状态: present
 - Evidence files / 证据文件: 04_field-map-route-index.csv
 - Next check / 下一步核查: Review source fields before moving data into corpus
   objects.
 
-### Fact 09: Derived paths
+### Fact 09: Derived paths / 派生路径
 - Status / 状态: present
 - Evidence files / 证据文件: 06_human-source-review-sheet.md;
   07_material-access-index.md; 08_source-processing-status.md;
@@ -75,7 +75,7 @@ before any source material is reused.
 - Next check / 下一步核查: Open human files first, then use structured support
   indexes only as routes.
 
-### Fact 10: Review status
+### Fact 10: Review status / 复核状态
 - Status / 状态: present
 - Evidence files / 证据文件: 01_source-packet.json; 08_source-processing-status.md
 - Next check / 下一步核查: Record unresolved items as concrete human follow-up

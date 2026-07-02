@@ -234,6 +234,8 @@ def source_packet(
             "11_source-evidence-dossier-index.json",
             "12_source-provenance-fact-matrix.md",
             "13_source-provenance-fact-matrix-index.json",
+            "14_source-to-dossier-transfer-review.md",
+            "15_source-to-dossier-transfer-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -383,6 +385,7 @@ def source_evidence_dossier_index_payload(
             "08_source-processing-status.md",
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
+            "14_source-to-dossier-transfer-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -393,6 +396,7 @@ def source_evidence_dossier_index_payload(
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
             "13_source-provenance-fact-matrix-index.json",
+            "15_source-to-dossier-transfer-index.json",
         ],
         "source_route_files": [
             SOURCE_INDEX.as_posix(),
@@ -548,6 +552,216 @@ def source_provenance_fact_matrix_index_payload(
             "no reading",
             "no component assignment",
             "no inscription identity",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_source_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+TRANSFER_SLOTS = [
+    {
+        "slot": "character_dossier_transfer",
+        "target": "corpus/001_oracle-characters/",
+        "human_heading": "Character dossier transfer",
+        "source_evidence": (
+            "glyph images, rubbings, photographs, variant notes, near-form "
+            "routes, component clues, and source labels"
+        ),
+        "next_check": (
+            "Open character folders only after image rights, source identity, "
+            "and candidate-status wording are checked."
+        ),
+    },
+    {
+        "slot": "inscription_plate_transfer",
+        "target": "corpus/002_oracle-bone-inscriptions/",
+        "human_heading": "Inscription and plate transfer",
+        "source_evidence": (
+            "inscription text, OCR, plate number, catalog number, page, Heji "
+            "or OBM route, text quality, and image path"
+        ),
+        "next_check": (
+            "Keep inscription identity and text readings pending until a "
+            "reviewer checks the source record and plate evidence."
+        ),
+    },
+    {
+        "slot": "collection_findspot_transfer",
+        "target": "corpus/005_excavation-sites-periods-and-batches/",
+        "human_heading": "Collection and findspot transfer",
+        "source_evidence": (
+            "museum object, collection, findspot, period, group, batch, "
+            "excavation note, and catalog provenance"
+        ),
+        "next_check": (
+            "Record each missing archaeology field as a concrete source "
+            "question before using it for context."
+        ),
+    },
+    {
+        "slot": "later_form_relation_transfer",
+        "target": "corpus/004_bronze-seal-modern-correspondences/",
+        "human_heading": "Later-form and relation transfer",
+        "source_evidence": (
+            "variant, near-form, component, bronze-script, seal-script, "
+            "modern-character, and evolution routes"
+        ),
+        "next_check": (
+            "Treat every relation as candidate comparison evidence, not an "
+            "accepted paleographic correspondence."
+        ),
+    },
+    {
+        "slot": "bibliography_dispute_transfer",
+        "target": "research/",
+        "human_heading": "Bibliography and dispute transfer",
+        "source_evidence": (
+            "book, paper, web page, database note, citation relation, proposer, "
+            "editor, evidence level, disagreement, and dispute"
+        ),
+        "next_check": (
+            "Move nothing into research notes until the bibliography route and "
+            "claim boundary are reviewed."
+        ),
+    },
+    {
+        "slot": "rights_public_derivative_transfer",
+        "target": "object-local human dossier",
+        "human_heading": "Rights and public derivative transfer",
+        "source_evidence": (
+            "rights status, risk note, checksum, file size, package manifest, "
+            "commit policy, and derived path"
+        ),
+        "next_check": (
+            "Keep raw files local or metadata-only when rights, size, or "
+            "redistribution risk is unresolved."
+        ),
+    },
+]
+
+
+def source_to_dossier_transfer_review_text(source: dict[str, str]) -> str:
+    lines = [
+        "# Source-To-Dossier Transfer Review / 来源进入档案复核表",
+        "",
+        "## English",
+        *wrapped(
+            "This human worksheet decides how evidence from this source may "
+            "enter concrete character, inscription, plate, collection, later-"
+            "form, and bibliography dossiers. It is a review map, not an "
+            "import approval or scholarship conclusion."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本表用于人工判断本来源的证据如何进入具体单字、卜辞、图版、馆藏、"
+            "后世字形和文献档案。它只是复核地图，不是导入批准，也不是学术结论。"
+        ),
+        "",
+        "## Human Transfer Order / 人工转入顺序",
+        "- Open `10_source-evidence-dossier.md` and",
+        "  `12_source-provenance-fact-matrix.md`.",
+        "- Check route CSV files only as supporting evidence.",
+        "- Decide the target object directory before deriving any record.",
+        "- Record missing evidence as a concrete question in the target dossier.",
+        "- Keep every unresolved reading, relation, and dispute as pending.",
+        "- 先读来源证据档案和来源事实矩阵。",
+        "- 结构化 CSV/JSON 只作为辅助路线。",
+        "- 先确定目标对象目录，再生成派生记录。",
+        "- 缺失证据必须写成目标档案中的具体待查问题。",
+        "- 未复核释读、关系和争议都保持待查状态。",
+        "",
+        "## Source / 来源",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Title / 标题", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        "",
+        "## Transfer Slots / 转入复核槽位",
+    ]
+    for index, slot in enumerate(TRANSFER_SLOTS, start=1):
+        lines.extend(
+            [
+                "",
+                f"### {index:02d}. {slot['human_heading']}",
+                *bullet("Target / 目标目录", slot["target"]),
+                *bullet("Source evidence / 来源证据", slot["source_evidence"]),
+                *bullet("Next check / 下一步核查", slot["next_check"]),
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Concrete Questions To Carry Forward / 需带入目标档案的问题",
+            "- Which visible image, rubbing, plate, or catalog image can be cited?",
+            "- Which inscription text, OCR, catalog number, page, or Heji route",
+            "  applies?",
+            "- Which findspot, collection, period, group, or batch remains missing?",
+            "- Which variant, component, later-form, or evolution route is only",
+            "  candidate?",
+            "- Which bibliography, proposer, disagreement, or dispute must be opened?",
+            "- Which rights, checksum, size, or commit-policy issue blocks",
+            "  promotion?",
+            "- 哪个字形图像、拓片、图版或著录图像可以引用？",
+            "- 哪条卜辞全文、OCR、著录号、页码或合集路线适用？",
+            "- 哪个出土地、馆藏、时期、组类或批次仍然缺失？",
+            "- 哪条异体、构件、后世字形或演化路线仍只是候选？",
+            "- 哪条文献、提出者、不同意见或争议必须先打开？",
+            "- 哪个权利、checksum、大小或提交策略问题阻止公开提升？",
+            "",
+            "## Boundary / 边界",
+            "- not a rights decision",
+            "- not corpus import approval",
+            "- not a confirmed source promotion",
+            "- not an accepted reading",
+            "- not a component assignment",
+            "- not an inscription identity",
+            "- not a correspondence conclusion",
+            "- not a decipherment conclusion",
+            "- 不是权利结论",
+            "- 不是语料导入批准",
+            "- 不是来源提升结论",
+            "- 不是已接受释读",
+            "- 不是构件归属",
+            "- 不是卜辞身份确认",
+            "- 不是字形对应结论",
+            "- 不是破译结论",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str, object]:
+    return {
+        "record_type": "source_to_dossier_transfer_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "human_readable_files": [
+            "14_source-to-dossier-transfer-review.md",
+            "10_source-evidence-dossier.md",
+            "12_source-provenance-fact-matrix.md",
+            "06_human-source-review-sheet.md",
+        ],
+        "ai_support_files": [
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "05_metadata-profile-route-index.csv",
+            "11_source-evidence-dossier-index.json",
+        ],
+        "transfer_slots": [slot["slot"] for slot in TRANSFER_SLOTS],
+        "target_routes": [slot["target"] for slot in TRANSFER_SLOTS],
+        "claim_boundary": [
+            "no rights decision",
+            "no corpus import approval",
+            "no confirmed source promotion",
+            "no accepted reading",
+            "no component assignment",
+            "no inscription identity",
+            "no correspondence conclusion",
             "no decipherment conclusion",
         ],
         "review_status": "needs_human_source_review",
@@ -1549,6 +1763,15 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             object_dir / "13_source-provenance-fact-matrix-index.json",
             source_provenance_fact_matrix_index_payload(source, fact_rows),
+        )
+        write_human_markdown(
+            object_dir / "14_source-to-dossier-transfer-review.md",
+            f"{source_id}/14_source-to-dossier-transfer-review.md",
+            source_to_dossier_transfer_review_text(source),
+        )
+        write_json(
+            object_dir / "15_source-to-dossier-transfer-index.json",
+            source_to_dossier_transfer_index_payload(source),
         )
     return {"source_object_count": len(sources)}
 

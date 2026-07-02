@@ -1,0 +1,47 @@
+{
+  "record_type": "source_to_dossier_transfer_index",
+  "source_id": "src-smithsonian-nmaa-oracle-bone",
+  "source_title": "Smithsonian National Museum of Asian Art oracle bone object records",
+  "human_readable_files": [
+    "14_source-to-dossier-transfer-review.md",
+    "10_source-evidence-dossier.md",
+    "12_source-provenance-fact-matrix.md",
+    "06_human-source-review-sheet.md"
+  ],
+  "ai_support_files": [
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "11_source-evidence-dossier-index.json"
+  ],
+  "transfer_slots": [
+    "character_dossier_transfer",
+    "inscription_plate_transfer",
+    "collection_findspot_transfer",
+    "later_form_relation_transfer",
+    "bibliography_dispute_transfer",
+    "rights_public_derivative_transfer"
+  ],
+  "target_routes": [
+    "corpus/001_oracle-characters/",
+    "corpus/002_oracle-bone-inscriptions/",
+    "corpus/005_excavation-sites-periods-and-batches/",
+    "corpus/004_bronze-seal-modern-correspondences/",
+    "research/",
+    "object-local human dossier"
+  ],
+  "claim_boundary": [
+    "no rights decision",
+    "no corpus import approval",
+    "no confirmed source promotion",
+    "no accepted reading",
+    "no component assignment",
+    "no inscription identity",
+    "no correspondence conclusion",
+    "no decipherment conclusion"
+  ],
+  "review_status": "needs_human_source_review",
+  "updated_at": "2026-06-21"
+}

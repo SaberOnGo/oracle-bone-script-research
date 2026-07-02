@@ -5256,6 +5256,20 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "not corpus import approval",
         "not a decipherment conclusion",
     ]
+    required_files["14_source-to-dossier-transfer-review.md"] = [
+        "Source-To-Dossier Transfer Review",
+        "Human Transfer Order",
+        "Character dossier transfer",
+        "Inscription and plate transfer",
+        "Collection and findspot transfer",
+        "Bibliography and dispute transfer",
+        "Rights and public derivative transfer",
+        "corpus/001_oracle-characters/",
+        "corpus/002_oracle-bone-inscriptions/",
+        "corpus/005_excavation-sites-periods-and-batches/",
+        "research/",
+        "not a decipherment conclusion",
+    ]
     source_pending_anchors = (
         "02_download-route-index.csv",
         "03_package-route-index.csv",
@@ -5358,6 +5372,32 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{fact_matrix_index_path.relative_to(root)} missing source packet link")
         if "no rights decision" not in fact_matrix_index.get("claim_boundary", []):
             issues.append(f"{fact_matrix_index_path.relative_to(root)} missing rights boundary")
+        transfer_index_path = object_dir / "15_source-to-dossier-transfer-index.json"
+        if not transfer_index_path.is_file():
+            issues.append(f"{object_dir.name} missing 15_source-to-dossier-transfer-index.json")
+            continue
+        try:
+            transfer_index = json.loads(transfer_index_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            issues.append(f"{transfer_index_path.relative_to(root)} invalid JSON: {exc}")
+            continue
+        if transfer_index.get("record_type") != "source_to_dossier_transfer_index":
+            issues.append(f"{transfer_index_path.relative_to(root)} record_type changed")
+        if "14_source-to-dossier-transfer-review.md" not in transfer_index.get("human_readable_files", []):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing transfer review link")
+        if "10_source-evidence-dossier.md" not in transfer_index.get("human_readable_files", []):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing evidence dossier link")
+        if "01_source-packet.json" not in transfer_index.get("ai_support_files", []):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing source packet link")
+        expected_transfer_slots = {
+            "character_dossier_transfer",
+            "inscription_plate_transfer",
+            "bibliography_dispute_transfer",
+        }
+        if not expected_transfer_slots.issubset(set(transfer_index.get("transfer_slots", []))):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing transfer slots")
+        if "no decipherment conclusion" not in transfer_index.get("claim_boundary", []):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing decipherment boundary")
     return issues
 
 
@@ -13917,7 +13957,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 128",
-        "source register files: 309",
+        "source register files: 351",
         "bibliographic identity",
         "source trail",
         "scope",

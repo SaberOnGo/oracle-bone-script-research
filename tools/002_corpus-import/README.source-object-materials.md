@@ -35,6 +35,8 @@ Each concrete source object directory contains:
 - `11_source-evidence-dossier-index.json`: structured dossier index.
 - `12_source-provenance-fact-matrix.md`: human-readable provenance fact matrix.
 - `13_source-provenance-fact-matrix-index.json`: structured matrix index.
+- `14_source-to-dossier-transfer-review.md`: human-readable transfer review.
+- `15_source-to-dossier-transfer-index.json`: structured transfer index.
 
 ## Human Reading Rules / 人类阅读规则
 

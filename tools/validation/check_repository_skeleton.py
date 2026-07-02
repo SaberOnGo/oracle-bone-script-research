@@ -31813,6 +31813,8 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         "07_codepoint-crosswalk-dossier-index.json",
         "08_codepoint-crosswalk-fact-matrix.md",
         "09_codepoint-crosswalk-fact-matrix-index.json",
+        "10_cross-source-conflict-review.md",
+        "11_cross-source-conflict-index.json",
     }
     by_project = {row.get("project_id", ""): row for row in map_rows}
     for expected_id in ["obs-xwalk-cand-000001", "obs-xwalk-cand-000047", "obs-xwalk-cand-001588"]:
@@ -31855,12 +31857,16 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         ).read_text(encoding="utf-8")
         dossier = (object_dir / "06_human-codepoint-crosswalk-dossier.md").read_text(encoding="utf-8")
         fact_matrix = (object_dir / "08_codepoint-crosswalk-fact-matrix.md").read_text(encoding="utf-8")
+        conflict_review = (object_dir / "10_cross-source-conflict-review.md").read_text(
+            encoding="utf-8"
+        )
         for text_name, text in {
             "README.md": readme,
             "04_human-codepoint-crosswalk-review-sheet.md": review_sheet,
             "05_codepoint-crosswalk-route-gallery.md": route_gallery,
             "06_human-codepoint-crosswalk-dossier.md": dossier,
             "08_codepoint-crosswalk-fact-matrix.md": fact_matrix,
+            "10_cross-source-conflict-review.md": conflict_review,
         }.items():
             if "not_collected" in text or "not collected" in text.lower():
                 issues.append(f"{expected_id} {text_name} contains machine filler")
@@ -31887,6 +31893,7 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         for marker in [
             "object-local research entrance",
             "Concrete Questions To Check",
+            "10_cross-source-conflict-review.md",
         ]:
             if marker not in readme:
                 issues.append(f"{expected_id} README missing {marker}")
@@ -31923,6 +31930,40 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         ]:
             if marker not in dossier:
                 issues.append(f"{expected_id} dossier missing {marker}")
+            if marker not in conflict_review:
+                issues.append(f"{expected_id} conflict review missing {marker}")
+        for marker in [
+            "Cross-Source Conflict Review",
+            "source disagreement must be recorded",
+            "HUST label",
+            "OBIMD match rows",
+            "EVOBC match rows",
+            "Codepoint agreement is a lookup clue only.",
+            "No source match may be promoted into identity here.",
+            "Which source ids agree only by codepoint?",
+            "Which sources are absent for this candidate?",
+            "Which bibliography or plate route can test the disagreement?",
+        ]:
+            if marker not in conflict_review:
+                issues.append(f"{expected_id} conflict review missing {marker}")
+        conflict_index = json.loads(
+            (object_dir / "11_cross-source-conflict-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        if conflict_index.get("project_id") != expected_id:
+            issues.append(f"{expected_id} conflict index project_id changed")
+        if (
+            conflict_index.get("record_type")
+            != "codepoint_crosswalk_conflict_review_index"
+        ):
+            issues.append(f"{expected_id} conflict index record_type changed")
+        if conflict_index.get("human_readable_files") != [
+            "10_cross-source-conflict-review.md"
+        ]:
+            issues.append(f"{expected_id} conflict index human file list changed")
+        if "no identity claim" not in conflict_index.get("claim_boundary", ""):
+            issues.append(f"{expected_id} conflict index missing no identity boundary")
     return issues
 
 

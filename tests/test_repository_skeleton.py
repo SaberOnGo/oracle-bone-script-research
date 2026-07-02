@@ -6545,7 +6545,10 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "06_human-codepoint-crosswalk-dossier.md",
                 "07_codepoint-crosswalk-dossier-index.json",
                 "08_codepoint-crosswalk-fact-matrix.md",
+                "10_cross-source-conflict-review.md",
                 "09_codepoint-crosswalk-fact-matrix-index.json",
+                "10_cross-source-conflict-review.md",
+                "11_cross-source-conflict-index.json",
             ]
             for filename in required_files:
                 self.assertTrue(path_exists(object_dir / filename), f"{project_id} {filename}")
@@ -6555,6 +6558,9 @@ class RepositorySkeletonTests(unittest.TestCase):
                 encoding="utf-8"
             )
             dossier_text = (object_dir / "06_human-codepoint-crosswalk-dossier.md").read_text(
+                encoding="utf-8"
+            )
+            conflict_review_text = (object_dir / "10_cross-source-conflict-review.md").read_text(
                 encoding="utf-8"
             )
             human_texts = {
@@ -6567,6 +6573,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 ).read_text(encoding="utf-8"),
                 "06_human-codepoint-crosswalk-dossier.md": dossier_text,
                 "08_codepoint-crosswalk-fact-matrix.md": fact_matrix_text,
+                "10_cross-source-conflict-review.md": conflict_review_text,
             }
             for filename, text in human_texts.items():
                 self.assertNotIn("not_collected", text)
@@ -6648,6 +6655,37 @@ class RepositorySkeletonTests(unittest.TestCase):
             ]:
                 self.assertIn(marker, dossier_text)
                 self.assertIn(marker, fact_matrix_text)
+                self.assertIn(marker, conflict_review_text)
+
+            for marker in [
+                "Cross-Source Conflict Review",
+                "source disagreement must be recorded",
+                "HUST label",
+                "OBIMD match rows",
+                "EVOBC match rows",
+                "Codepoint agreement is a lookup clue only.",
+                "No source match may be promoted into identity here.",
+                "Which source ids agree only by codepoint?",
+                "Which sources are absent for this candidate?",
+                "Which bibliography or plate route can test the disagreement?",
+            ]:
+                self.assertIn(marker, conflict_review_text)
+
+            conflict_index = json.loads(
+                (object_dir / "11_cross-source-conflict-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(conflict_index["project_id"], project_id)
+            self.assertEqual(
+                conflict_index["record_type"],
+                "codepoint_crosswalk_conflict_review_index",
+            )
+            self.assertEqual(
+                conflict_index["human_readable_files"],
+                ["10_cross-source-conflict-review.md"],
+            )
+            self.assertIn("no identity claim", conflict_index["claim_boundary"])
 
             packet = json.loads((object_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8"))
             self.assertEqual(packet["project_id"], project_id)
@@ -6696,10 +6734,22 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("| Route | File | Human action |", first["route_gallery_text"])
         self.assertIn("Human Comparison Order", first["dossier_text"])
         self.assertIn("Human Comparison Order", first["fact_matrix_text"])
+        self.assertIn("Cross-Source Conflict Review", first["conflict_review_text"])
+        self.assertIn("OBIMD match rows", first["conflict_review_text"])
+        self.assertIn("EVOBC match rows", first["conflict_review_text"])
+        self.assertIn(
+            "No source match may be promoted into identity here.",
+            first["conflict_review_text"],
+        )
         self.assertIn("Open the matched oracle-character human dossier first.", first["dossier_text"])
         self.assertIn("Do not promote this codepoint route into identity.", first["fact_matrix_text"])
         self.assertIn("not identity", first["fact_matrix_text"])
         self.assertNotIn("not_collected", first["dossier_text"])
+        self.assertNotIn("not_collected", first["conflict_review_text"])
+        self.assertEqual(
+            first["conflict_index"]["record_type"],
+            "codepoint_crosswalk_conflict_review_index",
+        )
         self.assertEqual(three_source["packet"]["matched_source_ids"], ["src-hust-obc", "src-obimd", "src-evobc"])
         self.assertIn("OBIMD route", three_source["fact_matrix_text"])
         self.assertIn("OBIMD 路线", three_source["fact_matrix_text"])

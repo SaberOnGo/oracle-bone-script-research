@@ -1,0 +1,21 @@
+{
+  "project_id": "obs-xwalk-cand-001578",
+  "record_type": "codepoint_crosswalk_conflict_review_index",
+  "crosswalk_candidate_id": "hust-obimd-evobc-xwalk-001578",
+  "human_readable_files": [
+    "10_cross-source-conflict-review.md"
+  ],
+  "ai_support_files": [
+    "11_cross-source-conflict-index.json"
+  ],
+  "source_ids": [
+    "src-hust-obc"
+  ],
+  "absent_source_ids": [
+    "src-obimd",
+    "src-evobc"
+  ],
+  "claim_boundary": "cross-source conflict review only; no identity claim, no reading, no component, no evolution, and no decipherment conclusion",
+  "review_status": "needs_cross_source_review",
+  "updated_at": "2026-06-28"
+}

@@ -250,6 +250,7 @@ def build_packet(
             "05_codepoint-crosswalk-route-gallery.md",
             "06_human-codepoint-crosswalk-dossier.md",
             "08_codepoint-crosswalk-fact-matrix.md",
+            "10_cross-source-conflict-review.md",
         ],
         "local_ai_support_files": [
             "01_codepoint-crosswalk-packet.json",
@@ -257,6 +258,7 @@ def build_packet(
             "03_codepoint-crosswalk-route-index.csv",
             "07_codepoint-crosswalk-dossier-index.json",
             "09_codepoint-crosswalk-fact-matrix-index.json",
+            "11_cross-source-conflict-index.json",
         ],
         "research_boundary": RESEARCH_BOUNDARY,
         "caution": CAUTION,
@@ -476,6 +478,7 @@ def render_readme(project_id: str, row: dict[str, str]) -> str:
         bullet("05_codepoint-crosswalk-route-gallery.md"),
         bullet("06_human-codepoint-crosswalk-dossier.md"),
         bullet("08_codepoint-crosswalk-fact-matrix.md"),
+        bullet("10_cross-source-conflict-review.md"),
         "",
         "## AI Support Files / AI 辅助文件",
         "",
@@ -484,6 +487,7 @@ def render_readme(project_id: str, row: dict[str, str]) -> str:
         bullet("03_codepoint-crosswalk-route-index.csv"),
         bullet("07_codepoint-crosswalk-dossier-index.json"),
         bullet("09_codepoint-crosswalk-fact-matrix-index.json"),
+        bullet("11_cross-source-conflict-index.json"),
         "",
         "## Concrete Questions To Check / 具体待查问题",
         "",
@@ -698,6 +702,100 @@ def render_fact_matrix(
     return text
 
 
+def source_presence_table(row: dict[str, str]) -> str:
+    matched_ids = matched_source_ids(row)
+    rows = [
+        "| Source id | Evidence route | Human conflict question |",
+        "|---|---|---|",
+        (
+            f"| src-hust-obc | `{row['hust_primary_external_ref_id']}` | "
+            "Does the label match a visible glyph source? |"
+        ),
+        (
+            f"| src-obimd | `{row.get('obimd_primary_external_ref_ids') or 'absent in match set'}` | "
+            f"Are {row['obimd_match_count']} match rows independent evidence? |"
+        ),
+        (
+            f"| src-evobc | `{row.get('evobc_primary_external_ref_ids') or 'absent in match set'}` | "
+            f"Are {row['evobc_match_count']} evolution rows only codepoint clues? |"
+        ),
+        (
+            f"| matched_source_ids | `{';'.join(matched_ids)}` | "
+            "Which source ids agree only by codepoint? |"
+        ),
+    ]
+    return "\n".join(rows)
+
+
+def render_conflict_review(project_id: str, row: dict[str, str]) -> str:
+    absent_sources = [
+        source_id
+        for source_id in ["src-obimd", "src-evobc"]
+        if source_id not in matched_source_ids(row)
+    ]
+    absent_source_text = "; ".join(absent_sources) if absent_sources else "none"
+    lines = [
+        f"# {project_id} Cross-Source Conflict Review",
+        "",
+        "## Review Purpose / 复核目的",
+        "",
+        paragraph(
+            "This human review sheet turns cross-source codepoint agreement "
+            "and disagreement into explicit questions. Any source "
+            "disagreement must be recorded before this route can support "
+            "a stronger object review."
+        ),
+        "",
+        bullet("Codepoint agreement is a lookup clue only."),
+        bullet("source disagreement must be recorded."),
+        bullet("No source match may be promoted into identity here."),
+        bullet("No reading, component, evolution, or decipherment claim is made."),
+        "",
+        "## Candidate Source State / 候选来源状态",
+        "",
+        source_presence_table(row),
+        "",
+        "## Source Notes To Compare / 需比对的来源说明",
+        "",
+        bullet(f"HUST label: {row['hust_label_candidate']}"),
+        bullet(f"HUST label codepoints: {row['hust_label_codepoints']}"),
+        bullet(f"OBIMD match rows: {row['obimd_match_count']}"),
+        bullet(f"EVOBC match rows: {row['evobc_match_count']}"),
+        bullet(f"Absent source ids for this candidate: {absent_source_text}"),
+        bullet(f"Current cross-source status: {row['cross_source_status']}"),
+        "",
+        "## Research Slots To Open / 需打开的研究项",
+        "",
+        bullet("Glyph image, rubbing, photograph, and visual observation notes."),
+        bullet("Inscription text, OCR, plate, catalog, and collection records."),
+        bullet("Findspot, collection, period, batch, and group evidence."),
+        bullet("Variant, near-form, component, and relation comparison notes."),
+        bullet("Reading history, proposer, bibliography, and dispute records."),
+        bullet("Bronze, seal, modern-form, and evolution comparison materials."),
+        "",
+        "## Concrete Conflict Questions / 具体冲突待查问题",
+        "",
+        bullet("Which source ids agree only by codepoint?"),
+        bullet("Which sources are absent for this candidate?"),
+        bullet("Which bibliography or plate route can test the disagreement?"),
+        bullet("Does any source cite a visible glyph, rubbing, or photograph?"),
+        bullet("Does any source provide proposer, period, group, or findspot data?"),
+        bullet("Which variant or component relation still needs source evidence?"),
+        "",
+        human_comparison_order_markdown(),
+        "",
+        "## Boundary / 边界",
+        "",
+        bullet(CAUTION),
+    ]
+    text = "\n".join(lines) + "\n"
+    assert_human_line_width(
+        f"{project_id}/10_cross-source-conflict-review.md",
+        text,
+    )
+    return text
+
+
 def build_index(
     project_id: str,
     row: dict[str, str],
@@ -721,6 +819,28 @@ def build_index(
     }
 
 
+def build_conflict_index(project_id: str, row: dict[str, str]) -> dict[str, object]:
+    return {
+        "project_id": project_id,
+        "record_type": "codepoint_crosswalk_conflict_review_index",
+        "crosswalk_candidate_id": row["crosswalk_candidate_id"],
+        "human_readable_files": ["10_cross-source-conflict-review.md"],
+        "ai_support_files": ["11_cross-source-conflict-index.json"],
+        "source_ids": matched_source_ids(row),
+        "absent_source_ids": [
+            source_id
+            for source_id in ["src-obimd", "src-evobc"]
+            if source_id not in matched_source_ids(row)
+        ],
+        "claim_boundary": (
+            "cross-source conflict review only; no identity claim, no reading, "
+            "no component, no evolution, and no decipherment conclusion"
+        ),
+        "review_status": row["review_status"],
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     staging_rows = read_csv(root / CODEPOINT_CROSSWALK)
     source_rows = read_csv(root / SOURCE_INDEX)
@@ -737,6 +857,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
         route_gallery_text = render_route_gallery(project_id, row, route_index_rows)
         dossier_text = render_dossier(project_id, row)
         fact_matrix_text = render_fact_matrix(project_id, row, route_index_rows)
+        conflict_review_text = render_conflict_review(project_id, row)
         human_files = packet["local_human_files"]
         ai_files = packet["local_ai_support_files"]
         outputs[project_id] = {
@@ -749,6 +870,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "route_gallery_text": route_gallery_text,
             "dossier_text": dossier_text,
             "fact_matrix_text": fact_matrix_text,
+            "conflict_review_text": conflict_review_text,
             "dossier_index": build_index(
                 project_id,
                 row,
@@ -763,6 +885,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 ai_files,
                 "codepoint_crosswalk_fact_matrix_index",
             ),
+            "conflict_index": build_conflict_index(project_id, row),
             "map_row": {
                 "project_id": project_id,
                 "record_type": RECORD_TYPE,
@@ -815,6 +938,14 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         write_json(
             object_dir / "09_codepoint-crosswalk-fact-matrix-index.json",
             output["fact_matrix_index"],
+        )
+        (object_dir / "10_cross-source-conflict-review.md").write_text(
+            output["conflict_review_text"],
+            encoding="utf-8",
+        )
+        write_json(
+            object_dir / "11_cross-source-conflict-index.json",
+            output["conflict_index"],
         )
         map_rows.append(output["map_row"])
     write_csv(root / CODEPOINT_MAP, map_rows, MAP_FIELDS)

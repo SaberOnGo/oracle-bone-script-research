@@ -26,6 +26,7 @@ support files together in this candidate folder.
 - 05_codepoint-crosswalk-route-gallery.md
 - 06_human-codepoint-crosswalk-dossier.md
 - 08_codepoint-crosswalk-fact-matrix.md
+- 10_cross-source-conflict-review.md
 
 ## AI Support Files / AI 辅助文件
 
@@ -34,6 +35,7 @@ support files together in this candidate folder.
 - 03_codepoint-crosswalk-route-index.csv
 - 07_codepoint-crosswalk-dossier-index.json
 - 09_codepoint-crosswalk-fact-matrix-index.json
+- 11_cross-source-conflict-index.json
 
 ## Concrete Questions To Check / 具体待查问题
 

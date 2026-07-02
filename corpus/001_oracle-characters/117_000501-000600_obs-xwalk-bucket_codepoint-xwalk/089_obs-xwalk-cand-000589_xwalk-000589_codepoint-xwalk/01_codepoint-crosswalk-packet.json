@@ -47,14 +47,16 @@
     "04_human-codepoint-crosswalk-review-sheet.md",
     "05_codepoint-crosswalk-route-gallery.md",
     "06_human-codepoint-crosswalk-dossier.md",
-    "08_codepoint-crosswalk-fact-matrix.md"
+    "08_codepoint-crosswalk-fact-matrix.md",
+    "10_cross-source-conflict-review.md"
   ],
   "local_ai_support_files": [
     "01_codepoint-crosswalk-packet.json",
     "02_codepoint-crosswalk-source-index.csv",
     "03_codepoint-crosswalk-route-index.csv",
     "07_codepoint-crosswalk-dossier-index.json",
-    "09_codepoint-crosswalk-fact-matrix-index.json"
+    "09_codepoint-crosswalk-fact-matrix-index.json",
+    "11_cross-source-conflict-index.json"
   ],
   "research_boundary": "codepoint_crosswalk_candidate_metadata_only_not_identity_reading_component_evolution_or_decipherment_claim",
   "caution": "Codepoint crosswalk candidate only. Exact dataset-label codepoint matches are lookup routes, not confirmed oracle-character identity, not accepted readings, not component assignments, not evolution-chain assignments, and not decipherment conclusions.",

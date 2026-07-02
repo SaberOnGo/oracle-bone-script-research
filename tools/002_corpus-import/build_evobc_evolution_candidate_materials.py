@@ -1448,58 +1448,58 @@ def evolution_review_fact_matrix_text(
     )
     table_rows = [
         (
-            "Evolution candidate",
+            "Evolution candidate / 演化候选",
             "Dataset category candidate only; no accepted correspondence.",
             "`01_candidate-evolution-packet.json`; `07_human-evolution-dossier.md`",
         ),
         (
-            "Oracle-side route",
+            "Oracle-side route / 甲骨侧路线",
             "Check image, rubbing, inscription, plate, catalog, Heji, findspot, collection, period, group, and batch evidence.",
             "`09_cross-period-review-dossier.md`",
         ),
         (
-            "Bronze seal modern route",
+            "Bronze seal modern route / 金文小篆今字路线",
             "Treat bronze, seal, variant, component, modern codepoint, meaning, and reading links as candidates until sources are opened.",
             "`09_cross-period-review-dossier.md`",
         ),
         (
-            "Image reference route",
+            "Image reference route / 图像引用路线",
             f"{len(image_routes)} route rows; local visual evidence must still be opened from source routes.",
             "`05_image-reference-route-index.csv`; `06_image-reference-route-gallery.md`",
         ),
         (
-            "Era and source-code route",
+            "Era and source-code route / 时期与来源代码路线",
             f"{len(code_rows)} era/source rows; dataset labels are search aids only.",
             "`03_era-source-code-index.csv`",
         ),
         (
-            "Graph edge route",
+            "Graph edge route / 图边路线",
             "Graph route only; not an accepted paleographic correspondence.",
             "`corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl`",
         ),
         (
-            "Bibliography and dispute route",
+            "Bibliography and dispute route / 文献与争议路线",
             "Check proposer, bibliography, web database scope, reading history, dispute, and disagreement before any claim.",
             "`research/`; `09_cross-period-review-dossier.md`",
         ),
         (
-            "Source and rights trail",
+            "Source and rights trail / 来源与权利链",
             f"`{SOURCE_ID}` with rights status `{RIGHTS_STATUS}`.",
             "`02_evolution-source-index.csv`; `project_registry/`",
         ),
         (
-            "Missing evidence route",
+            "Missing evidence route / 缺失证据路线",
             "Record exact gaps for image, inscription, bronze, seal, codepoint, bibliography, rights, findspot, collection, period, group, and batch.",
             "`07_human-evolution-dossier.md`; `09_cross-period-review-dossier.md`",
         ),
         (
-            "Review status",
+            "Review status / 复核状态",
             f"`{REVIEW_STATUS}`.",
             "`08_evolution-dossier-index.json`; `10_cross-period-review-index.json`",
         ),
     ]
     table_lines = [
-        "| Fact area | What a human reviewer can use | Open these routes |",
+        "| Fact area / 事实领域 | Human review use / 人工复核用途 | Open these routes / 打开这些路线 |",
         "| --- | --- | --- |",
         *[f"| {area} | {fact} | {routes} |" for area, fact, routes in table_rows],
     ]
@@ -1544,7 +1544,7 @@ Simplified Chinese:
 
 {human_comparison_order_markdown()}
 
-## Evolution And Correspondence Fact Matrix
+## Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵
 
 {chr(10).join(table_lines)}
 

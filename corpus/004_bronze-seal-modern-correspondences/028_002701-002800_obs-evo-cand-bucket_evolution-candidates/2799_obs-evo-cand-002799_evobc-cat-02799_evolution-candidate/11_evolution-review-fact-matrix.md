@@ -26,20 +26,20 @@ Simplified Chinese:
 - Open `09_cross-period-review-dossier.md` before correspondence claims.
 - Do not promote graph or codepoint routes into evolution evidence.
 
-## Evolution And Correspondence Fact Matrix
+## Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵
 
-| Fact area | What a human reviewer can use | Open these routes |
+| Fact area / 事实领域 | Human review use / 人工复核用途 | Open these routes / 打开这些路线 |
 | --- | --- | --- |
-| Evolution candidate | Dataset category candidate only; no accepted correspondence. | `01_candidate-evolution-packet.json`; `07_human-evolution-dossier.md` |
-| Oracle-side route | Check image, rubbing, inscription, plate, catalog, Heji, findspot, collection, period, group, and batch evidence. | `09_cross-period-review-dossier.md` |
-| Bronze seal modern route | Treat bronze, seal, variant, component, modern codepoint, meaning, and reading links as candidates until sources are opened. | `09_cross-period-review-dossier.md` |
-| Image reference route | 4 route rows; local visual evidence must still be opened from source routes. | `05_image-reference-route-index.csv`; `06_image-reference-route-gallery.md` |
-| Era and source-code route | 11 era/source rows; dataset labels are search aids only. | `03_era-source-code-index.csv` |
-| Graph edge route | Graph route only; not an accepted paleographic correspondence. | `corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl` |
-| Bibliography and dispute route | Check proposer, bibliography, web database scope, reading history, dispute, and disagreement before any claim. | `research/`; `09_cross-period-review-dossier.md` |
-| Source and rights trail | `src-evobc` with rights status `source_marked_risk_noted`. | `02_evolution-source-index.csv`; `project_registry/` |
-| Missing evidence route | Record exact gaps for image, inscription, bronze, seal, codepoint, bibliography, rights, findspot, collection, period, group, and batch. | `07_human-evolution-dossier.md`; `09_cross-period-review-dossier.md` |
-| Review status | `needs_human_evolution_review`. | `08_evolution-dossier-index.json`; `10_cross-period-review-index.json` |
+| Evolution candidate / 演化候选 | Dataset category candidate only; no accepted correspondence. | `01_candidate-evolution-packet.json`; `07_human-evolution-dossier.md` |
+| Oracle-side route / 甲骨侧路线 | Check image, rubbing, inscription, plate, catalog, Heji, findspot, collection, period, group, and batch evidence. | `09_cross-period-review-dossier.md` |
+| Bronze seal modern route / 金文小篆今字路线 | Treat bronze, seal, variant, component, modern codepoint, meaning, and reading links as candidates until sources are opened. | `09_cross-period-review-dossier.md` |
+| Image reference route / 图像引用路线 | 4 route rows; local visual evidence must still be opened from source routes. | `05_image-reference-route-index.csv`; `06_image-reference-route-gallery.md` |
+| Era and source-code route / 时期与来源代码路线 | 11 era/source rows; dataset labels are search aids only. | `03_era-source-code-index.csv` |
+| Graph edge route / 图边路线 | Graph route only; not an accepted paleographic correspondence. | `corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl` |
+| Bibliography and dispute route / 文献与争议路线 | Check proposer, bibliography, web database scope, reading history, dispute, and disagreement before any claim. | `research/`; `09_cross-period-review-dossier.md` |
+| Source and rights trail / 来源与权利链 | `src-evobc` with rights status `source_marked_risk_noted`. | `02_evolution-source-index.csv`; `project_registry/` |
+| Missing evidence route / 缺失证据路线 | Record exact gaps for image, inscription, bronze, seal, codepoint, bibliography, rights, findspot, collection, period, group, and batch. | `07_human-evolution-dossier.md`; `09_cross-period-review-dossier.md` |
+| Review status / 复核状态 | `needs_human_evolution_review`. | `08_evolution-dossier-index.json`; `10_cross-period-review-index.json` |
 
 ## Concrete Review Questions
 

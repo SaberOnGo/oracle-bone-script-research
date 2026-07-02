@@ -5425,9 +5425,13 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "Do not promote graph or codepoint routes into evolution evidence.",
                 fact_matrix_text,
             )
-            self.assertIn("Evolution And Correspondence Fact Matrix", fact_matrix_text)
+            self.assertIn(
+                "Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵",
+                fact_matrix_text,
+            )
             fact_matrix_opening = fact_matrix_text.split(
-                "## Evolution And Correspondence Fact Matrix", maxsplit=1
+                "## Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵",
+                maxsplit=1,
             )[0]
             self.assertIn("structured route files", fact_matrix_opening)
             self.assertIn(
@@ -5437,16 +5441,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertNotIn("CSV", fact_matrix_opening)
             self.assertNotIn("JSON", fact_matrix_opening)
             for snippet in [
-                "Evolution candidate",
-                "Oracle-side route",
-                "Bronze seal modern route",
-                "Image reference route",
-                "Era and source-code route",
-                "Graph edge route",
-                "Bibliography and dispute route",
-                "Source and rights trail",
-                "Missing evidence route",
-                "Review status",
+                "| Fact area / 事实领域 |",
+                "Evolution candidate / 演化候选",
+                "Oracle-side route / 甲骨侧路线",
+                "Bronze seal modern route / 金文小篆今字路线",
+                "Image reference route / 图像引用路线",
+                "Era and source-code route / 时期与来源代码路线",
+                "Graph edge route / 图边路线",
+                "Bibliography and dispute route / 文献与争议路线",
+                "Source and rights trail / 来源与权利链",
+                "Missing evidence route / 缺失证据路线",
+                "Review status / 复核状态",
                 "02_evolution-source-index.csv",
                 "03_era-source-code-index.csv",
                 "05_image-reference-route-index.csv",
@@ -5646,9 +5651,13 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Do not promote graph or codepoint routes into evolution evidence.",
             first["fact_matrix_text"],
         )
-        self.assertIn("Evolution And Correspondence Fact Matrix", first["fact_matrix_text"])
+        self.assertIn(
+            "Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵",
+            first["fact_matrix_text"],
+        )
         fact_matrix_opening = first["fact_matrix_text"].split(
-            "## Evolution And Correspondence Fact Matrix", maxsplit=1
+            "## Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵",
+            maxsplit=1,
         )[0]
         self.assertIn("structured route files", fact_matrix_opening)
         self.assertIn(
@@ -5658,6 +5667,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("CSV", fact_matrix_opening)
         self.assertNotIn("JSON", fact_matrix_opening)
         self.assertIn("not an evolution-chain conclusion", first["fact_matrix_text"])
+        for snippet in [
+            "| Fact area / 事实领域 |",
+            "Evolution candidate / 演化候选",
+            "Oracle-side route / 甲骨侧路线",
+            "Bronze seal modern route / 金文小篆今字路线",
+            "Image reference route / 图像引用路线",
+            "Era and source-code route / 时期与来源代码路线",
+            "Graph edge route / 图边路线",
+            "Bibliography and dispute route / 文献与争议路线",
+            "Source and rights trail / 来源与权利链",
+            "Missing evidence route / 缺失证据路线",
+            "Review status / 复核状态",
+        ]:
+            self.assertIn(snippet, first["fact_matrix_text"])
         self.assertNotIn("not_collected", first["fact_matrix_text"])
         for line in first["fact_matrix_text"].splitlines():
             if not line.startswith("|") and not line.startswith("!["):

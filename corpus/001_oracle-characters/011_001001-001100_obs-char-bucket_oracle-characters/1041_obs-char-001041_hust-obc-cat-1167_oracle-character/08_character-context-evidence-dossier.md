@@ -10,28 +10,28 @@ tracing, comparison, and audit.
 
 边界提示：本文件只整理预处理阶段证据路线，不是释读结论，不是构件归属结论，不是卜辞身份确认，也不是后世字形对应结论。
 
-## 1. 对象身份与复核状态
+## 1. Object Identity And Review Status / 对象身份与复核状态
 
-- 项目 ID: `obs-char-001041`
-- 首选外部 ID: `hust-obc-cat-1167`
-- 来源 ID: `src-hust-obc`
-- packet 文件: `01_candidate-character-packet.json`
-- 记录类型: `oracle_character_candidate_packet`
-- 释读状态: `unknown_until_cross_source_review`
-- 复核状态: `needs_cross_source_review`
-- 权利状态: `source_marked_risk_noted`
+- Project ID / 项目 ID: `obs-char-001041`
+- Primary external ID / 首选外部 ID: `hust-obc-cat-1167`
+- Source ID / 来源 ID: `src-hust-obc`
+- Packet file / packet 文件: `01_candidate-character-packet.json`
+- Record type / 记录类型: `oracle_character_candidate_packet`
+- Decipherment status / 释读状态: `unknown_until_cross_source_review`
+- Review status / 复核状态: `needs_cross_source_review`
+- Rights status / 权利状态: `source_marked_risk_noted`
 
-## 2. 字形图片与观察入口
+## 2. Glyph Image And Observation Entrance / 字形图片与观察入口
 
-- 图像索引: `02_visual-source-index.csv`
-- 图像页: `04_visual-gallery.md`
-- 索引行数: `1`
-- 来源图像路线数: `1`
-- 本地复核图像数: `1`
-- 首个来源图像名: `G_1167_甲骨文.png`
-- 首个本地图像名: `001_asset-001046_hust-obc-cat-1167_glyph.png`
-- 图像权利状态: `source_marked_risk_noted`
-- 图像复核状态: `needs_human_visual_review`
+- Image index / 图像索引: `02_visual-source-index.csv`
+- Image page / 图像页: `04_visual-gallery.md`
+- Index row count / 索引行数: `1`
+- Source image route count / 来源图像路线数: `1`
+- Local review image count / 本地复核图像数: `1`
+- Source image / 来源图: `G_1167_甲骨文.png`
+- Image / 图像: `001_asset-001046_hust-obc-cat-1167_glyph.png`
+- Image rights status / 图像权利状态: `source_marked_risk_noted`
+- Image review status / 图像复核状态: `needs_human_visual_review`
 
 观察记录应从实物图像、拓片或照片路线开始；每条笔画、残缺、疑似描摹差异或不确定痕迹都需要绑定到具体图像或来源行。
 
@@ -44,16 +44,16 @@ tracing, comparison, and audit.
 - 图边类型: CHARACTER_HAS_HUST_OBC_CODEPOINT_LOOKUP_ROUTE;
   CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE
 
-## 4. 卜辞、图版与著录路线
+## 4. Inscription Plate And Catalog Routes / 卜辞、图版与著录路线
 
-- 卜辞出现: 待查：需核对卜辞编号、全文或 OCR、上下文和字位
-- 图版与页码: 待查：需核对图版号、页码、著录来源和影像路线
-- 合集或旧著录号: 待查：需核对合集号、旧著录号和目录互证记录
-- 现有 route 文件: 009_hust-obc-obs-char-promotion-review-queue.csv;
+- Inscription occurrence / 卜辞出现: 待查：需核对卜辞编号、全文或 OCR、上下文和字位
+- Plate and page / 图版与页码: 待查：需核对图版号、页码、著录来源和影像路线
+- Heji or old catalog number / 合集或旧著录号: 待查：需核对合集号、旧著录号和目录互证记录
+- Route files / route 文件: 009_hust-obc-obs-char-promotion-review-queue.csv;
   000_hust-obc-promotion-bucket-manifest.csv;
   005_hust-obc-validation-class-staging.csv;
   007_hust-obc-validation-label-crosswalk-staging.csv; plus 4 more
-- 图边 route 文件: 009_hust-obc-obs-char-promotion-review-queue.csv;
+- Graph files / 图边文件: 009_hust-obc-obs-char-promotion-review-queue.csv;
   001_hust-obc-candidate-packet-manifest.csv;
   01_candidate-character-packet.json; 006_obimd-main-character-staging.csv;
   plus 3 more
@@ -102,27 +102,27 @@ correspondence.
 - 下载或访问记录: dl-hust-obc-validation-label; dl-hust-obc-ocr-id-to-chinese
 - 来源 metadata: Validation_label.json; ID_to_Chinese.json
 
-## 6. 来源证据、权利与风险
+## 6. Source Evidence Rights And Risk / 来源证据、权利与风险
 
-- 来源追溯: 009_hust-obc-obs-char-promotion-review-queue.csv;
+- Source trail / 来源追溯: 009_hust-obc-obs-char-promotion-review-queue.csv;
   000_hust-obc-promotion-bucket-manifest.csv;
   005_hust-obc-validation-class-staging.csv;
   007_hust-obc-validation-label-crosswalk-staging.csv; plus 4 more
-- checksum 与 manifest: 待查：需打开来源登记、下载日志和来源包清单
-- 权利风险: 待查：需核对 rights_status、risk_note、来源登记和公开提交边界
-- 公开提交边界: 元数据和小型派生图像需保留权利状态与风险提示
+- Checksum and manifest / checksum 与 manifest: 待查：需打开来源登记、下载日志和来源包清单
+- Rights risk / 权利风险: 待查：需核对 rights_status、risk_note、来源登记和公开提交边界
+- Public commit boundary / 公开提交边界: 元数据和小型派生图像需保留权利状态与风险提示
 
-## 7. 释读史、争议与后世字形
+## 7. Decipherment History Dispute And Later Forms / 释读史、争议与后世字形
 
 Dataset labels below are not an accepted reading, not the glyph itself, and
 not a decipherment conclusion.
 
-- 来源标签状态: `dataset_label_candidate_not_accepted_reading`
-- 来源标签文字: `㢅`
-- 来源标签 codepoint: `U+3885`
-- 跨来源状态: no_obimd_or_evobc_codepoint_match
-- 后世字形路线: 待查：金文、小篆、今字路线只能作为候选线索
-- 释读史与争议: 待查：需记录提出者、文献来源和不同意见
+- Source label status / 来源标签状态: `dataset_label_candidate_not_accepted_reading`
+- Source label text / 来源标签文字: `㢅`
+- Source label codepoint / 来源标签 codepoint: `U+3885`
+- Cross-source status / 跨来源状态: no_obimd_or_evobc_codepoint_match
+- Later-form route / 后世字形路线: 待查：金文、小篆、今字路线只能作为候选线索
+- Dispute and bibliography route / 争议与文献路线: 待查：需记录释读史、提出者、文献来源和不同意见
 
 ## 8. 具体待查问题
 

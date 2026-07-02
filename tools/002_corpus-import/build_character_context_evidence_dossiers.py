@@ -107,6 +107,8 @@ def para(text: str) -> str:
 def bullet(label: str, value: str) -> str:
     prefix = f"- {label}: "
     text = value if value else concrete_pending("需核对对象 packet、来源路线或图边记录")
+    if len(prefix) + len(text) > WIDTH and " " not in text:
+        return f"- {label}:\n  {text}"
     lines = textwrap.wrap(
         text,
         width=WIDTH - 2,
@@ -300,28 +302,37 @@ def context_dossier_text(
             "不是构件归属结论，不是卜辞身份确认，也不是后世字形对应结论。"
         ),
         "",
-        "## 1. 对象身份与复核状态",
+        "## 1. Object Identity And Review Status / 对象身份与复核状态",
         "",
-        bullet("项目 ID", code(project_id)),
-        bullet("首选外部 ID", code(str(packet.get("primary_external_ref_id", "")))),
-        bullet("来源 ID", code(str(packet.get("source_id", "")))),
-        bullet("packet 文件", code(packet_name)),
-        bullet("记录类型", code(str(packet.get("record_type", "")))),
-        bullet("释读状态", code(str(packet.get("decipherment_status", "")))),
-        bullet("复核状态", code(str(packet.get("review_status", "")))),
-        bullet("权利状态", code(str(packet.get("rights_status", "")))),
+        bullet("Project ID / 项目 ID", code(project_id)),
+        bullet(
+            "Primary external ID / 首选外部 ID",
+            code(str(packet.get("primary_external_ref_id", ""))),
+        ),
+        bullet("Source ID / 来源 ID", code(str(packet.get("source_id", "")))),
+        bullet("Packet file / packet 文件", code(packet_name)),
+        bullet("Record type / 记录类型", code(str(packet.get("record_type", "")))),
+        bullet(
+            "Decipherment status / 释读状态",
+            code(str(packet.get("decipherment_status", ""))),
+        ),
+        bullet("Review status / 复核状态", code(str(packet.get("review_status", "")))),
+        bullet("Rights status / 权利状态", code(str(packet.get("rights_status", "")))),
         "",
-        "## 2. 字形图片与观察入口",
+        "## 2. Glyph Image And Observation Entrance / 字形图片与观察入口",
         "",
-        bullet("图像索引", code("02_visual-source-index.csv")),
-        bullet("图像页", code("04_visual-gallery.md")),
-        bullet("索引行数", code(visual["row_count"])),
-        bullet("来源图像路线数", code(visual["source_ref_count"])),
-        bullet("本地复核图像数", code(visual["committed_image_count"])),
-        bullet("首个来源图像名", code(visual["first_source_ref"])),
-        bullet("首个本地图像名", code(visual["first_committed_image"])),
-        bullet("图像权利状态", code(visual["rights_status"])),
-        bullet("图像复核状态", code(visual["review_status"])),
+        bullet("Image index / 图像索引", code("02_visual-source-index.csv")),
+        bullet("Image page / 图像页", code("04_visual-gallery.md")),
+        bullet("Index row count / 索引行数", code(visual["row_count"])),
+        bullet("Source image route count / 来源图像路线数", code(visual["source_ref_count"])),
+        bullet(
+            "Local review image count / 本地复核图像数",
+            code(visual["committed_image_count"]),
+        ),
+        bullet("Source image / 来源图", code(visual["first_source_ref"])),
+        bullet("Image / 图像", code(visual["first_committed_image"])),
+        bullet("Image rights status / 图像权利状态", code(visual["rights_status"])),
+        bullet("Image review status / 图像复核状态", code(visual["review_status"])),
         "",
         para(
             "观察记录应从实物图像、拓片或照片路线开始；每条笔画、残缺、"
@@ -336,13 +347,28 @@ def context_dossier_text(
         bullet("当前图边数", code(str(edge["edge_count"]))),
         bullet("图边类型", short_list(list(edge["edge_type_counts"].keys()))),
         "",
-        "## 4. 卜辞、图版与著录路线",
+        "## 4. Inscription Plate And Catalog Routes / 卜辞、图版与著录路线",
         "",
-        bullet("卜辞出现", "待查：需核对卜辞编号、全文或 OCR、上下文和字位"),
-        bullet("图版与页码", "待查：需核对图版号、页码、著录来源和影像路线"),
-        bullet("合集或旧著录号", "待查：需核对合集号、旧著录号和目录互证记录"),
-        bullet("现有 route 文件", short_list([Path(value).name for value in route_files])),
-        bullet("图边 route 文件", short_list([Path(value).name for value in edge["route_files"]])),
+        bullet(
+            "Inscription occurrence / 卜辞出现",
+            "待查：需核对卜辞编号、全文或 OCR、上下文和字位",
+        ),
+        bullet(
+            "Plate and page / 图版与页码",
+            "待查：需核对图版号、页码、著录来源和影像路线",
+        ),
+        bullet(
+            "Heji or old catalog number / 合集或旧著录号",
+            "待查：需核对合集号、旧著录号和目录互证记录",
+        ),
+        bullet(
+            "Route files / route 文件",
+            short_list([Path(value).name for value in route_files]),
+        ),
+        bullet(
+            "Graph files / 图边文件",
+            short_list([Path(value).name for value in edge["route_files"]]),
+        ),
         "",
         *graph_evidence_route_lines(edges),
         "",
@@ -360,31 +386,43 @@ def context_dossier_text(
         bullet("下载或访问记录", short_list(downloads)),
         bullet("来源 metadata", short_list(source_metadata)),
         "",
-        "## 6. 来源证据、权利与风险",
+        "## 6. Source Evidence Rights And Risk / 来源证据、权利与风险",
         "",
-        bullet("来源追溯", short_list([Path(value).name for value in route_files])),
-        bullet("checksum 与 manifest", "待查：需打开来源登记、下载日志和来源包清单"),
+        bullet("Source trail / 来源追溯", short_list([Path(value).name for value in route_files])),
         bullet(
-            "权利风险",
+            "Checksum and manifest / checksum 与 manifest",
+            "待查：需打开来源登记、下载日志和来源包清单",
+        ),
+        bullet(
+            "Rights risk / 权利风险",
             code(str(packet.get("risk_note", "")))
             if packet.get("risk_note")
             else concrete_pending("需核对 rights_status、risk_note、来源登记和公开提交边界"),
         ),
-        bullet("公开提交边界", "元数据和小型派生图像需保留权利状态与风险提示"),
+        bullet("Public commit boundary / 公开提交边界", "元数据和小型派生图像需保留权利状态与风险提示"),
         "",
-        "## 7. 释读史、争议与后世字形",
+        "## 7. Decipherment History Dispute And Later Forms / 释读史、争议与后世字形",
         "",
         para(
             "Dataset labels below are not an accepted reading, not the glyph "
             "itself, and not a decipherment conclusion."
         ),
         "",
-        bullet("来源标签状态", code(label.get("status", ""))),
-        bullet("来源标签文字", code(label.get("source_modern_label_candidate", ""))),
-        bullet("来源标签 codepoint", code(label.get("source_modern_label_codepoints", ""))),
-        bullet("跨来源状态", short_list(edge["cross_source_statuses"])),
-        bullet("后世字形路线", "待查：金文、小篆、今字路线只能作为候选线索"),
-        bullet("释读史与争议", "待查：需记录提出者、文献来源和不同意见"),
+        bullet("Source label status / 来源标签状态", code(label.get("status", ""))),
+        bullet(
+            "Source label text / 来源标签文字",
+            code(label.get("source_modern_label_candidate", "")),
+        ),
+        bullet(
+            "Source label codepoint / 来源标签 codepoint",
+            code(label.get("source_modern_label_codepoints", "")),
+        ),
+        bullet("Cross-source status / 跨来源状态", short_list(edge["cross_source_statuses"])),
+        bullet("Later-form route / 后世字形路线", "待查：金文、小篆、今字路线只能作为候选线索"),
+        bullet(
+            "Dispute and bibliography route / 争议与文献路线",
+            "待查：需记录释读史、提出者、文献来源和不同意见",
+        ),
         "",
         "## 8. 具体待查问题",
         "",

@@ -4011,6 +4011,35 @@ class RepositorySkeletonTests(unittest.TestCase):
 
             dossier_text = dossier_path.read_text(encoding="utf-8")
             self.assertIn("单字考古文字上下文档案", dossier_text)
+            self.assertIn(
+                "Object Identity And Review Status / 对象身份与复核状态",
+                dossier_text,
+            )
+            self.assertIn(
+                "Glyph Image And Observation Entrance / 字形图片与观察入口",
+                dossier_text,
+            )
+            self.assertIn(
+                "Inscription Plate And Catalog Routes / 卜辞、图版与著录路线",
+                dossier_text,
+            )
+            self.assertIn(
+                "Source Evidence Rights And Risk / 来源证据、权利与风险",
+                dossier_text,
+            )
+            self.assertIn(
+                "Decipherment History Dispute And Later Forms / "
+                "释读史、争议与后世字形",
+                dossier_text,
+            )
+            self.assertIn("- Project ID / 项目 ID:", dossier_text)
+            self.assertIn("- Source ID / 来源 ID:", dossier_text)
+            self.assertIn("- Decipherment status / 释读状态:", dossier_text)
+            self.assertIn("- Rights status / 权利状态:", dossier_text)
+            self.assertIn("- Image index / 图像索引:", dossier_text)
+            self.assertIn("- Inscription occurrence / 卜辞出现:", dossier_text)
+            self.assertIn("- Checksum and manifest / checksum 与 manifest:", dossier_text)
+            self.assertIn("- Dispute and bibliography route / 争议与文献路线:", dossier_text)
             self.assertIn("字形图片与观察入口", dossier_text)
             self.assertIn("异体、近形与构件线索", dossier_text)
             self.assertIn("卜辞、图版与著录路线", dossier_text)

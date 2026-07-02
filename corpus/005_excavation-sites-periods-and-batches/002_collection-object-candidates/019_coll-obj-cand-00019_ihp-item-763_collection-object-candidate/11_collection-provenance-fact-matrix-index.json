@@ -19,52 +19,52 @@
   "facts": [
     {
       "evidence": "01_collection-object-packet.json; 06_human-collection-dossier.md",
-      "fact": "Collection object",
+      "fact": "Collection object / 馆藏对象",
       "status": "candidate object route; identity still needs review"
     },
     {
       "evidence": "02_collection-source-index.csv; 06_human-collection-dossier.md",
-      "fact": "Catalog or accession route",
+      "fact": "Catalog or accession route / 著录或登记路线",
       "status": "763; source-page route only"
     },
     {
       "evidence": "03_visual-asset-index.csv; 04_visual-gallery.md",
-      "fact": "Image or visual route",
+      "fact": "Image or visual route / 图像或视觉路线",
       "status": "external_thumbnail_url_metadata_only; open gallery before visual use"
     },
     {
       "evidence": "06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md",
-      "fact": "Findspot or provenience",
+      "fact": "Findspot or provenience / 出土地或来源地",
       "status": "pending findspot or provenience review"
     },
     {
       "evidence": "06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md",
-      "fact": "Period or date",
+      "fact": "Period or date / 时期或年代",
       "status": "pending period or date source review"
     },
     {
       "evidence": "08_collection-provenance-evidence-dossier.md",
-      "fact": "Batch or excavation context",
+      "fact": "Batch or excavation context / 批次或发掘语境",
       "status": "pending batch, pit, excavation, or plate context review"
     },
     {
       "evidence": "06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md",
-      "fact": "Inscription and character links",
+      "fact": "Inscription and character links / 卜辞与单字关联",
       "status": "candidate route only; no inscription identity claim"
     },
     {
       "evidence": "02_collection-source-index.csv; 09_collection-provenance-evidence-index.json",
-      "fact": "Source and rights trail",
+      "fact": "Source and rights trail / 来源与权利链",
       "status": "src-ihp-museum-oracle-bones; rights metadata_only_until_verified"
     },
     {
       "evidence": "01_collection-object-packet.json; 03_visual-asset-index.csv",
-      "fact": "Risk note",
+      "fact": "Risk note / 风险提示",
       "status": "rights and reuse risk require human review before public use"
     },
     {
       "evidence": "05_human-review-sheet.md; 09_collection-provenance-evidence-index.json",
-      "fact": "Review status",
+      "fact": "Review status / 复核状态",
       "status": "needs_human_collection_object_review"
     }
   ],

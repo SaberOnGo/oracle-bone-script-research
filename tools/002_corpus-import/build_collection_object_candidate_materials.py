@@ -896,22 +896,22 @@ def collection_provenance_fact_rows(
     period = metadata.get("historical_period") or metadata.get("object_date")
     return [
         {
-            "fact": "Collection object",
+            "fact": "Collection object / 馆藏对象",
             "status": "candidate object route; identity still needs review",
             "evidence": "01_collection-object-packet.json; 06_human-collection-dossier.md",
         },
         {
-            "fact": "Catalog or accession route",
+            "fact": "Catalog or accession route / 著录或登记路线",
             "status": f"{catalog_route}; source-page route only",
             "evidence": "02_collection-source-index.csv; 06_human-collection-dossier.md",
         },
         {
-            "fact": "Image or visual route",
+            "fact": "Image or visual route / 图像或视觉路线",
             "status": f"{visual_route}; open gallery before visual use",
             "evidence": "03_visual-asset-index.csv; 04_visual-gallery.md",
         },
         {
-            "fact": "Findspot or provenience",
+            "fact": "Findspot or provenience / 出土地或来源地",
             "status": findspot or "pending findspot or provenience review",
             "evidence": (
                 "06_human-collection-dossier.md; "
@@ -919,7 +919,7 @@ def collection_provenance_fact_rows(
             ),
         },
         {
-            "fact": "Period or date",
+            "fact": "Period or date / 时期或年代",
             "status": period or "pending period or date source review",
             "evidence": (
                 "06_human-collection-dossier.md; "
@@ -927,12 +927,12 @@ def collection_provenance_fact_rows(
             ),
         },
         {
-            "fact": "Batch or excavation context",
+            "fact": "Batch or excavation context / 批次或发掘语境",
             "status": "pending batch, pit, excavation, or plate context review",
             "evidence": "08_collection-provenance-evidence-dossier.md",
         },
         {
-            "fact": "Inscription and character links",
+            "fact": "Inscription and character links / 卜辞与单字关联",
             "status": "candidate route only; no inscription identity claim",
             "evidence": (
                 "06_human-collection-dossier.md; "
@@ -940,7 +940,7 @@ def collection_provenance_fact_rows(
             ),
         },
         {
-            "fact": "Source and rights trail",
+            "fact": "Source and rights trail / 来源与权利链",
             "status": f"{source_row['source_id']}; rights {source_row['rights_status']}",
             "evidence": (
                 "02_collection-source-index.csv; "
@@ -948,12 +948,12 @@ def collection_provenance_fact_rows(
             ),
         },
         {
-            "fact": "Risk note",
+            "fact": "Risk note / 风险提示",
             "status": "rights and reuse risk require human review before public use",
             "evidence": "01_collection-object-packet.json; 03_visual-asset-index.csv",
         },
         {
-            "fact": "Review status",
+            "fact": "Review status / 复核状态",
             "status": REVIEW_STATUS,
             "evidence": (
                 "05_human-review-sheet.md; "
@@ -1033,7 +1033,7 @@ def collection_provenance_fact_matrix_text(
             "\u9986\u85cf\u5bf9\u8c61\u6765\u6e90\u4e8b\u5b9e\u77e9\u9635"
         ),
         "",
-        "| Fact | Current status | Local evidence to open |",
+        "| Fact / 项目 | Current status / 当前状态 | Local evidence to open / 需打开的本地证据 |",
         "| --- | --- | --- |",
         rows,
         "",

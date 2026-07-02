@@ -8,7 +8,7 @@ claim can be reviewed.
 
 ## Source Codepoint Route / 来源码位路线
 
-| Source | Candidate route | Status |
+| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |
 |---|---|---|
 | HUST-OBC | `hust-obc-cat-0875` | source label route |
 | OBIMD | `obimd-main-ojtpg03v54` | 1 codepoint match rows |

@@ -6,7 +6,7 @@ This gallery lists the local evidence routes a human reviewer should open.
 It is a route gallery, not a source-image gallery, because the crosswalk
 still needs human source review.
 
-| Route | File | Human action |
+| Route / 路线 | File / 文件 | Human action / 人工动作 |
 |---|---|---|
 | Codepoint crosswalk staging | `corpus/001_oracle-characters/000_character-registers/011_hust-obimd-evobc-codepoint-crosswalk-staging.csv` | open row before any human claim |
 | HUST candidate route | `corpus/001_oracle-characters/003_000201-000300_obs-char-bucket_oracle-characters/270_obs-char-000270_hust-obc-cat-0304_0305_oracle-character/01_candidate-character-packet.json` | open packet and local glyph dossier first |

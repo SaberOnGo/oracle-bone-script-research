@@ -30,7 +30,7 @@
 
 ## Required Routes / 必查路线
 
-| Route | File | Human action |
+| Route / 路线 | File / 文件 | Human action / 人工动作 |
 |---|---|---|
 | Codepoint crosswalk staging | `corpus/001_oracle-characters/000_character-registers/011_hust-obimd-evobc-codepoint-crosswalk-staging.csv` | open row before any human claim |
 | HUST candidate route | `corpus/001_oracle-characters/007_000601-000700_obs-char-bucket_oracle-characters/606_obs-char-000606_hust-obc-cat-0690_0691_oracle-character/01_candidate-character-packet.json` | open packet and local glyph dossier first |

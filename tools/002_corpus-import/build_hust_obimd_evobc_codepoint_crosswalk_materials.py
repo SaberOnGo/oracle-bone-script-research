@@ -374,7 +374,7 @@ def route_rows_for_candidate(project_id: str, row: dict[str, str]) -> list[dict[
 def source_table(row: dict[str, str]) -> str:
     return "\n".join(
         [
-            "| Source | Candidate route | Status |",
+            "| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |",
             "|---|---|---|",
             (
                 f"| HUST-OBC | `{row['hust_primary_external_ref_id']}` | "
@@ -394,7 +394,7 @@ def source_table(row: dict[str, str]) -> str:
 
 def route_table(route_rows: list[dict[str, str]]) -> str:
     lines = [
-        "| Route | File | Human action |",
+        "| Route / 路线 | File / 文件 | Human action / 人工动作 |",
         "|---|---|---|",
     ]
     for row in route_rows:

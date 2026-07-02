@@ -10,7 +10,7 @@
 
 ## Candidate Snapshot / 候选概览
 
-| Source | Candidate route | Status |
+| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |
 |---|---|---|
 | HUST-OBC | `hust-obc-cat-0508` | source label route |
 | OBIMD | `pending route` | 0 codepoint match rows |

@@ -31681,15 +31681,43 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             if marker not in caution:
                 issues.append(f"{expected_id} caution missing {marker}")
         readme = (object_dir / "README.md").read_text(encoding="utf-8")
+        review_sheet = (
+            object_dir / "04_human-codepoint-crosswalk-review-sheet.md"
+        ).read_text(encoding="utf-8")
+        route_gallery = (
+            object_dir / "05_codepoint-crosswalk-route-gallery.md"
+        ).read_text(encoding="utf-8")
         dossier = (object_dir / "06_human-codepoint-crosswalk-dossier.md").read_text(encoding="utf-8")
         fact_matrix = (object_dir / "08_codepoint-crosswalk-fact-matrix.md").read_text(encoding="utf-8")
         for text_name, text in {
             "README.md": readme,
+            "04_human-codepoint-crosswalk-review-sheet.md": review_sheet,
+            "05_codepoint-crosswalk-route-gallery.md": route_gallery,
             "06_human-codepoint-crosswalk-dossier.md": dossier,
             "08_codepoint-crosswalk-fact-matrix.md": fact_matrix,
         }.items():
             if "not_collected" in text or "not collected" in text.lower():
                 issues.append(f"{expected_id} {text_name} contains machine filler")
+            for stale_header in [
+                "| Source | Candidate route | Status |",
+                "| Route | File | Human action |",
+            ]:
+                if stale_header in text:
+                    issues.append(f"{expected_id} {text_name} contains stale English-only header")
+        source_header = "| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |"
+        for text_name, text in {
+            "04_human-codepoint-crosswalk-review-sheet.md": review_sheet,
+            "06_human-codepoint-crosswalk-dossier.md": dossier,
+        }.items():
+            if source_header not in text:
+                issues.append(f"{expected_id} {text_name} missing bilingual source header")
+        route_header = "| Route / 路线 | File / 文件 | Human action / 人工动作 |"
+        for text_name, text in {
+            "05_codepoint-crosswalk-route-gallery.md": route_gallery,
+            "08_codepoint-crosswalk-fact-matrix.md": fact_matrix,
+        }.items():
+            if route_header not in text:
+                issues.append(f"{expected_id} {text_name} missing bilingual route header")
         for marker in [
             "object-local research entrance",
             "Concrete Questions To Check",

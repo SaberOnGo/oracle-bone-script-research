@@ -6340,9 +6340,29 @@ class RepositorySkeletonTests(unittest.TestCase):
             for filename, text in human_texts.items():
                 self.assertNotIn("not_collected", text)
                 self.assertNotIn("not collected", text.lower())
+                self.assertNotIn("| Source | Candidate route | Status |", text)
+                self.assertNotIn("| Route | File | Human action |", text)
                 for fragment in ("绠€", "浜哄伐", "鏉ユ簮", "寰呮煡", "璺嚎", "妗ｆ"):
                     self.assertNotIn(fragment, text, f"{project_id} {filename}")
                 assert_human_markdown_lines_wrapped(self, text, f"{project_id} {filename}")
+
+            self.assertIn(
+                "| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |",
+                human_texts["04_human-codepoint-crosswalk-review-sheet.md"],
+            )
+            self.assertIn(
+                "| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |",
+                dossier_text,
+            )
+            for filename in [
+                "05_codepoint-crosswalk-route-gallery.md",
+                "08_codepoint-crosswalk-fact-matrix.md",
+            ]:
+                self.assertIn(
+                    "| Route / 路线 | File / 文件 | Human action / 人工动作 |",
+                    human_texts[filename],
+                    f"{project_id} {filename}",
+                )
 
             for marker in [
                 "object-local research entrance",
@@ -6429,6 +6449,20 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Codepoint Crosswalk Fact Matrix", first["fact_matrix_text"])
         self.assertIn("来源码位路线", first["fact_matrix_text"])
         self.assertIn("HUST 候选路线", first["fact_matrix_text"])
+        self.assertIn(
+            "| Source / 来源 | Candidate route / 候选路线 | Status / 状态 |",
+            first["review_sheet_text"],
+        )
+        self.assertIn(
+            "| Route / 路线 | File / 文件 | Human action / 人工动作 |",
+            first["route_gallery_text"],
+        )
+        self.assertIn(
+            "| Route / 路线 | File / 文件 | Human action / 人工动作 |",
+            first["fact_matrix_text"],
+        )
+        self.assertNotIn("| Source | Candidate route | Status |", first["review_sheet_text"])
+        self.assertNotIn("| Route | File | Human action |", first["route_gallery_text"])
         self.assertIn("Human Comparison Order", first["dossier_text"])
         self.assertIn("Human Comparison Order", first["fact_matrix_text"])
         self.assertIn("Open the matched oracle-character human dossier first.", first["dossier_text"])

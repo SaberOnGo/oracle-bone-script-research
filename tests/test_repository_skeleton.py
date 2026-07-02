@@ -6312,23 +6312,29 @@ class RepositorySkeletonTests(unittest.TestCase):
             for filename, text in human_texts.items():
                 self.assertNotIn("not_collected", text)
                 self.assertNotIn("not collected", text.lower())
+                for fragment in ("绠€", "浜哄伐", "鏉ユ簮", "寰呮煡", "璺嚎", "妗ｆ"):
+                    self.assertNotIn(fragment, text, f"{project_id} {filename}")
                 assert_human_markdown_lines_wrapped(self, text, f"{project_id} {filename}")
 
             for marker in [
                 "object-local research entrance",
+                "对象内研究入口",
                 "not confirmed oracle-character identity",
                 "not accepted readings",
                 "not component assignments",
                 "not evolution-chain assignments",
                 "not decipherment conclusions",
                 "Concrete Questions To Check",
+                "具体待查问题",
                 "08_codepoint-crosswalk-fact-matrix.md",
             ]:
                 self.assertIn(marker, readme_text)
             for marker in [
                 "Codepoint Crosswalk Fact Matrix",
                 "Human Review Order",
+                "人类复核顺序",
                 "Source Codepoint Route",
+                "来源码位路线",
                 "HUST candidate route",
                 "OBIMD route",
                 "EVOBC route",
@@ -6355,6 +6361,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("findspot", dossier_text)
             for marker in [
                 "Human Comparison Order",
+                "人工比对顺序",
                 "Open the matched oracle-character human dossier first.",
                 "Compare OBIMD and EVOBC rows only after the glyph dossier.",
                 "Record disagreement before any promotion review.",
@@ -6392,6 +6399,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("corpus/001_oracle-characters", first["object_dir"].as_posix())
         self.assertNotIn("doc/public/user_research", first["object_dir"].as_posix())
         self.assertIn("Codepoint Crosswalk Fact Matrix", first["fact_matrix_text"])
+        self.assertIn("来源码位路线", first["fact_matrix_text"])
+        self.assertIn("HUST 候选路线", first["fact_matrix_text"])
         self.assertIn("Human Comparison Order", first["dossier_text"])
         self.assertIn("Human Comparison Order", first["fact_matrix_text"])
         self.assertIn("Open the matched oracle-character human dossier first.", first["dossier_text"])
@@ -6400,7 +6409,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("not_collected", first["dossier_text"])
         self.assertEqual(three_source["packet"]["matched_source_ids"], ["src-hust-obc", "src-obimd", "src-evobc"])
         self.assertIn("OBIMD route", three_source["fact_matrix_text"])
+        self.assertIn("OBIMD 路线", three_source["fact_matrix_text"])
         self.assertIn("EVOBC route", three_source["fact_matrix_text"])
+        self.assertIn("EVOBC 路线", three_source["fact_matrix_text"])
         assert_human_markdown_lines_wrapped(
             self,
             three_source["fact_matrix_text"],

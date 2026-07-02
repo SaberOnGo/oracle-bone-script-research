@@ -637,34 +637,34 @@ def render_fact_matrix(
         "",
         "## Fact Matrix / 事实矩阵",
         "",
-        "| Slot | Current route evidence | Review boundary |",
+        "| Slot / 项目 | Current route evidence / 当前路线证据 | Review boundary / 复核边界 |",
         "|---|---|---|",
         (
-            f"| Source Codepoint Route | `{row['hust_label_codepoints']}` | "
+            f"| Source Codepoint Route / 来源码位路线 | `{row['hust_label_codepoints']}` | "
             "not identity |"
         ),
         (
-            f"| HUST candidate route | `{row['hust_primary_external_ref_id']}` | "
+            f"| HUST candidate route / HUST 候选路线 | `{row['hust_primary_external_ref_id']}` | "
             "not reading |"
         ),
         (
-            f"| OBIMD route | `{row.get('obimd_candidate_main_character_ids') or 'pending route'}` | "
+            f"| OBIMD route / OBIMD 路线 | `{row.get('obimd_candidate_main_character_ids') or 'pending route'}` | "
             "not component |"
         ),
         (
-            f"| EVOBC route | `{row.get('evobc_candidate_evolution_category_ids') or 'pending route'}` | "
+            f"| EVOBC route / EVOBC 路线 | `{row.get('evobc_candidate_evolution_category_ids') or 'pending route'}` | "
             "not evolution |"
         ),
         (
-            f"| Source and rights trail | `{row['rights_status']}` | "
+            f"| Source and rights trail / 来源与权利链 | `{row['rights_status']}` | "
             "source-marked risk note required |"
         ),
         (
-            f"| Missing evidence route | `{row['cross_source_status']}` | "
+            f"| Missing evidence route / 缺失证据路线 | `{row['cross_source_status']}` | "
             "not decipherment |"
         ),
         (
-            f"| Review status | `{row['review_status']}` | "
+            f"| Review status / 复核状态 | `{row['review_status']}` | "
             "needs human cross-source review |"
         ),
         "",

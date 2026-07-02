@@ -10,15 +10,15 @@
 
 ## Fact Matrix / 事实矩阵
 
-| Slot | Current route evidence | Review boundary |
+| Slot / 项目 | Current route evidence / 当前路线证据 | Review boundary / 复核边界 |
 |---|---|---|
-| Source Codepoint Route | `U+3970` | not identity |
-| HUST candidate route | `hust-obc-cat-1402` | not reading |
-| OBIMD route | `pending route` | not component |
-| EVOBC route | `pending route` | not evolution |
-| Source and rights trail | `source_marked_risk_noted` | source-marked risk note required |
-| Missing evidence route | `no_obimd_or_evobc_codepoint_match` | not decipherment |
-| Review status | `needs_cross_source_review` | needs human cross-source review |
+| Source Codepoint Route / 来源码位路线 | `U+3970` | not identity |
+| HUST candidate route / HUST 候选路线 | `hust-obc-cat-1402` | not reading |
+| OBIMD route / OBIMD 路线 | `pending route` | not component |
+| EVOBC route / EVOBC 路线 | `pending route` | not evolution |
+| Source and rights trail / 来源与权利链 | `source_marked_risk_noted` | source-marked risk note required |
+| Missing evidence route / 缺失证据路线 | `no_obimd_or_evobc_codepoint_match` | not decipherment |
+| Review status / 复核状态 | `needs_cross_source_review` | needs human cross-source review |
 
 ## Human Comparison Order / 人工比对顺序
 

@@ -10,7 +10,7 @@ later formal research.
 
 ## Catalog Page And Source Row / 著录页与来源行
 
-| Evidence field | Route or value |
+| Evidence field / 证据字段 | Route or value / 路线或取值 |
 | --- | --- |
 | source_id | `src-ihp-museum-oracle-bones` |
 | evidence_download_id | `dl-ihp-museum-oracle-bones` |
@@ -29,7 +29,7 @@ later formal research.
 
 ## Visual Asset Or Thumbnail Evidence / 图像资产或缩略图证据
 
-| Visual field | Route or value |
+| Visual field / 图像字段 | Route or value / 路线或取值 |
 | --- | --- |
 | visual_entry_type | `external_thumbnail_url_metadata_only` |
 | asset_id | `` |
@@ -39,7 +39,7 @@ later formal research.
 
 ## Findspot Period Batch Plate Evidence / 出土地、时期、批次与图版证据
 
-| Catalog field | Source value |
+| Catalog field / 著录字段 | Source value / 来源取值 |
 | --- | --- |
 | `collection_name` | `Oracle Bones` |
 | `source_collection_item_id` | `508` |
@@ -58,6 +58,24 @@ later formal research.
 - transcription_status: pending source-page transcription check
 - oracle_character_route_status: candidate route only
 - plate_context_status: needs catalog or source-page checking
+
+## Component Clue Review / 构件线索待复核
+
+- component status: open linked character or plate context first.
+- no component assignment is made in this provenance dossier.
+- 构件、组成和字形线索只能作为下一步待查入口。
+
+## Scholarship And Dispute Route / 书目与争议路线
+
+- scholarship route: open bibliography before citing this object.
+- dispute status: record proposer and disagreement before promotion.
+- 学者、提出者、论文、书目和争议仍需来源页复核。
+
+## Variant And Relationship Route / 异体与关系路线
+
+- variant and related-character links remain candidate routes.
+- later bronze, seal, and modern forms are not confirmed here.
+- 异体、近形、今字和同构件关系均不得写成结论。
 
 ## Concrete Missing Evidence Questions / 具体缺失证据问题
 

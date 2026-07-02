@@ -5836,6 +5836,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("卜辞与单字语境待复核", provenance_text)
             self.assertIn("Concrete Missing Evidence Questions", provenance_text)
             self.assertIn("具体缺失证据问题", provenance_text)
+            self.assertIn("Component Clue Review", provenance_text)
+            self.assertIn("Scholarship And Dispute Route", provenance_text)
+            self.assertIn("Variant And Relationship Route", provenance_text)
+            self.assertIn(
+                "| Evidence field / 证据字段 | Route or value / 路线或取值 |",
+                provenance_text,
+            )
+            self.assertIn(
+                "| Visual field / 图像字段 | Route or value / 路线或取值 |",
+                provenance_text,
+            )
+            self.assertIn(
+                "| Catalog field / 著录字段 | Source value / 来源取值 |",
+                provenance_text,
+            )
+            self.assertNotIn("| Evidence field | Route or value |", provenance_text)
+            self.assertNotIn("| Visual field | Route or value |", provenance_text)
+            self.assertNotIn("| Catalog field | Source value |", provenance_text)
             self.assertIn("candidate evidence only", provenance_text)
             self.assertIn("not a decipherment conclusion", provenance_text)
             for line in provenance_text.splitlines():
@@ -6079,6 +6097,31 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["dossier_text"],
         )
         self.assertNotIn("not_collected", first["provenance_evidence_dossier_text"])
+        self.assertIn("Component Clue Review", first["provenance_evidence_dossier_text"])
+        self.assertIn(
+            "Scholarship And Dispute Route",
+            first["provenance_evidence_dossier_text"],
+        )
+        self.assertIn(
+            "Variant And Relationship Route",
+            first["provenance_evidence_dossier_text"],
+        )
+        self.assertIn(
+            "| Evidence field / 证据字段 | Route or value / 路线或取值 |",
+            first["provenance_evidence_dossier_text"],
+        )
+        self.assertIn(
+            "| Visual field / 图像字段 | Route or value / 路线或取值 |",
+            first["provenance_evidence_dossier_text"],
+        )
+        self.assertIn(
+            "| Catalog field / 著录字段 | Source value / 来源取值 |",
+            first["provenance_evidence_dossier_text"],
+        )
+        self.assertNotIn(
+            "| Evidence field | Route or value |",
+            first["provenance_evidence_dossier_text"],
+        )
         self.assertEqual(first["packet"]["record_type"], "collection_object_candidate")
         self.assertEqual(first["packet"]["object_identity_claim_status"], "not_confirmed")
         self.assertEqual(

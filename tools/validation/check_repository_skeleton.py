@@ -4325,6 +4325,9 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "卜辞与单字语境待复核",
                 "Concrete Missing Evidence Questions",
                 "具体缺失证据问题",
+                "| Evidence field / 证据字段 | Route or value / 路线或取值 |",
+                "| Visual field / 图像字段 | Route or value / 路线或取值 |",
+                "| Catalog field / 著录字段 | Source value / 来源取值 |",
                 "candidate evidence only",
                 "not a decipherment conclusion",
             ]:
@@ -4338,6 +4341,16 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                     f"{provenance_dossier_path.relative_to(root).as_posix()} "
                     "contains not_collected placeholder"
                 )
+            for stale_header in [
+                "| Evidence field | Route or value |",
+                "| Visual field | Route or value |",
+                "| Catalog field | Source value |",
+            ]:
+                if stale_header in provenance_text:
+                    issues.append(
+                        f"{provenance_dossier_path.relative_to(root).as_posix()} "
+                        f"contains stale English-only header: {stale_header}"
+                    )
             for line_number, line in enumerate(provenance_text.splitlines(), start=1):
                 if (
                     not line.startswith("|")

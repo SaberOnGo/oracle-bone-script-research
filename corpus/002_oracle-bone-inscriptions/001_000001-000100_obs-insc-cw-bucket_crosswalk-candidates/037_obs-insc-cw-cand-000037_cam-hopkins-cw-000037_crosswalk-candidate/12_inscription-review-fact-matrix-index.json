@@ -17,65 +17,82 @@
     "no corpus import approval",
     "no decipherment conclusion"
   ],
-  "fact_count": 10,
+  "fact_count": 11,
   "facts": [
     {
       "evidence": "01_candidate-inscription-crosswalk-packet.json; 03_catalog-reference-index.csv",
       "fact": "Inscription number",
+      "fact_zh": "卜辞编号",
       "next_check": "check candidate ID, source row, and formal record status",
       "status": "candidate row only; formal obi ID is not assigned"
     },
     {
       "evidence": "05_plate-text-route-index.csv; 09_inscription-plate-evidence-dossier.md",
       "fact": "Full text or OCR",
+      "fact_zh": "全文或 OCR",
       "next_check": "open plate or catalog route before recording text",
       "status": "needs_primary_text_or_OCR_route_review"
     },
     {
       "evidence": "05_plate-text-route-index.csv; 06_plate-text-gallery.md",
       "fact": "Plate or rubbing image",
+      "fact_zh": "图版、拓片或照片",
       "next_check": "locate plate image, rubbing, or object image route",
       "status": "route indexed; image rights and local file need review"
     },
     {
       "evidence": "03_catalog-reference-index.csv",
       "fact": "Catalog references",
+      "fact_zh": "著录引用",
       "next_check": "compare Yingguo, CUL, Chalfant, and Heji references",
       "status": "present_in_metadata_routes"
     },
     {
       "evidence": "03_catalog-reference-index.csv; 05_plate-text-route-index.csv",
       "fact": "Heji route",
+      "fact_zh": "合集路线",
       "next_check": "open Heji or OBM route before using as text evidence",
       "status": "needs_heji_route_lookup"
     },
     {
       "evidence": "03_catalog-reference-index.csv; 07_human-inscription-dossier.md",
       "fact": "Collection object",
+      "fact_zh": "馆藏对象",
       "next_check": "check CUL or catalog object record and shelfmark",
       "status": "present_in_metadata_route"
     },
     {
       "evidence": "01_candidate-inscription-crosswalk-packet.json; 09_inscription-plate-evidence-dossier.md",
       "fact": "Findspot period batch",
+      "fact_zh": "出土地、时期与批次",
       "next_check": "verify findspot, pit, batch, period, and group routes",
       "status": "period and group imported; findspot and batch need review"
     },
     {
       "evidence": "07_human-inscription-dossier.md; 05_plate-text-route-index.csv",
       "fact": "Linked character occurrences",
+      "fact_zh": "关联字形出处",
       "next_check": "record only candidate links until source signs are checked",
       "status": "needs character occurrence and component route review"
     },
     {
+      "evidence": "07_human-inscription-dossier.md; 09_inscription-plate-evidence-dossier.md",
+      "fact": "Bibliography and disputes",
+      "fact_zh": "文献、释读史与争议",
+      "next_check": "add reviewed source notes before any conclusion",
+      "status": "needs bibliography, proposer, and dispute route review"
+    },
+    {
       "evidence": "02_crosswalk-source-index.csv; 09_inscription-plate-evidence-dossier.md",
       "fact": "Rights and source trail",
+      "fact_zh": "权利与来源链",
       "next_check": "review download log, checksum, manifest, and risk note",
       "status": "metadata route rights status: metadata_only_until_verified"
     },
     {
       "evidence": "04_human-review-sheet.md; 10_inscription-plate-evidence-index.json",
       "fact": "Review status",
+      "fact_zh": "复核状态",
       "next_check": "finish source, plate, text, and object checks first",
       "status": "needs_human_inscription_crosswalk_review"
     }

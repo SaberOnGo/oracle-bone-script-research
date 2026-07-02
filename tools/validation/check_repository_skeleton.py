@@ -3507,17 +3507,18 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             for snippet in [
                 "Inscription Review Fact Matrix",
                 "Human Review Order",
-                "Inscription And Plate Fact Matrix",
-                "Inscription number",
-                "Full text or OCR",
-                "Plate or rubbing image",
-                "Catalog references",
-                "Heji route",
-                "Collection object",
-                "Findspot period batch",
-                "Linked character occurrences",
-                "Rights and source trail",
-                "Review status",
+                "Inscription And Plate Fact Matrix / 卜辞与图版事实矩阵",
+                "Inscription number / 卜辞编号",
+                "Full text or OCR / 全文或 OCR",
+                "Plate or rubbing image / 图版、拓片或照片",
+                "Catalog references / 著录引用",
+                "Heji route / 合集路线",
+                "Collection object / 馆藏对象",
+                "Findspot period batch / 出土地、时期与批次",
+                "Linked character occurrences / 关联字形出处",
+                "Bibliography and disputes / 文献、释读史与争议",
+                "Rights and source trail / 权利与来源链",
+                "Review status / 复核状态",
                 "03_catalog-reference-index.csv",
                 "05_plate-text-route-index.csv",
                 "07_human-inscription-dossier.md",
@@ -3547,8 +3548,29 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} project_id mismatch")
             if fact_matrix_index.get("record_type") != "inscription_review_fact_matrix_index":
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} record_type changed")
-            if fact_matrix_index.get("fact_count") != 10:
+            if fact_matrix_index.get("fact_count") != 11:
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} fact count changed")
+            facts = fact_matrix_index.get("facts", [])
+            expected_zh_facts = {
+                "卜辞编号",
+                "全文或 OCR",
+                "图版、拓片或照片",
+                "著录引用",
+                "合集路线",
+                "馆藏对象",
+                "出土地、时期与批次",
+                "关联字形出处",
+                "文献、释读史与争议",
+                "权利与来源链",
+                "复核状态",
+            }
+            actual_zh_facts = {
+                fact.get("fact_zh", "")
+                for fact in facts
+                if isinstance(fact, dict)
+            }
+            if actual_zh_facts != expected_zh_facts:
+                issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} bilingual fact slots changed")
             if "11_inscription-review-fact-matrix.md" not in fact_matrix_index.get("human_readable_files", []):
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing fact matrix link")
             if "10_inscription-plate-evidence-index.json" not in fact_matrix_index.get("ai_support_files", []):

@@ -1081,6 +1081,7 @@ def inscription_review_fact_rows(
     return [
         {
             "fact": "Inscription number",
+            "fact_zh": "卜辞编号",
             "status": "candidate row only; formal obi ID is not assigned",
             "evidence": (
                 "01_candidate-inscription-crosswalk-packet.json; "
@@ -1090,6 +1091,7 @@ def inscription_review_fact_rows(
         },
         {
             "fact": "Full text or OCR",
+            "fact_zh": "全文或 OCR",
             "status": "needs_primary_text_or_OCR_route_review",
             "evidence": (
                 "05_plate-text-route-index.csv; "
@@ -1099,30 +1101,35 @@ def inscription_review_fact_rows(
         },
         {
             "fact": "Plate or rubbing image",
+            "fact_zh": "图版、拓片或照片",
             "status": "route indexed; image rights and local file need review",
             "evidence": "05_plate-text-route-index.csv; 06_plate-text-gallery.md",
             "next_check": "locate plate image, rubbing, or object image route",
         },
         {
             "fact": "Catalog references",
+            "fact_zh": "著录引用",
             "status": catalog_status,
             "evidence": "03_catalog-reference-index.csv",
             "next_check": "compare Yingguo, CUL, Chalfant, and Heji references",
         },
         {
             "fact": "Heji route",
+            "fact_zh": "合集路线",
             "status": heji_status,
             "evidence": "03_catalog-reference-index.csv; 05_plate-text-route-index.csv",
             "next_check": "open Heji or OBM route before using as text evidence",
         },
         {
             "fact": "Collection object",
+            "fact_zh": "馆藏对象",
             "status": cul_status,
             "evidence": "03_catalog-reference-index.csv; 07_human-inscription-dossier.md",
             "next_check": "check CUL or catalog object record and shelfmark",
         },
         {
             "fact": "Findspot period batch",
+            "fact_zh": "出土地、时期与批次",
             "status": "period and group imported; findspot and batch need review",
             "evidence": (
                 "01_candidate-inscription-crosswalk-packet.json; "
@@ -1132,18 +1139,31 @@ def inscription_review_fact_rows(
         },
         {
             "fact": "Linked character occurrences",
+            "fact_zh": "关联字形出处",
             "status": "needs character occurrence and component route review",
             "evidence": "07_human-inscription-dossier.md; 05_plate-text-route-index.csv",
             "next_check": "record only candidate links until source signs are checked",
         },
         {
+            "fact": "Bibliography and disputes",
+            "fact_zh": "文献、释读史与争议",
+            "status": "needs bibliography, proposer, and dispute route review",
+            "evidence": (
+                "07_human-inscription-dossier.md; "
+                "09_inscription-plate-evidence-dossier.md"
+            ),
+            "next_check": "add reviewed source notes before any conclusion",
+        },
+        {
             "fact": "Rights and source trail",
+            "fact_zh": "权利与来源链",
             "status": f"metadata route rights status: {row['rights_status']}",
             "evidence": "02_crosswalk-source-index.csv; 09_inscription-plate-evidence-dossier.md",
             "next_check": "review download log, checksum, manifest, and risk note",
         },
         {
             "fact": "Review status",
+            "fact_zh": "复核状态",
             "status": "needs_human_inscription_crosswalk_review",
             "evidence": "04_human-review-sheet.md; 10_inscription-plate-evidence-index.json",
             "next_check": "finish source, plate, text, and object checks first",
@@ -1154,7 +1174,7 @@ def inscription_review_fact_rows(
 def fact_matrix_markdown_rows(fact_rows: list[dict[str, str]]) -> str:
     lines: list[str] = []
     for fact in fact_rows:
-        lines.append(f"### {fact['fact']}")
+        lines.append(f"### {fact['fact']} / {fact['fact_zh']}")
         lines.append("- Status:")
         lines.append(f"  `{fact['status']}`")
         lines.append("- Evidence:")
@@ -1194,7 +1214,7 @@ as secondary route support.
 `09_inscription-plate-evidence-dossier.md`。
 结构化路线文件只作检索、追溯和复核辅助。
 
-## Inscription And Plate Fact Matrix
+## Inscription And Plate Fact Matrix / 卜辞与图版事实矩阵
 
 {facts}
 

@@ -4724,16 +4724,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertNotIn("CSV", fact_matrix_opening)
             self.assertNotIn("JSON", fact_matrix_opening)
             for required_fact in (
-                "Inscription number",
-                "Full text or OCR",
-                "Plate or rubbing image",
-                "Catalog references",
-                "Heji route",
-                "Collection object",
-                "Findspot period batch",
-                "Linked character occurrences",
-                "Rights and source trail",
-                "Review status",
+                "Inscription number / 卜辞编号",
+                "Full text or OCR / 全文或 OCR",
+                "Plate or rubbing image / 图版、拓片或照片",
+                "Catalog references / 著录引用",
+                "Heji route / 合集路线",
+                "Collection object / 馆藏对象",
+                "Findspot period batch / 出土地、时期与批次",
+                "Linked character occurrences / 关联字形出处",
+                "Bibliography and disputes / 文献、释读史与争议",
+                "Rights and source trail / 权利与来源链",
+                "Review status / 复核状态",
             ):
                 self.assertIn(required_fact, fact_matrix_text)
             for local_anchor in (
@@ -4760,7 +4761,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 fact_matrix_index["record_type"],
                 "inscription_review_fact_matrix_index",
             )
-            self.assertEqual(fact_matrix_index["fact_count"], 10)
+            self.assertEqual(fact_matrix_index["fact_count"], 11)
             self.assertIn(
                 "11_inscription-review-fact-matrix.md",
                 fact_matrix_index["human_readable_files"],
@@ -5008,18 +5009,34 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["review_fact_matrix_text"],
         )
         self.assertIn("Human Review Order", first["review_fact_matrix_text"])
-        self.assertIn("Inscription And Plate Fact Matrix", first["review_fact_matrix_text"])
+        self.assertIn(
+            "Inscription And Plate Fact Matrix / 卜辞与图版事实矩阵",
+            first["review_fact_matrix_text"],
+        )
         review_fact_opening = first["review_fact_matrix_text"].split(
-            "## Inscription And Plate Fact Matrix", maxsplit=1
+            "## Inscription And Plate Fact Matrix / 卜辞与图版事实矩阵",
+            maxsplit=1,
         )[0]
         self.assertIn("structured route files", review_fact_opening)
         self.assertIn("结构化路线文件只作检索、追溯和复核辅助", review_fact_opening)
         self.assertNotIn("CSV", review_fact_opening)
         self.assertNotIn("JSON", review_fact_opening)
         self.assertIn("Full text or OCR", first["review_fact_matrix_text"])
+        self.assertIn("全文或 OCR", first["review_fact_matrix_text"])
         self.assertIn("Plate or rubbing image", first["review_fact_matrix_text"])
+        self.assertIn("图版、拓片或照片", first["review_fact_matrix_text"])
+        self.assertIn("Catalog references / 著录引用", first["review_fact_matrix_text"])
+        self.assertIn("Heji route / 合集路线", first["review_fact_matrix_text"])
+        self.assertIn("Collection object / 馆藏对象", first["review_fact_matrix_text"])
         self.assertIn("Findspot period batch", first["review_fact_matrix_text"])
+        self.assertIn("出土地、时期与批次", first["review_fact_matrix_text"])
         self.assertIn("Linked character occurrences", first["review_fact_matrix_text"])
+        self.assertIn("关联字形出处", first["review_fact_matrix_text"])
+        self.assertIn(
+            "Bibliography and disputes / 文献、释读史与争议",
+            first["review_fact_matrix_text"],
+        )
+        self.assertIn("Rights and source trail / 权利与来源链", first["review_fact_matrix_text"])
         self.assertIn("not a formal inscription record", first["review_fact_matrix_text"])
         self.assertIn("not a decipherment conclusion", first["review_fact_matrix_text"])
         for line in first["review_fact_matrix_text"].splitlines():
@@ -5028,7 +5045,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["review_fact_matrix_index"]["record_type"],
             "inscription_review_fact_matrix_index",
         )
-        self.assertEqual(first["review_fact_matrix_index"]["fact_count"], 10)
+        self.assertEqual(first["review_fact_matrix_index"]["fact_count"], 11)
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
             first["plate_evidence_index"]["human_readable_files"],

@@ -14,9 +14,9 @@ as secondary route support.
 `09_inscription-plate-evidence-dossier.md`。
 结构化路线文件只作检索、追溯和复核辅助。
 
-## Inscription And Plate Fact Matrix
+## Inscription And Plate Fact Matrix / 卜辞与图版事实矩阵
 
-### Inscription number
+### Inscription number / 卜辞编号
 - Status:
   `candidate row only; formal obi ID is not assigned`
 - Evidence:
@@ -24,7 +24,7 @@ as secondary route support.
   - `03_catalog-reference-index.csv`
 - Next check: check candidate ID, source row, and formal record status
 
-### Full text or OCR
+### Full text or OCR / 全文或 OCR
 - Status:
   `needs_primary_text_or_OCR_route_review`
 - Evidence:
@@ -32,7 +32,7 @@ as secondary route support.
   - `09_inscription-plate-evidence-dossier.md`
 - Next check: open plate or catalog route before recording text
 
-### Plate or rubbing image
+### Plate or rubbing image / 图版、拓片或照片
 - Status:
   `route indexed; image rights and local file need review`
 - Evidence:
@@ -40,14 +40,14 @@ as secondary route support.
   - `06_plate-text-gallery.md`
 - Next check: locate plate image, rubbing, or object image route
 
-### Catalog references
+### Catalog references / 著录引用
 - Status:
   `present_in_metadata_routes`
 - Evidence:
   - `03_catalog-reference-index.csv`
 - Next check: compare Yingguo, CUL, Chalfant, and Heji references
 
-### Heji route
+### Heji route / 合集路线
 - Status:
   `present_in_metadata_route`
 - Evidence:
@@ -55,7 +55,7 @@ as secondary route support.
   - `05_plate-text-route-index.csv`
 - Next check: open Heji or OBM route before using as text evidence
 
-### Collection object
+### Collection object / 馆藏对象
 - Status:
   `needs_collection_object_lookup`
 - Evidence:
@@ -63,7 +63,7 @@ as secondary route support.
   - `07_human-inscription-dossier.md`
 - Next check: check CUL or catalog object record and shelfmark
 
-### Findspot period batch
+### Findspot period batch / 出土地、时期与批次
 - Status:
   `period and group imported; findspot and batch need review`
 - Evidence:
@@ -71,7 +71,7 @@ as secondary route support.
   - `09_inscription-plate-evidence-dossier.md`
 - Next check: verify findspot, pit, batch, period, and group routes
 
-### Linked character occurrences
+### Linked character occurrences / 关联字形出处
 - Status:
   `needs character occurrence and component route review`
 - Evidence:
@@ -79,7 +79,15 @@ as secondary route support.
   - `05_plate-text-route-index.csv`
 - Next check: record only candidate links until source signs are checked
 
-### Rights and source trail
+### Bibliography and disputes / 文献、释读史与争议
+- Status:
+  `needs bibliography, proposer, and dispute route review`
+- Evidence:
+  - `07_human-inscription-dossier.md`
+  - `09_inscription-plate-evidence-dossier.md`
+- Next check: add reviewed source notes before any conclusion
+
+### Rights and source trail / 权利与来源链
 - Status:
   `metadata route rights status: metadata_only_until_verified`
 - Evidence:
@@ -87,7 +95,7 @@ as secondary route support.
   - `09_inscription-plate-evidence-dossier.md`
 - Next check: review download log, checksum, manifest, and risk note
 
-### Review status
+### Review status / 复核状态
 - Status:
   `needs_human_inscription_crosswalk_review`
 - Evidence:

@@ -4,7 +4,8 @@
     "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/02_evolution-source-index.csv",
     "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/03_era-source-code-index.csv",
     "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/05_image-reference-route-index.csv",
-    "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/08_evolution-dossier-index.json"
+    "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/08_evolution-dossier-index.json",
+    "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/13_modern-label-caution-index.json"
   ],
   "candidate_evolution_category_id": "evobc-evo-cat-09282",
   "claim_status": {
@@ -20,7 +21,8 @@
     "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/06_image-reference-route-gallery.md",
     "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/07_human-evolution-dossier.md",
     "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/09_cross-period-review-dossier.md",
-    "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/11_evolution-review-fact-matrix.md"
+    "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/11_evolution-review-fact-matrix.md",
+    "corpus/004_bronze-seal-modern-correspondences/093_009201-009300_obs-evo-cand-bucket_evolution-candidates/9282_obs-evo-cand-009282_evobc-cat-09282_evolution-candidate/12_modern-label-caution-review.md"
   ],
   "image_route_count": 4,
   "project_id": "obs-evo-cand-009282",

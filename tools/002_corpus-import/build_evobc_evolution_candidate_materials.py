@@ -154,6 +154,8 @@ MANIFEST_FIELDS = [
     "cross_period_review_dossier_path",
     "cross_period_review_index_path",
     "evolution_review_fact_matrix_path",
+    "modern_label_caution_review_path",
+    "modern_label_caution_index_path",
     "source_character_label",
     "source_character_codepoints",
     "image_reference_count",
@@ -326,6 +328,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "09_cross-period-review-dossier.md").as_posix(),
         (directory / "10_cross-period-review-index.json").as_posix(),
         (directory / "11_evolution-review-fact-matrix.md").as_posix(),
+        (directory / "12_modern-label-caution-review.md").as_posix(),
+        (directory / "13_modern-label-caution-index.json").as_posix(),
     ]
 
 
@@ -829,6 +833,7 @@ def dossier_index_payload(
             (directory / "07_human-evolution-dossier.md").as_posix(),
             (directory / "09_cross-period-review-dossier.md").as_posix(),
             (directory / "11_evolution-review-fact-matrix.md").as_posix(),
+            (directory / "12_modern-label-caution-review.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-evolution-packet.json").as_posix(),
@@ -836,6 +841,7 @@ def dossier_index_payload(
             (directory / "03_era-source-code-index.csv").as_posix(),
             (directory / "05_image-reference-route-index.csv").as_posix(),
             (directory / "10_cross-period-review-index.json").as_posix(),
+            (directory / "13_modern-label-caution-index.json").as_posix(),
         ],
         "source_route_files": route_files(directory),
         "code_row_count": len(code_rows),
@@ -1006,6 +1012,7 @@ def cross_period_review_index_payload(
             (directory / "07_human-evolution-dossier.md").as_posix(),
             (directory / "09_cross-period-review-dossier.md").as_posix(),
             (directory / "11_evolution-review-fact-matrix.md").as_posix(),
+            (directory / "12_modern-label-caution-review.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-evolution-packet.json").as_posix(),
@@ -1013,6 +1020,7 @@ def cross_period_review_index_payload(
             (directory / "03_era-source-code-index.csv").as_posix(),
             (directory / "05_image-reference-route-index.csv").as_posix(),
             (directory / "08_evolution-dossier-index.json").as_posix(),
+            (directory / "13_modern-label-caution-index.json").as_posix(),
         ],
         "specific_missing_evidence": [
             "primary_image_rubbing_photo_plate_handcopy",
@@ -1091,6 +1099,8 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
             "`09_cross-period-review-dossier.md`: cross-period human review dossier.",
             "`10_cross-period-review-index.json`: structured support index for cross-period review.",
             "`11_evolution-review-fact-matrix.md`: human first-read fact matrix.",
+            "`12_modern-label-caution-review.md`: human label and codepoint caution sheet.",
+            "`13_modern-label-caution-index.json`: structured support index for label caution.",
         ]
     )
     metadata_lines = bullet_block(
@@ -1560,6 +1570,138 @@ Simplified Chinese:
     return text
 
 
+def modern_label_caution_review_text(
+    index: int,
+    row: dict[str, str],
+    code_rows: list[dict[str, str]],
+) -> str:
+    pid = project_id(index)
+    label = human_source_label(row)
+    intro_en = wrapped_paragraph(
+        "This object-local review sheet keeps EVOBC source labels, Unicode "
+        "codepoints, era codes, and source codes separate from confirmed "
+        "modern-character identity, reading, meaning, or decipherment claims."
+    )
+    intro_zh = wrapped_paragraph(
+        "\u672c\u9875\u7528\u4e8e\u628a EVOBC \u6765\u6e90\u6807\u7b7e\u3001"
+        "Unicode codepoint\u3001\u65f6\u671f\u4ee3\u7801\u548c\u6765\u6e90"
+        "\u4ee3\u7801\uff0c\u4e0e\u5df2\u786e\u8ba4\u7684\u4eca\u5b57"
+        "\u8eab\u4efd\u3001\u8bfb\u6cd5\u3001\u5b57\u4e49\u6216\u91ca\u8bfb"
+        "\u7ed3\u8bba\u5206\u5f00\u590d\u6838\u3002"
+    )
+    identity_lines = bullet_block(
+        [
+            f"Project ID: `{pid}`.",
+            f"EVOBC candidate category: `{row['candidate_evolution_category_id']}`.",
+            f"Source label for search only: `{label}`.",
+            f"Source codepoints for search only: `{row['source_character_codepoints']}`.",
+            f"Era/source code rows to open: `{len(code_rows)}`.",
+            "Modern codepoint routes are search clues only.",
+            "They are not accepted modern-character identities.",
+        ]
+    )
+    review_lines = bullet_block(
+        [
+            "Open `03_era-source-code-index.csv` before using any era or source code.",
+            "Open `09_cross-period-review-dossier.md` before any later-form comparison.",
+            "Open `07_human-evolution-dossier.md` before recording missing evidence.",
+            "Open dictionaries, databases, papers, and source images before identity claims.",
+            "Record proposer, source scope, disagreement, and dispute when found.",
+            "Keep every unopened label as candidate, source record, or pending review.",
+        ]
+    )
+    question_lines = bullet_block(
+        [
+            "Which source row supplied the label and codepoint route?",
+            "Which dictionary, database, paper, or image source can verify it?",
+            "Is the codepoint a comparison clue or only an EVOBC dataset key?",
+            "Which bronze, seal, oracle, or later-script form must be opened next?",
+            "What dispute or different opinion must be recorded before promotion?",
+            "\u6253\u5f00 `03_era-source-code-index.csv`\uff0c"
+            "\u5148\u6838\u5bf9\u65f6\u671f\u548c\u6765\u6e90\u4ee3\u7801\u3002",
+            "\u6253\u5f00 `09_cross-period-review-dossier.md`\uff0c"
+            "\u5148\u6838\u5bf9\u91d1\u6587\u3001\u5c0f\u7bc6\u548c\u4eca\u5b57"
+            "\u8def\u7ebf\u3002",
+        ]
+    )
+    boundary_lines = bullet_block(
+        [
+            "This sheet is not a confirmed modern-character identity.",
+            "This sheet is not a reading or meaning conclusion.",
+            "This sheet is not an accepted paleographic correspondence.",
+            "This sheet is not an evolution-chain conclusion.",
+            "This sheet is not a decipherment conclusion.",
+        ]
+    )
+    text = f"""# Modern Label Caution Review / \u4eca\u5b57\u6807\u7b7e\u98ce\u9669\u590d\u6838: {pid}
+
+English:
+{intro_en}
+
+Simplified Chinese:
+{intro_zh}
+
+## Dataset Label Is Not Identity
+
+{identity_lines}
+
+## Review Order
+
+{review_lines}
+
+## Concrete Questions To Check
+
+{question_lines}
+
+## Review Boundary
+
+{boundary_lines}
+"""
+    assert_human_line_width(text, f"{pid} modern label caution review")
+    return text
+
+
+def modern_label_caution_index_payload(
+    index: int,
+    row: dict[str, str],
+    directory: Path,
+    code_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "modern_label_caution_review_index",
+        "candidate_evolution_category_id": row["candidate_evolution_category_id"],
+        "source_id": SOURCE_ID,
+        "human_readable_files": [
+            (directory / "12_modern-label-caution-review.md").as_posix(),
+            (directory / "07_human-evolution-dossier.md").as_posix(),
+            (directory / "09_cross-period-review-dossier.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (directory / "01_candidate-evolution-packet.json").as_posix(),
+            (directory / "03_era-source-code-index.csv").as_posix(),
+            (directory / "10_cross-period-review-index.json").as_posix(),
+        ],
+        "source_label_for_search_only": human_source_label(row),
+        "source_codepoints_for_search_only": row["source_character_codepoints"],
+        "code_row_count": len(code_rows),
+        "claim_status": {
+            "modern_identity": "no_modern_identity_claim",
+            "reading": "no_reading_claim",
+            "meaning": "no_meaning_claim",
+            "decipherment": "no_decipherment_claim",
+        },
+        "specific_questions": [
+            "verify_label_source_row",
+            "verify_dictionary_database_paper_or_image_source",
+            "separate_codepoint_clue_from_identity_claim",
+            "record_dispute_or_different_opinion_before_promotion",
+        ],
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     category_rows = read_csv_rows(root / CATEGORY_STAGING)
     codebook = codebook_lookup(read_csv_rows(root / CODEBOOK_STAGING))
@@ -1620,6 +1762,17 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 code_rows,
                 image_routes,
             ),
+            "modern_label_caution_review_text": modern_label_caution_review_text(
+                index,
+                row,
+                code_rows,
+            ),
+            "modern_label_caution_index": modern_label_caution_index_payload(
+                index,
+                row,
+                directory,
+                code_rows,
+            ),
             "map_row": {
                 "project_id": pid,
                 "record_type": RECORD_TYPE,
@@ -1664,6 +1817,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "cross_period_review_dossier_path": (directory / "09_cross-period-review-dossier.md").as_posix(),
                 "cross_period_review_index_path": (directory / "10_cross-period-review-index.json").as_posix(),
                 "evolution_review_fact_matrix_path": (directory / "11_evolution-review-fact-matrix.md").as_posix(),
+                "modern_label_caution_review_path": (directory / "12_modern-label-caution-review.md").as_posix(),
+                "modern_label_caution_index_path": (directory / "13_modern-label-caution-index.json").as_posix(),
                 "source_character_label": str(packet["source_character_label"]),
                 "source_character_codepoints": str(packet["source_character_codepoints"]),
                 "image_reference_count": str(packet["image_reference_count"]),
@@ -1721,6 +1876,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (directory / "11_evolution-review-fact-matrix.md").write_text(
             str(output["fact_matrix_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "12_modern-label-caution-review.md").write_text(
+            str(output["modern_label_caution_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "13_modern-label-caution-index.json").write_text(
+            json.dumps(
+                output["modern_label_caution_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
             encoding="utf-8",
             newline="\n",
         )

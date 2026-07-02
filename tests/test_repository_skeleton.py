@@ -5177,6 +5177,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "09_cross-period-review-dossier.md").exists())
             self.assertTrue((object_dir / "10_cross-period-review-index.json").exists())
             self.assertTrue((object_dir / "11_evolution-review-fact-matrix.md").exists())
+            self.assertTrue((object_dir / "12_modern-label-caution-review.md").exists())
+            self.assertTrue((object_dir / "13_modern-label-caution-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
             self.assertIn("object-local human research entrance", readme_text)
@@ -5206,6 +5208,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 readme_text,
             )
             self.assertIn("11_evolution-review-fact-matrix.md", readme_text)
+            self.assertIn("12_modern-label-caution-review.md", readme_text)
             self.assertNotIn(
                 "What evidence is still missing before any formal correspondence claim?",
                 readme_text,
@@ -5553,6 +5556,40 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in fact_matrix_text.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
+            label_caution_text = (
+                object_dir / "12_modern-label-caution-review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Modern Label Caution Review", label_caution_text)
+            self.assertIn("Dataset Label Is Not Identity", label_caution_text)
+            self.assertIn("Modern codepoint routes are search clues only", label_caution_text)
+            self.assertIn("Open `09_cross-period-review-dossier.md` before", label_caution_text)
+            self.assertIn("Open `03_era-source-code-index.csv` before", label_caution_text)
+            self.assertIn("not a confirmed modern-character identity", label_caution_text)
+            self.assertIn("not a reading or meaning conclusion", label_caution_text)
+            self.assertIn("not a decipherment conclusion", label_caution_text)
+            self.assertNotIn("not_collected", label_caution_text)
+            for line in label_caution_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            label_caution_index = json.loads(
+                (object_dir / "13_modern-label-caution-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                label_caution_index["record_type"],
+                "modern_label_caution_review_index",
+            )
+            self.assertEqual(
+                label_caution_index["claim_status"]["modern_identity"],
+                "no_modern_identity_claim",
+            )
+            self.assertTrue(
+                any(
+                    file_path.endswith("12_modern-label-caution-review.md")
+                    for file_path in label_caution_index["human_readable_files"]
+                )
+            )
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_evobc_evolution_candidate_materials_module()
@@ -5770,6 +5807,26 @@ class RepositorySkeletonTests(unittest.TestCase):
         for line in first["fact_matrix_text"].splitlines():
             if not line.startswith("|") and not line.startswith("!["):
                 self.assertLessEqual(len(line), 80, line)
+        self.assertIn(
+            "Modern Label Caution Review",
+            first["modern_label_caution_review_text"],
+        )
+        self.assertIn(
+            "Modern codepoint routes are search clues only",
+            first["modern_label_caution_review_text"],
+        )
+        self.assertIn(
+            "not a confirmed modern-character identity",
+            first["modern_label_caution_review_text"],
+        )
+        self.assertEqual(
+            first["modern_label_caution_index"]["record_type"],
+            "modern_label_caution_review_index",
+        )
+        self.assertEqual(
+            first["modern_label_caution_index"]["claim_status"]["modern_identity"],
+            "no_modern_identity_claim",
+        )
         self.assertTrue(
             any(
                 route_file.endswith("08_evolution-dossier-index.json")
@@ -5779,6 +5836,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             any(
                 route_file.endswith("11_evolution-review-fact-matrix.md")
+                for route_file in first["packet"]["route_files"]
+            )
+        )
+        self.assertTrue(
+            any(
+                route_file.endswith("12_modern-label-caution-review.md")
                 for route_file in first["packet"]["route_files"]
             )
         )

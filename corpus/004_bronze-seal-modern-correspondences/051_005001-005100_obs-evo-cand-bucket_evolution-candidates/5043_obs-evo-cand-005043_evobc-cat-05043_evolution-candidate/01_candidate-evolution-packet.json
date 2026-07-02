@@ -140,7 +140,9 @@
     "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/08_evolution-dossier-index.json",
     "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/09_cross-period-review-dossier.md",
     "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/10_cross-period-review-index.json",
-    "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/11_evolution-review-fact-matrix.md"
+    "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/11_evolution-review-fact-matrix.md",
+    "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/12_modern-label-caution-review.md",
+    "corpus/004_bronze-seal-modern-correspondences/051_005001-005100_obs-evo-cand-bucket_evolution-candidates/5043_obs-evo-cand-005043_evobc-cat-05043_evolution-candidate/13_modern-label-caution-index.json"
   ],
   "script_stage_flags": {
     "has_bronze_refs": false,

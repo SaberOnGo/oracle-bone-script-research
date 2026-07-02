@@ -60,6 +60,9 @@ Structured support files only serve the human evolution dossier.
 - `10_cross-period-review-index.json`: structured support index for cross-period
   review.
 - `11_evolution-review-fact-matrix.md`: human first-read fact matrix.
+- `12_modern-label-caution-review.md`: human label and codepoint caution sheet.
+- `13_modern-label-caution-index.json`: structured support index for label
+  caution.
 
 ## Candidate Metadata / 候选 metadata
 

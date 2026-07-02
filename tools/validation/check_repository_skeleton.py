@@ -3655,6 +3655,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "09_cross-period-review-dossier.md",
         "10_cross-period-review-index.json",
         "11_evolution-review-fact-matrix.md",
+        "12_modern-label-caution-review.md",
+        "13_modern-label-caution-index.json",
     ]
     pending_check_anchors = [
         "02_evolution-source-index.csv",
@@ -3664,6 +3666,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "07_human-evolution-dossier.md",
         "09_cross-period-review-dossier.md",
         "11_evolution-review-fact-matrix.md",
+        "12_modern-label-caution-review.md",
         "001_evobc-evolution-category-staging.csv",
         "007_evobc-evolution-graph-edges.jsonl",
         "project_registry/",
@@ -3710,6 +3713,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "05_image-reference-route-index.csv",
                 "06_image-reference-route-gallery.md",
                 "11_evolution-review-fact-matrix.md",
+                "12_modern-label-caution-review.md",
             ]:
                 if snippet not in text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -3762,6 +3766,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             route_files = [str(path) for path in packet.get("route_files", [])]
             if not any(path.endswith("11_evolution-review-fact-matrix.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing fact matrix route")
+            if not any(path.endswith("12_modern-label-caution-review.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing modern label caution route")
         source_index_path = object_dir / "02_evolution-source-index.csv"
         if path_exists(source_index_path):
             with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -3942,6 +3948,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                     f"{dossier_index_path.relative_to(root).as_posix()} "
                     "missing fact matrix route"
                 )
+            if not any(path.endswith("12_modern-label-caution-review.md") for path in human_files):
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} "
+                    "missing modern label caution route"
+                )
         cross_period_dossier_path = object_dir / "09_cross-period-review-dossier.md"
         if index in deep_route_check_indexes and path_exists(cross_period_dossier_path):
             cross_period_dossier = cross_period_dossier_path.read_text(encoding="utf-8")
@@ -4009,6 +4020,14 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                     f"{cross_period_index_path.relative_to(root).as_posix()} "
                     "missing fact matrix route"
                 )
+            if not any(
+                str(file_path).endswith("12_modern-label-caution-review.md")
+                for file_path in human_files
+            ):
+                issues.append(
+                    f"{cross_period_index_path.relative_to(root).as_posix()} "
+                    "missing modern label caution route"
+                )
             missing_evidence = cross_period_index.get("specific_missing_evidence", [])
             if "oracle_inscription_collection_findspot_period_batch" not in missing_evidence:
                 issues.append(
@@ -4073,6 +4092,62 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                         f"{fact_matrix_path.relative_to(root).as_posix()}:"
                         f"{line_number} line exceeds 80 characters"
                     )
+        label_caution_path = object_dir / "12_modern-label-caution-review.md"
+        if index in deep_route_check_indexes and path_exists(label_caution_path):
+            label_caution = label_caution_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Modern Label Caution Review",
+                "Dataset Label Is Not Identity",
+                "Modern codepoint routes are search clues only",
+                "Open `09_cross-period-review-dossier.md` before",
+                "Open `03_era-source-code-index.csv` before",
+                "not a confirmed modern-character identity",
+                "not a reading or meaning conclusion",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in label_caution:
+                    issues.append(
+                        f"{label_caution_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in label_caution:
+                issues.append(
+                    f"{label_caution_path.relative_to(root).as_posix()} "
+                    "contains machine status in human caution sheet"
+                )
+            for line_number, line in enumerate(label_caution.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{label_caution_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
+        label_caution_index_path = object_dir / "13_modern-label-caution-index.json"
+        if index in deep_route_check_indexes and path_exists(label_caution_index_path):
+            label_index = json.loads(
+                label_caution_index_path.read_text(encoding="utf-8")
+            )
+            if label_index.get("record_type") != "modern_label_caution_review_index":
+                issues.append(
+                    f"{label_caution_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            claim_status = label_index.get("claim_status", {})
+            if claim_status.get("modern_identity") != "no_modern_identity_claim":
+                issues.append(
+                    f"{label_caution_index_path.relative_to(root).as_posix()} "
+                    "modern identity claim status changed"
+                )
+            human_files = label_index.get("human_readable_files", [])
+            if not any(
+                str(file_path).endswith("12_modern-label-caution-review.md")
+                for file_path in human_files
+            ):
+                issues.append(
+                    f"{label_caution_index_path.relative_to(root).as_posix()} "
+                    "missing human caution sheet route"
+                )
     return issues
 
 

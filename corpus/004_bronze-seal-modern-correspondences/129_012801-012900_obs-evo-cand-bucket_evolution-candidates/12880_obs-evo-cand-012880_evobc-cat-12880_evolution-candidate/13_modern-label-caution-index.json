@@ -1,0 +1,33 @@
+{
+  "ai_support_files": [
+    "corpus/004_bronze-seal-modern-correspondences/129_012801-012900_obs-evo-cand-bucket_evolution-candidates/12880_obs-evo-cand-012880_evobc-cat-12880_evolution-candidate/01_candidate-evolution-packet.json",
+    "corpus/004_bronze-seal-modern-correspondences/129_012801-012900_obs-evo-cand-bucket_evolution-candidates/12880_obs-evo-cand-012880_evobc-cat-12880_evolution-candidate/03_era-source-code-index.csv",
+    "corpus/004_bronze-seal-modern-correspondences/129_012801-012900_obs-evo-cand-bucket_evolution-candidates/12880_obs-evo-cand-012880_evobc-cat-12880_evolution-candidate/10_cross-period-review-index.json"
+  ],
+  "candidate_evolution_category_id": "evobc-evo-cat-12880",
+  "claim_status": {
+    "decipherment": "no_decipherment_claim",
+    "meaning": "no_meaning_claim",
+    "modern_identity": "no_modern_identity_claim",
+    "reading": "no_reading_claim"
+  },
+  "code_row_count": 2,
+  "human_readable_files": [
+    "corpus/004_bronze-seal-modern-correspondences/129_012801-012900_obs-evo-cand-bucket_evolution-candidates/12880_obs-evo-cand-012880_evobc-cat-12880_evolution-candidate/12_modern-label-caution-review.md",
+    "corpus/004_bronze-seal-modern-correspondences/129_012801-012900_obs-evo-cand-bucket_evolution-candidates/12880_obs-evo-cand-012880_evobc-cat-12880_evolution-candidate/07_human-evolution-dossier.md",
+    "corpus/004_bronze-seal-modern-correspondences/129_012801-012900_obs-evo-cand-bucket_evolution-candidates/12880_obs-evo-cand-012880_evobc-cat-12880_evolution-candidate/09_cross-period-review-dossier.md"
+  ],
+  "project_id": "obs-evo-cand-012880",
+  "record_type": "modern_label_caution_review_index",
+  "review_status": "needs_human_evolution_review",
+  "source_codepoints_for_search_only": "U+2ADF8",
+  "source_id": "src-evobc",
+  "source_label_for_search_only": "𪷸",
+  "specific_questions": [
+    "verify_label_source_row",
+    "verify_dictionary_database_paper_or_image_source",
+    "separate_codepoint_clue_from_identity_claim",
+    "record_dispute_or_different_opinion_before_promotion"
+  ],
+  "updated_at": "2026-06-20"
+}

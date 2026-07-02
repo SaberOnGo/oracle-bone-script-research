@@ -83,6 +83,17 @@ Expected object-local files:
 - `04_human-review-sheet.md`: manual review sheet.
 - `05_image-reference-route-gallery.md`: readable image route gallery.
 - `06_image-reference-route-index.csv`: image-reference route table.
+- `07_human-evolution-dossier.md`: human evolution dossier.
+- `08_evolution-dossier-index.json`: structured support index for the
+  human evolution dossier.
+- `09_cross-period-review-dossier.md`: cross-period human review dossier.
+- `10_cross-period-review-index.json`: structured support index for
+  cross-period review.
+- `11_evolution-review-fact-matrix.md`: human first-read fact matrix.
+- `12_modern-label-caution-review.md`: human review sheet separating
+  dataset labels and codepoint clues from confirmed modern identity.
+- `13_modern-label-caution-index.json`: structured support index for
+  the modern-label caution sheet.
 
 ## Dossier Questions / 档案待查内容
 

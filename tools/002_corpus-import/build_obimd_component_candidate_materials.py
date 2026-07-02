@@ -1429,62 +1429,62 @@ def component_review_fact_matrix_text(
     )
     fact_rows = [
         (
-            "Component candidate",
+            "Component candidate / 构件候选",
             "dataset candidate only; no component assignment",
             "01_candidate-component-packet.json; 11_human-component-dossier.md",
         ),
         (
-            "Glyph or codepoint route",
+            "Glyph or codepoint route / 字形或码位路线",
             f"{len(glyph_rows)} OBIMD route rows; examples {codepoint_summary}",
             "03_glyph-codepoint-index.csv; 04_glyph-codepoint-gallery.md",
         ),
         (
-            "Local visual evidence",
+            "Local visual evidence / 本地视觉证据",
             f"{len(visual_rows)} local image rows; {local_image_status}",
             "06_component-visual-index.csv; 07_component-visual-gallery.md",
         ),
         (
-            "Visual package route",
+            "Visual package route / 视觉包路线",
             f"{len(route_rows)} route rows from package and local indexes",
             "09_component-visual-route-index.csv; 10_component-visual-route-gallery.md",
         ),
         (
-            "Near-shape and variant review",
+            "Near-shape and variant review / 近形与异体复核",
             "pending comparison against independent visual evidence",
             "11_human-component-dossier.md; 13_component-context-evidence-dossier.md",
         ),
         (
-            "Character and inscription context",
+            "Character and inscription context / 单字与卜辞上下文",
             "pending oracle-character, inscription, and plate context review",
             "13_component-context-evidence-dossier.md; 14_component-context-evidence-index.json",
         ),
         (
-            "Meaning or reading status",
+            "Meaning or reading status / 字义或释读状态",
             "no confirmed meaning or reading; keep \u91ca\u8bfb as a review question",
             "11_human-component-dossier.md; 13_component-context-evidence-dossier.md",
         ),
         (
-            "Scholarship and dispute route",
+            "Scholarship and dispute route / 学术史与争议路线",
             "check \u91ca\u8bfb\u53f2, dispute, and \u4e89\u8bae before any claim",
             "research/; 13_component-context-evidence-dossier.md",
         ),
         (
-            "Findspot collection period route",
+            "Findspot collection period route / 出土地馆藏时期路线",
             "check findspot, collection, period, \u51fa\u571f, \u9986\u85cf, \u65f6\u671f, and \u7ec4\u7c7b",
             "corpus/005_excavation-sites-periods-and-batches/; project_registry/",
         ),
         (
-            "Source and rights trail",
+            "Source and rights trail / 来源与权利链",
             f"{main_row['source_id']}; rights {RIGHTS_STATUS}",
             "02_component-source-index.csv; project_registry/",
         ),
         (
-            "Missing evidence route",
+            "Missing evidence route / 缺失证据路线",
             "record whether the gap is image, near-shape, source, or context",
             "08_human-visual-review-sheet.md; 13_component-context-evidence-dossier.md",
         ),
         (
-            "Review status",
+            "Review status / 复核状态",
             REVIEW_STATUS,
             "12_component-dossier-index.json; 14_component-context-evidence-index.json",
         ),
@@ -1552,7 +1552,7 @@ def component_review_fact_matrix_text(
             "\u6784\u4ef6\u5019\u9009\u590d\u6838\u77e9\u9635"
         ),
         "",
-        "| Fact | Current status | Local evidence to open |",
+        "| Fact / 项目 | Current status / 当前状态 | Local evidence to open / 需打开的本地证据 |",
         "| --- | --- | --- |",
         table,
         "",

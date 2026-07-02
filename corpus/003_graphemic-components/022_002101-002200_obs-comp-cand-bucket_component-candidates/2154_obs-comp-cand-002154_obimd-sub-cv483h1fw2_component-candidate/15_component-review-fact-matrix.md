@@ -19,20 +19,20 @@ formal component assignment.
 
 ## Component Candidate Review Fact Matrix / 构件候选复核矩阵
 
-| Fact | Current status | Local evidence to open |
+| Fact / 项目 | Current status / 当前状态 | Local evidence to open / 需打开的本地证据 |
 | --- | --- | --- |
-| Component candidate | dataset candidate only; no component assignment | 01_candidate-component-packet.json; 11_human-component-dossier.md |
-| Glyph or codepoint route | 101 OBIMD route rows; examples U+5F1C;U+FC681; U+FC682; 另有 99 项 | 03_glyph-codepoint-index.csv; 04_glyph-codepoint-gallery.md |
-| Local visual evidence | 1 local image rows; source_image_extracted | 06_component-visual-index.csv; 07_component-visual-gallery.md |
-| Visual package route | 4 route rows from package and local indexes | 09_component-visual-route-index.csv; 10_component-visual-route-gallery.md |
-| Near-shape and variant review | pending comparison against independent visual evidence | 11_human-component-dossier.md; 13_component-context-evidence-dossier.md |
-| Character and inscription context | pending oracle-character, inscription, and plate context review | 13_component-context-evidence-dossier.md; 14_component-context-evidence-index.json |
-| Meaning or reading status | no confirmed meaning or reading; keep 释读 as a review question | 11_human-component-dossier.md; 13_component-context-evidence-dossier.md |
-| Scholarship and dispute route | check 释读史, dispute, and 争议 before any claim | research/; 13_component-context-evidence-dossier.md |
-| Findspot collection period route | check findspot, collection, period, 出土, 馆藏, 时期, and 组类 | corpus/005_excavation-sites-periods-and-batches/; project_registry/ |
-| Source and rights trail | src-obimd; rights licensed_for_repository | 02_component-source-index.csv; project_registry/ |
-| Missing evidence route | record whether the gap is image, near-shape, source, or context | 08_human-visual-review-sheet.md; 13_component-context-evidence-dossier.md |
-| Review status | needs_human_component_review | 12_component-dossier-index.json; 14_component-context-evidence-index.json |
+| Component candidate / 构件候选 | dataset candidate only; no component assignment | 01_candidate-component-packet.json; 11_human-component-dossier.md |
+| Glyph or codepoint route / 字形或码位路线 | 101 OBIMD route rows; examples U+5F1C;U+FC681; U+FC682; 另有 99 项 | 03_glyph-codepoint-index.csv; 04_glyph-codepoint-gallery.md |
+| Local visual evidence / 本地视觉证据 | 1 local image rows; source_image_extracted | 06_component-visual-index.csv; 07_component-visual-gallery.md |
+| Visual package route / 视觉包路线 | 4 route rows from package and local indexes | 09_component-visual-route-index.csv; 10_component-visual-route-gallery.md |
+| Near-shape and variant review / 近形与异体复核 | pending comparison against independent visual evidence | 11_human-component-dossier.md; 13_component-context-evidence-dossier.md |
+| Character and inscription context / 单字与卜辞上下文 | pending oracle-character, inscription, and plate context review | 13_component-context-evidence-dossier.md; 14_component-context-evidence-index.json |
+| Meaning or reading status / 字义或释读状态 | no confirmed meaning or reading; keep 释读 as a review question | 11_human-component-dossier.md; 13_component-context-evidence-dossier.md |
+| Scholarship and dispute route / 学术史与争议路线 | check 释读史, dispute, and 争议 before any claim | research/; 13_component-context-evidence-dossier.md |
+| Findspot collection period route / 出土地馆藏时期路线 | check findspot, collection, period, 出土, 馆藏, 时期, and 组类 | corpus/005_excavation-sites-periods-and-batches/; project_registry/ |
+| Source and rights trail / 来源与权利链 | src-obimd; rights licensed_for_repository | 02_component-source-index.csv; project_registry/ |
+| Missing evidence route / 缺失证据路线 | record whether the gap is image, near-shape, source, or context | 08_human-visual-review-sheet.md; 13_component-context-evidence-dossier.md |
+| Review status / 复核状态 | needs_human_component_review | 12_component-dossier-index.json; 14_component-context-evidence-index.json |
 
 ## Human Comparison Order / 人工比较顺序
 

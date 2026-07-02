@@ -4257,21 +4257,34 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "结构化路线文件只作检索、追溯和复核辅助",
                 fact_matrix_opening,
             )
+            self.assertNotIn("缁撴瀯", fact_matrix_text)
             self.assertNotIn("CSV", fact_matrix_opening)
             self.assertNotIn("JSON", fact_matrix_opening)
             for snippet in [
                 "Component candidate",
+                "构件候选",
                 "Glyph or codepoint route",
+                "字形或码位路线",
                 "Local visual evidence",
+                "本地视觉证据",
                 "Visual package route",
+                "视觉包路线",
                 "Near-shape and variant review",
+                "近形与异体复核",
                 "Character and inscription context",
+                "单字与卜辞上下文",
                 "Meaning or reading status",
+                "字义或释读状态",
                 "Scholarship and dispute route",
+                "学术史与争议路线",
                 "Findspot collection period route",
+                "出土地馆藏时期路线",
                 "Source and rights trail",
+                "来源与权利链",
                 "Missing evidence route",
+                "缺失证据路线",
                 "Review status",
+                "复核状态",
                 "03_glyph-codepoint-index.csv",
                 "06_component-visual-index.csv",
                 "09_component-visual-route-index.csv",
@@ -4497,13 +4510,17 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "结构化路线文件只作检索、追溯和复核辅助",
                 fact_matrix_opening,
             )
+            self.assertNotIn("缁撴瀯", fact_matrix_text)
             self.assertNotIn("CSV", fact_matrix_opening)
             self.assertNotIn("JSON", fact_matrix_opening)
             self.assertIn("not a formal component assignment", fact_matrix_text)
             self.assertIn("not a decipherment conclusion", fact_matrix_text)
             self.assertIn("Meaning or reading status", fact_matrix_text)
+            self.assertIn("字义或释读状态", fact_matrix_text)
             self.assertIn("Scholarship and dispute route", fact_matrix_text)
+            self.assertIn("学术史与争议路线", fact_matrix_text)
             self.assertIn("Findspot collection period route", fact_matrix_text)
+            self.assertIn("出土地馆藏时期路线", fact_matrix_text)
             self.assertIn("13_component-context-evidence-dossier.md", fact_matrix_text)
             self.assertNotIn("not_collected", fact_matrix_text)
             for line in fact_matrix_text.splitlines():

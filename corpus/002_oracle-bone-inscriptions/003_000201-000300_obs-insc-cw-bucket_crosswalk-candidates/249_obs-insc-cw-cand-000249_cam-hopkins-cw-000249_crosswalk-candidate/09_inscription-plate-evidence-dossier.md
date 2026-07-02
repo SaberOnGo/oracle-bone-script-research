@@ -28,6 +28,7 @@ treating any text, OCR, plate, catalog number, or object record as evidence.
 - Present catalog refs: see `03_catalog-reference-index.csv`
 - Missing catalog refs: `chalfant`
 - Route type list: see `05_plate-text-route-index.csv`
+- OBM route / OBM 路线: `待查: OBM catalog or text route`
 - Note: no unresolved source character marker in catalog refs.
 
 Open `03_catalog-reference-index.csv` and `05_plate-text-route-index.csv`

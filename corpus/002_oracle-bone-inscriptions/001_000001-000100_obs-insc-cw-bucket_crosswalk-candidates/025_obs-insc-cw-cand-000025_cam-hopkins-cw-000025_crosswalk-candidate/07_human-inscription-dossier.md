@@ -170,6 +170,7 @@ variant relations, or accepted scholarly positions.
 - Missing reference types: `cambridge_university_library`
 - Excavation site: `待查: source route for findspot context`
 - Collection object record: `待查: CUL or catalog object record`
+- OBM route / OBM 路线: `待查: OBM catalog or text route`
 - Findspot: `待查: excavation or findspot source route`
 - Batch or pit context: `待查: batch or pit context source route`
 - Plate image path: `待查: plate image or rubbing route`

@@ -31,6 +31,7 @@
     "full_inscription_text_or_ocr",
     "plate_image_or_rubbing",
     "collection_findspot_period_batch_context",
+    "obm_catalog_or_text_route",
     "linked_character_occurrences",
     "rights_checksum_manifest_download_log_review"
   ],

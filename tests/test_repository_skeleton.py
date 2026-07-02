@@ -372,6 +372,35 @@ def assert_no_mojibake_fragments(testcase, text: str, context: str) -> None:
         testcase.assertNotIn(fragment, text, f"{context} contains mojibake: {fragment}")
 
 
+def assert_no_inscription_mojibake_fragments(
+    testcase,
+    text: str,
+    context: str,
+) -> None:
+    mojibake_fragments = (
+        "\ufffd",
+        "\u6d5c\u8679\u88ab",
+        "\u9357\u6ec6\u745c",
+        "\u5be5\u5446\u6f67",
+        "\u93c9\u30e6\u7c2e",
+        "\u9418\u8235",
+        "\u5be4\u5446\u6f67",
+        "\u5be4\u5446\u7147",
+        "\u6fb6\u6c2d",
+        "\u9422",
+        "\u9357\u6ec6",
+        "\u6d63\u5d84",
+        "\u6d93\u5b29",
+        "\u93c9\u5815",
+        "\u93b4\u55d8",
+        "\u93ad\u55d7",
+        "\u7f01\u72b2",
+        "\u7ef1\u20ac",
+    )
+    for fragment in mojibake_fragments:
+        testcase.assertNotIn(fragment, text, f"{context} contains mojibake: {fragment}")
+
+
 def load_hust_obimd_evobc_codepoint_crosswalk_module():
     path = repo_root() / "tools/002_corpus-import/build_hust_obimd_evobc_codepoint_crosswalk.py"
     spec = importlib.util.spec_from_file_location("build_hust_obimd_evobc_codepoint_crosswalk", path)
@@ -4609,6 +4638,11 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "Structured support files only serve the human inscription and plate dossier",
                 readme_text,
             )
+            assert_no_inscription_mojibake_fragments(
+                self,
+                readme_text,
+                f"{row['project_id']} README.md",
+            )
             self.assertNotIn("AI-readable indexes", readme_text)
             self.assertIn("not a formal `obi-*` inscription record", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
@@ -4627,12 +4661,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             dossier_text = (object_dir / "07_human-inscription-dossier.md").read_text(
                 encoding="utf-8"
             )
+            assert_no_inscription_mojibake_fragments(
+                self,
+                dossier_text,
+                f"{row['project_id']} 07_human-inscription-dossier.md",
+            )
             self.assertIn("Human Inscription Dossier", dossier_text)
             self.assertIn("Concrete Questions To Check", dossier_text)
             self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", dossier_text)
             self.assertIn("Text And OCR Quality Review", dossier_text)
             self.assertIn("文本与 OCR 质量复核", dossier_text)
             self.assertIn("Full text or OCR status", dossier_text)
+            self.assertIn("OBM route / OBM 路线", dossier_text)
             self.assertIn("Priority Review Order", dossier_text)
             self.assertIn("Open `03_catalog-reference-index.csv` first.", dossier_text)
             self.assertIn("Open `05_plate-text-route-index.csv` second.", dossier_text)
@@ -4675,12 +4715,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             plate_evidence_text = (
                 object_dir / "09_inscription-plate-evidence-dossier.md"
             ).read_text(encoding="utf-8")
+            assert_no_inscription_mojibake_fragments(
+                self,
+                plate_evidence_text,
+                f"{row['project_id']} 09_inscription-plate-evidence-dossier.md",
+            )
             self.assertIn("Inscription And Plate Evidence Dossier", plate_evidence_text)
             self.assertIn("卜辞与图版证据档案", plate_evidence_text)
             self.assertIn("Inscription Number And Text State", plate_evidence_text)
             self.assertIn("卜辞编号与文本状态", plate_evidence_text)
             self.assertIn("Plate Catalog Heji And Collection Routes", plate_evidence_text)
             self.assertIn("图版、著录、合集与馆藏路线", plate_evidence_text)
+            self.assertIn("OBM route / OBM 路线", plate_evidence_text)
             self.assertIn("Findspot Period Batch And Linked Characters", plate_evidence_text)
             self.assertIn("出土地、时期、批次与关联字形", plate_evidence_text)
             self.assertIn("Text Quality Missing Items And Review Status", plate_evidence_text)
@@ -4742,6 +4788,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             fact_matrix_text = (
                 object_dir / "11_inscription-review-fact-matrix.md"
             ).read_text(encoding="utf-8")
+            assert_no_inscription_mojibake_fragments(
+                self,
+                fact_matrix_text,
+                f"{row['project_id']} 11_inscription-review-fact-matrix.md",
+            )
             self.assertIn("Inscription Review Fact Matrix", fact_matrix_text)
             self.assertIn("Human Review Order", fact_matrix_text)
             self.assertIn("Inscription And Plate Fact Matrix", fact_matrix_text)
@@ -4805,6 +4856,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
+            )
+            assert_no_inscription_mojibake_fragments(
+                self,
+                review_sheet,
+                f"{row['project_id']} 04_human-review-sheet.md",
             )
             self.assertIn("Concrete Questions To Check", review_sheet)
             self.assertIn("specific questions", review_sheet)

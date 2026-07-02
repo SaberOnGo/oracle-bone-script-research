@@ -833,6 +833,7 @@ These labels are imported metadata, not a new chronological judgement.
 - Missing reference types: `{missing_text}`
 - Excavation site: `待查: source route for findspot context`
 - Collection object record: `待查: CUL or catalog object record`
+- OBM route / OBM 路线: `待查: OBM catalog or text route`
 - Findspot: `待查: excavation or findspot source route`
 - Batch or pit context: `待查: batch or pit context source route`
 - Plate image path: `待查: plate image or rubbing route`
@@ -927,6 +928,7 @@ Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
 - Present catalog refs: see `03_catalog-reference-index.csv`
 - Missing catalog refs: `{'; '.join(missing_refs) if missing_refs else 'none'}`
 - Route type list: see `05_plate-text-route-index.csv`
+- OBM route / OBM 路线: `待查: OBM catalog or text route`
 {unresolved_note}
 
 Open `03_catalog-reference-index.csv` and `05_plate-text-route-index.csv`
@@ -1037,6 +1039,7 @@ def plate_evidence_index(
             "full_inscription_text_or_ocr",
             "plate_image_or_rubbing",
             "collection_findspot_period_batch_context",
+            "obm_catalog_or_text_route",
             "linked_character_occurrences",
             "rights_checksum_manifest_download_log_review",
         ],
@@ -1356,6 +1359,7 @@ def dossier_index(
             "collection_object_record",
             "findspot",
             "batch_or_pit_context",
+            "obm_catalog_or_text_route",
             "plate_image_path",
             "inscription_ocr",
             "full_inscription_text",

@@ -33,6 +33,7 @@
     "collection_object_record",
     "findspot",
     "batch_or_pit_context",
+    "obm_catalog_or_text_route",
     "plate_image_path",
     "inscription_ocr",
     "full_inscription_text",

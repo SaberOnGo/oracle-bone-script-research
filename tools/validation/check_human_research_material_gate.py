@@ -120,6 +120,10 @@ MODERN_LABEL_RISK_PATTERNS = [
 ]
 
 
+def git_command(root: Path, *args: str) -> list[str]:
+    return ["git", "-c", f"safe.directory={root.as_posix()}", *args]
+
+
 @dataclass(frozen=True)
 class DocumentScore:
     path: str
@@ -191,7 +195,7 @@ def human_markdown_path(relative: str) -> bool:
 
 def iter_all_human_markdown(root: Path) -> list[Path]:
     result = subprocess.run(
-        ["git", "ls-files", "corpus/**/*.md"],
+        git_command(root, "ls-files", "corpus/**/*.md"),
         cwd=root,
         check=True,
         capture_output=True,
@@ -213,8 +217,16 @@ def iter_all_human_markdown(root: Path) -> list[Path]:
 
 def iter_changed_human_markdown(root: Path) -> list[Path]:
     commands = [
-        ["git", "diff", "--name-only", "--diff-filter=ACMR", "HEAD", "--", "corpus"],
-        ["git", "ls-files", "--others", "--exclude-standard", "corpus"],
+        git_command(
+            root,
+            "diff",
+            "--name-only",
+            "--diff-filter=ACMR",
+            "HEAD",
+            "--",
+            "corpus",
+        ),
+        git_command(root, "ls-files", "--others", "--exclude-standard", "corpus"),
     ]
     seen: set[str] = set()
     filtered: list[Path] = []

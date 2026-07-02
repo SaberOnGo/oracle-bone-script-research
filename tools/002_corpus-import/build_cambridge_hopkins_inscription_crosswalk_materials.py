@@ -160,7 +160,7 @@ def catalog_reference_markdown(catalog_rows: list[dict[str, str]]) -> str:
 
 
 def human_route_status(status: str) -> str:
-    if status == "route_present_image_or_text_not_collected":
+    if status == "needs_source_plate_or_text_review_route":
         return "待查: open cited plate, image, text, or object route"
     if status == "route_missing_or_unassigned":
         return "待查: missing or unassigned catalog route"
@@ -422,7 +422,7 @@ def plate_route_rows(row: dict[str, str], project_id: str) -> list[dict[str, str
         ai_action,
     ) in enumerate(route_specs, start=1):
         evidence_status = (
-            "route_present_image_or_text_not_collected"
+            "needs_source_plate_or_text_review_route"
             if reference_status(reference_value) == "present_in_cambridge_hopkins_metadata"
             else "route_missing_or_unassigned"
         )

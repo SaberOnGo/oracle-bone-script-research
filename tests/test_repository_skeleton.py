@@ -4538,6 +4538,24 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "10_inscription-plate-evidence-index.json").exists())
             self.assertTrue((object_dir / "11_inscription-review-fact-matrix.md").exists())
             self.assertTrue((object_dir / "12_inscription-review-fact-matrix-index.json").exists())
+            with (object_dir / "05_plate-text-route-index.csv").open(
+                "r",
+                encoding="utf-8-sig",
+                newline="",
+            ) as file:
+                plate_route_rows = list(csv.DictReader(file))
+            present_route_statuses = {
+                route["evidence_status"]
+                for route in plate_route_rows
+                if route["evidence_status"] != "route_missing_or_unassigned"
+            }
+            self.assertEqual(
+                present_route_statuses,
+                {"needs_source_plate_or_text_review_route"},
+            )
+            self.assertTrue(
+                all("not_collected" not in status for status in present_route_statuses)
+            )
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             self.assertIn("object-local human research entrance", readme_text)
             self.assertIn("Human Inscription And Plate Review Slots", readme_text)
@@ -4849,6 +4867,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertLessEqual(len(line), 80, line)
         self.assertEqual(first["packet"]["record_type"], "inscription_crosswalk_candidate")
         self.assertEqual(first["packet"]["formal_inscription_assignment_status"], "not_assigned_formal_obi_id")
+        present_route_statuses = {
+            route["evidence_status"]
+            for route in first["plate_routes"]
+            if route["evidence_status"] != "route_missing_or_unassigned"
+        }
+        self.assertEqual(
+            present_route_statuses,
+            {"needs_source_plate_or_text_review_route"},
+        )
+        self.assertTrue(
+            all("not_collected" not in status for status in present_route_statuses)
+        )
         self.assertEqual(
             first["packet"]["image_evidence_status"],
             "needs_plate_image_or_rubbing_review_route",

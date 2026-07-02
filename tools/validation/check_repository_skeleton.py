@@ -62,6 +62,10 @@ SOURCE_FIELD_MAP = (
 )
 
 
+def git_command(root: Path, *args: str) -> list[str]:
+    return ["git", "-c", f"safe.directory={root.as_posix()}", *args]
+
+
 def check_human_research_material_gate(root: Path) -> list[str]:
     script = root / "tools/validation/check_human_research_material_gate.py"
     if not script.exists():
@@ -3332,6 +3336,21 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{route_index_path.relative_to(root).as_posix()} should contain five plate/text routes")
             if any(route.get("review_status") != "needs_human_inscription_crosswalk_review" for route in route_rows):
                 issues.append(f"{route_index_path.relative_to(root).as_posix()} route review status changed")
+            present_route_statuses = {
+                route.get("evidence_status", "")
+                for route in route_rows
+                if route.get("evidence_status", "") != "route_missing_or_unassigned"
+            }
+            if present_route_statuses != {"needs_source_plate_or_text_review_route"}:
+                issues.append(
+                    f"{route_index_path.relative_to(root).as_posix()} "
+                    "present route evidence status changed"
+                )
+            if any("not_collected" in status for status in present_route_statuses):
+                issues.append(
+                    f"{route_index_path.relative_to(root).as_posix()} "
+                    "contains not_collected route evidence status"
+                )
         route_gallery_path = object_dir / "06_plate-text-gallery.md"
         human_dossier_path = object_dir / "07_human-inscription-dossier.md"
         dossier_index_path = object_dir / "08_inscription-dossier-index.json"
@@ -6509,7 +6528,7 @@ def _is_raw_user_prompt_archive_path(path: Path, root: Path) -> bool:
 def _tracked_files(root: Path) -> list[str]:
     try:
         result = subprocess.run(
-            ["git", "ls-files"],
+            git_command(root, "ls-files"),
             cwd=root,
             check=True,
             capture_output=True,

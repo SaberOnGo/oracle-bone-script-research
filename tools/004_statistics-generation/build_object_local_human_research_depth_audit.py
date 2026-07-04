@@ -261,6 +261,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "14_source-to-dossier-transfer-review.md",
             "16_source-literature-scope-review.md",
             "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
         ),
         "slots": (
             "source_identity",
@@ -277,6 +278,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "large_source_exception_or_storage",
             "access_integrity_review",
             "public_commit_decision",
+            "source_presearch_readiness",
             "review_status",
         ),
         "questions": (
@@ -284,6 +286,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which safe derived record can be opened instead of a raw package?",
             "Which rights or risk note blocks public promotion?",
             "Which access-integrity row blocks source use?",
+            "Which source evidence gap blocks formal pre-research use?",
         ),
     },
     "research_topic_candidates": {

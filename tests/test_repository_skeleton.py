@@ -7817,9 +7817,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
-        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "9")
-        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["ai_file_count"], "11")
-        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "10")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["ai_file_count"], "12")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "5")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["source_ids"], "src-xiaoxuetang-jiaguwen")
         self.assertEqual(by_project["obs-topic-cand-000001"]["corpus_area"], "research_topic_candidates")
         self.assertEqual(
@@ -7979,11 +7979,23 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["research_source_objects"]["required_human_slots"],
         )
         self.assertIn(
+            "source_presearch_readiness",
+            by_area["research_source_objects"]["required_human_slots"],
+        )
+        self.assertIn(
             "18_source-access-integrity-review.md",
             by_area["research_source_objects"]["representative_human_files_to_open"],
         )
         self.assertIn(
+            "20_source-presearch-readiness-review.md",
+            by_area["research_source_objects"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
             "Which access-integrity row blocks source use?",
+            by_area["research_source_objects"]["concrete_depth_questions"],
+        )
+        self.assertIn(
+            "Which source evidence gap blocks formal pre-research use?",
             by_area["research_source_objects"]["concrete_depth_questions"],
         )
         self.assertIn("citation_relation", by_area["research_topic_candidates"]["required_human_slots"])

@@ -283,6 +283,7 @@ OBJECT_SPECS = [
             "14_source-to-dossier-transfer-review.md",
             "16_source-literature-scope-review.md",
             "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
         ),
         (
             "01_source-packet.json",
@@ -296,6 +297,7 @@ OBJECT_SPECS = [
             "15_source-to-dossier-transfer-index.json",
             "17_source-literature-scope-index.json",
             "19_source-access-integrity-index.json",
+            "21_source-presearch-readiness-index.json",
         ),
         (),
         (
@@ -303,6 +305,7 @@ OBJECT_SPECS = [
             "03_package-route-index.csv",
             "04_field-map-route-index.csv",
             "05_metadata-profile-route-index.csv",
+            "20_source-presearch-readiness-review.md",
         ),
     ),
     ObjectSpec(

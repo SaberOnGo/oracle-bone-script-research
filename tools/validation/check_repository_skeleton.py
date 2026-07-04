@@ -2488,6 +2488,8 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         dossier_index_path = object_dir / "07_research-dossier-index.json"
         context_dossier_path = object_dir / "08_character-context-evidence-dossier.md"
         context_index_path = object_dir / "09_character-context-evidence-index.json"
+        archaeology_review_path = object_dir / "10_archaeology-paleography-review.md"
+        archaeology_index_path = object_dir / "11_archaeology-paleography-index.json"
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")
@@ -2554,6 +2556,25 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 "人工复核单",
                 "必须复核",
                 "未复核释读必须保持候选状态",
+            ],
+            archaeology_review_path: [
+                "Archaeology Paleography Review",
+                "考古文字复核档案",
+                "This is not a decipherment conclusion.",
+                "本文件不是释读结论。",
+                "Glyph Image And Observation",
+                "字形图像与观察",
+                "Variants Near Forms Components",
+                "异体近形构件线索",
+                "Inscription Plate Catalog",
+                "卜辞图版著录",
+                "Provenance Collection Period",
+                "出土馆藏时期",
+                "Reading History Disputes Later Forms",
+                "释读史争议与后世字形",
+                "accepted reading: `not_reviewed`",
+                "decipherment conclusion: `no_claim`",
+                "待查问题：",
             ],
         }
         for human_path, markers in human_markers.items():
@@ -2691,6 +2712,35 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 if field not in context_index.get("missing_or_review_fields", []):
                     issues.append(
                         f"{context_index_path.relative_to(root).as_posix()} missing review field: {field}"
+                    )
+        if not archaeology_index_path.exists():
+            issues.append(f"{relative_dir} missing co-located 11_archaeology-paleography-index.json")
+        else:
+            try:
+                archaeology_index = json.loads(archaeology_index_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} invalid JSON: {exc}")
+                archaeology_index = {}
+            if archaeology_index.get("project_id") != project_id:
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} project_id changed")
+            if archaeology_index.get("record_type") != "character_archaeology_paleography_review_index":
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} record_type changed")
+            if archaeology_index.get("claim_boundary") != "archaeology_paleography_review_no_decipherment_claim":
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} claim boundary changed")
+            if "10_archaeology-paleography-review.md" not in archaeology_index.get("human_readable_files", []):
+                issues.append(
+                    f"{archaeology_index_path.relative_to(root).as_posix()} missing review path"
+                )
+            for field in [
+                "glyph_observation",
+                "inscription_context",
+                "findspot_collection_period_group",
+                "decipherment_history",
+                "next_sources_to_check",
+            ]:
+                if field not in archaeology_index.get("review_slots", []):
+                    issues.append(
+                        f"{archaeology_index_path.relative_to(root).as_posix()} missing review slot: {field}"
                     )
         if not visual_index_path.exists():
             issues.append(f"{relative_dir} missing co-located 02_visual-source-index.csv")

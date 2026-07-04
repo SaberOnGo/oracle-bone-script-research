@@ -1,0 +1,71 @@
+{
+  "record_type": "character_archaeology_paleography_review_index",
+  "project_id": "obs-unk-007524",
+  "updated_at": "2026-07-04",
+  "object_dir": "corpus/001_oracle-characters/092_undeciphered-007501-007600_obs-unk-bucket_oracle-character-candidates/024_obs-unk-007524_hust-obc-und-YH-007524_oracle-character-candidate",
+  "human_readable_files": [
+    "README.md",
+    "04_visual-gallery.md",
+    "05_human-research-dossier.md",
+    "06_human-review-sheet.md",
+    "08_character-context-evidence-dossier.md",
+    "10_archaeology-paleography-review.md"
+  ],
+  "ai_support_files": [
+    "01_undeciphered-candidate-packet.json",
+    "02_visual-source-index.csv",
+    "07_research-dossier-index.json",
+    "09_character-context-evidence-index.json",
+    "11_archaeology-paleography-index.json"
+  ],
+  "source_route_summary": {
+    "source_id": "src-hust-obc",
+    "primary_external_ref_id": "hust-obc-und-YH-007524",
+    "source_package_id": "large-src-000001",
+    "download_or_access_ids": [
+      "dl-hust-obc-figshare-raw"
+    ],
+    "source_metadata_files": [],
+    "route_files": []
+  },
+  "visual_route_summary": {
+    "row_count": "1",
+    "committed_image_count": "1",
+    "source_image_route_count": "1",
+    "first_committed_image": "001_asset-009115_hust-obc-und-YH-007524_glyph.jpg",
+    "first_source_image_route": "H_？_6008D_0.png",
+    "rights_status": "source_marked_risk_noted",
+    "review_status": "needs_human_visual_review"
+  },
+  "graph_route_summary": {
+    "edge_count": 1,
+    "edge_type_counts": {
+      "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE": 1
+    },
+    "route_files": [],
+    "graph_files": [
+      "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
+    ],
+    "codepoint_routes": [],
+    "cross_source_statuses": []
+  },
+  "review_slots": [
+    "glyph_image",
+    "glyph_observation",
+    "variant_forms",
+    "near_forms",
+    "component_clues",
+    "inscription_occurrence",
+    "inscription_context",
+    "plate_catalog_number",
+    "heji_or_collection_number",
+    "findspot_collection_period_group",
+    "source_evidence",
+    "decipherment_history",
+    "dispute_record",
+    "later_script_routes",
+    "missing_items",
+    "next_sources_to_check"
+  ],
+  "claim_boundary": "archaeology_paleography_review_no_decipherment_claim"
+}

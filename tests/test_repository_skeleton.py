@@ -327,6 +327,15 @@ def load_character_context_evidence_dossiers_module():
     return module
 
 
+def load_character_archaeology_paleography_reviews_module():
+    path = repo_root() / "tools/002_corpus-import/build_character_archaeology_paleography_reviews.py"
+    spec = importlib.util.spec_from_file_location("build_character_archaeology_paleography_reviews", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_human_research_material_gate_module():
     path = repo_root() / "tools/validation/check_human_research_material_gate.py"
     spec = importlib.util.spec_from_file_location("check_human_research_material_gate", path)
@@ -4130,6 +4139,71 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "source_manifest_checksum_and_rights_to_check",
                 index["missing_or_review_fields"],
             )
+    def test_character_archaeology_paleography_reviews_are_colocated(self) -> None:
+        module = load_character_archaeology_paleography_reviews_module()
+        outputs = module.build_outputs(repo_root())
+        self.assertEqual(len(outputs), 10996)
+
+        for project_id in ["obs-char-000001", "obs-unk-005708"]:
+            output = outputs[project_id]
+            object_dir = output["object_dir"]
+            review_path = object_dir / "10_archaeology-paleography-review.md"
+            index_path = object_dir / "11_archaeology-paleography-index.json"
+            self.assertEqual(review_path.parent, object_dir)
+            self.assertEqual(index_path.parent, object_dir)
+            self.assertTrue(path_exists(review_path), review_path)
+            self.assertTrue(path_exists(index_path), index_path)
+
+            review_text = review_path.read_text(encoding="utf-8")
+            self.assertIn("Archaeology Paleography Review", review_text)
+            self.assertIn("考古文字复核档案", review_text)
+            self.assertIn("This is not a decipherment conclusion.", review_text)
+            self.assertIn("本文件不是释读结论。", review_text)
+            self.assertIn("Glyph Image And Observation", review_text)
+            self.assertIn("字形图像与观察", review_text)
+            self.assertIn("Variants Near Forms Components", review_text)
+            self.assertIn("异体近形构件线索", review_text)
+            self.assertIn("Inscription Plate Catalog", review_text)
+            self.assertIn("卜辞图版著录", review_text)
+            self.assertIn("Provenance Collection Period", review_text)
+            self.assertIn("出土馆藏时期", review_text)
+            self.assertIn("Reading History Disputes Later Forms", review_text)
+            self.assertIn("释读史争议与后世字形", review_text)
+            self.assertIn("accepted reading: `not_reviewed`", review_text)
+            self.assertIn("decipherment conclusion: `no_claim`", review_text)
+            self.assertIn("待查问题：", review_text)
+            self.assertNotIn("not_collected", review_text)
+            for line in review_text.splitlines():
+                if not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+
+            index = json.loads(index_path.read_text(encoding="utf-8"))
+            self.assertEqual(index["project_id"], project_id)
+            self.assertEqual(
+                index["record_type"],
+                "character_archaeology_paleography_review_index",
+            )
+            self.assertIn(
+                "10_archaeology-paleography-review.md",
+                index["human_readable_files"],
+            )
+            self.assertIn(
+                "11_archaeology-paleography-index.json",
+                index["ai_support_files"],
+            )
+            self.assertEqual(
+                index["claim_boundary"],
+                "archaeology_paleography_review_no_decipherment_claim",
+            )
+            for field in [
+                "glyph_observation",
+                "inscription_context",
+                "findspot_collection_period_group",
+                "decipherment_history",
+                "next_sources_to_check",
+            ]:
+                self.assertIn(field, index["review_slots"])
+
     def test_component_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_component_candidate_local_materials(repo_root()), [])
 
@@ -6928,7 +7002,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-char-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-char-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],

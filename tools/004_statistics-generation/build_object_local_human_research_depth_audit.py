@@ -149,6 +149,8 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "07_human-evolution-dossier.md",
             "09_cross-period-review-dossier.md",
             "11_evolution-review-fact-matrix.md",
+            "12_modern-label-caution-review.md",
+            "14_human-research-readiness-review.md",
         ),
         "slots": (
             "evolution_candidate_id",
@@ -159,6 +161,9 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "image_reference_route",
             "cross_period_comparison",
             "dispute_record",
+            "later_script_identity_boundary",
+            "formal_correspondence_research_blockers",
+            "source_manifest_checksum_field_map",
             "missing_items",
             "review_status",
         ),
@@ -166,6 +171,9 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which era-specific source code and image route must be opened?",
             "Which correspondence is only a route, not an accepted evolution chain?",
             "Which cross-period comparison remains missing or disputed?",
+            "Which opened oracle, bronze, seal, or modern image supports review?",
+            "Which manifest, checksum, field map, rights note, and risk note apply?",
+            "Which issue blocks formal correspondence research?",
         ),
     },
     "codepoint_crosswalk_candidates": {

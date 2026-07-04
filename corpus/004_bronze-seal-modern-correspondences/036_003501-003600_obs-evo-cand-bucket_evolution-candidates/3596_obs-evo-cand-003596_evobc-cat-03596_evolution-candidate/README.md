@@ -63,6 +63,9 @@ Structured support files only serve the human evolution dossier.
 - `12_modern-label-caution-review.md`: human label and codepoint caution sheet.
 - `13_modern-label-caution-index.json`: structured support index for label
   caution.
+- `14_human-research-readiness-review.md`: formal research blocker review.
+- `15_human-research-readiness-index.json`: structured support index for
+  blockers.
 
 ## Candidate Metadata / 候选 metadata
 
@@ -117,6 +120,7 @@ Structured support files only serve the human evolution dossier.
 - Open `02_evolution-source-index.csv` and name the evidence download rows.
 - Open `03_era-source-code-index.csv` and name dataset-only code rows.
 - Open `09_cross-period-review-dossier.md` before any correspondence claim.
+- Open `14_human-research-readiness-review.md` before formal research.
 - Record whether the missing route is image, inscription, bronze/seal,
   codepoint, bibliography, or rights trail.
 - 打开 `05_image-reference-route-index.csv`，写明图像路线行。

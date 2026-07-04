@@ -156,6 +156,8 @@ MANIFEST_FIELDS = [
     "evolution_review_fact_matrix_path",
     "modern_label_caution_review_path",
     "modern_label_caution_index_path",
+    "human_research_readiness_review_path",
+    "human_research_readiness_index_path",
     "source_character_label",
     "source_character_codepoints",
     "image_reference_count",
@@ -330,6 +332,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "11_evolution-review-fact-matrix.md").as_posix(),
         (directory / "12_modern-label-caution-review.md").as_posix(),
         (directory / "13_modern-label-caution-index.json").as_posix(),
+        (directory / "14_human-research-readiness-review.md").as_posix(),
+        (directory / "15_human-research-readiness-index.json").as_posix(),
     ]
 
 
@@ -834,6 +838,7 @@ def dossier_index_payload(
             (directory / "09_cross-period-review-dossier.md").as_posix(),
             (directory / "11_evolution-review-fact-matrix.md").as_posix(),
             (directory / "12_modern-label-caution-review.md").as_posix(),
+            (directory / "14_human-research-readiness-review.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-evolution-packet.json").as_posix(),
@@ -842,6 +847,7 @@ def dossier_index_payload(
             (directory / "05_image-reference-route-index.csv").as_posix(),
             (directory / "10_cross-period-review-index.json").as_posix(),
             (directory / "13_modern-label-caution-index.json").as_posix(),
+            (directory / "15_human-research-readiness-index.json").as_posix(),
         ],
         "source_route_files": route_files(directory),
         "code_row_count": len(code_rows),
@@ -1101,6 +1107,8 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
             "`11_evolution-review-fact-matrix.md`: human first-read fact matrix.",
             "`12_modern-label-caution-review.md`: human label and codepoint caution sheet.",
             "`13_modern-label-caution-index.json`: structured support index for label caution.",
+            "`14_human-research-readiness-review.md`: formal research blocker review.",
+            "`15_human-research-readiness-index.json`: structured support index for blockers.",
         ]
     )
     metadata_lines = bullet_block(
@@ -1121,6 +1129,7 @@ def readme_text(index: int, row: dict[str, str], code_rows: list[dict[str, str]]
             "Open `02_evolution-source-index.csv` and name the evidence download rows.",
             "Open `03_era-source-code-index.csv` and name dataset-only code rows.",
             "Open `09_cross-period-review-dossier.md` before any correspondence claim.",
+            "Open `14_human-research-readiness-review.md` before formal research.",
             "Record whether the missing route is image, inscription, bronze/seal, codepoint, bibliography, or rights trail.",
             "\u6253\u5f00 `05_image-reference-route-index.csv`\uff0c\u5199\u660e"
             "\u56fe\u50cf\u8def\u7ebf\u884c\u3002",
@@ -1702,6 +1711,187 @@ def modern_label_caution_index_payload(
     }
 
 
+def human_research_readiness_review_text(
+    index: int,
+    row: dict[str, str],
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> str:
+    pid = project_id(index)
+    intro_en = wrapped_paragraph(
+        "This readiness review lists the evidence that must be opened before "
+        "formal paleographic, evolution, or correspondence research begins. It "
+        "keeps source routes, missing evidence, and candidate labels visible "
+        "without promoting them into conclusions."
+    )
+    intro_zh = wrapped_paragraph(
+        "\u672c\u9875\u5217\u51fa\u6b63\u5f0f\u53e4\u6587\u5b57\u3001"
+        "\u5b57\u5f62\u6f14\u5316\u6216\u5bf9\u5e94\u7814\u7a76\u5f00\u59cb"
+        "\u524d\u5fc5\u987b\u6253\u5f00\u7684\u8bc1\u636e\u3002\u5b83\u53ea"
+        "\u4fdd\u7559\u6765\u6e90\u8def\u7ebf\u3001\u7f3a\u5931\u8bc1\u636e"
+        "\u548c\u5019\u9009\u6807\u7b7e\uff0c\u4e0d\u628a\u5b83\u4eec\u63d0"
+        "\u5347\u4e3a\u7814\u7a76\u7ed3\u8bba\u3002"
+    )
+    source_lines = bullet_block(
+        [
+            f"Open `02_evolution-source-index.csv` for `{SOURCE_ID}` routes.",
+            "Open the download log for checksum, size, HTTP status, and risk.",
+            "Open `009_source-package-file-manifest.csv` before using rows.",
+            "Open `007_source-field-map.csv` before trusting field meanings.",
+            f"Rights status remains `{RIGHTS_STATUS}` until separately reviewed.",
+            "Record whether a raw package is local-only or represented by rows.",
+        ]
+    )
+    evidence_lines = bullet_block(
+        [
+            "Open `05_image-reference-route-index.csv` and name each route row.",
+            f"Confirm `{len(image_routes)}` image route rows are only routes.",
+            "Open `06_image-reference-route-gallery.md` before visual comparison.",
+            "Open `09_cross-period-review-dossier.md` for oracle-side gaps.",
+            "Check image, rubbing, photo, plate, inscription, OCR, catalog, and Heji.",
+            "Check findspot, collection, period, group, batch, and object context.",
+            "Open bronze, seal, later-script, and modern-codepoint sources separately.",
+        ]
+    )
+    label_lines = bullet_block(
+        [
+            f"Source label for lookup only: `{human_source_label(row)}`.",
+            f"Source codepoints for lookup only: `{row['source_character_codepoints']}`.",
+            f"Era/source code rows to open: `{len(code_rows)}`.",
+            "Open `03_era-source-code-index.csv` before using any code label.",
+            "Open `12_modern-label-caution-review.md` before identity review.",
+            "Record proposer, bibliography, reading history, and disagreement.",
+        ]
+    )
+    blocker_lines = bullet_block(
+        [
+            "Formal correspondence is blocked until primary images are opened.",
+            "Evolution-chain claims are blocked until cross-period evidence is opened.",
+            "Modern-character identity is blocked until dictionaries and sources agree.",
+            "Decipherment is blocked because this is preprocessing infrastructure.",
+            "Corpus promotion is blocked until provenance, rights, and field maps pass.",
+            "Graph edges and JSON packets remain routes, not scholarship.",
+        ]
+    )
+    question_lines = bullet_block(
+        [
+            "Which opened oracle image, rubbing, plate, or inscription supports review?",
+            "Which opened bronze, seal, or modern source supports comparison?",
+            "Which manifest, checksum, field map, rights note, and risk note apply?",
+            "Which bibliography records proposer, reading history, or dispute?",
+            "Which missing source must be opened before formal research begins?",
+            "\u54ea\u6761\u7532\u9aa8\u56fe\u50cf\u3001\u62d3\u7247\u3001"
+            "\u56fe\u7248\u6216\u535c\u8f9e\u8bc1\u636e\u5df2\u6253\u5f00\uff1f",
+            "\u54ea\u6761\u91d1\u6587\u3001\u5c0f\u7bc6\u6216\u4eca\u5b57"
+            "\u6765\u6e90\u80fd\u652f\u6301\u5bf9\u7167\uff1f",
+            "\u54ea\u4efd manifest\u3001checksum\u3001\u5b57\u6bb5"
+            "\u6620\u5c04\u3001\u6743\u5229\u8bf4\u660e\u548c\u98ce\u9669"
+            "\u63d0\u793a\u9700\u5148\u6838\u5bf9\uff1f",
+        ]
+    )
+    boundary_lines = bullet_block(
+        [
+            "This readiness sheet is not an accepted correspondence.",
+            "This readiness sheet is not an evolution-chain conclusion.",
+            "This readiness sheet is not a modern-character identity.",
+            "This readiness sheet is not a reading or meaning conclusion.",
+            "This readiness sheet is not a decipherment conclusion.",
+        ]
+    )
+    text = f"""# Human Research Readiness Review / \u6b63\u5f0f\u7814\u7a76\u51c6\u5907\u590d\u6838: {pid}
+
+English:
+{intro_en}
+
+Simplified Chinese:
+{intro_zh}
+
+## Source Trail Before Research
+
+{source_lines}
+
+## Visual And Context Evidence
+
+{evidence_lines}
+
+## Later-Form And Label Boundaries
+
+{label_lines}
+
+## Formal Research Blockers
+
+{blocker_lines}
+
+## Concrete Questions To Check
+
+{question_lines}
+
+## Review Boundary
+
+{boundary_lines}
+"""
+    assert_human_line_width(text, f"{pid} human research readiness review")
+    return text
+
+
+def human_research_readiness_index_payload(
+    index: int,
+    row: dict[str, str],
+    directory: Path,
+    code_rows: list[dict[str, str]],
+    image_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "evolution_human_research_readiness_index",
+        "candidate_evolution_category_id": row["candidate_evolution_category_id"],
+        "source_id": SOURCE_ID,
+        "human_readable_files": [
+            (directory / "14_human-research-readiness-review.md").as_posix(),
+            (directory / "07_human-evolution-dossier.md").as_posix(),
+            (directory / "09_cross-period-review-dossier.md").as_posix(),
+            (directory / "12_modern-label-caution-review.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (directory / "01_candidate-evolution-packet.json").as_posix(),
+            (directory / "02_evolution-source-index.csv").as_posix(),
+            (directory / "03_era-source-code-index.csv").as_posix(),
+            (directory / "05_image-reference-route-index.csv").as_posix(),
+            (directory / "15_human-research-readiness-index.json").as_posix(),
+        ],
+        "source_trail_files_to_open": [
+            SOURCE_DOWNLOAD_LOG.as_posix(),
+            SOURCE_PACKAGE_MANIFEST.as_posix(),
+            SOURCE_FIELD_MAP.as_posix(),
+            (directory / "02_evolution-source-index.csv").as_posix(),
+        ],
+        "formal_research_blockers": [
+            "primary_images_not_opened",
+            "oracle_inscription_context_not_opened",
+            "bronze_seal_modern_sources_not_opened",
+            "bibliography_dispute_route_not_opened",
+            "rights_manifest_checksum_field_map_not_fully_reviewed",
+        ],
+        "claim_status": {
+            "formal_correspondence": "no_formal_correspondence_claim",
+            "evolution_chain": "no_evolution_chain_claim",
+            "modern_identity": "no_modern_identity_claim",
+            "decipherment": "no_decipherment_claim",
+        },
+        "image_route_count": len(image_routes),
+        "code_row_count": len(code_rows),
+        "specific_questions": [
+            "opened_oracle_image_rubbing_plate_or_inscription",
+            "opened_bronze_seal_or_modern_source",
+            "manifest_checksum_field_map_rights_risk",
+            "bibliography_proposer_reading_history_dispute",
+            "missing_source_before_formal_research",
+        ],
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     category_rows = read_csv_rows(root / CATEGORY_STAGING)
     codebook = codebook_lookup(read_csv_rows(root / CODEBOOK_STAGING))
@@ -1773,6 +1963,19 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 directory,
                 code_rows,
             ),
+            "human_research_readiness_review_text": human_research_readiness_review_text(
+                index,
+                row,
+                code_rows,
+                image_routes,
+            ),
+            "human_research_readiness_index": human_research_readiness_index_payload(
+                index,
+                row,
+                directory,
+                code_rows,
+                image_routes,
+            ),
             "map_row": {
                 "project_id": pid,
                 "record_type": RECORD_TYPE,
@@ -1819,6 +2022,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "evolution_review_fact_matrix_path": (directory / "11_evolution-review-fact-matrix.md").as_posix(),
                 "modern_label_caution_review_path": (directory / "12_modern-label-caution-review.md").as_posix(),
                 "modern_label_caution_index_path": (directory / "13_modern-label-caution-index.json").as_posix(),
+                "human_research_readiness_review_path": (directory / "14_human-research-readiness-review.md").as_posix(),
+                "human_research_readiness_index_path": (directory / "15_human-research-readiness-index.json").as_posix(),
                 "source_character_label": str(packet["source_character_label"]),
                 "source_character_codepoints": str(packet["source_character_codepoints"]),
                 "image_reference_count": str(packet["image_reference_count"]),
@@ -1887,6 +2092,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (directory / "13_modern-label-caution-index.json").write_text(
             json.dumps(
                 output["modern_label_caution_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "14_human-research-readiness-review.md").write_text(
+            str(output["human_research_readiness_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "15_human-research-readiness-index.json").write_text(
+            json.dumps(
+                output["human_research_readiness_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

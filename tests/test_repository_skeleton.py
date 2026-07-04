@@ -5715,6 +5715,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "11_evolution-review-fact-matrix.md").exists())
             self.assertTrue((object_dir / "12_modern-label-caution-review.md").exists())
             self.assertTrue((object_dir / "13_modern-label-caution-index.json").exists())
+            self.assertTrue((object_dir / "14_human-research-readiness-review.md").exists())
+            self.assertTrue((object_dir / "15_human-research-readiness-index.json").exists())
             readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
             readme_opening = readme_text.split("## Boundary", maxsplit=1)[0]
             self.assertIn("object-local human research entrance", readme_text)
@@ -5745,6 +5747,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn("11_evolution-review-fact-matrix.md", readme_text)
             self.assertIn("12_modern-label-caution-review.md", readme_text)
+            self.assertIn("14_human-research-readiness-review.md", readme_text)
             self.assertNotIn(
                 "What evidence is still missing before any formal correspondence claim?",
                 readme_text,
@@ -6126,6 +6129,44 @@ class RepositorySkeletonTests(unittest.TestCase):
                     for file_path in label_caution_index["human_readable_files"]
                 )
             )
+            readiness_text = (
+                object_dir / "14_human-research-readiness-review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Human Research Readiness Review", readiness_text)
+            self.assertIn("Source Trail Before Research", readiness_text)
+            self.assertIn("Visual And Context Evidence", readiness_text)
+            self.assertIn("Later-Form And Label Boundaries", readiness_text)
+            self.assertIn("Formal Research Blockers", readiness_text)
+            self.assertIn("Open `02_evolution-source-index.csv`", readiness_text)
+            self.assertIn("Open `05_image-reference-route-index.csv`", readiness_text)
+            self.assertIn("Open `12_modern-label-caution-review.md`", readiness_text)
+            self.assertIn(
+                "Which manifest, checksum, field map, rights note, and risk note apply?",
+                readiness_text,
+            )
+            self.assertIn("not an accepted correspondence", readiness_text)
+            self.assertIn("not a decipherment conclusion", readiness_text)
+            self.assertNotIn("not_collected", readiness_text)
+            for line in readiness_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            readiness_index = json.loads(
+                (object_dir / "15_human-research-readiness-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                readiness_index["record_type"],
+                "evolution_human_research_readiness_index",
+            )
+            self.assertEqual(
+                readiness_index["claim_status"]["formal_correspondence"],
+                "no_formal_correspondence_claim",
+            )
+            self.assertIn(
+                "rights_manifest_checksum_field_map_not_fully_reviewed",
+                readiness_index["formal_research_blockers"],
+            )
 
     def test_evobc_evolution_candidate_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_evobc_evolution_candidate_materials_module()
@@ -6380,6 +6421,20 @@ class RepositorySkeletonTests(unittest.TestCase):
                 route_file.endswith("12_modern-label-caution-review.md")
                 for route_file in first["packet"]["route_files"]
             )
+        )
+        self.assertTrue(
+            any(
+                route_file.endswith("14_human-research-readiness-review.md")
+                for route_file in first["packet"]["route_files"]
+            )
+        )
+        self.assertIn(
+            "Human Research Readiness Review",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertEqual(
+            first["human_research_readiness_index"]["record_type"],
+            "evolution_human_research_readiness_index",
         )
         self.assertEqual(len(first["source_rows"]), 2)
         self.assertGreaterEqual(len(first["code_rows"]), 1)
@@ -7564,8 +7619,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-evo-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-evo-cand-000001"]["human_file_count"], "6")
-        self.assertEqual(by_project["obs-evo-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-evo-cand-000001"]["human_file_count"], "8")
+        self.assertEqual(by_project["obs-evo-cand-000001"]["ai_file_count"], "8")
+        self.assertEqual(by_project["obs-evo-cand-000001"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-evo-cand-000001"]["source_ids"], "src-evobc")
         self.assertEqual(
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
@@ -7701,6 +7757,17 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("component_boundary", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("near_shape", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])
+        self.assertIn("later_script_identity_boundary", by_area["evolution_correspondence_candidates"]["required_human_slots"])
+        self.assertIn("formal_correspondence_research_blockers", by_area["evolution_correspondence_candidates"]["required_human_slots"])
+        self.assertIn("source_manifest_checksum_field_map", by_area["evolution_correspondence_candidates"]["required_human_slots"])
+        self.assertIn(
+            "14_human-research-readiness-review.md",
+            by_area["evolution_correspondence_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "Which manifest, checksum, field map, rights note, and risk note apply?",
+            by_area["evolution_correspondence_candidates"]["concrete_depth_questions"],
+        )
         self.assertIn("plate_or_publication_route", by_area["collection_object_candidates"]["required_human_slots"])
         self.assertIn("12_archaeological-context-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
         self.assertIn("14_human-research-readiness-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])

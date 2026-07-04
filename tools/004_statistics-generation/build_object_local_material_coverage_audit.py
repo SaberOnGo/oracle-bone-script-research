@@ -147,6 +147,8 @@ OBJECT_SPECS = [
             "07_human-evolution-dossier.md",
             "09_cross-period-review-dossier.md",
             "11_evolution-review-fact-matrix.md",
+            "12_modern-label-caution-review.md",
+            "14_human-research-readiness-review.md",
         ),
         (
             "01_candidate-evolution-packet.json",
@@ -155,9 +157,16 @@ OBJECT_SPECS = [
             "05_image-reference-route-index.csv",
             "08_evolution-dossier-index.json",
             "10_cross-period-review-index.json",
+            "13_modern-label-caution-index.json",
+            "15_human-research-readiness-index.json",
         ),
         (),
-        ("05_image-reference-route-index.csv", "06_image-reference-route-gallery.md"),
+        (
+            "05_image-reference-route-index.csv",
+            "06_image-reference-route-gallery.md",
+            "12_modern-label-caution-review.md",
+            "14_human-research-readiness-review.md",
+        ),
     ),
     ObjectSpec(
         "inscription_crosswalk_candidates",

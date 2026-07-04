@@ -4041,6 +4041,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "11_evolution-review-fact-matrix.md",
         "12_modern-label-caution-review.md",
         "13_modern-label-caution-index.json",
+        "14_human-research-readiness-review.md",
+        "15_human-research-readiness-index.json",
     ]
     pending_check_anchors = [
         "02_evolution-source-index.csv",
@@ -4051,6 +4053,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
         "09_cross-period-review-dossier.md",
         "11_evolution-review-fact-matrix.md",
         "12_modern-label-caution-review.md",
+        "14_human-research-readiness-review.md",
         "001_evobc-evolution-category-staging.csv",
         "007_evobc-evolution-graph-edges.jsonl",
         "project_registry/",
@@ -4152,6 +4155,8 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing fact matrix route")
             if not any(path.endswith("12_modern-label-caution-review.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing modern label caution route")
+            if not any(path.endswith("14_human-research-readiness-review.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing readiness review route")
         source_index_path = object_dir / "02_evolution-source-index.csv"
         if path_exists(source_index_path):
             with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -4336,6 +4341,11 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(
                     f"{dossier_index_path.relative_to(root).as_posix()} "
                     "missing modern label caution route"
+                )
+            if not any(path.endswith("14_human-research-readiness-review.md") for path in human_files):
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} "
+                    "missing readiness review route"
                 )
         cross_period_dossier_path = object_dir / "09_cross-period-review-dossier.md"
         if index in deep_route_check_indexes and path_exists(cross_period_dossier_path):
@@ -4531,6 +4541,77 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(
                     f"{label_caution_index_path.relative_to(root).as_posix()} "
                     "missing human caution sheet route"
+                )
+        readiness_path = object_dir / "14_human-research-readiness-review.md"
+        if index in deep_route_check_indexes and path_exists(readiness_path):
+            readiness = readiness_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Human Research Readiness Review",
+                "Source Trail Before Research",
+                "Visual And Context Evidence",
+                "Later-Form And Label Boundaries",
+                "Formal Research Blockers",
+                "Open `02_evolution-source-index.csv`",
+                "Open `05_image-reference-route-index.csv`",
+                "Open `12_modern-label-caution-review.md`",
+                "Which manifest, checksum, field map, rights note, and risk note apply?",
+                "This readiness sheet is not an accepted correspondence.",
+                "This readiness sheet is not an evolution-chain conclusion.",
+                "This readiness sheet is not a decipherment conclusion.",
+            ]:
+                if snippet not in readiness:
+                    issues.append(
+                        f"{readiness_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in readiness:
+                issues.append(
+                    f"{readiness_path.relative_to(root).as_posix()} "
+                    "contains machine status in human readiness sheet"
+                )
+            for line_number, line in enumerate(readiness.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{readiness_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
+        readiness_index_path = object_dir / "15_human-research-readiness-index.json"
+        if index in deep_route_check_indexes and path_exists(readiness_index_path):
+            readiness_index = json.loads(
+                readiness_index_path.read_text(encoding="utf-8")
+            )
+            if readiness_index.get("record_type") != "evolution_human_research_readiness_index":
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            claim_status = readiness_index.get("claim_status", {})
+            if claim_status.get("formal_correspondence") != "no_formal_correspondence_claim":
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "formal correspondence claim status changed"
+                )
+            if claim_status.get("decipherment") != "no_decipherment_claim":
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "decipherment claim status changed"
+                )
+            human_files = readiness_index.get("human_readable_files", [])
+            if not any(
+                str(file_path).endswith("14_human-research-readiness-review.md")
+                for file_path in human_files
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing human readiness sheet route"
+                )
+            blockers = readiness_index.get("formal_research_blockers", [])
+            if "rights_manifest_checksum_field_map_not_fully_reviewed" not in blockers:
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing source-trail blocker"
                 )
     return issues
 

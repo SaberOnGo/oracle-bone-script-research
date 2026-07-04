@@ -1,0 +1,41 @@
+{
+  "ai_support_files": [
+    "01_topic-candidate-packet.json",
+    "04_inscription-crosswalk-route-index.csv",
+    "13_topic-research-use-boundary-index.json"
+  ],
+  "boundary_slots": {
+    "allowed_use": [
+      "source_classification_route",
+      "bibliography_review_planning",
+      "inscription_crosswalk_review_queue",
+      "source_count_comparison"
+    ],
+    "blocked_claims": [
+      "accepted_topic_assignment",
+      "grammar_analysis",
+      "transcription",
+      "reading",
+      "dating_conclusion",
+      "decipherment_conclusion"
+    ],
+    "promotion_blockers": [
+      "bibliography_note_or_source_page",
+      "linked_inscription_context",
+      "alternate_label_or_disagreement",
+      "topic_grammar_or_date_evidence"
+    ]
+  },
+  "claim_boundary": "research_use_boundary_only_not_topic_grammar_reading_dating_or_decipherment_claim",
+  "human_readable_files": [
+    "06_human-topic-dossier.md",
+    "08_topic-literature-context-dossier.md",
+    "10_topic-citation-dispute-review-dossier.md",
+    "12_topic-research-use-boundary-review.md"
+  ],
+  "linked_crosswalk_candidate_count": 34,
+  "record_type": "research_topic_use_boundary_index",
+  "review_status": "needs_human_topic_review",
+  "topic_candidate_id": "obs-topic-cand-000004",
+  "updated_at": "2026-06-20"
+}

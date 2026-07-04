@@ -6,7 +6,8 @@
     "04_inscription-crosswalk-route-index.csv",
     "07_topic-dossier-index.json",
     "09_topic-literature-context-index.json",
-    "11_topic-citation-dispute-review-index.json"
+    "11_topic-citation-dispute-review-index.json",
+    "13_topic-research-use-boundary-index.json"
   ],
   "claim_boundary": [
     "no grammar conclusion",
@@ -20,7 +21,8 @@
     "05_human-topic-review-sheet.md",
     "06_human-topic-dossier.md",
     "08_topic-literature-context-dossier.md",
-    "10_topic-citation-dispute-review-dossier.md"
+    "10_topic-citation-dispute-review-dossier.md",
+    "12_topic-research-use-boundary-review.md"
   ],
   "linked_crosswalk_candidate_count": 16,
   "record_type": "research_topic_dossier_index",
@@ -33,7 +35,8 @@
     "04_inscription-crosswalk-route-index.csv",
     "06_human-topic-dossier.md",
     "08_topic-literature-context-dossier.md",
-    "10_topic-citation-dispute-review-dossier.md"
+    "10_topic-citation-dispute-review-dossier.md",
+    "12_topic-research-use-boundary-review.md"
   ],
   "topic_candidate_id": "obs-topic-cand-000013",
   "uncollected_human_research_fields": [

@@ -4,14 +4,16 @@
     "04_inscription-crosswalk-route-index.csv",
     "07_topic-dossier-index.json",
     "09_topic-literature-context-index.json",
-    "11_topic-citation-dispute-review-index.json"
+    "11_topic-citation-dispute-review-index.json",
+    "13_topic-research-use-boundary-index.json"
   ],
   "claim_boundary": "citation_and_dispute_routes_only_not_topic_or_decipherment_claim",
   "human_readable_files": [
     "README.md",
     "06_human-topic-dossier.md",
     "08_topic-literature-context-dossier.md",
-    "10_topic-citation-dispute-review-dossier.md"
+    "10_topic-citation-dispute-review-dossier.md",
+    "12_topic-research-use-boundary-review.md"
   ],
   "linked_crosswalk_candidate_count": 23,
   "record_type": "research_topic_citation_dispute_review_index",

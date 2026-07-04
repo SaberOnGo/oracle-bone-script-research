@@ -42,6 +42,10 @@ source tracing, comparison, and review.
 - `10_topic-citation-dispute-review-dossier.md`: citation and dispute review.
 - `11_topic-citation-dispute-review-index.json`: structured citation support
   index.
+- `12_topic-research-use-boundary-review.md`: human review of research-use
+  limits, promotion blockers, and claim boundaries.
+- `13_topic-research-use-boundary-index.json`: structured support for the
+  research-use boundary review.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `obs-topic-cand-000010`

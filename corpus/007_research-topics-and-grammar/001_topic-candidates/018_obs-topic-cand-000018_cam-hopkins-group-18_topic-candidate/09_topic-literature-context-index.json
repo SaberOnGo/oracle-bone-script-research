@@ -3,7 +3,8 @@
     "01_topic-candidate-packet.json",
     "07_topic-dossier-index.json",
     "09_topic-literature-context-index.json",
-    "11_topic-citation-dispute-review-index.json"
+    "11_topic-citation-dispute-review-index.json",
+    "13_topic-research-use-boundary-index.json"
   ],
   "claim_boundary": "candidate literature context only; no grammar conclusion; no inscription-topic assignment; no transcription; no reading; no decipherment conclusion",
   "human_readable_files": [
@@ -11,7 +12,8 @@
     "05_human-topic-review-sheet.md",
     "06_human-topic-dossier.md",
     "08_topic-literature-context-dossier.md",
-    "10_topic-citation-dispute-review-dossier.md"
+    "10_topic-citation-dispute-review-dossier.md",
+    "12_topic-research-use-boundary-review.md"
   ],
   "linked_crosswalk_candidate_count": 26,
   "literature_context_status": {

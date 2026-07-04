@@ -4868,6 +4868,8 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "09_topic-literature-context-index.json",
         "10_topic-citation-dispute-review-dossier.md",
         "11_topic-citation-dispute-review-index.json",
+        "12_topic-research-use-boundary-review.md",
+        "13_topic-research-use-boundary-index.json",
     ]
     human_markdown_files = [
         "README.md",
@@ -4875,6 +4877,7 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "06_human-topic-dossier.md",
         "08_topic-literature-context-dossier.md",
         "10_topic-citation-dispute-review-dossier.md",
+        "12_topic-research-use-boundary-review.md",
     ]
     review_sheet_snippets = [
         "Concrete Questions To Check",
@@ -5176,6 +5179,81 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                 issues.append(
                     f"{citation_review_index_path.relative_to(root).as_posix()} "
                     "claim boundary changed"
+                )
+        use_boundary_path = object_dir / "12_topic-research-use-boundary-review.md"
+        if path_exists(use_boundary_path):
+            use_boundary = use_boundary_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Topic Research Use Boundary Review",
+                "主题研究使用边界复核",
+                "Allowed Pre-Research Use",
+                "允许的研究前用途",
+                "Blocked Claims",
+                "仍被阻止的结论",
+                "Concrete Promotion Blockers",
+                "具体提升阻碍",
+                "not a grammar conclusion",
+                "not an accepted topic assignment",
+                "not a dating conclusion",
+                "not a decipherment conclusion",
+                "这不是释读结论",
+            ]:
+                if snippet not in use_boundary:
+                    issues.append(
+                        f"{use_boundary_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in use_boundary:
+                issues.append(
+                    f"{use_boundary_path.relative_to(root).as_posix()} "
+                    "contains not_collected filler"
+                )
+            for line_number, line in enumerate(use_boundary.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{use_boundary_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        use_boundary_index_path = object_dir / "13_topic-research-use-boundary-index.json"
+        if path_exists(use_boundary_index_path):
+            use_boundary_index = json.loads(
+                use_boundary_index_path.read_text(encoding="utf-8")
+            )
+            if use_boundary_index.get("record_type") != "research_topic_use_boundary_index":
+                issues.append(
+                    f"{use_boundary_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            if "12_topic-research-use-boundary-review.md" not in (
+                use_boundary_index.get("human_readable_files", [])
+            ):
+                issues.append(
+                    f"{use_boundary_index_path.relative_to(root).as_posix()} "
+                    "missing use boundary review link"
+                )
+            boundary_slots = use_boundary_index.get("boundary_slots", {})
+            if "accepted_topic_assignment" not in boundary_slots.get(
+                "blocked_claims", []
+            ):
+                issues.append(
+                    f"{use_boundary_index_path.relative_to(root).as_posix()} "
+                    "missing accepted topic blocker"
+                )
+            if "decipherment_conclusion" not in boundary_slots.get(
+                "blocked_claims", []
+            ):
+                issues.append(
+                    f"{use_boundary_index_path.relative_to(root).as_posix()} "
+                    "missing decipherment blocker"
+                )
+            if "research_use_boundary_only" not in use_boundary_index.get(
+                "claim_boundary", ""
+            ):
+                issues.append(
+                    f"{use_boundary_index_path.relative_to(root).as_posix()} "
+                    "missing claim boundary"
                 )
     return issues
 

@@ -263,6 +263,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "06_human-topic-dossier.md",
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
+            "12_topic-research-use-boundary-review.md",
         ),
         "slots": (
             "bibliographic_identity",
@@ -274,6 +275,9 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "different_opinions",
             "dispute_record",
             "linked_inscription_routes",
+            "research_use_boundary",
+            "promotion_blockers",
+            "accepted_claim_boundary",
             "missing_items",
             "review_status",
         ),
@@ -281,6 +285,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which bibliography or database note should be opened first?",
             "Which citation relation or disagreement remains only a review route?",
             "Which linked inscription route needs human checking before promotion?",
+            "Which topic, grammar, reading, or dating claim remains blocked?",
         ),
     },
 }

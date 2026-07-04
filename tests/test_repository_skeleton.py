@@ -7305,9 +7305,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-topic-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-topic-cand-000001"]["human_file_count"], "5")
-        self.assertEqual(by_project["obs-topic-cand-000001"]["ai_file_count"], "7")
-        self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "3")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["human_file_count"], "6")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["ai_file_count"], "8")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-topic-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(by_project["obs-xwalk-cand-000001"]["corpus_area"], "codepoint_crosswalk_candidates")
         self.assertEqual(
@@ -7404,6 +7404,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["research_source_objects"]["concrete_depth_questions"],
         )
         self.assertIn("citation_relation", by_area["research_topic_candidates"]["required_human_slots"])
+        self.assertIn("research_use_boundary", by_area["research_topic_candidates"]["required_human_slots"])
+        self.assertIn(
+            "12_topic-research-use-boundary-review.md",
+            by_area["research_topic_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "Which topic, grammar, reading, or dating claim remains blocked?",
+            by_area["research_topic_candidates"]["concrete_depth_questions"],
+        )
         self.assertTrue(all(row["human_first_boundary"].startswith("human dossier first") for row in rows))
         self.assertTrue(all(row["claim_boundary"].endswith("no_decipherment_claim") for row in rows))
 
@@ -7588,6 +7597,55 @@ class RepositorySkeletonTests(unittest.TestCase):
             citation_review_index["claim_boundary"],
             "citation_and_dispute_routes_only_not_topic_or_decipherment_claim",
         )
+        use_boundary_path = object_dir / "12_topic-research-use-boundary-review.md"
+        use_boundary_index_path = object_dir / "13_topic-research-use-boundary-index.json"
+        self.assertTrue(use_boundary_path.exists())
+        self.assertTrue(use_boundary_index_path.exists())
+        use_boundary = use_boundary_path.read_text(encoding="utf-8")
+        for marker in [
+            "Topic Research Use Boundary Review",
+            "主题研究使用边界复核",
+            "Allowed Pre-Research Use",
+            "允许的研究前用途",
+            "Blocked Claims",
+            "仍被阻止的结论",
+            "Concrete Promotion Blockers",
+            "具体提升阻碍",
+            "not a grammar conclusion",
+            "not an accepted topic assignment",
+            "not a dating conclusion",
+            "not a decipherment conclusion",
+            "这不是释读结论",
+        ]:
+            self.assertIn(marker, use_boundary)
+        self.assertNotIn("not_collected", use_boundary)
+        for line in use_boundary.splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        use_boundary_index = json.loads(
+            use_boundary_index_path.read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            use_boundary_index["record_type"],
+            "research_topic_use_boundary_index",
+        )
+        self.assertIn(
+            "12_topic-research-use-boundary-review.md",
+            use_boundary_index["human_readable_files"],
+        )
+        self.assertIn(
+            "accepted_topic_assignment",
+            use_boundary_index["boundary_slots"]["blocked_claims"],
+        )
+        self.assertIn(
+            "decipherment_conclusion",
+            use_boundary_index["boundary_slots"]["blocked_claims"],
+        )
+        self.assertIn(
+            "research_use_boundary_only",
+            use_boundary_index["claim_boundary"],
+        )
         with (object_dir / "04_inscription-crosswalk-route-index.csv").open(
             "r", encoding="utf-8-sig", newline=""
         ) as file:
@@ -7611,6 +7669,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "06_human-topic-dossier.md",
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
+            "12_topic-research-use-boundary-review.md",
         }
         object_dirs = sorted(path for path in root.iterdir() if path.is_dir())
         self.assertEqual(len(object_dirs), 20)

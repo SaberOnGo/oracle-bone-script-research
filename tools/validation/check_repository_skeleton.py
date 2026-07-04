@@ -3317,6 +3317,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "14_text-ocr-quality-index.json",
         "15_inscription-context-review.md",
         "16_inscription-context-index.json",
+        "17_human-research-readiness-review.md",
+        "18_human-research-readiness-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3350,6 +3352,7 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "06_plate-text-gallery.md",
                 "07_human-inscription-dossier.md",
                 "08_inscription-dossier-index.json",
+                "17_human-research-readiness-review.md",
                 "待查: plate, image, OCR, text, and object routes",
             ]:
                 if snippet not in text:
@@ -3441,6 +3444,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         text_ocr_index_path = object_dir / "14_text-ocr-quality-index.json"
         context_review_path = object_dir / "15_inscription-context-review.md"
         context_index_path = object_dir / "16_inscription-context-index.json"
+        readiness_review_path = object_dir / "17_human-research-readiness-review.md"
+        readiness_index_path = object_dir / "18_human-research-readiness-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -3526,6 +3531,10 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing context review link")
             if "16_inscription-context-index.json" not in dossier_index.get("ai_readable_files", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing context index link")
+            if "17_human-research-readiness-review.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing readiness review link")
+            if "18_human-research-readiness-index.json" not in dossier_index.get("ai_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing readiness index link")
         if path_exists(plate_evidence_path):
             plate_evidence = plate_evidence_path.read_text(encoding="utf-8")
             if "\ufffd" in plate_evidence:
@@ -3788,6 +3797,102 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             ]:
                 if boundary not in context_index.get("claim_boundary", []):
                     issues.append(f"{context_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
+        if path_exists(readiness_review_path):
+            readiness_review = readiness_review_path.read_text(encoding="utf-8")
+            if "\ufffd" in readiness_review:
+                issues.append(f"{readiness_review_path.relative_to(root).as_posix()} contains replacement-character mojibake")
+            for snippet in [
+                "Human Research Readiness Review",
+                "人类研究准备度复核",
+                "Pre-Research Decision",
+                "Readiness Routes To Open",
+                "Formal-Research Blockers",
+                "Concrete Missing Evidence Questions",
+                "Source Provenance To Review",
+                "Which plate, rubbing, photograph, page, or OCR text must be opened first?",
+                "Which catalog row anchors this candidate",
+                "Which Heji, OBM, collection, or shelfmark route must be reconciled?",
+                "Which findspot, period, group, batch, or pit source remains absent?",
+                "Which linked glyph or character occurrence remains candidate-only?",
+                "Which source manifest, checksum, field map, rights note, and risk note apply?",
+                "Which bibliography, proposer, reading history, or dispute trail is missing?",
+                "Which issue blocks formal `obi-*` assignment and corpus import?",
+                "07_human-inscription-dossier.md",
+                "09_inscription-plate-evidence-dossier.md",
+                "13_text-ocr-quality-review.md",
+                "15_inscription-context-review.md",
+                "02_crosswalk-source-index.csv",
+                "03_catalog-reference-index.csv",
+                "05_plate-text-route-index.csv",
+                "009_source-package-file-manifest.csv",
+                "007_source-field-map.csv",
+                "not a formal inscription record",
+                "not a transcription or OCR acceptance",
+                "not a linked glyph or character reading",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in readiness_review:
+                    issues.append(f"{readiness_review_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in readiness_review:
+                issues.append(
+                    f"{readiness_review_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
+            for forbidden in [
+                "formal inscription record is assigned",
+                "inscription identity is confirmed",
+                "reading is confirmed",
+                "OCR is accepted",
+            ]:
+                if forbidden in readiness_review:
+                    issues.append(f"{readiness_review_path.relative_to(root).as_posix()} contains premature claim: {forbidden}")
+            for line_number, line in enumerate(readiness_review.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{readiness_review_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        if path_exists(readiness_index_path):
+            readiness_index = json.loads(readiness_index_path.read_text(encoding="utf-8"))
+            if readiness_index.get("project_id") != project_id:
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if readiness_index.get("record_type") != "inscription_human_research_readiness_index":
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} record_type changed")
+            if "17_human-research-readiness-review.md" not in readiness_index.get("human_readable_files", []):
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing readiness review link")
+            if "16_inscription-context-index.json" not in readiness_index.get("ai_support_files", []):
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing context support link")
+            for slot in [
+                "plate_rubbing_image_route",
+                "full_text_or_ocr_route",
+                "catalog_page_route",
+                "heji_obm_collection_route",
+                "findspot_period_group_batch_pit",
+                "linked_glyph_candidate_boundary",
+                "source_manifest_checksum_field_map_risk",
+                "bibliography_reading_history_dispute",
+                "formal_obi_assignment_blocker",
+            ]:
+                if slot not in readiness_index.get("readiness_slots", []):
+                    issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing readiness slot: {slot}")
+            for blocker in [
+                "primary_full_text_or_ocr_route_unreviewed",
+                "plate_image_or_rubbing_route_unreviewed",
+                "source_manifest_checksum_field_map_risk_unreviewed",
+            ]:
+                if blocker not in readiness_index.get("quality_blockers", []):
+                    issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing quality blocker: {blocker}")
+            for boundary in [
+                "no formal inscription record",
+                "no object identity claim",
+                "no transcription or OCR acceptance",
+                "no inscription reading",
+                "no linked glyph or character reading",
+                "no corpus import approval",
+                "no decipherment conclusion",
+            ]:
+                if boundary not in readiness_index.get("claim_boundary", []):
+                    issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [

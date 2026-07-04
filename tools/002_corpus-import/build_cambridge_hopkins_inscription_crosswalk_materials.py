@@ -570,6 +570,12 @@ Structured support files only serve the human inscription and plate dossier.
   Human-readable evidence dossier for text, OCR, plate, and catalog routes.
 - `11_inscription-review-fact-matrix.md`
   Human-readable fact matrix for inscription, plate, and review status.
+- `13_text-ocr-quality-review.md`
+  Human-readable text, OCR, plate, and catalog quality review.
+- `15_inscription-context-review.md`
+  Human-readable archaeological and occurrence context review.
+- `17_human-research-readiness-review.md`
+  Human-readable formal-research readiness and blocker review.
 - `04_human-review-sheet.md`
   Human review sheet for catalog and image/context checks.
 
@@ -589,6 +595,12 @@ Structured support files only serve the human inscription and plate dossier.
   Structured support index for inscription and plate evidence.
 - `12_inscription-review-fact-matrix-index.json`
   Structured support index for the fact matrix.
+- `14_text-ocr-quality-index.json`
+  Structured support index for text and OCR quality review.
+- `16_inscription-context-index.json`
+  Structured support index for context review.
+- `18_human-research-readiness-index.json`
+  Structured support index for formal-research readiness review.
 
 ## Candidate Metadata / 候选 metadata
 
@@ -1718,6 +1730,240 @@ def inscription_context_index(
     }
 
 
+def human_research_readiness_review_text(
+    row: dict[str, str],
+    project_id: str,
+    catalog_rows: list[dict[str, str]],
+    plate_routes: list[dict[str, str]],
+    source_audit: str,
+) -> str:
+    present_refs = [
+        ref["reference_type"]
+        for ref in catalog_rows
+        if ref["reference_status"] == "present_in_cambridge_hopkins_metadata"
+    ]
+    missing_refs = [
+        ref["reference_type"]
+        for ref in catalog_rows
+        if ref["reference_status"] == "missing_or_unassigned"
+    ]
+    present_ref_lines = "\n".join(
+        f"- {reference_type}" for reference_type in present_refs
+    ) or "- none"
+    missing_ref_lines = "\n".join(
+        f"- {reference_type}" for reference_type in missing_refs
+    ) or "- none"
+    route_type_lines = "\n".join(
+        f"- {route['route_type']}" for route in plate_routes
+    ) or "- none"
+    unresolved_note = (
+        "- Note: unresolved source character; check original source row."
+        if any("\ufffd" in ref["reference_value"] for ref in catalog_rows)
+        else "- Note: no unresolved source character marker in catalog refs."
+    )
+    text = f"""# Human Research Readiness Review / 人类研究准备度复核
+
+Project ID: `{project_id}`
+
+Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
+
+## Pre-Research Decision / 正式研究前判断
+
+- Formal `obi-*` ID: `not_assigned_formal_obi_id`
+- Object identity: `not_confirmed_catalog_identity`
+- Text or OCR use: `needs_primary_text_or_ocr_review_route`
+- Plate or rubbing use: `needs_plate_image_or_rubbing_review_route`
+- Collection object match: `needs_collection_object_review_route`
+- Review status: `needs_human_inscription_crosswalk_review`
+
+{paragraph("This file is the final object-local readiness sheet before formal inscription research. It gathers the exact blockers that must be resolved by a human reviewer before this candidate can become a formal inscription record or be imported as corpus evidence.")}
+
+{paragraph("本文件是正式卜辞研究前的本对象准备度复核表。它集中列出人工复核者必须先解决的具体阻断项，然后才能把这个候选项提升为正式卜辞记录或语料证据。")}
+
+## Readiness Routes To Open / 需要打开的准备路线
+
+- Human inscription dossier: `07_human-inscription-dossier.md`
+- Plate evidence dossier: `09_inscription-plate-evidence-dossier.md`
+- Review fact matrix: `11_inscription-review-fact-matrix.md`
+- Text and OCR quality: `13_text-ocr-quality-review.md`
+- Context review: `15_inscription-context-review.md`
+- Source row table: `02_crosswalk-source-index.csv`
+- Catalog references: `03_catalog-reference-index.csv`
+- Plate and text routes: `05_plate-text-route-index.csv`
+- Source download log: `002_source-download-log.csv`
+- Source package manifest: `009_source-package-file-manifest.csv`
+- Source field map: `007_source-field-map.csv`
+
+Structured files only support the human dossier. They do not replace opening
+the plate, rubbing, catalog page, object record, OCR text, or source trail.
+
+结构化文件只服务人类档案，不替代打开图版、拓片、著录页、馆藏记录、
+OCR 文本或来源链。
+
+## Catalog And Route State / 著录与路线状态
+
+- Period label: `{row['period_label']}`
+- Classification group: `{row['group_number']}`
+- Catalog reference count: `{len(catalog_rows)}`
+- Plate and text route count: `{len(plate_routes)}`
+- Rights status: `{row['rights_status']}`
+- Evidence download ID: `{DOWNLOAD_ID}`
+
+Present catalog reference routes:
+
+{present_ref_lines}
+
+Missing catalog reference routes:
+
+{missing_ref_lines}
+
+Plate, text, and collection route types:
+
+{route_type_lines}
+
+{unresolved_note}
+
+## Formal-Research Blockers / 正式研究阻断项
+
+- Primary full text, OCR, or transcription route is not reviewed.
+- Plate image, rubbing, or photograph route is not reviewed.
+- Catalog page, Heji, OBM, Yingguo, Chalfant, and CUL routes are not reconciled.
+- Collection shelfmark or object record is not confirmed.
+- Findspot, period, group, batch, or pit source is not verified.
+- Linked glyph or character occurrence routes remain candidate-only.
+- Bibliography, reading history, proposer, and dispute records are not reviewed.
+- Source manifest, checksum, field map, rights note, and risk note need review.
+
+## Concrete Missing Evidence Questions / 具体缺证问题
+
+- Which plate, rubbing, photograph, page, or OCR text must be opened first?
+- Which catalog row anchors this candidate: Yingguo, CUL, Chalfant, or Heji?
+- Which Heji, OBM, collection, or shelfmark route must be reconciled?
+- Which findspot, period, group, batch, or pit source remains absent?
+- Which linked glyph or character occurrence remains candidate-only?
+- Which source manifest, checksum, field map, rights note, and risk note apply?
+- Which bibliography, proposer, reading history, or dispute trail is missing?
+- Which issue blocks formal `obi-*` assignment and corpus import?
+
+- 应先打开哪一个图版、拓片、照片、页码或 OCR 文本？
+- 哪一条著录行能锚定候选项：英国、CUL、Chalfant 还是合集？
+- 哪一条合集、OBM、馆藏或库藏号路线必须先互证？
+- 哪一项出土地、时期、组类、批次或坑位来源仍然缺失？
+- 哪一条关联字形或单字出现路线仍只是候选？
+- 哪些 manifest、checksum、字段映射、权利说明和风险提示适用？
+- 哪些书目、提出者、释读史或争议链还没有读？
+- 哪个问题阻断正式 `obi-*` 分配和语料导入？
+
+## Source Provenance To Review / 待复核来源追溯
+
+{source_audit}
+
+## Boundary / 边界
+
+- not a formal inscription record
+- not an object identity claim
+- not a transcription or OCR acceptance
+- not an inscription reading
+- not a linked glyph or character reading
+- not corpus import approval
+- not a decipherment conclusion
+- 不是正式卜辞记录
+- 不是馆藏对象同一性结论
+- 不是释文或 OCR 采信
+- 不是卜辞读法
+- 不是关联字形或单字读法
+- 不是语料导入批准
+- 不是释读结论
+"""
+    assert_human_line_width(
+        f"{project_id}/17_human-research-readiness-review.md",
+        text,
+    )
+    return text
+
+
+def human_research_readiness_index(
+    row: dict[str, str],
+    project_id: str,
+    catalog_rows: list[dict[str, str]],
+    plate_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    missing_refs = [
+        ref["reference_type"]
+        for ref in catalog_rows
+        if ref["reference_status"] == "missing_or_unassigned"
+    ]
+    return {
+        "project_id": project_id,
+        "record_type": "inscription_human_research_readiness_index",
+        "candidate_inscription_crosswalk_id": row["candidate_inscription_crosswalk_id"],
+        "human_readable_files": [
+            "README.md",
+            "07_human-inscription-dossier.md",
+            "09_inscription-plate-evidence-dossier.md",
+            "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
+            "15_inscription-context-review.md",
+            "17_human-research-readiness-review.md",
+        ],
+        "ai_support_files": [
+            "01_candidate-inscription-crosswalk-packet.json",
+            "02_crosswalk-source-index.csv",
+            "03_catalog-reference-index.csv",
+            "05_plate-text-route-index.csv",
+            "08_inscription-dossier-index.json",
+            "10_inscription-plate-evidence-index.json",
+            "12_inscription-review-fact-matrix-index.json",
+            "14_text-ocr-quality-index.json",
+            "16_inscription-context-index.json",
+        ],
+        "catalog_reference_count": len(catalog_rows),
+        "plate_text_route_count": len(plate_routes),
+        "missing_reference_types": missing_refs,
+        "readiness_slots": [
+            "plate_rubbing_image_route",
+            "full_text_or_ocr_route",
+            "catalog_page_route",
+            "heji_obm_collection_route",
+            "findspot_period_group_batch_pit",
+            "linked_glyph_candidate_boundary",
+            "source_manifest_checksum_field_map_risk",
+            "bibliography_reading_history_dispute",
+            "formal_obi_assignment_blocker",
+        ],
+        "missing_evidence_questions": [
+            "which plate rubbing photograph page or OCR text must be opened first",
+            "which catalog row anchors this candidate",
+            "which heji obm collection or shelfmark route must be reconciled",
+            "which findspot period group batch or pit source remains absent",
+            "which linked glyph or character occurrence remains candidate only",
+            "which source manifest checksum field map rights note and risk note apply",
+            "which bibliography proposer reading history or dispute trail is missing",
+            "which issue blocks formal obi assignment and corpus import",
+        ],
+        "quality_blockers": [
+            "primary_full_text_or_ocr_route_unreviewed",
+            "plate_image_or_rubbing_route_unreviewed",
+            "catalog_page_heji_obm_collection_routes_unreconciled",
+            "findspot_period_group_batch_or_pit_context_unverified",
+            "linked_glyph_occurrences_candidate_only",
+            "bibliography_reading_history_dispute_records_unreviewed",
+            "source_manifest_checksum_field_map_risk_unreviewed",
+        ],
+        "review_status": "needs_human_inscription_crosswalk_review",
+        "claim_boundary": [
+            "no formal inscription record",
+            "no object identity claim",
+            "no transcription or OCR acceptance",
+            "no inscription reading",
+            "no linked glyph or character reading",
+            "no corpus import approval",
+            "no decipherment conclusion",
+        ],
+        "updated_at": UPDATED_AT,
+    }
+
+
 def dossier_index(
     row: dict[str, str],
     project_id: str,
@@ -1742,6 +1988,7 @@ def dossier_index(
             "11_inscription-review-fact-matrix.md",
             "13_text-ocr-quality-review.md",
             "15_inscription-context-review.md",
+            "17_human-research-readiness-review.md",
         ],
         "ai_readable_files": [
             "01_candidate-inscription-crosswalk-packet.json",
@@ -1752,6 +1999,7 @@ def dossier_index(
             "12_inscription-review-fact-matrix-index.json",
             "14_text-ocr-quality-index.json",
             "16_inscription-context-index.json",
+            "18_human-research-readiness-index.json",
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
@@ -1771,6 +2019,7 @@ def dossier_index(
             "inscription_ocr",
             "full_inscription_text",
             "linked_character_occurrences",
+            "formal_research_readiness_blockers",
         ],
         "research_boundary": RESEARCH_BOUNDARY,
         "caution": CAUTION,
@@ -1883,6 +2132,19 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 catalog_rows,
                 plate_routes,
             ),
+            "human_research_readiness_review_text": human_research_readiness_review_text(
+                row,
+                project_id,
+                catalog_rows,
+                plate_routes,
+                source_audit,
+            ),
+            "human_research_readiness_index": human_research_readiness_index(
+                row,
+                project_id,
+                catalog_rows,
+                plate_routes,
+            ),
             "map_row": {
                 "project_id": project_id,
                 "record_type": "inscription_crosswalk_candidate",
@@ -1948,6 +2210,12 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "inscription_context_index_path": (
                     relative_object_dir / "16_inscription-context-index.json"
                 ).as_posix(),
+                "human_research_readiness_review_path": (
+                    relative_object_dir / "17_human-research-readiness-review.md"
+                ).as_posix(),
+                "human_research_readiness_index_path": (
+                    relative_object_dir / "18_human-research-readiness-index.json"
+                ).as_posix(),
                 "review_status": "needs_human_inscription_crosswalk_review",
                 "updated_at": UPDATED_AT,
             }
@@ -1972,6 +2240,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
         "text_ocr_quality_index_path",
         "inscription_context_review_path",
         "inscription_context_index_path",
+        "human_research_readiness_review_path",
+        "human_research_readiness_index_path",
         "review_status",
         "updated_at",
     ]
@@ -2070,6 +2340,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (object_dir / "16_inscription-context-index.json").write_text(
             json.dumps(output["inscription_context_index"], ensure_ascii=False, indent=2, sort_keys=True)
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "17_human-research-readiness-review.md").write_text(
+            str(output["human_research_readiness_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "18_human-research-readiness-index.json").write_text(
+            json.dumps(
+                output["human_research_readiness_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
             + "\n",
             encoding="utf-8",
             newline="\n",

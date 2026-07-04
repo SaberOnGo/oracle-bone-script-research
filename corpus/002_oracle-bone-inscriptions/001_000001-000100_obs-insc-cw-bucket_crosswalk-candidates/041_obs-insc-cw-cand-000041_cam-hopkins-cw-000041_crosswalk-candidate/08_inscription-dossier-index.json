@@ -7,7 +7,8 @@
     "10_inscription-plate-evidence-index.json",
     "12_inscription-review-fact-matrix-index.json",
     "14_text-ocr-quality-index.json",
-    "16_inscription-context-index.json"
+    "16_inscription-context-index.json",
+    "18_human-research-readiness-index.json"
   ],
   "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000041",
   "catalog_identity_claim_status": "not_confirmed_catalog_identity",
@@ -22,7 +23,8 @@
     "09_inscription-plate-evidence-dossier.md",
     "11_inscription-review-fact-matrix.md",
     "13_text-ocr-quality-review.md",
-    "15_inscription-context-review.md"
+    "15_inscription-context-review.md",
+    "17_human-research-readiness-review.md"
   ],
   "human_review_status": "needs_human_inscription_crosswalk_review",
   "image_evidence_status": "needs_plate_image_or_rubbing_review_route",
@@ -44,7 +46,8 @@
     "plate_image_path",
     "inscription_ocr",
     "full_inscription_text",
-    "linked_character_occurrences"
+    "linked_character_occurrences",
+    "formal_research_readiness_blockers"
   ],
   "updated_at": "2026-06-21"
 }

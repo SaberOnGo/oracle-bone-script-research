@@ -166,6 +166,7 @@ OBJECT_SPECS = [
             "11_inscription-review-fact-matrix.md",
             "13_text-ocr-quality-review.md",
             "15_inscription-context-review.md",
+            "17_human-research-readiness-review.md",
         ),
         (
             "01_candidate-inscription-crosswalk-packet.json",
@@ -177,12 +178,14 @@ OBJECT_SPECS = [
             "12_inscription-review-fact-matrix-index.json",
             "14_text-ocr-quality-index.json",
             "16_inscription-context-index.json",
+            "18_human-research-readiness-index.json",
         ),
         (),
         (
             "05_plate-text-route-index.csv",
             "06_plate-text-gallery.md",
             "15_inscription-context-review.md",
+            "17_human-research-readiness-review.md",
         ),
     ),
     ObjectSpec(

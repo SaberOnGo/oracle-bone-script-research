@@ -4689,6 +4689,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "12_inscription-review-fact-matrix-index.json").exists())
             self.assertTrue((object_dir / "13_text-ocr-quality-review.md").exists())
             self.assertTrue((object_dir / "14_text-ocr-quality-index.json").exists())
+            self.assertTrue((object_dir / "15_inscription-context-review.md").exists())
+            self.assertTrue((object_dir / "16_inscription-context-index.json").exists())
+            self.assertTrue((object_dir / "17_human-research-readiness-review.md").exists())
+            self.assertTrue((object_dir / "18_human-research-readiness-index.json").exists())
             with (object_dir / "05_plate-text-route-index.csv").open(
                 "r",
                 encoding="utf-8-sig",
@@ -4734,6 +4738,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 readme_text.index("09_inscription-plate-evidence-dossier.md"),
                 readme_text.index("05_plate-text-route-index.csv"),
             )
+            self.assertIn("17_human-research-readiness-review.md", readme_text)
             dossier_text = (object_dir / "07_human-inscription-dossier.md").read_text(
                 encoding="utf-8"
             )
@@ -5061,6 +5066,83 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "no decipherment conclusion",
                 context_index["claim_boundary"],
+            )
+            readiness_text = (
+                object_dir / "17_human-research-readiness-review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Human Research Readiness Review", readiness_text)
+            self.assertIn("人类研究准备度复核", readiness_text)
+            self.assertIn("Pre-Research Decision", readiness_text)
+            self.assertIn("Readiness Routes To Open", readiness_text)
+            self.assertIn("Formal-Research Blockers", readiness_text)
+            self.assertIn("Concrete Missing Evidence Questions", readiness_text)
+            self.assertIn("Source Provenance To Review", readiness_text)
+            self.assertIn(
+                "Which plate, rubbing, photograph, page, or OCR text must be opened first?",
+                readiness_text,
+            )
+            self.assertIn("Which catalog row anchors this candidate", readiness_text)
+            self.assertIn(
+                "Which Heji, OBM, collection, or shelfmark route must be reconciled?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which linked glyph or character occurrence remains candidate-only?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which source manifest, checksum, field map, rights note, and risk note apply?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which issue blocks formal `obi-*` assignment and corpus import?",
+                readiness_text,
+            )
+            self.assertIn("07_human-inscription-dossier.md", readiness_text)
+            self.assertIn("09_inscription-plate-evidence-dossier.md", readiness_text)
+            self.assertIn("13_text-ocr-quality-review.md", readiness_text)
+            self.assertIn("15_inscription-context-review.md", readiness_text)
+            self.assertIn("009_source-package-file-manifest.csv", readiness_text)
+            self.assertIn("007_source-field-map.csv", readiness_text)
+            self.assertIn("not a transcription or OCR acceptance", readiness_text)
+            self.assertIn("not a linked glyph or character reading", readiness_text)
+            self.assertIn("not a decipherment conclusion", readiness_text)
+            self.assertNotIn("not_collected", readiness_text)
+            for line in readiness_text.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
+            readiness_index = json.loads(
+                (object_dir / "18_human-research-readiness-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                readiness_index["record_type"],
+                "inscription_human_research_readiness_index",
+            )
+            self.assertIn(
+                "17_human-research-readiness-review.md",
+                readiness_index["human_readable_files"],
+            )
+            self.assertIn(
+                "16_inscription-context-index.json",
+                readiness_index["ai_support_files"],
+            )
+            self.assertIn(
+                "source_manifest_checksum_field_map_risk",
+                readiness_index["readiness_slots"],
+            )
+            self.assertIn(
+                "formal_obi_assignment_blocker",
+                readiness_index["readiness_slots"],
+            )
+            self.assertIn(
+                "source_manifest_checksum_field_map_risk_unreviewed",
+                readiness_index["quality_blockers"],
+            )
+            self.assertIn(
+                "no linked glyph or character reading",
+                readiness_index["claim_boundary"],
             )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
@@ -5456,6 +5538,55 @@ class RepositorySkeletonTests(unittest.TestCase):
             "no decipherment conclusion",
             first["inscription_context_index"]["claim_boundary"],
         )
+        self.assertIn("human_research_readiness_review_text", first)
+        self.assertIn("human_research_readiness_index", first)
+        self.assertIn(
+            "Human Research Readiness Review",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertIn(
+            "Pre-Research Decision",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertIn(
+            "Formal-Research Blockers",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertIn(
+            "Which source manifest, checksum, field map, rights note, and risk note apply?",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertIn(
+            "Which issue blocks formal `obi-*` assignment and corpus import?",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertIn(
+            "not a linked glyph or character reading",
+            first["human_research_readiness_review_text"],
+        )
+        self.assertNotIn(
+            "not_collected",
+            first["human_research_readiness_review_text"],
+        )
+        for line in first["human_research_readiness_review_text"].splitlines():
+            if not line.startswith("|"):
+                self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["human_research_readiness_index"]["record_type"],
+            "inscription_human_research_readiness_index",
+        )
+        self.assertIn(
+            "17_human-research-readiness-review.md",
+            first["human_research_readiness_index"]["human_readable_files"],
+        )
+        self.assertIn(
+            "formal_obi_assignment_blocker",
+            first["human_research_readiness_index"]["readiness_slots"],
+        )
+        self.assertIn(
+            "no decipherment conclusion",
+            first["human_research_readiness_index"]["claim_boundary"],
+        )
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
             first["plate_evidence_index"]["human_readable_files"],
@@ -5469,6 +5600,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "human_dossier_text",
             "text_ocr_quality_review_text",
             "inscription_context_review_text",
+            "human_research_readiness_review_text",
         ]:
             self.assertNotIn("\ufffd", unresolved[output_key], output_key)
             self.assertIn(
@@ -7337,7 +7469,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "3")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["human_file_count"], "9")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["ai_file_count"], "10")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-insc-cw-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(
             by_project["obs-evo-cand-000001"]["material_bundle_status"],
@@ -7444,6 +7578,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("inscription_number", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
         self.assertIn("ocr_or_full_text", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
         self.assertIn("plate_number", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn("formal_research_blockers", by_area["inscription_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn(
+            "17_human-research-readiness-review.md",
+            by_area["inscription_crosswalk_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "Which issue blocks formal obi assignment and corpus import?",
+            by_area["inscription_crosswalk_candidates"]["concrete_depth_questions"],
+        )
         self.assertIn("component_boundary", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("near_shape", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])

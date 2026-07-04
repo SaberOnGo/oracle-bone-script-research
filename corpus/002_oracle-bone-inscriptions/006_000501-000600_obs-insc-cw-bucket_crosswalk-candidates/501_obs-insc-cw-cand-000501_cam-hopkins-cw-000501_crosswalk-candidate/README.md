@@ -50,6 +50,12 @@ Structured support files only serve the human inscription and plate dossier.
   Human-readable evidence dossier for text, OCR, plate, and catalog routes.
 - `11_inscription-review-fact-matrix.md`
   Human-readable fact matrix for inscription, plate, and review status.
+- `13_text-ocr-quality-review.md`
+  Human-readable text, OCR, plate, and catalog quality review.
+- `15_inscription-context-review.md`
+  Human-readable archaeological and occurrence context review.
+- `17_human-research-readiness-review.md`
+  Human-readable formal-research readiness and blocker review.
 - `04_human-review-sheet.md`
   Human review sheet for catalog and image/context checks.
 
@@ -69,6 +75,12 @@ Structured support files only serve the human inscription and plate dossier.
   Structured support index for inscription and plate evidence.
 - `12_inscription-review-fact-matrix-index.json`
   Structured support index for the fact matrix.
+- `14_text-ocr-quality-index.json`
+  Structured support index for text and OCR quality review.
+- `16_inscription-context-index.json`
+  Structured support index for context review.
+- `18_human-research-readiness-index.json`
+  Structured support index for formal-research readiness review.
 
 ## Candidate Metadata / 候选 metadata
 

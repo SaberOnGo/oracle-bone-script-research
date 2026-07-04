@@ -1,0 +1,71 @@
+{
+  "ai_support_files": [
+    "01_candidate-inscription-crosswalk-packet.json",
+    "02_crosswalk-source-index.csv",
+    "03_catalog-reference-index.csv",
+    "05_plate-text-route-index.csv",
+    "08_inscription-dossier-index.json",
+    "10_inscription-plate-evidence-index.json",
+    "12_inscription-review-fact-matrix-index.json",
+    "14_text-ocr-quality-index.json",
+    "16_inscription-context-index.json"
+  ],
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000521",
+  "catalog_reference_count": 4,
+  "claim_boundary": [
+    "no formal inscription record",
+    "no object identity claim",
+    "no transcription or OCR acceptance",
+    "no inscription reading",
+    "no linked glyph or character reading",
+    "no corpus import approval",
+    "no decipherment conclusion"
+  ],
+  "human_readable_files": [
+    "README.md",
+    "07_human-inscription-dossier.md",
+    "09_inscription-plate-evidence-dossier.md",
+    "11_inscription-review-fact-matrix.md",
+    "13_text-ocr-quality-review.md",
+    "15_inscription-context-review.md",
+    "17_human-research-readiness-review.md"
+  ],
+  "missing_evidence_questions": [
+    "which plate rubbing photograph page or OCR text must be opened first",
+    "which catalog row anchors this candidate",
+    "which heji obm collection or shelfmark route must be reconciled",
+    "which findspot period group batch or pit source remains absent",
+    "which linked glyph or character occurrence remains candidate only",
+    "which source manifest checksum field map rights note and risk note apply",
+    "which bibliography proposer reading history or dispute trail is missing",
+    "which issue blocks formal obi assignment and corpus import"
+  ],
+  "missing_reference_types": [
+    "heji"
+  ],
+  "plate_text_route_count": 5,
+  "project_id": "obs-insc-cw-cand-000521",
+  "quality_blockers": [
+    "primary_full_text_or_ocr_route_unreviewed",
+    "plate_image_or_rubbing_route_unreviewed",
+    "catalog_page_heji_obm_collection_routes_unreconciled",
+    "findspot_period_group_batch_or_pit_context_unverified",
+    "linked_glyph_occurrences_candidate_only",
+    "bibliography_reading_history_dispute_records_unreviewed",
+    "source_manifest_checksum_field_map_risk_unreviewed"
+  ],
+  "readiness_slots": [
+    "plate_rubbing_image_route",
+    "full_text_or_ocr_route",
+    "catalog_page_route",
+    "heji_obm_collection_route",
+    "findspot_period_group_batch_pit",
+    "linked_glyph_candidate_boundary",
+    "source_manifest_checksum_field_map_risk",
+    "bibliography_reading_history_dispute",
+    "formal_obi_assignment_blocker"
+  ],
+  "record_type": "inscription_human_research_readiness_index",
+  "review_status": "needs_human_inscription_crosswalk_review",
+  "updated_at": "2026-06-21"
+}

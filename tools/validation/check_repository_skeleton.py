@@ -32821,6 +32821,8 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         "11_cross-source-conflict-index.json",
         "12_modern-label-boundary-review.md",
         "13_modern-label-boundary-index.json",
+        "14_codepoint-research-readiness-review.md",
+        "15_codepoint-research-readiness-index.json",
     }
     by_project = {row.get("project_id", ""): row for row in map_rows}
     for expected_id in ["obs-xwalk-cand-000001", "obs-xwalk-cand-000047", "obs-xwalk-cand-001588"]:
@@ -32869,6 +32871,9 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         modern_label_boundary = (
             object_dir / "12_modern-label-boundary-review.md"
         ).read_text(encoding="utf-8")
+        readiness_review = (
+            object_dir / "14_codepoint-research-readiness-review.md"
+        ).read_text(encoding="utf-8")
         for text_name, text in {
             "README.md": readme,
             "04_human-codepoint-crosswalk-review-sheet.md": review_sheet,
@@ -32877,6 +32882,7 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             "08_codepoint-crosswalk-fact-matrix.md": fact_matrix,
             "10_cross-source-conflict-review.md": conflict_review,
             "12_modern-label-boundary-review.md": modern_label_boundary,
+            "14_codepoint-research-readiness-review.md": readiness_review,
         }.items():
             if "not_collected" in text or "not collected" in text.lower():
                 issues.append(f"{expected_id} {text_name} contains machine filler")
@@ -32905,6 +32911,7 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             "Concrete Questions To Check",
             "10_cross-source-conflict-review.md",
             "12_modern-label-boundary-review.md",
+            "14_codepoint-research-readiness-review.md",
         ]:
             if marker not in readme:
                 issues.append(f"{expected_id} README missing {marker}")
@@ -32974,6 +32981,23 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         ]:
             if marker not in modern_label_boundary:
                 issues.append(f"{expected_id} modern label boundary missing {marker}")
+        for marker in [
+            "Codepoint Research Readiness Review",
+            "Human Reading Order",
+            "Readiness Slots",
+            "Concrete Questions Before Formal Research",
+            "04_human-codepoint-crosswalk-review-sheet.md",
+            "06_human-codepoint-crosswalk-dossier.md",
+            "10_cross-source-conflict-review.md",
+            "12_modern-label-boundary-review.md",
+            "not an oracle-character identity confirmation",
+            "not an accepted reading",
+            "not a component assignment",
+            "not an evolution correspondence",
+            "not a decipherment conclusion",
+        ]:
+            if marker not in readiness_review:
+                issues.append(f"{expected_id} readiness review missing {marker}")
         conflict_index = json.loads(
             (object_dir / "11_cross-source-conflict-index.json").read_text(
                 encoding="utf-8"
@@ -33022,6 +33046,34 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             "",
         ):
             issues.append(f"{expected_id} modern label index missing identity boundary")
+        readiness_index = json.loads(
+            (object_dir / "15_codepoint-research-readiness-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        if readiness_index.get("project_id") != expected_id:
+            issues.append(f"{expected_id} readiness index project_id changed")
+        if readiness_index.get("record_type") != "codepoint_research_readiness_index":
+            issues.append(f"{expected_id} readiness index record_type changed")
+        if readiness_index.get("human_entry") != "14_codepoint-research-readiness-review.md":
+            issues.append(f"{expected_id} readiness index human entry changed")
+        if "14_codepoint-research-readiness-review.md" not in readiness_index.get(
+            "human_readable_files",
+            [],
+        ):
+            issues.append(f"{expected_id} readiness index missing human review")
+        if "15_codepoint-research-readiness-index.json" not in readiness_index.get(
+            "ai_support_files",
+            [],
+        ):
+            issues.append(f"{expected_id} readiness index missing support index")
+        if len(readiness_index.get("readiness_slots", [])) != 8:
+            issues.append(f"{expected_id} readiness index slot count changed")
+        readiness_boundary = readiness_index.get("claim_boundary", "")
+        if "no oracle-character identity confirmation" not in readiness_boundary:
+            issues.append(f"{expected_id} readiness index missing identity boundary")
+        if "no decipherment conclusion" not in readiness_boundary:
+            issues.append(f"{expected_id} readiness index missing decipherment boundary")
     return issues
 
 

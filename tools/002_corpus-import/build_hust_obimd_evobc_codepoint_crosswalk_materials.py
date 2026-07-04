@@ -252,6 +252,7 @@ def build_packet(
             "08_codepoint-crosswalk-fact-matrix.md",
             "10_cross-source-conflict-review.md",
             "12_modern-label-boundary-review.md",
+            "14_codepoint-research-readiness-review.md",
         ],
         "local_ai_support_files": [
             "01_codepoint-crosswalk-packet.json",
@@ -261,6 +262,7 @@ def build_packet(
             "09_codepoint-crosswalk-fact-matrix-index.json",
             "11_cross-source-conflict-index.json",
             "13_modern-label-boundary-index.json",
+            "15_codepoint-research-readiness-index.json",
         ],
         "research_boundary": RESEARCH_BOUNDARY,
         "caution": CAUTION,
@@ -482,6 +484,7 @@ def render_readme(project_id: str, row: dict[str, str]) -> str:
         bullet("08_codepoint-crosswalk-fact-matrix.md"),
         bullet("10_cross-source-conflict-review.md"),
         bullet("12_modern-label-boundary-review.md"),
+        bullet("14_codepoint-research-readiness-review.md"),
         "",
         "## AI Support Files / AI 辅助文件",
         "",
@@ -492,6 +495,7 @@ def render_readme(project_id: str, row: dict[str, str]) -> str:
         bullet("09_codepoint-crosswalk-fact-matrix-index.json"),
         bullet("11_cross-source-conflict-index.json"),
         bullet("13_modern-label-boundary-index.json"),
+        bullet("15_codepoint-research-readiness-index.json"),
         "",
         "## Concrete Questions To Check / 具体待查问题",
         "",
@@ -956,6 +960,164 @@ def build_modern_label_boundary_index(
     }
 
 
+def codepoint_readiness_slots(row: dict[str, str]) -> list[dict[str, str]]:
+    return [
+        {
+            "slot": "candidate_identity_route",
+            "status": "candidate_only",
+            "human_question": "Which object-local packet and source row anchor this route?",
+        },
+        {
+            "slot": "visible_glyph_evidence",
+            "status": "needs_opened_visual_review",
+            "human_question": "Which glyph image, rubbing, photo, or hand copy must be opened?",
+        },
+        {
+            "slot": "inscription_plate_context",
+            "status": "needs_source_context_review",
+            "human_question": "Which inscription, plate, catalog, or Heji route can test it?",
+        },
+        {
+            "slot": "cross_source_agreement",
+            "status": row["cross_source_status"],
+            "human_question": "Which sources agree only by codepoint or dataset label?",
+        },
+        {
+            "slot": "modern_label_boundary",
+            "status": "lookup_metadata_only",
+            "human_question": "Which modern label is only a search clue?",
+        },
+        {
+            "slot": "source_rights_manifest",
+            "status": row["rights_status"],
+            "human_question": "Which manifest, checksum, field map, rights note, and risk note apply?",
+        },
+        {
+            "slot": "bibliography_or_proposer",
+            "status": "needs_source_review",
+            "human_question": "Which bibliography, proposer, or dispute route remains missing?",
+        },
+        {
+            "slot": "formal_crosswalk_research_blockers",
+            "status": "blocked_until_human_review",
+            "human_question": "Which issue blocks formal codepoint crosswalk research?",
+        },
+    ]
+
+
+def render_readiness_review(project_id: str, row: dict[str, str]) -> str:
+    lines = [
+        f"# {project_id} Codepoint Research Readiness Review",
+        "",
+        "## Purpose / 用途",
+        "",
+        paragraph(
+            "This human page checks whether a codepoint crosswalk candidate has "
+            "enough opened source evidence for later formal research. It does "
+            "not approve a character identity, reading, component, or evolution "
+            "correspondence."
+        ),
+        "",
+        paragraph(
+            "本页只复核代码点互证候选在正式研究前还缺哪些可打开证据。"
+            "它不确认甲骨字身份、释读、构件归属或字形演化关系。"
+        ),
+        "",
+        "## Human Reading Order / 人工阅读顺序",
+        "",
+        bullet("Open 04_human-codepoint-crosswalk-review-sheet.md first."),
+        bullet("Open 06_human-codepoint-crosswalk-dossier.md next."),
+        bullet("Open 10_cross-source-conflict-review.md before promotion review."),
+        bullet("Open 12_modern-label-boundary-review.md before using labels."),
+        bullet("Open source registers, download logs, and field maps last."),
+        bullet("先读人工复核表，再读互证档案和来源冲突复核。"),
+        bullet("使用现代标签或 Unicode 码位前，先读现代标签边界页。"),
+        "",
+        "## Readiness Slots / 就绪复核槽位",
+        "",
+    ]
+    for slot in codepoint_readiness_slots(row):
+        lines.append(
+            bullet(
+                f"{slot['slot']}: {slot['status']}; {slot['human_question']}"
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "## Concrete Questions Before Formal Research / 正式研究前待查问题",
+            "",
+            bullet("Which source codepoint route needs direct human comparison?"),
+            bullet("Which visible glyph evidence supports or conflicts with it?"),
+            bullet("Which inscription, plate, catalog, or Heji route can test it?"),
+            bullet("Which source rows agree only by Unicode or dataset label?"),
+            bullet("Which modern label is only lookup metadata?"),
+            bullet("Which bibliography, proposer, or dispute route is missing?"),
+            bullet("Which manifest, checksum, field map, rights note, and risk note apply?"),
+            bullet("Which issue blocks formal codepoint crosswalk research?"),
+            bullet("哪条来源码位路线需要人工直接比对？"),
+            bullet("哪条可见字形证据支持或冲突于该路线？"),
+            bullet("哪条卜辞、图版、著录或合集路线可用于核查？"),
+            bullet("哪些来源行只是共享 Unicode 或数据集标签？"),
+            bullet("哪个现代标签只可作为检索 metadata？"),
+            bullet("哪条书目、提出者或争议路线仍然缺失？"),
+            "",
+            "## Boundary / 边界",
+            "",
+            bullet("This is not an oracle-character identity confirmation."),
+            bullet("This is not an accepted reading."),
+            bullet("This is not a component assignment."),
+            bullet("This is not an evolution correspondence."),
+            bullet("This is not a decipherment conclusion."),
+            bullet("本页不是甲骨字身份确认。"),
+            bullet("本页不是已接受释读、构件归属、演化对应或破译结论。"),
+        ]
+    )
+    text = "\n".join(lines) + "\n"
+    assert_human_line_width(
+        f"{project_id}/14_codepoint-research-readiness-review.md",
+        text,
+    )
+    return text
+
+
+def build_readiness_index(project_id: str, row: dict[str, str]) -> dict[str, object]:
+    return {
+        "project_id": project_id,
+        "record_type": "codepoint_research_readiness_index",
+        "crosswalk_candidate_id": row["crosswalk_candidate_id"],
+        "human_entry": "14_codepoint-research-readiness-review.md",
+        "human_readable_files": [
+            "04_human-codepoint-crosswalk-review-sheet.md",
+            "05_codepoint-crosswalk-route-gallery.md",
+            "06_human-codepoint-crosswalk-dossier.md",
+            "08_codepoint-crosswalk-fact-matrix.md",
+            "10_cross-source-conflict-review.md",
+            "12_modern-label-boundary-review.md",
+            "14_codepoint-research-readiness-review.md",
+        ],
+        "ai_support_files": [
+            "01_codepoint-crosswalk-packet.json",
+            "02_codepoint-crosswalk-source-index.csv",
+            "03_codepoint-crosswalk-route-index.csv",
+            "07_codepoint-crosswalk-dossier-index.json",
+            "09_codepoint-crosswalk-fact-matrix-index.json",
+            "11_cross-source-conflict-index.json",
+            "13_modern-label-boundary-index.json",
+            "15_codepoint-research-readiness-index.json",
+        ],
+        "readiness_slots": codepoint_readiness_slots(row),
+        "source_ids": matched_source_ids(row),
+        "claim_boundary": (
+            "codepoint readiness review only; no oracle-character identity "
+            "confirmation, no accepted reading, no component assignment, no "
+            "evolution correspondence, and no decipherment conclusion"
+        ),
+        "review_status": row["review_status"],
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     staging_rows = read_csv(root / CODEPOINT_CROSSWALK)
     source_rows = read_csv(root / SOURCE_INDEX)
@@ -977,6 +1139,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             project_id,
             row,
         )
+        readiness_review_text = render_readiness_review(project_id, row)
         human_files = packet["local_human_files"]
         ai_files = packet["local_ai_support_files"]
         outputs[project_id] = {
@@ -991,6 +1154,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "fact_matrix_text": fact_matrix_text,
             "conflict_review_text": conflict_review_text,
             "modern_label_boundary_text": modern_label_boundary_text,
+            "readiness_review_text": readiness_review_text,
             "dossier_index": build_index(
                 project_id,
                 row,
@@ -1010,6 +1174,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 project_id,
                 row,
             ),
+            "readiness_index": build_readiness_index(project_id, row),
             "map_row": {
                 "project_id": project_id,
                 "record_type": RECORD_TYPE,
@@ -1078,6 +1243,14 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         write_json(
             object_dir / "13_modern-label-boundary-index.json",
             output["modern_label_boundary_index"],
+        )
+        (object_dir / "14_codepoint-research-readiness-review.md").write_text(
+            output["readiness_review_text"],
+            encoding="utf-8",
+        )
+        write_json(
+            object_dir / "15_codepoint-research-readiness-index.json",
+            output["readiness_index"],
         )
         map_rows.append(output["map_row"])
     write_csv(root / CODEPOINT_MAP, map_rows, MAP_FIELDS)

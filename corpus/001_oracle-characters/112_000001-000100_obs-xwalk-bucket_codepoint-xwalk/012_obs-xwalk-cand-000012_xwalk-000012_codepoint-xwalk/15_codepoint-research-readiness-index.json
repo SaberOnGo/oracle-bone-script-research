@@ -1,0 +1,73 @@
+{
+  "project_id": "obs-xwalk-cand-000012",
+  "record_type": "codepoint_research_readiness_index",
+  "crosswalk_candidate_id": "hust-obimd-evobc-xwalk-000012",
+  "human_entry": "14_codepoint-research-readiness-review.md",
+  "human_readable_files": [
+    "04_human-codepoint-crosswalk-review-sheet.md",
+    "05_codepoint-crosswalk-route-gallery.md",
+    "06_human-codepoint-crosswalk-dossier.md",
+    "08_codepoint-crosswalk-fact-matrix.md",
+    "10_cross-source-conflict-review.md",
+    "12_modern-label-boundary-review.md",
+    "14_codepoint-research-readiness-review.md"
+  ],
+  "ai_support_files": [
+    "01_codepoint-crosswalk-packet.json",
+    "02_codepoint-crosswalk-source-index.csv",
+    "03_codepoint-crosswalk-route-index.csv",
+    "07_codepoint-crosswalk-dossier-index.json",
+    "09_codepoint-crosswalk-fact-matrix-index.json",
+    "11_cross-source-conflict-index.json",
+    "13_modern-label-boundary-index.json",
+    "15_codepoint-research-readiness-index.json"
+  ],
+  "readiness_slots": [
+    {
+      "slot": "candidate_identity_route",
+      "status": "candidate_only",
+      "human_question": "Which object-local packet and source row anchor this route?"
+    },
+    {
+      "slot": "visible_glyph_evidence",
+      "status": "needs_opened_visual_review",
+      "human_question": "Which glyph image, rubbing, photo, or hand copy must be opened?"
+    },
+    {
+      "slot": "inscription_plate_context",
+      "status": "needs_source_context_review",
+      "human_question": "Which inscription, plate, catalog, or Heji route can test it?"
+    },
+    {
+      "slot": "cross_source_agreement",
+      "status": "no_obimd_or_evobc_codepoint_match",
+      "human_question": "Which sources agree only by codepoint or dataset label?"
+    },
+    {
+      "slot": "modern_label_boundary",
+      "status": "lookup_metadata_only",
+      "human_question": "Which modern label is only a search clue?"
+    },
+    {
+      "slot": "source_rights_manifest",
+      "status": "source_marked_risk_noted",
+      "human_question": "Which manifest, checksum, field map, rights note, and risk note apply?"
+    },
+    {
+      "slot": "bibliography_or_proposer",
+      "status": "needs_source_review",
+      "human_question": "Which bibliography, proposer, or dispute route remains missing?"
+    },
+    {
+      "slot": "formal_crosswalk_research_blockers",
+      "status": "blocked_until_human_review",
+      "human_question": "Which issue blocks formal codepoint crosswalk research?"
+    }
+  ],
+  "source_ids": [
+    "src-hust-obc"
+  ],
+  "claim_boundary": "codepoint readiness review only; no oracle-character identity confirmation, no accepted reading, no component assignment, no evolution correspondence, and no decipherment conclusion",
+  "review_status": "needs_cross_source_review",
+  "updated_at": "2026-06-28"
+}

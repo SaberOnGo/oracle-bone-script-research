@@ -186,6 +186,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "08_codepoint-crosswalk-fact-matrix.md",
             "10_cross-source-conflict-review.md",
             "12_modern-label-boundary-review.md",
+            "14_codepoint-research-readiness-review.md",
         ),
         "slots": (
             "source_codepoint",
@@ -199,6 +200,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "dataset_label_boundary",
             "visible_glyph_evidence",
             "bibliography_or_proposer",
+            "formal_crosswalk_research_blockers",
             "missing_items",
             "review_status",
         ),
@@ -207,6 +209,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which cross-source match remains ambiguous or conflicting?",
             "Which project object should be opened before using the crosswalk?",
             "Which modern label is only lookup metadata?",
+            "Which issue blocks formal codepoint crosswalk research?",
         ),
     },
     "collection_object_candidates": {

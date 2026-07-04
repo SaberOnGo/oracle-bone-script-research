@@ -218,6 +218,7 @@ OBJECT_SPECS = [
             "08_codepoint-crosswalk-fact-matrix.md",
             "10_cross-source-conflict-review.md",
             "12_modern-label-boundary-review.md",
+            "14_codepoint-research-readiness-review.md",
         ),
         (
             "01_codepoint-crosswalk-packet.json",
@@ -227,11 +228,13 @@ OBJECT_SPECS = [
             "09_codepoint-crosswalk-fact-matrix-index.json",
             "11_cross-source-conflict-index.json",
             "13_modern-label-boundary-index.json",
+            "15_codepoint-research-readiness-index.json",
         ),
         (),
         (
             "03_codepoint-crosswalk-route-index.csv",
             "05_codepoint-crosswalk-route-gallery.md",
+            "14_codepoint-research-readiness-review.md",
         ),
     ),
     ObjectSpec(

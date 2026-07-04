@@ -7375,6 +7375,8 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "11_cross-source-conflict-index.json",
                 "12_modern-label-boundary-review.md",
                 "13_modern-label-boundary-index.json",
+                "14_codepoint-research-readiness-review.md",
+                "15_codepoint-research-readiness-index.json",
             ]
             for filename in required_files:
                 self.assertTrue(path_exists(object_dir / filename), f"{project_id} {filename}")
@@ -7392,6 +7394,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             modern_label_boundary_text = (
                 object_dir / "12_modern-label-boundary-review.md"
             ).read_text(encoding="utf-8")
+            readiness_text = (
+                object_dir / "14_codepoint-research-readiness-review.md"
+            ).read_text(encoding="utf-8")
             human_texts = {
                 "README.md": readme_text,
                 "04_human-codepoint-crosswalk-review-sheet.md": (
@@ -7404,6 +7409,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "08_codepoint-crosswalk-fact-matrix.md": fact_matrix_text,
                 "10_cross-source-conflict-review.md": conflict_review_text,
                 "12_modern-label-boundary-review.md": modern_label_boundary_text,
+                "14_codepoint-research-readiness-review.md": readiness_text,
             }
             for filename, text in human_texts.items():
                 self.assertNotIn("not_collected", text)
@@ -7444,6 +7450,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "具体待查问题",
                 "08_codepoint-crosswalk-fact-matrix.md",
                 "12_modern-label-boundary-review.md",
+                "14_codepoint-research-readiness-review.md",
             ]:
                 self.assertIn(marker, readme_text)
             for marker in [
@@ -7518,6 +7525,23 @@ class RepositorySkeletonTests(unittest.TestCase):
             ]:
                 self.assertIn(marker, modern_label_boundary_text)
 
+            for marker in [
+                "Codepoint Research Readiness Review",
+                "Human Reading Order",
+                "Readiness Slots",
+                "Concrete Questions Before Formal Research",
+                "04_human-codepoint-crosswalk-review-sheet.md",
+                "06_human-codepoint-crosswalk-dossier.md",
+                "10_cross-source-conflict-review.md",
+                "12_modern-label-boundary-review.md",
+                "not an oracle-character identity confirmation",
+                "not an accepted reading",
+                "not a component assignment",
+                "not an evolution correspondence",
+                "not a decipherment conclusion",
+            ]:
+                self.assertIn(marker, readiness_text)
+
             conflict_index = json.loads(
                 (object_dir / "11_cross-source-conflict-index.json").read_text(
                     encoding="utf-8"
@@ -7555,6 +7579,37 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "not oracle-character identity",
                 modern_label_boundary_index["claim_boundary"],
             )
+            readiness_index = json.loads(
+                (object_dir / "15_codepoint-research-readiness-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(readiness_index["project_id"], project_id)
+            self.assertEqual(
+                readiness_index["record_type"],
+                "codepoint_research_readiness_index",
+            )
+            self.assertEqual(
+                readiness_index["human_entry"],
+                "14_codepoint-research-readiness-review.md",
+            )
+            self.assertIn(
+                "14_codepoint-research-readiness-review.md",
+                readiness_index["human_readable_files"],
+            )
+            self.assertIn(
+                "15_codepoint-research-readiness-index.json",
+                readiness_index["ai_support_files"],
+            )
+            self.assertEqual(len(readiness_index["readiness_slots"]), 8)
+            self.assertIn(
+                "no oracle-character identity confirmation",
+                readiness_index["claim_boundary"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                readiness_index["claim_boundary"],
+            )
 
             packet = json.loads((object_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8"))
             self.assertEqual(packet["project_id"], project_id)
@@ -7567,7 +7622,15 @@ class RepositorySkeletonTests(unittest.TestCase):
                 packet["local_human_files"],
             )
             self.assertIn(
+                "14_codepoint-research-readiness-review.md",
+                packet["local_human_files"],
+            )
+            self.assertIn(
                 "13_modern-label-boundary-index.json",
+                packet["local_ai_support_files"],
+            )
+            self.assertIn(
+                "15_codepoint-research-readiness-index.json",
                 packet["local_ai_support_files"],
             )
             self.assertNotIn("doc/public/user_research", packet["object_dir"])
@@ -7613,6 +7676,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Human Comparison Order", first["fact_matrix_text"])
         self.assertIn("Cross-Source Conflict Review", first["conflict_review_text"])
         self.assertIn("Modern Label Boundary Review", first["modern_label_boundary_text"])
+        self.assertIn("Codepoint Research Readiness Review", first["readiness_review_text"])
+        self.assertIn("Human Reading Order", first["readiness_review_text"])
+        self.assertIn("Readiness Slots", first["readiness_review_text"])
+        self.assertIn(
+            "Concrete Questions Before Formal Research",
+            first["readiness_review_text"],
+        )
         self.assertIn(
             "Modern labels are lookup metadata, not oracle-character identity.",
             first["modern_label_boundary_text"],
@@ -7636,6 +7706,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["modern_label_boundary_index"]["record_type"],
             "codepoint_modern_label_boundary_index",
         )
+        self.assertEqual(
+            first["readiness_index"]["record_type"],
+            "codepoint_research_readiness_index",
+        )
+        self.assertEqual(
+            first["readiness_index"]["human_entry"],
+            "14_codepoint-research-readiness-review.md",
+        )
+        self.assertEqual(len(first["readiness_index"]["readiness_slots"]), 8)
         self.assertIn(
             "unicode_codepoint_route",
             first["modern_label_boundary_index"]["label_boundary_slots"],
@@ -7756,9 +7835,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-xwalk-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-xwalk-cand-000001"]["human_file_count"], "7")
-        self.assertEqual(by_project["obs-xwalk-cand-000001"]["ai_file_count"], "7")
-        self.assertEqual(by_project["obs-xwalk-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["human_file_count"], "8")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["ai_file_count"], "8")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-xwalk-cand-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
             by_project["obs-xwalk-cand-000047"]["source_ids"],
@@ -7874,11 +7953,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("modern_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
         self.assertIn("dataset_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
         self.assertIn(
+            "formal_crosswalk_research_blockers",
+            by_area["codepoint_crosswalk_candidates"]["required_human_slots"],
+        )
+        self.assertIn(
             "12_modern-label-boundary-review.md",
             by_area["codepoint_crosswalk_candidates"]["representative_human_files_to_open"],
         )
         self.assertIn(
+            "14_codepoint-research-readiness-review.md",
+            by_area["codepoint_crosswalk_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
             "Which modern label is only lookup metadata?",
+            by_area["codepoint_crosswalk_candidates"]["concrete_depth_questions"],
+        )
+        self.assertIn(
+            "Which issue blocks formal codepoint crosswalk research?",
             by_area["codepoint_crosswalk_candidates"]["concrete_depth_questions"],
         )
         self.assertIn("field_map", by_area["research_source_objects"]["required_human_slots"])

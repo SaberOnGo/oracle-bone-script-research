@@ -2490,6 +2490,8 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         context_index_path = object_dir / "09_character-context-evidence-index.json"
         archaeology_review_path = object_dir / "10_archaeology-paleography-review.md"
         archaeology_index_path = object_dir / "11_archaeology-paleography-index.json"
+        readiness_review_path = object_dir / "12_human-research-readiness-review.md"
+        readiness_index_path = object_dir / "13_human-research-readiness-index.json"
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")
@@ -2513,6 +2515,11 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 "对象目录",
                 "02_visual-source-index.csv",
                 "04_visual-gallery.md",
+                "05_human-research-dossier.md",
+                "08_character-context-evidence-dossier.md",
+                "10_archaeology-paleography-review.md",
+                "12_human-research-readiness-review.md",
+                "13_human-research-readiness-index.json",
                 "not an accepted reading",
                 "not a decipherment conclusion",
                 "不是已确认释读",
@@ -2577,6 +2584,21 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 "待查问题：",
             ],
         }
+        human_markers[readiness_review_path] = [
+            "Human Research Readiness Review",
+            "Formal Research Status",
+            "Readiness Routes To Open",
+            "Evidence State",
+            "Formal-Research Blockers",
+            "Concrete Missing Evidence Questions",
+            "Boundary",
+            "Which opened image row supports the first glyph observation?",
+            "Which bibliography records reading history, proposer, or dispute?",
+            "Which manifest, checksum, field map, rights note, and risk note apply?",
+            "not an accepted reading",
+            "not a component assignment",
+            "not a decipherment conclusion",
+        ]
         for human_path, markers in human_markers.items():
             if not human_path.exists():
                 issues.append(f"{relative_dir} missing co-located {human_path.name}")
@@ -2590,7 +2612,10 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
             for snippet in [project_id, *markers]:
                 if snippet not in human_text:
                     issues.append(f"{human_path.relative_to(root).as_posix()} missing marker: {snippet}")
-            if human_path.name == "05_human-research-dossier.md" and "not_collected" in human_text:
+            if human_path.name in {
+                "05_human-research-dossier.md",
+                "12_human-research-readiness-review.md",
+            } and "not_collected" in human_text:
                 issues.append(
                     f"{human_path.relative_to(root).as_posix()} contains not_collected in human dossier"
                 )
@@ -2731,6 +2756,14 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 issues.append(
                     f"{archaeology_index_path.relative_to(root).as_posix()} missing review path"
                 )
+            if "12_human-research-readiness-review.md" not in archaeology_index.get("human_readable_files", []):
+                issues.append(
+                    f"{archaeology_index_path.relative_to(root).as_posix()} missing readiness review path"
+                )
+            if "13_human-research-readiness-index.json" not in archaeology_index.get("ai_support_files", []):
+                issues.append(
+                    f"{archaeology_index_path.relative_to(root).as_posix()} missing readiness index path"
+                )
             for field in [
                 "glyph_observation",
                 "inscription_context",
@@ -2741,6 +2774,56 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                 if field not in archaeology_index.get("review_slots", []):
                     issues.append(
                         f"{archaeology_index_path.relative_to(root).as_posix()} missing review slot: {field}"
+                    )
+        if not readiness_index_path.exists():
+            issues.append(f"{relative_dir} missing co-located 13_human-research-readiness-index.json")
+        else:
+            try:
+                readiness_index = json.loads(readiness_index_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} invalid JSON: {exc}")
+                readiness_index = {}
+            if readiness_index.get("project_id") != project_id:
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} project_id changed")
+            if readiness_index.get("record_type") != "character_human_research_readiness_index":
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} record_type changed")
+            for expected_file in [
+                "10_archaeology-paleography-review.md",
+                "12_human-research-readiness-review.md",
+            ]:
+                if expected_file not in readiness_index.get("human_readable_files", []):
+                    issues.append(
+                        f"{readiness_index_path.relative_to(root).as_posix()} missing human file {expected_file}"
+                    )
+            if "11_archaeology-paleography-index.json" not in readiness_index.get("ai_support_files", []):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} missing archaeology index path"
+                )
+            for field in [
+                "opened_glyph_image_observation",
+                "component_candidate_boundary",
+                "source_manifest_checksum_field_map_risk",
+            ]:
+                if field not in readiness_index.get("readiness_slots", []):
+                    issues.append(
+                        f"{readiness_index_path.relative_to(root).as_posix()} missing readiness slot: {field}"
+                    )
+            for blocker in [
+                "glyph_observation_not_reviewed_from_opened_image",
+                "source_manifest_checksum_field_map_risk_unreviewed",
+            ]:
+                if blocker not in readiness_index.get("quality_blockers", []):
+                    issues.append(
+                        f"{readiness_index_path.relative_to(root).as_posix()} missing quality blocker: {blocker}"
+                    )
+            for boundary in [
+                "no accepted reading",
+                "no component assignment",
+                "no decipherment conclusion",
+            ]:
+                if boundary not in readiness_index.get("claim_boundary", []):
+                    issues.append(
+                        f"{readiness_index_path.relative_to(root).as_posix()} missing boundary: {boundary}"
                     )
         if not visual_index_path.exists():
             issues.append(f"{relative_dir} missing co-located 02_visual-source-index.csv")
@@ -5698,6 +5781,9 @@ def check_object_local_human_research_depth_audit(root: Path) -> list[str]:
             "inscription_context",
             "decipherment_history",
             "later_script_routes",
+            "opened_glyph_image_observation",
+            "formal_character_research_blockers",
+            "source_manifest_checksum_field_map",
         ],
         "inscription_crosswalk_candidates": [
             "inscription_number",

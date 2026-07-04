@@ -283,6 +283,26 @@ def build_readme_text(
     )
     append_wrapped_bullet(
         lines,
+        "Human-readable research dossier / 人类可读研究档案",
+        "`05_human-research-dossier.md`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Human-readable context dossier / 人类可读语境档案",
+        "`08_character-context-evidence-dossier.md`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Human-readable archaeology review / 人类可读考古文字复核",
+        "`10_archaeology-paleography-review.md`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Human-readable readiness review / 人类可读研究准备度复核",
+        "`12_human-research-readiness-review.md`",
+    )
+    append_wrapped_bullet(
+        lines,
         "Structured support candidate packet / 结构化辅助候选包",
         f"`{packet_name}`",
     )
@@ -290,6 +310,11 @@ def build_readme_text(
         lines,
         "Structured support visual/source index / 结构化辅助图像来源索引",
         "`02_visual-source-index.csv`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Structured support readiness index / 结构化辅助准备度索引",
+        "`13_human-research-readiness-index.json`",
     )
     lines.extend(
         [

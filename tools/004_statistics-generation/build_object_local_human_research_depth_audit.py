@@ -39,6 +39,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "06_human-review-sheet.md",
             "08_character-context-evidence-dossier.md",
             "10_archaeology-paleography-review.md",
+            "12_human-research-readiness-review.md",
         ),
         "slots": (
             "glyph_image",
@@ -55,6 +56,9 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "decipherment_history",
             "dispute_record",
             "later_script_routes",
+            "opened_glyph_image_observation",
+            "formal_character_research_blockers",
+            "source_manifest_checksum_field_map",
             "missing_items",
             "next_sources_to_check",
         ),
@@ -62,6 +66,9 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which concrete source, plate, or inscription should a human open next?",
             "Which observation is still candidate, disputed, missing, or pending review?",
             "Which visual route supports the dossier without replacing it?",
+            "Which opened image row supports the first glyph observation?",
+            "Which bibliography records reading history, proposer, or dispute?",
+            "Which manifest, checksum, field map, rights note, and risk note apply?",
         ),
     },
     "inscription_crosswalk_candidates": {

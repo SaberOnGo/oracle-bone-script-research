@@ -14,10 +14,19 @@ verify the human-readable evidence.
 
 - Human-readable page / 人类可读页面: `README.md`
 - Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
+- Human-readable research dossier / 人类可读研究档案: `05_human-research-dossier.md`
+- Human-readable context dossier / 人类可读语境档案:
+  `08_character-context-evidence-dossier.md`
+- Human-readable archaeology review / 人类可读考古文字复核:
+  `10_archaeology-paleography-review.md`
+- Human-readable readiness review / 人类可读研究准备度复核:
+  `12_human-research-readiness-review.md`
 - Structured support candidate packet / 结构化辅助候选包:
   `01_candidate-character-packet.json`
 - Structured support visual/source index / 结构化辅助图像来源索引:
   `02_visual-source-index.csv`
+- Structured support readiness index / 结构化辅助准备度索引:
+  `13_human-research-readiness-index.json`
 
 ## Human Oracle Character Review Slots / 甲骨单字人工复核槽位
 

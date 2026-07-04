@@ -3869,6 +3869,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("01_", readme_text)
             self.assertIn("02_visual-source-index.csv", readme_text)
             self.assertIn("04_visual-gallery.md", readme_text)
+            self.assertIn("05_human-research-dossier.md", readme_text)
+            self.assertIn("08_character-context-evidence-dossier.md", readme_text)
+            self.assertIn("10_archaeology-paleography-review.md", readme_text)
+            self.assertIn("12_human-research-readiness-review.md", readme_text)
+            self.assertIn("13_human-research-readiness-index.json", readme_text)
             self.assertIn("not an accepted reading", readme_text)
             self.assertIn("not a decipherment conclusion", readme_text)
             self.assertIn("不是已确认释读", readme_text)
@@ -4149,10 +4154,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             object_dir = output["object_dir"]
             review_path = object_dir / "10_archaeology-paleography-review.md"
             index_path = object_dir / "11_archaeology-paleography-index.json"
+            readiness_path = object_dir / "12_human-research-readiness-review.md"
+            readiness_index_path = object_dir / "13_human-research-readiness-index.json"
             self.assertEqual(review_path.parent, object_dir)
             self.assertEqual(index_path.parent, object_dir)
+            self.assertEqual(readiness_path.parent, object_dir)
+            self.assertEqual(readiness_index_path.parent, object_dir)
             self.assertTrue(path_exists(review_path), review_path)
             self.assertTrue(path_exists(index_path), index_path)
+            self.assertTrue(path_exists(readiness_path), readiness_path)
+            self.assertTrue(path_exists(readiness_index_path), readiness_index_path)
 
             review_text = review_path.read_text(encoding="utf-8")
             self.assertIn("Archaeology Paleography Review", review_text)
@@ -4177,6 +4188,32 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
 
+            readiness_text = readiness_path.read_text(encoding="utf-8")
+            self.assertIn("Human Research Readiness Review", readiness_text)
+            self.assertIn("Formal Research Status", readiness_text)
+            self.assertIn("Readiness Routes To Open", readiness_text)
+            self.assertIn("Formal-Research Blockers", readiness_text)
+            self.assertIn("Concrete Missing Evidence Questions", readiness_text)
+            self.assertIn(
+                "Which opened image row supports the first glyph observation?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which bibliography records reading history, proposer, or dispute?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which manifest, checksum, field map, rights note, and risk note apply?",
+                readiness_text,
+            )
+            self.assertIn("not an accepted reading", readiness_text)
+            self.assertIn("not a component assignment", readiness_text)
+            self.assertIn("not a decipherment conclusion", readiness_text)
+            self.assertNotIn("not_collected", readiness_text)
+            for line in readiness_text.splitlines():
+                if not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+
             index = json.loads(index_path.read_text(encoding="utf-8"))
             self.assertEqual(index["project_id"], project_id)
             self.assertEqual(
@@ -4188,7 +4225,15 @@ class RepositorySkeletonTests(unittest.TestCase):
                 index["human_readable_files"],
             )
             self.assertIn(
+                "12_human-research-readiness-review.md",
+                index["human_readable_files"],
+            )
+            self.assertIn(
                 "11_archaeology-paleography-index.json",
+                index["ai_support_files"],
+            )
+            self.assertIn(
+                "13_human-research-readiness-index.json",
                 index["ai_support_files"],
             )
             self.assertEqual(
@@ -4203,6 +4248,38 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "next_sources_to_check",
             ]:
                 self.assertIn(field, index["review_slots"])
+
+            readiness_index = json.loads(readiness_index_path.read_text(encoding="utf-8"))
+            self.assertEqual(readiness_index["project_id"], project_id)
+            self.assertEqual(
+                readiness_index["record_type"],
+                "character_human_research_readiness_index",
+            )
+            self.assertIn(
+                "12_human-research-readiness-review.md",
+                readiness_index["human_readable_files"],
+            )
+            self.assertIn(
+                "11_archaeology-paleography-index.json",
+                readiness_index["ai_support_files"],
+            )
+            for field in [
+                "opened_glyph_image_observation",
+                "component_candidate_boundary",
+                "source_manifest_checksum_field_map_risk",
+            ]:
+                self.assertIn(field, readiness_index["readiness_slots"])
+            self.assertIn(
+                "glyph_observation_not_reviewed_from_opened_image",
+                readiness_index["quality_blockers"],
+            )
+            self.assertIn(
+                "source_manifest_checksum_field_map_risk_unreviewed",
+                readiness_index["quality_blockers"],
+            )
+            self.assertIn("no accepted reading", readiness_index["claim_boundary"])
+            self.assertIn("no component assignment", readiness_index["claim_boundary"])
+            self.assertIn("no decipherment conclusion", readiness_index["claim_boundary"])
 
     def test_component_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_component_candidate_local_materials(repo_root()), [])
@@ -7463,7 +7540,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-char-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "3")
+        self.assertEqual(by_project["obs-char-000001"]["human_file_count"], "7")
+        self.assertEqual(by_project["obs-char-000001"]["ai_file_count"], "6")
+        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-char-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
@@ -7570,9 +7649,33 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("glyph_observation", by_area["oracle_character_candidates"]["required_human_slots"])
         self.assertIn("inscription_context", by_area["oracle_character_candidates"]["required_human_slots"])
         self.assertIn("decipherment_history", by_area["oracle_character_candidates"]["required_human_slots"])
+        self.assertIn(
+            "opened_glyph_image_observation",
+            by_area["oracle_character_candidates"]["required_human_slots"],
+        )
+        self.assertIn(
+            "formal_character_research_blockers",
+            by_area["oracle_character_candidates"]["required_human_slots"],
+        )
+        self.assertIn(
+            "source_manifest_checksum_field_map",
+            by_area["oracle_character_candidates"]["required_human_slots"],
+        )
         self.assertIn("04_visual-gallery.md", by_area["oracle_character_candidates"]["representative_human_files_to_open"])
         self.assertIn(
+            "12_human-research-readiness-review.md",
+            by_area["oracle_character_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
             "Which concrete source, plate, or inscription should a human open next?",
+            by_area["oracle_character_candidates"]["concrete_depth_questions"],
+        )
+        self.assertIn(
+            "Which opened image row supports the first glyph observation?",
+            by_area["oracle_character_candidates"]["concrete_depth_questions"],
+        )
+        self.assertIn(
+            "Which manifest, checksum, field map, rights note, and risk note apply?",
             by_area["oracle_character_candidates"]["concrete_depth_questions"],
         )
         self.assertIn("inscription_number", by_area["inscription_crosswalk_candidates"]["required_human_slots"])

@@ -26,6 +26,8 @@ GRAPH_FILES = [
 UPDATED_AT = "2026-07-04"
 REVIEW_FILE = "10_archaeology-paleography-review.md"
 INDEX_FILE = "11_archaeology-paleography-index.json"
+READINESS_FILE = "12_human-research-readiness-review.md"
+READINESS_INDEX_FILE = "13_human-research-readiness-index.json"
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -392,6 +394,7 @@ def index_data(
             "06_human-review-sheet.md",
             "08_character-context-evidence-dossier.md",
             REVIEW_FILE,
+            READINESS_FILE,
         ],
         "ai_support_files": [
             packet_name,
@@ -399,6 +402,7 @@ def index_data(
             "07_research-dossier-index.json",
             "09_character-context-evidence-index.json",
             INDEX_FILE,
+            READINESS_INDEX_FILE,
         ],
         "source_route_summary": {
             "source_id": packet.get("source_id", ""),
@@ -432,6 +436,243 @@ def index_data(
     }
 
 
+def readiness_text(
+    project_id: str,
+    packet_name: str,
+    packet: dict[str, Any],
+    visual_rows: list[dict[str, str]],
+    edges: list[dict[str, Any]],
+) -> str:
+    label = dataset_label(packet)
+    visual = visual_summary(visual_rows)
+    edge = edge_summary(edges)
+    routes = packet_routes(packet)
+    metadata = packet_metadata_files(packet)
+    downloads = packet_download_ids(packet)
+    lines = [
+        f"# {project_id} Human Research Readiness Review",
+        "",
+        f"# {project_id} 人类研究准备度复核",
+        "",
+        "English:",
+        "This file is the final object-local readiness sheet before formal",
+        "oracle-character research. It names the evidence a human reviewer",
+        "must open before recording observations, readings, components,",
+        "inscription context, or later-script relations.",
+        "",
+        "简体中文：",
+        "本文件是正式单字研究前的对象内准备度复核表。",
+        "它列出人工复核者在记录字形观察、释读、构件、卜辞语境",
+        "或后世字形关系前必须先打开的证据。",
+        "",
+        "## 1. Formal Research Status / 正式研究状态",
+        "",
+        bullet("project id", f"`{project_id}`"),
+        bullet("primary external id", f"`{packet.get('primary_external_ref_id', '')}`"),
+        bullet("source id", f"`{packet.get('source_id', '')}`"),
+        bullet("packet", f"`{packet_name}`"),
+        bullet("review status", f"`{packet.get('review_status', '')}`"),
+        bullet("decipherment status", f"`{packet.get('decipherment_status', '')}`"),
+        bullet("dataset label status", f"`{label.get('status', 'pending')}`"),
+        "",
+        "Current decision:",
+        "- accepted reading: `not_reviewed`",
+        "- glyph observation: `needs_human_visual_review`",
+        "- component assignment: `not_reviewed`",
+        "- inscription occurrence: `candidate_route_only`",
+        "- later-script correspondence: `candidate_route_only`",
+        "- decipherment conclusion: `no_claim`",
+        "",
+        "当前判断：",
+        "- 已接受释读：`not_reviewed`",
+        "- 字形观察：`needs_human_visual_review`",
+        "- 构件归属：`not_reviewed`",
+        "- 卜辞出现：`candidate_route_only`",
+        "- 后世字形对应：`candidate_route_only`",
+        "- 释读结论：`no_claim`",
+        "",
+        "## 2. Readiness Routes To Open / 需要打开的准备路线",
+        "",
+        "- Visual gallery: `04_visual-gallery.md`",
+        "- Human dossier: `05_human-research-dossier.md`",
+        "- Human review sheet: `06_human-review-sheet.md`",
+        "- Context evidence: `08_character-context-evidence-dossier.md`",
+        "- Archaeology review: `10_archaeology-paleography-review.md`",
+        "- Visual source index: `02_visual-source-index.csv`",
+        "- Dossier support index: `07_research-dossier-index.json`",
+        "- Context support index: `09_character-context-evidence-index.json`",
+        "- Archaeology support index: `11_archaeology-paleography-index.json`",
+        "",
+        "Structured support files only route the reviewer back to images,",
+        "source rows, graph routes, and object-local dossiers.",
+        "They do not replace the human record.",
+        "",
+        "结构化辅助文件只把复核者带回图像、来源行、图边路线和对象内档案。",
+        "它们不能替代人类研究记录。",
+        "",
+        "## 3. Evidence State / 证据状态",
+        "",
+        bullet("visual index rows", f"`{visual['row_count']}`"),
+        bullet("local review images", f"`{visual['committed_image_count']}`"),
+        bullet("source image routes", f"`{visual['source_image_route_count']}`"),
+        bullet("image rights status", f"`{short(visual['rights_status'], 'pending')}`"),
+        bullet("image review status", f"`{short(visual['review_status'], 'pending')}`"),
+        bullet("graph edge count", f"`{edge['edge_count']}`"),
+        bullet("graph edge types", names(list(edge["edge_type_counts"].keys()))),
+        bullet("route files", names(routes)),
+        bullet("download or access ids", names(downloads)),
+        bullet("source metadata files", names(metadata)),
+        bullet("source label text", f"`{label.get('source_modern_label_candidate', '')}`"),
+        bullet("source label codepoints", f"`{label.get('source_modern_label_codepoints', '')}`"),
+        "",
+        "The source label is lookup metadata only.",
+        "It is not the oracle-character identity or accepted reading.",
+        "",
+        "来源标签只是检索 metadata，不是甲骨字身份或已接受释读。",
+        "",
+        "## 4. Formal-Research Blockers / 正式研究阻断项",
+        "",
+        "- Glyph image observation has not been written from opened images.",
+        "- Variant and near-form comparison remains a route, not a review.",
+        "- Component clues are not assigned to a formal component structure.",
+        "- Inscription occurrence and context are not tied to an opened text.",
+        "- Plate, catalog, Heji, collection, findspot, period, and group",
+        "  evidence remain source routes or graph routes.",
+        "- Decipherment history, proposer, bibliography, and disputes are",
+        "  not yet reviewed as scholarship notes.",
+        "- Later-script, bronze, seal, and modern-form routes remain candidates.",
+        "- Source manifest, checksum, field map, rights note, and risk note",
+        "  must be checked before formal use.",
+        "",
+        "## 5. Concrete Missing Evidence Questions / 具体缺证问题",
+        "",
+        "- Which opened image row supports the first glyph observation?",
+        "- Which stroke, outline, damage, or uncertain mark remains pending?",
+        "- Which variant or near-form image must be compared side by side?",
+        "- Which component clue is only a candidate route?",
+        "- Which inscription number and full text contain this glyph?",
+        "- Which plate, page, catalog number, Heji number, or old number applies?",
+        "- Which findspot, collection, period, group, or batch source applies?",
+        "- Which bibliography records reading history, proposer, or dispute?",
+        "- Which bronze, seal, later-script, or modern-form route is only lookup?",
+        "- Which manifest, checksum, field map, rights note, and risk note apply?",
+        "",
+        "- 哪一行已打开图像支持第一条字形观察？",
+        "- 哪些笔画、轮廓、残损或不确定痕迹仍待查？",
+        "- 哪个异体或近形图像需要并排比较？",
+        "- 哪条构件线索仍只是候选路线？",
+        "- 哪个卜辞编号和全文包含这个字形？",
+        "- 哪个图版、页码、著录号、合集号或旧号适用？",
+        "- 哪个出土地、馆藏、时期、组类或批次来源适用？",
+        "- 哪些书目记录释读史、提出者或争议？",
+        "- 哪条金文、小篆、后世字形或今字路线只是检索线索？",
+        "- 哪些 manifest、checksum、字段映射、权利说明和风险提示适用？",
+        "",
+        "## 6. Boundary / 边界",
+        "",
+        "- not a formal oracle-character record promotion",
+        "- not an accepted reading",
+        "- not a glyph observation already reviewed from images",
+        "- not a component assignment",
+        "- not an inscription identity claim",
+        "- not a later-script correspondence",
+        "- not a decipherment conclusion",
+        "- 不是正式单字记录提升",
+        "- 不是已接受释读",
+        "- 不是已从图像复核的字形观察",
+        "- 不是构件归属",
+        "- 不是卜辞身份结论",
+        "- 不是后世字形对应",
+        "- 不是释读结论",
+    ]
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def readiness_index_data(
+    project_id: str,
+    object_dir: Path,
+    packet_name: str,
+    packet: dict[str, Any],
+    visual_rows: list[dict[str, str]],
+    edges: list[dict[str, Any]],
+    root: Path,
+) -> dict[str, Any]:
+    return {
+        "record_type": "character_human_research_readiness_index",
+        "project_id": project_id,
+        "updated_at": UPDATED_AT,
+        "object_dir": object_dir.relative_to(root).as_posix(),
+        "human_readable_files": [
+            "README.md",
+            "04_visual-gallery.md",
+            "05_human-research-dossier.md",
+            "06_human-review-sheet.md",
+            "08_character-context-evidence-dossier.md",
+            REVIEW_FILE,
+            READINESS_FILE,
+        ],
+        "ai_support_files": [
+            packet_name,
+            "02_visual-source-index.csv",
+            "07_research-dossier-index.json",
+            "09_character-context-evidence-index.json",
+            INDEX_FILE,
+        ],
+        "readiness_slots": [
+            "opened_glyph_image_observation",
+            "variant_near_form_comparison",
+            "component_candidate_boundary",
+            "inscription_occurrence_full_text_context",
+            "plate_catalog_heji_collection_route",
+            "findspot_period_group_batch_route",
+            "decipherment_history_proposer_dispute",
+            "later_script_correspondence_boundary",
+            "source_manifest_checksum_field_map_risk",
+        ],
+        "missing_evidence_questions": [
+            "which opened image row supports the first glyph observation",
+            "which stroke outline damage or uncertain mark remains pending",
+            "which variant or near form image must be compared side by side",
+            "which component clue is only a candidate route",
+            "which inscription number and full text contain this glyph",
+            "which plate page catalog heji or old number applies",
+            "which findspot collection period group or batch source applies",
+            "which bibliography records reading history proposer or dispute",
+            "which later script route is only lookup metadata",
+            "which manifest checksum field map rights note and risk note apply",
+        ],
+        "quality_blockers": [
+            "glyph_observation_not_reviewed_from_opened_image",
+            "variant_near_form_comparison_pending",
+            "component_assignment_not_reviewed",
+            "inscription_context_not_tied_to_opened_text",
+            "provenance_collection_period_group_pending",
+            "bibliography_reading_history_disputes_unreviewed",
+            "later_script_correspondence_candidate_only",
+            "source_manifest_checksum_field_map_risk_unreviewed",
+        ],
+        "source_route_summary": {
+            "source_id": packet.get("source_id", ""),
+            "primary_external_ref_id": packet.get("primary_external_ref_id", ""),
+            "source_package_id": packet.get("source_package_id", ""),
+            "download_or_access_ids": packet_download_ids(packet),
+            "source_metadata_files": packet_metadata_files(packet),
+            "route_files": packet_routes(packet),
+        },
+        "visual_route_summary": visual_summary(visual_rows),
+        "graph_route_summary": edge_summary(edges),
+        "claim_boundary": [
+            "no formal oracle-character record promotion",
+            "no accepted reading",
+            "no reviewed glyph observation claim",
+            "no component assignment",
+            "no inscription identity claim",
+            "no later-script correspondence",
+            "no decipherment conclusion",
+        ],
+    }
+
+
 def assert_human_line_width(text: str, label: str) -> None:
     for line_number, line in enumerate(text.splitlines(), start=1):
         if len(line) > 80 and not line.startswith("!["):
@@ -449,13 +690,27 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
         visual_rows = read_csv_rows(object_dir / "02_visual-source-index.csv")
         edges = edges_by_source.get(project_id, [])
         text = review_text(project_id, packet_name, packet, visual_rows, edges)
+        readiness = readiness_text(project_id, packet_name, packet, visual_rows, edges)
         assert_human_line_width(text, project_id)
+        assert_human_line_width(readiness, f"{project_id} readiness")
         outputs[project_id] = {
             "object_dir": object_dir,
             "review_path": object_dir / REVIEW_FILE,
             "index_path": object_dir / INDEX_FILE,
+            "readiness_path": object_dir / READINESS_FILE,
+            "readiness_index_path": object_dir / READINESS_INDEX_FILE,
             "review_text": text,
+            "readiness_text": readiness,
             "index_data": index_data(
+                project_id,
+                object_dir,
+                packet_name,
+                packet,
+                visual_rows,
+                edges,
+                root,
+            ),
+            "readiness_index_data": readiness_index_data(
                 project_id,
                 object_dir,
                 packet_name,
@@ -475,6 +730,15 @@ def write_outputs(outputs: dict[str, dict[str, Any]]) -> None:
         )
         output["index_path"].write_text(
             json.dumps(output["index_data"], ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        output["readiness_path"].write_text(
+            output["readiness_text"], encoding="utf-8", newline="\n"
+        )
+        output["readiness_index_path"].write_text(
+            json.dumps(output["readiness_index_data"], ensure_ascii=False, indent=2)
+            + "\n",
             encoding="utf-8",
             newline="\n",
         )

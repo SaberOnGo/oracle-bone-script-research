@@ -1,0 +1,95 @@
+{
+  "record_type": "character_human_research_readiness_index",
+  "project_id": "obs-unk-007004",
+  "updated_at": "2026-07-04",
+  "object_dir": "corpus/001_oracle-characters/087_undeciphered-007001-007100_obs-unk-bucket_oracle-character-candidates/004_obs-unk-007004_hust-obc-und-YH-007004_oracle-character-candidate",
+  "human_readable_files": [
+    "README.md",
+    "04_visual-gallery.md",
+    "05_human-research-dossier.md",
+    "06_human-review-sheet.md",
+    "08_character-context-evidence-dossier.md",
+    "10_archaeology-paleography-review.md",
+    "12_human-research-readiness-review.md"
+  ],
+  "ai_support_files": [
+    "01_undeciphered-candidate-packet.json",
+    "02_visual-source-index.csv",
+    "07_research-dossier-index.json",
+    "09_character-context-evidence-index.json",
+    "11_archaeology-paleography-index.json"
+  ],
+  "readiness_slots": [
+    "opened_glyph_image_observation",
+    "variant_near_form_comparison",
+    "component_candidate_boundary",
+    "inscription_occurrence_full_text_context",
+    "plate_catalog_heji_collection_route",
+    "findspot_period_group_batch_route",
+    "decipherment_history_proposer_dispute",
+    "later_script_correspondence_boundary",
+    "source_manifest_checksum_field_map_risk"
+  ],
+  "missing_evidence_questions": [
+    "which opened image row supports the first glyph observation",
+    "which stroke outline damage or uncertain mark remains pending",
+    "which variant or near form image must be compared side by side",
+    "which component clue is only a candidate route",
+    "which inscription number and full text contain this glyph",
+    "which plate page catalog heji or old number applies",
+    "which findspot collection period group or batch source applies",
+    "which bibliography records reading history proposer or dispute",
+    "which later script route is only lookup metadata",
+    "which manifest checksum field map rights note and risk note apply"
+  ],
+  "quality_blockers": [
+    "glyph_observation_not_reviewed_from_opened_image",
+    "variant_near_form_comparison_pending",
+    "component_assignment_not_reviewed",
+    "inscription_context_not_tied_to_opened_text",
+    "provenance_collection_period_group_pending",
+    "bibliography_reading_history_disputes_unreviewed",
+    "later_script_correspondence_candidate_only",
+    "source_manifest_checksum_field_map_risk_unreviewed"
+  ],
+  "source_route_summary": {
+    "source_id": "src-hust-obc",
+    "primary_external_ref_id": "hust-obc-und-YH-007004",
+    "source_package_id": "large-src-000001",
+    "download_or_access_ids": [
+      "dl-hust-obc-figshare-raw"
+    ],
+    "source_metadata_files": [],
+    "route_files": []
+  },
+  "visual_route_summary": {
+    "row_count": "1",
+    "committed_image_count": "1",
+    "source_image_route_count": "1",
+    "first_committed_image": "001_asset-008595_hust-obc-und-YH-007004_glyph.jpg",
+    "first_source_image_route": "H_？_60525_0.png",
+    "rights_status": "source_marked_risk_noted",
+    "review_status": "needs_human_visual_review"
+  },
+  "graph_route_summary": {
+    "edge_count": 1,
+    "edge_type_counts": {
+      "CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE": 1
+    },
+    "route_files": [],
+    "graph_files": [
+      "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
+    ],
+    "codepoint_routes": [],
+    "cross_source_statuses": []
+  },
+  "claim_boundary": [
+    "no formal oracle-character record promotion",
+    "no accepted reading",
+    "no reviewed glyph observation claim",
+    "no component assignment",
+    "no inscription identity claim",
+    "no later-script correspondence",
+    "no decipherment conclusion"
+  ]
+}

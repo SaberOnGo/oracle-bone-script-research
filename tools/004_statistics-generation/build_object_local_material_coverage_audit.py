@@ -59,6 +59,7 @@ OBJECT_SPECS = [
             "06_human-review-sheet.md",
             "08_character-context-evidence-dossier.md",
             "10_archaeology-paleography-review.md",
+            "12_human-research-readiness-review.md",
         ),
         (
             "01_*packet.json",
@@ -66,12 +67,14 @@ OBJECT_SPECS = [
             "07_research-dossier-index.json",
             "09_character-context-evidence-index.json",
             "11_archaeology-paleography-index.json",
+            "13_human-research-readiness-index.json",
         ),
         ("03_visual-assets",),
         (
             "04_visual-gallery.md",
             "08_character-context-evidence-dossier.md",
             "10_archaeology-paleography-review.md",
+            "12_human-research-readiness-review.md",
         ),
     ),
     ObjectSpec(

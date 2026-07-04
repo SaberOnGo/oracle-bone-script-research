@@ -36,6 +36,8 @@ See `thumbnail_url` in Object Metadata.
 - `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
 - `12_archaeological-context-review.md`: human archaeological context review
   sheet.
+- `14_human-research-readiness-review.md`: human pre-research readiness and
+  missing-evidence review.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -49,6 +51,8 @@ See `thumbnail_url` in Object Metadata.
 - `11_collection-provenance-fact-matrix-index.json`: structured fact index.
 - `13_archaeological-context-index.json`: structured support index for
   archaeological context review.
+- `15_human-research-readiness-index.json`: structured support index for the
+  human readiness review.
 
 ## Object Metadata / 对象 metadata
 

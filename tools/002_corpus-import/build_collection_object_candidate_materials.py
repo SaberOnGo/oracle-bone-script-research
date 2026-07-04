@@ -129,6 +129,8 @@ MANIFEST_FIELDS = [
     "collection_provenance_fact_matrix_index_path",
     "archaeological_context_review_path",
     "archaeological_context_index_path",
+    "human_research_readiness_review_path",
+    "human_research_readiness_index_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
@@ -445,6 +447,10 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
                 "`12_archaeological-context-review.md`: human archaeological "
                 "context review sheet."
             ),
+            wrapped_bullet(
+                "`14_human-research-readiness-review.md`: human pre-research "
+                "readiness and missing-evidence review."
+            ),
             "\n## Structured Support Files / 结构化辅助文件\n",
             wrapped_bullet(
                 "`01_collection-object-packet.json`: structured candidate "
@@ -472,6 +478,10 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
             wrapped_bullet(
                 "`13_archaeological-context-index.json`: structured support "
                 "index for archaeological context review."
+            ),
+            wrapped_bullet(
+                "`15_human-research-readiness-index.json`: structured support "
+                "index for the human readiness review."
             ),
         ]
     )
@@ -1330,6 +1340,183 @@ def archaeological_context_index_payload(
     }
 
 
+def human_research_readiness_review_text(
+    index: int,
+    row: dict[str, str],
+    metadata: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> str:
+    pid = project_id(index)
+    intro_en = wrapped_paragraph(
+        "This review records what a human researcher must still open before "
+        "using this collection object candidate in formal oracle-bone "
+        "research. It gathers source, visual, archaeological, inscription, "
+        "character, rights, and dispute checks without promoting any claim."
+    )
+    intro_zh = wrapped_paragraph(
+        "\u672c\u590d\u6838\u6587\u4ef6\u8bb0\u5f55\u6b63\u5f0f"
+        "\u7532\u9aa8\u7814\u7a76\u524d\uff0c\u4eba\u7c7b\u7814\u7a76\u8005"
+        "\u8fd8\u5fc5\u987b\u6253\u5f00\u54ea\u4e9b\u6765\u6e90\u3001"
+        "\u56fe\u50cf\u3001\u8003\u53e4\u8bed\u5883\u3001\u535c\u8f9e"
+        "\u3001\u5355\u5b57\u3001\u6743\u5229\u548c\u4e89\u8bae\u8def\u7ebf\u3002"
+        "\u5b83\u4e0d\u63d0\u5347\u4efb\u4f55\u8eab\u4efd\u6216\u91ca\u8bfb"
+        "\u7ed3\u8bba\u3002"
+    )
+    source_label = (
+        metadata.get("accession_number")
+        or metadata.get("source_collection_item_id")
+        or row.get("source_collection_item_id", "")
+        or "pending source-page review"
+    )
+    image_status = visual_row.get("visual_entry_type", "pending visual review")
+    context_status = metadata.get("provenience") or metadata.get("geography")
+    period_status = metadata.get("historical_period") or metadata.get("object_date")
+    if not context_status:
+        context_status = "pending findspot or provenience source review"
+    if not period_status:
+        period_status = "pending period or date source review"
+    table_rows = "\n".join(
+        [
+            "| Readiness area | Current route or status | Human file to open |",
+            "| --- | --- | --- |",
+            f"| Catalog source | `{source_label}` | `02_collection-source-index.csv` |",
+            f"| Visual evidence | `{image_status}` | `04_visual-gallery.md` |",
+            f"| Findspot route | `{context_status}` | `08_collection-provenance-evidence-dossier.md` |",
+            f"| Period route | `{period_status}` | `12_archaeological-context-review.md` |",
+            "| Batch or pit route | `pending source-page review` | `12_archaeological-context-review.md` |",
+            "| Plate or publication route | `pending catalog-page review` | `06_human-collection-dossier.md` |",
+            "| Inscription relation | `candidate route only` | `10_collection-provenance-fact-matrix.md` |",
+            "| Character relation | `candidate route only` | `10_collection-provenance-fact-matrix.md` |",
+            f"| Rights and risk | `{source_row['rights_status']}` | `02_collection-source-index.csv` |",
+            "| Scholarship and dispute route | `pending bibliography review` | `08_collection-provenance-evidence-dossier.md` |",
+        ]
+    )
+    questions = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            "Which catalog page or accession record proves the object label?",
+            "Which committed image, thumbnail URL, or missing visual route is usable?",
+            "Which source row records checksum, size, rights status, and risk note?",
+            "Which findspot, period, batch, pit, or plate route remains absent?",
+            "Which inscription relation is only a candidate route for later review?",
+            "Which oracle-character relation is only a candidate route for later review?",
+            "Which bibliography, proposer, disagreement, or citation trail is missing?",
+            "Which raw image or uncertain-rights item must stay outside regular Git?",
+            "\u54ea\u4e2a\u8457\u5f55\u9875\u6216\u767b\u8bb0\u53f7\u8bb0\u5f55"
+            "\u80fd\u652f\u6301\u5bf9\u8c61\u6807\u7b7e\uff1f",
+            "\u54ea\u6761\u56fe\u50cf\u8def\u7ebf\u53ef\u7528\uff1a"
+            "\u5df2\u63d0\u4ea4\u56fe\u50cf\u3001\u7f29\u7565\u56fe URL "
+            "\u8fd8\u662f\u7f3a\u56fe\uff1f",
+            "\u54ea\u6761\u6765\u6e90\u884c\u8bb0\u5f55 checksum\u3001"
+            "\u5927\u5c0f\u3001\u6743\u5229\u72b6\u6001\u548c\u98ce\u9669\uff1f",
+            "\u54ea\u9879\u51fa\u571f\u5730\u3001\u65f6\u671f\u3001"
+            "\u6279\u6b21\u3001\u5751\u4f4d\u6216\u56fe\u7248\u4ecd\u7f3a\uff1f",
+            "\u54ea\u4e9b\u535c\u8f9e\u6216\u5355\u5b57\u5173\u8054"
+            "\u4ec5\u662f\u5019\u9009\u8def\u7ebf\uff1f",
+            "\u54ea\u4e9b\u4e66\u76ee\u3001\u63d0\u51fa\u8005\u3001"
+            "\u4e0d\u540c\u610f\u89c1\u6216\u5f15\u7528\u94fe\u5f85\u67e5\uff1f",
+        ]
+    )
+    boundary = "\n".join(
+        [
+            "- no confirmed collection object identity",
+            "- no confirmed inscription identity",
+            "- no transcription or OCR correction is accepted here",
+            "- no formal reading, component assignment, or dating claim",
+            "- no decipherment conclusion",
+            "- \u4e0d\u786e\u8ba4\u9986\u85cf\u5bf9\u8c61\u8eab\u4efd",
+            "- \u4e0d\u786e\u8ba4\u535c\u8f9e\u8eab\u4efd\u6216\u91ca\u6587",
+            "- \u4e0d\u63a5\u53d7\u91ca\u8bfb\u3001\u6784\u4ef6\u6216\u65ad\u4ee3\u7ed3\u8bba",
+        ]
+    )
+    return "\n".join(
+        [
+            (
+                "# Human Research Readiness Review / "
+                f"\u4eba\u7c7b\u7814\u7a76\u51c6\u5907\u5ea6\u590d\u6838: {pid}"
+            ),
+            "",
+            "English:",
+            intro_en,
+            "",
+            "\u7b80\u4f53\u4e2d\u6587\uff1a",
+            intro_zh,
+            "",
+            "## Readiness Routes To Open / \u9700\u6253\u5f00\u7684\u51c6\u5907\u8def\u7ebf",
+            "",
+            table_rows,
+            "",
+            "## Concrete Missing Evidence Questions / \u5177\u4f53\u7f3a\u8bc1\u95ee\u9898",
+            "",
+            questions,
+            "",
+            "## Research Boundary / \u7814\u7a76\u8fb9\u754c",
+            "",
+            boundary,
+            f"- candidate_collection_object_id: `{row['candidate_collection_object_id']}`",
+            f"- review_status: `{REVIEW_STATUS}`",
+        ]
+    ) + "\n"
+
+
+def human_research_readiness_index_payload(
+    index: int,
+    relative_dir: Path,
+    row: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "collection_human_research_readiness_index",
+        "candidate_collection_object_id": row["candidate_collection_object_id"],
+        "human_readable_files": [
+            (relative_dir / "14_human-research-readiness-review.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "08_collection-provenance-evidence-dossier.md").as_posix(),
+            (relative_dir / "10_collection-provenance-fact-matrix.md").as_posix(),
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (relative_dir / "01_collection-object-packet.json").as_posix(),
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "15_human-research-readiness-index.json").as_posix(),
+        ],
+        "readiness_slots": [
+            "catalog_source",
+            "visual_evidence",
+            "checksum_size_rights_risk",
+            "findspot_period_batch_pit_plate",
+            "inscription_relation_candidate_route",
+            "oracle_character_relation_candidate_route",
+            "bibliography_proposer_dispute_citation",
+            "raw_or_uncertain_rights_asset_boundary",
+        ],
+        "missing_evidence_questions": [
+            "which catalog page or accession record proves the object label",
+            "which image route is usable before formal research",
+            "which source row records checksum size rights status and risk note",
+            "which findspot period batch pit or plate route remains absent",
+            "which inscription or oracle-character relation is candidate only",
+            "which bibliography proposer disagreement or citation trail is missing",
+            "which raw image or uncertain-rights item must stay outside regular Git",
+        ],
+        "source_id": source_row["source_id"],
+        "visual_entry_type": visual_row.get("visual_entry_type", ""),
+        "rights_status": source_row["rights_status"],
+        "claim_boundary": (
+            "human readiness review only; no confirmed collection object "
+            "identity; no confirmed inscription identity; no transcription; "
+            "no reading; no component assignment; no dating claim; no "
+            "decipherment conclusion"
+        ),
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def gallery_text(index: int, row: dict[str, str], visual_row: dict[str, str]) -> str:
     if visual_row.get("asset_path"):
         rel_asset = relative_link(object_dir(index, row, "x"), visual_row["asset_path"])
@@ -1511,6 +1698,22 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 src_row,
                 vis_row,
             ),
+            "human_research_readiness_review_text": (
+                human_research_readiness_review_text(
+                    index,
+                    row,
+                    metadata,
+                    src_row,
+                    vis_row,
+                )
+            ),
+            "human_research_readiness_index": human_research_readiness_index_payload(
+                index,
+                relative_dir,
+                row,
+                src_row,
+                vis_row,
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -1539,6 +1742,12 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 ).as_posix(),
                 "archaeological_context_index_path": (
                     relative_dir / "13_archaeological-context-index.json"
+                ).as_posix(),
+                "human_research_readiness_review_path": (
+                    relative_dir / "14_human-research-readiness-review.md"
+                ).as_posix(),
+                "human_research_readiness_index_path": (
+                    relative_dir / "15_human-research-readiness-index.json"
                 ).as_posix(),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
@@ -1641,6 +1850,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (directory / "13_archaeological-context-index.json").write_text(
             json.dumps(
                 output["archaeological_context_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "14_human-research-readiness-review.md").write_text(
+            str(output["human_research_readiness_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "15_human-research-readiness-index.json").write_text(
+            json.dumps(
+                output["human_research_readiness_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

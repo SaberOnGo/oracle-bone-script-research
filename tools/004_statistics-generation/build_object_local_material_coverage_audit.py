@@ -225,6 +225,7 @@ OBJECT_SPECS = [
             "08_collection-provenance-evidence-dossier.md",
             "10_collection-provenance-fact-matrix.md",
             "12_archaeological-context-review.md",
+            "14_human-research-readiness-review.md",
         ),
         (
             "01_collection-object-packet.json",
@@ -234,12 +235,14 @@ OBJECT_SPECS = [
             "09_collection-provenance-evidence-index.json",
             "11_collection-provenance-fact-matrix-index.json",
             "13_archaeological-context-index.json",
+            "15_human-research-readiness-index.json",
         ),
         (),
         (
             "03_visual-asset-index.csv",
             "04_visual-gallery.md",
             "12_archaeological-context-review.md",
+            "14_human-research-readiness-review.md",
         ),
     ),
     ObjectSpec(

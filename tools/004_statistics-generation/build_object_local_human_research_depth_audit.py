@@ -195,6 +195,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "08_collection-provenance-evidence-dossier.md",
             "10_collection-provenance-fact-matrix.md",
             "12_archaeological-context-review.md",
+            "14_human-research-readiness-review.md",
         ),
         "slots": (
             "institution",
@@ -210,6 +211,8 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "oracle_character_route",
             "rights_status",
             "risk_note",
+            "scholarship_dispute_route",
+            "raw_asset_boundary",
             "missing_items",
             "review_status",
         ),
@@ -218,6 +221,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which findspot, period, or batch field still needs source review?",
             "Which plate, inscription, or character route remains candidate only?",
             "Which raw image or unclear asset must remain outside regular Git?",
+            "Which bibliography, proposer, disagreement, or citation trail is missing?",
         ),
     },
     "research_source_objects": {

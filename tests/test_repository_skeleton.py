@@ -6205,6 +6205,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "11_collection-provenance-fact-matrix-index.json").exists())
             self.assertTrue((object_dir / "12_archaeological-context-review.md").exists())
             self.assertTrue((object_dir / "13_archaeological-context-index.json").exists())
+            self.assertTrue((object_dir / "14_human-research-readiness-review.md").exists())
+            self.assertTrue((object_dir / "15_human-research-readiness-index.json").exists())
             packet = json.loads(
                 (object_dir / "01_collection-object-packet.json").read_text(
                     encoding="utf-8"
@@ -6235,6 +6237,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
             self.assertIn("10_collection-provenance-fact-matrix.md", readme_text)
             self.assertIn("12_archaeological-context-review.md", readme_text)
+            self.assertIn("14_human-research-readiness-review.md", readme_text)
             self.assertLess(
                 readme_text.index("06_human-collection-dossier.md"),
                 readme_text.index("01_collection-object-packet.json"),
@@ -6509,6 +6512,73 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "no decipherment conclusion",
                 archaeology_index["claim_boundary"],
+            )
+            readiness_text = (
+                object_dir / "14_human-research-readiness-review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Human Research Readiness Review", readiness_text)
+            self.assertIn("人类研究准备度复核", readiness_text)
+            self.assertIn("Readiness Routes To Open", readiness_text)
+            self.assertIn("需打开的准备路线", readiness_text)
+            self.assertIn("Concrete Missing Evidence Questions", readiness_text)
+            self.assertIn("具体缺证问题", readiness_text)
+            self.assertIn(
+                "Which catalog page or accession record proves the object label?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which source row records checksum, size, rights status, and risk note?",
+                readiness_text,
+            )
+            self.assertIn(
+                "Which bibliography, proposer, disagreement, or citation trail is missing?",
+                readiness_text,
+            )
+            self.assertIn("哪个著录页或登记号记录能支持对象标签？", readiness_text)
+            self.assertIn("哪条来源行记录 checksum、大小、权利状态和风险？", readiness_text)
+            self.assertIn("哪些书目、提出者、不同意见或引用链待查？", readiness_text)
+            self.assertIn("02_collection-source-index.csv", readiness_text)
+            self.assertIn("04_visual-gallery.md", readiness_text)
+            self.assertIn("08_collection-provenance-evidence-dossier.md", readiness_text)
+            self.assertIn("10_collection-provenance-fact-matrix.md", readiness_text)
+            self.assertIn("12_archaeological-context-review.md", readiness_text)
+            self.assertIn("no decipherment conclusion", readiness_text)
+            self.assertNotIn("not_collected", readiness_text)
+            for line in readiness_text.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
+            readiness_index = json.loads(
+                (object_dir / "15_human-research-readiness-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                readiness_index["record_type"],
+                "collection_human_research_readiness_index",
+            )
+            self.assertIn(
+                "14_human-research-readiness-review.md",
+                ";".join(readiness_index["human_readable_files"]),
+            )
+            self.assertIn(
+                "01_collection-object-packet.json",
+                ";".join(readiness_index["ai_support_files"]),
+            )
+            self.assertIn(
+                "bibliography_proposer_dispute_citation",
+                readiness_index["readiness_slots"],
+            )
+            self.assertIn(
+                "raw_or_uncertain_rights_asset_boundary",
+                readiness_index["readiness_slots"],
+            )
+            self.assertIn(
+                "which source row records checksum size rights status and risk note",
+                readiness_index["missing_evidence_questions"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                readiness_index["claim_boundary"],
             )
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
@@ -7379,6 +7449,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])
         self.assertIn("plate_or_publication_route", by_area["collection_object_candidates"]["required_human_slots"])
         self.assertIn("12_archaeological-context-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
+        self.assertIn("14_human-research-readiness-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
+        self.assertIn("scholarship_dispute_route", by_area["collection_object_candidates"]["required_human_slots"])
         self.assertIn("modern_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
         self.assertIn("dataset_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
         self.assertIn(

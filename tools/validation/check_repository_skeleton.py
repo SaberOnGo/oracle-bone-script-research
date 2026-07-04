@@ -4388,6 +4388,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         "11_collection-provenance-fact-matrix-index.json",
         "12_archaeological-context-review.md",
         "13_archaeological-context-index.json",
+        "14_human-research-readiness-review.md",
+        "15_human-research-readiness-index.json",
     ]
     expected_sources = {
         "src-ihp-museum-oracle-bones",
@@ -4438,6 +4440,7 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "08_collection-provenance-evidence-dossier.md",
                 "10_collection-provenance-fact-matrix.md",
                 "12_archaeological-context-review.md",
+                "14_human-research-readiness-review.md",
             ]:
                 if snippet not in normalized_text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -4841,6 +4844,84 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                     )
             if "no decipherment conclusion" not in archaeology_index.get("claim_boundary", ""):
                 issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} missing claim boundary")
+        readiness_review_path = object_dir / "14_human-research-readiness-review.md"
+        if path_exists(readiness_review_path):
+            readiness_text = readiness_review_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Human Research Readiness Review",
+                "人类研究准备度复核",
+                "Readiness Routes To Open",
+                "需打开的准备路线",
+                "Concrete Missing Evidence Questions",
+                "具体缺证问题",
+                "Which catalog page or accession record proves the object label?",
+                "Which source row records checksum, size, rights status, and risk note?",
+                "Which bibliography, proposer, disagreement, or citation trail is missing?",
+                "哪个著录页或登记号记录能支持对象标签？",
+                "哪条来源行记录 checksum、大小、权利状态和风险？",
+                "哪些书目、提出者、不同意见或引用链待查？",
+                "02_collection-source-index.csv",
+                "04_visual-gallery.md",
+                "08_collection-provenance-evidence-dossier.md",
+                "10_collection-provenance-fact-matrix.md",
+                "12_archaeological-context-review.md",
+                "no decipherment conclusion",
+            ]:
+                if snippet not in readiness_text:
+                    issues.append(
+                        f"{readiness_review_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for forbidden in [
+                "not_collected",
+                "collection object identity is confirmed",
+                "inscription identity is confirmed",
+                "formal reading is accepted",
+            ]:
+                if forbidden in readiness_text:
+                    issues.append(
+                        f"{readiness_review_path.relative_to(root).as_posix()} "
+                        f"contains forbidden marker: {forbidden}"
+                    )
+            for line_number, line in enumerate(readiness_text.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{readiness_review_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        readiness_index_path = object_dir / "15_human-research-readiness-index.json"
+        if path_exists(readiness_index_path):
+            readiness_index = json.loads(readiness_index_path.read_text(encoding="utf-8"))
+            if readiness_index.get("record_type") != (
+                "collection_human_research_readiness_index"
+            ):
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} record_type changed")
+            human_files = [str(path) for path in readiness_index.get("human_readable_files", [])]
+            ai_files = [str(path) for path in readiness_index.get("ai_support_files", [])]
+            slots = readiness_index.get("readiness_slots", [])
+            questions = readiness_index.get("missing_evidence_questions", [])
+            if not any(path.endswith("14_human-research-readiness-review.md") for path in human_files):
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing human readiness link")
+            if not any(path.endswith("01_collection-object-packet.json") for path in ai_files):
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing packet link")
+            for slot in [
+                "catalog_source",
+                "visual_evidence",
+                "findspot_period_batch_pit_plate",
+                "inscription_relation_candidate_route",
+                "oracle_character_relation_candidate_route",
+                "bibliography_proposer_dispute_citation",
+                "raw_or_uncertain_rights_asset_boundary",
+            ]:
+                if slot not in slots:
+                    issues.append(
+                        f"{readiness_index_path.relative_to(root).as_posix()} "
+                        f"missing readiness slot: {slot}"
+                    )
+            if "which source row records checksum size rights status and risk note" not in questions:
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing checksum question")
+            if "no decipherment conclusion" not in readiness_index.get("claim_boundary", ""):
+                issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing claim boundary")
     if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:

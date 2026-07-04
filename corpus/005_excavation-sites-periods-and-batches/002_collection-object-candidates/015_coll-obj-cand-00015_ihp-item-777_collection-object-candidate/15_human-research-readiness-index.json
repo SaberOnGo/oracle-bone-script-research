@@ -1,0 +1,43 @@
+{
+  "ai_support_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/01_collection-object-packet.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/02_collection-source-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/03_visual-asset-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/15_human-research-readiness-index.json"
+  ],
+  "candidate_collection_object_id": "ihp-mus-obj-00015",
+  "claim_boundary": "human readiness review only; no confirmed collection object identity; no confirmed inscription identity; no transcription; no reading; no component assignment; no dating claim; no decipherment conclusion",
+  "human_readable_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/14_human-research-readiness-review.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/06_human-collection-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/08_collection-provenance-evidence-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/10_collection-provenance-fact-matrix.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/015_coll-obj-cand-00015_ihp-item-777_collection-object-candidate/12_archaeological-context-review.md"
+  ],
+  "missing_evidence_questions": [
+    "which catalog page or accession record proves the object label",
+    "which image route is usable before formal research",
+    "which source row records checksum size rights status and risk note",
+    "which findspot period batch pit or plate route remains absent",
+    "which inscription or oracle-character relation is candidate only",
+    "which bibliography proposer disagreement or citation trail is missing",
+    "which raw image or uncertain-rights item must stay outside regular Git"
+  ],
+  "project_id": "coll-obj-cand-00015",
+  "readiness_slots": [
+    "catalog_source",
+    "visual_evidence",
+    "checksum_size_rights_risk",
+    "findspot_period_batch_pit_plate",
+    "inscription_relation_candidate_route",
+    "oracle_character_relation_candidate_route",
+    "bibliography_proposer_dispute_citation",
+    "raw_or_uncertain_rights_asset_boundary"
+  ],
+  "record_type": "collection_human_research_readiness_index",
+  "review_status": "needs_human_collection_object_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_id": "src-ihp-museum-oracle-bones",
+  "updated_at": "2026-06-20",
+  "visual_entry_type": "external_thumbnail_url_metadata_only"
+}

@@ -1,138 +1,107 @@
 # Oracle Bone Script Research
 
-<table align="center">
-  <tr>
-    <td align="center"><h3><a href="./README.md">English</a></h3></td>
-    <td align="center"><h3><a href="./README.zh-CN.md">简体中文</a></h3></td>
-  </tr>
-</table>
-
-Oracle Bone Script Research is an open research infrastructure project for
-oracle bone script materials. It is a knowledge base, knowledge graph, and AI
-Agent research-assistant framework, but its first audience is human
-researchers who need to inspect, compare, verify, and continue the work.
-
-This repository is not an automatic decipherment model. It must not present
-AI hypotheses, dataset labels, graph edges, or candidate mappings as confirmed
-scholarship.
-
-中文摘要：
-本项目首先是给甲骨文学家、考古学家和人类研究者阅读、核查、比较、
-继续研究的资料库；其次才是给 AI 使用的索引和结构化数据。所有未
-复核材料都必须保持候选、来源记录、争议、待查或待复核状态。
+[简体中文](README.zh-CN.md)
 
 ## Mission / 项目使命
 
-Democratize access to oracle bone script research while preserving source
-provenance, review status, rights boundaries, and scholarly caution.
+English:
 
-用开放资料基础设施降低甲骨文研究门槛，同时保留来源追溯、复核状态、
-权利边界和学术谨慎。
+This repository is a human-first oracle bone script research
+infrastructure project. It gives oracle-bone scholars, archaeologists,
+and other human researchers a place to read, verify, compare, and extend
+source materials before formal research begins.
+
+It is not an automatic decipherment model. Machine-readable files,
+including JSON, CSV, manifests, staging tables, and graph edges, are
+AI-readable support data. They help search, provenance review, statistics,
+and validation, but they do not replace human-readable research dossiers.
+
+简体中文：
+
+中文摘要：
+
+本仓库首先是面向甲骨文学者、考古学者和其他人类研究者的资料库。
+它用于阅读、核查、比较和继续整理甲骨资料，然后才为 AI 提供索引
+和结构化辅助数据。
+
+本项目不是自动释读模型。JSON、CSV、manifest、staging 表和图谱边
+都是 AI 可读辅助资料，只服务检索、来源追溯、统计和校验，不能替代
+人类可读研究档案。
 
 ## Current Stage / 当前阶段
 
-The repository is in the preprocessing and research-infrastructure stage,
-before formal oracle-bone research. Current work prepares human-readable
-object dossiers, source provenance trails, staging tables, relationship graph
-edges, coverage statistics, and review queues.
+English:
 
-本仓库处于正式甲骨文研究开始前的资料整理与预处理阶段。当前重点
-不是提出释读结论，而是把来源、图像、拓片、著录、卜辞、馆藏、
-时期、构件、异体、后世字形路线和文献线索整理成可追溯、可复核、
-可继续研究的档案。
+The current stage is pre-formal-research organization and preprocessing.
+Work should collect, normalize, and connect images, rubbings, photographs,
+catalog records, inscriptions, plates, find spots, museum holdings, periods,
+source trails, and review status.
 
-AI-readable JSON, CSV, staging tables, manifests, graph edges, and statistics
-help people search, trace, compare, and validate the human dossiers. They are
-AI-readable support data, not the main research product, and cannot replace
-object-local human records.
+No unreviewed AI hypothesis may be presented as confirmed scholarship.
+Unconfirmed material must be marked as candidate, source record, disputed,
+to be checked, or pending review.
 
-AI 可读 JSON、CSV、staging 表、manifest、图边和统计只服务检索、
-追溯、比较和验证。它们是辅助资料，不是主要研究成果，也不能替代
-对象目录内的人类研究档案。
+简体中文：
+
+当前阶段是正式研究开始前的资料整理和预处理。工作重点是收集、清洗
+和关联实物、拓片、照片、著录、卜辞、图版、出土地、馆藏、时期、
+来源链和复核状态。
+
+不得把未经复核的 AI 假说写成已确认的学术结论。未确认内容必须标为
+候选、来源记录、争议、待查或待复核。
 
 ## Human Research Entry Order / 人工研究入口顺序
 
-1. Read `AGENTS.md` for repository rules and research boundaries.
-2. Open `doc/project/` for policy, provenance, ID, and large-source rules.
-3. Open `project_registry/` to map project IDs to source references.
-4. Open a concrete object directory under `corpus/`.
-5. Read the human README, dossier, or review sheet before the JSON packet.
-6. Inspect images, galleries, source indexes, route indexes, and review sheets.
-7. Use statistics and graph files only to find the next evidence route.
-8. Record reviewed outcomes without making unverified decipherment claims.
+English:
 
-人工阅读时，应先看规则、政策、来源登记和具体对象目录，再看结构化
-辅助数据。一个对象目录应同时放人类可读档案和 AI 可读辅助资料。
+1. Open the object-local dossier for the character, inscription, plate, or
+   source package.
+2. Read the human Markdown first: visual observations, catalog trail,
+   inscription context, source notes, disputes, and concrete missing items.
+3. Use the AI-readable support data only after the human dossier is clear.
+4. Trace every source through `project_registry/` before reusing a claim.
+5. Treat graph edges and statistics as navigation signals, not conclusions.
 
-## Main Entry Points / 主要入口
+简体中文：
 
-- `corpus/001_oracle-characters/`
-  contains oracle-character and undeciphered-character candidate directories.
-- `corpus/002_oracle-bone-inscriptions/`
-  contains inscription and plate crosswalk candidate materials.
-- `corpus/003_graphemic-components/`
-  contains component candidate materials and visual review routes.
-- `corpus/004_bronze-seal-modern-correspondences/`
-  contains later-script and correspondence candidate routes.
-- `corpus/005_excavation-sites-periods-and-batches/`
-  contains collection, findspot, period, and batch provenance.
-- `corpus/006_research-sources-and-bibliography/`
-  contains source objects, bibliography, download routes, and rights notes.
-- `corpus/007_research-topics-and-grammar/`
-  contains topic-label candidates and grammar-review routes.
-- `corpus/008_relationship-graph/`
-  contains graph edges for routing and coverage checks.
-- `corpus/009_statistics-and-derived-features/`
-  contains audits, review queues, and preprocessing statistics.
-- `research/`
-  is for existing published scholarship and sourced bibliographic notes.
-- `doc/public/user_research/`
-  is for user and AI Agent drafts before review.
+1. 先打开单字、卜辞、图版或来源包所在的对象目录。
+2. 先读人类 Markdown：字形观察、著录链、卜辞上下文、来源说明、
+   争议和具体缺失项。
+3. 只有在人类档案清楚之后，再使用 AI 可读辅助资料。
+4. 复用任何判断前，先通过 `project_registry/` 追溯来源。
+5. 图谱边和统计只作为导航信号，不作为结论。
 
 ## Concrete Questions To Check / 具体待查问题
 
-- Which object has images but lacks a human-readable research dossier?
-- Which source has no checksum, package manifest, field map, or risk note?
-- Which character candidate lacks inscription context, collection context,
-  later-script route, variant note, or decipherment-history route?
-- Which inscription candidate lacks text/OCR, plate number, catalog source,
-  Heji/OBM route, collection object, period, batch, or review status?
-- Which bibliography item lacks scope, evidence level, proposer, disagreement,
-  or citation relationship?
-- Which graph edge is only a route and must not be treated as scholarship?
-- 哪个对象已有图片，却还缺人类可读研究档案？
-- 哪个来源还缺 checksum、package manifest、字段映射或风险说明？
-- 哪个单字候选还缺卜辞语境、馆藏语境、后世字形路线、异体说明或
-  释读史路线？
-- 哪个卜辞候选还缺全文/OCR、图版号、著录来源、合集/OBM 路线、
-  馆藏对象、时期、批次或复核状态？
-- 哪条文献记录还缺适用范围、证据等级、提出者、不同意见或引用关系？
-- 哪条图边只是路线，不能被当作学术结论？
+- Which image, rubbing, plate, or catalog record is the visible evidence?
+- Which source supplied each field, and what rights status applies?
+- Is the object directory holding both the human dossier and support data?
+- Which inscription context, find spot, period, group, or museum record is
+  still missing?
+- Which readings or modern labels are only candidates or disputed records?
 
-## Research Boundary / 研究边界
+- 哪一张图片、拓片、图版或著录记录是可见证据？
+- 每个字段来自哪一个来源，权利状态是什么？
+- 对象目录内是否同时放有人类档案和辅助数据？
+- 还缺哪一条卜辞上下文、出土地、时期、组类或馆藏记录？
+- 哪些释读或今字标签只是候选、来源记录或争议项？
 
-Dataset labels, graph edges, codepoint matches, component candidates, catalog
-crosswalks, and evolution or correspondence candidates are routing evidence
-only. They are not confirmed readings, formal component assignments,
-inscription identities, accepted correspondences, or decipherment conclusions.
+## Main Entry Points / 主要入口
 
-数据集标签、图边、codepoint 匹配、构件候选、目录互证、字形演化和
-对应候选都只是路线证据。不得把它们写成已确认释读、正式构件归属、
-卜辞身份、已接受古文字对应或释读结论。
+- `AGENTS.md`: mandatory agent rules and validation requirements.
+- `project_registry/`: source provenance, rights, and large-source records.
+- `doc/project/`: project boundaries, provenance policy, and record model.
+- `corpus/`: object-local research dossiers and support files.
+- `schemas/`: machine-readable contracts for support data.
+- `tools/`: generators, validators, audits, and import helpers.
 
 ## Validation / 校验
 
-Before committing repository skeleton, docs, schemas, scripts, or generated
-preprocessing outputs, run:
+Run these checks before committing repository skeleton, docs, schemas, or
+scripts:
 
 ```powershell
 python tools/validation/check_repository_skeleton.py
 python -m unittest discover -s tests -v
 git diff --check
-```
-
-Before pushing, validate commit messages:
-
-```powershell
-python tools/git/check_commit_messages.py --range origin/main..HEAD
 ```

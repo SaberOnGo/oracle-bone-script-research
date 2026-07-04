@@ -6,7 +6,8 @@
     "14_source-to-dossier-transfer-review.md",
     "10_source-evidence-dossier.md",
     "12_source-provenance-fact-matrix.md",
-    "06_human-source-review-sheet.md"
+    "06_human-source-review-sheet.md",
+    "16_source-literature-scope-review.md"
   ],
   "ai_support_files": [
     "01_source-packet.json",
@@ -14,7 +15,8 @@
     "03_package-route-index.csv",
     "04_field-map-route-index.csv",
     "05_metadata-profile-route-index.csv",
-    "11_source-evidence-dossier-index.json"
+    "11_source-evidence-dossier-index.json",
+    "17_source-literature-scope-index.json"
   ],
   "transfer_slots": [
     "character_dossier_transfer",

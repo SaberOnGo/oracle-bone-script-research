@@ -5400,6 +5400,23 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "research/",
         "not a decipherment conclusion",
     ]
+    required_files["16_source-literature-scope-review.md"] = [
+        "Source Literature Scope Review",
+        "来源文献适用范围复核",
+        "Literature And Database Review Slots",
+        "文献与数据库复核槽位",
+        "Bibliography note / 书目说明",
+        "Database scope / 数据库范围",
+        "Evidence level / 证据等级",
+        "Proposer or editor / 提出者或整理者",
+        "Citation relation / 引用关系",
+        "Different opinions / 不同意见",
+        "Dispute record / 争议记录",
+        "Which book, paper, webpage, museum record, or database note defines",
+        "哪条书目、论文、网页、馆藏记录或数据库说明界定本来源？",
+        "not a confirmed bibliography conclusion",
+        "not a decipherment conclusion",
+    ]
     source_pending_anchors = (
         "02_download-route-index.csv",
         "03_package-route-index.csv",
@@ -5528,6 +5545,50 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{transfer_index_path.relative_to(root)} missing transfer slots")
         if "no decipherment conclusion" not in transfer_index.get("claim_boundary", []):
             issues.append(f"{transfer_index_path.relative_to(root)} missing decipherment boundary")
+        literature_scope_index_path = object_dir / "17_source-literature-scope-index.json"
+        if not literature_scope_index_path.is_file():
+            issues.append(f"{object_dir.name} missing 17_source-literature-scope-index.json")
+            continue
+        try:
+            literature_scope_index = json.loads(
+                literature_scope_index_path.read_text(encoding="utf-8")
+            )
+        except json.JSONDecodeError as exc:
+            issues.append(
+                f"{literature_scope_index_path.relative_to(root)} invalid JSON: {exc}"
+            )
+            continue
+        if literature_scope_index.get("record_type") != "source_literature_scope_index":
+            issues.append(f"{literature_scope_index_path.relative_to(root)} record_type changed")
+        if "16_source-literature-scope-review.md" not in literature_scope_index.get(
+            "human_readable_files", []
+        ):
+            issues.append(f"{literature_scope_index_path.relative_to(root)} missing scope review link")
+        if "10_source-evidence-dossier.md" not in literature_scope_index.get(
+            "human_readable_files", []
+        ):
+            issues.append(
+                f"{literature_scope_index_path.relative_to(root)} missing evidence dossier link"
+            )
+        if "01_source-packet.json" not in literature_scope_index.get("ai_support_files", []):
+            issues.append(f"{literature_scope_index_path.relative_to(root)} missing source packet link")
+        expected_literature_slots = {
+            "bibliography_note",
+            "database_scope",
+            "evidence_level",
+            "proposer_or_editor",
+            "citation_relation",
+            "different_opinions",
+            "dispute_record",
+        }
+        if not expected_literature_slots.issubset(
+            set(literature_scope_index.get("review_slots", []))
+        ):
+            issues.append(f"{literature_scope_index_path.relative_to(root)} missing review slots")
+        if "no confirmed bibliography conclusion" not in literature_scope_index.get(
+            "claim_boundary", []
+        ):
+            issues.append(f"{literature_scope_index_path.relative_to(root)} missing bibliography boundary")
     return issues
 
 
@@ -14087,7 +14148,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 128",
-        "source register files: 351",
+        "source register files: 393",
         "bibliographic identity",
         "source trail",
         "scope",

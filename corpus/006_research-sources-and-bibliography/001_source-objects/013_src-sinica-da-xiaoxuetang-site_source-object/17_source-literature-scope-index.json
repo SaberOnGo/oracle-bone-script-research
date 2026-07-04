@@ -1,0 +1,40 @@
+{
+  "record_type": "source_literature_scope_index",
+  "source_id": "src-sinica-da-xiaoxuetang-site",
+  "source_title": "小學堂文字學資料庫 / Academia Sinica Digital Archives Xiaoxuetang Profile",
+  "human_readable_files": [
+    "16_source-literature-scope-review.md",
+    "10_source-evidence-dossier.md",
+    "14_source-to-dossier-transfer-review.md",
+    "06_human-source-review-sheet.md"
+  ],
+  "ai_support_files": [
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "11_source-evidence-dossier-index.json",
+    "15_source-to-dossier-transfer-index.json"
+  ],
+  "review_slots": [
+    "bibliography_note",
+    "database_scope",
+    "evidence_level",
+    "proposer_or_editor",
+    "citation_relation",
+    "different_opinions",
+    "dispute_record"
+  ],
+  "claim_boundary": [
+    "no rights decision",
+    "no corpus import approval",
+    "no confirmed bibliography conclusion",
+    "no accepted reading",
+    "no component assignment",
+    "no inscription identity",
+    "no correspondence conclusion",
+    "no decipherment conclusion"
+  ],
+  "review_status": "needs_human_source_literature_scope_review",
+  "updated_at": "2026-06-21"
+}

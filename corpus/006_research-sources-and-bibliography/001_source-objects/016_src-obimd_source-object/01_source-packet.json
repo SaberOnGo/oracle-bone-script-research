@@ -33,7 +33,9 @@
     "12_source-provenance-fact-matrix.md",
     "13_source-provenance-fact-matrix-index.json",
     "14_source-to-dossier-transfer-review.md",
-    "15_source-to-dossier-transfer-index.json"
+    "15_source-to-dossier-transfer-index.json",
+    "16_source-literature-scope-review.md",
+    "17_source-literature-scope-index.json"
   ],
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",

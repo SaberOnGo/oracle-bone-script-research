@@ -236,6 +236,8 @@ def source_packet(
             "13_source-provenance-fact-matrix-index.json",
             "14_source-to-dossier-transfer-review.md",
             "15_source-to-dossier-transfer-index.json",
+            "16_source-literature-scope-review.md",
+            "17_source-literature-scope-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -386,6 +388,7 @@ def source_evidence_dossier_index_payload(
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
             "14_source-to-dossier-transfer-review.md",
+            "16_source-literature-scope-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -397,6 +400,7 @@ def source_evidence_dossier_index_payload(
             "11_source-evidence-dossier-index.json",
             "13_source-provenance-fact-matrix-index.json",
             "15_source-to-dossier-transfer-index.json",
+            "17_source-literature-scope-index.json",
         ],
         "source_route_files": [
             SOURCE_INDEX.as_posix(),
@@ -743,6 +747,7 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
             "06_human-source-review-sheet.md",
+            "16_source-literature-scope-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -751,6 +756,7 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "04_field-map-route-index.csv",
             "05_metadata-profile-route-index.csv",
             "11_source-evidence-dossier-index.json",
+            "17_source-literature-scope-index.json",
         ],
         "transfer_slots": [slot["slot"] for slot in TRANSFER_SLOTS],
         "target_routes": [slot["target"] for slot in TRANSFER_SLOTS],
@@ -765,6 +771,160 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "no decipherment conclusion",
         ],
         "review_status": "needs_human_source_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def source_literature_scope_review_text(source: dict[str, str]) -> str:
+    lines = [
+        "# Source Literature Scope Review / 来源文献适用范围复核",
+        "",
+        "## English",
+        *wrapped(
+            "This human review file keeps bibliography, database notes, source "
+            "scope, evidence level, proposer or editor, citation relations, "
+            "different opinions, and disputes visible before the source is "
+            "used in any later character, inscription, topic, or bibliography "
+            "dossier."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本文件在来源进入后续单字、卜辞、主题或文献档案前，先把书目、"
+            "数据库说明、资料适用范围、证据等级、提出者或整理者、引用关系、"
+            "不同意见和争议作为人类复核项目保留在同一来源对象目录内。"
+        ),
+        "",
+        "## Source / 来源",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Title / 题名", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Source type / 来源类型", source["source_type"]),
+        *bullet("Authority tier / 证据等级", source["authority_tier"]),
+        *bullet("Scope / 适用范围", source["scope"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        "",
+        "## Literature And Database Review Slots / 文献与数据库复核槽位",
+        *bullet(
+            "Bibliography note / 书目说明",
+            "Open README.md and 10_source-evidence-dossier.md before citing "
+            "this source in a later research note.",
+        ),
+        *bullet(
+            "Database scope / 数据库范围",
+            "Record which object type, catalog range, plate range, glyph "
+            "range, or inscription range the source actually covers.",
+        ),
+        *bullet(
+            "Evidence level / 证据等级",
+            "Keep authority tier and source type visible; do not treat them "
+            "as a scholarly conclusion.",
+        ),
+        *bullet(
+            "Proposer or editor / 提出者或整理者",
+            "Check source notes, database pages, paper metadata, or catalog "
+            "front matter before assigning responsibility.",
+        ),
+        *bullet(
+            "Citation relation / 引用关系",
+            "Record whether the source cites a catalog, dictionary, paper, "
+            "museum record, database export, or derived index.",
+        ),
+        *bullet(
+            "Different opinions / 不同意见",
+            "Absence of a disagreement row is not agreement; it is a pending "
+            "review question until checked against bibliography notes.",
+        ),
+        *bullet(
+            "Dispute record / 争议记录",
+            "Keep disputed readings, labels, source fields, and mappings as "
+            "pending review routes.",
+        ),
+        "",
+        "## Concrete Questions To Check / 具体待查问题",
+        "- Which book, paper, webpage, museum record, or database note defines",
+        "  this source?",
+        "- Which source scope is directly supported by the local evidence rows?",
+        "- Which proposer, editor, compiler, or institution should be recorded?",
+        "- Which catalog, dictionary, paper, or database does this source cite?",
+        "- Which alternate label, disagreement, or dispute remains unresolved?",
+        "- Which later object dossier should receive only a route, not a claim?",
+        "- 哪条书目、论文、网页、馆藏记录或数据库说明界定本来源？",
+        "- 哪个资料范围能由本目录内证据行直接支持？",
+        "- 哪位提出者、整理者、编者或机构需要记录？",
+        "- 本来源引用了哪种著录、字编、论文或数据库？",
+        "- 哪个替代标签、不同意见或争议仍未解决？",
+        "- 哪个后续对象档案只能接收复核路线，而不能接收结论？",
+        "",
+        "## Local Evidence To Open / 本地证据入口",
+        "- README.md",
+        "- 06_human-source-review-sheet.md",
+        "- 07_material-access-index.md",
+        "- 10_source-evidence-dossier.md",
+        "- 12_source-provenance-fact-matrix.md",
+        "- 14_source-to-dossier-transfer-review.md",
+        "",
+        "## Boundary / 边界",
+        "- not a rights decision",
+        "- not corpus import approval",
+        "- not a confirmed bibliography conclusion",
+        "- not an accepted reading",
+        "- not a component assignment",
+        "- not an inscription identity",
+        "- not a correspondence conclusion",
+        "- not a decipherment conclusion",
+        "- 不是权利结论",
+        "- 不是语料导入批准",
+        "- 不是已确认的文献学结论",
+        "- 不是已接受释读",
+        "- 不是构件归属",
+        "- 不是卜辞身份确认",
+        "- 不是字形对应结论",
+        "- 不是破译结论",
+    ]
+    return "\n".join(lines)
+
+
+def source_literature_scope_index_payload(source: dict[str, str]) -> dict[str, object]:
+    return {
+        "record_type": "source_literature_scope_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "human_readable_files": [
+            "16_source-literature-scope-review.md",
+            "10_source-evidence-dossier.md",
+            "14_source-to-dossier-transfer-review.md",
+            "06_human-source-review-sheet.md",
+        ],
+        "ai_support_files": [
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "11_source-evidence-dossier-index.json",
+            "15_source-to-dossier-transfer-index.json",
+        ],
+        "review_slots": [
+            "bibliography_note",
+            "database_scope",
+            "evidence_level",
+            "proposer_or_editor",
+            "citation_relation",
+            "different_opinions",
+            "dispute_record",
+        ],
+        "claim_boundary": [
+            "no rights decision",
+            "no corpus import approval",
+            "no confirmed bibliography conclusion",
+            "no accepted reading",
+            "no component assignment",
+            "no inscription identity",
+            "no correspondence conclusion",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_source_literature_scope_review",
         "updated_at": UPDATED_AT,
     }
 
@@ -1772,6 +1932,15 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             object_dir / "15_source-to-dossier-transfer-index.json",
             source_to_dossier_transfer_index_payload(source),
+        )
+        write_human_markdown(
+            object_dir / "16_source-literature-scope-review.md",
+            f"{source_id}/16_source-literature-scope-review.md",
+            source_literature_scope_review_text(source),
+        )
+        write_json(
+            object_dir / "17_source-literature-scope-index.json",
+            source_literature_scope_index_payload(source),
         )
     return {"source_object_count": len(sources)}
 

@@ -7308,6 +7308,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "13_source-provenance-fact-matrix-index.json").is_file())
         self.assertTrue((object_dir / "14_source-to-dossier-transfer-review.md").is_file())
         self.assertTrue((object_dir / "15_source-to-dossier-transfer-index.json").is_file())
+        self.assertTrue((object_dir / "16_source-literature-scope-review.md").is_file())
+        self.assertTrue((object_dir / "17_source-literature-scope-index.json").is_file())
         readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
         readme_opening = readme_text.split("## Source Summary", 1)[0]
         self.assertIn("object-local human source research entrance", readme_text)
@@ -7424,6 +7426,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(source_dossier_index["record_type"], "source_evidence_dossier_index")
         self.assertIn("10_source-evidence-dossier.md", source_dossier_index["human_readable_files"])
+        self.assertIn(
+            "16_source-literature-scope-review.md",
+            source_dossier_index["human_readable_files"],
+        )
         self.assertIn("01_source-packet.json", source_dossier_index["ai_support_files"])
         self.assertIn(
             "bibliographic_citation_relationships",
@@ -7437,6 +7443,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("09_source-processing-status-index.json", packet["local_files"])
         self.assertIn("10_source-evidence-dossier.md", packet["local_files"])
         self.assertIn("11_source-evidence-dossier-index.json", packet["local_files"])
+        self.assertIn("16_source-literature-scope-review.md", packet["local_files"])
+        self.assertIn("17_source-literature-scope-index.json", packet["local_files"])
         self.assertEqual(packet["download_route_count"], 4)
         self.assertEqual(packet["package_route_count"], 2)
         self.assertEqual(packet["field_map_route_count"], 6)
@@ -7523,6 +7531,60 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("inscription_plate_transfer", transfer_index["transfer_slots"])
         self.assertIn("bibliography_dispute_transfer", transfer_index["transfer_slots"])
         self.assertIn("no decipherment conclusion", transfer_index["claim_boundary"])
+        literature_scope_text = (
+            object_dir / "16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Source Literature Scope Review", literature_scope_text)
+        self.assertIn("来源文献适用范围复核", literature_scope_text)
+        self.assertIn("Literature And Database Review Slots", literature_scope_text)
+        self.assertIn("文献与数据库复核槽位", literature_scope_text)
+        self.assertIn("Bibliography note / 书目说明", literature_scope_text)
+        self.assertIn("Database scope / 数据库范围", literature_scope_text)
+        self.assertIn("Evidence level / 证据等级", literature_scope_text)
+        self.assertIn("Proposer or editor / 提出者或整理者", literature_scope_text)
+        self.assertIn("Citation relation / 引用关系", literature_scope_text)
+        self.assertIn("Different opinions / 不同意见", literature_scope_text)
+        self.assertIn("Dispute record / 争议记录", literature_scope_text)
+        self.assertIn(
+            "Which book, paper, webpage, museum record, or database note defines",
+            literature_scope_text,
+        )
+        self.assertIn(
+            "哪条书目、论文、网页、馆藏记录或数据库说明界定本来源？",
+            literature_scope_text,
+        )
+        self.assertIn(
+            "not a confirmed bibliography conclusion",
+            literature_scope_text,
+        )
+        self.assertIn("not a decipherment conclusion", literature_scope_text)
+        self.assertNotIn("not_collected", literature_scope_text)
+        self.assertTrue(all(len(line) <= 80 for line in literature_scope_text.splitlines()))
+        literature_scope_index = json.loads(
+            (object_dir / "17_source-literature-scope-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(
+            literature_scope_index["record_type"],
+            "source_literature_scope_index",
+        )
+        self.assertIn(
+            "16_source-literature-scope-review.md",
+            literature_scope_index["human_readable_files"],
+        )
+        self.assertIn(
+            "10_source-evidence-dossier.md",
+            literature_scope_index["human_readable_files"],
+        )
+        self.assertIn("01_source-packet.json", literature_scope_index["ai_support_files"])
+        self.assertIn("bibliography_note", literature_scope_index["review_slots"])
+        self.assertIn("database_scope", literature_scope_index["review_slots"])
+        self.assertIn("proposer_or_editor", literature_scope_index["review_slots"])
+        self.assertIn(
+            "no confirmed bibliography conclusion",
+            literature_scope_index["claim_boundary"],
+        )
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
         module = load_hust_obc_undeciphered_local_materials_module()
@@ -25825,7 +25887,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"351"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"393"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -25923,7 +25985,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 128",
-            "source register files: 351",
+            "source register files: 393",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -25952,7 +26014,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 128", text)
-        self.assertIn("source register files: 351", text)
+        self.assertIn("source register files: 393", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

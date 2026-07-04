@@ -3263,6 +3263,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "10_inscription-plate-evidence-index.json",
         "11_inscription-review-fact-matrix.md",
         "12_inscription-review-fact-matrix-index.json",
+        "13_text-ocr-quality-review.md",
+        "14_text-ocr-quality-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3383,6 +3385,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         plate_evidence_index_path = object_dir / "10_inscription-plate-evidence-index.json"
         fact_matrix_path = object_dir / "11_inscription-review-fact-matrix.md"
         fact_matrix_index_path = object_dir / "12_inscription-review-fact-matrix-index.json"
+        text_ocr_review_path = object_dir / "13_text-ocr-quality-review.md"
+        text_ocr_index_path = object_dir / "14_text-ocr-quality-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -3592,6 +3596,57 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing plate evidence support link")
             if "no decipherment conclusion" not in fact_matrix_index.get("claim_boundary", []):
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing decipherment boundary")
+        if path_exists(text_ocr_review_path):
+            text_ocr_review = text_ocr_review_path.read_text(encoding="utf-8")
+            if "\ufffd" in text_ocr_review:
+                issues.append(f"{text_ocr_review_path.relative_to(root).as_posix()} contains replacement-character mojibake")
+            for snippet in [
+                "Text And OCR Quality Review",
+                "Primary Text Evidence State",
+                "OCR route remains pending source review",
+                "Plate image or rubbing must be opened before text use.",
+                "Do not assign a formal `obi-*` ID from OCR or catalog text.",
+                "Which OCR, transcription, plate, page, or catalog line is primary?",
+                "Which signs are unreadable, missing, uncertain, or only catalog labels?",
+                "Which linked glyph occurrence remains candidate-only?",
+                "text_quality_blocker",
+                "needs_primary_text_or_OCR_route_review",
+                "not a transcription",
+                "not an inscription reading",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in text_ocr_review:
+                    issues.append(f"{text_ocr_review_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in text_ocr_review:
+                issues.append(
+                    f"{text_ocr_review_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
+            for line_number, line in enumerate(text_ocr_review.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(
+                        f"{text_ocr_review_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        if path_exists(text_ocr_index_path):
+            text_ocr_index = json.loads(text_ocr_index_path.read_text(encoding="utf-8"))
+            if text_ocr_index.get("project_id") != project_id:
+                issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if text_ocr_index.get("record_type") != "inscription_text_ocr_quality_review_index":
+                issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} record_type changed")
+            if "13_text-ocr-quality-review.md" not in text_ocr_index.get("human_readable_files", []):
+                issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing text/OCR review link")
+            if "05_plate-text-route-index.csv" not in text_ocr_index.get("ai_support_files", []):
+                issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing plate route support link")
+            if "text_quality_blocker" not in text_ocr_index.get("missing_or_review_fields", []):
+                issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing text quality blocker")
+            for boundary in [
+                "no transcription",
+                "no inscription reading",
+                "no decipherment conclusion",
+            ]:
+                if boundary not in text_ocr_index.get("claim_boundary", []):
+                    issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [

@@ -1022,6 +1022,7 @@ def plate_evidence_index(
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
             "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
         ],
         "ai_support_files": [
             "01_candidate-inscription-crosswalk-packet.json",
@@ -1031,6 +1032,7 @@ def plate_evidence_index(
             "08_inscription-dossier-index.json",
             "10_inscription-plate-evidence-index.json",
             "12_inscription-review-fact-matrix-index.json",
+            "14_text-ocr-quality-index.json",
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
@@ -1282,6 +1284,7 @@ def inscription_review_fact_matrix_index(
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
             "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
         ],
         "ai_support_files": [
             "01_candidate-inscription-crosswalk-packet.json",
@@ -1291,6 +1294,7 @@ def inscription_review_fact_matrix_index(
             "08_inscription-dossier-index.json",
             "10_inscription-plate-evidence-index.json",
             "12_inscription-review-fact-matrix-index.json",
+            "14_text-ocr-quality-index.json",
         ],
         "fact_count": len(fact_rows),
         "facts": fact_rows,
@@ -1303,6 +1307,178 @@ def inscription_review_fact_matrix_index(
             "bibliography_reading_history_dispute_review",
         ],
         "human_review_status": "needs_human_inscription_crosswalk_review",
+        "claim_boundary": [
+            "no formal inscription record",
+            "no object identity claim",
+            "no transcription",
+            "no inscription reading",
+            "no corpus import approval",
+            "no decipherment conclusion",
+        ],
+        "updated_at": UPDATED_AT,
+    }
+
+
+def text_ocr_quality_review_text(
+    row: dict[str, str],
+    project_id: str,
+    catalog_rows: list[dict[str, str]],
+    plate_routes: list[dict[str, str]],
+) -> str:
+    missing_refs = [
+        ref["reference_type"]
+        for ref in catalog_rows
+        if ref["reference_status"] == "missing_or_unassigned"
+    ]
+    missing_ref_lines = "\n".join(f"- `{ref}`" for ref in missing_refs) or "- `none`"
+    route_type_lines = "\n".join(
+        f"- `{route['route_type']}`" for route in plate_routes
+    )
+    unresolved_note = ""
+    if any("\ufffd" in value for value in row.values()):
+        unresolved_note = (
+            "\n## Source Character Warning / 来源字符提示\n\n"
+            "- unresolved source character found in one imported source value.\n"
+            "- Check the original source row before copying this value.\n"
+        )
+    text = f"""# Text And OCR Quality Review / 文本与 OCR 质量复核
+
+Project ID: `{project_id}`
+
+Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
+
+## Primary Text Evidence State / 主要文本证据状态
+
+- Formal `obi-*` ID: `not_assigned_formal_obi_id`
+- Text status: `needs_primary_text_or_OCR_route_review`
+- OCR status: `OCR route remains pending source review`
+- Text quality blocker: `text_quality_blocker`
+- Plate or image status: `needs_plate_image_or_rubbing_review_route`
+- Review status: `needs_human_inscription_crosswalk_review`
+
+Plate image or rubbing must be opened before text use.
+
+Do not assign a formal `obi-*` ID from OCR or catalog text.
+
+图版、拓片或照片未打开前，不得把文本当作可用证据。
+
+不得依据 OCR 或著录文本分配正式 `obi-*` 编号。
+
+## Local Evidence To Open / 本目录应打开的证据
+
+- Human dossier: `07_human-inscription-dossier.md`
+- Plate and catalog evidence: `09_inscription-plate-evidence-dossier.md`
+- Fact matrix: `11_inscription-review-fact-matrix.md`
+- Catalog route table: `03_catalog-reference-index.csv`
+- Plate and text route table: `05_plate-text-route-index.csv`
+- Source row table: `02_crosswalk-source-index.csv`
+- Source package manifest: `009_source-package-file-manifest.csv`
+- Source field map: `007_source-field-map.csv`
+
+Structured tables only point to review routes. They do not replace the human
+inspection of plate, rubbing, OCR, catalog line, page, or source object.
+
+结构化表格只指向复核路线，不能替代人对图版、拓片、OCR、著录行、
+页码或来源对象的检查。
+
+## Catalog And Route Signals / 著录与路线信号
+
+- Period label: `{row['period_label']}`
+- Classification group: `{row['group_number']}`
+- Catalog reference count: `{len(catalog_rows)}`
+- Plate and text route count: `{len(plate_routes)}`
+- Rights status: `{row['rights_status']}`
+- Evidence download ID: `{DOWNLOAD_ID}`
+
+Missing catalog reference types:
+
+{missing_ref_lines}
+
+Route types to open:
+
+{route_type_lines}
+
+These signals are preprocessing aids only. They are not a transcription,
+reading, corpus import approval, or decipherment conclusion.
+
+这些信号只是预处理辅助，不是释文、读法、语料导入批准或释读结论。
+{unresolved_note}
+
+## Concrete Questions To Check / 具体待查问题
+
+- Which OCR, transcription, plate, page, or catalog line is primary?
+- Which image, rubbing, or object record must be opened before text use?
+- Which signs are unreadable, missing, uncertain, or only catalog labels?
+- Which linked glyph occurrence remains candidate-only?
+- Which Heji, OBM, Chalfant, Yingguo, or CUL route anchors the text?
+- Which checksum, manifest, field map, rights note, or risk note applies?
+- Which bibliography or dispute record must be reviewed before conclusions?
+
+## Boundary / 边界
+
+- not a formal inscription record
+- not an object identity claim
+- not a transcription
+- not an inscription reading
+- not corpus import approval
+- not a decipherment conclusion
+- 不是正式卜辞记录
+- 不是馆藏对象同一性结论
+- 不是释文
+- 不是卜辞读法
+- 不是语料导入批准
+- 不是释读结论
+"""
+    assert_human_line_width(f"{project_id}/13_text-ocr-quality-review.md", text)
+    return text
+
+
+def text_ocr_quality_index(
+    row: dict[str, str],
+    project_id: str,
+    catalog_rows: list[dict[str, str]],
+    plate_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    missing_refs = [
+        ref["reference_type"]
+        for ref in catalog_rows
+        if ref["reference_status"] == "missing_or_unassigned"
+    ]
+    return {
+        "project_id": project_id,
+        "record_type": "inscription_text_ocr_quality_review_index",
+        "candidate_inscription_crosswalk_id": row["candidate_inscription_crosswalk_id"],
+        "human_readable_files": [
+            "README.md",
+            "07_human-inscription-dossier.md",
+            "09_inscription-plate-evidence-dossier.md",
+            "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
+        ],
+        "ai_support_files": [
+            "01_candidate-inscription-crosswalk-packet.json",
+            "02_crosswalk-source-index.csv",
+            "03_catalog-reference-index.csv",
+            "05_plate-text-route-index.csv",
+            "08_inscription-dossier-index.json",
+            "10_inscription-plate-evidence-index.json",
+            "12_inscription-review-fact-matrix-index.json",
+        ],
+        "catalog_reference_count": len(catalog_rows),
+        "plate_text_route_count": len(plate_routes),
+        "missing_reference_types": missing_refs,
+        "missing_or_review_fields": [
+            "text_quality_blocker",
+            "full_inscription_text_or_ocr",
+            "primary_transcription_route",
+            "plate_image_or_rubbing",
+            "linked_glyph_occurrence_review",
+            "rights_checksum_manifest_field_map_review",
+            "bibliography_reading_history_dispute_review",
+        ],
+        "text_quality_status": "needs_primary_text_or_OCR_route_review",
+        "formal_inscription_assignment_status": "not_assigned_formal_obi_id",
+        "review_status": "needs_human_inscription_crosswalk_review",
         "claim_boundary": [
             "no formal inscription record",
             "no object identity claim",
@@ -1337,6 +1513,7 @@ def dossier_index(
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
             "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
         ],
         "ai_readable_files": [
             "01_candidate-inscription-crosswalk-packet.json",
@@ -1345,6 +1522,7 @@ def dossier_index(
             "05_plate-text-route-index.csv",
             "10_inscription-plate-evidence-index.json",
             "12_inscription-review-fact-matrix-index.json",
+            "14_text-ocr-quality-index.json",
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
@@ -1451,6 +1629,18 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 project_id,
                 review_fact_rows,
             ),
+            "text_ocr_quality_review_text": text_ocr_quality_review_text(
+                row,
+                project_id,
+                catalog_rows,
+                plate_routes,
+            ),
+            "text_ocr_quality_index": text_ocr_quality_index(
+                row,
+                project_id,
+                catalog_rows,
+                plate_routes,
+            ),
             "map_row": {
                 "project_id": project_id,
                 "record_type": "inscription_crosswalk_candidate",
@@ -1504,6 +1694,12 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "review_fact_matrix_index_path": (
                     relative_object_dir / "12_inscription-review-fact-matrix-index.json"
                 ).as_posix(),
+                "text_ocr_quality_review_path": (
+                    relative_object_dir / "13_text-ocr-quality-review.md"
+                ).as_posix(),
+                "text_ocr_quality_index_path": (
+                    relative_object_dir / "14_text-ocr-quality-index.json"
+                ).as_posix(),
                 "review_status": "needs_human_inscription_crosswalk_review",
                 "updated_at": UPDATED_AT,
             }
@@ -1524,6 +1720,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
         "plate_evidence_index_path",
         "review_fact_matrix_path",
         "review_fact_matrix_index_path",
+        "text_ocr_quality_review_path",
+        "text_ocr_quality_index_path",
         "review_status",
         "updated_at",
     ]
@@ -1600,6 +1798,17 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         )
         (object_dir / "12_inscription-review-fact-matrix-index.json").write_text(
             json.dumps(output["review_fact_matrix_index"], ensure_ascii=False, indent=2, sort_keys=True)
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "13_text-ocr-quality-review.md").write_text(
+            str(output["text_ocr_quality_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "14_text-ocr-quality-index.json").write_text(
+            json.dumps(output["text_ocr_quality_index"], ensure_ascii=False, indent=2, sort_keys=True)
             + "\n",
             encoding="utf-8",
             newline="\n",

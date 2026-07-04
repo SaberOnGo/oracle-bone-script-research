@@ -4613,6 +4613,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "10_inscription-plate-evidence-index.json").exists())
             self.assertTrue((object_dir / "11_inscription-review-fact-matrix.md").exists())
             self.assertTrue((object_dir / "12_inscription-review-fact-matrix-index.json").exists())
+            self.assertTrue((object_dir / "13_text-ocr-quality-review.md").exists())
+            self.assertTrue((object_dir / "14_text-ocr-quality-index.json").exists())
             with (object_dir / "05_plate-text-route-index.csv").open(
                 "r",
                 encoding="utf-8-sig",
@@ -4853,6 +4855,69 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "no decipherment conclusion",
                 fact_matrix_index["claim_boundary"],
+            )
+            text_ocr_review = (
+                object_dir / "13_text-ocr-quality-review.md"
+            ).read_text(encoding="utf-8")
+            assert_no_inscription_mojibake_fragments(
+                self,
+                text_ocr_review,
+                f"{row['project_id']} 13_text-ocr-quality-review.md",
+            )
+            self.assertIn("Text And OCR Quality Review", text_ocr_review)
+            self.assertIn("Primary Text Evidence State", text_ocr_review)
+            self.assertIn("OCR route remains pending source review", text_ocr_review)
+            self.assertIn(
+                "Plate image or rubbing must be opened before text use.",
+                text_ocr_review,
+            )
+            self.assertIn(
+                "Do not assign a formal `obi-*` ID from OCR or catalog text.",
+                text_ocr_review,
+            )
+            self.assertIn(
+                "Which OCR, transcription, plate, page, or catalog line is primary?",
+                text_ocr_review,
+            )
+            self.assertIn(
+                "Which signs are unreadable, missing, uncertain, or only catalog labels?",
+                text_ocr_review,
+            )
+            self.assertIn(
+                "Which linked glyph occurrence remains candidate-only?",
+                text_ocr_review,
+            )
+            self.assertIn("text_quality_blocker", text_ocr_review)
+            self.assertIn("needs_primary_text_or_OCR_route_review", text_ocr_review)
+            self.assertNotIn("not_collected", text_ocr_review)
+            for line in text_ocr_review.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            text_ocr_index = json.loads(
+                (object_dir / "14_text-ocr-quality-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                text_ocr_index["record_type"],
+                "inscription_text_ocr_quality_review_index",
+            )
+            self.assertIn(
+                "13_text-ocr-quality-review.md",
+                text_ocr_index["human_readable_files"],
+            )
+            self.assertIn(
+                "05_plate-text-route-index.csv",
+                text_ocr_index["ai_support_files"],
+            )
+            self.assertIn(
+                "text_quality_blocker",
+                text_ocr_index["missing_or_review_fields"],
+            )
+            self.assertIn("no transcription", text_ocr_index["claim_boundary"])
+            self.assertIn("no inscription reading", text_ocr_index["claim_boundary"])
+            self.assertIn(
+                "no decipherment conclusion",
+                text_ocr_index["claim_boundary"],
             )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
@@ -5131,6 +5196,68 @@ class RepositorySkeletonTests(unittest.TestCase):
             "inscription_review_fact_matrix_index",
         )
         self.assertEqual(first["review_fact_matrix_index"]["fact_count"], 11)
+        self.assertIn("text_ocr_quality_review_text", first)
+        self.assertIn("text_ocr_quality_index", first)
+        self.assertIn(
+            "Text And OCR Quality Review",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "Primary Text Evidence State",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "OCR route remains pending source review",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "Plate image or rubbing must be opened before text use.",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "Do not assign a formal `obi-*` ID from OCR or catalog text.",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "Which OCR, transcription, plate, page, or catalog line is primary?",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "Which signs are unreadable, missing, uncertain, or only catalog labels?",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn(
+            "Which linked glyph occurrence remains candidate-only?",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertIn("text_quality_blocker", first["text_ocr_quality_review_text"])
+        self.assertIn(
+            "needs_primary_text_or_OCR_route_review",
+            first["text_ocr_quality_review_text"],
+        )
+        self.assertNotIn("not_collected", first["text_ocr_quality_review_text"])
+        for line in first["text_ocr_quality_review_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["text_ocr_quality_index"]["record_type"],
+            "inscription_text_ocr_quality_review_index",
+        )
+        self.assertIn(
+            "13_text-ocr-quality-review.md",
+            first["text_ocr_quality_index"]["human_readable_files"],
+        )
+        self.assertIn(
+            "05_plate-text-route-index.csv",
+            first["text_ocr_quality_index"]["ai_support_files"],
+        )
+        self.assertIn(
+            "text_quality_blocker",
+            first["text_ocr_quality_index"]["missing_or_review_fields"],
+        )
+        self.assertIn(
+            "no decipherment conclusion",
+            first["text_ocr_quality_index"]["claim_boundary"],
+        )
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
             first["plate_evidence_index"]["human_readable_files"],
@@ -5142,6 +5269,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "readme_text",
             "plate_text_gallery_text",
             "human_dossier_text",
+            "text_ocr_quality_review_text",
         ]:
             self.assertNotIn("\ufffd", unresolved[output_key], output_key)
             self.assertIn(

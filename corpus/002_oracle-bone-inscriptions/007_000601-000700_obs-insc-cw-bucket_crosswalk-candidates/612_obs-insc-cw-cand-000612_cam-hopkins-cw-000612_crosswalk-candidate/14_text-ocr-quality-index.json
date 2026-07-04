@@ -1,0 +1,48 @@
+{
+  "ai_support_files": [
+    "01_candidate-inscription-crosswalk-packet.json",
+    "02_crosswalk-source-index.csv",
+    "03_catalog-reference-index.csv",
+    "05_plate-text-route-index.csv",
+    "08_inscription-dossier-index.json",
+    "10_inscription-plate-evidence-index.json",
+    "12_inscription-review-fact-matrix-index.json"
+  ],
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000612",
+  "catalog_reference_count": 4,
+  "claim_boundary": [
+    "no formal inscription record",
+    "no object identity claim",
+    "no transcription",
+    "no inscription reading",
+    "no corpus import approval",
+    "no decipherment conclusion"
+  ],
+  "formal_inscription_assignment_status": "not_assigned_formal_obi_id",
+  "human_readable_files": [
+    "README.md",
+    "07_human-inscription-dossier.md",
+    "09_inscription-plate-evidence-dossier.md",
+    "11_inscription-review-fact-matrix.md",
+    "13_text-ocr-quality-review.md"
+  ],
+  "missing_or_review_fields": [
+    "text_quality_blocker",
+    "full_inscription_text_or_ocr",
+    "primary_transcription_route",
+    "plate_image_or_rubbing",
+    "linked_glyph_occurrence_review",
+    "rights_checksum_manifest_field_map_review",
+    "bibliography_reading_history_dispute_review"
+  ],
+  "missing_reference_types": [
+    "cambridge_university_library",
+    "heji"
+  ],
+  "plate_text_route_count": 5,
+  "project_id": "obs-insc-cw-cand-000612",
+  "record_type": "inscription_text_ocr_quality_review_index",
+  "review_status": "needs_human_inscription_crosswalk_review",
+  "text_quality_status": "needs_primary_text_or_OCR_route_review",
+  "updated_at": "2026-06-21"
+}

@@ -6,7 +6,8 @@
     "05_plate-text-route-index.csv",
     "08_inscription-dossier-index.json",
     "10_inscription-plate-evidence-index.json",
-    "12_inscription-review-fact-matrix-index.json"
+    "12_inscription-review-fact-matrix-index.json",
+    "14_text-ocr-quality-index.json"
   ],
   "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000036",
   "catalog_reference_count": 4,
@@ -25,7 +26,8 @@
     "06_plate-text-gallery.md",
     "07_human-inscription-dossier.md",
     "09_inscription-plate-evidence-dossier.md",
-    "11_inscription-review-fact-matrix.md"
+    "11_inscription-review-fact-matrix.md",
+    "13_text-ocr-quality-review.md"
   ],
   "missing_or_review_fields": [
     "full_inscription_text_or_ocr",

@@ -88,6 +88,7 @@ OBJECT_SPECS = [
             "06_human-review-sheet.md",
             "08_character-context-evidence-dossier.md",
             "10_archaeology-paleography-review.md",
+            "12_human-research-readiness-review.md",
         ),
         (
             "01_*packet.json",
@@ -95,12 +96,14 @@ OBJECT_SPECS = [
             "07_research-dossier-index.json",
             "09_character-context-evidence-index.json",
             "11_archaeology-paleography-index.json",
+            "13_human-research-readiness-index.json",
         ),
         ("03_visual-assets",),
         (
             "04_visual-gallery.md",
             "08_character-context-evidence-dossier.md",
             "10_archaeology-paleography-review.md",
+            "12_human-research-readiness-review.md",
         ),
     ),
     ObjectSpec(
@@ -356,6 +359,7 @@ def read_packet(path: Path) -> dict[str, object]:
 def project_id_for_packet(packet: dict[str, object], object_dir: Path) -> str:
     for key in (
         "project_id",
+        "unknown_candidate_id",
         "suggested_oracle_character_id",
         "candidate_component_id",
         "candidate_evolution_id",

@@ -7545,6 +7545,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-char-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
+            by_project["obs-unk-000001"]["material_bundle_status"],
+            "object_local_bundle_with_review_image",
+        )
+        self.assertEqual(by_project["obs-unk-000001"]["human_file_count"], "7")
+        self.assertEqual(by_project["obs-unk-000001"]["ai_file_count"], "6")
+        self.assertEqual(by_project["obs-unk-000001"]["route_file_count"], "4")
+        self.assertEqual(by_project["obs-unk-000001"]["source_ids"], "src-hust-obc")
+        self.assertEqual(
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )

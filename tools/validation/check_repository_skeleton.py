@@ -5697,10 +5697,27 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
     if dict(sorted(status_counts.items())) != expected_status_counts:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} status counts changed")
+    expected_project_id_prefixes = {
+        "codepoint_crosswalk_candidates": ("obs-xwalk-cand-",),
+        "collection_object_candidates": ("coll-obj-cand-",),
+        "evolution_correspondence_candidates": ("obs-evo-cand-",),
+        "graphemic_component_candidates": ("obs-comp-cand-",),
+        "inscription_crosswalk_candidates": ("obs-insc-cw-cand-",),
+        "oracle_character_candidates": ("obs-char-", "obs-unk-"),
+        "research_source_objects": ("src-",),
+        "research_topic_candidates": ("obs-topic-cand-",),
+    }
     for row in rows:
         row_id = row.get("coverage_audit_id", "")
+        corpus_area = row.get("corpus_area", "")
+        project_id = row.get("project_id", "")
         if not row.get("object_dir", "").startswith("corpus/"):
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} object outside corpus: {row_id}")
+        expected_prefixes = expected_project_id_prefixes.get(corpus_area, ())
+        if expected_prefixes and not project_id.startswith(expected_prefixes):
+            issues.append(
+                f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} project ID prefix changed: {row_id}"
+            )
         if not row.get("source_ids", ""):
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} missing source_ids: {row_id}")
         if row.get("parallel_human_directory_present") != "false":

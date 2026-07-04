@@ -249,6 +249,9 @@ OBJECT_SPECS = [
             "08_source-processing-status.md",
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
+            "14_source-to-dossier-transfer-review.md",
+            "16_source-literature-scope-review.md",
+            "18_source-access-integrity-review.md",
         ),
         (
             "01_source-packet.json",
@@ -259,6 +262,9 @@ OBJECT_SPECS = [
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
             "13_source-provenance-fact-matrix-index.json",
+            "15_source-to-dossier-transfer-index.json",
+            "17_source-literature-scope-index.json",
+            "19_source-access-integrity-index.json",
         ),
         (),
         (

@@ -6,7 +6,8 @@
     "16_source-literature-scope-review.md",
     "10_source-evidence-dossier.md",
     "14_source-to-dossier-transfer-review.md",
-    "06_human-source-review-sheet.md"
+    "06_human-source-review-sheet.md",
+    "18_source-access-integrity-review.md"
   ],
   "ai_support_files": [
     "01_source-packet.json",
@@ -14,7 +15,8 @@
     "03_package-route-index.csv",
     "04_field-map-route-index.csv",
     "11_source-evidence-dossier-index.json",
-    "15_source-to-dossier-transfer-index.json"
+    "15_source-to-dossier-transfer-index.json",
+    "19_source-access-integrity-index.json"
   ],
   "review_slots": [
     "bibliography_note",

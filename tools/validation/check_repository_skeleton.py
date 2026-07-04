@@ -5632,6 +5632,27 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "not a confirmed bibliography conclusion",
         "not a decipherment conclusion",
     ]
+    required_files["18_source-access-integrity-review.md"] = [
+        "Source Access Integrity Review",
+        "来源访问完整性复核",
+        "Access Download Checksum And Size",
+        "访问下载校验与大小",
+        "Package Manifest Field Map And Derivatives",
+        "清单映射与派生",
+        "Rights Risk And Public Commit Decision",
+        "权利风险与公开提交判断",
+        "Concrete Access Integrity Questions",
+        "具体访问完整性问题",
+        "02_download-route-index.csv",
+        "03_package-route-index.csv",
+        "04_field-map-route-index.csv",
+        "05_metadata-profile-route-index.csv",
+        "10_source-evidence-dossier.md",
+        "12_source-provenance-fact-matrix.md",
+        "not a rights decision",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+    ]
     source_pending_anchors = (
         "02_download-route-index.csv",
         "03_package-route-index.csv",
@@ -5711,8 +5732,12 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{source_dossier_index_path.relative_to(root)} record_type changed")
         if "10_source-evidence-dossier.md" not in source_dossier_index.get("human_readable_files", []):
             issues.append(f"{source_dossier_index_path.relative_to(root)} missing human dossier link")
+        if "18_source-access-integrity-review.md" not in source_dossier_index.get("human_readable_files", []):
+            issues.append(f"{source_dossier_index_path.relative_to(root)} missing access integrity review link")
         if "01_source-packet.json" not in source_dossier_index.get("ai_support_files", []):
             issues.append(f"{source_dossier_index_path.relative_to(root)} missing source packet link")
+        if "19_source-access-integrity-index.json" not in source_dossier_index.get("ai_support_files", []):
+            issues.append(f"{source_dossier_index_path.relative_to(root)} missing access integrity index link")
         if "no rights decision" not in source_dossier_index.get("claim_boundary", []):
             issues.append(f"{source_dossier_index_path.relative_to(root)} missing rights boundary")
         fact_matrix_index_path = object_dir / "13_source-provenance-fact-matrix-index.json"
@@ -5730,8 +5755,12 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{fact_matrix_index_path.relative_to(root)} fact_count changed")
         if "12_source-provenance-fact-matrix.md" not in fact_matrix_index.get("human_readable_files", []):
             issues.append(f"{fact_matrix_index_path.relative_to(root)} missing human matrix link")
+        if "18_source-access-integrity-review.md" not in fact_matrix_index.get("human_readable_files", []):
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} missing access integrity review link")
         if "01_source-packet.json" not in fact_matrix_index.get("ai_support_files", []):
             issues.append(f"{fact_matrix_index_path.relative_to(root)} missing source packet link")
+        if "19_source-access-integrity-index.json" not in fact_matrix_index.get("ai_support_files", []):
+            issues.append(f"{fact_matrix_index_path.relative_to(root)} missing access integrity index link")
         if "no rights decision" not in fact_matrix_index.get("claim_boundary", []):
             issues.append(f"{fact_matrix_index_path.relative_to(root)} missing rights boundary")
         transfer_index_path = object_dir / "15_source-to-dossier-transfer-index.json"
@@ -5749,8 +5778,12 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{transfer_index_path.relative_to(root)} missing transfer review link")
         if "10_source-evidence-dossier.md" not in transfer_index.get("human_readable_files", []):
             issues.append(f"{transfer_index_path.relative_to(root)} missing evidence dossier link")
+        if "18_source-access-integrity-review.md" not in transfer_index.get("human_readable_files", []):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing access integrity review link")
         if "01_source-packet.json" not in transfer_index.get("ai_support_files", []):
             issues.append(f"{transfer_index_path.relative_to(root)} missing source packet link")
+        if "19_source-access-integrity-index.json" not in transfer_index.get("ai_support_files", []):
+            issues.append(f"{transfer_index_path.relative_to(root)} missing access integrity index link")
         expected_transfer_slots = {
             "character_dossier_transfer",
             "inscription_plate_transfer",
@@ -5785,8 +5818,20 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(
                 f"{literature_scope_index_path.relative_to(root)} missing evidence dossier link"
             )
+        if "18_source-access-integrity-review.md" not in literature_scope_index.get(
+            "human_readable_files", []
+        ):
+            issues.append(
+                f"{literature_scope_index_path.relative_to(root)} missing access integrity review link"
+            )
         if "01_source-packet.json" not in literature_scope_index.get("ai_support_files", []):
             issues.append(f"{literature_scope_index_path.relative_to(root)} missing source packet link")
+        if "19_source-access-integrity-index.json" not in literature_scope_index.get(
+            "ai_support_files", []
+        ):
+            issues.append(
+                f"{literature_scope_index_path.relative_to(root)} missing access integrity index link"
+            )
         expected_literature_slots = {
             "bibliography_note",
             "database_scope",
@@ -5804,6 +5849,49 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             "claim_boundary", []
         ):
             issues.append(f"{literature_scope_index_path.relative_to(root)} missing bibliography boundary")
+        access_integrity_index_path = object_dir / "19_source-access-integrity-index.json"
+        if not access_integrity_index_path.is_file():
+            issues.append(f"{object_dir.name} missing 19_source-access-integrity-index.json")
+            continue
+        try:
+            access_integrity_index = json.loads(
+                access_integrity_index_path.read_text(encoding="utf-8")
+            )
+        except json.JSONDecodeError as exc:
+            issues.append(
+                f"{access_integrity_index_path.relative_to(root)} invalid JSON: {exc}"
+            )
+            continue
+        if access_integrity_index.get("record_type") != "source_access_integrity_index":
+            issues.append(f"{access_integrity_index_path.relative_to(root)} record_type changed")
+        if "18_source-access-integrity-review.md" not in access_integrity_index.get(
+            "human_readable_files", []
+        ):
+            issues.append(
+                f"{access_integrity_index_path.relative_to(root)} missing human review link"
+            )
+        if "02_download-route-index.csv" not in access_integrity_index.get("ai_support_files", []):
+            issues.append(
+                f"{access_integrity_index_path.relative_to(root)} missing download route link"
+            )
+        expected_integrity_slots = {
+            "access_or_download_record",
+            "checksum",
+            "file_size",
+            "package_manifest",
+            "field_map",
+            "metadata_profile",
+            "derived_paths",
+            "rights_status",
+            "risk_note",
+            "large_source_exception_or_storage",
+        }
+        if not expected_integrity_slots.issubset(
+            set(access_integrity_index.get("integrity_slots", []))
+        ):
+            issues.append(f"{access_integrity_index_path.relative_to(root)} missing integrity slots")
+        if "no decipherment conclusion" not in access_integrity_index.get("claim_boundary", []):
+            issues.append(f"{access_integrity_index_path.relative_to(root)} missing decipherment boundary")
     return issues
 
 
@@ -14363,7 +14451,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 128",
-        "source register files: 393",
+        "source register files: 435",
         "bibliographic identity",
         "source trail",
         "scope",

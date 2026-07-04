@@ -238,6 +238,8 @@ def source_packet(
             "15_source-to-dossier-transfer-index.json",
             "16_source-literature-scope-review.md",
             "17_source-literature-scope-index.json",
+            "18_source-access-integrity-review.md",
+            "19_source-access-integrity-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -389,6 +391,7 @@ def source_evidence_dossier_index_payload(
             "12_source-provenance-fact-matrix.md",
             "14_source-to-dossier-transfer-review.md",
             "16_source-literature-scope-review.md",
+            "18_source-access-integrity-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -401,6 +404,7 @@ def source_evidence_dossier_index_payload(
             "13_source-provenance-fact-matrix-index.json",
             "15_source-to-dossier-transfer-index.json",
             "17_source-literature-scope-index.json",
+            "19_source-access-integrity-index.json",
         ],
         "source_route_files": [
             SOURCE_INDEX.as_posix(),
@@ -428,6 +432,7 @@ def source_evidence_dossier_index_payload(
             "different_opinions_or_disputes",
             "license_text_review",
             "derived_record_review_results",
+            "source_access_integrity_review_results",
         ],
         "claim_boundary": [
             "no rights decision",
@@ -539,6 +544,7 @@ def source_provenance_fact_matrix_index_payload(
             "07_material-access-index.md",
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
+            "18_source-access-integrity-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -547,6 +553,7 @@ def source_provenance_fact_matrix_index_payload(
             "04_field-map-route-index.csv",
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
+            "19_source-access-integrity-index.json",
         ],
         "facts": fact_rows,
         "claim_boundary": [
@@ -748,6 +755,7 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "12_source-provenance-fact-matrix.md",
             "06_human-source-review-sheet.md",
             "16_source-literature-scope-review.md",
+            "18_source-access-integrity-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -757,6 +765,7 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "05_metadata-profile-route-index.csv",
             "11_source-evidence-dossier-index.json",
             "17_source-literature-scope-index.json",
+            "19_source-access-integrity-index.json",
         ],
         "transfer_slots": [slot["slot"] for slot in TRANSFER_SLOTS],
         "target_routes": [slot["target"] for slot in TRANSFER_SLOTS],
@@ -896,6 +905,7 @@ def source_literature_scope_index_payload(source: dict[str, str]) -> dict[str, o
             "10_source-evidence-dossier.md",
             "14_source-to-dossier-transfer-review.md",
             "06_human-source-review-sheet.md",
+            "18_source-access-integrity-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -904,6 +914,7 @@ def source_literature_scope_index_payload(source: dict[str, str]) -> dict[str, o
             "04_field-map-route-index.csv",
             "11_source-evidence-dossier-index.json",
             "15_source-to-dossier-transfer-index.json",
+            "19_source-access-integrity-index.json",
         ],
         "review_slots": [
             "bibliography_note",
@@ -925,6 +936,212 @@ def source_literature_scope_index_payload(source: dict[str, str]) -> dict[str, o
             "no decipherment conclusion",
         ],
         "review_status": "needs_human_source_literature_scope_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def source_access_integrity_review_text(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    local_temp_count = sum(1 for row in download_routes if row.get("local_temp_path"))
+    missing_checksum_count = len(download_routes) - checksum_count(download_routes)
+    missing_size_count = len(download_routes) - sized_count(download_routes)
+    lines = [
+        "# Source Access Integrity Review / 来源访问完整性复核",
+        "",
+        "## English",
+        *wrapped(
+            "This human review page checks whether access, checksum, size, "
+            "package manifest, field map, metadata profile, derived path, "
+            "rights status, and risk evidence are visible before the source "
+            "supports any object dossier."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本页供人工复核来源的访问记录、checksum、大小、来源包清单、"
+            "字段映射、元数据概况、派生路径、权利状态和风险提示是否已经"
+            "可见。它服务具体资料对象档案，不是导入批准或学术结论。"
+        ),
+        "",
+        "## Source / 来源",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Title / 题名", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Risk note / 风险提示", source["risk_note"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        "",
+        "## Human Research Evidence First / 人类研究证据优先",
+        *wrapped(
+            "Before any technical reuse, a reviewer should ask which glyph "
+            "image, rubbing, photograph, inscription, OCR text, plate, catalog "
+            "number, provenance note, findspot, collection, period, group, "
+            "variant, component, near form, bronze-script form, seal-script "
+            "form, modern correspondence, bibliography, proposer, dispute, or "
+            "scholarship note this source can actually support."
+        ),
+        "",
+        *wrapped(
+            "技术复用之前，应先确认本来源能支持哪些字形图像、拓片、照片、"
+            "卜辞、OCR 全文、图版、著录号、出处、出土地、馆藏、时期、"
+            "组类、异体、构件、近形、金文、小篆、今字对应、书目、提出者、"
+            "争议或释读史线索。"
+        ),
+        "",
+        "## Research Slots To Protect / 必须保护的研究槽位",
+        "- Glyph image, rubbing, photograph, plate, and catalog evidence.",
+        "- Inscription text, OCR text, Heji number, and text quality note.",
+        "- Findspot, collection, period, group, batch, and provenance note.",
+        "- Variant, component, near-form, bronze, seal, and modern relation.",
+        "- Bibliography, source scope, proposer, dispute, and scholarship note.",
+        "- 字形图像、拓片、照片、图版和著录证据。",
+        "- 卜辞全文、OCR、合集号和文本质量说明。",
+        "- 出土地、馆藏、时期、组类、批次和出处说明。",
+        "- 异体、构件、近形、金文、小篆、今字和字形关系。",
+        "- 书目、来源范围、提出者、争议和释读史记录。",
+        "",
+        "## Access Download Checksum And Size / 访问下载校验与大小",
+        *bullet("Download route file / 下载路线文件", "02_download-route-index.csv"),
+        *bullet("Download route count / 下载路线数", len(download_routes)),
+        *bullet("Checksum route count / checksum 路线数", checksum_count(download_routes)),
+        *bullet("Missing checksum count / 缺 checksum 数", missing_checksum_count),
+        *bullet("Size route count / 大小路线数", sized_count(download_routes)),
+        *bullet("Missing size count / 缺大小数", missing_size_count),
+        *bullet("Local temp route count / 本地临时路线数", local_temp_count),
+        "",
+        "## Package Manifest Field Map And Derivatives / 清单映射与派生",
+        *bullet("Package route file / 来源包路线文件", "03_package-route-index.csv"),
+        *bullet("Package route count / 来源包路线数", len(package_routes)),
+        *bullet("Field map file / 字段映射文件", "04_field-map-route-index.csv"),
+        *bullet("Field map route count / 字段映射路线数", len(field_routes)),
+        *bullet("Metadata profile file / 元数据概况文件", "05_metadata-profile-route-index.csv"),
+        *bullet("Metadata profile count / 元数据概况数", len(metadata_routes)),
+        *bullet("Evidence dossier / 来源证据档案", "10_source-evidence-dossier.md"),
+        *bullet("Fact matrix / 来源事实矩阵", "12_source-provenance-fact-matrix.md"),
+        "",
+        "## Rights Risk And Public Commit Decision / 权利风险与公开提交判断",
+        *wrapped(
+            "Review rights status, risk note, file size, commit policy, and "
+            "large-source handling before any public derivative or Git commit. "
+            "Raw material that exceeds repository limits must stay in an "
+            "ignored local or external archive with source-marked manifests."
+        ),
+        "",
+        *wrapped(
+            "公开派生记录或 Git 提交之前，必须先复核权利状态、风险提示、"
+            "文件大小、提交策略和大文件处理方式。超过仓库限制的原始资料"
+            "应留在已忽略本地目录或外部归档中，只提交可审计清单。"
+        ),
+        "",
+        "## Concrete Access Integrity Questions / 具体访问完整性问题",
+        "- Which download or access row is missing checksum or size?",
+        "- Which package manifest row proves the extracted file?",
+        "- Which field-map row is safe for corpus object use?",
+        "- Which metadata profile row signals OCR or quality risk?",
+        "- Which rights or risk issue blocks public promotion?",
+        "- Which local or external archive holds raw material if too large?",
+        "- 哪条下载或访问记录仍缺 checksum 或文件大小？",
+        "- 哪条来源包清单记录能证明已抽取文件？",
+        "- 哪条字段映射记录可以安全进入具体语料对象？",
+        "- 哪条元数据概况记录提示 OCR 或质量风险？",
+        "- 哪个权利或风险问题阻止公开提升？",
+        "- 如果原始资料过大，存放在哪个本地或外部归档？",
+        "",
+        "## Files To Open / 应打开文件",
+        "- README.md",
+        "- 02_download-route-index.csv",
+        "- 03_package-route-index.csv",
+        "- 04_field-map-route-index.csv",
+        "- 05_metadata-profile-route-index.csv",
+        "- 10_source-evidence-dossier.md",
+        "- 12_source-provenance-fact-matrix.md",
+        "",
+        "## Boundary / 边界",
+        "- not a rights decision",
+        "- not corpus import approval",
+        "- not a confirmed source promotion",
+        "- not an accepted reading",
+        "- not a component assignment",
+        "- not an inscription identity",
+        "- not a correspondence conclusion",
+        "- not a decipherment conclusion",
+        "- 不是权利结论",
+        "- 不是语料导入批准",
+        "- 不是来源提升结论",
+        "- 不是已接受释读",
+        "- 不是构件归属",
+        "- 不是卜辞身份确认",
+        "- 不是字形对应结论",
+        "- 不是破译结论",
+    ]
+    return "\n".join(lines)
+
+
+def source_access_integrity_index_payload(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "record_type": "source_access_integrity_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "human_readable_files": [
+            "18_source-access-integrity-review.md",
+            "10_source-evidence-dossier.md",
+            "12_source-provenance-fact-matrix.md",
+            "06_human-source-review-sheet.md",
+        ],
+        "ai_support_files": [
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "05_metadata-profile-route-index.csv",
+            "09_source-processing-status-index.json",
+            "11_source-evidence-dossier-index.json",
+        ],
+        "integrity_slots": [
+            "access_or_download_record",
+            "checksum",
+            "file_size",
+            "package_manifest",
+            "field_map",
+            "metadata_profile",
+            "derived_paths",
+            "rights_status",
+            "risk_note",
+            "large_source_exception_or_storage",
+        ],
+        "route_counts": {
+            "download_route_count": len(download_routes),
+            "checksum_route_count": checksum_count(download_routes),
+            "size_route_count": sized_count(download_routes),
+            "package_route_count": len(package_routes),
+            "field_map_route_count": len(field_routes),
+            "metadata_profile_route_count": len(metadata_routes),
+            "local_temp_route_count": sum(
+                1 for row in download_routes if row.get("local_temp_path")
+            ),
+        },
+        "claim_boundary": [
+            "no rights decision",
+            "no corpus import approval",
+            "no confirmed source promotion",
+            "no reading",
+            "no component assignment",
+            "no inscription identity",
+            "no correspondence conclusion",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_source_access_integrity_review",
         "updated_at": UPDATED_AT,
     }
 
@@ -1515,6 +1732,9 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Processing status / 处理状态卡", "08_source-processing-status.md"),
         *bullet("Evidence dossier / 来源证据档案", "10_source-evidence-dossier.md"),
         *bullet("Fact matrix / 来源事实矩阵", "12_source-provenance-fact-matrix.md"),
+        *bullet("Transfer review / 转入复核", "14_source-to-dossier-transfer-review.md"),
+        *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
+        *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
         "",
         "## Structured Support Entrances / 结构化辅助入口",
         *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
@@ -1523,6 +1743,7 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Field maps / 字段映射路线", "04_field-map-route-index.csv"),
         *bullet("Metadata profiles / 元数据概况路线", "05_metadata-profile-route-index.csv"),
         *bullet("Status index / 处理状态索引", "09_source-processing-status-index.json"),
+        *bullet("Access integrity index / 访问完整性索引", "19_source-access-integrity-index.json"),
         "",
         *wrapped(
             "Structured support files only serve the human source dossier. They "
@@ -1592,6 +1813,11 @@ def material_access_index_text(
         *bullet("Human review sheet / 人工复核单", "06_human-source-review-sheet.md"),
         *bullet("Material access index / 资料访问索引", "07_material-access-index.md"),
         *bullet("Processing status card / 处理状态卡", "08_source-processing-status.md"),
+        *bullet("Evidence dossier / 来源证据档案", "10_source-evidence-dossier.md"),
+        *bullet("Fact matrix / 来源事实矩阵", "12_source-provenance-fact-matrix.md"),
+        *bullet("Transfer review / 转入复核", "14_source-to-dossier-transfer-review.md"),
+        *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
+        *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
         "",
         "## Structured Support Entrances / 结构化辅助入口",
         *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
@@ -1600,6 +1826,7 @@ def material_access_index_text(
         *bullet("Field-map route table / 字段映射表", "04_field-map-route-index.csv"),
         *bullet("Metadata profile table / 元数据概况表", "05_metadata-profile-route-index.csv"),
         *bullet("Processing status JSON / 处理状态索引", "09_source-processing-status-index.json"),
+        *bullet("Access integrity JSON / 访问完整性索引", "19_source-access-integrity-index.json"),
         "",
         *wrapped(
             "Structured support files only serve the human source dossier. They "
@@ -1941,6 +2168,27 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             object_dir / "17_source-literature-scope-index.json",
             source_literature_scope_index_payload(source),
+        )
+        write_human_markdown(
+            object_dir / "18_source-access-integrity-review.md",
+            f"{source_id}/18_source-access-integrity-review.md",
+            source_access_integrity_review_text(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
+        )
+        write_json(
+            object_dir / "19_source-access-integrity-index.json",
+            source_access_integrity_index_payload(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
         )
     return {"source_object_count": len(sources)}
 

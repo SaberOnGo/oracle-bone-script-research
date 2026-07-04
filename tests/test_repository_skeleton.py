@@ -7230,7 +7230,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "object_local_bundle_with_evidence_routes",
         )
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["corpus_area"], "research_source_objects")
-        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "6")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["human_file_count"], "9")
+        self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["ai_file_count"], "11")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["route_file_count"], "4")
         self.assertEqual(by_project["src-xiaoxuetang-jiaguwen"]["source_ids"], "src-xiaoxuetang-jiaguwen")
         self.assertEqual(by_project["obs-topic-cand-000001"]["corpus_area"], "research_topic_candidates")
@@ -7313,6 +7314,19 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("plate_or_publication_route", by_area["collection_object_candidates"]["required_human_slots"])
         self.assertIn("12_archaeological-context-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
         self.assertIn("field_map", by_area["research_source_objects"]["required_human_slots"])
+        self.assertIn("metadata_profile", by_area["research_source_objects"]["required_human_slots"])
+        self.assertIn(
+            "access_integrity_review",
+            by_area["research_source_objects"]["required_human_slots"],
+        )
+        self.assertIn(
+            "18_source-access-integrity-review.md",
+            by_area["research_source_objects"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "Which access-integrity row blocks source use?",
+            by_area["research_source_objects"]["concrete_depth_questions"],
+        )
         self.assertIn("citation_relation", by_area["research_topic_candidates"]["required_human_slots"])
         self.assertTrue(all(row["human_first_boundary"].startswith("human dossier first") for row in rows))
         self.assertTrue(all(row["claim_boundary"].endswith("no_decipherment_claim") for row in rows))
@@ -7579,6 +7593,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "15_source-to-dossier-transfer-index.json").is_file())
         self.assertTrue((object_dir / "16_source-literature-scope-review.md").is_file())
         self.assertTrue((object_dir / "17_source-literature-scope-index.json").is_file())
+        self.assertTrue((object_dir / "18_source-access-integrity-review.md").is_file())
+        self.assertTrue((object_dir / "19_source-access-integrity-index.json").is_file())
         readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
         readme_opening = readme_text.split("## Source Summary", 1)[0]
         self.assertIn("object-local human source research entrance", readme_text)
@@ -7699,7 +7715,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             "16_source-literature-scope-review.md",
             source_dossier_index["human_readable_files"],
         )
+        self.assertIn(
+            "18_source-access-integrity-review.md",
+            source_dossier_index["human_readable_files"],
+        )
         self.assertIn("01_source-packet.json", source_dossier_index["ai_support_files"])
+        self.assertIn(
+            "19_source-access-integrity-index.json",
+            source_dossier_index["ai_support_files"],
+        )
         self.assertIn(
             "bibliographic_citation_relationships",
             source_dossier_index["uncollected_human_research_fields"],
@@ -7714,6 +7738,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("11_source-evidence-dossier-index.json", packet["local_files"])
         self.assertIn("16_source-literature-scope-review.md", packet["local_files"])
         self.assertIn("17_source-literature-scope-index.json", packet["local_files"])
+        self.assertIn("18_source-access-integrity-review.md", packet["local_files"])
+        self.assertIn("19_source-access-integrity-index.json", packet["local_files"])
         self.assertEqual(packet["download_route_count"], 4)
         self.assertEqual(packet["package_route_count"], 2)
         self.assertEqual(packet["field_map_route_count"], 6)
@@ -7765,7 +7791,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(fact_matrix_index["fact_count"], 10)
         self.assertIn("12_source-provenance-fact-matrix.md", fact_matrix_index["human_readable_files"])
         self.assertIn("10_source-evidence-dossier.md", fact_matrix_index["human_readable_files"])
+        self.assertIn("18_source-access-integrity-review.md", fact_matrix_index["human_readable_files"])
         self.assertIn("01_source-packet.json", fact_matrix_index["ai_support_files"])
+        self.assertIn("19_source-access-integrity-index.json", fact_matrix_index["ai_support_files"])
         self.assertIn("no rights decision", fact_matrix_index["claim_boundary"])
         self.assertIn("12_source-provenance-fact-matrix.md", packet["local_files"])
         self.assertIn("13_source-provenance-fact-matrix-index.json", packet["local_files"])
@@ -7795,7 +7823,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             transfer_index["human_readable_files"],
         )
         self.assertIn("10_source-evidence-dossier.md", transfer_index["human_readable_files"])
+        self.assertIn("18_source-access-integrity-review.md", transfer_index["human_readable_files"])
         self.assertIn("01_source-packet.json", transfer_index["ai_support_files"])
+        self.assertIn("19_source-access-integrity-index.json", transfer_index["ai_support_files"])
         self.assertIn("character_dossier_transfer", transfer_index["transfer_slots"])
         self.assertIn("inscription_plate_transfer", transfer_index["transfer_slots"])
         self.assertIn("bibliography_dispute_transfer", transfer_index["transfer_slots"])
@@ -7846,13 +7876,72 @@ class RepositorySkeletonTests(unittest.TestCase):
             "10_source-evidence-dossier.md",
             literature_scope_index["human_readable_files"],
         )
+        self.assertIn(
+            "18_source-access-integrity-review.md",
+            literature_scope_index["human_readable_files"],
+        )
         self.assertIn("01_source-packet.json", literature_scope_index["ai_support_files"])
+        self.assertIn(
+            "19_source-access-integrity-index.json",
+            literature_scope_index["ai_support_files"],
+        )
         self.assertIn("bibliography_note", literature_scope_index["review_slots"])
         self.assertIn("database_scope", literature_scope_index["review_slots"])
         self.assertIn("proposer_or_editor", literature_scope_index["review_slots"])
         self.assertIn(
             "no confirmed bibliography conclusion",
             literature_scope_index["claim_boundary"],
+        )
+        access_integrity_text = (
+            object_dir / "18_source-access-integrity-review.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Source Access Integrity Review", access_integrity_text)
+        self.assertIn("来源访问完整性复核", access_integrity_text)
+        self.assertIn("Access Download Checksum And Size", access_integrity_text)
+        self.assertIn("访问下载校验与大小", access_integrity_text)
+        self.assertIn("Package Manifest Field Map And Derivatives", access_integrity_text)
+        self.assertIn("Rights Risk And Public Commit Decision", access_integrity_text)
+        self.assertIn("Concrete Access Integrity Questions", access_integrity_text)
+        self.assertIn("02_download-route-index.csv", access_integrity_text)
+        self.assertIn("03_package-route-index.csv", access_integrity_text)
+        self.assertIn("04_field-map-route-index.csv", access_integrity_text)
+        self.assertIn("05_metadata-profile-route-index.csv", access_integrity_text)
+        self.assertIn("10_source-evidence-dossier.md", access_integrity_text)
+        self.assertIn("12_source-provenance-fact-matrix.md", access_integrity_text)
+        self.assertIn("Which download or access row is missing checksum or size?", access_integrity_text)
+        self.assertIn("哪条下载或访问记录仍缺 checksum 或文件大小？", access_integrity_text)
+        self.assertIn("not a rights decision", access_integrity_text)
+        self.assertIn("not corpus import approval", access_integrity_text)
+        self.assertIn("not a decipherment conclusion", access_integrity_text)
+        self.assertNotIn("not_collected", access_integrity_text)
+        self.assertTrue(all(len(line) <= 80 for line in access_integrity_text.splitlines()))
+        access_integrity_index = json.loads(
+            (object_dir / "19_source-access-integrity-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(
+            access_integrity_index["record_type"],
+            "source_access_integrity_index",
+        )
+        self.assertIn(
+            "18_source-access-integrity-review.md",
+            access_integrity_index["human_readable_files"],
+        )
+        self.assertIn("02_download-route-index.csv", access_integrity_index["ai_support_files"])
+        self.assertIn("checksum", access_integrity_index["integrity_slots"])
+        self.assertIn("metadata_profile", access_integrity_index["integrity_slots"])
+        self.assertIn(
+            "large_source_exception_or_storage",
+            access_integrity_index["integrity_slots"],
+        )
+        self.assertEqual(
+            access_integrity_index["route_counts"]["download_route_count"],
+            4,
+        )
+        self.assertIn(
+            "no decipherment conclusion",
+            access_integrity_index["claim_boundary"],
         )
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
@@ -26156,7 +26245,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"393"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"435"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -26254,7 +26343,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 128",
-            "source register files: 393",
+            "source register files: 435",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -26283,7 +26372,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 128", text)
-        self.assertIn("source register files: 393", text)
+        self.assertIn("source register files: 435", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

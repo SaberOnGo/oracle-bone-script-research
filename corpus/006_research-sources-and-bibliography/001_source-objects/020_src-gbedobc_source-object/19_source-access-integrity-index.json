@@ -1,0 +1,53 @@
+{
+  "record_type": "source_access_integrity_index",
+  "source_id": "src-gbedobc",
+  "source_title": "GBEDOBC graph-based evolutionary dataset",
+  "human_readable_files": [
+    "18_source-access-integrity-review.md",
+    "10_source-evidence-dossier.md",
+    "12_source-provenance-fact-matrix.md",
+    "06_human-source-review-sheet.md"
+  ],
+  "ai_support_files": [
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "09_source-processing-status-index.json",
+    "11_source-evidence-dossier-index.json"
+  ],
+  "integrity_slots": [
+    "access_or_download_record",
+    "checksum",
+    "file_size",
+    "package_manifest",
+    "field_map",
+    "metadata_profile",
+    "derived_paths",
+    "rights_status",
+    "risk_note",
+    "large_source_exception_or_storage"
+  ],
+  "route_counts": {
+    "download_route_count": 2,
+    "checksum_route_count": 2,
+    "size_route_count": 2,
+    "package_route_count": 2,
+    "field_map_route_count": 1,
+    "metadata_profile_route_count": 3,
+    "local_temp_route_count": 2
+  },
+  "claim_boundary": [
+    "no rights decision",
+    "no corpus import approval",
+    "no confirmed source promotion",
+    "no reading",
+    "no component assignment",
+    "no inscription identity",
+    "no correspondence conclusion",
+    "no decipherment conclusion"
+  ],
+  "review_status": "needs_human_source_access_integrity_review",
+  "updated_at": "2026-06-21"
+}

@@ -13,6 +13,11 @@ map, not a rights decision.
 - Human review sheet / 人工复核单: 06_human-source-review-sheet.md
 - Material access index / 资料访问索引: 07_material-access-index.md
 - Processing status card / 处理状态卡: 08_source-processing-status.md
+- Evidence dossier / 来源证据档案: 10_source-evidence-dossier.md
+- Fact matrix / 来源事实矩阵: 12_source-provenance-fact-matrix.md
+- Transfer review / 转入复核: 14_source-to-dossier-transfer-review.md
+- Literature scope / 文献范围: 16_source-literature-scope-review.md
+- Access integrity / 访问完整性: 18_source-access-integrity-review.md
 
 ## Structured Support Entrances / 结构化辅助入口
 - Structured source packet / 结构化来源包: 01_source-packet.json
@@ -21,6 +26,7 @@ map, not a rights decision.
 - Field-map route table / 字段映射表: 04_field-map-route-index.csv
 - Metadata profile table / 元数据概况表: 05_metadata-profile-route-index.csv
 - Processing status JSON / 处理状态索引: 09_source-processing-status-index.json
+- Access integrity JSON / 访问完整性索引: 19_source-access-integrity-index.json
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

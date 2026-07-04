@@ -64,6 +64,9 @@ local-private.
 - Processing status / 处理状态卡: 08_source-processing-status.md
 - Evidence dossier / 来源证据档案: 10_source-evidence-dossier.md
 - Fact matrix / 来源事实矩阵: 12_source-provenance-fact-matrix.md
+- Transfer review / 转入复核: 14_source-to-dossier-transfer-review.md
+- Literature scope / 文献范围: 16_source-literature-scope-review.md
+- Access integrity / 访问完整性: 18_source-access-integrity-review.md
 
 ## Structured Support Entrances / 结构化辅助入口
 - Structured source packet / 结构化来源包: 01_source-packet.json
@@ -72,6 +75,7 @@ local-private.
 - Field maps / 字段映射路线: 04_field-map-route-index.csv
 - Metadata profiles / 元数据概况路线: 05_metadata-profile-route-index.csv
 - Status index / 处理状态索引: 09_source-processing-status-index.json
+- Access integrity index / 访问完整性索引: 19_source-access-integrity-index.json
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

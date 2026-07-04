@@ -7,7 +7,8 @@
     "06_human-source-review-sheet.md",
     "07_material-access-index.md",
     "10_source-evidence-dossier.md",
-    "12_source-provenance-fact-matrix.md"
+    "12_source-provenance-fact-matrix.md",
+    "18_source-access-integrity-review.md"
   ],
   "ai_support_files": [
     "01_source-packet.json",
@@ -15,7 +16,8 @@
     "03_package-route-index.csv",
     "04_field-map-route-index.csv",
     "09_source-processing-status-index.json",
-    "11_source-evidence-dossier-index.json"
+    "11_source-evidence-dossier-index.json",
+    "19_source-access-integrity-index.json"
   ],
   "facts": [
     {

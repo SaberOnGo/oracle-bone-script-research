@@ -32234,6 +32234,8 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         "09_codepoint-crosswalk-fact-matrix-index.json",
         "10_cross-source-conflict-review.md",
         "11_cross-source-conflict-index.json",
+        "12_modern-label-boundary-review.md",
+        "13_modern-label-boundary-index.json",
     }
     by_project = {row.get("project_id", ""): row for row in map_rows}
     for expected_id in ["obs-xwalk-cand-000001", "obs-xwalk-cand-000047", "obs-xwalk-cand-001588"]:
@@ -32279,6 +32281,9 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         conflict_review = (object_dir / "10_cross-source-conflict-review.md").read_text(
             encoding="utf-8"
         )
+        modern_label_boundary = (
+            object_dir / "12_modern-label-boundary-review.md"
+        ).read_text(encoding="utf-8")
         for text_name, text in {
             "README.md": readme,
             "04_human-codepoint-crosswalk-review-sheet.md": review_sheet,
@@ -32286,6 +32291,7 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             "06_human-codepoint-crosswalk-dossier.md": dossier,
             "08_codepoint-crosswalk-fact-matrix.md": fact_matrix,
             "10_cross-source-conflict-review.md": conflict_review,
+            "12_modern-label-boundary-review.md": modern_label_boundary,
         }.items():
             if "not_collected" in text or "not collected" in text.lower():
                 issues.append(f"{expected_id} {text_name} contains machine filler")
@@ -32313,6 +32319,7 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             "object-local research entrance",
             "Concrete Questions To Check",
             "10_cross-source-conflict-review.md",
+            "12_modern-label-boundary-review.md",
         ]:
             if marker not in readme:
                 issues.append(f"{expected_id} README missing {marker}")
@@ -32365,6 +32372,23 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
         ]:
             if marker not in conflict_review:
                 issues.append(f"{expected_id} conflict review missing {marker}")
+        for marker in [
+            "Modern Label Boundary Review",
+            "Review Purpose",
+            "Current Label Clues",
+            "Evidence To Open Before Identity",
+            "Concrete Boundary Questions",
+            "Modern labels are lookup metadata, not oracle-character identity.",
+            "Unicode codepoints are lookup metadata, not accepted readings.",
+            "Dataset labels are source records, not component assignments.",
+            "This is not a decipherment conclusion.",
+            "现代标签是检索 metadata，不是甲骨字身份。",
+            "Unicode 码位是检索 metadata，不是已接受释读。",
+            "数据集标签是来源记录，不是构件归属。",
+            "这不是释读结论。",
+        ]:
+            if marker not in modern_label_boundary:
+                issues.append(f"{expected_id} modern label boundary missing {marker}")
         conflict_index = json.loads(
             (object_dir / "11_cross-source-conflict-index.json").read_text(
                 encoding="utf-8"
@@ -32383,6 +32407,36 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
             issues.append(f"{expected_id} conflict index human file list changed")
         if "no identity claim" not in conflict_index.get("claim_boundary", ""):
             issues.append(f"{expected_id} conflict index missing no identity boundary")
+        modern_label_boundary_index = json.loads(
+            (object_dir / "13_modern-label-boundary-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        if modern_label_boundary_index.get("project_id") != expected_id:
+            issues.append(f"{expected_id} modern label index project_id changed")
+        if (
+            modern_label_boundary_index.get("record_type")
+            != "codepoint_modern_label_boundary_index"
+        ):
+            issues.append(f"{expected_id} modern label index record_type changed")
+        expected_slots = {
+            "modern_label_candidate",
+            "unicode_codepoint_route",
+            "dataset_label_boundary",
+            "visible_glyph_evidence",
+            "inscription_or_plate_route",
+            "bibliography_or_proposer",
+            "source_dispute_or_missing_evidence",
+        }
+        if not expected_slots.issubset(
+            set(modern_label_boundary_index.get("label_boundary_slots", []))
+        ):
+            issues.append(f"{expected_id} modern label index missing slots")
+        if "not oracle-character identity" not in modern_label_boundary_index.get(
+            "claim_boundary",
+            "",
+        ):
+            issues.append(f"{expected_id} modern label index missing identity boundary")
     return issues
 
 

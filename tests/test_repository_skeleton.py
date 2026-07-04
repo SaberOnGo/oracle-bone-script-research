@@ -6944,6 +6944,8 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "09_codepoint-crosswalk-fact-matrix-index.json",
                 "10_cross-source-conflict-review.md",
                 "11_cross-source-conflict-index.json",
+                "12_modern-label-boundary-review.md",
+                "13_modern-label-boundary-index.json",
             ]
             for filename in required_files:
                 self.assertTrue(path_exists(object_dir / filename), f"{project_id} {filename}")
@@ -6958,6 +6960,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             conflict_review_text = (object_dir / "10_cross-source-conflict-review.md").read_text(
                 encoding="utf-8"
             )
+            modern_label_boundary_text = (
+                object_dir / "12_modern-label-boundary-review.md"
+            ).read_text(encoding="utf-8")
             human_texts = {
                 "README.md": readme_text,
                 "04_human-codepoint-crosswalk-review-sheet.md": (
@@ -6969,6 +6974,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "06_human-codepoint-crosswalk-dossier.md": dossier_text,
                 "08_codepoint-crosswalk-fact-matrix.md": fact_matrix_text,
                 "10_cross-source-conflict-review.md": conflict_review_text,
+                "12_modern-label-boundary-review.md": modern_label_boundary_text,
             }
             for filename, text in human_texts.items():
                 self.assertNotIn("not_collected", text)
@@ -7008,6 +7014,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "Concrete Questions To Check",
                 "具体待查问题",
                 "08_codepoint-crosswalk-fact-matrix.md",
+                "12_modern-label-boundary-review.md",
             ]:
                 self.assertIn(marker, readme_text)
             for marker in [
@@ -7066,6 +7073,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             ]:
                 self.assertIn(marker, conflict_review_text)
 
+            for marker in [
+                "Modern Label Boundary Review",
+                "Current Label Clues",
+                "Evidence To Open Before Identity",
+                "Concrete Boundary Questions",
+                "Modern labels are lookup metadata, not oracle-character identity.",
+                "Unicode codepoints are lookup metadata, not accepted readings.",
+                "Dataset labels are source records, not component assignments.",
+                "This is not a decipherment conclusion.",
+                "现代标签是检索 metadata，不是甲骨字身份。",
+                "Unicode 码位是检索 metadata，不是已接受释读。",
+                "数据集标签是来源记录，不是构件归属。",
+                "这不是释读结论。",
+            ]:
+                self.assertIn(marker, modern_label_boundary_text)
+
             conflict_index = json.loads(
                 (object_dir / "11_cross-source-conflict-index.json").read_text(
                     encoding="utf-8"
@@ -7081,6 +7104,28 @@ class RepositorySkeletonTests(unittest.TestCase):
                 ["10_cross-source-conflict-review.md"],
             )
             self.assertIn("no identity claim", conflict_index["claim_boundary"])
+            modern_label_boundary_index = json.loads(
+                (object_dir / "13_modern-label-boundary-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(modern_label_boundary_index["project_id"], project_id)
+            self.assertEqual(
+                modern_label_boundary_index["record_type"],
+                "codepoint_modern_label_boundary_index",
+            )
+            self.assertIn(
+                "modern_label_candidate",
+                modern_label_boundary_index["label_boundary_slots"],
+            )
+            self.assertIn(
+                "dataset_label_boundary",
+                modern_label_boundary_index["label_boundary_slots"],
+            )
+            self.assertIn(
+                "not oracle-character identity",
+                modern_label_boundary_index["claim_boundary"],
+            )
 
             packet = json.loads((object_dir / "01_codepoint-crosswalk-packet.json").read_text(encoding="utf-8"))
             self.assertEqual(packet["project_id"], project_id)
@@ -7088,6 +7133,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertEqual(packet["identity_claim_status"], "no_identity_claim")
             self.assertEqual(packet["review_status"], "needs_cross_source_review")
             self.assertIn("not confirmed oracle-character identity", packet["caution"])
+            self.assertIn(
+                "12_modern-label-boundary-review.md",
+                packet["local_human_files"],
+            )
+            self.assertIn(
+                "13_modern-label-boundary-index.json",
+                packet["local_ai_support_files"],
+            )
             self.assertNotIn("doc/public/user_research", packet["object_dir"])
 
         three_packet_dir = repo_root() / next(
@@ -7130,6 +7183,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Human Comparison Order", first["dossier_text"])
         self.assertIn("Human Comparison Order", first["fact_matrix_text"])
         self.assertIn("Cross-Source Conflict Review", first["conflict_review_text"])
+        self.assertIn("Modern Label Boundary Review", first["modern_label_boundary_text"])
+        self.assertIn(
+            "Modern labels are lookup metadata, not oracle-character identity.",
+            first["modern_label_boundary_text"],
+        )
         self.assertIn("OBIMD match rows", first["conflict_review_text"])
         self.assertIn("EVOBC match rows", first["conflict_review_text"])
         self.assertIn(
@@ -7144,6 +7202,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             first["conflict_index"]["record_type"],
             "codepoint_crosswalk_conflict_review_index",
+        )
+        self.assertEqual(
+            first["modern_label_boundary_index"]["record_type"],
+            "codepoint_modern_label_boundary_index",
+        )
+        self.assertIn(
+            "unicode_codepoint_route",
+            first["modern_label_boundary_index"]["label_boundary_slots"],
         )
         self.assertEqual(three_source["packet"]["matched_source_ids"], ["src-hust-obc", "src-obimd", "src-evobc"])
         self.assertIn("OBIMD route", three_source["fact_matrix_text"])
@@ -7248,8 +7314,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-xwalk-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-xwalk-cand-000001"]["human_file_count"], "5")
-        self.assertEqual(by_project["obs-xwalk-cand-000001"]["ai_file_count"], "5")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["human_file_count"], "7")
+        self.assertEqual(by_project["obs-xwalk-cand-000001"]["ai_file_count"], "7")
         self.assertEqual(by_project["obs-xwalk-cand-000001"]["route_file_count"], "2")
         self.assertEqual(by_project["obs-xwalk-cand-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
@@ -7313,6 +7379,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])
         self.assertIn("plate_or_publication_route", by_area["collection_object_candidates"]["required_human_slots"])
         self.assertIn("12_archaeological-context-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
+        self.assertIn("modern_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn("dataset_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
+        self.assertIn(
+            "12_modern-label-boundary-review.md",
+            by_area["codepoint_crosswalk_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "Which modern label is only lookup metadata?",
+            by_area["codepoint_crosswalk_candidates"]["concrete_depth_questions"],
+        )
         self.assertIn("field_map", by_area["research_source_objects"]["required_human_slots"])
         self.assertIn("metadata_profile", by_area["research_source_objects"]["required_human_slots"])
         self.assertIn(

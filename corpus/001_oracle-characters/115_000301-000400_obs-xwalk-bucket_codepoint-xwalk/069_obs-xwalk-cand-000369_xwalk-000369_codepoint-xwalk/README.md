@@ -27,6 +27,7 @@ support files together in this candidate folder.
 - 06_human-codepoint-crosswalk-dossier.md
 - 08_codepoint-crosswalk-fact-matrix.md
 - 10_cross-source-conflict-review.md
+- 12_modern-label-boundary-review.md
 
 ## AI Support Files / AI 辅助文件
 
@@ -36,6 +37,7 @@ support files together in this candidate folder.
 - 07_codepoint-crosswalk-dossier-index.json
 - 09_codepoint-crosswalk-fact-matrix-index.json
 - 11_cross-source-conflict-index.json
+- 13_modern-label-boundary-index.json
 
 ## Concrete Questions To Check / 具体待查问题
 

@@ -251,6 +251,7 @@ def build_packet(
             "06_human-codepoint-crosswalk-dossier.md",
             "08_codepoint-crosswalk-fact-matrix.md",
             "10_cross-source-conflict-review.md",
+            "12_modern-label-boundary-review.md",
         ],
         "local_ai_support_files": [
             "01_codepoint-crosswalk-packet.json",
@@ -259,6 +260,7 @@ def build_packet(
             "07_codepoint-crosswalk-dossier-index.json",
             "09_codepoint-crosswalk-fact-matrix-index.json",
             "11_cross-source-conflict-index.json",
+            "13_modern-label-boundary-index.json",
         ],
         "research_boundary": RESEARCH_BOUNDARY,
         "caution": CAUTION,
@@ -479,6 +481,7 @@ def render_readme(project_id: str, row: dict[str, str]) -> str:
         bullet("06_human-codepoint-crosswalk-dossier.md"),
         bullet("08_codepoint-crosswalk-fact-matrix.md"),
         bullet("10_cross-source-conflict-review.md"),
+        bullet("12_modern-label-boundary-review.md"),
         "",
         "## AI Support Files / AI 辅助文件",
         "",
@@ -488,6 +491,7 @@ def render_readme(project_id: str, row: dict[str, str]) -> str:
         bullet("07_codepoint-crosswalk-dossier-index.json"),
         bullet("09_codepoint-crosswalk-fact-matrix-index.json"),
         bullet("11_cross-source-conflict-index.json"),
+        bullet("13_modern-label-boundary-index.json"),
         "",
         "## Concrete Questions To Check / 具体待查问题",
         "",
@@ -796,6 +800,85 @@ def render_conflict_review(project_id: str, row: dict[str, str]) -> str:
     return text
 
 
+def render_modern_label_boundary_review(project_id: str, row: dict[str, str]) -> str:
+    lines = [
+        f"# {project_id} Modern Label Boundary Review",
+        "",
+        "## Review Purpose / 复核目的",
+        "",
+        paragraph(
+            "This human review page separates modern labels, Unicode "
+            "codepoints, dataset labels, and later-form hints from the "
+            "oracle-bone sign itself. A label may help locate evidence, but "
+            "it cannot become the character identity without source review."
+        ),
+        "",
+        paragraph(
+            "本页把现代标签、Unicode 码位、数据集标签和后世字形线索，"
+            "同甲骨字形本身分开。标签可以帮助定位证据，但未经来源复核，"
+            "不能写成这个甲骨字的身份。"
+        ),
+        "",
+        "## Current Label Clues / 当前标签线索",
+        "",
+        bullet(f"HUST label candidate: {row['hust_label_candidate']}"),
+        bullet(f"HUST label codepoints: {row['hust_label_codepoints']}"),
+        bullet(f"Label component count: {row['label_component_count']}"),
+        bullet(f"Multi-component label: {row['has_multi_component_label']}"),
+        bullet(f"Match basis: {row['match_basis']}"),
+        bullet(f"Cross-source status: {row['cross_source_status']}"),
+        "",
+        "## Evidence To Open Before Identity / 身份判断前必须打开",
+        "",
+        bullet("Visible glyph image, rubbing, photograph, or hand copy."),
+        bullet("Inscription context, OCR text, plate, catalog, and Heji route."),
+        bullet("Findspot, collection, period, group, batch, and object record."),
+        bullet("Variant, near-form, component, and source disagreement notes."),
+        bullet("Bronze, seal, modern-form, bibliography, proposer, and dispute."),
+        bullet("可见字形图像、拓片、照片或摹本。"),
+        bullet("卜辞语境、OCR 全文、图版、著录和合集路线。"),
+        bullet("出土地、馆藏、时期、组类、批次和馆藏对象记录。"),
+        bullet("异体、近形、构件和来源分歧说明。"),
+        bullet("金文、小篆、今字、书目、提出者和争议。"),
+        "",
+        "## Concrete Boundary Questions / 具体边界问题",
+        "",
+        bullet("Is the modern label only a source lookup clue?"),
+        bullet("Which visible glyph evidence supports or conflicts with it?"),
+        bullet("Which inscription or plate route can test the label?"),
+        bullet("Which bibliography or proposer argues for the reading?"),
+        bullet("Which OBIMD or EVOBC row repeats only a Unicode codepoint?"),
+        bullet("Which dispute or missing source blocks promotion?"),
+        bullet("现代标签是否只是来源检索线索？"),
+        bullet("哪条可见字形证据支持或冲突于该标签？"),
+        bullet("哪条卜辞或图版路线可以检验标签？"),
+        bullet("哪条书目或提出者记录论证了释读？"),
+        bullet("哪条 OBIMD 或 EVOBC 行只是重复 Unicode 码位？"),
+        bullet("哪项争议或缺失来源阻止提升？"),
+        "",
+        human_comparison_order_markdown(),
+        "",
+        "## Boundary / 边界",
+        "",
+        bullet("Modern labels are lookup metadata, not oracle-character identity."),
+        bullet("Unicode codepoints are lookup metadata, not accepted readings."),
+        bullet("Dataset labels are source records, not component assignments."),
+        bullet("Later-form hints are comparison routes, not accepted evolution."),
+        bullet("This is not a decipherment conclusion."),
+        bullet("现代标签是检索 metadata，不是甲骨字身份。"),
+        bullet("Unicode 码位是检索 metadata，不是已接受释读。"),
+        bullet("数据集标签是来源记录，不是构件归属。"),
+        bullet("后世字形线索是比较路线，不是已接受演化关系。"),
+        bullet("这不是释读结论。"),
+    ]
+    text = "\n".join(lines) + "\n"
+    assert_human_line_width(
+        f"{project_id}/12_modern-label-boundary-review.md",
+        text,
+    )
+    return text
+
+
 def build_index(
     project_id: str,
     row: dict[str, str],
@@ -841,6 +924,38 @@ def build_conflict_index(project_id: str, row: dict[str, str]) -> dict[str, obje
     }
 
 
+def build_modern_label_boundary_index(
+    project_id: str,
+    row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id,
+        "record_type": "codepoint_modern_label_boundary_index",
+        "crosswalk_candidate_id": row["crosswalk_candidate_id"],
+        "human_readable_files": ["12_modern-label-boundary-review.md"],
+        "ai_support_files": ["13_modern-label-boundary-index.json"],
+        "label_boundary_slots": [
+            "modern_label_candidate",
+            "unicode_codepoint_route",
+            "dataset_label_boundary",
+            "visible_glyph_evidence",
+            "inscription_or_plate_route",
+            "bibliography_or_proposer",
+            "source_dispute_or_missing_evidence",
+        ],
+        "hust_label_candidate": row["hust_label_candidate"],
+        "hust_label_codepoints": row["hust_label_codepoints"],
+        "match_basis": row["match_basis"],
+        "claim_boundary": (
+            "modern label boundary review only; label metadata is not "
+            "oracle-character identity, not reading, not component, not "
+            "evolution, and not decipherment conclusion"
+        ),
+        "review_status": row["review_status"],
+        "updated_at": UPDATED_AT,
+    }
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     staging_rows = read_csv(root / CODEPOINT_CROSSWALK)
     source_rows = read_csv(root / SOURCE_INDEX)
@@ -858,6 +973,10 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
         dossier_text = render_dossier(project_id, row)
         fact_matrix_text = render_fact_matrix(project_id, row, route_index_rows)
         conflict_review_text = render_conflict_review(project_id, row)
+        modern_label_boundary_text = render_modern_label_boundary_review(
+            project_id,
+            row,
+        )
         human_files = packet["local_human_files"]
         ai_files = packet["local_ai_support_files"]
         outputs[project_id] = {
@@ -871,6 +990,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "dossier_text": dossier_text,
             "fact_matrix_text": fact_matrix_text,
             "conflict_review_text": conflict_review_text,
+            "modern_label_boundary_text": modern_label_boundary_text,
             "dossier_index": build_index(
                 project_id,
                 row,
@@ -886,6 +1006,10 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 "codepoint_crosswalk_fact_matrix_index",
             ),
             "conflict_index": build_conflict_index(project_id, row),
+            "modern_label_boundary_index": build_modern_label_boundary_index(
+                project_id,
+                row,
+            ),
             "map_row": {
                 "project_id": project_id,
                 "record_type": RECORD_TYPE,
@@ -946,6 +1070,14 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         write_json(
             object_dir / "11_cross-source-conflict-index.json",
             output["conflict_index"],
+        )
+        (object_dir / "12_modern-label-boundary-review.md").write_text(
+            output["modern_label_boundary_text"],
+            encoding="utf-8",
+        )
+        write_json(
+            object_dir / "13_modern-label-boundary-index.json",
+            output["modern_label_boundary_index"],
         )
         map_rows.append(output["map_row"])
     write_csv(root / CODEPOINT_MAP, map_rows, MAP_FIELDS)

@@ -1,0 +1,26 @@
+{
+  "project_id": "obs-xwalk-cand-001080",
+  "record_type": "codepoint_modern_label_boundary_index",
+  "crosswalk_candidate_id": "hust-obimd-evobc-xwalk-001080",
+  "human_readable_files": [
+    "12_modern-label-boundary-review.md"
+  ],
+  "ai_support_files": [
+    "13_modern-label-boundary-index.json"
+  ],
+  "label_boundary_slots": [
+    "modern_label_candidate",
+    "unicode_codepoint_route",
+    "dataset_label_boundary",
+    "visible_glyph_evidence",
+    "inscription_or_plate_route",
+    "bibliography_or_proposer",
+    "source_dispute_or_missing_evidence"
+  ],
+  "hust_label_candidate": "㢯",
+  "hust_label_codepoints": "U+38AF",
+  "match_basis": "exact_unicode_codepoint_sequence_from_dataset_labels",
+  "claim_boundary": "modern label boundary review only; label metadata is not oracle-character identity, not reading, not component, not evolution, and not decipherment conclusion",
+  "review_status": "needs_cross_source_review",
+  "updated_at": "2026-06-28"
+}

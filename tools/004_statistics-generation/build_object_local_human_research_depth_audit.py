@@ -161,6 +161,8 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "05_codepoint-crosswalk-route-gallery.md",
             "06_human-codepoint-crosswalk-dossier.md",
             "08_codepoint-crosswalk-fact-matrix.md",
+            "10_cross-source-conflict-review.md",
+            "12_modern-label-boundary-review.md",
         ),
         "slots": (
             "source_codepoint",
@@ -169,6 +171,11 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "glyph_image_route",
             "cross_source_id",
             "conflict_or_ambiguity",
+            "modern_label_boundary",
+            "unicode_codepoint_route",
+            "dataset_label_boundary",
+            "visible_glyph_evidence",
+            "bibliography_or_proposer",
             "missing_items",
             "review_status",
         ),
@@ -176,6 +183,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which source codepoint route needs direct human comparison?",
             "Which cross-source match remains ambiguous or conflicting?",
             "Which project object should be opened before using the crosswalk?",
+            "Which modern label is only lookup metadata?",
         ),
     },
     "collection_object_candidates": {

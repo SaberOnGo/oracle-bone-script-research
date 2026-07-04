@@ -4993,6 +4993,75 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "no decipherment conclusion",
                 text_ocr_index["claim_boundary"],
             )
+            context_review = (
+                object_dir / "15_inscription-context-review.md"
+            ).read_text(encoding="utf-8")
+            assert_no_inscription_mojibake_fragments(
+                self,
+                context_review,
+                f"{row['project_id']} 15_inscription-context-review.md",
+            )
+            self.assertIn("Inscription Context Review", context_review)
+            self.assertIn("卜辞上下文复核卡", context_review)
+            self.assertIn("Research Desk Summary", context_review)
+            self.assertIn("Text Plate And Catalog Routes", context_review)
+            self.assertIn("Archaeological And Occurrence Context", context_review)
+            self.assertIn("Source Trail And Quality Blockers", context_review)
+            self.assertIn("Quality blockers to resolve before formal use", context_review)
+            self.assertIn(
+                "Which plate, rubbing, image, page, or OCR text should be opened first?",
+                context_review,
+            )
+            self.assertIn("Which catalog row anchors the candidate", context_review)
+            self.assertIn(
+                "Which findspot, period, group, batch, or pit source is still missing?",
+                context_review,
+            )
+            self.assertIn(
+                "Which linked glyph occurrence is only a candidate route?",
+                context_review,
+            )
+            self.assertIn("03_catalog-reference-index.csv", context_review)
+            self.assertIn("05_plate-text-route-index.csv", context_review)
+            self.assertIn("06_plate-text-gallery.md", context_review)
+            self.assertIn("13_text-ocr-quality-review.md", context_review)
+            self.assertIn("not a formal inscription record", context_review)
+            self.assertIn("not a transcription", context_review)
+            self.assertIn("not a decipherment conclusion", context_review)
+            self.assertNotIn("not_collected", context_review)
+            for line in context_review.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            context_index = json.loads(
+                (object_dir / "16_inscription-context-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                context_index["record_type"],
+                "inscription_context_review_index",
+            )
+            self.assertIn(
+                "15_inscription-context-review.md",
+                context_index["human_readable_files"],
+            )
+            self.assertIn(
+                "13_text-ocr-quality-review.md",
+                context_index["human_readable_files"],
+            )
+            self.assertIn(
+                "05_plate-text-route-index.csv",
+                context_index["ai_support_files"],
+            )
+            self.assertIn("linked_glyphs", context_index["review_slots"])
+            self.assertIn("source_trail", context_index["review_slots"])
+            self.assertIn(
+                "primary_full_text_or_ocr_route_unreviewed",
+                context_index["quality_blockers"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                context_index["claim_boundary"],
+            )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
             )
@@ -5058,6 +5127,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
             "11_inscription-review-fact-matrix.md",
+            "15_inscription-context-review.md",
         ]:
             text = (unresolved_dir / filename).read_text(encoding="utf-8")
             self.assertNotIn("\ufffd", text, filename)
@@ -5332,6 +5402,60 @@ class RepositorySkeletonTests(unittest.TestCase):
             "no decipherment conclusion",
             first["text_ocr_quality_index"]["claim_boundary"],
         )
+        self.assertIn("inscription_context_review_text", first)
+        self.assertIn("inscription_context_index", first)
+        self.assertIn(
+            "Inscription Context Review",
+            first["inscription_context_review_text"],
+        )
+        self.assertIn("卜辞上下文复核卡", first["inscription_context_review_text"])
+        self.assertIn(
+            "Text Plate And Catalog Routes",
+            first["inscription_context_review_text"],
+        )
+        self.assertIn(
+            "Archaeological And Occurrence Context",
+            first["inscription_context_review_text"],
+        )
+        self.assertIn(
+            "Source Trail And Quality Blockers",
+            first["inscription_context_review_text"],
+        )
+        self.assertIn(
+            "Which linked glyph occurrence is only a candidate route?",
+            first["inscription_context_review_text"],
+        )
+        self.assertIn(
+            "not a decipherment conclusion",
+            first["inscription_context_review_text"],
+        )
+        self.assertNotIn("not_collected", first["inscription_context_review_text"])
+        for line in first["inscription_context_review_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["inscription_context_index"]["record_type"],
+            "inscription_context_review_index",
+        )
+        self.assertIn(
+            "15_inscription-context-review.md",
+            first["inscription_context_index"]["human_readable_files"],
+        )
+        self.assertIn(
+            "05_plate-text-route-index.csv",
+            first["inscription_context_index"]["ai_support_files"],
+        )
+        self.assertIn(
+            "linked_glyphs",
+            first["inscription_context_index"]["review_slots"],
+        )
+        self.assertIn(
+            "primary_full_text_or_ocr_route_unreviewed",
+            first["inscription_context_index"]["quality_blockers"],
+        )
+        self.assertIn(
+            "no decipherment conclusion",
+            first["inscription_context_index"]["claim_boundary"],
+        )
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
             first["plate_evidence_index"]["human_readable_files"],
@@ -5344,6 +5468,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "plate_text_gallery_text",
             "human_dossier_text",
             "text_ocr_quality_review_text",
+            "inscription_context_review_text",
         ]:
             self.assertNotIn("\ufffd", unresolved[output_key], output_key)
             self.assertIn(
@@ -7008,7 +7133,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "2")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "3")
         self.assertEqual(by_project["obs-insc-cw-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(
             by_project["obs-evo-cand-000001"]["material_bundle_status"],

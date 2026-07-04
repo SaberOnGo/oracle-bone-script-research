@@ -3315,6 +3315,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "12_inscription-review-fact-matrix-index.json",
         "13_text-ocr-quality-review.md",
         "14_text-ocr-quality-index.json",
+        "15_inscription-context-review.md",
+        "16_inscription-context-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3437,6 +3439,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         fact_matrix_index_path = object_dir / "12_inscription-review-fact-matrix-index.json"
         text_ocr_review_path = object_dir / "13_text-ocr-quality-review.md"
         text_ocr_index_path = object_dir / "14_text-ocr-quality-index.json"
+        context_review_path = object_dir / "15_inscription-context-review.md"
+        context_index_path = object_dir / "16_inscription-context-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -3518,6 +3522,10 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} text evidence status changed")
             if "linked_character_occurrences" not in dossier_index.get("uncollected_human_research_fields", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing linked character gap")
+            if "15_inscription-context-review.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing context review link")
+            if "16_inscription-context-index.json" not in dossier_index.get("ai_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing context index link")
         if path_exists(plate_evidence_path):
             plate_evidence = plate_evidence_path.read_text(encoding="utf-8")
             if "\ufffd" in plate_evidence:
@@ -3569,6 +3577,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing plate route index link")
             if "full_inscription_text_or_ocr" not in plate_evidence_index.get("missing_or_review_fields", []):
                 issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing text/OCR gap")
+            if "15_inscription-context-review.md" not in plate_evidence_index.get("human_readable_files", []):
+                issues.append(f"{plate_evidence_index_path.relative_to(root).as_posix()} missing context review link")
         if path_exists(fact_matrix_path):
             fact_matrix = fact_matrix_path.read_text(encoding="utf-8")
             if "\ufffd" in fact_matrix:
@@ -3690,6 +3700,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing plate route support link")
             if "text_quality_blocker" not in text_ocr_index.get("missing_or_review_fields", []):
                 issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing text quality blocker")
+            if "15_inscription-context-review.md" not in text_ocr_index.get("human_readable_files", []):
+                issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing context review link")
             for boundary in [
                 "no transcription",
                 "no inscription reading",
@@ -3697,6 +3709,85 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             ]:
                 if boundary not in text_ocr_index.get("claim_boundary", []):
                     issues.append(f"{text_ocr_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
+        if path_exists(context_review_path):
+            context_review = context_review_path.read_text(encoding="utf-8")
+            if "\ufffd" in context_review:
+                issues.append(f"{context_review_path.relative_to(root).as_posix()} contains replacement-character mojibake")
+            for snippet in [
+                "Inscription Context Review",
+                "卜辞上下文复核卡",
+                "Research Desk Summary",
+                "Text Plate And Catalog Routes",
+                "Archaeological And Occurrence Context",
+                "Source Trail And Quality Blockers",
+                "Quality blockers to resolve before formal use",
+                "Which plate, rubbing, image, page, or OCR text should be opened first?",
+                "Which catalog row anchors the candidate",
+                "Which findspot, period, group, batch, or pit source is still missing?",
+                "Which linked glyph occurrence is only a candidate route?",
+                "03_catalog-reference-index.csv",
+                "05_plate-text-route-index.csv",
+                "06_plate-text-gallery.md",
+                "13_text-ocr-quality-review.md",
+                "not a formal inscription record",
+                "not a transcription",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in context_review:
+                    issues.append(f"{context_review_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in context_review:
+                issues.append(
+                    f"{context_review_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
+            for line_number, line in enumerate(context_review.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(
+                        f"{context_review_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        if path_exists(context_index_path):
+            context_index = json.loads(context_index_path.read_text(encoding="utf-8"))
+            if context_index.get("project_id") != project_id:
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if context_index.get("record_type") != "inscription_context_review_index":
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} record_type changed")
+            if context_index.get("review_status") != "needs_human_inscription_crosswalk_review":
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} review status changed")
+            if "15_inscription-context-review.md" not in context_index.get("human_readable_files", []):
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} missing context review link")
+            if "13_text-ocr-quality-review.md" not in context_index.get("human_readable_files", []):
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} missing text/OCR review link")
+            if "05_plate-text-route-index.csv" not in context_index.get("ai_support_files", []):
+                issues.append(f"{context_index_path.relative_to(root).as_posix()} missing route support link")
+            for slot in [
+                "inscription_number",
+                "ocr_or_full_text",
+                "plate_number",
+                "catalog_source",
+                "findspot",
+                "period_group_batch",
+                "linked_glyphs",
+                "bibliography_disputes",
+                "source_trail",
+            ]:
+                if slot not in context_index.get("review_slots", []):
+                    issues.append(f"{context_index_path.relative_to(root).as_posix()} missing review slot: {slot}")
+            for blocker in [
+                "primary_full_text_or_ocr_route_unreviewed",
+                "plate_image_or_rubbing_route_unreviewed",
+                "linked_glyph_occurrences_candidate_only",
+            ]:
+                if blocker not in context_index.get("quality_blockers", []):
+                    issues.append(f"{context_index_path.relative_to(root).as_posix()} missing quality blocker: {blocker}")
+            for boundary in [
+                "no formal inscription record",
+                "no transcription",
+                "no inscription reading",
+                "no decipherment conclusion",
+            ]:
+                if boundary not in context_index.get("claim_boundary", []):
+                    issues.append(f"{context_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [

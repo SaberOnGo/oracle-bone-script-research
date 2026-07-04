@@ -105,7 +105,8 @@
     "07_human-inscription-dossier.md",
     "09_inscription-plate-evidence-dossier.md",
     "11_inscription-review-fact-matrix.md",
-    "13_text-ocr-quality-review.md"
+    "13_text-ocr-quality-review.md",
+    "15_inscription-context-review.md"
   ],
   "human_review_status": "needs_human_inscription_crosswalk_review",
   "missing_or_review_fields": [

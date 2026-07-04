@@ -72,6 +72,8 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
             "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
+            "15_inscription-context-review.md",
         ),
         "slots": (
             "inscription_number",
@@ -86,6 +88,8 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "linked_glyphs",
             "image_path",
             "text_quality",
+            "bibliography_disputes",
+            "source_trail",
             "missing_items",
             "review_status",
         ),

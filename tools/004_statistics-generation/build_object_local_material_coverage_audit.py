@@ -164,6 +164,8 @@ OBJECT_SPECS = [
             "07_human-inscription-dossier.md",
             "09_inscription-plate-evidence-dossier.md",
             "11_inscription-review-fact-matrix.md",
+            "13_text-ocr-quality-review.md",
+            "15_inscription-context-review.md",
         ),
         (
             "01_candidate-inscription-crosswalk-packet.json",
@@ -173,9 +175,15 @@ OBJECT_SPECS = [
             "08_inscription-dossier-index.json",
             "10_inscription-plate-evidence-index.json",
             "12_inscription-review-fact-matrix-index.json",
+            "14_text-ocr-quality-index.json",
+            "16_inscription-context-index.json",
         ),
         (),
-        ("05_plate-text-route-index.csv", "06_plate-text-gallery.md"),
+        (
+            "05_plate-text-route-index.csv",
+            "06_plate-text-gallery.md",
+            "15_inscription-context-review.md",
+        ),
     ),
     ObjectSpec(
         "codepoint_crosswalk_candidates",

@@ -1,0 +1,63 @@
+{
+  "ai_support_files": [
+    "01_candidate-inscription-crosswalk-packet.json",
+    "02_crosswalk-source-index.csv",
+    "03_catalog-reference-index.csv",
+    "05_plate-text-route-index.csv",
+    "08_inscription-dossier-index.json",
+    "10_inscription-plate-evidence-index.json",
+    "12_inscription-review-fact-matrix-index.json",
+    "14_text-ocr-quality-index.json"
+  ],
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000560",
+  "catalog_reference_count": 4,
+  "claim_boundary": [
+    "no formal inscription record",
+    "no object identity claim",
+    "no transcription",
+    "no inscription reading",
+    "no corpus import approval",
+    "no decipherment conclusion"
+  ],
+  "human_readable_files": [
+    "README.md",
+    "07_human-inscription-dossier.md",
+    "09_inscription-plate-evidence-dossier.md",
+    "11_inscription-review-fact-matrix.md",
+    "13_text-ocr-quality-review.md",
+    "15_inscription-context-review.md"
+  ],
+  "missing_reference_types": [
+    "heji"
+  ],
+  "plate_text_route_count": 5,
+  "project_id": "obs-insc-cw-cand-000560",
+  "quality_blockers": [
+    "primary_full_text_or_ocr_route_unreviewed",
+    "plate_image_or_rubbing_route_unreviewed",
+    "catalog_page_heji_collection_routes_unreconciled",
+    "findspot_period_group_batch_or_pit_context_unverified",
+    "linked_glyph_occurrences_candidate_only",
+    "bibliography_reading_history_dispute_records_unreviewed"
+  ],
+  "record_type": "inscription_context_review_index",
+  "review_slots": [
+    "inscription_number",
+    "ocr_or_full_text",
+    "plate_number",
+    "catalog_source",
+    "page_number",
+    "heji_or_collection_number",
+    "library_or_collection",
+    "findspot",
+    "period_group_batch",
+    "linked_glyphs",
+    "image_path",
+    "text_quality",
+    "bibliography_disputes",
+    "source_trail",
+    "review_status"
+  ],
+  "review_status": "needs_human_inscription_crosswalk_review",
+  "updated_at": "2026-06-21"
+}

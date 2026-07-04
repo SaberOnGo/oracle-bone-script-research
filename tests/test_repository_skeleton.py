@@ -6203,6 +6203,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "09_collection-provenance-evidence-index.json").exists())
             self.assertTrue((object_dir / "10_collection-provenance-fact-matrix.md").exists())
             self.assertTrue((object_dir / "11_collection-provenance-fact-matrix-index.json").exists())
+            self.assertTrue((object_dir / "12_archaeological-context-review.md").exists())
+            self.assertTrue((object_dir / "13_archaeological-context-index.json").exists())
             packet = json.loads(
                 (object_dir / "01_collection-object-packet.json").read_text(
                     encoding="utf-8"
@@ -6232,6 +6234,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("06_human-collection-dossier.md", readme_text)
             self.assertIn("08_collection-provenance-evidence-dossier.md", readme_text)
             self.assertIn("10_collection-provenance-fact-matrix.md", readme_text)
+            self.assertIn("12_archaeological-context-review.md", readme_text)
             self.assertLess(
                 readme_text.index("06_human-collection-dossier.md"),
                 readme_text.index("01_collection-object-packet.json"),
@@ -6467,6 +6470,46 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "no decipherment conclusion",
                 ";".join(fact_matrix_index["claim_boundary"]),
             )
+            archaeology_text = (
+                object_dir / "12_archaeological-context-review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Archaeological Context Review", archaeology_text)
+            self.assertIn("考古语境复核", archaeology_text)
+            self.assertIn("Context Fields To Verify", archaeology_text)
+            self.assertIn("Institution", archaeology_text)
+            self.assertIn("Findspot or provenience", archaeology_text)
+            self.assertIn("Batch or pit context", archaeology_text)
+            self.assertIn("Plate or publication route", archaeology_text)
+            self.assertIn("Inscription route", archaeology_text)
+            self.assertIn("Character route", archaeology_text)
+            self.assertIn("no decipherment conclusion is added", archaeology_text)
+            self.assertNotIn("not_collected", archaeology_text)
+            for line in archaeology_text.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
+            archaeology_index = json.loads(
+                (object_dir / "13_archaeological-context-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                archaeology_index["record_type"],
+                "collection_archaeological_context_review_index",
+            )
+            self.assertIn(
+                "12_archaeological-context-review.md",
+                ";".join(archaeology_index["human_readable_files"]),
+            )
+            self.assertIn(
+                "01_collection-object-packet.json",
+                ";".join(archaeology_index["ai_support_files"]),
+            )
+            self.assertIn("plate_or_publication_route", archaeology_index["context_slots"])
+            self.assertIn("oracle_character_route", archaeology_index["context_slots"])
+            self.assertIn(
+                "no decipherment conclusion",
+                archaeology_index["claim_boundary"],
+            )
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         smithsonian_gallery = (
@@ -6560,6 +6603,31 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "no decipherment conclusion",
             first["collection_provenance_fact_matrix_index"]["claim_boundary"],
+        )
+        self.assertIn(
+            "Archaeological Context Review",
+            first["archaeological_context_review_text"],
+        )
+        self.assertIn("考古语境复核", first["archaeological_context_review_text"])
+        self.assertIn("Context Fields To Verify", first["archaeological_context_review_text"])
+        self.assertIn("Plate or publication route", first["archaeological_context_review_text"])
+        self.assertIn("Inscription route", first["archaeological_context_review_text"])
+        self.assertIn("Character route", first["archaeological_context_review_text"])
+        self.assertNotIn("not_collected", first["archaeological_context_review_text"])
+        for line in first["archaeological_context_review_text"].splitlines():
+            if not line.startswith("|"):
+                self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["archaeological_context_index"]["record_type"],
+            "collection_archaeological_context_review_index",
+        )
+        self.assertIn(
+            "plate_or_publication_route",
+            first["archaeological_context_index"]["context_slots"],
+        )
+        self.assertIn(
+            "oracle_character_route",
+            first["archaeological_context_index"]["context_slots"],
         )
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
         self.assertIn(
@@ -7242,6 +7310,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("component_boundary", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("near_shape", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])
+        self.assertIn("plate_or_publication_route", by_area["collection_object_candidates"]["required_human_slots"])
+        self.assertIn("12_archaeological-context-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
         self.assertIn("field_map", by_area["research_source_objects"]["required_human_slots"])
         self.assertIn("citation_relation", by_area["research_topic_candidates"]["required_human_slots"])
         self.assertTrue(all(row["human_first_boundary"].startswith("human dossier first") for row in rows))

@@ -5,7 +5,8 @@
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/03_visual-asset-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/07_collection-dossier-index.json",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/09_collection-provenance-evidence-index.json",
-    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/11_collection-provenance-fact-matrix-index.json"
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/11_collection-provenance-fact-matrix-index.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/13_archaeological-context-index.json"
   ],
   "candidate_collection_object_id": "ihp-mus-obj-00041",
   "claim_boundary": [
@@ -74,7 +75,8 @@
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/05_human-review-sheet.md",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/06_human-collection-dossier.md",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/08_collection-provenance-evidence-dossier.md",
-    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/10_collection-provenance-fact-matrix.md"
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/10_collection-provenance-fact-matrix.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/041_coll-obj-cand-00041_ihp-item-772_collection-object-candidate/12_archaeological-context-review.md"
   ],
   "project_id": "coll-obj-cand-00041",
   "record_type": "collection_provenance_fact_matrix_index",

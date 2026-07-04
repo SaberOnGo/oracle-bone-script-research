@@ -127,6 +127,8 @@ MANIFEST_FIELDS = [
     "collection_provenance_evidence_index_path",
     "collection_provenance_fact_matrix_path",
     "collection_provenance_fact_matrix_index_path",
+    "archaeological_context_review_path",
+    "archaeological_context_index_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
@@ -439,6 +441,10 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
                 "`10_collection-provenance-fact-matrix.md`: human provenance "
                 "fact matrix."
             ),
+            wrapped_bullet(
+                "`12_archaeological-context-review.md`: human archaeological "
+                "context review sheet."
+            ),
             "\n## Structured Support Files / 结构化辅助文件\n",
             wrapped_bullet(
                 "`01_collection-object-packet.json`: structured candidate "
@@ -462,6 +468,10 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
             wrapped_bullet(
                 "`11_collection-provenance-fact-matrix-index.json`: structured "
                 "fact index."
+            ),
+            wrapped_bullet(
+                "`13_archaeological-context-index.json`: structured support "
+                "index for archaeological context review."
             ),
         ]
     )
@@ -656,6 +666,7 @@ def collection_dossier_index_payload(
             (relative_dir / "05_human-review-sheet.md").as_posix(),
             (relative_dir / "06_human-collection-dossier.md").as_posix(),
             (relative_dir / "10_collection-provenance-fact-matrix.md").as_posix(),
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
         ],
         "ai_support_files": [
             (relative_dir / "01_collection-object-packet.json").as_posix(),
@@ -663,6 +674,7 @@ def collection_dossier_index_payload(
             (relative_dir / "03_visual-asset-index.csv").as_posix(),
             (relative_dir / "07_collection-dossier-index.json").as_posix(),
             (relative_dir / "11_collection-provenance-fact-matrix-index.json").as_posix(),
+            (relative_dir / "13_archaeological-context-index.json").as_posix(),
         ],
         "source_route_files": [
             source_row["source_file_path"],
@@ -670,6 +682,7 @@ def collection_dossier_index_payload(
             (relative_dir / "03_visual-asset-index.csv").as_posix(),
             (relative_dir / "04_visual-gallery.md").as_posix(),
             (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
         ],
         "uncollected_human_research_fields": [
             "findspot_period_batch_plate_context",
@@ -860,6 +873,7 @@ def collection_provenance_evidence_index_payload(
             (relative_dir / "04_visual-gallery.md").as_posix(),
             (relative_dir / "05_human-review-sheet.md").as_posix(),
             (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
         ],
         "source_evidence_files": [
             source_row["source_file_path"],
@@ -871,6 +885,7 @@ def collection_provenance_evidence_index_payload(
             (relative_dir / "01_collection-object-packet.json").as_posix(),
             (relative_dir / "07_collection-dossier-index.json").as_posix(),
             (relative_dir / "09_collection-provenance-evidence-index.json").as_posix(),
+            (relative_dir / "13_archaeological-context-index.json").as_posix(),
         ],
         "evidence_status": {
             "catalog_page": "source_row_recorded_needs_human_review",
@@ -1092,6 +1107,7 @@ def collection_provenance_fact_matrix_index_payload(
             (relative_dir / "06_human-collection-dossier.md").as_posix(),
             (relative_dir / "08_collection-provenance-evidence-dossier.md").as_posix(),
             (relative_dir / "10_collection-provenance-fact-matrix.md").as_posix(),
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
         ],
         "ai_support_files": [
             (relative_dir / "01_collection-object-packet.json").as_posix(),
@@ -1100,6 +1116,7 @@ def collection_provenance_fact_matrix_index_payload(
             (relative_dir / "07_collection-dossier-index.json").as_posix(),
             (relative_dir / "09_collection-provenance-evidence-index.json").as_posix(),
             (relative_dir / "11_collection-provenance-fact-matrix-index.json").as_posix(),
+            (relative_dir / "13_archaeological-context-index.json").as_posix(),
         ],
         "source_id": source_row["source_id"],
         "rights_status": source_row["rights_status"],
@@ -1111,6 +1128,203 @@ def collection_provenance_fact_matrix_index_payload(
             "no formal reading",
             "no decipherment conclusion",
         ],
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
+def archaeological_context_review_text(
+    index: int,
+    row: dict[str, str],
+    metadata: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> str:
+    pid = project_id(index)
+    institution = (
+        metadata.get("repository")
+        or metadata.get("collection_name")
+        or metadata.get("provider")
+        or "pending institution review"
+    )
+    accession = row.get("accession_number", "") or "pending source review"
+    source_item = row.get("source_collection_item_id", "")
+    catalog = (
+        metadata.get("catalog_reference_text")
+        or metadata.get("object_title_en")
+        or "pending catalog-page review"
+    )
+    provenience = (
+        metadata.get("provenience")
+        or metadata.get("geography")
+        or "pending findspot review"
+    )
+    period = (
+        metadata.get("historical_period")
+        or metadata.get("object_date")
+        or "pending period review"
+    )
+    intro_en = wrapped_paragraph(
+        "This review sheet keeps archaeological context questions beside the "
+        "collection object candidate. A human reviewer must verify institution, "
+        "catalog record, findspot, period, batch, plate, image, and inscription "
+        "routes before the object can support later research."
+    )
+    intro_zh = "\n".join(
+        [
+            "\u672c\u8868\u628a\u8003\u53e4\u8bed\u5883\u5f85\u6838\u95ee\u9898",
+            "\u653e\u5728\u9986\u85cf\u5bf9\u8c61\u5019\u9009\u76ee\u5f55\u5185\u3002",
+            "\u4eba\u7c7b\u590d\u6838\u8005\u9700\u5148\u6838\u5bf9\u673a\u6784\u3001\u8457\u5f55\u3001",
+            "\u51fa\u571f\u5730\u3001\u65f6\u671f\u3001\u6279\u6b21\u3001\u56fe\u7248\u3001",
+            "\u56fe\u50cf\u548c\u535c\u8f9e\u8def\u7ebf\u3002",
+        ]
+    )
+    rows = [
+        ("Institution", institution, "02_collection-source-index.csv"),
+        ("Catalog or accession", accession, "02_collection-source-index.csv"),
+        (
+            "Source item",
+            source_item or "pending source row review",
+            "01_collection-object-packet.json",
+        ),
+        ("Catalog description", catalog, "01_collection-object-packet.json"),
+        (
+            "Image route",
+            visual_row.get("visual_entry_type", ""),
+            "03_visual-asset-index.csv",
+        ),
+        (
+            "Findspot or provenience",
+            provenience,
+            "08_collection-provenance-evidence-dossier.md",
+        ),
+        (
+            "Period or date",
+            period,
+            "08_collection-provenance-evidence-dossier.md",
+        ),
+        (
+            "Batch or pit context",
+            "pending excavation batch review",
+            "10_collection-provenance-fact-matrix.md",
+        ),
+        (
+            "Plate or publication route",
+            "pending plate or catalog-page review",
+            "06_human-collection-dossier.md",
+        ),
+        (
+            "Inscription route",
+            "candidate route only; no identity claim",
+            "06_human-collection-dossier.md",
+        ),
+        (
+            "Character route",
+            "candidate route only; no reading claim",
+            "06_human-collection-dossier.md",
+        ),
+        ("Rights and risk", source_row["rights_status"], "02_collection-source-index.csv"),
+    ]
+    table_rows = "\n".join(
+        f"| {label} | `{status}` | `{evidence}` |"
+        for label, status, evidence in rows
+    )
+    english_questions = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            "Which institution page and accession record should be opened first?",
+            "Which findspot, period, batch, or pit term is absent from the source?",
+            "Which plate or publication route must be checked before citation?",
+            "Which inscription or character link is only a candidate route?",
+            "Which image route is local, external-only, or unavailable?",
+            "Which rights or risk note blocks public reuse?",
+        ]
+    )
+    chinese_questions = "\n".join(
+        [
+            "- \u5148\u6253\u5f00\u54ea\u4e2a\u673a\u6784\u9875\u548c\u767b\u8bb0\u53f7\uff1f",
+            "- \u7f3a\u54ea\u9879\u51fa\u571f\u5730\u3001\u65f6\u671f\u6216\u6279\u6b21\uff1f",
+            "- \u54ea\u6761\u56fe\u7248\u6216\u8457\u5f55\u8def\u7ebf\u5f85\u590d\u6838\uff1f",
+            "- \u54ea\u4e9b\u535c\u8f9e\u6216\u5355\u5b57\u5173\u8054\u4ecd\u4e3a\u5019\u9009\uff1f",
+        ]
+    )
+    questions = f"{english_questions}\n{chinese_questions}"
+    return "\n".join(
+        [
+            (
+                "# Archaeological Context Review / "
+                f"\u8003\u53e4\u8bed\u5883\u590d\u6838: {pid}"
+            ),
+            "",
+            "English:",
+            intro_en,
+            "",
+            "\u7b80\u4f53\u4e2d\u6587\uff1a",
+            intro_zh,
+            "",
+            "## Context Fields To Verify / \u5f85\u6838\u8bed\u5883\u9879",
+            "",
+            "| Context field | Current route or status | Local evidence to open |",
+            "| --- | --- | --- |",
+            table_rows,
+            "",
+            "## Concrete Questions To Check / \u5177\u4f53\u5f85\u67e5\u95ee\u9898",
+            "",
+            questions,
+            "",
+            "## Review Boundary / \u590d\u6838\u8fb9\u754c",
+            "",
+            "- collection object identity remains unconfirmed",
+            "- inscription identity remains unconfirmed",
+            "- no transcription, formal reading, or component analysis is added",
+            "- no decipherment conclusion is added",
+            f"- candidate_collection_object_id: `{row['candidate_collection_object_id']}`",
+        ]
+    ) + "\n"
+
+
+def archaeological_context_index_payload(
+    index: int,
+    relative_dir: Path,
+    row: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "collection_archaeological_context_review_index",
+        "candidate_collection_object_id": row["candidate_collection_object_id"],
+        "human_readable_files": [
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "08_collection-provenance-evidence-dossier.md").as_posix(),
+            (relative_dir / "10_collection-provenance-fact-matrix.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (relative_dir / "01_collection-object-packet.json").as_posix(),
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "13_archaeological-context-index.json").as_posix(),
+        ],
+        "context_slots": [
+            "institution",
+            "accession_or_catalog_number",
+            "findspot_or_provenience",
+            "period_or_date",
+            "batch_or_pit_context",
+            "plate_or_publication_route",
+            "inscription_route",
+            "oracle_character_route",
+            "image_route",
+            "rights_and_risk",
+        ],
+        "source_id": source_row["source_id"],
+        "visual_entry_type": visual_row.get("visual_entry_type", ""),
+        "claim_boundary": (
+            "human archaeological context review only; no confirmed collection "
+            "object identity; no confirmed inscription identity; no "
+            "transcription; no reading; no decipherment conclusion"
+        ),
         "review_status": REVIEW_STATUS,
         "updated_at": UPDATED_AT,
     }
@@ -1283,6 +1497,20 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                     fact_rows,
                 )
             ),
+            "archaeological_context_review_text": archaeological_context_review_text(
+                index,
+                row,
+                metadata,
+                src_row,
+                vis_row,
+            ),
+            "archaeological_context_index": archaeological_context_index_payload(
+                index,
+                relative_dir,
+                row,
+                src_row,
+                vis_row,
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -1305,6 +1533,12 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 ).as_posix(),
                 "collection_provenance_fact_matrix_index_path": (
                     relative_dir / "11_collection-provenance-fact-matrix-index.json"
+                ).as_posix(),
+                "archaeological_context_review_path": (
+                    relative_dir / "12_archaeological-context-review.md"
+                ).as_posix(),
+                "archaeological_context_index_path": (
+                    relative_dir / "13_archaeological-context-index.json"
                 ).as_posix(),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
@@ -1391,6 +1625,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (directory / "11_collection-provenance-fact-matrix-index.json").write_text(
             json.dumps(
                 output["collection_provenance_fact_matrix_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "12_archaeological-context-review.md").write_text(
+            str(output["archaeological_context_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "13_archaeological-context-index.json").write_text(
+            json.dumps(
+                output["archaeological_context_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

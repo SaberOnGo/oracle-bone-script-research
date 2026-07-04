@@ -1,0 +1,34 @@
+{
+  "ai_support_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/01_collection-object-packet.json",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/02_collection-source-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/03_visual-asset-index.csv",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/13_archaeological-context-index.json"
+  ],
+  "candidate_collection_object_id": "met-obj-00002",
+  "claim_boundary": "human archaeological context review only; no confirmed collection object identity; no confirmed inscription identity; no transcription; no reading; no decipherment conclusion",
+  "context_slots": [
+    "institution",
+    "accession_or_catalog_number",
+    "findspot_or_provenience",
+    "period_or_date",
+    "batch_or_pit_context",
+    "plate_or_publication_route",
+    "inscription_route",
+    "oracle_character_route",
+    "image_route",
+    "rights_and_risk"
+  ],
+  "human_readable_files": [
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/12_archaeological-context-review.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/06_human-collection-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/08_collection-provenance-evidence-dossier.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-candidate/10_collection-provenance-fact-matrix.md"
+  ],
+  "project_id": "coll-obj-cand-00056",
+  "record_type": "collection_archaeological_context_review_index",
+  "review_status": "needs_human_collection_object_review",
+  "source_id": "src-metmuseum-oracle-bone",
+  "updated_at": "2026-06-20",
+  "visual_entry_type": "committed_public_domain_asset"
+}

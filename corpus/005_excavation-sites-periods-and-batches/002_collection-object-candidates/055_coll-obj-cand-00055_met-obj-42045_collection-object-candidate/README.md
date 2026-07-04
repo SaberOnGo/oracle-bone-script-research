@@ -34,6 +34,8 @@ Committed image asset: `asset_id=asset-000001`.
 - `06_human-collection-dossier.md`: human collection object dossier.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
 - `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
+- `12_archaeological-context-review.md`: human archaeological context review
+  sheet.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -45,6 +47,8 @@ Committed image asset: `asset_id=asset-000001`.
 - `07_collection-dossier-index.json`: structured dossier support index.
 - `09_collection-provenance-evidence-index.json`: structured evidence index.
 - `11_collection-provenance-fact-matrix-index.json`: structured fact index.
+- `13_archaeological-context-index.json`: structured support index for
+  archaeological context review.
 
 ## Object Metadata / 对象 metadata
 

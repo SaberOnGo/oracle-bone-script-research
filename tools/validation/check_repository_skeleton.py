@@ -4386,6 +4386,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         "09_collection-provenance-evidence-index.json",
         "10_collection-provenance-fact-matrix.md",
         "11_collection-provenance-fact-matrix-index.json",
+        "12_archaeological-context-review.md",
+        "13_archaeological-context-index.json",
     ]
     expected_sources = {
         "src-ihp-museum-oracle-bones",
@@ -4435,6 +4437,7 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "06_human-collection-dossier.md",
                 "08_collection-provenance-evidence-dossier.md",
                 "10_collection-provenance-fact-matrix.md",
+                "12_archaeological-context-review.md",
             ]:
                 if snippet not in normalized_text:
                     issues.append(f"{readme_path.relative_to(root).as_posix()} missing marker: {snippet}")
@@ -4767,6 +4770,77 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing evidence index link")
             if "no decipherment conclusion" not in claim_boundary:
                 issues.append(f"{fact_matrix_index_path.relative_to(root).as_posix()} missing claim boundary")
+        archaeology_review_path = object_dir / "12_archaeological-context-review.md"
+        if path_exists(archaeology_review_path):
+            archaeology_text = archaeology_review_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Archaeological Context Review",
+                "考古语境复核",
+                "Context Fields To Verify",
+                "待核语境项",
+                "Institution",
+                "Catalog or accession",
+                "Findspot or provenience",
+                "Period or date",
+                "Batch or pit context",
+                "Plate or publication route",
+                "Inscription route",
+                "Character route",
+                "Rights and risk",
+                "Concrete Questions To Check",
+                "no decipherment conclusion is added",
+                "candidate_collection_object_id",
+            ]:
+                if snippet not in archaeology_text:
+                    issues.append(
+                        f"{archaeology_review_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            for forbidden in [
+                "not_collected",
+                "confirmed collection object identity",
+                "confirmed inscription identity",
+            ]:
+                if forbidden in archaeology_text:
+                    issues.append(
+                        f"{archaeology_review_path.relative_to(root).as_posix()} "
+                        f"contains forbidden marker: {forbidden}"
+                    )
+            for line_number, line in enumerate(archaeology_text.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{archaeology_review_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        archaeology_index_path = object_dir / "13_archaeological-context-index.json"
+        if path_exists(archaeology_index_path):
+            archaeology_index = json.loads(archaeology_index_path.read_text(encoding="utf-8"))
+            if archaeology_index.get("record_type") != (
+                "collection_archaeological_context_review_index"
+            ):
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} record_type changed")
+            human_files = [str(path) for path in archaeology_index.get("human_readable_files", [])]
+            ai_files = [str(path) for path in archaeology_index.get("ai_support_files", [])]
+            slots = archaeology_index.get("context_slots", [])
+            if not any(path.endswith("12_archaeological-context-review.md") for path in human_files):
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} missing human review link")
+            if not any(path.endswith("01_collection-object-packet.json") for path in ai_files):
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} missing packet link")
+            for slot in [
+                "institution",
+                "findspot_or_provenience",
+                "batch_or_pit_context",
+                "plate_or_publication_route",
+                "inscription_route",
+                "oracle_character_route",
+            ]:
+                if slot not in slots:
+                    issues.append(
+                        f"{archaeology_index_path.relative_to(root).as_posix()} "
+                        f"missing context slot: {slot}"
+                    )
+            if "no decipherment conclusion" not in archaeology_index.get("claim_boundary", ""):
+                issues.append(f"{archaeology_index_path.relative_to(root).as_posix()} missing claim boundary")
     if committed_asset_ids != {"asset-000001", "asset-000002", "asset-000003"}:
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} committed asset coverage changed")
     if external_thumbnail_count != 52:

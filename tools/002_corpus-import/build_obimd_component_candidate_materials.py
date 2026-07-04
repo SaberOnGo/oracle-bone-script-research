@@ -311,6 +311,8 @@ def route_files(directory: Path) -> list[str]:
         (directory / "13_component-context-evidence-dossier.md").as_posix(),
         (directory / "14_component-context-evidence-index.json").as_posix(),
         (directory / "15_component-review-fact-matrix.md").as_posix(),
+        (directory / "16_component-research-readiness-review.md").as_posix(),
+        (directory / "17_component-research-readiness-index.json").as_posix(),
     ]
 
 
@@ -552,6 +554,14 @@ def readme_text(
         ("13_component-context-evidence-dossier.md", "Human context evidence dossier."),
         ("14_component-context-evidence-index.json", "Structured support index for context routes."),
         ("15_component-review-fact-matrix.md", "Human component review fact matrix."),
+        (
+            "16_component-research-readiness-review.md",
+            "Human readiness review before formal component research.",
+        ),
+        (
+            "17_component-research-readiness-index.json",
+            "Structured support index for readiness slots.",
+        ),
     ]
     local_file_lines = "\n".join(
         line
@@ -1184,6 +1194,7 @@ def component_dossier_index_payload(
             (directory / "11_human-component-dossier.md").as_posix(),
             (directory / "13_component-context-evidence-dossier.md").as_posix(),
             (directory / "15_component-review-fact-matrix.md").as_posix(),
+            (directory / "16_component-research-readiness-review.md").as_posix(),
         ],
         "ai_support_files": [
             (directory / "01_candidate-component-packet.json").as_posix(),
@@ -1193,6 +1204,7 @@ def component_dossier_index_payload(
             (directory / "09_component-visual-route-index.csv").as_posix(),
             (directory / "12_component-dossier-index.json").as_posix(),
             (directory / "14_component-context-evidence-index.json").as_posix(),
+            (directory / "17_component-research-readiness-index.json").as_posix(),
         ],
         "source_route_files": route_files(directory),
         "uncollected_human_research_fields": [
@@ -1378,6 +1390,7 @@ def component_context_index_payload(
             "11_human-component-dossier.md",
             "13_component-context-evidence-dossier.md",
             "15_component-review-fact-matrix.md",
+            "16_component-research-readiness-review.md",
         ],
         "ai_support_files": [
             "01_candidate-component-packet.json",
@@ -1386,6 +1399,7 @@ def component_context_index_payload(
             "09_component-visual-route-index.csv",
             "12_component-dossier-index.json",
             "14_component-context-evidence-index.json",
+            "17_component-research-readiness-index.json",
         ],
         "source_summary": {
             "source_id": main_row["source_id"],
@@ -1576,6 +1590,211 @@ def component_review_fact_matrix_text(
     return text
 
 
+def component_readiness_slots(
+    glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
+    route_rows: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    local_image_status = (
+        "source_image_extracted"
+        if visual_rows
+        else "not_found_in_registered_source_package_route_indexed"
+    )
+    return [
+        {
+            "slot": "candidate_identity",
+            "status": "dataset_candidate_only",
+            "human_file": "11_human-component-dossier.md",
+            "question": "Which OBIMD subcharacter route identifies this candidate?",
+        },
+        {
+            "slot": "visual_evidence",
+            "status": local_image_status,
+            "human_file": "07_component-visual-gallery.md",
+            "question": "Which local image row must be opened before comparison?",
+        },
+        {
+            "slot": "glyph_codepoint_routes",
+            "status": f"{len(glyph_rows)} glyph-codepoint route rows",
+            "human_file": "04_glyph-codepoint-gallery.md",
+            "question": "Which codepoint clues are dataset routes only?",
+        },
+        {
+            "slot": "visual_route_integrity",
+            "status": f"{len(route_rows)} visual route rows",
+            "human_file": "10_component-visual-route-gallery.md",
+            "question": "Which package, index, or image route needs review?",
+        },
+        {
+            "slot": "near_shape_variant_context",
+            "status": "pending independent comparison",
+            "human_file": "13_component-context-evidence-dossier.md",
+            "question": "Which near-shape or variant route needs human comparison?",
+        },
+        {
+            "slot": "character_inscription_context",
+            "status": "pending character and inscription route review",
+            "human_file": "13_component-context-evidence-dossier.md",
+            "question": "Which character, inscription, or plate route must be opened?",
+        },
+        {
+            "slot": "source_rights_manifest",
+            "status": "source and rights routes present for review",
+            "human_file": "15_component-review-fact-matrix.md",
+            "question": "Which manifest, checksum, field map, or rights row applies?",
+        },
+        {
+            "slot": "formal_research_blockers",
+            "status": "formal component assignment blocked pending review",
+            "human_file": "16_component-research-readiness-review.md",
+            "question": "What evidence is still missing before formal research?",
+        },
+    ]
+
+
+def component_research_readiness_review_text(
+    index: int,
+    main_row: dict[str, str],
+    glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
+    route_rows: list[dict[str, str]],
+) -> str:
+    component_id = candidate_id(index)
+    slots = component_readiness_slots(glyph_rows, visual_rows, route_rows)
+    slot_lines = "\n".join(
+        line
+        for slot in slots
+        for line in wrapped_bullet(
+            f"{slot['slot']}: {slot['status']} -> {slot['human_file']}"
+        )
+    )
+    questions = [
+        "Which source image row can be opened before comparing shape?",
+        "Which glyph-codepoint row is only dataset routing metadata?",
+        "Which near-shape, variant, or host-character route is still pending?",
+        "Which inscription, plate, findspot, collection, or period route is missing?",
+        "Which source package, checksum, field map, rights note, and risk note apply?",
+        "Which bibliography, proposer, reading history, or dispute remains missing?",
+        (
+            "\u5148\u6253\u5f00\u54ea\u4e00\u6761\u6765\u6e90\u56fe\u50cf"
+            "\u8bb0\u5f55\u540e\u624d\u80fd\u6bd4\u8f83\u5b57\u5f62\uff1f"
+        ),
+        (
+            "\u54ea\u4e00\u6761 glyph-codepoint \u8bb0\u5f55\u53ea\u662f"
+            "\u6570\u636e\u96c6\u8def\u7531 metadata\uff1f"
+        ),
+        (
+            "\u54ea\u4e9b\u8fd1\u5f62\u3001\u5f02\u4f53\u6216\u4e3b\u5b57"
+            "\u8def\u7ebf\u4ecd\u7136\u5f85\u590d\u6838\uff1f"
+        ),
+        (
+            "\u8fd8\u7f3a\u54ea\u4e00\u6761\u535c\u8f9e\u3001\u56fe\u7248\u3001"
+            "\u51fa\u571f\u5730\u3001\u9986\u85cf\u6216\u65f6\u671f\u8def\u7ebf\uff1f"
+        ),
+    ]
+    question_lines = "\n".join(
+        line
+        for question in questions
+        for line in wrapped_bullet(question)
+    )
+    lines = [
+        f"# Component Research Readiness Review / \u6784\u4ef6\u7814\u7a76\u5c31\u7eea\u590d\u6838: {component_id}",
+        "",
+        "English:",
+        wrap_markdown_line(
+            "This human-readable review gathers the object-local evidence a "
+            "researcher must inspect before any formal component research. "
+            "It summarizes images, codepoint routes, context routes, source "
+            "provenance, rights evidence, and concrete missing questions."
+        ),
+        "",
+        "\u7b80\u4f53\u4e2d\u6587\uff1a",
+        wrap_markdown_line(
+            "\u672c\u590d\u6838\u9875\u6c47\u603b\u6b63\u5f0f\u6784\u4ef6"
+            "\u7814\u7a76\u524d\u5fc5\u987b\u6253\u5f00\u7684\u5bf9\u8c61\u5185"
+            "\u8bc1\u636e\uff1a\u56fe\u50cf\u3001\u7801\u4f4d\u8def\u7ebf\u3001"
+            "\u4e0a\u4e0b\u6587\u3001\u6765\u6e90\u3001\u6743\u5229\u8bb0\u5f55"
+            "\u548c\u5177\u4f53\u5f85\u67e5\u95ee\u9898\u3002"
+        ),
+        "",
+        "## Human Reading Order / \u4eba\u5de5\u9605\u8bfb\u987a\u5e8f",
+        "",
+        "- Open `11_human-component-dossier.md` first.",
+        "- Open `13_component-context-evidence-dossier.md` before context use.",
+        "- Open `15_component-review-fact-matrix.md` for source and rights facts.",
+        "- Use JSON and CSV only after the human files are clear.",
+        (
+            "- \u5148\u8bfb\u4eba\u7c7b\u6863\u6848\uff0c\u518d\u4f7f\u7528"
+            "\u7ed3\u6784\u5316\u8def\u7ebf\u6587\u4ef6\u3002"
+        ),
+        "",
+        "## Readiness Slots / \u5c31\u7eea\u590d\u6838\u69fd\u4f4d",
+        "",
+        slot_lines,
+        "",
+        "## Concrete Questions Before Formal Research / \u6b63\u5f0f\u7814\u7a76\u524d\u5f85\u67e5\u95ee\u9898",
+        "",
+        question_lines,
+        "",
+        "## Boundary / \u8fb9\u754c",
+        "",
+        "- not a confirmed graphemic component",
+        "- not a formal component assignment",
+        "- not an oracle-character identity claim",
+        "- not a decipherment conclusion",
+        (
+            "- \u8fd9\u662f\u9884\u5904\u7406\u590d\u6838\u9875\uff0c"
+            "\u4e0d\u662f\u5b66\u672f\u7ed3\u8bba\u3002"
+        ),
+    ]
+    text = "\n".join(lines) + "\n"
+    assert_human_line_width(
+        text,
+        f"{component_id}/16_component-research-readiness-review.md",
+    )
+    return text
+
+
+def component_research_readiness_index_payload(
+    index: int,
+    main_row: dict[str, str],
+    glyph_rows: list[dict[str, str]],
+    visual_rows: list[dict[str, str]],
+    route_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "candidate_component_id": candidate_id(index),
+        "record_type": "component_research_readiness_index",
+        "primary_external_ref_id": main_row["subcharacter_external_ref_id"],
+        "human_entry": "16_component-research-readiness-review.md",
+        "human_readable_files": [
+            "11_human-component-dossier.md",
+            "13_component-context-evidence-dossier.md",
+            "15_component-review-fact-matrix.md",
+            "16_component-research-readiness-review.md",
+        ],
+        "support_files": [
+            "01_candidate-component-packet.json",
+            "03_glyph-codepoint-index.csv",
+            "06_component-visual-index.csv",
+            "09_component-visual-route-index.csv",
+            "14_component-context-evidence-index.json",
+            "17_component-research-readiness-index.json",
+        ],
+        "readiness_slots": component_readiness_slots(
+            glyph_rows,
+            visual_rows,
+            route_rows,
+        ),
+        "claim_boundary": (
+            "no confirmed component form; no formal component assignment; "
+            "no oracle-character identity claim; no decipherment conclusion"
+        ),
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def assert_human_line_width(text: str, label: str) -> None:
     for line_number, line in enumerate(text.splitlines(), start=1):
         if line.startswith("|") or line.startswith("!["):
@@ -1602,6 +1821,8 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
             "context_dossier_path": full_directory / "13_component-context-evidence-dossier.md",
             "context_index_path": full_directory / "14_component-context-evidence-index.json",
             "fact_matrix_path": full_directory / "15_component-review-fact-matrix.md",
+            "readiness_review_path": full_directory / "16_component-research-readiness-review.md",
+            "readiness_index_path": full_directory / "17_component-research-readiness-index.json",
             "context_dossier_text": component_context_dossier_text(
                 index,
                 main_row,
@@ -1620,6 +1841,20 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 index,
                 main_row,
                 directory,
+                glyph_rows,
+                visual_rows,
+                route_rows,
+            ),
+            "readiness_review_text": component_research_readiness_review_text(
+                index,
+                main_row,
+                glyph_rows,
+                visual_rows,
+                route_rows,
+            ),
+            "readiness_index": component_research_readiness_index_payload(
+                index,
+                main_row,
                 glyph_rows,
                 visual_rows,
                 route_rows,
@@ -2013,6 +2248,32 @@ def build_materials(root: Path) -> tuple[int, int]:
                     visual_rows,
                     route_rows,
                 ),
+                encoding="utf-8",
+            )
+            (full_directory / "16_component-research-readiness-review.md").write_text(
+                component_research_readiness_review_text(
+                    index,
+                    main_row,
+                    glyph_rows,
+                    visual_rows,
+                    route_rows,
+                ),
+                encoding="utf-8",
+            )
+            (full_directory / "17_component-research-readiness-index.json").write_text(
+                json.dumps(
+                    component_research_readiness_index_payload(
+                        index,
+                        main_row,
+                        glyph_rows,
+                        visual_rows,
+                        route_rows,
+                    ),
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n",
                 encoding="utf-8",
             )
             manifest_by_bucket[bucket_dir(index)].append(

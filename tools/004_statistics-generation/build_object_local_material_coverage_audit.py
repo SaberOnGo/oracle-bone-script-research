@@ -119,6 +119,7 @@ OBJECT_SPECS = [
             "11_human-component-dossier.md",
             "13_component-context-evidence-dossier.md",
             "15_component-review-fact-matrix.md",
+            "16_component-research-readiness-review.md",
         ),
         (
             "01_candidate-component-packet.json",
@@ -128,12 +129,14 @@ OBJECT_SPECS = [
             "09_component-visual-route-index.csv",
             "12_component-dossier-index.json",
             "14_component-context-evidence-index.json",
+            "17_component-research-readiness-index.json",
         ),
         ("05_component-visual-assets",),
         (
             "09_component-visual-route-index.csv",
             "10_component-visual-route-gallery.md",
             "13_component-context-evidence-dossier.md",
+            "16_component-research-readiness-review.md",
         ),
     ),
     ObjectSpec(

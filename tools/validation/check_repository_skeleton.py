@@ -2914,6 +2914,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "13_component-context-evidence-dossier.md",
         "14_component-context-evidence-index.json",
         "15_component-review-fact-matrix.md",
+        "16_component-research-readiness-review.md",
+        "17_component-research-readiness-index.json",
     ]
     human_markdown_files = [
         "README.md",
@@ -2924,6 +2926,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "11_human-component-dossier.md",
         "13_component-context-evidence-dossier.md",
         "15_component-review-fact-matrix.md",
+        "16_component-research-readiness-review.md",
     ]
     sample_indexes = {1, 70, len(rows)}
     for index, row in enumerate(rows, start=1):
@@ -3037,6 +3040,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component context index route")
             if not any(path.endswith("15_component-review-fact-matrix.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component fact matrix route")
+            if not any(path.endswith("16_component-research-readiness-review.md") for path in route_files):
+                issues.append(f"{packet_path.relative_to(root).as_posix()} missing component readiness route")
             if "not a confirmed graphemic component" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
         context_dossier_path = object_dir / "13_component-context-evidence-dossier.md"
@@ -3282,6 +3287,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing human dossier link")
             if not any(path.endswith("15_component-review-fact-matrix.md") for path in human_files):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing component fact matrix link")
+            if not any(path.endswith("16_component-research-readiness-review.md") for path in human_files):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing component readiness link")
             if not any(path.endswith("01_candidate-component-packet.json") for path in ai_files):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing packet link")
             if "near_shape_and_variant_comparison" not in missing_fields:
@@ -3364,6 +3371,74 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                         f"{fact_matrix_path.relative_to(root).as_posix()}:"
                         f"{line_number} line exceeds 80 characters"
                     )
+        readiness_path = object_dir / "16_component-research-readiness-review.md"
+        if path_exists(readiness_path):
+            readiness_text = readiness_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Component Research Readiness Review",
+                "Human Reading Order",
+                "Readiness Slots",
+                "Concrete Questions Before Formal Research",
+                "not a formal component assignment",
+                "not a decipherment conclusion",
+                "11_human-component-dossier.md",
+                "15_component-review-fact-matrix.md",
+            ]:
+                if snippet not in readiness_text:
+                    issues.append(
+                        f"{readiness_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in readiness_text:
+                issues.append(
+                    f"{readiness_path.relative_to(root).as_posix()} "
+                    "contains not_collected filler"
+                )
+            for line_number, line in enumerate(readiness_text.splitlines(), start=1):
+                if (
+                    not line.startswith("|")
+                    and not line.startswith("![")
+                    and len(line) > 80
+                ):
+                    issues.append(
+                        f"{readiness_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
+        readiness_index_path = object_dir / "17_component-research-readiness-index.json"
+        if path_exists(readiness_index_path):
+            readiness_index = json.loads(
+                readiness_index_path.read_text(encoding="utf-8")
+            )
+            if readiness_index.get("candidate_component_id") != project_id:
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "candidate_component_id mismatch"
+                )
+            if readiness_index.get("record_type") != "component_research_readiness_index":
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            if readiness_index.get("human_entry") != "16_component-research-readiness-review.md":
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "human_entry changed"
+                )
+            if len(readiness_index.get("readiness_slots", [])) != 8:
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "readiness slot count changed"
+                )
+            if "no formal component assignment" not in readiness_index.get("claim_boundary", ""):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing assignment boundary"
+                )
+            if "no decipherment conclusion" not in readiness_index.get("claim_boundary", ""):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing decipherment boundary"
+                )
     return issues
 
 

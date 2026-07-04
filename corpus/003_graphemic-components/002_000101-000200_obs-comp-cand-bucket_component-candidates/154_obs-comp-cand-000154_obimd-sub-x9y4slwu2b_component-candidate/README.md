@@ -72,6 +72,10 @@ Structured support files only serve the human component dossier.
 - `14_component-context-evidence-index.json`: Structured support index for
   context routes.
 - `15_component-review-fact-matrix.md`: Human component review fact matrix.
+- `16_component-research-readiness-review.md`: Human readiness review before
+  formal component research.
+- `17_component-research-readiness-index.json`: Structured support index for
+  readiness slots.
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -120,3 +124,5 @@ Route files / 路由文件:
 - 13_component-context-evidence-dossier.md
 - 14_component-context-evidence-index.json
 - 15_component-review-fact-matrix.md
+- 16_component-research-readiness-review.md
+- 17_component-research-readiness-index.json

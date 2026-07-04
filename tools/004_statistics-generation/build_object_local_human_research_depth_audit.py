@@ -122,6 +122,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "11_human-component-dossier.md",
             "13_component-context-evidence-dossier.md",
             "15_component-review-fact-matrix.md",
+            "16_component-research-readiness-review.md",
         ),
         "slots": (
             "component_candidate_id",

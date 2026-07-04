@@ -1,0 +1,73 @@
+{
+  "candidate_component_id": "obs-comp-cand-001392",
+  "claim_boundary": "no confirmed component form; no formal component assignment; no oracle-character identity claim; no decipherment conclusion",
+  "human_entry": "16_component-research-readiness-review.md",
+  "human_readable_files": [
+    "11_human-component-dossier.md",
+    "13_component-context-evidence-dossier.md",
+    "15_component-review-fact-matrix.md",
+    "16_component-research-readiness-review.md"
+  ],
+  "primary_external_ref_id": "obimd-sub-nnbvkhk8q8",
+  "readiness_slots": [
+    {
+      "human_file": "11_human-component-dossier.md",
+      "question": "Which OBIMD subcharacter route identifies this candidate?",
+      "slot": "candidate_identity",
+      "status": "dataset_candidate_only"
+    },
+    {
+      "human_file": "07_component-visual-gallery.md",
+      "question": "Which local image row must be opened before comparison?",
+      "slot": "visual_evidence",
+      "status": "source_image_extracted"
+    },
+    {
+      "human_file": "04_glyph-codepoint-gallery.md",
+      "question": "Which codepoint clues are dataset routes only?",
+      "slot": "glyph_codepoint_routes",
+      "status": "28 glyph-codepoint route rows"
+    },
+    {
+      "human_file": "10_component-visual-route-gallery.md",
+      "question": "Which package, index, or image route needs review?",
+      "slot": "visual_route_integrity",
+      "status": "4 visual route rows"
+    },
+    {
+      "human_file": "13_component-context-evidence-dossier.md",
+      "question": "Which near-shape or variant route needs human comparison?",
+      "slot": "near_shape_variant_context",
+      "status": "pending independent comparison"
+    },
+    {
+      "human_file": "13_component-context-evidence-dossier.md",
+      "question": "Which character, inscription, or plate route must be opened?",
+      "slot": "character_inscription_context",
+      "status": "pending character and inscription route review"
+    },
+    {
+      "human_file": "15_component-review-fact-matrix.md",
+      "question": "Which manifest, checksum, field map, or rights row applies?",
+      "slot": "source_rights_manifest",
+      "status": "source and rights routes present for review"
+    },
+    {
+      "human_file": "16_component-research-readiness-review.md",
+      "question": "What evidence is still missing before formal research?",
+      "slot": "formal_research_blockers",
+      "status": "formal component assignment blocked pending review"
+    }
+  ],
+  "record_type": "component_research_readiness_index",
+  "review_status": "needs_human_component_review",
+  "support_files": [
+    "01_candidate-component-packet.json",
+    "03_glyph-codepoint-index.csv",
+    "06_component-visual-index.csv",
+    "09_component-visual-route-index.csv",
+    "14_component-context-evidence-index.json",
+    "17_component-research-readiness-index.json"
+  ],
+  "updated_at": "2026-06-20"
+}

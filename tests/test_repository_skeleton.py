@@ -4310,6 +4310,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "11_human-component-dossier.md").exists())
             self.assertTrue((object_dir / "12_component-dossier-index.json").exists())
             self.assertTrue((object_dir / "15_component-review-fact-matrix.md").exists())
+            self.assertTrue((object_dir / "16_component-research-readiness-review.md").exists())
+            self.assertTrue((object_dir / "17_component-research-readiness-index.json").exists())
             packet = json.loads((object_dir / "01_candidate-component-packet.json").read_text(encoding="utf-8"))
             self.assertIn(
                 packet["local_image_status"],
@@ -4443,6 +4445,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertTrue(
                 any(
+                    path.endswith("16_component-research-readiness-review.md")
+                    for path in dossier_index["human_readable_files"]
+                )
+            )
+            self.assertTrue(
+                any(
                     path.endswith("11_human-component-dossier.md")
                     for path in packet["route_files"]
                 )
@@ -4450,6 +4458,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue(
                 any(
                     path.endswith("15_component-review-fact-matrix.md")
+                    for path in packet["route_files"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    path.endswith("16_component-research-readiness-review.md")
                     for path in packet["route_files"]
                 )
             )
@@ -4523,6 +4537,56 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in fact_matrix_text.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
+            readiness_text = (
+                object_dir / "16_component-research-readiness-review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Component Research Readiness Review", readiness_text)
+            self.assertIn("Human Reading Order", readiness_text)
+            self.assertIn("Readiness Slots", readiness_text)
+            self.assertIn("Concrete Questions Before Formal Research", readiness_text)
+            self.assertIn("not a formal component assignment", readiness_text)
+            self.assertIn("not a decipherment conclusion", readiness_text)
+            self.assertIn("11_human-component-dossier.md", readiness_text)
+            self.assertIn("15_component-review-fact-matrix.md", readiness_text)
+            self.assertNotIn("not_collected", readiness_text)
+            for line in readiness_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            readiness_index = json.loads(
+                (object_dir / "17_component-research-readiness-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                readiness_index["record_type"],
+                "component_research_readiness_index",
+            )
+            self.assertEqual(readiness_index["candidate_component_id"], row["project_id"])
+            self.assertEqual(
+                readiness_index["human_entry"],
+                "16_component-research-readiness-review.md",
+            )
+            self.assertIn(
+                "16_component-research-readiness-review.md",
+                readiness_index["human_readable_files"],
+            )
+            self.assertIn(
+                "15_component-review-fact-matrix.md",
+                readiness_index["human_readable_files"],
+            )
+            self.assertIn(
+                "14_component-context-evidence-index.json",
+                readiness_index["support_files"],
+            )
+            self.assertEqual(len(readiness_index["readiness_slots"]), 8)
+            self.assertIn(
+                "no formal component assignment",
+                readiness_index["claim_boundary"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                readiness_index["claim_boundary"],
+            )
             glyph_gallery = (object_dir / "04_glyph-codepoint-gallery.md").read_text(
                 encoding="utf-8"
             )
@@ -4607,6 +4671,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "11_human-component-dossier.md",
             "13_component-context-evidence-dossier.md",
             "15_component-review-fact-matrix.md",
+            "16_component-research-readiness-review.md",
         }
         object_dirs = sorted(
             path for path in root.glob("*/*_component-candidate") if path.is_dir()
@@ -4737,6 +4802,34 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in fact_matrix_text.splitlines():
                 if not line.startswith("|") and not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
+            readiness_path = output["readiness_review_path"]
+            readiness_index_path = output["readiness_index_path"]
+            self.assertEqual(readiness_path.parent, object_dir)
+            self.assertEqual(readiness_index_path.parent, object_dir)
+            self.assertTrue(path_exists(readiness_path), readiness_path)
+            self.assertTrue(path_exists(readiness_index_path), readiness_index_path)
+            readiness_text = output["readiness_review_text"]
+            self.assertIn("Component Research Readiness Review", readiness_text)
+            self.assertIn("Human Reading Order", readiness_text)
+            self.assertIn("Readiness Slots", readiness_text)
+            self.assertIn("Concrete Questions Before Formal Research", readiness_text)
+            self.assertIn("not a formal component assignment", readiness_text)
+            self.assertIn("not a decipherment conclusion", readiness_text)
+            self.assertNotIn("not_collected", readiness_text)
+            for line in readiness_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            readiness_index = output["readiness_index"]
+            self.assertEqual(
+                readiness_index["record_type"],
+                "component_research_readiness_index",
+            )
+            self.assertEqual(readiness_index["candidate_component_id"], project_id)
+            self.assertEqual(
+                readiness_index["human_entry"],
+                "16_component-research-readiness-review.md",
+            )
+            self.assertEqual(len(readiness_index["readiness_slots"]), 8)
 
     def test_inscription_crosswalk_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_inscription_crosswalk_candidate_local_materials(repo_root()), [])
@@ -7629,17 +7722,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "8")
-        self.assertEqual(by_project["obs-comp-cand-000001"]["ai_file_count"], "7")
-        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "3")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "9")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["ai_file_count"], "8")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "4")
         self.assertEqual(by_project["obs-comp-cand-000001"]["source_ids"], "src-obimd")
         self.assertEqual(
             by_project["obs-comp-cand-000070"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "8")
-        self.assertEqual(by_project["obs-comp-cand-000070"]["ai_file_count"], "7")
-        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "3")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "9")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["ai_file_count"], "8")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "4")
         self.assertEqual(
             by_project["src-xiaoxuetang-jiaguwen"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
@@ -7758,6 +7851,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("component_boundary", by_area["graphemic_component_candidates"]["required_human_slots"])
         self.assertIn("near_shape", by_area["graphemic_component_candidates"]["required_human_slots"])
+        self.assertIn(
+            "16_component-research-readiness-review.md",
+            by_area["graphemic_component_candidates"]["representative_human_files_to_open"],
+        )
         self.assertIn("bronze_seal_modern_route", by_area["evolution_correspondence_candidates"]["required_human_slots"])
         self.assertIn("later_script_identity_boundary", by_area["evolution_correspondence_candidates"]["required_human_slots"])
         self.assertIn("formal_correspondence_research_blockers", by_area["evolution_correspondence_candidates"]["required_human_slots"])

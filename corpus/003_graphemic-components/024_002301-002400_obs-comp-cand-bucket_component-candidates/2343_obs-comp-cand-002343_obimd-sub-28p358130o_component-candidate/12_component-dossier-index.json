@@ -6,7 +6,8 @@
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/06_component-visual-index.csv",
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/09_component-visual-route-index.csv",
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/12_component-dossier-index.json",
-    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/14_component-context-evidence-index.json"
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/14_component-context-evidence-index.json",
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/17_component-research-readiness-index.json"
   ],
   "candidate_component_id": "obs-comp-cand-002343",
   "claim_boundary": "no formal component assignment; no confirmed component form; no oracle-character identity; no decipherment conclusion",
@@ -18,7 +19,8 @@
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/10_component-visual-route-gallery.md",
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/11_human-component-dossier.md",
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/13_component-context-evidence-dossier.md",
-    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/15_component-review-fact-matrix.md"
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/15_component-review-fact-matrix.md",
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/16_component-research-readiness-review.md"
   ],
   "primary_external_ref_id": "obimd-sub-28p358130o",
   "record_type": "graphemic_component_candidate_dossier_index",
@@ -44,7 +46,9 @@
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/12_component-dossier-index.json",
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/13_component-context-evidence-dossier.md",
     "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/14_component-context-evidence-index.json",
-    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/15_component-review-fact-matrix.md"
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/15_component-review-fact-matrix.md",
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/16_component-research-readiness-review.md",
+    "corpus/003_graphemic-components/024_002301-002400_obs-comp-cand-bucket_component-candidates/2343_obs-comp-cand-002343_obimd-sub-28p358130o_component-candidate/17_component-research-readiness-index.json"
   ],
   "uncollected_human_research_fields": [
     "near_shape_and_variant_comparison",

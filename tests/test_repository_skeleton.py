@@ -8125,6 +8125,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "17_source-literature-scope-index.json").is_file())
         self.assertTrue((object_dir / "18_source-access-integrity-review.md").is_file())
         self.assertTrue((object_dir / "19_source-access-integrity-index.json").is_file())
+        self.assertTrue((object_dir / "20_source-presearch-readiness-review.md").is_file())
+        self.assertTrue((object_dir / "21_source-presearch-readiness-index.json").is_file())
         readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
         readme_opening = readme_text.split("## Source Summary", 1)[0]
         self.assertIn("object-local human source research entrance", readme_text)
@@ -8249,9 +8251,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             "18_source-access-integrity-review.md",
             source_dossier_index["human_readable_files"],
         )
+        self.assertIn(
+            "20_source-presearch-readiness-review.md",
+            source_dossier_index["human_readable_files"],
+        )
         self.assertIn("01_source-packet.json", source_dossier_index["ai_support_files"])
         self.assertIn(
             "19_source-access-integrity-index.json",
+            source_dossier_index["ai_support_files"],
+        )
+        self.assertIn(
+            "21_source-presearch-readiness-index.json",
             source_dossier_index["ai_support_files"],
         )
         self.assertIn(
@@ -8270,6 +8280,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("17_source-literature-scope-index.json", packet["local_files"])
         self.assertIn("18_source-access-integrity-review.md", packet["local_files"])
         self.assertIn("19_source-access-integrity-index.json", packet["local_files"])
+        self.assertIn("20_source-presearch-readiness-review.md", packet["local_files"])
+        self.assertIn("21_source-presearch-readiness-index.json", packet["local_files"])
         self.assertEqual(packet["download_route_count"], 4)
         self.assertEqual(packet["package_route_count"], 2)
         self.assertEqual(packet["field_map_route_count"], 6)
@@ -8472,6 +8484,46 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "no decipherment conclusion",
             access_integrity_index["claim_boundary"],
+        )
+        readiness_text = (
+            object_dir / "20_source-presearch-readiness-review.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Source Pre-Research Readiness Review", readiness_text)
+        self.assertIn("来源预研究就绪复核", readiness_text)
+        self.assertIn("Human Reading Order", readiness_text)
+        self.assertIn("Readiness Slots", readiness_text)
+        self.assertIn("Concrete Questions Before Formal Research", readiness_text)
+        self.assertIn("20_source-presearch-readiness-review.md", readiness_text)
+        self.assertIn("not a rights decision", readiness_text)
+        self.assertIn("not corpus import approval", readiness_text)
+        self.assertIn("not a decipherment conclusion", readiness_text)
+        self.assertNotIn("not_collected", readiness_text)
+        self.assertTrue(all(len(line) <= 80 for line in readiness_text.splitlines()))
+        readiness_index = json.loads(
+            (object_dir / "21_source-presearch-readiness-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(
+            readiness_index["record_type"],
+            "source_presearch_readiness_index",
+        )
+        self.assertEqual(
+            readiness_index["human_entry"],
+            "20_source-presearch-readiness-review.md",
+        )
+        self.assertIn(
+            "20_source-presearch-readiness-review.md",
+            readiness_index["human_readable_files"],
+        )
+        self.assertIn(
+            "19_source-access-integrity-index.json",
+            readiness_index["ai_support_files"],
+        )
+        self.assertEqual(len(readiness_index["readiness_slots"]), 7)
+        self.assertIn(
+            "no decipherment conclusion",
+            readiness_index["claim_boundary"],
         )
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
@@ -26775,7 +26827,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"435"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"477"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -26873,7 +26925,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 128",
-            "source register files: 435",
+            "source register files: 477",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -26902,7 +26954,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 128", text)
-        self.assertIn("source register files: 435", text)
+        self.assertIn("source register files: 477", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

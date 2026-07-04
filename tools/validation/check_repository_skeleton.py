@@ -6101,6 +6101,20 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "not corpus import approval",
         "not a decipherment conclusion",
     ]
+    required_files["20_source-presearch-readiness-review.md"] = [
+        "Source Pre-Research Readiness Review",
+        "来源预研究就绪复核",
+        "Human Reading Order",
+        "人工阅读顺序",
+        "Readiness Slots",
+        "就绪复核槽位",
+        "Concrete Questions Before Formal Research",
+        "正式研究前待查问题",
+        "20_source-presearch-readiness-review.md",
+        "not a rights decision",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+    ]
     source_pending_anchors = (
         "02_download-route-index.csv",
         "03_package-route-index.csv",
@@ -6340,6 +6354,39 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             issues.append(f"{access_integrity_index_path.relative_to(root)} missing integrity slots")
         if "no decipherment conclusion" not in access_integrity_index.get("claim_boundary", []):
             issues.append(f"{access_integrity_index_path.relative_to(root)} missing decipherment boundary")
+        readiness_index_path = object_dir / "21_source-presearch-readiness-index.json"
+        if not readiness_index_path.is_file():
+            issues.append(f"{object_dir.name} missing 21_source-presearch-readiness-index.json")
+            continue
+        try:
+            readiness_index = json.loads(
+                readiness_index_path.read_text(encoding="utf-8")
+            )
+        except json.JSONDecodeError as exc:
+            issues.append(
+                f"{readiness_index_path.relative_to(root)} invalid JSON: {exc}"
+            )
+            continue
+        if readiness_index.get("record_type") != "source_presearch_readiness_index":
+            issues.append(f"{readiness_index_path.relative_to(root)} record_type changed")
+        if readiness_index.get("human_entry") != "20_source-presearch-readiness-review.md":
+            issues.append(f"{readiness_index_path.relative_to(root)} human entry changed")
+        if "20_source-presearch-readiness-review.md" not in readiness_index.get(
+            "human_readable_files", []
+        ):
+            issues.append(
+                f"{readiness_index_path.relative_to(root)} missing readiness review link"
+            )
+        if "19_source-access-integrity-index.json" not in readiness_index.get(
+            "ai_support_files", []
+        ):
+            issues.append(
+                f"{readiness_index_path.relative_to(root)} missing access integrity link"
+            )
+        if len(readiness_index.get("readiness_slots", [])) != 7:
+            issues.append(f"{readiness_index_path.relative_to(root)} readiness slot count changed")
+        if "no decipherment conclusion" not in readiness_index.get("claim_boundary", []):
+            issues.append(f"{readiness_index_path.relative_to(root)} missing decipherment boundary")
     return issues
 
 
@@ -14914,7 +14961,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 128",
-        "source register files: 435",
+        "source register files: 477",
         "bibliographic identity",
         "source trail",
         "scope",

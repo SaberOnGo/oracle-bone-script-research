@@ -1,0 +1,91 @@
+{
+  "record_type": "source_presearch_readiness_index",
+  "source_id": "src-oracle-mnist",
+  "source_title": "Oracle-MNIST dataset",
+  "human_entry": "20_source-presearch-readiness-review.md",
+  "human_readable_files": [
+    "README.md",
+    "10_source-evidence-dossier.md",
+    "12_source-provenance-fact-matrix.md",
+    "14_source-to-dossier-transfer-review.md",
+    "16_source-literature-scope-review.md",
+    "18_source-access-integrity-review.md",
+    "20_source-presearch-readiness-review.md"
+  ],
+  "ai_support_files": [
+    "01_source-packet.json",
+    "02_download-route-index.csv",
+    "03_package-route-index.csv",
+    "04_field-map-route-index.csv",
+    "05_metadata-profile-route-index.csv",
+    "11_source-evidence-dossier-index.json",
+    "13_source-provenance-fact-matrix-index.json",
+    "15_source-to-dossier-transfer-index.json",
+    "17_source-literature-scope-index.json",
+    "19_source-access-integrity-index.json"
+  ],
+  "readiness_slots": [
+    {
+      "slot": "visible_source_identity",
+      "status": "route_present",
+      "evidence": "README.md; 10_source-evidence-dossier.md",
+      "human_question": "Which source system, title, provider, URL, scope, and authority tier can a reviewer cite before opening data rows?"
+    },
+    {
+      "slot": "access_checksum_size",
+      "status": "needs_human_review",
+      "evidence": "02_download-route-index.csv; 18_source-access-integrity-review.md",
+      "human_question": "Which access or download row has status downloaded; which checksum and size rows are ready for audit?"
+    },
+    {
+      "slot": "package_and_field_map",
+      "status": "needs_human_review",
+      "evidence": "03_package-route-index.csv; 04_field-map-route-index.csv",
+      "human_question": "Which package, manifest, and field-map rows can support none without becoming claims?"
+    },
+    {
+      "slot": "human_dossier_transfer",
+      "status": "needs_target_dossier_review",
+      "evidence": "14_source-to-dossier-transfer-review.md",
+      "human_question": "Which character, inscription, plate, collection, later-form, or bibliography dossier can receive only a reviewed route?"
+    },
+    {
+      "slot": "literature_and_dispute_scope",
+      "status": "needs_human_literature_review",
+      "evidence": "16_source-literature-scope-review.md",
+      "human_question": "Which bibliography, database note, proposer, editor, citation relation, different opinion, or dispute remains to be opened?"
+    },
+    {
+      "slot": "rights_risk_public_commit",
+      "status": "needs_rights_boundary_review",
+      "evidence": "12_source-provenance-fact-matrix.md; 18_source-access-integrity-review.md",
+      "human_question": "Which rights status, risk note, size limit, checksum, and commit-policy issue blocks public promotion?"
+    },
+    {
+      "slot": "concrete_missing_questions",
+      "status": "needs_followup_before_formal_research",
+      "evidence": "20_source-presearch-readiness-review.md",
+      "human_question": "which field map must be reviewed"
+    }
+  ],
+  "route_counts": {
+    "download_route_count": 1,
+    "checksum_route_count": 1,
+    "size_route_count": 1,
+    "package_route_count": 1,
+    "field_map_route_count": 0,
+    "metadata_profile_route_count": 2
+  },
+  "claim_boundary": [
+    "no rights decision",
+    "no corpus import approval",
+    "no confirmed source promotion",
+    "no reading",
+    "no component assignment",
+    "no inscription identity",
+    "no correspondence conclusion",
+    "no decipherment conclusion"
+  ],
+  "review_status": "needs_human_source_presearch_readiness_review",
+  "updated_at": "2026-06-21"
+}

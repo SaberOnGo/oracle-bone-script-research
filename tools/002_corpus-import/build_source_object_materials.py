@@ -240,6 +240,8 @@ def source_packet(
             "17_source-literature-scope-index.json",
             "18_source-access-integrity-review.md",
             "19_source-access-integrity-index.json",
+            "20_source-presearch-readiness-review.md",
+            "21_source-presearch-readiness-index.json",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -392,6 +394,7 @@ def source_evidence_dossier_index_payload(
             "14_source-to-dossier-transfer-review.md",
             "16_source-literature-scope-review.md",
             "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -405,6 +408,7 @@ def source_evidence_dossier_index_payload(
             "15_source-to-dossier-transfer-index.json",
             "17_source-literature-scope-index.json",
             "19_source-access-integrity-index.json",
+            "21_source-presearch-readiness-index.json",
         ],
         "source_route_files": [
             SOURCE_INDEX.as_posix(),
@@ -545,6 +549,7 @@ def source_provenance_fact_matrix_index_payload(
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
             "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -554,6 +559,7 @@ def source_provenance_fact_matrix_index_payload(
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
             "19_source-access-integrity-index.json",
+            "21_source-presearch-readiness-index.json",
         ],
         "facts": fact_rows,
         "claim_boundary": [
@@ -756,6 +762,7 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "06_human-source-review-sheet.md",
             "16_source-literature-scope-review.md",
             "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -766,6 +773,7 @@ def source_to_dossier_transfer_index_payload(source: dict[str, str]) -> dict[str
             "11_source-evidence-dossier-index.json",
             "17_source-literature-scope-index.json",
             "19_source-access-integrity-index.json",
+            "21_source-presearch-readiness-index.json",
         ],
         "transfer_slots": [slot["slot"] for slot in TRANSFER_SLOTS],
         "target_routes": [slot["target"] for slot in TRANSFER_SLOTS],
@@ -906,6 +914,7 @@ def source_literature_scope_index_payload(source: dict[str, str]) -> dict[str, o
             "14_source-to-dossier-transfer-review.md",
             "06_human-source-review-sheet.md",
             "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -915,6 +924,7 @@ def source_literature_scope_index_payload(source: dict[str, str]) -> dict[str, o
             "11_source-evidence-dossier-index.json",
             "15_source-to-dossier-transfer-index.json",
             "19_source-access-integrity-index.json",
+            "21_source-presearch-readiness-index.json",
         ],
         "review_slots": [
             "bibliography_note",
@@ -1098,6 +1108,7 @@ def source_access_integrity_index_payload(
             "10_source-evidence-dossier.md",
             "12_source-provenance-fact-matrix.md",
             "06_human-source-review-sheet.md",
+            "20_source-presearch-readiness-review.md",
         ],
         "ai_support_files": [
             "01_source-packet.json",
@@ -1107,6 +1118,7 @@ def source_access_integrity_index_payload(
             "05_metadata-profile-route-index.csv",
             "09_source-processing-status-index.json",
             "11_source-evidence-dossier-index.json",
+            "21_source-presearch-readiness-index.json",
         ],
         "integrity_slots": [
             "access_or_download_record",
@@ -1142,6 +1154,272 @@ def source_access_integrity_index_payload(
             "no decipherment conclusion",
         ],
         "review_status": "needs_human_source_access_integrity_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def source_presearch_readiness_slots(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    target_record_types = sorted(
+        {row.get("target_record_type", "") for row in field_routes if row.get("target_record_type")}
+    )
+    download_statuses = sorted(
+        {row.get("download_status", "") for row in download_routes if row.get("download_status")}
+    )
+    missing_checks: list[str] = []
+    if checksum_count(download_routes) < len(download_routes):
+        missing_checks.append("which access rows still lack checksum evidence")
+    if sized_count(download_routes) < len(download_routes):
+        missing_checks.append("which access rows still lack file-size evidence")
+    if not package_routes:
+        missing_checks.append("which package manifest row must be created")
+    if not field_routes:
+        missing_checks.append("which field map must be reviewed")
+    if not metadata_routes:
+        missing_checks.append("whether metadata profile rows are absent by design")
+    if not source.get("risk_note"):
+        missing_checks.append("which visible risk note should accompany reuse")
+    if not missing_checks:
+        missing_checks.append("which human reviewer can close remaining route checks")
+
+    return [
+        {
+            "slot": "visible_source_identity",
+            "status": "route_present",
+            "evidence": "README.md; 10_source-evidence-dossier.md",
+            "human_question": (
+                "Which source system, title, provider, URL, scope, and "
+                "authority tier can a reviewer cite before opening data rows?"
+            ),
+        },
+        {
+            "slot": "access_checksum_size",
+            "status": "needs_human_review",
+            "evidence": "02_download-route-index.csv; 18_source-access-integrity-review.md",
+            "human_question": (
+                "Which access or download row has status "
+                f"{joined(download_statuses)}; which checksum and size rows "
+                "are ready for audit?"
+            ),
+        },
+        {
+            "slot": "package_and_field_map",
+            "status": "needs_human_review",
+            "evidence": "03_package-route-index.csv; 04_field-map-route-index.csv",
+            "human_question": (
+                "Which package, manifest, and field-map rows can support "
+                f"{joined(target_record_types)} without becoming claims?"
+            ),
+        },
+        {
+            "slot": "human_dossier_transfer",
+            "status": "needs_target_dossier_review",
+            "evidence": "14_source-to-dossier-transfer-review.md",
+            "human_question": (
+                "Which character, inscription, plate, collection, later-form, "
+                "or bibliography dossier can receive only a reviewed route?"
+            ),
+        },
+        {
+            "slot": "literature_and_dispute_scope",
+            "status": "needs_human_literature_review",
+            "evidence": "16_source-literature-scope-review.md",
+            "human_question": (
+                "Which bibliography, database note, proposer, editor, "
+                "citation relation, different opinion, or dispute remains "
+                "to be opened?"
+            ),
+        },
+        {
+            "slot": "rights_risk_public_commit",
+            "status": "needs_rights_boundary_review",
+            "evidence": "12_source-provenance-fact-matrix.md; 18_source-access-integrity-review.md",
+            "human_question": (
+                "Which rights status, risk note, size limit, checksum, and "
+                "commit-policy issue blocks public promotion?"
+            ),
+        },
+        {
+            "slot": "concrete_missing_questions",
+            "status": "needs_followup_before_formal_research",
+            "evidence": "20_source-presearch-readiness-review.md",
+            "human_question": "; ".join(missing_checks),
+        },
+    ]
+
+
+def source_presearch_readiness_review_text(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    slots = source_presearch_readiness_slots(
+        source,
+        download_routes,
+        package_routes,
+        field_routes,
+        metadata_routes,
+    )
+    lines = [
+        "# Source Pre-Research Readiness Review / 来源预研究就绪复核",
+        "",
+        "## English",
+        *wrapped(
+            "This human review page tells a researcher what this source object "
+            "can support before formal oracle-bone research begins. It gathers "
+            "the visible source identity, access evidence, package and field "
+            "maps, transfer routes, literature scope, rights boundary, and "
+            "concrete missing questions in one readable place."
+        ),
+        "",
+        "## 简体中文",
+        *wrapped(
+            "本页说明正式甲骨文研究开始前，这个来源对象目前能够支持哪些"
+            "人工核查。它把来源身份、访问证据、来源包和字段映射、转入"
+            "档案路线、文献范围、权利边界和具体缺失问题集中到一个人类"
+            "可读页面。"
+        ),
+        "",
+        "## Source / 来源",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Title / 题名", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Source type / 来源类型", source["source_type"]),
+        *bullet("Scope / 适用范围", source["scope"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Risk note / 风险提示", source["risk_note"]),
+        *bullet("Review status / 复核状态", source["review_status"]),
+        "",
+        "## Human Reading Order / 人工阅读顺序",
+        "- Read `README.md` and `10_source-evidence-dossier.md` first.",
+        "- Check `12_source-provenance-fact-matrix.md` for source facts.",
+        "- Check `14_source-to-dossier-transfer-review.md` before transfer.",
+        "- Check `16_source-literature-scope-review.md` for scope and disputes.",
+        "- Check `18_source-access-integrity-review.md` before reuse.",
+        "- Use JSON and CSV only after the human files are clear.",
+        "- 先读 `README.md` 和 `10_source-evidence-dossier.md`。",
+        "- 再读 `12_source-provenance-fact-matrix.md` 核对来源事实。",
+        "- 转入对象档案前先读 `14_source-to-dossier-transfer-review.md`。",
+        "- 通过 `16_source-literature-scope-review.md` 核对范围和争议。",
+        "- 复用资料前先读 `18_source-access-integrity-review.md`。",
+        "- JSON 和 CSV 只能在人类文件清楚之后作为辅助资料使用。",
+        "",
+        "## Readiness Slots / 就绪复核槽位",
+    ]
+    for index, slot in enumerate(slots, start=1):
+        lines.extend(
+            [
+                "",
+                f"### {index:02d}. {slot['slot']}",
+                *bullet("Status / 状态", slot["status"]),
+                *bullet("Evidence / 证据文件", slot["evidence"]),
+                *bullet("Question / 待查问题", slot["human_question"]),
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Concrete Questions Before Formal Research / 正式研究前待查问题",
+            "- Which visible image, rubbing, plate, catalog, or URL is evidence?",
+            "- Which checksum, file size, package row, or field map proves it?",
+            "- Which target dossier can receive a route without receiving a claim?",
+            "- Which bibliography, proposer, alternate view, or dispute is open?",
+            "- Which rights, risk, size, or commit-policy issue blocks reuse?",
+            "- 哪个图片、拓片、图版、著录或 URL 是可见证据？",
+            "- 哪条 checksum、文件大小、来源包或字段映射记录能证明它？",
+            "- 哪个目标档案只能接收路线，而不能接收结论？",
+            "- 哪条书目、提出者、不同意见或争议仍需打开？",
+            "- 哪个权利、风险、大小或提交策略问题阻止复用？",
+            "",
+            "## Boundary / 边界",
+            "- not a rights decision",
+            "- not corpus import approval",
+            "- not a confirmed source promotion",
+            "- not an accepted reading",
+            "- not a component assignment",
+            "- not an inscription identity",
+            "- not a correspondence conclusion",
+            "- not a decipherment conclusion",
+            "- 不是权利结论",
+            "- 不是语料导入批准",
+            "- 不是来源提升结论",
+            "- 不是已接受释读",
+            "- 不是构件归属",
+            "- 不是卜辞身份确认",
+            "- 不是字形对应结论",
+            "- 不是破译结论",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def source_presearch_readiness_index_payload(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    slots = source_presearch_readiness_slots(
+        source,
+        download_routes,
+        package_routes,
+        field_routes,
+        metadata_routes,
+    )
+    return {
+        "record_type": "source_presearch_readiness_index",
+        "source_id": source["source_id"],
+        "source_title": source["title"],
+        "human_entry": "20_source-presearch-readiness-review.md",
+        "human_readable_files": [
+            "README.md",
+            "10_source-evidence-dossier.md",
+            "12_source-provenance-fact-matrix.md",
+            "14_source-to-dossier-transfer-review.md",
+            "16_source-literature-scope-review.md",
+            "18_source-access-integrity-review.md",
+            "20_source-presearch-readiness-review.md",
+        ],
+        "ai_support_files": [
+            "01_source-packet.json",
+            "02_download-route-index.csv",
+            "03_package-route-index.csv",
+            "04_field-map-route-index.csv",
+            "05_metadata-profile-route-index.csv",
+            "11_source-evidence-dossier-index.json",
+            "13_source-provenance-fact-matrix-index.json",
+            "15_source-to-dossier-transfer-index.json",
+            "17_source-literature-scope-index.json",
+            "19_source-access-integrity-index.json",
+        ],
+        "readiness_slots": slots,
+        "route_counts": {
+            "download_route_count": len(download_routes),
+            "checksum_route_count": checksum_count(download_routes),
+            "size_route_count": sized_count(download_routes),
+            "package_route_count": len(package_routes),
+            "field_map_route_count": len(field_routes),
+            "metadata_profile_route_count": len(metadata_routes),
+        },
+        "claim_boundary": [
+            "no rights decision",
+            "no corpus import approval",
+            "no confirmed source promotion",
+            "no reading",
+            "no component assignment",
+            "no inscription identity",
+            "no correspondence conclusion",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_human_source_presearch_readiness_review",
         "updated_at": UPDATED_AT,
     }
 
@@ -1735,6 +2013,7 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Transfer review / 转入复核", "14_source-to-dossier-transfer-review.md"),
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
+        *bullet("Pre-research readiness / 预研究就绪", "20_source-presearch-readiness-review.md"),
         "",
         "## Structured Support Entrances / 结构化辅助入口",
         *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
@@ -1744,6 +2023,7 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Metadata profiles / 元数据概况路线", "05_metadata-profile-route-index.csv"),
         *bullet("Status index / 处理状态索引", "09_source-processing-status-index.json"),
         *bullet("Access integrity index / 访问完整性索引", "19_source-access-integrity-index.json"),
+        *bullet("Readiness index / 就绪索引", "21_source-presearch-readiness-index.json"),
         "",
         *wrapped(
             "Structured support files only serve the human source dossier. They "
@@ -2183,6 +2463,27 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             object_dir / "19_source-access-integrity-index.json",
             source_access_integrity_index_payload(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
+        )
+        write_human_markdown(
+            object_dir / "20_source-presearch-readiness-review.md",
+            f"{source_id}/20_source-presearch-readiness-review.md",
+            source_presearch_readiness_review_text(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
+        )
+        write_json(
+            object_dir / "21_source-presearch-readiness-index.json",
+            source_presearch_readiness_index_payload(
                 source,
                 download_routes,
                 package_routes,

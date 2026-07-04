@@ -37,7 +37,9 @@
     "16_source-literature-scope-review.md",
     "17_source-literature-scope-index.json",
     "18_source-access-integrity-review.md",
-    "19_source-access-integrity-index.json"
+    "19_source-access-integrity-index.json",
+    "20_source-presearch-readiness-review.md",
+    "21_source-presearch-readiness-index.json"
   ],
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",

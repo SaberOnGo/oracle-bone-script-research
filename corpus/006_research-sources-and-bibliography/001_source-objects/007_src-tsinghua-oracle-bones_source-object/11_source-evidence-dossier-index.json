@@ -11,7 +11,8 @@
     "12_source-provenance-fact-matrix.md",
     "14_source-to-dossier-transfer-review.md",
     "16_source-literature-scope-review.md",
-    "18_source-access-integrity-review.md"
+    "18_source-access-integrity-review.md",
+    "20_source-presearch-readiness-review.md"
   ],
   "ai_support_files": [
     "01_source-packet.json",
@@ -24,7 +25,8 @@
     "13_source-provenance-fact-matrix-index.json",
     "15_source-to-dossier-transfer-index.json",
     "17_source-literature-scope-index.json",
-    "19_source-access-integrity-index.json"
+    "19_source-access-integrity-index.json",
+    "21_source-presearch-readiness-index.json"
   ],
   "source_route_files": [
     "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",

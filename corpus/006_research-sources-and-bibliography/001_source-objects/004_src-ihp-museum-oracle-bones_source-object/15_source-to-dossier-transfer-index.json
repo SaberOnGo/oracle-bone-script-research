@@ -8,7 +8,8 @@
     "12_source-provenance-fact-matrix.md",
     "06_human-source-review-sheet.md",
     "16_source-literature-scope-review.md",
-    "18_source-access-integrity-review.md"
+    "18_source-access-integrity-review.md",
+    "20_source-presearch-readiness-review.md"
   ],
   "ai_support_files": [
     "01_source-packet.json",
@@ -18,7 +19,8 @@
     "05_metadata-profile-route-index.csv",
     "11_source-evidence-dossier-index.json",
     "17_source-literature-scope-index.json",
-    "19_source-access-integrity-index.json"
+    "19_source-access-integrity-index.json",
+    "21_source-presearch-readiness-index.json"
   ],
   "transfer_slots": [
     "character_dossier_transfer",

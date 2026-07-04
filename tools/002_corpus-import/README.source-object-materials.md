@@ -37,6 +37,12 @@ Each concrete source object directory contains:
 - `13_source-provenance-fact-matrix-index.json`: structured matrix index.
 - `14_source-to-dossier-transfer-review.md`: human-readable transfer review.
 - `15_source-to-dossier-transfer-index.json`: structured transfer index.
+- `16_source-literature-scope-review.md`: human-readable literature scope.
+- `17_source-literature-scope-index.json`: structured literature index.
+- `18_source-access-integrity-review.md`: human-readable access review.
+- `19_source-access-integrity-index.json`: structured access index.
+- `20_source-presearch-readiness-review.md`: human-readable readiness review.
+- `21_source-presearch-readiness-index.json`: structured readiness index.
 
 ## Human Reading Rules / 人类阅读规则
 
@@ -52,6 +58,11 @@ These source objects are provenance and data-engineering entrances only. They
 are not rights clearance, import approval, formal character readings, component
 assignments, inscription identities, correspondence conclusions, or
 decipherment conclusions.
+
+The pre-research readiness review is a human checklist for what a source can
+support before formal research. It points back to visible source evidence,
+rights and risk facts, and concrete missing questions. The JSON readiness
+index is only a route helper.
 
 这些来源对象只作为出处追溯和资料工程入口。它们不是权利清理结论，不是导入
 批准，不是正式释读，不是构件归属，不是卜辞身份结论，不是字形对应结论，

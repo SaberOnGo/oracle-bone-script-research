@@ -4734,6 +4734,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         "13_archaeological-context-index.json",
         "14_human-research-readiness-review.md",
         "15_human-research-readiness-index.json",
+        "16_preformal-research-start-check.md",
+        "17_preformal-research-start-index.json",
     ]
     expected_sources = {
         "src-ihp-museum-oracle-bones",

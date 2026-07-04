@@ -36,6 +36,8 @@ No committed image asset is available for this object yet.
   sheet.
 - `14_human-research-readiness-review.md`: human pre-research readiness and
   missing-evidence review.
+- `16_preformal-research-start-check.md`: human opening check before formal
+  research starts.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -51,6 +53,8 @@ No committed image asset is available for this object yet.
   archaeological context review.
 - `15_human-research-readiness-index.json`: structured support index for the
   human readiness review.
+- `17_preformal-research-start-index.json`: structured support index for the
+  preformal start check.
 
 ## Object Metadata / 对象 metadata
 

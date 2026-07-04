@@ -131,6 +131,8 @@ MANIFEST_FIELDS = [
     "archaeological_context_index_path",
     "human_research_readiness_review_path",
     "human_research_readiness_index_path",
+    "preformal_research_start_check_path",
+    "preformal_research_start_index_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
@@ -451,6 +453,10 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
                 "`14_human-research-readiness-review.md`: human pre-research "
                 "readiness and missing-evidence review."
             ),
+            wrapped_bullet(
+                "`16_preformal-research-start-check.md`: human opening "
+                "check before formal research starts."
+            ),
             "\n## Structured Support Files / 结构化辅助文件\n",
             wrapped_bullet(
                 "`01_collection-object-packet.json`: structured candidate "
@@ -482,6 +488,10 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
             wrapped_bullet(
                 "`15_human-research-readiness-index.json`: structured support "
                 "index for the human readiness review."
+            ),
+            wrapped_bullet(
+                "`17_preformal-research-start-index.json`: structured support "
+                "index for the preformal start check."
             ),
         ]
     )
@@ -1517,6 +1527,156 @@ def human_research_readiness_index_payload(
     }
 
 
+def preformal_research_start_check_text(
+    index: int,
+    row: dict[str, str],
+    metadata: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> str:
+    pid = project_id(index)
+    source_label = (
+        metadata.get("accession_number")
+        or metadata.get("source_collection_item_id")
+        or row.get("source_collection_item_id", "")
+        or "pending catalog-page review"
+    )
+    visual_status = visual_row.get("visual_entry_type", "pending visual review")
+    intro_en = wrapped_paragraph(
+        "This human check fixes the opening order before formal research "
+        "starts. A reviewer first opens the object page, image route, catalog "
+        "reference, and source row, then checks archaeological context, "
+        "inscription links, character routes, rights, and unresolved disputes."
+    )
+    intro_zh = wrapped_paragraph(
+        "本核查固定正式研究开始前的开包顺序。研究者先看实物和馆藏记录、"
+        "图像路线、著录线索和来源行，再核对考古语境、卜辞关联、单字"
+        "路线、权利状态和仍待复核的争议。"
+    )
+    opening_rows = "\n".join(
+        [
+            "| Order | Open first | What to verify |",
+            "| --- | --- | --- |",
+            f"| 1 | `02_collection-source-index.csv` | `{source_label}` |",
+            f"| 2 | `04_visual-gallery.md` | `{visual_status}` |",
+            "| 3 | `06_human-collection-dossier.md` | catalog clues |",
+            "| 4 | `12_archaeological-context-review.md` | context gaps |",
+            "| 5 | `14_human-research-readiness-review.md` | blockers |",
+        ]
+    )
+    questions = "\n".join(
+        wrapped_bullet(text)
+        for text in [
+            (
+                "Which object page, image route, catalog reference, and source "
+                "row must be opened first?"
+            ),
+            "Which findspot, period, batch, pit, or plate route remains pending?",
+            "Which inscription or oracle-character relation is candidate only?",
+            "Which rights, checksum, size, manifest, or field map is unresolved?",
+            "Which bibliography, proposer, disagreement, or citation is missing?",
+            "哪一个对象页、图像路线、著录线索和来源行要先打开？",
+            "哪一项出土地、时期、批次、坑位或图版路线仍待查？",
+            "哪一条卜辞或甲骨单字关联仍只是候选路线？",
+            "哪一项权利、checksum、大小、manifest 或字段映射未解决？",
+            "哪一项书目、提出者、不同意见或引用链仍缺失？",
+        ]
+    )
+    boundary = "\n".join(
+        [
+            "- no confirmed collection object identity",
+            "- no confirmed inscription identity",
+            "- no transcription or OCR correction is accepted here",
+            "- no formal reading, component assignment, or dating claim",
+            "- no decipherment conclusion",
+            "- 不确认馆藏对象身份",
+            "- 不确认卜辞身份或释文",
+            "- 不接受释读、构件归属或断代结论",
+        ]
+    )
+    return "\n".join(
+        [
+            (
+                "# Preformal Research Start Check / "
+                f"正式研究开始前开包核查: {pid}"
+            ),
+            "",
+            "English:",
+            intro_en,
+            "",
+            "简体中文：",
+            intro_zh,
+            "",
+            "## Object Opening Order / 对象开包顺序",
+            "",
+            opening_rows,
+            "",
+            "## Concrete Start Questions / 具体开包问题",
+            "",
+            questions,
+            "",
+            "## Research Boundary / 研究边界",
+            "",
+            boundary,
+            f"- candidate_collection_object_id: `{row['candidate_collection_object_id']}`",
+            f"- source_id: `{source_row['source_id']}`",
+            f"- rights_status: `{source_row['rights_status']}`",
+            f"- review_status: `{REVIEW_STATUS}`",
+        ]
+    ) + "\n"
+
+
+def preformal_research_start_index_payload(
+    index: int,
+    relative_dir: Path,
+    row: dict[str, str],
+    source_row: dict[str, str],
+    visual_row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id(index),
+        "record_type": "collection_preformal_research_start_index",
+        "candidate_collection_object_id": row["candidate_collection_object_id"],
+        "human_readable_files": [
+            (relative_dir / "16_preformal-research-start-check.md").as_posix(),
+            (relative_dir / "06_human-collection-dossier.md").as_posix(),
+            (relative_dir / "12_archaeological-context-review.md").as_posix(),
+            (relative_dir / "14_human-research-readiness-review.md").as_posix(),
+        ],
+        "ai_support_files": [
+            (relative_dir / "01_collection-object-packet.json").as_posix(),
+            (relative_dir / "02_collection-source-index.csv").as_posix(),
+            (relative_dir / "03_visual-asset-index.csv").as_posix(),
+            (relative_dir / "17_preformal-research-start-index.json").as_posix(),
+        ],
+        "preformal_start_slots": [
+            "open_object_page_visual_catalog_source_first",
+            "review_archaeological_context_before_identity_claim",
+            "keep_inscription_and_character_links_candidate_only",
+            "check_rights_checksum_size_manifest_field_map",
+            "record_bibliography_dispute_and_missing_items",
+        ],
+        "concrete_start_questions": [
+            "which object page image route catalog reference and source row",
+            "which findspot period batch pit or plate route remains pending",
+            "which inscription or oracle-character relation is candidate only",
+            "which rights checksum size manifest or field map is unresolved",
+            "which bibliography proposer disagreement or citation is missing",
+        ],
+        "source_id": source_row["source_id"],
+        "visual_entry_type": visual_row.get("visual_entry_type", ""),
+        "rights_status": source_row["rights_status"],
+        "claim_boundary": (
+            "preformal opening check only; no confirmed collection object "
+            "identity; no confirmed inscription identity; no transcription; "
+            "no reading; no component assignment; no dating claim; no "
+            "decipherment conclusion"
+        ),
+        "review_status": REVIEW_STATUS,
+        "updated_at": UPDATED_AT,
+    }
+
+
 def gallery_text(index: int, row: dict[str, str], visual_row: dict[str, str]) -> str:
     if visual_row.get("asset_path"):
         rel_asset = relative_link(object_dir(index, row, "x"), visual_row["asset_path"])
@@ -1714,6 +1874,22 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 src_row,
                 vis_row,
             ),
+            "preformal_research_start_check_text": (
+                preformal_research_start_check_text(
+                    index,
+                    row,
+                    metadata,
+                    src_row,
+                    vis_row,
+                )
+            ),
+            "preformal_research_start_index": preformal_research_start_index_payload(
+                index,
+                relative_dir,
+                row,
+                src_row,
+                vis_row,
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -1748,6 +1924,12 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 ).as_posix(),
                 "human_research_readiness_index_path": (
                     relative_dir / "15_human-research-readiness-index.json"
+                ).as_posix(),
+                "preformal_research_start_check_path": (
+                    relative_dir / "16_preformal-research-start-check.md"
+                ).as_posix(),
+                "preformal_research_start_index_path": (
+                    relative_dir / "17_preformal-research-start-index.json"
                 ).as_posix(),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
@@ -1866,6 +2048,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (directory / "15_human-research-readiness-index.json").write_text(
             json.dumps(
                 output["human_research_readiness_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "16_preformal-research-start-check.md").write_text(
+            str(output["preformal_research_start_check_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (directory / "17_preformal-research-start-index.json").write_text(
+            json.dumps(
+                output["preformal_research_start_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

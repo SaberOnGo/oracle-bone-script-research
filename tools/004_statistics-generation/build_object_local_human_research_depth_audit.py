@@ -222,6 +222,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "10_collection-provenance-fact-matrix.md",
             "12_archaeological-context-review.md",
             "14_human-research-readiness-review.md",
+            "16_preformal-research-start-check.md",
         ),
         "slots": (
             "institution",
@@ -239,6 +240,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "risk_note",
             "scholarship_dispute_route",
             "raw_asset_boundary",
+            "preformal_research_opening_order",
             "missing_items",
             "review_status",
         ),
@@ -248,6 +250,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "Which plate, inscription, or character route remains candidate only?",
             "Which raw image or unclear asset must remain outside regular Git?",
             "Which bibliography, proposer, disagreement, or citation trail is missing?",
+            "Which object page, image route, catalog reference, and source row must be opened first?",
         ),
     },
     "research_source_objects": {

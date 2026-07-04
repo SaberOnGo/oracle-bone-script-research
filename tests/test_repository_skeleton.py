@@ -6566,6 +6566,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "13_archaeological-context-index.json").exists())
             self.assertTrue((object_dir / "14_human-research-readiness-review.md").exists())
             self.assertTrue((object_dir / "15_human-research-readiness-index.json").exists())
+            self.assertTrue((object_dir / "16_preformal-research-start-check.md").exists())
+            self.assertTrue((object_dir / "17_preformal-research-start-index.json").exists())
             packet = json.loads(
                 (object_dir / "01_collection-object-packet.json").read_text(
                     encoding="utf-8"
@@ -6597,9 +6599,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("10_collection-provenance-fact-matrix.md", readme_text)
             self.assertIn("12_archaeological-context-review.md", readme_text)
             self.assertIn("14_human-research-readiness-review.md", readme_text)
+            self.assertIn("16_preformal-research-start-check.md", readme_text)
             self.assertLess(
                 readme_text.index("06_human-collection-dossier.md"),
                 readme_text.index("01_collection-object-packet.json"),
+            )
+            self.assertLess(
+                readme_text.index("16_preformal-research-start-check.md"),
+                readme_text.index("17_preformal-research-start-index.json"),
             )
             self.assertLess(
                 readme_text.index("10_collection-provenance-fact-matrix.md"),
@@ -6939,6 +6946,56 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "no decipherment conclusion",
                 readiness_index["claim_boundary"],
             )
+            start_check_text = (
+                object_dir / "16_preformal-research-start-check.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Preformal Research Start Check", start_check_text)
+            self.assertIn("正式研究开始前开包核查", start_check_text)
+            self.assertIn("Object Opening Order", start_check_text)
+            self.assertIn("先看实物和馆藏记录", start_check_text)
+            self.assertIn("02_collection-source-index.csv", start_check_text)
+            self.assertIn("04_visual-gallery.md", start_check_text)
+            self.assertIn("06_human-collection-dossier.md", start_check_text)
+            self.assertIn("12_archaeological-context-review.md", start_check_text)
+            self.assertIn("14_human-research-readiness-review.md", start_check_text)
+            self.assertIn(
+                "Which object page, image route, catalog reference, and source row",
+                start_check_text,
+            )
+            self.assertIn(
+                "哪一个对象页、图像路线、著录线索和来源行要先打开？",
+                start_check_text,
+            )
+            self.assertIn("no decipherment conclusion", start_check_text)
+            self.assertNotIn("not_collected", start_check_text)
+            for line in start_check_text.splitlines():
+                if not line.startswith("|") and not line.startswith("!["):
+                    self.assertLessEqual(len(line), 80, line)
+            start_index = json.loads(
+                (object_dir / "17_preformal-research-start-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                start_index["record_type"],
+                "collection_preformal_research_start_index",
+            )
+            self.assertIn(
+                "16_preformal-research-start-check.md",
+                ";".join(start_index["human_readable_files"]),
+            )
+            self.assertIn(
+                "17_preformal-research-start-index.json",
+                ";".join(start_index["ai_support_files"]),
+            )
+            self.assertIn(
+                "open_object_page_visual_catalog_source_first",
+                start_index["preformal_start_slots"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                start_index["claim_boundary"],
+            )
             self.assertFalse((object_dir.parent / "human-readable").exists())
 
         smithsonian_gallery = (
@@ -7059,6 +7116,30 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["archaeological_context_index"]["context_slots"],
         )
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
+        self.assertIn(
+            "Preformal Research Start Check",
+            first["preformal_research_start_check_text"],
+        )
+        self.assertIn(
+            "正式研究开始前开包核查",
+            first["preformal_research_start_check_text"],
+        )
+        self.assertIn(
+            "Which object page, image route, catalog reference, and source row",
+            first["preformal_research_start_check_text"],
+        )
+        self.assertNotIn("not_collected", first["preformal_research_start_check_text"])
+        for line in first["preformal_research_start_check_text"].splitlines():
+            if not line.startswith("|"):
+                self.assertLessEqual(len(line), 80, line)
+        self.assertEqual(
+            first["preformal_research_start_index"]["record_type"],
+            "collection_preformal_research_start_index",
+        )
+        self.assertIn(
+            "open_object_page_visual_catalog_source_first",
+            first["preformal_research_start_index"]["preformal_start_slots"],
+        )
         self.assertIn(
             "Open 02_collection-source-index.csv and name the missing source row.",
             first["review_sheet_text"],
@@ -7812,6 +7893,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "9")
         self.assertEqual(by_project["obs-comp-cand-000070"]["ai_file_count"], "8")
         self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "4")
+        self.assertEqual(by_project["coll-obj-cand-00001"]["human_file_count"], "9")
+        self.assertEqual(by_project["coll-obj-cand-00001"]["ai_file_count"], "9")
+        self.assertEqual(by_project["coll-obj-cand-00001"]["route_file_count"], "5")
         self.assertEqual(
             by_project["src-xiaoxuetang-jiaguwen"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
@@ -7949,7 +8033,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("plate_or_publication_route", by_area["collection_object_candidates"]["required_human_slots"])
         self.assertIn("12_archaeological-context-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
         self.assertIn("14_human-research-readiness-review.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
+        self.assertIn("16_preformal-research-start-check.md", by_area["collection_object_candidates"]["representative_human_files_to_open"])
         self.assertIn("scholarship_dispute_route", by_area["collection_object_candidates"]["required_human_slots"])
+        self.assertIn("preformal_research_opening_order", by_area["collection_object_candidates"]["required_human_slots"])
+        self.assertIn(
+            "Which object page, image route, catalog reference, and source row must be opened first?",
+            by_area["collection_object_candidates"]["concrete_depth_questions"],
+        )
         self.assertIn("modern_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
         self.assertIn("dataset_label_boundary", by_area["codepoint_crosswalk_candidates"]["required_human_slots"])
         self.assertIn(

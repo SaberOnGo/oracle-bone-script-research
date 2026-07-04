@@ -2,7 +2,8 @@
   "ai_support_files": [
     "01_topic-candidate-packet.json",
     "04_inscription-crosswalk-route-index.csv",
-    "13_topic-research-use-boundary-index.json"
+    "13_topic-research-use-boundary-index.json",
+    "15_topic-research-readiness-index.json"
   ],
   "boundary_slots": {
     "allowed_use": [
@@ -31,7 +32,8 @@
     "06_human-topic-dossier.md",
     "08_topic-literature-context-dossier.md",
     "10_topic-citation-dispute-review-dossier.md",
-    "12_topic-research-use-boundary-review.md"
+    "12_topic-research-use-boundary-review.md",
+    "14_topic-research-readiness-review.md"
   ],
   "linked_crosswalk_candidate_count": 34,
   "record_type": "research_topic_use_boundary_index",

@@ -443,6 +443,14 @@ def readme_text(project_id: str, row: dict[str, str], route_count: int) -> str:
                 "`13_topic-research-use-boundary-index.json`: structured "
                 "support for the research-use boundary review."
             ),
+            wrapped_bullet(
+                "`14_topic-research-readiness-review.md`: human readiness "
+                "review before formal topic or grammar research."
+            ),
+            wrapped_bullet(
+                "`15_topic-research-readiness-index.json`: structured "
+                "support for the readiness review."
+            ),
         ]
     )
     english_boundary = wrapped_paragraph(
@@ -741,6 +749,7 @@ def topic_dossier_index_payload(
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ],
         "ai_support_files": [
             "01_topic-candidate-packet.json",
@@ -751,6 +760,7 @@ def topic_dossier_index_payload(
             "09_topic-literature-context-index.json",
             "11_topic-citation-dispute-review-index.json",
             "13_topic-research-use-boundary-index.json",
+            "15_topic-research-readiness-index.json",
         ],
         "source_route_files": [
             CLASSIFIED_SUMMARY.as_posix(),
@@ -761,6 +771,7 @@ def topic_dossier_index_payload(
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ],
         "source_group_number": row["group_number"],
         "linked_crosswalk_candidate_count": len(routes),
@@ -943,6 +954,7 @@ def topic_literature_context_index_payload(
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ],
         "source_evidence_files": [
             CLASSIFIED_SUMMARY.as_posix(),
@@ -956,6 +968,7 @@ def topic_literature_context_index_payload(
             "09_topic-literature-context-index.json",
             "11_topic-citation-dispute-review-index.json",
             "13_topic-research-use-boundary-index.json",
+            "15_topic-research-readiness-index.json",
         ],
         "source_group_number": row["group_number"],
         "linked_crosswalk_candidate_count": len(routes),
@@ -1123,6 +1136,7 @@ def topic_citation_dispute_review_index_payload(
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ],
         "ai_support_files": [
             "01_topic-candidate-packet.json",
@@ -1131,6 +1145,7 @@ def topic_citation_dispute_review_index_payload(
             "09_topic-literature-context-index.json",
             "11_topic-citation-dispute-review-index.json",
             "13_topic-research-use-boundary-index.json",
+            "15_topic-research-readiness-index.json",
         ],
         "source_evidence_files": [
             CLASSIFIED_SUMMARY.as_posix(),
@@ -1317,11 +1332,13 @@ def topic_research_use_boundary_index_payload(
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ],
         "ai_support_files": [
             "01_topic-candidate-packet.json",
             "04_inscription-crosswalk-route-index.csv",
             "13_topic-research-use-boundary-index.json",
+            "15_topic-research-readiness-index.json",
         ],
         "boundary_slots": {
             "allowed_use": [
@@ -1350,6 +1367,243 @@ def topic_research_use_boundary_index_payload(
             "research_use_boundary_only_not_topic_grammar_reading_dating_or_"
             "decipherment_claim"
         ),
+        "review_status": "needs_human_topic_review",
+        "updated_at": UPDATED_AT,
+    }
+
+
+def topic_research_readiness_review_text(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> str:
+    intro_en = wrapped_paragraph(
+        "This review is the last preprocessing gate for this topic candidate. "
+        "It tells a human reader what to open before any formal topic, "
+        "grammar, dating, reading, or decipherment research begins."
+    )
+    intro_zh_lines = [
+        "本页是该主题候选进入正式研究前的最后资料整理复核。",
+        "它只说明研究者应先打开哪些证据、还缺哪些核查。",
+        "它不提出主题、语法、断代、释读或破译结论。",
+    ]
+    reading_order = "\n".join(
+        [
+            wrapped_bullet("Open `05_human-topic-review-sheet.md` for the first checks."),
+            wrapped_bullet("Open `06_human-topic-dossier.md` for the source label scope."),
+            wrapped_bullet(
+                "Open `08_topic-literature-context-dossier.md` for bibliography "
+                "and inscription context."
+            ),
+            wrapped_bullet(
+                "Open `10_topic-citation-dispute-review-dossier.md` for citation, "
+                "proposer, and dispute routes."
+            ),
+            wrapped_bullet(
+                "Open `12_topic-research-use-boundary-review.md` for blocked "
+                "claims and promotion limits."
+            ),
+            "- 先读 `05_human-topic-review-sheet.md`，核对最基本检查项。",
+            "- 再读 `06_human-topic-dossier.md`，确认来源标签范围。",
+            "- 再读 `08_topic-literature-context-dossier.md`，查书目和卜辞语境。",
+            "- 再读 `10_topic-citation-dispute-review-dossier.md`，查引用和争议。",
+            "- 最后读 `12_topic-research-use-boundary-review.md`，确认禁止结论。",
+        ]
+    )
+    readiness_slots = "\n".join(
+        [
+            wrapped_bullet(
+                "source_classification_route: Cambridge/Hopkins group row is "
+                "recorded as a source route only."
+            ),
+            wrapped_bullet(
+                "bibliography_and_source_page: the first source note or page "
+                "still needs human confirmation."
+            ),
+            wrapped_bullet(
+                "linked_inscription_context: linked crosswalk rows must be "
+                "opened before any topic use."
+            ),
+            wrapped_bullet(
+                "evidence_level: current evidence is metadata and route "
+                "evidence only."
+            ),
+            wrapped_bullet(
+                "citation_and_dispute_record: proposer, alternate labels, and "
+                "different opinions remain review items."
+            ),
+            wrapped_bullet(
+                "research_use_boundary: allowed use is preprocessing and "
+                "source comparison only."
+            ),
+            wrapped_bullet(
+                "source_rights_manifest: source, download, rights status, and "
+                "risk note stay visible in local files."
+            ),
+            wrapped_bullet(
+                "formal_topic_research_blockers: missing bibliography, "
+                "inscription context, or disputes block formal research."
+            ),
+            wrapped_bullet(
+                "glyph image route: no glyph image, rubbing, or photo is "
+                "claimed here; open linked inscription evidence first."
+            ),
+            wrapped_bullet(
+                "component route: no component analysis is claimed here; "
+                "compare component clues only after source review."
+            ),
+            wrapped_bullet(
+                "variant and relation route: variant, near-form, bronze, seal, "
+                "modern-character, and relation checks remain pending."
+            ),
+            "- 来源分类路线：Cambridge/Hopkins 分组行只作为来源线索。",
+            "- 书目和来源页：最早出处说明仍需人工打开确认。",
+            "- 关联卜辞语境：使用主题前必须先看互证路线。",
+            "- 证据等级：当前只到 metadata 和路线证据。",
+            "- 引用和争议：提出者、异名和不同意见仍待复核。",
+            "- 使用边界：只能用于预处理、查找和来源比较。",
+            "- 来源权利：source、download、rights 和 risk note 必须可见。",
+            "- 正式研究阻塞项：书目、卜辞语境或争议缺口会阻塞研究。",
+            "- 字形图像路线：本页不确认 glyph image、拓片或照片。",
+            "- 构件路线：本页不做 component 分析，只标出待核查线索。",
+            "- 关系路线：variant、近形、金文、小篆和今字关系仍待查。",
+        ]
+    )
+    questions = "\n".join(
+        [
+            wrapped_bullet(
+                "Which source note, page, or finding-list row first supports "
+                "this topic label?"
+            ),
+            wrapped_bullet(
+                "Which linked inscription route must be opened before the label "
+                "is cited?"
+            ),
+            wrapped_bullet(
+                "Which proposer, alternate label, or disagreement is still "
+                "missing?"
+            ),
+            wrapped_bullet(
+                "Which issue blocks formal topic or grammar research?"
+            ),
+            "- 哪条来源说明、页码或 finding-list 行最先支持该标签？",
+            "- 引用该标签前，应先打开哪条关联卜辞路线？",
+            "- 哪个提出者、异名或不同意见仍缺来源？",
+            "- 哪个问题仍阻塞正式主题或语法研究？",
+        ]
+    )
+    source_status = wrapped_paragraph(
+        "Source and rights evidence remains in `02_topic-source-index.csv`, "
+        "`03_period-count-index.csv`, `04_inscription-crosswalk-route-index.csv`, "
+        "and the Cambridge/Hopkins classified-summary register."
+    )
+    return f"""# Topic Research Readiness Review / 主题研究就绪复核
+Topic candidate ID: `{project_id}`
+
+English:
+{intro_en}
+
+简体中文：
+{chr(10).join(intro_zh_lines)}
+
+## Candidate And Source Status / 候选项与来源状态
+
+| field | value |
+| --- | --- |
+| source id | {SOURCE_ID} |
+| download id | {DOWNLOAD_ID} |
+| source summary row | {row["summary_row_id"]} |
+| source group | {row["group_number"]} |
+| source label en | {row["group_label_en"]} |
+| source label zh | {row["group_label_zh"]} |
+| linked crosswalk routes | {len(routes)} |
+
+English:
+{source_status}
+
+简体中文：
+来源、下载、权利和风险线索仍在本目录索引和总登记中复核。
+
+## Human Reading Order / 人工阅读顺序
+{reading_order}
+
+## Readiness Slots / 就绪复核项
+{readiness_slots}
+
+## Concrete Questions Before Formal Research / 正式研究前的具体问题
+{questions}
+
+## Review Boundary / 复核边界
+
+- preprocessing readiness only
+- not a grammar conclusion
+- not an accepted topic assignment
+- not a transcription
+- not a reading
+- not a dating conclusion
+- not a decipherment conclusion
+"""
+
+
+def topic_research_readiness_index_payload(
+    project_id: str,
+    row: dict[str, str],
+    routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "topic_candidate_id": project_id,
+        "record_type": "research_topic_readiness_index",
+        "human_entry": "14_topic-research-readiness-review.md",
+        "human_readable_files": [
+            "05_human-topic-review-sheet.md",
+            "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
+            "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
+        ],
+        "ai_support_files": [
+            "01_topic-candidate-packet.json",
+            "02_topic-source-index.csv",
+            "03_period-count-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+            "07_topic-dossier-index.json",
+            "09_topic-literature-context-index.json",
+            "11_topic-citation-dispute-review-index.json",
+            "13_topic-research-use-boundary-index.json",
+            "15_topic-research-readiness-index.json",
+        ],
+        "source_evidence_files": [
+            CLASSIFIED_SUMMARY.as_posix(),
+            CROSSWALK_STAGING.as_posix(),
+            "02_topic-source-index.csv",
+            "04_inscription-crosswalk-route-index.csv",
+        ],
+        "readiness_slots": [
+            "source_classification_route",
+            "bibliography_and_source_page",
+            "linked_inscription_context",
+            "evidence_level",
+            "citation_and_dispute_record",
+            "research_use_boundary",
+            "source_rights_manifest",
+            "formal_topic_research_blockers",
+        ],
+        "formal_research_blockers": [
+            "missing_confirmed_bibliography_or_source_page",
+            "linked_inscription_context_not_opened",
+            "proposer_alternate_label_or_dispute_not_reviewed",
+            "topic_grammar_reading_or_dating_claim_still_blocked",
+        ],
+        "linked_crosswalk_candidate_count": len(routes),
+        "claim_boundary": [
+            "no grammar conclusion",
+            "no accepted topic assignment",
+            "no transcription",
+            "no reading",
+            "no dating conclusion",
+            "no decipherment conclusion",
+        ],
         "review_status": "needs_human_topic_review",
         "updated_at": UPDATED_AT,
     }
@@ -1416,6 +1670,15 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             output_dir / "13_topic-research-use-boundary-index.json",
             topic_research_use_boundary_index_payload(project_id, row, routes),
+        )
+        (output_dir / "14_topic-research-readiness-review.md").write_text(
+            topic_research_readiness_review_text(project_id, row, routes),
+            encoding="utf-8",
+            newline="\n",
+        )
+        write_json(
+            output_dir / "15_topic-research-readiness-index.json",
+            topic_research_readiness_index_payload(project_id, row, routes),
         )
         topic_index_rows.append(
             {

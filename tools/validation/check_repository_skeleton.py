@@ -5295,6 +5295,8 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "11_topic-citation-dispute-review-index.json",
         "12_topic-research-use-boundary-review.md",
         "13_topic-research-use-boundary-index.json",
+        "14_topic-research-readiness-review.md",
+        "15_topic-research-readiness-index.json",
     ]
     human_markdown_files = [
         "README.md",
@@ -5303,6 +5305,7 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
         "08_topic-literature-context-dossier.md",
         "10_topic-citation-dispute-review-dossier.md",
         "12_topic-research-use-boundary-review.md",
+        "14_topic-research-readiness-review.md",
     ]
     review_sheet_snippets = [
         "Concrete Questions To Check",
@@ -5679,6 +5682,93 @@ def check_cambridge_hopkins_topic_candidate_local_materials(root: Path) -> list[
                 issues.append(
                     f"{use_boundary_index_path.relative_to(root).as_posix()} "
                     "missing claim boundary"
+                )
+        readiness_path = object_dir / "14_topic-research-readiness-review.md"
+        if path_exists(readiness_path):
+            readiness = readiness_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Topic Research Readiness Review",
+                "主题研究就绪复核",
+                "Human Reading Order",
+                "人工阅读顺序",
+                "Readiness Slots",
+                "就绪复核项",
+                "Concrete Questions Before Formal Research",
+                "正式研究前的具体问题",
+                "05_human-topic-review-sheet.md",
+                "06_human-topic-dossier.md",
+                "08_topic-literature-context-dossier.md",
+                "10_topic-citation-dispute-review-dossier.md",
+                "12_topic-research-use-boundary-review.md",
+                "not a grammar conclusion",
+                "not an accepted topic assignment",
+                "not a transcription",
+                "not a reading",
+                "not a dating conclusion",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in readiness:
+                    issues.append(
+                        f"{readiness_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in readiness:
+                issues.append(
+                    f"{readiness_path.relative_to(root).as_posix()} "
+                    "contains not_collected filler"
+                )
+            for line_number, line in enumerate(readiness.splitlines(), start=1):
+                if line.startswith("|") or line.startswith("!["):
+                    continue
+                if len(line) > 80:
+                    issues.append(
+                        f"{readiness_path.relative_to(root).as_posix()} "
+                        f"line {line_number} exceeds 80 characters"
+                    )
+        readiness_index_path = object_dir / "15_topic-research-readiness-index.json"
+        if path_exists(readiness_index_path):
+            readiness_index = json.loads(
+                readiness_index_path.read_text(encoding="utf-8")
+            )
+            if readiness_index.get("record_type") != "research_topic_readiness_index":
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "record_type changed"
+                )
+            if readiness_index.get("human_entry") != (
+                "14_topic-research-readiness-review.md"
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "human entry changed"
+                )
+            if "formal_topic_research_blockers" not in (
+                readiness_index.get("readiness_slots", [])
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing formal research blocker slot"
+                )
+            if "14_topic-research-readiness-review.md" not in (
+                readiness_index.get("human_readable_files", [])
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing readiness review human link"
+                )
+            if "15_topic-research-readiness-index.json" not in (
+                readiness_index.get("ai_support_files", [])
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing readiness support index link"
+                )
+            if "no decipherment conclusion" not in readiness_index.get(
+                "claim_boundary", []
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} "
+                    "missing decipherment boundary"
                 )
     return issues
 

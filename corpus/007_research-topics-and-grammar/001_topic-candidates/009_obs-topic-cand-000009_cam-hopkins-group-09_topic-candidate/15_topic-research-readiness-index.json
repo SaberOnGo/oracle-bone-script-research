@@ -1,0 +1,57 @@
+{
+  "ai_support_files": [
+    "01_topic-candidate-packet.json",
+    "02_topic-source-index.csv",
+    "03_period-count-index.csv",
+    "04_inscription-crosswalk-route-index.csv",
+    "07_topic-dossier-index.json",
+    "09_topic-literature-context-index.json",
+    "11_topic-citation-dispute-review-index.json",
+    "13_topic-research-use-boundary-index.json",
+    "15_topic-research-readiness-index.json"
+  ],
+  "claim_boundary": [
+    "no grammar conclusion",
+    "no accepted topic assignment",
+    "no transcription",
+    "no reading",
+    "no dating conclusion",
+    "no decipherment conclusion"
+  ],
+  "formal_research_blockers": [
+    "missing_confirmed_bibliography_or_source_page",
+    "linked_inscription_context_not_opened",
+    "proposer_alternate_label_or_dispute_not_reviewed",
+    "topic_grammar_reading_or_dating_claim_still_blocked"
+  ],
+  "human_entry": "14_topic-research-readiness-review.md",
+  "human_readable_files": [
+    "05_human-topic-review-sheet.md",
+    "06_human-topic-dossier.md",
+    "08_topic-literature-context-dossier.md",
+    "10_topic-citation-dispute-review-dossier.md",
+    "12_topic-research-use-boundary-review.md",
+    "14_topic-research-readiness-review.md"
+  ],
+  "linked_crosswalk_candidate_count": 12,
+  "readiness_slots": [
+    "source_classification_route",
+    "bibliography_and_source_page",
+    "linked_inscription_context",
+    "evidence_level",
+    "citation_and_dispute_record",
+    "research_use_boundary",
+    "source_rights_manifest",
+    "formal_topic_research_blockers"
+  ],
+  "record_type": "research_topic_readiness_index",
+  "review_status": "needs_human_topic_review",
+  "source_evidence_files": [
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/003_cambridge-hopkins-classified-summary.csv",
+    "corpus/002_oracle-bone-inscriptions/000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv",
+    "02_topic-source-index.csv",
+    "04_inscription-crosswalk-route-index.csv"
+  ],
+  "topic_candidate_id": "obs-topic-cand-000009",
+  "updated_at": "2026-06-20"
+}

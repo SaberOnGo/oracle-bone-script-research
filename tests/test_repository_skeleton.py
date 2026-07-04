@@ -7826,9 +7826,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-topic-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-topic-cand-000001"]["human_file_count"], "6")
-        self.assertEqual(by_project["obs-topic-cand-000001"]["ai_file_count"], "8")
-        self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "4")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["human_file_count"], "7")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["ai_file_count"], "9")
+        self.assertEqual(by_project["obs-topic-cand-000001"]["route_file_count"], "5")
         self.assertEqual(by_project["obs-topic-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(by_project["obs-xwalk-cand-000001"]["corpus_area"], "codepoint_crosswalk_candidates")
         self.assertEqual(
@@ -7989,11 +7989,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("citation_relation", by_area["research_topic_candidates"]["required_human_slots"])
         self.assertIn("research_use_boundary", by_area["research_topic_candidates"]["required_human_slots"])
         self.assertIn(
+            "formal_topic_research_blockers",
+            by_area["research_topic_candidates"]["required_human_slots"],
+        )
+        self.assertIn(
             "12_topic-research-use-boundary-review.md",
             by_area["research_topic_candidates"]["representative_human_files_to_open"],
         )
         self.assertIn(
+            "14_topic-research-readiness-review.md",
+            by_area["research_topic_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
             "Which topic, grammar, reading, or dating claim remains blocked?",
+            by_area["research_topic_candidates"]["concrete_depth_questions"],
+        )
+        self.assertIn(
+            "Which issue blocks formal topic or grammar research?",
             by_area["research_topic_candidates"]["concrete_depth_questions"],
         )
         self.assertTrue(all(row["human_first_boundary"].startswith("human dossier first") for row in rows))
@@ -8229,6 +8241,70 @@ class RepositorySkeletonTests(unittest.TestCase):
             "research_use_boundary_only",
             use_boundary_index["claim_boundary"],
         )
+        readiness_path = object_dir / "14_topic-research-readiness-review.md"
+        readiness_index_path = object_dir / "15_topic-research-readiness-index.json"
+        self.assertTrue(readiness_path.exists())
+        self.assertTrue(readiness_index_path.exists())
+        readiness = readiness_path.read_text(encoding="utf-8")
+        for marker in [
+            "Topic Research Readiness Review",
+            "主题研究就绪复核",
+            "Human Reading Order",
+            "人工阅读顺序",
+            "Readiness Slots",
+            "就绪复核项",
+            "Concrete Questions Before Formal Research",
+            "正式研究前的具体问题",
+            "05_human-topic-review-sheet.md",
+            "06_human-topic-dossier.md",
+            "08_topic-literature-context-dossier.md",
+            "10_topic-citation-dispute-review-dossier.md",
+            "12_topic-research-use-boundary-review.md",
+            "not a grammar conclusion",
+            "not an accepted topic assignment",
+            "not a transcription",
+            "not a reading",
+            "not a dating conclusion",
+            "not a decipherment conclusion",
+        ]:
+            self.assertIn(marker, readiness)
+        self.assertNotIn("not_collected", readiness)
+        for line in readiness.splitlines():
+            if line.startswith("|") or line.startswith("!["):
+                continue
+            self.assertLessEqual(len(line), 80, line)
+        readiness_index = json.loads(
+            readiness_index_path.read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            readiness_index["record_type"],
+            "research_topic_readiness_index",
+        )
+        self.assertEqual(
+            readiness_index["human_entry"],
+            "14_topic-research-readiness-review.md",
+        )
+        self.assertEqual(len(readiness_index["readiness_slots"]), 8)
+        self.assertIn(
+            "formal_topic_research_blockers",
+            readiness_index["readiness_slots"],
+        )
+        self.assertIn(
+            "14_topic-research-readiness-review.md",
+            readiness_index["human_readable_files"],
+        )
+        self.assertIn(
+            "15_topic-research-readiness-index.json",
+            readiness_index["ai_support_files"],
+        )
+        self.assertIn(
+            "no grammar conclusion",
+            readiness_index["claim_boundary"],
+        )
+        self.assertIn(
+            "no decipherment conclusion",
+            readiness_index["claim_boundary"],
+        )
         with (object_dir / "04_inscription-crosswalk-route-index.csv").open(
             "r", encoding="utf-8-sig", newline=""
         ) as file:
@@ -8253,6 +8329,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         }
         object_dirs = sorted(path for path in root.iterdir() if path.is_dir())
         self.assertEqual(len(object_dirs), 20)

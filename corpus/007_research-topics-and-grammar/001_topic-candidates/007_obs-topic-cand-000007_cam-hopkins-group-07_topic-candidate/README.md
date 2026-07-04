@@ -46,6 +46,10 @@ source tracing, comparison, and review.
   limits, promotion blockers, and claim boundaries.
 - `13_topic-research-use-boundary-index.json`: structured support for the
   research-use boundary review.
+- `14_topic-research-readiness-review.md`: human readiness review before formal
+  topic or grammar research.
+- `15_topic-research-readiness-index.json`: structured support for the readiness
+  review.
 
 ## Candidate Summary / 候选摘要
 - Topic candidate ID / 主题候选 ID: `obs-topic-cand-000007`

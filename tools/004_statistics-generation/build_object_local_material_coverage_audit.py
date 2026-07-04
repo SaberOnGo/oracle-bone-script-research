@@ -316,6 +316,7 @@ OBJECT_SPECS = [
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ),
         (
             "01_topic-candidate-packet.json",
@@ -326,6 +327,7 @@ OBJECT_SPECS = [
             "09_topic-literature-context-index.json",
             "11_topic-citation-dispute-review-index.json",
             "13_topic-research-use-boundary-index.json",
+            "15_topic-research-readiness-index.json",
         ),
         (),
         (
@@ -333,6 +335,7 @@ OBJECT_SPECS = [
             "08_topic-literature-context-dossier.md",
             "10_topic-citation-dispute-review-dossier.md",
             "12_topic-research-use-boundary-review.md",
+            "14_topic-research-readiness-review.md",
         ),
     ),
 ]

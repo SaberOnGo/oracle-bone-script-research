@@ -6367,6 +6367,17 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
         "not corpus import approval",
         "not a decipherment conclusion",
     ]
+    required_files["22_source-research-brief.md"] = [
+        "Source Research Brief",
+        "来源研究资料简报",
+        "Actual Registered Evidence",
+        "已登记的实际证据",
+        "Research-Use Limits",
+        "研究使用限制",
+        "not a rights decision",
+        "not corpus import approval",
+        "not a decipherment conclusion",
+    ]
     source_pending_anchors = (
         "02_download-route-index.csv",
         "03_package-route-index.csv",
@@ -15213,7 +15224,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 128",
-        "source register files: 477",
+        "source register files: 498",
         "bibliographic identity",
         "source trail",
         "scope",

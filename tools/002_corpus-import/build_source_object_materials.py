@@ -242,6 +242,7 @@ def source_packet(
             "19_source-access-integrity-index.json",
             "20_source-presearch-readiness-review.md",
             "21_source-presearch-readiness-index.json",
+            "22_source-research-brief.md",
         ],
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
@@ -1784,6 +1785,128 @@ def source_evidence_dossier_text(
     return "\n".join(lines)
 
 
+def source_research_brief_text(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    """Render a concise, fact-led human entry for a registered source."""
+    lines = [
+        "# Source Research Brief / 来源研究资料简报",
+        "",
+        *wrapped(
+            "This brief is the first human reading page for this registered "
+            "source. It reports only evidence already recorded in this object "
+            "folder and names the limits on research use."
+        ),
+        "",
+        *wrapped(
+            "本简报是该已登记来源的首个供人阅读页面。它只陈述本对象目录已经"
+            "记录的证据，并明确该资料可用于研究的范围和限制。"
+        ),
+        "",
+        "## Source Identity And Scope / 来源身份与范围",
+        *bullet("Title / 标题", source["title"]),
+        *bullet("Provider / 提供方", source["provider"]),
+        *bullet("Evidence level / 证据等级", source["authority_tier"]),
+        *bullet("Registered scope / 已登记范围", source["scope"]),
+        *bullet("Source page / 来源页面", source["source_url"]),
+        "",
+        "## Actual Registered Evidence / 已登记的实际证据",
+        *bullet("Download or access records / 下载或访问记录", len(download_routes)),
+        *bullet("Recorded checksums / 已记录 checksum", checksum_count(download_routes)),
+        *bullet("Recorded file sizes / 已记录文件大小", sized_count(download_routes)),
+        *bullet("Package files / 来源包文件", len(package_routes)),
+        *bullet("Field mappings / 字段映射", len(field_routes)),
+        *bullet("Metadata measurements / 元数据测量", len(metadata_routes)),
+        "",
+    ]
+    for route in download_routes:
+        detail = "; ".join(
+            value
+            for value in [
+                route.get("download_id", ""),
+                route.get("download_status", ""),
+                route.get("file_size_bytes", "") + " bytes"
+                if route.get("file_size_bytes")
+                else "",
+            ]
+            if value
+        )
+        lines.extend(bullet("Recorded access item / 已记录访问项", detail))
+    if not download_routes:
+        lines.extend(
+            bullet(
+                "Recorded access item / 已记录访问项",
+                "No access row is registered; do not reuse material before one is recorded.",
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "## Usable Material Routes / 可用资料路径",
+        ]
+    )
+    for route in package_routes:
+        detail = "; ".join(
+            value
+            for value in [
+                route.get("file_name", ""),
+                route.get("file_kind", ""),
+                route.get("handling_strategy", ""),
+            ]
+            if value
+        )
+        lines.extend(bullet("Package material / 来源包资料", detail))
+    for route in field_routes:
+        detail = " -> ".join(
+            value
+            for value in [
+                route.get("source_field_or_unit", ""),
+                route.get("target_record_type", ""),
+                route.get("target_project_field", ""),
+            ]
+            if value
+        )
+        lines.extend(bullet("Candidate transfer field / 候选转入字段", detail))
+    if not package_routes and not field_routes:
+        lines.extend(
+            bullet(
+                "Usable material route / 可用资料路径",
+                "No package or field-map route is registered; source use remains pending.",
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "## Research-Use Limits / 研究使用限制",
+            *bullet("Rights status / 权利状态", source["rights_status"]),
+            *bullet("Risk note / 风险提示", source["risk_note"]),
+            *bullet("Adoption status / 采用状态", source["adoption_status"]),
+            *wrapped(
+                "Open 10_source-evidence-dossier.md for full checksums, package "
+                "rows, field-map details, and source-specific pending questions."
+            ),
+            "",
+            *wrapped(
+                "需要完整 checksum、来源包条目、字段映射和具体待查问题时，请打开 "
+                "10_source-evidence-dossier.md。"
+            ),
+            "",
+            "## Boundary / 边界",
+            "- not a rights decision",
+            "- not corpus import approval",
+            "- not a reading or component assignment",
+            "- not an inscription identity",
+            "- not a decipherment conclusion",
+            "- 不是权利结论、语料导入批准、释读、构件归属、卜辞身份或破译结论",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def source_provenance_fact_matrix_text(
     source: dict[str, str],
     fact_rows: list[dict[str, str]],
@@ -2484,6 +2607,17 @@ def build_materials(root: Path) -> dict[str, int]:
         write_json(
             object_dir / "21_source-presearch-readiness-index.json",
             source_presearch_readiness_index_payload(
+                source,
+                download_routes,
+                package_routes,
+                field_routes,
+                metadata_routes,
+            ),
+        )
+        write_human_markdown(
+            object_dir / "22_source-research-brief.md",
+            f"{source_id}/22_source-research-brief.md",
+            source_research_brief_text(
                 source,
                 download_routes,
                 package_routes,

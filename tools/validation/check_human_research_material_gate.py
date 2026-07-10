@@ -175,6 +175,12 @@ def score_markdown(path: Path, root: Path) -> DocumentScore:
 
 def human_markdown_path(relative: str) -> bool:
     path = Path(relative)
+    # Source briefs are verified by the source-object skeleton checks.  They
+    # summarize provenance and research-use limits, so applying character
+    # dossier slots (glyph, inscription, excavation, and relations) to them
+    # would be a category error.
+    if path.name == "22_source-research-brief.md":
+        return False
     patterns = [
         "README.md",
         "*human*.md",

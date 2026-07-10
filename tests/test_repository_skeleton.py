@@ -2855,6 +2855,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertFalse(score.machine_dominant)
         self.assertFalse(score.missing_core_research)
 
+    def test_human_research_material_gate_keeps_source_briefs_out_of_character_slots(self) -> None:
+        module = load_human_research_material_gate_module()
+        self.assertFalse(
+            module.human_markdown_path(
+                "corpus/006_research-sources-and-bibliography/001_source-objects/"
+                "015_src-hust-obc_source-object/22_source-research-brief.md"
+            )
+        )
+
     def test_bilingual_markers_exist(self) -> None:
         self.assertEqual(check_bilingual_markers(repo_root()), [])
 
@@ -8597,6 +8606,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "19_source-access-integrity-index.json").is_file())
         self.assertTrue((object_dir / "20_source-presearch-readiness-review.md").is_file())
         self.assertTrue((object_dir / "21_source-presearch-readiness-index.json").is_file())
+        self.assertTrue((object_dir / "22_source-research-brief.md").is_file())
         readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
         readme_opening = readme_text.split("## Source Summary", 1)[0]
         self.assertIn("object-local human source research entrance", readme_text)
@@ -8679,6 +8689,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("not a decipherment conclusion", evidence_text)
         self.assertNotIn("not_collected", evidence_text)
         self.assertNotIn("not collected", evidence_text)
+        brief_text = (object_dir / "22_source-research-brief.md").read_text(encoding="utf-8")
+        self.assertIn("Source Research Brief", brief_text)
+        self.assertIn("Actual Registered Evidence", brief_text)
+        self.assertIn("Research-Use Limits", brief_text)
+        self.assertIn("not a decipherment conclusion", brief_text)
+        self.assertTrue(all(len(line) <= 80 for line in brief_text.splitlines()))
         source_pending_anchors = (
             "02_download-route-index.csv",
             "03_package-route-index.csv",
@@ -27297,7 +27313,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"477"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"498"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -27395,7 +27411,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 128",
-            "source register files: 477",
+            "source register files: 498",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -27424,7 +27440,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 128", text)
-        self.assertIn("source register files: 477", text)
+        self.assertIn("source register files: 498", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

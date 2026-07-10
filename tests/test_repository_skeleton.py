@@ -4865,6 +4865,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "16_inscription-context-index.json").exists())
             self.assertTrue((object_dir / "17_human-research-readiness-review.md").exists())
             self.assertTrue((object_dir / "18_human-research-readiness-index.json").exists())
+            self.assertTrue((object_dir / "19_preformal-research-start-check.md").exists())
+            self.assertTrue((object_dir / "20_preformal-research-start-index.json").exists())
             with (object_dir / "05_plate-text-route-index.csv").open(
                 "r",
                 encoding="utf-8-sig",
@@ -4911,6 +4913,12 @@ class RepositorySkeletonTests(unittest.TestCase):
                 readme_text.index("05_plate-text-route-index.csv"),
             )
             self.assertIn("17_human-research-readiness-review.md", readme_text)
+            self.assertIn("19_preformal-research-start-check.md", readme_text)
+            self.assertIn("20_preformal-research-start-index.json", readme_text)
+            self.assertLess(
+                readme_text.index("19_preformal-research-start-check.md"),
+                readme_text.index("20_preformal-research-start-index.json"),
+            )
             dossier_text = (object_dir / "07_human-inscription-dossier.md").read_text(
                 encoding="utf-8"
             )
@@ -5315,6 +5323,63 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "no linked glyph or character reading",
                 readiness_index["claim_boundary"],
+            )
+            start_check_text = (
+                object_dir / "19_preformal-research-start-check.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Preformal Research Start Check", start_check_text)
+            self.assertIn("正式研究开始前开包核查", start_check_text)
+            self.assertIn("Inscription And Plate Opening Order", start_check_text)
+            self.assertIn("卜辞和图版开包顺序", start_check_text)
+            self.assertIn(
+                "Open the plate, catalog, full text or OCR, and source row first.",
+                start_check_text,
+            )
+            self.assertIn("先看图版、著录号、全文或 OCR", start_check_text)
+            self.assertIn("02_crosswalk-source-index.csv", start_check_text)
+            self.assertIn("06_plate-text-gallery.md", start_check_text)
+            self.assertIn("07_human-inscription-dossier.md", start_check_text)
+            self.assertIn("13_text-ocr-quality-review.md", start_check_text)
+            self.assertIn("15_inscription-context-review.md", start_check_text)
+            self.assertIn("17_human-research-readiness-review.md", start_check_text)
+            self.assertIn(
+                "Which plate, OCR/full text, catalog reference, and source row must be opened first?",
+                start_check_text,
+            )
+            self.assertIn(
+                "哪一个图版、全文或 OCR、著录线索和来源行要先打开？",
+                start_check_text,
+            )
+            self.assertIn("not a transcription", start_check_text)
+            self.assertIn("not a decipherment conclusion", start_check_text)
+            self.assertNotIn("not_collected", start_check_text)
+            for line in start_check_text.splitlines():
+                if not line.startswith("|"):
+                    self.assertLessEqual(len(line), 80, line)
+            start_index = json.loads(
+                (object_dir / "20_preformal-research-start-index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                start_index["record_type"],
+                "inscription_preformal_research_start_index",
+            )
+            self.assertIn(
+                "19_preformal-research-start-check.md",
+                start_index["human_readable_files"],
+            )
+            self.assertIn(
+                "20_preformal-research-start-index.json",
+                start_index["ai_support_files"],
+            )
+            self.assertIn(
+                "open_plate_text_catalog_source_first",
+                start_index["preformal_start_slots"],
+            )
+            self.assertIn(
+                "no decipherment conclusion",
+                start_index["claim_boundary"],
             )
             review_sheet = (object_dir / "04_human-review-sheet.md").read_text(
                 encoding="utf-8"
@@ -5758,6 +5823,32 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "no decipherment conclusion",
             first["human_research_readiness_index"]["claim_boundary"],
+        )
+        self.assertIn("preformal_research_start_check_text", first)
+        self.assertIn("preformal_research_start_index", first)
+        self.assertIn(
+            "Preformal Research Start Check",
+            first["preformal_research_start_check_text"],
+        )
+        self.assertIn(
+            "正式研究开始前开包核查",
+            first["preformal_research_start_check_text"],
+        )
+        self.assertIn(
+            "Which plate, OCR/full text, catalog reference, and source row must be opened first?",
+            first["preformal_research_start_check_text"],
+        )
+        self.assertEqual(
+            first["preformal_research_start_index"]["record_type"],
+            "inscription_preformal_research_start_index",
+        )
+        self.assertIn(
+            "open_plate_text_catalog_source_first",
+            first["preformal_research_start_index"]["preformal_start_slots"],
+        )
+        self.assertIn(
+            "no decipherment conclusion",
+            first["preformal_research_start_index"]["claim_boundary"],
         )
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
@@ -7866,9 +7957,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-insc-cw-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["human_file_count"], "9")
-        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["ai_file_count"], "10")
-        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "4")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["human_file_count"], "10")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["ai_file_count"], "11")
+        self.assertEqual(by_project["obs-insc-cw-cand-000001"]["route_file_count"], "5")
         self.assertEqual(by_project["obs-insc-cw-cand-000001"]["source_ids"], "src-cambridge-hopkins")
         self.assertEqual(
             by_project["obs-evo-cand-000001"]["material_bundle_status"],
@@ -8009,7 +8100,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscription_crosswalk_candidates"]["representative_human_files_to_open"],
         )
         self.assertIn(
+            "19_preformal-research-start-check.md",
+            by_area["inscription_crosswalk_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "preformal_research_opening_order",
+            by_area["inscription_crosswalk_candidates"]["required_human_slots"],
+        )
+        self.assertIn(
             "Which issue blocks formal obi assignment and corpus import?",
+            by_area["inscription_crosswalk_candidates"]["concrete_depth_questions"],
+        )
+        self.assertIn(
+            "Which plate, OCR/full text, catalog reference, and source row must be opened first?",
             by_area["inscription_crosswalk_candidates"]["concrete_depth_questions"],
         )
         self.assertIn("component_boundary", by_area["graphemic_component_candidates"]["required_human_slots"])

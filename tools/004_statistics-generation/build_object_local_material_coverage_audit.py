@@ -185,6 +185,7 @@ OBJECT_SPECS = [
             "13_text-ocr-quality-review.md",
             "15_inscription-context-review.md",
             "17_human-research-readiness-review.md",
+            "19_preformal-research-start-check.md",
         ),
         (
             "01_candidate-inscription-crosswalk-packet.json",
@@ -197,6 +198,7 @@ OBJECT_SPECS = [
             "14_text-ocr-quality-index.json",
             "16_inscription-context-index.json",
             "18_human-research-readiness-index.json",
+            "20_preformal-research-start-index.json",
         ),
         (),
         (
@@ -204,6 +206,7 @@ OBJECT_SPECS = [
             "06_plate-text-gallery.md",
             "15_inscription-context-review.md",
             "17_human-research-readiness-review.md",
+            "19_preformal-research-start-check.md",
         ),
     ),
     ObjectSpec(

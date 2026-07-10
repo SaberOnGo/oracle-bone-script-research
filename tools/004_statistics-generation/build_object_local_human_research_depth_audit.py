@@ -82,6 +82,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "13_text-ocr-quality-review.md",
             "15_inscription-context-review.md",
             "17_human-research-readiness-review.md",
+            "19_preformal-research-start-check.md",
         ),
         "slots": (
             "inscription_number",
@@ -101,11 +102,13 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "formal_research_blockers",
             "source_manifest_checksum_field_map",
             "linked_glyph_candidate_boundary",
+            "preformal_research_opening_order",
             "missing_items",
             "review_status",
         ),
         "questions": (
             "Which plate, catalog page, or OCR text must be opened first?",
+            "Which plate, OCR/full text, catalog reference, and source row must be opened first?",
             "Which linked glyph remains a candidate route rather than a confirmed reading?",
             "Which text-quality issue blocks use in a formal inscription record?",
             "Which manifest, checksum, field map, rights note, and risk note apply?",

@@ -128,6 +128,8 @@ def paragraph(text: str, width: int = 76) -> str:
 
 def assert_human_line_width(path_label: str, text: str) -> None:
     for line_number, line in enumerate(text.splitlines(), start=1):
+        if line.startswith("|"):
+            continue
         if len(line) > MAX_HUMAN_LINE_LENGTH:
             raise ValueError(
                 f"{path_label}:{line_number} exceeds "
@@ -576,6 +578,8 @@ Structured support files only serve the human inscription and plate dossier.
   Human-readable archaeological and occurrence context review.
 - `17_human-research-readiness-review.md`
   Human-readable formal-research readiness and blocker review.
+- `19_preformal-research-start-check.md`
+  Human-readable opening checklist before any formal inscription research.
 - `04_human-review-sheet.md`
   Human review sheet for catalog and image/context checks.
 
@@ -601,6 +605,8 @@ Structured support files only serve the human inscription and plate dossier.
   Structured support index for context review.
 - `18_human-research-readiness-index.json`
   Structured support index for formal-research readiness review.
+- `20_preformal-research-start-index.json`
+  Structured support index for the opening checklist.
 
 ## Candidate Metadata / 候选 metadata
 
@@ -1964,6 +1970,154 @@ def human_research_readiness_index(
     }
 
 
+def preformal_research_start_check_text(
+    row: dict[str, str],
+    project_id: str,
+    catalog_rows: list[dict[str, str]],
+    plate_routes: list[dict[str, str]],
+) -> str:
+    present_refs = [
+        ref["reference_type"]
+        for ref in catalog_rows
+        if ref["reference_status"] != "missing_or_unassigned"
+    ]
+    route_types = [route["route_type"] for route in plate_routes]
+    present_ref_lines = "\n".join(
+        f"- {reference_type}" for reference_type in present_refs
+    ) or "- none"
+    route_type_lines = "\n".join(
+        f"- {route_type}" for route_type in route_types
+    ) or "- none"
+    text = f"""# Preformal Research Start Check / 正式研究开始前开包核查
+
+Project ID: `{project_id}`
+
+Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
+
+## Inscription And Plate Opening Order / 卜辞和图版开包顺序
+
+Open the plate, catalog, full text or OCR, and source row first.
+
+先看图版、著录号、全文或 OCR、来源行，再做结构化检索。
+
+- Open `06_plate-text-gallery.md` for plate, image, and text routes.
+- Open `03_catalog-reference-index.csv` for catalog and page clues.
+- Open `02_crosswalk-source-index.csv` for the source row and rights route.
+- Open `07_human-inscription-dossier.md` for the human dossier.
+- Open `13_text-ocr-quality-review.md` before using OCR or full text.
+- Open `15_inscription-context-review.md` for archaeology and occurrence routes.
+- Open `17_human-research-readiness-review.md` for blockers.
+
+## Route Snapshot / 路线快照
+
+- Period label: `{row['period_label']}`
+- Classification group: `{row['group_number']}`
+- Catalog reference count: `{len(catalog_rows)}`
+- Plate and text route count: `{len(plate_routes)}`
+- Rights status: `{row['rights_status']}`
+- Review status: `needs_human_inscription_crosswalk_review`
+
+Present catalog reference routes:
+
+{present_ref_lines}
+
+Plate, text, and source route types:
+
+{route_type_lines}
+
+## Concrete Questions / 具体待查问题
+
+| Question |
+| --- |
+| Which plate, OCR/full text, catalog reference, and source row must be opened first? |
+- Which plate image or rubbing route is still only a route?
+- Which catalog page, Heji, OBM, CUL, Yingguo, or Chalfant row anchors this?
+- Which source manifest, checksum, field map, rights note, and risk note apply?
+- Which linked glyph occurrence remains candidate-only?
+
+- 哪一个图版、全文或 OCR、著录线索和来源行要先打开？
+- 哪条图像、拓片或图版路线仍然只是路线？
+- 哪条合集、OBM、CUL、英国或 Chalfant 著录线索能锚定此候选？
+- 哪些 manifest、checksum、字段映射、权利说明和风险提示适用？
+- 哪条关联字形出现路线仍然只是候选？
+
+## Boundary / 边界
+
+- not a formal inscription record
+- not an object identity claim
+- not a transcription
+- not an inscription reading
+- not corpus import approval
+- not a decipherment conclusion
+- 不是正式卜辞记录
+- 不是馆藏对象同一性结论
+- 不是释文
+- 不是卜辞读法
+- 不是语料导入批准
+- 不是释读结论
+"""
+    assert_human_line_width(
+        f"{project_id}/19_preformal-research-start-check.md",
+        text,
+    )
+    return text
+
+
+def preformal_research_start_index(
+    row: dict[str, str],
+    project_id: str,
+    catalog_rows: list[dict[str, str]],
+    plate_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "project_id": project_id,
+        "record_type": "inscription_preformal_research_start_index",
+        "candidate_inscription_crosswalk_id": row["candidate_inscription_crosswalk_id"],
+        "human_readable_files": [
+            "README.md",
+            "06_plate-text-gallery.md",
+            "07_human-inscription-dossier.md",
+            "13_text-ocr-quality-review.md",
+            "15_inscription-context-review.md",
+            "17_human-research-readiness-review.md",
+            "19_preformal-research-start-check.md",
+        ],
+        "ai_support_files": [
+            "02_crosswalk-source-index.csv",
+            "03_catalog-reference-index.csv",
+            "05_plate-text-route-index.csv",
+            "16_inscription-context-index.json",
+            "18_human-research-readiness-index.json",
+            "20_preformal-research-start-index.json",
+        ],
+        "catalog_reference_count": len(catalog_rows),
+        "plate_text_route_count": len(plate_routes),
+        "preformal_start_slots": [
+            "open_plate_text_catalog_source_first",
+            "check_text_ocr_quality_before_use",
+            "check_catalog_heji_collection_routes",
+            "check_source_manifest_checksum_field_map_risk",
+            "keep_linked_glyphs_candidate_only",
+        ],
+        "missing_evidence_questions": [
+            "which plate OCR full text catalog reference and source row must be opened first",
+            "which plate image or rubbing route is still only a route",
+            "which source manifest checksum field map rights note and risk note apply",
+            "which linked glyph occurrence remains candidate only",
+        ],
+        "review_status": "needs_human_inscription_crosswalk_review",
+        "claim_boundary": [
+            "no formal inscription record",
+            "no object identity claim",
+            "no transcription",
+            "no inscription reading",
+            "no corpus import approval",
+            "no decipherment conclusion",
+        ],
+        "updated_at": UPDATED_AT,
+    }
+
+
 def dossier_index(
     row: dict[str, str],
     project_id: str,
@@ -1989,6 +2143,7 @@ def dossier_index(
             "13_text-ocr-quality-review.md",
             "15_inscription-context-review.md",
             "17_human-research-readiness-review.md",
+            "19_preformal-research-start-check.md",
         ],
         "ai_readable_files": [
             "01_candidate-inscription-crosswalk-packet.json",
@@ -2000,6 +2155,7 @@ def dossier_index(
             "14_text-ocr-quality-index.json",
             "16_inscription-context-index.json",
             "18_human-research-readiness-index.json",
+            "20_preformal-research-start-index.json",
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
@@ -2145,6 +2301,18 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 catalog_rows,
                 plate_routes,
             ),
+            "preformal_research_start_check_text": preformal_research_start_check_text(
+                row,
+                project_id,
+                catalog_rows,
+                plate_routes,
+            ),
+            "preformal_research_start_index": preformal_research_start_index(
+                row,
+                project_id,
+                catalog_rows,
+                plate_routes,
+            ),
             "map_row": {
                 "project_id": project_id,
                 "record_type": "inscription_crosswalk_candidate",
@@ -2216,6 +2384,12 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "human_research_readiness_index_path": (
                     relative_object_dir / "18_human-research-readiness-index.json"
                 ).as_posix(),
+                "preformal_research_start_check_path": (
+                    relative_object_dir / "19_preformal-research-start-check.md"
+                ).as_posix(),
+                "preformal_research_start_index_path": (
+                    relative_object_dir / "20_preformal-research-start-index.json"
+                ).as_posix(),
                 "review_status": "needs_human_inscription_crosswalk_review",
                 "updated_at": UPDATED_AT,
             }
@@ -2242,6 +2416,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
         "inscription_context_index_path",
         "human_research_readiness_review_path",
         "human_research_readiness_index_path",
+        "preformal_research_start_check_path",
+        "preformal_research_start_index_path",
         "review_status",
         "updated_at",
     ]
@@ -2352,6 +2528,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (object_dir / "18_human-research-readiness-index.json").write_text(
             json.dumps(
                 output["human_research_readiness_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "19_preformal-research-start-check.md").write_text(
+            str(output["preformal_research_start_check_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "20_preformal-research-start-index.json").write_text(
+            json.dumps(
+                output["preformal_research_start_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

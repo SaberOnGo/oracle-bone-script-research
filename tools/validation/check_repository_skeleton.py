@@ -3477,6 +3477,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "16_inscription-context-index.json",
         "17_human-research-readiness-review.md",
         "18_human-research-readiness-index.json",
+        "19_preformal-research-start-check.md",
+        "20_preformal-research-start-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3511,6 +3513,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "07_human-inscription-dossier.md",
                 "08_inscription-dossier-index.json",
                 "17_human-research-readiness-review.md",
+                "19_preformal-research-start-check.md",
+                "20_preformal-research-start-index.json",
                 "待查: plate, image, OCR, text, and object routes",
             ]:
                 if snippet not in text:
@@ -3604,6 +3608,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         context_index_path = object_dir / "16_inscription-context-index.json"
         readiness_review_path = object_dir / "17_human-research-readiness-review.md"
         readiness_index_path = object_dir / "18_human-research-readiness-index.json"
+        preformal_start_check_path = object_dir / "19_preformal-research-start-check.md"
+        preformal_start_index_path = object_dir / "20_preformal-research-start-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -3693,6 +3699,10 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing readiness review link")
             if "18_human-research-readiness-index.json" not in dossier_index.get("ai_readable_files", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing readiness index link")
+            if "19_preformal-research-start-check.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing preformal start check link")
+            if "20_preformal-research-start-index.json" not in dossier_index.get("ai_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing preformal start index link")
         if path_exists(plate_evidence_path):
             plate_evidence = plate_evidence_path.read_text(encoding="utf-8")
             if "\ufffd" in plate_evidence:
@@ -4051,6 +4061,80 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
             ]:
                 if boundary not in readiness_index.get("claim_boundary", []):
                     issues.append(f"{readiness_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
+        if path_exists(preformal_start_check_path):
+            start_check = preformal_start_check_path.read_text(encoding="utf-8")
+            if "\ufffd" in start_check:
+                issues.append(
+                    f"{preformal_start_check_path.relative_to(root).as_posix()} "
+                    "contains replacement-character mojibake"
+                )
+            for snippet in [
+                "Preformal Research Start Check",
+                "正式研究开始前开包核查",
+                "Inscription And Plate Opening Order",
+                "卜辞和图版开包顺序",
+                "Open the plate, catalog, full text or OCR, and source row first.",
+                "先看图版、著录号、全文或 OCR",
+                "02_crosswalk-source-index.csv",
+                "06_plate-text-gallery.md",
+                "07_human-inscription-dossier.md",
+                "13_text-ocr-quality-review.md",
+                "15_inscription-context-review.md",
+                "17_human-research-readiness-review.md",
+                "Which plate, OCR/full text, catalog reference, and source row must be opened first?",
+                "哪一个图版、全文或 OCR、著录线索和来源行要先打开？",
+                "not a transcription",
+                "not a decipherment conclusion",
+            ]:
+                if snippet not in start_check:
+                    issues.append(
+                        f"{preformal_start_check_path.relative_to(root).as_posix()} "
+                        f"missing marker: {snippet}"
+                    )
+            if "not_collected" in start_check:
+                issues.append(
+                    f"{preformal_start_check_path.relative_to(root).as_posix()} "
+                    "contains not_collected placeholder"
+                )
+            for forbidden in [
+                "formal inscription record is assigned",
+                "inscription identity is confirmed",
+                "reading is confirmed",
+                "OCR is accepted",
+            ]:
+                if forbidden in start_check:
+                    issues.append(
+                        f"{preformal_start_check_path.relative_to(root).as_posix()} "
+                        f"contains premature claim: {forbidden}"
+                    )
+            for line_number, line in enumerate(start_check.splitlines(), start=1):
+                if not line.startswith("|") and len(line) > 80:
+                    issues.append(
+                        f"{preformal_start_check_path.relative_to(root).as_posix()}:"
+                        f"{line_number} line exceeds 80 characters"
+                    )
+        if path_exists(preformal_start_index_path):
+            start_index = json.loads(preformal_start_index_path.read_text(encoding="utf-8"))
+            if start_index.get("project_id") != project_id:
+                issues.append(f"{preformal_start_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if start_index.get("record_type") != "inscription_preformal_research_start_index":
+                issues.append(f"{preformal_start_index_path.relative_to(root).as_posix()} record_type changed")
+            if "19_preformal-research-start-check.md" not in start_index.get("human_readable_files", []):
+                issues.append(f"{preformal_start_index_path.relative_to(root).as_posix()} missing start check link")
+            if "20_preformal-research-start-index.json" not in start_index.get("ai_support_files", []):
+                issues.append(f"{preformal_start_index_path.relative_to(root).as_posix()} missing self support link")
+            if "open_plate_text_catalog_source_first" not in start_index.get("preformal_start_slots", []):
+                issues.append(f"{preformal_start_index_path.relative_to(root).as_posix()} missing opening order slot")
+            for boundary in [
+                "no formal inscription record",
+                "no object identity claim",
+                "no transcription",
+                "no inscription reading",
+                "no corpus import approval",
+                "no decipherment conclusion",
+            ]:
+                if boundary not in start_index.get("claim_boundary", []):
+                    issues.append(f"{preformal_start_index_path.relative_to(root).as_posix()} missing boundary: {boundary}")
         if path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [
@@ -6055,6 +6139,7 @@ def check_object_local_human_research_depth_audit(root: Path) -> list[str]:
             "ocr_or_full_text",
             "plate_number",
             "text_quality",
+            "preformal_research_opening_order",
         ],
         "graphemic_component_candidates": [
             "component_boundary",

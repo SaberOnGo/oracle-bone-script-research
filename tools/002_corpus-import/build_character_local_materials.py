@@ -17,6 +17,59 @@ TARGET_PROJECT_IDS = tuple(
     [f"obs-char-{index:06d}" for index in range(1, OBS_CHAR_LOCAL_MATERIAL_LIMIT + 1)]
     + list(EXTRA_TARGET_PROJECT_IDS)
 )
+
+MATERIAL_VISUAL_OBSERVATIONS = {
+    "obs-char-000001": (
+        "The narrow upright image shows a closed outer contour with diagonal "
+        "and angular interior strokes.",
+        "本图像呈狭长直立形，外侧有闭合轮廓，内部可见斜向和折角刻划。",
+    ),
+    "obs-char-000002": (
+        "The image shows an open angular form, a long upper stroke, a curved "
+        "right-side loop, and two short lower projections.",
+        "图像呈开放的折角形，上方有长横向笔画，右侧有弯曲环状部分，下面有两处短伸出。",
+    ),
+    "obs-char-000003": (
+        "The image is a tall curved form with separated short strokes on its "
+        "left side; the marks do not form a confirmed label here.",
+        "图像为高而弯曲的形体，左侧有分离的短笔画；本记录不把这些痕迹定为文字标签。",
+    ),
+    "obs-char-000004": (
+        "The small, thin image has a central vertical stroke with several "
+        "branching diagonal strokes.",
+        "图像较小且线条纤细，中部有竖向笔画，并有数条分叉斜向笔画。",
+    ),
+    "obs-char-000005": (
+        "The image shows paired curved outer strokes with shorter marks between "
+        "them; the right edge is more strongly curved.",
+        "图像可见成对弯曲外笔画，中间夹有短痕；右侧边缘的弯曲更明显。",
+    ),
+    "obs-char-000006": (
+        "The compact image has a block-like upper outline and two rounded lower "
+        "marks; the small size limits surface detail.",
+        "图像上部呈块状轮廓，下部有两个圆弧状痕迹；图像尺寸限制了表面细节观察。",
+    ),
+    "obs-char-000007": (
+        "The low-contrast gray image shows a compact central form and two small "
+        "lower rounded marks; contrast needs human recheck.",
+        "灰度较浅的图像呈紧凑中部形体，下方有两个小圆弧痕迹；对比度仍需人工复核。",
+    ),
+    "obs-char-000008": (
+        "The image shows a rectangular enclosure, diagonal interior strokes, and "
+        "a small central enclosed mark.",
+        "图像呈长方形外框，内部有斜向笔画，中部另有小型闭合痕迹。",
+    ),
+    "obs-char-000009": (
+        "The image contains two rows of small rounded forms, with paired marks "
+        "visible in each row.",
+        "图像含两行小型圆弧形体，每行都可见成对痕迹。",
+    ),
+    "obs-char-000010": (
+        "The image shows a rectangular outer contour, an angular interior stroke, "
+        "and a short downward tail.",
+        "图像呈长方形外轮廓，内部有折角笔画，并向下伸出短尾。",
+    ),
+}
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
     "068_ai-agent-hust-obc-undeciphered-candidate-source-image-reference-extraction-results.csv"
@@ -244,6 +297,7 @@ def build_readme_text(
     packet_name: str,
     packet: dict,
     visual_rows: list[dict[str, str]],
+    material_observation_available: bool = False,
 ) -> str:
     external_id = packet.get("primary_external_ref_id", "")
     source_id = packet.get("source_id", "")
@@ -296,6 +350,12 @@ def build_readme_text(
         "Human-readable archaeology review / 人类可读考古文字复核",
         "`10_archaeology-paleography-review.md`",
     )
+    if material_observation_available:
+        append_wrapped_bullet(
+            lines,
+            "Human-readable material observation / 人类可读实物图像观察",
+            "`14_material-visual-observation.md`",
+        )
     append_wrapped_bullet(
         lines,
         "Human-readable readiness review / 人类可读研究准备度复核",
@@ -620,6 +680,98 @@ def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_r
     return "\n".join(lines) + "\n"
 
 
+def build_material_observation_text(
+    project_id: str,
+    object_dir: Path,
+    packet: dict,
+    visual_rows: list[dict[str, str]],
+) -> str:
+    observation = MATERIAL_VISUAL_OBSERVATIONS.get(project_id)
+    committed = [row for row in visual_rows if row.get("committed_image_path")]
+    if not observation or not committed:
+        return ""
+    row = committed[0]
+    local_path = Path(row["committed_image_path"])
+    if local_path.is_relative_to(object_dir):
+        local_path_text = local_path.relative_to(object_dir).as_posix()
+    else:
+        local_path_text = local_path.as_posix()
+    lines: list[str] = [
+        f"# Material Visual Observation / {project_id} 实物图像观察",
+        "",
+        "English:",
+    ]
+    append_wrapped_paragraph(
+        lines,
+        "This note records only the visible marks in one local, source-linked "
+        "review image. It is a preparation-stage observation for a human "
+        "researcher, not a reading or component assignment.",
+    )
+    lines.extend(["", "简体中文："])
+    append_wrapped_paragraph(
+        lines,
+        "本记录只描述一张有来源链接的本地复核图像中直接可见的痕迹，供人类研究者在预处理阶段查阅，"
+        "不是释读或构件归属判断。",
+    )
+    lines.extend(["", "## Evidence Opened / 已打开证据", ""])
+    append_wrapped_bullet(lines, "Project ID / 项目 ID", f"`{project_id}`")
+    append_wrapped_bullet(
+        lines,
+        "External reference / 外部参照",
+        f"`{packet.get('primary_external_ref_id', '')}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Local image / 本地图像",
+        f"`{local_path_text}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Source image route / 来源图像路线",
+        "open 02_visual-source-index.csv",
+    )
+    append_wrapped_bullet(lines, "Source / 来源", f"`{row.get('source_id', '')}`")
+    append_wrapped_bullet(
+        lines,
+        "Source package / 来源包",
+        f"`{row.get('source_package_id', '')}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Download route / 下载路线",
+        f"`{row.get('download_id', '')}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Rights and risk / 权利与风险",
+        f"`{row.get('rights_status', '')}`; see the visual index risk note.",
+    )
+    lines.extend(["", "## Direct Visual Record / 直接可见记录", ""])
+    append_wrapped_bullet(lines, "English observation", observation[0])
+    append_wrapped_bullet(lines, "中文观察", observation[1])
+    lines.extend(["", "## Next Checks / 下一步核查", ""])
+    for question in [
+        "Open the image metadata and source row before comparing another form.",
+        "Check whether a second view, rubbing, plate, or inscription context exists.",
+        "Record variants, near forms, components, readings, and disputes only after source review.",
+        "打开图像 metadata 和来源行，再与其他字形进行比较。",
+        "查找是否存在第二视角、拓片、图版或卜辞上下文。",
+        "完成来源复核后，再记录异体、近形、构件、释读和争议。",
+    ]:
+        append_wrapped_plain_bullet(lines, question)
+    lines.extend(["", "## Boundary / 边界", ""])
+    append_wrapped_paragraph(
+        lines,
+        "This is a visual observation record, not a reading or component "
+        "assignment, not an inscription identity claim, and not a decipherment conclusion.",
+    )
+    append_wrapped_paragraph(
+        lines,
+        "本记录是图像观察记录，不是释读、构件归属、卜辞身份或破译结论。",
+    )
+    return "\n".join(lines) + "\n"
+
+
 def build_outputs(root: Path) -> dict[str, dict]:
     image_rows = read_image_reference_rows(root)
     outputs: dict[str, dict] = {}
@@ -639,9 +791,21 @@ def build_outputs(root: Path) -> dict[str, dict]:
             "readme_path": object_dir / "README.md",
             "visual_index_path": visual_index_path,
             "gallery_path": object_dir / "04_visual-gallery.md",
-            "readme_text": build_readme_text(project_id, object_dir.relative_to(root), packet_name, packet, visual_rows),
+            "material_observation_path": object_dir / "14_material-visual-observation.md",
+            "readme_text": build_readme_text(
+                project_id,
+                object_dir.relative_to(root),
+                packet_name,
+                packet,
+                visual_rows,
+                bool(MATERIAL_VISUAL_OBSERVATIONS.get(project_id))
+                and any(row.get("committed_image_path") for row in visual_rows),
+            ),
             "gallery_text": build_gallery_text(project_id, packet_name, packet, visual_rows),
             "visual_rows": visual_rows,
+            "material_observation_text": build_material_observation_text(
+                project_id, object_dir, packet, visual_rows
+            ),
         }
     return outputs
 
@@ -658,6 +822,16 @@ def write_outputs(outputs: dict[str, dict]) -> None:
         output["readme_path"].write_text(output["readme_text"].rstrip() + "\n", encoding="utf-8", newline="\n")
         output["gallery_path"].write_text(output["gallery_text"].rstrip() + "\n", encoding="utf-8", newline="\n")
         write_csv(output["visual_index_path"], output["visual_rows"])
+        observation_text = output["material_observation_text"]
+        observation_path = output["material_observation_path"]
+        if observation_text:
+            observation_path.write_text(
+                observation_text.rstrip() + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
+        elif observation_path.exists():
+            observation_path.unlink()
 
 
 def main() -> int:

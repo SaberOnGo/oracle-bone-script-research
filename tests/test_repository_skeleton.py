@@ -7401,6 +7401,26 @@ class RepositorySkeletonTests(unittest.TestCase):
             "corpus/001_oracle-characters/079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate/03_visual-assets/001_asset-000005_hust-X-006294_glyph.png",
         )
         self.assertEqual(image_rows[0]["visual_material_status"], "committed_review_image_derivative")
+        self.assertIn(
+            "Material Visual Observation",
+            outputs["obs-char-000001"]["material_observation_text"],
+        )
+        self.assertIn(
+            "closed outer contour",
+            outputs["obs-char-000001"]["material_observation_text"],
+        )
+        self.assertIn(
+            "not a reading or component assignment",
+            outputs["obs-char-000010"]["material_observation_text"],
+        )
+        self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
+        for project_id in ("obs-char-000001", "obs-char-000010"):
+            self.assertTrue(
+                (
+                    outputs[project_id]["object_dir"]
+                    / "14_material-visual-observation.md"
+                ).exists()
+            )
 
     def test_hust_obc_local_glyph_images_are_inside_object_dirs(self) -> None:
         expected = {}
@@ -8107,6 +8127,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("04_visual-gallery.md", by_area["oracle_character_candidates"]["representative_human_files_to_open"])
         self.assertIn(
             "12_human-research-readiness-review.md",
+            by_area["oracle_character_candidates"]["representative_human_files_to_open"],
+        )
+        self.assertIn(
+            "14_material-visual-observation.md",
             by_area["oracle_character_candidates"]["representative_human_files_to_open"],
         )
         self.assertIn(

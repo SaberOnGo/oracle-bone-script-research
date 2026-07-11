@@ -40,6 +40,7 @@ AREA_REQUIREMENTS: dict[str, dict[str, tuple[str, ...]]] = {
             "08_character-context-evidence-dossier.md",
             "10_archaeology-paleography-review.md",
             "12_human-research-readiness-review.md",
+            "14_material-visual-observation.md",
         ),
         "slots": (
             "glyph_image",

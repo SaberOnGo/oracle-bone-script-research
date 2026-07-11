@@ -2492,6 +2492,10 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         archaeology_index_path = object_dir / "11_archaeology-paleography-index.json"
         readiness_review_path = object_dir / "12_human-research-readiness-review.md"
         readiness_index_path = object_dir / "13_human-research-readiness-index.json"
+        material_observation_path = object_dir / "14_material-visual-observation.md"
+        expects_material_observation = project_id in {
+            f"obs-char-{index:06d}" for index in range(1, 11)
+        }
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")
@@ -2542,6 +2546,46 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                         f"{readme_path.relative_to(root).as_posix()} "
                         f"contains machine-first marker: {forbidden}"
                     )
+            if expects_material_observation and "14_material-visual-observation.md" not in text:
+                issues.append(
+                    f"{readme_path.relative_to(root).as_posix()} missing material observation link"
+                )
+        if expects_material_observation:
+            if not material_observation_path.exists():
+                issues.append(
+                    f"{material_observation_path.relative_to(root).as_posix()} "
+                    "missing human visual observation"
+                )
+            else:
+                material_text = material_observation_path.read_text(encoding="utf-8")
+                normalized_material_text = " ".join(material_text.split())
+                for marker in [
+                    "Material Visual Observation",
+                    "Evidence Opened",
+                    "Direct Visual Record",
+                    "Next Checks",
+                    "not a reading or component assignment",
+                    "实物图像观察",
+                    "已打开证据",
+                    "直接可见记录",
+                    "下一步核查",
+                ]:
+                    if marker not in normalized_material_text:
+                        issues.append(
+                            f"{material_observation_path.relative_to(root).as_posix()} "
+                            f"missing marker: {marker}"
+                        )
+                for line_number, line in enumerate(material_text.splitlines(), start=1):
+                    if not line.startswith("![") and len(line) > 80:
+                        issues.append(
+                            f"{material_observation_path.relative_to(root).as_posix()} "
+                            f"line {line_number} exceeds 80 characters"
+                        )
+        elif material_observation_path.exists():
+            issues.append(
+                f"{material_observation_path.relative_to(root).as_posix()} "
+                "is outside the bounded observation tranche"
+            )
         human_markers = {
             dossier_path: [
                 "decipherment conclusion",

@@ -69,6 +69,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "and a short downward tail.",
         "图像呈长方形外轮廓，内部有折角笔画，并向下伸出短尾。",
     ),
+    "obs-char-000011": (
+        "The narrow image has a pointed upper stroke, a horizontal cross stroke, "
+        "a small central diamond-like area, and a split lower tail.",
+        "狭长图像上方有尖状笔画，中部有横向交叉笔画和小型菱状区域，下方有分叉尾部。",
+    ),
+    "obs-char-000012": (
+        "The image contains a broad left form and a separate right looped form, "
+        "with detached marks near their upper and lower ends.",
+        "图像含较宽的左侧形体和分离的右侧环状形体，上下端附近还可见分离痕迹。",
+    ),
+    "obs-char-000013": (
+        "The thin upright image has branching strokes at the top, a narrow central "
+        "stem, and a trailing diagonal mark below.",
+        "纤细直立图像顶部有分叉笔画，中部为窄长主干，下方有拖出的斜向痕迹。",
+    ),
+    "obs-char-000014": (
+        "Two separated forms are visible: the left has an angular crossing shape, "
+        "while the right has a rounded loop and pointed top.",
+        "图像可见两个分离形体：左侧为折角交叉形，右侧有圆弧环状部分和尖顶。",
+    ),
+    "obs-char-000015": (
+        "The compact image has a horizontal and vertical framework, an open lower "
+        "angle, and a separate long stroke at the right.",
+        "紧凑图像含横竖框架、下方开放折角，右侧另有一条较长笔画。",
+    ),
+    "obs-char-000016": (
+        "The low-contrast gray image shows two small neighboring forms with rounded "
+        "outer edges and central crossing marks.",
+        "灰度较浅的图像显示两个相邻小形体，外缘呈圆弧状，中部有交叉痕迹。",
+    ),
+    "obs-char-000017": (
+        "The image has a tall arched outer contour, a curved interior mark, and "
+        "two long lower strokes.",
+        "图像有高拱形外轮廓，内部有弯曲痕迹，下方有两条较长笔画。",
+    ),
+    "obs-char-000018": (
+        "A second tall arched form is visible, with crossing interior strokes and "
+        "long lines descending from the lower edge.",
+        "图像呈另一种高拱形体，内部笔画交叉，底部向下延伸出较长线条。",
+    ),
+    "obs-char-000019": (
+        "The small gray image shows a rounded upper mark, a short horizontal stroke, "
+        "and two diverging lower strokes; contrast needs recheck.",
+        "小型灰度图像上部有圆弧痕迹，中部有短横画，下方有两条分开的笔画；对比度仍需复核。",
+    ),
+    "obs-char-000020": (
+        "The dark image shows a rectangular lower frame containing two parallel "
+        "upright strokes and a narrow base.",
+        "深色图像呈长方形下框，内部有两条平行竖向笔画，并有窄小底部。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

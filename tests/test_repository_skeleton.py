@@ -7413,8 +7413,21 @@ class RepositorySkeletonTests(unittest.TestCase):
             "not a reading or component assignment",
             outputs["obs-char-000010"]["material_observation_text"],
         )
+        self.assertIn(
+            "pointed upper stroke",
+            outputs["obs-char-000011"]["material_observation_text"],
+        )
+        self.assertIn(
+            "rectangular lower frame",
+            outputs["obs-char-000020"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
-        for project_id in ("obs-char-000001", "obs-char-000010"):
+        for project_id in (
+            "obs-char-000001",
+            "obs-char-000010",
+            "obs-char-000011",
+            "obs-char-000020",
+        ):
             self.assertTrue(
                 (
                     outputs[project_id]["object_dir"]

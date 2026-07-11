@@ -6668,6 +6668,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((object_dir / "15_human-research-readiness-index.json").exists())
             self.assertTrue((object_dir / "16_preformal-research-start-check.md").exists())
             self.assertTrue((object_dir / "17_preformal-research-start-index.json").exists())
+            if row["project_id"] in {
+                "coll-obj-cand-00053",
+                "coll-obj-cand-00055",
+                "coll-obj-cand-00056",
+            }:
+                self.assertTrue(
+                    (object_dir / "18_material-image-inspection-note.md").exists()
+                )
             packet = json.loads(
                 (object_dir / "01_collection-object-packet.json").read_text(
                     encoding="utf-8"
@@ -7216,6 +7224,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["archaeological_context_index"]["context_slots"],
         )
         self.assertIn("Concrete Questions To Check", first["review_sheet_text"])
+        self.assertEqual(first["material_image_inspection_note_text"], "")
+        self.assertIn(
+            "Material Image Inspection Note",
+            smithsonian["material_image_inspection_note_text"],
+        )
+        self.assertIn(
+            "directly visible in the local review image",
+            met["material_image_inspection_note_text"],
+        )
+        self.assertIn(
+            "This is an image inspection record, not a transcription",
+            met["material_image_inspection_note_text"],
+        )
         self.assertIn(
             "Preformal Research Start Check",
             first["preformal_research_start_check_text"],

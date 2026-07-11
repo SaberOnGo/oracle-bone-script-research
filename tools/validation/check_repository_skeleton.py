@@ -4852,6 +4852,53 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
             issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} object outside corpus/005 candidate area: {project_id}")
         if path_exists(object_dir.parent / "human-readable"):
             issues.append(f"{object_dir.parent.relative_to(root).as_posix()} has forbidden parallel human-readable directory")
+        material_note_path = object_dir / "18_material-image-inspection-note.md"
+        material_note_manifest_path = manifest_row.get(
+            "material_image_inspection_note_path", ""
+        ) if manifest_row else ""
+        expects_material_note = bool(
+            manifest_row
+            and manifest_row.get("visual_entry_status") == "committed_public_domain_asset"
+        )
+        if expects_material_note:
+            expected_path = material_note_path.relative_to(root).as_posix()
+            if material_note_manifest_path != expected_path:
+                issues.append(
+                    f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} material image note "
+                    f"route changed: {project_id}"
+                )
+            if not path_exists(material_note_path):
+                issues.append(f"{expected_path} missing local image inspection note")
+            else:
+                material_note = material_note_path.read_text(encoding="utf-8")
+                normalized_material_note = " ".join(material_note.split())
+                for snippet in [
+                    "Material Image Inspection Note",
+                    "Evidence Opened",
+                    "Direct Visual Record",
+                    "directly visible in the local review image",
+                    "Next Evidence To Open",
+                    "not a transcription, character",
+                    "\u5b9e\u7269\u56fe\u50cf\u67e5\u9605\u8bb0\u5f55",
+                    "\u5df2\u6253\u5f00\u7684\u8bc1\u636e",
+                    "\u76f4\u89c2\u8bb0\u5f55",
+                    "\u4e0b\u4e00\u6b65\u5f85\u67e5\u8bc1\u636e",
+                ]:
+                    if snippet not in normalized_material_note:
+                        issues.append(
+                            f"{expected_path} missing material inspection marker: "
+                            f"{snippet}"
+                        )
+                for line_number, line in enumerate(material_note.splitlines(), start=1):
+                    if not line.startswith("|") and not line.startswith("![") and len(line) > 80:
+                        issues.append(
+                            f"{expected_path} line {line_number} exceeds 80 characters"
+                        )
+        elif material_note_manifest_path or path_exists(material_note_path):
+            issues.append(
+                f"{object_dir.relative_to(root).as_posix()} has an unexpected "
+                "material image inspection note"
+            )
         for filename in required_files:
             if not path_exists(object_dir / filename):
                 issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")

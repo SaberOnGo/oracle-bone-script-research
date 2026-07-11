@@ -41,6 +41,9 @@ Committed image asset: `asset_id=asset-000003`.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
 
+- `18_material-image-inspection-note.md`: bounded observations from the local
+  source-linked image.
+
 ## Structured Support Files / 结构化辅助文件
 
 - `01_collection-object-packet.json`: structured candidate support packet.

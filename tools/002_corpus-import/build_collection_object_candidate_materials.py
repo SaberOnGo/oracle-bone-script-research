@@ -133,12 +133,62 @@ MANIFEST_FIELDS = [
     "human_research_readiness_index_path",
     "preformal_research_start_check_path",
     "preformal_research_start_index_path",
+    "material_image_inspection_note_path",
     "source_id",
     "rights_status",
     "visual_entry_status",
     "review_status",
     "updated_at",
 ]
+
+
+MATERIAL_IMAGE_OBSERVATIONS = {
+    "si-nmaa-obj-00001": {
+        "en": [
+            "The local photograph shows one flat, broken bone fragment in a "
+            "near-edge view.",
+            "A centimetre scale is visible below the fragment in this single "
+            "photograph.",
+            "No inscription-bearing surface is legible in this view; this does "
+            "not establish that the object lacks an inscription.",
+        ],
+        "zh": [
+            "本地照片呈现一块扁平、破损的骨片，拍摄角度接近边缘。",
+            "这张单幅照片下方可见厘米比例尺。",
+            "此视角未见可辨识的载辞表面；这不等于该器物没有卜辞。",
+        ],
+    },
+    "met-obj-00001": {
+        "en": [
+            "The local photograph shows one long, narrow bone object against a "
+            "plain background.",
+            "Incised marks are visible in several areas along the photographed "
+            "surface.",
+            "The local file supplies one view only: it does not supply the "
+            "reverse, a plate reference, or a transcription.",
+        ],
+        "zh": [
+            "本地照片呈现一件狭长骨器，背景为单色。",
+            "照片所示表面沿长度方向可见多处刻划痕迹。",
+            "本地文件只提供单一视角；未提供背面、图版号或释文。",
+        ],
+    },
+    "met-obj-00002": {
+        "en": [
+            "The local photograph shows an irregular bone fragment with broken "
+            "edges.",
+            "Dark incised marks are visible near several edges of the photographed "
+            "surface.",
+            "The image records one surface only; it does not establish mark order, "
+            "a plate reference, or a transcription.",
+        ],
+        "zh": [
+            "本地照片呈现一块边缘残缺、不规则的骨片。",
+            "照片所示表面的若干边缘附近可见深色刻划痕迹。",
+            "图像只记录一个表面，不能据此确定刻划顺序、图版号或释文。",
+        ],
+    },
+}
 
 
 def repo_root() -> Path:
@@ -495,6 +545,16 @@ def readme_text(index: int, row: dict[str, str], metadata: dict[str, str], visua
             ),
         ]
     )
+    if asset_path:
+        file_entries = file_entries.replace(
+            "\n## Structured Support Files / \u7ed3\u6784\u5316\u8f85\u52a9\u6587\u4ef6\n",
+            "\n"
+            + wrapped_bullet(
+                "`18_material-image-inspection-note.md`: bounded observations "
+                "from the local source-linked image."
+            )
+            + "\n\n## Structured Support Files / \u7ed3\u6784\u5316\u8f85\u52a9\u6587\u4ef6\n",
+        )
     status_note = wrapped_paragraph(
         f"Current status: `{REVIEW_STATUS}`. Reviewers must verify source "
         "pages, rights status, object labels, image provenance, and inscription "
@@ -1773,6 +1833,71 @@ Candidate collection object ID: `{row['candidate_collection_object_id']}`
 """
 
 
+def material_image_inspection_note_text(
+    index: int,
+    row: dict[str, str],
+    visual_row: dict[str, str],
+) -> str:
+    """Return a bounded image-inspection record for reviewed local assets only."""
+    observations = MATERIAL_IMAGE_OBSERVATIONS.get(
+        row["candidate_collection_object_id"]
+    )
+    if not observations or not visual_row.get("asset_path"):
+        return ""
+    english_observations = "\n".join(
+        wrapped_bullet(value) for value in observations["en"]
+    )
+    chinese_observations = "\n".join(
+        wrapped_bullet(value) for value in observations["zh"]
+    )
+    source_title = row.get("object_title_en", "") or "catalog object"
+    return f"""# Material Image Inspection Note / \u5b9e\u7269\u56fe\u50cf\u67e5\u9605\u8bb0\u5f55
+
+Project ID: `{project_id(index)}`
+
+Candidate collection object ID: `{row['candidate_collection_object_id']}`
+
+## Evidence Opened / \u5df2\u6253\u5f00\u7684\u8bc1\u636e
+
+- Catalog title / \u8457\u5f55\u6807\u9898: `{source_title}`
+- Asset ID: `{visual_row['asset_id']}`
+- Local asset path / \u672c\u5730\u8d44\u4ea7\u8def\u5f84: open `03_visual-asset-index.csv`.
+- Source image route / \u6e90\u56fe\u8def\u7ebf: open `03_visual-asset-index.csv`.
+- Rights status / \u6743\u5229\u72b6\u6001: `{visual_row['rights_status']}`
+
+## Direct Visual Record / \u76f4\u89c2\u8bb0\u5f55
+
+English:
+This bounded note records what is directly visible in the local review image.
+It separates the photographed surface from any unverified inscription,
+character, component, or reading claim.
+
+{english_observations}
+
+\u7b80\u4f53\u4e2d\u6587\uff1a
+\u672c\u8bb0\u5f55\u53ea\u4e66\u660e\u672c\u5730\u590d\u6838\u56fe\u50cf\u4e2d\u76f4\u63a5\u53ef\u89c1\u7684\u60c5\u51b5\uff0c\n\u4e0e\u5c1a\u672a\u590d\u6838\u7684\u535c\u8f9e\u3001\u5355\u5b57\u3001\u6784\u4ef6\u6216\u91ca\u8bfb\u4e3b\u5f20\u5206\u5f00\u8bb0\u5f55\u3002
+
+{chinese_observations}
+
+## Next Evidence To Open / \u4e0b\u4e00\u6b65\u5f85\u67e5\u8bc1\u636e
+
+- Open the source catalog page for additional views, object description, and
+  any accession-linked documentation.
+- Locate a publication plate or rubbing before transcribing any visible mark.
+- Check whether a full-text, findspot, period, batch, or collection history
+  record is available for this exact accession route.
+- \u5f00\u542f\u6765\u6e90\u8457\u5f55\u9875\uff0c\u67e5\u770b\u5176\u4ed6\u89c6\u89d2\u3001\u5668\u7269\u8bf4\u660e\u548c\u767b\u5f55\u6587\u4ef6\u3002
+- \u5728\u8f6c\u5199\u4efb\u4f55\u53ef\u89c1\u523b\u5212\u524d\uff0c\u5148\u67e5\u627e\u51fa\u7248\u56fe\u7248\u6216\u62d3\u7247\u3002
+- \u6309\u8be5\u767b\u5f55\u8def\u7ebf\u67e5\u627e\u5168\u6587\u3001\u51fa\u571f\u5730\u3001\u65f6\u671f\u3001\u6279\u6b21\u6216\u9986\u85cf\u5386\u53f2\u8bb0\u5f55\u3002
+
+## Boundary / \u8fb9\u754c
+
+This is an image inspection record, not a transcription, character
+identification, component analysis, formal reading, or decipherment conclusion.
+\u672c\u8bb0\u5f55\u662f\u56fe\u50cf\u67e5\u9605\u8bb0\u5f55\uff0c\u4e0d\u662f\u91ca\u6587\u3001\u5355\u5b57\u8ba4\u5b9a\u3001\u6784\u4ef6\u5206\u6790\u3001\n\u6b63\u5f0f\u91ca\u8bfb\u6216\u7834\u8bd1\u7ed3\u8bba\u3002
+"""
+
+
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     asset_by_related, technical_by_asset, visual_by_asset = load_assets(root)
     outputs: dict[str, dict[str, object]] = {}
@@ -1890,6 +2015,11 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 src_row,
                 vis_row,
             ),
+            "material_image_inspection_note_text": material_image_inspection_note_text(
+                index,
+                row,
+                vis_row,
+            ),
             "manifest_row": {
                 "project_id": pid,
                 "candidate_collection_object_id": row["candidate_collection_object_id"],
@@ -1931,6 +2061,11 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 "preformal_research_start_index_path": (
                     relative_dir / "17_preformal-research-start-index.json"
                 ).as_posix(),
+                "material_image_inspection_note_path": (
+                    (relative_dir / "18_material-image-inspection-note.md").as_posix()
+                    if asset_row
+                    else ""
+                ),
                 "source_id": row["source_id"],
                 "rights_status": row["rights_status"],
                 "visual_entry_status": vis_row["visual_entry_type"],
@@ -2072,6 +2207,12 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
             encoding="utf-8",
             newline="\n",
         )
+        material_note = str(output["material_image_inspection_note_text"])
+        material_note_path = directory / "18_material-image-inspection-note.md"
+        if material_note:
+            material_note_path.write_text(material_note, encoding="utf-8", newline="\n")
+        elif material_note_path.exists():
+            material_note_path.unlink()
         manifest_rows.append(output["manifest_row"])  # type: ignore[arg-type]
         map_rows.append(output["map_row"])  # type: ignore[arg-type]
     write_csv(root / OBJECT_ROOT / "000_collection-object-candidate-manifest.csv", manifest_rows, MANIFEST_FIELDS)

@@ -119,6 +119,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "upright strokes and a narrow base.",
         "深色图像呈长方形下框，内部有两条平行竖向笔画，并有窄小底部。",
     ),
+    "obs-char-000021": (
+        "The small image shows a curved upper stroke, a narrow central stem, "
+        "and a rounded lower enclosure with an open side.",
+        "小型图像上方有弯曲笔画，中部为窄竖主干，下方有一侧开放的圆弧形框。",
+    ),
+    "obs-char-000022": (
+        "The compact image has two upright side strokes, a short upper cross "
+        "stroke, and a rounded lower bowl crossed by a horizontal mark.",
+        "紧凑图像含两条竖向侧笔画、上方短横画，以及被横痕穿过的下部圆弧框。",
+    ),
+    "obs-char-000023": (
+        "The dark form combines a pointed upper outline, several horizontal "
+        "cross strokes, and multiple short descending strokes.",
+        "深色形体上方呈尖顶轮廓，中部有数条横向交叉笔画，下方有多条短向下笔画。",
+    ),
+    "obs-char-000024": (
+        "The tall image has a large arched outer contour, a central branching "
+        "mark, and a forked lower extension.",
+        "高形图像有大型拱形外轮廓，中部有分叉痕迹，下方延伸出分叉尾部。",
+    ),
+    "obs-char-000025": (
+        "The thin upright image has a central vertical stroke, two leftward "
+        "branching marks, and a long diagonal stroke on the right.",
+        "纤细直立图像有中央竖画、向左分出的两处痕迹，右侧有长斜向笔画。",
+    ),
+    "obs-char-000026": (
+        "The low-contrast image shows a branching central form with short "
+        "diagonal strokes extending to both sides.",
+        "灰度较浅的图像呈分叉中部形体，并有短斜向笔画向两侧伸出。",
+    ),
+    "obs-char-000027": (
+        "The small dark image shows paired upright strokes, several short "
+        "interior marks, and a narrow rectangular lower base.",
+        "小型深色图像可见成对竖向笔画、数处内部短痕和窄长方形底部。",
+    ),
+    "obs-char-000028": (
+        "The image contains a broad lower enclosure, an upper looped mark, "
+        "and two detached strokes to the right.",
+        "图像含宽大的下部框形、上方环状痕迹，右侧另有两条分离笔画。",
+    ),
+    "obs-char-000029": (
+        "The thin gray image has two tall wavy strokes crossed by short "
+        "horizontal marks and a straight lower tail.",
+        "纤细灰度图像有两条高而弯曲的笔画，被短横痕穿过，并向下延出直尾。",
+    ),
+    "obs-char-000030": (
+        "The narrow image shows a slightly curved upright stroke with two "
+        "short diagonal branches on its left side.",
+        "狭长图像呈略弯直立笔画，左侧分出两条短斜向笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

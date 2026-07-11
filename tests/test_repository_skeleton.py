@@ -7421,12 +7421,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             "rectangular lower frame",
             outputs["obs-char-000020"]["material_observation_text"],
         )
+        self.assertIn(
+            "pointed upper outline",
+            outputs["obs-char-000023"]["material_observation_text"],
+        )
+        self.assertIn(
+            "leftward branching marks",
+            outputs["obs-char-000025"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
             "obs-char-000010",
             "obs-char-000011",
             "obs-char-000020",
+            "obs-char-000021",
+            "obs-char-000030",
         ):
             self.assertTrue(
                 (

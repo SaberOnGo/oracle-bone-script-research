@@ -7453,6 +7453,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "tall rectangular enclosure",
             outputs["obs-char-000058"]["material_observation_text"],
         )
+        self.assertIn(
+            "stacked",
+            outputs["obs-char-000066"]["material_observation_text"],
+        )
+        self.assertIn(
+            "three short lower projections",
+            outputs["obs-char-000068"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
@@ -7467,6 +7475,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000050",
             "obs-char-000051",
             "obs-char-000060",
+            "obs-char-000061",
+            "obs-char-000070",
         ):
             self.assertTrue(
                 (

@@ -319,6 +319,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "marks with short cross strokes; detail needs recheck.",
         "微小灰度图像呈窄长竖向链状形体，含闭合菱状痕迹和短交叉笔画；细节需复核。",
     ),
+    "obs-char-000061": (
+        "The small image shows a tall angular form with a lower rectangular frame "
+        "and a separate curved mark on the right.",
+        "小型图像呈高而折角的形体，下方有长方形框，右侧另有弯曲痕迹。",
+    ),
+    "obs-char-000062": (
+        "The thin image has a central upright stroke, a pointed upper loop-like "
+        "mark, and a hooked lower extension.",
+        "纤细图像有中央竖画、上方尖状环形痕迹和下方钩状延伸。",
+    ),
+    "obs-char-000063": (
+        "The tall narrow image contains a vertical lattice of crossed diamond-like "
+        "marks with short side strokes.",
+        "高而狭长图像含竖向交叉格状痕迹，并有短侧向笔画。",
+    ),
+    "obs-char-000064": (
+        "The large dark image combines many horizontal and branching strokes with "
+        "a long lower-left stem and a curved lower-right descent.",
+        "大型深色图像含多条横向和分叉笔画，左下有长主干，右下有弯曲下行笔画。",
+    ),
+    "obs-char-000065": (
+        "The small gray image shows a thin upright cluster with an enclosed angular "
+        "center and curved lower marks.",
+        "小型灰度图像呈纤细直立形体，中部有闭合折角痕迹，下方有弯曲笔画。",
+    ),
+    "obs-char-000066": (
+        "Two separated forms are visible: the left has stacked crossing marks and "
+        "a lower fork, while the right is a curved bracket-like form.",
+        "图像可见两个分离形体：左侧有叠置交叉痕和下部分叉，右侧呈弯曲括状形体。",
+    ),
+    "obs-char-000067": (
+        "The large image contains a tall branching form on the left and a dense "
+        "angular form on the right, with several detached lower strokes.",
+        "大型图像左侧为高而分叉的形体，右侧为密集折角形体，下方有数条分离笔画。",
+    ),
+    "obs-char-000068": (
+        "The small gray image has a tall rectangular outer frame, curved interior "
+        "marks, and three short lower projections.",
+        "小型灰度图像有高长方形外框、内部弯曲痕迹和三条短下伸笔画。",
+    ),
+    "obs-char-000069": (
+        "The tiny gray image shows a curved left cluster with short inner marks and "
+        "a separate angular mark on the right.",
+        "微小灰度图像左侧为弯曲形体并含短内部痕迹，右侧另有折角痕迹。",
+    ),
+    "obs-char-000070": (
+        "The tiny gray image contains a curved left form with a short top bar and a "
+        "separate upright hooked stroke on the right.",
+        "微小灰度图像左侧为带短上横画的弯曲形体，右侧另有直立钩状笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

@@ -419,6 +419,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "descending stroke, and a diagonal branch on the lower left.",
         "大型图像上方有粗横向顶笔，中部有长而不规则的下行笔画，左下有斜向分支。",
     ),
+    "obs-char-000081": (
+        "The narrow image has a rounded upper contour, a short central "
+        "horizontal stroke, and several angular marks descending below it.",
+        "狭长图像上方有弧形轮廓，中部有短横笔，下面有数道向下的折角刻划。",
+    ),
+    "obs-char-000082": (
+        "The image shows an open angular frame with a tall left stroke, a "
+        "long lower baseline, and a diagonal stroke descending from above.",
+        "图像呈开放的折角框形，左侧有长直笔，下方有长横基线，并有一道自上向下的斜笔。",
+    ),
+    "obs-char-000083": (
+        "The compact image has a rounded outer enclosure, a peaked upper "
+        "interior junction, and a smaller rectangular enclosure inside.",
+        "小型图像有弧曲外框，上部内部笔画在中央形成尖角，内部另有较小的方框。",
+    ),
+    "obs-char-000084": (
+        "The image is roughly symmetrical, with several short upper strokes "
+        "and a broad curved lower enclosure that narrows toward the bottom.",
+        "图像大致左右对称，上方有数道短笔，下方有宽弧形围合，向底部逐渐收窄。",
+    ),
+    "obs-char-000085": (
+        "The isolated narrow image consists mainly of one long curving stroke "
+        "that turns inward near the upper part and ends in a lower hook.",
+        "孤立的狭长图像主要由一条长弯曲笔画构成，上部向内回转，底部收成钩状。",
+    ),
+    "obs-char-000086": (
+        "The image has a tall central stem, a small rectangular loop on the "
+        "left, and short branching strokes extending toward the right.",
+        "图像有一条高直主干，左侧有小方环，并向右伸出数道短分支笔画。",
+    ),
+    "obs-char-000087": (
+        "The narrow image has a curved upright left stroke, two short rightward "
+        "branches, and a separate diagonal stroke at the lower left.",
+        "狭长图像左侧有弧曲直立笔，向右分出两道短笔，左下另有一道斜笔。",
+    ),
+    "obs-char-000088": (
+        "The enlarged image shows a central descending stroke crossed by broad "
+        "diagonal strokes, with a separate curved stroke on the right.",
+        "放大的图像中部有下行主笔，被数道宽斜笔交叉，右侧另有弧曲笔画。",
+    ),
+    "obs-char-000089": (
+        "The compact image has a central vertical stroke, short horizontal "
+        "strokes at several levels, and small side projections.",
+        "小型图像有中央竖笔，在不同高度分布短横笔，并有小幅向两侧伸出。",
+    ),
+    "obs-char-000090": (
+        "The image has a broad open rectangular outline with two parallel "
+        "interior horizontal strokes and short outer end strokes.",
+        "图像呈宽阔的开放方框轮廓，内部有两道平行横笔，外侧端部有短出笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

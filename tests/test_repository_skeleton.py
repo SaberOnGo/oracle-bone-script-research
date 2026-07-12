@@ -7469,6 +7469,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "irregular descending",
             outputs["obs-char-000080"]["material_observation_text"],
         )
+        self.assertIn(
+            "rounded upper contour",
+            outputs["obs-char-000081"]["material_observation_text"],
+        )
+        self.assertIn(
+            "broad open rectangular outline",
+            outputs["obs-char-000090"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
@@ -7487,6 +7495,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000070",
             "obs-char-000071",
             "obs-char-000080",
+            "obs-char-000081",
+            "obs-char-000090",
         ):
             self.assertTrue(
                 (

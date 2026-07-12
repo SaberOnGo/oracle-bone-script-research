@@ -469,6 +469,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "interior horizontal strokes and short outer end strokes.",
         "图像呈宽阔的开放方框轮廓，内部有两道平行横笔，外侧端部有短出笔。",
     ),
+    "obs-char-000091": (
+        "The small image has one short horizontal stroke at the top and a "
+        "single long vertical stroke descending from its center.",
+        "小型图像顶部有一道短横笔，并从中央向下延伸一条长直笔。",
+    ),
+    "obs-char-000092": (
+        "The image contains two rounded upper loops joined by crossing strokes "
+        "and two curved lower hooks on opposite sides.",
+        "图像上方有两个弧形环，彼此由交叉笔画连接，下方两侧各有弯曲钩状笔。",
+    ),
+    "obs-char-000093": (
+        "The isolated image is a thick curved stroke that bends inward from the "
+        "upper left and tapers toward the lower end.",
+        "孤立图像是一道粗弯曲笔画，自左上向内弯转，并向下端逐渐变细。",
+    ),
+    "obs-char-000094": (
+        "The image has a tall central stroke, a short upper horizontal crossing, "
+        "and a compact angular branch on the lower right.",
+        "图像有高直主笔，上部有短横交叉笔，下右方有紧凑的折角分支。",
+    ),
+    "obs-char-000095": (
+        "The image shows a tall left stroke, a diagonal central branch, a right "
+        "side stroke, and a short lower baseline.",
+        "图像左侧有高直笔，中部有斜向分支，右侧有短笔，下方有短横基线。",
+    ),
+    "obs-char-000096": (
+        "The narrow image has several short upper marks, a descending central "
+        "stroke, and two angular lower strokes opening to the sides.",
+        "狭长图像上方有数道短笔，中部有下行主笔，下方有两道向两侧张开的折角笔。",
+    ),
+    "obs-char-000097": (
+        "The small image has three separated upper marks, a long middle stroke, "
+        "and a thin descending stroke below the center.",
+        "小型图像上方有三道分离短笔，中部有长横笔，中央下方有细长下行笔。",
+    ),
+    "obs-char-000098": (
+        "The image is vertically organized, with a pointed upper junction, "
+        "short side branches, and a narrow central descending stem.",
+        "图像按纵向组织，上部中央形成尖点，两侧有短分支，中部有狭长下行主干。",
+    ),
+    "obs-char-000099": (
+        "The isolated narrow image consists of one long irregular curved stroke "
+        "with a slight inward turn near the upper section.",
+        "孤立的狭长图像由一条长而不规则的弯曲笔画构成，上部略向内回转。",
+    ),
+    "obs-char-000100": (
+        "The image has a broad angular left branch, a central crossing stroke, "
+        "and a rounded hook-like curve extending to the right.",
+        "图像左侧有宽大的折角分支，中部有交叉笔，右侧伸出弧形钩状笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

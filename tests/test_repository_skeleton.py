@@ -7461,6 +7461,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "three short lower projections",
             outputs["obs-char-000068"]["material_observation_text"],
         )
+        self.assertIn(
+            "three separated",
+            outputs["obs-char-000076"]["material_observation_text"],
+        )
+        self.assertIn(
+            "irregular descending",
+            outputs["obs-char-000080"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
@@ -7477,6 +7485,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000060",
             "obs-char-000061",
             "obs-char-000070",
+            "obs-char-000071",
+            "obs-char-000080",
         ):
             self.assertTrue(
                 (

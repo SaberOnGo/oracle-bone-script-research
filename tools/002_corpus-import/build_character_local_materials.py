@@ -369,6 +369,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "separate upright hooked stroke on the right.",
         "微小灰度图像左侧为带短上横画的弯曲形体，右侧另有直立钩状笔画。",
     ),
+    "obs-char-000071": (
+        "The tiny image contains one short, thick horizontal stroke with slightly "
+        "uneven edges.",
+        "微小图像只有一条短而粗的横向笔画，边缘略不均匀。",
+    ),
+    "obs-char-000072": (
+        "The small image shows a rounded rectangular enclosure with a continuous "
+        "dark outer stroke.",
+        "小型图像呈圆角长方形闭合框，外缘为连续深色笔画。",
+    ),
+    "obs-char-000073": (
+        "The narrow image has a slightly curved upper stroke and a thin descending "
+        "line attached near its middle.",
+        "狭长图像上方有略弯横画，中部附近连接一条细长下行线。",
+    ),
+    "obs-char-000074": (
+        "The small image consists of a horizontal stroke crossed by a longer "
+        "vertical stroke.",
+        "小型图像由一条横画和一条较长竖画交叉组成。",
+    ),
+    "obs-char-000075": (
+        "The thin image shows a short upper bar, a diagonal descending stroke, and "
+        "a second short lower branch.",
+        "纤细图像上方有短横画，下方有斜向下行笔画和第二条短分支。",
+    ),
+    "obs-char-000076": (
+        "The image contains three separated, roughly parallel horizontal strokes "
+        "with uneven thickness.",
+        "图像含三条分离且大致平行的横向笔画，粗细并不均匀。",
+    ),
+    "obs-char-000077": (
+        "The image shows several short parallel horizontal strokes grouped closely "
+        "together.",
+        "图像可见数条彼此接近的短平行横向笔画。",
+    ),
+    "obs-char-000078": (
+        "The small image has two broad curved horizontal strokes, one above the "
+        "other, with an open gap between them.",
+        "小型图像有上下两条宽而弯曲的横向笔画，中间留有开放间隔。",
+    ),
+    "obs-char-000079": (
+        "The narrow image shows a central descending stem that branches into two "
+        "long curved side strokes.",
+        "狭长图像有中央下行主干，并向两侧分出两条长弯曲笔画。",
+    ),
+    "obs-char-000080": (
+        "The large image has a thick upper horizontal cap, a long irregular "
+        "descending stroke, and a diagonal branch on the lower left.",
+        "大型图像上方有粗横向顶笔，中部有长而不规则的下行笔画，左下有斜向分支。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

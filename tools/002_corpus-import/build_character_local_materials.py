@@ -219,6 +219,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "cluster of crossing strokes.",
         "小型图像上方有开放折角痕迹，下方另有交叉笔画组成的分离形体。",
     ),
+    "obs-char-000041": (
+        "The large image has two outer curving strokes, branching marks between "
+        "them, and two small enclosed oval-like marks.",
+        "大型图像有两条弯曲外笔画，中间有分叉痕迹，并可见两个小型闭合椭圆状痕迹。",
+    ),
+    "obs-char-000042": (
+        "The small gray image shows two neighboring upright forms with short "
+        "angular and vertical marks.",
+        "小型灰度图像可见两个相邻直立形体，含短折角和竖向痕迹。",
+    ),
+    "obs-char-000043": (
+        "The compact image has an angular upper outline, a central crossing "
+        "stroke, and a small hooked lower mark.",
+        "紧凑图像上方呈折角轮廓，中部有交叉笔画，下方有小型钩状痕迹。",
+    ),
+    "obs-char-000044": (
+        "The image shows a branching central stroke with short side marks and "
+        "a curved lower extension.",
+        "图像呈分叉中央笔画，两侧有短痕，下方有弯曲延伸。",
+    ),
+    "obs-char-000045": (
+        "Two separated forms are visible: a small divided square-like form on "
+        "the left and a thin upright form with an upper loop on the right.",
+        "图像可见两个分离形体：左侧为分格小方形，右侧为带上部环状痕迹的纤细直立形。",
+    ),
+    "obs-char-000046": (
+        "The tiny gray image has two neighboring angular upper marks, a short "
+        "connecting stroke, and two thin lower strokes.",
+        "微小灰度图像上方有两个相邻折角痕迹，中间有短连接笔画，下方有两条细笔画。",
+    ),
+    "obs-char-000047": (
+        "The image has a long upper horizontal stroke, a left descending edge, "
+        "and a central branching form above a curved lower mark.",
+        "图像有长上横画、左侧向下边缘，中部为分叉形体，下方有弯曲痕迹。",
+    ),
+    "obs-char-000048": (
+        "Two dark forms are stacked vertically: the upper has a long top bar and "
+        "curved side strokes, while the lower forms a rounded bowl.",
+        "图像上下叠置两个深色形体：上方有长横画和弯曲侧笔画，下方呈圆弧框。",
+    ),
+    "obs-char-000049": (
+        "Two adjacent forms are visible, with branching strokes on the left and "
+        "a looped, crossing form with a lower diamond-like mark on the right.",
+        "图像可见两个相邻形体，左侧有分叉笔画，右侧有环状交叉形和下部菱状痕迹。",
+    ),
+    "obs-char-000050": (
+        "The tiny gray image has a short top bar, a central upright stroke, and "
+        "a small angular projection to the side.",
+        "微小灰度图像有短上横画、中央竖向笔画和侧面的折角伸出。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

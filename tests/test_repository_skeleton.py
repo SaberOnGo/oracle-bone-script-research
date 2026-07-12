@@ -7429,6 +7429,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "leftward branching marks",
             outputs["obs-char-000025"]["material_observation_text"],
         )
+        self.assertIn(
+            "Two neighboring forms",
+            outputs["obs-char-000033"]["material_observation_text"],
+        )
+        self.assertIn(
+            "rectangular lower enclosures",
+            outputs["obs-char-000039"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
@@ -7437,6 +7445,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000020",
             "obs-char-000021",
             "obs-char-000030",
+            "obs-char-000031",
+            "obs-char-000040",
         ):
             self.assertTrue(
                 (

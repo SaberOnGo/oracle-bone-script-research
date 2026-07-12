@@ -169,6 +169,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "short diagonal branches on its left side.",
         "狭长图像呈略弯直立笔画，左侧分出两条短斜向笔画。",
     ),
+    "obs-char-000031": (
+        "The tall narrow image has a branching upper tip, a central descending "
+        "stroke, and crossed short marks near the lower end.",
+        "高而狭长图像顶部有分叉尖端，中部有向下主笔画，下端附近有交叉短痕。",
+    ),
+    "obs-char-000032": (
+        "The small gray image shows a short horizontal mark, a central upright "
+        "stroke, and an angular lower hook.",
+        "小型灰度图像有短横痕、中央竖向笔画和下部折角钩状痕迹。",
+    ),
+    "obs-char-000033": (
+        "Two neighboring forms are visible, each with a central oval-like mark "
+        "and short strokes extending to both sides.",
+        "图像可见两个相邻形体，各自有中央椭圆状痕迹，并向两侧伸出短笔画。",
+    ),
+    "obs-char-000034": (
+        "The large elongated outline contains an enclosed central mark, upper "
+        "diverging strokes, and a long lower extension.",
+        "大型长形外轮廓内部有闭合中部痕迹、上方分开的笔画和长向下延伸。",
+    ),
+    "obs-char-000035": (
+        "The compact image contains a small branching form beside a rectangular "
+        "framework with an upper diagonal stroke.",
+        "紧凑图像含一处小型分叉形体，旁边是带上方斜笔画的长方形框架。",
+    ),
+    "obs-char-000036": (
+        "The small thin image has a rounded upper mark, crossing interior strokes, "
+        "and a curved lower tail.",
+        "小型纤细图像上方有圆弧痕迹，内部笔画交叉，下方有弯曲尾部。",
+    ),
+    "obs-char-000037": (
+        "Two stacked forms are visible, each with a horizontal upper stroke, a "
+        "right-side hooked descent, and a slanted lower edge.",
+        "图像可见上下叠置的两个形体，各有上方横画、右侧下钩和倾斜下缘。",
+    ),
+    "obs-char-000038": (
+        "The thin image has short parallel marks at the upper left, a central "
+        "upright stroke, and a hooked lower extension.",
+        "纤细图像左上有短平行痕迹，中部有竖向主笔画，下方延出钩状痕迹。",
+    ),
+    "obs-char-000039": (
+        "The dark form combines a small rounded upper mark, a central upright, "
+        "and two adjoining rectangular lower enclosures.",
+        "深色形体含小型圆弧上部痕迹、中央竖画和两个相连的下部长方形框。",
+    ),
+    "obs-char-000040": (
+        "The small image shows an upper open angular cluster and a separate lower "
+        "cluster of crossing strokes.",
+        "小型图像上方有开放折角痕迹，下方另有交叉笔画组成的分离形体。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

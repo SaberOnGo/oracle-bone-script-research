@@ -7445,6 +7445,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "rounded bowl",
             outputs["obs-char-000048"]["material_observation_text"],
         )
+        self.assertIn(
+            "three short upper bars",
+            outputs["obs-char-000051"]["material_observation_text"],
+        )
+        self.assertIn(
+            "tall rectangular enclosure",
+            outputs["obs-char-000058"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
@@ -7457,6 +7465,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000040",
             "obs-char-000041",
             "obs-char-000050",
+            "obs-char-000051",
+            "obs-char-000060",
         ):
             self.assertTrue(
                 (

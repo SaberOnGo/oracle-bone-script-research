@@ -269,6 +269,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "a small angular projection to the side.",
         "微小灰度图像有短上横画、中央竖向笔画和侧面的折角伸出。",
     ),
+    "obs-char-000051": (
+        "The small gray image has three short upper bars, a compact middle frame, "
+        "and a pointed lower mark.",
+        "小型灰度图像上方有三条短横画，中部为紧凑框形，下方有尖状痕迹。",
+    ),
+    "obs-char-000052": (
+        "The narrow image shows a curved upright stroke, a branching upper mark, "
+        "and a small enclosed oval near the lower right.",
+        "狭长图像有弯曲直立笔画、上方分叉痕迹，右下附近有小型闭合椭圆。",
+    ),
+    "obs-char-000053": (
+        "The large dark form has an upper loop, a central crossing, several long "
+        "descending strokes, and a lower right enclosure.",
+        "大型深色形体上方有环状痕迹，中部交叉，下方有多条长笔画，右下有闭合框。",
+    ),
+    "obs-char-000054": (
+        "The image combines a broad crossed upper framework with a separate lower "
+        "arched form and a central descending stroke.",
+        "图像上方为宽大的交叉框架，下方有分离拱形体，中部有向下主笔画。",
+    ),
+    "obs-char-000055": (
+        "The tiny gray image shows an angular upper cluster and a separate small "
+        "rounded mark below it.",
+        "微小灰度图像上方有折角形痕迹，下方另有一个小型圆弧痕迹。",
+    ),
+    "obs-char-000056": (
+        "Two neighboring dark forms are visible, each with an upright stroke, a "
+        "curved lower turn, and a short upper projection.",
+        "图像可见两个相邻深色形体，各有直立笔画、下部弯转和短上部伸出。",
+    ),
+    "obs-char-000057": (
+        "The large enclosed form has a broad upper frame, side loop-like marks, a "
+        "central horizontal stroke, and a rounded lower bowl.",
+        "大型闭合形体有宽上框、两侧环状痕迹、中央横画和下部圆弧框。",
+    ),
+    "obs-char-000058": (
+        "The image shows a tall rectangular enclosure with angular interior marks, "
+        "a horizontal upper stroke, and a short lower bar.",
+        "图像呈高长方形外框，内部有折角痕迹，上方有横画，下方有短横痕。",
+    ),
+    "obs-char-000059": (
+        "The small gray image has a curved angular upper cluster and a detached "
+        "forked mark below; contrast needs human recheck.",
+        "小型灰度图像上方有弯曲折角痕迹，下方有分离的分叉痕；对比度需人工复核。",
+    ),
+    "obs-char-000060": (
+        "The tiny gray image shows a narrow vertical chain of enclosed diamond-like "
+        "marks with short cross strokes; detail needs recheck.",
+        "微小灰度图像呈窄长竖向链状形体，含闭合菱状痕迹和短交叉笔画；细节需复核。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

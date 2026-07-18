@@ -1069,6 +1069,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "form, and a separate long stroke on the right.",
         "图像上方有尖顶 V 形痕迹，左下方有弯曲分支形，右侧另有分离长笔。",
     ),
+    "obs-char-000211": (
+        "The image has a triangular upper frame with a horizontal internal bar, a "
+        "broad lower stroke, and a separate angular form on the right.",
+        "图像上方有三角框，内部有横笔，下方有宽笔，右侧另有分离的折角形。",
+    ),
+    "obs-char-000212": (
+        "The narrow image has a branching upper stem, several fine strokes gathered "
+        "in the middle, and a curved lower-right continuation.",
+        "狭长图像上方有分叉主笔，中部聚集数道细笔，下方右侧有弯曲延续笔。",
+    ),
+    "obs-char-000213": (
+        "The broad image combines a dense horizontal grid on the left with a separate "
+        "tall curved stroke on the right and a diagonal crossing near the base.",
+        "宽大图像左侧为密集横向网格，右侧有分离高弯曲笔，底部附近有斜向交叉笔。",
+    ),
+    "obs-char-000214": (
+        "The image has a large rounded loop on the left connected through a central "
+        "crossing to a long curved stroke on the right.",
+        "图像左侧有大型圆弧环，经过中部交叉连接右侧长弯曲笔。",
+    ),
+    "obs-char-000215": (
+        "The image has two long descending side strokes, a short fork near the upper "
+        "middle, and several pointed projections along the lower edge.",
+        "图像两侧有长下行笔，中上部有短分叉，下缘有数道尖状伸出笔。",
+    ),
+    "obs-char-000216": (
+        "The image has a three-peaked upper cluster, horizontal internal bands, a "
+        "compact lower block, and a separate curved stroke on the right.",
+        "图像上方有三尖峰笔群，内部有横向带，下方有紧凑块状形，右侧另有分离弯曲笔。",
+    ),
+    "obs-char-000217": (
+        "The image combines a small upper fork with a compact lower grid-like form "
+        "and a separate long curve along the right side.",
+        "图像上方有小分叉，下方为紧凑网格状形，右侧另有分离长弯曲笔。",
+    ),
+    "obs-char-000218": (
+        "The image has a long curved stroke on the left and an elongated right frame "
+        "containing crossing diagonal and horizontal strokes.",
+        "图像左侧有长弯曲笔，右侧为长形框，内部含斜向和横向交叉笔。",
+    ),
+    "obs-char-000219": (
+        "The image has a broad upper curved cap, a hanging central loop, and a "
+        "separate thin curved stroke on the right.",
+        "图像上方有宽弯曲盖状笔，中部有悬垂环状形，右侧另有分离细弯曲笔。",
+    ),
+    "obs-char-000220": (
+        "The large image contains two separated angular forms with long descending "
+        "strokes, branching lower ends, and a curved opening on the right.",
+        "大幅图像含左右分离的两处折角形，带长下行笔、下部分支和右侧弯曲开口。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

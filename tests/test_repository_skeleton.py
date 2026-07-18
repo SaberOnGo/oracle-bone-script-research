@@ -9194,6 +9194,21 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", hust_literature_text)
         self.assertNotIn("not_collected", hust_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in hust_literature_text.splitlines()))
+        obimd_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "016_src-obimd_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        obimd_literature_flat = " ".join(obimd_literature_text.split())
+        self.assertIn("Primary Publication / 主要论文", obimd_literature_text)
+        self.assertIn("10.1038/s41597-026-06967-0", obimd_literature_text)
+        self.assertIn("Human Research Relevance / 人类研究相关性", obimd_literature_text)
+        self.assertIn("10,077 rubbing images", obimd_literature_text)
+        self.assertIn("9,913 from Jiaguwen Heji", obimd_literature_flat)
+        self.assertIn("The article states CC BY-NC-ND 4.0", obimd_literature_flat)
+        self.assertIn("具体文献核查", obimd_literature_text)
+        self.assertNotIn("not_collected", obimd_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in obimd_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

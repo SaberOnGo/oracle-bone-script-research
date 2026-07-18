@@ -24,6 +24,83 @@ topic, or bibliography dossier.
 - Rights status / 权利状态: licensed_for_repository
 - Review status / 复核状态: reviewed
 
+## Primary Publication / 主要论文
+- Citation / 引用: Li, B., Yang, J., Liang, Y. et al. OBIMD: A Multi-modal Dataset
+  for Contextual Interpretation of Oracle Bone Inscriptions. Scientific Data 13,
+  681 (2026).
+- DOI / DOI: https://doi.org/10.1038/s41597-026-06967-0
+- Publication dates / 发表日期: Received 2025-07-16; accepted 2026-02-24; published
+  2026-03-14; version of record 2026-04-30.
+- Responsible roles / 责任分工: Bang Li and Jing Yang are recorded as equal first
+  contributors; Donghao Luo and Taisong Jin are the corresponding authors. The
+  paper also records manual annotation and annotation-coordination roles.
+- Evidence level / 证据等级: Primary peer-reviewed data descriptor; it documents a
+  multimodal dataset and workflow, not a final transcription or accepted
+  reading.
+
+## Paper-Reported Research Process / 论文报告的处理过程
+- Material base / 资料基础: The paper reports 10,077 rubbing images: 9,913 from
+  Jiaguwen Heji and 164 from Huayuanzhuang East material, with aligned facsimile
+  and transcription routes.
+- Facsimile relation / 摹本关系: Pixel-aligned facsimiles were redrawn by
+  integrating selected rubbings with facsimile references; they are not simply
+  treated as direct originals of the cited series.
+- Annotation stages / 标注阶段: The reported workflow has data acquisition,
+  pre-annotation, and collaborative annotation and verification. Graduates
+  cross-check cases; experts arbitrate unresolved cases.
+- Reported structure / 论文报告结构: The dataset reports 93,652 annotated characters,
+  21,667 missing-character positions, 21,941 sentence units, and 4,192
+  non-sentential elements.
+
+## Human Research Relevance / 人类研究相关性
+- Reading context / 阅读上下文: Rubbing, facsimile, transcription, character boxes,
+  groups, and reading-order fields are routes for opening evidence before
+  interpretation.
+- Uncertainty fields / 不确定字段: SeatFont marks missing positions; Mark records
+  exceptional or unresolved cases. Label and SubLabel remain dataset routes, not
+  confirmed character identities.
+- Modern label boundary / 今字边界: The paper supplies modern-character
+  transcription for reference and lookup; local review must not treat it as a
+  final decipherment result.
+
+## Citation And Access Relations / 引用与访问关系
+- Data and code routes / 数据与代码路线: The article points to Hugging Face
+  KLOBIP/OBIMD for data, libang1991/OBIMD on GitHub for code, and the JGWL
+  platform for the annotation environment.
+- Cited source routes / 被引来源路线: Important routes include YinQiWenYuan, Jiaguwen
+  Heji, Huayuanzhuang East material, Jiaguwen Moben Daxi, the Oracular Digital
+  Platform, HUST-OBC, and EVOBC.
+
+## Reported Limits And Disputes / 论文报告限制与争议
+- Source-layer distinction / 来源层次区别: Rubbings, facsimiles, redrawn facsimiles,
+  and transcriptions must remain distinct; alignment does not prove equal
+  evidentiary status.
+- Unresolved cases / 待解决情况: Placeholders, uncertain groups, special marks, and
+  disputed classifications remain review routes rather than resolved
+  scholarship.
+- License conflict / 许可冲突: The article states CC BY-NC-ND 4.0, while local
+  dataset-card and repository notes use different wording. Keep the rights
+  discrepancy visible and review each derivative.
+- Large files / 大文件: Raw annotation and image packages remain outside ordinary
+  Git where required; only source-marked, reviewed derivatives may enter object
+  dossiers.
+
+## Concrete Bibliography Checks / 具体文献核查
+- Verify the DOI, Hugging Face snapshot, GitHub revision, and
+  local package checksums before reusing any field or count.
+- Open the Heji, Huayuanzhuang East, YinQiWenYuan, and facsimile
+  routes before transferring a sentence or plate claim.
+- Keep rubbing, facsimile, redraw, transcription, Label, and
+  SubLabel as separate evidence layers in inscription dossiers.
+- Record placeholders, Mark values, disputed labels, and missing
+  positions as concrete review questions.
+- 复核 DOI、Hugging Face 快照、GitHub 版本和本地来源包 checksum，
+  再复用具体字段或统计数值。
+- 打开合集、出土地点、殷契文渊和摹本路线后，才能转入卜辞档案。
+- 在卜辞档案中分开保存拓片、摹本、重绘摹本、释文、Label 和
+  SubLabel，不能把它们合并成单一证据层。
+- 把占位框、Mark 值、争议标签和缺失位置写成具体待复核问题。
+
 ## Literature And Database Review Slots / 文献与数据库复核槽位
 - Bibliography note / 书目说明: Open README.md and 10_source-evidence-dossier.md
   before citing this source in a later research note.

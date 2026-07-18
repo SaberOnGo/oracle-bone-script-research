@@ -24,6 +24,72 @@ topic, or bibliography dossier.
 - Rights status / 权利状态: source_marked_risk_noted
 - Review status / 复核状态: reviewed
 
+## Primary Publication / 主要论文
+- Citation / 引用: Wang, P., Zhang, K., Wang, X. et al. An open dataset for oracle
+  bone character recognition and decipherment. Scientific Data 11, 976 (2024).
+- DOI / DOI: https://doi.org/10.1038/s41597-024-03807-x
+- Publication dates / 发表日期: Received 2024-01-22; accepted 2024-08-20; published
+  2024-09-06; version of record 2024-09-06.
+- Authors and institutions / 作者与机构: Pengjie Wang, Kaile Zhang, Xinyu Wang,
+  Shengwei Han, Yongge Liu, Jinpeng Wan, Haisu Guan, Zhebin Kuang, Lianwen Jin,
+  Xiang Bai, and Yuliang Liu; affiliations include HUST, University of Adelaide,
+  Anyang Normal University, and South China University of Technology.
+- Evidence level / 证据等级: Primary peer-reviewed data descriptor; it documents a
+  dataset and its construction, not an archaeological catalog identity or
+  confirmed reading.
+
+## Paper-Reported Research Process / 论文报告的处理过程
+- Source intake / 来源进入: Books, websites, and databases were combined; reported
+  examples include New Compilation of Oracle Bone Scripts, Oracle Bone Script:
+  Six Digit Numerical Code, YinQiWenYuan, GuoXueDaShi, and HWOBC.
+- Processing stages / 处理阶段: The paper reports data acquisition, automatic
+  annotation, data integration, and data validation, followed by review by
+  oracle-bone scholars from Anyang Normal University.
+- Reported scale / 论文报告规模: 77,064 images across 1,588 deciphered categories and
+  62,989 images across 9,411 undeciphered categories, 140,053 images in total.
+
+## Citation Relations / 引用关系
+- Publication to dataset / 论文到数据集: The article points to the HUST-OBC Figshare
+  record, including version 3, and to the Pengjie-W/HUST-OBC repository for code
+  and dataset access routes.
+- Cited source routes / 被引来源路线: The article cites books, HWOBC, YinQiWenYuan,
+  GuoXueDaShi, OBIMD, and prior recognition studies; each route needs
+  independent source and rights review before a later dossier reuses it.
+
+## Reported Limits And Disputes / 论文报告限制与争议
+- GuoXueDaShi caution / 国学大师风险: The paper reports 1,390 GuoXueDaShi categories
+  that could not be verified and were stored separately; this remains a source
+  caution, not a repository identity decision.
+- Category integration / 类别合并: The reported reduction from 1,781 to 1,588
+  categories is a dataset-construction statistic, not proof of identity,
+  variant, component, or evolution.
+- Undeciphered split / 未释分组: The paper notes possible duplicates among 9,411
+  undeciphered categories because their annotations are not yet available; local
+  records retain candidate status.
+- License / 许可: The article reports CC BY-NC 4.0; local status remains
+  source_marked_risk_noted until the license scope for each image and derivative
+  is checked against the package route.
+- Different opinions / 不同意见: No formal scholarly disagreement is resolved here.
+  Cited books, labels, source splits, and review decisions remain routes for
+  independent human comparison.
+
+## Concrete Bibliography Checks / 具体文献核查
+- Verify the DOI, Figshare version, repository revision, and
+  local checksum rows before reusing a paper claim.
+- Open the cited books and web/database routes and record page,
+  plate, catalog, or object references where available.
+- Compare each HUST label route with its source provenance before
+  connecting it to a character or inscription dossier.
+- Record disagreements about labels, source categories, and
+  provenance as pending review, not as corrected scholarship.
+- 复核 DOI、Figshare 版本、代码仓库版本和本地 checksum 后，
+  才能复用论文中的具体说法。
+- 打开论文所引图书、网页和数据库路线，记录可得的页码、
+  图版号、著录号或馆藏对象号。
+- 每条 HUST 标签路线接入单字或卜辞档案前，先核对来源出处。
+- 对标签、来源分组和出处的不同意见写成待复核记录，
+  不写成已经修正的学术结论。
+
 ## Literature And Database Review Slots / 文献与数据库复核槽位
 - Bibliography note / 书目说明: Open README.md and 10_source-evidence-dossier.md
   before citing this source in a later research note.

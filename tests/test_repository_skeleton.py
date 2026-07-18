@@ -9176,6 +9176,24 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Citation relation / 引用关系", literature_scope_text)
         self.assertIn("Different opinions / 不同意见", literature_scope_text)
         self.assertIn("Dispute record / 争议记录", literature_scope_text)
+        hust_object_dir = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "015_src-hust-obc_source-object"
+        )
+        hust_literature_text = (
+            hust_object_dir / "16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        hust_literature_flat = " ".join(hust_literature_text.split())
+        self.assertIn("Primary Publication / 主要论文", hust_literature_text)
+        self.assertIn("10.1038/s41597-024-03807-x", hust_literature_text)
+        self.assertIn("Paper-Reported Research Process / 论文报告的处理过程", hust_literature_text)
+        self.assertIn("1,390 GuoXueDaShi categories", hust_literature_text)
+        self.assertIn("source caution, not a repository identity decision", hust_literature_flat)
+        self.assertIn("License / 许可", hust_literature_text)
+        self.assertIn("具体文献核查", hust_literature_text)
+        self.assertNotIn("not_collected", hust_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in hust_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

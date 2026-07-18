@@ -819,6 +819,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "longer side strokes extending above and below it.",
         "图像中部是交叉、环绕笔组成的密集结状形体，两侧有较长笔画向上下伸出。",
     ),
+    "obs-char-000161": (
+        "The narrow image has a dense branched upper cluster, a long central "
+        "descending stroke, and short irregular marks along the right side.",
+        "狭长图像上方有密集分叉笔群，中部有长下行主笔，右侧有不规则短痕。",
+    ),
+    "obs-char-000162": (
+        "The broad image contains a separate curved stroke on the left and a deep "
+        "V-shaped form on the right ending in a compact rectangular block.",
+        "宽大图像左侧有分离的弯曲笔，右侧为深 V 形结构，下端接紧凑长方形块。",
+    ),
+    "obs-char-000163": (
+        "The narrow image has a small angular upper cap, a long curved outer stroke, "
+        "and a short inner branch descending beside it.",
+        "狭长图像上方有小型折角盖状笔，外侧有长弯曲笔，旁边有短内部分支下行。",
+    ),
+    "obs-char-000164": (
+        "The image is formed by two long narrow strokes crossing near the middle, "
+        "with both ends tapering unevenly.",
+        "图像由两道长而窄的笔画在中部附近交叉构成，两端收笔长短和粗细不齐。",
+    ),
+    "obs-char-000165": (
+        "The low-resolution gray image has a dense upper horizontal cluster and a "
+        "thin curved stroke descending below it.",
+        "低分辨率灰度图像上方有密集横向笔群，下方有细弯曲笔向下延伸。",
+    ),
+    "obs-char-000166": (
+        "The image has two short upper horizontal bars, a narrow descending stroke, "
+        "and a hooked projection near the lower end.",
+        "图像上方有两道短横笔，中部有窄下行笔，下端附近有钩状伸出笔。",
+    ),
+    "obs-char-000167": (
+        "The broad image shows two separated tall forms: a long curved stroke on "
+        "the left and a branched angular form on the right with a small terminal mark.",
+        "宽大图像可见左右分离的两处高形：左侧为长弯曲笔，右侧为分叉折角形，并带小末端痕迹。",
+    ),
+    "obs-char-000168": (
+        "The low-resolution gray image has a small triangular upper frame above a "
+        "short rectangular lower enclosure.",
+        "低分辨率灰度图像上方有小型三角框，下方接短小长方形围合。",
+    ),
+    "obs-char-000169": (
+        "The narrow image has a long central descending stroke with short horizontal "
+        "and diagonal branches extending to the left near the upper half.",
+        "狭长图像中部有长下行主笔，上半部左侧伸出短横笔和短斜向分支。",
+    ),
+    "obs-char-000170": (
+        "The low-resolution gray image has a thin central vertical stroke, a small "
+        "upper branch, and short side strokes crossing near the middle.",
+        "低分辨率灰度图像有细中央竖笔，上方有小分支，中部附近有短侧笔交叉。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

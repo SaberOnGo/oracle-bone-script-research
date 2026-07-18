@@ -769,6 +769,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "middle enclosure, with a central vertical stroke below it.",
         "图像上方两侧有弯曲笔围绕小型长方形中部围合，下方接一条中央竖笔。",
     ),
+    "obs-char-000151": (
+        "The image has a pointed upper descending stroke, a compact angular loop "
+        "on the left, and a short lower projection.",
+        "图像上方有尖状下行笔，左侧有紧凑折角环状形，下方有短伸出笔。",
+    ),
+    "obs-char-000152": (
+        "The image combines a narrow banded form on the left with a broad pointed "
+        "arch on the right and a small enclosed loop inside it.",
+        "图像左侧有窄而带横痕的形体，右侧有宽大的尖顶拱形，内部另有小型围合环。",
+    ),
+    "obs-char-000153": (
+        "The image has a small curved upper mark, a compact stacked middle form, "
+        "and a rounded open stroke curving along the lower edge.",
+        "图像上方有小弯曲痕迹，中部为紧凑叠置形体，下缘有沿边弯曲的开放笔画。",
+    ),
+    "obs-char-000154": (
+        "The image has a pointed upper stem, a broad horizontal lower-left form, "
+        "and a compact rectangular mark on the lower right.",
+        "图像上方有尖状主笔，下方左侧有宽横向形体，右下方有紧凑长方形痕迹。",
+    ),
+    "obs-char-000155": (
+        "The narrow image has an angled upper stroke, a small triangular enclosure "
+        "near the middle, and several fine strokes extending below it.",
+        "狭长图像上方有折斜笔，中部附近有小型三角围合，下方延伸出数道细笔。",
+    ),
+    "obs-char-000156": (
+        "The low-resolution gray image has a curved left stroke beside a compact "
+        "dark form with a short internal crossing mark.",
+        "低分辨率灰度图像左侧有弯曲笔，右侧为紧凑深色形体，内部带短交叉痕迹。",
+    ),
+    "obs-char-000157": (
+        "The image has a rounded outer descending form, a pointed branching mark "
+        "inside the lower left, and a thin stroke continuing downward.",
+        "图像有圆弧外轮廓向下延伸，左下内部有尖状分叉痕迹，并有细笔继续下行。",
+    ),
+    "obs-char-000158": (
+        "The image combines a long curved stroke on the left with stacked angular "
+        "bands above a rounded lower loop on the right.",
+        "图像左侧有长弯曲笔，右侧上方为叠置折角横带，下方接圆弧环状形。",
+    ),
+    "obs-char-000159": (
+        "The image has a rough square enclosure containing crossing strokes, with "
+        "a separate long vertical stroke along the right side.",
+        "图像有粗略方形围合，内部含交叉笔，右侧另有一条分离的长竖笔。",
+    ),
+    "obs-char-000160": (
+        "The image is a dense central knot of crossing and looping strokes, with "
+        "longer side strokes extending above and below it.",
+        "图像中部是交叉、环绕笔组成的密集结状形体，两侧有较长笔画向上下伸出。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

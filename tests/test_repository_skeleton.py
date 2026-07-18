@@ -7534,6 +7534,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000148", "long pointed descending stroke"),
             ("obs-char-000149", "compact upper enclosure"),
             ("obs-char-000150", "rectangular middle enclosure"),
+            ("obs-char-000151", "compact angular loop"),
+            ("obs-char-000152", "broad pointed arch"),
+            ("obs-char-000153", "compact stacked middle form"),
+            ("obs-char-000154", "pointed upper stem"),
+            ("obs-char-000155", "small triangular enclosure"),
+            ("obs-char-000156", "low-resolution gray image"),
+            ("obs-char-000157", "rounded outer descending form"),
+            ("obs-char-000158", "rounded lower loop"),
+            ("obs-char-000159", "rough square enclosure"),
+            ("obs-char-000160", "dense central knot"),
         ):
             self.assertIn(
                 expected_fragment,

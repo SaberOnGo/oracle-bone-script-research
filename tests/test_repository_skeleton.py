@@ -8403,9 +8403,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "corpus/009_statistics-and-derived-features/"
             / "221_object-local-human-research-depth-summary.json"
         )
+        guide_path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "222_object-local-human-research-depth-human-guide.md"
+        )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        guide = guide_path.read_text(encoding="utf-8")
+        self.assertIn("Human-First Research Depth Guide", guide)
+        self.assertIn("Area Review Map / 分区复核地图", guide)
+        self.assertIn("Completion Boundary / 完成边界", guide)
+        self.assertTrue(all(len(line) <= 80 for line in guide.splitlines()))
         self.assertEqual(len(rows), 8)
         self.assertEqual(summary["object_directory_count"], 29754)
         self.assertEqual(summary["human_entry_object_count"], 29754)

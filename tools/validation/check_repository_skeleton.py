@@ -776,6 +776,10 @@ OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY = (
     "corpus/009_statistics-and-derived-features/"
     "221_object-local-human-research-depth-summary.json"
 )
+OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_GUIDE = (
+    "corpus/009_statistics-and-derived-features/"
+    "222_object-local-human-research-depth-human-guide.md"
+)
 PROJECT_ID_SOURCE_MAP_AUDIT = (
     "corpus/009_statistics-and-derived-features/"
     "190_project-id-source-map-audit.csv"
@@ -6175,9 +6179,27 @@ def check_object_local_human_research_depth_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_path = root / OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT
     summary_path = root / OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY
+    guide_path = root / OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_GUIDE
     with audit_path.open("r", encoding="utf-8-sig", newline="") as file:
         rows = list(csv.DictReader(file))
     summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    guide = guide_path.read_text(encoding="utf-8")
+    required_guide_markers = (
+        "Human-First Research Depth Guide",
+        "Current Baseline / 当前基线",
+        "Area Review Map / 分区复核地图",
+        "Completion Boundary / 完成边界",
+        "object-local dossiers",
+        "结构化文件只服务检索、追溯、比较和审计",
+    )
+    for marker in required_guide_markers:
+        if marker not in guide:
+            issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_GUIDE} missing marker: {marker}")
+    for line_number, line in enumerate(guide.splitlines(), start=1):
+        if len(line) > 80:
+            issues.append(
+                f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_GUIDE}:{line_number} exceeds 80 chars"
+            )
     required_fields = {
         "depth_audit_id",
         "corpus_area",

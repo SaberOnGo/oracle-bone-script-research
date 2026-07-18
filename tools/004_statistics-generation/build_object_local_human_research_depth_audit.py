@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import textwrap
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -18,6 +19,7 @@ from pathlib import Path
 COVERAGE_AUDIT = Path("corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv")
 OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/220_object-local-human-research-depth-audit.csv")
 OUTPUT_JSON = Path("corpus/009_statistics-and-derived-features/221_object-local-human-research-depth-summary.json")
+OUTPUT_MD = Path("corpus/009_statistics-and-derived-features/222_object-local-human-research-depth-human-guide.md")
 UPDATED_AT = "2026-06-30"
 DEPTH_REVIEW_STATUS = "needs_human_research_depth_review"
 HUMAN_FIRST_BOUNDARY = (
@@ -441,6 +443,75 @@ def write_json(path: Path, data: dict[str, object]) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def wrapped_lines(text: str, width: int = 78) -> list[str]:
+    lines: list[str] = []
+    for line in textwrap.wrap(text, width=width, break_long_words=False, break_on_hyphens=False) or [""]:
+        while len(line) > width:
+            lines.append(line[:width])
+            line = line[width:]
+        lines.append(line)
+    return lines
+
+
+def write_markdown(path: Path, rows: list[dict[str, str]], summary: dict[str, object]) -> None:
+    lines = [
+        "# Human-First Research Depth Guide / 人类优先研究深度指南",
+        "",
+        "This guide is the human-readable companion to the depth audit CSV and JSON.",
+        "It routes a researcher to object-local dossiers before any formal claim.",
+        "本指南是深度审计 CSV 和 JSON 的人类可读配套文件。正式研究结论之前，",
+        "应先按本指南打开对象目录内的人类档案。",
+        "",
+        "## Current Baseline / 当前基线",
+        "",
+        f"- Corpus areas / 资料区: {summary['area_count']}",
+        f"- Object directories / 对象目录: {summary['object_directory_count']}",
+        f"- Complete human+AI bundles / 人类与 AI 完整包: {summary['complete_bundle_object_count']}",
+        "- Depth status / 深度状态: needs_human_research_depth_review",
+        "- Boundary / 边界: this is a navigation audit, not scholarship or decipherment.",
+        "- 边界：这是人类阅读入口审计，不是学术结论，也不是释读或破译。",
+        "",
+        "## Area Review Map / 分区复核地图",
+        "",
+    ]
+    for row in rows:
+        lines.extend(
+            [
+                f"### {row['corpus_area']}",
+                "",
+                f"- Objects / 对象数: {row['object_count']}",
+                f"- Human files / 人类文件: {row['human_entry_object_count']}",
+                f"- Review status / 复核状态: {row['depth_review_status']}",
+                "- First human route / 首个应打开的人类路线:",
+            ]
+        )
+        first_route = row["representative_human_files_to_open"].split(";")[0]
+        lines.extend(f"  {part}" for part in wrapped_lines(first_route, 74))
+        lines.append("- Concrete questions / 具体问题:")
+        for question in row["concrete_depth_questions"].split(";"):
+            lines.extend(f"  - {part}" for part in wrapped_lines(question, 72))
+        lines.append("")
+    lines.extend(
+        [
+            "## Completion Boundary / 完成边界",
+            "",
+            "All current object bundles have human and AI entry files, but this does",
+            "not mean that images, plates, OCR, bibliography, disputes, findspots,",
+            "or readings have been human-checked. The next stage is review of the",
+            "listed source routes and concrete questions inside each object folder.",
+            "当前对象包都有人类和 AI 入口文件，但这不表示图像、图版、OCR、文献、",
+            "争议、出土地或释读已经完成了人工核查。下一阶段仍须按对象目录内的",
+            "来源路线和具体问题继续复核。",
+            "",
+            "Structured files remain secondary support for search, tracing, comparison,",
+            "and audit. They do not replace the human-readable object dossier.",
+            "结构化文件只服务检索、追溯、比较和审计，不能替代人类可读对象档案。",
+            "",
+        ]
+    )
+    path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=Path.cwd(), type=Path)
@@ -449,7 +520,9 @@ def main() -> int:
     coverage_rows = read_csv_rows(root / COVERAGE_AUDIT)
     rows = build_rows(root, coverage_rows)
     write_csv(root / OUTPUT_CSV, rows)
-    write_json(root / OUTPUT_JSON, build_summary(rows))
+    summary = build_summary(rows)
+    write_json(root / OUTPUT_JSON, summary)
+    write_markdown(root / OUTPUT_MD, rows, summary)
     print(f"object_local_human_research_depth_area_rows={len(rows)}")
     return 0
 

@@ -57,6 +57,8 @@ substitutes for object-local dossiers, source records, or review sheets.
   audits human dossier depth slots by object corpus area.
 - `221_object-local-human-research-depth-summary.json`
   summarizes human-first dossier depth review status.
+- `222_object-local-human-research-depth-human-guide.md`
+  is the human-readable companion for opening each area dossier first.
 - `190_project-id-source-map-audit.csv`
   audits project-local ID to source-reference maps.
 - `191_project-id-source-map-summary.json`

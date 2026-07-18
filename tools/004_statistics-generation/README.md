@@ -52,7 +52,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `186_character-object-material-coverage-audit.csv`,
   `188_object-local-material-coverage-audit.csv`,
   `220_object-local-human-research-depth-audit.csv`,
-  `221_object-local-human-research-depth-summary.json`.
+  `221_object-local-human-research-depth-summary.json`, and the
+  human-readable `222_object-local-human-research-depth-human-guide.md`.
 - Project ID route integrity:
   `190_project-id-source-map-audit.csv`.
 - Core phase gap review:

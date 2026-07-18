@@ -519,6 +519,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "and a rounded hook-like curve extending to the right.",
         "图像左侧有宽大的折角分支，中部有交叉笔，右侧伸出弧形钩状笔画。",
     ),
+    "obs-char-000101": (
+        "The image has a tall central axis, rounded enclosed marks on both "
+        "sides, and a short hooked stroke near the upper right.",
+        "图像有高直中央主轴，两侧可见弧形围合笔画，右上方另有短钩状笔。",
+    ),
+    "obs-char-000102": (
+        "The enlarged image is arranged on a diagonal, with three rounded "
+        "enclosures linked in sequence and a long lower descending stroke.",
+        "放大图像沿斜向排列，有三个依次相连的弧形围合，并有长下行笔画。",
+    ),
+    "obs-char-000103": (
+        "The small image has a thin irregular upright stroke at the right and "
+        "a long low stroke extending leftward from its base.",
+        "小型图像右侧有细而不规则的直立笔，底部有一道向左伸出的长低位笔画。",
+    ),
+    "obs-char-000104": (
+        "The image consists of two thick, nearly parallel horizontal strokes "
+        "with a narrow open gap between them.",
+        "图像由两道粗而近于平行的横笔构成，中间留有狭窄开放间隔。",
+    ),
+    "obs-char-000105": (
+        "The compact image has a broad horizontal top stroke and a long narrow "
+        "vertical stroke descending from near its center.",
+        "小型图像上方有宽横顶笔，并从接近中央处向下伸出长而窄的直笔。",
+    ),
+    "obs-char-000106": (
+        "The image has two short upper horizontal strokes, a curved lower loop, "
+        "and a separate hooked stroke on the lower left.",
+        "图像上方有两道短横笔，下方有弧形环状笔，左下另有分离的钩状笔。",
+    ),
+    "obs-char-000107": (
+        "The narrow image is formed by two long diagonal strokes meeting near "
+        "the top and opening apart toward the lower edge.",
+        "狭长图像由两道长斜笔构成，两笔在上方附近相接，向下端分开。",
+    ),
+    "obs-char-000108": (
+        "The compact image has a central vertical stroke crossed by a horizontal "
+        "stroke, with short angled side projections.",
+        "小型图像有中央竖笔与横笔交叉，两侧带有短而倾斜的伸出笔画。",
+    ),
+    "obs-char-000109": (
+        "The image has two short upper horizontal strokes above an open angular "
+        "enclosure with a small inner corner.",
+        "图像上方有两道短横笔，下方是开放折角围合，内部可见小型转角。",
+    ),
+    "obs-char-000110": (
+        "The rounded image has a central vertical-and-horizontal junction and "
+        "four short curved projections extending around it.",
+        "弧形图像中部有横竖交接点，周围向四方伸出四道短弯曲笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

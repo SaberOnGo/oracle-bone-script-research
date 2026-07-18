@@ -7485,6 +7485,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "rounded hook-like curve",
             outputs["obs-char-000100"]["material_observation_text"],
         )
+        self.assertIn(
+            "tall central axis",
+            outputs["obs-char-000101"]["material_observation_text"],
+        )
+        self.assertIn(
+            "four short curved projections",
+            outputs["obs-char-000110"]["material_observation_text"],
+        )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
@@ -7507,6 +7515,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000090",
             "obs-char-000091",
             "obs-char-000100",
+            "obs-char-000101",
+            "obs-char-000110",
         ):
             self.assertTrue(
                 (

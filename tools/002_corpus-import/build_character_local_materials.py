@@ -619,6 +619,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "form, with a narrow central descending stroke and a split lower mark.",
         "小型图像上方有尖顶围合，下方为长方形形体，中部向下有窄笔，底部有分叉痕迹。",
     ),
+    "obs-char-000121": (
+        "The very narrow image forms a pointed upper tip with two curved outer "
+        "strokes narrowing into a long tapering lower line.",
+        "极狭长图像上端呈尖点，两侧弯曲外笔向下收拢为长而渐细的下行笔画。",
+    ),
+    "obs-char-000122": (
+        "The low-resolution gray image shows a short angular upper block and a "
+        "thicker curved stroke descending toward the lower right.",
+        "低分辨率灰度图像上方有短折角块状痕迹，并有较粗弯曲笔向右下延伸。",
+    ),
+    "obs-char-000123": (
+        "The broad image has two sloping strokes meeting at a high point, with a "
+        "short horizontal stroke detached inside the lower opening.",
+        "宽大图像由两道斜笔在高处相接构成，内部下方开口处有分离的短横笔。",
+    ),
+    "obs-char-000124": (
+        "The image has a pointed central upper mark, a descending central stroke, "
+        "and several short detached marks arranged on both sides.",
+        "图像上方有尖状中央痕迹，中部向下有主笔，两侧排列着数道分离短痕。",
+    ),
+    "obs-char-000125": (
+        "Two separated angular arch-like forms are visible, one broad above and a "
+        "smaller one below, both open along their lower edges.",
+        "图像可见上下分离的两处折角拱形痕迹，上方较宽，下方较小，底部都呈开放状态。",
+    ),
+    "obs-char-000126": (
+        "The image contains four long upright curved strokes with pointed upper "
+        "tips and uneven tapering lower ends.",
+        "图像含四道长而直立的弯曲笔画，上端有尖点，下端收笔长短不齐。",
+    ),
+    "obs-char-000127": (
+        "Two separated forms are visible: a small open triangular form above and a "
+        "narrow angular hooked form below.",
+        "图像可见上下分离的两种形体：上方为小型开放三角形，下方为窄长折角钩状形。",
+    ),
+    "obs-char-000128": (
+        "The low-resolution gray image has a compact crossing mark on the left and "
+        "a curved descending stroke on the right.",
+        "低分辨率灰度图像左侧有紧凑交叉痕迹，右侧有弯曲向下的笔画。",
+    ),
+    "obs-char-000129": (
+        "The image shows a tall straight form with a top cross stroke on the left, "
+        "beside a separate curved descending form on the right.",
+        "图像左侧为带顶部横笔的高直形体，右侧另有一处分离的弯曲下行形体。",
+    ),
+    "obs-char-000130": (
+        "The narrow image has a long curved central stroke, a small upper branch, "
+        "and a short horizontal crossing mark near the lower end.",
+        "狭长图像有长弯曲主笔，上方有小分叉，下端附近有短横交叉痕迹。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

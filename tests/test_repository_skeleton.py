@@ -7504,6 +7504,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000118", "rounded closed lower bowl"),
             ("obs-char-000119", "diagonal strokes converging"),
             ("obs-char-000120", "pointed upper enclosure"),
+            ("obs-char-000121", "pointed upper tip"),
+            ("obs-char-000122", "low-resolution gray image"),
+            ("obs-char-000123", "sloping strokes meeting"),
+            ("obs-char-000124", "pointed central upper mark"),
+            ("obs-char-000125", "separated angular arch-like forms"),
+            ("obs-char-000126", "four long upright curved strokes"),
+            ("obs-char-000127", "open triangular form"),
+            ("obs-char-000128", "compact crossing mark"),
+            ("obs-char-000129", "tall straight form"),
+            ("obs-char-000130", "long curved central stroke"),
         ):
             self.assertIn(
                 expected_fragment,

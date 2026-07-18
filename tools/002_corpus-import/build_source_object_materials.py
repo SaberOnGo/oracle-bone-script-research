@@ -1847,6 +1847,116 @@ def source_literature_scope_review_text(source: dict[str, str]) -> str:
                 "",
             ]
         )
+    elif source["source_id"] == "src-ihp-museum-oracle-bones":
+        lines.extend(
+            [
+                "## Museum Collection Description / 博物馆馆藏说明",
+                *bullet(
+                    "Institutional context / 机构背景",
+                    "The Museum of the Institute of History and Philology presents "
+                    "oracle bones as a collection formed through the Institute's "
+                    "research and scientific excavation history.",
+                ),
+                *bullet(
+                    "Excavation history / 发掘历史",
+                    "The official page states that large-scale scientific excavation "
+                    "began after the Institute was established in 1928, and that "
+                    "excavations at Xiaotun brought forth more than 25,000 oracle "
+                    "bone pieces.",
+                ),
+                *bullet(
+                    "Evidence level / 证据等级",
+                    "Museum collection and selected-object catalog route; each object "
+                    "page is human evidence for material, catalog label, image, and "
+                    "collection context, not an automatic inscription reading.",
+                ),
+                "",
+                "## Selected Object Evidence / 选定实物证据",
+                *bullet(
+                    "Object types / 器物类型",
+                    "The collection page includes ox scapulae, tortoise carapaces, "
+                    "plastrons, animal bones, skulls, antler objects, and joined or "
+                    "fragmentary pieces. Preserve the material type before studying "
+                    "the inscription.",
+                ),
+                *bullet(
+                    "Catalog-style labels / 著录式标签",
+                    "Selected entries show labels such as Jia Bian 3333+3361, Bing Bian "
+                    "0008, Yi Bian 3330+5281, and Ping 0086. These labels are museum "
+                    "or catalog routes and require source-book expansion.",
+                ),
+                *bullet(
+                    "Joined objects / 拼合实物",
+                    "Plus signs in entries such as Jia Bian 3333+3361 or Yi Bian "
+                    "3330+5281+Yi Bian buyi 4936 indicate a joined or cross-referenced "
+                    "catalog route; inspect the object page before treating it as a "
+                    "physical reconstruction.",
+                ),
+                *bullet(
+                    "Human dossier fields / 人类档案字段",
+                    "For each object, retain object type, material, catalog label, "
+                    "image path, visible damage, inscription placement, collection, "
+                    "provenance, and missing findspot or period evidence separately.",
+                ),
+                "",
+                "## Archaeological And Bibliographic Boundaries / 考古与书目边界",
+                *bullet(
+                    "Material before interpretation / 先实物后释读",
+                    "Open the museum object image and catalog label first, then compare "
+                    "rubbing, Heji, old catalog, and inscription records. The museum "
+                    "page alone does not supply full OCR or a scholarly reading history.",
+                ),
+                *bullet(
+                    "Collection versus findspot / 馆藏与出土地",
+                    "A museum collection page establishes a collection route, not that "
+                    "the current holding is the original findspot. Keep excavation, "
+                    "acquisition, and holding evidence distinct.",
+                ),
+                *bullet(
+                    "Cross-source links / 跨来源链接",
+                    "Use catalog labels to seek related Heji, rubbing, and IHP database "
+                    "records, but require agreement of object and image evidence before "
+                    "forming a cross-source object link.",
+                ),
+                "",
+                "## Rights, Access, And Review / 权利、访问与复核",
+                *bullet(
+                    "Museum policy / 博物馆规则",
+                    "The official page provides museum policy and photograph-permission "
+                    "routes. Local status remains metadata_only_until_verified until "
+                    "those rules and each image credit are checked.",
+                ),
+                *bullet(
+                    "Local package boundary / 本地包边界",
+                    "The committed package is a lightweight collection-page capture. "
+                    "It does not prove complete collection coverage or grant permission "
+                    "to copy the selected images.",
+                ),
+                *bullet(
+                    "Disputed interpretation / 争议解释",
+                    "Object type, catalog label, period, inscription identity, and "
+                    "reading must remain separate review fields; no museum label alone "
+                    "resolves a paleographic dispute.",
+                ),
+                "",
+                "## Concrete Bibliography Checks / 具体文献核查",
+                "- Open each selected object page and record image, catalog label,",
+                "  material, object type, and collection evidence.",
+                "- Expand Jia, Bing, Yi, Ping, and other catalog abbreviations through",
+                "  the relevant source-table or museum reference route.",
+                "- Compare joined-object labels with rubbing, Heji, and archaeological",
+                "  records before treating a plus sign as a physical join.",
+                "- Read the museum policy and photograph-permission route before any",
+                "  image, crop, or derivative is committed or redistributed.",
+                "- 打开每个选定实物页，记录图像、著录标签、材质、器物类型和",
+                "  馆藏证据。",
+                "- 通过相关来源表或博物馆说明展开 Jia、Bing、Yi、Ping 等简称。",
+                "- 将拼合标签与拓片、合集和考古记录比较，不能仅凭加号确认实物",
+                "  已经拼合。",
+                "- 提交或传播图像、裁剪图和派生物前，先阅读博物馆规则与摄影许可。",
+                "",
+            ]
+        )
     lines.extend(
         [
         "## Literature And Database Review Slots / 文献与数据库复核槽位",

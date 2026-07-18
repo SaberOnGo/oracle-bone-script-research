@@ -969,6 +969,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "sides and a shorter diagonal projection toward the right.",
         "图像上方有尖顶围合，两侧有长笔向下延伸，右侧另有较短斜向伸笔。",
     ),
+    "obs-char-000191": (
+        "The broad image has a long horizontal band crossed by several short upright "
+        "strokes, with uneven projections extending below it.",
+        "宽大图像有长横向带状笔，数道短竖笔穿过其间，下方伸出长短不齐的笔画。",
+    ),
+    "obs-char-000192": (
+        "The image has a pointed upper cap, two long curved inner strokes, and broad "
+        "outer strokes descending toward the lower sides.",
+        "图像上方有尖顶盖状形，内部有两道长弯曲笔，外侧笔向下延伸至两边下方。",
+    ),
+    "obs-char-000193": (
+        "The image has a central angular crossing with a short upper stroke, a long "
+        "diagonal stroke toward the lower left, and a separate lower-right mark.",
+        "图像中部有折角交叉，上方有短笔，左下方有长斜笔，右下另有分离痕迹。",
+    ),
+    "obs-char-000194": (
+        "The narrow image has a small rounded upper mark, two horizontal bands, and "
+        "a thin central stroke descending below them.",
+        "狭长图像上方有小圆弧痕迹，中部有两道横带，下方接细中央下行笔。",
+    ),
+    "obs-char-000195": (
+        "The large image has a rounded outer frame, an inner loop and horizontal band, "
+        "and long side strokes continuing below the lower edge.",
+        "大幅图像有圆弧外框，内部含环状形和横带，下缘两侧有长笔继续向下。",
+    ),
+    "obs-char-000196": (
+        "The image is a dense chain of crossing and looping strokes with short side "
+        "projections extending at several levels.",
+        "图像是交叉、环绕笔组成的密集链状形体，多个高度有短侧向伸笔。",
+    ),
+    "obs-char-000197": (
+        "The image has a rounded angular upper loop connected to a long curved stroke "
+        "that descends and hooks near the lower right.",
+        "图像上方有圆弧折角环状形，连接长弯曲笔向下延伸，并在右下附近收成钩状。",
+    ),
+    "obs-char-000198": (
+        "The image has a pointed outer frame, a dark inner elongated form, and a long "
+        "thin stroke descending below the lower opening.",
+        "图像有尖顶外框，内部为深色长形痕迹，下方开口处向下延伸长细笔。",
+    ),
+    "obs-char-000199": (
+        "The image has a short upper horizontal bar, a rounded middle enclosure, a "
+        "small lower loop, and upright side strokes.",
+        "图像上方有短横笔，中部有圆弧围合，下方有小环状形，两侧有竖向笔画。",
+    ),
+    "obs-char-000200": (
+        "The image has a small upper cap above a rectangular enclosure on the left, "
+        "with a long descending stroke and a short branch on the right.",
+        "图像上方有小盖状笔，左侧为长方形围合，右侧有长下行笔并带短分支。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

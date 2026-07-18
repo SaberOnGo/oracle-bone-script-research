@@ -1269,6 +1269,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "a short top branch, while the right is denser and more heavily branched.",
         "图像可见两个分离的深色聚集：左侧为带短顶部笔的纤细直立形，右侧更密集且分叉更多。",
     ),
+    "obs-char-000251": (
+        "The image is a broad tapered horizontal stroke with a short curved branch "
+        "dropping from its lower edge near the center.",
+        "图像为宽而渐尖的横向笔画，中部附近从下缘垂下一道短弯曲分支。",
+    ),
+    "obs-char-000252": (
+        "The image has a rounded rectangular outer contour, a short upper bar, and "
+        "several irregular strokes inside the lower enclosed area.",
+        "图像有圆弧矩形外轮廓、短上横笔，内部下方围合区域中有数道不规则笔画。",
+    ),
+    "obs-char-000253": (
+        "A thick curved loop forms the main body, with an open interior and a short "
+        "separate stroke on the right.",
+        "粗重弯曲环状笔形成主体，内部开放，右侧另有一道短分离笔。",
+    ),
+    "obs-char-000254": (
+        "The narrow image has a pointed leaf-like outer contour, a thin interior line, "
+        "and a detached diagonal stroke below.",
+        "狭长图像有尖状叶形外轮廓、细内部笔，下方另有一道分离斜笔。",
+    ),
+    "obs-char-000255": (
+        "A long central vertical stroke separates two rounded side forms; the left and "
+        "right forms are similar in size but not identical in contour.",
+        "长中央竖笔将两个圆弧侧形分开；左右形体大小相近，但轮廓并不完全相同。",
+    ),
+    "obs-char-000256": (
+        "The thin upright image contains a long central stroke with several short "
+        "angled branches clustered along its right side.",
+        "纤细直立图像有长中央笔，右侧沿线聚集数道短折角分支。",
+    ),
+    "obs-char-000257": (
+        "Two long angled strokes open upward from a small lower junction; a short "
+        "branch projects toward the right side.",
+        "两道长斜笔从下部小连接处向上张开，右侧有一道短分支外伸。",
+    ),
+    "obs-char-000258": (
+        "The compact dark image has a dense rounded stroke cluster on the left and a "
+        "taller angular open form on the right.",
+        "紧凑深色图像左侧有密集圆弧笔画聚集，右侧有较高的开放折角形体。",
+    ),
+    "obs-char-000259": (
+        "Two separated forms are visible: a small stack of rounded marks on the left "
+        "and a long curved form with a pointed lower tail on the right.",
+        "图像可见两个分离形体：左侧是小型叠置圆弧痕，右侧是带尖状下尾的长弯曲形。",
+    ),
+    "obs-char-000260": (
+        "The large dark image has a thick upper block, two long descending strokes, and "
+        "a heavy irregular terminal at the lower right.",
+        "大幅深色图像有粗重上部块状形体、两道长下行笔，右下有厚重不规则末端。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

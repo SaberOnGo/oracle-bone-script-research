@@ -7634,6 +7634,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000248", "low-contrast gray image"),
             ("obs-char-000249", "crossing strokes at the top"),
             ("obs-char-000250", "Two separated dark clusters"),
+            ("obs-char-000251", "broad tapered horizontal stroke"),
+            ("obs-char-000252", "rounded rectangular outer contour"),
+            ("obs-char-000253", "thick curved loop"),
+            ("obs-char-000254", "pointed leaf-like outer contour"),
+            ("obs-char-000255", "long central vertical stroke"),
+            ("obs-char-000256", "long central stroke"),
+            ("obs-char-000257", "Two long angled strokes"),
+            ("obs-char-000258", "dense rounded stroke cluster"),
+            ("obs-char-000259", "Two separated forms"),
+            ("obs-char-000260", "thick upper block"),
         ):
             self.assertIn(
                 expected_fragment,

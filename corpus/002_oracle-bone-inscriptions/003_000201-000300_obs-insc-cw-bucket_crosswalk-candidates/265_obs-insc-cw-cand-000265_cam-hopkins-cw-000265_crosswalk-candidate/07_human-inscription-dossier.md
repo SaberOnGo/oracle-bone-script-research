@@ -94,6 +94,41 @@ These labels are imported metadata, not a new chronological judgement.
   Status: `missing_or_unassigned`
   Review: `locate_or_confirm_missing_reference_before_formal_assignment`
 
+## Human Field Coverage / 人类档案字段覆盖
+
+- Inscription number / 卜辞编号: candidate crosswalk ID only; formal obi-*
+  number pending
+- Plate number / 图版号: 待查: cited plate, rubbing, or image record
+- Catalog source / 著录来源: Cambridge/Hopkins finding-list row plus the
+  references below
+- Page / 页码: 待查: finding-list page segment or cited catalog page
+- Yingguo / 英国所藏: `y1770` in source row; primary catalog entry pending
+- CUL / 剑桥大学图书馆: `552` in source row; primary catalog entry pending
+- Chalfant / Chalfant 著录: `738` in source row; primary catalog entry pending
+- Heji / 合集: 待查: missing Heji reference in source row
+- Collection / 馆藏: Hopkins Collection in source metadata; CUL object match
+  pending
+- Findspot / 出土地: 待查: excavation or findspot evidence for the physical
+  object
+- Period / 时期: `I` from source metadata; not a new dating
+- Group and batch / 组类与批次: group `19`; batch or pit context pending
+- Linked characters / 关联字形: 待查: occurrence, variant, component, and context
+  routes
+- Image path / 图片路径: 待查: Cambridge Digital Library or cited catalog image
+  route
+- Text quality / 文本质量: 待查: primary text or OCR, unreadable signs, and review
+  notes
+- Missing items / 缺失项: plate, page, object, findspot, batch, text, image,
+  and relations
+- Review status / 复核状态: needs_human_inscription_crosswalk_review
+
+This checklist makes the required inscription and plate fields visible in the
+object-local dossier. A source-row value is still a crosswalk clue until the
+primary catalog, image, object, or page evidence has been opened.
+
+本清单把卜辞与图版所需字段直接放入对象档案。来源行中的数值在打开
+原始著录、图像、实物或页码证据前，仍只是互证线索。
+
 ## Plate, Image, And Text Routes / 图版、图像与文本路线
 
 - Route: `cambridge_hopkins_finding_list`

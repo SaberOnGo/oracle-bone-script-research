@@ -283,6 +283,102 @@ def priority_review_order_markdown() -> str:
 - 完成此顺序前，不要分配正式 `obi-*` 编号。"""
 
 
+def human_field_bullet(label: str, value: str) -> str:
+    return textwrap.fill(
+        f"- {label}: {value}",
+        width=76,
+        subsequent_indent="  ",
+        break_long_words=True,
+        break_on_hyphens=False,
+    )
+
+
+def source_reference_field(value: str, field_label: str) -> str:
+    cleaned = value.replace("\ufffd", "").strip()
+    if not cleaned or set(cleaned) == {"*"}:
+        return f"待查: missing {field_label} reference in source row"
+    unresolved_note = (
+        "; unresolved source character; check original source row"
+        if "\ufffd" in value
+        else ""
+    )
+    return f"`{cleaned}` in source row; primary catalog entry pending{unresolved_note}"
+
+
+def human_field_coverage_markdown(row: dict[str, str]) -> str:
+    fields = [
+        human_field_bullet(
+            "Inscription number / 卜辞编号",
+            "candidate crosswalk ID only; formal obi-* number pending",
+        ),
+        human_field_bullet(
+            "Plate number / 图版号",
+            "待查: cited plate, rubbing, or image record",
+        ),
+        human_field_bullet(
+            "Catalog source / 著录来源",
+            "Cambridge/Hopkins finding-list row plus the references below",
+        ),
+        human_field_bullet(
+            "Page / 页码",
+            "待查: finding-list page segment or cited catalog page",
+        ),
+        human_field_bullet(
+            "Yingguo / 英国所藏",
+            source_reference_field(row.get("yingguo_ref_id", ""), "Yingguo"),
+        ),
+        human_field_bullet(
+            "CUL / 剑桥大学图书馆",
+            source_reference_field(row.get("cul_ref_id", ""), "CUL"),
+        ),
+        human_field_bullet(
+            "Chalfant / Chalfant 著录",
+            source_reference_field(row.get("chalfant_ref_id", ""), "Chalfant"),
+        ),
+        human_field_bullet(
+            "Heji / 合集",
+            source_reference_field(row.get("heji_ref_id", ""), "Heji"),
+        ),
+        human_field_bullet(
+            "Collection / 馆藏",
+            "Hopkins Collection in source metadata; CUL object match pending",
+        ),
+        human_field_bullet(
+            "Findspot / 出土地",
+            "待查: excavation or findspot evidence for the physical object",
+        ),
+        human_field_bullet(
+            "Period / 时期",
+            f"`{row.get('period_label', '')}` from source metadata; not a new dating",
+        ),
+        human_field_bullet(
+            "Group and batch / 组类与批次",
+            f"group `{row.get('group_number', '')}`; batch or pit context pending",
+        ),
+        human_field_bullet(
+            "Linked characters / 关联字形",
+            "待查: occurrence, variant, component, and context routes",
+        ),
+        human_field_bullet(
+            "Image path / 图片路径",
+            "待查: Cambridge Digital Library or cited catalog image route",
+        ),
+        human_field_bullet(
+            "Text quality / 文本质量",
+            "待查: primary text or OCR, unreadable signs, and review notes",
+        ),
+        human_field_bullet(
+            "Missing items / 缺失项",
+            "plate, page, object, findspot, batch, text, image, and relations",
+        ),
+        human_field_bullet(
+            "Review status / 复核状态",
+            "needs_human_inscription_crosswalk_review",
+        ),
+    ]
+    return "\n".join(fields)
+
+
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
@@ -822,6 +918,17 @@ These labels are imported metadata, not a new chronological judgement.
 ## Catalog Clues / 著录线索
 
 {refs}
+
+## Human Field Coverage / 人类档案字段覆盖
+
+{human_field_coverage_markdown(row)}
+
+This checklist makes the required inscription and plate fields visible in the
+object-local dossier. A source-row value is still a crosswalk clue until the
+primary catalog, image, object, or page evidence has been opened.
+
+本清单把卜辞与图版所需字段直接放入对象档案。来源行中的数值在打开
+原始著录、图像、实物或页码证据前，仍只是互证线索。
 
 ## Plate, Image, And Text Routes / 图版、图像与文本路线
 

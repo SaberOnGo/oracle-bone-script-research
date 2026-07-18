@@ -4937,6 +4937,26 @@ class RepositorySkeletonTests(unittest.TestCase):
                 f"{row['project_id']} 07_human-inscription-dossier.md",
             )
             self.assertIn("Human Inscription Dossier", dossier_text)
+            self.assertIn("Human Field Coverage / 人类档案字段覆盖", dossier_text)
+            for field_label in (
+                "Inscription number / 卜辞编号",
+                "Plate number / 图版号",
+                "Catalog source / 著录来源",
+                "Page / 页码",
+                "Heji / 合集",
+                "Collection / 馆藏",
+                "Findspot / 出土地",
+                "Period / 时期",
+                "Group and batch / 组类与批次",
+                "Linked characters / 关联字形",
+                "Image path / 图片路径",
+                "Text quality / 文本质量",
+                "Missing items / 缺失项",
+                "Review status / 复核状态",
+            ):
+                self.assertIn(field_label, dossier_text)
+            self.assertIn("candidate crosswalk ID only", dossier_text)
+            self.assertIn("primary catalog entry pending", dossier_text)
             self.assertIn("Concrete Questions To Check", dossier_text)
             self.assertIn("\u5177\u4f53\u5f85\u67e5\u95ee\u9898", dossier_text)
             self.assertIn("Text And OCR Quality Review", dossier_text)
@@ -9176,6 +9196,26 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Citation relation / 引用关系", literature_scope_text)
         self.assertIn("Different opinions / 不同意见", literature_scope_text)
         self.assertIn("Dispute record / 争议记录", literature_scope_text)
+        cambridge_object_dir = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "008_src-cambridge-hopkins_source-object"
+        )
+        cambridge_literature_text = (
+            cambridge_object_dir / "16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        cambridge_literature_flat = " ".join(cambridge_literature_text.split())
+        self.assertIn(
+            "Official Finding-List Evidence / 官方目录证据",
+            cambridge_literature_text,
+        )
+        self.assertIn("grand total of 609 objects", cambridge_literature_flat)
+        self.assertIn("50 bones are available in 3D", cambridge_literature_flat)
+        self.assertIn("Bibliographic Key And Human Use / 著录键与人工使用", cambridge_literature_text)
+        self.assertIn("c as Cambridge University Library", cambridge_literature_flat)
+        self.assertIn("具体文献核查", cambridge_literature_text)
+        self.assertNotIn("not_collected", cambridge_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in cambridge_literature_text.splitlines()))
         hust_object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"

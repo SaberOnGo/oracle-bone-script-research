@@ -77,6 +77,13 @@ not an identity or decipherment conclusion.
 
 以下内容直接取自当前候选包、图像来源索引或已登记来源路线。它们是待复核的来源事实，不是字形身份或释读结论。
 - source package: `large-src-000001`
+- source object id: `src-hust-obc`
+- source object human routes: `corpus/006_research-sources-and-bibliography/00
+  1_source-objects/015_src-hust-obc_source-object/README.md;
+  corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust
+  -obc_source-object/10_source-evidence-dossier.md;
+  corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust
+  -obc_source-object/20_source-presearch-readiness-review.md`
 - source group: `待查：需要核对来源记录`
 - source class: `待查：需要核对来源记录`
 - source category: `0843`

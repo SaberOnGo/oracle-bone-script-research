@@ -55,6 +55,11 @@
     "rights_statuses": [],
     "route_files": []
   },
+  "source_object_routes": [
+    "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/README.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/10_source-evidence-dossier.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/20_source-presearch-readiness-review.md"
+  ],
   "missing_sections": [
     "accepted_reading_and_meaning",
     "inscription_occurrences",

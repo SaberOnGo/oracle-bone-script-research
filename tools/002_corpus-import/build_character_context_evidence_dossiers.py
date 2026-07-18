@@ -20,6 +20,9 @@ from typing import Any
 
 
 OBJECT_ROOT = Path("corpus/001_oracle-characters")
+SOURCE_OBJECT_ROOT = Path(
+    "corpus/006_research-sources-and-bibliography/001_source-objects"
+)
 GRAPH_FILES = [
     Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
@@ -42,6 +45,26 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
         return []
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
+
+
+def source_object_routes(root: Path, source_id: str) -> list[str]:
+    if not source_id:
+        return []
+    candidates = sorted(
+        (root / SOURCE_OBJECT_ROOT).glob(f"*_{source_id}_source-object")
+    )
+    if not candidates:
+        return []
+    object_dir = candidates[0]
+    return [
+        (object_dir / name).relative_to(root).as_posix()
+        for name in (
+            "README.md",
+            "10_source-evidence-dossier.md",
+            "20_source-presearch-readiness-review.md",
+        )
+        if (object_dir / name).exists()
+    ]
 
 
 def crosswalk_rows_by_character(root: Path) -> dict[str, list[dict[str, str]]]:
@@ -328,6 +351,31 @@ def graph_evidence_route_lines(
     return lines
 
 
+def source_object_route_lines(
+    source_id: str,
+    routes: list[str],
+) -> list[str]:
+    return [
+        "### Source Object Human Routes / 来源对象人类入口",
+        "",
+        bullet("Source object id / 来源对象 ID", code(source_id)),
+        bullet(
+            "Human files / 人类文件",
+            short_list([Path(value).name for value in routes])
+            if routes
+            else concrete_pending("需打开 source_id 对应的来源对象 README 和证据 dossier"),
+        ),
+        para(
+            "Open these source-object files before treating packet metadata as "
+            "human research evidence."
+        ),
+        para(
+            "在把 packet 元数据当作人类研究证据之前，应先打开这些来源对象文件。"
+        ),
+        "",
+    ]
+
+
 def context_dossier_text(
     project_id: str,
     packet_name: str,
@@ -335,6 +383,7 @@ def context_dossier_text(
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
     crosswalk_rows: list[dict[str, str]],
+    root: Path,
 ) -> str:
     label = dataset_label(packet)
     visual = visual_summary(visual_rows)
@@ -348,6 +397,10 @@ def context_dossier_text(
         packet.get("source_package_id", "")
         or first_visual.get("source_package_id", "")
     )
+    source_id = str(
+        packet.get("source_id", "") or first_visual.get("source_id", "")
+    )
+    source_routes = source_object_routes(root, source_id)
     if not downloads:
         downloads = sorted(
             {
@@ -470,6 +523,7 @@ def context_dossier_text(
         ),
         "",
         *graph_evidence_route_lines(edges),
+        *source_object_route_lines(source_id, source_routes),
         "### Concrete Cross-Source Candidate Routes / 具体跨来源候选路线",
         "",
         bullet("Crosswalk staging / crosswalk 文件", code(CROSSWALK_FILE.name)),
@@ -618,6 +672,10 @@ def context_index(
 ) -> dict[str, Any]:
     visual = visual_summary(visual_rows)
     edge = edge_summary(edges)
+    source_routes = source_object_routes(
+        root,
+        str(packet.get("source_id", "")),
+    )
     return {
         "record_type": "character_context_evidence_dossier_index",
         "project_id": project_id,
@@ -644,6 +702,7 @@ def context_index(
             "download_or_access_ids": packet_download_ids(packet),
             "source_metadata_files": packet.get("source_metadata_files", []),
             "route_files": route_files_from_packet(packet),
+            "source_object_routes": source_routes,
         },
         "visual_route_summary": visual,
         "graph_route_summary": edge,
@@ -696,6 +755,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
             visual_rows,
             edges,
             crosswalk_rows,
+            root,
         )
         assert_human_line_width(dossier, project_id)
         outputs[project_id] = {

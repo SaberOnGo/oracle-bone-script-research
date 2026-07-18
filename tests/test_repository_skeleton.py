@@ -4000,6 +4000,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Primary Visual Material / 主要图像材料", first["dossier_text"])
         self.assertIn("local review image", first["dossier_text"])
         self.assertIn("source image reference", first["dossier_text"])
+        self.assertIn("source object human routes", first["dossier_text"])
+        self.assertIn("10_source-evidence-dossier.md", first["dossier_text"])
         self.assertIn("asset id", first["dossier_text"])
         self.assertIn("download id", first["dossier_text"])
         self.assertIn("Concrete Cross-Source Candidate Routes", first["dossier_text"])
@@ -4026,6 +4028,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "inscription_occurrences",
             first["index_data"]["archaeological_folder_coverage"],
+        )
+        self.assertIn(
+            "10_source-evidence-dossier.md",
+            first["index_data"]["source_object_routes"][1],
         )
         self.assertFalse(
             any(
@@ -4119,6 +4125,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("需要核对哪些卜辞、图版、著录号或合集号", dossier_text)
             self.assertIn("需要打开哪些来源、checksum、manifest 或权利记录", dossier_text)
             self.assertIn("Graph Evidence Routes", dossier_text)
+            self.assertIn("Source Object Human Routes", dossier_text)
+            self.assertIn("10_source-evidence-dossier.md", dossier_text)
             self.assertIn("Concrete Cross-Source Candidate Routes", dossier_text)
             self.assertIn("OBIMD candidate ids", dossier_text)
             self.assertIn("EvoBC evolution category ids", dossier_text)
@@ -4172,6 +4180,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "source_manifest_checksum_and_rights_to_check",
                 index["missing_or_review_fields"],
+            )
+            self.assertIn(
+                "10_source-evidence-dossier.md",
+                index["source_route_summary"]["source_object_routes"][1],
             )
 
         matched = outputs["obs-char-000047"]

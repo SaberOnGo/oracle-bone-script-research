@@ -113,6 +113,15 @@ correspondence.
   oracle-character identity, not accepted readings, not component
   assignments, not evolution-chain assignments, and not decipherment
   conclusions.
+### Source Object Human Routes / 来源对象人类入口
+
+- Source object id / 来源对象 ID: `src-hust-obc`
+- Human files / 人类文件: README.md; 10_source-evidence-dossier.md;
+  20_source-presearch-readiness-review.md
+Open these source-object files before treating packet metadata as human
+research evidence.
+在把 packet 元数据当作人类研究证据之前，应先打开这些来源对象文件。
+
 ### Concrete Cross-Source Candidate Routes / 具体跨来源候选路线
 
 - Crosswalk staging / crosswalk 文件:

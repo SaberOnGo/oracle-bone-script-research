@@ -134,7 +134,7 @@ correspondence.
 - 出土地: 待查：需从来源著录、馆藏对象或考古批次记录追溯
 - 馆藏: 待查：需核对馆藏号、对象记录和公开数据库路线
 - 时期与组类: 待查：需记录来源中的分期、组类和批次，不作新判断
-- 来源包: 待查：需核对 01_*packet.json、来源登记和来源包清单
+- 来源包: `large-src-000001`
 - 下载或访问记录: dl-hust-obc-validation-label; dl-hust-obc-ocr-id-to-chinese
 - 来源 metadata: Validation_label.json; ID_to_Chinese.json
 
@@ -145,7 +145,10 @@ correspondence.
   005_hust-obc-validation-class-staging.csv;
   007_hust-obc-validation-label-crosswalk-staging.csv; plus 4 more
 - Checksum and manifest / checksum 与 manifest: 待查：需打开来源登记、下载日志和来源包清单
-- Rights risk / 权利风险: 待查：需核对 rights_status、risk_note、来源登记和公开提交边界
+- Rights risk / 权利风险: `HUST-OBC image derivative extracted from registered
+  large source package for local preparation-stage visual review; rights
+  signals conflict between Figshare and article page and this is not
+  decipherment evidence.`
 - Public commit boundary / 公开提交边界: 元数据和小型派生图像需保留权利状态与风险提示
 
 ## 7. Decipherment History Dispute And Later Forms / 释读史、争议与后世字形

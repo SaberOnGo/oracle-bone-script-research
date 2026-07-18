@@ -345,6 +345,14 @@ def source_record_lines(
         downloads = [str(downloads)] if downloads else []
     if not downloads and packet.get("evidence_download_id"):
         downloads = [str(packet["evidence_download_id"])]
+    if not downloads:
+        downloads = sorted(
+            {
+                str(row.get("download_id", ""))
+                for row in visual_rows
+                if row.get("download_id")
+            }
+        )
     source_image_routes = [
         row.get("source_image_reference_path", "") for row in visual_rows
     ]
@@ -377,6 +385,7 @@ def source_record_lines(
         bullet("source category", code_value(str(source_candidate.get("source_category_id", "")))),
         bullet("validation class", code_value(str(source_candidate.get("validation_class_id", "")))),
         bullet("source image route", code_value("; ".join(source_image_routes))),
+        bullet("asset id", code_value(str(packet.get("asset_id", "") or first_visual.get("asset_id", "")))),
         bullet("source image count", code_value(str(packet.get("source_image_count", "") or len(source_image_routes) or ""))),
         bullet("metadata files", code_value("; ".join(str(value) for value in packet.get("source_metadata_files", [])))),
         bullet("download records", code_value("; ".join(str(value) for value in downloads))),
@@ -400,6 +409,24 @@ def dossier_text(
     visual = visual_summary(visual_rows, root)
     edge = edge_summary(edges)
     visual_note = visual_note_summary(object_dir)
+    first_visual = visual_rows[0] if visual_rows else {}
+    source_package = str(
+        packet.get("source_package_id", "")
+        or first_visual.get("source_package_id", "")
+    )
+    download_ids = packet.get("evidence_download_ids", [])
+    if not isinstance(download_ids, list):
+        download_ids = [str(download_ids)] if download_ids else []
+    if not download_ids and packet.get("evidence_download_id"):
+        download_ids = [str(packet["evidence_download_id"])]
+    if not download_ids:
+        download_ids = sorted(
+            {
+                str(row.get("download_id", ""))
+                for row in visual_rows
+                if row.get("download_id")
+            }
+        )
     lines: list[str] = [
         f"# {project_id} Human Research Dossier / 人类研究档案",
         "",
@@ -530,8 +557,8 @@ def dossier_text(
         "",
         "## 7. Provenance, Findspot, Collection, And Period / 出处",
         "",
-        bullet("source package", code_value(str(packet.get("source_package_id", "")))),
-        bullet("download ids", code_value(";".join(packet.get("evidence_download_ids", [])))),
+        bullet("source package", code_value(source_package)),
+        bullet("download ids", code_value(";".join(download_ids))),
         bullet("excavation site", pending("需要核对出土地、发掘单位或地点来源")),
         bullet("collection or museum", pending("需要核对馆藏号、藏品页或库藏记录")),
         bullet("period or batch", pending("需要核对时期、组类、坑位或批次记录")),

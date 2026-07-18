@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import textwrap
 from pathlib import Path
 
@@ -1436,6 +1437,7 @@ def build_visual_rows(
                     "source_id": source_row["source_id"],
                     "source_package_id": source_row["source_package_id"],
                     "download_id": source_row["download_id"],
+                    "asset_id": existing_row.get("asset_id", ""),
                     "visual_material_status": visual_material_status,
                     "committed_image_path": committed_image_path,
                     "source_image_reference_path": source_row["source_image_path"],
@@ -1527,6 +1529,10 @@ def normalize_visual_rows(root: Path, rows: list[dict[str, str]]) -> list[dict[s
         path = row.get("committed_image_path", "")
         if not path:
             continue
+        if not row.get("asset_id"):
+            match = re.search(r"(asset-\d+)", path)
+            if match:
+                row["asset_id"] = match.group(1)
         if local_asset_exists(root, path):
             row["visual_material_status"] = "committed_review_image_derivative"
         else:

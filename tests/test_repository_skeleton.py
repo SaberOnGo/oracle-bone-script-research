@@ -4088,6 +4088,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn("- Project ID / 项目 ID:", dossier_text)
             self.assertIn("- Source ID / 来源 ID:", dossier_text)
+            self.assertIn("- 来源包:", dossier_text)
+            self.assertNotIn("- 来源包: 待查：需核对 01_*packet.json、来源登记和来源包清单", dossier_text)
             self.assertIn("- Decipherment status / 释读状态:", dossier_text)
             self.assertIn("- Rights status / 权利状态:", dossier_text)
             self.assertIn("- Image index / 图像索引:", dossier_text)

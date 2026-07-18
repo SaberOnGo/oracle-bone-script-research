@@ -83,6 +83,7 @@ not an identity or decipherment conclusion.
 - source category: `待查：需要核对来源记录`
 - validation class: `待查：需要核对来源记录`
 - source image route: `HUST-OBC/undeciphered/X/1359/X_？_172_1.png`
+- asset id: `asset-007395`
 - source image count: `2`
 - metadata files: `待查：需要核对来源记录`
 - download records: `dl-hust-obc-figshare-raw`
@@ -142,7 +143,7 @@ cross-source and human review are complete.
 ## 7. Provenance, Findspot, Collection, And Period / 出处
 
 - source package: `large-src-000001`
-- download ids: `待查：需要核对来源记录`
+- download ids: `dl-hust-obc-figshare-raw`
 - excavation site: `待查：需要核对出土地、发掘单位或地点来源`
 - collection or museum: `待查：需要核对馆藏号、藏品页或库藏记录`
 - period or batch: `待查：需要核对时期、组类、坑位或批次记录`

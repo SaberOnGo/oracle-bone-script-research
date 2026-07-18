@@ -42,7 +42,7 @@ marked as candidate, source record, needs_review, or concrete pending checks.
   cle-character/03_visual-assets/001_asset-001512_hust-obc-cat-1692_glyph.png`
 - local image status: `local_file_present`
 - source image reference: `HUST-OBC/deciphered/1692/X_1692_4099_1.png`
-- asset id: `待查：需要核对来源记录`
+- asset id: `asset-001512`
 - download id: `dl-hust-obc-figshare-raw`
 - source package: `large-src-000001`
 - rights status: `source_marked_risk_noted`
@@ -82,6 +82,7 @@ not an identity or decipherment conclusion.
 - source category: `1692`
 - validation class: `1506`
 - source image route: `HUST-OBC/deciphered/1692/X_1692_4099_1.png`
+- asset id: `asset-001512`
 - source image count: `1`
 - metadata files: `Validation_label.json; ID_to_Chinese.json`
 - download records: `dl-hust-obc-validation-label;
@@ -141,7 +142,7 @@ cross-source and human review are complete.
 
 ## 7. Provenance, Findspot, Collection, And Period / 出处
 
-- source package: `待查：需要核对来源记录`
+- source package: `large-src-000001`
 - download ids: `dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese`
 - excavation site: `待查：需要核对出土地、发掘单位或地点来源`
 - collection or museum: `待查：需要核对馆藏号、藏品页或库藏记录`

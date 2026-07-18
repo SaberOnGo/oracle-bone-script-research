@@ -275,6 +275,27 @@ def context_dossier_text(
     edge = edge_summary(edges)
     route_files = route_files_from_packet(packet)
     downloads = packet_download_ids(packet)
+    first_visual = visual_rows[0] if visual_rows else {}
+    source_package = str(
+        packet.get("source_package_id", "")
+        or first_visual.get("source_package_id", "")
+    )
+    if not downloads:
+        downloads = sorted(
+            {
+                str(row.get("download_id", ""))
+                for row in visual_rows
+                if row.get("download_id")
+            }
+        )
+    visual_risk = "; ".join(
+        sorted({
+            str(row.get("risk_note", ""))
+            for row in visual_rows
+            if row.get("risk_note")
+        })
+    )
+    risk_value = str(packet.get("risk_note", "") or visual_risk)
     source_metadata = [
         str(value)
         for value in packet.get("source_metadata_files", [])
@@ -379,8 +400,8 @@ def context_dossier_text(
         bullet("时期与组类", "待查：需记录来源中的分期、组类和批次，不作新判断"),
         bullet(
             "来源包",
-            code(str(packet.get("source_package_id", "")))
-            if packet.get("source_package_id")
+            code(source_package)
+            if source_package
             else concrete_pending("需核对 01_*packet.json、来源登记和来源包清单"),
         ),
         bullet("下载或访问记录", short_list(downloads)),
@@ -395,8 +416,8 @@ def context_dossier_text(
         ),
         bullet(
             "Rights risk / 权利风险",
-            code(str(packet.get("risk_note", "")))
-            if packet.get("risk_note")
+            code(risk_value)
+            if risk_value
             else concrete_pending("需核对 rights_status、risk_note、来源登记和公开提交边界"),
         ),
         bullet("Public commit boundary / 公开提交边界", "元数据和小型派生图像需保留权利状态与风险提示"),

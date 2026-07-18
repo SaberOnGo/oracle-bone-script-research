@@ -43,7 +43,7 @@ marked as candidate, source record, needs_review, or concrete pending checks.
   -000005_hust-X-006294_glyph.png`
 - local image status: `local_file_present`
 - source image reference: `HUST-OBC/undeciphered/X/1850/X_？_502_1.png`
-- asset id: `待查：需要核对来源记录`
+- asset id: `asset-000005`
 - download id: `dl-hust-obc-figshare-raw`
 - source package: `large-src-000001`
 - rights status: `source_marked_risk_noted`
@@ -175,6 +175,7 @@ not an identity or decipherment conclusion.
   HUST-OBC/undeciphered/X/1850/X_？_516_3.png;
   HUST-OBC/undeciphered/X/1850/X_？_516_4.png;
   HUST-OBC/undeciphered/X/1850/X_？_517_1.png`
+- asset id: `asset-000005`
 - source image count: `61`
 - metadata files: `待查：需要核对来源记录`
 - download records: `dl-hust-obc-figshare-raw`
@@ -234,7 +235,7 @@ cross-source and human review are complete.
 ## 7. Provenance, Findspot, Collection, And Period / 出处
 
 - source package: `large-src-000001`
-- download ids: `待查：需要核对来源记录`
+- download ids: `dl-hust-obc-figshare-raw`
 - excavation site: `待查：需要核对出土地、发掘单位或地点来源`
 - collection or museum: `待查：需要核对馆藏号、藏品页或库藏记录`
 - period or batch: `待查：需要核对时期、组类、坑位或批次记录`

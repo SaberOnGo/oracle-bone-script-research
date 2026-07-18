@@ -12,9 +12,8 @@ reading or component assignment.
 
 - Project ID / 项目 ID: `obs-char-000098`
 - External reference / 外部参照: `hust-obc-cat-0109`
-- Local image / 本地图像: `corpus/001_oracle-characters/001_000001-000100_obs-char-b
-  ucket_oracle-characters/098_obs-char-000098_hust-obc-cat-0109_oracle-character
-  /03_visual-assets/001_asset-000103_hust-obc-cat-0109_glyph.png`
+- Local image / 本地图像:
+  `03_visual-assets/001_asset-000103_hust-obc-cat-0109_glyph.png`
 - Source image route / 来源图像路线: open 02_visual-source-index.csv
 - Source / 来源: `src-hust-obc`
 - Source package / 来源包: `large-src-000001`

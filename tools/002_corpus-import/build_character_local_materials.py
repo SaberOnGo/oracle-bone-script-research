@@ -569,6 +569,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "four short curved projections extending around it.",
         "弧形图像中部有横竖交接点，周围向四方伸出四道短弯曲笔画。",
     ),
+    "obs-char-000111": (
+        "The narrow image has a small angular upper mark, a long descending "
+        "central stroke, and a short horizontal cross stroke near the lower end.",
+        "狭长图像上方有小型折角痕迹，中部向下贯穿一条长笔画，靠近下端有短横笔。",
+    ),
+    "obs-char-000112": (
+        "The image shows two upright side strokes with an open curved diagonal "
+        "connection running from the upper left toward the lower right.",
+        "图像可见两道直立侧笔画，并有开放的弧斜连接笔画从左上向右下延伸。",
+    ),
+    "obs-char-000113": (
+        "The compact image has a pointed upper junction, sloping outer strokes, "
+        "and an enclosed inner arch above two narrow lower extensions.",
+        "紧凑图像上方有尖状交接点，两侧向外斜伸，内部有闭合弧形，下面延出两道窄笔。",
+    ),
+    "obs-char-000114": (
+        "The light image has a small diamond-like central enclosure, short upper "
+        "strokes, and two curved lower extensions that remain open at the sides.",
+        "浅色图像中部有小型菱状围合，上方有短笔，下方伸出两道侧面开放的弯曲笔画。",
+    ),
+    "obs-char-000115": (
+        "The tall image has a broad upper horizontal stroke, a descending central "
+        "stroke, and a long curved stroke running down the right side.",
+        "高形图像上方有宽横笔，中部向下有主笔，右侧沿下方延伸一条长弯曲笔。",
+    ),
+    "obs-char-000116": (
+        "The image has a branching upper junction, a long central descending "
+        "stroke, and several short detached curved marks on both sides.",
+        "图像上方有分叉交接点，中部向下有长主笔，两侧另有数道分离的短弯曲痕迹。",
+    ),
+    "obs-char-000117": (
+        "The image combines a small triangular upper form with two inner upright "
+        "strokes and a broad open lower frame beneath a horizontal bar.",
+        "图像由小型三角上部、内部两道竖笔和横笔下方宽大的开放下框组成。",
+    ),
+    "obs-char-000118": (
+        "The image has a pointed triangular upper form, a horizontal cross stroke, "
+        "two short uprights, and a rounded closed lower bowl.",
+        "图像上部呈尖三角形，有横向交叉笔和两道短竖笔，下部为圆弧闭合框。",
+    ),
+    "obs-char-000119": (
+        "The tall dark image has a broad top bar, diagonal strokes converging at "
+        "the center, a long lower vertical, and crossing lower projections.",
+        "高而深色的图像上方有宽横笔，斜向笔画在中部汇合，下方有长竖笔和交叉伸出笔。",
+    ),
+    "obs-char-000120": (
+        "The small image has a pointed upper enclosure above a rectangular lower "
+        "form, with a narrow central descending stroke and a split lower mark.",
+        "小型图像上方有尖顶围合，下方为长方形形体，中部向下有窄笔，底部有分叉痕迹。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

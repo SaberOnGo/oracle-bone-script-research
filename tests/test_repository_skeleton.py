@@ -7493,6 +7493,22 @@ class RepositorySkeletonTests(unittest.TestCase):
             "four short curved projections",
             outputs["obs-char-000110"]["material_observation_text"],
         )
+        for project_id, expected_fragment in (
+            ("obs-char-000111", "short horizontal cross stroke"),
+            ("obs-char-000112", "curved diagonal connection"),
+            ("obs-char-000113", "enclosed inner arch"),
+            ("obs-char-000114", "diamond-like central enclosure"),
+            ("obs-char-000115", "broad upper horizontal stroke"),
+            ("obs-char-000116", "branching upper junction"),
+            ("obs-char-000117", "triangular upper form"),
+            ("obs-char-000118", "rounded closed lower bowl"),
+            ("obs-char-000119", "diagonal strokes converging"),
+            ("obs-char-000120", "pointed upper enclosure"),
+        ):
+            self.assertIn(
+                expected_fragment,
+                " ".join(outputs[project_id]["material_observation_text"].split()),
+            )
         self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",

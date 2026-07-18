@@ -1169,6 +1169,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "curved side strokes opening toward the left.",
         "狭长图像有长中央下行笔，左侧展开数道短弯曲侧笔。",
     ),
+    "obs-char-000231": (
+        "The narrow upright image has a curved outer stroke, a short crossing "
+        "stroke near the upper middle, and a hooked descending stroke on the right.",
+        "狭长直立图像有弯曲外笔，上部中段有短交叉笔，右侧有钩状下行笔。",
+    ),
+    "obs-char-000232": (
+        "The small image shows a single long curved stroke with a short horizontal "
+        "branch near the upper middle; the lower end is partly faint.",
+        "小幅图像可见一条长弯曲笔画，上部中段有短横向分支；下端部分较浅。",
+    ),
+    "obs-char-000233": (
+        "The thin upright image has a long central stroke, a pointed upper branch, "
+        "and two separated diagonal marks toward the lower left.",
+        "纤细直立图像有长中央笔，上方有尖状分支，下方偏左有两道分离斜痕。",
+    ),
+    "obs-char-000234": (
+        "Two tall tapered strokes rise side by side, with a small angled connection "
+        "near the top; the lower ends remain separate.",
+        "两道高而渐尖的笔画并列上行，顶部附近有小型折角连接，下端仍彼此分离。",
+    ),
+    "obs-char-000235": (
+        "The image has a block-like angular outer contour and an inner open angular "
+        "stroke; the right side is straighter than the left.",
+        "图像有块状折角外轮廓和内部开放折角笔画；右侧比左侧更直。",
+    ),
+    "obs-char-000236": (
+        "The large image has a thick bent outer frame, a smaller inner enclosure, "
+        "and several branching strokes inside the enclosure.",
+        "大幅图像有粗重折弯外框，内部另有较小围合，并含数道分叉笔画。",
+    ),
+    "obs-char-000237": (
+        "The compact image is divided by diagonal crossings and short angular marks, "
+        "with a small branching form visible near the lower left.",
+        "紧凑图像中可见斜向交叉和短折角痕迹，左下附近有小型分叉形体。",
+    ),
+    "obs-char-000238": (
+        "The low-contrast gray image shows a curved outer stroke around a thin "
+        "central vertical form with short diagonal branches.",
+        "低对比度灰度图像有环抱中央的弯曲外笔，中部细竖形带有短斜向分支。",
+    ),
+    "obs-char-000239": (
+        "The image has a rounded lower contour, an upright left-side stroke, several "
+        "short branching marks above, and a detached diagonal mark at lower right.",
+        "图像有圆弧下部轮廓，左侧有直立笔，上方有数道短分叉痕，右下另有分离斜痕。",
+    ),
+    "obs-char-000240": (
+        "A slanting upper stroke runs above two small angular enclosed marks; the "
+        "lower marks are separated and partly irregular.",
+        "一道斜向上部笔画位于两个小型折角围合痕迹之上；下部痕迹分离且部分不规则。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

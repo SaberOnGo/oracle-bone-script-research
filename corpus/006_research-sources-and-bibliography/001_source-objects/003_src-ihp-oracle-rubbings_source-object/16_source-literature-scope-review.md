@@ -22,6 +22,69 @@ topic, or bibliography dossier.
 - Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed
 
+## Institutional Rubbing Database / 机构拓片数据库
+- Institution and function / 机构与功能: The Fu Ssu Nien Library Digital Archives
+  Project describes this as a database of oracle-bone rubbings held by the
+  Institute of History and Philology, with cross-reference to archaeological
+  objects and images.
+- Work history / 建设与维护: The page records a 2004-2009 project led by Yuan Guohua
+  and says the rubbing database results were transferred to Fu Ssu Nien Library
+  for continuing maintenance from 2009.
+- Evidence level / 证据等级: Institutional collection database and image-provenance
+  route; a record still needs object, catalog, image, and rights review before
+  entering a public dossier.
+
+## Collection Scope And Human Use / 收藏范围与人工使用
+- Collection scope / 收藏范围: The official overview reports more than 40,000
+  rubbings, divided between rubbings from archaeological excavations and
+  rubbings obtained through later acquisitions.
+- Searchable records / 可检索记录: The page reports 21,556 digitized records
+  searchable through the database. This is an access count, not a count of
+  locally downloaded or rights-cleared images.
+- Bibliographic examples / 著录示例: The overview names Iron Cloud Collection of
+  Four Hundred Turtle Shells and several Xiaotun second-volume illustration
+  sections, among other rubbing publications. Each title needs edition and
+  plate-level checking.
+- Object link / 实物关联: Collection number is the cross-reference key between
+  rubbing records and archaeological artifacts or images. It is a route key, not
+  a universal character or inscription identity.
+
+## Human Rubbing Review Order / 人工拓片复核顺序
+- Open the rubbing / 先看拓片: Review the visible rubbing and its record before
+  reading any modern label, OCR, or model-derived category.
+- Cross-check object / 核对实物: Use the collection number to open the linked
+  artifact and image, then record collection, object type, physical support, and
+  any available catalog or excavation note separately.
+- Research fields / 研究字段: A human dossier should preserve rubbing path,
+  collection number, catalog or plate reference, image quality, visible damage,
+  text context, and missing provenance as separate evidence fields.
+
+## Rights, Access, And Disputes / 权利、访问与争议
+- Rights notice / 权利提示: The official page directs users to follow the site
+  copyright notice and rules for citation or reproduction. Local status remains
+  metadata_only_until_verified.
+- Access boundary / 访问边界: The local package contains only a lightweight overview
+  capture. Do not treat the 21,556 searchable records as local image files or as
+  permission to bulk download them.
+- Collection distinction / 收藏区分: Excavation-derived and later-acquired rubbings
+  have different provenance questions. Keep those categories visible rather than
+  combining them into one archaeological origin claim.
+
+## Concrete Bibliography Checks / 具体文献核查
+- Verify the official overview, collection number, record page, and
+  image route before citing a rubbing or object.
+- Record whether each rubbing is excavation-derived or later-acquired
+  and identify the corresponding provenance evidence.
+- Open the cited rubbing books and record edition, page, plate, and
+  catalog details before transferring a source relation.
+- Read the current copyright notice and access rules before copying
+  any image, crop, or derivative into a public asset.
+- 复核官方总览、收藏编号、记录页和图像路线后，才能引用
+  具体拓片或实物。
+- 分开记录考古发掘所得与后续征集所得拓片，并补出处证据。
+- 打开所列拓片著录，记录版本、页码、图版号和著录细节。
+- 复制图像、裁剪图或派生资产前，先阅读当前版权声明和访问规则。
+
 ## Literature And Database Review Slots / 文献与数据库复核槽位
 - Bibliography note / 书目说明: Open README.md and 10_source-evidence-dossier.md
   before citing this source in a later research note.

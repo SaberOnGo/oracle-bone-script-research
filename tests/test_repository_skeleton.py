@@ -9292,6 +9292,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             all(len(line) <= 80 for line in xiaoxuetang_obm_literature_text.splitlines())
         )
+        ihp_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "003_src-ihp-oracle-rubbings_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        ihp_literature_flat = " ".join(ihp_literature_text.split())
+        self.assertIn(
+            "Institutional Rubbing Database / 机构拓片数据库",
+            ihp_literature_text,
+        )
+        self.assertIn("more than 40,000 rubbings", ihp_literature_flat)
+        self.assertIn("21,556 digitized records", ihp_literature_flat)
+        self.assertIn("Object link / 实物关联", ihp_literature_text)
+        self.assertIn("metadata_only_until_verified", ihp_literature_flat)
+        self.assertIn("具体文献核查", ihp_literature_text)
+        self.assertNotIn("not_collected", ihp_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in ihp_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

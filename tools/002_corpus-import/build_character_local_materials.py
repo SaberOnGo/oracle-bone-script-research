@@ -1019,6 +1019,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "with a long descending stroke and a short branch on the right.",
         "图像上方有小盖状笔，左侧为长方形围合，右侧有长下行笔并带短分支。",
     ),
+    "obs-char-000201": (
+        "The image has a broad angular upper form, a long descending stroke on the "
+        "right, and a pointed lower-left projection.",
+        "图像上方有宽折角形，右侧有长下行笔，左下方有尖状伸出笔。",
+    ),
+    "obs-char-000202": (
+        "The image has a dense upper branching cluster, a rounded lower-left loop, "
+        "and a thin descending stroke on the right.",
+        "图像上方有密集分叉笔群，左下方有圆弧环状形，右侧有细下行笔。",
+    ),
+    "obs-char-000203": (
+        "The image has a deep rounded lower bowl, two short upright strokes inside, "
+        "and a narrow central opening at the top.",
+        "图像下部有深圆弧碗状框，内部有两道短竖笔，上方中央有窄开口。",
+    ),
+    "obs-char-000204": (
+        "The very narrow image has a thin vertical stroke with a short curved branch "
+        "projecting toward the lower right.",
+        "极狭长图像有细竖笔，并在下方右侧伸出短弯曲分支。",
+    ),
+    "obs-char-000205": (
+        "The narrow image has a long descending stroke with a branching diagonal "
+        "form opening toward the lower left.",
+        "狭长图像有长下行主笔，向左下方展开折斜分支形。",
+    ),
+    "obs-char-000206": (
+        "The image has a short separate stroke on the left, a branching central form, "
+        "and a long curved stroke descending toward the lower right.",
+        "图像左侧有分离短笔，中部有分叉形，右下方有长弯曲笔向下延伸。",
+    ),
+    "obs-char-000207": (
+        "The image has two short forked marks on the left and a pointed upper-right "
+        "form connected to a long curved descending stroke.",
+        "图像左侧有两道短分叉痕，右上方有尖状形，连接长弯曲下行笔。",
+    ),
+    "obs-char-000208": (
+        "The image has a long central vertical stroke, short branching marks on the "
+        "left, and several small cross strokes along the right.",
+        "图像中部有长竖主笔，左侧有短分支，右侧沿线分布数道小交叉笔。",
+    ),
+    "obs-char-000209": (
+        "The image combines a compact grid of crossing strokes on the left with a "
+        "separate long curved stroke on the right.",
+        "图像左侧为紧凑交叉笔组成的网格，右侧另有一条分离的长弯曲笔。",
+    ),
+    "obs-char-000210": (
+        "The image has a pointed upper V-shaped mark, a curved branching lower-left "
+        "form, and a separate long stroke on the right.",
+        "图像上方有尖顶 V 形痕迹，左下方有弯曲分支形，右侧另有分离长笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

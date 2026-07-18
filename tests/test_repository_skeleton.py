@@ -27502,6 +27502,32 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("Which source row, field map, or extraction note supports this route?", first["concrete_next_checks"])
         self.assertTrue(all("character candidate phase gap review checklist only" in row["caution"] for row in rows))
 
+    def test_character_human_dossier_exposes_source_ledger_and_visual_record(self) -> None:
+        char_path = (
+            repo_root()
+            / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/"
+            / "001_obs-char-000001_hust-obc-cat-0001_oracle-character/05_human-research-dossier.md"
+        )
+        char_text = char_path.read_text(encoding="utf-8")
+        self.assertIn("Source Record Ledger / 来源记录台账", char_text)
+        self.assertIn("HUST-OBC/deciphered/0001/", char_text)
+        self.assertIn("U+2E80", char_text)
+        self.assertIn("The narrow upright image shows", char_text)
+        self.assertIn("本图像呈狭长直立形", char_text)
+        self.assertIn("not an identity or decipherment conclusion", char_text)
+
+        unknown_path = (
+            repo_root()
+            / "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+            "obs-unk-bucket_oracle-character-candidates/"
+            "001_obs-unk-000001_hust-obc-und-L-000001_oracle-character-candidate/"
+            "05_human-research-dossier.md"
+        )
+        unknown_text = unknown_path.read_text(encoding="utf-8")
+        self.assertIn("HUST-OBC/undeciphered/L/1/", unknown_text)
+        self.assertIn("9411 undeciphered characters", unknown_text)
+        self.assertIn("Source Record Ledger / 来源记录台账", unknown_text)
+
     def test_shape_component_evolution_phase_gap_human_guide_exists(self) -> None:
         path = (
             repo_root()

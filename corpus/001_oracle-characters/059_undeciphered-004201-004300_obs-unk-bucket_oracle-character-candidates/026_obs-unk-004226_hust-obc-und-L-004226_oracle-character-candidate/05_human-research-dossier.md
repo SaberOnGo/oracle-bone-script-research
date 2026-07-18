@@ -68,6 +68,39 @@ accepted reading, or rights clearance.
   or component conclusion?
 - 哪条观察只是来源记录，而不是释读或构件结论？
 
+### Source Record Ledger / 来源记录台账
+
+The following values are copied from the current candidate packet, visual
+source index, or registered source routes. They are source facts for review,
+not an identity or decipherment conclusion.
+
+以下内容直接取自当前候选包、图像来源索引或已登记来源路线。它们是待复核的来源事实，不是字形身份或释读结论。
+- source package: `large-src-000001`
+- source group: `Oracle Bone Script: Six Digit Numerical Code`
+- source class: `HUST-OBC/undeciphered/L/4226/`
+- source category: `待查：需要核对来源记录`
+- validation class: `待查：需要核对来源记录`
+- source image route: `HUST-OBC/undeciphered/L/4226/L_？_9243.jpg`
+- source image count: `1`
+- metadata files: `待查：需要核对来源记录`
+- download records: `dl-hust-obc-figshare-raw`
+- identity boundary: `no_identity_claim`
+- source caution: `HUST-OBC zip-directory candidate only; not an accepted
+  oracle character, reading, component, evolution chain, or decipherment
+  conclusion. Article reports 9411 undeciphered characters, but the
+  inspected zip directory yielded 9408 candidate class directories;
+  discrepancy needs review.`
+
+### Source-Linked Visual Note / 有来源图像观察
+
+- visual note route: `需要先完成人工图像观察记录`
+- English observation: `需要打开本地复核图像并记录可见痕迹`
+- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+This observation is limited to visible marks in a source-linked image. It must
+not be converted into a component, reading, meaning, or inscription identity
+without separate evidence.
+本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
+
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
 - accepted reading: `待查：需要核对来源释读、释读史或争议记录`

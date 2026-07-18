@@ -273,16 +273,107 @@ def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def visual_note_summary(object_dir: Path) -> dict[str, str]:
+    """Read the optional object-local visual note without making claims."""
+    path = object_dir / "14_material-visual-observation.md"
+    if not path.exists():
+        return {}
+    values: dict[str, str] = {}
+    current: str | None = None
+    parts: list[str] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("- English observation: "):
+            current = "english"
+            parts = [line.removeprefix("- English observation: ").strip()]
+            continue
+        if line.startswith("- 中文观察: "):
+            if current and parts:
+                values[current] = " ".join(parts)
+            current = "chinese"
+            parts = [line.removeprefix("- 中文观察: ").strip()]
+            continue
+        if current and line.startswith("  "):
+            parts.append(line.strip())
+            continue
+        if current and parts:
+            values[current] = " ".join(parts)
+            current = None
+            parts = []
+    if current and parts:
+        values[current] = " ".join(parts)
+    if values:
+        values["route"] = path.name
+    return values
+
+
+def source_record_lines(
+    packet: dict[str, Any],
+    visual_rows: list[dict[str, str]],
+) -> list[str]:
+    """Render source facts that are already in the candidate packet or index."""
+    source_candidate = packet.get("source_candidate", {})
+    if not isinstance(source_candidate, dict):
+        source_candidate = {}
+    first_visual = visual_rows[0] if visual_rows else {}
+    downloads = packet.get("evidence_download_ids", [])
+    if not isinstance(downloads, list):
+        downloads = [str(downloads)] if downloads else []
+    if not downloads and packet.get("evidence_download_id"):
+        downloads = [str(packet["evidence_download_id"])]
+    source_image_routes = [
+        row.get("source_image_reference_path", "") for row in visual_rows
+    ]
+    source_image_routes = [route for route in source_image_routes if route]
+    if not source_image_routes:
+        source_image_routes = [
+            value
+            for value in [
+                packet.get("first_source_image_path", ""),
+                packet.get("last_source_image_path", ""),
+            ]
+            if value
+        ]
+    lines = [
+        "### Source Record Ledger / 来源记录台账",
+        "",
+        para(
+            "The following values are copied from the current candidate packet, "
+            "visual source index, or registered source routes. They are source "
+            "facts for review, not an identity or decipherment conclusion."
+        ),
+        "",
+        para(
+            "以下内容直接取自当前候选包、图像来源索引或已登记来源路线。"
+            "它们是待复核的来源事实，不是字形身份或释读结论。"
+        ),
+        bullet("source package", code_value(str(packet.get("source_package_id", "") or first_visual.get("source_package_id", "")))),
+        bullet("source group", code_value(str(packet.get("source_group_label", "") or packet.get("source_group", "")))),
+        bullet("source class", code_value(str(packet.get("source_class_path", "") or packet.get("source_class_id", "")))),
+        bullet("source category", code_value(str(source_candidate.get("source_category_id", "")))),
+        bullet("validation class", code_value(str(source_candidate.get("validation_class_id", "")))),
+        bullet("source image route", code_value("; ".join(source_image_routes))),
+        bullet("source image count", code_value(str(packet.get("source_image_count", "") or len(source_image_routes) or ""))),
+        bullet("metadata files", code_value("; ".join(str(value) for value in packet.get("source_metadata_files", [])))),
+        bullet("download records", code_value("; ".join(str(value) for value in downloads))),
+        bullet("identity boundary", code_value(str(packet.get("identity_claim_status", "") or packet.get("research_boundary", "")))),
+        bullet("source caution", code_value(str(packet.get("caution", "") or first_visual.get("caution", "")))),
+        "",
+    ]
+    return lines
+
+
 def dossier_text(
     project_id: str,
     packet_name: str,
     packet: dict[str, Any],
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
+    object_dir: Path,
 ) -> str:
     label = dataset_label(packet)
     visual = visual_summary(visual_rows)
     edge = edge_summary(edges)
+    visual_note = visual_note_summary(object_dir)
     lines: list[str] = [
         f"# {project_id} Human Research Dossier / 人类研究档案",
         "",
@@ -340,6 +431,31 @@ def dossier_text(
         "- Which observation is only a source record rather than a reading",
         "  or component conclusion?",
         "- 哪条观察只是来源记录，而不是释读或构件结论？",
+        "",
+        *source_record_lines(packet, visual_rows),
+        "### Source-Linked Visual Note / 有来源图像观察",
+        "",
+        bullet(
+            "visual note route",
+            code_value(visual_note.get("route", "需要先完成人工图像观察记录")),
+        ),
+        bullet(
+            "English observation",
+            code_value(visual_note.get("english", "需要打开本地复核图像并记录可见痕迹")),
+        ),
+        bullet(
+            "中文观察",
+            code_value(visual_note.get("chinese", "需要打开本地复核图像并记录可见痕迹")),
+        ),
+        para(
+            "This observation is limited to visible marks in a source-linked "
+            "image. It must not be converted into a component, reading, "
+            "meaning, or inscription identity without separate evidence."
+        ),
+        para(
+            "本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，"
+            "不得把它改写成构件、释读、意义或卜辞身份。"
+        ),
         "",
         "## 3. Reading, Meaning, And Dataset Label / 释读与来源标签",
         "",
@@ -601,7 +717,14 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
         packet = read_json(record["packet_path"])
         visual_rows = read_csv_rows(object_dir / "02_visual-source-index.csv")
         edges = edges_by_source.get(project_id, [])
-        dossier = dossier_text(project_id, packet_name, packet, visual_rows, edges)
+        dossier = dossier_text(
+            project_id,
+            packet_name,
+            packet,
+            visual_rows,
+            edges,
+            object_dir,
+        )
         review = review_sheet_text(project_id)
         assert_human_line_width(dossier, f"{project_id} dossier")
         assert_human_line_width(review, f"{project_id} review")

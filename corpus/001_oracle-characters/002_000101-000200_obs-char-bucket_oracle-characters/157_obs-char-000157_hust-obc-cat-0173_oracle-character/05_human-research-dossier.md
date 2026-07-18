@@ -67,6 +67,42 @@ accepted reading, or rights clearance.
   or component conclusion?
 - 哪条观察只是来源记录，而不是释读或构件结论？
 
+### Source Record Ledger / 来源记录台账
+
+The following values are copied from the current candidate packet, visual
+source index, or registered source routes. They are source facts for review,
+not an identity or decipherment conclusion.
+
+以下内容直接取自当前候选包、图像来源索引或已登记来源路线。它们是待复核的来源事实，不是字形身份或释读结论。
+- source package: `large-src-000001`
+- source group: `待查：需要核对来源记录`
+- source class: `待查：需要核对来源记录`
+- source category: `0173`
+- validation class: `156`
+- source image route: `HUST-OBC/deciphered/0173/G_0173_甲骨文.png`
+- source image count: `1`
+- metadata files: `Validation_label.json; ID_to_Chinese.json`
+- download records: `dl-hust-obc-validation-label;
+  dl-hust-obc-ocr-id-to-chinese`
+- identity boundary: `candidate_packet_not_accepted_character_record_not_schol
+  arship`
+- source caution: `Candidate packet only. This is not an accepted oracle
+  character record, not an accepted reading, not a source promotion, and not
+  a decipherment conclusion. The HUST-OBC label is dataset metadata for
+  lookup until cross-source review.`
+
+### Source-Linked Visual Note / 有来源图像观察
+
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The image has a rounded outer descending form, a
+  pointed branching mark inside the lower left, and a thin stroke continuing
+  downward.`
+- 中文观察: `图像有圆弧外轮廓向下延伸，左下内部有尖状分叉痕迹，并有细笔继续下行。`
+This observation is limited to visible marks in a source-linked image. It must
+not be converted into a component, reading, meaning, or inscription identity
+without separate evidence.
+本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
+
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
 - accepted reading: `待查：需要核对来源释读、释读史或争议记录`

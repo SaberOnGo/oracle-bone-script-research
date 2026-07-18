@@ -41,7 +41,7 @@ marked as candidate, source record, needs_review, or concrete pending checks.
   c-und-X-005708_oracle-character-candidate/03_visual-assets/001_asset-00000
   4_hust-X-005708_glyph.png`
 - source image reference: `HUST-OBC/undeciphered/X/1264/X_？_1176_1.png`
-- asset id: `asset-000004`
+- asset id: `待查：需要核对来源记录`
 - download id: `dl-hust-obc-figshare-raw`
 - source package: `large-src-000001`
 - rights status: `source_marked_risk_noted`
@@ -97,6 +97,88 @@ accepted reading, or rights clearance.
 - Which observation is only a source record rather than a reading
   or component conclusion?
 - 哪条观察只是来源记录，而不是释读或构件结论？
+
+### Source Record Ledger / 来源记录台账
+
+The following values are copied from the current candidate packet, visual
+source index, or registered source routes. They are source facts for review,
+not an identity or decipherment conclusion.
+
+以下内容直接取自当前候选包、图像来源索引或已登记来源路线。它们是待复核的来源事实，不是字形身份或释读结论。
+- source package: `large-src-000001`
+- source group: `New Compilation of Oracle Bone Scripts`
+- source class: `HUST-OBC/undeciphered/X/1264/`
+- source category: `待查：需要核对来源记录`
+- validation class: `待查：需要核对来源记录`
+- source image route: `HUST-OBC/undeciphered/X/1264/X_？_1176_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1176_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1176_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1176_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1177_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1177_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1177_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1177_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1178_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1178_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1178_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1178_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1179_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1179_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1179_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1179_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1180_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1180_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1180_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1180_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1181_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1181_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1181_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1181_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1182_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1182_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1182_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1182_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1183_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1183_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1183_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1183_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1184_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1184_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1184_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1184_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1185_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1185_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1185_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1185_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1186_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1186_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1186_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1186_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1187_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1187_2.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1187_3.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1187_4.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1188_1.png;
+  HUST-OBC/undeciphered/X/1264/X_？_1188_2.png`
+- source image count: `50`
+- metadata files: `待查：需要核对来源记录`
+- download records: `dl-hust-obc-figshare-raw`
+- identity boundary: `no_identity_claim`
+- source caution: `HUST-OBC zip-directory candidate only; not an accepted
+  oracle character, reading, component, evolution chain, or decipherment
+  conclusion. Article reports 9411 undeciphered characters, but the
+  inspected zip directory yielded 9408 candidate class directories;
+  discrepancy needs review.`
+
+### Source-Linked Visual Note / 有来源图像观察
+
+- visual note route: `需要先完成人工图像观察记录`
+- English observation: `需要打开本地复核图像并记录可见痕迹`
+- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+This observation is limited to visible marks in a source-linked image. It must
+not be converted into a component, reading, meaning, or inscription identity
+without separate evidence.
+本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
 
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 

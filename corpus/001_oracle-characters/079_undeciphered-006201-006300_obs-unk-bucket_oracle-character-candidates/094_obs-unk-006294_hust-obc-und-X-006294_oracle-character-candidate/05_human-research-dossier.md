@@ -41,7 +41,7 @@ marked as candidate, source record, needs_review, or concrete pending checks.
   c-und-X-006294_oracle-character-candidate/03_visual-assets/001_asset-00000
   5_hust-X-006294_glyph.png`
 - source image reference: `HUST-OBC/undeciphered/X/1850/X_？_502_1.png`
-- asset id: `asset-000005`
+- asset id: `待查：需要核对来源记录`
 - download id: `dl-hust-obc-figshare-raw`
 - source package: `large-src-000001`
 - rights status: `source_marked_risk_noted`
@@ -97,6 +97,99 @@ accepted reading, or rights clearance.
 - Which observation is only a source record rather than a reading
   or component conclusion?
 - 哪条观察只是来源记录，而不是释读或构件结论？
+
+### Source Record Ledger / 来源记录台账
+
+The following values are copied from the current candidate packet, visual
+source index, or registered source routes. They are source facts for review,
+not an identity or decipherment conclusion.
+
+以下内容直接取自当前候选包、图像来源索引或已登记来源路线。它们是待复核的来源事实，不是字形身份或释读结论。
+- source package: `large-src-000001`
+- source group: `New Compilation of Oracle Bone Scripts`
+- source class: `HUST-OBC/undeciphered/X/1850/`
+- source category: `待查：需要核对来源记录`
+- validation class: `待查：需要核对来源记录`
+- source image route: `HUST-OBC/undeciphered/X/1850/X_？_502_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_502_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_502_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_502_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_503_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_503_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_503_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_503_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_504_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_504_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_504_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_504_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_505_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_505_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_505_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_505_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_506_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_506_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_506_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_506_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_507_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_507_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_507_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_507_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_508_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_508_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_508_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_508_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_509_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_509_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_509_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_509_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_510_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_510_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_510_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_510_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_511_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_511_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_511_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_511_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_512_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_512_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_512_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_512_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_513_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_513_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_513_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_513_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_514_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_514_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_514_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_514_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_515_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_515_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_515_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_515_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_516_1.png;
+  HUST-OBC/undeciphered/X/1850/X_？_516_2.png;
+  HUST-OBC/undeciphered/X/1850/X_？_516_3.png;
+  HUST-OBC/undeciphered/X/1850/X_？_516_4.png;
+  HUST-OBC/undeciphered/X/1850/X_？_517_1.png`
+- source image count: `61`
+- metadata files: `待查：需要核对来源记录`
+- download records: `dl-hust-obc-figshare-raw`
+- identity boundary: `no_identity_claim`
+- source caution: `HUST-OBC zip-directory candidate only; not an accepted
+  oracle character, reading, component, evolution chain, or decipherment
+  conclusion. Article reports 9411 undeciphered characters, but the
+  inspected zip directory yielded 9408 candidate class directories;
+  discrepancy needs review.`
+
+### Source-Linked Visual Note / 有来源图像观察
+
+- visual note route: `需要先完成人工图像观察记录`
+- English observation: `需要打开本地复核图像并记录可见痕迹`
+- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+This observation is limited to visible marks in a source-linked image. It must
+not be converted into a component, reading, meaning, or inscription identity
+without separate evidence.
+本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
 
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 

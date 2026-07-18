@@ -58,6 +58,8 @@ Structured support files only serve the human inscription and plate dossier.
   Human-readable formal-research readiness and blocker review.
 - `19_preformal-research-start-check.md`
   Human-readable opening checklist before any formal inscription research.
+- `21_character-inscription-linkage-review.md`
+  Human-readable review of evidence needed before linking a character.
 - `04_human-review-sheet.md`
   Human review sheet for catalog and image/context checks.
 
@@ -85,6 +87,8 @@ Structured support files only serve the human inscription and plate dossier.
   Structured support index for formal-research readiness review.
 - `20_preformal-research-start-index.json`
   Structured support index for the opening checklist.
+- `22_character-inscription-linkage-index.json`
+  Structured support index for the character-linkage review.
 
 ## Candidate Metadata / 候选 metadata
 

@@ -3527,6 +3527,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         "18_human-research-readiness-index.json",
         "19_preformal-research-start-check.md",
         "20_preformal-research-start-index.json",
+        "21_character-inscription-linkage-review.md",
+        "22_character-inscription-linkage-index.json",
     ]
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -3563,6 +3565,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 "17_human-research-readiness-review.md",
                 "19_preformal-research-start-check.md",
                 "20_preformal-research-start-index.json",
+                "21_character-inscription-linkage-review.md",
+                "22_character-inscription-linkage-index.json",
                 "待查: plate, image, OCR, text, and object routes",
             ]:
                 if snippet not in text:
@@ -3658,6 +3662,8 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
         readiness_index_path = object_dir / "18_human-research-readiness-index.json"
         preformal_start_check_path = object_dir / "19_preformal-research-start-check.md"
         preformal_start_index_path = object_dir / "20_preformal-research-start-index.json"
+        linkage_review_path = object_dir / "21_character-inscription-linkage-review.md"
+        linkage_index_path = object_dir / "22_character-inscription-linkage-index.json"
         if path_exists(route_gallery_path):
             gallery = route_gallery_path.read_text(encoding="utf-8")
             if "\ufffd" in gallery:
@@ -3751,6 +3757,44 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing preformal start check link")
             if "20_preformal-research-start-index.json" not in dossier_index.get("ai_readable_files", []):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing preformal start index link")
+            if "21_character-inscription-linkage-review.md" not in dossier_index.get("human_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing character-inscription linkage review link")
+            if "22_character-inscription-linkage-index.json" not in dossier_index.get("ai_readable_files", []):
+                issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing character-inscription linkage index link")
+        if path_exists(linkage_review_path):
+            linkage_review = linkage_review_path.read_text(encoding="utf-8")
+            if "Character-Inscription Linkage Review" not in linkage_review:
+                issues.append(f"{linkage_review_path.relative_to(root).as_posix()} missing linkage review heading")
+            for snippet in [
+                "Promoted character-inscription edge: `none`",
+                "Global audit:",
+                "Evidence To Collect",
+                "exact position of each proposed character occurrence",
+                "not a formal",
+                "decipherment conclusion",
+            ]:
+                if snippet not in linkage_review:
+                    issues.append(f"{linkage_review_path.relative_to(root).as_posix()} missing marker: {snippet}")
+            if "not_collected" in linkage_review:
+                issues.append(f"{linkage_review_path.relative_to(root).as_posix()} contains not_collected placeholder")
+            for line_number, line in enumerate(linkage_review.splitlines(), start=1):
+                if len(line) > 80:
+                    issues.append(
+                        f"{linkage_review_path.relative_to(root).as_posix()}:{line_number} "
+                        "line exceeds 80 characters"
+                    )
+        if path_exists(linkage_index_path):
+            linkage_index = json.loads(linkage_index_path.read_text(encoding="utf-8"))
+            if linkage_index.get("project_id") != project_id:
+                issues.append(f"{linkage_index_path.relative_to(root).as_posix()} project_id mismatch")
+            if linkage_index.get("record_type") != "character_inscription_linkage_review_index":
+                issues.append(f"{linkage_index_path.relative_to(root).as_posix()} record_type changed")
+            if linkage_index.get("linkage_status") != "no_character_inscription_edge_promoted":
+                issues.append(f"{linkage_index_path.relative_to(root).as_posix()} linkage status changed")
+            if "21_character-inscription-linkage-review.md" not in linkage_index.get("human_readable_files", []):
+                issues.append(f"{linkage_index_path.relative_to(root).as_posix()} missing human linkage review link")
+            if "no character-inscription identity claim" not in linkage_index.get("claim_boundary", []):
+                issues.append(f"{linkage_index_path.relative_to(root).as_posix()} missing identity boundary")
         if path_exists(plate_evidence_path):
             plate_evidence = plate_evidence_path.read_text(encoding="utf-8")
             if "\ufffd" in plate_evidence:
@@ -4214,6 +4258,38 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
                         f"{review_sheet_path.relative_to(root).as_posix()}:{line_number} "
                         "line exceeds 80 characters"
                     )
+    global_audit_path = root / "corpus/009_statistics-and-derived-features/223_character-inscription-linkage-audit.md"
+    global_index_path = root / "corpus/009_statistics-and-derived-features/224_character-inscription-linkage-audit-index.json"
+    if not path_exists(global_audit_path):
+        issues.append(f"{global_audit_path.relative_to(root).as_posix()} missing")
+    else:
+        global_text = global_audit_path.read_text(encoding="utf-8")
+        for snippet in [
+            "Character-Inscription Linkage Audit",
+            "Character-inscription edges promoted: 0",
+            "Zero character-inscription graph edges are promoted",
+            "Evidence Required Before A Relation Edge",
+            "not a formal `obi-*` ID",
+            "does not propose a reading",
+        ]:
+            if snippet not in global_text:
+                issues.append(f"{global_audit_path.relative_to(root).as_posix()} missing marker: {snippet}")
+        for line_number, line in enumerate(global_text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{global_audit_path.relative_to(root).as_posix()}:{line_number} "
+                    "line exceeds 80 characters"
+                )
+    if not path_exists(global_index_path):
+        issues.append(f"{global_index_path.relative_to(root).as_posix()} missing")
+    else:
+        global_index = json.loads(global_index_path.read_text(encoding="utf-8"))
+        if global_index.get("record_type") != "character_inscription_linkage_audit_index":
+            issues.append(f"{global_index_path.relative_to(root).as_posix()} record_type changed")
+        if global_index.get("character_inscription_edge_count") != 0:
+            issues.append(f"{global_index_path.relative_to(root).as_posix()} edge count changed")
+        if global_index.get("packets_with_explicit_character_link_fields") != 0:
+            issues.append(f"{global_index_path.relative_to(root).as_posix()} explicit link count changed")
     return issues
 
 
@@ -10353,9 +10429,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 13196,
         "formal_record_count": 101679,
         "graph_edge_count": 220887,
-        "manual_review_backlog_count": 13218,
-        "review_queue_count": 12962,
-        "staging_record_count": 75247,
+        "manual_review_backlog_count": 13193,
+        "review_queue_count": 12937,
+        "staging_record_count": 75250,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -10396,7 +10472,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "210",
+            "staging_record_count": "213",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -10409,7 +10485,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "published_research_notes": {
             "formal_record_count": "6",
             "staging_record_count": "6",
-            "review_queue_count": "151",
+            "review_queue_count": "126",
         },
     }
     by_area = {row.get("corpus_area", ""): row for row in matrix_rows}

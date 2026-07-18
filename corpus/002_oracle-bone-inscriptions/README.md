@@ -92,6 +92,8 @@ Open the human files first:
 - `09_inscription-plate-evidence-dossier.md`: human evidence dossier.
 - `11_inscription-review-fact-matrix.md`: human fact matrix.
 - `04_human-review-sheet.md`: human checklist.
+- `21_character-inscription-linkage-review.md`: human review of evidence
+  required before linking a character occurrence.
 
 Structured support files serve the human dossier and review trail:
 
@@ -102,6 +104,8 @@ Structured support files serve the human dossier and review trail:
 - `08_inscription-dossier-index.json`: support index for the dossier.
 - `10_inscription-plate-evidence-index.json`: support evidence index.
 - `12_inscription-review-fact-matrix-index.json`: support fact index.
+- `22_character-inscription-linkage-index.json`: support index for the
+  character-linkage review.
 
 ## Concrete Questions To Check / 具体待查问题
 

@@ -59,6 +59,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   summarizes human-first dossier depth review status.
 - `222_object-local-human-research-depth-human-guide.md`
   is the human-readable companion for opening each area dossier first.
+- `223_character-inscription-linkage-audit.md`
+  records the current evidence gap before any character-inscription edge.
+- `224_character-inscription-linkage-audit-index.json`
+  is the machine-readable count supporting the human linkage audit.
 - `190_project-id-source-map-audit.csv`
   audits project-local ID to source-reference maps.
 - `191_project-id-source-map-summary.json`
@@ -73,6 +77,15 @@ substitutes for object-local dossiers, source records, or review sheets.
   gives a human-readable guide for character candidate phase gaps.
 - `219_shape-component-evolution-phase-gap-human-guide.md`
   gives a human-readable guide for shape, component, and evolution gaps.
+
+### Character-Inscription Linkage Review / 字形—卜辞关联复核
+
+- Open `223_character-inscription-linkage-audit.md` before using any
+  character-inscription graph route.
+- Follow its cited object-local `21_character-inscription-linkage-review.md`
+  files to collect plate, text, position, and character-ID evidence.
+- A zero promoted-edge count is an audited evidence gap, not a claim that
+  inscriptions contain no characters.
 
 ## File Families / 文件族
 

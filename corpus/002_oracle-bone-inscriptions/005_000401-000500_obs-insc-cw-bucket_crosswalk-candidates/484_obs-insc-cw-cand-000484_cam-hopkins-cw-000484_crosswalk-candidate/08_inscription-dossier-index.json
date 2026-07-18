@@ -9,7 +9,8 @@
     "14_text-ocr-quality-index.json",
     "16_inscription-context-index.json",
     "18_human-research-readiness-index.json",
-    "20_preformal-research-start-index.json"
+    "20_preformal-research-start-index.json",
+    "22_character-inscription-linkage-index.json"
   ],
   "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000484",
   "catalog_identity_claim_status": "not_confirmed_catalog_identity",
@@ -26,7 +27,8 @@
     "13_text-ocr-quality-review.md",
     "15_inscription-context-review.md",
     "17_human-research-readiness-review.md",
-    "19_preformal-research-start-check.md"
+    "19_preformal-research-start-check.md",
+    "21_character-inscription-linkage-review.md"
   ],
   "human_review_status": "needs_human_inscription_crosswalk_review",
   "image_evidence_status": "needs_plate_image_or_rubbing_review_route",

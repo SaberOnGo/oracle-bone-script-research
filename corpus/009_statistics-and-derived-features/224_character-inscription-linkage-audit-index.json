@@ -1,0 +1,21 @@
+{
+  "cambridge_hopkins_graph_edge_count": 4403,
+  "character_inscription_edge_count": 0,
+  "character_inscription_edge_types": {},
+  "claim_boundary": [
+    "no character-inscription identity claim",
+    "no formal inscription assignment",
+    "no transcription or inscription reading",
+    "no decipherment conclusion"
+  ],
+  "explicit_link_field_counts": {},
+  "graph_edge_count_all_jsonl": 127846,
+  "graph_root": "corpus/008_relationship-graph",
+  "human_readable_file": "corpus/009_statistics-and-derived-features/223_character-inscription-linkage-audit.md",
+  "packet_count": 612,
+  "packet_root": "corpus/002_oracle-bone-inscriptions",
+  "packets_with_explicit_character_link_fields": 0,
+  "record_type": "character_inscription_linkage_audit_index",
+  "review_status": "candidate_only_no_character_inscription_edge_promoted",
+  "updated_at": "2026-07-19"
+}

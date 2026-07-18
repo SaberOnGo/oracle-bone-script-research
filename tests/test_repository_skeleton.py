@@ -235,6 +235,15 @@ def load_cambridge_hopkins_inscription_crosswalk_materials_module():
     return module
 
 
+def load_character_inscription_linkage_audit_module():
+    path = repo_root() / "tools/004_statistics-generation/build_character_inscription_linkage_audit.py"
+    spec = importlib.util.spec_from_file_location("build_character_inscription_linkage_audit", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_cambridge_hopkins_topic_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_cambridge_hopkins_topic_materials.py"
     spec = importlib.util.spec_from_file_location("build_cambridge_hopkins_topic_materials", path)
@@ -5917,6 +5926,30 @@ class RepositorySkeletonTests(unittest.TestCase):
             "no decipherment conclusion",
             first["preformal_research_start_index"]["claim_boundary"],
         )
+        self.assertIn("character_inscription_linkage_review_text", first)
+        self.assertIn("character_inscription_linkage_index", first)
+        self.assertIn(
+            "Character-Inscription Linkage Review",
+            first["character_inscription_linkage_review_text"],
+        )
+        self.assertIn(
+            "Promoted character-inscription edge: `none`",
+            first["character_inscription_linkage_review_text"],
+        )
+        self.assertIn(
+            "exact position of each proposed character occurrence",
+            first["character_inscription_linkage_review_text"],
+        )
+        self.assertEqual(
+            first["character_inscription_linkage_index"]["linkage_status"],
+            "no_character_inscription_edge_promoted",
+        )
+        self.assertIn(
+            "21_character-inscription-linkage-review.md",
+            first["character_inscription_linkage_index"]["human_readable_files"],
+        )
+        for line in first["character_inscription_linkage_review_text"].splitlines():
+            self.assertLessEqual(len(line), 80, line)
         self.assertIn(
             "09_inscription-plate-evidence-dossier.md",
             first["plate_evidence_index"]["human_readable_files"],
@@ -5938,6 +5971,21 @@ class RepositorySkeletonTests(unittest.TestCase):
                 unresolved[output_key],
                 output_key,
             )
+
+    def test_character_inscription_linkage_audit_is_explicitly_candidate_only(self) -> None:
+        module = load_character_inscription_linkage_audit_module()
+        text, index = module.build_audit(repo_root())
+        self.assertIn("Character-Inscription Linkage Audit", text)
+        self.assertIn("Character-inscription edges promoted: 0", text)
+        self.assertEqual(index["packet_count"], 612)
+        self.assertEqual(index["packets_with_explicit_character_link_fields"], 0)
+        self.assertEqual(index["character_inscription_edge_count"], 0)
+        self.assertEqual(
+            index["review_status"],
+            "candidate_only_no_character_inscription_edge_promoted",
+        )
+        for line in text.splitlines():
+            self.assertLessEqual(len(line), 80, line)
 
     def test_evolution_candidate_local_materials_are_colocated(self) -> None:
         self.assertEqual(check_evolution_candidate_local_materials(repo_root()), [])
@@ -26371,10 +26419,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 3, "targeted_review": 7})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13218)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13193)
         self.assertEqual(data["totals"]["candidate_record_count"], 13196)
         self.assertEqual(data["totals"]["formal_record_count"], 101679)
-        self.assertEqual(data["totals"]["staging_record_count"], 75247)
+        self.assertEqual(data["totals"]["staging_record_count"], 75250)
         self.assertEqual(data["totals"]["graph_edge_count"], 220887)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -26395,7 +26443,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "212")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "213")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1060")
         self.assertEqual(

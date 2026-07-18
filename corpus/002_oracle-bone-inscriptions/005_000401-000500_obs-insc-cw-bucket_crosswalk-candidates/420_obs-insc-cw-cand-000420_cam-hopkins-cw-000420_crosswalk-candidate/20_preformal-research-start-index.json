@@ -5,7 +5,8 @@
     "05_plate-text-route-index.csv",
     "16_inscription-context-index.json",
     "18_human-research-readiness-index.json",
-    "20_preformal-research-start-index.json"
+    "20_preformal-research-start-index.json",
+    "22_character-inscription-linkage-index.json"
   ],
   "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000420",
   "catalog_reference_count": 4,
@@ -24,7 +25,8 @@
     "13_text-ocr-quality-review.md",
     "15_inscription-context-review.md",
     "17_human-research-readiness-review.md",
-    "19_preformal-research-start-check.md"
+    "19_preformal-research-start-check.md",
+    "21_character-inscription-linkage-review.md"
   ],
   "missing_evidence_questions": [
     "which plate OCR full text catalog reference and source row must be opened first",

@@ -1,0 +1,35 @@
+{
+  "ai_support_files": [
+    "01_candidate-inscription-crosswalk-packet.json",
+    "13_text-ocr-quality-index.json",
+    "16_inscription-context-index.json",
+    "22_character-inscription-linkage-index.json"
+  ],
+  "candidate_inscription_crosswalk_id": "cam-hopkins-crosswalk-000203",
+  "claim_boundary": [
+    "no character-inscription identity claim",
+    "no formal inscription assignment",
+    "no transcription or inscription reading",
+    "no decipherment conclusion"
+  ],
+  "global_audit_index": "corpus/009_statistics-and-derived-features/224_character-inscription-linkage-audit-index.json",
+  "global_human_audit": "corpus/009_statistics-and-derived-features/223_character-inscription-linkage-audit.md",
+  "human_readable_files": [
+    "07_human-inscription-dossier.md",
+    "15_inscription-context-review.md",
+    "21_character-inscription-linkage-review.md"
+  ],
+  "linkage_status": "no_character_inscription_edge_promoted",
+  "project_id": "obs-insc-cw-cand-000203",
+  "record_type": "character_inscription_linkage_review_index",
+  "required_evidence": [
+    "plate_or_image_route",
+    "full_inscription_or_ocr",
+    "exact_character_position",
+    "explicit_character_project_id",
+    "source_rights_checksum_manifest",
+    "human_reviewer_and_disagreement_note"
+  ],
+  "review_status": "needs_plate_text_position_and_character_id_review",
+  "updated_at": "2026-06-21"
+}

@@ -66,6 +66,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `217_published-research-note-phase-gap-human-guide.md`,
   `218_character-candidate-phase-gap-human-guide.md`,
   `219_shape-component-evolution-phase-gap-human-guide.md`.
+- Character-inscription linkage audit:
+  `223_character-inscription-linkage-audit.md` and its supporting index.
 
 ## Current Review Surfaces / 当前复核入口
 
@@ -98,6 +100,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   the `212_*outcome-route-summary.json` route summary.
 - Human-readable phase-gap guide:
   `213_core-corpus-phase-gap-human-review-guide.md`.
+- Character-inscription linkage:
+  run `build_character_inscription_linkage_audit.py`, then open the human
+  audit before changing any relation edge.
 
 ## Concrete Questions To Check / 具体待查问题
 

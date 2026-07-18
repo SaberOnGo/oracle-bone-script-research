@@ -53,6 +53,14 @@ DOWNLOAD_ID = "dl-cambridge-hopkins-finding-list"
 UPDATED_AT = "2026-06-21"
 BUCKET_SIZE = 100
 MAX_HUMAN_LINE_LENGTH = 80
+CHARACTER_LINKAGE_AUDIT = Path(
+    "corpus/009_statistics-and-derived-features/"
+    "223_character-inscription-linkage-audit.md"
+)
+CHARACTER_LINKAGE_INDEX = Path(
+    "corpus/009_statistics-and-derived-features/"
+    "224_character-inscription-linkage-audit-index.json"
+)
 
 CAUTION = (
     "This object is a Cambridge/Hopkins inscription crosswalk candidate only. "
@@ -676,6 +684,8 @@ Structured support files only serve the human inscription and plate dossier.
   Human-readable formal-research readiness and blocker review.
 - `19_preformal-research-start-check.md`
   Human-readable opening checklist before any formal inscription research.
+- `21_character-inscription-linkage-review.md`
+  Human-readable review of evidence needed before linking a character.
 - `04_human-review-sheet.md`
   Human review sheet for catalog and image/context checks.
 
@@ -703,6 +713,8 @@ Structured support files only serve the human inscription and plate dossier.
   Structured support index for formal-research readiness review.
 - `20_preformal-research-start-index.json`
   Structured support index for the opening checklist.
+- `22_character-inscription-linkage-index.json`
+  Structured support index for the character-linkage review.
 
 ## Candidate Metadata / 候选 metadata
 
@@ -2188,6 +2200,7 @@ def preformal_research_start_index(
             "15_inscription-context-review.md",
             "17_human-research-readiness-review.md",
             "19_preformal-research-start-check.md",
+            "21_character-inscription-linkage-review.md",
         ],
         "ai_support_files": [
             "02_crosswalk-source-index.csv",
@@ -2196,6 +2209,7 @@ def preformal_research_start_index(
             "16_inscription-context-index.json",
             "18_human-research-readiness-index.json",
             "20_preformal-research-start-index.json",
+            "22_character-inscription-linkage-index.json",
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
@@ -2221,6 +2235,155 @@ def preformal_research_start_index(
             "no corpus import approval",
             "no decipherment conclusion",
         ],
+        "updated_at": UPDATED_AT,
+    }
+
+
+def character_inscription_linkage_review_text(
+    row: dict[str, str],
+    project_id: str,
+) -> str:
+    link_fields = [
+        field
+        for field in (
+            "linked_glyphs",
+            "linked_characters",
+            "character_routes",
+            "linked_glyph_candidates",
+        )
+        if row.get(field)
+    ]
+    if link_fields:
+        current_result = (
+            "The staging row exposes these candidate linkage fields: "
+            + ", ".join(link_fields)
+            + ". They are routes for human checking, not accepted relations."
+        )
+        current_result_zh = (
+            "当前 staging 行含有候选关联字段："
+            + "、".join(link_fields)
+            + "。这些只是人工复核路线，不是已经确认的关系。"
+        )
+    else:
+        current_result = (
+            "The current staging row has no explicit character project ID, "
+            "character position, or linked-glyph field. Catalog and period/group "
+            "clues cannot create a character-inscription relation by themselves."
+        )
+        current_result_zh = (
+            "当前 staging 行没有明确的字形项目 ID、字形位置或关联字形字段。"
+            "著录线索以及时期、组类线索本身不能建立字形—卜辞关系。"
+        )
+    text = f"""# Character-Inscription Linkage Review / 字形—卜辞关联复核
+
+Project ID: `{project_id}`
+
+Candidate crosswalk ID: `{row['candidate_inscription_crosswalk_id']}`
+
+## Current Evidence State / 当前证据状态
+
+{paragraph(current_result)}
+
+{paragraph(current_result_zh)}
+
+- Promoted character-inscription edge: `none`
+- 提升为正式关系边：`无`
+- Global audit:
+  `corpus/009_statistics-and-derived-features/`
+  `223_character-inscription-linkage-audit.md`
+- Global audit index:
+  `corpus/009_statistics-and-derived-features/`
+  `224_character-inscription-linkage-audit-index.json`
+- Review status: `needs_plate_text_position_and_character_id_review`
+
+The zero-edge result is an audited evidence gap. It does not mean that the
+inscription contains no characters. It means that this candidate does not yet
+provide enough source evidence to connect an occurrence to a character dossier.
+
+零关系边是已经审计的证据缺口，不表示卜辞中没有字形；它只表示当前候选
+还没有足够的来源证据，把某个字形出现位置连接到具体单字档案。
+
+## Evidence To Collect / 待补证据
+
+- Open the cited plate, rubbing, photograph, or collection image.
+- Record the exact source route, page or plate number, rights status, and
+  checksum.
+- Capture the full inscription or OCR and mark unreadable or uncertain signs.
+- Record the exact position of each proposed character occurrence.
+- Use an existing character project ID only when the source evidence names it.
+- Record the reviewer, source citation, disagreement, and review status.
+
+- 打开所引图版、拓片、照片或馆藏图像。
+- 记录来源路径、页码或图版号、权利状态和 checksum。
+- 保存卜辞全文或 OCR，并标记不可辨、缺失和不确定字位。
+- 记录每个候选字形出现的准确位置。
+- 只有来源明确指向时，才能使用现有单字项目 ID。
+- 记录复核者、来源引用、不同意见和复核状态。
+
+## Human Opening Order / 人类复核顺序
+
+1. Open `07_human-inscription-dossier.md` for the catalog and source route.
+2. Open `06_plate-text-gallery.md` for image, plate, and text routes.
+3. Open `13_text-ocr-quality-review.md` before using OCR or transcription.
+4. Follow `15_inscription-context-review.md` for archaeology and occurrence.
+5. Open the global human audit before changing any graph edge.
+
+先看本对象的人类卜辞档案、图版文本路线和 OCR 质量复核，再查看考古与
+字形出处上下文。没有图版位置、文本证据和来源记录时，不得建边。
+
+## Boundary / 边界
+
+This file is a human review record for preprocessing. It is not a formal
+inscription record, object identity claim, transcription, inscription reading,
+component assignment, variant judgment, or decipherment conclusion.
+
+本文件是预处理阶段的人类复核档案，不是正式卜辞记录、器物身份结论、
+释文、释读、构件判断、异体判断或破译结论。
+"""
+    assert_human_line_width(
+        f"{project_id}/21_character-inscription-linkage-review.md",
+        text,
+    )
+    return text
+
+
+def character_inscription_linkage_index(
+    row: dict[str, str],
+    project_id: str,
+) -> dict[str, object]:
+    return {
+        "project_id": project_id,
+        "record_type": "character_inscription_linkage_review_index",
+        "candidate_inscription_crosswalk_id": row["candidate_inscription_crosswalk_id"],
+        "human_readable_files": [
+            "07_human-inscription-dossier.md",
+            "15_inscription-context-review.md",
+            "21_character-inscription-linkage-review.md",
+        ],
+        "ai_support_files": [
+            "01_candidate-inscription-crosswalk-packet.json",
+            "13_text-ocr-quality-index.json",
+            "16_inscription-context-index.json",
+            "22_character-inscription-linkage-index.json",
+        ],
+        "global_human_audit": CHARACTER_LINKAGE_AUDIT.as_posix(),
+        "global_audit_index": CHARACTER_LINKAGE_INDEX.as_posix(),
+        "linkage_status": "no_character_inscription_edge_promoted",
+        "required_evidence": [
+            "plate_or_image_route",
+            "full_inscription_or_ocr",
+            "exact_character_position",
+            "explicit_character_project_id",
+            "source_rights_checksum_manifest",
+            "human_reviewer_and_disagreement_note",
+        ],
+        "claim_boundary": [
+            "no character-inscription identity claim",
+            "no formal inscription assignment",
+            "no transcription or inscription reading",
+            "no decipherment conclusion",
+        ],
+        "review_status": "needs_plate_text_position_and_character_id_review",
         "updated_at": UPDATED_AT,
     }
 
@@ -2251,6 +2414,7 @@ def dossier_index(
             "15_inscription-context-review.md",
             "17_human-research-readiness-review.md",
             "19_preformal-research-start-check.md",
+            "21_character-inscription-linkage-review.md",
         ],
         "ai_readable_files": [
             "01_candidate-inscription-crosswalk-packet.json",
@@ -2263,6 +2427,7 @@ def dossier_index(
             "16_inscription-context-index.json",
             "18_human-research-readiness-index.json",
             "20_preformal-research-start-index.json",
+            "22_character-inscription-linkage-index.json",
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
@@ -2420,6 +2585,14 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 catalog_rows,
                 plate_routes,
             ),
+            "character_inscription_linkage_review_text": character_inscription_linkage_review_text(
+                row,
+                project_id,
+            ),
+            "character_inscription_linkage_index": character_inscription_linkage_index(
+                row,
+                project_id,
+            ),
             "map_row": {
                 "project_id": project_id,
                 "record_type": "inscription_crosswalk_candidate",
@@ -2497,6 +2670,12 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
                 "preformal_research_start_index_path": (
                     relative_object_dir / "20_preformal-research-start-index.json"
                 ).as_posix(),
+                "character_inscription_linkage_review_path": (
+                    relative_object_dir / "21_character-inscription-linkage-review.md"
+                ).as_posix(),
+                "character_inscription_linkage_index_path": (
+                    relative_object_dir / "22_character-inscription-linkage-index.json"
+                ).as_posix(),
                 "review_status": "needs_human_inscription_crosswalk_review",
                 "updated_at": UPDATED_AT,
             }
@@ -2525,6 +2704,8 @@ def write_bucket_manifests(root: Path, outputs: dict[str, dict[str, object]]) ->
         "human_research_readiness_index_path",
         "preformal_research_start_check_path",
         "preformal_research_start_index_path",
+        "character_inscription_linkage_review_path",
+        "character_inscription_linkage_index_path",
         "review_status",
         "updated_at",
     ]
@@ -2651,6 +2832,22 @@ def write_outputs(root: Path, outputs: dict[str, dict[str, object]]) -> None:
         (object_dir / "20_preformal-research-start-index.json").write_text(
             json.dumps(
                 output["preformal_research_start_index"],
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "21_character-inscription-linkage-review.md").write_text(
+            str(output["character_inscription_linkage_review_text"]),
+            encoding="utf-8",
+            newline="\n",
+        )
+        (object_dir / "22_character-inscription-linkage-index.json").write_text(
+            json.dumps(
+                output["character_inscription_linkage_index"],
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

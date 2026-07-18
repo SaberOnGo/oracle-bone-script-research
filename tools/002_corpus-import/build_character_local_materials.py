@@ -1219,6 +1219,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "lower marks are separated and partly irregular.",
         "一道斜向上部笔画位于两个小型折角围合痕迹之上；下部痕迹分离且部分不规则。",
     ),
+    "obs-char-000241": (
+        "The narrow image has a long upright stroke, a short horizontal branch near "
+        "the middle, and a longer stroke extending toward the lower right.",
+        "狭长图像有长直立笔，中部附近有短横向分支，并有较长笔画向右下伸展。",
+    ),
+    "obs-char-000242": (
+        "The thin upright image has a pointed upper turn, a short cross stroke, and "
+        "a narrow descending tail below the crossing.",
+        "纤细直立图像上方有尖转笔，中部有短交叉笔，交叉处下方有窄长下行尾笔。",
+    ),
+    "obs-char-000243": (
+        "Three tall strokes stand within an open rounded lower contour; the center "
+        "stroke reaches higher than the curved base.",
+        "三道高直笔画位于开放的圆弧下部轮廓内；中央笔高出弯曲底部。",
+    ),
+    "obs-char-000244": (
+        "The narrow image has a curved left-side stem, a pointed upper turn, and two "
+        "short diagonal strokes opening toward the right.",
+        "狭长图像有弯曲左侧主干、尖状上转笔，并向右展开两道短斜笔。",
+    ),
+    "obs-char-000245": (
+        "The small dark image is a thin irregular upright stroke with a visibly "
+        "thickened, rounded terminal at the bottom.",
+        "小幅深色图像呈纤细而不规则的直立笔画，下端有明显加粗的圆钝末端。",
+    ),
+    "obs-char-000246": (
+        "Three tall interior strokes rise from an open rounded lower contour, forming "
+        "a compact upward cluster without a closed upper frame.",
+        "三道高直内部笔画从开放圆弧下部轮廓中上行，形成紧凑上聚形，顶部没有闭合外框。",
+    ),
+    "obs-char-000247": (
+        "A small rectangular grid-like form appears at the top, followed by a curved "
+        "descending stroke with short side branches below it.",
+        "顶部有小型矩形网格状形体，下方接弯曲下行笔，并带有短侧向分支。",
+    ),
+    "obs-char-000248": (
+        "The low-contrast gray image is a compact cluster of crossing angular strokes; "
+        "fine terminals are difficult to separate at this size.",
+        "低对比度灰度图像呈交叉折角笔画的紧凑聚集；受尺寸影响，细小末端难以分开。",
+    ),
+    "obs-char-000249": (
+        "The image has crossing strokes at the top, an angular enclosed middle area, "
+        "and a long diagonal stroke descending along the right side.",
+        "图像顶部有交叉笔，中部有折角围合区域，右侧有长斜笔向下伸展。",
+    ),
+    "obs-char-000250": (
+        "Two separated dark clusters are visible: the left is a thin upright form with "
+        "a short top branch, while the right is denser and more heavily branched.",
+        "图像可见两个分离的深色聚集：左侧为带短顶部笔的纤细直立形，右侧更密集且分叉更多。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

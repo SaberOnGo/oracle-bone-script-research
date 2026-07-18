@@ -1119,6 +1119,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "strokes, branching lower ends, and a curved opening on the right.",
         "大幅图像含左右分离的两处折角形，带长下行笔、下部分支和右侧弯曲开口。",
     ),
+    "obs-char-000221": (
+        "The image contains several separated forms: a forked upper mark, a short "
+        "upright oval on the left, a long curved stroke on the right, and lower hooks.",
+        "图像含数处分离形体：上方有分叉痕，左侧有短直椭圆形，右侧有长弯曲笔，下方有钩状笔。",
+    ),
+    "obs-char-000222": (
+        "The narrow image has a branching upper cluster, a rounded central opening, "
+        "and a thin curved stroke continuing down the right side.",
+        "狭长图像上方有分叉笔群，中部有圆弧开口，右侧有细弯曲笔继续下行。",
+    ),
+    "obs-char-000223": (
+        "The very narrow image has a long descending stroke with a short diagonal "
+        "branch projecting toward the lower right.",
+        "极狭长图像有长下行笔，并向右下伸出短斜向分支。",
+    ),
+    "obs-char-000224": (
+        "The image has three parallel curved descending strokes with short pointed "
+        "projections near their lower ends.",
+        "图像有三道相互平行的弯曲下行笔，下端附近带短尖状伸出笔。",
+    ),
+    "obs-char-000225": (
+        "The large dark image has a dense circular outer frame filled with crossing "
+        "diagonal strokes and a central vertical line.",
+        "大幅深色图像有密集圆形外框，内部充满交叉斜笔，并有中央竖线。",
+    ),
+    "obs-char-000226": (
+        "The image has a rounded lower frame, several short forked upper strokes, and "
+        "small interior marks around a central vertical axis.",
+        "图像下部有圆弧框，上方有数道短分叉笔，中央竖轴周围有小内部痕迹。",
+    ),
+    "obs-char-000227": (
+        "The image is a simple thin curved upper stroke that turns into a long "
+        "descending line on the right.",
+        "图像由上方简单细弯曲笔构成，并在右侧转为长下行线。",
+    ),
+    "obs-char-000228": (
+        "The low-resolution gray image shows two short separated strokes, one more "
+        "upright and one curving outward toward the lower right.",
+        "低分辨率灰度图像可见两道分离短笔，一道较直立，另一道向右下弯曲外展。",
+    ),
+    "obs-char-000229": (
+        "The large image has a deep rounded outer frame, a pointed inner crossing "
+        "form, two stacked lower enclosures, and a separate right upright.",
+        "大幅图像有深圆弧外框，内部有尖状交叉形，下方有两层叠置围合，右侧另有竖笔。",
+    ),
+    "obs-char-000230": (
+        "The narrow image has a long central descending stroke with several short "
+        "curved side strokes opening toward the left.",
+        "狭长图像有长中央下行笔，左侧展开数道短弯曲侧笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

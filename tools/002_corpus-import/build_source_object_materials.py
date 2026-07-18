@@ -1483,6 +1483,132 @@ def source_literature_scope_review_text(source: dict[str, str]) -> str:
                 "",
             ]
         )
+    elif source["source_id"] == "src-xiaoxuetang-jiaguwen":
+        lines.extend(
+            [
+                "## Institutional Database Description / 机构数据库说明",
+                *bullet(
+                    "Institutional role / 机构角色",
+                    "Academia Sinica describes Xiaoxuetang as a database within "
+                    "the Ancient and Modern Chinese Character Database, developed "
+                    "with the Institute of History and Philology and the Institute "
+                    "of Information Science.",
+                ),
+                *bullet(
+                    "Human research function / 人类研究功能",
+                    "The database supports character-head lookup and links a head "
+                    "to form, sound, meaning, and dictionary-index resources. It is "
+                    "a source navigation and comparison tool, not a final reading.",
+                ),
+                *bullet(
+                    "Primary bibliography / 主要书目",
+                    "The official bibliography names Jiaguwen Bian (1965, 2004 "
+                    "reprint), Xin Jiaguwen Bian (2009), and the Heji source table "
+                    "(1999). These titles are source trails to open and cite.",
+                ),
+                *bullet(
+                    "Evidence level / 证据等级",
+                    "Institutional database and editorial reference source; its "
+                    "fields must remain tied to the displayed record, source book, "
+                    "and access version.",
+                ),
+                "",
+                "## Glyph And Catalog Coverage / 字形与著录覆盖",
+                *bullet(
+                    "Current statistics / 当前统计",
+                    "The current official statistics page reports 2,548 character "
+                    "heads and 24,701 glyph forms under Jiaguwen Bian. Record the "
+                    "page and access date with this count.",
+                ),
+                *bullet(
+                    "Older documentation / 旧版说明",
+                    "The official example page and 2013 guide report 1,724 heads and "
+                    "18,846 forms. This version difference is a concrete data-history "
+                    "question, not a reason to silently replace one count.",
+                ),
+                *bullet(
+                    "Character-head rules / 字头规则",
+                    "The database explains that heads mainly follow Jiaguwen Bian; "
+                    "clericalized or modern head labels may be added from its notes. "
+                    "A head label is not itself a confirmed oracle reading.",
+                ),
+                *bullet(
+                    "Form and source fields / 字形与来源字段",
+                    "The official legend says each form can carry an old catalog "
+                    "reference, and some forms carry Heji number and group. These "
+                    "fields must remain separate in a character or inscription file.",
+                ),
+                "",
+                "## Human Retrieval And Evidence Order / 人工检索与证据顺序",
+                *bullet(
+                    "Search fields / 检索字段",
+                    "The documented simple search uses character number, glyph/head, "
+                    "and page; filters include Heji number, old catalog, and group.",
+                ),
+                *bullet(
+                    "Old catalog / 旧著录",
+                    "The legend defines old catalog as the original source reference "
+                    "used by Jiaguwen Bian, such as Tieyun Canggui 148.1. Preserve "
+                    "the abbreviation and expand it through the official reference "
+                    "table before citation.",
+                ),
+                *bullet(
+                    "Heji and group / 合集与类组",
+                    "The official note says Heji and group data were added by comparison "
+                    "with the Heji source table and Xin Jiaguwen Bian. Not every form "
+                    "has these fields, and group judgments can differ by scholar.",
+                ),
+                *bullet(
+                    "Human dossier route / 人类档案路线",
+                    "Open the visible glyph record first, then check old catalog, Heji, "
+                    "group, page, source book, and any linked image before creating a "
+                    "character or inscription relation.",
+                ),
+                "",
+                "## Citation, Version, And Rights Limits / 引用、版本与权利限制",
+                *bullet(
+                    "Version conflict / 版本差异",
+                    "Current statistics and older guide pages do not report the same "
+                    "coverage. Keep both values with their page/version evidence and "
+                    "do not use them as one deduplicated total.",
+                ),
+                *bullet(
+                    "Access boundary / 访问边界",
+                    "Local route probes reached an access-restricted page and failed "
+                    "on two character-detail routes. A field map is therefore a "
+                    "candidate navigation route, not captured character evidence.",
+                ),
+                *bullet(
+                    "Scholarly disagreement / 学术分歧",
+                    "The official legend warns that period-group names and judgments "
+                    "can differ. Keep the database group as a source-local label and "
+                    "compare other scholarly groupings separately.",
+                ),
+                *bullet(
+                    "Rights / 权利",
+                    "The source is marked metadata_only_until_verified. Do not copy raw "
+                    "glyph images or page captures into public assets until the source "
+                    "and derivative rights are checked.",
+                ),
+                "",
+                "## Concrete Bibliography Checks / 具体文献核查",
+                "- Record the current statistics page, access date, and 2,548/24,701",
+                "  values separately from the older 1,724/18,846 documentation.",
+                "- Open Jiaguwen Bian, Xin Jiaguwen Bian, and the Heji source table",
+                "  and record page, plate, catalog, and edition evidence.",
+                "- Expand every old-catalog abbreviation through the official table",
+                "  before linking it to a character or inscription dossier.",
+                "- Compare database group labels with other period-group sources and",
+                "  record disagreements as pending review.",
+                "- 分开记录当前统计页和旧版说明的 2548/24701、1724/18846 数值，",
+                "  不能把不同版本合并成一个总数。",
+                "- 打开《甲骨文编》《新甲骨文编》和《合集材料来源表》，记录",
+                "  页码、图版、著录号和版本证据。",
+                "- 先通过官方引书简表展开旧著录简称，再接入单字或卜辞档案。",
+                "- 将数据库类组与其他断代分组资料比较，把分歧写成待复核记录。",
+                "",
+            ]
+        )
     lines.extend(
         [
         "## Literature And Database Review Slots / 文献与数据库复核槽位",

@@ -9256,6 +9256,23 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", open_oracle_literature_text)
         self.assertNotIn("not_collected", open_oracle_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in open_oracle_literature_text.splitlines()))
+        xiaoxuetang_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "001_src-xiaoxuetang-jiaguwen_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        xiaoxuetang_literature_flat = " ".join(xiaoxuetang_literature_text.split())
+        self.assertIn(
+            "Institutional Database Description / 机构数据库说明",
+            xiaoxuetang_literature_text,
+        )
+        self.assertIn("2,548 character heads", xiaoxuetang_literature_flat)
+        self.assertIn("1,724 heads", xiaoxuetang_literature_flat)
+        self.assertIn("Old catalog / 旧著录", xiaoxuetang_literature_text)
+        self.assertIn("metadata_only_until_verified", xiaoxuetang_literature_flat)
+        self.assertIn("具体文献核查", xiaoxuetang_literature_text)
+        self.assertNotIn("not_collected", xiaoxuetang_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in xiaoxuetang_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

@@ -9243,6 +9243,19 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", gbedobc_literature_text)
         self.assertNotIn("not_collected", gbedobc_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in gbedobc_literature_text.splitlines()))
+        open_oracle_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "017_src-open-oracle_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        open_oracle_literature_flat = " ".join(open_oracle_literature_text.split())
+        self.assertIn("Repository Research Scope / 仓库研究范围", open_oracle_literature_text)
+        self.assertIn("10.18653/v1/2024.acl-long.831", open_oracle_literature_text)
+        self.assertIn("Index drift / 索引漂移", open_oracle_literature_text)
+        self.assertIn("confirmed academic conclusion", open_oracle_literature_flat)
+        self.assertIn("具体文献核查", open_oracle_literature_text)
+        self.assertNotIn("not_collected", open_oracle_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in open_oracle_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

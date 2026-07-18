@@ -1609,6 +1609,137 @@ def source_literature_scope_review_text(source: dict[str, str]) -> str:
                 "",
             ]
         )
+    elif source["source_id"] == "src-xiaoxuetang-obm":
+        lines.extend(
+            [
+                "## Institutional Source-Table Description / 机构来源表说明",
+                *bullet(
+                    "Primary bibliography / 主要书目",
+                    "The official bibliography identifies Hu Houxuan, ed., "
+                    "Jiaguwen Heji Material Source Table, volumes 1-2, Beijing: "
+                    "China Social Sciences Press, 1999.",
+                ),
+                *bullet(
+                    "Human research function / 人类研究功能",
+                    "The database is for tracing the material sources of Heji plates. "
+                    "It is a provenance and catalog route, not a complete inscription "
+                    "text or a universal character identifier.",
+                ),
+                *bullet(
+                    "Evidence level / 证据等级",
+                    "Institutional source table based on the 1999 printed volumes; "
+                    "use it to locate plate, publication, rubbing, and holding clues "
+                    "before opening the primary object or plate record.",
+                ),
+                "",
+                "## Seven Source Fields / 七类来源字段",
+                *bullet(
+                    "Recorded fields / 收录字段",
+                    "The official legend lists Heji number, first catalog or rubbing "
+                    "number, selected number, reappearance number, joining number, "
+                    "original bone/rubbing holding, and notes.",
+                ),
+                *bullet(
+                    "Coverage / 覆盖范围",
+                    "The upper volume records material-source status for Heji plate "
+                    "numbers 1 through 41,956. This is a source-table coverage claim, "
+                    "not proof that every plate or image is locally available.",
+                ),
+                *bullet(
+                    "Plate identity / 图版身份",
+                    "A Heji number refers to a plate number, normally based on one bone "
+                    "object. Positive, reverse, mortar, and A/B/C/D parts may share a "
+                    "number and must remain explicit in an inscription dossier.",
+                ),
+                *bullet(
+                    "Joining records / 拼合记录",
+                    "A plus sign and joining number record a source-table joining "
+                    "relation. They are a catalog or reconstruction route and do not "
+                    "by themselves prove the physical match without checking plates.",
+                ),
+                "",
+                "## Catalog, Holding, And Note Evidence / 著录、收藏与备注证据",
+                *bullet(
+                    "Original holding / 原骨拓藏",
+                    "The source table uses abbreviations for current or recorded "
+                    "holding units, with a separate appendix expanding 211 units. "
+                    "Expand the abbreviation before using a museum or collection claim.",
+                ),
+                *bullet(
+                    "Old catalog / 旧著录",
+                    "The old-catalog appendix records about 90 publication abbreviations. "
+                    "A catalog code must be expanded to its book, edition, page, and "
+                    "plate route before public display.",
+                ),
+                *bullet(
+                    "Notes and errors / 备注与勘误",
+                    "The notes field records errors or supplemental information in "
+                    "Heji. It must be preserved during extraction rather than dropped "
+                    "as an unstructured comment.",
+                ),
+                *bullet(
+                    "Reappearance / 重见",
+                    "Reappearance numbers point to the same plate in other catalog or "
+                    "rubbing books, ordered by publication date. They are citation "
+                    "relations, not duplicate-object deletion instructions.",
+                ),
+                "",
+                "## Human Plate Review Order / 人工图版复核顺序",
+                *bullet(
+                    "First open / 首先打开",
+                    "Open the Heji plate and physical-object route, then compare first "
+                    "catalog/rubbing number, selected number, reappearance, joining, "
+                    "holding, and note fields.",
+                ),
+                *bullet(
+                    "Inscription boundary / 卜辞边界",
+                    "A source-table row supplies provenance and catalog context. It "
+                    "does not supply a complete inscription OCR, accepted reading, "
+                    "period, group, or findspot conclusion unless separately sourced.",
+                ),
+                *bullet(
+                    "Structured route boundary / 结构化路线边界",
+                    "The six local field maps are candidate transfer routes. Keep Heji "
+                    "number, old catalog, holding, note, and joining relations as "
+                    "separate human-readable fields.",
+                ),
+                "",
+                "## Disputes, Version, And Rights / 争议、版本与权利",
+                *bullet(
+                    "Catalog interpretation / 著录解释",
+                    "Positive/reverse parts, joined fragments, borrowed numbers, and "
+                    "reappearance routes can be complex. Follow the official examples "
+                    "and record unresolved parsing as a concrete review question.",
+                ),
+                *bullet(
+                    "Identity boundary / 身份边界",
+                    "A Heji number is a plate/material reference, not a universal "
+                    "character ID, museum accession, or confirmed inscription identity.",
+                ),
+                *bullet(
+                    "Access and rights / 访问与权利",
+                    "Local automated captures returned access-restricted pages. The "
+                    "source remains metadata_only_until_verified; do not redistribute "
+                    "raw page captures or images without review.",
+                ),
+                "",
+                "## Concrete Bibliography Checks / 具体文献核查",
+                "- Verify the 1999 edition, page, plate, checksum, and access route",
+                "  before citing any source-table row.",
+                "- Expand the old-catalog and holding abbreviations through both",
+                "  official appendices before transferring a provenance claim.",
+                "- For every joined plate, compare positive/reverse parts, joining",
+                "  numbers, and physical images in the primary object route.",
+                "- Preserve notes, corrections, and reappearance records; do not",
+                "  deduplicate them into one opaque inscription ID.",
+                "- 复核 1999 年版本、页码、图版、checksum 和访问路线后，才能",
+                "  引用来源表中的具体记录。",
+                "- 先通过两个官方附录展开旧著录和现藏简称，再转入出处字段。",
+                "- 每条拼合图版都要核对正反面、拼合号和原始图像路线。",
+                "- 保留备注、勘误和重见关系，不能压成一个不透明的卜辞 ID。",
+                "",
+            ]
+        )
     lines.extend(
         [
         "## Literature And Database Review Slots / 文献与数据库复核槽位",

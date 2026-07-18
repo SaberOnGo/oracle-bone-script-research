@@ -9273,6 +9273,25 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", xiaoxuetang_literature_text)
         self.assertNotIn("not_collected", xiaoxuetang_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in xiaoxuetang_literature_text.splitlines()))
+        xiaoxuetang_obm_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "002_src-xiaoxuetang-obm_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        xiaoxuetang_obm_literature_flat = " ".join(xiaoxuetang_obm_literature_text.split())
+        self.assertIn(
+            "Institutional Source-Table Description / 机构来源表说明",
+            xiaoxuetang_obm_literature_text,
+        )
+        self.assertIn("41,956", xiaoxuetang_obm_literature_flat)
+        self.assertIn("Seven Source Fields / 七类来源字段", xiaoxuetang_obm_literature_text)
+        self.assertIn("not a universal character ID", xiaoxuetang_obm_literature_flat)
+        self.assertIn("metadata_only_until_verified", xiaoxuetang_obm_literature_flat)
+        self.assertIn("具体文献核查", xiaoxuetang_obm_literature_text)
+        self.assertNotIn("not_collected", xiaoxuetang_obm_literature_text)
+        self.assertTrue(
+            all(len(line) <= 80 for line in xiaoxuetang_obm_literature_text.splitlines())
+        )
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

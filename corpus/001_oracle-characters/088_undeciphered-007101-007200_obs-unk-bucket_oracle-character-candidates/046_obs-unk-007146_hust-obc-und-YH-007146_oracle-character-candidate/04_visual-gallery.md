@@ -1,18 +1,38 @@
 # obs-unk-007146 Visual Gallery / obs-unk-007146 图像资料页
 
 English:
-This human-readable gallery stays inside the same concrete candidate directory
-as the structured support packet and visual/source index.
+This human-readable gallery stays inside the same concrete oracle-character
+object directory as the structured support packet and visual/source index. It is
+a preparation-stage viewing surface for local review images, not a parallel
+human-only directory.
 
 简体中文:
-本图像资料页与 AI 可读候选包、图像与来源索引放在同一个具体候选目录内。
-- Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
+本图像资料页与 AI 可读资料包、图像和来源索引放在同一具体甲骨文字对象目录内。它只是准备阶段的人类查看入口，不是另建的并行人类目录。
 
-## Review Image / 复核图像
+## Object And Source / 对象与来源
+
+- Project ID / 项目 ID: `obs-unk-007146`
+- Primary external reference / 首选外部参考: `hust-obc-und-YH-007146`
+- Source / 来源: `src-hust-obc`
+- Structured support packet / 结构化辅助包: `01_undeciphered-candidate-packet.json`
+- Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
+- Committed local review images / 已提交本地复核图像数: `1`
+- Registered image routes / 已登记图像路线数: `1`
+
+## Research Boundary / 研究边界
+
+English:
+Images shown here are source-marked preparation materials for human visual
+review. Each image is not an accepted glyph identity, not an accepted reading,
+not a component conclusion, and not a decipherment conclusion.
+
+简体中文:
+本页展示的图像只是带来源标记的准备阶段材料，用于人工视觉复核。它们不是已确认字形身份，不是已确认释读，不是构件结论，也不是破译结论。
+
+## obs-unk-007146-visual-source-001 / 图像条目
 
 ![obs-unk-007146 glyph candidate](03_visual-assets/001_asset-008737_hust-obc-und-YH-007146_glyph.jpg)
 
-- Asset ID / 资产 ID: `asset-008737`
 - Local image / 本地图像:
   `03_visual-assets/001_asset-008737_hust-obc-und-YH-007146_glyph.jpg`
 - Local metadata / 本地 metadata:
@@ -21,17 +41,8 @@ as the structured support packet and visual/source index.
 - Source package / 来源包: `large-src-000001`
 - Download ID / 下载 ID: `dl-hust-obc-figshare-raw`
 - Rights status / 权利状态: `source_marked_risk_noted`
+- Review status / 复核状态: `needs_human_visual_review`
 - Risk note / 风险提示: HUST-OBC glyph candidate image extracted from registered
   large source package for preparation-stage object-local visual review; rights
   signals conflict between Figshare package metadata and the Scientific Data
   article page.
-
-## Research Boundary / 研究边界
-
-English:
-The image shown here is source-marked preparation material for human visual
-review. It is not an accepted glyph identity, not an accepted reading, not a
-component conclusion, and not a decipherment conclusion.
-
-简体中文:
-本页图像是带来源标记的准备阶段材料，用于人工视觉复核。它不是已确认字形身份，不是已确认释读，不是构件结论，也不是破译结论。

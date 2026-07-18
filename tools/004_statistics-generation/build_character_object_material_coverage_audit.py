@@ -93,11 +93,17 @@ def next_step(status: str) -> str:
 def local_image_count(asset_dir: Path) -> int:
     if not asset_dir.exists():
         return 0
-    return sum(
-        1
-        for path in asset_dir.iterdir()
-        if path.name.lower().endswith((".jpg", ".jpeg", ".png"))
-    )
+    count = 0
+    for path in asset_dir.iterdir():
+        if not path.name.lower().endswith((".jpg", ".jpeg", ".png")):
+            continue
+        if path.is_file():
+            count += 1
+            continue
+        resolved = path.resolve()
+        if resolved.drive:
+            count += int(Path("\\\\?\\" + str(resolved)).is_file())
+    return count
 
 
 def build_audit_rows(root: Path) -> list[dict[str, str]]:

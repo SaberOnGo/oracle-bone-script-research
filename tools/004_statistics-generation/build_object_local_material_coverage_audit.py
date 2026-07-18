@@ -438,7 +438,15 @@ def count_images(asset_dirs: list[Path]) -> int:
     for asset_dir in asset_dirs:
         if not asset_dir.exists():
             continue
-        count += sum(1 for path in asset_dir.iterdir() if path.suffix.lower() in {".jpg", ".jpeg", ".png"})
+        for path in asset_dir.iterdir():
+            if path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
+                continue
+            if path.is_file():
+                count += 1
+            else:
+                resolved = path.resolve()
+                if resolved.drive:
+                    count += int(Path("\\\\?\\" + str(resolved)).is_file())
     return count
 
 

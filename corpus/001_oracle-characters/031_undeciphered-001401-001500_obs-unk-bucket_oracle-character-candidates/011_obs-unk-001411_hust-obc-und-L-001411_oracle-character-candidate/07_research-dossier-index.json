@@ -26,6 +26,7 @@
   "visual_summary": {
     "row_count": "1",
     "image_count": "1",
+    "image_route_count": "1",
     "source_ref_count": "1",
     "rights": "source_marked_risk_noted",
     "review": "needs_human_visual_review"

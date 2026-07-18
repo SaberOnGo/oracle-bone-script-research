@@ -179,17 +179,35 @@ def dataset_label(packet: dict[str, Any]) -> dict[str, str]:
     return {}
 
 
-def visual_summary(rows: list[dict[str, str]]) -> dict[str, str]:
+def local_asset_exists(root: Path, path: str) -> bool:
+    if not path:
+        return False
+    candidate = Path(path)
+    if not candidate.is_absolute():
+        candidate = (root / candidate).resolve()
+    if candidate.is_file():
+        return True
+    if candidate.is_absolute() and candidate.drive:
+        return Path("\\\\?\\" + str(candidate)).is_file()
+    return False
+
+
+def visual_summary(rows: list[dict[str, str]], root: Path) -> dict[str, str]:
     return {
         "row_count": str(len(rows)),
-        "image_count": str(sum(1 for row in rows if row.get("committed_image_path"))),
+        "image_count": str(
+            sum(1 for row in rows if local_asset_exists(root, row.get("committed_image_path", "")))
+        ),
+        "image_route_count": str(sum(1 for row in rows if row.get("committed_image_path"))),
         "source_ref_count": str(sum(1 for row in rows if row.get("source_image_reference_path"))),
         "rights": ";".join(sorted({row.get("rights_status", "") for row in rows if row.get("rights_status")})),
         "review": ";".join(sorted({row.get("review_status", "") for row in rows if row.get("review_status")})),
     }
 
 
-def primary_visual_material_lines(rows: list[dict[str, str]], limit: int = 3) -> list[str]:
+def primary_visual_material_lines(
+    rows: list[dict[str, str]], root: Path, limit: int = 3
+) -> list[str]:
     lines: list[str] = [
         "### Primary Visual Material / 主要图像材料",
         "",
@@ -204,11 +222,18 @@ def primary_visual_material_lines(rows: list[dict[str, str]], limit: int = 3) ->
         )
         return lines
     for index, row in enumerate(rows[:limit], start=1):
+        image_path = row.get("committed_image_path", "")
+        image_status = (
+            "local_file_present"
+            if local_asset_exists(root, image_path)
+            else "registered_route_only_local_file_missing"
+        )
         lines.extend(
             [
                 f"#### Visual Item {index} / 图像条目 {index}",
                 "",
-                bullet("local review image", code_value(row.get("committed_image_path", ""))),
+                bullet("local review image route", code_value(image_path)),
+                bullet("local image status", code_value(image_status)),
                 bullet("source image reference", code_value(row.get("source_image_reference_path", ""))),
                 bullet("asset id", code_value(row.get("asset_id", ""))),
                 bullet("download id", code_value(row.get("download_id", ""))),
@@ -369,9 +394,10 @@ def dossier_text(
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
     object_dir: Path,
+    root: Path,
 ) -> str:
     label = dataset_label(packet)
-    visual = visual_summary(visual_rows)
+    visual = visual_summary(visual_rows, root)
     edge = edge_summary(edges)
     visual_note = visual_note_summary(object_dir)
     lines: list[str] = [
@@ -416,11 +442,12 @@ def dossier_text(
         bullet("visual source index", code_value("02_visual-source-index.csv")),
         bullet("visual index rows", code_value(visual["row_count"])),
         bullet("local review images", code_value(visual["image_count"])),
+        bullet("local image routes", code_value(visual["image_route_count"])),
         bullet("source image refs", code_value(visual["source_ref_count"])),
         bullet("rights status", code_value(visual["rights"] or str(packet.get("rights_status", "")))),
         bullet("visual review", code_value(visual["review"] or "needs_human_visual_review")),
         "",
-        *primary_visual_material_lines(visual_rows),
+        *primary_visual_material_lines(visual_rows, root),
         "### Glyph Observation Checklist / 字形观察记录",
         "",
         "- Which visible strokes, outlines, breaks, or uncertain marks",
@@ -519,7 +546,12 @@ def dossier_text(
         "",
         "## 9. Archaeological Folder Coverage / 考古档案覆盖",
         "",
-        bullet("glyph image", "`available_or_route_indexed`"),
+        bullet(
+            "glyph image",
+            "`local_file_present`"
+            if int(visual["image_count"])
+            else "`source_route_only_local_file_missing`",
+        ),
         bullet("variant forms", pending("需要打开异体和近形路线")),
         bullet("later-script links", candidate_pending("需要人工复核金文、小篆或今字路线")),
         bullet("inscription occurrences", pending("需要核对卜辞编号、全文或 OCR、图版号和字位")),
@@ -670,7 +702,7 @@ def ai_index(
             "decipherment_status": packet.get("decipherment_status", ""),
             "rights_status": packet.get("rights_status", ""),
         },
-        "visual_summary": visual_summary(visual_rows),
+        "visual_summary": visual_summary(visual_rows, root),
         "graph_summary": edge_summary(edges),
         "missing_sections": [
             "accepted_reading_and_meaning",
@@ -724,6 +756,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
             visual_rows,
             edges,
             object_dir,
+            root,
         )
         review = review_sheet_text(project_id)
         assert_human_line_width(dossier, f"{project_id} dossier")

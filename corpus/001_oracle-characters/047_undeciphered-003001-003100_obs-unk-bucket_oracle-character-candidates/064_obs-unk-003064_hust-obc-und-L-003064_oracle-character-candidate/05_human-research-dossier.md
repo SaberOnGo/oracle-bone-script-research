@@ -28,6 +28,7 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 - visual source index: `02_visual-source-index.csv`
 - visual index rows: `1`
 - local review images: `1`
+- local image routes: `1`
 - source image refs: `1`
 - rights status: `source_marked_risk_noted`
 - visual review: `needs_human_visual_review`
@@ -36,10 +37,11 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 
 #### Visual Item 1 / 图像条目 1
 
-- local review image: `corpus/001_oracle-characters/047_undeciphered-003001-00
-  3100_obs-unk-bucket_oracle-character-candidates/064_obs-unk-003064_hust-ob
-  c-und-L-003064_oracle-character-candidate/03_visual-assets/001_asset-00465
-  7_hust-obc-und-L-003064_glyph.jpg`
+- local review image route: `corpus/001_oracle-characters/047_undeciphered-003
+  001-003100_obs-unk-bucket_oracle-character-candidates/064_obs-unk-003064_h
+  ust-obc-und-L-003064_oracle-character-candidate/03_visual-assets/001_asset
+  -004657_hust-obc-und-L-003064_glyph.jpg`
+- local image status: `local_file_present`
 - source image reference: `HUST-OBC/undeciphered/L/3064/L_？_5478.jpg`
 - asset id: `asset-004657`
 - download id: `dl-hust-obc-figshare-raw`
@@ -155,7 +157,7 @@ cross-source and human review are complete.
 
 ## 9. Archaeological Folder Coverage / 考古档案覆盖
 
-- glyph image: `available_or_route_indexed`
+- glyph image: `local_file_present`
 - variant forms: `待查：需要打开异体和近形路线`
 - later-script links: `候选路线：需要人工复核金文、小篆或今字路线`
 - inscription occurrences: `待查：需要核对卜辞编号、全文或 OCR、图版号和字位`

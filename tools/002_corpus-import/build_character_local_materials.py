@@ -1331,6 +1331,7 @@ VISUAL_INDEX_FIELDS = [
     "source_id",
     "source_package_id",
     "download_id",
+    "asset_id",
     "visual_material_status",
     "committed_image_path",
     "source_image_reference_path",
@@ -1360,7 +1361,6 @@ def project_id_from_object_dir(path: Path) -> str:
 
 
 def discover_target_dirs(root: Path) -> dict[str, dict[str, Path | str]]:
-    target_ids = set(TARGET_PROJECT_IDS)
     object_root = root / "corpus/001_oracle-characters"
     targets: dict[str, dict[str, Path | str]] = {}
     packet_paths = [
@@ -1370,15 +1370,13 @@ def discover_target_dirs(root: Path) -> dict[str, dict[str, Path | str]]:
     for packet_path in sorted(packet_paths):
         object_dir = packet_path.parent
         project_id = project_id_from_object_dir(object_dir)
-        if project_id in target_ids:
-            targets[project_id] = {
-                "object_dir": object_dir,
-                "packet": packet_path.name,
-            }
-    missing_ids = sorted(target_ids - set(targets))
-    if missing_ids:
-        raise FileNotFoundError(f"Missing target character packet directories: {', '.join(missing_ids)}")
-    return {project_id: targets[project_id] for project_id in TARGET_PROJECT_IDS}
+        targets[project_id] = {
+            "object_dir": object_dir,
+            "packet": packet_path.name,
+        }
+    if not targets:
+        raise FileNotFoundError("No character packet directories were found")
+    return dict(sorted(targets.items()))
 
 
 def read_image_reference_rows(root: Path) -> dict[str, list[dict[str, str]]]:
@@ -1394,11 +1392,14 @@ def read_existing_visual_rows(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
     with path.open("r", encoding="utf-8-sig", newline="") as file:
-        return {
-            row["source_image_reference_path"]: row
-            for row in csv.DictReader(file)
-            if row.get("source_image_reference_path")
-        }
+        rows = list(csv.DictReader(file))
+    indexed: dict[str, dict[str, str]] = {}
+    for row in rows:
+        if row.get("visual_source_index_id"):
+            indexed[row["visual_source_index_id"]] = row
+        if row.get("source_image_reference_path"):
+            indexed[row["source_image_reference_path"]] = row
+    return indexed
 
 
 def archive_status(row: dict[str, str]) -> str:
@@ -1458,7 +1459,11 @@ def build_visual_rows(
         return rows
 
     if existing_visual_rows:
-        return sorted(existing_visual_rows.values(), key=lambda row: row.get("visual_source_index_id", ""))
+        unique_rows = {
+            row.get("visual_source_index_id", str(index)): row
+            for index, row in enumerate(existing_visual_rows.values())
+        }
+        return sorted(unique_rows.values(), key=lambda row: row.get("visual_source_index_id", ""))
 
     return [
         {
@@ -1504,6 +1509,38 @@ def relative_committed_images(object_dir: Path, committed_images: list[str]) -> 
     return "; ".join(values)
 
 
+def local_asset_exists(root: Path, path: str) -> bool:
+    if not path:
+        return False
+    candidate = Path(path)
+    if not candidate.is_absolute():
+        candidate = (root / candidate).resolve()
+    if candidate.is_file():
+        return True
+    if candidate.is_absolute() and candidate.drive:
+        return Path("\\\\?\\" + str(candidate)).is_file()
+    return False
+
+
+def normalize_visual_rows(root: Path, rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    for row in rows:
+        path = row.get("committed_image_path", "")
+        if not path:
+            continue
+        if local_asset_exists(root, path):
+            row["visual_material_status"] = "committed_review_image_derivative"
+        else:
+            row["visual_material_status"] = (
+                "source_image_reference_only_no_committed_glyph_image"
+            )
+            row["caution"] = (
+                "The image path is a registered route, but the local derivative "
+                "is not present on the current disk; do not treat the route as "
+                "an opened image."
+            )
+    return rows
+
+
 def wrap_markdown_text(text: str) -> list[str]:
     return textwrap.wrap(
         text,
@@ -1544,6 +1581,7 @@ def append_wrapped_plain_bullet(lines: list[str], text: str) -> None:
 def build_readme_text(
     project_id: str,
     object_dir: Path,
+    root: Path,
     packet_name: str,
     packet: dict,
     visual_rows: list[dict[str, str]],
@@ -1553,12 +1591,15 @@ def build_readme_text(
     source_id = packet.get("source_id", "")
     status_counts = sorted({row["visual_material_status"] for row in visual_rows})
     image_ref_count = sum(1 for row in visual_rows if row["source_image_reference_path"])
-    committed_images = [row["committed_image_path"] for row in visual_rows if row.get("committed_image_path")]
+    image_routes = [row["committed_image_path"] for row in visual_rows if row.get("committed_image_path")]
+    committed_images = [path for path in image_routes if local_asset_exists(root, path)]
     packet_record_type = packet.get("record_type", "")
     caution = packet.get("caution", "")
     local_path = object_dir.as_posix()
     status_text = ", ".join(status_counts)
     committed_image_text = relative_committed_images(object_dir, committed_images)
+    if not committed_images and image_routes:
+        committed_image_text = "registered image route only; local file missing"
     lines: list[str] = [
         f"# {project_id} Local Object Materials / {project_id} 本地对象资料",
         "",
@@ -1678,6 +1719,11 @@ def build_readme_text(
         "Committed glyph image / 已提交字形图像",
         committed_image_text,
     )
+    append_wrapped_bullet(
+        lines,
+        "Registered image routes / 已登记图像路线",
+        f"`{len(image_routes)}`",
+    )
     lines.extend(["", "English:"])
     append_wrapped_paragraph(
         lines,
@@ -1729,10 +1775,21 @@ def build_readme_text(
     return "\n".join(lines)
 
 
-def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_rows: list[dict[str, str]]) -> str:
+def build_gallery_text(
+    project_id: str,
+    packet_name: str,
+    packet: dict,
+    visual_rows: list[dict[str, str]],
+    root: Path,
+) -> str:
     external_id = packet.get("primary_external_ref_id", "")
     source_id = packet.get("source_id", "")
-    committed_rows = [row for row in visual_rows if row.get("committed_image_path")]
+    committed_rows = [
+        row
+        for row in visual_rows
+        if local_asset_exists(root, row.get("committed_image_path", ""))
+    ]
+    image_route_count = sum(1 for row in visual_rows if row.get("committed_image_path"))
     sections: list[str] = []
     for row in committed_rows:
         asset_path = Path(row["committed_image_path"])
@@ -1794,10 +1851,21 @@ Images shown here are source-marked preparation materials for human visual revie
 """
 
 
-def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_rows: list[dict[str, str]]) -> str:
+def build_gallery_text(
+    project_id: str,
+    packet_name: str,
+    packet: dict,
+    visual_rows: list[dict[str, str]],
+    root: Path,
+) -> str:
     external_id = packet.get("primary_external_ref_id", "")
     source_id = packet.get("source_id", "")
-    committed_rows = [row for row in visual_rows if row.get("committed_image_path")]
+    committed_rows = [
+        row
+        for row in visual_rows
+        if local_asset_exists(root, row.get("committed_image_path", ""))
+    ]
+    image_route_count = sum(1 for row in visual_rows if row.get("committed_image_path"))
     lines: list[str] = [
         f"# {project_id} Visual Gallery / {project_id} 图像资料页",
         "",
@@ -1835,6 +1903,11 @@ def build_gallery_text(project_id: str, packet_name: str, packet: dict, visual_r
         lines,
         "Committed local review images / 已提交本地复核图像数",
         f"`{len(committed_rows)}`",
+    )
+    append_wrapped_bullet(
+        lines,
+        "Registered image routes / 已登记图像路线数",
+        f"`{image_route_count}`",
     )
     lines.extend(["", "## Research Boundary / 研究边界", "", "English:"])
     append_wrapped_paragraph(
@@ -1935,9 +2008,14 @@ def build_material_observation_text(
     object_dir: Path,
     packet: dict,
     visual_rows: list[dict[str, str]],
+    root: Path,
 ) -> str:
     observation = MATERIAL_VISUAL_OBSERVATIONS.get(project_id)
-    committed = [row for row in visual_rows if row.get("committed_image_path")]
+    committed = [
+        row
+        for row in visual_rows
+        if local_asset_exists(root, row.get("committed_image_path", ""))
+    ]
     if not observation or not committed:
         return ""
     row = committed[0]
@@ -2036,6 +2114,7 @@ def build_outputs(root: Path) -> dict[str, dict]:
             image_rows.get(project_id, []),
             read_existing_visual_rows(visual_index_path),
         )
+        visual_rows = normalize_visual_rows(root, visual_rows)
         outputs[project_id] = {
             "object_dir": object_dir,
             "readme_path": object_dir / "README.md",
@@ -2045,16 +2124,22 @@ def build_outputs(root: Path) -> dict[str, dict]:
             "readme_text": build_readme_text(
                 project_id,
                 object_dir.relative_to(root),
+                root,
                 packet_name,
                 packet,
                 visual_rows,
                 bool(MATERIAL_VISUAL_OBSERVATIONS.get(project_id))
-                and any(row.get("committed_image_path") for row in visual_rows),
+                and any(
+                    local_asset_exists(root, row.get("committed_image_path", ""))
+                    for row in visual_rows
+                ),
             ),
-            "gallery_text": build_gallery_text(project_id, packet_name, packet, visual_rows),
+            "gallery_text": build_gallery_text(
+                project_id, packet_name, packet, visual_rows, root
+            ),
             "visual_rows": visual_rows,
             "material_observation_text": build_material_observation_text(
-                project_id, object_dir, packet, visual_rows
+                project_id, object_dir, packet, visual_rows, root
             ),
         }
     return outputs

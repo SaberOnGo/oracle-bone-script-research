@@ -17,6 +17,7 @@ human-only directory.
 - Structured support packet / 结构化辅助包: `01_candidate-character-packet.json`
 - Visual/source index / 图像与来源索引: `02_visual-source-index.csv`
 - Committed local review images / 已提交本地复核图像数: `1`
+- Registered image routes / 已登记图像路线数: `1`
 
 ## Research Boundary / 研究边界
 

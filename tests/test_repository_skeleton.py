@@ -7371,7 +7371,9 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_character_local_materials_builder_keeps_outputs_inside_object_dirs(self) -> None:
         module = load_character_local_materials_module()
         outputs = module.build_outputs(repo_root())
-        self.assertEqual(set(outputs), set(module.TARGET_PROJECT_IDS))
+        self.assertEqual(len(outputs), 10996)
+        self.assertIn("obs-char-001588", outputs)
+        self.assertIn("obs-unk-009408", outputs)
         for project_id, output in outputs.items():
             object_dir = output["object_dir"]
             self.assertIn("corpus/001_oracle-characters", object_dir.as_posix())

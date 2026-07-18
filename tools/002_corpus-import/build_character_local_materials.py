@@ -719,6 +719,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "a thin central stroke descending below it with a short side mark.",
         "低分辨率灰度图像上方有小型横向围合痕迹，下方有细直主笔，并带短侧向痕迹。",
     ),
+    "obs-char-000141": (
+        "The image has an angled upper cap above a compact grid-like middle form, "
+        "with several short uprights extending below the lower edge.",
+        "图像上方有折角盖状形，中部为紧凑的网格状形体，下缘向下伸出数道短竖笔。",
+    ),
+    "obs-char-000142": (
+        "The broad image combines a heavy left vertical with two horizontal bands "
+        "and a separate tall curved form on the right.",
+        "宽大图像左侧有粗重竖笔和两道横向带状笔，右侧另有一处高而弯曲的形体。",
+    ),
+    "obs-char-000143": (
+        "The narrow image has a small forked upper stem, a rounded loop on the "
+        "left, and a long curved stroke descending on the right.",
+        "狭长图像上方有小分叉主笔，左侧有圆弧环状笔，右侧有长弯曲下行笔。",
+    ),
+    "obs-char-000144": (
+        "The image has a pointed upper mark, a banded diagonal form opening toward "
+        "the lower left, and a thin curved stroke descending on the right.",
+        "图像上方有尖状痕迹，左下方有带平行横痕的斜向开放形，右侧有细弯曲下行笔。",
+    ),
+    "obs-char-000145": (
+        "The image has a broad angular upper chevron, a rounded open lower-left "
+        "frame, and a central descending stroke with a short branch.",
+        "图像上方有宽折角形，下方左侧有圆弧开放框，中部有下行主笔并带短分支。",
+    ),
+    "obs-char-000146": (
+        "The narrow image has a short upper horizontal mark, two long descending "
+        "curved strokes, and a small forked mark near the bottom.",
+        "狭长图像上方有短横笔，两道长弯曲笔向下延伸，底部附近有小型分叉痕迹。",
+    ),
+    "obs-char-000147": (
+        "The very narrow image has several short side marks on the left, a long "
+        "descending stroke, and a compact branching knot near the lower end.",
+        "极狭长图像左侧有数道短侧痕，中央有长下行笔，下端附近有紧凑分叉交结。",
+    ),
+    "obs-char-000148": (
+        "The image has a central crossing, a long pointed descending stroke, and "
+        "short outward projections on both sides near the upper half.",
+        "图像中部有交叉点，向下延伸长而尖的主笔，上半部两侧有短向外伸笔。",
+    ),
+    "obs-char-000149": (
+        "The image combines a long curved stroke on the left with a compact upper "
+        "enclosure and a narrow descending stroke on the right.",
+        "图像左侧有长弯曲笔，右侧上方有紧凑围合形，并有窄下行笔向下延伸。",
+    ),
+    "obs-char-000150": (
+        "The image has two curved upper side strokes around a small rectangular "
+        "middle enclosure, with a central vertical stroke below it.",
+        "图像上方两侧有弯曲笔围绕小型长方形中部围合，下方接一条中央竖笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

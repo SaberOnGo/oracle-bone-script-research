@@ -135,6 +135,29 @@ research evidence.
 - EvoBC image references / EvoBC 图像引用数: `2`
 - EvoBC oracle-bone refs / EvoBC 甲骨来源标记: `false`
 - Route review status / 路线复核状态: `needs_cross_source_review`
+### EvoBC Object-Local Human Routes / EvoBC 对象内人类档案路线
+
+- Matched candidate folders / 匹配候选目录: `evobc-evo-cat-00149`
+- Human review files / 人类复核文件:
+  corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand
+  -bucket_evolution-candidates/149_obs-evo-cand-000149_evobc-cat-00149_evoluti
+  on-candidate/README.md
+  corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand
+  -bucket_evolution-candidates/149_obs-evo-cand-000149_evobc-cat-00149_evoluti
+  on-candidate/07_human-evolution-dossier.md
+  corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand
+  -bucket_evolution-candidates/149_obs-evo-cand-000149_evobc-cat-00149_evoluti
+  on-candidate/09_cross-period-review-dossier.md
+  corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand
+  -bucket_evolution-candidates/149_obs-evo-cand-000149_evobc-cat-00149_evoluti
+  on-candidate/11_evolution-review-fact-matrix.md
+  corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand
+  -bucket_evolution-candidates/149_obs-evo-cand-000149_evobc-cat-00149_evoluti
+  on-candidate/12_modern-label-caution-review.md
+These routes point to object-local EVOBC human dossiers. They are candidate
+comparison material only; open the cited images, source codes, bibliography,
+and dispute records before any correspondence statement.
+这些路线指向对象目录内的 EVOBC 人类档案。它们只能作为候选比较材料；在写任何对应说明前，必须打开所列图像、来源代码、书目和争议记录。
 Boundary: these are exact dataset-codepoint lookup routes only. They do not
 confirm identity, reading, meaning, component, variant, evolution
 correspondence, or decipherment.

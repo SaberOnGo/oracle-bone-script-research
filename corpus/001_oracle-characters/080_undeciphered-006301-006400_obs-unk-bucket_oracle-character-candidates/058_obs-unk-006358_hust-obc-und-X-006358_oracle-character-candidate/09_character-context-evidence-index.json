@@ -68,6 +68,7 @@
     "rights_statuses": [],
     "route_files": []
   },
+  "evolution_object_human_routes": [],
   "human_context_sections": [
     "glyph_image_and_observation_routes",
     "variant_near_shape_and_component_clues",

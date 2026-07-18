@@ -23,6 +23,9 @@ OBJECT_ROOT = Path("corpus/001_oracle-characters")
 SOURCE_OBJECT_ROOT = Path(
     "corpus/006_research-sources-and-bibliography/001_source-objects"
 )
+EVOLUTION_OBJECT_ROOT = Path(
+    "corpus/004_bronze-seal-modern-correspondences"
+)
 GRAPH_FILES = [
     Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
@@ -74,6 +77,45 @@ def crosswalk_rows_by_character(root: Path) -> dict[str, list[dict[str, str]]]:
         if project_id:
             rows_by_character[project_id].append(row)
     return rows_by_character
+
+
+def evolution_object_routes_by_category(root: Path) -> dict[str, list[str]]:
+    """Index object-local EVOBC human files by candidate category ID."""
+    routes: dict[str, list[str]] = {}
+    pattern = re.compile(r"_evobc-cat-(\d+)_evolution-candidate$")
+    for object_dir in sorted(
+        (root / EVOLUTION_OBJECT_ROOT).glob(
+            "*/*_evobc-cat-*_evolution-candidate"
+        )
+    ):
+        match = pattern.search(object_dir.name)
+        if not match:
+            continue
+        category_id = f"evobc-evo-cat-{match.group(1)}"
+        routes[category_id] = [
+            (object_dir / name).relative_to(root).as_posix()
+            for name in (
+                "README.md",
+                "07_human-evolution-dossier.md",
+                "09_cross-period-review-dossier.md",
+                "11_evolution-review-fact-matrix.md",
+                "12_modern-label-caution-review.md",
+            )
+            if (object_dir / name).exists()
+        ]
+    return routes
+
+
+def evolution_human_routes(
+    category_ids: list[str],
+    routes_by_category: dict[str, list[str]],
+) -> list[str]:
+    routes: list[str] = []
+    for category_id in category_ids:
+        for route in routes_by_category.get(category_id, []):
+            if route not in routes:
+                routes.append(route)
+    return routes
 
 
 def cross_source_summary(rows: list[dict[str, str]]) -> dict[str, Any]:
@@ -199,6 +241,20 @@ def short_list(values: list[str], limit: int = 4) -> str:
     shown = cleaned[:limit]
     suffix = f"; plus {len(cleaned) - limit} more" if len(cleaned) > limit else ""
     return "; ".join(shown) + suffix
+
+
+def route_bullets(label: str, routes: list[str]) -> list[str]:
+    """Render long object-local routes without hiding their exact path."""
+    if not routes:
+        return [bullet(label, concrete_pending("需核对 EvoBC 对象目录"))]
+    lines = [f"- {label}:"]
+    for route in routes:
+        remaining = route
+        while remaining:
+            chunk = remaining[: WIDTH - 2]
+            lines.append(f"  {chunk}")
+            remaining = remaining[len(chunk) :]
+    return lines
 
 
 def dataset_label(packet: dict[str, Any]) -> dict[str, str]:
@@ -383,12 +439,17 @@ def context_dossier_text(
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
     crosswalk_rows: list[dict[str, str]],
+    evolution_routes_by_category: dict[str, list[str]],
     root: Path,
 ) -> str:
     label = dataset_label(packet)
     visual = visual_summary(visual_rows)
     edge = edge_summary(edges)
     cross_source = cross_source_summary(crosswalk_rows)
+    evolution_routes = evolution_human_routes(
+        cross_source["evobc_category_ids"],
+        evolution_routes_by_category,
+    )
     catalog_route_clues = filename_catalog_route_clues(visual_rows)
     route_files = route_files_from_packet(packet)
     downloads = packet_download_ids(packet)
@@ -564,6 +625,26 @@ def context_dossier_text(
             "Route review status / 路线复核状态",
             code("; ".join(cross_source["review_statuses"]) or "needs_cross_source_review"),
         ),
+        "### EvoBC Object-Local Human Routes / EvoBC 对象内人类档案路线",
+        "",
+        bullet(
+            "Matched candidate folders / 匹配候选目录",
+            code("; ".join(cross_source["evobc_category_ids"]) or "none"),
+        ),
+        *route_bullets(
+            "Human review files / 人类复核文件",
+            evolution_routes,
+        ),
+        para(
+            "These routes point to object-local EVOBC human dossiers. They are "
+            "candidate comparison material only; open the cited images, source "
+            "codes, bibliography, and dispute records before any correspondence "
+            "statement."
+        ),
+        para(
+            "这些路线指向对象目录内的 EVOBC 人类档案。它们只能作为候选比较材料；"
+            "在写任何对应说明前，必须打开所列图像、来源代码、书目和争议记录。"
+        ),
         para(
             "Boundary: these are exact dataset-codepoint lookup routes only. "
             "They do not confirm identity, reading, meaning, component, "
@@ -668,6 +749,7 @@ def context_index(
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
     cross_source: dict[str, Any],
+    evolution_routes_by_category: dict[str, list[str]],
     root: Path,
 ) -> dict[str, Any]:
     visual = visual_summary(visual_rows)
@@ -707,6 +789,10 @@ def context_index(
         "visual_route_summary": visual,
         "graph_route_summary": edge,
         "cross_source_route_summary": cross_source,
+        "evolution_object_human_routes": evolution_human_routes(
+            cross_source["evobc_category_ids"],
+            evolution_routes_by_category,
+        ),
         "human_context_sections": [
             "glyph_image_and_observation_routes",
             "variant_near_shape_and_component_clues",
@@ -739,6 +825,7 @@ def assert_human_line_width(text: str, label: str) -> None:
 def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
     edges_by_source = graph_edges_by_source(root)
     crosswalk_by_character = crosswalk_rows_by_character(root)
+    evolution_routes_by_category = evolution_object_routes_by_category(root)
     outputs: dict[str, dict[str, Any]] = {}
     for record in discover_packet_dirs(root):
         project_id = str(record["project_id"])
@@ -755,6 +842,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
             visual_rows,
             edges,
             crosswalk_rows,
+            evolution_routes_by_category,
             root,
         )
         assert_human_line_width(dossier, project_id)
@@ -771,6 +859,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
                 visual_rows,
                 edges,
                 cross_source_summary(crosswalk_rows),
+                evolution_routes_by_category,
                 root,
             ),
         }

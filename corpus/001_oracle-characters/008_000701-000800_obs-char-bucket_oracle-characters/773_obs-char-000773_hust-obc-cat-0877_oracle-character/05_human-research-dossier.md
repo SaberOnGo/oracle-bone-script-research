@@ -151,6 +151,28 @@ evolution correspondence, or decipherment.
 边界：这些值只是数据集码位精确匹配路线。它们不能确认甲骨单字身份、释读、意义、构件、异体、演化对应关系或破译结论。
 
 - OBIMD/EvoBC route status: `候选路线：需要核对 OBIMD、EvoBC 和 cross-source 图边`
+### EvoBC Object-Local Human Routes / EvoBC 对象内人类档案路线
+
+- matched candidate folders / 匹配候选目录: `evobc-evo-cat-00071`
+- human review files / 人类复核文件: `corpus/004_bronze-seal-modern-correspondences/
+  001_000001-000100_obs-evo-cand-bucket_evolution-candidates/071_obs-evo-can
+  d-000071_evobc-cat-00071_evolution-candidate/README.md;
+  corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand
+  -bucket_evolution-candidates/071_obs-evo-cand-000071_evobc-cat-00071_evolu
+  tion-candidate/07_human-evolution-dossier.md;
+  corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand
+  -bucket_evolution-candidates/071_obs-evo-cand-000071_evobc-cat-00071_evolu
+  tion-candidate/09_cross-period-review-dossier.md;
+  corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand
+  -bucket_evolution-candidates/071_obs-evo-cand-000071_evobc-cat-00071_evolu
+  tion-candidate/11_evolution-review-fact-matrix.md;
+  corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand
+  -bucket_evolution-candidates/071_obs-evo-cand-000071_evobc-cat-00071_evolu
+  tion-candidate/12_modern-label-caution-review.md`
+These routes point to object-local EVOBC human dossiers. They are candidate
+comparison material only; open the cited images, source codes, bibliography,
+and dispute records before any correspondence statement.
+这些路线指向对象目录内的 EVOBC 人类档案。它们只能作为候选比较材料；在写任何对应说明前，必须打开所列图像、来源代码、书目和争议记录。
 
 ## 5. Variants, Components, And Similar Forms / 异体构件近形
 

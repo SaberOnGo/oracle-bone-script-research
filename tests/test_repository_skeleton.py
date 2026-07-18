@@ -4056,6 +4056,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             matched["index_data"]["cross_source_summary"]["cross_source_statuses"],
             ["matched_obimd_and_evobc_by_codepoint"],
         )
+        self.assertIn("07_human-evolution-dossier.md", matched["dossier_text"])
+        evolution_routes = matched["index_data"]["evolution_object_human_routes"]
+        self.assertTrue(evolution_routes)
+        self.assertTrue(
+            all((repo_root() / route).is_file() for route in evolution_routes)
+        )
+        self.assertTrue(
+            any(route.endswith("/07_human-evolution-dossier.md") for route in evolution_routes)
+        )
         self.assertEqual(
             first["index_data"]["archaeological_folder_coverage"]["inscription_occurrences"],
             "needs_inscription_plate_text_review_route",
@@ -4158,6 +4167,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "鐢",
             ):
                 self.assertNotIn(fragment, dossier_text)
+
             for line in dossier_text.splitlines():
                 if not line.startswith("!["):
                     self.assertLessEqual(len(line), 80, line)
@@ -4201,6 +4211,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             matched["index_data"]["cross_source_route_summary"]["row_count"],
             1,
+        )
+        self.assertIn("07_human-evolution-dossier.md", matched["dossier_text"])
+        evolution_routes = matched["index_data"]["evolution_object_human_routes"]
+        self.assertTrue(evolution_routes)
+        self.assertTrue(
+            any(route.endswith("/09_cross-period-review-dossier.md") for route in evolution_routes)
+        )
+        self.assertTrue(
+            all((repo_root() / route).is_file() for route in evolution_routes)
         )
     def test_character_archaeology_paleography_reviews_are_colocated(self) -> None:
         module = load_character_archaeology_paleography_reviews_module()

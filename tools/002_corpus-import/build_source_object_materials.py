@@ -1082,6 +1082,157 @@ def source_literature_scope_review_text(source: dict[str, str]) -> str:
                 "",
             ]
         )
+    elif source["source_id"] == "src-evobc":
+        lines.extend(
+            [
+                "## Primary Preprint And Dataset Paper / 主要预印本与数据论文",
+                *bullet(
+                    "Citation / 引用",
+                    "Guan, H., Wan, J., Liu, Y. et al. An open dataset for the "
+                    "evolution of oracle bone characters: EVOBC. arXiv:2401.12467.",
+                ),
+                *bullet(
+                    "Version and DOI / 版本与 DOI",
+                    "The arXiv record was submitted 2024-01-23 and revised to "
+                    "v2 on 2024-02-13; DOI: "
+                    "https://doi.org/10.48550/arXiv.2401.12467.",
+                ),
+                *bullet(
+                    "Authors and responsibility / 作者与责任",
+                    "The record lists Haisu Guan, Jinpeng Wan, Yuliang Liu, "
+                    "Pengjie Wang, Kaile Zhang, Zhebin Kuang, Xinyu Wang, "
+                    "Shengwei Han, Yongge Liu, Xiang Bai, and Lianwen Jin; "
+                    "Yuliang Liu is the corresponding author.",
+                ),
+                *bullet(
+                    "Evidence level / 证据等级",
+                    "Primary public preprint and dataset descriptor; it reports "
+                    "collection and technical validation, not an archaeological "
+                    "catalog identity or confirmed reading.",
+                ),
+                "",
+                "## Reported Dataset Scope / 论文报告的资料范围",
+                *bullet(
+                    "Historical stages / 历史阶段",
+                    "The paper defines OBC, BI, SS, SAC, WSC, and CS, from oracle "
+                    "bone characters through bronze, seal, Spring and Autumn, "
+                    "Warring States, and clerical script.",
+                ),
+                *bullet(
+                    "Reported scale / 论文报告规模",
+                    "The dataset reports 229,170 images in 13,714 character "
+                    "categories. Local metadata records are source evidence only; "
+                    "they do not mean all images are in this repository.",
+                ),
+                *bullet(
+                    "Source split / 来源分布",
+                    "The paper reports 90,882 images from books and 138,288 from "
+                    "web repositories. Its table names YinQiWenYuan, "
+                    "GuoXueDaShi, Oracle Bone Character Compilation, "
+                    "Compilation of Western Zhou Bronze Inscription, Spring and "
+                    "Autumn Script Glyph Table, and Table of Glyphs for Warring "
+                    "States.",
+                ),
+                "",
+                "## Reported Processing And Review / 论文报告的处理与复核",
+                *bullet(
+                    "Book extraction / 图书抽取",
+                    "The reported pipeline crops page slices, groups slices by "
+                    "header OCR and reading order, then extracts image patches "
+                    "with edge detection and iterative box merging.",
+                ),
+                *bullet(
+                    "Web extraction / 网站抽取",
+                    "The paper says web repositories supplied already cropped and "
+                    "aligned images, so the book segmentation steps were not "
+                    "applied in the same way.",
+                ),
+                *bullet(
+                    "Normalization / 规范化",
+                    "Reported formatting includes background normalization, "
+                    "merging simplified and traditional labels, and a "
+                    "Source_Era_ID naming route. These are dataset operations, "
+                    "not proof of historical correspondence.",
+                ),
+                *bullet(
+                    "Human review / 人工复核",
+                    "The paper reports comparison with original book manuscripts, "
+                    "correction or removal of low-quality and wrongly annotated "
+                    "images, and external review by oracle-bone scholars.",
+                ),
+                "",
+                "## Citation And Source Relations / 引用与来源关系",
+                *bullet(
+                    "Cited source routes / 被引来源路线",
+                    "The paper connects EVOBC to YinQiWenYuan, GuoXueDaShi, "
+                    "Oracle Bone Character Compilation, Western Zhou bronze "
+                    "inscriptions, Spring and Autumn glyphs, and Warring States "
+                    "glyphs. Each route needs its own bibliography and rights "
+                    "review.",
+                ),
+                *bullet(
+                    "Local package routes / 本地来源包路线",
+                    "Key&Value.json and List_of_EVOBC.json provide category and "
+                    "image-reference metadata; Statistics.xlsx provides a compact "
+                    "statistics route. They are reviewed metadata, not raw image "
+                    "rights clearance.",
+                ),
+                *bullet(
+                    "Object transfer boundary / 对象转入边界",
+                    "An OBC-to-later-script link is only a candidate comparison "
+                    "route until the visible glyph, source page, catalog trail, "
+                    "and human dossier are checked.",
+                ),
+                "",
+                "## Reported Limits, Disputes, And Rights / 限制、争议与权利",
+                *bullet(
+                    "Modern labels / 今字标签",
+                    "The paper uses modern-character category labels to organize "
+                    "samples. Local review keeps them as lookup labels, not "
+                    "confirmed oracle readings or evolution claims.",
+                ),
+                *bullet(
+                    "Simulated deciphering / 释读模拟",
+                    "The paper reports classification and image-generation "
+                    "experiments as simulated deciphering. Their scores and "
+                    "generated images are AI validation evidence, not accepted "
+                    "scholarly decipherment.",
+                ),
+                *bullet(
+                    "Source and identity disputes / 来源与身份争议",
+                    "The paper combines multiple books and websites; category "
+                    "merging, source labels, OCR grouping, and alleged evolution "
+                    "links require independent human comparison. No dispute is "
+                    "resolved by this source note.",
+                ),
+                *bullet(
+                    "License / 许可",
+                    "The arXiv record links a CC BY-NC-ND 4.0 deed. Local rights "
+                    "status remains source_marked_risk_noted because component "
+                    "images and third-party book or website material need separate "
+                    "rights checks.",
+                ),
+                "",
+                "## Concrete Bibliography Checks / 具体文献核查",
+                "- Verify the arXiv version, DOI, author list, and local checksum",
+                "  rows before citing a paper-reported count.",
+                "- Open each named book and website route and record page, plate,",
+                "  catalog, object, and image provenance where available.",
+                "- Compare Key&Value.json, List_of_EVOBC.json, Statistics.xlsx,",
+                "  and the paper before promoting any category or stage mapping.",
+                "- For every candidate evolution edge, preserve the visible form,",
+                "  source route, modern label, and human review status separately.",
+                "- 复核 arXiv 版本、DOI、作者名单和本地 checksum 后，才能引用",
+                "  论文报告的统计数值。",
+                "- 逐一打开论文所列图书和网站，记录页码、图版、著录号、",
+                "  馆藏对象和图像出处。",
+                "- 将 Key&Value.json、List_of_EVOBC.json、Statistics.xlsx 与",
+                "  论文相互核对，再决定是否生成派生字段。",
+                "- 每条候选演化边都要分开保存可见字形、来源路线、今字标签",
+                "  和人工复核状态，不写成已确认对应关系。",
+                "",
+            ]
+        )
     lines.extend(
         [
         "## Literature And Database Review Slots / 文献与数据库复核槽位",

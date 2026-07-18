@@ -9209,6 +9209,25 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", obimd_literature_text)
         self.assertNotIn("not_collected", obimd_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in obimd_literature_text.splitlines()))
+        evobc_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "018_src-evobc_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        evobc_literature_flat = " ".join(evobc_literature_text.split())
+        self.assertIn(
+            "Primary Preprint And Dataset Paper / 主要预印本与数据论文",
+            evobc_literature_text,
+        )
+        self.assertIn("10.48550/arXiv.2401.12467", evobc_literature_text)
+        self.assertIn("Reported Dataset Scope / 论文报告的资料范围", evobc_literature_text)
+        self.assertIn("229,170 images", evobc_literature_text)
+        self.assertIn("90,882 images from books", evobc_literature_flat)
+        self.assertIn("Simulated deciphering / 释读模拟", evobc_literature_text)
+        self.assertIn("CC BY-NC-ND 4.0 deed", evobc_literature_flat)
+        self.assertIn("具体文献核查", evobc_literature_text)
+        self.assertNotIn("not_collected", evobc_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in evobc_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

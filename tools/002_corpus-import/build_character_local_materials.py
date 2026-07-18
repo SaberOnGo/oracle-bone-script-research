@@ -919,6 +919,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "thickness and tapering ends.",
         "图像含两道分离的短弯曲竖笔，粗细不均，末端呈渐细收笔。",
     ),
+    "obs-char-000181": (
+        "The image has two long curved descending strokes and a small rounded loop "
+        "near the lower center.",
+        "图像有两道长弯曲下行笔，中部下方附近有小型圆弧环。",
+    ),
+    "obs-char-000182": (
+        "The image has a pointed upper junction, two long outer strokes descending "
+        "on both sides, and a short central lower stroke.",
+        "图像上方有尖状交接点，两侧有长外笔向下延伸，中部下方有短笔。",
+    ),
+    "obs-char-000183": (
+        "The low-resolution image shows a small horizontal crossing, a short left "
+        "projection, and a thin diagonal stroke descending toward the lower right.",
+        "低分辨率图像可见小型横向交叉、左侧短伸笔，以及向右下延伸的细斜笔。",
+    ),
+    "obs-char-000184": (
+        "The dark image has a rounded upper enclosure, two long side strokes, and a "
+        "curved lower-right projection crossing the interior.",
+        "深色图像上方有圆弧围合，两侧有长竖笔，右下方有弯曲伸笔穿过内部。",
+    ),
+    "obs-char-000185": (
+        "The image has a narrow forked upper stem and several curved overlapping "
+        "strokes gathered in the lower half.",
+        "图像上方有窄分叉主笔，下半部聚集数道相互重叠的弯曲笔。",
+    ),
+    "obs-char-000186": (
+        "The image forms a deep U-shaped lower frame with two upright side strokes, "
+        "short upper caps, and crossing strokes inside the lower opening.",
+        "图像下部形成深 U 形框，两侧有竖笔，上端有短盖笔，框内有交叉笔。",
+    ),
+    "obs-char-000187": (
+        "The image has a compact banded upper cluster, a central descending group of "
+        "strokes, and irregular side projections.",
+        "图像上方有紧凑带状笔群，中部有分组下行笔，两侧有不规则伸出笔。",
+    ),
+    "obs-char-000188": (
+        "The broad image has several upright strokes crossing a horizontal banded "
+        "form, with diagonal projections extending below both sides.",
+        "宽大图像有数道竖笔穿过横向带状形体，两侧向下伸出斜向笔。",
+    ),
+    "obs-char-000189": (
+        "The low-resolution gray image has two rounded upper lobes above a short "
+        "horizontal base and a thin central descending stroke.",
+        "低分辨率灰度图像上方有两个圆弧上部，下面接短横底部和细中央下行笔。",
+    ),
+    "obs-char-000190": (
+        "The image has a pointed upper enclosure with long strokes descending on both "
+        "sides and a shorter diagonal projection toward the right.",
+        "图像上方有尖顶围合，两侧有长笔向下延伸，右侧另有较短斜向伸笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

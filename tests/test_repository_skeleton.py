@@ -7564,6 +7564,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000178", "rectangular outer frame"),
             ("obs-char-000179", "heavy upper horizontal bar"),
             ("obs-char-000180", "two separate short curved vertical strokes"),
+            ("obs-char-000181", "two long curved descending strokes"),
+            ("obs-char-000182", "pointed upper junction"),
+            ("obs-char-000183", "low-resolution image"),
+            ("obs-char-000184", "rounded upper enclosure"),
+            ("obs-char-000185", "narrow forked upper stem"),
+            ("obs-char-000186", "deep U-shaped lower frame"),
+            ("obs-char-000187", "compact banded upper cluster"),
+            ("obs-char-000188", "upright strokes crossing"),
+            ("obs-char-000189", "two rounded upper lobes"),
+            ("obs-char-000190", "pointed upper enclosure"),
         ):
             self.assertIn(
                 expected_fragment,

@@ -869,6 +869,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "upper branch, and short side strokes crossing near the middle.",
         "低分辨率灰度图像有细中央竖笔，上方有小分支，中部附近有短侧笔交叉。",
     ),
+    "obs-char-000171": (
+        "The image has a three-pronged upper form, a long curved descending stroke, "
+        "and a short angular projection near the lower left.",
+        "图像上部呈三叉形，下方有长弯曲下行笔，左下附近有短折角伸出笔。",
+    ),
+    "obs-char-000172": (
+        "The narrow image has a long central descending stroke, short upper side "
+        "marks, and a branching projection toward the right at mid-height.",
+        "狭长图像中部有长下行主笔，上方有短侧痕，中部高度向右伸出分支。",
+    ),
+    "obs-char-000173": (
+        "The tall image has a central vertical stroke with short irregular branches "
+        "extending to both sides.",
+        "高形图像中部有竖直主笔，两侧伸出长短不齐的短分支。",
+    ),
+    "obs-char-000174": (
+        "The image has a rounded angular upper loop connected to a long curved stroke "
+        "that descends and hooks toward the lower right.",
+        "图像上方有圆弧折角环状形，连接长弯曲笔向下延伸并在右下方收成钩状。",
+    ),
+    "obs-char-000175": (
+        "The image has a broad forked upper form, a narrow central descending stroke, "
+        "and a small curved lower continuation.",
+        "图像上方有宽分叉形，中部有窄下行主笔，下方接小段弯曲延续笔。",
+    ),
+    "obs-char-000176": (
+        "The image has a leaf-like upper cluster with several internal curved strokes "
+        "and a thin pointed continuation below.",
+        "图像上方有叶状笔群，内部含数道弯曲笔，下方接细而尖的延续笔。",
+    ),
+    "obs-char-000177": (
+        "The image is a single broad inverted V-shaped form with two long tapering "
+        "strokes meeting at the top.",
+        "图像由单一宽大的倒 V 形构成，两道长而渐细的笔在上方相接。",
+    ),
+    "obs-char-000178": (
+        "The image has a rectangular outer frame with a central angled opening and "
+        "two short vertical strokes descending below the lower edge.",
+        "图像有长方形外框，中部为折角开口，下缘向下伸出两道短竖笔。",
+    ),
+    "obs-char-000179": (
+        "The large dark image has a heavy upper horizontal bar, two long side "
+        "strokes, a central angular crossing form, and a small detached dot.",
+        "大幅深色图像上方有粗重横梁，两侧有长竖笔，中部有折角交叉形，并有小分离点痕。",
+    ),
+    "obs-char-000180": (
+        "The image contains two separate short curved vertical strokes with uneven "
+        "thickness and tapering ends.",
+        "图像含两道分离的短弯曲竖笔，粗细不均，末端呈渐细收笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

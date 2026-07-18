@@ -7554,6 +7554,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000168", "small triangular upper frame"),
             ("obs-char-000169", "short horizontal and diagonal branches"),
             ("obs-char-000170", "thin central vertical stroke"),
+            ("obs-char-000171", "three-pronged upper form"),
+            ("obs-char-000172", "long central descending stroke"),
+            ("obs-char-000173", "central vertical stroke"),
+            ("obs-char-000174", "rounded angular upper loop"),
+            ("obs-char-000175", "broad forked upper form"),
+            ("obs-char-000176", "leaf-like upper cluster"),
+            ("obs-char-000177", "inverted V-shaped form"),
+            ("obs-char-000178", "rectangular outer frame"),
+            ("obs-char-000179", "heavy upper horizontal bar"),
+            ("obs-char-000180", "two separate short curved vertical strokes"),
         ):
             self.assertIn(
                 expected_fragment,

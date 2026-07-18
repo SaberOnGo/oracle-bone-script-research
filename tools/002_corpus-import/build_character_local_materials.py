@@ -669,6 +669,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "and a short horizontal crossing mark near the lower end.",
         "狭长图像有长弯曲主笔，上方有小分叉，下端附近有短横交叉痕迹。",
     ),
+    "obs-char-000131": (
+        "The narrow image has a small angular upper junction, a long descending "
+        "stroke on the right, and a broken curved stroke along the left edge.",
+        "狭长图像上方有小型折角交接处，右侧有长下行笔，左缘有断续弯曲笔。",
+    ),
+    "obs-char-000132": (
+        "The dark image has a thick central descending stroke with several short "
+        "curved branches extending unevenly to both sides.",
+        "深色图像中部有粗长下行笔，两侧向外伸出数道长短不齐的弯曲分笔。",
+    ),
+    "obs-char-000133": (
+        "The image has a tall central vertical stroke, a short horizontal cross "
+        "near the top, and separate curved strokes on both sides.",
+        "图像中部有高直主笔，上方附近有短横交叉笔，两侧另有分离的弯曲笔。",
+    ),
+    "obs-char-000134": (
+        "Several narrow strokes meet near the center, with an upper fork, a long "
+        "leftward curve, and short lower projections.",
+        "数道窄笔在中部附近汇合，上方有分叉，左侧有长弯曲笔，下方有短伸出笔。",
+    ),
+    "obs-char-000135": (
+        "The large image has a long upper stem that opens into a rounded right "
+        "loop, while multiple curved strokes descend on the left and below.",
+        "大幅图像上方有长直笔，向下分开形成右侧圆弧环状形，左侧和下方有多道弯曲下行笔。",
+    ),
+    "obs-char-000136": (
+        "The image combines a small angular cluster at the top with a narrow "
+        "curved stroke extending downward from its right side.",
+        "图像上方有小型折角笔群，右侧连接一条向下延伸的窄弯曲笔。",
+    ),
+    "obs-char-000137": (
+        "The image shows an open triangular upper frame, a crossbar inside it, "
+        "and a narrow pointed stroke descending from the center.",
+        "图像上部为开放三角形框，内部有横笔，中央向下延伸一条窄而尖的笔画。",
+    ),
+    "obs-char-000138": (
+        "The tall image has a central descending stroke with two long curved side "
+        "strokes and a short diagonal projection near the middle.",
+        "高形图像中部有下行主笔，两侧有两道长弯曲笔，中部附近另有短斜向伸笔。",
+    ),
+    "obs-char-000139": (
+        "The image has a central crossing point with four uneven strokes spreading "
+        "upward and downward, including a curved lower-left stroke.",
+        "图像中部有交叉点，四道长短不齐的笔画向上下展开，其中左下方有弯曲笔。",
+    ),
+    "obs-char-000140": (
+        "The low-resolution gray image has a small horizontal upper enclosure and "
+        "a thin central stroke descending below it with a short side mark.",
+        "低分辨率灰度图像上方有小型横向围合痕迹，下方有细直主笔，并带短侧向痕迹。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

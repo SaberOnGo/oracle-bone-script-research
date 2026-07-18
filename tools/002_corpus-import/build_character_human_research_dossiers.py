@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import textwrap
 from collections import defaultdict
 from pathlib import Path
@@ -177,6 +178,30 @@ def dataset_label(packet: dict[str, Any]) -> dict[str, str]:
     if isinstance(label, dict):
         return {str(key): str(value) for key, value in label.items()}
     return {}
+
+
+def filename_catalog_route_clues(
+    visual_rows: list[dict[str, str]],
+) -> list[str]:
+    """Extract catalog-like strings from source filenames as review routes."""
+    clues: list[str] = []
+    seen: set[str] = set()
+    patterns = (
+        (re.compile(r"合\d+"), "Heji-like filename clue"),
+        (re.compile(r"(?:YH|H)[-_]?\d+", re.IGNORECASE), "catalog-like filename clue"),
+    )
+    for row in visual_rows:
+        route = str(row.get("source_image_reference_path", ""))
+        if not route:
+            continue
+        name = Path(route).name
+        for pattern, label in patterns:
+            for match in pattern.findall(name):
+                clue = f"{label}: {match} ({name})"
+                if clue not in seen:
+                    seen.add(clue)
+                    clues.append(clue)
+    return clues
 
 
 def local_asset_exists(root: Path, path: str) -> bool:
@@ -410,6 +435,7 @@ def dossier_text(
     edge = edge_summary(edges)
     visual_note = visual_note_summary(object_dir)
     first_visual = visual_rows[0] if visual_rows else {}
+    catalog_route_clues = filename_catalog_route_clues(visual_rows)
     source_package = str(
         packet.get("source_package_id", "")
         or first_visual.get("source_package_id", "")
@@ -553,6 +579,16 @@ def dossier_text(
         bullet("inscription occurrence count", pending("需要核对卜辞编号和字位出现记录")),
         bullet("full inscription text", pending("需要核对卜辞全文或 OCR 路线")),
         bullet("plate or catalog number", pending("需要核对图版号、著录号或合集号")),
+        bullet(
+            "filename catalog route clues",
+            code_value("; ".join(catalog_route_clues))
+            if catalog_route_clues
+            else pending("需要从来源图像文件名和原始著录路线继续核对"),
+        ),
+        bullet(
+            "catalog clue boundary",
+            candidate_pending("文件名线索只能定位待查著录，不确认卜辞身份或合集号"),
+        ),
         bullet("occurrence review route", "`195_inscription-plate...checklist.csv`"),
         "",
         "## 7. Provenance, Findspot, Collection, And Period / 出处",

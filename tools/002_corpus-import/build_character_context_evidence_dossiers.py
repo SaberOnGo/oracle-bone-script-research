@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import textwrap
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -144,6 +145,30 @@ def dataset_label(packet: dict[str, Any]) -> dict[str, str]:
     return {}
 
 
+def filename_catalog_route_clues(
+    visual_rows: list[dict[str, str]],
+) -> list[str]:
+    """Extract catalog-like strings from source filenames as review routes."""
+    clues: list[str] = []
+    seen: set[str] = set()
+    patterns = (
+        (re.compile(r"合\d+"), "Heji-like filename clue"),
+        (re.compile(r"(?:YH|H)[-_]?\d+", re.IGNORECASE), "catalog-like filename clue"),
+    )
+    for row in visual_rows:
+        route = str(row.get("source_image_reference_path", ""))
+        if not route:
+            continue
+        name = Path(route).name
+        for pattern, label in patterns:
+            for match in pattern.findall(name):
+                clue = f"{label}: {match} ({name})"
+                if clue not in seen:
+                    seen.add(clue)
+                    clues.append(clue)
+    return clues
+
+
 def packet_download_ids(packet: dict[str, Any]) -> list[str]:
     if isinstance(packet.get("evidence_download_ids"), list):
         return [str(value) for value in packet["evidence_download_ids"]]
@@ -273,6 +298,7 @@ def context_dossier_text(
     label = dataset_label(packet)
     visual = visual_summary(visual_rows)
     edge = edge_summary(edges)
+    catalog_route_clues = filename_catalog_route_clues(visual_rows)
     route_files = route_files_from_packet(packet)
     downloads = packet_download_ids(packet)
     first_visual = visual_rows[0] if visual_rows else {}
@@ -381,6 +407,16 @@ def context_dossier_text(
         bullet(
             "Heji or old catalog number / 合集或旧著录号",
             "待查：需核对合集号、旧著录号和目录互证记录",
+        ),
+        bullet(
+            "Filename catalog route clues / 文件名著录线索",
+            code("; ".join(catalog_route_clues))
+            if catalog_route_clues
+            else concrete_pending("需从来源图像文件名和原始著录路线继续核对"),
+        ),
+        bullet(
+            "Catalog clue boundary / 著录线索边界",
+            "文件名线索只能定位待查著录，不确认卜辞身份或合集号",
         ),
         bullet(
             "Route files / route 文件",

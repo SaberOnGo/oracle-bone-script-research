@@ -49,6 +49,9 @@ tracing, comparison, and audit.
 - Inscription occurrence / 卜辞出现: 待查：需核对卜辞编号、全文或 OCR、上下文和字位
 - Plate and page / 图版与页码: 待查：需核对图版号、页码、著录来源和影像路线
 - Heji or old catalog number / 合集或旧著录号: 待查：需核对合集号、旧著录号和目录互证记录
+- Filename catalog route clues / 文件名著录线索: `Heji-like filename clue: 合21398
+  (G_0302_乙102合21398.png)`
+- Catalog clue boundary / 著录线索边界: 文件名线索只能定位待查著录，不确认卜辞身份或合集号
 - Route files / route 文件: 009_hust-obc-obs-char-promotion-review-queue.csv;
   000_hust-obc-promotion-bucket-manifest.csv;
   005_hust-obc-validation-class-staging.csv;

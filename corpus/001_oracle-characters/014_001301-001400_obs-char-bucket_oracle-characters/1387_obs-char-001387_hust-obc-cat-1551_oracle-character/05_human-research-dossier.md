@@ -138,6 +138,9 @@ cross-source and human review are complete.
 - inscription occurrence count: `待查：需要核对卜辞编号和字位出现记录`
 - full inscription text: `待查：需要核对卜辞全文或 OCR 路线`
 - plate or catalog number: `待查：需要核对图版号、著录号或合集号`
+- filename catalog route clues: `Heji-like filename clue: 合150
+  (G_1551_乙2101合150賓組.png)`
+- catalog clue boundary: `候选路线：文件名线索只能定位待查著录，不确认卜辞身份或合集号`
 - occurrence review route: `195_inscription-plate...checklist.csv`
 
 ## 7. Provenance, Findspot, Collection, And Period / 出处

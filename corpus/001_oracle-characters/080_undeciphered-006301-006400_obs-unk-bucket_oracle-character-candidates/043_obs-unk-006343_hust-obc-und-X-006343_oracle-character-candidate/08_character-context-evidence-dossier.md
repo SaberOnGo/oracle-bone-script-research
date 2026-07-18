@@ -49,6 +49,8 @@ tracing, comparison, and audit.
 - Inscription occurrence / 卜辞出现: 待查：需核对卜辞编号、全文或 OCR、上下文和字位
 - Plate and page / 图版与页码: 待查：需核对图版号、页码、著录来源和影像路线
 - Heji or old catalog number / 合集或旧著录号: 待查：需核对合集号、旧著录号和目录互证记录
+- Filename catalog route clues / 文件名著录线索: 待查：需从来源图像文件名和原始著录路线继续核对
+- Catalog clue boundary / 著录线索边界: 文件名线索只能定位待查著录，不确认卜辞身份或合集号
 - Route files / route 文件: 待查：需核对对象目录内索引、来源路线或统计图边记录
 - Graph files / 图边文件: 待查：需核对对象目录内索引、来源路线或统计图边记录
 

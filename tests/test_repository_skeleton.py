@@ -27515,6 +27515,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         char_text = char_path.read_text(encoding="utf-8")
         self.assertIn("Source Record Ledger / 来源记录台账", char_text)
         self.assertIn("HUST-OBC/deciphered/0001/", char_text)
+        self.assertIn("合33075", char_text)
+        self.assertIn("文件名线索只能定位待查著录", char_text)
         self.assertIn("U+2E80", char_text)
         self.assertIn("The narrow upright image shows", char_text)
         self.assertIn("本图像呈狭长直立形", char_text)

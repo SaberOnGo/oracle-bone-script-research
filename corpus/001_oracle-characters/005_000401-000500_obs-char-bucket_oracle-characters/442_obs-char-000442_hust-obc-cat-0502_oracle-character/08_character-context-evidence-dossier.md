@@ -113,6 +113,24 @@ correspondence.
   oracle-character identity, not accepted readings, not component
   assignments, not evolution-chain assignments, and not decipherment
   conclusions.
+### Concrete Cross-Source Candidate Routes / 具体跨来源候选路线
+
+- Crosswalk staging / crosswalk 文件:
+  `011_hust-obimd-evobc-codepoint-crosswalk-staging.csv`
+- Registered rows / 登记行数: `1`
+- Matched source ids / 匹配来源 ID: `src-hust-obc; src-evobc`
+- OBIMD candidate ids / OBIMD 候选 ID: `none`
+- OBIMD external refs / OBIMD 外部引用: `none`
+- OBIMD transcription field / OBIMD 转写字段: `none`
+- EvoBC evolution category ids / EvoBC 演化类别 ID: `evobc-evo-cat-00037`
+- EvoBC external refs / EvoBC 外部引用: `evobc-cat-00037`
+- EvoBC image references / EvoBC 图像引用数: `3`
+- EvoBC oracle-bone refs / EvoBC 甲骨来源标记: `false`
+- Route review status / 路线复核状态: `needs_cross_source_review`
+Boundary: these are exact dataset-codepoint lookup routes only. They do not
+confirm identity, reading, meaning, component, variant, evolution
+correspondence, or decipherment.
+边界：这些只是数据集码位精确匹配路线，不能确认单字身份、释读、意义、构件、异体、演化对应关系或破译结论。
 
 ## 5. 出土地、馆藏、时期与组类
 

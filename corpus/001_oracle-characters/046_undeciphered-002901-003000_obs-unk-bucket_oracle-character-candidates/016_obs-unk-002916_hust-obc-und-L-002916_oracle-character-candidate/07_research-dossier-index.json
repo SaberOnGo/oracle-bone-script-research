@@ -40,6 +40,21 @@
     "cross_source_statuses": [],
     "route_files": []
   },
+  "cross_source_summary": {
+    "row_count": 0,
+    "cross_source_statuses": [],
+    "matched_source_ids": [],
+    "obimd_candidate_ids": [],
+    "obimd_external_refs": [],
+    "obimd_transcriptions": [],
+    "evobc_category_ids": [],
+    "evobc_external_refs": [],
+    "evobc_image_references": [],
+    "evobc_oracle_bone_refs": [],
+    "review_statuses": [],
+    "rights_statuses": [],
+    "route_files": []
+  },
   "missing_sections": [
     "accepted_reading_and_meaning",
     "inscription_occurrences",

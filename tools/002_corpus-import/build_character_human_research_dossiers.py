@@ -25,6 +25,10 @@ GRAPH_FILES = [
     Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"),
 ]
+CROSSWALK_FILE = Path(
+    "corpus/001_oracle-characters/000_character-registers/"
+    "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"
+)
 UPDATED_AT = "2026-06-21"
 WIDTH = 78
 
@@ -42,6 +46,42 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
         return []
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
+
+
+def crosswalk_rows_by_character(root: Path) -> dict[str, list[dict[str, str]]]:
+    rows_by_character: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in read_csv_rows(root / CROSSWALK_FILE):
+        project_id = str(row.get("suggested_oracle_character_id", ""))
+        if project_id:
+            rows_by_character[project_id].append(row)
+    return rows_by_character
+
+
+def cross_source_summary(rows: list[dict[str, str]]) -> dict[str, Any]:
+    def values(field: str) -> list[str]:
+        result: list[str] = []
+        for row in rows:
+            for value in str(row.get(field, "")).split(";"):
+                value = value.strip()
+                if value and value not in result:
+                    result.append(value)
+        return result
+
+    return {
+        "row_count": len(rows),
+        "cross_source_statuses": values("cross_source_status"),
+        "matched_source_ids": values("matched_source_ids"),
+        "obimd_candidate_ids": values("obimd_candidate_main_character_ids"),
+        "obimd_external_refs": values("obimd_primary_external_ref_ids"),
+        "obimd_transcriptions": values("obimd_transcription_values"),
+        "evobc_category_ids": values("evobc_candidate_evolution_category_ids"),
+        "evobc_external_refs": values("evobc_primary_external_ref_ids"),
+        "evobc_image_references": values("evobc_image_reference_count_total"),
+        "evobc_oracle_bone_refs": values("evobc_has_oracle_bone_refs_any"),
+        "review_statuses": values("review_status"),
+        "rights_statuses": values("rights_status"),
+        "route_files": values("route_files"),
+    }
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -427,12 +467,14 @@ def dossier_text(
     packet: dict[str, Any],
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
+    crosswalk_rows: list[dict[str, str]],
     object_dir: Path,
     root: Path,
 ) -> str:
     label = dataset_label(packet)
     visual = visual_summary(visual_rows, root)
     edge = edge_summary(edges)
+    cross_source = cross_source_summary(crosswalk_rows)
     visual_note = visual_note_summary(object_dir)
     first_visual = visual_rows[0] if visual_rows else {}
     catalog_route_clues = filename_catalog_route_clues(visual_rows)
@@ -562,6 +604,56 @@ def dossier_text(
         bullet("graph edge count", code_value(str(edge["edge_count"]))),
         bullet("codepoint routes", code_value(";".join(edge["codepoints"]))),
         bullet("cross-source status", code_value(";".join(edge["cross_source_statuses"]))),
+        "### Concrete Cross-Source Candidate Routes / 具体跨来源候选路线",
+        "",
+        bullet("crosswalk staging", code_value(CROSSWALK_FILE.as_posix())),
+        bullet("registered crosswalk rows", code_value(str(cross_source["row_count"]))),
+        bullet(
+            "matched source ids / 匹配来源 ID",
+            code_value("; ".join(cross_source["matched_source_ids"]) or "none"),
+        ),
+        bullet(
+            "OBIMD candidate ids / OBIMD 候选 ID",
+            code_value("; ".join(cross_source["obimd_candidate_ids"]) or "none"),
+        ),
+        bullet(
+            "OBIMD external refs / OBIMD 外部引用",
+            code_value("; ".join(cross_source["obimd_external_refs"]) or "none"),
+        ),
+        bullet(
+            "OBIMD transcription field / OBIMD 转写字段",
+            code_value("; ".join(cross_source["obimd_transcriptions"]) or "none"),
+        ),
+        bullet(
+            "EvoBC evolution category ids / EvoBC 演化类别 ID",
+            code_value("; ".join(cross_source["evobc_category_ids"]) or "none"),
+        ),
+        bullet(
+            "EvoBC external refs / EvoBC 外部引用",
+            code_value("; ".join(cross_source["evobc_external_refs"]) or "none"),
+        ),
+        bullet(
+            "EvoBC image reference count / EvoBC 图像引用数",
+            code_value("; ".join(cross_source["evobc_image_references"]) or "0"),
+        ),
+        bullet(
+            "EvoBC oracle-bone source refs / EvoBC 甲骨来源标记",
+            code_value("; ".join(cross_source["evobc_oracle_bone_refs"]) or "false"),
+        ),
+        bullet(
+            "route review status / 路线复核状态",
+            code_value("; ".join(cross_source["review_statuses"]) or "needs_cross_source_review"),
+        ),
+        para(
+            "Boundary: these values are exact dataset-codepoint lookup routes. "
+            "They do not confirm oracle-character identity, reading, meaning, "
+            "component, variant, evolution correspondence, or decipherment."
+        ),
+        para(
+            "边界：这些值只是数据集码位精确匹配路线。它们不能确认甲骨单字身份、"
+            "释读、意义、构件、异体、演化对应关系或破译结论。"
+        ),
+        "",
         bullet(
             "OBIMD/EvoBC route status",
             candidate_pending("需要核对 OBIMD、EvoBC 和 cross-source 图边"),
@@ -738,6 +830,7 @@ def ai_index(
     packet: dict[str, Any],
     visual_rows: list[dict[str, str]],
     edges: list[dict[str, Any]],
+    cross_source: dict[str, Any],
     root: Path,
 ) -> dict[str, Any]:
     return {
@@ -767,6 +860,7 @@ def ai_index(
         },
         "visual_summary": visual_summary(visual_rows, root),
         "graph_summary": edge_summary(edges),
+        "cross_source_summary": cross_source,
         "missing_sections": [
             "accepted_reading_and_meaning",
             "inscription_occurrences",
@@ -804,6 +898,7 @@ def assert_human_line_width(text: str, label: str) -> None:
 
 def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
     edges_by_source = graph_edges_by_source(root)
+    crosswalk_by_character = crosswalk_rows_by_character(root)
     outputs: dict[str, dict[str, Any]] = {}
     for record in discover_packet_dirs(root):
         object_dir = record["object_dir"]
@@ -812,12 +907,14 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
         packet = read_json(record["packet_path"])
         visual_rows = read_csv_rows(object_dir / "02_visual-source-index.csv")
         edges = edges_by_source.get(project_id, [])
+        crosswalk_rows = crosswalk_by_character.get(project_id, [])
         dossier = dossier_text(
             project_id,
             packet_name,
             packet,
             visual_rows,
             edges,
+            crosswalk_rows,
             object_dir,
             root,
         )
@@ -838,6 +935,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
                 packet,
                 visual_rows,
                 edges,
+                cross_source_summary(crosswalk_rows),
                 root,
             ),
         }

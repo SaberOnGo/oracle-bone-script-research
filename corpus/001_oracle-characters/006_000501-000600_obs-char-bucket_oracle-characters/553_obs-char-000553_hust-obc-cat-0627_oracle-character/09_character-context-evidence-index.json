@@ -76,6 +76,46 @@
       "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
     ]
   },
+  "cross_source_route_summary": {
+    "row_count": 1,
+    "cross_source_statuses": [
+      "matched_evobc_by_codepoint"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc",
+      "src-evobc"
+    ],
+    "obimd_candidate_ids": [],
+    "obimd_external_refs": [],
+    "obimd_transcriptions": [],
+    "evobc_category_ids": [
+      "evobc-evo-cat-00042"
+    ],
+    "evobc_external_refs": [
+      "evobc-cat-00042"
+    ],
+    "evobc_image_references": [
+      "2"
+    ],
+    "evobc_oracle_bone_refs": [
+      "false"
+    ],
+    "review_statuses": [
+      "needs_cross_source_review"
+    ],
+    "rights_statuses": [
+      "source_marked_risk_noted"
+    ],
+    "route_files": [
+      "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+      "corpus/001_oracle-characters/006_000501-000600_obs-char-bucket_oracle-characters/001_hust-obc-candidate-packet-manifest.csv",
+      "corpus/001_oracle-characters/006_000501-000600_obs-char-bucket_oracle-characters/553_obs-char-000553_hust-obc-cat-0627_oracle-character/01_candidate-character-packet.json",
+      "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+      "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+      "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+      "project_registry/006_large-source-register/002_source-download-log.csv"
+    ]
+  },
   "human_context_sections": [
     "glyph_image_and_observation_routes",
     "variant_near_shape_and_component_clues",

@@ -124,6 +124,25 @@ cross-source and human review are complete.
 - graph edge count: `2`
 - codepoint routes: `U+39B4`
 - cross-source status: `no_obimd_or_evobc_codepoint_match`
+### Concrete Cross-Source Candidate Routes / 具体跨来源候选路线
+
+- crosswalk staging: `corpus/001_oracle-characters/000_character-registers/011
+  _hust-obimd-evobc-codepoint-crosswalk-staging.csv`
+- registered crosswalk rows: `1`
+- matched source ids / 匹配来源 ID: `src-hust-obc`
+- OBIMD candidate ids / OBIMD 候选 ID: `none`
+- OBIMD external refs / OBIMD 外部引用: `none`
+- OBIMD transcription field / OBIMD 转写字段: `none`
+- EvoBC evolution category ids / EvoBC 演化类别 ID: `none`
+- EvoBC external refs / EvoBC 外部引用: `none`
+- EvoBC image reference count / EvoBC 图像引用数: `0`
+- EvoBC oracle-bone source refs / EvoBC 甲骨来源标记: `false`
+- route review status / 路线复核状态: `needs_cross_source_review`
+Boundary: these values are exact dataset-codepoint lookup routes. They do not
+confirm oracle-character identity, reading, meaning, component, variant,
+evolution correspondence, or decipherment.
+边界：这些值只是数据集码位精确匹配路线。它们不能确认甲骨单字身份、释读、意义、构件、异体、演化对应关系或破译结论。
+
 - OBIMD/EvoBC route status: `候选路线：需要核对 OBIMD、EvoBC 和 cross-source 图边`
 
 ## 5. Variants, Components, And Similar Forms / 异体构件近形

@@ -48,6 +48,21 @@
       "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"
     ]
   },
+  "cross_source_route_summary": {
+    "row_count": 0,
+    "cross_source_statuses": [],
+    "matched_source_ids": [],
+    "obimd_candidate_ids": [],
+    "obimd_external_refs": [],
+    "obimd_transcriptions": [],
+    "evobc_category_ids": [],
+    "evobc_external_refs": [],
+    "evobc_image_references": [],
+    "evobc_oracle_bone_refs": [],
+    "review_statuses": [],
+    "rights_statuses": [],
+    "route_files": []
+  },
   "human_context_sections": [
     "glyph_image_and_observation_routes",
     "variant_near_shape_and_component_clues",

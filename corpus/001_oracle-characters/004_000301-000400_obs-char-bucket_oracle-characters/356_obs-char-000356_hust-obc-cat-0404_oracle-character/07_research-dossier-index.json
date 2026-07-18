@@ -53,6 +53,41 @@
       "project_registry/006_large-source-register/002_source-download-log.csv"
     ]
   },
+  "cross_source_summary": {
+    "row_count": 1,
+    "cross_source_statuses": [
+      "no_obimd_or_evobc_codepoint_match"
+    ],
+    "matched_source_ids": [
+      "src-hust-obc"
+    ],
+    "obimd_candidate_ids": [],
+    "obimd_external_refs": [],
+    "obimd_transcriptions": [],
+    "evobc_category_ids": [],
+    "evobc_external_refs": [],
+    "evobc_image_references": [
+      "0"
+    ],
+    "evobc_oracle_bone_refs": [
+      "false"
+    ],
+    "review_statuses": [
+      "needs_cross_source_review"
+    ],
+    "rights_statuses": [
+      "source_marked_risk_noted"
+    ],
+    "route_files": [
+      "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
+      "corpus/001_oracle-characters/004_000301-000400_obs-char-bucket_oracle-characters/001_hust-obc-candidate-packet-manifest.csv",
+      "corpus/001_oracle-characters/004_000301-000400_obs-char-bucket_oracle-characters/356_obs-char-000356_hust-obc-cat-0404_oracle-character/01_candidate-character-packet.json",
+      "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
+      "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+      "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
+      "project_registry/006_large-source-register/002_source-download-log.csv"
+    ]
+  },
   "missing_sections": [
     "accepted_reading_and_meaning",
     "inscription_occurrences",

@@ -4002,6 +4002,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("source image reference", first["dossier_text"])
         self.assertIn("asset id", first["dossier_text"])
         self.assertIn("download id", first["dossier_text"])
+        self.assertIn("Concrete Cross-Source Candidate Routes", first["dossier_text"])
+        self.assertIn("crosswalk staging", first["dossier_text"])
+        self.assertIn("OBIMD candidate ids", first["dossier_text"])
+        self.assertIn("EvoBC evolution category ids", first["dossier_text"])
+        self.assertIn("exact dataset-codepoint lookup routes", first["dossier_text"])
         self.assertIn("source package", first["dossier_text"])
         self.assertIn("risk note", first["dossier_text"])
         self.assertIn(
@@ -4027,6 +4032,14 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "not_collected" in value
                 for value in first["index_data"]["archaeological_folder_coverage"].values()
             )
+        )
+
+        matched = outputs["obs-char-000047"]
+        self.assertIn("obimd-main-cand-002255", matched["dossier_text"])
+        self.assertIn("evobc-evo-cat-00005", matched["dossier_text"])
+        self.assertEqual(
+            matched["index_data"]["cross_source_summary"]["cross_source_statuses"],
+            ["matched_obimd_and_evobc_by_codepoint"],
         )
         self.assertEqual(
             first["index_data"]["archaeological_folder_coverage"]["inscription_occurrences"],
@@ -4106,6 +4119,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("需要核对哪些卜辞、图版、著录号或合集号", dossier_text)
             self.assertIn("需要打开哪些来源、checksum、manifest 或权利记录", dossier_text)
             self.assertIn("Graph Evidence Routes", dossier_text)
+            self.assertIn("Concrete Cross-Source Candidate Routes", dossier_text)
+            self.assertIn("OBIMD candidate ids", dossier_text)
+            self.assertIn("EvoBC evolution category ids", dossier_text)
             self.assertIn("edge type", dossier_text)
             self.assertIn("target node", dossier_text)
             self.assertIn("graph file", dossier_text)
@@ -4157,6 +4173,14 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "source_manifest_checksum_and_rights_to_check",
                 index["missing_or_review_fields"],
             )
+
+        matched = outputs["obs-char-000047"]
+        self.assertIn("obimd-main-cand-002255", matched["dossier_text"])
+        self.assertIn("evobc-evo-cat-00005", matched["dossier_text"])
+        self.assertEqual(
+            matched["index_data"]["cross_source_route_summary"]["row_count"],
+            1,
+        )
     def test_character_archaeology_paleography_reviews_are_colocated(self) -> None:
         module = load_character_archaeology_paleography_reviews_module()
         outputs = module.build_outputs(repo_root())

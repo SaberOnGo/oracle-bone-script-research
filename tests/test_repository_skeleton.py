@@ -9228,6 +9228,21 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", evobc_literature_text)
         self.assertNotIn("not_collected", evobc_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in evobc_literature_text.splitlines()))
+        gbedobc_literature_text = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "020_src-gbedobc_source-object/16_source-literature-scope-review.md"
+        ).read_text(encoding="utf-8")
+        gbedobc_literature_flat = " ".join(gbedobc_literature_text.split())
+        self.assertIn("Primary Publication / 主要论文", gbedobc_literature_text)
+        self.assertIn("10.1038/s40494-025-01951-0", gbedobc_literature_text)
+        self.assertIn("756 groups and 3,780", gbedobc_literature_flat)
+        self.assertIn("Graph construction / 图结构构建", gbedobc_literature_text)
+        self.assertIn("not a historical correspondence", gbedobc_literature_flat)
+        self.assertIn("CC BY-NC-ND 4.0", gbedobc_literature_flat)
+        self.assertIn("具体文献核查", gbedobc_literature_text)
+        self.assertNotIn("not_collected", gbedobc_literature_text)
+        self.assertTrue(all(len(line) <= 80 for line in gbedobc_literature_text.splitlines()))
         self.assertIn(
             "Which book, paper, webpage, museum record, or database note defines",
             literature_scope_text,

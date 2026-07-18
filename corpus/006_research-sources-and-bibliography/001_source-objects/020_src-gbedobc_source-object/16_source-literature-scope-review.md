@@ -21,6 +21,84 @@ topic, or bibliography dossier.
 - Rights status / 权利状态: source_marked_risk_noted
 - Review status / 复核状态: reviewed
 
+## Primary Publication / 主要论文
+- Citation / 引用: Jiao, Q., Wu, J., Liu, Q. et al. A graph-based evolutionary
+  dataset for oracle bone characters from inscriptions to modern Chinese
+  scripts. npj Heritage Science 13, 369 (2025).
+- DOI and dates / DOI 与日期: DOI: https://doi.org/10.1038/s40494-025-01951-0.
+  Received 2025-04-21, accepted 2025-07-13, and published 2025-07-26.
+- Responsible roles / 责任分工: The paper records Qingju Jiao, Jingwen Wu, Qi Liu,
+  Han Zhang, Zhan Zhang, Bang Li, Jing Xiong, Guoying Liu, and Yongge Liu. It
+  assigns design, collection, processing, validation, and writing roles rather
+  than a single decipherment authority.
+- Evidence level / 证据等级: Primary peer-reviewed dataset article; it reports a
+  graph representation and computational comparison, not an archaeological
+  catalog identity or accepted reading.
+
+## Reported Dataset And Source Scope / 论文报告的数据范围
+- Reported scale / 论文报告规模: The paper reports 756 groups and 3,780 Chinese
+  characters across five stages: oracle bone, bronze, seal, official, and
+  regular script. Local routes record this as source scope, not as 3,780
+  imported corpus records.
+- Upstream image source / 上游图像来源: The paper says its 4,860 source images in 972
+  groups came from an earlier image-based dataset, with Guo Xue Da Shi and the
+  Chinese Character Etymology and Evolution Dictionary named as primary source
+  routes.
+- Stage and image boundary / 阶段与图像边界: The five-stage graph groups are not the
+  six-stage EVOBC scope. Do not merge their stages, labels, images, or group IDs
+  without a source-level crosswalk.
+
+## Reported Processing And Graph Method / 处理与图结构方法
+- Image preparation / 图像预处理: The paper reports grayscale conversion and
+  normalization to 105 by 105 pixels before comparing image and graph routes.
+- Graph construction / 图结构构建: The reported method extracts key points, connects
+  them by stroke-based relations, compresses the graph, and compares
+  adjacency-matrix features across stages.
+- Validation / 技术验证: DHC-E, FEATHER, and GL2vec are compared with image-based
+  methods for computational similarity and stability. These scores validate a
+  method, not a historical correspondence.
+
+## Citation And Access Relations / 引用与访问关系
+- Data and code route / 数据与代码路线: The paper provides 3,780 images and graph
+  matrices, plus derived vectors, through the BrisksHan/GBEDOBC GitHub route.
+  The local package keeps provenance and checksum records only.
+- Upstream citations / 上游引用路线: The article cites the earlier image-based
+  evolution dataset, EVOBC, Guo Xue Da Shi, and the Chinese Character Etymology
+  and Evolution Dictionary. Each needs independent bibliography and rights
+  review.
+- Human dossier transfer / 人类档案转入: A graph edge may guide comparison, but a
+  human dossier must retain the source image, page or catalog trail, modern
+  label, graph route, and pending review status separately.
+
+## Limits, Disputes, And Rights / 限制、争议与权利
+- Graph identity boundary / 图节点身份边界: A node or edge in a graph is a dataset
+  representation. It does not by itself establish a glyph identity, component,
+  variant, or evolution relationship.
+- Source and label disputes / 来源与标签争议: The dataset inherits upstream image,
+  label, stage, and source choices. The paper does not resolve every catalog,
+  modern-label, or historical correspondence question.
+- License / 许可: The article states CC BY-NC-ND 4.0 and warns that third-party
+  material may have separate credit lines. Keep repository and upstream book or
+  website rights as separate review items.
+
+## Concrete Bibliography Checks / 具体文献核查
+- Verify the DOI, article dates, author roles, PDF checksum, and
+  GitHub revision before citing a count or method.
+- Open the earlier image dataset, Guo Xue Da Shi, and the cited
+  dictionary to record page, image, and label provenance.
+- Compare the 756-group/3,780-character scope with EVOBC only after
+  a stage, category, and source-level crosswalk is reviewed.
+- Keep graph nodes, edges, modern labels, images, and historical
+  claims in separate evidence fields in later dossiers.
+- 复核 DOI、论文日期、作者分工、PDF checksum 和 GitHub 版本，
+  再引用统计数值或处理方法。
+- 打开上游图像数据集、国学大师和所引字源工具书，记录页码、
+  图像和标签出处。
+- 将 756 组、3780 字形与 EVOBC 比较前，先完成阶段、类别和
+  来源层级的 crosswalk 复核。
+- 后续档案分开保存图节点、图边、今字标签、图像和历史判断，
+  不把图结构直接写成已确认演化关系。
+
 ## Literature And Database Review Slots / 文献与数据库复核槽位
 - Bibliography note / 书目说明: Open README.md and 10_source-evidence-dossier.md
   before citing this source in a later research note.

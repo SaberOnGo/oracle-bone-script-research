@@ -7850,6 +7850,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000268", "narrow curved upright stroke"),
             ("obs-char-000269", "three short parallel curved marks"),
             ("obs-char-000270", "long upright stroke"),
+            ("obs-char-000271", "thin descending stroke"),
+            ("obs-char-000272", "two separated upright forms"),
+            ("obs-char-000273", "angular outer outline"),
+            ("obs-char-000274", "rectangular middle block"),
+            ("obs-char-000275", "compact dark upper cluster"),
+            ("obs-char-000276", "short angular branches"),
+            ("obs-char-000277", "rounded upper outline"),
+            ("obs-char-000278", "U-shaped base"),
+            ("obs-char-000279", "small enclosed middle block"),
+            ("obs-char-000280", "angular curved outline"),
         ):
             self.assertIn(
                 expected_fragment,
@@ -7889,6 +7899,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000268",
             "obs-char-000269",
             "obs-char-000270",
+            "obs-char-000271",
+            "obs-char-000272",
+            "obs-char-000273",
+            "obs-char-000274",
+            "obs-char-000275",
+            "obs-char-000276",
+            "obs-char-000277",
+            "obs-char-000278",
+            "obs-char-000279",
+            "obs-char-000280",
         ):
             self.assertTrue(
                 (

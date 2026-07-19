@@ -1370,6 +1370,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "top, and a small curved terminal at the lower end.",
         "狭长图像有长竖向笔画，上部附近有短侧分支，下端有小型弯曲收笔。",
     ),
+    "obs-char-000271": (
+        "The narrow image shows a thin descending stroke with an angular upper bend "
+        "and two short curved marks near the middle; the lower stem continues apart.",
+        "狭长图像有一道带上部折转的细下行笔画，中部附近有两处短弯曲痕迹；下部笔干继续向下。",
+    ),
+    "obs-char-000272": (
+        "The image shows two separated upright forms; each has a curved upper end, "
+        "a short diagonal branch, and a tapering lower stroke.",
+        "图像有两个分离的直立形体；各自上端弯曲，并有短斜向分支和渐细下行笔画。",
+    ),
+    "obs-char-000273": (
+        "The compact image has an angular outer outline, a diagonal internal stroke, "
+        "and a long thin stroke descending on the right.",
+        "小型图像有折角外轮廓，内部有一道斜向笔画，右侧另有长而纤细的下行笔画。",
+    ),
+    "obs-char-000274": (
+        "The tall dark image has a narrow irregular upper cluster, a long central "
+        "stem, a rectangular middle block, and a flaring lower terminal.",
+        "高而深色的图像有狭长不规则上部簇，中部有长笔干和矩形块状形体，下部向外展开收笔。",
+    ),
+    "obs-char-000275": (
+        "The small image shows a compact dark upper cluster with short angled marks "
+        "and a long slender stroke descending along the right.",
+        "小型图像上部有紧密深色簇和短折角痕迹，右侧有一道长而纤细的下行笔画。",
+    ),
+    "obs-char-000276": (
+        "The narrow image contains several short angular branches around a thin "
+        "descending stroke; the lower tip tapers and remains irregular.",
+        "狭长图像有数处分布在细下行笔画周围的短折角分支，下端渐细且轮廓不规则。",
+    ),
+    "obs-char-000277": (
+        "The image shows a rounded upper outline with interior marks, followed by a "
+        "long narrow lower stem crossed by short diagonal strokes.",
+        "图像上部有带内部痕迹的圆弧轮廓，下方接长而狭窄的笔干，并有短斜向交叉笔画。",
+    ),
+    "obs-char-000278": (
+        "The image has two upright sides joined by a low U-shaped base and a short "
+        "horizontal bar; the right upper end is rounded and dark.",
+        "图像有两道直立侧笔连接低位 U 形底部，并有短横画；右上端呈圆钝深色。",
+    ),
+    "obs-char-000279": (
+        "The image shows a low outlined base with two upright supports, a small "
+        "enclosed middle block, and a central upper stem with a rounded terminal.",
+        "图像有低位外框底部和两道直立支撑，中部有小型闭合块状形体，中央向上伸出带圆钝末端的笔干。",
+    ),
+    "obs-char-000280": (
+        "The image has an angular curved outline on the left with a small internal "
+        "opening, plus a separate descending stroke on the right.",
+        "图像左侧有带小型内部开口的折角弧形轮廓，右侧另有分离的下行笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

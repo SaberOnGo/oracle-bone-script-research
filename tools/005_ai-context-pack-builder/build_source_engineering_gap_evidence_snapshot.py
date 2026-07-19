@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import textwrap
 from collections import Counter
 from pathlib import Path
 
@@ -342,6 +343,22 @@ def write_review_log_snapshot_notes(root: Path, rows: list[dict[str, str]]) -> i
         if start == -1 or end == -1 or end <= start:
             continue
         updated = text[:start] + review_log_evidence_block(row) + "\n" + text[end:]
+        wrapped_lines: list[str] = []
+        for line in updated.splitlines():
+            if len(line) <= 80:
+                wrapped_lines.append(line)
+                continue
+            wrapped_lines.extend(
+                textwrap.wrap(
+                    line,
+                    width=80,
+                    subsequent_indent="  ",
+                    break_long_words=True,
+                    break_on_hyphens=False,
+                )
+                or [""]
+            )
+        updated = "\n".join(wrapped_lines) + "\n"
         path.write_text(updated, encoding="utf-8", newline="\n")
         written += 1
     return written

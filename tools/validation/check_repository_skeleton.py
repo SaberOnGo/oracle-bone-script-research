@@ -6662,6 +6662,46 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                     issues.append(f"{browser_metadata_index_path.relative_to(root)} capture_count changed")
                 if browser_index.get("claim_boundary") != "metadata_route_only_not_scholarship":
                     issues.append(f"{browser_metadata_index_path.relative_to(root)} claim boundary changed")
+        if object_dir.name == "004_src-ihp-museum-oracle-bones_source-object":
+            field_review_path = object_dir / "25_source-field-map-review.md"
+            field_review_index_path = object_dir / "26_source-field-map-review-index.json"
+            for required_path in [field_review_path, field_review_index_path]:
+                if not required_path.is_file():
+                    issues.append(f"{required_path.relative_to(root)} missing field-map review")
+            if field_review_path.is_file():
+                field_review_text = field_review_path.read_text(encoding="utf-8")
+                for snippet in [
+                    "Source Field-Map Review",
+                    "src-ihp-museum-oracle-bones",
+                    "field-map-000055",
+                    "field-map-000056",
+                    "field-map-000057",
+                    "metadata_only_until_verified",
+                    "Current page-text availability",
+                    "本结果属于预处理和来源追溯",
+                ]:
+                    if snippet not in field_review_text:
+                        issues.append(f"{field_review_path.relative_to(root)} missing snippet: {snippet}")
+                if any(len(line) > 80 for line in field_review_text.splitlines()):
+                    issues.append(f"{field_review_path.relative_to(root)} has a line over 80 chars")
+            if field_review_index_path.is_file():
+                try:
+                    field_review_index = json.loads(
+                        field_review_index_path.read_text(encoding="utf-8")
+                    )
+                except json.JSONDecodeError as exc:
+                    issues.append(f"{field_review_index_path.relative_to(root)} invalid JSON: {exc}")
+                    field_review_index = {}
+                if field_review_index.get("review_status") != "reviewed_metadata_only":
+                    issues.append(f"{field_review_index_path.relative_to(root)} review status changed")
+                if field_review_index.get("field_map_ids") != [
+                    "field-map-000055",
+                    "field-map-000056",
+                    "field-map-000057",
+                ]:
+                    issues.append(f"{field_review_index_path.relative_to(root)} field map IDs changed")
+                if field_review_index.get("source_payload_currently_available") is not False:
+                    issues.append(f"{field_review_index_path.relative_to(root)} payload boundary changed")
         source_dossier_index_path = object_dir / "11_source-evidence-dossier-index.json"
         if not source_dossier_index_path.is_file():
             issues.append(f"{object_dir.name} missing 11_source-evidence-dossier-index.json")
@@ -9498,20 +9538,20 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "node_degree_summary_rows:101619",
         ],
         "review_queues": [
-            "review_log_files:53",
+            "review_log_files:52",
             "evidence_collection_note_files:49",
             "undeciphered_review_queue_rows:9408",
             "cambridge_hopkins_crosswalk_review_queue_rows:612",
-            "source_engineering_gap_queue_rows:22",
+            "source_engineering_gap_queue_rows:21",
             "source_engineering_execution_matrix_rows:21",
-            "source_engineering_gap_review_log_draft_rows:22",
-            "source_engineering_gap_evidence_snapshot_rows:22",
-            "source_engineering_next_action_checklist_rows:22",
-            "source_engineering_next_action_result_scaffold_rows:22",
+            "source_engineering_gap_review_log_draft_rows:21",
+            "source_engineering_gap_evidence_snapshot_rows:21",
+            "source_engineering_next_action_checklist_rows:21",
+            "source_engineering_next_action_result_scaffold_rows:21",
             "source_engineering_lane_route_pack_files:1",
-            "source_field_map_scaffold_rows:4",
-            "source_field_map_review_checklist_rows:4",
-            "source_field_map_review_result_scaffold_rows:4",
+            "source_field_map_scaffold_rows:3",
+            "source_field_map_review_checklist_rows:3",
+            "source_field_map_review_result_scaffold_rows:3",
             "source_field_map_review_route_pack_files:1",
             "source_package_manifest_review_route_pack_files:1",
             "source_access_boundary_review_route_pack_files:1",
@@ -9673,16 +9713,16 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "obimd_main_character_staging": "3936",
         "hust_obimd_evobc_codepoint_crosswalk": "1588",
         "cambridge_hopkins_inscription_crosswalk_review_queue": "612",
-        "source_engineering_gap_queue": "22",
+        "source_engineering_gap_queue": "21",
         "source_engineering_execution_matrix": "21",
-        "source_engineering_gap_review_log_draft_manifest": "22",
-        "source_engineering_gap_evidence_snapshot": "22",
-        "source_engineering_next_action_checklist": "22",
-        "source_engineering_next_action_result_scaffold": "22",
+        "source_engineering_gap_review_log_draft_manifest": "21",
+        "source_engineering_gap_evidence_snapshot": "21",
+        "source_engineering_next_action_checklist": "21",
+        "source_engineering_next_action_result_scaffold": "21",
         "source_engineering_lane_summary": "5",
-        "source_field_map_scaffold": "4",
-        "source_field_map_review_checklist": "4",
-        "source_field_map_review_result_scaffold": "4",
+        "source_field_map_scaffold": "3",
+        "source_field_map_review_checklist": "3",
+        "source_field_map_review_result_scaffold": "3",
         "005_hust-obc-candidate-graph-edges": "3562",
         "006_obimd-component-graph-edges": "44433",
         "007_evobc-evolution-graph-edges": "51679",
@@ -9736,56 +9776,56 @@ def check_data_quality_audit(root: Path) -> list[str]:
     if "review_status=needs_human_review:612" not in cambridge_queue_quality.get("status_counts", ""):
         issues.append(f"{DATA_QUALITY_AUDIT} Cambridge/Hopkins review queue status counts changed")
     source_gap_quality = by_dataset.get("source_engineering_gap_queue", {})
-    if "review_status=needs_source_engineering_review:22" not in source_gap_quality.get("status_counts", ""):
+    if "review_status=needs_source_engineering_review:21" not in source_gap_quality.get("status_counts", ""):
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering gap queue status counts changed")
     source_execution_quality = by_dataset.get("source_engineering_execution_matrix", {})
     execution_status_counts = source_execution_quality.get("status_counts", "")
-    if "review_status=needs_source_engineering_review:13" not in execution_status_counts:
+    if "review_status=needs_source_engineering_review:12" not in execution_status_counts:
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering execution review count changed")
-    if "review_status=no_current_source_engineering_gap:8" not in execution_status_counts:
+    if "review_status=no_current_source_engineering_gap:9" not in execution_status_counts:
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering execution no-gap count changed")
     source_gap_draft_quality = by_dataset.get("source_engineering_gap_review_log_draft_manifest", {})
     draft_status_counts = source_gap_draft_quality.get("status_counts", "")
     for expected_fragment in [
-        "draft_status=draft_not_collected:22",
-        "evidence_collection_status=not_collected:22",
-        "human_review_status=pending_human_review:22",
-        "rights_decision_status=no_new_rights_decision:22",
-        "source_promotion_status=not_promoted:22",
+        "draft_status=draft_not_collected:21",
+        "evidence_collection_status=not_collected:21",
+        "human_review_status=pending_human_review:21",
+        "rights_decision_status=no_new_rights_decision:21",
+        "source_promotion_status=not_promoted:21",
     ]:
         if expected_fragment not in draft_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering draft status missing {expected_fragment}")
     source_gap_snapshot_quality = by_dataset.get("source_engineering_gap_evidence_snapshot", {})
     snapshot_status_counts = source_gap_snapshot_quality.get("status_counts", "")
     for expected_fragment in [
-        "evidence_status=metadata_only_existing_records_snapshot:22",
-        "rights_decision_status=no_new_rights_decision:22",
-        "source_promotion_status=not_promoted:22",
-        "corpus_import_status=not_imported:22",
+        "evidence_status=metadata_only_existing_records_snapshot:21",
+        "rights_decision_status=no_new_rights_decision:21",
+        "source_promotion_status=not_promoted:21",
+        "corpus_import_status=not_imported:21",
     ]:
         if expected_fragment not in snapshot_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering snapshot status missing {expected_fragment}")
     source_next_action_quality = by_dataset.get("source_engineering_next_action_checklist", {})
     next_action_status_counts = source_next_action_quality.get("status_counts", "")
     for expected_fragment in [
-        "action_status=ready_for_source_engineering_review:22",
-        "human_review_status=pending_human_review:22",
-        "rights_decision_status=no_new_rights_decision:22",
-        "source_promotion_status=not_promoted:22",
-        "corpus_import_status=not_imported:22",
+        "action_status=ready_for_source_engineering_review:21",
+        "human_review_status=pending_human_review:21",
+        "rights_decision_status=no_new_rights_decision:21",
+        "source_promotion_status=not_promoted:21",
+        "corpus_import_status=not_imported:21",
     ]:
         if expected_fragment not in next_action_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering next-action status missing {expected_fragment}")
     source_next_action_result_quality = by_dataset.get("source_engineering_next_action_result_scaffold", {})
     next_action_result_status_counts = source_next_action_result_quality.get("status_counts", "")
     for expected_fragment in [
-        "result_status=not_started:22",
-        "evidence_collection_status=not_collected:22",
-        "human_review_status=pending_human_review:22",
-        "rights_decision_status=no_new_rights_decision:22",
-        "source_promotion_status=not_promoted:22",
-        "corpus_import_status=not_imported:22",
-        "decipherment_claim_status=no_decipherment_claim:22",
+        "result_status=not_started:21",
+        "evidence_collection_status=not_collected:21",
+        "human_review_status=pending_human_review:21",
+        "rights_decision_status=no_new_rights_decision:21",
+        "source_promotion_status=not_promoted:21",
+        "corpus_import_status=not_imported:21",
+        "decipherment_claim_status=no_decipherment_claim:21",
     ]:
         if expected_fragment not in next_action_result_status_counts:
             issues.append(
@@ -9800,38 +9840,38 @@ def check_data_quality_audit(root: Path) -> list[str]:
     source_field_map_quality = by_dataset.get("source_field_map_scaffold", {})
     field_map_status_counts = source_field_map_quality.get("status_counts", "")
     for expected_fragment in [
-        "field_map_review_status=pending_human_field_map_review:4",
-        "human_review_status=pending_human_review:4",
-        "rights_decision_status=no_new_rights_decision:4",
-        "source_promotion_status=not_promoted:4",
-        "corpus_import_status=not_imported:4",
-        "decipherment_claim_status=no_decipherment_claim:4",
+        "field_map_review_status=pending_human_field_map_review:3",
+        "human_review_status=pending_human_review:3",
+        "rights_decision_status=no_new_rights_decision:3",
+        "source_promotion_status=not_promoted:3",
+        "corpus_import_status=not_imported:3",
+        "decipherment_claim_status=no_decipherment_claim:3",
     ]:
         if expected_fragment not in field_map_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source field-map scaffold status missing {expected_fragment}")
     source_field_map_checklist_quality = by_dataset.get("source_field_map_review_checklist", {})
     field_map_checklist_status_counts = source_field_map_checklist_quality.get("status_counts", "")
     for expected_fragment in [
-        "checklist_status=not_started:4",
-        "field_map_review_status=pending_human_field_map_review:4",
-        "human_review_status=pending_human_review:4",
-        "rights_decision_status=no_new_rights_decision:4",
-        "source_promotion_status=not_promoted:4",
-        "corpus_import_status=not_imported:4",
-        "decipherment_claim_status=no_decipherment_claim:4",
+        "checklist_status=not_started:3",
+        "field_map_review_status=pending_human_field_map_review:3",
+        "human_review_status=pending_human_review:3",
+        "rights_decision_status=no_new_rights_decision:3",
+        "source_promotion_status=not_promoted:3",
+        "corpus_import_status=not_imported:3",
+        "decipherment_claim_status=no_decipherment_claim:3",
     ]:
         if expected_fragment not in field_map_checklist_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source field-map checklist status missing {expected_fragment}")
     source_field_map_result_quality = by_dataset.get("source_field_map_review_result_scaffold", {})
     field_map_result_status_counts = source_field_map_result_quality.get("status_counts", "")
     for expected_fragment in [
-        "field_map_result_status=not_started:4",
-        "field_map_review_status=pending_human_field_map_review:4",
-        "human_review_status=pending_human_review:4",
-        "rights_decision_status=no_new_rights_decision:4",
-        "source_promotion_status=not_promoted:4",
-        "corpus_import_status=not_imported:4",
-        "decipherment_claim_status=no_decipherment_claim:4",
+        "field_map_result_status=not_started:3",
+        "field_map_review_status=pending_human_field_map_review:3",
+        "human_review_status=pending_human_review:3",
+        "rights_decision_status=no_new_rights_decision:3",
+        "source_promotion_status=not_promoted:3",
+        "corpus_import_status=not_imported:3",
+        "decipherment_claim_status=no_decipherment_claim:3",
     ]:
         if expected_fragment not in field_map_result_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source field-map result status missing {expected_fragment}")
@@ -9898,7 +9938,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "download_log_count": 48,
         "download_manifest_count": 47,
         "downloaded_count": 42,
-        "field_map_count": 54,
+        "field_map_count": 57,
         "graph_edge_count": 117138,
         "large_source_register_count": 18,
         "metadata_profile_count": 62,
@@ -10756,10 +10796,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             value = row.get(path_field, "")
             if value and not (root / value).exists():
                 issues.append(f"{SOURCE_ENGINEERING_LANE_SUMMARY} missing path: {value}")
-    if len(source_field_map_scaffold_rows) != 4:
-        issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} should contain exactly 4 rows")
+    if len(source_field_map_scaffold_rows) != 3:
+        issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} should contain exactly 3 rows")
     expected_field_map_sources = {
-        "src-ihp-museum-oracle-bones",
         "src-open-oracle",
         "src-oracle-mnist",
         "src-yinqi-wenyuan",
@@ -10785,8 +10824,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         review_log_path = row.get("review_log_path", "")
         if review_log_path and not (root / review_log_path).exists():
             issues.append(f"{SOURCE_FIELD_MAP_SCAFFOLD} missing review log: {review_log_path}")
-    if len(source_field_map_checklist_rows) != 4:
-        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} should contain exactly 4 rows")
+    if len(source_field_map_checklist_rows) != 3:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} should contain exactly 3 rows")
     if {row.get("source_id", "") for row in source_field_map_checklist_rows} != expected_field_map_sources:
         issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} source set changed")
     for row in source_field_map_checklist_rows:
@@ -10818,8 +10857,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             value = row.get(path_field, "")
             if value and not (root / value).exists():
                 issues.append(f"{SOURCE_FIELD_MAP_REVIEW_CHECKLIST} missing path: {value}")
-    if len(source_field_map_result_rows) != 4:
-        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} should contain exactly 4 rows")
+    if len(source_field_map_result_rows) != 3:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} should contain exactly 3 rows")
     if {row.get("source_id", "") for row in source_field_map_result_rows} != expected_field_map_sources:
         issues.append(f"{SOURCE_FIELD_MAP_REVIEW_RESULT_SCAFFOLD} source set changed")
     for row in source_field_map_result_rows:
@@ -10853,10 +10892,10 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     route_pack_routes = source_field_map_route_pack.get("routes", [])
     if source_field_map_route_pack.get("route_pack_id") != "source-field-map-review-route-pack-001":
         issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} route_pack_id changed")
-    if source_field_map_route_pack.get("source_count") != 4:
-        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} source_count should be 4")
-    if source_field_map_route_pack.get("route_count") != 4:
-        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} route_count should be 4")
+    if source_field_map_route_pack.get("source_count") != 3:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} source_count should be 3")
+    if source_field_map_route_pack.get("route_count") != 3:
+        issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} route_count should be 3")
     if source_field_map_route_pack.get("review_status") != "route_pack_pending_field_map_review":
         issues.append(f"{SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK} review status changed")
     if source_field_map_route_pack.get("research_boundary") != "source_field_map_review_route_pack_not_reviewed_mapping":
@@ -11299,7 +11338,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "access_boundary_followup": ("access_outcome", 6, SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK),
         "checksum_and_download_status_review": ("checksum_outcome", 5, SOURCE_CHECKSUM_REVIEW_ROUTE_PACK),
         "metadata_profile_extraction_planning": ("metadata_profile_decision", 5, SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK),
-        "source_field_map_planning": ("field_map_decision", 4, SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK),
+        "source_field_map_planning": ("field_map_decision", 3, SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK),
         "package_manifest_or_not_applicable_review": (
             "manifest_decision",
             expected_lane_counts.get("package_manifest_or_not_applicable_review", 0),
@@ -11391,7 +11430,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} lane order changed")
     if handoff_items and handoff_items[0].get("next_action_id") != "source-engineering-next-action-0001":
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} first route changed")
-    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0021":
+    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0020":
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} last route changed")
     generated_from = source_engineering_review_wave_handoff_scaffold.get("generated_from", [])
     for value in generated_from:
@@ -15436,8 +15475,8 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "linked: `mixed_or_partial`",
         "verified: `missing`",
         "research note files: 7",
-        "user or AI draft review files: 128",
-        "source register files: 504",
+        "user or AI draft review files: 127",
+        "source register files: 506",
         "bibliographic identity",
         "source trail",
         "scope",

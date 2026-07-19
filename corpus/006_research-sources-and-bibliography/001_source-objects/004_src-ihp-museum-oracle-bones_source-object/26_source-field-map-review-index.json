@@ -1,0 +1,28 @@
+{
+  "record_type": "source_field_map_review_index",
+  "source_id": "src-ihp-museum-oracle-bones",
+  "review_status": "reviewed_metadata_only",
+  "field_map_ids": [
+    "field-map-000055",
+    "field-map-000056",
+    "field-map-000057"
+  ],
+  "evidence_download_ids": [
+    "dl-ihp-museum-oracle-bones"
+  ],
+  "human_readable_files": [
+    "25_source-field-map-review.md"
+  ],
+  "ai_support_files": [
+    "26_source-field-map-review-index.json"
+  ],
+  "rights_boundary": "metadata_only_until_verified",
+  "source_payload_currently_available": false,
+  "claim_boundary": "source_level_field_mapping_only; no object, inscription, character, reading, or decipherment claim",
+  "next_checks": [
+    "re-open official page and record current object-level fields",
+    "review rights for page text, images, and download interfaces",
+    "transfer only human-reviewed object evidence into object dossiers"
+  ],
+  "updated_at": "2026-06-21"
+}

@@ -20,7 +20,7 @@ limits on research use.
 - Recorded checksums / 已记录 checksum: 1
 - Recorded file sizes / 已记录文件大小: 1
 - Package files / 来源包文件: 1
-- Field mappings / 字段映射: 0
+- Field mappings / 字段映射: 3
 - Metadata measurements / 元数据测量: 2
 
 - Recorded access item / 已记录访问项: dl-ihp-museum-oracle-bones; downloaded; 54136
@@ -31,6 +31,12 @@ limits on research use.
   lightweight_html_page; Lightweight source evidence is represented by committed
   provenance, size, checksum, and derived metadata only; ignored tmp downloads
   are not committed as source content.
+- Candidate transfer field / 候选转入字段: registered_scope -> source_reference ->
+  source_scope
+- Candidate transfer field / 候选转入字段: file_size_bytes -> source_reference ->
+  downloaded_file_size_bytes
+- Candidate transfer field / 候选转入字段: checksum_sha256 -> source_reference ->
+  source_payload_checksum_sha256
 
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: metadata_only_until_verified

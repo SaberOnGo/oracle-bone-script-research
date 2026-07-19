@@ -13,7 +13,7 @@
   },
   "lane_count": 6,
   "route_pack_count": 6,
-  "total_route_count": 22,
+  "total_route_count": 21,
   "total_decision_filled_count": 0,
   "total_result_started_count": 0,
   "review_status": "route_summary_pending_source_engineering_review",
@@ -160,33 +160,33 @@
       "route_pack_id": "source-field-map-review-route-pack-001",
       "route_pack_path": "corpus/009_statistics-and-derived-features/111_ai-agent-source-field-map-review-route-pack.json",
       "decision_field": "field_map_decision",
-      "route_count": 4,
-      "source_count": 4,
+      "route_count": 3,
+      "source_count": 3,
       "priority_min": 0,
       "priority_max": 0,
       "gap_type_counts": {
-        "": 4
+        "": 3
       },
       "result_status_counts": {
-        "not_started": 4
+        "not_started": 3
       },
       "evidence_collection_status_counts": {
-        "not_collected": 4
+        "not_collected": 3
       },
       "human_review_status_counts": {
-        "pending_human_review": 4
+        "pending_human_review": 3
       },
       "rights_decision_status_counts": {
-        "no_new_rights_decision": 4
+        "no_new_rights_decision": 3
       },
       "source_promotion_status_counts": {
-        "not_promoted": 4
+        "not_promoted": 3
       },
       "corpus_import_status_counts": {
-        "not_imported": 4
+        "not_imported": 3
       },
       "decipherment_claim_status_counts": {
-        "no_decipherment_claim": 4
+        "no_decipherment_claim": 3
       },
       "decision_filled_count": 0,
       "result_started_count": 0,
@@ -194,9 +194,9 @@
         "no_field_map_import_until_semantics_and_rights_are_reviewed"
       ],
       "first_next_action_id": "source-engineering-next-action-0017",
-      "first_source_id": "src-ihp-museum-oracle-bones",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-ihp-museum-oracle-bones_source_field_map_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-ihp-museum-oracle-bones_source_field_map_needed_next-action-result.md",
+      "first_source_id": "src-open-oracle",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-open-oracle_source_field_map_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-open-oracle_source_field_map_needed_next-action-result.md",
       "review_status": "route_pack_pending_field_map_review",
       "research_boundary": "source_field_map_review_route_pack_not_reviewed_mapping"
     },
@@ -265,10 +265,10 @@
       "blocking_conditions": [
         "no_derived_record_promotion_without_source_marked_reviewed_boundary"
       ],
-      "first_next_action_id": "source-engineering-next-action-0021",
+      "first_next_action_id": "source-engineering-next-action-0020",
       "first_source_id": "src-sinica-da-xiaoxuetang-site",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0021_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0020_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0020_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
       "review_status": "route_pack_pending_safe_derived_record_review",
       "research_boundary": "source_safe_derived_record_review_route_pack_not_promotion_decision"
     }

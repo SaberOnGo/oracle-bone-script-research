@@ -24,6 +24,7 @@ BROWSER_METADATA_CAPTURE = Path(
 OUTPUT_ROOT = Path("corpus/006_research-sources-and-bibliography/001_source-objects")
 UPDATED_AT = "2026-06-21"
 MAX_HUMAN_LINE_LENGTH = 80
+FIELD_MAP_REVIEW_SOURCE_IDS = {"src-ihp-museum-oracle-bones"}
 
 
 DOWNLOAD_ROUTE_FIELDS = [
@@ -286,6 +287,138 @@ def browser_metadata_capture_index_payload(
     }
 
 
+def field_map_review_text(
+    source: dict[str, str],
+    field_routes: list[dict[str, str]],
+    download_routes: list[dict[str, str]],
+    package_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    map_ids = [row.get("map_id", "") for row in field_routes if row.get("map_id")]
+    evidence_ids = sorted(
+        {
+            row.get("evidence_download_id", "")
+            for row in field_routes
+            if row.get("evidence_download_id")
+        }
+    )
+    lines = [
+        "# Source Field-Map Review / 来源字段映射复核",
+        "",
+        *wrapped(
+            "This human-readable review records a source-level field mapping "
+            "for the registered IHP museum page. The mapping uses only the "
+            "download log, package manifest, and metadata profiles already "
+            "recorded in this repository."
+        ),
+        "",
+        *wrapped(
+            "本页记录史语所博物馆来源页面的来源层字段映射。映射只使用本仓库已经登记的"
+            "下载日志、来源包清单和 metadata profile。"
+        ),
+        "",
+        "## Review Result / 复核结果",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Review status / 复核状态", "reviewed_metadata_only"),
+        *bullet("Field-map IDs / 字段映射 ID", "; ".join(map_ids)),
+        *bullet("Evidence download IDs / 证据下载 ID", "; ".join(evidence_ids)),
+        *bullet("Download routes / 下载路线数", len(download_routes)),
+        *bullet("Package routes / 来源包路线数", len(package_routes)),
+        *bullet("Metadata profiles / metadata profile 数", len(metadata_routes)),
+        "",
+        "## What Was Mapped / 已映射内容",
+        *wrapped(
+            "The collection-level scope is retained as source provenance. The "
+            "recorded file size and SHA-256 are retained as access-integrity "
+            "metadata. These fields support traceability; they do not create "
+            "object, inscription, character, or reading records."
+        ),
+        "",
+        *wrapped(
+            "馆藏页面的 collection-level scope 作为来源出处保留；已登记的文件大小和"
+            "SHA-256 作为访问完整性 metadata 保留。这些字段只支持追溯，不生成器物、"
+            "卜辞、单字或释读记录。"
+        ),
+        "",
+        "## Evidence Boundary / 证据边界",
+        *bullet(
+            "Current page-text availability / 当前页面正文可用性",
+            "not available at the recorded temporary path",
+        ),
+        *wrapped(
+            "The downloaded HTML payload is no longer present at its temporary "
+            "path. This review therefore does not claim current page-text "
+            "availability, complete collection coverage, image availability, "
+            "OCR availability, or object-level field extraction."
+        ),
+        "",
+        *wrapped(
+            "下载的 HTML 正文已经不在原临时路径中。因此本复核不声称当前仍可读取页面正文，"
+            "也不声称覆盖完整馆藏、存在可用图片、存在 OCR，或已经完成对象级字段抽取。"
+        ),
+        "",
+        "## Concrete Next Checks / 具体下一步待查",
+        *bullet(
+            "Official page re-open / 重新打开官方页面",
+            "重新访问官方馆藏页，记录当前页面是否仍展示对象级条目、图像、著录号、时期、出土地和馆藏字段。",
+        ),
+        *bullet(
+            "Rights review / 权利复核",
+            "逐项核对页面文字、图片和可能的下载接口的权利状态；在复核前保持 metadata_only_until_verified。",
+        ),
+        *bullet(
+            "Object dossier transfer / 对象档案转入",
+            "只有获得对象级证据和人工核对后，才把候选条目转入具体器物、卜辞或单字档案。",
+        ),
+        "",
+        "## Research Boundary / 研究边界",
+        *wrapped(
+            "This is a preprocessing and provenance result, not rights clearance, "
+            "source promotion, corpus import, object identification, component "
+            "assignment, evolution correspondence, or decipherment."
+        ),
+        "",
+        *wrapped(
+            "本结果属于预处理和来源追溯，不是权利清理、来源提升、语料导入、对象身份确认、"
+            "构件归属、演化对应或释读结论。"
+        ),
+    ]
+    return "\n".join(lines)
+
+
+def field_map_review_index_payload(
+    source: dict[str, str],
+    field_routes: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "record_type": "source_field_map_review_index",
+        "source_id": source["source_id"],
+        "review_status": "reviewed_metadata_only",
+        "field_map_ids": [row.get("map_id", "") for row in field_routes],
+        "evidence_download_ids": sorted(
+            {
+                row.get("evidence_download_id", "")
+                for row in field_routes
+                if row.get("evidence_download_id")
+            }
+        ),
+        "human_readable_files": ["25_source-field-map-review.md"],
+        "ai_support_files": ["26_source-field-map-review-index.json"],
+        "rights_boundary": "metadata_only_until_verified",
+        "source_payload_currently_available": False,
+        "claim_boundary": (
+            "source_level_field_mapping_only; no object, inscription, character, "
+            "reading, or decipherment claim"
+        ),
+        "next_checks": [
+            "re-open official page and record current object-level fields",
+            "review rights for page text, images, and download interfaces",
+            "transfer only human-reviewed object evidence into object dossiers",
+        ],
+        "updated_at": UPDATED_AT,
+    }
+
+
 def source_packet(
     source: dict[str, str],
     object_dir: Path,
@@ -294,6 +427,7 @@ def source_packet(
     field_routes: list[dict[str, str]],
     metadata_routes: list[dict[str, str]],
     browser_metadata_rows: list[dict[str, str]],
+    field_map_review: bool,
 ) -> dict[str, object]:
     local_files = [
         "README.md",
@@ -324,6 +458,10 @@ def source_packet(
         local_files.extend(
             ["23_browser-verified-metadata.md", "24_browser-verified-metadata-index.json"]
         )
+    if field_map_review:
+        local_files.extend(
+            ["25_source-field-map-review.md", "26_source-field-map-review-index.json"]
+        )
     return {
         "record_type": "source_object_packet",
         "source_id": source["source_id"],
@@ -345,6 +483,7 @@ def source_packet(
         "metadata_profile_route_count": len(metadata_routes),
         "local_files": local_files,
         "browser_metadata_capture_count": len(browser_metadata_rows),
+        "field_map_review": field_map_review,
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
             "download logs, package manifests, field maps, and status cards are "
@@ -3377,6 +3516,7 @@ def readme_text(
     source: dict[str, str],
     packet: dict[str, object],
     browser_metadata_rows: list[dict[str, str]],
+    field_map_review: bool,
 ) -> str:
     lines = [
         f"# {source['source_id']} Source Object",
@@ -3517,6 +3657,8 @@ def readme_text(
           if browser_metadata_rows else []),
         *(bullet("Browser metadata index / 浏览器核验 metadata 索引", "24_browser-verified-metadata-index.json")
           if browser_metadata_rows else []),
+        *(bullet("Field-map review / 字段映射复核", "25_source-field-map-review.md")
+          if field_map_review else []),
         "",
         "## Risk And Boundary / 风险与边界",
         *wrapped(str(source["risk_note"])),
@@ -3793,6 +3935,32 @@ def processing_status_text(
                 "对象中安全生成派生记录。"
             ),
             "",
+            "## Human Research Relevance / 人类研究关联",
+            *wrapped(
+                "Before formal research, use this status card to keep visible "
+                "the possible glyph, inscription, provenance, variant, "
+                "component, bibliography, and dispute questions attached to "
+                "the source. A route status does not answer any of them."
+            ),
+            "",
+            *wrapped(
+                "正式研究前，应在本卡片中保留与来源相关的字形、卜辞、出处、异体、构件、"
+                "书目和争议问题。路线状态本身不能回答这些问题。"
+            ),
+            "",
+            *bullet(
+                "Form and component / 字形与构件",
+                "若来源出现字形、构件或近形材料，须回到具体对象目录比较，暂不确认归属。",
+            ),
+            *bullet(
+                "Inscription and context / 卜辞与上下文",
+                "须核对全文、OCR、图版、著录、出土、馆藏、时期和组类，暂不建立正式身份关系。",
+            ),
+            *bullet(
+                "Scholarship and dispute / 学术与争议",
+                "须保留书目、提出者、释读史、不同意见和争议，暂不写成研究结论。",
+            ),
+            "",
             "## Boundary / 边界",
             *wrapped(
                 "All statuses here are infrastructure statuses. They are not "
@@ -3834,6 +4002,7 @@ def build_materials(root: Path) -> dict[str, int]:
             source_id, metadata_by_source.get(source_id, []), "metadata-route", "metadata_route_id"
         )
         browser_metadata_rows = browser_metadata_by_source.get(source_id, [])
+        field_map_review = source_id in FIELD_MAP_REVIEW_SOURCE_IDS
         packet = source_packet(
             source,
             object_dir.relative_to(root),
@@ -3842,6 +4011,7 @@ def build_materials(root: Path) -> dict[str, int]:
             field_routes,
             metadata_routes,
             browser_metadata_rows,
+            field_map_review,
         )
         status_index = build_processing_status_index(
             source,
@@ -3860,7 +4030,7 @@ def build_materials(root: Path) -> dict[str, int]:
         write_human_markdown(
             object_dir / "README.md",
             f"{source_id}/README.md",
-            readme_text(source, packet, browser_metadata_rows),
+            readme_text(source, packet, browser_metadata_rows, field_map_review),
         )
         if browser_metadata_rows:
             write_human_markdown(
@@ -3871,6 +4041,22 @@ def build_materials(root: Path) -> dict[str, int]:
             write_json(
                 object_dir / "24_browser-verified-metadata-index.json",
                 browser_metadata_capture_index_payload(source, browser_metadata_rows),
+            )
+        if field_map_review:
+            write_human_markdown(
+                object_dir / "25_source-field-map-review.md",
+                f"{source_id}/25_source-field-map-review.md",
+                field_map_review_text(
+                    source,
+                    field_routes,
+                    download_routes,
+                    package_routes,
+                    metadata_routes,
+                ),
+            )
+            write_json(
+                object_dir / "26_source-field-map-review-index.json",
+                field_map_review_index_payload(source, field_routes),
             )
         write_json(object_dir / "01_source-packet.json", packet)
         write_csv(object_dir / "02_download-route-index.csv", download_routes, DOWNLOAD_ROUTE_FIELDS)

@@ -83,23 +83,16 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
--   - `source-engineering-gap-evidence-snapshot-0015`
+  `source-engineering-gap-evidence-snapshot-0015`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Download manifest IDs / 下载 manifest ID:
--   - `dl-xxt-jgw-home`
--   - `dl-xxt-jgw-about`
--   - `dl-xxt-jgw-kaiorder-0502`
--   - `dl-xxt-jgw-kaiorder-1176`
-- Download log IDs / 下载日志 ID:
--   - `dl-xxt-jgw-home`
--   - `dl-xxt-jgw-about`
--   - `dl-xxt-jgw-kaiorder-0502`
--   - `dl-xxt-jgw-kaiorder-1176`
+- Download manifest IDs / 下载 manifest ID: `dl-xxt-jgw-home;dl-xxt-jgw-about;dl-x
+  xt-jgw-kaiorder-0502;dl-xxt-jgw-kaiorder-1176`
+- Download log IDs / 下载日志 ID: `dl-xxt-jgw-home;dl-xxt-jgw-about;dl-xxt-jgw-kaior
+  der-0502;dl-xxt-jgw-kaiorder-1176`
 - download_log_status_counts:
--   - `download_error:2`
--   - `downloaded_access_restricted_page:2`
+  `download_error:2;downloaded_access_restricted_page:2`
 - download_log_http_status_counts: `200:2`
 - download_log_file_size_bytes_total: `73834`
 - download_log_checksum_present_count: `2`
@@ -112,10 +105,8 @@ It remains metadata-only and does not promote source content.
 - Rights decision status / 权利决策状态: `no_new_rights_decision`
 - Source promotion status / 来源提升状态: `not_promoted`
 - Corpus import status / 语料导入状态: `not_imported`
-- Identity, component, evolution, and decipherment claims:
-  - `blocked`
-- 身份、构件、演化链和释读结论：
-  - `blocked`
+- Identity, component, evolution, and decipherment claims: `blocked`
+- 身份、构件、演化链和释读结论：`blocked`
 
 ## Review Log / 复核日志
 

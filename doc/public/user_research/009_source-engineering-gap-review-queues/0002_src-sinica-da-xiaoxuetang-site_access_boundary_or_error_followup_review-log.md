@@ -88,7 +88,7 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
--   - `source-engineering-gap-evidence-snapshot-0002`
+  `source-engineering-gap-evidence-snapshot-0002`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`
@@ -100,9 +100,7 @@ It remains metadata-only and does not promote source content.
 - download_log_checksum_present_count: `0`
 - package_file_ids: `none`
 - metadata_profile_ids:
--   - `metadata-profile-000044`
--   - `metadata-profile-000045`
--   - `metadata-profile-000046`
+  `metadata-profile-000044;metadata-profile-000045;metadata-profile-000046`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界
@@ -110,10 +108,8 @@ It remains metadata-only and does not promote source content.
 - Rights decision status / 权利决策状态: `no_new_rights_decision`
 - Source promotion status / 来源提升状态: `not_promoted`
 - Corpus import status / 语料导入状态: `not_imported`
-- Identity, component, evolution, and decipherment claims:
-  - `blocked`
-- 身份、构件、演化链和释读结论：
-  - `blocked`
+- Identity, component, evolution, and decipherment claims: `blocked`
+- 身份、构件、演化链和释读结论：`blocked`
 
 ## Review Log / 复核日志
 

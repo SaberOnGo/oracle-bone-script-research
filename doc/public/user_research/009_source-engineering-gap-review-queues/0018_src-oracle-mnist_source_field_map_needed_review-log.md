@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0019`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0019`
+-   - `source-engineering-gap-review-log-draft-0018`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0018`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -81,7 +81,7 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
--   - `source-engineering-gap-evidence-snapshot-0019`
+  `source-engineering-gap-evidence-snapshot-0018`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `source_marked_risk_noted`
@@ -100,10 +100,8 @@ It remains metadata-only and does not promote source content.
 - Rights decision status / 权利决策状态: `no_new_rights_decision`
 - Source promotion status / 来源提升状态: `not_promoted`
 - Corpus import status / 语料导入状态: `not_imported`
-- Identity, component, evolution, and decipherment claims:
-  - `blocked`
-- 身份、构件、演化链和释读结论：
-  - `blocked`
+- Identity, component, evolution, and decipherment claims: `blocked`
+- 身份、构件、演化链和释读结论：`blocked`
 
 ## Review Log / 复核日志
 

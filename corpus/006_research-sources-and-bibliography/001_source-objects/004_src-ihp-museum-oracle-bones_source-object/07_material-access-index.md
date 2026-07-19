@@ -39,8 +39,8 @@ note, or concrete next-check questions.
 - Download statuses / 下载状态: downloaded
 - Package route count / 来源包路线数: 1
 - Package kinds / 来源包类型: lightweight_html_page
-- Field map count / 字段映射数: 0
-- Target records / 目标记录: none
+- Field map count / 字段映射数: 3
+- Target records / 目标记录: source_reference
 - Metadata profile count / 元数据概况数: 2
 - Profile metrics / 概况指标: downloaded_page_size_bytes; registered_scope
 

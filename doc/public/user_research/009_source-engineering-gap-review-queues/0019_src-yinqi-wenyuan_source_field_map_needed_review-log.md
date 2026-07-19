@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0018`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0018`
+-   - `source-engineering-gap-review-log-draft-0019`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0019`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,11 +18,11 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-open-oracle`
+- Source ID / 来源 ID: `src-yinqi-wenyuan`
 - Gap type / 缺口类型: `source_field_map_needed`
 - Priority rank / 优先级: `5`
 - Current stage / 当前阶段: `pending_human_review`
-- Authority tier / 来源层级: `scholarly_project`
+- Authority tier / 来源层级: `scholarly_platform`
 - Rights status / 权利状态: `source_marked_risk_noted`
 
 ## Observed Gap Evidence / 已观察缺口证据
@@ -36,7 +36,7 @@
 - Observed item / 已观察项: `package_manifest_count=1`
 - Observed item / 已观察项: `metadata_profile_count=2`
 - Observed item / 已观察项: `graph_edge_count=0`
-- Observed item / 已观察项: `downloaded_file_bytes=15942`
+- Observed item / 已观察项: `downloaded_file_bytes=32900`
 - Observed item / 已观察项: `gap_type=source_field_map_needed`
 
 ## Route Files To Open / 待打开路线文件
@@ -81,18 +81,18 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
--   - `source-engineering-gap-evidence-snapshot-0018`
+  `source-engineering-gap-evidence-snapshot-0019`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `source_marked_risk_noted`
-- Download manifest IDs / 下载 manifest ID: `dl-open-oracle-readme`
-- Download log IDs / 下载日志 ID: `dl-open-oracle-readme`
+- Download manifest IDs / 下载 manifest ID: `dl-yinqi-home`
+- Download log IDs / 下载日志 ID: `dl-yinqi-home`
 - download_log_status_counts: `downloaded:1`
 - download_log_http_status_counts: `200:1`
-- download_log_file_size_bytes_total: `15942`
+- download_log_file_size_bytes_total: `32900`
 - download_log_checksum_present_count: `1`
-- package_file_ids: `pkg-file-000025`
-- metadata_profile_ids: `metadata-profile-000056;metadata-profile-000057`
+- package_file_ids: `pkg-file-000036`
+- metadata_profile_ids: `metadata-profile-000051;metadata-profile-000052`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界
@@ -100,10 +100,8 @@ It remains metadata-only and does not promote source content.
 - Rights decision status / 权利决策状态: `no_new_rights_decision`
 - Source promotion status / 来源提升状态: `not_promoted`
 - Corpus import status / 语料导入状态: `not_imported`
-- Identity, component, evolution, and decipherment claims:
-  - `blocked`
-- 身份、构件、演化链和释读结论：
-  - `blocked`
+- Identity, component, evolution, and decipherment claims: `blocked`
+- 身份、构件、演化链和释读结论：`blocked`
 
 ## Review Log / 复核日志
 

@@ -77,6 +77,17 @@ relevant corpus objects.
 
 请打开上述路线 CSV，与来源登记和下载日志比对，并记录能否在相应语料对象中安全生成派生记录。
 
+## Human Research Relevance / 人类研究关联
+Before formal research, use this status card to keep visible the possible glyph,
+inscription, provenance, variant, component, bibliography, and dispute questions
+attached to the source. A route status does not answer any of them.
+
+正式研究前，应在本卡片中保留与来源相关的字形、卜辞、出处、异体、构件、书目和争议问题。路线状态本身不能回答这些问题。
+
+- Form and component / 字形与构件: 若来源出现字形、构件或近形材料，须回到具体对象目录比较，暂不确认归属。
+- Inscription and context / 卜辞与上下文: 须核对全文、OCR、图版、著录、出土、馆藏、时期和组类，暂不建立正式身份关系。
+- Scholarship and dispute / 学术与争议: 须保留书目、提出者、释读史、不同意见和争议，暂不写成研究结论。
+
 ## Boundary / 边界
 All statuses here are infrastructure statuses. They are not scholarly
 conclusions and do not start formal decipherment work.

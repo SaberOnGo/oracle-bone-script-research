@@ -49,8 +49,8 @@ review status.
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
 - Package route count / 来源包路线数: 1
 - Package kinds / 来源包类型: lightweight_html_page
-- Field map route count / 字段映射路线数: 0
-- Target record types / 目标记录类型: none
+- Field map route count / 字段映射路线数: 3
+- Target record types / 目标记录类型: source_reference
 - Metadata route count / metadata 路线数: 2
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
@@ -76,8 +76,51 @@ target object directory.
 
 ## Field Map Evidence / 字段映射证据
 
-No field-map route is recorded in the current source registers. Do not import
-source fields into corpus objects until mappings are reviewed.
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000055
+- Source level / 来源层级: collection_page
+- Source field or unit / 来源字段或单位: registered_scope
+- Source meaning / 来源含义: Museum collection overview and selected oracle bone
+  artifact labels
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: source_scope
+- Import action / 导入动作: Keep the registered collection scope as source-level
+  provenance metadata; do not create row-level object records from the overview
+  page
+- Rights boundary / 权利边界: Metadata-only route; no image, OCR, or object-row
+  reuse clearance
+- Evidence download ID / 证据下载 ID: dl-ihp-museum-oracle-bones
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000056
+- Source level / 来源层级: download_record
+- Source field or unit / 来源字段或单位: file_size_bytes
+- Source meaning / 来源含义: Downloaded official HTML payload size recorded in the
+  download log
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: downloaded_file_size_bytes
+- Import action / 导入动作: Keep file size as provenance and access-integrity
+  metadata; do not treat it as collection coverage
+- Rights boundary / 权利边界: Size and checksum metadata only; raw page remains
+  outside regular Git
+- Evidence download ID / 证据下载 ID: dl-ihp-museum-oracle-bones
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Field map ID / 字段映射 ID: field-map-000057
+- Source level / 来源层级: download_record
+- Source field or unit / 来源字段或单位: checksum_sha256
+- Source meaning / 来源含义: Downloaded official HTML payload SHA-256 recorded in
+  the download log
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: source_payload_checksum_sha256
+- Import action / 导入动作: Keep the recorded checksum for provenance comparison; do
+  not claim the payload is currently available
+- Rights boundary / 权利边界: Checksum is an integrity record only; it is not rights
+  clearance or scholarly evidence
+- Evidence download ID / 证据下载 ID: dl-ihp-museum-oracle-bones
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Metadata Profile Evidence / 元数据概况证据
 

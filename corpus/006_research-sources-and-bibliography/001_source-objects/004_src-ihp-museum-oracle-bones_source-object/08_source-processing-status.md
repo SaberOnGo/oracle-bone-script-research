@@ -43,9 +43,9 @@ review before formal research use.
 - Review status / 复核状态: needs_human_source_review
 
 ### field_mapping
-- Status / 状态: not_present_in_current_registers
+- Status / 状态: field_map_routes_present
 - Evidence file / 证据文件: 04_field-map-route-index.csv
-- Evidence count / 证据数量: 0
+- Evidence count / 证据数量: 3
 - Review status / 复核状态: candidate_mapping_needs_human_review
 
 ### metadata_profile
@@ -57,11 +57,11 @@ review before formal research use.
 ### cleaned_structured_linked
 - Status / 状态: candidate_routes_available_not_final_import
 - Evidence file / 证据文件: 08_source-processing-status.md
-- Evidence count / 证据数量: 3
+- Evidence count / 证据数量: 6
 - Review status / 复核状态: pending_human_review
 
 ## Missing Or Review Items / 缺失或待复核项
-- Items / 项目: field_map_route
+- Items / 项目: none_recorded
 
 ## Concrete Questions To Check / 具体待查问题
 - 应核对哪些下载、访问或 checksum 记录？
@@ -77,6 +77,17 @@ download log, and record whether derived records can be safely created in the
 relevant corpus objects.
 
 请打开上述路线 CSV，与来源登记和下载日志比对，并记录能否在相应语料对象中安全生成派生记录。
+
+## Human Research Relevance / 人类研究关联
+Before formal research, use this status card to keep visible the possible glyph,
+inscription, provenance, variant, component, bibliography, and dispute questions
+attached to the source. A route status does not answer any of them.
+
+正式研究前，应在本卡片中保留与来源相关的字形、卜辞、出处、异体、构件、书目和争议问题。路线状态本身不能回答这些问题。
+
+- Form and component / 字形与构件: 若来源出现字形、构件或近形材料，须回到具体对象目录比较，暂不确认归属。
+- Inscription and context / 卜辞与上下文: 须核对全文、OCR、图版、著录、出土、馆藏、时期和组类，暂不建立正式身份关系。
+- Scholarship and dispute / 学术与争议: 须保留书目、提出者、释读史、不同意见和争议，暂不写成研究结论。
 
 ## Boundary / 边界
 All statuses here are infrastructure statuses. They are not scholarly

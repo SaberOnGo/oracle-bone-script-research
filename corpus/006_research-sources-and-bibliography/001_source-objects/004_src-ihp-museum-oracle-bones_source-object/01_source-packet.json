@@ -15,7 +15,7 @@
   "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/004_src-ihp-museum-oracle-bones_source-object",
   "download_route_count": 1,
   "package_route_count": 1,
-  "field_map_route_count": 0,
+  "field_map_route_count": 3,
   "metadata_profile_route_count": 2,
   "local_files": [
     "README.md",
@@ -40,9 +40,12 @@
     "19_source-access-integrity-index.json",
     "20_source-presearch-readiness-review.md",
     "21_source-presearch-readiness-index.json",
-    "22_source-research-brief.md"
+    "22_source-research-brief.md",
+    "25_source-field-map-review.md",
+    "26_source-field-map-review-index.json"
   ],
   "browser_metadata_capture_count": 0,
+  "field_map_review": true,
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",
   "updated_at": "2026-06-21"

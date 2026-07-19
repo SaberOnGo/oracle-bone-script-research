@@ -82,25 +82,21 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
--   - `source-engineering-gap-evidence-snapshot-0010`
+  `source-engineering-gap-evidence-snapshot-0010`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `public_domain_verified`
 - Download manifest IDs / 下载 manifest ID:
--   - `dl-smithsonian-nmaa-fsc-o-28`
--   - `dl-smithsonian-nmaa-fsc-o-26-archive`
+  `dl-smithsonian-nmaa-fsc-o-28;dl-smithsonian-nmaa-fsc-o-26-archive`
 - Download log IDs / 下载日志 ID:
--   - `dl-smithsonian-nmaa-fsc-o-28`
--   - `dl-smithsonian-nmaa-fsc-o-26-archive`
+  `dl-smithsonian-nmaa-fsc-o-28;dl-smithsonian-nmaa-fsc-o-26-archive`
 - download_log_status_counts: `downloaded:1;http_error:1`
 - download_log_http_status_counts: `200:1;403:1`
 - download_log_file_size_bytes_total: `115569`
 - download_log_checksum_present_count: `1`
 - package_file_ids: `pkg-file-000028`
 - metadata_profile_ids:
--   - `metadata-profile-000031`
--   - `metadata-profile-000032`
--   - `metadata-profile-000033`
+  `metadata-profile-000031;metadata-profile-000032;metadata-profile-000033`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界
@@ -108,10 +104,8 @@ It remains metadata-only and does not promote source content.
 - Rights decision status / 权利决策状态: `no_new_rights_decision`
 - Source promotion status / 来源提升状态: `not_promoted`
 - Corpus import status / 语料导入状态: `not_imported`
-- Identity, component, evolution, and decipherment claims:
-  - `blocked`
-- 身份、构件、演化链和释读结论：
-  - `blocked`
+- Identity, component, evolution, and decipherment claims: `blocked`
+- 身份、构件、演化链和释读结论：`blocked`
 
 ## Review Log / 复核日志
 

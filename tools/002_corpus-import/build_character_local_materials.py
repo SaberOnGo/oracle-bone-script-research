@@ -1520,6 +1520,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "and a small rounded enclosure at the right; contrast needs recheck.",
         "低对比度灰色图像左侧有数道短斜向痕迹，右侧有小型圆弧闭合轮廓；对比度仍需复核。",
     ),
+    "obs-char-000301": (
+        "The image shows paired pointed upper strokes, curved enclosing sides, "
+        "and a separate broad curved base with interior crossing marks.",
+        "图像上方有成对尖状笔画，两侧呈弧形围合，下方另有宽弧形底部，内部可见交叉痕迹。",
+    ),
+    "obs-char-000302": (
+        "The image has a tall right-side stem, a small upper rectangular enclosure, "
+        "and a separate rounded lower enclosure.",
+        "图像右侧有高直主干，上方有小型方形闭合轮廓，下方另有圆弧闭合轮廓。",
+    ),
+    "obs-char-000303": (
+        "A long descending central stroke is joined to a rounded right enclosure; "
+        "a curved lower tail extends to the left.",
+        "图像中部有长下行笔画并连接右侧圆弧闭合轮廓，下方有向左弯曲的尾部。",
+    ),
+    "obs-char-000304": (
+        "The image combines a small left enclosure with a taller branching upright "
+        "form and a pointed descending lower stroke.",
+        "图像左侧有小型闭合轮廓，右侧为较高的分叉直立形体，下方有尖状下行笔画。",
+    ),
+    "obs-char-000305": (
+        "The image has paired upper horizontal strokes, a narrow crossed middle, "
+        "and a broad rounded lower enclosure.",
+        "图像上方有成对横向笔画，中部狭窄且相交，下方有宽大的圆弧闭合轮廓。",
+    ),
+    "obs-char-000306": (
+        "The dark image shows a compact angular upper cluster, a descending diagonal "
+        "stroke, and curved lower strokes extending to both sides.",
+        "深色图像上部为紧凑折角笔画群，中部有下行斜笔画，下方弧形笔画向两侧伸展。",
+    ),
+    "obs-char-000307": (
+        "The image has an open tall frame with two uprights, branching central marks, "
+        "and a curved lower base.",
+        "图像有开放的高框架和两侧直笔画，中部有分叉痕迹，下方有弧形底部。",
+    ),
+    "obs-char-000308": (
+        "A broad rectangular framework contains two horizontal internal bars, with "
+        "long side strokes descending below its lower edge.",
+        "图像呈宽方形框架，内部有两道横向笔画，两侧长笔画从下缘向下延伸。",
+    ),
+    "obs-char-000309": (
+        "The small light image shows a thin descending curved stroke, a short upper "
+        "mark, and a detached curved mark at the right.",
+        "浅色小图像有纤细下行弧笔画、上方短痕迹，右侧另有分离的弧形痕迹。",
+    ),
+    "obs-char-000310": (
+        "The image shows a large U-like curved stroke and a detached small angular "
+        "mark near the upper right.",
+        "图像有大型 U 形弧曲笔画，右上方另有分离的小型折角痕迹。",
+    ),
+    "obs-char-000311": (
+        "A tall central vertical stroke has an upper branching cross form, a small "
+        "left lower enclosure, and a short horizontal foot.",
+        "图像有高直中轴，上方为分叉交叉形，左下方有小型闭合轮廓，底部有短横笔画。",
+    ),
+    "obs-char-000312": (
+        "The image contains three small rounded enclosure-like forms arranged across "
+        "the upper and lower portions.",
+        "图像含三个小型圆弧闭合形体，分布在上部和下部不同位置。",
+    ),
+    "obs-char-000313": (
+        "A broad arched enclosure spans the middle, with a small upper enclosure and "
+        "several pointed strokes descending from the lower edge.",
+        "图像中部为宽拱形闭合轮廓，上方有小型闭合轮廓，下缘向下伸出数道尖状笔画。",
+    ),
+    "obs-char-000314": (
+        "The image has a tall central stem with branching upper strokes, small side "
+        "enclosures, and a pointed lower extension.",
+        "图像有高直中干和上部分叉笔画，两侧有小型闭合轮廓，下方有尖状延伸。",
+    ),
+    "obs-char-000315": (
+        "The rounded outer form contains horizontal and vertical interior marks, "
+        "with a branching top and a small lower enclosure.",
+        "图像外部呈圆弧形，内部有横竖痕迹，上方分叉，下方有小型闭合轮廓。",
+    ),
+    "obs-char-000316": (
+        "The image combines a small left rounded form with a tall angular right form, "
+        "crossing central strokes, and a hooked lower curve.",
+        "图像左侧有小型圆弧形体，右侧为高直折角形体，中部笔画相交，下方有钩状弧笔画。",
+    ),
+    "obs-char-000317": (
+        "A curved upper stroke and small left enclosure accompany a long branching "
+        "stroke descending along the right side.",
+        "图像上方有弧形笔画和左侧小型闭合轮廓，右侧有长分叉笔画向下延伸。",
+    ),
+    "obs-char-000318": (
+        "The image has a long upper horizontal stroke, a central inverted-angle form, "
+        "and pointed strokes descending at both sides.",
+        "图像上方有长横笔画，中部为倒折角形体，两侧向下伸出尖状笔画。",
+    ),
+    "obs-char-000319": (
+        "Two tall side frameworks flank a small rounded lower enclosure, with short "
+        "horizontal and vertical interior marks.",
+        "图像两侧有高直框架，中部下方为小型圆弧闭合轮廓，内部有短横竖痕迹。",
+    ),
+    "obs-char-000320": (
+        "The image has a peaked outer contour, a central descending stroke, and a "
+        "rounded lower enclosure; the small image needs detail recheck.",
+        "图像有尖顶外轮廓、中部下行笔画和下方圆弧闭合轮廓；图像较小，细节仍需复核。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

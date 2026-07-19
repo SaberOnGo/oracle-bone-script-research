@@ -109,9 +109,10 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A tall central stem branches widely to both sides
+  and ends in a rounded lower enclosure, with many short side strokes.`
+- 中文观察: `高直中轴向两侧大幅分叉，下端为圆弧闭合轮廓，周围有许多短侧向笔画。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

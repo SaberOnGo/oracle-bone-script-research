@@ -1720,6 +1720,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "divisions with irregular lower marks.",
         "大型方形格状轮廓内部有多道横竖分隔笔画，下部痕迹不规则。",
     ),
+    "obs-char-000341": (
+        "The rectangular outer enclosure contains central diagonal and vertical "
+        "strokes with small upper and lower extensions.",
+        "方形外部闭合轮廓内部有中部斜竖笔画，并带有上下方的小型延伸。",
+    ),
+    "obs-char-000342": (
+        "The tall narrow enclosure contains a central oval-like form and a short "
+        "right-side projection.",
+        "高直狭长闭合轮廓内部有中部椭圆状形体，右侧有短向外伸出。",
+    ),
+    "obs-char-000343": (
+        "The tall rectangular frame contains a central diamond-like enclosure and "
+        "short horizontal divisions.",
+        "高直方形框架内部有中部菱状闭合轮廓和数道短横分隔笔画。",
+    ),
+    "obs-char-000344": (
+        "A broad rounded upper enclosure sits above three branching lower strokes "
+        "with short side projections.",
+        "宽大的圆弧上部闭合轮廓下方有三道分叉笔画，并带有短侧向伸出。",
+    ),
+    "obs-char-000345": (
+        "The pointed diamond-like enclosure stands on a long horizontal base stroke "
+        "with a slightly uneven edge.",
+        "尖顶菱状闭合轮廓立于长横底部笔画之上，底缘略有不平。",
+    ),
+    "obs-char-000346": (
+        "A narrow pointed central form has a short horizontal cross stroke and a "
+        "flared lower point.",
+        "狭长尖状中部形体有短横交叉笔画，下方形成展开的尖状末端。",
+    ),
+    "obs-char-000347": (
+        "The image has a tall pointed upper outline, a small rounded lower enclosure, "
+        "and a short base stroke.",
+        "图像上方为高直尖顶轮廓，下方有小型圆弧闭合轮廓和短底部笔画。",
+    ),
+    "obs-char-000348": (
+        "The large rounded outer contour contains a tall branching central stroke and "
+        "several detached short marks; the dark image needs recheck.",
+        "大型圆弧外轮廓内部有高直分叉中轴和数个分离短痕迹；深色图像仍需复核。",
+    ),
+    "obs-char-000349": (
+        "A slim curved upper stroke descends into two adjoining angular lower forms "
+        "with a small pointed top.",
+        "纤细弧形上部笔画向下连接两个相邻折角形体，顶部有小型尖状部分。",
+    ),
+    "obs-char-000350": (
+        "A tall central stem branches widely to both sides and ends in a rounded lower "
+        "enclosure, with many short side strokes.",
+        "高直中轴向两侧大幅分叉，下端为圆弧闭合轮廓，周围有许多短侧向笔画。",
+    ),
+    "obs-char-000351": (
+        "The dense image contains overlapping angular enclosures, crossing strokes, "
+        "and a pointed lower-left extension.",
+        "密集图像含相互重叠的折角闭合轮廓、交叉笔画和左下方尖状延伸。",
+    ),
+    "obs-char-000352": (
+        "Three separated upright forms are visible, with short horizontal or branching "
+        "marks near their upper and lower sections.",
+        "图像可见三个分离的直立形体，上下部附近有短横或分叉痕迹。",
+    ),
+    "obs-char-000353": (
+        "The narrow image has a slanting branched upper stroke, a curved lower stroke, "
+        "and a short left-side projection.",
+        "狭长图像上方有斜向分叉笔画，下方有弧形笔画，左侧有短向外伸出。",
+    ),
+    "obs-char-000354": (
+        "A central pointed enclosure is crossed by a short horizontal stroke and joined "
+        "to a thin lower stem.",
+        "中部尖状闭合轮廓被短横笔画穿过，并连接下方纤细主干。",
+    ),
+    "obs-char-000355": (
+        "The image has a broad rounded lower enclosure, a central descending stroke, "
+        "and short side strokes beneath a small upper bar.",
+        "图像下部有宽圆弧闭合轮廓，中部有下行笔画，上方小横笔画下有短侧向痕迹。",
+    ),
+    "obs-char-000356": (
+        "The low-contrast gray image shows a slim branching stroke and a separate long "
+        "right-side mark; contrast needs recheck.",
+        "低对比度灰色图像有纤细分叉笔画，右侧另有长痕迹；对比度仍需复核。",
+    ),
+    "obs-char-000357": (
+        "The dark image has a broad upper horizontal stroke, a central rounded mark, "
+        "and long branching strokes descending below.",
+        "深色图像上方有宽横笔画，中部有圆弧痕迹，下方有长分叉笔画向下延伸。",
+    ),
+    "obs-char-000358": (
+        "A thin central stem is flanked by two small pointed upper forms and a long "
+        "curved lower extension.",
+        "纤细中部主干两侧有两个小型尖状上部形体，下方有长弧形延伸。",
+    ),
+    "obs-char-000359": (
+        "The roof-like outer contour contains several short interior strokes and a "
+        "small rounded lower mark.",
+        "屋顶状外部轮廓内部有数道短笔画，下方有小型圆弧痕迹。",
+    ),
+    "obs-char-000360": (
+        "A central rounded enclosure is crossed by horizontal and vertical strokes, "
+        "with pointed forms extending in four directions.",
+        "中部圆弧闭合轮廓被横竖笔画交叉，四个方向均有尖状形体延伸。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

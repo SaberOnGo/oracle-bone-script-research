@@ -180,6 +180,59 @@ and dispute records before any correspondence statement.
 Boundary: these are exact dataset-codepoint lookup routes only. They do not
 confirm identity, reading, meaning, component, variant, evolution
 correspondence, or decipherment.
+### OBIMD Component Candidate Routes / OBIMD 构件候选路线
+
+- Matched OBIMD main UIDs / OBIMD 主字 UID: `dxvqlu3dcd`
+- Component human files / 构件人类档案:
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1626_obs-comp-cand-001626_obimd-sub-dxvqlu3dcd_component-can
+  didate/README.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1626_obs-comp-cand-001626_obimd-sub-dxvqlu3dcd_component-can
+  didate/11_human-component-dossier.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1626_obs-comp-cand-001626_obimd-sub-dxvqlu3dcd_component-can
+  didate/13_component-context-evidence-dossier.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1626_obs-comp-cand-001626_obimd-sub-dxvqlu3dcd_component-can
+  didate/15_component-review-fact-matrix.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1626_obs-comp-cand-001626_obimd-sub-dxvqlu3dcd_component-can
+  didate/16_component-research-readiness-review.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1627_obs-comp-cand-001627_obimd-sub-3991b428r6_component-can
+  didate/README.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1627_obs-comp-cand-001627_obimd-sub-3991b428r6_component-can
+  didate/11_human-component-dossier.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1627_obs-comp-cand-001627_obimd-sub-3991b428r6_component-can
+  didate/13_component-context-evidence-dossier.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1627_obs-comp-cand-001627_obimd-sub-3991b428r6_component-can
+  didate/15_component-review-fact-matrix.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1627_obs-comp-cand-001627_obimd-sub-3991b428r6_component-can
+  didate/16_component-research-readiness-review.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1628_obs-comp-cand-001628_obimd-sub-zcrzkabaoc_component-can
+  didate/README.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1628_obs-comp-cand-001628_obimd-sub-zcrzkabaoc_component-can
+  didate/11_human-component-dossier.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1628_obs-comp-cand-001628_obimd-sub-zcrzkabaoc_component-can
+  didate/13_component-context-evidence-dossier.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1628_obs-comp-cand-001628_obimd-sub-zcrzkabaoc_component-can
+  didate/15_component-review-fact-matrix.md
+  corpus/003_graphemic-components/017_001601-001700_obs-comp-cand-bucket_compo
+  nent-candidates/1628_obs-comp-cand-001628_obimd-sub-zcrzkabaoc_component-can
+  didate/16_component-research-readiness-review.md
+These routes exist only when an exact OBIMD main UID also occurs in the
+component staging register. They are dataset candidate dossiers, not proof of
+a component assignment.
+只有当 OBIMD 主字 UID 与构件 staging 登记精确相同时，才列出这些路线。它们仍是数据集候选档案，不是构件归属证明。
 边界：这些只是数据集码位精确匹配路线，不能确认单字身份、释读、意义、构件、异体、演化对应关系或破译结论。
 
 ## 5. 出土地、馆藏、时期与组类

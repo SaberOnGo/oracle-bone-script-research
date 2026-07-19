@@ -96,6 +96,9 @@
     "obimd_external_refs": [
       "obimd-main-mqa9ifrvq4"
     ],
+    "obimd_source_uids": [
+      "mqa9ifrvq4"
+    ],
     "obimd_transcriptions": [
       "㝊"
     ],
@@ -124,6 +127,7 @@
     ]
   },
   "evolution_object_human_routes": [],
+  "component_candidate_human_routes": [],
   "human_context_sections": [
     "glyph_image_and_observation_routes",
     "variant_near_shape_and_component_clues",

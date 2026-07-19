@@ -98,6 +98,9 @@
     "obimd_external_refs": [
       "obimd-main-mm49eilaqb"
     ],
+    "obimd_source_uids": [
+      "mm49eilaqb"
+    ],
     "obimd_transcriptions": [
       "㫃|𭤨"
     ],
@@ -135,6 +138,18 @@
     "corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand-bucket_evolution-candidates/154_obs-evo-cand-000154_evobc-cat-00154_evolution-candidate/09_cross-period-review-dossier.md",
     "corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand-bucket_evolution-candidates/154_obs-evo-cand-000154_evobc-cat-00154_evolution-candidate/11_evolution-review-fact-matrix.md",
     "corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand-bucket_evolution-candidates/154_obs-evo-cand-000154_evobc-cat-00154_evolution-candidate/12_modern-label-caution-review.md"
+  ],
+  "component_candidate_human_routes": [
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1936_obs-comp-cand-001936_obimd-sub-mm49eilaqb_component-candidate/README.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1936_obs-comp-cand-001936_obimd-sub-mm49eilaqb_component-candidate/11_human-component-dossier.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1936_obs-comp-cand-001936_obimd-sub-mm49eilaqb_component-candidate/13_component-context-evidence-dossier.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1936_obs-comp-cand-001936_obimd-sub-mm49eilaqb_component-candidate/15_component-review-fact-matrix.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1936_obs-comp-cand-001936_obimd-sub-mm49eilaqb_component-candidate/16_component-research-readiness-review.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1937_obs-comp-cand-001937_obimd-sub-j1sekhafab_component-candidate/README.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1937_obs-comp-cand-001937_obimd-sub-j1sekhafab_component-candidate/11_human-component-dossier.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1937_obs-comp-cand-001937_obimd-sub-j1sekhafab_component-candidate/13_component-context-evidence-dossier.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1937_obs-comp-cand-001937_obimd-sub-j1sekhafab_component-candidate/15_component-review-fact-matrix.md",
+    "corpus/003_graphemic-components/020_001901-002000_obs-comp-cand-bucket_component-candidates/1937_obs-comp-cand-001937_obimd-sub-j1sekhafab_component-candidate/16_component-research-readiness-review.md"
   ],
   "human_context_sections": [
     "glyph_image_and_observation_routes",

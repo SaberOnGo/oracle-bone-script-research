@@ -48,6 +48,48 @@ Chalfant reference.
 - Do not assign a formal `obi-*` ID before this order.
 - 完成此顺序前，不要分配正式 `obi-*` 编号。
 
+## Bibliography, Source Scope, And Disputes / 文献、范围与争议
+
+- Literature scope review / 文献范围复核:
+`corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cam
+bridge-hopkins_source-object/16_source-literature-scope-review.md`
+- Source evidence dossier / 来源证据档案:
+`corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cam
+bridge-hopkins_source-object/10_source-evidence-dossier.md`
+- Source-to-dossier transfer / 来源转入复核:
+`corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cam
+bridge-hopkins_source-object/14_source-to-dossier-transfer-review.md`
+- Pre-research readiness / 预研究就绪复核:
+`corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cam
+bridge-hopkins_source-object/20_source-presearch-readiness-review.md`
+- Source type / 来源类型: `library_collection`
+- Evidence level / 证据等级: `university_library_collection`
+- Applicable scope / 资料适用范围: Hopkins finding-list rows, period and topic
+  tables, and cross-references to CUL, Chalfant, Heji, and Yingguo records.
+- Web/database route / 网页或数据库路线: Cambridge University Library
+  finding-list page and linked catalog or digitized-object routes.
+- Citation relations / 引用关系: the source keys route reviewers to CUL,
+  Chalfant, Heji, and Yingguo records; each cited entry needs separate edition,
+  page, plate, image, object, and rights review.
+- Interpretation history / 释读过程: not supplied by this catalog row;
+  locate separate dictionary, paper, catalog, or database scholarship first.
+- Proposer or editor / 提出者或整理者: not assigned for this candidate row;
+  do not treat the source provider as a reading proposer.
+- Different opinions / 不同意见: not collected in this candidate route;
+  absence of a disagreement row is not agreement.
+- Disputes / 争议: pending separate review of catalog notes, alternate labels,
+  joins, missing numbers, and later scholarly discussions.
+
+Human action: open the literature scope and transfer-review files, then
+record which citation, catalog, paper, database, proposer, alternate view,
+or dispute can actually support this candidate. Keep every result as a
+source note or disputed route until the plate, object, and text evidence are
+reviewed.
+
+人工动作：先打开文献范围和转入复核文件，再记录哪条引用、著录、论文、数据库、提出者、替代意见或争议能够实际支持本候选项。图版、实物和文本证据完成复核前，
+所有结果都保持来源札记或争议路线状态。
+
+
 ## Findspot Period Batch And Linked Characters / 出土地、时期、批次与关联字形
 
 - Period label: `V`

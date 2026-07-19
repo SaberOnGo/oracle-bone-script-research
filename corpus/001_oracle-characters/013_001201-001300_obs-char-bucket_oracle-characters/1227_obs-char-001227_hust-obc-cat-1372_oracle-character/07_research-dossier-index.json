@@ -65,6 +65,7 @@
     ],
     "obimd_candidate_ids": [],
     "obimd_external_refs": [],
+    "obimd_source_uids": [],
     "obimd_transcriptions": [],
     "evobc_category_ids": [
       "evobc-evo-cat-00127"
@@ -101,6 +102,7 @@
     "corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand-bucket_evolution-candidates/127_obs-evo-cand-000127_evobc-cat-00127_evolution-candidate/11_evolution-review-fact-matrix.md",
     "corpus/004_bronze-seal-modern-correspondences/002_000101-000200_obs-evo-cand-bucket_evolution-candidates/127_obs-evo-cand-000127_evobc-cat-00127_evolution-candidate/12_modern-label-caution-review.md"
   ],
+  "component_candidate_human_routes": [],
   "source_object_routes": [
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/README.md",
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/10_source-evidence-dossier.md",

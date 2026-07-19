@@ -37,6 +37,12 @@
   "project_id": "obs-insc-cw-cand-000028",
   "record_type": "inscription_crosswalk_candidate_dossier_index",
   "research_boundary": "object_local_cambridge_hopkins_inscription_crosswalk_candidate_not_scholarship",
+  "source_literature_human_routes": [
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/16_source-literature-scope-review.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/10_source-evidence-dossier.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/14_source-to-dossier-transfer-review.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/20_source-presearch-readiness-review.md"
+  ],
   "text_transcription_status": "needs_primary_text_or_ocr_review_route",
   "uncollected_human_research_fields": [
     "excavation_site",

@@ -173,6 +173,29 @@ evolution correspondence, or decipherment.
 These routes point to object-local EVOBC human dossiers. They are candidate
 comparison material only; open the cited images, source codes, bibliography,
 and dispute records before any correspondence statement.
+### OBIMD Component Candidate Routes / OBIMD 构件候选路线
+
+- matched OBIMD main UIDs: `hcsv6oxj1l`
+- object-local component human files / 对象内构件人类档案:
+  corpus/003_graphemic-components/013_001201-001300_obs-comp-cand-bucket_compo
+  nent-candidates/1296_obs-comp-cand-001296_obimd-sub-hcsv6oxj1l_component-can
+  didate/README.md
+  corpus/003_graphemic-components/013_001201-001300_obs-comp-cand-bucket_compo
+  nent-candidates/1296_obs-comp-cand-001296_obimd-sub-hcsv6oxj1l_component-can
+  didate/11_human-component-dossier.md
+  corpus/003_graphemic-components/013_001201-001300_obs-comp-cand-bucket_compo
+  nent-candidates/1296_obs-comp-cand-001296_obimd-sub-hcsv6oxj1l_component-can
+  didate/13_component-context-evidence-dossier.md
+  corpus/003_graphemic-components/013_001201-001300_obs-comp-cand-bucket_compo
+  nent-candidates/1296_obs-comp-cand-001296_obimd-sub-hcsv6oxj1l_component-can
+  didate/15_component-review-fact-matrix.md
+  corpus/003_graphemic-components/013_001201-001300_obs-comp-cand-bucket_compo
+  nent-candidates/1296_obs-comp-cand-001296_obimd-sub-hcsv6oxj1l_component-can
+  didate/16_component-research-readiness-review.md
+These routes exist only when an exact OBIMD main UID also occurs in the
+component staging register. They are dataset candidate dossiers, not proof of
+a component assignment.
+只有当 OBIMD 主字 UID 与构件 staging 登记精确相同时，才列出这些路线。它们仍是数据集候选档案，不是构件归属证明。
 这些路线指向对象目录内的 EVOBC 人类档案。它们只能作为候选比较材料；在写任何对应说明前，必须打开所列图像、来源代码、书目和争议记录。
 
 ## 5. Variants, Components, And Similar Forms / 异体构件近形

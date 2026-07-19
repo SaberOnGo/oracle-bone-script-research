@@ -61,6 +61,12 @@ CHARACTER_LINKAGE_INDEX = Path(
     "corpus/009_statistics-and-derived-features/"
     "224_character-inscription-linkage-audit-index.json"
 )
+SOURCE_LITERATURE_FILES = (
+    "16_source-literature-scope-review.md",
+    "10_source-evidence-dossier.md",
+    "14_source-to-dossier-transfer-review.md",
+    "20_source-presearch-readiness-review.md",
+)
 
 CAUTION = (
     "This object is a Cambridge/Hopkins inscription crosswalk candidate only. "
@@ -257,6 +263,49 @@ identity, image right, OCR text, transcription, or decipherment conclusion.
 本审计段只是来源路线清单，不确认卜辞身份、图像权利、OCR、释文或释读。
 """
     return text
+
+
+def source_literature_routes() -> list[str]:
+    return [
+        (SOURCE_OBJECT_DIR / name).as_posix()
+        for name in SOURCE_LITERATURE_FILES
+    ]
+
+
+def source_literature_scope_markdown() -> str:
+    routes = source_literature_routes()
+    return f"""## Bibliography, Source Scope, And Disputes / 文献、范围与争议
+
+- Literature scope review / 文献范围复核:
+{paragraph(f'`{routes[0]}`')}
+- Source evidence dossier / 来源证据档案:
+{paragraph(f'`{routes[1]}`')}
+- Source-to-dossier transfer / 来源转入复核:
+{paragraph(f'`{routes[2]}`')}
+- Pre-research readiness / 预研究就绪复核:
+{paragraph(f'`{routes[3]}`')}
+- Source type / 来源类型: `library_collection`
+- Evidence level / 证据等级: `university_library_collection`
+- Applicable scope / 资料适用范围: Hopkins finding-list rows, period and topic
+  tables, and cross-references to CUL, Chalfant, Heji, and Yingguo records.
+- Web/database route / 网页或数据库路线: Cambridge University Library
+  finding-list page and linked catalog or digitized-object routes.
+- Citation relations / 引用关系: the source keys route reviewers to CUL,
+  Chalfant, Heji, and Yingguo records; each cited entry needs separate edition,
+  page, plate, image, object, and rights review.
+- Interpretation history / 释读过程: not supplied by this catalog row;
+  locate separate dictionary, paper, catalog, or database scholarship first.
+- Proposer or editor / 提出者或整理者: not assigned for this candidate row;
+  do not treat the source provider as a reading proposer.
+- Different opinions / 不同意见: not collected in this candidate route;
+  absence of a disagreement row is not agreement.
+- Disputes / 争议: pending separate review of catalog notes, alternate labels,
+  joins, missing numbers, and later scholarly discussions.
+
+{paragraph("Human action: open the literature scope and transfer-review files, then record which citation, catalog, paper, database, proposer, alternate view, or dispute can actually support this candidate. Keep every result as a source note or disputed route until the plate, object, and text evidence are reviewed.")}
+
+{paragraph("人工动作：先打开文献范围和转入复核文件，再记录哪条引用、著录、论文、数据库、提出者、替代意见或争议能够实际支持本候选项。图版、实物和文本证据完成复核前，所有结果都保持来源札记或争议路线状态。")}
+"""
 
 
 def research_slot_markdown() -> str:
@@ -948,6 +997,8 @@ primary catalog, image, object, or page evidence has been opened.
 
 {priority_review_order_markdown()}
 
+{source_literature_scope_markdown()}
+
 ## Text And OCR Quality Review / 文本与 OCR 质量复核
 
 - Full text or OCR status: `待查: primary text or OCR route`
@@ -1074,6 +1125,8 @@ Chalfant reference.
 
 {priority_review_order_markdown()}
 
+{source_literature_scope_markdown()}
+
 ## Findspot Period Batch And Linked Characters / 出土地、时期、批次与关联字形
 
 - Period label: `{row['period_label']}`
@@ -1175,6 +1228,7 @@ def plate_evidence_index(
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
+        "source_literature_human_routes": source_literature_routes(),
         "missing_reference_types": missing_refs,
         "missing_or_review_fields": [
             "full_inscription_text_or_ocr",
@@ -2431,6 +2485,7 @@ def dossier_index(
         ],
         "catalog_reference_count": len(catalog_rows),
         "plate_text_route_count": len(plate_routes),
+        "source_literature_human_routes": source_literature_routes(),
         "missing_reference_types": missing,
         "human_review_status": "needs_human_inscription_crosswalk_review",
         "formal_inscription_assignment_status": "not_assigned_formal_obi_id",

@@ -63,6 +63,7 @@
     ],
     "obimd_candidate_ids": [],
     "obimd_external_refs": [],
+    "obimd_source_uids": [],
     "obimd_transcriptions": [],
     "evobc_category_ids": [],
     "evobc_external_refs": [],
@@ -89,6 +90,7 @@
     ]
   },
   "evolution_object_human_routes": [],
+  "component_candidate_human_routes": [],
   "source_object_routes": [
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/README.md",
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/10_source-evidence-dossier.md",

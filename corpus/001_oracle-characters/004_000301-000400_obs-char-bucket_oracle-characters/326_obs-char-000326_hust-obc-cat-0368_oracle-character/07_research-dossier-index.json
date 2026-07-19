@@ -69,6 +69,9 @@
     "obimd_external_refs": [
       "obimd-main-x0w8luxhhs"
     ],
+    "obimd_source_uids": [
+      "x0w8luxhhs"
+    ],
     "obimd_transcriptions": [
       "㕦"
     ],
@@ -97,6 +100,13 @@
     ]
   },
   "evolution_object_human_routes": [],
+  "component_candidate_human_routes": [
+    "corpus/003_graphemic-components/007_000601-000700_obs-comp-cand-bucket_component-candidates/621_obs-comp-cand-000621_obimd-sub-x0w8luxhhs_component-candidate/README.md",
+    "corpus/003_graphemic-components/007_000601-000700_obs-comp-cand-bucket_component-candidates/621_obs-comp-cand-000621_obimd-sub-x0w8luxhhs_component-candidate/11_human-component-dossier.md",
+    "corpus/003_graphemic-components/007_000601-000700_obs-comp-cand-bucket_component-candidates/621_obs-comp-cand-000621_obimd-sub-x0w8luxhhs_component-candidate/13_component-context-evidence-dossier.md",
+    "corpus/003_graphemic-components/007_000601-000700_obs-comp-cand-bucket_component-candidates/621_obs-comp-cand-000621_obimd-sub-x0w8luxhhs_component-candidate/15_component-review-fact-matrix.md",
+    "corpus/003_graphemic-components/007_000601-000700_obs-comp-cand-bucket_component-candidates/621_obs-comp-cand-000621_obimd-sub-x0w8luxhhs_component-candidate/16_component-research-readiness-review.md"
+  ],
   "source_object_routes": [
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/README.md",
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/10_source-evidence-dossier.md",

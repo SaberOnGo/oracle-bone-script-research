@@ -71,6 +71,9 @@
     "obimd_external_refs": [
       "obimd-main-omtx3jpdtq"
     ],
+    "obimd_source_uids": [
+      "omtx3jpdtq"
+    ],
     "obimd_transcriptions": [
       "㐱"
     ],
@@ -108,6 +111,13 @@
     "corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand-bucket_evolution-candidates/006_obs-evo-cand-000006_evobc-cat-00006_evolution-candidate/09_cross-period-review-dossier.md",
     "corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand-bucket_evolution-candidates/006_obs-evo-cand-000006_evobc-cat-00006_evolution-candidate/11_evolution-review-fact-matrix.md",
     "corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand-bucket_evolution-candidates/006_obs-evo-cand-000006_evobc-cat-00006_evolution-candidate/12_modern-label-caution-review.md"
+  ],
+  "component_candidate_human_routes": [
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/717_obs-comp-cand-000717_obimd-sub-omtx3jpdtq_component-candidate/README.md",
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/717_obs-comp-cand-000717_obimd-sub-omtx3jpdtq_component-candidate/11_human-component-dossier.md",
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/717_obs-comp-cand-000717_obimd-sub-omtx3jpdtq_component-candidate/13_component-context-evidence-dossier.md",
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/717_obs-comp-cand-000717_obimd-sub-omtx3jpdtq_component-candidate/15_component-review-fact-matrix.md",
+    "corpus/003_graphemic-components/008_000701-000800_obs-comp-cand-bucket_component-candidates/717_obs-comp-cand-000717_obimd-sub-omtx3jpdtq_component-candidate/16_component-research-readiness-review.md"
   ],
   "source_object_routes": [
     "corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust-obc_source-object/README.md",

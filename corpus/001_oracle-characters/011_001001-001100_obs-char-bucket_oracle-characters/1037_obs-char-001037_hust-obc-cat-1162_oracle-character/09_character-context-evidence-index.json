@@ -98,6 +98,9 @@
     "obimd_external_refs": [
       "obimd-main-i9rq6029zl"
     ],
+    "obimd_source_uids": [
+      "i9rq6029zl"
+    ],
     "obimd_transcriptions": [
       "򩦚|㢀"
     ],
@@ -136,6 +139,7 @@
     "corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand-bucket_evolution-candidates/097_obs-evo-cand-000097_evobc-cat-00097_evolution-candidate/11_evolution-review-fact-matrix.md",
     "corpus/004_bronze-seal-modern-correspondences/001_000001-000100_obs-evo-cand-bucket_evolution-candidates/097_obs-evo-cand-000097_evobc-cat-00097_evolution-candidate/12_modern-label-caution-review.md"
   ],
+  "component_candidate_human_routes": [],
   "human_context_sections": [
     "glyph_image_and_observation_routes",
     "variant_near_shape_and_component_clues",

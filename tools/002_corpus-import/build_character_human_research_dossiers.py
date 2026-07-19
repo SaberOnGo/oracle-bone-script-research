@@ -26,6 +26,11 @@ SOURCE_OBJECT_ROOT = Path(
 EVOLUTION_OBJECT_ROOT = Path(
     "corpus/004_bronze-seal-modern-correspondences"
 )
+COMPONENT_ROOT = Path("corpus/003_graphemic-components")
+COMPONENT_MAIN_STAGING = Path(
+    "corpus/003_graphemic-components/000_component-registers/"
+    "002_obimd-subcharacter-main-staging.csv"
+)
 GRAPH_FILES = [
     Path("corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl"),
@@ -83,6 +88,43 @@ def crosswalk_rows_by_character(root: Path) -> dict[str, list[dict[str, str]]]:
     return rows_by_character
 
 
+def component_human_routes_by_main_uid(root: Path) -> dict[str, list[str]]:
+    """Index object-local OBIMD component candidates by exact main UID."""
+    routes: dict[str, list[str]] = defaultdict(list)
+    pattern = re.compile(r"^obimd-sub-cand-(\d+)$")
+    human_files = (
+        "README.md",
+        "11_human-component-dossier.md",
+        "13_component-context-evidence-dossier.md",
+        "15_component-review-fact-matrix.md",
+        "16_component-research-readiness-review.md",
+    )
+    for row in read_csv_rows(root / COMPONENT_MAIN_STAGING):
+        match = pattern.fullmatch(str(row.get("candidate_subcharacter_id", "")))
+        main_uid = str(row.get("source_main_character_uid", ""))
+        external_ref = str(row.get("subcharacter_external_ref_id", ""))
+        if not match or not main_uid or not external_ref:
+            continue
+        index = int(match.group(1))
+        bucket = (index - 1) // 100 + 1
+        start = (bucket - 1) * 100 + 1
+        end = bucket * 100
+        directory = root / COMPONENT_ROOT / (
+            f"{bucket:03d}_{start:06d}-{end:06d}_"
+            "obs-comp-cand-bucket_component-candidates"
+        ) / (
+            f"{index:03d}_obs-comp-cand-{index:06d}_"
+            f"{external_ref}_component-candidate"
+        )
+        for name in human_files:
+            path = directory / name
+            if path.exists():
+                route = path.relative_to(root).as_posix()
+                if route not in routes[main_uid]:
+                    routes[main_uid].append(route)
+    return dict(routes)
+
+
 def evolution_object_routes_by_category(root: Path) -> dict[str, list[str]]:
     """Index object-local EVOBC human files by candidate category ID."""
     routes: dict[str, list[str]] = {}
@@ -122,6 +164,20 @@ def evolution_human_routes(
     return routes
 
 
+def component_route_bullets(label: str, routes: list[str]) -> list[str]:
+    """Render exact component dossier paths without hiding long segments."""
+    if not routes:
+        return [bullet(label, code_value("none"))]
+    lines = [f"- {label}:"]
+    for route in routes:
+        remaining = route
+        while remaining:
+            chunk = remaining[: WIDTH - 2]
+            lines.append(f"  {chunk}")
+            remaining = remaining[len(chunk) :]
+    return lines
+
+
 def cross_source_summary(rows: list[dict[str, str]]) -> dict[str, Any]:
     def values(field: str) -> list[str]:
         result: list[str] = []
@@ -138,6 +194,7 @@ def cross_source_summary(rows: list[dict[str, str]]) -> dict[str, Any]:
         "matched_source_ids": values("matched_source_ids"),
         "obimd_candidate_ids": values("obimd_candidate_main_character_ids"),
         "obimd_external_refs": values("obimd_primary_external_ref_ids"),
+        "obimd_source_uids": values("obimd_source_uids"),
         "obimd_transcriptions": values("obimd_transcription_values"),
         "evobc_category_ids": values("evobc_candidate_evolution_category_ids"),
         "evobc_external_refs": values("evobc_primary_external_ref_ids"),
@@ -546,6 +603,7 @@ def dossier_text(
     edges: list[dict[str, Any]],
     crosswalk_rows: list[dict[str, str]],
     evolution_routes_by_category: dict[str, list[str]],
+    component_routes_by_main_uid: dict[str, list[str]],
     object_dir: Path,
     root: Path,
 ) -> str:
@@ -557,6 +615,11 @@ def dossier_text(
         cross_source["evobc_category_ids"],
         evolution_routes_by_category,
     )
+    component_routes: list[str] = []
+    for main_uid in cross_source["obimd_source_uids"]:
+        for route in component_routes_by_main_uid.get(main_uid, []):
+            if route not in component_routes:
+                component_routes.append(route)
     visual_note = visual_note_summary(object_dir)
     first_visual = visual_rows[0] if visual_rows else {}
     catalog_route_clues = filename_catalog_route_clues(visual_rows)
@@ -756,6 +819,25 @@ def dossier_text(
             "codes, bibliography, and dispute records before any correspondence "
             "statement."
         ),
+        "### OBIMD Component Candidate Routes / OBIMD 构件候选路线",
+        "",
+        bullet(
+            "matched OBIMD main UIDs",
+            code_value("; ".join(cross_source["obimd_source_uids"]) or "none"),
+        ),
+        *component_route_bullets(
+            "object-local component human files / 对象内构件人类档案",
+            component_routes,
+        ),
+        para(
+            "These routes exist only when an exact OBIMD main UID also occurs "
+            "in the component staging register. They are dataset candidate "
+            "dossiers, not proof of a component assignment."
+        ),
+        para(
+            "只有当 OBIMD 主字 UID 与构件 staging 登记精确相同时，才列出这些路线。"
+            "它们仍是数据集候选档案，不是构件归属证明。"
+        ),
         para(
             "这些路线指向对象目录内的 EVOBC 人类档案。它们只能作为候选比较材料；"
             "在写任何对应说明前，必须打开所列图像、来源代码、书目和争议记录。"
@@ -934,8 +1016,14 @@ def ai_index(
     edges: list[dict[str, Any]],
     cross_source: dict[str, Any],
     evolution_routes_by_category: dict[str, list[str]],
+    component_routes_by_main_uid: dict[str, list[str]],
     root: Path,
 ) -> dict[str, Any]:
+    component_routes: list[str] = []
+    for main_uid in cross_source["obimd_source_uids"]:
+        for route in component_routes_by_main_uid.get(main_uid, []):
+            if route not in component_routes:
+                component_routes.append(route)
     return {
         "project_id": project_id,
         "updated_at": UPDATED_AT,
@@ -968,6 +1056,7 @@ def ai_index(
             cross_source["evobc_category_ids"],
             evolution_routes_by_category,
         ),
+        "component_candidate_human_routes": component_routes,
         "source_object_routes": source_object_routes(
             root,
             str(packet.get("source_id", "")),
@@ -1011,6 +1100,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
     edges_by_source = graph_edges_by_source(root)
     crosswalk_by_character = crosswalk_rows_by_character(root)
     evolution_routes_by_category = evolution_object_routes_by_category(root)
+    component_routes_by_main_uid = component_human_routes_by_main_uid(root)
     outputs: dict[str, dict[str, Any]] = {}
     for record in discover_packet_dirs(root):
         object_dir = record["object_dir"]
@@ -1028,6 +1118,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
             edges,
             crosswalk_rows,
             evolution_routes_by_category,
+            component_routes_by_main_uid,
             object_dir,
             root,
         )
@@ -1050,6 +1141,7 @@ def build_outputs(root: Path) -> dict[str, dict[str, Any]]:
                 edges,
                 cross_source_summary(crosswalk_rows),
                 evolution_routes_by_category,
+                component_routes_by_main_uid,
                 root,
             ),
         }

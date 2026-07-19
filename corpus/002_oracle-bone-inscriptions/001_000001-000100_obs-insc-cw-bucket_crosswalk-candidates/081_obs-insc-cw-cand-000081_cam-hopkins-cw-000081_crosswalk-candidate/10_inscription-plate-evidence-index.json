@@ -46,6 +46,12 @@
   "project_id": "obs-insc-cw-cand-000081",
   "record_type": "inscription_plate_evidence_dossier_index",
   "review_status": "needs_human_inscription_crosswalk_review",
+  "source_literature_human_routes": [
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/16_source-literature-scope-review.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/10_source-evidence-dossier.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/14_source-to-dossier-transfer-review.md",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/008_src-cambridge-hopkins_source-object/20_source-presearch-readiness-review.md"
+  ],
   "text_quality_status": "needs_primary_text_or_OCR_route_review",
   "updated_at": "2026-06-21"
 }

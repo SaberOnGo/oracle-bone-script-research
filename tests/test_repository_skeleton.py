@@ -4065,6 +4065,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             any(route.endswith("/07_human-evolution-dossier.md") for route in evolution_routes)
         )
+        component_routes = matched["index_data"]["component_candidate_human_routes"]
+        self.assertEqual(len(component_routes), 15)
+        self.assertTrue(
+            all((repo_root() / route).is_file() for route in component_routes)
+        )
+        self.assertTrue(
+            any(route.endswith("/11_human-component-dossier.md") for route in component_routes)
+        )
+        self.assertIn("OBIMD Component Candidate Routes", matched["dossier_text"])
         self.assertEqual(
             first["index_data"]["archaeological_folder_coverage"]["inscription_occurrences"],
             "needs_inscription_plate_text_review_route",
@@ -4221,6 +4230,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             all((repo_root() / route).is_file() for route in evolution_routes)
         )
+        component_routes = matched["index_data"]["component_candidate_human_routes"]
+        self.assertEqual(len(component_routes), 15)
+        self.assertTrue(
+            all((repo_root() / route).is_file() for route in component_routes)
+        )
+        self.assertIn("OBIMD Component Candidate Routes", matched["dossier_text"])
     def test_character_archaeology_paleography_reviews_are_colocated(self) -> None:
         module = load_character_archaeology_paleography_reviews_module()
         outputs = module.build_outputs(repo_root())
@@ -5640,6 +5655,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("Source Provenance Audit", first["human_dossier_text"])
         self.assertIn("来源追溯审计", first["human_dossier_text"])
+        self.assertIn(
+            "Bibliography, Source Scope, And Disputes",
+            first["human_dossier_text"],
+        )
+        self.assertIn("文献、范围与争议", first["human_dossier_text"])
+        self.assertIn("16_source-literature-scope-review.md", first["human_dossier_text"])
+        self.assertIn("absence of a disagreement row is not agreement", first["human_dossier_text"])
         self.assertIn("Download log path", first["human_dossier_text"])
         self.assertIn(
             "project_registry/006_large-source-register/002_source-download-log.csv",
@@ -5672,6 +5694,17 @@ class RepositorySkeletonTests(unittest.TestCase):
             first["dossier_index"]["record_type"],
             "inscription_crosswalk_candidate_dossier_index",
         )
+        literature_routes = first["dossier_index"]["source_literature_human_routes"]
+        self.assertTrue(literature_routes)
+        self.assertTrue(
+            all((repo_root() / route).is_file() for route in literature_routes)
+        )
+        self.assertTrue(
+            any(
+                route.endswith("/16_source-literature-scope-review.md")
+                for route in literature_routes
+            )
+        )
         self.assertIn("plate_evidence_dossier_text", first)
         self.assertIn("plate_evidence_index", first)
         self.assertIn("review_fact_matrix_text", first)
@@ -5699,6 +5732,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Component Scholarship And Relation Slots",
             first["plate_evidence_dossier_text"],
         )
+        self.assertIn(
+            "Bibliography, Source Scope, And Disputes",
+            first["plate_evidence_dossier_text"],
+        )
+        self.assertIn(
+            "16_source-literature-scope-review.md",
+            first["plate_evidence_dossier_text"],
+        )
         self.assertIn("构件、文献与关系待查槽位", first["plate_evidence_dossier_text"])
         self.assertIn("Component evidence", first["plate_evidence_dossier_text"])
         self.assertIn("Scholarship and disputes", first["plate_evidence_dossier_text"])
@@ -5711,6 +5752,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             first["plate_evidence_index"]["record_type"],
             "inscription_plate_evidence_dossier_index",
+        )
+        self.assertEqual(
+            first["plate_evidence_index"]["source_literature_human_routes"],
+            literature_routes,
         )
         self.assertIn(
             "Inscription Review Fact Matrix",

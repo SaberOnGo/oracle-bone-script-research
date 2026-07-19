@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The image combines a small rounded bowl-like mark on
+  the left with a larger angular upright form on the right and a long
+  diagonal lower stroke.`
+- 中文观察: `图像左侧有小型圆弧碗状痕迹，右侧有较大的折角直立形体，下方延伸长斜向笔画。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

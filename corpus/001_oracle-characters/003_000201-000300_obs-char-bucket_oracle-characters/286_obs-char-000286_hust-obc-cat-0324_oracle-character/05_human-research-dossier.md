@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The image shows a rounded U-like enclosure with
+  upright side strokes, a low horizontal base, and a short horizontal mark
+  inside.`
+- 中文观察: `图像有圆弧 U 形轮廓和直立侧笔，底部为低位横画，内部另有短横向痕迹。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

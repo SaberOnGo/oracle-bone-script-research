@@ -45,6 +45,9 @@ PROJECT_ID_PATTERN = re.compile(
     r"(obs-(?:char|unk|comp-cand|evo-cand|insc-cw-cand|topic-cand|xwalk-cand)-\d{6}|coll-obj-cand-\d{5}|src-[a-z0-9-]+)"
 )
 SOURCE_ID_PATTERN = re.compile(r"^src-[a-z0-9-]+$")
+CHARACTER_MATERIAL_OBSERVATION_IDS = {
+    f"obs-char-{index:06d}" for index in range(1, 301)
+}
 
 
 OBJECT_SPECS = [
@@ -488,6 +491,13 @@ def build_rows(root: Path) -> list[dict[str, str]]:
             project_id = project_id_for_packet(packet, object_dir)
             required_human_files = spec.required_human_files
             route_files = spec.route_files
+            if spec.corpus_area == "oracle_character_candidates" and project_id in CHARACTER_MATERIAL_OBSERVATION_IDS:
+                required_human_files = required_human_files + (
+                    "14_material-visual-observation.md",
+                )
+                route_files = route_files + (
+                    "14_material-visual-observation.md",
+                )
             if spec.corpus_area == "graphemic_component_candidates" and project_id in {
                 f"obs-comp-cand-{index:06d}" for index in range(1, 11)
             }:

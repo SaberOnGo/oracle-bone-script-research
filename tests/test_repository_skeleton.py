@@ -7902,6 +7902,26 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-000278", "U-shaped base"),
             ("obs-char-000279", "small enclosed middle block"),
             ("obs-char-000280", "angular curved outline"),
+            ("obs-char-000281", "large slanted rounded contour"),
+            ("obs-char-000282", "small curved enclosure"),
+            ("obs-char-000283", "long upper horizontal stroke"),
+            ("obs-char-000284", "small rounded bowl-like mark"),
+            ("obs-char-000285", "adjoining upright and branching strokes"),
+            ("obs-char-000286", "rounded U-like enclosure"),
+            ("obs-char-000287", "long upright stroke"),
+            ("obs-char-000288", "broad rounded outer contour"),
+            ("obs-char-000289", "two adjoining dark block-like enclosures"),
+            ("obs-char-000290", "upper rounded arch"),
+            ("obs-char-000291", "rounded lower enclosure"),
+            ("obs-char-000292", "narrow rectangular framework"),
+            ("obs-char-000293", "large curved enclosing stroke"),
+            ("obs-char-000294", "long angled upper stroke"),
+            ("obs-char-000295", "slim central vertical cluster"),
+            ("obs-char-000296", "broad peaked outer contour"),
+            ("obs-char-000297", "two vertically stacked rounded rectangular outlines"),
+            ("obs-char-000298", "branching upright strokes"),
+            ("obs-char-000299", "large peaked outer angle"),
+            ("obs-char-000300", "low-contrast gray image"),
         ):
             self.assertIn(
                 expected_fragment,
@@ -7951,6 +7971,26 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-000278",
             "obs-char-000279",
             "obs-char-000280",
+            "obs-char-000281",
+            "obs-char-000282",
+            "obs-char-000283",
+            "obs-char-000284",
+            "obs-char-000285",
+            "obs-char-000286",
+            "obs-char-000287",
+            "obs-char-000288",
+            "obs-char-000289",
+            "obs-char-000290",
+            "obs-char-000291",
+            "obs-char-000292",
+            "obs-char-000293",
+            "obs-char-000294",
+            "obs-char-000295",
+            "obs-char-000296",
+            "obs-char-000297",
+            "obs-char-000298",
+            "obs-char-000299",
+            "obs-char-000300",
         ):
             self.assertTrue(
                 (
@@ -8528,9 +8568,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-char-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-char-000001"]["human_file_count"], "7")
+        self.assertEqual(by_project["obs-char-000001"]["human_file_count"], "8")
         self.assertEqual(by_project["obs-char-000001"]["ai_file_count"], "6")
-        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "4")
+        self.assertEqual(by_project["obs-char-000001"]["route_file_count"], "5")
         self.assertEqual(by_project["obs-char-000001"]["source_ids"], "src-hust-obc")
         self.assertEqual(
             by_project["obs-unk-000001"]["material_bundle_status"],

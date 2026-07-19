@@ -1021,6 +1021,15 @@ def ai_index(
     component_routes_by_main_uid: dict[str, list[str]],
     root: Path,
 ) -> dict[str, Any]:
+    human_files = [
+        "README.md",
+        "04_visual-gallery.md",
+        "05_human-research-dossier.md",
+        "06_human-review-sheet.md",
+        "08_character-context-evidence-dossier.md",
+    ]
+    if (object_dir / "14_material-visual-observation.md").exists():
+        human_files.append("14_material-visual-observation.md")
     component_routes: list[str] = []
     for main_uid in cross_source["obimd_source_uids"]:
         for route in component_routes_by_main_uid.get(main_uid, []):
@@ -1030,13 +1039,7 @@ def ai_index(
         "project_id": project_id,
         "updated_at": UPDATED_AT,
         "object_dir": object_dir.relative_to(root).as_posix(),
-        "human_files": [
-            "README.md",
-            "04_visual-gallery.md",
-            "05_human-research-dossier.md",
-            "06_human-review-sheet.md",
-            "08_character-context-evidence-dossier.md",
-        ],
+        "human_files": human_files,
         "ai_files": [
             packet_name,
             "02_visual-source-index.csv",

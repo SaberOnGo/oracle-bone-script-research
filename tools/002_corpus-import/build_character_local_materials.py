@@ -1420,6 +1420,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "opening, plus a separate descending stroke on the right.",
         "图像左侧有带小型内部开口的折角弧形轮廓，右侧另有分离的下行笔画。",
     ),
+    "obs-char-000281": (
+        "The image has a large slanted rounded contour on the right, crossed by a "
+        "descending stroke, with small separated marks at the left and lower right.",
+        "图像右侧有大型倾斜弧形轮廓，中部有下行笔画穿过，左侧和右下方另有分离的小痕迹。",
+    ),
+    "obs-char-000282": (
+        "The compact image shows a small curved enclosure with a dark lower base, "
+        "a short branching mark above, and an open extension toward the right.",
+        "紧凑图像有小型弧形闭合轮廓和较深的下部底线，上方有短分支痕迹，右侧留有开放延伸。",
+    ),
+    "obs-char-000283": (
+        "The narrow image has a long upper horizontal stroke, a small lower-left "
+        "enclosure with an inner bar, and a long descending stroke at the right.",
+        "狭长图像上方有长横画，下方左侧有带内横画的小型闭合轮廓，右侧有长下行笔画。",
+    ),
+    "obs-char-000284": (
+        "The image combines a small rounded bowl-like mark on the left with a "
+        "larger angular upright form on the right and a long diagonal lower stroke.",
+        "图像左侧有小型圆弧碗状痕迹，右侧有较大的折角直立形体，下方延伸长斜向笔画。",
+    ),
+    "obs-char-000285": (
+        "The narrow dark image contains adjoining upright and branching strokes, "
+        "with short cross marks near the upper middle and split strokes below.",
+        "狭窄深色图像含相邻的直立和分支笔画，中上部有短横向痕迹，下方有分开的笔画。",
+    ),
+    "obs-char-000286": (
+        "The image shows a rounded U-like enclosure with upright side strokes, a "
+        "low horizontal base, and a short horizontal mark inside.",
+        "图像有圆弧 U 形轮廓和直立侧笔，底部为低位横画，内部另有短横向痕迹。",
+    ),
+    "obs-char-000287": (
+        "The thin image has a long upright stroke at the left, a small angular mark "
+        "near its upper end, and a separate rounded enclosure on the right.",
+        "纤细图像左侧有长直立笔画，上端附近有小型折角痕迹，右侧另有分离的圆弧轮廓。",
+    ),
+    "obs-char-000288": (
+        "The image has a broad rounded outer contour with a pointed upper tip and "
+        "a short diagonal interior mark; a small side stroke is also visible.",
+        "图像有宽大的圆弧外轮廓和尖状上端，内部有短斜向痕迹，侧边还可见一处小笔画。",
+    ),
+    "obs-char-000289": (
+        "The image shows two adjoining dark block-like enclosures, each with a "
+        "narrow vertical interior strip and a slightly irregular lower edge.",
+        "图像显示两个相邻的深色块状闭合轮廓，各自带有狭窄的内部竖向条痕，下缘略不规则。",
+    ),
+    "obs-char-000290": (
+        "The compact image has an upper rounded arch and a lower rounded enclosure "
+        "with a short horizontal interior mark, separated by a narrow gap.",
+        "紧凑图像上部为圆弧拱形，下部为带短内横画的圆弧闭合轮廓，中间有狭窄间隔。",
+    ),
+    "obs-char-000291": (
+        "The image has a rounded lower enclosure, an interior upright mark rising "
+        "to a pointed top, and a curved outer stroke around the upper area.",
+        "图像下部有圆弧闭合轮廓，内部竖向痕迹向上延伸至尖端，上部外围有弧形笔画。",
+    ),
+    "obs-char-000292": (
+        "The tall image contains a narrow rectangular framework with horizontal "
+        "cross strokes and a small rounded enclosure at the lower end.",
+        "高而狭的图像含窄长框架和数道横向交叉笔画，下端有小型圆弧闭合轮廓。",
+    ),
+    "obs-char-000293": (
+        "The image has a large curved enclosing stroke on the left and a separate "
+        "rounded lower form on the right, joined by a short horizontal mark.",
+        "图像左侧有大型弧形包围笔画，右侧有分离的圆弧下部形体，两者由短横向痕迹相接。",
+    ),
+    "obs-char-000294": (
+        "The narrow image shows a long angled upper stroke, a descending side line, "
+        "and a small lower enclosure containing a short horizontal mark.",
+        "狭长图像有长斜向上部笔画和下行侧线，下部有带短内横画的小型闭合轮廓。",
+    ),
+    "obs-char-000295": (
+        "The dark image contains a slim central vertical cluster, short side bars, "
+        "and several forked or crossing strokes toward the lower end.",
+        "深色图像含纤细的中央竖向簇、短侧向横痕，以及下端附近数处分叉或交叉笔画。",
+    ),
+    "obs-char-000296": (
+        "The image has a broad peaked outer contour with sloping side strokes and "
+        "a small rounded enclosure with an inner horizontal mark.",
+        "图像有宽大的尖顶外轮廓和倾斜侧笔，内部有带内横画的小型圆弧闭合轮廓。",
+    ),
+    "obs-char-000297": (
+        "The image consists of two vertically stacked rounded rectangular outlines "
+        "with a narrow gap and no clearly visible interior mark.",
+        "图像由上下叠置的两个圆角长方形轮廓组成，中间有狭窄间隔，未见清楚的内部痕迹。",
+    ),
+    "obs-char-000298": (
+        "The narrow image contains several branching upright strokes and a lower "
+        "rounded enclosure with a short horizontal interior mark.",
+        "狭长图像含数道分支直立笔画，下部有带短内横画的圆弧闭合轮廓。",
+    ),
+    "obs-char-000299": (
+        "The image has a large peaked outer angle, nested sloping strokes, and a "
+        "small lower rounded enclosure with a short inner bar.",
+        "图像有大型尖顶折角外轮廓和嵌套的斜向笔画，下部有带短内横画的小型圆弧闭合轮廓。",
+    ),
+    "obs-char-000300": (
+        "The low-contrast gray image shows several short slanting marks at the left "
+        "and a small rounded enclosure at the right; contrast needs recheck.",
+        "低对比度灰色图像左侧有数道短斜向痕迹，右侧有小型圆弧闭合轮廓；对比度仍需复核。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

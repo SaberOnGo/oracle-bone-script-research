@@ -4042,6 +4042,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             "10_source-evidence-dossier.md",
             first["index_data"]["source_object_routes"][1],
         )
+        self.assertTrue(
+            any(
+                route.endswith("/14_source-to-dossier-transfer-review.md")
+                for route in first["index_data"]["source_object_routes"]
+            )
+        )
+        self.assertTrue(
+            any(
+                route.endswith("/16_source-literature-scope-review.md")
+                for route in first["index_data"]["source_object_routes"]
+            )
+        )
         self.assertFalse(
             any(
                 "not_collected" in value
@@ -4212,6 +4224,18 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn(
                 "10_source-evidence-dossier.md",
                 index["source_route_summary"]["source_object_routes"][1],
+            )
+            self.assertTrue(
+                any(
+                    route.endswith("/14_source-to-dossier-transfer-review.md")
+                    for route in index["source_route_summary"]["source_object_routes"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    route.endswith("/16_source-literature-scope-review.md")
+                    for route in index["source_route_summary"]["source_object_routes"]
+                )
             )
 
         matched = outputs["obs-char-000047"]

@@ -69,6 +69,8 @@ def source_object_routes(root: Path, source_id: str) -> list[str]:
         for name in (
             "README.md",
             "10_source-evidence-dossier.md",
+            "14_source-to-dossier-transfer-review.md",
+            "16_source-literature-scope-review.md",
             "20_source-presearch-readiness-review.md",
         )
         if (object_dir / name).exists()

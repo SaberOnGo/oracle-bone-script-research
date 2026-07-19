@@ -85,6 +85,10 @@ not an identity or decipherment conclusion.
   corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust
   -obc_source-object/10_source-evidence-dossier.md;
   corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust
+  -obc_source-object/14_source-to-dossier-transfer-review.md;
+  corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust
+  -obc_source-object/16_source-literature-scope-review.md;
+  corpus/006_research-sources-and-bibliography/001_source-objects/015_src-hust
   -obc_source-object/20_source-presearch-readiness-review.md`
 - source group: `待查：需要核对来源记录`
 - source class: `待查：需要核对来源记录`

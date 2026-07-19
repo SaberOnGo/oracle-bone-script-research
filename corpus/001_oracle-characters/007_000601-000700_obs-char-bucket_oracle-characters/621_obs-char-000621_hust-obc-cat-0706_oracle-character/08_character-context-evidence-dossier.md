@@ -135,7 +135,8 @@ correspondence.
 
 - Source object id / 来源对象 ID: `src-hust-obc`
 - Human files / 人类文件: README.md; 10_source-evidence-dossier.md;
-  20_source-presearch-readiness-review.md
+  14_source-to-dossier-transfer-review.md;
+  16_source-literature-scope-review.md; plus 1 more
 Open these source-object files before treating packet metadata as human
 research evidence.
 在把 packet 元数据当作人类研究证据之前，应先打开这些来源对象文件。

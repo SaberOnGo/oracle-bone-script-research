@@ -75,6 +75,59 @@ IMAGE_CAUTION = (
     "confirmed component form, component assignment, or decipherment conclusion."
 )
 
+COMPONENT_VISUAL_OBSERVATIONS = {
+    "obs-comp-cand-000001": (
+        "The local image shows a pointed, closed outer outline with a short "
+        "oblique interior stroke and a narrow tail continuing below the outline.",
+        "本地图像有尖顶闭合外轮廓，内部有短斜向笔画，轮廓下方另有窄长尾部。",
+    ),
+    "obs-comp-cand-000002": (
+        "The image shows a horizontal rounded rectangular outline with one short "
+        "vertical stroke near the center and no other visible interior marks.",
+        "图像有横向圆角矩形外轮廓，中部附近有一道短竖画，内部未见其他明显痕迹。",
+    ),
+    "obs-comp-cand-000003": (
+        "The image shows a thick circular ring surrounding one separate filled "
+        "round mark at the center.",
+        "图像有粗圆环，中央包围一处分离的实心圆形痕迹。",
+    ),
+    "obs-comp-cand-000004": (
+        "The image has a rounded horizontal central outline with a short inner "
+        "stroke, two detached side marks, and short horizontal marks above and below.",
+        "图像中央有横向圆弧外轮廓和短内部笔画，两侧有分离痕迹，上下另有短横画。",
+    ),
+    "obs-comp-cand-000005": (
+        "The image shows a small upper rounded rectangle with a short inner bar, "
+        "a longer horizontal bar below, and one long stroke descending from it.",
+        "图像上部有小型圆角矩形和短内横画，下方有较长横画，并向下延出长笔画。",
+    ),
+    "obs-comp-cand-000006": (
+        "The image shows an upper rounded rectangle with a short inner bar and a "
+        "separate square outline below it.",
+        "图像上部有圆角矩形和短内横画，下方另有分离的方框轮廓。",
+    ),
+    "obs-comp-cand-000007": (
+        "The upper part contains several short angular strokes in two dense rows; "
+        "a separate rounded outline with a short inner mark sits below.",
+        "上部有两排密集的短折角笔画，下方另有带短内部痕迹的圆弧外轮廓。",
+    ),
+    "obs-comp-cand-000008": (
+        "The upper part shows crossing diagonal and upright strokes with long lower "
+        "tails; a separate rounded square with an inner bar sits below.",
+        "上部有交叉斜向和直立笔画，并向下延出长尾；下方另有带内横画的圆角方框。",
+    ),
+    "obs-comp-cand-000009": (
+        "The image shows a long curved outer stroke and a central descending stroke "
+        "ending at a rounded enclosure with a filled interior mark.",
+        "图像有长弯曲外侧笔画和中央下行笔画，下端接圆弧外框，内部有实心痕迹。",
+    ),
+    "obs-comp-cand-000010": (
+        "The image shows a long curved left stroke and a central descending stroke "
+        "ending at a rounded enclosure with a filled interior mark.",
+        "图像有左侧长弯曲笔画和中央下行笔画，下端接圆弧外框，内部有实心痕迹。",
+    ),
+}
+
 MANIFEST_FIELDS = [
     "candidate_component_id",
     "candidate_subcharacter_id",
@@ -289,8 +342,12 @@ def object_dir(index: int, external_ref_id: str) -> Path:
     )
 
 
-def route_files(directory: Path) -> list[str]:
-    return [
+def has_material_visual_observation(index: int) -> bool:
+    return candidate_id(index) in COMPONENT_VISUAL_OBSERVATIONS
+
+
+def route_files(directory: Path, index: int | None = None) -> list[str]:
+    routes = [
         SUBCHARACTER_MAIN_STAGING.as_posix(),
         SUBCHARACTER_GLYPH_STAGING.as_posix(),
         COMPONENT_ID_MAP.as_posix(),
@@ -314,6 +371,9 @@ def route_files(directory: Path) -> list[str]:
         (directory / "16_component-research-readiness-review.md").as_posix(),
         (directory / "17_component-research-readiness-index.json").as_posix(),
     ]
+    if index is not None and has_material_visual_observation(index):
+        routes.append((directory / "18_material-visual-observation.md").as_posix())
+    return routes
 
 
 def packet_payload(
@@ -365,7 +425,7 @@ def packet_payload(
             if visual_rows
             else "not_found_in_registered_source_package_route_indexed"
         ),
-        "route_files": route_files(directory),
+        "route_files": route_files(directory, index),
         "rights_status": RIGHTS_STATUS,
         "object_status": OBJECT_STATUS,
         "review_status": REVIEW_STATUS,
@@ -563,6 +623,13 @@ def readme_text(
             "Structured support index for readiness slots.",
         ),
     ]
+    if has_material_visual_observation(index):
+        local_files.append(
+            (
+                "18_material-visual-observation.md",
+                "Direct visible-material observation for this local image.",
+            )
+        )
     local_file_lines = "\n".join(
         line
         for filename, note in local_files
@@ -636,7 +703,7 @@ English:
 
 Route files / 路由文件:
 
-{chr(10).join(line for path in route_files(directory) for line in wrapped_bullet(Path(path).name))}
+{chr(10).join(line for path in route_files(directory, index) for line in wrapped_bullet(Path(path).name))}
 """
 
 
@@ -973,6 +1040,91 @@ def visual_route_gallery_text(
     return "\n".join(lines) + "\n"
 
 
+def material_visual_observation_text(
+    index: int,
+    main_row: dict[str, str],
+    visual_rows: list[dict[str, str]],
+    directory: Path,
+) -> str:
+    component_id = candidate_id(index)
+    observation_en, observation_zh = COMPONENT_VISUAL_OBSERVATIONS[component_id]
+    image_row = visual_rows[0] if visual_rows else {}
+    local_path = Path(image_row.get("local_asset_path", "pending"))
+    try:
+        local_path_text = local_path.relative_to(directory).as_posix()
+    except ValueError:
+        local_path_text = local_path.as_posix()
+    source_member = image_row.get("source_zip_member", "pending source row")
+    lines = [
+        f"# Material Visual Observation / {component_id} 实物图像观察",
+        "",
+        "English:",
+        wrap_markdown_line(
+            "This note records only visible marks in one local, source-linked "
+            "OBIMD review image. It is a preparation-stage observation, not a "
+            "component assignment or decipherment conclusion."
+        ),
+        "",
+        "简体中文：",
+        wrap_markdown_line(
+            "本记录只描述一张有来源链接的本地 OBIMD 复核图像中直接可见的"
+            "痕迹，供预处理阶段查阅，不是构件归属或释读结论。"
+        ),
+        "",
+        "## Evidence Opened / 已打开证据",
+        "",
+        f"- Candidate ID / 候选 ID: `{component_id}`",
+        f"- External reference / 外部参照: `{main_row['subcharacter_external_ref_id']}`",
+        f"- Source / 来源: `{main_row['source_id']}`",
+        f"- Download route / 下载路线: `{main_row['evidence_download_id']}`",
+        f"- Asset ID / 资产 ID: `{image_row.get('asset_id', 'pending')}`",
+        f"- Local image / 本地图像: `{local_path_text}`",
+        "- Source zip member / 来源压缩包成员:",
+        f"  `{source_member}`",
+        "- Checksum / 校验和:",
+        f"  `{image_row.get('checksum_sha256', 'pending')}`",
+        f"- Rights status / 权利状态: `{RIGHTS_STATUS}`",
+        f"- Review status / 复核状态: `{IMAGE_REVIEW_STATUS}`",
+        "",
+        "## Direct Visual Record / 直接可见记录",
+        "",
+        "- English observation:",
+        *textwrap.wrap(
+            observation_en,
+            width=78,
+            break_long_words=False,
+            break_on_hyphens=False,
+            subsequent_indent="  ",
+        ),
+        "- 中文观察:",
+        f"  {observation_zh}",
+        "",
+        "## Next Checks / 下一步核查",
+        "",
+        "- Compare the image with independent component and character sources.",
+        "- Check whether a second image, rubbing, inscription, or plate exists.",
+        "- Record component boundaries, near forms, readings, and disputes only",
+        "  after source review; keep them as candidates or pending checks.",
+        "- 与独立构件和单字来源比较本地图像。",
+        "- 查找是否存在第二张图像、拓片、卜辞或图版。",
+        "- 来源复核前，构件边界、近形、释读和争议只能记为候选或待查。",
+        "",
+        "## Boundary / 边界",
+        "",
+        wrap_markdown_line(
+            "This is a visible-material observation, not a confirmed component "
+            "form, component assignment, oracle-character identity claim, or "
+            "decipherment conclusion."
+        ),
+        "- Claim boundary: not a component assignment; not a decipherment conclusion.",
+        "- 边界标记：不是构件归属；不是释读结论。",
+        "本记录是图像观察，不是已确认构件形体、构件归属、甲骨字身份或释读结论。",
+    ]
+    text = "\n".join(lines) + "\n"
+    assert_human_line_width(text, f"{component_id}/18_material-visual-observation.md")
+    return text
+
+
 def component_dossier_text(
     index: int,
     main_row: dict[str, str],
@@ -1181,21 +1333,26 @@ def component_dossier_index_payload(
     main_row: dict[str, str],
     directory: Path,
 ) -> dict[str, object]:
+    human_readable_files = [
+        (directory / "README.md").as_posix(),
+        (directory / "04_glyph-codepoint-gallery.md").as_posix(),
+        (directory / "07_component-visual-gallery.md").as_posix(),
+        (directory / "08_human-visual-review-sheet.md").as_posix(),
+        (directory / "10_component-visual-route-gallery.md").as_posix(),
+        (directory / "11_human-component-dossier.md").as_posix(),
+        (directory / "13_component-context-evidence-dossier.md").as_posix(),
+        (directory / "15_component-review-fact-matrix.md").as_posix(),
+        (directory / "16_component-research-readiness-review.md").as_posix(),
+    ]
+    if has_material_visual_observation(index):
+        human_readable_files.append(
+            (directory / "18_material-visual-observation.md").as_posix()
+        )
     return {
         "candidate_component_id": candidate_id(index),
         "record_type": "graphemic_component_candidate_dossier_index",
         "primary_external_ref_id": main_row["subcharacter_external_ref_id"],
-        "human_readable_files": [
-            (directory / "README.md").as_posix(),
-            (directory / "04_glyph-codepoint-gallery.md").as_posix(),
-            (directory / "07_component-visual-gallery.md").as_posix(),
-            (directory / "08_human-visual-review-sheet.md").as_posix(),
-            (directory / "10_component-visual-route-gallery.md").as_posix(),
-            (directory / "11_human-component-dossier.md").as_posix(),
-            (directory / "13_component-context-evidence-dossier.md").as_posix(),
-            (directory / "15_component-review-fact-matrix.md").as_posix(),
-            (directory / "16_component-research-readiness-review.md").as_posix(),
-        ],
+        "human_readable_files": human_readable_files,
         "ai_support_files": [
             (directory / "01_candidate-component-packet.json").as_posix(),
             (directory / "02_component-source-index.csv").as_posix(),
@@ -1206,7 +1363,7 @@ def component_dossier_index_payload(
             (directory / "14_component-context-evidence-index.json").as_posix(),
             (directory / "17_component-research-readiness-index.json").as_posix(),
         ],
-        "source_route_files": route_files(directory),
+        "source_route_files": route_files(directory, index),
         "uncollected_human_research_fields": [
             "near_shape_and_variant_comparison",
             "oracle_character_context",
@@ -1377,21 +1534,24 @@ def component_context_index_payload(
     visual_rows: list[dict[str, str]],
     route_rows: list[dict[str, str]],
 ) -> dict[str, object]:
+    human_readable_files = [
+        "README.md",
+        "04_glyph-codepoint-gallery.md",
+        "07_component-visual-gallery.md",
+        "08_human-visual-review-sheet.md",
+        "11_human-component-dossier.md",
+        "13_component-context-evidence-dossier.md",
+        "15_component-review-fact-matrix.md",
+        "16_component-research-readiness-review.md",
+    ]
+    if has_material_visual_observation(index):
+        human_readable_files.append("18_material-visual-observation.md")
     return {
         "candidate_component_id": candidate_id(index),
         "record_type": "component_context_evidence_dossier_index",
         "primary_external_ref_id": main_row["subcharacter_external_ref_id"],
         "updated_at": UPDATED_AT,
-        "human_readable_files": [
-            "README.md",
-            "04_glyph-codepoint-gallery.md",
-            "07_component-visual-gallery.md",
-            "08_human-visual-review-sheet.md",
-            "11_human-component-dossier.md",
-            "13_component-context-evidence-dossier.md",
-            "15_component-review-fact-matrix.md",
-            "16_component-research-readiness-review.md",
-        ],
+        "human_readable_files": human_readable_files,
         "ai_support_files": [
             "01_candidate-component-packet.json",
             "03_glyph-codepoint-index.csv",
@@ -1762,17 +1922,20 @@ def component_research_readiness_index_payload(
     visual_rows: list[dict[str, str]],
     route_rows: list[dict[str, str]],
 ) -> dict[str, object]:
+    human_readable_files = [
+        "11_human-component-dossier.md",
+        "13_component-context-evidence-dossier.md",
+        "15_component-review-fact-matrix.md",
+        "16_component-research-readiness-review.md",
+    ]
+    if has_material_visual_observation(index):
+        human_readable_files.append("18_material-visual-observation.md")
     return {
         "candidate_component_id": candidate_id(index),
         "record_type": "component_research_readiness_index",
         "primary_external_ref_id": main_row["subcharacter_external_ref_id"],
         "human_entry": "16_component-research-readiness-review.md",
-        "human_readable_files": [
-            "11_human-component-dossier.md",
-            "13_component-context-evidence-dossier.md",
-            "15_component-review-fact-matrix.md",
-            "16_component-research-readiness-review.md",
-        ],
+        "human_readable_files": human_readable_files,
         "support_files": [
             "01_candidate-component-packet.json",
             "03_glyph-codepoint-index.csv",
@@ -2144,6 +2307,16 @@ def build_materials(root: Path) -> tuple[int, int]:
             all_visual_rows.extend(visual_rows)
             route_rows = visual_route_rows(index, main_row, visual_rows, directory)
 
+            if has_material_visual_observation(index):
+                (full_directory / "18_material-visual-observation.md").write_text(
+                    material_visual_observation_text(
+                        index,
+                        main_row,
+                        visual_rows,
+                        directory,
+                    ),
+                    encoding="utf-8",
+                )
             (full_directory / "README.md").write_text(
                 readme_text(index, main_row, glyph_rows, visual_rows, directory),
                 encoding="utf-8",

@@ -485,24 +485,40 @@ def build_rows(root: Path) -> list[dict[str, str]]:
         for packet_path in packet_paths:
             object_dir = packet_path.parent
             packet = read_packet(packet_path)
-            missing_human = [name for name in spec.required_human_files if not (object_dir / name).exists()]
+            project_id = project_id_for_packet(packet, object_dir)
+            required_human_files = spec.required_human_files
+            route_files = spec.route_files
+            if spec.corpus_area == "graphemic_component_candidates" and project_id in {
+                f"obs-comp-cand-{index:06d}" for index in range(1, 11)
+            }:
+                required_human_files = required_human_files + (
+                    "18_material-visual-observation.md",
+                )
+                route_files = route_files + (
+                    "18_material-visual-observation.md",
+                )
+            missing_human = [
+                name
+                for name in required_human_files
+                if not (object_dir / name).exists()
+            ]
             missing_ai = [name for name in spec.required_ai_files if not match_one(object_dir, name)]
             asset_dirs = [object_dir / name for name in spec.asset_dirs]
             asset_count = count_images(asset_dirs)
             metadata_count = count_metadata(asset_dirs)
-            route_count = sum(1 for name in spec.route_files if (object_dir / name).exists())
+            route_count = sum(1 for name in route_files if (object_dir / name).exists())
             status = bundle_status(missing_human, missing_ai, asset_count, route_count)
             parallel_human = (object_dir / "human-readable").exists() or (object_dir.parent / "human-readable").exists()
             rows.append(
                 {
                     "coverage_audit_id": f"object-local-material-coverage-{len(rows) + 1:05d}",
                     "corpus_area": spec.corpus_area,
-                    "project_id": project_id_for_packet(packet, object_dir),
+                    "project_id": project_id,
                     "source_ids": ";".join(source_ids_for_packet(packet)),
                     "record_type": str(packet.get("record_type", "")),
                     "object_dir": relative(object_dir, root),
                     "packet_path": relative(packet_path, root),
-                    "human_file_count": str(len(spec.required_human_files) - len(missing_human)),
+                    "human_file_count": str(len(required_human_files) - len(missing_human)),
                     "ai_file_count": str(len(spec.required_ai_files) - len(missing_ai)),
                     "missing_human_files": ";".join(missing_human),
                     "missing_ai_files": ";".join(missing_ai),

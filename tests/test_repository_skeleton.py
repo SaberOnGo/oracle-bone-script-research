@@ -4774,6 +4774,36 @@ class RepositorySkeletonTests(unittest.TestCase):
                 if not line.startswith("|"):
                     self.assertLessEqual(len(line), 80, line)
 
+        for row in rows[:10]:
+            object_dir = repo_root() / row["canonical_path"]
+            observation_path = object_dir / "18_material-visual-observation.md"
+            self.assertTrue(observation_path.exists(), observation_path)
+            observation_text = observation_path.read_text(encoding="utf-8")
+            for snippet in [
+                "Material Visual Observation",
+                "实物图像观察",
+                "Direct Visual Record",
+                "直接可见记录",
+                "not a component assignment",
+                "不是构件归属",
+                "not a decipherment conclusion",
+                "不是释读结论",
+            ]:
+                self.assertIn(snippet, observation_text)
+            for line in observation_text.splitlines():
+                self.assertLessEqual(len(line), 80, line)
+            packet = json.loads(
+                (object_dir / "01_candidate-component-packet.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertTrue(
+                any(
+                    path.endswith("18_material-visual-observation.md")
+                    for path in packet["route_files"]
+                )
+            )
+
     def test_component_candidate_human_markdown_is_readable(self) -> None:
         root = repo_root() / "corpus/003_graphemic-components"
         human_markdown_names = {
@@ -4803,6 +4833,18 @@ class RepositorySkeletonTests(unittest.TestCase):
                         len(line),
                         80,
                         f"{path.as_posix()}:{line_number}: {line}",
+                    )
+            observation_path = object_dir / "18_material-visual-observation.md"
+            if observation_path.exists():
+                observation_text = observation_path.read_text(encoding="utf-8")
+                self.assertNotIn("\ufffd", observation_text, observation_path.as_posix())
+                for line_number, line in enumerate(
+                    observation_text.splitlines(), start=1
+                ):
+                    self.assertLessEqual(
+                        len(line),
+                        80,
+                        f"{observation_path.as_posix()}:{line_number}: {line}",
                     )
 
     def test_component_context_evidence_dossiers_are_colocated_and_readable(self) -> None:
@@ -8518,9 +8560,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000001"]["material_bundle_status"],
             "object_local_bundle_with_review_image",
         )
-        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "9")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["human_file_count"], "10")
         self.assertEqual(by_project["obs-comp-cand-000001"]["ai_file_count"], "8")
-        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "4")
+        self.assertEqual(by_project["obs-comp-cand-000001"]["route_file_count"], "5")
         self.assertEqual(by_project["obs-comp-cand-000001"]["source_ids"], "src-obimd")
         self.assertEqual(
             by_project["obs-comp-cand-000070"]["material_bundle_status"],

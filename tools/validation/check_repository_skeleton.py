@@ -2977,6 +2977,9 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         "16_component-research-readiness-review.md",
     ]
     sample_indexes = {1, 70, len(rows)}
+    material_observation_project_ids = {
+        f"obs-comp-cand-{index:06d}" for index in range(1, 11)
+    }
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
         if project_id != f"obs-comp-cand-{index:06d}":
@@ -2992,7 +2995,10 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         for filename in required_files:
             if not path_exists(object_dir / filename):
                 issues.append(f"{object_dir.relative_to(root).as_posix()} missing {filename}")
-        for filename in human_markdown_files:
+        object_human_markdown_files = list(human_markdown_files)
+        if project_id in material_observation_project_ids:
+            object_human_markdown_files.append("18_material-visual-observation.md")
+        for filename in object_human_markdown_files:
             human_path = object_dir / filename
             if not path_exists(human_path):
                 continue
@@ -3010,6 +3016,30 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                         f"{human_path.relative_to(root).as_posix()}:{line_number} "
                         "line exceeds 80 characters"
                     )
+        if project_id in material_observation_project_ids:
+            observation_path = object_dir / "18_material-visual-observation.md"
+            if not path_exists(observation_path):
+                issues.append(
+                    f"{object_dir.relative_to(root).as_posix()} missing "
+                    "18_material-visual-observation.md"
+                )
+            else:
+                observation_text = observation_path.read_text(encoding="utf-8")
+                for snippet in [
+                    "Material Visual Observation",
+                    "实物图像观察",
+                    "Direct Visual Record",
+                    "直接可见记录",
+                    "not a component assignment",
+                    "不是构件归属",
+                    "not a decipherment conclusion",
+                    "不是释读结论",
+                ]:
+                    if snippet not in observation_text:
+                        issues.append(
+                            f"{observation_path.relative_to(root).as_posix()} "
+                            f"missing marker: {snippet}"
+                        )
         if index not in sample_indexes:
             continue
         readme_path = object_dir / "README.md"
@@ -3090,6 +3120,14 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component fact matrix route")
             if not any(path.endswith("16_component-research-readiness-review.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing component readiness route")
+            if project_id in material_observation_project_ids and not any(
+                path.endswith("18_material-visual-observation.md")
+                for path in route_files
+            ):
+                issues.append(
+                    f"{packet_path.relative_to(root).as_posix()} missing "
+                    "material visual observation route"
+                )
             if "not a confirmed graphemic component" not in packet.get("caution", ""):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} caution missing component boundary")
         context_dossier_path = object_dir / "13_component-context-evidence-dossier.md"
@@ -3337,6 +3375,14 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing component fact matrix link")
             if not any(path.endswith("16_component-research-readiness-review.md") for path in human_files):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing component readiness link")
+            if project_id in material_observation_project_ids and not any(
+                path.endswith("18_material-visual-observation.md")
+                for path in human_files
+            ):
+                issues.append(
+                    f"{dossier_index_path.relative_to(root).as_posix()} missing "
+                    "material visual observation link"
+                )
             if not any(path.endswith("01_candidate-component-packet.json") for path in ai_files):
                 issues.append(f"{dossier_index_path.relative_to(root).as_posix()} missing packet link")
             if "near_shape_and_variant_comparison" not in missing_fields:
@@ -3486,6 +3532,14 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(
                     f"{readiness_index_path.relative_to(root).as_posix()} "
                     "missing decipherment boundary"
+                )
+            if project_id in material_observation_project_ids and (
+                "18_material-visual-observation.md"
+                not in readiness_index.get("human_readable_files", [])
+            ):
+                issues.append(
+                    f"{readiness_index_path.relative_to(root).as_posix()} missing "
+                    "material visual observation link"
                 )
     return issues
 

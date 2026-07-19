@@ -1320,6 +1320,56 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "a heavy irregular terminal at the lower right.",
         "大幅深色图像有粗重上部块状形体、两道长下行笔，右下有厚重不规则末端。",
     ),
+    "obs-char-000261": (
+        "The small image shows a thin curved stroke descending from the upper left, "
+        "with a short branch extending near the lower junction.",
+        "小型图像有一道从左上向下弯曲的细笔画，靠近下部连接处另有短分支。",
+    ),
+    "obs-char-000262": (
+        "The tall image has two long upright strokes, three short horizontal bars "
+        "near the top, and a central forked form beneath them.",
+        "高形图像有两道长竖向笔画，上部附近有三道短横画，下方为中央分叉形体。",
+    ),
+    "obs-char-000263": (
+        "The narrow image shows a tall outer stroke with a small stacked enclosed "
+        "form near the center; the lower end remains partly open.",
+        "狭长图像有高而外侧的笔画，中部附近有小型叠置闭合形体，下端仍部分开放。",
+    ),
+    "obs-char-000264": (
+        "The low-contrast image shows a small arched upper outline and several "
+        "separated angular marks below it; surface detail needs recheck.",
+        "低对比度图像上方有小型拱形轮廓，下方有数处分离折角痕迹；表面细节仍需复核。",
+    ),
+    "obs-char-000265": (
+        "The image has two slender upper branches, a rounded enclosed mark below, "
+        "and a short detached stroke at the left.",
+        "图像上部有两道纤细分支，下方有圆弧闭合痕迹，左侧另有短分离笔画。",
+    ),
+    "obs-char-000266": (
+        "The upright image has a pointed upper junction, two curved outer strokes, "
+        "and a small enclosed mark along the central axis.",
+        "直立图像上方有尖状连接处，两道弯曲外侧笔画，中轴线上有小型闭合痕迹。",
+    ),
+    "obs-char-000267": (
+        "The dark image contains several rounded upper lobes, a dense central knot, "
+        "and a long irregular stroke descending toward the lower right.",
+        "深色图像含数个圆弧上部形体、密集中央结点，并向右下延出长而不规则笔画。",
+    ),
+    "obs-char-000268": (
+        "The small image shows a narrow curved upright stroke with a short forked "
+        "branch near its upper end and a separate lower curve.",
+        "小型图像有窄而弯曲的直立笔画，上端附近有短分叉，下面另有弧形痕迹。",
+    ),
+    "obs-char-000269": (
+        "The image has three short parallel curved marks on the left and a long "
+        "descending stroke on the right with a slight angular turn.",
+        "图像左侧有三道短而平行的弯曲痕迹，右侧有长下行笔画并带轻微折转。",
+    ),
+    "obs-char-000270": (
+        "The narrow image shows a long upright stroke, a short side branch near the "
+        "top, and a small curved terminal at the lower end.",
+        "狭长图像有长竖向笔画，上部附近有短侧分支，下端有小型弯曲收笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
@@ -2026,9 +2076,15 @@ def build_material_observation_text(
         return ""
     row = committed[0]
     local_path = Path(row["committed_image_path"])
-    if local_path.is_relative_to(object_dir):
-        local_path_text = local_path.relative_to(object_dir).as_posix()
+    if local_path.is_absolute():
+        local_path_for_display = local_path
     else:
+        local_path_for_display = root / local_path
+    try:
+        local_path_text = local_path_for_display.resolve().relative_to(
+            object_dir.resolve()
+        ).as_posix()
+    except ValueError:
         local_path_text = local_path.as_posix()
     lines: list[str] = [
         f"# Material Visual Observation / {project_id} 实物图像观察",

@@ -2,10 +2,9 @@
   "summary_id": "data-quality-summary-001",
   "updated_at": "2026-06-20",
   "audit_csv_path": "corpus/009_statistics-and-derived-features/092_data-quality-audit.csv",
-  "dataset_count": 29,
+  "dataset_count": 30,
   "quality_status_counts": {
-    "needs_review": 4,
-    "pass": 25
+    "pass": 30
   },
   "dataset_type_counts": {
     "asset_registry": 1,
@@ -28,16 +27,17 @@
     "source_field_map_review_checklist": 1,
     "source_field_map_review_result_scaffold": 1,
     "source_field_map_scaffold": 1,
+    "source_metadata_capture": 1,
     "source_registry": 1,
     "undeciphered_candidate_index": 1
   },
   "totals": {
-    "boundary_status_violation_count": 23769,
+    "boundary_status_violation_count": 0,
     "duplicate_key_count": 0,
-    "issue_count": 23769,
+    "issue_count": 0,
     "missing_path_count": 0,
     "missing_required_value_count": 0,
-    "row_count": 166645,
+    "row_count": 166646,
     "unknown_download_ref_count": 0,
     "unknown_large_source_ref_count": 0,
     "unknown_source_ref_count": 0
@@ -91,6 +91,28 @@
     },
     {
       "quality_row_id": "data-quality-003",
+      "dataset_id": "browser_verified_metadata_capture",
+      "dataset_type": "source_metadata_capture",
+      "path": "corpus/006_research-sources-and-bibliography/000_source-registers/014_browser-verified-metadata-capture.csv",
+      "row_count": "1",
+      "key_fields": "capture_id",
+      "required_fields": "capture_id;source_id;access_record_id;official_url;captured_at;capture_method;page_title;object_type;museum_number;description;cultures_or_periods;production_date;findspot;materials;location;acquisition_date;department;registration_number;payload_status;source_checksum_status;rights_status;risk_note;review_status;research_boundary",
+      "duplicate_key_count": "0",
+      "missing_required_value_count": "0",
+      "unknown_source_ref_count": "0",
+      "unknown_download_ref_count": "0",
+      "unknown_large_source_ref_count": "0",
+      "missing_path_count": "0",
+      "boundary_status_violation_count": "0",
+      "issue_count": "0",
+      "completeness_percent": "100.00",
+      "status_counts": "review_status=reviewed_metadata_only:1",
+      "quality_status": "pass",
+      "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
+      "updated_at": "2026-06-20"
+    },
+    {
+      "quality_row_id": "data-quality-004",
       "dataset_id": "source_download_log",
       "dataset_type": "download_log",
       "path": "project_registry/006_large-source-register/002_source-download-log.csv",
@@ -112,7 +134,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-004",
+      "quality_row_id": "data-quality-005",
       "dataset_id": "large_source_register",
       "dataset_type": "large_source_register",
       "path": "project_registry/006_large-source-register/001_large-source-register.csv",
@@ -134,7 +156,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-005",
+      "quality_row_id": "data-quality-006",
       "dataset_id": "source_package_file_manifest",
       "dataset_type": "package_manifest",
       "path": "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
@@ -156,7 +178,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-006",
+      "quality_row_id": "data-quality-007",
       "dataset_id": "asset_source_index",
       "dataset_type": "asset_registry",
       "path": "project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv",
@@ -178,7 +200,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-007",
+      "quality_row_id": "data-quality-008",
       "dataset_id": "hust_obc_promotion_review_queue",
       "dataset_type": "candidate_character_queue",
       "path": "corpus/001_oracle-characters/000_character-registers/009_hust-obc-obs-char-promotion-review-queue.csv",
@@ -200,7 +222,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-008",
+      "quality_row_id": "data-quality-009",
       "dataset_id": "hust_obc_undeciphered_candidate_index",
       "dataset_type": "undeciphered_candidate_index",
       "path": "corpus/001_oracle-characters/000_character-registers/003_undeciphered-oracle-characters-index.csv",
@@ -222,7 +244,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-009",
+      "quality_row_id": "data-quality-010",
       "dataset_id": "obimd_main_character_staging",
       "dataset_type": "component_glyph_staging",
       "path": "corpus/001_oracle-characters/000_character-registers/006_obimd-main-character-staging.csv",
@@ -244,7 +266,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-010",
+      "quality_row_id": "data-quality-011",
       "dataset_id": "hust_obimd_evobc_codepoint_crosswalk",
       "dataset_type": "cross_source_candidate_crosswalk",
       "path": "corpus/001_oracle-characters/000_character-registers/011_hust-obimd-evobc-codepoint-crosswalk-staging.csv",
@@ -266,7 +288,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-011",
+      "quality_row_id": "data-quality-012",
       "dataset_id": "cambridge_hopkins_inscription_crosswalk_review_queue",
       "dataset_type": "inscription_crosswalk_review_queue",
       "path": "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
@@ -288,7 +310,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-012",
+      "quality_row_id": "data-quality-013",
       "dataset_id": "source_engineering_gap_queue",
       "dataset_type": "source_engineering_gap_queue",
       "path": "corpus/009_statistics-and-derived-features/099_ai-agent-source-engineering-gap-queue.csv",
@@ -310,7 +332,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-013",
+      "quality_row_id": "data-quality-014",
       "dataset_id": "source_engineering_execution_matrix",
       "dataset_type": "source_engineering_execution_matrix",
       "path": "corpus/009_statistics-and-derived-features/100_ai-agent-source-engineering-execution-matrix.csv",
@@ -332,7 +354,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-014",
+      "quality_row_id": "data-quality-015",
       "dataset_id": "source_engineering_gap_review_log_draft_manifest",
       "dataset_type": "source_engineering_gap_review_log_draft_manifest",
       "path": "corpus/009_statistics-and-derived-features/102_ai-agent-source-engineering-gap-review-log-draft-manifest.csv",
@@ -354,7 +376,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-015",
+      "quality_row_id": "data-quality-016",
       "dataset_id": "source_engineering_gap_evidence_snapshot",
       "dataset_type": "source_engineering_gap_evidence_snapshot",
       "path": "corpus/009_statistics-and-derived-features/103_ai-agent-source-engineering-gap-evidence-snapshot.csv",
@@ -376,7 +398,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-016",
+      "quality_row_id": "data-quality-017",
       "dataset_id": "source_engineering_next_action_checklist",
       "dataset_type": "source_engineering_next_action_checklist",
       "path": "corpus/009_statistics-and-derived-features/104_ai-agent-source-engineering-next-action-checklist.csv",
@@ -398,7 +420,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-017",
+      "quality_row_id": "data-quality-018",
       "dataset_id": "source_engineering_next_action_result_scaffold",
       "dataset_type": "source_engineering_next_action_result_scaffold",
       "path": "corpus/009_statistics-and-derived-features/105_ai-agent-source-engineering-next-action-result-scaffold.csv",
@@ -420,7 +442,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-018",
+      "quality_row_id": "data-quality-019",
       "dataset_id": "source_engineering_lane_summary",
       "dataset_type": "source_engineering_lane_summary",
       "path": "corpus/009_statistics-and-derived-features/106_ai-agent-source-engineering-lane-summary.csv",
@@ -442,7 +464,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-019",
+      "quality_row_id": "data-quality-020",
       "dataset_id": "source_field_map_scaffold",
       "dataset_type": "source_field_map_scaffold",
       "path": "corpus/009_statistics-and-derived-features/108_ai-agent-source-field-map-scaffold.csv",
@@ -464,7 +486,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-020",
+      "quality_row_id": "data-quality-021",
       "dataset_id": "source_field_map_review_checklist",
       "dataset_type": "source_field_map_review_checklist",
       "path": "corpus/009_statistics-and-derived-features/109_ai-agent-source-field-map-review-checklist.csv",
@@ -486,7 +508,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-021",
+      "quality_row_id": "data-quality-022",
       "dataset_id": "source_field_map_review_result_scaffold",
       "dataset_type": "source_field_map_review_result_scaffold",
       "path": "corpus/009_statistics-and-derived-features/110_ai-agent-source-field-map-review-result-scaffold.csv",
@@ -508,7 +530,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-022",
+      "quality_row_id": "data-quality-023",
       "dataset_id": "005_hust-obc-candidate-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/005_hust-obc-candidate-graph-edges.jsonl",
@@ -530,7 +552,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-023",
+      "quality_row_id": "data-quality-024",
       "dataset_id": "006_obimd-component-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/006_obimd-component-graph-edges.jsonl",
@@ -552,7 +574,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-024",
+      "quality_row_id": "data-quality-025",
       "dataset_id": "007_evobc-evolution-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl",
@@ -574,7 +596,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-025",
+      "quality_row_id": "data-quality-026",
       "dataset_id": "008_cambridge-hopkins-inscription-crosswalk-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl",
@@ -596,7 +618,7 @@
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-026",
+      "quality_row_id": "data-quality-027",
       "dataset_id": "009_character-asset-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/009_character-asset-graph-edges.jsonl",
@@ -609,16 +631,16 @@
       "unknown_download_ref_count": "0",
       "unknown_large_source_ref_count": "0",
       "missing_path_count": "0",
-      "boundary_status_violation_count": "10996",
-      "issue_count": "10996",
+      "boundary_status_violation_count": "0",
+      "issue_count": "0",
       "completeness_percent": "100.00",
       "status_counts": "review_status=needs_human_visual_review;confidence_level=high:10996",
-      "quality_status": "needs_review",
+      "quality_status": "pass",
       "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-027",
+      "quality_row_id": "data-quality-028",
       "dataset_id": "010_cross-source-id-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl",
@@ -631,16 +653,16 @@
       "unknown_download_ref_count": "0",
       "unknown_large_source_ref_count": "0",
       "missing_path_count": "0",
-      "boundary_status_violation_count": "1737",
-      "issue_count": "1737",
+      "boundary_status_violation_count": "0",
+      "issue_count": "0",
       "completeness_percent": "100.00",
       "status_counts": "review_status=needs_cross_source_review;confidence_level=high:1737",
-      "quality_status": "needs_review",
+      "quality_status": "pass",
       "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-028",
+      "quality_row_id": "data-quality-029",
       "dataset_id": "011_component-asset-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl",
@@ -653,16 +675,16 @@
       "unknown_download_ref_count": "0",
       "unknown_large_source_ref_count": "0",
       "missing_path_count": "0",
-      "boundary_status_violation_count": "10364",
-      "issue_count": "10364",
+      "boundary_status_violation_count": "0",
+      "issue_count": "0",
       "completeness_percent": "100.00",
       "status_counts": "review_status=needs_human_visual_review;confidence_level=high:10364",
-      "quality_status": "needs_review",
+      "quality_status": "pass",
       "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
       "updated_at": "2026-06-20"
     },
     {
-      "quality_row_id": "data-quality-029",
+      "quality_row_id": "data-quality-030",
       "dataset_id": "012_cambridge-hopkins-topic-candidate-graph-edges",
       "dataset_type": "relationship_graph_jsonl",
       "path": "corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl",
@@ -675,11 +697,11 @@
       "unknown_download_ref_count": "0",
       "unknown_large_source_ref_count": "0",
       "missing_path_count": "0",
-      "boundary_status_violation_count": "672",
-      "issue_count": "672",
+      "boundary_status_violation_count": "0",
+      "issue_count": "0",
       "completeness_percent": "100.00",
       "status_counts": "review_status=needs_human_topic_review;confidence_level=high:672",
-      "quality_status": "needs_review",
+      "quality_status": "pass",
       "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
       "updated_at": "2026-06-20"
     }

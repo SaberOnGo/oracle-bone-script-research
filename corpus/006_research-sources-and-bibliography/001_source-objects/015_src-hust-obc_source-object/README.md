@@ -90,6 +90,7 @@ note, or concrete next-check questions.
 - Package evidence count / 来源包证据数: 4
 - Field-map evidence count / 字段映射证据数: 7
 - Metadata profile count / 元数据概况数: 11
+- Browser metadata capture count / 浏览器核验 metadata 数: 0
 
 ## Risk And Boundary / 风险与边界
 Dataset is directly relevant to 1500+ deciphered and undeciphered characters,

@@ -9117,6 +9117,28 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "20_source-presearch-readiness-review.md").is_file())
         self.assertTrue((object_dir / "21_source-presearch-readiness-index.json").is_file())
         self.assertTrue((object_dir / "22_source-research-brief.md").is_file())
+        british_object_dir = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "009_src-british-museum-oracle-bone_source-object"
+        )
+        browser_metadata_text = (
+            british_object_dir / "23_browser-verified-metadata.md"
+        ).read_text(encoding="utf-8")
+        browser_metadata_index = json.loads(
+            (british_object_dir / "24_browser-verified-metadata-index.json")
+            .read_text(encoding="utf-8")
+        )
+        self.assertIn("OA+.165", browser_metadata_text)
+        self.assertIn("no_page_payload_saved", browser_metadata_text)
+        self.assertIn("no_source_payload_checksum", browser_metadata_text)
+        self.assertIn("metadata_route_only_not_scholarship", browser_metadata_text)
+        self.assertTrue(all(len(line) <= 80 for line in browser_metadata_text.splitlines()))
+        self.assertEqual(browser_metadata_index["capture_count"], 1)
+        self.assertEqual(
+            browser_metadata_index["claim_boundary"],
+            "metadata_route_only_not_scholarship",
+        )
         readme_text = (object_dir / "README.md").read_text(encoding="utf-8")
         readme_opening = readme_text.split("## Source Summary", 1)[0]
         self.assertIn("object-local human source research entrance", readme_text)
@@ -21216,18 +21238,21 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "093_data-quality-summary.json"
         )
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["dataset_count"], 29)
-        self.assertEqual(data["quality_status_counts"], {"needs_review": 4, "pass": 25})
-        self.assertEqual(data["totals"]["row_count"], 166645)
-        self.assertEqual(data["totals"]["issue_count"], 23769)
+        self.assertEqual(data["dataset_count"], 30)
+        self.assertEqual(data["quality_status_counts"], {"pass": 30})
+        self.assertEqual(data["totals"]["row_count"], 166646)
+        self.assertEqual(data["totals"]["boundary_status_violation_count"], 0)
+        self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
 
     def test_data_quality_audit_builder_checks_reference_integrity(self) -> None:
         module = load_data_quality_audit_module()
         rows = module.build_quality_rows(repo_root())
-        self.assertEqual(len(rows), 29)
+        self.assertEqual(len(rows), 30)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
+        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "1")
+        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["issue_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
         self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["missing_path_count"], "0")
         self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["boundary_status_violation_count"], "0")
@@ -21237,15 +21262,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(by_dataset["hust_obimd_evobc_codepoint_crosswalk"]["issue_count"], "0")
         self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["row_count"], "1737")
-        self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["quality_status"], "needs_review")
+        self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["quality_status"], "pass")
         self.assertEqual(by_dataset["012_cambridge-hopkins-topic-candidate-graph-edges"]["row_count"], "672")
         self.assertEqual(
             by_dataset["012_cambridge-hopkins-topic-candidate-graph-edges"]["quality_status"],
-            "needs_review",
+            "pass",
         )
         self.assertEqual(
             by_dataset["012_cambridge-hopkins-topic-candidate-graph-edges"]["issue_count"],
-            "672",
+            "0",
         )
         self.assertEqual(
             by_dataset["cambridge_hopkins_inscription_crosswalk_review_queue"]["row_count"],
@@ -21384,22 +21409,15 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(by_dataset["008_cambridge-hopkins-inscription-crosswalk-graph-edges"]["row_count"], "4403")
         self.assertEqual(by_dataset["009_character-asset-graph-edges"]["row_count"], "10996")
-        self.assertEqual(by_dataset["009_character-asset-graph-edges"]["quality_status"], "needs_review")
+        self.assertEqual(by_dataset["009_character-asset-graph-edges"]["quality_status"], "pass")
         self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["row_count"], "1737")
-        self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["quality_status"], "needs_review")
+        self.assertEqual(by_dataset["010_cross-source-id-graph-edges"]["quality_status"], "pass")
         self.assertEqual(by_dataset["011_component-asset-graph-edges"]["row_count"], "10364")
-        self.assertEqual(by_dataset["011_component-asset-graph-edges"]["quality_status"], "needs_review")
+        self.assertEqual(by_dataset["011_component-asset-graph-edges"]["quality_status"], "pass")
         self.assertTrue(
             all(
                 row["quality_status"] == "pass"
                 for row in rows
-                if row["dataset_id"]
-                not in {
-                    "009_character-asset-graph-edges",
-                    "010_cross-source-id-graph-edges",
-                    "011_component-asset-graph-edges",
-                    "012_cambridge-hopkins-topic-candidate-graph-edges",
-                }
             )
         )
 
@@ -28051,7 +28069,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"501"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"504"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -28149,7 +28167,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 128",
-            "source register files: 501",
+            "source register files: 504",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -28178,7 +28196,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 128", text)
-        self.assertIn("source register files: 501", text)
+        self.assertIn("source register files: 504", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

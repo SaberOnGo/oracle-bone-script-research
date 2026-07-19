@@ -88,6 +88,10 @@ note, or concrete next-check questions.
 - Package evidence count / 来源包证据数: 0
 - Field-map evidence count / 字段映射证据数: 0
 - Metadata profile count / 元数据概况数: 0
+- Browser metadata capture count / 浏览器核验 metadata 数: 1
+- Browser-verified metadata / 浏览器核验 metadata: 23_browser-verified-metadata.md
+- Browser metadata index / 浏览器核验 metadata 索引:
+  24_browser-verified-metadata-index.json
 
 ## Risk And Boundary / 风险与边界
 Official museum collection record; image/licensing policies require object-level

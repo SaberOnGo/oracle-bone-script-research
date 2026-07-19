@@ -41,4 +41,44 @@ Do not add general news sites, entertainment sites, unsourced popular articles, 
 
 Derived staging indexes built from logged downloads are stored in their subject corpus areas, not in this source-register directory. For example, EVOBC evolution-chain metadata is staged under `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`.
 
+`014_browser-verified-metadata-capture.csv` records controlled-browser metadata
+observations without treating them as downloaded page payloads or
+checksum-backed source content.
+
+## Human Research Reading Order / 人类研究阅读顺序
+
+This register supports a human research file, not a route-only inventory.
+Read the source object together with the actual glyph image, rubbing,
+inscription, catalog, provenance, and bibliography evidence.
+
+本目录服务于人类研究档案，不是只有访问路线的清单。应把来源对象与
+字形图片、拓片、卜辞、著录、出处和书目证据放在一起阅读。
+
+### Human Research Slots / 人类研究槽位
+
+- Glyph image and rubbing: which image or rubbing can a researcher open?
+  字形图片与拓片：研究者能够打开并核查哪一份实物图像或拓片？
+- Meaning or reading: what reading history is recorded, and who proposed it?
+  释义与释读：已有何种释读史，提出者是谁，哪些意见仍有争议？
+- Components and relations: which components, variants, or near forms are
+  recorded as candidates rather than confirmed identity?
+  构件与关系：哪些构件、异体或近形只是候选关系，尚未确认？
+- Inscription and catalog: which full text, OCR, plate, catalog number, or
+  Heji reference can be checked against the source?
+  卜辞与著录：哪一份全文、OCR、图版、著录号或合集号可以回查？
+- Excavation and provenance: what findspot, collection, period, or batch is
+  directly evidenced, and what remains to be checked?
+  出土与出处：出土地、馆藏、时期或批次哪些有直接证据，哪些待查？
+- Scholarship and dispute: which bibliography, citation relation, proposer,
+  different opinion, or dispute record must be preserved?
+  学术与争议：哪些书目、引用关系、提出者、不同意见或争议记录必须保留？
+- Next check: what concrete source page, scan, image, or catalog leaf should
+  a human researcher open next?
+  下一步核查：研究者下一次应打开哪一个具体网页、扫描件、图像或著录页？
+
+These slots are preparation-stage research prompts. They do not establish a
+confirmed reading, component assignment, inscription identity, or decipherment.
+这些槽位只是预处理阶段的研究问题，不构成已确认释读、构件归属、
+卜辞身份或破译结论。
+
 从已登记下载文件生成的派生暂存索引放在对应主题语料区，而不是放在本来源登记目录中。例如，EVOBC 字形演化 metadata 暂存在 `corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/`。

@@ -17,6 +17,10 @@ DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_source-downl
 FIELD_MAP = Path("corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv")
 PACKAGE_MANIFEST = Path("corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv")
 METADATA_PROFILE = Path("corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv")
+BROWSER_METADATA_CAPTURE = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "014_browser-verified-metadata-capture.csv"
+)
 OUTPUT_ROOT = Path("corpus/006_research-sources-and-bibliography/001_source-objects")
 UPDATED_AT = "2026-06-21"
 MAX_HUMAN_LINE_LENGTH = 80
@@ -192,6 +196,96 @@ def add_route_ids(source_id: str, rows: list[dict[str, str]], key: str, prefix: 
     return routed
 
 
+def browser_metadata_capture_text(
+    source: dict[str, str],
+    rows: list[dict[str, str]],
+) -> str:
+    lines = [
+        "# Browser-Verified Metadata Capture / 浏览器核验 Metadata",
+        "",
+        *wrapped(
+            "This human-readable note records fields observed on an official "
+            "source page in a controlled browser after automated access reached "
+            "an HTTP boundary. It is metadata evidence only; no page payload, "
+            "image, or source checksum was captured."
+        ),
+        "",
+        *wrapped(
+            "本页记录自动访问遇到 HTTP 边界后，在受控浏览器中读取官方来源页所见的字段。"
+            "它只属于 metadata 证据；没有保存页面正文、图片或来源页 checksum。"
+        ),
+        "",
+        "## Source / 来源",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Source page / 来源页面", source["source_url"]),
+        *bullet("Source rights status / 来源权利状态", source["rights_status"]),
+        "",
+        "## Observed Official Fields / 官方页面观察字段",
+    ]
+    for row in rows:
+        lines.extend(
+            [
+                "",
+                *bullet("Capture ID / 观察记录 ID", row.get("capture_id")),
+                *bullet("Access record / 访问记录", row.get("access_record_id")),
+                *bullet("Captured at / 观察日期", row.get("captured_at")),
+                *bullet("Page title / 页面标题", row.get("page_title")),
+                *bullet("Object type / 对象类型", row.get("object_type")),
+                *bullet("Museum number / 博物馆编号", row.get("museum_number")),
+                *bullet("Description / 描述", row.get("description")),
+                *bullet("Culture or period / 文化或时期", row.get("cultures_or_periods")),
+                *bullet("Production date / 制作年代", row.get("production_date")),
+                *bullet("Findspot / 出土地线索", row.get("findspot")),
+                *bullet("Material / 材料", row.get("materials")),
+                *bullet("Location / 展示位置", row.get("location")),
+                *bullet("Acquisition date / 入藏日期", row.get("acquisition_date")),
+                *bullet("Department / 部门", row.get("department")),
+                *bullet("Registration number / 登记号", row.get("registration_number")),
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Access And Rights Boundary / 访问与权利边界",
+            *bullet("Payload status / 页面载荷状态", rows[0].get("payload_status") if rows else "not recorded"),
+            *bullet("Source checksum status / 来源 checksum 状态", rows[0].get("source_checksum_status") if rows else "not recorded"),
+            *bullet("Review status / 复核状态", rows[0].get("review_status") if rows else "not recorded"),
+            *bullet("Research boundary / 研究边界", rows[0].get("research_boundary") if rows else "not recorded"),
+            *bullet("Risk note / 风险提示", rows[0].get("risk_note") if rows else "not recorded"),
+            "",
+            *wrapped(
+                "The observed fields may support a source-marked museum metadata "
+                "route. They do not support an image claim, inscription identity, "
+                "reading, component assignment, rights clearance, or decipherment."
+            ),
+            "",
+            *wrapped(
+                "这些观察字段只能支持带来源标记的博物馆 metadata 路线，不能支持图像结论、"
+                "卜辞身份、释读、构件归属、权利清理或破译结论。"
+            ),
+        ]
+    )
+    return "\n".join(lines)
+
+
+def browser_metadata_capture_index_payload(
+    source: dict[str, str],
+    rows: list[dict[str, str]],
+) -> dict[str, object]:
+    return {
+        "record_type": "browser_verified_metadata_capture_index",
+        "source_id": source["source_id"],
+        "capture_count": len(rows),
+        "human_readable_files": ["23_browser-verified-metadata.md"],
+        "ai_support_files": ["24_browser-verified-metadata-index.json"],
+        "payload_status": rows[0].get("payload_status", "not recorded") if rows else "not recorded",
+        "source_checksum_status": rows[0].get("source_checksum_status", "not recorded") if rows else "not recorded",
+        "review_status": rows[0].get("review_status", "not recorded") if rows else "not recorded",
+        "claim_boundary": "metadata_route_only_not_scholarship",
+        "updated_at": UPDATED_AT,
+    }
+
+
 def source_packet(
     source: dict[str, str],
     object_dir: Path,
@@ -199,7 +293,37 @@ def source_packet(
     package_routes: list[dict[str, str]],
     field_routes: list[dict[str, str]],
     metadata_routes: list[dict[str, str]],
+    browser_metadata_rows: list[dict[str, str]],
 ) -> dict[str, object]:
+    local_files = [
+        "README.md",
+        "01_source-packet.json",
+        "02_download-route-index.csv",
+        "03_package-route-index.csv",
+        "04_field-map-route-index.csv",
+        "05_metadata-profile-route-index.csv",
+        "06_human-source-review-sheet.md",
+        "07_material-access-index.md",
+        "08_source-processing-status.md",
+        "09_source-processing-status-index.json",
+        "10_source-evidence-dossier.md",
+        "11_source-evidence-dossier-index.json",
+        "12_source-provenance-fact-matrix.md",
+        "13_source-provenance-fact-matrix-index.json",
+        "14_source-to-dossier-transfer-review.md",
+        "15_source-to-dossier-transfer-index.json",
+        "16_source-literature-scope-review.md",
+        "17_source-literature-scope-index.json",
+        "18_source-access-integrity-review.md",
+        "19_source-access-integrity-index.json",
+        "20_source-presearch-readiness-review.md",
+        "21_source-presearch-readiness-index.json",
+        "22_source-research-brief.md",
+    ]
+    if browser_metadata_rows:
+        local_files.extend(
+            ["23_browser-verified-metadata.md", "24_browser-verified-metadata-index.json"]
+        )
     return {
         "record_type": "source_object_packet",
         "source_id": source["source_id"],
@@ -219,31 +343,8 @@ def source_packet(
         "package_route_count": len(package_routes),
         "field_map_route_count": len(field_routes),
         "metadata_profile_route_count": len(metadata_routes),
-        "local_files": [
-            "README.md",
-            "01_source-packet.json",
-            "02_download-route-index.csv",
-            "03_package-route-index.csv",
-            "04_field-map-route-index.csv",
-            "05_metadata-profile-route-index.csv",
-            "06_human-source-review-sheet.md",
-            "07_material-access-index.md",
-            "08_source-processing-status.md",
-            "09_source-processing-status-index.json",
-            "10_source-evidence-dossier.md",
-            "11_source-evidence-dossier-index.json",
-            "12_source-provenance-fact-matrix.md",
-            "13_source-provenance-fact-matrix-index.json",
-            "14_source-to-dossier-transfer-review.md",
-            "15_source-to-dossier-transfer-index.json",
-            "16_source-literature-scope-review.md",
-            "17_source-literature-scope-index.json",
-            "18_source-access-integrity-review.md",
-            "19_source-access-integrity-index.json",
-            "20_source-presearch-readiness-review.md",
-            "21_source-presearch-readiness-index.json",
-            "22_source-research-brief.md",
-        ],
+        "local_files": local_files,
+        "browser_metadata_capture_count": len(browser_metadata_rows),
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
             "download logs, package manifests, field maps, and status cards are "
@@ -3272,7 +3373,11 @@ def source_provenance_fact_matrix_text(
     return "\n".join(lines)
 
 
-def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
+def readme_text(
+    source: dict[str, str],
+    packet: dict[str, object],
+    browser_metadata_rows: list[dict[str, str]],
+) -> str:
     lines = [
         f"# {source['source_id']} Source Object",
         "",
@@ -3407,6 +3512,11 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Package evidence count / 来源包证据数", packet["package_route_count"]),
         *bullet("Field-map evidence count / 字段映射证据数", packet["field_map_route_count"]),
         *bullet("Metadata profile count / 元数据概况数", packet["metadata_profile_route_count"]),
+        *bullet("Browser metadata capture count / 浏览器核验 metadata 数", packet["browser_metadata_capture_count"]),
+        *(bullet("Browser-verified metadata / 浏览器核验 metadata", "23_browser-verified-metadata.md")
+          if browser_metadata_rows else []),
+        *(bullet("Browser metadata index / 浏览器核验 metadata 索引", "24_browser-verified-metadata-index.json")
+          if browser_metadata_rows else []),
         "",
         "## Risk And Boundary / 风险与边界",
         *wrapped(str(source["risk_note"])),
@@ -3705,6 +3815,7 @@ def build_materials(root: Path) -> dict[str, int]:
     packages_by_source = index_by_source(read_csv(root / PACKAGE_MANIFEST))
     fields_by_source = index_by_source(read_csv(root / FIELD_MAP))
     metadata_by_source = index_by_source(read_csv(root / METADATA_PROFILE))
+    browser_metadata_by_source = index_by_source(read_csv(root / BROWSER_METADATA_CAPTURE))
 
     for index, source in enumerate(sources, start=1):
         source_id = source["source_id"]
@@ -3722,6 +3833,7 @@ def build_materials(root: Path) -> dict[str, int]:
         metadata_routes = add_route_ids(
             source_id, metadata_by_source.get(source_id, []), "metadata-route", "metadata_route_id"
         )
+        browser_metadata_rows = browser_metadata_by_source.get(source_id, [])
         packet = source_packet(
             source,
             object_dir.relative_to(root),
@@ -3729,6 +3841,7 @@ def build_materials(root: Path) -> dict[str, int]:
             package_routes,
             field_routes,
             metadata_routes,
+            browser_metadata_rows,
         )
         status_index = build_processing_status_index(
             source,
@@ -3744,7 +3857,21 @@ def build_materials(root: Path) -> dict[str, int]:
             field_routes,
             metadata_routes,
         )
-        write_human_markdown(object_dir / "README.md", f"{source_id}/README.md", readme_text(source, packet))
+        write_human_markdown(
+            object_dir / "README.md",
+            f"{source_id}/README.md",
+            readme_text(source, packet, browser_metadata_rows),
+        )
+        if browser_metadata_rows:
+            write_human_markdown(
+                object_dir / "23_browser-verified-metadata.md",
+                f"{source_id}/23_browser-verified-metadata.md",
+                browser_metadata_capture_text(source, browser_metadata_rows),
+            )
+            write_json(
+                object_dir / "24_browser-verified-metadata-index.json",
+                browser_metadata_capture_index_payload(source, browser_metadata_rows),
+            )
         write_json(object_dir / "01_source-packet.json", packet)
         write_csv(object_dir / "02_download-route-index.csv", download_routes, DOWNLOAD_ROUTE_FIELDS)
         write_csv(object_dir / "03_package-route-index.csv", package_routes, PACKAGE_ROUTE_FIELDS)

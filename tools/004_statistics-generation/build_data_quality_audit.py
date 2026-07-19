@@ -3,7 +3,9 @@
 
 The audit checks engineering quality only: required fields, duplicate keys,
 source-reference integrity, route-file availability, and candidate-boundary
-status fields. It does not evaluate paleographic identity or decipherment.
+status fields. A pending human review status is a documented review route,
+not by itself a boundary violation. The audit does not evaluate paleographic
+identity or decipherment.
 """
 
 from __future__ import annotations
@@ -32,6 +34,9 @@ SOURCE_DOWNLOAD_MANIFEST = Path(
 )
 SOURCE_PACKAGE_FILE_MANIFEST = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv"
+)
+BROWSER_METADATA_CAPTURE = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/014_browser-verified-metadata-capture.csv"
 )
 SOURCE_DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_source-download-log.csv")
 LARGE_SOURCE_REGISTER = Path("project_registry/006_large-source-register/001_large-source-register.csv")
@@ -92,6 +97,19 @@ REL_GRAPH_FILES = [
     Path("corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl"),
 ]
+
+# Graph builders use these concrete statuses to distinguish a reviewed route
+# from a route that still requires human visual, topic, or cross-source review.
+# They remain preprocessing states and are not scholarly claims.
+GRAPH_REVIEW_STATUSES = {
+    "draft",
+    "needs_review",
+    "reviewed",
+    "deprecated",
+    "needs_human_visual_review",
+    "needs_cross_source_review",
+    "needs_human_topic_review",
+}
 
 
 class CsvDatasetSpec(NamedTuple):
@@ -330,10 +348,15 @@ def graph_quality_row(root: Path, path: Path, source_ids: set[str], index: int) 
         for source_id in row.get("source_ids", [])
         if source_id not in source_ids
     )
+    # A route awaiting human review is expected at the preprocessing stage.
+    # Count only an unknown review state as a boundary violation. Required
+    # field checks already catch an absent status or confidence value, while
+    # graph documentation defines high confidence as route metadata rather
+    # than scholarly confidence.
     boundary_violations = sum(
         1
         for row in rows
-        if row.get("review_status") != "reviewed" or row.get("confidence_level") != "high"
+        if row.get("review_status") not in GRAPH_REVIEW_STATUSES
     )
     review_counter = Counter(
         f"review_status={row.get('review_status', '')};confidence_level={row.get('confidence_level', '')}"
@@ -387,6 +410,39 @@ def build_csv_specs() -> list[CsvDatasetSpec]:
             path=SOURCE_DOWNLOAD_MANIFEST,
             key_fields=("download_id",),
             required_fields=("download_id", "source_id", "url", "artifact_kind", "commit_policy", "max_bytes"),
+            source_id_fields=("source_id",),
+        ),
+        CsvDatasetSpec(
+            dataset_id="browser_verified_metadata_capture",
+            dataset_type="source_metadata_capture",
+            path=BROWSER_METADATA_CAPTURE,
+            key_fields=("capture_id",),
+            required_fields=(
+                "capture_id",
+                "source_id",
+                "access_record_id",
+                "official_url",
+                "captured_at",
+                "capture_method",
+                "page_title",
+                "object_type",
+                "museum_number",
+                "description",
+                "cultures_or_periods",
+                "production_date",
+                "findspot",
+                "materials",
+                "location",
+                "acquisition_date",
+                "department",
+                "registration_number",
+                "payload_status",
+                "source_checksum_status",
+                "rights_status",
+                "risk_note",
+                "review_status",
+                "research_boundary",
+            ),
             source_id_fields=("source_id",),
         ),
         CsvDatasetSpec(

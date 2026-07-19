@@ -6633,6 +6633,35 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                         )
             if any(len(line) > 80 for line in text.splitlines()):
                 issues.append(f"{path.relative_to(root)} has a line over 80 chars")
+        if object_dir.name == "009_src-british-museum-oracle-bone_source-object":
+            browser_metadata_path = object_dir / "23_browser-verified-metadata.md"
+            browser_metadata_index_path = object_dir / "24_browser-verified-metadata-index.json"
+            for required_path in [browser_metadata_path, browser_metadata_index_path]:
+                if not required_path.is_file():
+                    issues.append(f"{required_path.relative_to(root)} missing browser metadata capture")
+            if browser_metadata_path.is_file():
+                browser_text = browser_metadata_path.read_text(encoding="utf-8")
+                for snippet in [
+                    "Browser-Verified Metadata Capture",
+                    "OA+.165",
+                    "no_page_payload_saved",
+                    "no_source_payload_checksum",
+                    "metadata_route_only_not_scholarship",
+                ]:
+                    if snippet not in browser_text:
+                        issues.append(f"{browser_metadata_path.relative_to(root)} missing snippet: {snippet}")
+                if any(len(line) > 80 for line in browser_text.splitlines()):
+                    issues.append(f"{browser_metadata_path.relative_to(root)} has a line over 80 chars")
+            if browser_metadata_index_path.is_file():
+                try:
+                    browser_index = json.loads(browser_metadata_index_path.read_text(encoding="utf-8"))
+                except json.JSONDecodeError as exc:
+                    issues.append(f"{browser_metadata_index_path.relative_to(root)} invalid JSON: {exc}")
+                    browser_index = {}
+                if browser_index.get("capture_count") != 1:
+                    issues.append(f"{browser_metadata_index_path.relative_to(root)} capture_count changed")
+                if browser_index.get("claim_boundary") != "metadata_route_only_not_scholarship":
+                    issues.append(f"{browser_metadata_index_path.relative_to(root)} claim boundary changed")
         source_dossier_index_path = object_dir / "11_source-evidence-dossier-index.json"
         if not source_dossier_index_path.is_file():
             issues.append(f"{object_dir.name} missing 11_source-evidence-dossier-index.json")
@@ -9618,22 +9647,23 @@ def check_data_quality_audit(root: Path) -> list[str]:
         issues.append(f"{DATA_QUALITY_SUMMARY} invalid JSON: {exc}")
         summary = {}
 
-    if len(audit_rows) != 29:
-        issues.append(f"{DATA_QUALITY_AUDIT} should contain exactly 29 rows")
-    if summary.get("dataset_count") != 29:
-        issues.append(f"{DATA_QUALITY_SUMMARY} dataset_count should be 29")
+    if len(audit_rows) != 30:
+        issues.append(f"{DATA_QUALITY_AUDIT} should contain exactly 30 rows")
+    if summary.get("dataset_count") != 30:
+        issues.append(f"{DATA_QUALITY_SUMMARY} dataset_count should be 30")
     if summary.get("audit_csv_path") != DATA_QUALITY_AUDIT:
         issues.append(f"{DATA_QUALITY_SUMMARY} audit_csv_path changed")
     if summary.get("updated_at") != "2026-06-20":
         issues.append(f"{DATA_QUALITY_SUMMARY} updated_at changed")
     if "does not promote candidate identities" not in summary.get("completion_boundary", ""):
         issues.append(f"{DATA_QUALITY_SUMMARY} completion boundary changed")
-    if summary.get("quality_status_counts") != {"needs_review": 4, "pass": 25}:
+    if summary.get("quality_status_counts") != {"pass": 30}:
         issues.append(f"{DATA_QUALITY_SUMMARY} quality status counts changed")
 
     expected_dataset_counts = {
         "source_index": "21",
         "source_download_manifest": "47",
+        "browser_verified_metadata_capture": "1",
         "source_download_log": "48",
         "large_source_register": "4",
         "source_package_file_manifest": "36",
@@ -9664,9 +9694,9 @@ def check_data_quality_audit(root: Path) -> list[str]:
     }
     by_dataset = {row.get("dataset_id", ""): row for row in audit_rows}
     expected_totals = {
-        "boundary_status_violation_count": 23769,
+        "boundary_status_violation_count": 0,
         "duplicate_key_count": 0,
-        "issue_count": 23769,
+        "issue_count": 0,
         "missing_path_count": 0,
         "missing_required_value_count": 0,
         "row_count": sum(int(row.get("row_count", "0") or 0) for row in audit_rows),
@@ -9682,14 +9712,8 @@ def check_data_quality_audit(root: Path) -> list[str]:
         row = by_dataset.get(dataset_id, {})
         if row.get("row_count") != expected_count:
             issues.append(f"{DATA_QUALITY_AUDIT} row_count changed for {dataset_id}")
-        expected_review_datasets = {
-            "009_character-asset-graph-edges": "10996",
-            "010_cross-source-id-graph-edges": "1737",
-            "011_component-asset-graph-edges": "10364",
-            "012_cambridge-hopkins-topic-candidate-graph-edges": "672",
-        }
-        expected_quality_status = "needs_review" if dataset_id in expected_review_datasets else "pass"
-        expected_issue_count = expected_review_datasets.get(dataset_id, "0")
+        expected_quality_status = "pass"
+        expected_issue_count = "0"
         if row.get("quality_status") != expected_quality_status:
             issues.append(f"{DATA_QUALITY_AUDIT} quality_status changed for {dataset_id}")
         if row.get("issue_count") != expected_issue_count:
@@ -15413,7 +15437,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 128",
-        "source register files: 501",
+        "source register files: 504",
         "bibliographic identity",
         "source trail",
         "scope",

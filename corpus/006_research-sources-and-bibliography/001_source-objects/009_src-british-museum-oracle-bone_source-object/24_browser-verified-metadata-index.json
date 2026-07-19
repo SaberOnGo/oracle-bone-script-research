@@ -1,0 +1,16 @@
+{
+  "record_type": "browser_verified_metadata_capture_index",
+  "source_id": "src-british-museum-oracle-bone",
+  "capture_count": 1,
+  "human_readable_files": [
+    "23_browser-verified-metadata.md"
+  ],
+  "ai_support_files": [
+    "24_browser-verified-metadata-index.json"
+  ],
+  "payload_status": "no_page_payload_saved",
+  "source_checksum_status": "no_source_payload_checksum",
+  "review_status": "reviewed_metadata_only",
+  "claim_boundary": "metadata_route_only_not_scholarship",
+  "updated_at": "2026-06-21"
+}

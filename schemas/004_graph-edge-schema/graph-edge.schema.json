@@ -12,6 +12,14 @@
     "confidence_level": {"enum": ["low", "medium", "high", "unknown"]},
     "source_ids": {"type": "array", "items": {"type": "string"}},
     "evidence_note": {"type": ["string", "null"]},
-    "review_status": {"enum": ["draft", "needs_review", "reviewed", "deprecated"]}
+    "review_status": {"enum": [
+      "draft",
+      "needs_review",
+      "reviewed",
+      "deprecated",
+      "needs_human_visual_review",
+      "needs_cross_source_review",
+      "needs_human_topic_review"
+    ]}
   }
 }

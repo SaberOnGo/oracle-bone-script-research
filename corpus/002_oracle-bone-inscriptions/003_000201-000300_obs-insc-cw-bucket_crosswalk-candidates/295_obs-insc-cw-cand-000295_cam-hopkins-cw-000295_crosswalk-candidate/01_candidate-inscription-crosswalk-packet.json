@@ -137,6 +137,12 @@
   "review_status": "needs_human_inscription_crosswalk_review",
   "rights_status": "metadata_only_until_verified",
   "source_id": "src-cambridge-hopkins",
+  "source_section_count_reconciliation_status": "declared_count_differs_from_observed_rows",
+  "source_section_declared_count": "29",
+  "source_section_key": "period-ii-group-1",
+  "source_section_label_en": "Period II Group 1",
+  "source_section_label_zh": "第 II 期第 1 组",
+  "source_section_observed_row_count": "28",
   "text_transcription_status": "needs_primary_text_or_ocr_review_route",
   "updated_at": "2026-06-21"
 }

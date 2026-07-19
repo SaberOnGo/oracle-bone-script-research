@@ -75,6 +75,22 @@ These labels are imported metadata, not a new chronological judgement.
 
 这些标签来自导入资料，不是本仓库新增断代结论。
 
+## Finding-List Section Reconciliation / 来源页面分区对账
+
+- Source page section: `Period V Group 8` /
+  `第 V 期第 8 组`
+- Source section key: `period-v-group-8`
+- Section declared count: `not stated`
+- Section observed row count: `21`
+- Count status: `source_section_has_no_declared_count`
+
+The source page subsection is preserved separately from the flat staging
+group value. A count difference is an unresolved source-data discrepancy; it
+is not evidence for a new classification, object identity, dating, or
+reading.
+
+来源页面分区与扁平 staging 组别值分开保留。数量差异是尚未解决的来源数据差异，不是新的分类、实物同一性、断代或释读证据。
+
 ## Catalog Clues / 著录线索
 
 - Type: `yingguo`

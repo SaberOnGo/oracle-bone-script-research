@@ -98,6 +98,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `dl-cambridge-hopkins-finding-list`
 - Period label: `IV`
 - Classification group: `3`
+- Source page section: `Period IV Group 3` /
+  `第 IV 期第 3 组`
+- Section count review: declared
+  `3`, observed
+  `3`
 - Missing reference types: `chalfant, heji`
 
 ## Catalog References / 目录引用

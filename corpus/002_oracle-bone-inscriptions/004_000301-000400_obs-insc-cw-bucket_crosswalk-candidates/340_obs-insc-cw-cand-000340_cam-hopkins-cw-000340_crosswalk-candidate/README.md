@@ -98,6 +98,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `dl-cambridge-hopkins-finding-list`
 - Period label: `II`
 - Classification group: `4`
+- Source page section: `Period II Group 4` /
+  `第 II 期第 4 组`
+- Section count review: declared
+  `16`, observed
+  `21`
 - Missing reference types: `chalfant`
 
 ## Catalog References / 目录引用

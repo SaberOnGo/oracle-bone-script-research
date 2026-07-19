@@ -9402,6 +9402,34 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("具体文献核查", cambridge_literature_text)
         self.assertNotIn("not_collected", cambridge_literature_text)
         self.assertTrue(all(len(line) <= 80 for line in cambridge_literature_text.splitlines()))
+        reconciliation_text = (
+            cambridge_object_dir / "21_finding-list-reconciliation.md"
+        ).read_text(encoding="utf-8")
+        reconciliation_index = json.loads(
+            (cambridge_object_dir / "22_finding-list-reconciliation-index.json")
+            .read_text(encoding="utf-8")
+        )
+        with (cambridge_object_dir / "23_finding-list-row-reconciliation.csv").open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as file:
+            reconciliation_rows = list(csv.DictReader(file))
+        self.assertIn("Finding-List Reconciliation", reconciliation_text)
+        self.assertIn("Page-stated grand total: `609`", reconciliation_text)
+        self.assertEqual(reconciliation_index["row_count"], 612)
+        self.assertEqual(reconciliation_index["page_stated_grand_total"], 609)
+        self.assertEqual(reconciliation_index["row_count_delta_from_page_total"], 3)
+        self.assertEqual(len(reconciliation_rows), 612)
+        self.assertEqual(
+            {row["source_section_key"] for row in reconciliation_rows
+             if row["yingguo_ref_id"] == "y1757"},
+            {"period-I-shih-tsu"},
+        )
+        self.assertEqual(
+            sum(row["source_section_key"] == "unclassified" for row in reconciliation_rows),
+            4,
+        )
+        self.assertIn("period-i-group-19", reconciliation_index["count_mismatch_sections"])
+        self.assertTrue(all(len(line) <= 80 for line in reconciliation_text.splitlines()))
         hust_object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"
@@ -28023,7 +28051,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"128"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"498"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"501"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -28121,7 +28149,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 128",
-            "source register files: 498",
+            "source register files: 501",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -28150,7 +28178,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 128", text)
-        self.assertIn("source register files: 498", text)
+        self.assertIn("source register files: 501", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

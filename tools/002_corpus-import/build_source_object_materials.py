@@ -3374,6 +3374,8 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
         *bullet("Pre-research readiness / 预研究就绪", "20_source-presearch-readiness-review.md"),
+        *(bullet("Finding-list reconciliation / 清单分区对账", "21_finding-list-reconciliation.md")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
         "## Structured Support Entrances / 结构化辅助入口",
         *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
@@ -3384,6 +3386,10 @@ def readme_text(source: dict[str, str], packet: dict[str, object]) -> str:
         *bullet("Status index / 处理状态索引", "09_source-processing-status-index.json"),
         *bullet("Access integrity index / 访问完整性索引", "19_source-access-integrity-index.json"),
         *bullet("Readiness index / 就绪索引", "21_source-presearch-readiness-index.json"),
+        *(bullet("Finding-list reconciliation index / 清单对账索引", "22_finding-list-reconciliation-index.json")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Finding-list row reconciliation / 清单逐行对账", "23_finding-list-row-reconciliation.csv")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
         *wrapped(
             "Structured support files only serve the human source dossier. They "
@@ -3458,6 +3464,8 @@ def material_access_index_text(
         *bullet("Transfer review / 转入复核", "14_source-to-dossier-transfer-review.md"),
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
+        *(bullet("Finding-list reconciliation / 清单分区对账", "21_finding-list-reconciliation.md")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
         "## Structured Support Entrances / 结构化辅助入口",
         *bullet("Structured source packet / 结构化来源包", "01_source-packet.json"),
@@ -3467,6 +3475,10 @@ def material_access_index_text(
         *bullet("Metadata profile table / 元数据概况表", "05_metadata-profile-route-index.csv"),
         *bullet("Processing status JSON / 处理状态索引", "09_source-processing-status-index.json"),
         *bullet("Access integrity JSON / 访问完整性索引", "19_source-access-integrity-index.json"),
+        *(bullet("Finding-list reconciliation JSON / 清单对账索引", "22_finding-list-reconciliation-index.json")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Finding-list row table / 清单逐行表", "23_finding-list-row-reconciliation.csv")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
         *wrapped(
             "Structured support files only serve the human source dossier. They "

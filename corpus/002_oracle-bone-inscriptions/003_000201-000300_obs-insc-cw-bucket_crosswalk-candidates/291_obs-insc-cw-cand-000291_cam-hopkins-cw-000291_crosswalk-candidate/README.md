@@ -98,6 +98,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `dl-cambridge-hopkins-finding-list`
 - Period label: `I`
 - Classification group: `19`
+- Source page section: `Wu tsu` /
+  `午祖（原页标签）`
+- Section count review: declared
+  `2`, observed
+  `2`
 - Missing reference types: `heji`
 
 ## Catalog References / 目录引用

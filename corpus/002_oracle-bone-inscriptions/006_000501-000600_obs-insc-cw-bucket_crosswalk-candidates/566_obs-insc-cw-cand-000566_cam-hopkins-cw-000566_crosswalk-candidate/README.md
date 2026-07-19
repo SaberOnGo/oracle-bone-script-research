@@ -98,6 +98,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `dl-cambridge-hopkins-finding-list`
 - Period label: `V`
 - Classification group: `12`
+- Source page section: `Period V Group 12` /
+  `第 V 期第 12 组`
+- Section count review: declared
+  `12`, observed
+  `12`
 - Missing reference types: `chalfant, heji`
 
 ## Catalog References / 目录引用

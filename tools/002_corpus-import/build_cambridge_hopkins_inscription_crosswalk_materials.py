@@ -67,6 +67,36 @@ SOURCE_LITERATURE_FILES = (
     "14_source-to-dossier-transfer-review.md",
     "20_source-presearch-readiness-review.md",
 )
+SOURCE_OBJECT_RECONCILIATION_MD = (
+    SOURCE_OBJECT_DIR / "21_finding-list-reconciliation.md"
+)
+SOURCE_OBJECT_RECONCILIATION_INDEX = (
+    SOURCE_OBJECT_DIR / "22_finding-list-reconciliation-index.json"
+)
+SOURCE_OBJECT_RECONCILIATION_ROWS = (
+    SOURCE_OBJECT_DIR / "23_finding-list-row-reconciliation.csv"
+)
+
+RECONCILIATION_FIELDS = [
+    "source_row_id",
+    "candidate_inscription_crosswalk_id",
+    "yingguo_ref_id",
+    "period_label",
+    "original_group_number",
+    "source_section_key",
+    "source_section_label_en",
+    "source_section_label_zh",
+    "declared_count",
+    "observed_section_row_count",
+    "count_reconciliation_status",
+    "source_note",
+]
+
+SOURCE_SECTION_ANCHOR_LABELS = {
+    "y1757": ("period-I-shih-tsu", "Shih tsu", "祖先子组（原页标签）"),
+    "y1896": ("period-I-tzu-tsu", "Tzu tsu", "子祖（原页标签）"),
+    "y1916": ("period-I-wu-tsu", "Wu tsu", "午祖（原页标签）"),
+}
 
 CAUTION = (
     "This object is a Cambridge/Hopkins inscription crosswalk candidate only. "
@@ -453,6 +483,253 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) -> 
         writer.writerows(rows)
 
 
+def source_section_for_row(row: dict[str, str]) -> tuple[str, str, str]:
+    """Keep source-page subsection labels that the flat staging row lost."""
+    if row.get("period_label") == "unclassified":
+        return "unclassified", "Unclassified", "未分类（原页标签）"
+    if row.get("period_label") == "I" and row.get("group_number") == "19":
+        reference = row.get("yingguo_ref_id", "")
+        match = re.fullmatch(r"y(\d+)", reference)
+        if match:
+            number = int(match.group(1))
+            if 1757 <= number <= 1890:
+                return SOURCE_SECTION_ANCHOR_LABELS["y1757"]
+            if 1896 <= number <= 1915:
+                return SOURCE_SECTION_ANCHOR_LABELS["y1896"]
+            if 1916 <= number <= 1920:
+                return SOURCE_SECTION_ANCHOR_LABELS["y1916"]
+    period = row.get("period_label", "")
+    group = row.get("group_number", "")
+    return (
+        f"period-{period.lower()}-group-{group}",
+        f"Period {period} Group {group}",
+        f"第 {period} 期第 {group} 组",
+    )
+
+
+def source_section_key_for_row(row: dict[str, str]) -> tuple[str, str, str]:
+    """Return a stable section key and labels for one source row."""
+    key, label_en, label_zh = source_section_for_row(row)
+    if key in {
+        "period-I-shih-tsu",
+        "period-I-tzu-tsu",
+        "period-I-wu-tsu",
+    }:
+        return key, label_en, label_zh
+    return key, label_en, label_zh
+
+
+def declared_count_for_section(
+    row: dict[str, str],
+    summary_rows: list[dict[str, str]],
+    section_key: str,
+) -> str:
+    if section_key == "unclassified":
+        return ""
+    if section_key == "period-I-shih-tsu":
+        return "21"
+    if section_key == "period-I-tzu-tsu":
+        return "7"
+    if section_key == "period-I-wu-tsu":
+        return "2"
+    summary = next(
+        (
+            item
+            for item in summary_rows
+            if item.get("summary_kind") == "classified_table_group"
+            and item.get("group_number") == row.get("group_number")
+        ),
+        {},
+    )
+    value = summary.get(
+        {
+            "I": "period_i_count",
+            "II": "period_ii_count",
+            "III": "period_iii_count",
+            "IV": "period_iv_count",
+            "V": "period_v_count",
+        }.get(row.get("period_label", ""), ""),
+        "",
+    )
+    return "" if value in {"", "-"} else value
+
+
+def build_reconciliation_rows(
+    crosswalk_rows: list[dict[str, str]],
+    summary_rows: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    section_counts: Counter[str] = Counter()
+    section_values: list[tuple[dict[str, str], str, str, str]] = []
+    for row in crosswalk_rows:
+        key, label_en, label_zh = source_section_key_for_row(row)
+        section_counts[key] += 1
+        section_values.append((row, key, label_en, label_zh))
+
+    output: list[dict[str, str]] = []
+    for index, (row, key, label_en, label_zh) in enumerate(section_values, start=1):
+        declared = declared_count_for_section(row, summary_rows, key)
+        observed = str(section_counts[key])
+        if not declared:
+            status = "source_section_has_no_declared_count"
+        elif declared == observed:
+            status = "declared_count_matches_observed_rows"
+        else:
+            status = "declared_count_differs_from_observed_rows"
+        output.append(
+            {
+                "source_row_id": str(index),
+                "candidate_inscription_crosswalk_id": row[
+                    "candidate_inscription_crosswalk_id"
+                ],
+                "yingguo_ref_id": row.get("yingguo_ref_id", ""),
+                "period_label": row.get("period_label", ""),
+                "original_group_number": row.get("group_number", ""),
+                "source_section_key": key,
+                "source_section_label_en": label_en,
+                "source_section_label_zh": label_zh,
+                "declared_count": declared,
+                "observed_section_row_count": observed,
+                "count_reconciliation_status": status,
+                "source_note": row.get("source_note", ""),
+            }
+        )
+    return output
+
+
+def reconciliation_markdown(
+    crosswalk_rows: list[dict[str, str]],
+    summary_rows: list[dict[str, str]],
+    reconciliation_rows: list[dict[str, str]],
+) -> str:
+    section_rows: dict[str, dict[str, str]] = {}
+    for item in reconciliation_rows:
+        section_rows.setdefault(item["source_section_key"], item)
+    sections = []
+    for key in sorted(section_rows):
+        item = section_rows[key]
+        sections.append(
+            "\n".join(
+                [
+                    f"- Section key: `{item['source_section_key']}`",
+                    "  Label: {} / {}".format(
+                        item["source_section_label_en"],
+                        item["source_section_label_zh"],
+                    ),
+                    "  Declared: `{}`; observed: `{}`".format(
+                        item["declared_count"] or "not stated",
+                        item["observed_section_row_count"],
+                    ),
+                    f"  Status: `{item['count_reconciliation_status']}`",
+                ]
+            )
+        )
+    mismatches = [
+        item
+        for item in section_rows.values()
+        if item["count_reconciliation_status"]
+        == "declared_count_differs_from_observed_rows"
+    ]
+    text = f"""# Finding-List Reconciliation / Finding-list 对账
+
+## Purpose / 目的
+
+{paragraph("This is a human-readable audit of the Cambridge University Library finding-list import. It preserves the source page's subsection labels, stated counts, observed identifier rows, and unresolved count differences. It is a preprocessing audit, not a new classification or decipherment result.")}
+
+{paragraph("这是 Cambridge University Library finding-list 导入的人工可读对账。它保留来源页面的分区标签、页面声明数量、实际观察到的编号行以及尚未解释的数量差异。它属于预处理审计，不是新的分类、释读或破译结论。")}
+
+## Source Evidence / 来源证据
+
+- Source ID: `{SOURCE_ID}`
+- Download ID: `{DOWNLOAD_ID}`
+- Source URL:
+  `https://www.lib.cam.ac.uk/collections/departments/chinese-collections/`
+  `chinese-collections-te-cang-yu-zhuan-cang/finding-list`
+- Imported staging rows: `{len(crosswalk_rows)}`
+- Page-stated grand total: `609`
+- Difference between imported rows and stated grand total: `{len(crosswalk_rows) - 609}`
+- Formal inscription records created: `0`
+- Rights status: `metadata_only_until_verified`
+
+{paragraph("The page lists a classified table, the Shih tsu, Tzu tsu, and Wu tsu subsections, and four Unclassified entries. The flat staging file retained those four rows but previously represented the three ancestor subsections through the Group 19 value. The row-level reconciliation below keeps the original flat value and adds the source-page subsection label.")}
+
+{paragraph("页面列出分类表、Shih tsu、Tzu tsu、Wu tsu 子分区以及四条 Unclassified。扁平 staging 文件保留了这四条记录，但此前用 Group 19 值表示三个祖先子分区。下面的逐行对账同时保留原始扁平值，并补充来源页面分区标签。")}
+
+## Section Counts / 分区数量
+
+{chr(10).join(sections)}
+
+## Concrete Review Questions / 具体待查问题
+
+- Why does page total `609` differ from imported row count `612`?
+- Which page entries explain each section count difference?
+- Should the four Unclassified entries receive separate object routes?
+- Which source or catalogue page supplies images, plates, OCR, and full text?
+- Which missing references can be resolved without a formal `obi-*` ID?
+
+- 页面声明总数 `609` 与导入行数 `612` 的差异由哪些页面条目造成？
+- 各分区的声明数量与实际编号行差异应如何由原页面逐条核对？
+- 四条 Unclassified 是否需要分别建立馆藏实物核查路线？
+- 哪个来源或著录页面能提供图像、图版、OCR 与全文？
+- 哪些缺失著录可以在不分配正式 `obi-*` 编号的前提下补齐？
+
+## Boundary / 边界
+
+{paragraph(CAUTION)}
+"""
+    assert_human_line_width("21_finding-list-reconciliation.md", text)
+    return text
+
+
+def write_source_reconciliation(
+    root: Path,
+    crosswalk_rows: list[dict[str, str]],
+    summary_rows: list[dict[str, str]],
+    reconciliation_rows: list[dict[str, str]],
+) -> None:
+    md_path = root / SOURCE_OBJECT_RECONCILIATION_MD
+    index_path = root / SOURCE_OBJECT_RECONCILIATION_INDEX
+    rows_path = root / SOURCE_OBJECT_RECONCILIATION_ROWS
+    md_path.parent.mkdir(parents=True, exist_ok=True)
+    md_path.write_text(
+        reconciliation_markdown(crosswalk_rows, summary_rows, reconciliation_rows),
+        encoding="utf-8",
+        newline="\n",
+    )
+    write_csv(rows_path, RECONCILIATION_FIELDS, reconciliation_rows)
+    section_counts = Counter(item["source_section_key"] for item in reconciliation_rows)
+    mismatches = [
+        item["source_section_key"]
+        for item in reconciliation_rows
+        if item["count_reconciliation_status"]
+        == "declared_count_differs_from_observed_rows"
+    ]
+    index_path.write_text(
+        json.dumps(
+            {
+                "source_id": SOURCE_ID,
+                "download_id": DOWNLOAD_ID,
+                "row_count": len(reconciliation_rows),
+                "page_stated_grand_total": 609,
+                "row_count_delta_from_page_total": len(reconciliation_rows) - 609,
+                "section_count": len(section_counts),
+                "section_row_counts": dict(sorted(section_counts.items())),
+                "count_mismatch_sections": sorted(set(mismatches)),
+                "formal_record_count": 0,
+                "rights_status": "metadata_only_until_verified",
+                "review_status": "needs_human_source_reconciliation_review",
+                "human_file": SOURCE_OBJECT_RECONCILIATION_MD.as_posix(),
+                "row_file": SOURCE_OBJECT_RECONCILIATION_ROWS.as_posix(),
+            },
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def safe_token(value: str) -> str:
     token = re.sub(r"[^0-9A-Za-z]+", "-", value.strip()).strip("-").lower()
     return token or "unassigned"
@@ -647,6 +924,20 @@ def packet_for_row(
         "group_number": row["group_number"],
         "group_declared_count": row["group_declared_count"],
         "period_group_observed_row_count": period_group_counts[period_group_key],
+        "source_section_key": row.get("source_section_key", period_group_key),
+        "source_section_label_en": row.get(
+            "source_section_label_en", f"Period {row['period_label']} Group {row['group_number']}"
+        ),
+        "source_section_label_zh": row.get(
+            "source_section_label_zh", f"第 {row['period_label']} 期第 {row['group_number']} 组"
+        ),
+        "source_section_declared_count": row.get("source_section_declared_count", ""),
+        "source_section_observed_row_count": row.get(
+            "source_section_observed_row_count", ""
+        ),
+        "source_section_count_reconciliation_status": row.get(
+            "source_section_count_reconciliation_status", ""
+        ),
         "catalog_references": catalog_rows,
         "plate_and_text_evidence_routes": plate_routes,
         "missing_reference_types": missing_types,
@@ -773,6 +1064,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `{DOWNLOAD_ID}`
 - Period label: `{row['period_label']}`
 - Classification group: `{row['group_number']}`
+- Source page section: `{row.get('source_section_label_en', '')}` /
+  `{row.get('source_section_label_zh', '')}`
+- Section count review: declared
+  `{row.get('source_section_declared_count') or 'not stated'}`, observed
+  `{row.get('source_section_observed_row_count', '')}`
 - Missing reference types: `{missing_text}`
 
 ## Catalog References / 目录引用
@@ -975,6 +1271,19 @@ known gaps, and the files that must be opened before formal research.
 These labels are imported metadata, not a new chronological judgement.
 
 这些标签来自导入资料，不是本仓库新增断代结论。
+
+## Finding-List Section Reconciliation / 来源页面分区对账
+
+- Source page section: `{row.get('source_section_label_en', '')}` /
+  `{row.get('source_section_label_zh', '')}`
+- Source section key: `{row.get('source_section_key', '')}`
+- Section declared count: `{row.get('source_section_declared_count') or 'not stated'}`
+- Section observed row count: `{row.get('source_section_observed_row_count', '')}`
+- Count status: `{row.get('source_section_count_reconciliation_status', '')}`
+
+{paragraph("The source page subsection is preserved separately from the flat staging group value. A count difference is an unresolved source-data discrepancy; it is not evidence for a new classification, object identity, dating, or reading.")}
+
+{paragraph("来源页面分区与扁平 staging 组别值分开保留。数量差异是尚未解决的来源数据差异，不是新的分类、实物同一性、断代或释读证据。")}
 
 ## Catalog Clues / 著录线索
 
@@ -2512,6 +2821,18 @@ def dossier_index(
 
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     crosswalk_rows = read_csv_rows(root / CROSSWALK_STAGING)
+    summary_rows = read_csv_rows(root / CLASSIFIED_SUMMARY)
+    reconciliation_rows = build_reconciliation_rows(crosswalk_rows, summary_rows)
+    write_source_reconciliation(
+        root,
+        crosswalk_rows,
+        summary_rows,
+        reconciliation_rows,
+    )
+    reconciliation_by_candidate = {
+        item["candidate_inscription_crosswalk_id"]: item
+        for item in reconciliation_rows
+    }
     period_group_counts = Counter(
         f"{row['period_label']}|{row['group_number']}" for row in crosswalk_rows
     )
@@ -2531,6 +2852,22 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     )
     outputs: dict[str, dict[str, object]] = {}
     for index, row in enumerate(crosswalk_rows, start=1):
+        reconciliation = reconciliation_by_candidate[
+            row["candidate_inscription_crosswalk_id"]
+        ]
+        row = {
+            **row,
+            "source_section_key": reconciliation["source_section_key"],
+            "source_section_label_en": reconciliation["source_section_label_en"],
+            "source_section_label_zh": reconciliation["source_section_label_zh"],
+            "source_section_declared_count": reconciliation["declared_count"],
+            "source_section_observed_row_count": reconciliation[
+                "observed_section_row_count"
+            ],
+            "source_section_count_reconciliation_status": reconciliation[
+                "count_reconciliation_status"
+            ],
+        }
         project_id = project_id_for_index(index)
         relative_object_dir = object_dir_for_row(index, row)
         object_dir = root / relative_object_dir

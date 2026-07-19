@@ -98,6 +98,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `dl-cambridge-hopkins-finding-list`
 - Period label: `unclassified`
 - Classification group: `unclassified`
+- Source page section: `Unclassified` /
+  `未分类（原页标签）`
+- Section count review: declared
+  `not stated`, observed
+  `4`
 - Missing reference types: `cambridge_university_library, heji`
 
 ## Catalog References / 目录引用

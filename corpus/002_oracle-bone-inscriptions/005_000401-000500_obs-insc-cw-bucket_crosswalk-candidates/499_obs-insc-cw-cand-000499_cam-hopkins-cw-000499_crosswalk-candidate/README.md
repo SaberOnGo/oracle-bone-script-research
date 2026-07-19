@@ -98,6 +98,11 @@ Structured support files only serve the human inscription and plate dossier.
 - Download evidence: `dl-cambridge-hopkins-finding-list`
 - Period label: `IV`
 - Classification group: `11`
+- Source page section: `Period IV Group 11` /
+  `第 IV 期第 11 组`
+- Section count review: declared
+  `1`, observed
+  `1`
 - Missing reference types: `heji`
 
 ## Catalog References / 目录引用

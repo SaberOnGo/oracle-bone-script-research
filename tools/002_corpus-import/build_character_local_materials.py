@@ -1620,6 +1620,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "rounded lower enclosure; the small image needs detail recheck.",
         "图像有尖顶外轮廓、中部下行笔画和下方圆弧闭合轮廓；图像较小，细节仍需复核。",
     ),
+    "obs-char-000321": (
+        "The tall image has left branching strokes, a right rectangular enclosure, "
+        "and a separate rounded lower enclosure.",
+        "高直图像左侧有分叉笔画，右侧有方形闭合轮廓，下方另有圆弧闭合轮廓。",
+    ),
+    "obs-char-000322": (
+        "A large dark rounded upper cluster sits on a long vertical stroke; smaller "
+        "rounded marks flank it, with a crossbar and lower descending stroke.",
+        "大型深色圆弧上部形体位于长直笔画之上，两侧有较小圆弧痕迹，下面有横笔画和下行笔画。",
+    ),
+    "obs-char-000323": (
+        "The image has a central branching vertical stroke, a small oval enclosure, "
+        "and a broad curved base with an irregular lower edge.",
+        "图像中部有分叉直笔画和小型椭圆闭合轮廓，下方有宽弧形底部，底缘不规则。",
+    ),
+    "obs-char-000324": (
+        "A central upright form is flanked by a small left detached enclosure and "
+        "curved branching strokes on the right.",
+        "图像中部为直立形体，左侧有分离的小型闭合轮廓，右侧有弧形分叉笔画。",
+    ),
+    "obs-char-000325": (
+        "The image has central crossed and branching strokes, several small detached "
+        "rounded marks, and a long descending central line.",
+        "图像中部笔画交叉并分叉，周围有数个分离的圆弧痕迹，中部有长下行线条。",
+    ),
+    "obs-char-000326": (
+        "Two rounded terminal forms are joined by an upper horizontal stroke, with a "
+        "single central vertical stroke descending below.",
+        "上方两个圆弧末端形体由横笔画连接，中部有一条直笔画向下延伸。",
+    ),
+    "obs-char-000327": (
+        "The image shows upper branching strokes, two rounded lower loops, and a "
+        "central vertical stem.",
+        "图像上部有分叉笔画，下方有两个圆弧环状形体，中部为直立主干。",
+    ),
+    "obs-char-000328": (
+        "A small upper left enclosure and a tall upper right angular stroke sit above "
+        "a dense lower cluster of horizontal and vertical marks.",
+        "上方左侧有小型闭合轮廓，右侧有高直折角笔画，下方是密集的横竖痕迹群。",
+    ),
+    "obs-char-000329": (
+        "The dark image has a thick central rounded enclosure, a pointed left upper "
+        "stroke, and a long curved stroke descending on the right.",
+        "深色图像中部有厚重圆弧闭合轮廓，左上有尖状笔画，右侧有长弧形下行笔画。",
+    ),
+    "obs-char-000330": (
+        "The large dark composite form contains an upper angular mass, a central "
+        "rectangular enclosure, and several curved lower strokes.",
+        "大型深色复合形体含上部折角形体、中部方形闭合轮廓和数道下部弧形笔画。",
+    ),
+    "obs-char-000331": (
+        "A central tall form with a pointed top is surrounded by four small detached "
+        "rounded marks and a middle enclosure.",
+        "中部高直形体顶部尖突，周围有四个分离的小型圆弧痕迹，中部另有闭合轮廓。",
+    ),
+    "obs-char-000332": (
+        "The image has a small upper triangular enclosure, a long curved descending "
+        "stroke, and a rounded lower enclosure.",
+        "图像上方有小型三角闭合轮廓，右侧有长弧形下行笔画，下方有圆弧闭合轮廓。",
+    ),
+    "obs-char-000333": (
+        "The tall rectangular enclosure contains one long interior vertical stroke "
+        "with a slight diagonal change.",
+        "高直方形闭合轮廓内部有一条长直笔画，并在中部略有斜向变化。",
+    ),
+    "obs-char-000334": (
+        "The image consists of four separated parallel horizontal strokes of "
+        "different lengths.",
+        "图像由四道分离的平行横笔画组成，四道笔画长短不同。",
+    ),
+    "obs-char-000335": (
+        "A pointed diamond-like outer enclosure contains a central horizontal and "
+        "vertical crossing structure.",
+        "尖顶菱状外部闭合轮廓内部有横竖交叉结构。",
+    ),
+    "obs-char-000336": (
+        "A thin central vertical stroke is flanked by two outward curved forms and a "
+        "small rounded mark at the top.",
+        "纤细中部直笔画两侧有向外弯曲的形体，顶部另有小型圆弧痕迹。",
+    ),
+    "obs-char-000337": (
+        "The broad rounded outer contour contains several dark internal rounded marks "
+        "and an irregular lower crossing area.",
+        "宽大的圆弧外轮廓内部有数个深色圆弧痕迹，下部有不规则交叉区域。",
+    ),
+    "obs-char-000338": (
+        "The rectangular outer frame contains branching central strokes and a short "
+        "lower diagonal mark.",
+        "方形外框内部有中部的分叉笔画和下方短斜向痕迹。",
+    ),
+    "obs-char-000339": (
+        "The low-contrast gray image shows a compact dark rounded cluster at the left "
+        "and a detached curved stroke at the right; contrast needs recheck.",
+        "低对比度灰色图像左侧有紧凑深色圆弧笔画群，右侧有分离的弧形笔画；对比度仍需复核。",
+    ),
+    "obs-char-000340": (
+        "The large rectangular grid contains multiple internal horizontal and vertical "
+        "divisions with irregular lower marks.",
+        "大型方形格状轮廓内部有多道横竖分隔笔画，下部痕迹不规则。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

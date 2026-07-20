@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A tall central stem has two upper crossbars and
+  divides below into paired long legs crossed by diagonals, leaving narrow
+  triangular spaces.`
+- 中文观察: `高长中央干带两条上横栏，下部分成一对被斜笔交叉的长腿，留下狭窄三角空隙。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A small low-resolution polygonal enclosure contains
+  a divided rectangular area near the upper left; the outer lower edge is
+  broad and nearly horizontal.`
+- 中文观察: `小型低分辨率多边外围框在左上附近包围分隔矩形区域，外框下缘宽且近似水平。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

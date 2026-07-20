@@ -19,6 +19,8 @@ verify the human-readable evidence.
   `08_character-context-evidence-dossier.md`
 - Human-readable archaeology review / 人类可读考古文字复核:
   `10_archaeology-paleography-review.md`
+- Human-readable material observation / 人类可读实物图像观察:
+  `14_material-visual-observation.md`
 - Human-readable readiness review / 人类可读研究准备度复核:
   `12_human-research-readiness-review.md`
 - Structured support candidate packet / 结构化辅助候选包:

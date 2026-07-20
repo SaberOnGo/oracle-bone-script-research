@@ -2320,6 +2320,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "horizontal bars crossing the central strokes at different heights.",
         "数条长平行竖笔组成狭窄笔画群，两条短横在不同高度穿过中央竖笔。",
     ),
+    "obs-char-000461": (
+        "A narrow pointed outer loop encloses several stacked angular and curved strokes, "
+        "including a small upper division and a hooked lower cluster.",
+        "狭长尖顶外环包围数条层叠折角和弯曲笔画，其中上部有小型分隔，下部为钩曲笔画群。",
+    ),
+    "obs-char-000462": (
+        "The small low-contrast image shows an arched outer outline with several thin "
+        "descending inner strokes; their lower boundaries are difficult to resolve.",
+        "小型低对比度图像显示拱形外轮廓和数条纤细下行内笔，其下端边界难以辨清。",
+    ),
+    "obs-char-000463": (
+        "A pointed arch formed by two long side strokes encloses a central crossing with "
+        "one vertical and one transverse stroke.",
+        "两条长侧笔组成尖拱形外轮廓，内部中央由一条竖笔和一条横向笔画交叉。",
+    ),
+    "obs-char-000464": (
+        "An angular outer outline surrounds a compact curled inner cluster, with two long "
+        "slightly curved strokes descending below the center.",
+        "折角外轮廓围绕紧凑卷曲内笔画群，中央下方有两条略弯的长笔下垂。",
+    ),
+    "obs-char-000465": (
+        "A pointed outer outline contains a compact crossed rectangular area and a curved "
+        "lower extension; one short thin stroke projects from the lower left.",
+        "尖顶外轮廓内有紧凑交叉矩形区域和弯曲下部延伸，左下另伸出一条短细笔。",
+    ),
+    "obs-char-000466": (
+        "A leaf-shaped outer loop is divided by a central vertical stroke with short side "
+        "branches, ending in a bold crossing below the loop.",
+        "叶状外环由带短侧枝的中央竖笔分隔，竖笔在外环下方以粗重交叉收束。",
+    ),
+    "obs-char-000467": (
+        "A broad angular arch with long vertical sides encloses a short bent stroke near "
+        "the upper center and a detached short base below it.",
+        "宽折角拱形带两条长竖侧笔，内部上中部有一条短弯笔，其下另有分离短底线。",
+    ),
+    "obs-char-000468": (
+        "A pointed outer enclosure contains an upper transverse bar and several descending "
+        "inner strokes, including a small open loop near the lower left.",
+        "尖顶外围框内有上部横笔和数条下行内笔，左下附近另有小型开口环形。",
+    ),
+    "obs-char-000469": (
+        "A pointed outline open along the bottom surrounds a central top bar and one long "
+        "vertical stroke, with a shorter parallel stroke beside it.",
+        "底部开口的尖顶轮廓包围中央顶横和一条长竖笔，其旁另有一条较短平行笔画。",
+    ),
+    "obs-char-000470": (
+        "Separated pointed outer strokes surround a central elongated loop crossed by a "
+        "diagonal line; a thin detached vertical stroke stands at left.",
+        "分离的尖顶外部笔画围绕中央细长环形，环内有斜线交叉，左侧另立一条纤细分离竖笔。",
+    ),
+    "obs-char-000471": (
+        "A narrow pointed outer outline encloses a small upper rectangle and several curved "
+        "or branching lower strokes that meet near the bottom.",
+        "狭长尖顶外轮廓内有小型上部矩形，数条弯曲或分支下部笔画在底部附近相接。",
+    ),
+    "obs-char-000472": (
+        "A broad arched outer outline encloses an irregular inner form with an upper curve, "
+        "a left angular branch, and two narrow descending strokes.",
+        "宽拱形外轮廓包围不规则内形，其中有上部弧线、左侧折角分支和两条狭长下行笔画。",
+    ),
+    "obs-char-000473": (
+        "A thin detached curved stroke at left stands beside a pointed outlined form at "
+        "right that contains a small central enclosure and a long lower base.",
+        "左侧纤细分离弯笔与右侧尖顶轮廓形并列，右形内部有小型中央围框和较长下底线。",
+    ),
+    "obs-char-000474": (
+        "A broad polygonal arch surrounds a compact inner enclosure with a short upper bar "
+        "and a squared lower outline.",
+        "宽多折拱形围绕紧凑内围框，内形带一条短上横和方折下部轮廓。",
+    ),
+    "obs-char-000475": (
+        "The low-contrast image shows a pointed outer outline, an upper internal crossing, "
+        "a sinuous central vertical stroke, and a detached horizontal base below.",
+        "低对比度图像显示尖顶外轮廓、上部内部交叉、曲折中央竖笔和下方分离横底线。",
+    ),
+    "obs-char-000476": (
+        "A small low-resolution polygonal enclosure contains a divided rectangular area "
+        "near the upper left; the outer lower edge is broad and nearly horizontal.",
+        "小型低分辨率多边外围框在左上附近包围分隔矩形区域，外框下缘宽且近似水平。",
+    ),
+    "obs-char-000477": (
+        "A large bold pointed arch encloses a long central horizontal bar, three short marks "
+        "above it, and three separated vertical marks below.",
+        "大型粗重尖拱形包围一条中央长横，其上有三处短痕，下方有三条分离竖向痕迹。",
+    ),
+    "obs-char-000478": (
+        "A narrow pointed outer outline surrounds a branching inner cluster; one long thin "
+        "stroke descends separately below the left side of the cluster.",
+        "狭长尖顶外轮廓围绕分支内笔画群，一条长细笔从笔画群左下方分离下垂。",
+    ),
+    "obs-char-000479": (
+        "Several separated long strokes suggest a broad pointed outer outline around a "
+        "central crossed angular form, with additional curved strokes descending below.",
+        "数条分离长笔构成宽尖顶外轮廓的可见片段，围绕中央交叉折角形，下方另有弯曲下行笔画。",
+    ),
+    "obs-char-000480": (
+        "A pointed polygonal outer enclosure contains two separated inner outlines: a "
+        "small rounded rectangular form above and a larger rectangular form below.",
+        "尖顶多边外围框内有两个分离内轮廓：上部为小型圆角矩形，下部为较大矩形。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The small low-contrast image shows an arched outer
+  outline with several thin descending inner strokes; their lower boundaries
+  are difficult to resolve.`
+- 中文观察: `小型低对比度图像显示拱形外轮廓和数条纤细下行内笔，其下端边界难以辨清。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

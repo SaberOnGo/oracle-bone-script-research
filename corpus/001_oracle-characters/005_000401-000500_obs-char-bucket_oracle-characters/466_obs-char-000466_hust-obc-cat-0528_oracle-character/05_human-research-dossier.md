@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A leaf-shaped outer loop is divided by a central
+  vertical stroke with short side branches, ending in a bold crossing below
+  the loop.`
+- 中文观察: `叶状外环由带短侧枝的中央竖笔分隔，竖笔在外环下方以粗重交叉收束。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

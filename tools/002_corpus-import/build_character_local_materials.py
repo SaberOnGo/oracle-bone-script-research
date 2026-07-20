@@ -5168,6 +5168,103 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "stem.",
         "狭长直立形体有两条尖状上部分枝、小型中央椭圆状空隙和长下部笔干。",
     ),
+    "obs-char-001041": (
+        "A short horizontal upper stroke sits beside a long upright and a rounded descending curve with a hooked "
+        "right terminal.",
+        "短水平上部笔旁有长直立笔和圆弧下行笔，右端带钩状末笔。",
+    ),
+    "obs-char-001042": (
+        "A single thick square-like enclosure is formed by four nearly straight sides, with no visible interior "
+        "mark.",
+        "单个粗重方框状闭合轮廓由近似直线的四边构成，内部未见明显笔迹。",
+    ),
+    "obs-char-001043": (
+        "A narrow angular upper contour has a long right descending stroke and two short separated horizontal "
+        "marks on the left.",
+        "狭长棱角上部轮廓带长右侧下行笔，左侧有两条分离的短水平笔。",
+    ),
+    "obs-char-001044": (
+        "Two dense upright marks are visible: a left vertical cluster with short cross-strokes and a right curved "
+        "branching cluster.",
+        "可见两个密集直立笔形：左侧为带短横笔的竖向笔群，右侧为弯曲分枝笔群。",
+    ),
+    "obs-char-001045": (
+        "A narrow stacked form combines a pointed rounded upper enclosure, a horizontal middle band, and a lower "
+        "trapezoid-like enclosure.",
+        "狭长叠置形体结合尖状圆弧上部闭合轮廓、横向中部带和下部梯形状闭合轮廓。",
+    ),
+    "obs-char-001046": (
+        "A large bold left cluster has an open U-shaped upper contour and many long lower branches, beside a "
+        "separate simple upright mark on the right.",
+        "大型粗重左侧笔群有开口 U 形上部轮廓和多条长下部分枝，右侧另有分离的简单直立笔形。",
+    ),
+    "obs-char-001047": (
+        "A narrow vertical cluster has a small upper loop, a central angular crossing, and a long thin lower "
+        "stroke.",
+        "狭长竖向笔群有小型上部环笔、中央棱角交叉和长而纤细的下行笔。",
+    ),
+    "obs-char-001048": (
+        "A star-like upper crossing sits above a horizontal bar and a single descending upright stroke.",
+        "星状上部交叉笔位于水平横笔和一条单独下行直立笔之上。",
+    ),
+    "obs-char-001049": (
+        "A broad cropped image contains separated horizontal bars, thick lower vertical marks, and an irregular "
+        "right descending contour with small interior marks.",
+        "较宽的图像中有分离水平横笔、粗重下部竖笔，以及带小型内部笔迹的不规则右侧下行轮廓。",
+    ),
+    "obs-char-001050": (
+        "A faint gray star-like crossing is connected to a short descending stem; the image has low contrast.",
+        "较淡灰色星状交叉笔连接短下行笔干；图像对比度较低。",
+    ),
+    "obs-char-001051": (
+        "A large rounded lower enclosure supports a pointed upper outline, a central horizontal bar, and several "
+        "lower branching strokes.",
+        "大型圆弧下部闭合轮廓承托尖状上部轮廓、中央水平横笔和数条下部分枝笔。",
+    ),
+    "obs-char-001052": (
+        "A compact cluster combines short left diagonal marks, a long central curve, and a rounded right enclosed "
+        "mark.",
+        "紧密笔群结合左侧短斜笔、中央长弯笔和右侧圆弧闭合笔。",
+    ),
+    "obs-char-001053": (
+        "A dense upright form has a short upper rectangular band, crossed lower strokes, and side projections.",
+        "密集直立形体有短上部矩形带、交叉下部笔和侧向外伸笔。",
+    ),
+    "obs-char-001054": (
+        "A tall narrow enclosure has short upper projections, two horizontal interior bands, and a tapered lower "
+        "end.",
+        "高而狭长的闭合轮廓有短上部外伸、两条内部水平带和收窄下端。",
+    ),
+    "obs-char-001055": (
+        "A complex upright cluster combines long left strokes, small detached upper marks, and a compact stacked "
+        "right cluster.",
+        "复杂直立笔群结合左侧长笔、上部小型分离笔和右侧紧密叠置笔群。",
+    ),
+    "obs-char-001056": (
+        "A compact form has a pointed upper outline, a dark horizontal central band with interior marks, and two "
+        "lower forked strokes.",
+        "紧密形体有尖状上部轮廓、带内部笔迹的深色中央水平带和两条下部分叉笔。",
+    ),
+    "obs-char-001057": (
+        "The faint gray image shows several small separated curved and branching marks; individual details are "
+        "low contrast.",
+        "较淡灰色图像显示数个分离的小型弯曲和分枝笔形；单笔细节对比度较低。",
+    ),
+    "obs-char-001058": (
+        "A large symmetrical branching form surrounds a central oval-like enclosure with a horizontal interior band "
+        "and continues into a long lower stem.",
+        "大型对称分枝形体围绕带水平内部带的中央椭圆状闭合轮廓，并继续为长下部笔干。",
+    ),
+    "obs-char-001059": (
+        "A narrow upright form has two pointed upper peaks, a horizontal crossbar, and a long central lower "
+        "stroke.",
+        "狭长直立形体有两个尖状上峰、水平横笔和长中央下行笔。",
+    ),
+    "obs-char-001060": (
+        "A slender branching form has a slanted upper-left stroke, a central crossing, and a forked lower-right "
+        "extension.",
+        "纤细分枝形体有左上斜笔、中央交叉和右下分叉外伸。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

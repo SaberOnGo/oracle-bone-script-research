@@ -107,9 +107,10 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A single thick square-like enclosure is formed by
+  four nearly straight sides, with no visible interior mark.`
+- 中文观察: `单个粗重方框状闭合轮廓由近似直线的四边构成，内部未见明显笔迹。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

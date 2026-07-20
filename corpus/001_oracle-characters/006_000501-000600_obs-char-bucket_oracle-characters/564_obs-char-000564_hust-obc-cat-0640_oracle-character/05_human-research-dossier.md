@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A bold upright U-shaped outline has two raised upper
+  tips, a horizontal divider across the middle, and a narrow pointed
+  bottom.`
+- 中文观察: `粗重直立 U 形轮廓带两个上伸尖端，中部有横向分隔，下端狭窄而尖。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

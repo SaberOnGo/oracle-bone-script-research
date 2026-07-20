@@ -2820,6 +2820,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "long narrow strokes that continue downward toward the open lower end.",
         "尖顶椭圆外轮廓包围中央分隔小矩形和两条向下延伸至开口下端的长狭笔。",
     ),
+    "obs-char-000561": (
+        "Two separated stroke groups show paired slanting marks at left and a narrow looped "
+        "vertical form with forked upper extensions at right.",
+        "两个分离笔画群分别呈左侧成对斜痕和右侧带叉状上伸笔的狭窄环竖形。",
+    ),
+    "obs-char-000562": (
+        "A small tall irregular outer outline contains several short vertical, diagonal, and "
+        "crossing marks and narrows into a pointed lower end.",
+        "小型高长不规则外轮廓内有数条短竖、短斜和交叉痕，下部收窄为尖端。",
+    ),
+    "obs-char-000563": (
+        "Two detached bent branching strokes face one another across a wide gap; the right "
+        "form continues into a longer tapered lower diagonal.",
+        "两条分离弯折分支笔隔宽空隙相向排列，右侧形体延续为较长渐尖下斜笔。",
+    ),
+    "obs-char-000564": (
+        "A bold upright U-shaped outline has two raised upper tips, a horizontal divider "
+        "across the middle, and a narrow pointed bottom.",
+        "粗重直立 U 形轮廓带两个上伸尖端，中部有横向分隔，下端狭窄而尖。",
+    ),
+    "obs-char-000565": (
+        "A small rectangular upper loop sits between two outward angular branches, from which "
+        "two long slightly curving side strokes descend.",
+        "小型矩形上环位于两条向外折枝之间，两条长而略弯的侧笔由此向下延伸。",
+    ),
+    "obs-char-000566": (
+        "A long central vertical has short horizontal caps at top and bottom, flanked by two "
+        "bowed outer strokes with short inward branches.",
+        "长中央竖笔上下各有短横帽，两侧为带短内向分枝的弓曲外笔。",
+    ),
+    "obs-char-000567": (
+        "A long thin vertical carries a short upper-right bar and ends below in a small pointed "
+        "enclosure divided by several crossing strokes.",
+        "长细竖笔带一条右上短横，下端形成由数条交叉笔分隔的小型尖顶围框。",
+    ),
+    "obs-char-000568": (
+        "A single narrow sinuous form begins with a pointed angular upper turn and continues "
+        "through two broad bends into a tapered lower curve.",
+        "单个狭窄曲折形以上部尖折起始，经两处宽弯延续为渐尖下曲线。",
+    ),
+    "obs-char-000569": (
+        "A slender central stroke bends around itself to form a narrow middle loop, with a "
+        "short upper diagonal and a broad horizontal crossing near the bottom.",
+        "狭长中央笔回弯形成窄中环，上部带短斜笔，近底部有宽横向交叉。",
+    ),
+    "obs-char-000570": (
+        "A single wavering vertical form has a small angular hook near the top, a sharp middle "
+        "bend, and a long curved tapered lower tail.",
+        "单个波折竖形近顶部有小折钩，中部急转，下方延伸长弯渐尖尾笔。",
+    ),
+    "obs-char-000571": (
+        "Two long vertical strokes and several horizontal bars form a compact uneven grid, "
+        "with multiple ends extending beyond the central intersections.",
+        "两条长竖笔与数条横栏组成紧凑不齐的网格，多处笔端伸出中央交点之外。",
+    ),
+    "obs-char-000572": (
+        "An irregular pointed outer loop contains a small inner oval mark, while two short "
+        "nearly parallel strokes project from the upper right.",
+        "不规则尖形外环内有一处小椭圆痕，右上伸出两条近乎平行的短笔。",
+    ),
+    "obs-char-000573": (
+        "Two close parallel wavering strokes descend together from a small angular upper turn "
+        "and remain narrowly separated along most of their length.",
+        "两条紧邻平行波折笔从小型上部折转处共同下行，绝大部分长度保持狭窄间隔。",
+    ),
+    "obs-char-000574": (
+        "A bold zigzag vertical trunk carries several short alternating side bars and widens "
+        "into a dark horizontal base at the bottom.",
+        "粗重锯折竖干两侧交替带数条短横枝，下端扩展为深色横向底线。",
+    ),
+    "obs-char-000575": (
+        "Two long upper strokes descend separately, cross near the middle, and meet again in "
+        "a pointed lower loop with a short hooked extension at left.",
+        "两条长上笔分开下行，在中部附近交叉后再次汇成尖形下环，左侧带短钩延伸。",
+    ),
+    "obs-char-000576": (
+        "A long central vertical is crossed by a small horizontal oval loop at left, while its "
+        "upper section bends and carries a short diagonal branch.",
+        "长中央竖笔被左侧小型横椭圆环穿过，上段弯折并带一条短斜枝。",
+    ),
+    "obs-char-000577": (
+        "A long wavering vertical stands at left, and two detached rounded rectangular loops "
+        "at right each contain small internal marks.",
+        "长波折竖笔位于左侧，右侧两个分离圆角矩形环内各有小型内部痕迹。",
+    ),
+    "obs-char-000578": (
+        "Thin top bars, a central vertical, and several crossing diagonals form an angular "
+        "lattice with two stacked diamond-like open spaces.",
+        "纤细顶横、中央竖笔和数条交叉斜笔组成折角格架，内有两个层叠菱状空隙。",
+    ),
+    "obs-char-000579": (
+        "Several thick diagonal arms and short upper branches radiate from a central junction; "
+        "a long lower horizontal crosses two descending strokes.",
+        "数条粗斜臂和短上枝从中央接点放射，长下横穿过两条下行笔。",
+    ),
+    "obs-char-000580": (
+        "Two detached long slightly curving vertical strokes stand nearly parallel, each "
+        "carrying two short angled side branches at different heights.",
+        "两条分离长微弯竖笔近乎平行排列，各自在不同高度带两条短折侧枝。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

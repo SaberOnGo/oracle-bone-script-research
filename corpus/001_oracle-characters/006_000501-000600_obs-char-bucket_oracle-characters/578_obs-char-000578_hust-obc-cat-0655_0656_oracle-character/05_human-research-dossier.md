@@ -110,9 +110,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Thin top bars, a central vertical, and several
+  crossing diagonals form an angular lattice with two stacked diamond-like
+  open spaces.`
+- 中文观察: `纤细顶横、中央竖笔和数条交叉斜笔组成折角格架，内有两个层叠菱状空隙。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

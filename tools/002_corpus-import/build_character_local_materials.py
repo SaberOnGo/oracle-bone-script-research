@@ -1820,6 +1820,105 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "with pointed forms extending in four directions.",
         "中部圆弧闭合轮廓被横竖笔画交叉，四个方向均有尖状形体延伸。",
     ),
+    "obs-char-000361": (
+        "A bold angular upper form is connected to a long vertical stroke and a "
+        "small pointed lower enclosure.",
+        "粗重的上部折角形体连接长竖笔画，下方接有小型尖状闭合轮廓。",
+    ),
+    "obs-char-000362": (
+        "A short upper horizontal stroke sits above a compact central mark and a "
+        "broad lower horizontal base.",
+        "短上横笔画位于紧凑中部痕迹和宽下横底笔画之上。",
+    ),
+    "obs-char-000363": (
+        "Two forked upper strokes rise over a small rectangular enclosure with two "
+        "descending legs.",
+        "两个分叉上行笔画位于小型矩形闭合轮廓之上，轮廓下有两条下行支脚。",
+    ),
+    "obs-char-000364": (
+        "A compact rounded upper outline surrounds a central rectangular area, with "
+        "side loops and a lower stem.",
+        "紧凑的圆弧上部轮廓围出中央矩形区域，两侧有环状痕迹并连接下部主干。",
+    ),
+    "obs-char-000365": (
+        "The small dark image shows a thin vertical trace with a pointed upper hook "
+        "and an irregular lower cluster; recheck is needed.",
+        "小幅深色图像显示纤细竖向痕迹、尖状上钩和不规则下部痕迹；需要复核。",
+    ),
+    "obs-char-000366": (
+        "An angular pointed upper form is joined to a long slanting lower stroke and "
+        "a short left branch.",
+        "尖状折角上部形体连接长斜向下行笔画，左侧另有短分支。",
+    ),
+    "obs-char-000367": (
+        "A thin central stem has several short diagonal branches and a forked upper "
+        "end.",
+        "纤细中央主干带有数个短斜向分支，上端呈分叉形。",
+    ),
+    "obs-char-000368": (
+        "A narrow central stem carries a small enclosed upper mark, horizontal side "
+        "strokes, and a curved lower extension.",
+        "狭长中央主干上方有小型闭合痕迹，两侧有横向笔画，下方有弧形延伸。",
+    ),
+    "obs-char-000369": (
+        "A curved leaf-like upper contour is joined to a thin stem with short side "
+        "strokes and a pointed lower extension.",
+        "弧形叶状上部轮廓连接纤细主干，两侧有短笔画，下方有尖状延伸。",
+    ),
+    "obs-char-000370": (
+        "A large sweeping angular contour crosses a central vertical stroke and "
+        "continues into several long curved descenders.",
+        "大型弧折轮廓横跨中央竖笔画，并向下延伸出数条长弧形笔画。",
+    ),
+    "obs-char-000371": (
+        "A thin vertical form has a hooked upper contour, short cross-strokes, and a "
+        "forked lower extension.",
+        "纤细竖向形体有钩状上部轮廓、短横笔画和分叉下部延伸。",
+    ),
+    "obs-char-000372": (
+        "A broad lower enclosure is topped by a short horizontal stroke and a "
+        "separate long upper mark.",
+        "宽大的下部闭合轮廓上方有短横笔画，另有一条较长上部痕迹。",
+    ),
+    "obs-char-000373": (
+        "A vertical upper stroke branches into a left pointed enclosure and several "
+        "long lower strokes.",
+        "上部竖笔画分出左侧尖状闭合轮廓，并向下连接数条长笔画。",
+    ),
+    "obs-char-000374": (
+        "Several close vertical strokes are crossed by short side branches and a "
+        "pointed upper form.",
+        "数条相近竖笔画被短侧向分支和尖状上部形体交叉。",
+    ),
+    "obs-char-000375": (
+        "A pointed upper fork opens into two long descending strokes with a narrow "
+        "central line.",
+        "尖状上部分叉向下展开为两条长下行笔画，中间有一条狭长笔画。",
+    ),
+    "obs-char-000376": (
+        "A thin central stem branches into a pointed upper fork and two long side "
+        "strokes.",
+        "纤细中央主干分出尖状上部分叉和两条长侧向笔画。",
+    ),
+    "obs-char-000377": (
+        "A short upper horizontal bar sits above a central stem, side branches, and "
+        "an open angular lower form.",
+        "短上横笔画位于中央主干、侧向分支和开放折角下部形体之上。",
+    ),
+    "obs-char-000378": (
+        "A bold central vertical stroke branches into two sweeping upper arms and a "
+        "large open lower curve; a separate short lower mark is visible.",
+        "粗重中央竖笔画分出两条弧形上臂和大型开放下部曲线；下方另见短痕迹。",
+    ),
+    "obs-char-000379": (
+        "A small upper crossbar and central stem lead to side branches and two narrow "
+        "lower strokes.",
+        "小型上部横笔画和中央主干连接侧向分支及两条狭长下部笔画。",
+    ),
+    "obs-char-000380": (
+        "A curved hook-like upper contour continues into a thin vertical lower stroke.",
+        "弧形钩状上部轮廓继续连接纤细竖向下行笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

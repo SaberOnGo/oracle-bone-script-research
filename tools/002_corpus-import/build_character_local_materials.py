@@ -4976,6 +4976,101 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "descending stroke.",
         "三条短直立笔位于圆弧闭合轮廓之上，下部有侧分枝和中央下行笔。",
     ),
+    "obs-char-001001": (
+        "A compact dark upper cluster has a rounded outer turn, a short interior upright, and a long lower "
+        "diagonal stroke.",
+        "紧密的深色上部笔群有圆弧外转、短内竖笔和一条长下行斜笔。",
+    ),
+    "obs-char-001002": (
+        "A large open U-shaped contour narrows into two short angled strokes at the base.",
+        "较大的开口 U 形轮廓在底部收束为两条短斜笔。",
+    ),
+    "obs-char-001003": (
+        "A narrow rounded upper contour contains a central upright and ends in two short lower supports, "
+        "with a small upper-left projection.",
+        "狭长圆弧上部轮廓含中央直立笔，底部以两条短支撑笔收束，左上有小幅外伸笔。",
+    ),
+    "obs-char-001004": (
+        "A slim curved enclosure has a short upper-left projection, a long right upright, and two short lower "
+        "strokes.",
+        "狭长弯曲闭合轮廓有左上短外伸笔、右侧长直立笔和两条下部短笔。",
+    ),
+    "obs-char-001005": (
+        "A rounded U-shaped enclosure contains several separated short interior marks and opens into two long "
+        "lower branches.",
+        "圆弧 U 形闭合轮廓内有数条分离短笔，并向下分为两条长分枝。",
+    ),
+    "obs-char-001006": (
+        "A broad curved enclosure contains a dense group of short upper and interior strokes and has two lower "
+        "supporting strokes.",
+        "宽大的弯曲闭合轮廓内有密集的上部和内部短笔，下部有两条支撑笔。",
+    ),
+    "obs-char-001007": (
+        "A broad left U-shaped cluster appears beside a separate right upright branching cluster with a long "
+        "descending terminal.",
+        "宽大的左侧 U 形笔群旁有分离的右侧直立分枝笔群，并带长下行末笔。",
+    ),
+    "obs-char-001008": (
+        "A thin bent upper stroke turns into a long low curved stroke, with several short detached marks at the "
+        "left.",
+        "纤细弯折的上部笔转入一条低位长弯曲笔，左侧另有数条短分离笔。",
+    ),
+    "obs-char-001009": (
+        "A rounded central enclosure with a dark interior mark is flanked by curved side strokes and two lower "
+        "split strokes.",
+        "圆弧中央闭合轮廓内有深色内笔，两侧有弯曲外笔，下部有两条分开笔。",
+    ),
+    "obs-char-001010": (
+        "A narrow symmetrical contour has pointed upper branches, crossed central strokes, and a lower "
+        "converging point.",
+        "狭长对称轮廓有尖状上部分枝、交叉中央笔和向下汇聚的尖端。",
+    ),
+    "obs-char-001011": (
+        "Two slender angular upright forms are separated within the image; the left has a small lower loop and "
+        "the right has a taller branching stroke.",
+        "图像中有两个分离的狭长棱角直立形体；左侧带小型下部环笔，右侧带较高分枝笔。",
+    ),
+    "obs-char-001012": (
+        "A hooked upper stroke with a short left branch stands above a small rectangular lower enclosure.",
+        "带左侧短分枝的钩状上部笔位于小型矩形下部闭合轮廓之上。",
+    ),
+    "obs-char-001013": (
+        "A forked upper stem crosses a horizontal rounded band and continues into two lower descending strokes.",
+        "分叉上部笔干穿过横向圆弧带，并继续为两条下行笔。",
+    ),
+    "obs-char-001014": (
+        "A horizontally oriented wedge-like contour has a thick outer edge and a short interior dividing stroke.",
+        "横向展开的楔状轮廓有粗重外缘和一条短内部分隔笔。",
+    ),
+    "obs-char-001015": (
+        "A long upright stroke descends into a small angular lower enclosure that extends to a pointed right "
+        "terminal.",
+        "长直立笔向下进入小型棱角下部闭合轮廓，并向右伸出尖状末端。",
+    ),
+    "obs-char-001016": (
+        "Two separate marks are visible: a tall irregular branching form at left and a small oval enclosure with "
+        "two interior marks at right.",
+        "可见两个分离笔形：左侧为高而不规则的分枝形，右侧为含两条内部笔的椭圆闭合轮廓。",
+    ),
+    "obs-char-001017": (
+        "A small horizontal rectangular enclosure has a short upper projection and a single long lower stroke.",
+        "小型横向矩形闭合轮廓有短上部外伸笔和一条长下行笔。",
+    ),
+    "obs-char-001018": (
+        "A broad low horizontal form contains a dark interior division and is paired with a long curved upright "
+        "stroke on the right.",
+        "宽大的低位横向形体含深色内部隔笔，右侧与一条长弯曲直立笔并置。",
+    ),
+    "obs-char-001019": (
+        "A low elongated enclosure has a pointed right extension, a thick left base, and a short branching "
+        "stroke above.",
+        "低位狭长闭合轮廓有向右尖状外伸、粗重左侧底部和上方短分枝笔。",
+    ),
+    "obs-char-001020": (
+        "An angular upper branch bends over a small elongated lower loop, with a long descending stroke between "
+        "them.",
+        "棱角上部分枝弯折于小型狭长下部环笔之上，两者之间有长下行笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

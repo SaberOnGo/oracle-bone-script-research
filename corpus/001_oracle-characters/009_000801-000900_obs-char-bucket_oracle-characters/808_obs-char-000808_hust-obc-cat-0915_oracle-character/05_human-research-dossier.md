@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two slanted enclosed marks are stacked in the upper
+  half, with a small open angular tail below; fine connections are difficult
+  to resolve.`
+- 中文观察: `上半部可见两个倾斜的闭合痕迹分层叠置，下方有小型开口折角尾；细连接难辨。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

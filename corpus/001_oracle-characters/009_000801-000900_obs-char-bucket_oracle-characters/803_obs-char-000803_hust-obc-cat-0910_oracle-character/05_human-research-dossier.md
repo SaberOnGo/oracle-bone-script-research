@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The compact image contains neighboring angular and
+  rounded marks, several short crossing strokes, and a small detached
+  upright at right.`
+- 中文观察: `紧凑图像含相邻的折角与圆弧痕迹，中间有数条短交叉笔，右侧可见小型分离直立笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

@@ -4020,6 +4020,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "projects from the frame and bends toward the right.",
         "尖形上斜笔引入小型中部矩形框；框下伸出短枝并向右弯折。",
     ),
+    "obs-char-000801": (
+        "A narrow irregular cluster has two long side contours, short crossbars near the upper left, "
+        "and a pointed lower split.",
+        "狭长不规则笔群有两条长侧轮廓，上左近处有短横笔，下部收成尖形分叉。",
+    ),
+    "obs-char-000802": (
+        "A bold upright form has a rounded upper notch, a broad left shoulder, and long descending strokes "
+        "with detached branches at right.",
+        "深色直立形体上方有圆弧缺口，左侧为宽大肩部，下方延有长笔，右侧另有分离分枝。",
+    ),
+    "obs-char-000803": (
+        "The compact image contains neighboring angular and rounded marks, several short crossing strokes, "
+        "and a small detached upright at right.",
+        "紧凑图像含相邻的折角与圆弧痕迹，中间有数条短交叉笔，右侧可见小型分离直立笔。",
+    ),
+    "obs-char-000804": (
+        "A thin vertical form begins with a rounded closed loop and continues through angled side strokes "
+        "to a pointed lower end.",
+        "纤细直立形体以圆弧环状痕迹开头，中下部连续出现斜向侧笔，下端收为尖端。",
+    ),
+    "obs-char-000805": (
+        "A narrow pointed form has a small upper loop, a long descending stem, and several short side "
+        "branches that taper toward the bottom.",
+        "狭长尖形上部有小环，中部为延伸的细竖干，下方有数条短侧枝并向下收尖。",
+    ),
+    "obs-char-000806": (
+        "A broad horizontal bar crosses a central upright; three curved short strokes rise near its right "
+        "side, while a long stem descends below.",
+        "宽大横笔横过中央直立笔；右侧附近三条弯曲短笔向上，下方延伸竖直长干。",
+    ),
+    "obs-char-000807": (
+        "A tall rectangular outline is divided by crossing horizontal and vertical strokes; a narrow stem "
+        "extends above and below the frame.",
+        "高长矩形轮廓内由横笔和竖笔交叉分隔，一条细直立笔向框上下两端延伸。",
+    ),
+    "obs-char-000808": (
+        "Two slanted enclosed marks are stacked in the upper half, with a small open angular tail below; "
+        "fine connections are difficult to resolve.",
+        "上半部可见两个倾斜的闭合痕迹分层叠置，下方有小型开口折角尾；细连接难辨。",
+    ),
+    "obs-char-000809": (
+        "A narrow vertical form has rounded open marks along its center and short branching strokes near "
+        "the upper and lower ends.",
+        "狭长直立形体中部沿竖向有圆弧开口痕迹，上下两端附近均可见短分枝笔画。",
+    ),
+    "obs-char-000810": (
+        "An angular upper cluster joins a long descending stroke; a separate rounded enclosed mark sits at "
+        "the lower right.",
+        "折角上部笔群与长下垂笔连接，右下方另有一个圆弧状的闭合痕迹。",
+    ),
+    "obs-char-000811": (
+        "Two separated thin curved strokes lean inward and taper to pointed ends; their upper tips remain "
+        "visibly detached.",
+        "两条分离的细弯对笔向中间靠拢，各自收尖，上端明显没有连接。",
+    ),
+    "obs-char-000812": (
+        "The tiny gray image shows several short dark diagonal marks in two loose groups; exact joins and "
+        "orientation are unclear.",
+        "微小灰度图像显示数条短小深色斜笔，分布在两个疏松笔群中；具体连接和方向难以判明。",
+    ),
+    "obs-char-000813": (
+        "A small rounded open loop at upper left connects to a tall upright ending in a pointed lower tip; "
+        "the upper stroke is broad and hooked.",
+        "上左方可见小型圆弧环状开口，与向下延伸的高长直立笔连接，上笔宽厚并带钩形。",
+    ),
+    "obs-char-000814": (
+        "The upper section forms a shallow irregular frame with short verticals; a horizontal stroke crosses "
+        "the lower middle and a stem descends below.",
+        "上部形成浅平不规则框形并有数条短竖笔；下中部有横笔横过，下方延伸竖干。",
+    ),
+    "obs-char-000815": (
+        "A bold rounded upper stroke bends over a central horizontal, while a separate curved lower stroke "
+        "turns downward and left.",
+        "粗重弯曲上笔在中央横笔上方弯折，下方另有弯曲笔向下左转折。",
+    ),
+    "obs-char-000816": (
+        "Three detached roughly horizontal strokes are stacked with clear gaps; the upper and lower strokes "
+        "are broader than the middle one.",
+        "三条分离的近水平笔画上下叠置，之间有明显间隔，上下两笔宽于中间笔。",
+    ),
+    "obs-char-000817": (
+        "Several detached short curved strokes form two loose vertical groups; the left group contains "
+        "longer bowed marks.",
+        "数条分离的短弯对笔形成两个疏松竖向笔群，左群含有较长的弯曲痕迹。",
+    ),
+    "obs-char-000818": (
+        "A long curving stem branches toward the right and carries shorter side strokes on the left; the "
+        "lower branch extends as a thin diagonal.",
+        "一条弯曲长干向右分枝，左侧带有较短侧笔；下方分枝以细长斜笔延伸。",
+    ),
+    "obs-char-000819": (
+        "A diagonal stem runs from upper left to lower right with short side strokes at several levels and "
+        "pointed ends.",
+        "一条斜向笔干并从上左延向下右，不同高度处分出短侧笔，多处收为尖端。",
+    ),
+    "obs-char-000820": (
+        "A long central descending stroke crosses a diagonal branch; several separate blocky marks surround "
+        "the crossing on both sides.",
+        "长直向下延伸的中央笔横过斜向分枝，交叉两侧分布着数个分离的块状痕迹。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

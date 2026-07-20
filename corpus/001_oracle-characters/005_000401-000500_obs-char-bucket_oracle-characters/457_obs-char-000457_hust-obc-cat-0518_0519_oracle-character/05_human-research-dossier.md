@@ -110,9 +110,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The very narrow image shows three stacked marks: an
+  upper crossing, a small central chevron, and a lower pointed arch with two
+  long descending sides.`
+- 中文观察: `极狭窄图像显示三个层叠痕迹：上部交叉、中央小折角，以及下部带两条长侧笔的尖拱形。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

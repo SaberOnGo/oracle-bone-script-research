@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Three parallel vertical strokes stand above a
+  rectangular enclosure crossed by two diagonals, with two short legs
+  descending from its lower corners.`
+- 中文观察: `三条平行竖笔位于矩形围框上方，框内有两条对角交叉，下方两角各伸出一条短腿。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

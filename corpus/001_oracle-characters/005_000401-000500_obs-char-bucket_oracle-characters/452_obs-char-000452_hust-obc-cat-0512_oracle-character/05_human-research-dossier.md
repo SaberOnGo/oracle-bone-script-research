@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A central vertical stroke carries several
+  alternating short branches, a small enclosed oval near the middle, and a
+  pointed lower fork.`
+- 中文观察: `中央竖笔两侧分布数条交替短枝，中部附近有小型椭圆围框，下端呈尖状分叉。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

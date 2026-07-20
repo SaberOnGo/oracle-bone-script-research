@@ -2220,6 +2220,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "short crossings and two longer slanting strokes along the right side.",
         "极小低分辨率图像显示密集不规则笔画群，内部有数处短交叉，右侧有两条较长斜笔。",
     ),
+    "obs-char-000441": (
+        "Two bold forms are separated by white space: the left combines an upper triangular "
+        "area with a lower frame, while the right has crossed upper and angular lower strokes.",
+        "两个粗重形体以空白分隔：左侧结合上部三角区域和下部框架，右侧上部交叉、下部折角。",
+    ),
+    "obs-char-000442": (
+        "Two vertically separated clusters are visible: an upper crossed looping form with "
+        "a bent tail, and a lower broad curve flanked by two branching strokes.",
+        "可见两个上下分离的笔画群：上部为交叉环曲形及弯折尾笔，下部宽弧两侧各有分支笔画。",
+    ),
+    "obs-char-000443": (
+        "The very small image shows a narrow vertical form with two stacked enclosed marks "
+        "near the top, a curved middle stroke, and a thin angular tail.",
+        "极小图像显示狭长竖向形体，顶部附近有两个层叠闭合痕迹，中部弯曲并带纤细折角尾笔。",
+    ),
+    "obs-char-000444": (
+        "A dense branching cluster at left is separated from a smaller narrow zigzag form "
+        "at right; several fine stroke boundaries are difficult to resolve.",
+        "左侧密集分支笔画群与右侧较小狭长折线形分离，若干纤细笔画边界难以辨清。",
+    ),
+    "obs-char-000445": (
+        "Two compact forms stand apart: the left has a long top bar and descending central "
+        "stroke, while the right has a small upper enclosure and a bent lower extension.",
+        "两个紧凑形体彼此分离：左侧有长顶横和中央下行笔画，右侧有小型上部围框及弯折下部延伸。",
+    ),
+    "obs-char-000446": (
+        "Two narrow upright forms are separated; the left stacks a forked top, small box, "
+        "and curved lower outline, while the right is crossed and sinuous.",
+        "两个狭长直立形体彼此分离；左侧层叠分叉顶部、小框和弯曲下轮廓，右侧交叉且曲折。",
+    ),
+    "obs-char-000447": (
+        "The low-contrast image contains two separated narrow forms: a crossed and curved "
+        "form at left and a pointed outlined form at right.",
+        "低对比度图像包含两个分离的狭长形体：左侧交叉弯曲，右侧为尖顶轮廓形。",
+    ),
+    "obs-char-000448": (
+        "Three parallel vertical strokes stand above a rectangular enclosure crossed by "
+        "two diagonals, with two short legs descending from its lower corners.",
+        "三条平行竖笔位于矩形围框上方，框内有两条对角交叉，下方两角各伸出一条短腿。",
+    ),
+    "obs-char-000449": (
+        "A single narrow form has a pointed outer loop enclosing crossed angular strokes, "
+        "with a long curved line descending from the lower end.",
+        "单个狭长形体外部为尖状环形，内部有交叉折角笔画，下端延伸出一条长弯曲线。",
+    ),
+    "obs-char-000450": (
+        "The very small low-contrast image shows two similar separated forms, each with a "
+        "small outlined top and two thin strokes descending at angles.",
+        "极小低对比度图像显示两个相似分离形体，各有小型轮廓顶部和两条斜向下垂的细笔。",
+    ),
+    "obs-char-000451": (
+        "An angled upper stroke connects to a small rectangular enclosure, with one short "
+        "side branch and a narrow vertical extension below.",
+        "上部斜向笔画连接小型矩形围框，侧面有一条短分支，下方为狭长竖向延伸。",
+    ),
+    "obs-char-000452": (
+        "A central vertical stroke carries several alternating short branches, a small "
+        "enclosed oval near the middle, and a pointed lower fork.",
+        "中央竖笔两侧分布数条交替短枝，中部附近有小型椭圆围框，下端呈尖状分叉。",
+    ),
+    "obs-char-000453": (
+        "A bold broad form has a leaf-shaped upper enclosure, crossed diagonal arms, a wide "
+        "curved middle, a lower outlined area, and long outer descending strokes.",
+        "粗重大型形体上部有叶状围框，中部斜臂交叉并呈宽弧，下方有轮廓区域及两条外侧长下行笔。",
+    ),
+    "obs-char-000454": (
+        "A narrow upright form combines an angular open top, a small central enclosure, a "
+        "short crossbar, and one long descending vertical stroke.",
+        "狭长直立形体结合折角开口顶部、小型中央围框、短横和一条长下行竖笔。",
+    ),
+    "obs-char-000455": (
+        "Two separated forms are visible: an oval-topped form on a forked curved stem at "
+        "left, and a vertical looped form with a detached small diamond at right.",
+        "可见两个分离形体：左侧椭圆顶部连接分叉弯曲主干，右侧竖向环曲并有分离的小菱形。",
+    ),
+    "obs-char-000456": (
+        "A triangular upper outline sits above a rectangular lower enclosure at left; a "
+        "separate long curved vertical stroke descends along the right side.",
+        "左侧三角形上轮廓位于矩形下部围框之上，右侧另有一条分离的长弯曲竖笔下垂。",
+    ),
+    "obs-char-000457": (
+        "The very narrow image shows three stacked marks: an upper crossing, a small central "
+        "chevron, and a lower pointed arch with two long descending sides.",
+        "极狭窄图像显示三个层叠痕迹：上部交叉、中央小折角，以及下部带两条长侧笔的尖拱形。",
+    ),
+    "obs-char-000458": (
+        "A compact boxed and crossed cluster occupies the top of a narrow upright form, "
+        "above two long parallel curved strokes and a shorter inner line.",
+        "紧凑框状交叉笔画群位于狭长直立形体顶部，下方有两条长平行弯笔和一条较短内线。",
+    ),
+    "obs-char-000459": (
+        "A broad arched stroke has a short central stem rising from its top and two long "
+        "slightly curved strokes descending from the left and right ends.",
+        "宽拱形笔画顶部中央伸出一条短竖，两端各有一条略弯的长笔向下延伸。",
+    ),
+    "obs-char-000460": (
+        "Several long parallel vertical strokes form a narrow cluster, with two short "
+        "horizontal bars crossing the central strokes at different heights.",
+        "数条长平行竖笔组成狭窄笔画群，两条短横在不同高度穿过中央竖笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

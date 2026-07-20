@@ -5265,6 +5265,99 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "extension.",
         "纤细分枝形体有左上斜笔、中央交叉和右下分叉外伸。",
     ),
+    "obs-char-001061": (
+        "A narrow dark branching cluster has several pointed upper projections, a central upright, and split lower "
+        "strokes.",
+        "狭长深色分枝笔群有数条尖状上部外伸、中央直立笔和分开的下部笔。",
+    ),
+    "obs-char-001062": (
+        "Two adjacent narrow forms are visible, with branching upper strokes and separate long lower curves on the "
+        "right.",
+        "可见两个相邻的狭长形体，均有上部分枝笔，右侧另有分离的长下部弯笔。",
+    ),
+    "obs-char-001063": (
+        "Two thin upright strokes stand apart, each with a forked upper end and short lower side branches.",
+        "两条纤细直立笔彼此分离，各自有分叉上端和短下部侧分枝。",
+    ),
+    "obs-char-001064": (
+        "A tall narrow cluster contains two upright contours, short interior cross-strokes, and pointed lower "
+        "branches.",
+        "高而狭长的笔群含两个直立轮廓、短内部横笔和尖状下部分枝。",
+    ),
+    "obs-char-001065": (
+        "A long curved upright has a short left branch, a hooked upper-right turn, and two thin lower strokes.",
+        "长弯曲直立笔有左侧短分枝、右上钩状转笔和两条纤细下部笔。",
+    ),
+    "obs-char-001066": (
+        "A very bold left form has a rounded upper enclosure and several long lower curves, beside a separate "
+        "angular branching form on the right.",
+        "极为粗重的左侧形体有圆弧上部闭合轮廓和数条长下部弯笔，右侧另有分离的棱角分枝形体。",
+    ),
+    "obs-char-001067": (
+        "A small rectangular enclosure is divided into several interior cells and topped by a central branching "
+        "stroke.",
+        "小型矩形闭合轮廓内分为数个内部格状区域，上方有中央分枝笔。",
+    ),
+    "obs-char-001068": (
+        "The faint gray image shows a compact vertical branching cluster with short side marks; fine detail is low "
+        "contrast.",
+        "较淡灰色图像显示紧密竖向分枝笔群和短侧笔；细部对比度较低。",
+    ),
+    "obs-char-001069": (
+        "A faint gray stacked form has a rounded upper loop and a pointed lower enclosed section; contrast is low.",
+        "较淡灰色叠置形体有圆弧上部环笔和尖状下部闭合部分；对比度较低。",
+    ),
+    "obs-char-001070": (
+        "Two pointed branching clusters sit above a rectangular lower enclosure divided into four visible cells.",
+        "两个尖状分枝笔群位于矩形下部闭合轮廓之上，后者可见四个内部格状区域。",
+    ),
+    "obs-char-001071": (
+        "A large left stem branches into several splayed lower strokes, beside a separate right curved form with a "
+        "long descending edge.",
+        "大型左侧笔干向下分为数条张开的下部笔，右侧有分离的弯曲形体和长下行边缘。",
+    ),
+    "obs-char-001072": (
+        "A compact branching cluster has a pointed upper projection, a central crossing, and several split lower "
+        "strokes.",
+        "紧密分枝笔群有尖状上部外伸、中央交叉和数条分开的下部笔。",
+    ),
+    "obs-char-001073": (
+        "A central upright branching form is accompanied by several detached short marks on the left and a small "
+        "angular right branch.",
+        "中央直立分枝形体左侧有数条分离短笔，右侧有小型棱角分枝。",
+    ),
+    "obs-char-001074": (
+        "A narrow curved upper form has two pointed projections, a small central loop, and a short lower branching "
+        "stroke.",
+        "狭长弯曲上部形体有两个尖状外伸、小型中央环笔和短下部分枝笔。",
+    ),
+    "obs-char-001075": (
+        "A tall tapered curved stroke has a short right branch and a thin lower-left descending stroke.",
+        "高而收窄的弯曲笔有右侧短分枝和左下方纤细下行笔。",
+    ),
+    "obs-char-001076": (
+        "A very bold rounded upper enclosure surrounds a dark central crossing and continues into a long lower "
+        "stem with side curves.",
+        "极为粗重的圆弧上部闭合轮廓围绕深色中央交叉笔，并继续为带侧弯笔的长下部笔干。",
+    ),
+    "obs-char-001077": (
+        "A narrow oval-like enclosure contains a central branching stroke and several short side marks near its "
+        "edges.",
+        "狭长椭圆状闭合轮廓内有中央分枝笔，边缘附近有数条短侧笔。",
+    ),
+    "obs-char-001078": (
+        "A pointed upper contour narrows into a single long central upright and ends at a short horizontal base.",
+        "尖状上部轮廓收束为单条长中央直立笔，末端接短水平底笔。",
+    ),
+    "obs-char-001079": (
+        "Two separated similar upright forms each have pointed upper branches and short lower side strokes.",
+        "两个分离的相似直立形体各自有尖状上部分枝和短下部侧笔。",
+    ),
+    "obs-char-001080": (
+        "A slender vertical form has a short upper horizontal bar, a small side turn at the center, and a long "
+        "lower stroke.",
+        "纤细竖向形体有短上部水平横笔、中央小侧转笔和长下行笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

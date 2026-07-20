@@ -4418,6 +4418,105 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "horizontal feet, with short detached blocks around them.",
         "两条宽大外侧弯曲竖笔分列中央分枝笔干两旁；两条长下斜笔以横向笔足收尾，周围有分离块状痕迹。",
     ),
+    "obs-char-000881": (
+        "A complex bold form has separate curved outer strokes, an upper central branch, a middle crossing, "
+        "and rounded lower loops.",
+        "复杂粗重形体有分离弯曲外笔、上部中央分枝、中部交叉和下方圆弧环状笔。",
+    ),
+    "obs-char-000882": (
+        "The tiny gray image shows a small rounded central mark with short upper projections and several "
+        "detached marks below; fine joins are unclear.",
+        "微小灰度图像显示小型圆弧中央痕迹、上方短伸笔和下方数处分离痕迹；细连接难辨。",
+    ),
+    "obs-char-000883": (
+        "A narrow cluster is framed by two curving outer strokes and contains a central loop with short "
+        "branching strokes.",
+        "狭长笔群由两条弯曲外笔围合，中央有环状痕迹和短分枝笔。",
+    ),
+    "obs-char-000884": (
+        "Several thin upper branches lead to a central horizontal stroke and a long pointed lower stem; "
+        "small side gaps remain visible.",
+        "数条纤细上部分枝连接中央横笔和长尖形下干；两侧小间隔仍清晰可见。",
+    ),
+    "obs-char-000885": (
+        "A tall narrow form has a long curved left contour, small internal looped marks, and scattered "
+        "short strokes toward the lower end.",
+        "高长狭窄形体有左侧长弯曲轮廓、内部小环状痕迹和下端散置短笔。",
+    ),
+    "obs-char-000886": (
+        "A curved upright at left stands beside an angular open mark and a rounded enclosed form at right "
+        "with a short upper projection.",
+        "左侧弯曲直立笔旁有折角开口痕迹，右侧有带短上伸笔的圆弧闭合形体。",
+    ),
+    "obs-char-000887": (
+        "A thin diagonal upper cluster extends into a long descending branch with several short side marks.",
+        "纤细斜向上部笔群延伸成长下垂分枝，并带有数条短侧笔。",
+    ),
+    "obs-char-000888": (
+        "A bold branching cluster has a curved left stroke, several short upper branches, a long right "
+        "curve, and lower marks.",
+        "粗重分枝笔群含弯曲左笔、数条上部分枝、长右弯笔和下部痕迹。",
+    ),
+    "obs-char-000889": (
+        "Two outer curves enclose a narrow central crossing and branching strokes; a short detached mark "
+        "sits at right.",
+        "两条外弯曲笔围住狭长中央交叉和分枝笔；右侧有短小分离痕迹。",
+    ),
+    "obs-char-000890": (
+        "A very bold dense form combines an upper horizontal and upright with a large irregular lower mass "
+        "and internal openings.",
+        "粗重密集形体结合上部横竖笔、下方大型不规则笔团和内部开口。",
+    ),
+    "obs-char-000891": (
+        "Two stacked rounded forms with jagged upper edges sit beside a long curved outer stroke; their "
+        "openings remain distinct.",
+        "两个上缘锯齿状的叠置圆弧形体位于长弯曲外笔旁；各自开口保持清楚。",
+    ),
+    "obs-char-000892": (
+        "A narrow dense cluster combines parallel left strokes with a central enclosed loop and short "
+        "branching marks.",
+        "狭长密集笔群结合左侧平行笔、中央闭合环状痕迹和短分枝笔。",
+    ),
+    "obs-char-000893": (
+        "A compact dark form combines a small detached mark, a central upright cluster, a broad lower curve, "
+        "and several short upward projections.",
+        "紧密深色形体结合小型分离痕迹、中央直立笔群、下部宽弯笔和数条上伸短笔。",
+    ),
+    "obs-char-000894": (
+        "A long curved stroke at left stands apart from an angular right-hand cluster with a pointed upper "
+        "form and several descending strokes.",
+        "左侧长弯曲笔与右侧折角笔群分离，右侧有尖形上部和数条下行笔。",
+    ),
+    "obs-char-000895": (
+        "A bold open lower curve supports several upright and diagonal strokes, with a separated short mark "
+        "near the upper left.",
+        "粗重开放下弯笔承托数条直立和斜向笔，上左附近另有分离短痕迹。",
+    ),
+    "obs-char-000896": (
+        "A large arch-like outer contour encloses a compact angular interior cluster with two central "
+        "downward strokes.",
+        "大型拱弧状外轮廓围合紧密折角内部笔群，中央有两条下行笔。",
+    ),
+    "obs-char-000897": (
+        "The image is dominated by a broad irregular curved outline, with a small isolated interior mark "
+        "and a long descending stroke at right.",
+        "图像以宽大的不规则弯曲轮廓为主，内部有小型孤立痕迹，右侧有长下行笔。",
+    ),
+    "obs-char-000898": (
+        "A small upper cluster is followed by a long right-hand curve and several short branching strokes "
+        "toward the lower end.",
+        "小型上部笔群之后接长右弯笔，下端带有数条短分枝笔。",
+    ),
+    "obs-char-000899": (
+        "Two short upright strokes above a broad open curve form the main structure; a short right projection "
+        "extends from the lower curve.",
+        "两条上方短直立笔位于宽大开放弯笔之上构成主体；下弯笔右侧伸出短笔。",
+    ),
+    "obs-char-000900": (
+        "A narrow form has an angular upper-left stroke, a long descending curve, and an open lower loop "
+        "with short side projections.",
+        "狭长形体有左上折角笔、长下行弯笔和带短侧伸笔的下部开放环状形。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

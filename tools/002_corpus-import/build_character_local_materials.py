@@ -4890,6 +4890,92 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A U-shaped grid-like cluster has an outer curved stroke and two long lower branching strokes.",
         "U 形格状笔群有外部弯曲笔和两条长下部分枝笔。",
     ),
+    "obs-char-000981": (
+        "A large rounded upper loop connects by a long curved stem to a small lower rounded enclosure.",
+        "大型圆弧上部环状笔通过长弯曲笔干连接小型下部圆弧闭合轮廓。",
+    ),
+    "obs-char-000982": (
+        "A compact U-shaped cluster has multiple short upper projections and a thick lower curve.",
+        "紧密 U 形笔群有多条上部短伸笔和粗重下弯笔。",
+    ),
+    "obs-char-000983": (
+        "A tall central stem has angled upper and side branches, a lower enclosed loop, and a pointed terminal.",
+        "高长中央笔干有上部和侧部斜向分枝、下部闭合环以及尖形末端。",
+    ),
+    "obs-char-000984": (
+        "A small dark branching cluster combines an upper fork, a central rounded band, and lower split strokes.",
+        "小型深色分枝笔群结合上部叉笔、中央圆弧带和下部分开笔。",
+    ),
+    "obs-char-000985": (
+        "A short upper branch leads into a long curved lower enclosure with side projections.",
+        "短上部分枝连接长弯曲下部闭合轮廓，并带有侧伸笔。",
+    ),
+    "obs-char-000986": (
+        "A tall central upright is flanked by two left horizontal strokes and a short right branch.",
+        "高长中央直立笔两侧有两条左向横笔和一条右侧短分枝。",
+    ),
+    "obs-char-000987": (
+        "A pointed upper projection sits above a compact enclosed central form and two lower branches.",
+        "尖形上伸笔位于紧密中央闭合形体之上，下方有两条分枝。",
+    ),
+    "obs-char-000988": (
+        "A very bold form combines a left segmented rectangular cluster, a central upright, and an irregular "
+        "right descending cluster.",
+        "粗重形体结合左侧分段矩形笔群、中央直立笔和不规则右侧下行笔群。",
+    ),
+    "obs-char-000989": (
+        "A tall central enclosure with a looped top is flanked by a separate left branching stroke and a right "
+        "curved stroke.",
+        "高长中央闭合轮廓顶部有环状笔，左侧有分离分枝笔，右侧有弯曲笔。",
+    ),
+    "obs-char-000990": (
+        "A dense bold form combines stacked rounded enclosures, diagonal connecting strokes, and a long lower "
+        "curve.",
+        "密集粗重形体结合叠置圆弧闭合轮廓、斜向连接笔和长下部弯笔。",
+    ),
+    "obs-char-000991": (
+        "Two separated upright clusters each contain crossed upper branches and pointed lower strokes.",
+        "两个分离的直立笔群各自含交叉上部分枝和尖形下伸笔。",
+    ),
+    "obs-char-000992": (
+        "A thin central stem has paired upper branches and a long descending right curve.",
+        "纤细中央笔干有成对上部分枝和长下行右弯笔。",
+    ),
+    "obs-char-000993": (
+        "A small upper branching cluster sits above a rectangular central enclosure and two lower side strokes.",
+        "小型上部分枝笔群位于矩形中央闭合轮廓之上，下方有两条侧笔。",
+    ),
+    "obs-char-000994": (
+        "A narrow curved stroke at left is accompanied by several short separated interior marks.",
+        "左侧狭长弯曲笔旁有数条分离的内部短痕迹。",
+    ),
+    "obs-char-000995": (
+        "A pointed oval enclosure is divided by a horizontal stroke and a central lower stem.",
+        "尖形椭圆状闭合轮廓由横笔和中央下部笔干分隔。",
+    ),
+    "obs-char-000996": (
+        "A rounded lower enclosure with an upper crossbar contains two long descending inner branches.",
+        "带上部横笔的圆弧下部闭合轮廓含两条长下行内部笔。",
+    ),
+    "obs-char-000997": (
+        "A narrow stacked form combines an upper pointed enclosure and a lower oval loop.",
+        "狭长叠置形体结合上部尖形闭合轮廓和下部椭圆环状笔。",
+    ),
+    "obs-char-000998": (
+        "The faint gray image shows a small rounded mark continuing into a short descending curved stroke; "
+        "detail is low contrast.",
+        "灰度较淡图像显示小型圆弧痕迹延续为短下行弯笔；细节反差较低。",
+    ),
+    "obs-char-000999": (
+        "A narrow branching cluster combines upper diagonal strokes, central horizontal and vertical marks, and "
+        "lower side branches.",
+        "狭长分枝笔群结合上部斜笔、中央横竖痕迹和下部侧分枝。",
+    ),
+    "obs-char-001000": (
+        "Three short upright strokes rise above a rounded enclosure with lower side branches and a central "
+        "descending stroke.",
+        "三条短直立笔位于圆弧闭合轮廓之上，下部有侧分枝和中央下行笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

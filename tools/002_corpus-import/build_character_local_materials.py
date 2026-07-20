@@ -4612,6 +4612,104 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A long angled upper stroke crosses a central branch and continues into a lower forked diagonal.",
         "长上斜笔交叉中央分枝，并延续为下部叉形斜笔。",
     ),
+    "obs-char-000921": (
+        "A narrow vertical form combines an upper crossing, a central angular enclosure, detached side marks, "
+        "and lower branching strokes.",
+        "狭长竖向形体结合上部交叉、中央折角轮廓、分离侧痕迹和下部分枝笔。",
+    ),
+    "obs-char-000922": (
+        "A pointed upper stroke sits above a rectangular central enclosure with a short right projection and "
+        "two descending lower strokes.",
+        "尖形上伸笔位于矩形中央闭合轮廓之上，右侧有短伸笔，下方有两条下行笔。",
+    ),
+    "obs-char-000923": (
+        "A broad curved upper stroke crosses a central junction and continues into a long descending right "
+        "stroke.",
+        "宽大弯曲上笔交叉中央交会点，并延续为右侧长下行笔。",
+    ),
+    "obs-char-000924": (
+        "Two separate X-like crossing clusters are stacked vertically, with the lower cluster slightly more "
+        "open.",
+        "两个分离的交叉笔群上下叠置，下方笔群的开口略为明显。",
+    ),
+    "obs-char-000925": (
+        "A pointed central stem descends between two rounded side forms and continues into several long lower "
+        "branches.",
+        "尖形中央笔干在两个圆弧侧形之间下行，并延续为数条长下部分枝。",
+    ),
+    "obs-char-000926": (
+        "A triangular upper projection sits above a horizontal crossbar and central stem, with jagged side "
+        "branches on both sides.",
+        "三角形上伸笔位于横笔和中央笔干之上，两侧带有曲折分枝。",
+    ),
+    "obs-char-000927": (
+        "A tall rectangular form is divided by a horizontal middle stroke and has short projections at both "
+        "sides.",
+        "高长矩形形体由中部横笔分隔，两侧各有短伸笔。",
+    ),
+    "obs-char-000928": (
+        "Detached marks at left accompany an upper jagged branch, a central descending stroke, and a lower "
+        "enclosed leaf-like cluster.",
+        "左侧分离痕迹旁有上部曲折分枝、中央下行笔和下部叶片状闭合笔群。",
+    ),
+    "obs-char-000929": (
+        "A tall rectangular form has two horizontal interior strokes and short side projections at different "
+        "heights.",
+        "高长矩形形体含两条内部横笔，并在不同高度带有短侧伸笔。",
+    ),
+    "obs-char-000930": (
+        "A U-shaped upper curve narrows into a central descending branch that ends in a pointed lower stroke.",
+        "U 形上部弯笔收拢为中央下行分枝，并以尖形下笔收尾。",
+    ),
+    "obs-char-000931": (
+        "A compact leaf-like upper cluster leads into a descending central stem with a branching lower side "
+        "form.",
+        "紧密叶片状上部笔群连接下行中央笔干，下部带有侧分枝形体。",
+    ),
+    "obs-char-000932": (
+        "A small square-like upper enclosure sits on a central stem with a short right branch and a lower "
+        "diagonal projection.",
+        "小型方形近似闭合轮廓位于中央笔干之上，右侧有短分枝，下部伸出斜笔。",
+    ),
+    "obs-char-000933": (
+        "A curved outer stroke frames a central upright and lower curve; short detached horizontal and vertical "
+        "marks remain at left.",
+        "弯曲外笔围住中央直立笔和下部弯笔；左侧仍有分离的短横、短竖痕迹。",
+    ),
+    "obs-char-000934": (
+        "A bold arch-like outer contour encloses a central Y-shaped branch and two long lower strokes.",
+        "粗重拱弧状外轮廓围住中央分枝形笔和两条长下行笔。",
+    ),
+    "obs-char-000935": (
+        "Two long parallel strokes flank a central descending line with short branches and additional lower "
+        "side strokes.",
+        "两条长平行笔分列中央下行笔，两侧带有短分枝和额外下部侧笔。",
+    ),
+    "obs-char-000936": (
+        "A very small thin form has two short angled upper marks and a lower forked stem; image detail is "
+        "limited.",
+        "极小纤细形体有两条上部短斜笔和下部叉形笔干；图像细节有限。",
+    ),
+    "obs-char-000937": (
+        "A dense branching cluster combines a broad horizontal stroke, a lower diamond-like enclosure, and "
+        "short upper and side projections.",
+        "密集分枝笔群结合宽大横笔、下部菱形近似闭合轮廓以及上部和侧部短伸笔。",
+    ),
+    "obs-char-000938": (
+        "A very bold form combines an upper U-like cluster, a long horizontal crossbar, a lower pointed "
+        "projection, and a separate central descending stroke.",
+        "粗重形体结合上部 U 形笔群、长横笔、下部尖形伸笔和分离的中央下行笔。",
+    ),
+    "obs-char-000939": (
+        "A small upper angular loop, a lower forked cluster, and a detached curved stroke form three visible "
+        "parts.",
+        "小型上部折角环、下部叉形笔群和分离弯笔构成三个可见部分。",
+    ),
+    "obs-char-000940": (
+        "A very large dark irregular cluster occupies the left and center, with a long separate curved stroke "
+        "at right.",
+        "大型深色不规则笔群占据左侧和中央，右侧另有一条长分离弯曲笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

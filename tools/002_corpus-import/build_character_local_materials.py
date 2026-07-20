@@ -3020,6 +3020,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "two sides that converge into a narrow pointed bottom.",
         "粗重圆弧外环顶部宽分开，内部有弯曲分隔，两侧向下汇成狭窄尖底。",
     ),
+    "obs-char-000601": (
+        "A single slender upright stroke bends slightly through the middle, with a short dark "
+        "spur near the top and a broad hooked foot at the bottom.",
+        "单条纤细直立笔在中部略弯，近顶部有短深色侧突，底部收成宽钩脚。",
+    ),
+    "obs-char-000602": (
+        "A tall upper framework with horizontal and vertical bars stands above a large pointed "
+        "lower outline containing several detached dark marks.",
+        "带横竖栏的高长上部框架位于大型尖底下部轮廓之上，轮廓内有数处深色分离痕。",
+    ),
+    "obs-char-000603": (
+        "A small rounded shield-like outline has a double horizontal cap and two crossing "
+        "diagonals inside its lower field.",
+        "小型圆盾状轮廓带双重横向顶盖，下部区域内有两条交叉斜笔。",
+    ),
+    "obs-char-000604": (
+        "A long central stroke descends to a sharp point, with an angular upper-right branch "
+        "and large open curved loops on both lower sides.",
+        "长中央笔向下收成尖端，右上有折角枝笔，下部两侧各有大型开口弯环。",
+    ),
+    "obs-char-000605": (
+        "The tiny faint image shows a compact zigzag cluster at left and several thin crossing "
+        "or forked strokes at right; exact joins are difficult to resolve.",
+        "微小淡弱图像显示左侧紧凑锯折笔群和右侧数条纤细交叉或叉状笔，具体接点难辨。",
+    ),
+    "obs-char-000606": (
+        "A tall vertical stem joins broad top and bottom bars, while a narrow bowed loop opens "
+        "to the right from the upper half.",
+        "高长竖干连接宽顶栏和底栏，上半部向右张开一个狭窄弓形环。",
+    ),
+    "obs-char-000607": (
+        "A narrow irregular outer contour has paired pointed projections at the top, several "
+        "short internal strokes, and a small enclosed opening near the bottom.",
+        "狭窄不规则外轮廓顶部有成对尖突，内部有数条短笔，近底部有小型封闭空隙。",
+    ),
+    "obs-char-000608": (
+        "A pointed hollow triangle sits above two thick horizontal bars and small openings; a "
+        "forked lower form rises from a broad dark base.",
+        "尖顶中空三角位于两条粗横栏和小型空隙之上，叉状下部形从宽深色底座升起。",
+    ),
+    "obs-char-000609": (
+        "Several thin angular strokes intersect around a small central triangular space, with "
+        "forked ends spreading upward and downward.",
+        "数条纤细折角笔围绕中央小三角空隙相交，叉状末端分别向上、向下展开。",
+    ),
+    "obs-char-000610": (
+        "A pointed leaf-like outer outline is open or split at the top and contains several "
+        "short angular strokes around a central white gap.",
+        "尖叶状外轮廓顶部开口或分叉，中央白隙周围有数条短折角笔。",
+    ),
+    "obs-char-000611": (
+        "Several small stacked bars and bent marks stand above a pointed lower outline that "
+        "contains a central fork and tiny detached marks.",
+        "数条小型层叠横栏和弯痕位于尖底下部轮廓之上，轮廓内有中央叉笔和微小分离痕。",
+    ),
+    "obs-char-000612": (
+        "A dense narrow vertical figure combines a forked or looped top, multiple central "
+        "crossings, and a long curved lower sweep.",
+        "密集狭长竖形结合叉状或环状顶部、多处中央交叉和长弯下扫笔。",
+    ),
+    "obs-char-000613": (
+        "Two detached upright rectangular loops stand above a large downward-pointing V-shaped "
+        "outline with inward side strokes and a narrow central opening.",
+        "两个分离直立矩形环位于大型向下尖 V 形轮廓之上，轮廓有内向侧笔和狭窄中央空隙。",
+    ),
+    "obs-char-000614": (
+        "A rounded upper arch contains two small oval openings and a central descending stem; "
+        "two separate curved strokes form a loose lower pair.",
+        "圆弧上拱内含两个小椭圆空隙和中央下垂干，下方两条分离弯笔组成疏松一对。",
+    ),
+    "obs-char-000615": (
+        "A single thin vertical stem carries three short horizontal or diagonal cross-strokes "
+        "at different heights and ends in a slight lower hook.",
+        "单条纤细竖干在不同高度带三条短横笔或斜交笔，末端有轻微下钩。",
+    ),
+    "obs-char-000616": (
+        "A long right-hand vertical stem has short forked tips at top and bottom, while a broad "
+        "rounded loop projects from its upper left.",
+        "右侧长竖干顶部和底部带短叉尖，上部左侧伸出宽圆环。",
+    ),
+    "obs-char-000617": (
+        "A tall vertical joins short top and bottom bars and is crossed near the upper middle by "
+        "a long horizontal with a small extra stroke at left.",
+        "高长竖笔连接短顶栏和底栏，近上中部被一条长横笔穿过，横笔左侧另有小短笔。",
+    ),
+    "obs-char-000618": (
+        "Two adjoining outlined upper lobes, one angular and one rounded, narrow into paired "
+        "lower stems that meet a short dark base.",
+        "两个相接的上部轮廓瓣一折角一圆弯，向下收窄为一对接触短深色底座的竖干。",
+    ),
+    "obs-char-000619": (
+        "A thin right vertical carries two short crossbars, while a separate bent stroke at left "
+        "descends into a long slightly curving tail.",
+        "右侧纤细竖笔带两条短横栏，左侧分离弯折笔向下延伸为长而微弯的尾笔。",
+    ),
+    "obs-char-000620": (
+        "Two detached groups stand side by side: a branched slanting stem with pointed ends at "
+        "left and a simple upright cross at right.",
+        "两个分离笔群并列：左侧为带尖端的分枝斜干，右侧为简单直立十字形。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two detached upright rectangular loops stand above a
+  large downward-pointing V-shaped outline with inward side strokes and a
+  narrow central opening.`
+- 中文观察: `两个分离直立矩形环位于大型向下尖 V 形轮廓之上，轮廓有内向侧笔和狭窄中央空隙。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

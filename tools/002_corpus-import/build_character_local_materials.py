@@ -1919,6 +1919,105 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A curved hook-like upper contour continues into a thin vertical lower stroke.",
         "弧形钩状上部轮廓继续连接纤细竖向下行笔画。",
     ),
+    "obs-char-000381": (
+        "A central vertical stroke meets a short cross-stroke, a long right branch, "
+        "and two diverging lower strokes beneath paired upper tips.",
+        "中央竖笔画与短横笔画和长右向分支相接，上方有成对尖端，下方有两条分行笔画。",
+    ),
+    "obs-char-000382": (
+        "An open rectangular upper outline sits above a central junction with three "
+        "thin descending strokes.",
+        "开放矩形上部轮廓位于中央交接点之上，下方有三条纤细下行笔画。",
+    ),
+    "obs-char-000383": (
+        "A bold central loop twists between two upper branches and a long lower "
+        "vertical extension.",
+        "粗重中央环状笔画在两个上部分支与长竖向下部延伸之间扭转交接。",
+    ),
+    "obs-char-000384": (
+        "A long central vertical stroke passes through two overlapping rectangular "
+        "outlines and ends in a short lower zigzag.",
+        "长中央竖笔画穿过两个重叠矩形轮廓，下端接短折线。",
+    ),
+    "obs-char-000385": (
+        "A forked upper stem sits above a peaked open outline and a short crooked "
+        "central mark.",
+        "分叉上部主干位于尖顶开放轮廓之上，轮廓内有短曲折中央痕迹。",
+    ),
+    "obs-char-000386": (
+        "A central pointed enclosure is flanked by long descending strokes and "
+        "topped by a narrow fork.",
+        "中央尖状闭合轮廓两侧有长下行笔画，上方接狭窄分叉。",
+    ),
+    "obs-char-000387": (
+        "The image contains two separated dark forms: a branching angular form at "
+        "left and a U-shaped upper contour with a long stem at right.",
+        "图像含两个分离的深色形体：左侧为分支折角形，右侧为带长主干的 U 状上部轮廓。",
+    ),
+    "obs-char-000388": (
+        "A thin central stem is crossed by several short angled branches, with "
+        "multiple narrow descenders.",
+        "纤细中央主干被数个短斜向分支交叉，并有多条狭窄下行笔画。",
+    ),
+    "obs-char-000389": (
+        "Two separated forms are visible: an upper forked stem with side branches "
+        "and a detached lower V-shaped loop.",
+        "可见两个分离形体：上方为带侧向分支的分叉主干，下方为独立 V 状环形轮廓。",
+    ),
+    "obs-char-000390": (
+        "A thin looping central trace has a small hooked top and two long diverging "
+        "lower strokes.",
+        "纤细环曲中央痕迹上端有小钩，下方有两条长分行笔画。",
+    ),
+    "obs-char-000391": (
+        "A broad top bar caps a tapering enclosure with short internal cross-strokes, "
+        "ending at a pointed base line.",
+        "宽上横笔画覆盖逐渐收窄的闭合轮廓，内部有短横笔画，下端接尖点状底线。",
+    ),
+    "obs-char-000392": (
+        "A tall branching form contains a rounded rectangular middle enclosure, a "
+        "long central stem, and two levels of lower forks.",
+        "高长分支形体中部有圆角矩形闭合轮廓，并有长中央主干和两层下部分叉。",
+    ),
+    "obs-char-000393": (
+        "A central roof-like outline and vertical stem are flanked by two small "
+        "detached curled marks.",
+        "中央屋顶状轮廓和竖向主干两侧各有一个分离的小型卷曲痕迹。",
+    ),
+    "obs-char-000394": (
+        "A thin curved outline contains a pointed side enclosure, with a separate "
+        "narrow right-side trace; contrast needs recheck.",
+        "纤细弧形轮廓含尖状侧部闭合形，右侧另有狭窄痕迹；对比度需要复核。",
+    ),
+    "obs-char-000395": (
+        "Several dark curved and diagonal strokes cross around a narrow central loop.",
+        "数条深色弧形和斜向笔画围绕狭窄中央环形痕迹交叉。",
+    ),
+    "obs-char-000396": (
+        "Two similar separated forms each show an upper crossing, a small rectangular "
+        "loop, and an angular lower descender.",
+        "两个相似的分离形体各有上部交叉、小矩形环形轮廓和折角下行笔画。",
+    ),
+    "obs-char-000397": (
+        "A narrow vertical trace passes through a small upper loop and continues into "
+        "a long angular lower stroke.",
+        "狭窄竖向痕迹穿过小型上部环形轮廓，并继续连接长折角下部笔画。",
+    ),
+    "obs-char-000398": (
+        "Two small upper enclosed marks connect to a long curved lower stroke and a "
+        "short side branch.",
+        "两个小型上部闭合痕迹连接长弧形下部笔画和短侧向分支。",
+    ),
+    "obs-char-000399": (
+        "A thin central crossing is joined to an open pointed upper mark, a long "
+        "right-side stroke, and irregular lower curves.",
+        "纤细中央交叉连接开放尖状上部痕迹、长右侧笔画和不规则下部曲线。",
+    ),
+    "obs-char-000400": (
+        "The image contains a compact hooked and looped form at left and a detached "
+        "capped vertical stroke at right.",
+        "图像左侧有紧凑钩曲环形形体，右侧有分离的带横帽竖笔画。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

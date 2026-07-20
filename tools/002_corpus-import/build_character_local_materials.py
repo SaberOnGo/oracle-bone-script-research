@@ -3720,6 +3720,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "middle frame, and ends in several short outward-spreading lower branches.",
         "近对称中央竖笔在顶部分叉，穿过带分隔的圆弯中框，末端伸出数条向外展开的短下枝。",
     ),
+    "obs-char-000741": (
+        "A narrow vertical outline forks at both ends and encloses two stacked almond-shaped "
+        "openings divided by a central crossing.",
+        "狭长竖向轮廓上下两端均分叉，内部有两个纵向叠置的杏仁形空隙，并由中央交叉分隔。",
+    ),
+    "obs-char-000742": (
+        "A detached rounded rectangular loop with a short inner bar sits above a central stem that "
+        "divides into two upper diagonals and two long lower legs.",
+        "带短内横的分离圆角矩形环位于上方；下方中央干分出两条上斜枝和两条长下腿。",
+    ),
+    "obs-char-000743": (
+        "An upper upright carries short branches on both sides and a hooked top; a detached rounded "
+        "lower loop contains one horizontal inner opening.",
+        "上部竖干两侧带短枝，顶端弯钩；下方分离圆形环内有一道横向空隙。",
+    ),
+    "obs-char-000744": (
+        "Two tall detached forms stand side by side: the left is a long Y-shaped branch, while the "
+        "right upright passes through a small angular loop and crossing lower strokes.",
+        "两个高长分离形并列：左侧为长 Y 形分枝，右侧竖干穿过小折角环和交叉下笔。",
+    ),
+    "obs-char-000745": (
+        "A compact upper branching cluster stands above a broad pointed rounded lower outline that "
+        "is open at both upper sides and carries two short inward-facing marks.",
+        "紧凑上部分枝笔群位于宽大尖底圆弯轮廓上方；下轮廓两侧上端开口，并带两条向内短痕。",
+    ),
+    "obs-char-000746": (
+        "Two narrow forms stand close together: the left curves around a small upper opening and "
+        "extends into a long tail, while the right stem forks above and branches below.",
+        "两个狭长形紧邻：左形围出小型上部空隙并延成长尾，右侧竖干上端分叉、下部分枝。",
+    ),
+    "obs-char-000747": (
+        "Two parallel branching stems each have a hooked or forked upper end, a middle crossing, "
+        "and several long diagonal roots spreading below.",
+        "两条平行分枝干各有钩曲或分叉上端、中部交叉和数条向下展开的长斜根。",
+    ),
+    "obs-char-000748": (
+        "A left upright forks at the top and sends diagonals from its middle and lower junctions; a "
+        "detached right cluster combines a slanting top stroke with a bent descending zigzag.",
+        "左侧竖干顶部分叉，中下接点伸出斜枝；右侧分离笔群由斜上笔和弯折下行折线组成。",
+    ),
+    "obs-char-000749": (
+        "A large upper oval loop contains a short vertical mark and joins a central junction with "
+        "two side branches; long lower strokes descend straight at left and curve at right.",
+        "大型上部椭圆环内有短竖痕，并连接带两条侧枝的中央接点；下笔左直右弯，均长距离下垂。",
+    ),
+    "obs-char-000750": (
+        "Three small tilted loops occupy the upper row and attach to spreading diagonal branches "
+        "that meet at a central fork above two narrow descending strokes.",
+        "三个小型倾斜环位于上排，连接外展斜枝；斜枝在中央分叉处汇合，下接两条狭长下笔。",
+    ),
+    "obs-char-000751": (
+        "The tiny low-resolution image shows a compact angular cluster with a central crossing, "
+        "short left and upper branches, and a bent right chevron; fine joins remain unclear.",
+        "微小低分辨率图像显示紧凑折角笔群，含中央交叉、左侧和上部短枝及右侧弯折尖角；细接点仍难辨。",
+    ),
+    "obs-char-000752": (
+        "A forked upper stem crosses a long horizontal and a small central triangle-like opening, "
+        "then continues into two long outward-slanting sides of an open lower frame.",
+        "分叉上干穿过长横和小型中央三角状空隙，随后延续为开放下框两条向外倾斜的长侧笔。",
+    ),
+    "obs-char-000753": (
+        "Three detached forms are stacked vertically: a pointed divided upper loop, a small middle "
+        "downward chevron, and a lower upright with short radiating branches.",
+        "三个分离形纵向叠置：带分隔的尖顶上环、小型向下中部尖角和带短放射枝的下部竖干。",
+    ),
+    "obs-char-000754": (
+        "A broad high-sided upper outline surrounds a smaller pointed loop; its central lower stem "
+        "joins a dense branching cluster that ends in several short roots.",
+        "宽大高侧上轮廓围住一个较小尖顶环；中央下干连接浓重分枝笔群，末端分出数条短根。",
+    ),
+    "obs-char-000755": (
+        "A single tall curved upright bends into a long horizontal foot at the bottom and carries "
+        "one short descending diagonal branch near its pointed upper end.",
+        "单条高长弯竖在底部折成长横脚，尖形上端附近带一条向下短斜枝。",
+    ),
+    "obs-char-000756": (
+        "A central upper junction radiates into four long branches and a short upright; below it, "
+        "two detached narrow teardrop-shaped loops stand side by side.",
+        "中央上部接点放射出四条长枝和一条短竖；其下两个分离狭长水滴形环并列。",
+    ),
+    "obs-char-000757": (
+        "A dense rectangular crossing grid has several white compartments, with many short and "
+        "long pointed branches radiating from its top, sides, and lower edge.",
+        "浓重矩形交叉网格内有数个白色小格，顶部、两侧和下缘放射出多条长短尖枝。",
+    ),
+    "obs-char-000758": (
+        "Two detached forms stand side by side: a slim left branching stem, and a right pointed "
+        "angular outline divided into two stacked rounded compartments.",
+        "两个分离形并列：左侧为细长分枝干，右侧为尖顶折角轮廓，内部上下分成两个圆弯小格。",
+    ),
+    "obs-char-000759": (
+        "A central vertical has a small upper oval containing a dot-like mark, paired side arms "
+        "ending in tiny forks or loops, and three spreading branches at the bottom.",
+        "中央竖干上部有内含点状痕的小椭圆，两侧成对支臂末端为小叉或小环，底部伸出三条外展枝。",
+    ),
+    "obs-char-000760": (
+        "A small divided triangular loop tops a left upright that crosses into radiating lower "
+        "branches; a long middle horizontal reaches a separate capped vertical at right.",
+        "带分隔的小三角环位于左竖顶部，左竖下部交叉并放射分枝；中部长横伸至右侧独立带端帽竖笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

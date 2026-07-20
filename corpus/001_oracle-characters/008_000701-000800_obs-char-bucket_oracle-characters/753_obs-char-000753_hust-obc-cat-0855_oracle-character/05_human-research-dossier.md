@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Three detached forms are stacked vertically: a
+  pointed divided upper loop, a small middle downward chevron, and a lower
+  upright with short radiating branches.`
+- 中文观察: `三个分离形纵向叠置：带分隔的尖顶上环、小型向下中部尖角和带短放射枝的下部竖干。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

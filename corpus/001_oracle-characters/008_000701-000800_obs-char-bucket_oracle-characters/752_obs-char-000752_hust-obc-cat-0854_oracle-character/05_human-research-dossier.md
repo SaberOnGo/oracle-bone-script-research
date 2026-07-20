@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A forked upper stem crosses a long horizontal and a
+  small central triangle-like opening, then continues into two long
+  outward-slanting sides of an open lower frame.`
+- 中文观察: `分叉上干穿过长横和小型中央三角状空隙，随后延续为开放下框两条向外倾斜的长侧笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

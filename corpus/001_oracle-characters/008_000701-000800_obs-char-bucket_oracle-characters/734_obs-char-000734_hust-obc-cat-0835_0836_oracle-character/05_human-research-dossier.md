@@ -109,9 +109,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A large left branching trunk combines an upright,
+  two upper diagonals, and two long lower legs; three detached short
+  slanting marks form a vertical row at right.`
+- 中文观察: `左侧大分枝干由竖笔、两条上斜枝和两条长下腿组成；右侧三条分离短斜痕纵向排列。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

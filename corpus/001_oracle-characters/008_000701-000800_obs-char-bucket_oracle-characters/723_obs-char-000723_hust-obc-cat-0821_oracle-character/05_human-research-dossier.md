@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The faint fragmented image shows a tall right
+  outline with two small enclosed spaces and several detached thin strokes
+  descending at left; fine joins remain unclear.`
+- 中文观察: `淡弱破碎图像显示右侧高长轮廓内有两个小空隙，左侧数条分离细笔向下延伸；细部连接仍难辨。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

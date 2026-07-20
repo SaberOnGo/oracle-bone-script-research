@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A long horizontal stroke is crossed by two upward
+  diagonals, while a central lower stem passes through an elongated loop and
+  ends in a deep curved hook.`
+- 中文观察: `长横被两条上行斜笔穿过，中央下部主干贯穿细长环形，并以深弯钩收尾。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

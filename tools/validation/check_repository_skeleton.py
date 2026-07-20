@@ -141,7 +141,7 @@ HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX = (
     "corpus/001_oracle-characters/000_character-registers/"
     "003_undeciphered-oracle-characters-index.csv"
 )
-CHARACTER_LOCAL_MATERIAL_OBS_CHAR_LIMIT = 480
+CHARACTER_LOCAL_MATERIAL_OBS_CHAR_LIMIT = 500
 CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS = {
     "obs-unk-005708": (
         "corpus/001_oracle-characters/"
@@ -2498,7 +2498,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         readiness_index_path = object_dir / "13_human-research-readiness-index.json"
         material_observation_path = object_dir / "14_material-visual-observation.md"
         expects_material_observation = project_id in {
-        f"obs-char-{index:06d}" for index in range(1, 481)
+        f"obs-char-{index:06d}" for index in range(1, 501)
         }
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():

@@ -2420,6 +2420,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "small rounded rectangular form above and a larger rectangular form below.",
         "尖顶多边外围框内有两个分离内轮廓：上部为小型圆角矩形，下部为较大矩形。",
     ),
+    "obs-char-000481": (
+        "A broad pointed upper outline surrounds a central vertical stroke crossed by "
+        "several short horizontal or slanting bars; the outer sides remain partly separated.",
+        "宽尖顶上部轮廓围绕中央竖笔，竖笔被数条短横或斜笔穿过，外侧笔画部分断离。",
+    ),
+    "obs-char-000482": (
+        "A long horizontal stroke is crossed by two upward diagonals, while a central lower "
+        "stem passes through an elongated loop and ends in a deep curved hook.",
+        "长横被两条上行斜笔穿过，中央下部主干贯穿细长环形，并以深弯钩收尾。",
+    ),
+    "obs-char-000483": (
+        "An irregular polygonal outer frame encloses several closely spaced parallel curved "
+        "strokes descending from a shared upper area.",
+        "不规则多边外框包围数条间距很近的平行弯曲笔画，这些笔画从共同上部区域向下延伸。",
+    ),
+    "obs-char-000484": (
+        "A pointed outer outline encloses a central vertical stroke with two upper diagonal "
+        "branches and shorter transverse strokes near the middle.",
+        "尖顶外轮廓包围中央竖笔，竖笔上部有两条斜向分支，中部附近另有较短横向笔画。",
+    ),
+    "obs-char-000485": (
+        "A detached pointed top and two long side strokes surround a central rectangular "
+        "loop divided by one vertical inner line.",
+        "分离尖顶和两条长侧笔围绕中央矩形环形，环内由一条竖线分隔。",
+    ),
+    "obs-char-000486": (
+        "A narrow vertical form stacks a pointed upper loop with internal branches, a small "
+        "lower diamond-shaped loop, and a forked crossing at the bottom.",
+        "狭长竖向形体层叠尖顶上环及其内部分支、小型下部菱形环和底部叉状交叉。",
+    ),
+    "obs-char-000487": (
+        "A pointed upper outline contains several detached short vertical marks and a curved "
+        "inner stroke, with one long diagonal line descending from the lower right.",
+        "尖顶上部轮廓内有数条分离短竖和一条弯曲内笔，右下伸出一条长斜线。",
+    ),
+    "obs-char-000488": (
+        "A bold broad arch surrounds a smaller inner arch and several long parallel curved "
+        "strokes that descend from its upper area.",
+        "粗重宽拱形围绕较小内拱和数条长平行弯笔，这些弯笔从上部区域向下延伸。",
+    ),
+    "obs-char-000489": (
+        "A thick outlined form has a rounded pointed top, two long outer sides, and a broad "
+        "horizontal base, leaving a tall open central area.",
+        "粗线轮廓形顶部圆钝而尖，两侧为长外笔，下部有宽横底线，中央留出高长空白。",
+    ),
+    "obs-char-000490": (
+        "A large pointed arch encloses three separated inner groups: a small lower-left box, "
+        "a curved central stem, and a long right vertical crossed by short bars.",
+        "大型尖拱形包围三组分离内形：左下小框、中央弯曲主干，以及被短横穿过的右侧长竖。",
+    ),
+    "obs-char-000491": (
+        "A bold pointed outer outline surrounds a central branching vertical stroke and "
+        "several detached short marks, above a broad curved lower base.",
+        "粗重尖顶外轮廓围绕中央分支竖笔和数条分离短痕，下方为宽弯曲底部笔画。",
+    ),
+    "obs-char-000492": (
+        "A long top bar and left vertical form an open frame around detached inner dashes, "
+        "a branching central stem, and a crossed cluster extending toward the lower right.",
+        "长顶横和左侧竖笔构成开口框架，内有分离短线、分支中央主干和伸向右下的交叉笔画群。",
+    ),
+    "obs-char-000493": (
+        "A broad pointed arch encloses one central upright stroke with several short branches "
+        "on its upper left and two diverging lower extensions.",
+        "宽尖拱形包围一条中央直立笔画，其左上有数条短分支，下部延伸分向两侧。",
+    ),
+    "obs-char-000494": (
+        "A vertical dotted column at left stands beside a tall angular form at right with a "
+        "segmented diagonal band, bent stem, lower crossing, and horizontal base.",
+        "左侧竖向点列与右侧高长折角形并列；右形含分段斜带、弯折主干、下部交叉和横底线。",
+    ),
+    "obs-char-000495": (
+        "The very small image shows a pointed outer outline, a compact crossed triangular "
+        "cluster in the center, and a detached short horizontal mark below.",
+        "极小图像显示尖顶外轮廓、中央紧凑交叉三角笔画群和下方分离短横。",
+    ),
+    "obs-char-000496": (
+        "A pointed polygonal outer frame encloses an upper oval loop with crossed branches; "
+        "below it are two stacked groups of horizontal and vertical strokes.",
+        "尖顶多边外框包围带交叉分支的上部椭圆环，其下有两组层叠横竖笔画。",
+    ),
+    "obs-char-000497": (
+        "A bold central vertical trunk divides into several long upward branches on both "
+        "sides and narrows into a rounded descending end.",
+        "粗重中央竖向主干向两侧分出数条长上行枝笔，下部收窄为圆钝下垂端。",
+    ),
+    "obs-char-000498": (
+        "A long horizontal stroke has a forked left-pointing end and crosses a central "
+        "vertical line and a large curved loop opening toward the left.",
+        "长横左端呈叉状指向左侧，并穿过中央竖线和一个向左开口的大型弯曲环形。",
+    ),
+    "obs-char-000499": (
+        "The small narrow image shows an upper angular outlined cluster and a lower crossed "
+        "branching cluster, with a long thin stroke descending along the right side.",
+        "小型狭窄图像显示上部折角轮廓笔画群和下部交叉分支笔画群，右侧有一条长细笔下垂。",
+    ),
+    "obs-char-000500": (
+        "A narrow upright form combines a forked upper crossing, a central enclosed diamond "
+        "divided by short strokes, and two long diverging lower extensions.",
+        "狭长直立形体结合叉状上部交叉、由短笔分隔的中央菱形围框和两条长分向下部延伸。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

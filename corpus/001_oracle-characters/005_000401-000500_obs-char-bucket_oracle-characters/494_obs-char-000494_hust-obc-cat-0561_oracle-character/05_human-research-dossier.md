@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A vertical dotted column at left stands beside a
+  tall angular form at right with a segmented diagonal band, bent stem,
+  lower crossing, and horizontal base.`
+- 中文观察: `左侧竖向点列与右侧高长折角形并列；右形含分段斜带、弯折主干、下部交叉和横底线。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

@@ -110,9 +110,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A long horizontal stroke has a forked left-pointing
+  end and crosses a central vertical line and a large curved loop opening
+  toward the left.`
+- 中文观察: `长横左端呈叉状指向左侧，并穿过中央竖线和一个向左开口的大型弯曲环形。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

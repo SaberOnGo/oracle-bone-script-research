@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A thick outlined form has a rounded pointed top, two
+  long outer sides, and a broad horizontal base, leaving a tall open central
+  area.`
+- 中文观察: `粗线轮廓形顶部圆钝而尖，两侧为长外笔，下部有宽横底线，中央留出高长空白。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

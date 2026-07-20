@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A tilted angular loop at left joins a central stem
+  with two upper openings and spreading side branches; a long narrow lower
+  stem descends from the junction.`
+- 中文观察: `左侧倾斜折角环连接中央干，中央干上部有两个空隙并伸出侧枝；接点下方延续狭长下干。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

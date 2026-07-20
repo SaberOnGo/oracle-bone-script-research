@@ -3920,6 +3920,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "several diagonals cross the stem and spread into a forked lower end.",
         "紧凑弯曲左上笔群连接带一条右上枝的高长中央干；数条斜笔穿过竖干并向下分叉展开。",
     ),
+    "obs-char-000781": (
+        "A narrow central stem passes through pointed crossings above and below a long enclosed "
+        "teardrop-shaped opening.",
+        "狭长中央干穿过上下尖形交叉，中央围出一个长水滴形空隙。",
+    ),
+    "obs-char-000782": (
+        "Two adjacent forms stand together: the left is a dense branching cluster, while the right "
+        "has a pointed upper frame, a rounded middle opening, and a long curved lower tail.",
+        "两个相邻形体并列：左侧为浓重分枝笔群，右侧有尖顶上框、圆弯中部空隙和长弯下尾。",
+    ),
+    "obs-char-000783": (
+        "A tilted angular loop at left joins a central stem with two upper openings and spreading "
+        "side branches; a long narrow lower stem descends from the junction.",
+        "左侧倾斜折角环连接中央干，中央干上部有两个空隙并伸出侧枝；接点下方延续狭长下干。",
+    ),
+    "obs-char-000784": (
+        "The small image shows a rounded irregular body with two tiny upper oval marks, an inner "
+        "opening crossed by short strokes, and a broad curved lower base.",
+        "小图像显示不规则圆弯主体，上方有两个小椭圆痕，内部空隙被短笔交叉，下方为宽弯底部。",
+    ),
+    "obs-char-000785": (
+        "A long thin crescent-like outline encloses several angular inner strokes and tapers into a "
+        "separate-looking lower point and tail.",
+        "长而细的月牙状轮廓围住数条折角内笔，并收束为近似分离的下尖和尾笔。",
+    ),
+    "obs-char-000786": (
+        "The tiny faint image contains two small upper looped or diamond-like marks and a lower "
+        "angular cluster with an enclosed opening; fine connections remain difficult to resolve.",
+        "微小淡弱图像含两个小型上部环状或菱形痕，以及带空隙的下部折角笔群；细连接仍难辨。",
+    ),
+    "obs-char-000787": (
+        "Two narrow branching stems stand side by side; the left carries a small upper loop and "
+        "several lower roots, while the right has one short side branch and a pointed lower end.",
+        "两条狭长分枝干并列：左干带小型上环和数条下根，右干带一条短侧枝并收为尖下端。",
+    ),
+    "obs-char-000788": (
+        "A tall bent outline has a small rounded upper opening, a long descending left side, and a "
+        "separate angular lower section that turns toward the right.",
+        "高长弯折轮廓上部有小圆空隙，左侧长笔下垂；下方另有折角段向右转折。",
+    ),
+    "obs-char-000789": (
+        "A single thin wavering stem begins at a pointed upper loop, curves through the middle, and "
+        "ends at a short horizontal foot.",
+        "单条细波折干起于尖顶上环，中部弯曲，下端收于一条短横脚。",
+    ),
+    "obs-char-000790": (
+        "A bold left branching mass extends horizontally toward a rounded open right outline; the "
+        "right junction continues downward into a long segmented vertical tail.",
+        "粗重左侧分枝笔群横向伸向右侧圆弯开口轮廓；右侧接点向下延续为长段状竖尾。",
+    ),
+    "obs-char-000791": (
+        "A thick slanting upper stroke leads into a small angular frame with a short inner branch, "
+        "then turns into a pointed lower end.",
+        "粗重斜上笔引入带短内枝的小型折角框，随后转折为尖形下端。",
+    ),
+    "obs-char-000792": (
+        "A detached shallow rectangular loop sits above a narrow stem that forks near the top and "
+        "ends in a long pointed lower branch.",
+        "分离的浅矩形环位于上方；下方狭干近顶部分叉，并收为长尖下枝。",
+    ),
+    "obs-char-000793": (
+        "A dense forked left cluster stands beside a taller curved right stem with several short side "
+        "branches and a pointed upper turn.",
+        "浓重分叉左笔群旁有一条较高弯曲右干，右干带数条短侧枝并在上端尖折。",
+    ),
+    "obs-char-000794": (
+        "The tiny faint image contains two slim upper forked groups, a detached short diagonal at "
+        "right, and a denser lower branching cluster; fine joins remain unclear.",
+        "微小淡弱图像含两个狭长上部分叉组、右侧分离短斜笔和较浓重下部分枝群；细接点仍难辨。",
+    ),
+    "obs-char-000795": (
+        "A short upright crosses a broad upper horizontal bar; below it, two angled strokes join into "
+        "a small forked open basin.",
+        "短竖笔穿过上部宽横；其下两条斜笔汇合为小型分叉开放浅槽。",
+    ),
+    "obs-char-000796": (
+        "Two tall branching uprights descend into a lower rectangular frame divided by a horizontal "
+        "bar, with short roots extending below the frame.",
+        "两条高长分枝竖笔下接矩形下框，下框由横笔分隔，并向下伸出短根。",
+    ),
+    "obs-char-000797": (
+        "A dark narrow left upright joins a rounded open right loop through a short horizontal; the "
+        "left side continues into a long pointed lower tail.",
+        "深色狭长左竖通过短横连接右侧圆弯开口环；左侧继续延伸为长尖下尾。",
+    ),
+    "obs-char-000798": (
+        "Two adjacent stems fork into short upper branches and descend toward a small detached U-shaped "
+        "opening at the bottom.",
+        "两个相邻竖干向上分出短枝，并向下收束至底部小型分离 U 形空隙。",
+    ),
+    "obs-char-000799": (
+        "A tall curved outer outline surrounds a long inner diagonal opening and ends in several short "
+        "spreading lower roots.",
+        "高长弯曲外轮廓围住长斜向内空隙，下端伸出数条向外展开的短根。",
+    ),
+    "obs-char-000800": (
+        "A pointed upper diagonal leads into a small rectangular middle frame; a short lower branch "
+        "projects from the frame and bends toward the right.",
+        "尖形上斜笔引入小型中部矩形框；框下伸出短枝并向右弯折。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

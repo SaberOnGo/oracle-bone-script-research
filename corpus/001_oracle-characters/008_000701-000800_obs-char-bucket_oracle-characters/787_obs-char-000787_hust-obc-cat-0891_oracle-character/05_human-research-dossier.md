@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two narrow branching stems stand side by side; the
+  left carries a small upper loop and several lower roots, while the right
+  has one short side branch and a pointed lower end.`
+- 中文观察: `两条狭长分枝干并列：左干带小型上环和数条下根，右干带一条短侧枝并收为尖下端。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

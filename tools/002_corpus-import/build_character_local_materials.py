@@ -4319,6 +4319,105 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "below, and fine joins are unclear.",
         "狭长中央环状痕迹内有交叉笔；长斜向外笔向上下延伸，细连接难辨。",
     ),
+    "obs-char-000861": (
+        "The small gray image has a thin curved mark at left and a separate angular cluster at right with "
+        "several short branches; the gap is unclear.",
+        "小型灰度图像左侧有细弯笔，右侧有带数条短分枝的分离折角笔群；间隔难辨。",
+    ),
+    "obs-char-000862": (
+        "A tall narrow outline has pointed upper strokes, several parallel interior verticals, and separated "
+        "lower tips.",
+        "高长狭窄轮廓上部有尖形笔画，内部有数条平行竖笔，下端笔尖彼此分离。",
+    ),
+    "obs-char-000863": (
+        "A long curved stroke at left accompanies a broken diagonal chain of short marks at right; upper and "
+        "lower joins are unclear.",
+        "左侧长弯曲笔旁有右侧断续的斜向短笔链；上部和下部连接难辨。",
+    ),
+    "obs-char-000864": (
+        "A narrow cluster contains a tall pointed central space between curved side strokes, with small "
+        "detached marks at right.",
+        "狭长笔群中，弯曲侧笔之间有高长尖形空隙，右侧另有小型分离痕迹。",
+    ),
+    "obs-char-000865": (
+        "A rounded rectangular enclosure contains several long vertical internal strokes; their lower ends "
+        "remain visibly separate.",
+        "圆弧矩形闭合轮廓内有数条长竖向内笔；各笔下端仍明显分离。",
+    ),
+    "obs-char-000866": (
+        "Detached marks at left flank a central rounded crossing with a horizontal stroke and two lower legs; "
+        "a short curved mark sits at right.",
+        "左侧分离痕迹分列中央圆弧交叉形两旁，中央有横笔和两条下支；右侧有短弯笔。",
+    ),
+    "obs-char-000867": (
+        "A bold upper horizontal stroke leads into a rounded central loop; a long lower stem and a short "
+        "right branch extend from the middle.",
+        "粗重上横笔引入圆弧中央环状痕迹；中部向下延伸长笔干，并向右伸出短分枝。",
+    ),
+    "obs-char-000868": (
+        "A thin left descending stroke stands beside a compact angular upper form and a lower rectangular "
+        "enclosure.",
+        "纤细左侧下垂笔旁有紧凑折角上部形体和下方矩形闭合轮廓。",
+    ),
+    "obs-char-000869": (
+        "The tiny gray image shows an angular upper cluster above a horizontal base with short vertical "
+        "strokes; exact joins are unclear.",
+        "微小灰度图像显示折角上部笔群位于横向底笔之上，底部有短竖笔；具体连接难辨。",
+    ),
+    "obs-char-000870": (
+        "A dark branching cluster contains an open rounded middle and a curved lower extension; several tips "
+        "remain distinct.",
+        "深色分枝笔群中部有圆弧开口，下方有弯曲延伸；数个笔尖保持清楚分离。",
+    ),
+    "obs-char-000871": (
+        "A thin pointed upper outline descends into rounded middle marks and a shallow lower bar with two "
+        "short legs; a right mark is detached.",
+        "纤细尖形上部轮廓向下连接圆弧中部痕迹和带两条短腿的浅横底笔；右侧痕迹分离。",
+    ),
+    "obs-char-000872": (
+        "A dense dark cluster has several pointed upper branches and a jagged lower descending section.",
+        "密集深色笔群上部有数条尖形分枝，下部形成锯齿状下垂段。",
+    ),
+    "obs-char-000873": (
+        "Several thin diagonal strokes form a central triangular lower junction, with tall side strokes and a "
+        "detached short mark at right.",
+        "数条纤细斜笔在下中部形成三角接点，两侧有高长侧笔，右侧另有分离短笔。",
+    ),
+    "obs-char-000874": (
+        "A bold central upright has a forked rounded upper section and a broad lower cross or branch; a "
+        "detached curved stroke stands at left.",
+        "粗重中央直立笔上部呈圆弧分叉，下部有宽大的横向交叉或分枝；左侧有分离弯笔。",
+    ),
+    "obs-char-000875": (
+        "The tiny gray image contains dense overlapping diagonal strokes in a compact cluster; fine joins and "
+        "orientation are unclear.",
+        "微小灰度图像含紧凑密集的重叠斜笔；细连接和具体方向难以辨认。",
+    ),
+    "obs-char-000876": (
+        "The tiny gray image shows two separated thick slightly curved vertical strokes; internal detail is "
+        "not available at this resolution.",
+        "微小灰度图像显示两条分离的粗重略弯竖笔；当前分辨率下无法辨认内部细节。",
+    ),
+    "obs-char-000877": (
+        "Two long outer curves enclose a central elongated loop crossed by thin strokes; an upper diagonal "
+        "extends from the junction.",
+        "两条长外弯曲笔围住中央狭长环状痕迹，内部有细笔交叉；接点向上延出斜笔。",
+    ),
+    "obs-char-000878": (
+        "Several thin curved and diagonal strokes form an open lower enclosure; detached short upper marks and "
+        "right-side strokes remain visible.",
+        "数条纤细弯曲和斜向笔形成下部开口轮廓；上方分离短笔和右侧笔仍清晰可见。",
+    ),
+    "obs-char-000879": (
+        "Two long outer curves flank a central rounded enclosure with a horizontal upper stroke; the lower "
+        "parts converge toward the enclosure.",
+        "两条长外弯曲笔分列中央圆弧闭合轮廓两旁，轮廓上方有横笔；下部笔画向轮廓收拢。",
+    ),
+    "obs-char-000880": (
+        "Two broad outer vertical curves flank a central branching stem; two long lower diagonals end in "
+        "horizontal feet, with short detached blocks around them.",
+        "两条宽大外侧弯曲竖笔分列中央分枝笔干两旁；两条长下斜笔以横向笔足收尾，周围有分离块状痕迹。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

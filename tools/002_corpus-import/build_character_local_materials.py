@@ -2720,6 +2720,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "branches before continuing into a long curved lower point.",
         "狭长中央干顶部叉开，沿两侧交替伸出数条短枝，下端延续为长弯尖笔。",
     ),
+    "obs-char-000541": (
+        "A pointed upper oval contains a horizontal divider and narrows into a central stem; "
+        "a lower crossbar supports three long descending strokes.",
+        "尖顶上部椭圆内有一条横向分隔，并收窄为中央干；下部横栏带三条长下垂笔。",
+    ),
+    "obs-char-000542": (
+        "A broad top bar caps a dense central angular cluster with an open loop and several "
+        "crossings; a central stroke divides below into two long diagonals.",
+        "宽顶横盖住带开口环和数处交叉的密集中央折笔群，中央笔下部分成两条长斜笔。",
+    ),
+    "obs-char-000543": (
+        "Two narrow jagged vertical strokes run side by side, meeting at several diagonal "
+        "junctions and ending in separated pointed lower extensions.",
+        "两条狭长锯折竖笔并列，在数个斜向接点处相交，下端形成彼此分离的尖形延伸。",
+    ),
+    "obs-char-000544": (
+        "Two angular looped forms are stacked at left, while a tall bent stroke at right "
+        "carries a top bar and two short rightward branches.",
+        "左侧层叠两个折角环形，右侧高长弯折笔带一条顶横和两条向右短枝。",
+    ),
+    "obs-char-000545": (
+        "Three detached short vertical marks stand above a compact crossed angular cluster; "
+        "a lower horizontal bar has four short descending strokes.",
+        "三条分离短竖痕位于紧凑交叉折笔群上方，下部横栏带四条短下垂笔。",
+    ),
+    "obs-char-000546": (
+        "A single long tapered vertical is crossed near the middle by a horizontal bar and "
+        "has one short diagonal branch rising to the upper right.",
+        "单条长渐尖竖笔在中部附近被横栏穿过，并有一条短斜枝伸向右上。",
+    ),
+    "obs-char-000547": (
+        "A small pointed upper loop is crossed by a narrow central stem and a short rightward "
+        "diagonal, above a long tapered descending stroke.",
+        "小型尖顶上环被狭窄中央干和右向短斜笔穿过，下方延伸一条长渐尖下行笔。",
+    ),
+    "obs-char-000548": (
+        "Two long bowed upright strokes stand apart, each with a short upper side branch; a "
+        "broad lower bar crosses both and extends beyond them.",
+        "两条长弓曲直立笔分开排列，各带一条上部短侧枝；宽下横穿过两笔并向外伸出。",
+    ),
+    "obs-char-000549": (
+        "A short cross sits at the top of a long bent descending stroke, while two small linked "
+        "loops hang below its central bend.",
+        "短交叉位于长弯折下行笔顶端，两个相连小环垂在其中部弯折下方。",
+    ),
+    "obs-char-000550": (
+        "A broad curved lower basin supports a zigzag line with three upward peaks, and two "
+        "small stacked-loop forms rise above separate peaks.",
+        "宽弯下部盆形承托带三个上尖的折线，两个小型叠环形分别升出不同尖峰。",
+    ),
+    "obs-char-000551": (
+        "A broad peaked roof spreads to both sides above a central upright outlined body, "
+        "which is crossed by a middle bar and contains a narrow inner vertical.",
+        "宽尖顶向两侧展开并覆盖中央直立轮廓体，轮廓体被中部横栏穿过，内有狭窄竖笔。",
+    ),
+    "obs-char-000552": (
+        "A rounded arch contains two horizontal bars and two long internal vertical strokes, "
+        "while several thin rays fan upward from the top.",
+        "圆拱内有两条横栏和两条长内竖笔，数条细短射线从顶部向上扇形展开。",
+    ),
+    "obs-char-000553": (
+        "A tall narrow triangular outline stands at left; at right, a long curved upright is "
+        "crossed near the middle by a diagonal stroke.",
+        "高窄三角轮廓位于左侧；右侧长弯直立笔在中部附近被一条斜笔穿过。",
+    ),
+    "obs-char-000554": (
+        "A large pointed outer arch with long side strokes encloses a broad curved central "
+        "hook and a small squared loop near the lower left.",
+        "带长侧笔的大型尖顶外拱包围宽弯中央钩形和左下附近的小型方环。",
+    ),
+    "obs-char-000555": (
+        "A long left descending stroke joins a small angular top enclosure, while a separate "
+        "small bent loop at right lies below a short sloping top mark.",
+        "左侧长下行笔连接小型折角顶框，右侧分离小弯环位于一条短斜顶痕下方。",
+    ),
+    "obs-char-000556": (
+        "A compact central pointed body has crossing upper branches and several long lower "
+        "extensions, surrounded on both sides by detached short marks and dots.",
+        "紧凑中央尖形体带交叉上枝和数条长下部延伸，两侧分布分离短痕与点状痕迹。",
+    ),
+    "obs-char-000557": (
+        "A compact upper loop is divided by a vertical and crossed by diagonal top strokes; "
+        "a linked lower rectangular frame contains a horizontal divider.",
+        "紧凑上环被竖笔分隔并由斜顶笔穿过，相连下部矩形框内有一条横向分隔。",
+    ),
+    "obs-char-000558": (
+        "A large tall rectangular outer outline with a stepped lower-left side surrounds an "
+        "upper three-lobed loop joined to a branching central stroke and long lower lines.",
+        "左下侧呈阶折的大型高长矩形外框包围上部三瓣环，以及与其相连的中央分支笔和长下线。",
+    ),
+    "obs-char-000559": (
+        "A slender vertical form has a crossed double loop at the top, alternating angular "
+        "side branches through the middle, and a small fork at the lower end.",
+        "狭长竖形顶部为交叉双环，中部两侧交替伸出折角枝笔，下端形成小叉。",
+    ),
+    "obs-char-000560": (
+        "A pointed oval outer outline encloses a small centrally divided rectangle and two "
+        "long narrow strokes that continue downward toward the open lower end.",
+        "尖顶椭圆外轮廓包围中央分隔小矩形和两条向下延伸至开口下端的长狭笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

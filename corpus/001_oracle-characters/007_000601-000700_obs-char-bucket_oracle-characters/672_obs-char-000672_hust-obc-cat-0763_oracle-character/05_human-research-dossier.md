@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A tall thin irregular form has two stacked angular
+  openings or bars near the upper right, a bowed left side, and several
+  narrow crossing or forked lower strokes.`
+- 中文观察: `高长纤细不规则形右上附近有两个层叠折角空隙或横栏，左侧弓曲，下部有数条交叉或叉笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

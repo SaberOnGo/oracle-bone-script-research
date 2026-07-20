@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A central irregular loop or frame is crossed by
+  diagonals and supported by two long descending strokes; a pointed upright
+  projection rises at upper right.`
+- 中文观察: `中央不规则环或框被斜笔穿过，并由两条长下行笔支撑，右上升出尖形直立突。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

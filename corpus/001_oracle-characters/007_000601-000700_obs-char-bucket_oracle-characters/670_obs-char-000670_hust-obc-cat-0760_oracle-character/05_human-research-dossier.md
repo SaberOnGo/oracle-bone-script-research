@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two long outward-curving side strokes enclose a
+  broad open middle, where several short angular branches cross beneath a
+  sharply bent upper-right stroke.`
+- 中文观察: `两条长外弯侧笔围出宽开口中部，数条短折角枝在尖折右上笔下方交叉。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

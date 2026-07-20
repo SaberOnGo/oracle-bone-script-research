@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A small upper angular cluster spreads short branches
+  to both sides, then continues through a segmented wavering right descent
+  into a long lower-left slanting tail.`
+- 中文观察: `小型上部折角笔群向两侧伸短枝，继而沿分节波折右下笔延续成长左下斜尾。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

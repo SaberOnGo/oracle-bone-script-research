@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A large bold central outline includes a small round
+  opening at upper left, a broad rounded upper-right loop, and a winding
+  lower edge; a separate wavering stem stands right.`
+- 中文观察: `大型粗重中央轮廓含左上小圆空隙、宽圆右上环和曲折下缘，右侧另有分离波折竖干。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

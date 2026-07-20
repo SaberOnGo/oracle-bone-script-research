@@ -4710,6 +4710,99 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "at right.",
         "大型深色不规则笔群占据左侧和中央，右侧另有一条长分离弯曲笔。",
     ),
+    "obs-char-000941": (
+        "A narrow vertical cluster has upper hooked curves, a long central descending stroke, and short side "
+        "branches.",
+        "狭长竖向笔群有上部钩状弯笔、长中央下行笔和短侧分枝。",
+    ),
+    "obs-char-000942": (
+        "A dense form combines a left rectangular enclosure, a central crossing, and broad right branching "
+        "strokes.",
+        "密集形体结合左侧矩形闭合轮廓、中央交叉和宽大的右侧分枝笔。",
+    ),
+    "obs-char-000943": (
+        "A faint narrow form has a short upper cross-stroke, a central descending line, and lower V-shaped "
+        "branches.",
+        "灰度较淡狭长形体有上部短横笔、中央下行线和下部 V 形分枝。",
+    ),
+    "obs-char-000944": (
+        "A compact dense form combines a dark upper fork, a central descending stroke, lower loops, and a right "
+        "branch.",
+        "紧密密集形体结合深色上部叉形笔、中央下行笔、下部环状笔和右侧分枝。",
+    ),
+    "obs-char-000945": (
+        "A tall central curve is flanked by a small left enclosure and several right and lower branching "
+        "strokes.",
+        "高长中央弯笔旁有左侧小型闭合轮廓以及数条右侧和下部分枝笔。",
+    ),
+    "obs-char-000946": (
+        "An angular upper enclosure leads into a small rounded lower cluster; a long curved stroke descends at "
+        "right.",
+        "折角上部闭合轮廓连接小型圆弧下部笔群；右侧有长弯曲下行笔。",
+    ),
+    "obs-char-000947": (
+        "A rectangular central loop sits between an upper angled mark and a long right curve with two short "
+        "cross-strokes.",
+        "矩形中央环状轮廓位于上部斜向痕迹和长右弯笔之间，右侧带两条短横笔。",
+    ),
+    "obs-char-000948": (
+        "Two small rounded loops at the top connect to a central branching stem and a long right-side curve.",
+        "顶部两个小型圆弧环连接中央分枝笔干和右侧长弯笔。",
+    ),
+    "obs-char-000949": (
+        "Two adjacent vertical clusters are visible: a rounded-loop cluster at left and a branched upright at "
+        "right.",
+        "可见两个相邻竖向笔群：左侧为圆弧环状笔群，右侧为分枝直立笔。",
+    ),
+    "obs-char-000950": (
+        "A bold central diamond-like loop has pointed upper and lower strokes and detached side marks.",
+        "粗重中央菱形近似环状笔有尖形上、下伸笔和分离侧痕迹。",
+    ),
+    "obs-char-000951": (
+        "A thick upright is crossed by three short horizontal strokes, with a small lower extension.",
+        "粗重直立笔被三条短横笔交叉，并带有小型下伸笔。",
+    ),
+    "obs-char-000952": (
+        "A broad pointed roof-like form has sloping sides, a heavy lower base, and a central dark interior.",
+        "宽大尖形屋顶状形体有倾斜两侧、粗重下部底笔和中央深色内部笔。",
+    ),
+    "obs-char-000953": (
+        "Two separate tall rectangular clusters each contain horizontal cross-strokes and short side "
+        "projections.",
+        "两个分离的高长矩形笔群各自含横向交叉笔和短侧伸笔。",
+    ),
+    "obs-char-000954": (
+        "A central rectangular enclosure has four side projections and pointed upper and lower triangular "
+        "strokes.",
+        "中央矩形闭合轮廓有四条侧伸笔以及尖形上、下三角状笔。",
+    ),
+    "obs-char-000955": (
+        "A central crossbar and upright lead into several long branching lower strokes.",
+        "中央横笔和直立笔向下连接数条长分枝笔。",
+    ),
+    "obs-char-000956": (
+        "A large arch-like outer frame encloses several distinct interior clusters and lower descending "
+        "strokes.",
+        "大型拱弧状外框围合数个可分辨的内部笔群和下部下行笔。",
+    ),
+    "obs-char-000957": (
+        "A small oval mark at left accompanies an upper hooked stroke and a long descending central branch.",
+        "左侧小型椭圆痕迹旁有上部钩状笔和长中央下行分枝。",
+    ),
+    "obs-char-000958": (
+        "A bold stacked form combines a top horizontal with inverted triangular strokes, a middle rounded band, "
+        "and a lower open section.",
+        "粗重叠置形体结合顶部横笔和倒三角状笔、中部圆弧带以及下部开放区段。",
+    ),
+    "obs-char-000959": (
+        "A compact upper rounded enclosure sits above a jagged lower branching cluster.",
+        "紧密上部圆弧闭合轮廓位于曲折下部分枝笔群之上。",
+    ),
+    "obs-char-000960": (
+        "A rounded enclosed form has two pointed upper projections, a horizontal interior stroke, and a thick "
+        "curved base.",
+        "圆弧闭合形体有两个尖形上伸笔、内部横笔和粗重弯曲底笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

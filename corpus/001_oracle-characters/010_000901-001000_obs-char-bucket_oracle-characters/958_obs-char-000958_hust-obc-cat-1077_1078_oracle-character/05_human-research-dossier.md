@@ -109,9 +109,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A bold stacked form combines a top horizontal with
+  inverted triangular strokes, a middle rounded band, and a lower open
+  section.`
+- 中文观察: `粗重叠置形体结合顶部横笔和倒三角状笔、中部圆弧带以及下部开放区段。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

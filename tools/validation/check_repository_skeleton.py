@@ -2498,7 +2498,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         readiness_index_path = object_dir / "13_human-research-readiness-index.json"
         material_observation_path = object_dir / "14_material-visual-observation.md"
         expects_material_observation = project_id in {
-        f"obs-char-{index:06d}" for index in range(1, 961)
+        f"obs-char-{index:06d}" for index in range(1, 981)
         }
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():

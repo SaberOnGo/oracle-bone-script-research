@@ -4803,6 +4803,93 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "curved base.",
         "圆弧闭合形体有两个尖形上伸笔、内部横笔和粗重弯曲底笔。",
     ),
+    "obs-char-000961": (
+        "A central Y-shaped branching form rises from a long horizontal base stroke.",
+        "中央 Y 形分枝形体从长横向底笔上方伸起。",
+    ),
+    "obs-char-000962": (
+        "A tall rectangular cluster contains two horizontal interior strokes and several upright projections.",
+        "高长矩形笔群含两条内部横笔和数条直立伸笔。",
+    ),
+    "obs-char-000963": (
+        "A small rectangular lower enclosure has short upper projections and a central descending stem.",
+        "小型矩形下部闭合轮廓有短上伸笔和中央下行笔干。",
+    ),
+    "obs-char-000964": (
+        "A tall rounded rectangular enclosure is divided into several compartments by horizontal and vertical "
+        "strokes.",
+        "高长圆角矩形闭合轮廓由横、竖笔分隔为数个区段。",
+    ),
+    "obs-char-000965": (
+        "A rounded lower enclosure supports a pointed oval-like upper form, with a thick open base.",
+        "圆弧下部闭合轮廓承托尖形椭圆状上部形体，并有粗重开放底笔。",
+    ),
+    "obs-char-000966": (
+        "A tall rectangular enclosure contains a central cross formed by one horizontal and one vertical "
+        "stroke.",
+        "高长矩形闭合轮廓内部有一条横笔和一条竖笔组成的中央交叉。",
+    ),
+    "obs-char-000967": (
+        "The faint image shows a short upper curve and a separate lower curved stroke; the connection is "
+        "unclear.",
+        "灰度较淡图像显示上部短弯笔和分离的下部弯笔；两者连接不清。",
+    ),
+    "obs-char-000968": (
+        "A pointed oval-like enclosure is crossed by a horizontal stroke and a central vertical line.",
+        "尖形椭圆状闭合轮廓被横笔和中央竖线交叉。",
+    ),
+    "obs-char-000969": (
+        "A small rectangular grid at upper left is accompanied by a long right-hand curve and a lower side "
+        "branch.",
+        "左上小型矩形格状笔旁有右侧长弯笔和下部侧分枝。",
+    ),
+    "obs-char-000970": (
+        "A small upper grid-like enclosure sits above a horizontal stroke and a long descending diagonal.",
+        "小型上部格状闭合轮廓位于横笔和长下行斜笔之上。",
+    ),
+    "obs-char-000971": (
+        "Two thick upright strokes enclose a rounded lower curve, forming a compact bold cluster.",
+        "两条粗重直立笔围合圆弧下弯笔，形成紧密粗重笔群。",
+    ),
+    "obs-char-000972": (
+        "A narrow oval-like enclosure contains an inner vertical stroke and ends in a pointed lower fork.",
+        "狭长椭圆状闭合轮廓含内部竖笔，并以尖形下部叉笔收尾。",
+    ),
+    "obs-char-000973": (
+        "A rectangular upper grid is accompanied by a long descending right curve and a short lower branch.",
+        "矩形上部格状笔旁有长下行右弯笔和短下部侧分枝。",
+    ),
+    "obs-char-000974": (
+        "A small rectangular grid sits beside a long descending diagonal and a short upper stroke.",
+        "小型矩形格状笔旁有长下行斜笔和短上部笔。",
+    ),
+    "obs-char-000975": (
+        "A small dark upper block sits above a larger rectangular grid-like lower cluster.",
+        "小型深色上部块状笔位于较大型矩形格状下部笔群之上。",
+    ),
+    "obs-char-000976": (
+        "Two separated rectangular grid-like clusters are placed diagonally, one above left and one below "
+        "right.",
+        "两个分离的矩形格状笔群沿对角方向配置，分别位于左上和右下。",
+    ),
+    "obs-char-000977": (
+        "An oval-like enclosed cluster contains internal grid strokes and continues into a long lower stem.",
+        "椭圆状闭合笔群含内部格状笔，并向下延续成长笔干。",
+    ),
+    "obs-char-000978": (
+        "A broad rounded enclosure contains a horizontal interior band, with a right outer curve and a lower "
+        "stem.",
+        "宽大圆弧闭合轮廓含内部横向带状笔，右侧有外弯笔，下方接笔干。",
+    ),
+    "obs-char-000979": (
+        "A small dense branching cluster combines a dark upper projection, a central crossing, and rounded lower "
+        "marks.",
+        "小型密集分枝笔群结合深色上伸笔、中央交叉和圆弧下部痕迹。",
+    ),
+    "obs-char-000980": (
+        "A U-shaped grid-like cluster has an outer curved stroke and two long lower branching strokes.",
+        "U 形格状笔群有外部弯曲笔和两条长下部分枝笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

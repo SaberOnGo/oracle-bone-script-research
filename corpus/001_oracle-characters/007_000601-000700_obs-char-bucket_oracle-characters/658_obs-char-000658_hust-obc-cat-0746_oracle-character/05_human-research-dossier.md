@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A single bold low-resolution form has a blocky
+  enlarged upper section and narrows into a long sinuous lower stem, with
+  one rounded side opening or recess at mid-height.`
+- 中文观察: `单个粗重低分辨率形上部块状增宽，下收为长曲折干，中部一侧有圆弯空隙或凹口。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

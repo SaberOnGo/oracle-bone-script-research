@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two detached narrow forms stand side by side: a
+  crossed forked cluster at left and a tall right stem with top forks, a
+  small middle loop, and split lower legs.`
+- 中文观察: `两个分离狭形并列：左侧为交叉叉状笔群，右侧高干带顶叉、小中环和分开下腿。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

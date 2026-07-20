@@ -3220,6 +3220,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "long diagonal branch at mid-height, and a pointed lower end.",
         "单条纤细波折竖笔近顶部有短叉，中部有折角和长斜枝，下端收尖。",
     ),
+    "obs-char-000641": (
+        "A slender wavering vertical has a small hooked upper turn, two crossing branches near "
+        "the middle, and a narrow open loop along its lower descent.",
+        "纤细波折竖笔带小型钩曲上折，中部附近有两条交叉枝，下行段形成狭窄开口环。",
+    ),
+    "obs-char-000642": (
+        "A dense bold upper cluster combines a rounded loop, long crossbar, and pointed hanging "
+        "strokes; a separate right descent bends into an angular lower loop and long tail.",
+        "密集粗重上部笔群结合圆环、长横栏和尖形下垂笔；分离右下笔弯成折角下环和长尾。",
+    ),
+    "obs-char-000643": (
+        "The tiny faint image shows a central narrow vertical crossed by several diagonals, "
+        "with short hooked projections above and multiple thin descending strokes below.",
+        "微小淡弱图像显示中央狭竖被数条斜笔穿过，上有短钩突，下有多条纤细下垂笔。",
+    ),
+    "obs-char-000644": (
+        "A long bent stroke with a short inward branch stands at left; at right, a square upper "
+        "loop rests on a branching stem with one long diagonal descent.",
+        "左侧为带短内向枝的长弯笔；右侧方形上环立于分枝干上，并有一条长斜下笔。",
+    ),
+    "obs-char-000645": (
+        "A dark irregular left outline is accompanied by several detached marks; a pointed "
+        "triangular upper loop at right continues into a long winding stroke and lower hook.",
+        "深色不规则左轮廓旁有数处分离痕；右侧尖三角上环延续为长曲折笔和下钩。",
+    ),
+    "obs-char-000646": (
+        "A thick left upright curves across the top and sends a diagonal inward branch toward "
+        "a rounded open loop at right, with a short separate-looking lower spur.",
+        "粗左竖沿顶部弯曲，并向内伸出斜枝接近右侧圆弯开口环，另有短小下突。",
+    ),
+    "obs-char-000647": (
+        "The very faint small image shows a narrow curling line with an upper hook, a central "
+        "crossing or close join, and a rounded lower turn; fine connections remain unclear.",
+        "极淡小图显示带上钩、中央交叉或近接点和圆弯下折的狭曲线，细部连接仍难辨。",
+    ),
+    "obs-char-000648": (
+        "A complex thin cluster combines pointed upper branches, a small central loop, several "
+        "crossings, and an open lower framework; a long separate upright stands at right.",
+        "复杂纤细笔群结合尖形上枝、小中央环、数处交叉和开口下框，右侧另有长分离竖笔。",
+    ),
+    "obs-char-000649": (
+        "A tall narrow chain has two small round openings on separate upper stalks, a crossed "
+        "middle oval, and several fine forked strands descending below.",
+        "高狭竖链顶部两条分立细干各带小圆空隙，中部为交叉椭圆，下有数条细叉状垂线。",
+    ),
+    "obs-char-000650": (
+        "A central tall upright is capped by a hollow pointed triangle and crossed above an "
+        "inverted triangular opening; curved side branches lead to two long outer legs.",
+        "中央高竖顶端为中空尖三角，并在倒三角空隙上方被横笔穿过；弯侧枝连接两条长外腿。",
+    ),
+    "obs-char-000651": (
+        "A broad pointed upper outline contains crossing diagonals and a rounded opening, then "
+        "narrows into a lower angular grid with a long slanting right tail.",
+        "宽大尖顶上轮廓内含交叉斜笔和圆形空隙，下接折角格状笔群及长右斜尾。",
+    ),
+    "obs-char-000652": (
+        "Three close vertical chains hang from a shallow curved top, each containing small "
+        "stacked oval or diamond-shaped openings, with pointed lower ends.",
+        "三条紧邻竖链悬于浅弯顶线下，各含层叠小椭圆或菱形空隙，下端收尖。",
+    ),
+    "obs-char-000653": (
+        "A single narrow dark vertical has a forked top, two small angular side openings or "
+        "bends in its upper half, and a long thin lower continuation.",
+        "单个狭深色竖形带叉顶，上半部有两个小折角侧空隙或弯折，并延续为细长下笔。",
+    ),
+    "obs-char-000654": (
+        "The faint image shows several separated slender descending strokes: a long wavering "
+        "left line, a short central hook, and a tall right line with an angular side branch.",
+        "淡弱图像显示数条分离纤细下行笔：长波折左线、短中央钩和带折角侧枝的高右线。",
+    ),
+    "obs-char-000655": (
+        "A left angular outline with a small upper opening descends through sharp bends, beside "
+        "a tall right vertical with a forked top and crossing lower diagonal.",
+        "带小上部空隙的左折角轮廓经数次尖折下行，旁有叉顶高右竖和交叉下斜笔。",
+    ),
+    "obs-char-000656": (
+        "Two detached narrow forms stand side by side: a crossed forked cluster at left and a "
+        "tall right stem with top forks, a small middle loop, and split lower legs.",
+        "两个分离狭形并列：左侧为交叉叉状笔群，右侧高干带顶叉、小中环和分开下腿。",
+    ),
+    "obs-char-000657": (
+        "A branching left stem contains a small square middle loop and a long pointed descent; "
+        "a detached curved right stem carries short upper and lower branches.",
+        "分枝左干含小方形中环和长尖下笔；分离弯曲右干带短上枝和下枝。",
+    ),
+    "obs-char-000658": (
+        "A single bold low-resolution form has a blocky enlarged upper section and narrows into "
+        "a long sinuous lower stem, with one rounded side opening or recess at mid-height.",
+        "单个粗重低分辨率形上部块状增宽，下收为长曲折干，中部一侧有圆弯空隙或凹口。",
+    ),
+    "obs-char-000659": (
+        "A left upper outline with several horizontal inner bars divides into pointed lower "
+        "branches; a detached thin right vertical ends in two short diagonal strokes.",
+        "左上轮廓内有数条横向内栏，下部分成尖形枝笔；分离细右竖末端带两条短斜笔。",
+    ),
+    "obs-char-000660": (
+        "The tiny image contains two detached cross-shaped marks at upper left, a small loop on "
+        "a forked stem below them, and a separate crossed zigzag form at right.",
+        "微小图像含左上两个分离叉形痕、其下叉干上的小环，以及右侧分离交叉锯折形。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

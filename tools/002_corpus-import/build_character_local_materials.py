@@ -2120,6 +2120,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "upper tips and short internal crossings.",
         "数条层叠折线组成狭窄竖向笔画群，上端有尖状笔画，内部有短交叉。",
     ),
+    "obs-char-000421": (
+        "Two bold forms appear side by side: the left has a rectangular lower frame, "
+        "while the right has crossed central strokes and an angular lower extension.",
+        "两个粗重形体左右并列：左侧下部为矩形框架，右侧中央笔画交叉并向下折角延伸。",
+    ),
+    "obs-char-000422": (
+        "The small image shows two narrow upright forms and a detached short horizontal "
+        "stroke near the lower left; fine strokes are difficult to resolve.",
+        "小图中可见两个狭长直立形体，左下另有一短横；细笔画因分辨率较低而难以辨清。",
+    ),
+    "obs-char-000423": (
+        "Two compact upright forms are separated by white space; each combines angular "
+        "outer strokes with small enclosed or crossing areas.",
+        "两个紧凑直立形体以空白分隔，均由折角外轮廓和小型闭合或交叉区域组成。",
+    ),
+    "obs-char-000424": (
+        "Two small stacked box-like marks at left stand apart from a taller narrow form "
+        "at right with crossing and angled strokes.",
+        "左侧两个小型层叠框状痕迹与右侧较高狭长形体分离，右侧可见交叉和斜折笔画。",
+    ),
+    "obs-char-000425": (
+        "Two bold separated forms are visible: a sinuous crossed form at left and a "
+        "tall pointed outline on a short base at right.",
+        "可见两个粗重分离形体：左侧为曲折交叉形，右侧为立于短底线上的高尖轮廓。",
+    ),
+    "obs-char-000426": (
+        "Two bold forms are separated: the left is a four-armed crossed figure with "
+        "outlined ends, and the right has crossed upper strokes and an angular lower loop.",
+        "两个粗重形体彼此分离：左侧为四向交叉且末端带轮廓，右侧上部交叉、下部呈折角环曲。",
+    ),
+    "obs-char-000427": (
+        "The small image contains two narrow upright forms; the left is tightly twisted, "
+        "and the right has a central crossing and forked lower strokes.",
+        "小图包含两个狭长直立形体：左侧紧密扭曲，右侧中央交叉且下部笔画分叉。",
+    ),
+    "obs-char-000428": (
+        "A detached left cluster has two long upper strokes above a short bar, while a "
+        "taller right cluster combines a central crossing with angled lower strokes.",
+        "分离的左侧笔画群由短横及其上两条长笔画组成，右侧较高笔画群中央交叉、下部斜折。",
+    ),
+    "obs-char-000429": (
+        "Several closely spaced narrow forms overlap visually; crossed upper strokes and "
+        "multiple descending angled lines are visible, but boundaries are unclear.",
+        "数个狭长形体间距很近并在视觉上重叠；可见上部交叉和多条下行斜线，边界不清。",
+    ),
+    "obs-char-000430": (
+        "A single narrow vertical cluster contains several short transverse strokes, "
+        "small internal crossings, and one thin descending tail.",
+        "单个狭长竖向笔画群包含数条短横、若干内部交叉和一条纤细下垂尾笔。",
+    ),
+    "obs-char-000431": (
+        "A large outer enclosure surrounds a smaller inner rectangle, with two separated "
+        "forked or angled extensions descending from the lower sides.",
+        "大型外部围框包围较小内矩形，下部两侧各有分离的分叉或折角延伸。",
+    ),
+    "obs-char-000432": (
+        "A broad curved stroke crosses a central angular cluster; a separate hooked or "
+        "bent extension descends toward the lower left.",
+        "宽弧笔画穿过中央折角笔画群，另有钩曲或弯折延伸向左下方下垂。",
+    ),
+    "obs-char-000433": (
+        "The very small image shows a narrow vertical form with short branching strokes "
+        "near the top and a compact crossed cluster in the middle.",
+        "极小图像显示狭长竖向形体，上部有短分支笔画，中部为紧凑交叉笔画群。",
+    ),
+    "obs-char-000434": (
+        "Two adjacent upright forms are visible: the left has an upper crossing and curved "
+        "lower stroke, while the right has a small boxed top and long descending lines.",
+        "两个直立形体相邻：左侧上部交叉、下部弯曲，右侧顶部有小框并带长下行笔画。",
+    ),
+    "obs-char-000435": (
+        "A gridded rectangular form at left is separated from a taller angular form at "
+        "right with an upper crossing and a bent lower stroke.",
+        "左侧网格状矩形与右侧较高折角形体分离，右侧上部交叉并有弯折下部笔画。",
+    ),
+    "obs-char-000436": (
+        "The low-contrast narrow image shows a long curved vertical stroke with several "
+        "short side branches and an angular bend near the lower middle.",
+        "低对比度狭窄图像中可见一条长弯曲竖笔，带数条短侧枝，中下部有折角。",
+    ),
+    "obs-char-000437": (
+        "Two irregular side clusters flank a central enclosed or crossed area; a broad "
+        "curved stroke extends downward and bends to the right.",
+        "两个不规则侧部笔画群夹着中央闭合或交叉区域，一条宽弧笔向下并折向右侧。",
+    ),
+    "obs-char-000438": (
+        "A compact slanting cluster combines several small upper angular marks, a central "
+        "crossing, and multiple narrow strokes descending from the lower edge.",
+        "紧凑斜向笔画群由数个上部小折角、中央交叉和多条自下缘下垂的狭长笔画组成。",
+    ),
+    "obs-char-000439": (
+        "A compact angular cluster at left connects or closely approaches a thin branching "
+        "form at upper right; two long angled strokes descend below.",
+        "左侧紧凑折角笔画群与右上纤细分支形体相接或紧邻，下方有两条长斜笔。",
+    ),
+    "obs-char-000440": (
+        "The very small low-resolution image shows a dense irregular cluster with several "
+        "short crossings and two longer slanting strokes along the right side.",
+        "极小低分辨率图像显示密集不规则笔画群，内部有数处短交叉，右侧有两条较长斜笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

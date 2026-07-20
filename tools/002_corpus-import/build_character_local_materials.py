@@ -4120,6 +4120,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "the crossing on both sides.",
         "长直向下延伸的中央笔横过斜向分枝，交叉两侧分布着数个分离的块状痕迹。",
     ),
+    "obs-char-000821": (
+        "The small gray image shows a compact diagonal cluster with several short bars and a thin stem "
+        "descending from its lower junction; fine joins are unclear.",
+        "小型灰度图像显示紧凑的斜向笔群，含数条短横笔和一条从下方接点延伸的细笔；细连接难辨。",
+    ),
+    "obs-char-000822": (
+        "A thin central upright branches at the top and lower center; two detached short side strokes flank "
+        "it and a pointed stem descends below.",
+        "纤细中央直立笔在顶部和下中部都有分枝；两条分离的短侧笔分列两旁，下方延伸尖形笔干。",
+    ),
+    "obs-char-000823": (
+        "Two broad curving outer strokes flank a separate central angular mark; the lower ends taper, with "
+        "gaps between the parts.",
+        "两条宽大的弯曲外侧笔分列一个分离的中央折角痕迹两旁；下端收尖，各部分之间有间隔。",
+    ),
+    "obs-char-000824": (
+        "An upper rectangular enclosure sits beside angular strokes; below, a long diagonal descends from a "
+        "central crossing.",
+        "上部矩形闭合轮廓旁有折角笔画；下方从中央交叉处延伸出一条长斜笔。",
+    ),
+    "obs-char-000825": (
+        "Two detached curved marks stand left of a rounded upper outline; a long looped stem descends from "
+        "the outline.",
+        "两个分离的弯曲痕迹位于圆弧上部轮廓左侧；一条长环状笔干从该轮廓向下延伸。",
+    ),
+    "obs-char-000826": (
+        "Thin parallel strokes at left accompany a central angular loop; a lower diagonal branch extends "
+        "rightward, and fine joins are unclear.",
+        "左侧细平行笔伴随中央折角环状痕迹；下方斜向分枝向右延伸，细连接难辨。",
+    ),
+    "obs-char-000827": (
+        "The small gray crossing has a central diagonal with two short forked upper branches and a separate "
+        "lower stroke.",
+        "小型灰度交叉形中有中央斜笔，上方分出两条短枝，下方另有分离笔画。",
+    ),
+    "obs-char-000828": (
+        "A bold left structure has broad horizontal crossings, a central stem, and two long lower diagonals; "
+        "a separate jagged stroke stands at right.",
+        "左侧粗重形体有宽横交叉笔、中央笔干和两条下部长斜笔；右侧另有一条锯齿状分离笔。",
+    ),
+    "obs-char-000829": (
+        "Two long curved strokes at left stand beside a compact grid of short vertical and horizontal strokes; "
+        "the groups remain separated.",
+        "左侧两条长弯曲笔旁有由短竖笔和横笔组成的紧凑格状笔群；两组保持分离。",
+    ),
+    "obs-char-000830": (
+        "An open angular enclosure at left is paired with a long curved stroke at right; the lower tips are "
+        "separated.",
+        "左侧开口折角轮廓与右侧长弯曲笔并列出现；下端笔尖彼此分离。",
+    ),
+    "obs-char-000831": (
+        "A dense bold central fork is flanked by curved outer strokes; several detached round or short marks "
+        "sit around it.",
+        "粗重的中央分叉笔两侧有弯曲外笔包围；周围散置数个圆点状或短笔痕迹。",
+    ),
+    "obs-char-000832": (
+        "The tiny gray image shows two short curved marks with a small central crossing; exact joins remain "
+        "unclear.",
+        "微小灰度图像显示两条短弯曲笔和一个中央小交叉；具体连接仍不清楚。",
+    ),
+    "obs-char-000833": (
+        "Several short curved and upright marks surround a small central dark mark; the image is small and "
+        "fine connections are unresolved.",
+        "数条短弯曲和直立笔围绕中央小型深色痕迹分布；图像较小，细连接尚未辨明。",
+    ),
+    "obs-char-000834": (
+        "A shallow rounded enclosure at bottom has curved and upright strokes rising above it, with detached "
+        "short marks near the top.",
+        "底部浅圆弧闭合轮廓上方伸出弯曲和直立笔，顶部附近另有分离的短笔痕迹。",
+    ),
+    "obs-char-000835": (
+        "A thin outer curve at left accompanies a central upright with short upper bars and a small rounded "
+        "enclosure; lower joins are unclear.",
+        "左侧细外弯笔伴随中央直立笔，中央上部有短横笔并带小圆弧闭合痕迹；下部连接难辨。",
+    ),
+    "obs-char-000836": (
+        "A large curved outer stroke at left is separated from multiple short vertical marks at right; the "
+        "gaps are clearly visible.",
+        "左侧大幅弯曲外笔与右侧多条短竖笔分离排列；各笔之间的间隔清晰可见。",
+    ),
+    "obs-char-000837": (
+        "Several curved strokes meet in a central fork; short detached marks extend on both sides and at the "
+        "upper right.",
+        "数条弯曲笔在中央汇成分叉；两侧和右上方伸出或散置短小分离痕迹。",
+    ),
+    "obs-char-000838": (
+        "Many thin vertical and slightly curved strokes form two loose groups with gaps; fine connections are "
+        "difficult to resolve.",
+        "多条纤细竖笔和略弯笔形成两个疏松笔群，中间有间隔；细连接难以辨认。",
+    ),
+    "obs-char-000839": (
+        "A dense compact cluster contains overlapping curved strokes, small open marks, and a lower pair of "
+        "short supporting strokes; fine joins are unclear.",
+        "密集紧凑笔群含相互叠压的弯曲笔、小型开口痕迹和下方一对短支撑笔；细连接难辨。",
+    ),
+    "obs-char-000840": (
+        "Two separated narrow curving strokes descend in parallel; the left has a pointed upper bend and the "
+        "right tapers to a long lower tip.",
+        "两条分离的狭长弯曲笔平行下行；左笔上端有尖形弯折，右笔向下收成长尖端。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

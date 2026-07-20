@@ -107,9 +107,10 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The small gray crossing has a central diagonal with
+  two short forked upper branches and a separate lower stroke.`
+- 中文观察: `小型灰度交叉形中有中央斜笔，上方分出两条短枝，下方另有分离笔画。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

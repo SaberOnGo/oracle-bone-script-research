@@ -107,9 +107,10 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `An upper rectangular enclosure sits beside angular
+  strokes; below, a long diagonal descends from a central crossing.`
+- 中文观察: `上部矩形闭合轮廓旁有折角笔画；下方从中央交叉处延伸出一条长斜笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

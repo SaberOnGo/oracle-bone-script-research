@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two neighboring thin forms are visible: the left has
+  a U-shaped lower curve and side marks, while the right has branching upper
+  strokes and a narrow descending tail.`
+- 中文观察: `可见两个相邻的纤细形体：左侧有 U 形下弯和侧笔，右侧有上部分枝及狭长下垂尾笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

@@ -3420,6 +3420,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "passes a pointed middle opening, and divides into an angular left branch and long right stem.",
         "狭窄竖形起于左上小矩形环和横栏，经尖形中部空隙后分成折角左枝和长右干。",
     ),
+    "obs-char-000681": (
+        "Two detached clusters stand side by side: a thin angular left form with crossing strokes, "
+        "and a pointed cap above a rounded, horizontally divided outline at right.",
+        "两个分离笔群并列：左侧为带交叉笔的纤细折角形，右侧尖顶位于带横隔的圆弯轮廓上。",
+    ),
+    "obs-char-000682": (
+        "A single bold rounded rectangular outer outline encloses a broad white field crossed by "
+        "one thick horizontal inner bar, with slightly uneven corners.",
+        "单个粗重圆角矩形外框围住宽白区域，内部有一条粗横栏，边角略不齐。",
+    ),
+    "obs-char-000683": (
+        "Two detached rounded rectangular outlines are stacked vertically; the larger upper one "
+        "contains a short horizontal bar, while the smaller lower one is open and empty inside.",
+        "两个分离圆角矩形轮廓上下层叠；较大上框含短横栏，较小下框内部空白。",
+    ),
+    "obs-char-000684": (
+        "A detached pointed pair of bent strokes stands above a shallow lower rectangular basin "
+        "with a long base and short uneven upright sides.",
+        "一对分离尖折笔位于浅下部矩形槽上方，槽体带长底线和高低不齐的短竖边。",
+    ),
+    "obs-char-000685": (
+        "A long slanting stem with a small crossed spur at the top bends toward a rounded angular "
+        "loop on its lower right, leaving a broad white opening.",
+        "带小型顶交突的长斜干向右下圆弯折角环弯去，环内留下宽白空隙。",
+    ),
+    "obs-char-000686": (
+        "A small detached diamond-like loop with a middle bar stands at left; a taller right form "
+        "has a pointed top, bent central stem, and two spreading lower branches.",
+        "左侧有带中横的小型分离菱形环；较高右形带尖顶、弯中央干和两条外展下枝。",
+    ),
+    "obs-char-000687": (
+        "Two bold rectangular forms are stacked with a white gap between them: the upper encloses "
+        "a small inner rectangle, and the lower has a broad uneven opening.",
+        "两个粗重矩形形体隔着白隙上下层叠：上形含小内矩形，下形有宽而不齐的开口。",
+    ),
+    "obs-char-000688": (
+        "A tall curving stem sends a short branch leftward and ends beside a small lower polygonal "
+        "loop containing one tiny central mark.",
+        "高长弯干向左伸短枝，并在小型下部多边形环旁结束，环内有一处微小中央痕。",
+    ),
+    "obs-char-000689": (
+        "Several detached small oval marks form a loose left column, while a narrow right stem "
+        "carries a rounded side loop and divides into pointed lower strokes.",
+        "数个分离小椭圆痕组成疏松左列，狭窄右干带圆弯侧环并分成尖形下笔。",
+    ),
+    "obs-char-000690": (
+        "Two detached wavy horizontal lines form an upper pair; below them, a rounded rectangular "
+        "outline contains one short central horizontal bar.",
+        "两条分离波折横线组成上部一对；其下圆角矩形轮廓内含一条短中央横栏。",
+    ),
+    "obs-char-000691": (
+        "A rounded rectangular loop with a short inner horizontal stands at left; a separate tall "
+        "wavering stroke at right begins with a dark hooked top and narrows downward.",
+        "带短内横的圆角矩形环位于左侧；右侧分离高波折笔起于深色钩顶并向下收窄。",
+    ),
+    "obs-char-000692": (
+        "A rounded upper outline contains a short horizontal mark and rests above a narrow base, "
+        "from which one long thin stroke curves downward to the right.",
+        "圆弯上轮廓内含短横痕并位于狭底线上方，一条长细笔从底部向右下弯曲。",
+    ),
+    "obs-char-000693": (
+        "A central Y-shaped upright rises from a long horizontal base, with a small detached "
+        "rectangular loop positioned on each side at mid-height.",
+        "中央 Y 形直干从长横底升起，中部高度两侧各有一个小型分离矩形环。",
+    ),
+    "obs-char-000694": (
+        "Two detached vertical groups stand side by side: a crossed star-like mark above a small "
+        "rectangle at left, and a tall angular zigzag with crossed lower strokes at right.",
+        "两个分离竖向笔群并列：左侧交叉星状痕位于小矩形上方，右侧为带交叉下笔的高折线。",
+    ),
+    "obs-char-000695": (
+        "A bold tall rectangular outer frame encloses a narrow white field containing one long "
+        "dark sinuous central stroke and a shorter close upper stroke.",
+        "粗重高矩形外框围住狭白区域，内部有一条长深色曲折中央笔和一条较短近邻上笔。",
+    ),
+    "obs-char-000696": (
+        "A rounded lower rectangular outline with a short inner horizontal supports two detached "
+        "upright stems, each ending above in a small fork.",
+        "带短内横的圆弯下部矩形轮廓支撑两条分离直干，每条直干顶部均收成小叉。",
+    ),
+    "obs-char-000697": (
+        "The tiny faint image shows two or three separated horizontal oval marks stacked above a "
+        "short angular zigzag tail; exact joins are difficult to resolve.",
+        "微小淡弱图像显示两三个分离横椭圆痕层叠于短折角锯折尾上方，具体接点难辨。",
+    ),
+    "obs-char-000698": (
+        "A tall left upright branches at mid-height and joins a rounded rectangular loop at its "
+        "base; a separate thin slanting branched stroke descends at right.",
+        "高长左竖在中部出枝，并连接底部圆角矩形环；右侧另有纤细分枝斜笔下垂。",
+    ),
+    "obs-char-000699": (
+        "A single narrow vertical cluster combines a crossed or looped angular top, several "
+        "overlapping middle branches, and a long wavering lower continuation.",
+        "单个狭窄竖向笔群结合交叉或环状折顶、数条重叠中枝和长波折下延笔。",
+    ),
+    "obs-char-000700": (
+        "A detached tilted oval loop with a small inner mark stands above a lower angular frame "
+        "whose right side extends into crossing diagonal and vertical strokes.",
+        "带小内痕的分离倾斜椭圆环位于下部折角框上方，框右侧延伸为交叉斜笔和竖笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

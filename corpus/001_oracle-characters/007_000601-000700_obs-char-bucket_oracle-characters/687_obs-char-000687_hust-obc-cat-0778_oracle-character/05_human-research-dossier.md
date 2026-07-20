@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two bold rectangular forms are stacked with a white
+  gap between them: the upper encloses a small inner rectangle, and the
+  lower has a broad uneven opening.`
+- 中文观察: `两个粗重矩形形体隔着白隙上下层叠：上形含小内矩形，下形有宽而不齐的开口。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

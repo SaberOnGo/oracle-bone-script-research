@@ -2620,6 +2620,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "crossed near the bottom by a short horizontal line extending to the right.",
         "长渐尖竖笔左下含小型开口环，并在近底部被一条向右伸出的短横穿过。",
     ),
+    "obs-char-000521": (
+        "A long central vertical stroke ends in a small oval loop below and divides above "
+        "into several curved upward branches.",
+        "长中央竖笔下端形成小型椭圆环，上端分成数条向上弯曲的枝笔。",
+    ),
+    "obs-char-000522": (
+        "A broad angular baseline rises at both ends into three pointed peaks, with the "
+        "tallest peak near the center.",
+        "宽折角底线两端上升形成三个尖峰，其中中央附近的尖峰最高。",
+    ),
+    "obs-char-000523": (
+        "A tall central stem carries a pointed upper loop, paired outer branches, short "
+        "middle side strokes, and a divided angular lower outline.",
+        "高长中央干带尖顶上环、成对外伸枝笔、中部短侧笔和被主干分隔的折角下轮廓。",
+    ),
+    "obs-char-000524": (
+        "Two detached stacked clusters show an upper three-peaked zigzag and a lower "
+        "cup-shaped outline containing several narrow upward points.",
+        "两个分离层叠笔画群分别呈上部三峰折线和内含数个狭窄上尖的下部杯状轮廓。",
+    ),
+    "obs-char-000525": (
+        "Two separated bold clusters show a broad hooked upper arch with a small top loop "
+        "and a lower open-topped angular outline with two peaks.",
+        "两个分离粗重笔画群分别呈带小顶环的宽钩曲上拱和带双峰的开顶折角下轮廓。",
+    ),
+    "obs-char-000526": (
+        "The very small low-contrast image shows short crossed angular strokes above, a "
+        "bent descending stroke at right, and a detached curved mark at lower left.",
+        "极小低对比度图像显示上部短交叉折笔、右侧弯折下行笔和左下分离弯痕。",
+    ),
+    "obs-char-000527": (
+        "A tall linked form combines two angular upper loops, a long diagonal to the right, "
+        "a middle loop, and a divided open lower frame with long descending strokes.",
+        "高长连结形结合两个折角上环、右向长斜笔、中部环形和带长下垂笔的分隔开口下框。",
+    ),
+    "obs-char-000528": (
+        "Four near-vertical wavering strokes stand side by side; short cross-strokes join "
+        "the left pair, and two tiny detached dots lie between the right strokes.",
+        "四条近竖向波折笔并列，短横连接左侧一对，右侧笔画之间有两个微小分离点。",
+    ),
+    "obs-char-000529": (
+        "Several long parallel wavering vertical strokes form a narrow band, while the two "
+        "inner strokes meet to outline a slim pointed loop.",
+        "数条长平行波折竖笔组成狭窄带状，其中两条内笔相接形成细长尖顶环。",
+    ),
+    "obs-char-000530": (
+        "Several long closely spaced curving vertical strokes occupy the right side, while "
+        "the left side has detached short slants and a forked lower mark.",
+        "数条紧密并列的长弯竖笔位于右侧，左侧另有分离短斜痕和叉状下部痕迹。",
+    ),
+    "obs-char-000531": (
+        "A bold central vertical crosses a long top bar and divides a rounded lower outline; "
+        "below it, diagonal branches extend to both sides around a long tail.",
+        "粗重中央竖笔穿过长顶横并分隔圆弧下轮廓，其下斜枝向两侧伸出并围绕长尾笔。",
+    ),
+    "obs-char-000532": (
+        "A low rounded rectangular enclosure has a slightly uneven outline, and a central "
+        "vertical rises from its top edge to a short horizontal cap.",
+        "低矮圆角矩形围框轮廓略不平整，中央竖笔从顶边上升至一条短横帽。",
+    ),
+    "obs-char-000533": (
+        "A capped central vertical crosses a horizontal bar with short downward strokes near "
+        "both ends; a small detached mark stands to the right.",
+        "带上下横帽的中央竖笔穿过横栏，横栏两端附近各有短下垂笔，右侧另有小分离痕。",
+    ),
+    "obs-char-000534": (
+        "Two thin separated angular line groups form a short sloping upper corner and a larger "
+        "open lower three-sided outline.",
+        "两个纤细分离折线群分别形成短斜上角和较大的下部三边开口轮廓。",
+    ),
+    "obs-char-000535": (
+        "A small oval loop has several short strokes radiating upward; a long diagonal crosses "
+        "its right side and continues beside a curved descending line.",
+        "小型椭圆环上方放射数条短笔，一条长斜笔穿过其右侧并与弯曲下行线并列延伸。",
+    ),
+    "obs-char-000536": (
+        "A very narrow curved outer stroke encloses two short upper slants and bends beside a "
+        "small angular open loop at the lower right.",
+        "极狭长弯曲外笔包围两条上部短斜笔，并在右下小型折角开口环旁弯折。",
+    ),
+    "obs-char-000537": (
+        "A narrow upright three-sided outline has a straight top bar, two short lower legs, "
+        "and a thin central vertical rising above the top edge.",
+        "狭长直立三边轮廓带平直顶横和两条短下腿，纤细中央竖笔伸出顶边上方。",
+    ),
+    "obs-char-000538": (
+        "A short sloping top bar caps a long curved descending stem, with two opposing short "
+        "branches spreading near the upper middle.",
+        "短斜顶横盖住长弯下行主干，上中部附近有两条相向短枝向两侧展开。",
+    ),
+    "obs-char-000539": (
+        "A thin central branching stroke forks near the top and crosses a leftward diagonal; "
+        "three separate lower vertical marks and one right-side dash remain detached.",
+        "纤细中央分支笔近顶部叉开并与左向斜笔交叉，下方三条竖痕和右侧一短痕彼此分离。",
+    ),
+    "obs-char-000540": (
+        "A narrow central stem forks at the top and carries several short alternating side "
+        "branches before continuing into a long curved lower point.",
+        "狭长中央干顶部叉开，沿两侧交替伸出数条短枝，下端延续为长弯尖笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

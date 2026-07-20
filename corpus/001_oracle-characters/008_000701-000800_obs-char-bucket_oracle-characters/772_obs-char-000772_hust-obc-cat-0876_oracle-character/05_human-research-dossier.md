@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two tall branching stems flank a detached central
+  T-shaped form whose vertical meets a broad shallow curved bar; the outer
+  stems end in spreading lower roots.`
+- 中文观察: `两条高长分枝干夹住分离的中央 T 形；中央竖笔接宽浅弯横，两侧干末端伸出外展下根。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

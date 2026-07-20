@@ -110,9 +110,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A branching star-like upper junction descends into a
+  rounded middle outline crossed by diagonals, with two slim side legs and a
+  short central lower tail.`
+- 中文观察: `分枝星状上接点向下进入被斜笔交叉的圆弯中部轮廓，两侧有细腿，中央有短下尾。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

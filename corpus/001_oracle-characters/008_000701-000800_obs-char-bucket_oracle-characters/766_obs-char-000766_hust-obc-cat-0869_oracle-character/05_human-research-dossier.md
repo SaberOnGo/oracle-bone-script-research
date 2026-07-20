@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A small upper rectangular loop is flanked by
+  detached short marks; below it, crossed diagonals fill a tall open frame
+  above a broad curved basin and thin side extensions.`
+- 中文观察: `小型上部矩形环两侧有分离短痕；其下交叉斜笔充满高长开放框，底部为宽弯槽并带细侧延笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

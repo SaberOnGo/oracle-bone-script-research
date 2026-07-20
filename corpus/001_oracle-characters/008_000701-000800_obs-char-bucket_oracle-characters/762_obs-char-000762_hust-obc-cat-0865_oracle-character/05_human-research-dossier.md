@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A nearly symmetrical central stem has a short
+  detached-looking top mark, paired upper side branches, and four long
+  diagonals spreading from the middle and lower junctions.`
+- 中文观察: `近对称中央干顶部有近似分离的短痕，上部带成对侧枝，中下接点伸出四条长斜枝。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

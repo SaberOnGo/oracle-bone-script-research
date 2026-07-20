@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A small pointed roof-like outline sits above a
+  divided rectangular middle frame; several thin verticals and diagonals
+  descend from the frame into a forked lower cluster.`
+- 中文观察: `小型尖顶屋盖状轮廓位于带分隔的矩形中框上方；数条细竖和斜笔从中框下垂并汇成分叉下部笔群。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

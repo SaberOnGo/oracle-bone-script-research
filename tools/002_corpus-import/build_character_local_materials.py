@@ -4517,6 +4517,101 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "with short side projections.",
         "狭长形体有左上折角笔、长下行弯笔和带短侧伸笔的下部开放环状形。",
     ),
+    "obs-char-000901": (
+        "A narrow vertical form has a pointed upper loop, a central diamond-like enclosure, detached side "
+        "marks, and lower branching strokes.",
+        "狭长竖向形体有尖形上部环状笔、中央菱形近似闭合轮廓、分离侧痕迹和下部分枝笔。",
+    ),
+    "obs-char-000902": (
+        "A tall pointed enclosed form sits above a small rounded loop and a broad lower zigzag cluster; short "
+        "side marks are detached.",
+        "高长尖形闭合轮廓下方接小型圆弧环和宽大下部曲折笔群；两侧短痕迹相互分离。",
+    ),
+    "obs-char-000903": (
+        "A bold angular cluster has a broad lower enclosure with peaked upper strokes and a long curved "
+        "upright at right ending in a horizontal foot.",
+        "粗重折角笔群有宽大下部闭合轮廓和尖峰状上笔，右侧长弯直立笔以横向笔足收尾。",
+    ),
+    "obs-char-000904": (
+        "A small narrow cluster combines short upper curved marks, a central fork, a long descending stem, "
+        "and a detached right mark.",
+        "小型狭长笔群结合上部短弯曲痕迹、中央分叉、长下行笔干和右侧分离痕迹。",
+    ),
+    "obs-char-000905": (
+        "A compact rectangular upper lattice is joined to a lower rounded branching form with several short "
+        "vertical strokes.",
+        "紧密矩形上部格状笔群连接下方圆弧分枝形体，并带有数条短直立笔。",
+    ),
+    "obs-char-000906": (
+        "A thin symmetrical vertical form has a small upper loop, paired branching side strokes, and a split "
+        "lower stem.",
+        "纤细对称竖向形体有小型上部环状笔、成对侧分枝笔和分开的下部笔干。",
+    ),
+    "obs-char-000907": (
+        "Three separated groups are visible: a small hooked upper mark and two rounded lower forms with "
+        "internal uprights and short side marks.",
+        "可见三组分离形体：上方小型钩状痕迹，以及下方两个带内部直立笔和短侧笔的圆弧形体。",
+    ),
+    "obs-char-000908": (
+        "The faint gray image shows an enclosed rectangular lattice with central vertical strokes and a jagged "
+        "lower cluster; details are low contrast.",
+        "灰度较淡图像显示矩形闭合格状轮廓、中央直立笔和下部曲折笔群；细部反差较低。",
+    ),
+    "obs-char-000909": (
+        "A very bold outer U-shaped contour surrounds a central crossed cluster, with detached side marks and "
+        "three pointed lower projections.",
+        "粗重外部 U 形轮廓围住中央交叉笔群，旁有分离侧痕迹和三条尖形下伸笔。",
+    ),
+    "obs-char-000910": (
+        "A thin compact form has repeated short horizontal marks at left, a rounded central body, and a small "
+        "branching projection at lower right.",
+        "纤细紧密形体左侧有重复短横笔，中央为圆弧主体，右下有小型分枝伸笔。",
+    ),
+    "obs-char-000911": (
+        "A slender vertical form contains a top crossbar, paired side branches, a central crossing, and a lower "
+        "enclosed loop.",
+        "纤细竖向形体含上部横笔、成对侧分枝、中央交叉和下部闭合环状笔。",
+    ),
+    "obs-char-000912": (
+        "A faint gray vertical form combines an upper crossbar, a central rounded enclosure, and lower angular "
+        "strokes.",
+        "灰度较淡竖向形体结合上部横笔、中央圆弧闭合轮廓和下部折角笔。",
+    ),
+    "obs-char-000913": (
+        "Two small leaf-like loops at the top lead into a long central stem with diagonal lower side strokes.",
+        "顶部两个叶片状小环连接长中央笔干，下部两侧有斜向笔。",
+    ),
+    "obs-char-000914": (
+        "Long upper diagonals cross at a central junction, with short detached side marks and multiple "
+        "descending branches.",
+        "长上斜笔在中央交会，旁有短小分离痕迹和多条下行分枝。",
+    ),
+    "obs-char-000915": (
+        "A narrow stem has a small central loop, a short upper projection, and several long lower branches.",
+        "狭长笔干有中央小环、短上伸笔和数条长下部分枝。",
+    ),
+    "obs-char-000916": (
+        "Separated upper and side marks surround a central descending stem; rounded side enclosures and a lower "
+        "fork remain visible.",
+        "分离的上部和侧部痕迹围绕中央下行笔干；两侧圆弧闭合形和下部叉形仍清晰可见。",
+    ),
+    "obs-char-000917": (
+        "Two star-like branching marks sit above a rounded open cluster and a long lower stem with a looped side "
+        "branch.",
+        "两个星状分枝痕迹位于圆弧开放笔群之上，下接带环状侧分枝的长笔干。",
+    ),
+    "obs-char-000918": (
+        "A long curved left stroke carries short side branches and continues into a descending diagonal stem.",
+        "长弯曲左笔带有短侧分枝，并延续为下行斜向笔干。",
+    ),
+    "obs-char-000919": (
+        "A pointed upper enclosure with a horizontal interior stroke sits above two descending side curves.",
+        "带内部横笔的尖形上部闭合轮廓位于两条下行侧弯笔之上。",
+    ),
+    "obs-char-000920": (
+        "A long angled upper stroke crosses a central branch and continues into a lower forked diagonal.",
+        "长上斜笔交叉中央分枝，并延续为下部叉形斜笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A bold angular cluster has a broad lower enclosure
+  with peaked upper strokes and a long curved upright at right ending in a
+  horizontal foot.`
+- 中文观察: `粗重折角笔群有宽大下部闭合轮廓和尖峰状上笔，右侧长弯直立笔以横向笔足收尾。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

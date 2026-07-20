@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A very bold outer U-shaped contour surrounds a
+  central crossed cluster, with detached side marks and three pointed lower
+  projections.`
+- 中文观察: `粗重外部 U 形轮廓围住中央交叉笔群，旁有分离侧痕迹和三条尖形下伸笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

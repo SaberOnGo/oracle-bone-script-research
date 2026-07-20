@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `The faint gray image shows an enclosed rectangular
+  lattice with central vertical strokes and a jagged lower cluster; details
+  are low contrast.`
+- 中文观察: `灰度较淡图像显示矩形闭合格状轮廓、中央直立笔和下部曲折笔群；细部反差较低。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

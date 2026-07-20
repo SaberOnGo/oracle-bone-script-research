@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Three separated groups are visible: a small hooked
+  upper mark and two rounded lower forms with internal uprights and short
+  side marks.`
+- 中文观察: `可见三组分离形体：上方小型钩状痕迹，以及下方两个带内部直立笔和短侧笔的圆弧形体。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

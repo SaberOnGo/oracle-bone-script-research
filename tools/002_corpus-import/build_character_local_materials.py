@@ -2018,6 +2018,108 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "capped vertical stroke at right.",
         "图像左侧有紧凑钩曲环形形体，右侧有分离的带横帽竖笔画。",
     ),
+    "obs-char-000401": (
+        "Two adjacent clusters are visible: a crossed grid-like group at left and a "
+        "looping vertical group with a zigzag lower end at right.",
+        "可见两个相邻笔画群：左侧为交叉网格状笔画，右侧为下端折曲的环状竖向笔画群。",
+    ),
+    "obs-char-000402": (
+        "A bold vertical trace crosses an upper rectangular arrangement, a middle "
+        "oval enclosure, and a large angular lower loop.",
+        "粗重竖向痕迹穿过上部矩形组合、中部椭圆闭合轮廓和大型折角下部环形轮廓。",
+    ),
+    "obs-char-000403": (
+        "A thin left cluster of curved and angled strokes stands beside a tall right "
+        "stem crossed by two short bars.",
+        "左侧纤细弧折笔画群与右侧高长主干并列，右侧主干被两条短横笔画穿过。",
+    ),
+    "obs-char-000404": (
+        "Two separated tall forms are visible: a crossed loop-and-angle form at left "
+        "and a vertical form with two angular side bends at right.",
+        "可见两个分离的高长形体：左侧为交叉环折形，右侧为带两个侧向折角的竖向形体。",
+    ),
+    "obs-char-000405": (
+        "A small detached circular enclosure with a central mark sits left of a "
+        "separate looping and zigzag form.",
+        "带中央痕迹的小型分离圆形轮廓位于左侧，右侧另有独立的环曲折线形体。",
+    ),
+    "obs-char-000406": (
+        "A thin curved vertical trace passes through a small central loop and "
+        "continues into a lower zigzag.",
+        "纤细弧形竖向痕迹穿过小型中央环形轮廓，并继续连接下部折线。",
+    ),
+    "obs-char-000407": (
+        "Two separated forms are visible: a compact looped angular form at left and "
+        "a forked vertical stem with short branches at right.",
+        "可见两个分离形体：左侧为紧凑环折形，右侧为带短分支的分叉竖向主干。",
+    ),
+    "obs-char-000408": (
+        "The image contains a narrow capped loop at left and a larger crossed "
+        "enclosure with a long angular lower extension at right.",
+        "图像左侧有狭窄带横帽环形轮廓，右侧有较大交叉闭合形和长折角下部延伸。",
+    ),
+    "obs-char-000409": (
+        "Two dark separated forms are visible: a divided oval with a hooked lower "
+        "stroke at left and a forked branching stem at right.",
+        "可见两个深色分离形体：左侧为带下钩的分隔椭圆，右侧为分叉分支主干。",
+    ),
+    "obs-char-000410": (
+        "A thin vertical trace crosses a small upper rectangular loop and continues "
+        "through several sharp lower bends; contrast needs recheck.",
+        "纤细竖向痕迹穿过小型上部矩形环形轮廓，并连接数个尖折下部笔画；对比度需要复核。",
+    ),
+    "obs-char-000411": (
+        "Several thin branching, looping, and diagonal strokes overlap around two "
+        "close vertical stems.",
+        "数条纤细分支、环曲和斜向笔画围绕两条相近竖向主干重叠。",
+    ),
+    "obs-char-000412": (
+        "A thin left stem with short branches stands beside a looping right form with "
+        "upper prongs and angular lower strokes.",
+        "带短分支的纤细左侧主干与右侧环曲形体并列，右侧有上部分叉和折角下部笔画。",
+    ),
+    "obs-char-000413": (
+        "A broad open triangular top narrows into small central loops and a long "
+        "angular lower extension.",
+        "宽大开放三角形上部向下收窄为小型中央环形笔画，并连接长折角下部延伸。",
+    ),
+    "obs-char-000414": (
+        "Two separated forms are visible: a crossed rectangular cluster at left and "
+        "a tall curved form with an upper enclosure at right.",
+        "可见两个分离形体：左侧为交叉矩形笔画群，右侧为带上部闭合轮廓的高长弧形形体。",
+    ),
+    "obs-char-000415": (
+        "The small low-contrast image contains several separated marks, including an "
+        "upper open rectangle, a crossed loop, and lower angled traces; contrast "
+        "needs recheck.",
+        "小幅低对比度图像含数个分离痕迹，包括上部开放矩形、交叉环形和下部折角痕迹；"
+        "对比度需要复核。",
+    ),
+    "obs-char-000416": (
+        "A detached small square and forked mark at left stand beside a larger looped, "
+        "crossed, and angular form at right.",
+        "左侧分离的小方形和分叉痕迹与右侧较大的环曲、交叉、折角形体并列。",
+    ),
+    "obs-char-000417": (
+        "A narrow central diagonal form combines a small upper loop, a right forked "
+        "stem, and several lower angular strokes.",
+        "狭窄中央斜向形体连接小型上部环形、右侧分叉主干和数条下部折角笔画。",
+    ),
+    "obs-char-000418": (
+        "A broad curved outer stroke surrounds a compact central enclosure and "
+        "several thin upper marks.",
+        "宽大弧形外部笔画围绕紧凑中央闭合轮廓和数条纤细上部痕迹。",
+    ),
+    "obs-char-000419": (
+        "Two separated bold forms are visible: a capped rectangular cross at left "
+        "and a large crossed upper loop with an angular lower extension at right.",
+        "可见两个粗重分离形体：左侧为带横帽矩形交叉，右侧为大型交叉上部环形及折角下部延伸。",
+    ),
+    "obs-char-000420": (
+        "Several stacked zigzag strokes form a narrow vertical cluster with pointed "
+        "upper tips and short internal crossings.",
+        "数条层叠折线组成狭窄竖向笔画群，上端有尖状笔画，内部有短交叉。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

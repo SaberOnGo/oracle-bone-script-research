@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Four small detached tapered marks form a loose
+  vertical diamond arrangement, with one mark above, two at the sides, and
+  one below.`
+- 中文观察: `四个小型分离渐尖痕迹组成疏松竖向菱形排列，上方一处、两侧各一处、下方一处。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

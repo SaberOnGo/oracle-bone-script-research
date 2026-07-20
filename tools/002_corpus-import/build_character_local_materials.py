@@ -2520,6 +2520,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "divided by short strokes, and two long diverging lower extensions.",
         "狭长直立形体结合叉状上部交叉、由短笔分隔的中央菱形围框和两条长分向下部延伸。",
     ),
+    "obs-char-000501": (
+        "Two short horizontal bars and a small vertical mark sit above a long central curved "
+        "stroke that ends in several crossed and branching lower lines.",
+        "两条短横和一条小竖位于长中央弯笔上方，中央笔下端以数条交叉分支线收束。",
+    ),
+    "obs-char-000502": (
+        "An irregular outlined form at left contains several crossing divisions and connects "
+        "toward a long right vertical stroke with a short transverse branch.",
+        "左侧不规则轮廓形内有数处分隔交叉，并向带短横分支的右侧长竖笔连接。",
+    ),
+    "obs-char-000503": (
+        "Two bold forms stand apart: a branching vertical trunk with a lower loop on a base "
+        "at left, and a curved upper arch with a long descending side at right.",
+        "两个粗重形体彼此分离：左侧为带下环和底线的分支竖干，右侧为上部弯拱及长下行侧笔。",
+    ),
+    "obs-char-000504": (
+        "The very small low-contrast image shows two separated clusters: short marks above "
+        "a forked form at left and a narrow branching vertical form at right.",
+        "极小低对比度图像显示两个分离笔画群：左侧叉形上方有短痕，右侧为狭长分支竖形。",
+    ),
+    "obs-char-000505": (
+        "Three detached tapered vertical strokes are arranged side by side, with the central "
+        "stroke longer and straighter than the two curved outer strokes.",
+        "三条分离渐尖竖笔并列，中央笔较长且较直，两侧外笔较短并弯曲。",
+    ),
+    "obs-char-000506": (
+        "Four small detached tapered marks form a loose vertical diamond arrangement, with "
+        "one mark above, two at the sides, and one below.",
+        "四个小型分离渐尖痕迹组成疏松竖向菱形排列，上方一处、两侧各一处、下方一处。",
+    ),
+    "obs-char-000507": (
+        "A bold central loop is crossed by a horizontal bar and rises into a bent upper stem; "
+        "two detached vertical marks stand near its lower left and right sides.",
+        "粗重中央环形被横笔穿过并向上形成弯折主干，下部左右附近各有一条分离竖痕。",
+    ),
+    "obs-char-000508": (
+        "Two short detached top bars stand above a broad angular outline open at the bottom, "
+        "which encloses a small rounded loop and short central stroke.",
+        "两条分离短顶横位于底部开口的宽折角轮廓上方，轮廓内有小圆环和短中央笔。",
+    ),
+    "obs-char-000509": (
+        "A very narrow form has a small upper crossing and a long diagonal-to-curved stroke "
+        "descending below it; fine boundaries are difficult to resolve.",
+        "极狭长形体上部有小型交叉，下方延伸一条由斜转弯的长笔，细部边界难以辨清。",
+    ),
+    "obs-char-000510": (
+        "A thin curved vertical stem has an upper forked crossing, several short parallel "
+        "branches spreading to the lower left, and a hooked lower end.",
+        "纤细弯曲竖干上部呈叉状交叉，下部左侧展开数条短平行分支，末端钩曲。",
+    ),
+    "obs-char-000511": (
+        "A vertical stack combines a small upper triangle, a central rectangle, a wider lower "
+        "triangle, and four thin parallel strokes descending from the base.",
+        "竖向层叠形由小型上三角、中央矩形、较宽下三角和从底部下垂的四条细平行笔组成。",
+    ),
+    "obs-char-000512": (
+        "A single sinuous form curves into a broad open loop, with one short upper branch, "
+        "a left-pointing stroke, and a thin descending tail.",
+        "单个曲折形体弯成宽开口环，带一条短上分支、一条左向笔和一条纤细下垂尾笔。",
+    ),
+    "obs-char-000513": (
+        "Two long upright strokes frame a central diagonal crossing and a short right-pointing "
+        "branch, leaving the lower ends open and separate.",
+        "两条长直立笔夹着中央斜向交叉和一条短右向分支，下端开口并彼此分离。",
+    ),
+    "obs-char-000514": (
+        "A narrow zigzag vertical form contains a small central loop, with a long upper "
+        "diagonal and a short bent lower extension.",
+        "狭长折线竖形中部有小环，上方为长斜笔，下方为短弯折延伸。",
+    ),
+    "obs-char-000515": (
+        "The very faint image shows a thin central stem dividing into two long lower branches "
+        "with several finer side offshoots; the upper tip is slightly curved.",
+        "极淡图像显示纤细中央干分成两条长下枝，并带数条更细侧枝，上端略弯。",
+    ),
+    "obs-char-000516": (
+        "A curved central stem has one long upper-left branch and two long diverging lower "
+        "strokes, with two detached short marks inside the right side.",
+        "弯曲中央干带一条长左上分支和两条分向下部的长笔，右侧内部另有两处分离短痕。",
+    ),
+    "obs-char-000517": (
+        "A narrow angular upper loop continues into a long curved outer stroke, enclosing "
+        "three detached short vertical marks at different heights.",
+        "狭窄折角上环延续为长弯曲外笔，内部在不同高度有三条分离短竖痕。",
+    ),
+    "obs-char-000518": (
+        "A tiny divided box-like cluster with protruding upper strokes sits above a long bent "
+        "stem that ends in a crossed angular lower form.",
+        "带上部伸出笔画的小型分隔框状群位于长弯折主干上方，主干下端形成交叉折角形。",
+    ),
+    "obs-char-000519": (
+        "A bold central trunk divides upward into several long branches, with the widest fork "
+        "near the middle and a single tapered lower stem.",
+        "粗重中央干向上分出数条长枝，中部附近分叉最宽，下方为单条渐尖主干。",
+    ),
+    "obs-char-000520": (
+        "A long tapered vertical stroke contains a small open loop on its lower left and is "
+        "crossed near the bottom by a short horizontal line extending to the right.",
+        "长渐尖竖笔左下含小型开口环，并在近底部被一条向右伸出的短横穿过。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

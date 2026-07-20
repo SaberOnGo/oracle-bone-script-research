@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A thin curved vertical stem has an upper forked
+  crossing, several short parallel branches spreading to the lower left, and
+  a hooked lower end.`
+- 中文观察: `纤细弯曲竖干上部呈叉状交叉，下部左侧展开数条短平行分支，末端钩曲。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

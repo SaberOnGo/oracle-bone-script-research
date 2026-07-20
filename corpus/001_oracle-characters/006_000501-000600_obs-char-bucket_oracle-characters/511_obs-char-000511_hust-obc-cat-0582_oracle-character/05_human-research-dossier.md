@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A vertical stack combines a small upper triangle, a
+  central rectangle, a wider lower triangle, and four thin parallel strokes
+  descending from the base.`
+- 中文观察: `竖向层叠形由小型上三角、中央矩形、较宽下三角和从底部下垂的四条细平行笔组成。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

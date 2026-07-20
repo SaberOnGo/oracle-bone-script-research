@@ -109,9 +109,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two detached groups are stacked vertically: an open
+  angular upper loop with a short side dash and a rounded lower loop crossed
+  by a central stroke.`
+- 中文观察: `两个分离笔画群上下层叠：上部为带短侧痕的开口折角环，下部为被中央笔穿过的圆环。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

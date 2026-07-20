@@ -2920,6 +2920,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "carrying two short angled side branches at different heights.",
         "两条分离长微弯竖笔近乎平行排列，各自在不同高度带两条短折侧枝。",
     ),
+    "obs-char-000581": (
+        "A thin central zigzag stem is crossed by several long diagonals and short side "
+        "branches, with a small hooked extension near the lower left.",
+        "纤细中央锯折干被数条长斜笔和短侧枝穿过，左下附近有小型钩状延伸。",
+    ),
+    "obs-char-000582": (
+        "A narrow central vertical passes through a small crossed upper loop and divides below "
+        "into paired curved branches with pointed ends.",
+        "狭窄中央竖笔穿过小型交叉上环，下部分成一对带尖端的弯曲枝笔。",
+    ),
+    "obs-char-000583": (
+        "Four detached dark diagonal strokes are arranged in a descending loose column, with "
+        "unequal lengths and wide white gaps between them.",
+        "四条分离深色斜笔组成下行疏列，长度不等，彼此之间留有宽白隙。",
+    ),
+    "obs-char-000584": (
+        "A compact left cluster combines two upper verticals, a middle oval loop, and a short "
+        "lower base; three detached diagonal dashes stand at right.",
+        "左侧紧凑笔群结合两条上竖、中部椭圆环和短下底，右侧另有三条分离斜短痕。",
+    ),
+    "obs-char-000585": (
+        "The faint low-contrast image shows separated narrow marks at left and a thin wavering "
+        "vertical form with a small middle loop and long lower stroke at right.",
+        "淡弱低对比度图像显示左侧分离狭痕，以及右侧带小中环和长下笔的纤细波折竖形。",
+    ),
+    "obs-char-000586": (
+        "An upper forked curve narrows into a central vertical crossed by a horizontal bar; two "
+        "long diagonals spread downward to a broad base line.",
+        "上部叉状曲线收窄为被横栏穿过的中央竖笔，两条长斜笔向下展开至宽底线。",
+    ),
+    "obs-char-000587": (
+        "Four separated bold forms occupy the corners: a curved upper-left stroke, a square "
+        "upper-right loop, a lower-left angle, and a looped branching lower-right form.",
+        "四个分离粗重形体分居四角：左上弯笔、右上方环、左下折角和右下环状分支形。",
+    ),
+    "obs-char-000588": (
+        "A long central vertical rises into paired upper arches and carries crossing middle "
+        "branches, while detached bent strokes stand on both sides.",
+        "长中央竖笔上升为成对上拱并带中部交叉枝笔，两侧另有分离弯折笔。",
+    ),
+    "obs-char-000589": (
+        "A tall central form has a small pointed upper loop and several forked side branches; "
+        "two detached curved or angular marks stand to the left.",
+        "高长中央形带小型尖顶上环和数条叉状侧枝，左侧另有两处分离弯曲或折角痕。",
+    ),
+    "obs-char-000590": (
+        "A very narrow vertical chain contains several stacked pointed loops or crossings and "
+        "continues into two thin separated lower extensions.",
+        "极狭长竖向链内有数个层叠尖环或交叉，下端延续为两条纤细分离笔。",
+    ),
+    "obs-char-000591": (
+        "Two detached groups are stacked vertically: an open angular upper loop with a short "
+        "side dash and a rounded lower loop crossed by a central stroke.",
+        "两个分离笔画群上下层叠：上部为带短侧痕的开口折角环，下部为被中央笔穿过的圆环。",
+    ),
+    "obs-char-000592": (
+        "Two detached sinuous forms stand side by side, the left ending in a rounded lower loop "
+        "and the right carrying a short upper fork and long curved descent.",
+        "两个分离曲折形并列，左侧以下部圆环收束，右侧带短上叉和长弯下行笔。",
+    ),
+    "obs-char-000593": (
+        "The large low-resolution image shows a left horizontal frame with a hanging squared "
+        "loop and tall upper vertical, plus two detached bent stroke groups at right.",
+        "大型低分辨率图像显示左侧横框、悬垂方环和高上竖，右侧另有两组分离弯折笔。",
+    ),
+    "obs-char-000594": (
+        "Several detached long curved and slanting strokes stand side by side, some with short "
+        "forked branches and all ending at different heights.",
+        "数条分离长弯笔和斜笔并列，部分带短叉枝，各笔末端高度不同。",
+    ),
+    "obs-char-000595": (
+        "Two detached angular strokes stand at left; at right, a tall central vertical carries "
+        "multiple diagonal branches and a broad curved lower arch.",
+        "左侧有两条分离折角笔；右侧高长中央竖笔带多条斜枝和宽弯下拱。",
+    ),
+    "obs-char-000596": (
+        "Two long narrow upper strokes flank a small pointed loop, below which a bold curved "
+        "loop and hooked descending tail form a compact lower cluster.",
+        "两条长狭上笔夹着小型尖环，其下粗弯环和钩曲下垂尾组成紧凑下部笔群。",
+    ),
+    "obs-char-000597": (
+        "A vertical stack combines a tiny top rectangle, a larger middle rectangular outline, "
+        "a narrow connecting stem, and crossed forked strokes at the bottom.",
+        "竖向层叠形结合微小顶矩形、较大中部矩形框、狭窄连接干和底部交叉叉笔。",
+    ),
+    "obs-char-000598": (
+        "The very faint narrow image shows a slender wavering line with several sharp angular "
+        "turns and short side strokes; fine joins are difficult to resolve.",
+        "极淡狭长图像显示带数处尖折和短侧笔的纤细波折线，细部接点难以辨清。",
+    ),
+    "obs-char-000599": (
+        "A left rectangular upper frame with a horizontal divider continues into two forked "
+        "lower strokes, while a detached tall zigzag branching form stands at right.",
+        "左侧带横向分隔的矩形上框延续为两条叉状下笔，右侧为分离高长锯折分支形。",
+    ),
+    "obs-char-000600": (
+        "A bold rounded outer loop has a wide split at the top, a curved internal divider, and "
+        "two sides that converge into a narrow pointed bottom.",
+        "粗重圆弧外环顶部宽分开，内部有弯曲分隔，两侧向下汇成狭窄尖底。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

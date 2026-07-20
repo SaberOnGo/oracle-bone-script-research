@@ -110,9 +110,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `Two long narrow upper strokes flank a small pointed
+  loop, below which a bold curved loop and hooked descending tail form a
+  compact lower cluster.`
+- 中文观察: `两条长狭上笔夹着小型尖环，其下粗弯环和钩曲下垂尾组成紧凑下部笔群。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

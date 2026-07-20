@@ -5071,6 +5071,103 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "them.",
         "棱角上部分枝弯折于小型狭长下部环笔之上，两者之间有长下行笔。",
     ),
+    "obs-char-001021": (
+        "A low horizontal wedge-like form has a dark interior division, a pointed right end, and three detached "
+        "lower strokes.",
+        "低位横向楔状形体有深色内部分隔、尖状右端和三条分离下部笔。",
+    ),
+    "obs-char-001022": (
+        "A low elongated enclosure has a thick left base, a pointed right extension, and a short branching stroke "
+        "above.",
+        "低位狭长闭合轮廓有粗重左侧底部、尖状右侧外伸和上方短分枝笔。",
+    ),
+    "obs-char-001023": (
+        "A broad rounded lower enclosure has a tall central upright with a hooked terminal, upper side projections, "
+        "and two long lower branches.",
+        "宽大的圆弧下部闭合轮廓有带钩状末端的高直立中央笔、上部侧外伸和两条长下部分枝。",
+    ),
+    "obs-char-001024": (
+        "A dense left cluster has several upright projections and a dark rounded interior mark, beside a separate "
+        "thin curved stroke on the right.",
+        "密集左侧笔群有数条直立外伸和深色圆弧内笔，右侧另有分离的纤细弯曲笔。",
+    ),
+    "obs-char-001025": (
+        "A small horizontal rectangular enclosure sits above a pointed branching lower form with two detached "
+        "descending strokes.",
+        "小型横向矩形闭合轮廓位于尖状分枝下部形体之上，下方有两条分离下行笔。",
+    ),
+    "obs-char-001026": (
+        "A very bold connected cluster combines angular upper strokes, an open interior gap, and a large rounded "
+        "lower curve.",
+        "极为粗重的相连笔群结合棱角上部笔、开放内空隙和大型圆弧下部弯笔。",
+    ),
+    "obs-char-001027": (
+        "A small horizontal rectangular enclosure is separated above two long thin descending curved strokes.",
+        "小型横向矩形闭合轮廓位于两条长而纤细的下行弯曲笔之上，彼此分离。",
+    ),
+    "obs-char-001028": (
+        "The faint gray image shows a narrow stacked cluster with short horizontal bands and a curved lower "
+        "extension; contrast is low.",
+        "较淡灰色图像显示狭长叠置笔群、短横向带和弯曲下部外伸；对比度较低。",
+    ),
+    "obs-char-001029": (
+        "A narrow upright form has a shallow upper curve, a small central enclosed mark, and long thin lower "
+        "strokes.",
+        "狭长直立形体有浅弯上部笔、小型中央闭合笔和数条细长下部笔。",
+    ),
+    "obs-char-001030": (
+        "A thin central upright ends in a small pointed enclosure with two lower branching strokes and a short "
+        "upper projection.",
+        "纤细中央直立笔下接小型尖状闭合轮廓，底部有两条分枝笔，上方有短外伸笔。",
+    ),
+    "obs-char-001031": (
+        "A long left-pointing horizontal stroke crosses a central upright and meets a curved angular form on the "
+        "right.",
+        "长左向水平笔穿过中央直立笔，并与右侧弯曲棱角形体相接。",
+    ),
+    "obs-char-001032": (
+        "A tall thin left form with a pointed upper stroke stands beside a separate small rounded rectangular "
+        "enclosure.",
+        "带尖状上笔的高而纤细左侧形体旁有分离的小型圆弧矩形闭合轮廓。",
+    ),
+    "obs-char-001033": (
+        "A narrow branching cluster has pointed upper projections, a small central enclosure, and a long lower "
+        "loop-like stroke.",
+        "狭长分枝笔群有尖状上部外伸、小型中央闭合笔和长下部环状弯笔。",
+    ),
+    "obs-char-001034": (
+        "A thin branching upper stem continues into a long central curve beside a small rectangular lower mark.",
+        "纤细分枝上部笔干继续为长中央弯笔，旁侧有小型矩形下部笔。",
+    ),
+    "obs-char-001035": (
+        "A dense upright cluster combines a pointed left projection, a horizontal central bar, and a long right "
+        "upright stroke.",
+        "密集直立笔群结合左侧尖状外伸、中央水平带和长右侧直立笔。",
+    ),
+    "obs-char-001036": (
+        "A faint narrow vertical cluster has small upper branches, an irregular central turn, and short lower "
+        "side strokes.",
+        "较淡狭长竖向笔群有小型上部分枝、不规则中央转折和短下部侧笔。",
+    ),
+    "obs-char-001037": (
+        "A bold horizontal bar is joined at its center to a single thick descending upright stroke.",
+        "粗重水平横笔在中央连接一条单独的粗直下行笔。",
+    ),
+    "obs-char-001038": (
+        "Two bold separated marks are visible: a T-like upright on the left and a rounded rectangular loop with a "
+        "low curve on the right.",
+        "可见两个粗重分离笔形：左侧为 T 状直立笔，右侧为带低位弯笔的圆弧矩形环。",
+    ),
+    "obs-char-001039": (
+        "The faint gray image shows a small branching cluster with a central horizontal bar and a rounded lower "
+        "loop; detail is low contrast.",
+        "较淡灰色图像显示带中央水平横笔和圆弧下部环笔的小型分枝笔群；细节对比度较低。",
+    ),
+    "obs-char-001040": (
+        "A narrow upright form has two pointed upper branches, a small central oval-like opening, and a long lower "
+        "stem.",
+        "狭长直立形体有两条尖状上部分枝、小型中央椭圆状空隙和长下部笔干。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

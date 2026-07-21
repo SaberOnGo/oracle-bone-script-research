@@ -5358,6 +5358,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "lower stroke.",
         "纤细竖向形体有短上部水平横笔、中央小侧转笔和长下行笔。",
     ),
+    "obs-char-001081": (
+        "A narrow vertical form has a short upper branch, a central crossing, and two long lower strokes.",
+        "狭长竖向形体有短上部分枝、中央交叉和两条长下部笔。",
+    ),
+    "obs-char-001082": (
+        "A broad upper curved contour joins a central upright and several lower branching strokes.",
+        "宽大的上部弯曲轮廓连接中央直立笔和数条下部分枝。",
+    ),
+    "obs-char-001083": (
+        "A wide horizontal form has a central upright crossing and two short lower side strokes.",
+        "宽大的横向形体有中央直立交叉笔和两条短下部侧笔。",
+    ),
+    "obs-char-001084": (
+        "A narrow upright cluster combines a pointed upper projection, a curved right side, and a short lower branch.",
+        "狭长直立笔群结合尖状上部外伸、右侧弯笔和短下部分枝。",
+    ),
+    "obs-char-001085": (
+        "A tall stacked form has a rounded upper enclosure, a central horizontal band, and a pointed lower section.",
+        "高而叠置的形体有圆弧上部闭合轮廓、中央水平带和尖状下部部分。",
+    ),
+    "obs-char-001086": (
+        "A large dark left form has a rounded upper curve and long lower strokes, beside a separate tall angular stroke on the right.",
+        "大型深色左侧形体有圆弧上部弯笔和长下部笔，右侧另有分离的高而棱角直立笔。",
+    ),
+    "obs-char-001087": (
+        "A compact upright cluster has an angular upper projection, a small enclosed central band, and two lower pointed strokes.",
+        "紧密直立笔群有棱角上部外伸、小型中央闭合带和两条尖状下部笔。",
+    ),
+    "obs-char-001088": (
+        "A narrow vertical form has a forked upper end, a central upright, and a long descending right curve.",
+        "狭长竖向形体有分叉上端、中央直立笔和长下行右弯笔。",
+    ),
+    "obs-char-001089": (
+        "The faint gray image shows a rounded upper loop above a pointed lower enclosed form; contrast is low.",
+        "较淡灰色图像显示圆弧上部环笔位于尖状下部闭合形体之上；对比度较低。",
+    ),
+    "obs-char-001090": (
+        "A low rounded enclosure is crossed by a central upright and accompanied by two short upper side strokes.",
+        "低位圆弧闭合轮廓被中央直立笔穿过，两侧有两条短上部笔。",
+    ),
+    "obs-char-001091": (
+        "A dense branching cluster has two upper pointed projections, a central crossing, and several short lower side strokes.",
+        "密集分枝笔群有两个尖状上部外伸、中央交叉和数条短下部侧笔。",
+    ),
+    "obs-char-001092": (
+        "A narrow form combines a short left branch, a central upright, and a rounded right enclosure.",
+        "狭长形体结合左侧短分枝、中央直立笔和右侧圆弧闭合轮廓。",
+    ),
+    "obs-char-001093": (
+        "A tall slender form has a pointed upper projection, a long central stem, and a small lower branch.",
+        "高而纤细的形体有尖状上部外伸、长中央笔干和小型下部分枝。",
+    ),
+    "obs-char-001094": (
+        "A narrow branching form has a rounded upper turn, a central vertical stroke, and a pointed lower extension.",
+        "狭长分枝形体有圆弧上部转笔、中央竖笔和尖状下部外伸。",
+    ),
+    "obs-char-001095": (
+        "A tall curved form has a rounded upper contour, a long central descending stroke, and a short lower side branch.",
+        "高而弯曲的形体有圆弧上部轮廓、长中央下行笔和短下部侧分枝。",
+    ),
+    "obs-char-001096": (
+        "The faint gray image shows a compact rounded cluster with a short lower curve; fine detail is low contrast.",
+        "较淡灰色图像显示紧密圆弧笔群和短下部弯笔；细部对比度较低。",
+    ),
+    "obs-char-001097": (
+        "A dense upright cluster has two short upper branches, a rounded central enclosure, and lower side strokes.",
+        "密集直立笔群有两条短上部分枝、圆弧中央闭合轮廓和下部侧笔。",
+    ),
+    "obs-char-001098": (
+        "A narrow form has an upper crossing, a small central enclosure, and two long lower branching strokes.",
+        "狭长形体有上部交叉、小型中央闭合笔和两条长下部分枝。",
+    ),
+    "obs-char-001099": (
+        "A narrow vertical form has a pointed upper branch, a central upright, and a rounded lower curve.",
+        "狭长竖向形体有尖状上部分枝、中央直立笔和圆弧下部弯笔。",
+    ),
+    "obs-char-001100": (
+        "A slender upright form has a short upper horizontal stroke, a central crossing, and a long lower stem.",
+        "纤细直立形体有短上部水平笔、中央交叉和长下部笔干。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

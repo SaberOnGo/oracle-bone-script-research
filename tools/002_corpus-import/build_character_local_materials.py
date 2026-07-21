@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001341": (
+        "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
+        "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",
+    ),
+    "obs-char-001342": (
+        "A symmetrical stacked form combines two rounded rectangular sections with pointed upper and lower ends.",
+        "近对称上下排列形体结合两个圆折矩形段，上下端均呈尖状。",
+    ),
+    "obs-char-001343": (
+        "A composite image has a narrow left branching mark and a larger right form with an upper enclosure and lower box.",
+        "组合图像有狭长左侧分枝标记，右侧较大形体包含上部框形和下部方框。",
+    ),
+    "obs-char-001344": (
+        "A large dense composite has repeated left triangular marks, a central crossing, and several right-side branches.",
+        "大型密集组合形体有重复的左侧三角状标记、中央交叉笔和数条右侧分枝。",
+    ),
+    "obs-char-001345": (
+        "A small upright form has a short upper bar, a narrow rounded body, and a pointed lower end.",
+        "小型直立形体有短上横笔、狭长圆拱主体和尖状下端。",
+    ),
+    "obs-char-001346": (
+        "The image combines a large pointed enclosure with an upper crossing and a separate long curved stroke.",
+        "图像中有带上部交叉笔的大型尖状框形，另有一条分离的长弧线。",
+    ),
+    "obs-char-001347": (
+        "A small left grid-like enclosure is paired with a separate rounded right stroke and lower taper.",
+        "小型左侧格状框形与分离的右侧圆拱笔画及下部渐尖笔相邻。",
+    ),
+    "obs-char-001348": (
+        "Several detached left curves accompany a right pointed enclosure with inner divisions and a lower stem.",
+        "数条分离的左侧弧线旁有右侧尖状框形，内部有分隔笔画并接下部笔干。",
+    ),
+    "obs-char-001349": (
+        "A peaked upper contour sits above a small rectangular middle enclosure and a pointed lower extension.",
+        "尖顶上部轮廓位于小型矩形中部框形之上，下方接尖状延伸。",
+    ),
+    "obs-char-001350": (
+        "Two adjacent forms combine a pointed left enclosure with a rounded right upper body and long lower curves.",
+        "两个相邻形体结合左侧尖状框形、右侧圆拱上部主体和长下部弧线。",
+    ),
+    "obs-char-001351": (
+        "A central vertical stroke crosses a broad horizontal bar, with several small detached side marks.",
+        "中央竖笔穿过宽大的水平横部，两侧有数个小型分离标记。",
+    ),
+    "obs-char-001352": (
+        "A narrow branching form has an upper fork, a central diagonal, and a pointed lower crossing.",
+        "狭长分枝形体有上部叉形、中央斜笔和尖状下部交叉笔。",
+    ),
+    "obs-char-001353": (
+        "A compact symmetrical cluster has a pointed upper enclosure, paired side branches, and a central lower stroke.",
+        "紧凑近对称笔画群有尖顶上部框形、成对侧部分枝和中央下行笔。",
+    ),
+    "obs-char-001354": (
+        "A broad upper triangular stroke leads into a long narrow stem and a low horizontal branching base.",
+        "宽大的上部三角状笔画连接长而狭窄的笔干，下方有低位水平分枝底部。",
+    ),
+    "obs-char-001355": (
+        "A stacked form has a rounded upper enclosure, a central angular loop, and several pointed lower branches.",
+        "上下排列形体有圆拱上部框形、中央折角环形和数条尖状下部分枝。",
+    ),
+    "obs-char-001356": (
+        "A composite image combines a dark left upright cluster with a separate peaked right branching form.",
+        "组合图像结合深色左侧直立笔画群和分离的右侧尖顶分枝形体。",
+    ),
+    "obs-char-001357": (
+        "A broad horizontal enclosure sits above a large open lower curve with two upward side prongs.",
+        "宽大的水平框形位于大型开放下部弧线之上，下部两侧有向上支臂。",
+    ),
+    "obs-char-001358": (
+        "A composite image has a simple left upper form and a larger right form with an enclosure, long stem, and branch.",
+        "组合图像左侧是简洁上部形体，右侧较大形体有框形、长笔干和分枝。",
+    ),
+    "obs-char-001359": (
+        "A large upper form has a broad horizontal crossing and several lower branches, with a separate curved stroke below left.",
+        "大型上部形体有宽大水平交叉笔和数条下部分枝，左下另有分离弧线。",
+    ),
+    "obs-char-001360": (
+        "A small dense cluster has a pointed upper crossing, several side loops, and a compact lower body.",
+        "小型密集笔画群有尖状上部交叉笔、数个侧部环形和紧凑下部主体。",
+    ),
     "obs-char-001321": (
         "A small upright form has a rounded triangular upper enclosure and a pointed lower loop.",
         "小型直立形体有圆拱三角状上部框形和尖状下部环形。",

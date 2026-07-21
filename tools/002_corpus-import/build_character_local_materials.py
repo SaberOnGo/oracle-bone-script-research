@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001361": (
+        "A small composite has an angular upper loop and two long lower strokes.",
+        "小型组合形体有角状上部环形和两条长下部笔画。",
+    ),
+    "obs-char-001362": (
+        "A narrow form has an upper rectangular enclosure and a long lower stroke.",
+        "狭长形体有上部矩形框形和长下部笔画。",
+    ),
+    "obs-char-001363": (
+        "A tall open form has a hooked upper bar, a central diagonal, and lower forks.",
+        "高耸开放形体有钩状上横笔、中央斜笔和下部分叉。",
+    ),
+    "obs-char-001364": (
+        "Two adjacent rectangular sections are divided by dark horizontal bars.",
+        "相邻的两个矩形部分由深色水平横笔分隔。",
+    ),
+    "obs-char-001365": (
+        "A stacked form has a trapezoidal cap and several small rectangular cells.",
+        "叠置形体有梯形上盖和数个小矩形格。",
+    ),
+    "obs-char-001366": (
+        "A pointed upper fork stands above a compact divided lower enclosure.",
+        "尖状上部分叉位于紧凑的下部隔分框形之上。",
+    ),
+    "obs-char-001367": (
+        "A single vertical stem carries three hooked side branches and a pointed top.",
+        "单一竖干带有三个钩状侧部分枝和尖状顶部。",
+    ),
+    "obs-char-001368": (
+        "A tall left stem has repeated side branches beside a separate angular form.",
+        "高大的左侧竖干有重复侧枝，旁边另有角状形体。",
+    ),
+    "obs-char-001369": (
+        "A broad cross-like framework has central stems, lower bars, and a small box.",
+        "宽大的十字状框架有中央竖干、下部横笔和小框形。",
+    ),
+    "obs-char-001370": (
+        "A tall composite has detached curved marks, central branches, and lower strokes.",
+        "高大组合形体有分离弧线、中央分枝和下部笔画。",
+    ),
+    "obs-char-001371": (
+        "A narrow upright band has repeated right-facing strokes and a lower hook.",
+        "狭长直立带状形有重复右向笔画和下部钩笔。",
+    ),
+    "obs-char-001372": (
+        "A narrow vertical form has repeated right notches and a lower curved loop.",
+        "狭长竖向形体有重复右向缺口和下部弧形环。",
+    ),
+    "obs-char-001373": (
+        "A branching upper cluster joins a long right diagonal with repeated side marks.",
+        "上部分枝群连接右侧长斜笔，旁有重复侧部笔画。",
+    ),
+    "obs-char-001374": (
+        "A small rounded upper enclosure sits above two separated lower branches.",
+        "小型圆拱上部框形位于两个分离下部分枝之上。",
+    ),
+    "obs-char-001375": (
+        "A dark stacked left cluster is paired with rounded right forms and a long stem.",
+        "深色叠置左侧笔画群与圆拱右侧形体及长竖干相邻。",
+    ),
+    "obs-char-001376": (
+        "Two separated forms combine a branched left stem with angular right strokes.",
+        "两个分离形体组合为分枝左竖干和角状右侧笔画。",
+    ),
+    "obs-char-001377": (
+        "A compact rounded enclosure contains several diagonal inner strokes.",
+        "紧凑圆拱框形内部有数条斜向笔画。",
+    ),
+    "obs-char-001378": (
+        "A narrow composite has repeated left ticks, an upper enclosure, and a lower branch.",
+        "狭长组合形体有重复左侧短笔、上部框形和下部分枝。",
+    ),
+    "obs-char-001379": (
+        "A striped left stem stands beside a tall right form with a rounded upper enclosure.",
+        "带有重复短笔的左竖干旁有高大的右侧形体及圆拱上框。",
+    ),
+    "obs-char-001380": (
+        "A faint compact cluster has slanted upper strokes and a short lower enclosure.",
+        "浅淡紧凑笔画群有斜向上部笔画和短小下部框形。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

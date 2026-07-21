@@ -5518,6 +5518,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A compact upright form has several pointed upper branches and a long lower forked extension.",
         "紧密直立形体有数个尖状上部分枝和长下部叉状外伸。",
     ),
+    "obs-char-001121": (
+        "A narrow form has a peaked upper fork and a long descending central stroke.",
+        "狭长形体有尖顶上部分叉和长下行中央笔。",
+    ),
+    "obs-char-001122": (
+        "A narrow upright cluster has repeated short side branches around a central stem and pointed lower strokes.",
+        "狭长直立笔群围绕中央笔干有重复的短侧分枝和尖状下部笔。",
+    ),
+    "obs-char-001123": (
+        "A faint gray form has a small angular upper enclosure, two short lower curves, and separated lower strokes; contrast is low.",
+        "较淡灰色形体有小型棱角上部闭合轮廓、两条短下部弯笔和分离的下部笔；对比度较低。",
+    ),
+    "obs-char-001124": (
+        "A faint gray diagonal cluster has a pointed upper fork, a curved central stem, and short lower branches; contrast is low.",
+        "较淡灰色斜向笔群有尖状上部分叉、弯曲中央笔干和短下部分枝；对比度较低。",
+    ),
+    "obs-char-001125": (
+        "A narrow upright form combines two pointed upper projections, a central descending stroke, and long side branches.",
+        "狭长直立形体结合两个尖状上部外伸、中央下行笔和长侧分枝。",
+    ),
+    "obs-char-001126": (
+        "A dense upright cluster has a pointed upper projection, several short leftward branches, and a long central lower stroke.",
+        "密集直立笔群有尖状上部外伸、数条向左短分枝和长中央下部笔。",
+    ),
+    "obs-char-001127": (
+        "A narrow dense cluster has repeated angular side strokes around a central stem and a pointed lower extension.",
+        "狭长密集笔群围绕中央笔干有重复的棱角侧笔和尖状下部外伸。",
+    ),
+    "obs-char-001128": (
+        "Three separated angular clusters are visible, with two upper forms and a smaller pointed lower form.",
+        "可见三个分离的棱角笔群，其中有两个上部形体和一个较小的尖状下部形体。",
+    ),
+    "obs-char-001129": (
+        "A tall narrow rectangular enclosure is divided by horizontal bands and narrows into a pointed lower stem.",
+        "高而狭长的矩形闭合轮廓被水平带分隔，并向下收束为尖状笔干。",
+    ),
+    "obs-char-001130": (
+        "The registered image route is present, but the local derivative is missing; no direct visual observation can be made until the source package is restored.",
+        "已登记图像路由，但本地派生图像缺失；在恢复来源包前不能作直接字形观察。",
+    ),
+    "obs-char-001131": (
+        "A narrow form has two long descending side strokes, a central crossing, and a rounded lower loop.",
+        "狭长形体有两条长下行侧笔、中央交叉和圆弧下部环笔。",
+    ),
+    "obs-char-001132": (
+        "A narrow diagonal cluster has repeated short crossings and a dotted pointed lower continuation.",
+        "狭长斜向笔群有重复的短交叉和带点状笔迹的尖状下部延伸。",
+    ),
+    "obs-char-001133": (
+        "A faint compact cluster has a central rectangular enclosure, a lower loop, and short side projections; contrast is low.",
+        "较淡的紧密笔群有中央矩形闭合轮廓、下部环笔和短侧向外伸；对比度较低。",
+    ),
+    "obs-char-001134": (
+        "A broad horizontal stroke crosses a central upright, with a short right branch and a long lower descending stroke.",
+        "宽大的水平笔穿过中央直立笔，右侧有短分枝，下方有长下行笔。",
+    ),
+    "obs-char-001135": (
+        "A narrow upright form has a pointed upper fork, a long curved left side, and a separate lower pointed stroke.",
+        "狭长直立形体有尖状上部分叉、长左侧弯笔和分离的下部尖状笔。",
+    ),
+    "obs-char-001136": (
+        "A faint slender form has a small upper fork, a rounded central turn, and long lower side strokes; contrast is low.",
+        "较淡纤细形体有小型上部分叉、圆弧中央转笔和长下部侧笔；对比度较低。",
+    ),
+    "obs-char-001137": (
+        "A compact upright enclosure has two tall side curves, a central crossing, and a low rounded base.",
+        "紧密直立闭合形体有两条高侧弯笔、中央交叉和低位圆弧底部。",
+    ),
+    "obs-char-001138": (
+        "Two adjacent branching forms are linked by a central crossing, with a short lower horizontal base.",
+        "两个相邻分枝形体由中央交叉相连，下方有短水平底笔。",
+    ),
+    "obs-char-001139": (
+        "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
+        "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
+    ),
+    "obs-char-001140": (
+        "A narrow upright form has a central crossing, two short upper branches, and a long lower descending stroke.",
+        "狭长直立形体有中央交叉、两条短上部分枝和长下行笔。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"
@@ -6220,20 +6300,37 @@ def build_material_observation_text(
         for row in visual_rows
         if local_asset_exists(root, row.get("committed_image_path", ""))
     ]
-    if not observation or not committed:
+    if not observation or not visual_rows:
         return ""
-    row = committed[0]
-    local_path = Path(row["committed_image_path"])
-    if local_path.is_absolute():
+    row = committed[0] if committed else visual_rows[0]
+    local_path = Path(row.get("committed_image_path", ""))
+    if committed and local_path.is_absolute():
         local_path_for_display = local_path
-    else:
+    elif committed:
         local_path_for_display = root / local_path
-    try:
-        local_path_text = local_path_for_display.resolve().relative_to(
-            object_dir.resolve()
-        ).as_posix()
-    except ValueError:
-        local_path_text = local_path.as_posix()
+    else:
+        local_path_text = "registered route only; local derivative missing"
+    if committed:
+        try:
+            local_path_text = local_path_for_display.resolve().relative_to(
+                object_dir.resolve()
+            ).as_posix()
+        except ValueError:
+            local_path_text = local_path.as_posix()
+    observation_intro = (
+        "This note records only the visible marks in one local, source-linked "
+        "review image. It is a preparation-stage observation for a human "
+        "researcher, not a reading or component assignment."
+        if committed
+        else "This note records a source-linked image route whose local "
+        "derivative is missing. No direct visual observation is made; this "
+        "is a preparation-stage gap record for a human researcher."
+    )
+    observation_intro_zh = (
+        "本记录只描述一张有来源链接的本地复核图像中直接可见的痕迹，供人类研究者在预处理阶段查阅，不是释读或构件归属判断。"
+        if committed
+        else "本记录明确登记有来源链接但本地派生图像缺失的情况；当前不能作直接字形观察，供人类研究者追补来源资料。"
+    )
     lines: list[str] = [
         f"# Material Visual Observation / {project_id} 实物图像观察",
         "",
@@ -6241,15 +6338,12 @@ def build_material_observation_text(
     ]
     append_wrapped_paragraph(
         lines,
-        "This note records only the visible marks in one local, source-linked "
-        "review image. It is a preparation-stage observation for a human "
-        "researcher, not a reading or component assignment.",
+        observation_intro,
     )
     lines.extend(["", "简体中文："])
     append_wrapped_paragraph(
         lines,
-        "本记录只描述一张有来源链接的本地复核图像中直接可见的痕迹，供人类研究者在预处理阶段查阅，"
-        "不是释读或构件归属判断。",
+        observation_intro_zh,
     )
     lines.extend(["", "## Evidence Opened / 已打开证据", ""])
     append_wrapped_bullet(lines, "Project ID / 项目 ID", f"`{project_id}`")
@@ -6338,11 +6432,7 @@ def build_outputs(root: Path) -> dict[str, dict]:
                 packet_name,
                 packet,
                 visual_rows,
-                bool(MATERIAL_VISUAL_OBSERVATIONS.get(project_id))
-                and any(
-                    local_asset_exists(root, row.get("committed_image_path", ""))
-                    for row in visual_rows
-                ),
+                bool(MATERIAL_VISUAL_OBSERVATIONS.get(project_id)),
             ),
             "gallery_text": build_gallery_text(
                 project_id, packet_name, packet, visual_rows, root

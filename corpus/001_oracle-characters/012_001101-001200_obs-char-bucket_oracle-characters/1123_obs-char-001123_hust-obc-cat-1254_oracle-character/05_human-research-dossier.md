@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A faint gray form has a small angular upper
+  enclosure, two short lower curves, and separated lower strokes; contrast
+  is low.`
+- 中文观察: `较淡灰色形体有小型棱角上部闭合轮廓、两条短下部弯笔和分离的下部笔；对比度较低。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

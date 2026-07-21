@@ -111,10 +111,9 @@ not an identity or decipherment conclusion.
 ### Source-Linked Visual Note / 有来源图像观察
 
 - visual note route: `14_material-visual-observation.md`
-- English observation: `The registered image route is present, but the local
-  derivative is missing; no direct visual observation can be made until the
-  source package is restored.`
-- 中文观察: `已登记图像路径，但本地派生图像缺失；在恢复来源包前不能作直接字形观察。`
+- English observation: `A faint narrow form has a small enclosed left loop,
+  a central branching stroke, and a long descending right stroke.`
+- 中文观察: `较淡的狭长形体有左侧小型闭合环、中央分枝笔和右侧长下行笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

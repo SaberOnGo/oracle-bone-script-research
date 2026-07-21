@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001161": (
+        "A tall branching form has a curved left outer contour, a central upright, and a small angular side mark.",
+        "高而分枝的形体有左侧弯曲外轮廓、中央直立笔和小型侧部折角痕迹。",
+    ),
+    "obs-char-001162": (
+        "A narrow vertical form has a short upper cross-stroke, a small central square enclosure, and a lower hook.",
+        "狭长竖向形体有短上部横笔、小型中央方形框廓和下部钩笔。",
+    ),
+    "obs-char-001163": (
+        "A peaked upper form has a broad horizontal bar, two short downward marks, and a rounded lower enclosure.",
+        "尖顶上部形体有宽横笔、两条短下行痕迹和圆弧形下部框廓。",
+    ),
+    "obs-char-001164": (
+        "Two angular masses are linked by a central crossing, with a pointed left projection and a rounded right enclosure.",
+        "两个折角块面由中央交叉相连，左侧有尖状外伸，右侧有圆弧形框廓。",
+    ),
+    "obs-char-001165": (
+        "A narrow upright form has a pointed upper tip, a long left contour, and a separate rounded loop on the right.",
+        "狭长直立形体有尖状上端、长左侧轮廓和右侧独立圆弧环。",
+    ),
+    "obs-char-001166": (
+        "A narrow upright form has a pointed upper tip, two stacked curved side bands, and a short lower base.",
+        "狭长直立形体有尖状上端、两层弯曲侧部带和短下部底笔。",
+    ),
+    "obs-char-001167": (
+        "A compact curved enclosure has a small inner loop, a pointed upper tip, and a long descending right stroke.",
+        "紧凑的弯曲框廓有小型内部环、尖状上端和长右侧下行笔。",
+    ),
+    "obs-char-001168": (
+        "A small stacked angular form crosses a central horizontal stroke and joins a long right vertical ending in a base.",
+        "小型叠置折角形体穿过中央横笔，并连接右侧长竖笔及其下部底笔。",
+    ),
+    "obs-char-001169": (
+        "A dense irregular left cluster has an upper loop, a long right outer stroke, and several short lower projections.",
+        "密集不规则左侧笔群有上部环、长右侧外笔和数条短下部外伸笔。",
+    ),
+    "obs-char-001170": (
+        "A broad angular upper arch has a central horizontal crossing and two pointed lower side strokes.",
+        "宽大的折角上拱有中央横向交叉笔和两条尖状下部侧笔。",
+    ),
+    "obs-char-001171": (
+        "A narrow upright form has a forked upper crown, paired side strokes, and a long central descending stroke above a base.",
+        "狭长直立形体有分叉冠状上部、成对侧笔和位于底笔上方的中央长下行笔。",
+    ),
+    "obs-char-001172": (
+        "A faint angular cluster has two upper points, a central crossing, and a short curved lower-right enclosure.",
+        "较淡的折角笔群有两个上部尖点、中央交叉和短圆弧形右下框廓。",
+    ),
+    "obs-char-001173": (
+        "A clean upright form has an upper crossing, two short side branches, and a long central stroke ending at a base.",
+        "清晰的直立形体有上部交叉、两条短侧部分枝和延伸到底笔的中央长笔。",
+    ),
+    "obs-char-001174": (
+        "A large dark two-part form has an elongated left loop, a central crossing, and a broad right curve ending in a hook.",
+        "大型深色两部分形体有狭长左侧环、中央交叉和以钩笔收尾的宽大右侧弯笔。",
+    ),
+    "obs-char-001175": (
+        "A small upright form has a pointed top, a short upper shoulder, and two long descending side strokes.",
+        "小型直立形体有尖状顶部、短上部肩笔和两条长下行侧笔。",
+    ),
+    "obs-char-001176": (
+        "A small open rounded curve rises to a short upright stroke and a pointed upper tip.",
+        "小型开放圆弧向上连接短直立笔和尖状上端。",
+    ),
+    "obs-char-001177": (
+        "A narrow dense form has several pointed upper branches, two descending side strokes, and a long central line.",
+        "狭长密集形体有数条尖状上部分枝、两条下行侧笔和中央长线。",
+    ),
+    "obs-char-001178": (
+        "A tall pale form has a long central upright separating two curved outer strokes with short side branches.",
+        "高而较淡的形体有长中央直立笔，分隔两条带短侧枝的弯曲外笔。",
+    ),
+    "obs-char-001179": (
+        "A faint peaked form has two descending side strokes, a central lower curve, and a small hooked turn.",
+        "较淡的尖顶形体有两条下行侧笔、中央下部弯笔和小型钩转。",
+    ),
+    "obs-char-001180": (
+        "A dense branching cluster has upper prongs, a central crossing, and long unequal strokes descending on both sides.",
+        "密集分枝笔群有上部尖枝、中央交叉和两侧不等长的长下行笔。",
+    ),
     "obs-char-001141": (
         "A slender upright stroke rises from a small angled lower cluster, with a pointed upper branch and a short lower hook.",
         "狭长直立笔画从小型斜向下部组合中上升，顶部有尖状分枝，下部有短钩笔。",

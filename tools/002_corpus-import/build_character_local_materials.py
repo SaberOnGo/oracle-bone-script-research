@@ -5914,6 +5914,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A faint dense cluster combines several short vertical and rectangular forms.",
         "浅淡密集笔画群组合数个短竖向和矩形形体。",
     ),
+    "obs-char-001441": (
+        "A triangular upper roof sits above a divided rectangular middle enclosure.",
+        "三角形上盖位于有隔分的中部矩形框形之上。",
+    ),
+    "obs-char-001442": (
+        "A narrow curved stem has repeated short marks along its left side.",
+        "狭长弧形竖干左侧有重复短笔。",
+    ),
+    "obs-char-001443": (
+        "A large branching form has two peaked upper arms and several lower prongs.",
+        "大型分枝形体有两个尖拱上臂和数条下部分叉。",
+    ),
+    "obs-char-001444": (
+        "A central stem has short upper branches and a pointed lower taper.",
+        "中央竖干有短上部分枝和尖状下部收束。",
+    ),
+    "obs-char-001445": (
+        "Two upright stems have small forked tops joined by a central crossing.",
+        "两条直立竖干有小型分叉顶部，并由中央交叉笔连接。",
+    ),
+    "obs-char-001446": (
+        "A large rounded outer contour contains an inner enclosure and side branches.",
+        "大型圆拱外轮廓内部有框形和侧部分枝。",
+    ),
+    "obs-char-001447": (
+        "A closed oval enclosure contains two crossing diagonal strokes.",
+        "封闭椭圆框形内部有两条交叉斜笔。",
+    ),
+    "obs-char-001448": (
+        "Two narrow branching forms share a pointed upper center and lower stem.",
+        "两个狭长分枝形体共有尖状上部中心和下部竖干。",
+    ),
+    "obs-char-001449": (
+        "Several curved strokes form a broad upper arch with a central point.",
+        "数条弧形笔画形成宽大上拱和中央尖点。",
+    ),
+    "obs-char-001450": (
+        "A rounded upper enclosure has side knobs and several lower prongs.",
+        "圆拱上部框形有侧部突笔和数条下部分叉。",
+    ),
+    "obs-char-001451": (
+        "A small upper loop leads into a narrow zigzagging lower stem and a dot.",
+        "小型上部环形连接狭长曲折下部竖干及一点状笔画。",
+    ),
+    "obs-char-001452": (
+        "A stacked narrow form has an upper enclosure, a diagonal, and a lower loop.",
+        "叠置狭长形体有上部框形、斜笔和下部环形。",
+    ),
+    "obs-char-001453": (
+        "A pointed upper cap leads to layered strokes and three lower prongs.",
+        "尖状上盖连接叠层笔画和三个下部分叉。",
+    ),
+    "obs-char-001454": (
+        "An open upper cluster sits above a small rectangular lower enclosure.",
+        "开放上部笔画群位于小型下部矩形框形之上。",
+    ),
+    "obs-char-001455": (
+        "A large dense composite has a peaked upper stem, inner openings, and branches.",
+        "大型密集组合形体有尖拱上部竖干、内部空隙和分枝。",
+    ),
+    "obs-char-001456": (
+        "A domed enclosure contains an inner triangle above several lower branches.",
+        "拱顶框形内部有三角形，下面有数条分枝。",
+    ),
+    "obs-char-001457": (
+        "A large symmetrical composite has paired side arms, central loops, and branches.",
+        "大型对称组合形体有成对侧臂、中央环形和下部分枝。",
+    ),
+    "obs-char-001458": (
+        "A narrow curved form has a small upper hook and several long inner curves.",
+        "狭长弧形体有小型上部钩笔和数条长内部弧线。",
+    ),
+    "obs-char-001459": (
+        "A pointed upper cluster leads into a long separated lower curve.",
+        "尖状上部笔画群连接长分离下部弧线。",
+    ),
+    "obs-char-001460": (
+        "A large dark upper form has inner openings, long lower curves, and a U-shaped base.",
+        "大型深色上部形体有内部空隙、长下部弧线和U形底部。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

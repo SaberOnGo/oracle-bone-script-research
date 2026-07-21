@@ -6154,6 +6154,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A faint compact cluster has upper prongs, a narrow body, and a lower curve.",
         "浅淡紧凑笔画群有上部分叉、狭长主体和下部弧线。",
     ),
+    "obs-char-001501": (
+        "A compact composite has upper forked strokes, a right enclosure, and two descending lines.",
+        "紧凑组合形体有上部分叉笔画、右侧框形和两条下垂线。",
+    ),
+    "obs-char-001502": (
+        "A paired form combines a peaked upper mark, a gridded left body, and a branching right stroke.",
+        "组合形体结合尖顶上部标记、格状左侧主体和分枝右侧笔画。",
+    ),
+    "obs-char-001503": (
+        "A narrow glyph is formed by two close parallel strokes with a small forked upper end.",
+        "狭长字形由两条相近平行笔画和小型分叉上端构成。",
+    ),
+    "obs-char-001504": (
+        "A small composite has a crossing upper structure, a central stem, and a lower oval loop.",
+        "小型组合形体有交叉上部结构、中央竖干和下部椭圆环。",
+    ),
+    "obs-char-001505": (
+        "A dark rounded form has an angular outer contour and an open inner space.",
+        "深色圆折形体有外部折角轮廓和开放的内部空间。",
+    ),
+    "obs-char-001506": (
+        "A tall dark composite has a dense upper cluster, a long left contour, and two rounded right marks.",
+        "高大的深色组合形体有密集上部笔画群、左侧长轮廓和右侧两个圆折标记。",
+    ),
+    "obs-char-001507": (
+        "A long curved stem rises to a broad upper bar and branches into several right-side strokes.",
+        "长弧形竖干上接宽大上横笔，并分出数条右侧笔画。",
+    ),
+    "obs-char-001508": (
+        "Two faint adjacent forms repeat a forked upper mark, a short crossbar, and a narrow stem.",
+        "两个浅淡相邻形体重复分叉上部标记、短横笔和狭长竖干。",
+    ),
+    "obs-char-001509": (
+        "Sparse separated strokes form two open curved contours with no closed interior.",
+        "稀疏分离笔画形成两个开放弧形轮廓，内部没有闭合空间。",
+    ),
+    "obs-char-001510": (
+        "A simple upright form has a top bar, a central stem, a lower base, and a right looped mark.",
+        "简单直立形体有上横笔、中央竖干、下部底笔和右侧环形标记。",
+    ),
+    "obs-char-001511": (
+        "A narrow branching form has a forked top, a central zigzag, and a long diagonal right stroke.",
+        "狭长分枝形体有分叉上端、中央曲折和右侧长斜笔。",
+    ),
+    "obs-char-001512": (
+        "A composite separates small upper curved marks from a broad lower bowl-like contour.",
+        "组合形体将上部小型弧笔与宽大的下部盆状轮廓分开。",
+    ),
+    "obs-char-001513": (
+        "A large triangular enclosure contains a central upright and an inner rounded opening.",
+        "大型三角框形包含中央竖笔和内部圆折开口。",
+    ),
+    "obs-char-001514": (
+        "A sparse composite has layered curved marks on the left and a detached hooked mark on the right.",
+        "稀疏组合形体左侧有层叠弧笔，右侧有分离的钩状标记。",
+    ),
+    "obs-char-001515": (
+        "A compact angular cluster combines pointed upper strokes with a small lower loop.",
+        "紧凑折角笔画群结合尖状上部笔画和小型下部环形。",
+    ),
+    "obs-char-001516": (
+        "An upper crossed cluster sits above a separate horizontal stroke and a long curved lower line.",
+        "上部交叉笔画群位于分离的横笔和长弧形下部笔画之上。",
+    ),
+    "obs-char-001517": (
+        "A compact form has a branching left edge, a rectangular central body, and an upper hook.",
+        "紧凑形体有分枝左缘、中央矩形主体和上部钩笔。",
+    ),
+    "obs-char-001518": (
+        "Two faint adjacent forms each show a central vertical and short lateral branches.",
+        "两个浅淡相邻形体各有中央竖笔和短侧向分枝。",
+    ),
+    "obs-char-001519": (
+        "A large composite pairs a four-way upper cross with a broad rounded lower enclosure.",
+        "大型组合形体将四向上部交叉与宽大的下部圆折框形相配。",
+    ),
+    "obs-char-001520": (
+        "A tall composite has layered upper bars, a small left enclosure, and a long angled lower stroke.",
+        "高大组合形体有层叠上横笔、左侧小框形和长斜向下部笔画。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

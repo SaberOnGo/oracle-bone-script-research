@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001281": (
+        "A small compact angular form has a short upper bar, a central descending stroke, and a long lower diagonal.",
+        "小型紧凑折角形体有短上横笔、中央下行笔画和一条长下部斜笔。",
+    ),
+    "obs-char-001282": (
+        "A faint narrow upright form has a short upper crossing, a thin central stem, and small side ticks.",
+        "较淡狭长直立形体有短上部交叉笔、细中央笔干和小型侧向短笔。",
+    ),
+    "obs-char-001283": (
+        "A narrow sloping form has a rounded inner loop, several short crossing marks, and a long lower stem.",
+        "狭长倾斜形体有圆拱内部环形、数个短交叉标记和长下部笔干。",
+    ),
+    "obs-char-001284": (
+        "A dense branching form has a dark upper crossing, a long right curve, and several lower diagonal strokes.",
+        "密集分枝形体有深色上部交叉笔、长右侧弧线和数条下部斜笔。",
+    ),
+    "obs-char-001285": (
+        "Two broad pointed curves face inward, leaving an open central gap and a narrow lower junction.",
+        "两条宽大的尖状弧笔相向而行，中部留有开放空隙，下方形成狭窄交接点。",
+    ),
+    "obs-char-001286": (
+        "A tall form has a pointed upper enclosure, a central cross-stroke, and two long outer descending lines.",
+        "高直形体有尖顶上部框形、中央横笔和两条长外侧下行线。",
+    ),
+    "obs-char-001287": (
+        "A small faint cluster has an upper cross-stroke, a rounded left loop, and two long lower strokes.",
+        "小型较淡笔画群有上部横笔、左侧圆拱环形和两条长下行笔画。",
+    ),
+    "obs-char-001288": (
+        "A broad peaked upper arch sits above a lower branching cluster with an open central gap.",
+        "宽大的尖拱上部位于下部分枝笔画群之上，中部留有开放空隙。",
+    ),
+    "obs-char-001289": (
+        "A narrow upright cluster has a short upper crossing, repeated central strokes, and a small lower loop.",
+        "狭长直立笔画群有短上部交叉笔、重复的中央笔画和小型下部环形。",
+    ),
+    "obs-char-001290": (
+        "A rectangular middle enclosure is flanked by long outer verticals and contains short inner cross-strokes.",
+        "矩形中部框形两侧有长外侧竖笔，内部包含短横向交叉笔。",
+    ),
+    "obs-char-001291": (
+        "A small dense form has a broad upper crossing, several short vertical divisions, and a compact lower body.",
+        "小型密集形体有宽大的上部交叉笔、数条短竖向分隔和紧凑下部主体。",
+    ),
+    "obs-char-001292": (
+        "A peaked upper enclosure contains a lattice of short inner strokes and opens into two lower curves.",
+        "尖顶上部框形包含由短笔组成的交错内部结构，下方展开为两条弧线。",
+    ),
+    "obs-char-001293": (
+        "Two long outer verticals frame a small central rounded enclosure with a short inner horizontal.",
+        "两条长外侧竖笔框住小型中央圆拱框形，内部有一条短横笔。",
+    ),
+    "obs-char-001294": (
+        "A small tall angular cluster has a sloping upper enclosure, a central descending stroke, and a pointed base.",
+        "小型高直折角笔画群有倾斜上部框形、中央下行笔画和尖状底部。",
+    ),
+    "obs-char-001295": (
+        "A small low-contrast cluster combines several upright curves, a short lower baseline, and indistinct edges.",
+        "小型低对比度笔画群结合数条直立弧笔和短下部基线，边缘辨识度有限。",
+    ),
+    "obs-char-001296": (
+        "A large peaked form has a segmented upper contour, a central vertical, and several rounded lower branches.",
+        "大型尖顶形体有分段上部轮廓、中央竖笔和数条圆拱下部分枝。",
+    ),
+    "obs-char-001297": (
+        "A simple branching form has a central stem, two upper arms, a long right cross-stroke, and paired lower curves.",
+        "简洁分枝形体有中央笔干、两条上部支臂、长右侧横笔和成对下部弧线。",
+    ),
+    "obs-char-001298": (
+        "A faint isolated form has a short rounded horizontal body and a small detached lower pointed mark.",
+        "较淡的孤立形体有短圆拱水平主体和一个分离的下部尖状标记。",
+    ),
+    "obs-char-001299": (
+        "A large composite form has an upper forked cluster above a broad lower enclosure with an inner pointed stroke.",
+        "大型组合形体上部为分叉笔画群，下方是宽大框形，内部有尖状笔画。",
+    ),
+    "obs-char-001300": (
+        "A long irregular descending form has an upper fork, a sweeping lower curve, and a detached bottom mark.",
+        "长而不规则的下行形体有上部叉形、横扫式下部弧线和分离的底部标记。",
+    ),
     "obs-char-001261": (
         "A small faint cluster has a rounded upper loop, two descending strokes, and a short detached right mark.",
         "小型较淡笔画群有圆拱上部环形、两条下行笔画和一条短分离右侧标记。",

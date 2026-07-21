@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001221": (
+        "A narrow dense form has an upper horizontal enclosure, a central branching stroke, and a hooked lower end.",
+        "狭长密集形体有上部横向框廓、中央分枝笔和钩状下端。",
+    ),
+    "obs-char-001222": (
+        "A compact dense cluster combines several small loops, short right side strokes, and a lower rounded turn.",
+        "紧凑密集笔群结合数个小型环、短右侧笔和下部圆弧转折。",
+    ),
+    "obs-char-001223": (
+        "A tall dark form has a broad upper curve, a central crossing, a long left diagonal, and a descending right stroke.",
+        "高而深色的形体有宽大上部弯笔、中央交叉、长左侧斜笔和右侧下行笔。",
+    ),
+    "obs-char-001224": (
+        "A small upright form has an angular upper enclosure, a central vertical, and a triangular lower base.",
+        "小型直立形体有折角上部框廓、中央竖笔和三角形下部底笔。",
+    ),
+    "obs-char-001225": (
+        "A faint compact cluster has two detached upper marks, a dense central lower form, and low contrast.",
+        "较淡的紧凑笔群有两个分离上部痕迹、密集中央下部形体，图像对比度较低。",
+    ),
+    "obs-char-001226": (
+        "A dense upright form has an angular upper loop, a long right descending stroke, and several lower curves.",
+        "密集直立形体有折角上部环、长右侧下行笔和数条下部弯笔。",
+    ),
+    "obs-char-001227": (
+        "A simple sloping stroke has a pointed upper end and a long curved lower hook.",
+        "简洁斜向笔有尖状上端和长圆弧形下部钩笔。",
+    ),
+    "obs-char-001228": (
+        "A broad arched form links two side clusters with a smaller inner arc below the top contour.",
+        "宽大的拱形轮廓连接两侧笔群，上部轮廓下方有较小内部弧线。",
+    ),
+    "obs-char-001229": (
+        "Two separated dark branching forms each have a central upright and short side projections.",
+        "两个分离的深色分枝形体各自有中央直立笔和短侧部外伸笔。",
+    ),
+    "obs-char-001230": (
+        "A faint narrow form has a short upper crossing, a curved central stroke, and a hooked lower turn.",
+        "较淡的狭长形体有短上部交叉、中央弯笔和钩状下部转折。",
+    ),
+    "obs-char-001231": (
+        "A small upright form has a rounded upper enclosure, a central vertical, and two long lower side strokes.",
+        "小型直立形体有圆弧形上部框廓、中央竖笔和两条长下部侧笔。",
+    ),
+    "obs-char-001232": (
+        "A large dense form has an upper rectangular enclosure, a central stem, and a broad lower angular body.",
+        "大型密集形体有上部方形框廓、中央笔干和宽大的下部折角形体。",
+    ),
+    "obs-char-001233": (
+        "A large branching form has a small upper arch, a long central curve, a broad lower arch, and several lower branches.",
+        "大型分枝形体有小型上拱、中央长弯笔、宽大下拱和数条下部分枝。",
+    ),
+    "obs-char-001234": (
+        "A tall complex form has an upper pointed loop, a long central stroke, a lower branching cluster, and a detached right line.",
+        "高而复杂的形体有上部尖状环、中央长笔、下部分枝笔群和分离的右侧线。",
+    ),
+    "obs-char-001235": (
+        "A small upright form has a pointed upper tip, a central rounded enclosure, and a long lower rounded stroke.",
+        "小型直立形体有尖状上端、中央圆弧框廓和长下部圆弧笔。",
+    ),
+    "obs-char-001236": (
+        "A dense upright form has a pointed upper cluster, a central rounded enclosure, several lower branches, and a base.",
+        "密集直立形体有尖状上部笔群、中央圆弧框廓、数条下部分枝和底笔。",
+    ),
+    "obs-char-001237": (
+        "A compact rounded form has several short upper prongs, a central open loop, and a short lower base.",
+        "紧凑圆弧形体有数条短上部尖枝、中央开放环和短下部底笔。",
+    ),
+    "obs-char-001238": (
+        "A narrow upright stroke is flanked by two long side strokes and several short lower marks.",
+        "狭长直立笔两侧有两条长侧笔，下方还有数个短痕迹。",
+    ),
+    "obs-char-001239": (
+        "A narrow pointed upright form has two long side branches and a short central lower stroke.",
+        "狭长尖状直立形体有两条长侧枝和短中央下部笔。",
+    ),
+    "obs-char-001240": (
+        "A large peaked form has a central triangular enclosure, detached side strokes, and a small lower loop.",
+        "大型尖顶形体有中央三角框廓、分离的侧笔和小型下部环。",
+    ),
     "obs-char-001201": (
         "A dense upright cluster has repeated pointed branches, a central narrow enclosure, and short lower side strokes.",
         "密集直立笔群有重复尖状分枝、中央狭长框廓和短下部侧笔。",

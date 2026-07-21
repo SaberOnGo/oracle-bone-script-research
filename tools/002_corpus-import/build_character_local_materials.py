@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001181": (
+        "A tall slender form has a branched upper stroke, a long left contour, and several descending right curves.",
+        "高而狭长的形体有上部分枝笔、长左侧轮廓和数条右侧下行弯笔。",
+    ),
+    "obs-char-001182": (
+        "A narrow upright form has a forked upper stroke, a short detached right mark, and a rounded lower enclosure.",
+        "狭长直立形体有分叉上笔、右侧短分离痕迹和圆弧形下部框廓。",
+    ),
+    "obs-char-001183": (
+        "A bold upright form combines a broad upper cross-stroke, a central vertical, and several lower horizontal turns.",
+        "粗重直立形体结合宽大上部横笔、中央竖笔和数个下部横向转折。",
+    ),
+    "obs-char-001184": (
+        "A small narrow form has a short upper bar, a central loop-like enclosure, and a rounded lower hook.",
+        "小型狭长形体有短上部横笔、中央环状框廓和圆弧形下部钩笔。",
+    ),
+    "obs-char-001185": (
+        "A broad upper bar joins a central upright and three long hanging strokes with short side branches.",
+        "宽大的上部横笔连接中央直立笔和三条带短侧枝的长下垂笔。",
+    ),
+    "obs-char-001186": (
+        "A narrow sloping form has several short curved bands and a long thin descending lower stroke.",
+        "狭长斜向形体有数条短弯曲带和一条细长下行笔。",
+    ),
+    "obs-char-001187": (
+        "A faint compact image shows two narrow upright forms above a short horizontal base, with a small upper branch.",
+        "较淡的紧凑图像显示短横底笔上方的两个狭长直立形体，并有小型上部分枝。",
+    ),
+    "obs-char-001188": (
+        "Two separated slender strokes are visible, with a branched left form and a longer curved right stroke.",
+        "可见两个分离的狭长笔组，左侧形体有分枝，右侧笔较长且弯曲。",
+    ),
+    "obs-char-001189": (
+        "A horizontal rectangular enclosure is crossed by two upper uprights and accompanied by two lower curves.",
+        "横向方形框廓被两条上部直立笔穿过，并伴有两条下部弯笔。",
+    ),
+    "obs-char-001190": (
+        "A broad rounded central enclosure has two forked upper branches, short side strokes, and a lower base.",
+        "宽大的圆弧形中央框廓有两条分叉上枝、短侧笔和下部底笔。",
+    ),
+    "obs-char-001191": (
+        "The faint compact cluster combines several short angular crossings and a darker pointed lower stroke.",
+        "较淡的紧凑笔群结合数个短折角交叉和较深的尖状下部笔。",
+    ),
+    "obs-char-001192": (
+        "Two long curved strokes descend together and meet in a pointed lower fork.",
+        "两条长弯笔并行下行，并在下端汇合成尖状分叉。",
+    ),
+    "obs-char-001193": (
+        "A large branching form has a long central descending stroke, a broad left branch, an upper fork, and three detached small marks.",
+        "大型分枝形体有中央长下行笔、宽大左侧分枝、上部分叉和三个分离的小型痕迹。",
+    ),
+    "obs-char-001194": (
+        "Two adjacent dense clusters have repeated angular branches and several pointed lower projections.",
+        "两个相邻的密集笔群有重复折角分枝和数个尖状下部外伸笔。",
+    ),
+    "obs-char-001195": (
+        "A tall dark curved stroke surrounds a small rounded inner loop and continues into a long tapered lower line.",
+        "高而深色的弯曲笔围绕小型圆弧内部环，并继续成为长而渐细的下部线。",
+    ),
+    "obs-char-001196": (
+        "A narrow upright form has a central rectangular enclosure, forked upper and lower branches, and a long descending line.",
+        "狭长直立形体有中央方形框廓、上下分叉笔和长下行线。",
+    ),
+    "obs-char-001197": (
+        "Two detached slender branching clusters are visible, with unequal sizes and pointed lower ends.",
+        "可见两个分离的狭长分枝笔群，大小不等且下端呈尖状。",
+    ),
+    "obs-char-001198": (
+        "A large dark branching form has a long descending left stroke, a broad upper junction, and two rightward projections.",
+        "大型深色分枝形体有长下行左笔、宽大的上部连接处和两条向右外伸笔。",
+    ),
+    "obs-char-001199": (
+        "A faint dense form has two upper branching clusters, a broad horizontal middle, and unequal lower strokes.",
+        "较淡的密集形体有两个上部分枝笔群、宽大的中部横笔和不等长下部笔。",
+    ),
+    "obs-char-001200": (
+        "An open rounded form has several upper prongs, a central descending curve, and a hooked lower end.",
+        "开放的圆弧形体有数条上部尖枝、中央下行弯笔和钩状下端。",
+    ),
     "obs-char-001161": (
         "A tall branching form has a curved left outer contour, a central upright, and a small angular side mark.",
         "高而分枝的形体有左侧弯曲外轮廓、中央直立笔和小型侧部折角痕迹。",

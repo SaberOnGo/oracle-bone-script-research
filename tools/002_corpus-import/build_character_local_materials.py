@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001261": (
+        "A small faint cluster has a rounded upper loop, two descending strokes, and a short detached right mark.",
+        "小型较淡笔画群有圆拱上部环形、两条下行笔画和一条短分离右侧标记。",
+    ),
+    "obs-char-001262": (
+        "A large composite form has a tall capped stem, a lower rounded enclosure, and a separate long curved stroke.",
+        "大型组合形体有带顶部横笔的高直笔干、下部圆拱框形和一条分离的长弯曲笔画。",
+    ),
+    "obs-char-001263": (
+        "The image contains several separated narrow branching clusters arranged across the vertical field.",
+        "图像中有数个彼此分离的狭长分枝笔画群，分布在纵向画面中。",
+    ),
+    "obs-char-001264": (
+        "Two separated angular forms combine upper and lower cross-strokes with central verticals and squared turns.",
+        "两个分离的折角形体结合上下横笔、中央竖笔和方折转笔。",
+    ),
+    "obs-char-001265": (
+        "A small faint pointed cluster has two detached upper marks, a central angular loop, and a tapered lower end.",
+        "小型较淡尖状笔画群有两个分离的上部标记、中央折角环形和渐尖下端。",
+    ),
+    "obs-char-001266": (
+        "A compact symmetrical form has paired upper curves, a central enclosed body, and a pointed lower extension.",
+        "紧凑近对称形体有成对上部弧线、中央框形主体和尖状下部延伸。",
+    ),
+    "obs-char-001267": (
+        "A broad peaked enclosure contains three elongated inner marks with varied curves and pointed ends.",
+        "宽大的尖顶框形内部有三条纵长笔画，曲直和端部形状各不相同。",
+    ),
+    "obs-char-001268": (
+        "A small faint cluster has an upper oval mark, two pointed lower strokes, and short side projections.",
+        "小型较淡笔画群有上部椭圆标记、两条尖状下行笔画和短侧向外伸笔画。",
+    ),
+    "obs-char-001269": (
+        "A narrow pale form has two long outer curves that converge toward a small U-shaped lower enclosure.",
+        "狭长浅色形体有两条长外侧弧线，向下汇聚至小型 U 形下部框形。",
+    ),
+    "obs-char-001270": (
+        "A broad rounded rectangular enclosure rests on two short supports above a long horizontal baseline.",
+        "宽大的圆折矩形框形由两条短支笔托起，下方有一条长水平基线。",
+    ),
+    "obs-char-001271": (
+        "A central rounded rectangular form sits on a stem, with separated curving side marks and a short right dash.",
+        "中央圆折矩形形体位于笔干之上，两侧有分离弧形标记，右侧另有短横点画。",
+    ),
+    "obs-char-001272": (
+        "A narrow branching form has a short upper cross-stroke, a curved central stem, and a small left projection.",
+        "狭长分枝形体有短上部横笔、弯曲中央笔干和一条小型左侧外伸笔画。",
+    ),
+    "obs-char-001273": (
+        "A sloping angular form has a short upper crossing, several left branches, and a long descending right curve.",
+        "倾斜折角形体有短上部交叉笔、数条左侧分枝和长下行右侧弧线。",
+    ),
+    "obs-char-001274": (
+        "A dense dark form has a pointed upper turn, a narrow central enclosure, left lower marks, and a long right edge.",
+        "密集深色形体有尖状上部转折、狭长中央框形、左下标记和长右侧边线。",
+    ),
+    "obs-char-001275": (
+        "A small faint branching form has an angular upper fork, a short central crossing, and a curved lower stroke.",
+        "小型较淡分枝形体有折角上部叉形、短中央交叉笔和弯曲下行笔画。",
+    ),
+    "obs-char-001276": (
+        "A large complex form has a peaked upper bar, a central enclosed mark, side branches, and a sweeping lower stroke.",
+        "大型复杂形体有尖顶上部横笔、中央框内标记、两侧分枝和一条横扫式下部长笔画。",
+    ),
+    "obs-char-001277": (
+        "Two separated narrow forms each have an upper cross-stroke, a central stem, and a long curved lower line.",
+        "两个分离的狭长形体各有上部横笔、中央笔干和长弯曲下行线。",
+    ),
+    "obs-char-001278": (
+        "A composite image has an upper peaked enclosure, a central stem, and a lower angular enclosure with short marks.",
+        "组合图像有上部尖顶框形、中央笔干和带短笔画的下部折角框形。",
+    ),
+    "obs-char-001279": (
+        "A simple upright form has a sloping upper stroke, a central vertical, a left lower branch, and an open curve.",
+        "简洁直立形体有倾斜上笔、中央竖笔、左下分枝和开放弧线。",
+    ),
+    "obs-char-001280": (
+        "A narrow upright form has crossed upper strokes, a rectangular middle enclosure, and paired lower branches.",
+        "狭长直立形体有交叉上部笔画、矩形中部框形和成对下部分枝。",
+    ),
     "obs-char-001241": (
         "A dense branching form has several pointed upper arms, a central descending stroke, and a long lower taper.",
         "密集的分枝形体有数个尖状上部支臂、中央下行笔画和一条向下渐尖的长笔画。",

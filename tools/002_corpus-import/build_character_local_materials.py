@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001301": (
+        "The image combines two upper branching forms with a separate lower pointed and curved form.",
+        "图像中有两个上部分枝形体，另有一个下部尖状弯曲形体。",
+    ),
+    "obs-char-001302": (
+        "A narrow form has a small upper diamond loop, a long descending stem, and a short lower curve.",
+        "狭长形体有小型上部菱形环、长下行笔干和短下部弧线。",
+    ),
+    "obs-char-001303": (
+        "Two small rounded enclosures are stacked on a central vertical with short side projections.",
+        "两个小型圆拱框形沿中央竖笔上下排列，并带有短侧向外伸笔画。",
+    ),
+    "obs-char-001304": (
+        "A complex form has a broad upper bar, hanging central strokes, and a lower rectangular cluster with side branches.",
+        "复杂形体有宽大上横笔、中央下垂笔画和带侧部分枝的下部矩形笔画群。",
+    ),
+    "obs-char-001305": (
+        "A tall symmetrical cluster has a central crossing, paired outer curves, and several lower pointed loops.",
+        "高直近对称笔画群有中央交叉笔、成对外侧弧线和数个下部尖状环形。",
+    ),
+    "obs-char-001306": (
+        "A compact angular form has a short upper bar, a central descending stem, and two curved side strokes.",
+        "紧凑折角形体有短上横笔、中央下行笔干和两条侧向弧笔。",
+    ),
+    "obs-char-001307": (
+        "A narrow branching form has an upper crossing, a left inner curve, and a long descending outer stroke.",
+        "狭长分枝形体有上部交叉笔、左侧内部弧线和长下行外侧笔画。",
+    ),
+    "obs-char-001308": (
+        "A composite image has a broad left branching cluster, a central crossing body, and a separate long right curve.",
+        "组合图像有宽大的左侧分枝笔画群、中央交叉主体和分离的长右侧弧线。",
+    ),
+    "obs-char-001309": (
+        "A small upper angular enclosure leads into two descending strokes and a separate long right curve.",
+        "小型上部折角框形向下连接两条下行笔画，右侧另有一条长弧线。",
+    ),
+    "obs-char-001310": (
+        "A small dense cluster has a rounded upper crossing, repeated short inner strokes, and a lower stem.",
+        "小型密集笔画群有圆拱上部交叉笔、重复的内部短笔和下部笔干。",
+    ),
+    "obs-char-001311": (
+        "A tall form has paired pointed upper branches, a central rounded enclosure, and a long lower stem.",
+        "高直形体有成对尖状上部分枝、中央圆拱框形和长下部笔干。",
+    ),
+    "obs-char-001312": (
+        "Several separated narrow curved strokes form a vertical cluster with pointed upper and lower ends.",
+        "数条分离的狭长弧笔组成纵向笔画群，上下端多呈尖状。",
+    ),
+    "obs-char-001313": (
+        "A narrow upright form has a central vertical, an upper fork, and several short side branches.",
+        "狭长直立形体有中央竖笔、上部叉形和数条短侧部分枝。",
+    ),
+    "obs-char-001314": (
+        "A small faint form has a rounded upper bar, a thin central stem, and a pointed lower loop.",
+        "小型较淡形体有圆拱上横部、细中央笔干和尖状下部环形。",
+    ),
+    "obs-char-001315": (
+        "A large composite form has detached left strokes, a central pointed branching cluster, and a lower rounded loop.",
+        "大型组合形体有分离的左侧笔画、中央尖状分枝群和下部圆拱环形。",
+    ),
+    "obs-char-001316": (
+        "A tall rounded form has a central enclosed body, short inner divisions, and a broad lower outer curve.",
+        "高直圆拱形体有中央框形主体、内部短分隔笔画和宽大的下部外侧弧线。",
+    ),
+    "obs-char-001317": (
+        "A narrow image contains an upper leaf-like curve and a separate small lower hooked mark.",
+        "狭长图像中有上部叶状弧线和一个分离的小型下部钩状标记。",
+    ),
+    "obs-char-001318": (
+        "A simple branching form has an open upper fork, a central descending stem, and a pointed lower branch.",
+        "简洁分枝形体有开放上部叉形、中央下行笔干和尖状下部分枝。",
+    ),
+    "obs-char-001319": (
+        "A large dense composite has separated side strokes, a central thick enclosure, and a lower right rounded loop.",
+        "大型密集组合形体有分离的侧部笔画、中央粗重框形和右下圆拱环形。",
+    ),
+    "obs-char-001320": (
+        "A small narrow form has a short upper crossing, a curved central stem, and a hooked lower turn.",
+        "小型狭长形体有短上部交叉笔、弯曲中央笔干和钩状下部转折。",
+    ),
     "obs-char-001281": (
         "A small compact angular form has a short upper bar, a central descending stroke, and a long lower diagonal.",
         "小型紧凑折角形体有短上横笔、中央下行笔画和一条长下部斜笔。",

@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001321": (
+        "A small upright form has a rounded triangular upper enclosure and a pointed lower loop.",
+        "小型直立形体有圆拱三角状上部框形和尖状下部环形。",
+    ),
+    "obs-char-001322": (
+        "A composite form has tall left strokes and a right lower rectangular enclosure with upright divisions.",
+        "组合形体有左侧高直笔画，右侧下部为带直立分隔的矩形框形。",
+    ),
+    "obs-char-001323": (
+        "A compact dark cluster has an upper crossing, a rounded central enclosure, and a short pointed lower end.",
+        "紧凑深色笔画群有上部交叉笔、中央圆拱框形和短尖状下端。",
+    ),
+    "obs-char-001324": (
+        "Several separated angular strokes include a short upper diagonal, a left mark, and a central branching form.",
+        "数个分离的折角笔画包括短上部斜笔、左侧标记和中央分枝形体。",
+    ),
+    "obs-char-001325": (
+        "A narrow form has a small angular upper enclosure, a long descending curve, and a short lower hook.",
+        "狭长形体有小型折角上部框形、长下行弧线和短下部钩笔。",
+    ),
+    "obs-char-001326": (
+        "The image combines separated side marks with a central diamond enclosure and a long right descending stroke.",
+        "图像中有分离的侧部标记、中央菱形框形和长右侧下行笔画。",
+    ),
+    "obs-char-001327": (
+        "A narrow upright cluster has crossed middle strokes, small inner loops, and a pointed lower extension.",
+        "狭长直立笔画群有交叉中部笔画、小型内部环形和尖状下部延伸。",
+    ),
+    "obs-char-001328": (
+        "A dense central crossing is flanked by a broad left curve and several separated right-side strokes.",
+        "密集中央交叉笔两侧分别有宽大左弧线和数条分离的右侧笔画。",
+    ),
+    "obs-char-001329": (
+        "A broad upper angular bar sits above a pointed lower loop and several short left-side marks.",
+        "宽大的上部折角横笔位于尖状下部环形之上，左侧另有数个短标记。",
+    ),
+    "obs-char-001330": (
+        "Separated marks include a small upper chevron, a short left stroke, and a long curved right branch.",
+        "分离标记包括小型上部尖折笔、短左侧笔和长弯曲右侧分枝。",
+    ),
+    "obs-char-001331": (
+        "A broad upper fork leads into a central curved lower body with a pointed enclosed end.",
+        "宽大的上部叉形向下连接中央弯曲主体，末端为尖状框内形体。",
+    ),
+    "obs-char-001332": (
+        "A large dark form has a peaked upper enclosure, a central crossing, lower side curves, and a long stem.",
+        "大型深色形体有尖顶上部框形、中央交叉笔、下部侧弧和长中央笔干。",
+    ),
+    "obs-char-001333": (
+        "Two adjacent narrow forms combine long left branches with a right angular enclosure and a cross-stroke.",
+        "两个相邻狭长形体结合左侧长分枝、右侧折角框形和一条横笔。",
+    ),
+    "obs-char-001334": (
+        "A small faint cluster has a pointed upper mark, a narrow central stroke, and two lower loops.",
+        "小型较淡笔画群有尖状上部标记、狭长中央笔画和两个下部环形。",
+    ),
+    "obs-char-001335": (
+        "A small low-contrast cluster contains repeated upright strokes and a compact lower body with indistinct edges.",
+        "小型低对比度笔画群包含重复直立笔画和紧凑下部主体，边缘辨识度有限。",
+    ),
+    "obs-char-001336": (
+        "A large composite form has detached left marks, a central peaked enclosure, and a rounded lower loop.",
+        "大型组合形体有分离的左侧标记、中央尖顶框形和圆拱下部环形。",
+    ),
+    "obs-char-001337": (
+        "A tall composite form has a long left stem, a central fork, and a broad angular right enclosure.",
+        "高直组合形体有长左侧笔干、中央叉形和宽大的右侧折角框形。",
+    ),
+    "obs-char-001338": (
+        "A small upright form has an upper forked enclosure, a narrow central stem, and paired lower strokes.",
+        "小型直立形体有上部叉状框形、狭长中央笔干和成对下部笔画。",
+    ),
+    "obs-char-001339": (
+        "A narrow branching form has an upper curve, a central vertical, several side branches, and a pointed lower end.",
+        "狭长分枝形体有上部弧线、中央竖笔、数条侧部分枝和尖状下端。",
+    ),
+    "obs-char-001340": (
+        "A small composite form has a short upper rectangular bar, a long descending diagonal, and a lower hook.",
+        "小型组合形体有短上部矩形横笔、长下行斜笔和下部钩笔。",
+    ),
     "obs-char-001301": (
         "The image combines two upper branching forms with a separate lower pointed and curved form.",
         "图像中有两个上部分枝形体，另有一个下部尖状弯曲形体。",

@@ -5834,6 +5834,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A tiny dense composite has a narrow left cluster, a right enclosure, and branches.",
         "微小密集组合形体有狭长左侧群、右侧框形和下部分枝。",
     ),
+    "obs-char-001421": (
+        "A stacked form has an upper chevron, a small middle enclosure, and a base.",
+        "叠置形体有上部尖拱、小型中部框形和底座。",
+    ),
+    "obs-char-001422": (
+        "A narrow central angular loop is paired with a long curved right stroke.",
+        "狭长中央角状环形与长右侧弧线相邻。",
+    ),
+    "obs-char-001423": (
+        "A tall composite has an upper frame, inner verticals, and a long right curve.",
+        "高大组合形体有上部框形、内部竖笔和长右侧弧线。",
+    ),
+    "obs-char-001424": (
+        "A pointed inner form is framed by upper prongs and a long right stem.",
+        "尖状内部形体由上部分叉和长右侧竖干围合。",
+    ),
+    "obs-char-001425": (
+        "A large composite has a peaked center, a broad lower enclosure, and long stems.",
+        "大型组合形体有尖拱中央、宽大下部框形和长竖干。",
+    ),
+    "obs-char-001426": (
+        "A leaf-like cluster has a rounded inner mark and several short upper strokes.",
+        "叶状笔画群有圆拱内部笔画和数条短上部笔画。",
+    ),
+    "obs-char-001427": (
+        "A broad upper bar leads into many long separated lower prongs.",
+        "宽大上部横笔连接多条长分离下部分叉。",
+    ),
+    "obs-char-001428": (
+        "A compact rounded form has an upper loop, a lower loop, and side marks.",
+        "紧凑圆拱形体有上部环形、下部环形和侧部笔画。",
+    ),
+    "obs-char-001429": (
+        "A rounded upper cap has side branches above a long central stem.",
+        "圆拱上盖有侧部分枝，下接长中央竖干。",
+    ),
+    "obs-char-001430": (
+        "A narrow central form has detached left marks, an upper loop, and lower branches.",
+        "狭长中央形体有分离左侧笔画、上部环形和下部分枝。",
+    ),
+    "obs-char-001431": (
+        "A dense left cluster is paired with a tall right stem and side branches.",
+        "密集左侧笔画群与高大右侧竖干及侧部分枝相邻。",
+    ),
+    "obs-char-001432": (
+        "An open left frame stands beside a tall right stem with repeated side strokes.",
+        "开放左侧框形旁有高大右侧竖干及重复侧部笔画。",
+    ),
+    "obs-char-001433": (
+        "A simple tall stem has two upper prongs and a lower forked branch.",
+        "简单高大竖干有两个上部分叉和下部分枝。",
+    ),
+    "obs-char-001434": (
+        "A faint small cap sits above a short comb-like lower cluster.",
+        "浅淡小型上盖位于短梳状下部笔画群之上。",
+    ),
+    "obs-char-001435": (
+        "A compact composite has an upper loop, a central diamond, and a long stem.",
+        "紧凑组合形体有上部环形、中央菱形和长竖干。",
+    ),
+    "obs-char-001436": (
+        "A dense narrow cluster has side prongs, a central stem, and lower diagonals.",
+        "密集狭长笔画群有侧部分叉、中央竖干和下部斜笔。",
+    ),
+    "obs-char-001437": (
+        "A large left composite has crossing branches beside a separate right form.",
+        "大型左侧组合形体有交叉分枝，旁有分离右侧形体。",
+    ),
+    "obs-char-001438": (
+        "A large left enclosure is paired with a tall right stem marked by branches.",
+        "大型左侧框形与带有分枝标记的高大右侧竖干相邻。",
+    ),
+    "obs-char-001439": (
+        "A small leaf-like upper form has several separated lower strokes.",
+        "小型叶状上部形体有数条分离下部笔画。",
+    ),
+    "obs-char-001440": (
+        "A faint dense cluster combines several short vertical and rectangular forms.",
+        "浅淡密集笔画群组合数个短竖向和矩形形体。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

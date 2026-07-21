@@ -6074,6 +6074,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A rectangular upper frame contains a diagonal and two short lower supports.",
         "矩形上部框形内部有斜笔，下接两个短支撑笔。",
     ),
+    "obs-char-001481": (
+        "A compact rounded enclosure has two upper prongs and lower side strokes.",
+        "紧凑圆拱框形有两个上部分叉和下部侧笔。",
+    ),
+    "obs-char-001482": (
+        "A faint dense cluster has a central enclosure and radiating short strokes.",
+        "浅淡密集笔画群有中央框形和放射状短笔。",
+    ),
+    "obs-char-001483": (
+        "A narrow tall form has upper bars, a middle loop, and lower branches.",
+        "狭长高大形体有上部横笔、中部环形和下部分枝。",
+    ),
+    "obs-char-001484": (
+        "A symmetrical vertical form has inner enclosures and repeated side prongs.",
+        "对称竖向形体有内部框形和重复侧部分叉。",
+    ),
+    "obs-char-001485": (
+        "A peaked upper cap sits above a divided body and three lower prongs.",
+        "尖拱上盖位于隔分主体和三个下部分叉之上。",
+    ),
+    "obs-char-001486": (
+        "A dark upper enclosure leads into a branching lower stem and side stroke.",
+        "深色上部框形连接下部分枝竖干和侧部笔画。",
+    ),
+    "obs-char-001487": (
+        "A faint upper cluster sits above a divided rectangular lower enclosure.",
+        "浅淡上部笔画群位于隔分下部矩形框形之上。",
+    ),
+    "obs-char-001488": (
+        "A narrow curved stem has detached short marks and central branches.",
+        "狭长弧形竖干有分离短笔和中央分枝。",
+    ),
+    "obs-char-001489": (
+        "A small upper loop leads to a compact middle enclosure and long stem.",
+        "小型上部环形连接紧凑中部框形和长竖干。",
+    ),
+    "obs-char-001490": (
+        "Three separated rounded enclosures form two upper marks and one lower mark.",
+        "三个分离圆拱框形形成两个上部笔画和一个下部笔画。",
+    ),
+    "obs-char-001491": (
+        "A broad lower enclosure has two upper loops and several inner divisions.",
+        "宽大下部框形有两个上部环形和数条内部隔分笔画。",
+    ),
+    "obs-char-001492": (
+        "A scattered upper cluster sits above a rectangular lower frame with divisions.",
+        "分散上部笔画群位于有隔分的下部矩形框形之上。",
+    ),
+    "obs-char-001493": (
+        "Several upper bars lead into a central curve and a long left stroke.",
+        "数条上部横笔连接中央弧线和长左侧笔画。",
+    ),
+    "obs-char-001494": (
+        "A narrow branching form has an upper cap, a middle loop, and a long stem.",
+        "狭长分枝形体有上盖、中部环形和长竖干。",
+    ),
+    "obs-char-001495": (
+        "A tall slanted contour has an upper bar, a small loop, and a pointed end.",
+        "高大斜向轮廓有上部横笔、小型环形和尖状下端。",
+    ),
+    "obs-char-001496": (
+        "A narrow upper cluster leads into a long curved left stroke and side marks.",
+        "狭长上部笔画群连接长左侧弧线和侧部短笔。",
+    ),
+    "obs-char-001497": (
+        "A large composite has a broad upper bar, a long stem, and lower curves.",
+        "大型组合形体有宽大上横笔、长竖干和下部弧线。",
+    ),
+    "obs-char-001498": (
+        "Two separated narrow forms repeat small upper clusters and long curves.",
+        "两个分离狭长形体重复小型上部笔画群和长弧线。",
+    ),
+    "obs-char-001499": (
+        "An upper leaf-like form is paired with a divided right enclosure and stem.",
+        "上部叶状形体与隔分右侧框形及竖干相邻。",
+    ),
+    "obs-char-001500": (
+        "A faint compact cluster has upper prongs, a narrow body, and a lower curve.",
+        "浅淡紧凑笔画群有上部分叉、狭长主体和下部弧线。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

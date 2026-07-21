@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A compact upright cluster combines a pointed upper
+  projection, a central vertical, several small enclosed side marks, and a
+  lower curve.`
+- 中文观察: `紧凑的直立笔群结合尖状上部外伸、中央竖笔、数个小型侧部闭合痕迹和下部弯笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

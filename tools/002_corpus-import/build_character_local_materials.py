@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001141": (
+        "A slender upright stroke rises from a small angled lower cluster, with a pointed upper branch and a short lower hook.",
+        "狭长直立笔画从小型斜向下部组合中上升，顶部有尖状分枝，下部有短钩笔。",
+    ),
+    "obs-char-001142": (
+        "A compact rounded enclosure has a heavy upper and left contour, an open lower-right gap, and a short inner stroke.",
+        "紧凑的圆弧形框廓有较重的上部和左侧轮廓，右下方留有开口，内部有短笔。",
+    ),
+    "obs-char-001143": (
+        "Two narrow opposing curved outlines stand side by side, each with a pointed upper end and an open interior.",
+        "两个狭长而相对的弯曲轮廓并列，各自有尖状上端和开放内部。",
+    ),
+    "obs-char-001144": (
+        "A broad shallow upper arc spans several long descending strokes, with a short outer stroke at the right.",
+        "宽大的浅弧形上部横跨数条长下行笔，右侧有短外侧笔。",
+    ),
+    "obs-char-001145": (
+        "A small upright central stem is accompanied by a rounded left loop, a pointed upper-right extension, and a hooked lower stroke.",
+        "小型中央直立笔旁有左侧圆弧环、右上尖状外伸笔和下部钩笔。",
+    ),
+    "obs-char-001146": (
+        "A broad curved left contour joins a small enclosed loop on the right, with a long descending stroke below.",
+        "宽大的左侧弯曲轮廓连接右侧小型闭合环，下面有长下行笔。",
+    ),
+    "obs-char-001147": (
+        "A dense upright cluster has a short branched top, a small angular central enclosure, and a long right-side stroke.",
+        "密集的直立笔群有短分枝上部、小型中央折角框廓和长右侧笔。",
+    ),
+    "obs-char-001148": (
+        "A large dense multipart form has two upper curved masses, a long central descending stroke, and irregular lower hooks.",
+        "大型密集的多部分形体有两个上部弯曲块面、中央长下行笔和不规则下部钩笔。",
+    ),
+    "obs-char-001149": (
+        "A compact dark form has a tall right outer contour, an upper crossing, and two rounded lower interior marks.",
+        "紧凑的深色形体有高直的右侧外轮廓、上部交叉笔和两个下部圆弧内部痕迹。",
+    ),
+    "obs-char-001150": (
+        "A compact upright cluster combines a pointed upper projection, a central vertical, several small enclosed side marks, and a lower curve.",
+        "紧凑的直立笔群结合尖状上部外伸、中央竖笔、数个小型侧部闭合痕迹和下部弯笔。",
+    ),
+    "obs-char-001151": (
+        "A narrow upright form has a short upper cross-stroke, a central descending line, and two unequal lower side strokes.",
+        "狭长直立形体有短上部横笔、中央下行线和两条不等长下部侧笔。",
+    ),
+    "obs-char-001152": (
+        "A large angular cluster has a central upright, projecting side strokes, and a broad lower horizontal base.",
+        "大型折角笔群有中央直立笔、向两侧外伸的笔画和宽大的下部横向底笔。",
+    ),
+    "obs-char-001153": (
+        "A faint narrow form has a small enclosed left loop, a central branching stroke, and a long descending right stroke.",
+        "较淡的狭长形体有左侧小型闭合环、中央分枝笔和右侧长下行笔。",
+    ),
+    "obs-char-001154": (
+        "A simple rounded vertical enclosure has a straight left edge, a curved right edge, and a short lower base stroke.",
+        "简洁的圆弧形竖向框廓有直左边、弯右边和短下部底笔。",
+    ),
+    "obs-char-001155": (
+        "Two faint slender curves descend together, with a small hooked turn near the lower end.",
+        "两条较淡的狭长弯笔并行下行，下端附近有小型钩转。",
+    ),
+    "obs-char-001156": (
+        "A small upright trapezoidal enclosure has a narrow open top and a rounded lower contour.",
+        "小型直立梯形框廓顶部狭窄开放，下部轮廓呈圆弧状。",
+    ),
+    "obs-char-001157": (
+        "A dense two-part cluster has a pointed left projection, a central crossing, and a tall angular right contour.",
+        "密集的两部分笔群有左侧尖状外伸、中央交叉和高直的右侧折角轮廓。",
+    ),
+    "obs-char-001158": (
+        "A tall dense form has a long central upright, a sweeping left stroke, a curved right enclosure, and several lower descending lines.",
+        "高而密集的形体有中央长直立笔、向左挥出的笔、右侧弯曲框廓和数条下行线。",
+    ),
+    "obs-char-001159": (
+        "A faint small form has a short upper horizontal, a central upright, and a rounded lower loop; contrast is low.",
+        "较淡的小型形体有短上部横笔、中央直立笔和下部圆弧环；图像对比度较低。",
+    ),
+    "obs-char-001160": (
+        "A narrow upright form has a short upper horizontal, a central vertical, and an open rounded lower loop.",
+        "狭长直立形体有短上部横笔、中央竖笔和开放的下部圆弧环。",
+    ),
     "obs-char-001140": (
         "A narrow upright form has a central crossing, two short upper branches, and a long lower descending stroke.",
         "狭长直立形体有中央交叉、两条短上部分枝和长下行笔。",

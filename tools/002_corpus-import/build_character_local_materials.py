@@ -6234,6 +6234,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A tall composite has layered upper bars, a small left enclosure, and a long angled lower stroke.",
         "高大组合形体有层叠上横笔、左侧小框形和长斜向下部笔画。",
     ),
+    "obs-char-001521": (
+        "Two adjacent forms show curved upper contours, separated horizontal marks, and long lower strokes.",
+        "两个相邻形体有弧形上部轮廓、分离横笔和长下部笔画。",
+    ),
+    "obs-char-001522": (
+        "A narrow pointed contour encloses a small lower open loop.",
+        "狭长尖顶轮廓包含小型下部开放环。",
+    ),
+    "obs-char-001523": (
+        "A small upright form has a forked upper end, a crossbar, and two lower legs.",
+        "小型直立形体有分叉上端、横笔和两条下部支脚。",
+    ),
+    "obs-char-001524": (
+        "A narrow composite has crossing upper diagonals, a central stem, and a lower oval loop.",
+        "狭长组合形体有交叉上部斜笔、中央竖干和下部椭圆环。",
+    ),
+    "obs-char-001525": (
+        "A tall dark form has a broad upper canopy, a central stem, and long descending strokes.",
+        "高大的深色形体有宽大上部覆形、中央竖干和长下垂笔画。",
+    ),
+    "obs-char-001526": (
+        "A compact composite combines a lower bowl-like mark with a narrow upper body and side strokes.",
+        "紧凑组合形体结合下部盆状标记、狭长上部主体和侧部笔画。",
+    ),
+    "obs-char-001527": (
+        "Two separated angular forms include a crossed enclosure on the left and open strokes on the right.",
+        "两个分离折角形体左侧有交叉框形，右侧有开放笔画。",
+    ),
+    "obs-char-001528": (
+        "A large dark composite has two upper openings and several long branching lower strokes.",
+        "大型深色组合形体有两个上部开口和数条下部长分枝笔画。",
+    ),
+    "obs-char-001529": (
+        "A dense tall contour has several upper prongs, two inner openings, and curved lower tails.",
+        "密集高大轮廓有数个上部分叉、两个内部开口和弧形下部尾笔。",
+    ),
+    "obs-char-001530": (
+        "Two faint adjacent forms repeat tall branching strokes with open central spaces.",
+        "两个浅淡相邻形体重复高大分枝笔画，中央留有开放空间。",
+    ),
+    "obs-char-001531": (
+        "Two small adjacent marks combine a narrow angular form with a branching vertical form.",
+        "两个小型相邻标记结合狭长折角形体和分枝竖向形体。",
+    ),
+    "obs-char-001532": (
+        "A tall composite has a broad upper bar, a central diamond loop, and long lower branches.",
+        "高大组合形体有宽大上横笔、中央菱形环和长下部分枝。",
+    ),
+    "obs-char-001533": (
+        "A bowl-like upper contour sits above a short central stem and curved side marks.",
+        "盆状上部轮廓位于短中央竖干和弧形侧部标记之上。",
+    ),
+    "obs-char-001534": (
+        "A sparse pair has a pointed zigzag on the left and an angular cornered mark on the right.",
+        "稀疏组合左侧有尖顶曲折笔画，右侧有折角标记。",
+    ),
+    "obs-char-001535": (
+        "A very faint small form preserves a central stroke with short branching side marks.",
+        "极浅淡的小型形体保留中央笔画和短分枝侧部标记。",
+    ),
+    "obs-char-001536": (
+        "A stacked form has a pointed upper arch, a middle rectangular mark, and lower crossing strokes.",
+        "上下叠置形体有尖顶上弧、中部矩形标记和下部交叉笔画。",
+    ),
+    "obs-char-001537": (
+        "A narrow upright form has a short top stem, repeated crossbars, and a right enclosure.",
+        "狭长直立形体有短上部竖笔、重复横笔和右侧框形。",
+    ),
+    "obs-char-001538": (
+        "A tall narrow contour has a top bar, a small left enclosure, and a hooked lower end.",
+        "高大狭长轮廓有上横笔、左侧小框形和钩状下端。",
+    ),
+    "obs-char-001539": (
+        "Two separated forms show a branching left mark, a small loop, and a taller curved right mark.",
+        "两个分离形体有左侧分枝标记、小型环形和较高的右侧弧形标记。",
+    ),
+    "obs-char-001540": (
+        "A very faint narrow form shows a central vertical with short side branches.",
+        "极浅淡的狭长形体显示中央竖笔和短侧向分枝。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

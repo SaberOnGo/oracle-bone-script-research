@@ -5594,6 +5594,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A broad upper bar leads into several long parallel descending curves and a short right outer stroke.",
         "宽大的上部横笔向下连接数条平行下行弯笔，右侧有短外侧笔。",
     ),
+    "obs-char-001241": (
+        "A dense branching form has several pointed upper arms, a central descending stroke, and a long lower taper.",
+        "密集的分枝形体有数个尖状上部支臂、中央下行笔画和一条向下渐尖的长笔画。",
+    ),
+    "obs-char-001242": (
+        "A simple horizontal-topped form has a long central stem, an open left curve, and a hooked lower turn.",
+        "简洁的横顶形体有长中央笔干、左侧开放弧线和下部钩状转折。",
+    ),
+    "obs-char-001243": (
+        "The image contains several separated branching forms, including tall side marks and a larger lower angular form.",
+        "图像中有数个彼此分离的分枝形体，包括两侧高位笔画和下方较大的折角形体。",
+    ),
+    "obs-char-001244": (
+        "A small upright form has a shallow arched top, two inner curved strokes, and a short lower vertical.",
+        "小型直立形体有浅拱形顶部、两条内部弧笔和一条短下行竖笔。",
+    ),
+    "obs-char-001245": (
+        "A peaked form has a pointed upper junction, paired descending branches, and a narrow lower central stroke.",
+        "尖顶形体有尖状上部交接点、成对下行分枝和狭长的下部中央笔画。",
+    ),
+    "obs-char-001246": (
+        "A small dense rounded cluster has a dark outer contour, several inner angular marks, and limited resolution.",
+        "小型密集圆拱笔画群有深色外轮廓、数个内部折角笔画，图像分辨率有限。",
+    ),
+    "obs-char-001247": (
+        "Two long narrow strokes cross near the upper middle and continue into a thin curved lower stroke.",
+        "两条狭长笔画在上部中段附近交叉，并继续为一条细长弯曲下行笔画。",
+    ),
+    "obs-char-001248": (
+        "A broad rounded lower enclosure contains two inner upright strokes and is topped by two detached chevrons.",
+        "宽大的圆弧下部框形包含两条内部直立笔画，顶部另有两个分离的尖折标记。",
+    ),
+    "obs-char-001249": (
+        "A compact dark form has an open upper edge, several upright divisions, and a squared lower enclosure.",
+        "紧凑的深色形体上缘开放，有数条直立分隔笔画和方折的下部框形。",
+    ),
+    "obs-char-001250": (
+        "A high-contrast image shows a large pale irregular figure against a black field; internal boundaries are partly obscured.",
+        "高反差图像中，黑色背景上可见大型浅色不规则形体；内部边界部分被遮蔽。",
+    ),
+    "obs-char-001251": (
+        "A large dark form has a broad curved upper bar, a central stem, and paired lower branches ending in a point.",
+        "大型深色形体有宽大的弧形上横部、中央笔干和成对下部分枝，末端收于尖点。",
+    ),
+    "obs-char-001252": (
+        "A small outlined upper loop sits above a thin central stem and a lower angular hooked loop.",
+        "小型轮廓上部环形位于细中央笔干之上，下方接折角钩状环形。",
+    ),
+    "obs-char-001253": (
+        "A faint narrow form has a small angular upper enclosure, a long descending stem, and a short side mark.",
+        "较淡的狭长形体有小型折角上部框形、长下行笔干和一条短侧笔画。",
+    ),
+    "obs-char-001254": (
+        "A thin descending stroke leads to a small pointed enclosure near the bottom and a short trailing curve.",
+        "细长下行笔画通向近底部的小型尖状框形，并带有短拖尾弧线。",
+    ),
+    "obs-char-001255": (
+        "A dense symmetrical form has pointed upper branches, a central vertical, side projections, and a pointed lower end.",
+        "密集近对称形体有尖状上部分枝、中央竖笔、两侧外伸笔画和尖状下端。",
+    ),
+    "obs-char-001256": (
+        "A small compact angular cluster has a rounded pointed upper body and a thin descending right-side stroke.",
+        "小型紧凑折角笔画群有圆拱而带尖的上部形体，以及一条细长右侧下行笔画。",
+    ),
+    "obs-char-001257": (
+        "A narrow angular form has a short upper cross-stroke and two descending strokes leaving an open middle.",
+        "狭长折角形体有短上部横笔，两条下行笔画之间形成开放中部。",
+    ),
+    "obs-char-001258": (
+        "A broad upper bar sits above a long central stem and a rounded rectangular lower enclosure with a base.",
+        "宽大的上横部位于长中央笔干之上，下接带底笔的圆折矩形下部框形。",
+    ),
+    "obs-char-001259": (
+        "The image combines separated forms: a left lower enclosure with an upright and a right branching angular mark.",
+        "图像中有分离的形体：左侧是带直立笔画的下部框形，右侧是折角分枝笔画。",
+    ),
+    "obs-char-001260": (
+        "The image combines a left outlined form with a small lower enclosure and a separate irregular branching stroke on the right.",
+        "图像中有左侧轮廓形体及其小型下部框形，右侧另有不规则分枝笔画。",
+    ),
     "obs-char-001221": (
         "A narrow dense form has an upper horizontal enclosure, a central branching stroke, and a hooked lower end.",
         "狭长密集形体有上部横向框廓、中央分枝笔和钩状下端。",

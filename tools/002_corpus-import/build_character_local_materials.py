@@ -5438,6 +5438,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A slender upright form has a short upper horizontal stroke, a central crossing, and a long lower stem.",
         "纤细直立形体有短上部水平笔、中央交叉和长下部笔干。",
     ),
+    "obs-char-001101": (
+        "A narrow upright form combines a long left curve with a central chain of crossings and short upper branches.",
+        "狭长直立形体结合长左侧弯笔、中央连续交叉和短上部分枝。",
+    ),
+    "obs-char-001102": (
+        "A broad peaked contour descends into two rounded lower enclosed forms.",
+        "宽大的尖顶轮廓向下分为两个圆弧下部闭合形体。",
+    ),
+    "obs-char-001103": (
+        "Two adjacent narrow upright clusters each have a wavy central stem, pointed upper branches, and splayed lower strokes.",
+        "两个相邻的狭长直立笔群各有波折中央笔干、尖状上部分枝和向外分开的下部笔。",
+    ),
+    "obs-char-001104": (
+        "A faint compact rectangular cluster contains several horizontal bands and short side projections; contrast is low.",
+        "较淡的紧密矩形笔群包含数条水平带和短侧向外伸；对比度较低。",
+    ),
+    "obs-char-001105": (
+        "A dense dark left block with several vertical bars stands beside a branching right cluster with crossed strokes.",
+        "密集深色左侧块状形体有数条竖笔，旁边是带交叉笔的右侧分枝笔群。",
+    ),
+    "obs-char-001106": (
+        "A large rounded outer contour encloses a small inner loop and descends into a long central stem ending in a triangular base.",
+        "大型圆弧外轮廓包含小型内部环笔，并向下延为以三角形底部收束的长中央笔干。",
+    ),
+    "obs-char-001107": (
+        "A small faint gray cluster has a short upper cross-stroke, several vertical lines, and a compact lower enclosure; detail is low contrast.",
+        "小型淡灰色笔群有短上部横笔、数条竖线和紧密下部闭合轮廓；细部对比度较低。",
+    ),
+    "obs-char-001108": (
+        "A broad arch-like form has a rounded upper loop, a central junction, and long curved side strokes descending on both sides.",
+        "宽大的拱弧形体有圆弧上部环笔、中央连接处和向两侧下行的长弯笔。",
+    ),
+    "obs-char-001109": (
+        "A narrow dense cluster combines stacked rounded loops, a central horizontal crossing, and short lower tapering strokes.",
+        "狭长密集笔群结合叠置圆弧环笔、中央水平交叉和短下部收尖笔。",
+    ),
+    "obs-char-001110": (
+        "A faint gray image shows two adjacent parts: a rounded left loop and an angular right cluster with a short upper bar; contrast is low.",
+        "较淡灰色图像显示两个相邻部分：圆弧左侧环笔和带短上部横笔的棱角右侧笔群；对比度较低。",
+    ),
+    "obs-char-001111": (
+        "A low open enclosure has a central upright rising to a pointed upper tip and short side extensions.",
+        "低位开放闭合轮廓有中央直立笔，向上收为尖状顶端，两侧有短外伸。",
+    ),
+    "obs-char-001112": (
+        "A narrow vertical lattice has several diagonal crossings within an outer contour and a pointed lower extension.",
+        "狭长竖向格状形体的外轮廓内有数个斜向交叉，并有尖状下部外伸。",
+    ),
+    "obs-char-001113": (
+        "A broad peaked enclosure contains a central crossing, a long vertical stroke, and several short detached interior strokes.",
+        "宽大的尖顶闭合轮廓包含中央交叉、长竖笔和数条短而分离的内部笔。",
+    ),
+    "obs-char-001114": (
+        "A large angular upper frame contains intersecting diagonal strokes above a separate lower rounded cluster and descending stem.",
+        "大型棱角上部框架包含相交斜笔，下方另有圆弧笔群和下行笔干。",
+    ),
+    "obs-char-001115": (
+        "A slender upright form has two short upper prongs, a long central stem, and a broad low arch with side drops.",
+        "纤细直立形体有两个短上部分叉、长中央笔干和带两侧下垂笔的宽大低位拱弧。",
+    ),
+    "obs-char-001116": (
+        "A compact upper triangular cluster contains crossed strokes and continues into a pointed lower branching form.",
+        "紧密上部三角形笔群包含交叉笔，并向下延为尖状分枝形体。",
+    ),
+    "obs-char-001117": (
+        "A large angular upper frame with crossed diagonals sits above a rounded lower cluster with branching strokes.",
+        "大型带交叉斜笔的棱角上部框架位于带分枝笔的圆弧下部笔群之上。",
+    ),
+    "obs-char-001118": (
+        "A dense vertical cluster has a long upper horizontal bar, stacked rounded loops on the left, and branching curved strokes around a long lower stem.",
+        "密集竖向笔群有长上部水平横笔、左侧叠置圆弧环笔，以及围绕长下部笔干的分枝弯笔。",
+    ),
+    "obs-char-001119": (
+        "A compact narrow form has two pointed upper branches and a lower forked extension.",
+        "紧密狭长形体有两个尖状上部分枝和下部叉状外伸。",
+    ),
+    "obs-char-001120": (
+        "A compact upright form has several pointed upper branches and a long lower forked extension.",
+        "紧密直立形体有数个尖状上部分枝和长下部叉状外伸。",
+    ),
 }
 IMAGE_REFERENCE_RESULTS = (
     "corpus/009_statistics-and-derived-features/"

@@ -107,9 +107,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: `A dense vertical cluster has a long upper horizontal
+  bar, stacked rounded loops on the left, and branching curved strokes
+  around a long lower stem.`
+- 中文观察: `密集竖向笔群有长上部水平横笔、左侧叠置圆弧环笔，以及围绕长下部笔干的分枝弯笔。`
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

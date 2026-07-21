@@ -5674,6 +5674,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A faint compact cluster has slanted upper strokes and a short lower enclosure.",
         "浅淡紧凑笔画群有斜向上部笔画和短小下部框形。",
     ),
+    "obs-char-001381": (
+        "A compact rounded lower loop has an angular upper crossing and inner strokes.",
+        "紧凑圆拱下部环形有角状上部交叉笔和内部笔画。",
+    ),
+    "obs-char-001382": (
+        "A narrow branching form has an angular top, side strokes, and a pointed lower end.",
+        "狭长分枝形体有角状顶部、侧部笔画和尖状下端。",
+    ),
+    "obs-char-001383": (
+        "A narrow composite has an upper crossing, repeated left branches, and a long curve.",
+        "狭长组合形体有上部交叉笔、重复左部分枝和长弧线。",
+    ),
+    "obs-char-001384": (
+        "A small pointed cluster has two detached upper marks and three lower branches.",
+        "小型尖状笔画群有两个分离上部笔画和三个下部分枝。",
+    ),
+    "obs-char-001385": (
+        "A faint compact cluster has a dark cap and several short lower branches.",
+        "浅淡紧凑笔画群有深色上盖和数条短下部分枝。",
+    ),
+    "obs-char-001386": (
+        "A long diagonal form has several left branches and a narrow lower stem.",
+        "长斜向形体有数条左部分枝和狭长下部竖干。",
+    ),
+    "obs-char-001387": (
+        "A dark branching left stem is paired with a divided rectangular right enclosure.",
+        "深色分枝左竖干与有隔分的右侧矩形框形相邻。",
+    ),
+    "obs-char-001388": (
+        "A peaked upper fork leads into a long central stem with side branches.",
+        "尖拱上部分叉连接长中央竖干，旁有侧部分枝。",
+    ),
+    "obs-char-001389": (
+        "Two adjacent forms combine a left curved cluster with a right pointed loop.",
+        "相邻两个形体组合为左侧弧形笔画群和右侧尖状环形。",
+    ),
+    "obs-char-001390": (
+        "Two large branching clusters have broad horizontal strokes and separate stems.",
+        "两个大型分枝笔画群有宽大水平笔画和分离竖干。",
+    ),
+    "obs-char-001391": (
+        "A compact form has upper loops, a small right enclosure, and long lower branches.",
+        "紧凑形体有上部环形、小型右侧框形和长下部分枝。",
+    ),
+    "obs-char-001392": (
+        "Two separated branching forms combine open left prongs with a long right curve.",
+        "两个分离分枝形体组合为开放左分叉和长右弧线。",
+    ),
+    "obs-char-001393": (
+        "An angular upper crossing leads to curved legs beside a small lower enclosure.",
+        "角状上部交叉笔连接弧形下行笔，旁有小型下部框形。",
+    ),
+    "obs-char-001394": (
+        "A faint compact cluster has a rounded center and several radiating lower strokes.",
+        "浅淡紧凑笔画群有圆拱中心和数条放射状下部笔画。",
+    ),
+    "obs-char-001395": (
+        "Two adjacent branching forms have angular upper loops and repeated side strokes.",
+        "相邻两个分枝形体有角状上部环形和重复侧部笔画。",
+    ),
+    "obs-char-001396": (
+        "Two short upper bars stand above several separated straight lower strokes.",
+        "两个短上部横笔位于数条分离直下笔之上。",
+    ),
+    "obs-char-001397": (
+        "A stacked framework has short upper bars, a central crossing, and a lower taper.",
+        "叠置框架有短上部横笔、中央交叉笔和下部收尖。",
+    ),
+    "obs-char-001398": (
+        "A broad upper frame is paired with two detached lower strokes marked by ticks.",
+        "宽大上部框形与两条带短笔标记的分离下部笔画相邻。",
+    ),
+    "obs-char-001399": (
+        "A large curved left stroke is separated from shorter right and lower marks.",
+        "大型左侧弧形笔与较短右侧及下部笔画分离。",
+    ),
+    "obs-char-001400": (
+        "An upper bar with two stems stands above three small rounded lower loops.",
+        "带有两条竖干的上部横笔位于三个小型圆拱下部环形之上。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

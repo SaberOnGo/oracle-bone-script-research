@@ -45,8 +45,12 @@ note, or concrete next-check questions.
 - Package kinds / 来源包类型: lightweight_html_page
 - Field map count / 字段映射数: 2
 - Target records / 目标记录: oracle_inscription; statistics
-- Metadata profile count / 元数据概况数: 0
-- Profile metrics / 概况指标: none
+- Metadata profile count / 元数据概况数: 6
+- Profile metrics / 概况指标: finding_list_import_vs_stated_difference;
+  finding_list_imported_row_count; finding_list_page_stated_grand_total;
+  finding_list_sections_with_declared_count_mismatch;
+  finding_list_sections_without_declared_count;
+  finding_list_unclassified_row_count
 
 ## Next Review Step / 下一步复核入口
 - Rights status / 权利状态: metadata_only_until_verified

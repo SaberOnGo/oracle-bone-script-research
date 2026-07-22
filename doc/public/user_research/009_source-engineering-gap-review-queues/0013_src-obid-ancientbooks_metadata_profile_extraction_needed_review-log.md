@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0012`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0012`
+-   - `source-engineering-gap-review-log-draft-0013`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0013`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,16 +18,16 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-cambridge-hopkins`
+- Source ID / 来源 ID: `src-obid-ancientbooks`
 - Gap type / 缺口类型: `metadata_profile_extraction_needed`
 - Priority rank / 优先级: `4`
-- Current stage / 当前阶段: `pending_human_review`
-- Authority tier / 来源层级: `university_library_collection`
-- Rights status / 权利状态: `metadata_only_until_verified`
+- Current stage / 当前阶段: `structured`
+- Authority tier / 来源层级: `scholarly_commercial_platform`
+- Rights status / 权利状态: `source_marked_risk_noted`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-- Observed item / 已观察项: `current_stage=pending_human_review`
+- Observed item / 已观察项: `current_stage=structured`
 - Observed item / 已观察项: `download_status_counts=downloaded:1`
 - Observed item / 已观察项: `downloaded_count=1`
 - Observed item / 已观察项: `download_log_count=1`
@@ -35,8 +35,8 @@
 - Observed item / 已观察项: `field_map_count=2`
 - Observed item / 已观察项: `package_manifest_count=1`
 - Observed item / 已观察项: `metadata_profile_count=0`
-- Observed item / 已观察项: `graph_edge_count=4403`
-- Observed item / 已观察项: `downloaded_file_bytes=74132`
+- Observed item / 已观察项: `graph_edge_count=0`
+- Observed item / 已观察项: `downloaded_file_bytes=19582`
 - Observed item / 已观察项: `gap_type=metadata_profile_extraction_needed`
 
 ## Route Files To Open / 待打开路线文件
@@ -82,17 +82,17 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0012`
+  `source-engineering-gap-evidence-snapshot-0013`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
-- Rights status / 权利状态: `metadata_only_until_verified`
-- Download manifest IDs / 下载 manifest ID: `dl-cambridge-hopkins-finding-list`
-- Download log IDs / 下载日志 ID: `dl-cambridge-hopkins-finding-list`
+- Rights status / 权利状态: `source_marked_risk_noted`
+- Download manifest IDs / 下载 manifest ID: `dl-obid-ancientbooks-home`
+- Download log IDs / 下载日志 ID: `dl-obid-ancientbooks-home`
 - download_log_status_counts: `downloaded:1`
 - download_log_http_status_counts: `200:1`
-- download_log_file_size_bytes_total: `74132`
+- download_log_file_size_bytes_total: `19582`
 - download_log_checksum_present_count: `1`
-- package_file_ids: `pkg-file-000015`
+- package_file_ids: `pkg-file-000024`
 - metadata_profile_ids: `none`
 - Route file missing count / 缺失路线文件数: `0`
 

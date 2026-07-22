@@ -53,7 +53,7 @@ review status.
 - Package kinds / 来源包类型: lightweight_html_page
 - Field map route count / 字段映射路线数: 2
 - Target record types / 目标记录类型: oracle_inscription; statistics
-- Metadata route count / metadata 路线数: 0
+- Metadata route count / metadata 路线数: 6
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -110,8 +110,83 @@ target object directory.
 
 ## Metadata Profile Evidence / 元数据概况证据
 
-No metadata profile route is recorded in the current source registers. Record
-profile metrics before relying on source-scale coverage or quality claims.
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000063
+- Evidence download ID / 证据下载 ID: dl-cambridge-hopkins-finding-list
+- Metadata file / 元数据文件: 21_finding-list-reconciliation.md
+- Profile metric / 概况指标: finding_list_imported_row_count
+- Profile value / 概况值: 612
+- Profile unit / 概况单位: rows
+- Import relevance / 导入相关性: Records the number of identifier rows retained in
+  the reviewed Cambridge finding-list staging audit
+- Caution / 提醒: Staging-row count is a reconciliation fact; it is not a count of
+  confirmed objects, inscriptions, or readings
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000064
+- Evidence download ID / 证据下载 ID: dl-cambridge-hopkins-finding-list
+- Metadata file / 元数据文件: 21_finding-list-reconciliation.md
+- Profile metric / 概况指标: finding_list_page_stated_grand_total
+- Profile value / 概况值: 609
+- Profile unit / 概况单位: rows_stated_by_source_page
+- Import relevance / 导入相关性: Preserves the grand total stated by the source page
+  for human reconciliation against retained rows
+- Caution / 提醒: The page-stated total is source-page metadata and does not
+  authorize filling or deleting any row
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000065
+- Evidence download ID / 证据下载 ID: dl-cambridge-hopkins-finding-list
+- Metadata file / 元数据文件: 21_finding-list-reconciliation.md
+- Profile metric / 概况指标: finding_list_import_vs_stated_difference
+- Profile value / 概况值: 3
+- Profile unit / 概况单位: rows_difference
+- Import relevance / 导入相关性: Keeps the unresolved difference visible so a
+  researcher can trace it to the source page before any crosswalk promotion
+- Caution / 提醒: Difference is an open preprocessing question, not evidence of
+  missing or duplicate inscriptions by itself
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000066
+- Evidence download ID / 证据下载 ID: dl-cambridge-hopkins-finding-list
+- Metadata file / 元数据文件: 21_finding-list-reconciliation.md
+- Profile metric / 概况指标: finding_list_sections_with_declared_count_mismatch
+- Profile value / 概况值: 4
+- Profile unit / 概况单位: sections
+- Import relevance / 导入相关性: Routes four section-level count mismatches to the
+  human reconciliation dossier for targeted checking
+- Caution / 提醒: Section mismatch count is an audit signal and not a period,
+  group, identity, or decipherment conclusion
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Profile ID / 概况 ID: metadata-profile-000067
+- Evidence download ID / 证据下载 ID: dl-cambridge-hopkins-finding-list
+- Metadata file / 元数据文件: 21_finding-list-reconciliation.md
+- Profile metric / 概况指标: finding_list_sections_without_declared_count
+- Profile value / 概况值: 2
+- Profile unit / 概况单位: sections
+- Import relevance / 导入相关性: Records that the source page leaves two observed
+  sections without a declared count
+- Caution / 提醒: An unstated count remains a source-page omission and must not be
+  converted into an inferred total
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 006
+- Profile ID / 概况 ID: metadata-profile-000068
+- Evidence download ID / 证据下载 ID: dl-cambridge-hopkins-finding-list
+- Metadata file / 元数据文件: 21_finding-list-reconciliation.md
+- Profile metric / 概况指标: finding_list_unclassified_row_count
+- Profile value / 概况值: 4
+- Profile unit / 概况单位: rows
+- Import relevance / 导入相关性: Keeps the four source-page Unclassified entries
+  visible for separate catalogue and image follow-up
+- Caution / 提醒: Unclassified is the source-page label; it is not a character
+  identity, inscription identity, or scholarly classification
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位
 

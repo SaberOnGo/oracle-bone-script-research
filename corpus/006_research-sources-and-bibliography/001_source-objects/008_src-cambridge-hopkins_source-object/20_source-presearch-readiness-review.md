@@ -80,7 +80,7 @@ scope, rights boundary, and concrete missing questions in one readable place.
 ### 07. concrete_missing_questions
 - Status / 状态: needs_followup_before_formal_research
 - Evidence / 证据文件: 20_source-presearch-readiness-review.md
-- Question / 待查问题: whether metadata profile rows are absent by design
+- Question / 待查问题: which human reviewer can close remaining route checks
 
 ## Concrete Questions Before Formal Research / 正式研究前待查问题
 - Which visible image, rubbing, plate, catalog, or URL is evidence?

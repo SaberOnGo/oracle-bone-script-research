@@ -51,18 +51,18 @@
 
 ### Route IDs / 路由 ID
 
-- `source-pipeline-phase-action-missing-evidence-route-027`
-- `source-pipeline-phase-action-missing-evidence-route-028`
+- `source-pipeline-phase-action-missing-evidence-route-025`
+- `source-pipeline-phase-action-missing-evidence-route-026`
 
 ### Action IDs / 动作 ID
 
-- `source-pipeline-phase-action-missing-evidence-027`
-- `source-pipeline-phase-action-missing-evidence-028`
+- `source-pipeline-phase-action-missing-evidence-025`
+- `source-pipeline-phase-action-missing-evidence-026`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
-- `source-pipeline-phase-action-missing-evidence-result-027`
-- `source-pipeline-phase-action-missing-evidence-result-028`
+- `source-pipeline-phase-action-missing-evidence-result-025`
+- `source-pipeline-phase-action-missing-evidence-result-026`
 
 ## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 

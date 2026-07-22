@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0019`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0019`
+-   - `source-engineering-gap-review-log-draft-0014`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0014`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,26 +18,27 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-yinqi-wenyuan`
-- Gap type / 缺口类型: `source_field_map_needed`
-- Priority rank / 优先级: `5`
-- Current stage / 当前阶段: `pending_human_review`
-- Authority tier / 来源层级: `scholarly_platform`
-- Rights status / 权利状态: `source_marked_risk_noted`
+- Source ID / 来源 ID: `src-xiaoxuetang-jiaguwen`
+- Gap type / 缺口类型: `metadata_profile_extraction_needed`
+- Priority rank / 优先级: `4`
+- Current stage / 当前阶段: `structured`
+- Authority tier / 来源层级: `core_institutional`
+- Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-- Observed item / 已观察项: `current_stage=pending_human_review`
-- Observed item / 已观察项: `download_status_counts=downloaded:1`
-- Observed item / 已观察项: `downloaded_count=1`
-- Observed item / 已观察项: `download_log_count=1`
-- Observed item / 已观察项: `checksum_present_count=1`
-- Observed item / 已观察项: `field_map_count=0`
-- Observed item / 已观察项: `package_manifest_count=1`
-- Observed item / 已观察项: `metadata_profile_count=2`
+- Observed item / 已观察项: `current_stage=structured`
+- Observed item / 已观察项: `download_status_counts=download_error:2`
+- Observed item / 已观察项: `downloaded_access_restricted_page:2`
+- Observed item / 已观察项: `downloaded_count=2`
+- Observed item / 已观察项: `download_log_count=4`
+- Observed item / 已观察项: `checksum_present_count=2`
+- Observed item / 已观察项: `field_map_count=6`
+- Observed item / 已观察项: `package_manifest_count=2`
+- Observed item / 已观察项: `metadata_profile_count=0`
 - Observed item / 已观察项: `graph_edge_count=0`
-- Observed item / 已观察项: `downloaded_file_bytes=32900`
-- Observed item / 已观察项: `gap_type=source_field_map_needed`
+- Observed item / 已观察项: `downloaded_file_bytes=73834`
+- Observed item / 已观察项: `gap_type=metadata_profile_extraction_needed`
 
 ## Route Files To Open / 待打开路线文件
 
@@ -48,8 +49,8 @@
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `001_all-sources-index.csv`
 - Route file / 路线文件:
--   - `corpus/006_research-sources-and-bibliography/000_source-registers`
--   - `007_source-field-map.csv`
+-   - `project_registry/006_large-source-register`
+-   - `002_source-download-log.csv`
 - Route file / 路线文件:
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `010_downloaded-metadata-profile.csv`
@@ -59,16 +60,17 @@
 
 ## Required Next Checks / 必需下一步检查
 
-- `open_source_register_and_available_metadata_profile`
-  - English: Open source register and any available metadata profile before
-    field mapping.
-  - 简体中文：在字段映射前打开来源登记表和已有 metadata profile。
-- `define_source_fields_or_units_to_project_record_targets`
-  - English: Define source fields or units against project record targets.
-  - 简体中文：把来源字段或单位映射到项目记录目标。
-- `record_rights_boundary_for_each mapped field`
-  - English: Record the rights boundary for each mapped field.
-  - 简体中文：为每个映射字段记录权利边界。
+- `open_download_log_and_source_register`
+  - English: Open download log and source register before metadata profile
+    extraction.
+  - 简体中文：在抽取 metadata profile 前打开下载日志和来源登记表。
+- `extract_metadata_only_counts_or_scope_from_committed_evidence`
+  - English: Extract only metadata counts or scope from already committed
+    evidence.
+  - 简体中文：只从已提交证据中抽取 metadata 计数或范围。
+- `record_review_status_and_no_scholarly_claim`
+  - English: Record review status and no scholarly claim.
+  - 简体中文：记录复核状态，并明确不形成学术结论。
 
 ## Evidence Collection / 证据收集
 
@@ -81,18 +83,21 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0019`
+  `source-engineering-gap-evidence-snapshot-0014`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
-- Rights status / 权利状态: `source_marked_risk_noted`
-- Download manifest IDs / 下载 manifest ID: `dl-yinqi-home`
-- Download log IDs / 下载日志 ID: `dl-yinqi-home`
-- download_log_status_counts: `downloaded:1`
-- download_log_http_status_counts: `200:1`
-- download_log_file_size_bytes_total: `32900`
-- download_log_checksum_present_count: `1`
-- package_file_ids: `pkg-file-000036`
-- metadata_profile_ids: `metadata-profile-000051;metadata-profile-000052`
+- Rights status / 权利状态: `metadata_only_until_verified`
+- Download manifest IDs / 下载 manifest ID: `dl-xxt-jgw-home;dl-xxt-jgw-about;dl-x
+  xt-jgw-kaiorder-0502;dl-xxt-jgw-kaiorder-1176`
+- Download log IDs / 下载日志 ID: `dl-xxt-jgw-home;dl-xxt-jgw-about;dl-xxt-jgw-kaior
+  der-0502;dl-xxt-jgw-kaiorder-1176`
+- download_log_status_counts:
+  `download_error:2;downloaded_access_restricted_page:2`
+- download_log_http_status_counts: `200:2`
+- download_log_file_size_bytes_total: `73834`
+- download_log_checksum_present_count: `2`
+- package_file_ids: `pkg-file-000030;pkg-file-000031`
+- metadata_profile_ids: `none`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界

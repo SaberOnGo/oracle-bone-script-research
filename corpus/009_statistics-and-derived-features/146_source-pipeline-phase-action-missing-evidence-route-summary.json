@@ -2,13 +2,13 @@
   "route_summary_id": "source-pipeline-phase-action-missing-evidence-route-summary-001",
   "updated_at": "2026-06-19",
   "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-  "route_count": 32,
+  "route_count": 30,
   "source_count": 18,
   "source_counts": {
     "src-british-museum-oracle-bone": 4,
-    "src-cambridge-hopkins": 2,
+    "src-cambridge-hopkins": 1,
     "src-gbedobc": 1,
-    "src-ihp-museum-oracle-bones": 2,
+    "src-ihp-museum-oracle-bones": 1,
     "src-ihp-oracle-rubbings": 2,
     "src-metmuseum-oracle-bone": 1,
     "src-nlc-oracle-world": 1,
@@ -25,40 +25,40 @@
     "src-yinqi-wenyuan": 2
   },
   "missing_file_role_counts": {
-    "downloaded_metadata_profile": 6,
+    "downloaded_metadata_profile": 5,
     "large_source_register": 18,
-    "source_field_map": 5,
+    "source_field_map": 4,
     "source_package_file_manifest": 3
   },
   "action_priority_counts": {
-    "field_map_gap_review": 5,
+    "field_map_gap_review": 4,
     "large_source_register_gap_review": 18,
-    "metadata_profile_gap_review": 6,
+    "metadata_profile_gap_review": 5,
     "package_manifest_gap_review": 3
   },
   "result_status_counts": {
-    "not_started": 32
+    "not_started": 30
   },
   "route_status_counts": {
-    "not_started": 32
+    "not_started": 30
   },
   "evidence_collection_status_counts": {
-    "not_collected": 32
+    "not_collected": 30
   },
   "human_review_status_counts": {
-    "pending_human_review": 32
+    "pending_human_review": 30
   },
   "rights_decision_status_counts": {
-    "no_new_rights_decision": 32
+    "no_new_rights_decision": 30
   },
   "source_promotion_status_counts": {
-    "not_promoted": 32
+    "not_promoted": 30
   },
   "corpus_import_status_counts": {
-    "not_imported": 32
+    "not_imported": 30
   },
   "decipherment_claim_status_counts": {
-    "no_decipherment_claim": 32
+    "no_decipherment_claim": 30
   },
   "automation_boundary": "routing_only_no_missing_evidence_outcome_capture",
   "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
@@ -417,69 +417,6 @@
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
       "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-005",
       "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-005",
-      "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-019",
-      "source_id": "src-cambridge-hopkins",
-      "source_type": "library_collection",
-      "rights_status": "metadata_only_until_verified",
-      "pipeline_gap_status": "needs_safe_derived_record_review",
-      "review_lanes": [
-        "safe_derived_record_decision"
-      ],
-      "phase_names": [
-        "verified"
-      ],
-      "missing_file_role": "downloaded_metadata_profile",
-      "file_to_open": "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
-      "join_strategy": "source_id",
-      "missing_reason": "no_source_matched_rows_in_review_file",
-      "action_type": "review_downloaded_metadata_profile_or_mark_not_applicable",
-      "action_priority": "metadata_profile_gap_review",
-      "action_queue_path": "corpus/009_statistics-and-derived-features/144_source-pipeline-phase-action-missing-evidence-action-queue.csv",
-      "evidence_presence_matrix_path": "corpus/009_statistics-and-derived-features/142_source-pipeline-phase-action-evidence-presence-matrix.csv",
-      "file_checklist_path": "corpus/009_statistics-and-derived-features/141_source-pipeline-phase-action-file-checklist.csv",
-      "source_summary_path": "corpus/009_statistics-and-derived-features/140_source-pipeline-phase-action-source-summary.csv",
-      "source_gap_summary_path": "corpus/009_statistics-and-derived-features/143_source-pipeline-phase-action-evidence-gap-summary.csv",
-      "route_ids": [
-        "source-pipeline-phase-action-route-008"
-      ],
-      "result_scaffold_ids": [
-        "source-pipeline-phase-action-result-scaffold-008"
-      ],
-      "action_ids": [
-        "source-pipeline-phase-action-008"
-      ],
-      "reserved_outcome_fields": [
-        "missing_role_applicability_reviewed",
-        "target_source_row_action_reviewed",
-        "reviewed_evidence_paths",
-        "reviewed_outcome_summary",
-        "remaining_blockers_reviewed",
-        "required_followup_reviewed",
-        "human_reviewer_id",
-        "human_review_date",
-        "human_review_notes"
-      ],
-      "route_status": "not_started",
-      "result_status": "not_started",
-      "evidence_collection_status": "not_collected",
-      "reviewed_evidence_paths": "",
-      "reviewed_outcome_summary": "",
-      "remaining_blockers_reviewed": "review_downloaded_metadata_profile_or_mark_not_applicable",
-      "required_followup_reviewed": "",
-      "human_review_status": "pending_human_review",
-      "rights_decision_status": "no_new_rights_decision",
-      "source_promotion_status": "not_promoted",
-      "corpus_import_status": "not_imported",
-      "decipherment_claim_status": "no_decipherment_claim",
-      "automation_boundary": "routing_only_no_missing_evidence_outcome_capture",
-      "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
-      "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
-    },
-    {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-006",
-      "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-006",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-006",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-020",
       "source_id": "src-cambridge-hopkins",
       "source_type": "library_collection",
@@ -539,10 +476,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-007",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-006",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-007",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-007",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-006",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-006",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-040",
       "source_id": "src-gbedobc",
       "source_type": "open_research_dataset",
@@ -606,10 +543,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-008",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-007",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-008",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-008",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-007",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-007",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-060",
       "source_id": "src-ihp-museum-oracle-bones",
       "source_type": "museum_collection",
@@ -673,77 +610,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-009",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-008",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-009",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-009",
-      "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-057",
-      "source_id": "src-ihp-museum-oracle-bones",
-      "source_type": "museum_collection",
-      "rights_status": "metadata_only_until_verified",
-      "pipeline_gap_status": "needs_field_map_review",
-      "review_lanes": [
-        "field_map_semantics_review"
-      ],
-      "phase_names": [
-        "linked",
-        "verified"
-      ],
-      "missing_file_role": "source_field_map",
-      "file_to_open": "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
-      "join_strategy": "source_id",
-      "missing_reason": "no_source_matched_rows_in_review_file",
-      "action_type": "review_or_create_source_field_map_row",
-      "action_priority": "field_map_gap_review",
-      "action_queue_path": "corpus/009_statistics-and-derived-features/144_source-pipeline-phase-action-missing-evidence-action-queue.csv",
-      "evidence_presence_matrix_path": "corpus/009_statistics-and-derived-features/142_source-pipeline-phase-action-evidence-presence-matrix.csv",
-      "file_checklist_path": "corpus/009_statistics-and-derived-features/141_source-pipeline-phase-action-file-checklist.csv",
-      "source_summary_path": "corpus/009_statistics-and-derived-features/140_source-pipeline-phase-action-source-summary.csv",
-      "source_gap_summary_path": "corpus/009_statistics-and-derived-features/143_source-pipeline-phase-action-evidence-gap-summary.csv",
-      "route_ids": [
-        "source-pipeline-phase-action-route-013",
-        "source-pipeline-phase-action-route-014"
-      ],
-      "result_scaffold_ids": [
-        "source-pipeline-phase-action-result-scaffold-013",
-        "source-pipeline-phase-action-result-scaffold-014"
-      ],
-      "action_ids": [
-        "source-pipeline-phase-action-013",
-        "source-pipeline-phase-action-014"
-      ],
-      "reserved_outcome_fields": [
-        "missing_role_applicability_reviewed",
-        "target_source_row_action_reviewed",
-        "reviewed_evidence_paths",
-        "reviewed_outcome_summary",
-        "remaining_blockers_reviewed",
-        "required_followup_reviewed",
-        "human_reviewer_id",
-        "human_review_date",
-        "human_review_notes"
-      ],
-      "route_status": "not_started",
-      "result_status": "not_started",
-      "evidence_collection_status": "not_collected",
-      "reviewed_evidence_paths": "",
-      "reviewed_outcome_summary": "",
-      "remaining_blockers_reviewed": "review_or_create_source_field_map_row",
-      "required_followup_reviewed": "",
-      "human_review_status": "pending_human_review",
-      "rights_decision_status": "no_new_rights_decision",
-      "source_promotion_status": "not_promoted",
-      "corpus_import_status": "not_imported",
-      "decipherment_claim_status": "no_decipherment_claim",
-      "automation_boundary": "routing_only_no_missing_evidence_outcome_capture",
-      "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
-      "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
-    },
-    {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-010",
-      "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-010",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-010",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-008",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-008",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-069",
       "source_id": "src-ihp-oracle-rubbings",
       "source_type": "online_database",
@@ -819,10 +689,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-011",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-009",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-011",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-011",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-009",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-009",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-070",
       "source_id": "src-ihp-oracle-rubbings",
       "source_type": "online_database",
@@ -898,10 +768,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-012",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-010",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-012",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-012",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-010",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-010",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-080",
       "source_id": "src-metmuseum-oracle-bone",
       "source_type": "museum_collection",
@@ -965,10 +835,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-013",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-011",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-013",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-013",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-011",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-011",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-090",
       "source_id": "src-nlc-oracle-world",
       "source_type": "library_database",
@@ -1032,10 +902,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-014",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-012",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-014",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-014",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-012",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-012",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-099",
       "source_id": "src-obid-ancientbooks",
       "source_type": "online_database",
@@ -1111,10 +981,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-015",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-013",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-015",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-015",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-013",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-013",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-100",
       "source_id": "src-obid-ancientbooks",
       "source_type": "online_database",
@@ -1190,10 +1060,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-016",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-014",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-016",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-016",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-014",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-014",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-120",
       "source_id": "src-open-oracle",
       "source_type": "project_repository",
@@ -1257,10 +1127,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-017",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-015",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-017",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-017",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-015",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-015",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-117",
       "source_id": "src-open-oracle",
       "source_type": "project_repository",
@@ -1324,10 +1194,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-018",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-016",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-018",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-018",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-016",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-016",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-130",
       "source_id": "src-oracle-mnist",
       "source_type": "open_research_dataset",
@@ -1391,10 +1261,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-019",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-017",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-019",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-019",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-017",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-017",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-127",
       "source_id": "src-oracle-mnist",
       "source_type": "open_research_dataset",
@@ -1458,10 +1328,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-020",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-018",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-020",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-020",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-018",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-018",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-140",
       "source_id": "src-penn-museum-oracle-bone",
       "source_type": "museum_collection",
@@ -1525,10 +1395,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-021",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-019",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-021",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-021",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-019",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-019",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-150",
       "source_id": "src-sinica-da-xiaoxuetang-site",
       "source_type": "online_portal",
@@ -1600,10 +1470,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-022",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-020",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-022",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-022",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-020",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-020",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-148",
       "source_id": "src-sinica-da-xiaoxuetang-site",
       "source_type": "online_portal",
@@ -1675,10 +1545,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-023",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-021",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-023",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-023",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-021",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-021",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-160",
       "source_id": "src-sinica-yinshang-oracle-vocabulary",
       "source_type": "online_database",
@@ -1750,10 +1620,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-024",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-022",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-024",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-024",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-022",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-022",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-158",
       "source_id": "src-sinica-yinshang-oracle-vocabulary",
       "source_type": "online_database",
@@ -1825,10 +1695,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-025",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-023",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-025",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-025",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-023",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-023",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-170",
       "source_id": "src-smithsonian-nmaa-oracle-bone",
       "source_type": "museum_collection",
@@ -1896,10 +1766,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-026",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-024",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-026",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-026",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-024",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-024",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-180",
       "source_id": "src-tsinghua-oracle-bones",
       "source_type": "library_collection",
@@ -1963,10 +1833,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-027",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-025",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-027",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-027",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-025",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-025",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-189",
       "source_id": "src-xiaoxuetang-jiaguwen",
       "source_type": "online_database",
@@ -2046,10 +1916,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-028",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-026",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-028",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-028",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-026",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-026",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-190",
       "source_id": "src-xiaoxuetang-jiaguwen",
       "source_type": "online_database",
@@ -2129,10 +1999,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-029",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-027",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-029",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-029",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-027",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-027",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-199",
       "source_id": "src-xiaoxuetang-obm",
       "source_type": "online_database",
@@ -2212,10 +2082,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-030",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-028",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-030",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-030",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-028",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-028",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-200",
       "source_id": "src-xiaoxuetang-obm",
       "source_type": "online_database",
@@ -2295,10 +2165,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-031",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-029",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-031",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-031",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-029",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-029",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-210",
       "source_id": "src-yinqi-wenyuan",
       "source_type": "online_database",
@@ -2362,10 +2232,10 @@
       "caution": "This source pipeline missing-evidence route summary is routing-only. It is not collected evidence, not a reviewed outcome, not a rights decision, not source promotion, not a corpus import, and not a decipherment conclusion."
     },
     {
-      "route_id": "source-pipeline-phase-action-missing-evidence-route-032",
+      "route_id": "source-pipeline-phase-action-missing-evidence-route-030",
       "action_result_scaffold_path": "corpus/009_statistics-and-derived-features/145_source-pipeline-phase-action-missing-evidence-result-scaffold.csv",
-      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-032",
-      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-032",
+      "missing_evidence_result_scaffold_id": "source-pipeline-phase-action-missing-evidence-result-030",
+      "missing_evidence_action_id": "source-pipeline-phase-action-missing-evidence-030",
       "evidence_presence_row_id": "source-pipeline-phase-action-evidence-presence-207",
       "source_id": "src-yinqi-wenyuan",
       "source_type": "online_database",

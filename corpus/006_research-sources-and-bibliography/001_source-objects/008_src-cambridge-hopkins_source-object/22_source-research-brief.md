@@ -22,7 +22,7 @@ limits on research use.
 - Recorded file sizes / 已记录文件大小: 1
 - Package files / 来源包文件: 1
 - Field mappings / 字段映射: 2
-- Metadata measurements / 元数据测量: 0
+- Metadata measurements / 元数据测量: 6
 
 - Recorded access item / 已记录访问项: dl-cambridge-hopkins-finding-list; downloaded;
   74132 bytes

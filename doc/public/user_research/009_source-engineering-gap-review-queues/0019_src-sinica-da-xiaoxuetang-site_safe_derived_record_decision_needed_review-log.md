@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0016`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0016`
+-   - `source-engineering-gap-review-log-draft-0019`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0019`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,27 +18,26 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-xiaoxuetang-obm`
-- Gap type / 缺口类型: `metadata_profile_extraction_needed`
-- Priority rank / 优先级: `4`
-- Current stage / 当前阶段: `structured`
-- Authority tier / 来源层级: `core_institutional`
+- Source ID / 来源 ID: `src-sinica-da-xiaoxuetang-site`
+- Gap type / 缺口类型: `safe_derived_record_decision_needed`
+- Priority rank / 优先级: `7`
+- Current stage / 当前阶段: `pending_human_review`
+- Authority tier / 来源层级: `institutional_portal`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-- Observed item / 已观察项: `current_stage=structured`
-- Observed item / 已观察项:
--   - `download_status_counts=downloaded_access_restricted_page:4`
-- Observed item / 已观察项: `downloaded_count=4`
-- Observed item / 已观察项: `download_log_count=4`
-- Observed item / 已观察项: `checksum_present_count=4`
-- Observed item / 已观察项: `field_map_count=6`
-- Observed item / 已观察项: `package_manifest_count=4`
-- Observed item / 已观察项: `metadata_profile_count=0`
+- Observed item / 已观察项: `current_stage=pending_human_review`
+- Observed item / 已观察项: `download_status_counts=download_error:1`
+- Observed item / 已观察项: `downloaded_count=0`
+- Observed item / 已观察项: `download_log_count=1`
+- Observed item / 已观察项: `checksum_present_count=0`
+- Observed item / 已观察项: `field_map_count=1`
+- Observed item / 已观察项: `package_manifest_count=0`
+- Observed item / 已观察项: `metadata_profile_count=3`
 - Observed item / 已观察项: `graph_edge_count=0`
-- Observed item / 已观察项: `downloaded_file_bytes=147668`
-- Observed item / 已观察项: `gap_type=metadata_profile_extraction_needed`
+- Observed item / 已观察项: `downloaded_file_bytes=0`
+- Observed item / 已观察项: `gap_type=safe_derived_record_decision_needed`
 
 ## Route Files To Open / 待打开路线文件
 
@@ -46,11 +45,8 @@
 -   - `corpus/009_statistics-and-derived-features`
 -   - `094_source-processing-pipeline-audit.csv`
 - Route file / 路线文件:
--   - `corpus/006_research-sources-and-bibliography/000_source-registers`
--   - `001_all-sources-index.csv`
-- Route file / 路线文件:
--   - `project_registry/006_large-source-register`
--   - `002_source-download-log.csv`
+-   - `corpus/009_statistics-and-derived-features`
+-   - `007_source-coverage-summary.csv`
 - Route file / 路线文件:
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `010_downloaded-metadata-profile.csv`
@@ -60,17 +56,16 @@
 
 ## Required Next Checks / 必需下一步检查
 
-- `open_download_log_and_source_register`
-  - English: Open download log and source register before metadata profile
-    extraction.
-  - 简体中文：在抽取 metadata profile 前打开下载日志和来源登记表。
-- `extract_metadata_only_counts_or_scope_from_committed_evidence`
-  - English: Extract only metadata counts or scope from already committed
-    evidence.
-  - 简体中文：只从已提交证据中抽取 metadata 计数或范围。
-- `record_review_status_and_no_scholarly_claim`
-  - English: Record review status and no scholarly claim.
-  - 简体中文：记录复核状态，并明确不形成学术结论。
+- `open_metadata_profile_source_route_and_rights_status`
+  - English: Open metadata profile, source route, and rights status before
+    derivative decisions.
+  - 简体中文：在派生记录决策前打开 metadata profile、来源路线和权利状态。
+- `decide_next_safe_derivative_staging_or_review_queue`
+  - English: Decide the next safe derivative staging row or review queue.
+  - 简体中文：决定下一步安全的派生 staging 行或复核队列。
+- `record_no_corpus_promotion_without_source_marked_review`
+  - English: Record no corpus promotion without source-marked review.
+  - 简体中文：记录没有带来源标记的复核不得提升为语料。
 
 ## Evidence Collection / 证据收集
 
@@ -83,21 +78,19 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0016`
+  `source-engineering-gap-evidence-snapshot-0019`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Download manifest IDs / 下载 manifest ID: `dl-xxt-obm-example;dl-xxt-obm-guide;d
-  l-xxt-obm-appendix01;dl-xxt-obm-appendix02`
-- Download log IDs / 下载日志 ID: `dl-xxt-obm-example;dl-xxt-obm-guide;dl-xxt-obm-ap
-  pendix01;dl-xxt-obm-appendix02`
-- download_log_status_counts: `downloaded_access_restricted_page:4`
-- download_log_http_status_counts: `200:4`
-- download_log_file_size_bytes_total: `147668`
-- download_log_checksum_present_count: `4`
-- package_file_ids:
-  `pkg-file-000032;pkg-file-000033;pkg-file-000034;pkg-file-000035`
-- metadata_profile_ids: `none`
+- Download manifest IDs / 下载 manifest ID: `dl-sinica-da-xiaoxuetang-site`
+- Download log IDs / 下载日志 ID: `dl-sinica-da-xiaoxuetang-site`
+- download_log_status_counts: `download_error:1`
+- download_log_http_status_counts: `none`
+- download_log_file_size_bytes_total: `0`
+- download_log_checksum_present_count: `0`
+- package_file_ids: `none`
+- metadata_profile_ids:
+  `metadata-profile-000044;metadata-profile-000045;metadata-profile-000046`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界

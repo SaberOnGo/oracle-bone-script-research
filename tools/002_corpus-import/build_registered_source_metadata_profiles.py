@@ -18,7 +18,7 @@ SOURCE_DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_sourc
 DOWNLOADED_METADATA_PROFILE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"
 )
-UPDATED_AT = "2026-06-19"
+UPDATED_AT = "2026-07-22"
 REVIEW_STATUS = "reviewed_metadata_only"
 
 OUTPUT_FIELDS = [
@@ -36,6 +36,66 @@ OUTPUT_FIELDS = [
 ]
 
 REGISTERED_PROFILE_ROWS = [
+    {
+        "source_id": "src-cambridge-hopkins",
+        "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+        "metadata_file": "21_finding-list-reconciliation.md",
+        "profile_metric": "finding_list_imported_row_count",
+        "profile_value": "612",
+        "profile_unit": "rows",
+        "import_relevance": "Records the number of identifier rows retained in the reviewed Cambridge finding-list staging audit",
+        "caution": "Staging-row count is a reconciliation fact; it is not a count of confirmed objects, inscriptions, or readings",
+    },
+    {
+        "source_id": "src-cambridge-hopkins",
+        "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+        "metadata_file": "21_finding-list-reconciliation.md",
+        "profile_metric": "finding_list_page_stated_grand_total",
+        "profile_value": "609",
+        "profile_unit": "rows_stated_by_source_page",
+        "import_relevance": "Preserves the grand total stated by the source page for human reconciliation against retained rows",
+        "caution": "The page-stated total is source-page metadata and does not authorize filling or deleting any row",
+    },
+    {
+        "source_id": "src-cambridge-hopkins",
+        "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+        "metadata_file": "21_finding-list-reconciliation.md",
+        "profile_metric": "finding_list_import_vs_stated_difference",
+        "profile_value": "3",
+        "profile_unit": "rows_difference",
+        "import_relevance": "Keeps the unresolved difference visible so a researcher can trace it to the source page before any crosswalk promotion",
+        "caution": "Difference is an open preprocessing question, not evidence of missing or duplicate inscriptions by itself",
+    },
+    {
+        "source_id": "src-cambridge-hopkins",
+        "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+        "metadata_file": "21_finding-list-reconciliation.md",
+        "profile_metric": "finding_list_sections_with_declared_count_mismatch",
+        "profile_value": "4",
+        "profile_unit": "sections",
+        "import_relevance": "Routes four section-level count mismatches to the human reconciliation dossier for targeted checking",
+        "caution": "Section mismatch count is an audit signal and not a period, group, identity, or decipherment conclusion",
+    },
+    {
+        "source_id": "src-cambridge-hopkins",
+        "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+        "metadata_file": "21_finding-list-reconciliation.md",
+        "profile_metric": "finding_list_sections_without_declared_count",
+        "profile_value": "2",
+        "profile_unit": "sections",
+        "import_relevance": "Records that the source page leaves two observed sections without a declared count",
+        "caution": "An unstated count remains a source-page omission and must not be converted into an inferred total",
+    },
+    {
+        "source_id": "src-cambridge-hopkins",
+        "evidence_download_id": "dl-cambridge-hopkins-finding-list",
+        "metadata_file": "21_finding-list-reconciliation.md",
+        "profile_metric": "finding_list_unclassified_row_count",
+        "profile_value": "4",
+        "profile_unit": "rows",
+        "import_relevance": "Keeps the four source-page Unclassified entries visible for separate catalogue and image follow-up",
+        "caution": "Unclassified is the source-page label; it is not a character identity, inscription identity, or scholarly classification",
+    },
     {
         "source_id": "src-ihp-museum-oracle-bones",
         "evidence_download_id": "dl-ihp-museum-oracle-bones",

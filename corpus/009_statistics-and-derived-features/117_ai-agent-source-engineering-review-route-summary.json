@@ -13,7 +13,7 @@
   },
   "lane_count": 6,
   "route_pack_count": 6,
-  "total_route_count": 21,
+  "total_route_count": 20,
   "total_decision_filled_count": 0,
   "total_result_started_count": 0,
   "review_status": "route_summary_pending_source_engineering_review",
@@ -115,33 +115,33 @@
       "route_pack_id": "source-metadata-profile-review-route-pack-001",
       "route_pack_path": "corpus/009_statistics-and-derived-features/115_ai-agent-source-metadata-profile-review-route-pack.json",
       "decision_field": "metadata_profile_decision",
-      "route_count": 5,
-      "source_count": 5,
+      "route_count": 4,
+      "source_count": 4,
       "priority_min": 4,
       "priority_max": 4,
       "gap_type_counts": {
-        "metadata_profile_extraction_needed": 5
+        "metadata_profile_extraction_needed": 4
       },
       "result_status_counts": {
-        "not_started": 5
+        "not_started": 4
       },
       "evidence_collection_status_counts": {
-        "not_collected": 5
+        "not_collected": 4
       },
       "human_review_status_counts": {
-        "pending_human_review": 5
+        "pending_human_review": 4
       },
       "rights_decision_status_counts": {
-        "no_new_rights_decision": 5
+        "no_new_rights_decision": 4
       },
       "source_promotion_status_counts": {
-        "not_promoted": 5
+        "not_promoted": 4
       },
       "corpus_import_status_counts": {
-        "not_imported": 5
+        "not_imported": 4
       },
       "decipherment_claim_status_counts": {
-        "no_decipherment_claim": 5
+        "no_decipherment_claim": 4
       },
       "decision_filled_count": 0,
       "result_started_count": 0,
@@ -149,9 +149,9 @@
         "no_profile_from_raw_or_restricted_material_until_source_route_is_reviewed"
       ],
       "first_next_action_id": "source-engineering-next-action-0012",
-      "first_source_id": "src-cambridge-hopkins",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-cambridge-hopkins_metadata_profile_extraction_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-cambridge-hopkins_metadata_profile_extraction_needed_next-action-result.md",
+      "first_source_id": "src-ihp-oracle-rubbings",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-ihp-oracle-rubbings_metadata_profile_extraction_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-ihp-oracle-rubbings_metadata_profile_extraction_needed_next-action-result.md",
       "review_status": "route_pack_pending_metadata_profile_review",
       "research_boundary": "source_metadata_profile_review_route_pack_not_extraction_decision"
     },
@@ -193,10 +193,10 @@
       "blocking_conditions": [
         "no_field_map_import_until_semantics_and_rights_are_reviewed"
       ],
-      "first_next_action_id": "source-engineering-next-action-0017",
+      "first_next_action_id": "source-engineering-next-action-0016",
       "first_source_id": "src-open-oracle",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-open-oracle_source_field_map_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0017_src-open-oracle_source_field_map_needed_next-action-result.md",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0016_src-open-oracle_source_field_map_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0016_src-open-oracle_source_field_map_needed_next-action-result.md",
       "review_status": "route_pack_pending_field_map_review",
       "research_boundary": "source_field_map_review_route_pack_not_reviewed_mapping"
     },
@@ -265,10 +265,10 @@
       "blocking_conditions": [
         "no_derived_record_promotion_without_source_marked_reviewed_boundary"
       ],
-      "first_next_action_id": "source-engineering-next-action-0020",
+      "first_next_action_id": "source-engineering-next-action-0019",
       "first_source_id": "src-sinica-da-xiaoxuetang-site",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0020_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0020_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0019_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0019_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
       "review_status": "route_pack_pending_safe_derived_record_review",
       "research_boundary": "source_safe_derived_record_review_route_pack_not_promotion_decision"
     }

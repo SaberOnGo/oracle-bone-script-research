@@ -143,6 +143,31 @@ HUST_OBC_UNDECIPHERED_CANDIDATE_INDEX = (
 )
 CHARACTER_LOCAL_MATERIAL_OBS_CHAR_LIMIT = 520
 CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS = {
+    "obs-unk-001601": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/001_obs-unk-001601_"
+        "hust-obc-und-L-001601_oracle-character-candidate"
+    ),
+    "obs-unk-001602": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/002_obs-unk-001602_"
+        "hust-obc-und-L-001602_oracle-character-candidate"
+    ),
+    "obs-unk-001603": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/003_obs-unk-001603_"
+        "hust-obc-und-L-001603_oracle-character-candidate"
+    ),
+    "obs-unk-001604": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/004_obs-unk-001604_"
+        "hust-obc-und-L-001604_oracle-character-candidate"
+    ),
+    "obs-unk-001605": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/005_obs-unk-001605_"
+        "hust-obc-und-L-001605_oracle-character-candidate"
+    ),
     "obs-unk-005708": (
         "corpus/001_oracle-characters/"
         "074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
@@ -2497,9 +2522,10 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         readiness_review_path = object_dir / "12_human-research-readiness-review.md"
         readiness_index_path = object_dir / "13_human-research-readiness-index.json"
         material_observation_path = object_dir / "14_material-visual-observation.md"
-        expects_material_observation = project_id in {
-        f"obs-char-{index:06d}" for index in range(1, 1589)
-        }
+        expects_material_observation = project_id in (
+            {f"obs-char-{index:06d}" for index in range(1, 1589)}
+            | {f"obs-unk-{index:06d}" for index in range(1601, 1611)}
+        )
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():
             issues.append(f"missing character object directory: {relative_dir}")

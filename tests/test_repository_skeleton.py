@@ -12507,6 +12507,42 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in disk_review.splitlines():
                 self.assertLessEqual(len(line), 80, line)
 
+        first_visual_observation_batch = candidates[1600:1610]
+        self.assertEqual(
+            [candidate.project_id for candidate in first_visual_observation_batch],
+            [f"obs-unk-{index:06d}" for index in range(1601, 1611)],
+        )
+        for candidate in first_visual_observation_batch:
+            asset_id = by_project[candidate.project_id]["asset_id"]
+            asset_name = (
+                f"001_{asset_id}_{candidate.primary_external_ref_id}_glyph.jpg"
+            )
+            observation_text = module.material_visual_observation_text(
+                candidate,
+                asset_id,
+                asset_name,
+            )
+            self.assertIn("Material Visual Observation", observation_text)
+            self.assertIn("Direct Visual Record", observation_text)
+            self.assertIn("not a reading or component assignment", observation_text)
+            self.assertIn("下一步核查", observation_text)
+            self.assertIn("not a decipherment conclusion", observation_text)
+            self.assertIn("14_material-visual-observation.md", module.readme_text(
+                candidate,
+                asset_id,
+                asset_name,
+            ))
+            assert_no_mojibake_fragments(
+                self,
+                observation_text,
+                f"{candidate.project_id} material observation",
+            )
+            assert_human_markdown_lines_wrapped(
+                self,
+                observation_text,
+                f"{candidate.project_id} material observation",
+            )
+
     def test_public_domain_asset_records(self) -> None:
         self.assertEqual(check_asset_records(repo_root()), [])
 

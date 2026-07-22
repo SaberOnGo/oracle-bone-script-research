@@ -50,6 +50,81 @@ BOUNDARY_CAUTION = (
 )
 
 
+# These notes are intentionally limited to candidates whose local image was
+# opened and inspected in the current preparation batch.  They are direct
+# visual records, not readings, component assignments, or decipherment claims.
+MATERIAL_VISUAL_OBSERVATIONS = {
+    "obs-unk-001601": (
+        "The narrow image shows a dark upper cluster with short descending "
+        "marks, a long slanting stroke at the left, and a thin vertical "
+        "stroke extending below the cluster.",
+        "图像较窄；上部可见深色密集笔画和数个向下短痕，左侧有长斜笔画，"
+        "密集区域下方还有细长竖向笔画。",
+    ),
+    "obs-unk-001602": (
+        "The image shows an angular, diamond-like lower contour with a pointed "
+        "bottom, crossed by a central vertical stroke and a compact upper mark.",
+        "图像下部可见带尖底的菱角状轮廓，中间有竖向笔画贯穿，"
+        "上部另有紧密短痕。",
+    ),
+    "obs-unk-001603": (
+        "The image contains a dense central cluster of crossing strokes, small "
+        "paired marks near the lower left, and a long descending stroke ending "
+        "in a small rounded mark.",
+        "图像中央是密集交叉笔画；左下附近有成对小痕迹，右下方向有长向下笔画，"
+        "末端接近小型圆弧状痕迹。",
+    ),
+    "obs-unk-001604": (
+        "The image has a narrow vertical middle, two fork-like upper strokes, "
+        "and paired curved marks at the lower end; the small image limits detail.",
+        "图像中部为窄长竖向结构，上部可见两处分叉状笔画，下端有成对弯曲痕迹；"
+        "图像较小，细部仍受限制。",
+    ),
+    "obs-unk-001605": (
+        "The image repeats the dense crossing-stroke pattern seen in the local "
+        "candidate image for obs-unk-001603, with paired lower-left marks and a "
+        "long descending stroke ending in a small rounded mark.",
+        "图像呈现与 obs-unk-001603 本地候选图相同的密集交叉笔画样式；"
+        "左下有成对小痕迹，右下有长向下笔画并接近小型圆弧状痕迹。",
+    ),
+    "obs-unk-001606": (
+        "The image has a dense angular cluster at the left, a taller open "
+        "contour at the right, and several short lower projections; the image "
+        "does not establish whether the two sides form one unit.",
+        "图像左侧是密集的折角笔画，右侧有较高的开放轮廓，下方还有数个短向下痕迹；"
+        "仅凭此图不能确定左右是否构成一个整体。",
+    ),
+    "obs-unk-001607": (
+        "Two neighboring forms are visible: the left has a rounded upper loop "
+        "and a long curved lower contour, while the right has a smaller upper "
+        "arch and a descending stem.",
+        "图像中可见两个相邻形体：左侧有圆弧状上部和较长下部曲线，右侧有较小上拱和"
+        "向下延伸的主干。",
+    ),
+    "obs-unk-001608": (
+        "The image shows a tall forked form on the left with descending branched "
+        "strokes, plus a separated narrow upright form on the right with a small "
+        "upper loop.",
+        "图像左侧是高而分叉的形体，并有向下分枝笔画；右侧另有窄长竖向形体，"
+        "上部带有小型环状痕迹。",
+    ),
+    "obs-unk-001609": (
+        "The small dark image contains a compact upper cluster and a lower field "
+        "of crossing strokes; edge detail and individual stroke breaks need a "
+        "higher-resolution source check.",
+        "小型深色图像包含紧密上部簇和下部交叉笔画；边缘细节及单条笔画的断续情况"
+        "仍需用更高分辨率来源复核。",
+    ),
+    "obs-unk-001610": (
+        "The high-contrast silhouette has two pointed upper peaks, a broad dark "
+        "lower body, and a narrow central opening or lighter gap; filled areas "
+        "limit stroke-level observation.",
+        "高对比度剪影可见两个尖状上部、宽大的深色下部和窄小中央空隙或浅色缺口；"
+        "填黑区域限制了逐笔观察。",
+    ),
+}
+
+
 @dataclass(frozen=True)
 class Candidate:
     project_id: str
@@ -566,11 +641,41 @@ def readme_text(candidate: Candidate, asset_id: str, asset_name: str) -> str:
             "`04_visual-gallery.md`"
         ),
         wrapped_bullet(
+            "Human research dossier / 人类研究档案: "
+            "`05_human-research-dossier.md`"
+        ),
+        wrapped_bullet(
             "Human review sheet / 人工复核表: `05_human-review-sheet.md`"
+        ),
+        wrapped_bullet(
+            "Context evidence dossier / 上下文证据档案: "
+            "`08_character-context-evidence-dossier.md`"
+        ),
+        wrapped_bullet(
+            "Archaeology and paleography review / 考古文字学复核: "
+            "`10_archaeology-paleography-review.md`"
+        ),
+        wrapped_bullet(
+            "Human research readiness / 人类研究准备度: "
+            "`12_human-research-readiness-review.md`"
+        ),
+        wrapped_bullet(
+            "Readiness index / 准备度索引: "
+            "`13_human-research-readiness-index.json`"
         ),
         wrapped_bullet(
             "Local review image / 本地复核图像: "
             f"`03_visual-assets/{asset_name}`"
+        ),
+        *(
+            [
+                wrapped_bullet(
+                    "Human visual observation / 人类图像观察: "
+                    "`14_material-visual-observation.md`"
+                )
+            ]
+            if candidate.project_id in MATERIAL_VISUAL_OBSERVATIONS
+            else []
         ),
         "",
         "## Human Oracle Character Review Slots / 甲骨单字人工复核槽位",
@@ -776,6 +881,91 @@ def review_sheet_text(candidate: Candidate, asset_id: str) -> str:
     )
 
 
+def material_visual_observation_text(
+    candidate: Candidate,
+    asset_id: str,
+    asset_name: str,
+) -> str:
+    english_observation, chinese_observation = MATERIAL_VISUAL_OBSERVATIONS[
+        candidate.project_id
+    ]
+    lines = [
+        f"# Material Visual Observation / {candidate.project_id} 实物图像观察",
+        "",
+        "English:",
+        wrapped_paragraph(
+            "This note records only visible marks in one local, source-linked "
+            "review image. It is a preparation-stage observation for a human "
+            "researcher, not a reading or component assignment."
+        ),
+        "",
+        "简体中文：",
+        wrapped_paragraph(
+            "本记录只描述一张有来源链接的本地复核图像中直接可见的痕迹，"
+            "供人类研究者在预处理阶段查阅，不是释读或构件归属判断。"
+        ),
+        "",
+        "## Evidence Opened / 已打开证据",
+        "",
+        wrapped_bullet(f"Project ID / 项目 ID: `{candidate.project_id}`"),
+        wrapped_bullet(
+            f"External reference / 外部参照: `{candidate.primary_external_ref_id}`"
+        ),
+        wrapped_bullet(
+            "Local image / 本地图像: "
+            f"`03_visual-assets/{asset_name}`"
+        ),
+        wrapped_bullet(
+            "Source image route / 来源图像路线: "
+            "open `02_visual-source-index.csv`"
+        ),
+        wrapped_bullet(f"Source / 来源: `{candidate.source_id}`"),
+        wrapped_bullet(
+            f"Source package / 来源包: `{candidate.source_package_id}`"
+        ),
+        wrapped_bullet(f"Download route / 下载路线: `{candidate.download_id}`"),
+        wrapped_bullet(
+            "Rights and risk / 权利与风险: "
+            f"`{candidate.rights_status}`; see the visual index risk note."
+        ),
+        "",
+        "## Direct Visual Record / 直接可见记录",
+        "",
+        wrapped_bullet(f"English observation: {english_observation}"),
+        wrapped_bullet(f"中文观察: {chinese_observation}"),
+        "",
+        "## Next Checks / 下一步核查",
+        "",
+        wrapped_bullet(
+            "Open the image metadata and source row before comparing another form."
+        ),
+        wrapped_bullet(
+            "Check whether a second view, rubbing, plate, or inscription "
+            "context exists."
+        ),
+        wrapped_bullet(
+            "Record variants, near forms, components, readings, and disputes "
+            "only after source review."
+        ),
+        wrapped_bullet("打开图像 metadata 和来源行，再与其他字形进行比较。"),
+        wrapped_bullet("查找是否存在第二视角、拓片、图版或卜辞上下文。"),
+        wrapped_bullet("完成来源复核后，再记录异体、近形、构件、释读和争议。"),
+        "",
+        "## Boundary / 边界",
+        "",
+        wrapped_paragraph(
+            "This is a visual observation record, not a reading or component "
+            "assignment, not an inscription identity claim, and not a "
+            "decipherment conclusion."
+        ),
+        wrapped_paragraph(
+            "本记录是图像观察记录，不是释读、构件归属、卜辞身份或破译结论。"
+        ),
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def asset_source_row(candidate: Candidate, asset_id: str, relative_asset_path: Path, output_path: Path) -> dict[str, str]:
     return {
         "asset_id": asset_id,
@@ -922,22 +1112,36 @@ def build_materials(root: Path) -> dict[str, int]:
             )
             asset_name = relative_asset_path.name
             metadata_name = metadata_path.name
-            with open(filesystem_path(candidate.object_dir / "README.md"), "w", encoding="utf-8", newline="\n") as file:
-                file.write(readme_text(candidate, asset_id, asset_name))
-            with open(
-                filesystem_path(candidate.object_dir / "04_visual-gallery.md"),
-                "w",
-                encoding="utf-8",
-                newline="\n",
-            ) as file:
-                file.write(gallery_text(candidate, asset_id, asset_name, metadata_name))
-            with open(
-                filesystem_path(candidate.object_dir / "05_human-review-sheet.md"),
-                "w",
-                encoding="utf-8",
-                newline="\n",
-            ) as file:
-                file.write(review_sheet_text(candidate, asset_id))
+            # Existing human-facing files may contain curated provenance and
+            # review notes.  Never replace them during a derived-material run;
+            # only create a missing file from the current template.
+            for filename, content in [
+                ("README.md", readme_text(candidate, asset_id, asset_name)),
+                (
+                    "04_visual-gallery.md",
+                    gallery_text(candidate, asset_id, asset_name, metadata_name),
+                ),
+                ("05_human-review-sheet.md", review_sheet_text(candidate, asset_id)),
+            ]:
+                output_file = candidate.object_dir / filename
+                if not output_file.exists():
+                    output_file.write_text(content, encoding="utf-8", newline="\n")
+            if candidate.project_id in MATERIAL_VISUAL_OBSERVATIONS:
+                with open(
+                    filesystem_path(
+                        candidate.object_dir / "14_material-visual-observation.md"
+                    ),
+                    "w",
+                    encoding="utf-8",
+                    newline="\n",
+                ) as file:
+                    file.write(
+                        material_visual_observation_text(
+                            candidate,
+                            asset_id,
+                            asset_name,
+                        )
+                    )
 
     if new_asset_rows:
         upsert_rows(root / ASSET_SOURCE_INDEX, "asset_id", new_asset_rows)

@@ -188,6 +188,68 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "本地图像呈现与 obs-unk-001619 图像相同的密集竖向组合形体、上部叠置痕迹、"
         "下部分枝笔画和右侧分离笔画；本记录不作身份确认。",
     ),
+    "obs-unk-001621": (
+        "The image has two short upper strokes, a long curved right-side contour, "
+        "and a compact lower cluster with a small enclosed or looped mark.",
+        "图像上部有两条短笔画，右侧有长弯曲轮廓，下部是紧凑笔画簇，并带有小型"
+        "封闭或环状痕迹。",
+    ),
+    "obs-unk-001622": (
+        "The local image shows a dense central composite with a narrow upright "
+        "stroke at the left, curved interior marks, and short lower projections; "
+        "it is visually similar to obs-unk-001617 only.",
+        "本地图像是密集中央组合形体，左侧有窄长竖向笔画，内部有弯曲痕迹，下方有短"
+        "向下笔画；这里只记录其与 obs-unk-001617 的视觉相似。",
+    ),
+    "obs-unk-001623": (
+        "The image stacks several angular zigzag strokes above a central vertical "
+        "axis, with multiple short horizontal strokes and a broader lower bar.",
+        "图像上部叠置数个折线状笔画，中部有竖向主轴，下部可见多条短横向笔画和较宽"
+        "底部横痕。",
+    ),
+    "obs-unk-001624": (
+        "The small dark image contains irregular upright and diagonal strokes on "
+        "both sides of a dense center; lower edge detail is limited by the image "
+        "resolution.",
+        "小型深色图像在密集中央两侧可见不规则竖向和斜向笔画；受图像分辨率限制，"
+        "下缘细节仍不清楚。",
+    ),
+    "obs-unk-001625": (
+        "The local image shows the same dense upright composite, stacked upper "
+        "marks, branching lower strokes, and detached right stroke seen in the "
+        "image recorded for obs-unk-001619; this is a comparison route only.",
+        "本地图像呈现与 obs-unk-001619 图像相同的密集竖向组合形体、上部叠置痕迹、"
+        "下部分枝笔画和右侧分离笔画；这里只记录比较路线。",
+    ),
+    "obs-unk-001626": (
+        "The image has a rounded upper contour, a long horizontal middle stroke, "
+        "a narrow descending stem, and a small rectangular mark at the bottom.",
+        "图像上部有圆弧状轮廓，中部有较长横向笔画，下接窄长主干，底部有小型方形"
+        "痕迹。",
+    ),
+    "obs-unk-001627": (
+        "The compact dark image shows several pointed upper projections, a dense "
+        "central field, and a short horizontal lower stroke.",
+        "紧凑深色图像可见数个尖状上部笔画、密集中央区域和短横向下部笔画。",
+    ),
+    "obs-unk-001628": (
+        "The image has a tall triangular outer contour, crossing interior strokes, "
+        "and a rounded lower enclosure with an open or light center.",
+        "图像有高而近三角形的外部轮廓，内部笔画交叉，下部有圆弧状封闭轮廓，"
+        "中央留有开放或浅色区域。",
+    ),
+    "obs-unk-001629": (
+        "Two upward-curving strokes meet near the top of a compact central form; "
+        "the lower part has a rounded contour and a short horizontal mark.",
+        "两条向上弯曲笔画在紧凑中央形体上部附近相接；下部有圆弧状轮廓和短横痕。",
+    ),
+    "obs-unk-001630": (
+        "The high-contrast image shows two tall pointed strokes, a central vertical "
+        "line, and a broad rounded lower contour; dark fill limits individual "
+        "stroke breaks.",
+        "高对比度图像可见两条高而尖的笔画、中央竖线和宽大的圆弧状下部轮廓；"
+        "深色填充限制了单条笔画断续的观察。",
+    ),
 }
 
 

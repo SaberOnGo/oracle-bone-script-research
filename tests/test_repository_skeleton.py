@@ -9202,12 +9202,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             ("obs-char-001578", "A stacked form has an upper crossbar"),
             ("obs-char-001579", "Two large adjacent forms show branching left strokes"),
             ("obs-char-001580", "A very faint small diamond-like contour contains"),
+            ("obs-char-001581", "A dense composite combines an upper loop"),
+            ("obs-char-001582", "A tall form has repeated crossbars"),
+            ("obs-char-001583", "Two adjacent forms show a gridded branching left cluster"),
+            ("obs-char-001584", "A low-resolution gray image preserves a compact central cluster"),
+            ("obs-char-001585", "A low-resolution gray image shows a narrow branching cluster"),
+            ("obs-char-001586", "A dark composite has a broad upper bar"),
+            ("obs-char-001587", "Two stacked forms show a small upper trapezoid enclosure"),
+            ("obs-char-001588", "A low-resolution gray image preserves several narrow upright strokes"),
         ):
             self.assertIn(
                 expected_fragment,
                 " ".join(outputs[project_id]["material_observation_text"].split()),
             )
-        self.assertEqual(outputs["obs-char-001588"]["material_observation_text"], "")
         for project_id in (
             "obs-char-000001",
             "obs-char-000010",
@@ -10551,6 +10558,14 @@ class RepositorySkeletonTests(unittest.TestCase):
             "obs-char-001578",
             "obs-char-001579",
             "obs-char-001580",
+            "obs-char-001581",
+            "obs-char-001582",
+            "obs-char-001583",
+            "obs-char-001584",
+            "obs-char-001585",
+            "obs-char-001586",
+            "obs-char-001587",
+            "obs-char-001588",
         ):
             self.assertTrue(
                 (

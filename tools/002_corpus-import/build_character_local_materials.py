@@ -6474,6 +6474,38 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A very faint small diamond-like contour contains a short inner crossing.",
         "极浅淡的小型菱形轮廓包含短内部交叉笔画。",
     ),
+    "obs-char-001581": (
+        "A dense composite combines an upper loop, branching right strokes, and a lower enclosed contour.",
+        "密集组合形体结合上部环形、右侧分枝笔画和下部框状轮廓。",
+    ),
+    "obs-char-001582": (
+        "A tall form has repeated crossbars, a central stem, and long branching lower strokes.",
+        "高大形体有重复横笔、中央竖干和长下部分枝笔画。",
+    ),
+    "obs-char-001583": (
+        "Two adjacent forms show a gridded branching left cluster and a curved right enclosure.",
+        "两个相邻形体左侧有格状分枝笔画群，右侧有弧形框状轮廓。",
+    ),
+    "obs-char-001584": (
+        "A low-resolution gray image preserves a compact central cluster with an indistinct outer contour.",
+        "低清灰度图像保留紧凑中央笔画群，外部轮廓难以辨清。",
+    ),
+    "obs-char-001585": (
+        "A low-resolution gray image shows a narrow branching cluster and a small rounded mark.",
+        "低清灰度图像显示狭长分枝笔画群和小型圆折标记。",
+    ),
+    "obs-char-001586": (
+        "A dark composite has a broad upper bar, a large lower opening, and a long right contour.",
+        "深色组合形体有宽大上横笔、大型下部开口和右侧长轮廓。",
+    ),
+    "obs-char-001587": (
+        "Two stacked forms show a small upper trapezoid enclosure and a separate lower diamond mark.",
+        "两个上下叠置形体有上部小型梯形框和分离的下部菱形标记。",
+    ),
+    "obs-char-001588": (
+        "A low-resolution gray image preserves several narrow upright strokes with pointed upper ends.",
+        "低清灰度图像保留数条上端尖状的狭长直立笔画。",
+    ),
     "obs-char-001341": (
         "A small upright form has a rectangular lower grid, a central vertical, and a short upper branch.",
         "小型直立形体有矩形下部格状框形、中央竖笔和短上部分枝。",

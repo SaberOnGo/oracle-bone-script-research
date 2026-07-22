@@ -250,6 +250,70 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "高对比度图像可见两条高而尖的笔画、中央竖线和宽大的圆弧状下部轮廓；"
         "深色填充限制了单条笔画断续的观察。",
     ),
+    "obs-unk-001631": (
+        "The image shows crossed and stacked upper strokes, a broad central "
+        "horizontal mark, and a lower angular or rounded enclosure with short "
+        "vertical and diagonal extensions.",
+        "图像上部可见交叉和叠置笔画，中部有较宽横向痕迹，下部有近方角或圆弧状的"
+        "围合形体，并带有短竖向和斜向延伸笔画。",
+    ),
+    "obs-unk-001632": (
+        "The image has a repeated row of small rounded or pointed marks at the "
+        "left, a dense angular block at the right, and a short detached diagonal "
+        "mark below.",
+        "图像左侧有一列重复出现的圆弧或尖角状小痕迹，右侧是密集的折角形笔画块，"
+        "下方另有一条短的分离斜向痕迹。",
+    ),
+    "obs-unk-001633": (
+        "The compact image has a tall upright or diagonal stroke through a group "
+        "of crossing angular marks; two short rectangular or block-like marks are "
+        "detached near the lower right.",
+        "紧凑图像中有一条高的竖向或斜向主笔画穿过交叉折角笔画簇；右下方另有两条"
+        "分离的短方块状痕迹。",
+    ),
+    "obs-unk-001634": (
+        "The image contains an open curved outer contour, a dense central vertical "
+        "and diagonal cluster, and several short lower projections; the small scale "
+        "limits separation of individual strokes.",
+        "图像有开放的弯曲外轮廓，中央是密集的竖向和斜向笔画簇，下部有数个短的"
+        "外伸笔画；图像尺寸限制了单条笔画的分离观察。",
+    ),
+    "obs-unk-001635": (
+        "The image is dominated by a tall roof-like or angular outer contour, with "
+        "a central upright stroke, short side marks, and a small lower extension.",
+        "图像主体是高而近屋顶形或折角形的外部轮廓，内部有中央竖向笔画、两侧短痕和"
+        "小型下部延伸。",
+    ),
+    "obs-unk-001636": (
+        "Two tall pointed upright strokes rise above a central gap or stem; a broad "
+        "rounded lower band or enclosure is visible beneath them.",
+        "两条高而尖的竖向笔画位于中央空隙或主干两侧；其下方可见较宽的圆弧状横带"
+        "或围合形体。",
+    ),
+    "obs-unk-001637": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001638": (
+        "The image shows a tall dense composite with side contours, crossing middle "
+        "strokes, and small rounded or rectangular marks near the lower end.",
+        "图像是高而密集的组合形体，两侧有外轮廓，中部笔画交叉，下端附近可见小型"
+        "圆弧或方块状痕迹。",
+    ),
+    "obs-unk-001639": (
+        "Several pointed or forked upper strokes sit above a dense central field; "
+        "the lower area contains short diagonal and horizontal projections.",
+        "数条尖状或分叉的上部笔画位于密集中央区域之上；下部可见短的斜向和横向外伸"
+        "笔画。",
+    ),
+    "obs-unk-001640": (
+        "The image has two crossing upper strokes, a broad lower body, and several "
+        "small detached rounded marks beneath the main form.",
+        "图像上部有两条交叉笔画，主体下部较宽，下方另有数个分离的小型圆弧状痕迹。",
+    ),
 }
 
 

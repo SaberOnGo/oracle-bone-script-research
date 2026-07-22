@@ -435,6 +435,62 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "descending mark, and a smaller right group with short forked strokes.",
         "图像可分为左侧的弯曲上部笔画和长下降痕迹，以及右侧较小的短分叉笔画簇。",
     ),
+    "obs-unk-001661": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001662": (
+        "The image has a compact upper angular form, a central descending stem, and "
+        "three small rounded or circular marks arranged below the main body.",
+        "图像上部是紧凑的折角形体，中部有下降主干，主体下方排列三个小型圆弧或圆形"
+        "痕迹。",
+    ),
+    "obs-unk-001663": (
+        "The tall image shows a narrow upright central section, crossing side marks, "
+        "and a broad lower block with short vertical divisions.",
+        "高形图像有窄长中央竖向部分，两侧笔画交叉，下部是较宽的块状形体并有短竖向"
+        "分隔痕迹。",
+    ),
+    "obs-unk-001664": (
+        "A rounded elongated upper contour with an inner horizontal mark sits above "
+        "a long middle stroke, a descending stem, and a short lower base.",
+        "上部是带内部横痕的长圆弧轮廓，下接较长的中部横痕、下降主干和短底部横痕。",
+    ),
+    "obs-unk-001665": (
+        "The image has a narrow pointed upper form, a long central descending stroke, "
+        "and a lower angular zigzag or triangular enclosure.",
+        "图像上部是窄长尖状形体，中部有长下降笔画，下部有折线或三角形围合痕迹。",
+    ),
+    "obs-unk-001666": (
+        "The image contains a short upper horizontal cluster, a long diagonal middle "
+        "stroke, and several short lower side projections.",
+        "图像上部有短横向笔画簇，中部有长斜向笔画，下部两侧有数个短外伸痕迹。",
+    ),
+    "obs-unk-001667": (
+        "Two tall upright strokes frame a compact angular central form; the lower "
+        "portion contains short crossing and descending marks.",
+        "两条高的竖向笔画夹住紧凑折角形中央形体；下部有短交叉和下降痕迹。",
+    ),
+    "obs-unk-001668": (
+        "A broad upper horizontal bar sits above a dense central crossing and a long "
+        "diagonal lower extension.",
+        "较宽的上部横条位于密集中部交叉笔画之上，下方有长斜向外伸笔画。",
+    ),
+    "obs-unk-001669": (
+        "The image has a peaked upper contour, a compact middle form, and several "
+        "closely spaced horizontal strokes along the lower edge.",
+        "图像上部有尖顶状轮廓，中部形体紧凑，下缘有数条彼此接近的横向笔画。",
+    ),
+    "obs-unk-001670": (
+        "The image separates into a left group with curved upper strokes and a long "
+        "descending mark, and a smaller right group with short forked strokes; this "
+        "is a visual comparison with obs-unk-001660 only.",
+        "图像可分为左侧的弯曲上部笔画和长下降痕迹，以及右侧较小的短分叉笔画簇；"
+        "这里只作与 obs-unk-001660 的视觉比较。",
+    ),
 }
 
 

@@ -555,6 +555,63 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "图像左侧是高的折角组合形体，右侧另有窄长竖向弯曲形体；两组形体在图像中可"
         "明显区分。",
     ),
+    "obs-unk-001681": (
+        "The image shows a dense rectangular upper block, a narrow central stem, and "
+        "several short branching marks toward the lower edge.",
+        "图像上部是密集的方块状笔画块，中部有窄长主干，下缘有数条短分枝痕迹。",
+    ),
+    "obs-unk-001682": (
+        "A short horizontal or arched upper contour sits above a broad curved lower "
+        "form with a small interior opening.",
+        "短横向或弧状上部轮廓位于较宽的弯曲下部形体之上，内部留有小型开放区域。",
+    ),
+    "obs-unk-001683": (
+        "The compact image has a rounded central body, pointed or branched side marks, "
+        "and a smaller rounded lower contour.",
+        "紧凑图像有圆弧状中央主体，两侧有尖状或分枝痕迹，下部另有较小的圆弧轮廓。",
+    ),
+    "obs-unk-001684": (
+        "The tall form has a broad outer contour, crossing diagonal interior strokes, "
+        "and a rounded lower enclosure.",
+        "高形图像有较宽外轮廓，内部斜向笔画交叉，下部有圆弧状围合形体。",
+    ),
+    "obs-unk-001685": (
+        "The image is a dense upright composite with a short crossing upper mark, a "
+        "central vertical axis, and small lower side projections.",
+        "图像是密集竖向组合形体，上部有短交叉痕迹，中部有竖向主轴，下部有小型两侧"
+        "外伸笔画。",
+    ),
+    "obs-unk-001686": (
+        "The image repeats the dense upright composite, crossing upper mark, central "
+        "axis, and small lower projections seen for obs-unk-001685; this is a visual "
+        "comparison only.",
+        "图像呈现与 obs-unk-001685 相同的密集竖向组合形体、上部交叉痕迹、中央主轴和"
+        "下部小型外伸笔画；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001687": (
+        "The image has a peaked upper contour, a compact central curved form, and "
+        "several small rounded or detached marks near the lower right.",
+        "图像上部有尖顶状轮廓，中部是紧凑弯曲形体，右下方附近有数个小型圆弧或分离"
+        "痕迹。",
+    ),
+    "obs-unk-001688": (
+        "The upper body contains two crossing curved strokes; a long diagonal or "
+        "descending stroke extends below, with a short detached mark near the base.",
+        "上部主体有两条交叉弯曲笔画；下方伸出长斜向或下降笔画，底部附近另有短的"
+        "分离痕迹。",
+    ),
+    "obs-unk-001689": (
+        "The image shows a dense upright upper block, a broad lower rectangular or "
+        "rounded body, and a short detached mark near the lower edge.",
+        "图像上部是密集竖向笔画块，下部有较宽的方块或圆弧状主体，下缘附近另有短的"
+        "分离痕迹。",
+    ),
+    "obs-unk-001690": (
+        "The image has a central crossing form, a short arrow-like projection at the "
+        "left, a descending lower stroke, and a detached rectangular mark at the right.",
+        "图像中央有交叉形体，左侧有短箭头状外伸笔画，下方有下降笔画，右侧另有分离"
+        "的方块状痕迹。",
+    ),
 }
 
 

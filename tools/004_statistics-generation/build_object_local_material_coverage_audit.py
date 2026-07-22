@@ -47,7 +47,7 @@ PROJECT_ID_PATTERN = re.compile(
 SOURCE_ID_PATTERN = re.compile(r"^src-[a-z0-9-]+$")
 CHARACTER_MATERIAL_OBSERVATION_IDS = {
     f"obs-char-{index:06d}" for index in range(1, 1589)
-} | {f"obs-unk-{index:06d}" for index in range(1601, 1681)}
+} | {f"obs-unk-{index:06d}" for index in range(1601, 1691)}
 
 
 OBJECT_SPECS = [

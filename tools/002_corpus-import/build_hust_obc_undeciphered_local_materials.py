@@ -491,6 +491,70 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "图像可分为左侧的弯曲上部笔画和长下降痕迹，以及右侧较小的短分叉笔画簇；"
         "这里只作与 obs-unk-001660 的视觉比较。",
     ),
+    "obs-unk-001671": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001672": (
+        "The image has a forked upper section, a small central enclosure or diamond-"
+        "like mark, and a stacked lower block with short side extensions.",
+        "图像上部有分叉形笔画，中部有小型围合或菱形状痕迹，下部叠置块状形体并带有"
+        "短的两侧外伸笔画。",
+    ),
+    "obs-unk-001673": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001674": (
+        "The image has a compact upper angular form, a central descending stem, and "
+        "three small rounded or circular marks arranged below the main body.",
+        "图像上部是紧凑的折角形体，中部有下降主干，主体下方排列三个小型圆弧或圆形"
+        "痕迹。",
+    ),
+    "obs-unk-001675": (
+        "The image repeats the compact upper angular form, descending stem, and three "
+        "small lower rounded marks seen for obs-unk-001674; this is a visual "
+        "comparison only.",
+        "图像呈现与 obs-unk-001674 相同的上部折角形体、下降主干和下方三个小型圆弧"
+        "痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001676": (
+        "The committed review image is nearly blank and does not show an observable "
+        "glyph. No stroke, component, or identity observation can be made from "
+        "this derivative.",
+        "已提交的复核图像近乎纯白，未显示可观察字形。不能依据该派生图像记录笔画、"
+        "构件或对象身份。",
+    ),
+    "obs-unk-001677": (
+        "The image shows a compact four-lobed or crossing form with pointed outer "
+        "projections and a darker central intersection.",
+        "图像是紧凑的四瓣或交叉形体，外缘有尖状外伸笔画，中央交叉处颜色较深。",
+    ),
+    "obs-unk-001678": (
+        "The image repeats the compact four-lobed or crossing form, pointed outer "
+        "projections, and darker central intersection seen for obs-unk-001677; this "
+        "is a visual comparison only.",
+        "图像呈现与 obs-unk-001677 相同的紧凑四瓣或交叉形体、尖状外伸笔画和较深的"
+        "中央交叉处；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001679": (
+        "The upper body contains two crossing curved strokes; a long diagonal or "
+        "descending stroke extends below, with a short detached mark near the base.",
+        "上部主体有两条交叉弯曲笔画；下方伸出长斜向或下降笔画，底部附近另有短的"
+        "分离痕迹。",
+    ),
+    "obs-unk-001680": (
+        "The image contains a tall angular composite at the left and a separate slim "
+        "upright curved form at the right; the two groups are visibly distinct.",
+        "图像左侧是高的折角组合形体，右侧另有窄长竖向弯曲形体；两组形体在图像中可"
+        "明显区分。",
+    ),
 }
 
 

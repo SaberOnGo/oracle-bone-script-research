@@ -612,6 +612,68 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "图像中央有交叉形体，左侧有短箭头状外伸笔画，下方有下降笔画，右侧另有分离"
         "的方块状痕迹。",
     ),
+    "obs-unk-001691": (
+        "The committed review image is nearly blank and does not show an observable "
+        "glyph. No stroke, component, or identity observation can be made from "
+        "this derivative.",
+        "已提交的复核图像近乎纯白，未显示可观察字形。不能依据该派生图像记录笔画、"
+        "构件或对象身份。",
+    ),
+    "obs-unk-001692": (
+        "The image has a peaked upper contour, a compact central curved form, and "
+        "several small rounded or detached marks near the lower right.",
+        "图像上部有尖顶状轮廓，中部是紧凑弯曲形体，右下方附近有数个小型圆弧或分离"
+        "痕迹。",
+    ),
+    "obs-unk-001693": (
+        "The tall image shows a narrow upright central section, crossing side marks, "
+        "and a broad lower block with short vertical divisions.",
+        "高形图像有窄长中央竖向部分，两侧笔画交叉，下部是较宽的块状形体并有短竖向"
+        "分隔痕迹。",
+    ),
+    "obs-unk-001694": (
+        "The image repeats the narrow upright central section, crossing side marks, "
+        "and broad lower block seen for obs-unk-001693; this is a visual comparison "
+        "only.",
+        "图像呈现与 obs-unk-001693 相同的窄长中央竖向部分、两侧交叉笔画和较宽下部块"
+        "状形体；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001695": (
+        "The image shows crossed and stacked upper strokes, a broad central "
+        "horizontal mark, and a lower angular or rounded enclosure with short "
+        "vertical and diagonal extensions.",
+        "图像上部可见交叉和叠置笔画，中部有较宽横向痕迹，下部有近方角或圆弧状的"
+        "围合形体，并带有短竖向和斜向延伸笔画。",
+    ),
+    "obs-unk-001696": (
+        "The image has a curved outer contour at the left, a compact upper horizontal "
+        "cluster, and a dense central-lower form with short interior divisions.",
+        "图像左侧有弯曲外轮廓，上部有紧凑横向笔画簇，中下部是密集形体并带有短的"
+        "内部分隔痕迹。",
+    ),
+    "obs-unk-001697": (
+        "The image is a dense upright composite with a short crossing upper mark, a "
+        "central vertical axis, and small lower side projections.",
+        "图像是密集竖向组合形体，上部有短交叉痕迹，中部有竖向主轴，下部有小型两侧"
+        "外伸笔画。",
+    ),
+    "obs-unk-001698": (
+        "The image repeats the dense upright composite, crossing upper mark, central "
+        "axis, and small lower projections seen for obs-unk-001697; this is a visual "
+        "comparison only.",
+        "图像呈现与 obs-unk-001697 相同的密集竖向组合形体、上部交叉痕迹、中央主轴和"
+        "下部小型外伸笔画；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001699": (
+        "The image has several forked or branching upper strokes, a long descending "
+        "central mark, and short curved side projections.",
+        "图像上部有数条分叉或分枝笔画，中部有长下降痕迹，两侧有短弯曲外伸笔画。",
+    ),
+    "obs-unk-001700": (
+        "The tall image contains a pointed outer contour, crossing interior strokes, "
+        "and a narrow lower extension with short diagonal marks.",
+        "高形图像有尖状外轮廓，内部笔画交叉，下部有窄长延伸形体和短斜向痕迹。",
+    ),
 }
 
 

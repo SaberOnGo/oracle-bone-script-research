@@ -314,6 +314,66 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "small detached rounded marks beneath the main form.",
         "图像上部有两条交叉笔画，主体下部较宽，下方另有数个分离的小型圆弧状痕迹。",
     ),
+    "obs-unk-001641": (
+        "The image contains a compact upper crossing, a dense central vertical "
+        "cluster, and a broad lower curved enclosure with short side extensions.",
+        "图像上部有紧凑的交叉笔画，中部是密集竖向笔画簇，下部有较宽的圆弧状围合形体"
+        "和短的两侧外伸笔画。",
+    ),
+    "obs-unk-001642": (
+        "A rounded elongated upper contour with an inner horizontal mark sits above "
+        "a long middle stroke, a descending stem, and a short lower base.",
+        "上部是带内部横痕的长圆弧轮廓，下接较长的中部横痕、下降主干和短底部横痕。",
+    ),
+    "obs-unk-001643": (
+        "The image shows two long curved upright strokes; several short diagonal "
+        "marks branch from the left side of the darker central area.",
+        "图像可见两条较长的弯曲竖向笔画；较深中央区域左侧分出数条短斜向痕迹。",
+    ),
+    "obs-unk-001644": (
+        "The tall form has a rounded or capped upper section, stacked horizontal "
+        "marks through the middle, and a narrow lower stem with short projections.",
+        "高形图像上部有圆弧或帽状部分，中部叠置多条横向痕迹，下部是窄长主干并带有"
+        "短外伸笔画。",
+    ),
+    "obs-unk-001645": (
+        "The image is broadly symmetrical, with a forked upper section, a small "
+        "central enclosure or diamond-like mark, and stacked rectangular lower marks.",
+        "图像整体近于对称，上部有分叉形笔画，中部有小型围合或菱形状痕迹，下部叠置"
+        "方块状痕迹。",
+    ),
+    "obs-unk-001646": (
+        "A broad pointed outer contour frames crossing interior strokes and several "
+        "short diagonal marks toward the lower left.",
+        "较宽的尖顶外轮廓包围交叉的内部笔画，左下方可见数条短斜向痕迹。",
+    ),
+    "obs-unk-001647": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001648": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001649": (
+        "Two long diagonal strokes form an open angular body, with a descending "
+        "right-side contour and a short horizontal base near the bottom.",
+        "两条较长斜向笔画构成开放的折角形主体，右侧有下降轮廓，底部附近有短横向"
+        "基线。",
+    ),
+    "obs-unk-001650": (
+        "The high-contrast image contains a dense angular central field, crossing "
+        "outer strokes, and small short projections around the main form; dark fill "
+        "limits stroke separation.",
+        "高对比度图像有密集折角状中央区域，外部笔画相互交叉，主体周围有短外伸痕迹；"
+        "深色填充限制了单条笔画的分离观察。",
+    ),
 }
 
 

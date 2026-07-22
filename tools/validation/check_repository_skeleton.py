@@ -318,6 +318,56 @@ CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS = {
         "obs-unk-bucket_oracle-character-candidates/040_obs-unk-001640_"
         "hust-obc-und-L-001640_oracle-character-candidate"
     ),
+    "obs-unk-001641": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/041_obs-unk-001641_"
+        "hust-obc-und-L-001641_oracle-character-candidate"
+    ),
+    "obs-unk-001642": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/042_obs-unk-001642_"
+        "hust-obc-und-L-001642_oracle-character-candidate"
+    ),
+    "obs-unk-001643": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/043_obs-unk-001643_"
+        "hust-obc-und-L-001643_oracle-character-candidate"
+    ),
+    "obs-unk-001644": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/044_obs-unk-001644_"
+        "hust-obc-und-L-001644_oracle-character-candidate"
+    ),
+    "obs-unk-001645": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/045_obs-unk-001645_"
+        "hust-obc-und-L-001645_oracle-character-candidate"
+    ),
+    "obs-unk-001646": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/046_obs-unk-001646_"
+        "hust-obc-und-L-001646_oracle-character-candidate"
+    ),
+    "obs-unk-001647": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/047_obs-unk-001647_"
+        "hust-obc-und-L-001647_oracle-character-candidate"
+    ),
+    "obs-unk-001648": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/048_obs-unk-001648_"
+        "hust-obc-und-L-001648_oracle-character-candidate"
+    ),
+    "obs-unk-001649": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/049_obs-unk-001649_"
+        "hust-obc-und-L-001649_oracle-character-candidate"
+    ),
+    "obs-unk-001650": (
+        "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
+        "obs-unk-bucket_oracle-character-candidates/050_obs-unk-001650_"
+        "hust-obc-und-L-001650_oracle-character-candidate"
+    ),
     "obs-unk-005708": (
         "corpus/001_oracle-characters/"
         "074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/"
@@ -2674,7 +2724,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         material_observation_path = object_dir / "14_material-visual-observation.md"
         expects_material_observation = project_id in (
             {f"obs-char-{index:06d}" for index in range(1, 1589)}
-            | {f"obs-unk-{index:06d}" for index in range(1601, 1641)}
+            | {f"obs-unk-{index:06d}" for index in range(1601, 1651)}
         )
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():

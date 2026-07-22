@@ -12513,10 +12513,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in disk_review.splitlines():
                 self.assertLessEqual(len(line), 80, line)
 
-        first_visual_observation_batch = candidates[1600:1650]
+        first_visual_observation_batch = candidates[1600:1660]
         self.assertEqual(
             [candidate.project_id for candidate in first_visual_observation_batch],
-            [f"obs-unk-{index:06d}" for index in range(1601, 1651)],
+            [f"obs-unk-{index:06d}" for index in range(1601, 1661)],
         )
         for candidate in first_visual_observation_batch:
             asset_id = by_project[candidate.project_id]["asset_id"]

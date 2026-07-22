@@ -374,6 +374,67 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "高对比度图像有密集折角状中央区域，外部笔画相互交叉，主体周围有短外伸痕迹；"
         "深色填充限制了单条笔画的分离观察。",
     ),
+    "obs-unk-001651": (
+        "The image has a peaked upper contour and two slanting side strokes with "
+        "short branching marks along the lower portions.",
+        "图像上部有尖顶状轮廓，两侧有斜向笔画，下部各可见短的分枝痕迹。",
+    ),
+    "obs-unk-001652": (
+        "The compact diagonal form has an angular upper section, a narrow middle "
+        "stem, a curved lower base, and a small detached mark at the lower left.",
+        "紧凑的斜向形体上部折角明显，中部有窄长主干，下部有弯曲底部，左下方另有"
+        "小型分离痕迹。",
+    ),
+    "obs-unk-001653": (
+        "The image shows a dense upright composite with a small rounded upper mark, "
+        "stacked middle strokes, and a detached curved stroke at the right.",
+        "图像是密集竖向组合形体，上部有小型圆弧状痕迹，中部笔画叠置，右侧另有"
+        "分离的弯曲笔画。",
+    ),
+    "obs-unk-001654": (
+        "The image repeats the dense upright composite, rounded upper mark, stacked "
+        "middle strokes, and detached curved right stroke seen for obs-unk-001653; "
+        "this is a visual comparison only.",
+        "图像呈现与 obs-unk-001653 相同的密集竖向组合形体、上部圆弧痕迹、中部叠置"
+        "笔画和右侧分离弯曲笔画；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001655": (
+        "The small image repeats the open curved outer contour, dense central "
+        "vertical and diagonal strokes, and short lower projections seen for "
+        "obs-unk-001634; this is a visual comparison only.",
+        "小型图像呈现与 obs-unk-001634 相同的开放弯曲外轮廓、中央密集竖斜笔画和"
+        "短下部外伸痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001656": (
+        "A rounded elongated upper contour with an inner horizontal mark sits above "
+        "a long middle stroke, a descending stem, and a short lower base; this is a "
+        "visual comparison with obs-unk-001642 only.",
+        "带内部横痕的长圆弧上部轮廓下接长中部横痕、下降主干和短底部横痕；这里只作"
+        "与 obs-unk-001642 的视觉比较。",
+    ),
+    "obs-unk-001657": (
+        "The image has several pointed upper projections, a dense central field, "
+        "and a broad lower rounded or vertical cluster.",
+        "图像上部有数个尖状外伸笔画，中部区域密集，下部有较宽的圆弧或竖向笔画簇。",
+    ),
+    "obs-unk-001658": (
+        "The dark form contains a pointed or angular left-side projection, a broad "
+        "central horizontal stroke, and short lower and right-side extensions.",
+        "深色形体左侧有尖状或折角外伸笔画，中部有较宽横向笔画，下部和右侧有短的"
+        "外伸痕迹。",
+    ),
+    "obs-unk-001659": (
+        "The compact diagonal form repeats the angular upper section, narrow middle "
+        "stem, curved lower base, and small detached lower-left mark seen for "
+        "obs-unk-001652; this is a visual comparison only.",
+        "紧凑斜向形体呈现与 obs-unk-001652 相同的上部折角、窄长主干、弯曲底部和"
+        "左下分离小痕迹；这里只记录视觉比较，不作身份确认。",
+    ),
+    "obs-unk-001660": (
+        "The image separates into a left group with curved upper strokes and a long "
+        "descending mark, and a smaller right group with short forked strokes.",
+        "图像可分为左侧的弯曲上部笔画和长下降痕迹，以及右侧较小的短分叉笔画簇。",
+    ),
 }
 
 

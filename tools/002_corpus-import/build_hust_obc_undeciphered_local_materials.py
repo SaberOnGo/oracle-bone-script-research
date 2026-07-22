@@ -122,6 +122,72 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "高对比度剪影可见两个尖状上部、宽大的深色下部和窄小中央空隙或浅色缺口；"
         "填黑区域限制了逐笔观察。",
     ),
+    "obs-unk-001611": (
+        "The narrow image has a curved upper cluster, a short descending central "
+        "stroke, and paired horizontal or curved marks forming a compact lower "
+        "section.",
+        "窄长图像上部有弯曲密集笔画，中部有短向下笔画，下部由成对横向或弯曲痕迹"
+        "组成紧凑区域。",
+    ),
+    "obs-unk-001612": (
+        "The image shows a tall angular contour on the right with internal "
+        "diagonal marks, plus detached narrow strokes along the left edge.",
+        "图像右侧有高而折角的轮廓，内部可见斜向笔画；左侧边缘另有分离的窄长痕迹。",
+    ),
+    "obs-unk-001613": (
+        "A dark compact form occupies the left side, with an uneven outer edge and "
+        "small interior openings; a separate long vertical stroke stands on the "
+        "right.",
+        "图像左侧是深色紧凑形体，外缘不规则，内部有小型空隙；右侧另有一条较长竖向"
+        "笔画。",
+    ),
+    "obs-unk-001614": (
+        "The image has a small cross-like mark above a narrow stem, a broad lower "
+        "section divided into two rectangular openings, and a detached rounded "
+        "mark at the right.",
+        "图像上部有小型交叉状痕迹，下接窄长主干；下部较宽并分成两个方形空隙，右侧"
+        "另有分离的圆弧状痕迹。",
+    ),
+    "obs-unk-001615": (
+        "The image is dominated by a long descending diagonal stroke with a bent "
+        "upper end; a compact lower cluster and a small detached lower mark are "
+        "also visible.",
+        "图像主要由一条上端弯折、向下延伸的长斜笔画构成；下部有紧凑笔画簇，另有小型"
+        "分离痕迹。",
+    ),
+    "obs-unk-001616": (
+        "The sparse image shows one long curved stroke descending from the upper "
+        "left to a central junction, with two shorter strokes extending below.",
+        "稀疏图像可见一条从左上向中央交点下行的长弯曲笔画，交点下方还有两条较短"
+        "笔画。",
+    ),
+    "obs-unk-001617": (
+        "The image contains a dense central composite with a narrow upright stroke "
+        "at the left, curved interior marks, and several short lower projections.",
+        "图像中央是密集组合形体，左侧有窄长竖向笔画，内部有弯曲痕迹，下方还有数个"
+        "短向下痕迹。",
+    ),
+    "obs-unk-001618": (
+        "The local image shows the same visible upper cluster and compact lower "
+        "section as the image recorded for obs-unk-001611; this is a visual "
+        "comparison only, not an identity claim.",
+        "本地图像呈现与 obs-unk-001611 图像相同的上部密集笔画和下部紧凑区域；这只是"
+        "视觉比较，不是身份确认。",
+    ),
+    "obs-unk-001619": (
+        "The image shows a dense upright composite with small stacked marks near "
+        "the top, a central vertical axis, branching lower strokes, and a short "
+        "detached stroke to the right.",
+        "图像是密集竖向组合形体；上部有小型叠置痕迹，中部有竖向主轴，下部有分枝"
+        "笔画，右侧还有短的分离笔画。",
+    ),
+    "obs-unk-001620": (
+        "The local image shows the same dense upright composite, stacked upper "
+        "marks, branching lower strokes, and detached right stroke as the image "
+        "recorded for obs-unk-001619; no identity claim is made.",
+        "本地图像呈现与 obs-unk-001619 图像相同的密集竖向组合形体、上部叠置痕迹、"
+        "下部分枝笔画和右侧分离笔画；本记录不作身份确认。",
+    ),
 }
 
 
@@ -434,7 +500,12 @@ def build_visual_source_rows(
                 row["risk_note"] = row.get("risk_note") or RISK_NOTE
                 row["review_status"] = "needs_human_visual_review"
                 row["research_boundary"] = row.get("research_boundary") or "co_located_visual_source_index_not_scholarship"
-                row["caution"] = row.get("caution") or BOUNDARY_CAUTION
+                existing_caution = row.get("caution", "")
+                row["caution"] = (
+                    BOUNDARY_CAUTION
+                    if "local derivative is not present" in existing_caution
+                    else existing_caution or BOUNDARY_CAUTION
+                )
                 row["updated_at"] = UPDATED_AT
             return rows
     return visual_source_index(candidate, asset_id, relative_asset_path)
@@ -1057,13 +1128,22 @@ def visual_profile_row(asset_id: str, relative_asset_path: Path, output_path: Pa
     }
 
 
-def build_materials(root: Path) -> dict[str, int]:
+def build_materials(
+    root: Path,
+    project_ids: set[str] | None = None,
+) -> dict[str, int]:
     root = root.resolve()
     raw_zip = root / RAW_ZIP
     if sha256_file(raw_zip) != EXPECTED_RAW_SHA256:
         raise ValueError(f"HUST-OBC raw zip checksum mismatch: {raw_zip}")
 
     candidates = load_candidates(root)
+    if project_ids:
+        candidates = [
+            candidate
+            for candidate in candidates
+            if candidate.project_id in project_ids
+        ]
     asset_rows = read_csv(root / ASSET_SOURCE_INDEX)
     existing_assets = existing_asset_by_project(asset_rows)
     next_number = next_asset_number(asset_rows)
@@ -1160,8 +1240,14 @@ def build_materials(root: Path) -> dict[str, int]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=Path.cwd(), type=Path)
+    parser.add_argument(
+        "--project-id",
+        action="append",
+        dest="project_ids",
+        help="Process only the selected candidate project ID; repeat as needed.",
+    )
     args = parser.parse_args()
-    result = build_materials(args.root)
+    result = build_materials(args.root, set(args.project_ids or []))
     print(json.dumps(result, ensure_ascii=False, sort_keys=True))
     return 0
 

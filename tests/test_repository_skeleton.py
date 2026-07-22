@@ -12452,6 +12452,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(by_project), 9408)
         self.assertIn("obs-unk-000001", by_project)
         self.assertIn("obs-unk-006294", by_project)
+        filtered_result = module.build_materials(
+            repo_root(),
+            {"obs-unk-001611"},
+        )
+        self.assertEqual(filtered_result["candidate_count"], 1)
+        self.assertEqual(filtered_result["new_asset_count"], 0)
         sample_candidates = [candidates[0], candidates[6293], candidates[-1]]
         for candidate in sample_candidates:
             asset_id = by_project[candidate.project_id]["asset_id"]
@@ -12507,10 +12513,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             for line in disk_review.splitlines():
                 self.assertLessEqual(len(line), 80, line)
 
-        first_visual_observation_batch = candidates[1600:1610]
+        first_visual_observation_batch = candidates[1600:1620]
         self.assertEqual(
             [candidate.project_id for candidate in first_visual_observation_batch],
-            [f"obs-unk-{index:06d}" for index in range(1601, 1611)],
+            [f"obs-unk-{index:06d}" for index in range(1601, 1621)],
         )
         for candidate in first_visual_observation_batch:
             asset_id = by_project[candidate.project_id]["asset_id"]

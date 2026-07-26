@@ -21,7 +21,7 @@ limits on research use.
 - Recorded file sizes / 已记录文件大小: 1
 - Package files / 来源包文件: 1
 - Field mappings / 字段映射: 1
-- Metadata measurements / 元数据测量: 0
+- Metadata measurements / 元数据测量: 2
 
 - Recorded access item / 已记录访问项: dl-ihp-rubbings-overview; downloaded; 13169
   bytes

@@ -30,7 +30,7 @@ excavation context、collection context、relations、引用史、
 - updated at: 2026-06-30
 - checklist rows: 4
 - research note files: 7
-- user or AI draft review files: 128
+- user or AI draft review files: 127
 - source register files: 506
 - source index rows: 21
 - phase gap statuses:
@@ -62,15 +62,25 @@ excavation context、collection context、relations、引用史、
 
 ## Support Files / 辅助文件
 
-| File | Path |
-| --- | --- |
-| checklist | `corpus/009_statistics-and-derived-features/197_published-research-note-phase-gap-review-checklist.csv` |
-| action queue | `corpus/009_statistics-and-derived-features/192_core-corpus-phase-gap-action-queue.csv` |
-| source index | `corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv` |
-| source objects | `corpus/006_research-sources-and-bibliography/001_source-objects` |
-| research notes | `research/` |
-| user or AI drafts | `doc/public/user_research/` |
-| scholarship review guide | `research/001_published-scholarship-index/002_published-scholarship-review-guide.md` |
+- statistics directory:
+  `corpus/009_statistics-and-derived-features/`
+- checklist:
+  `197_published-research-note-phase-gap-review-checklist.csv`
+- action queue:
+  `192_core-corpus-phase-gap-action-queue.csv`
+- source register directory:
+  `corpus/006_research-sources-and-bibliography/`
+  `000_source-registers/`
+- source index:
+  `001_all-sources-index.csv`
+- source objects:
+  `corpus/006_research-sources-and-bibliography/001_source-objects`
+- research notes: `research/`
+- user or AI drafts: `doc/public/user_research/`
+- scholarship review directory:
+  `research/001_published-scholarship-index/`
+- scholarship review guide:
+  `002_published-scholarship-review-guide.md`
 
 Open these files after the relevant human source dossier.
 They are pointers for review, not reviewed evidence by themselves.

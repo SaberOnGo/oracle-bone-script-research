@@ -41,8 +41,9 @@ note, or concrete next-check questions.
 - Package kinds / 来源包类型: lightweight_html_page
 - Field map count / 字段映射数: 1
 - Target records / 目标记录: asset_metadata; excavation_or_collection_context
-- Metadata profile count / 元数据概况数: 0
-- Profile metrics / 概况指标: none
+- Metadata profile count / 元数据概况数: 2
+- Profile metrics / 概况指标: digitized_searchable_record_count;
+  reported_rubbing_count_lower_bound
 
 ## Next Review Step / 下一步复核入口
 - Rights status / 权利状态: metadata_only_until_verified

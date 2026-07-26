@@ -51,7 +51,7 @@ review status.
 - Package kinds / 来源包类型: lightweight_html_page
 - Field map route count / 字段映射路线数: 1
 - Target record types / 目标记录类型: asset_metadata; excavation_or_collection_context
-- Metadata route count / metadata 路线数: 0
+- Metadata route count / metadata 路线数: 2
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -93,8 +93,31 @@ target object directory.
 
 ## Metadata Profile Evidence / 元数据概况证据
 
-No metadata profile route is recorded in the current source registers. Record
-profile metrics before relying on source-scale coverage or quality claims.
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000069
+- Evidence download ID / 证据下载 ID: dl-ihp-rubbings-overview
+- Metadata file / 元数据文件: dl-ihp-rubbings-overview.html
+- Profile metric / 概况指标: reported_rubbing_count_lower_bound
+- Profile value / 概况值: 40000
+- Profile unit / 概况单位: rubbings_lower_bound
+- Import relevance / 导入相关性: Preserves the official overview wording that the IHP
+  rubbing collection exceeds 40,000 items
+- Caution / 提醒: The source says more than 40,000; this is a lower-bound scale
+  statement, not an exact local object count
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000070
+- Evidence download ID / 证据下载 ID: dl-ihp-rubbings-overview
+- Metadata file / 元数据文件: dl-ihp-rubbings-overview.html
+- Profile metric / 概况指标: digitized_searchable_record_count
+- Profile value / 概况值: 21556
+- Profile unit / 概况单位: digitized_searchable_records
+- Import relevance / 导入相关性: Records the official overview statement for the
+  number of digitized records searchable through the database
+- Caution / 提醒: This is an access-scale statement, not a count of locally
+  downloaded records, images, or rights-cleared derivatives
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位
 

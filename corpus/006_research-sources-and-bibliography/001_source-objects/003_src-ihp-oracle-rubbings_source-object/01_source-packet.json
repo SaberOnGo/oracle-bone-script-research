@@ -16,7 +16,7 @@
   "download_route_count": 1,
   "package_route_count": 1,
   "field_map_route_count": 1,
-  "metadata_profile_route_count": 0,
+  "metadata_profile_route_count": 2,
   "local_files": [
     "README.md",
     "01_source-packet.json",

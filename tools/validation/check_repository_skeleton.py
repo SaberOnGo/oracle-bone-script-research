@@ -9870,7 +9870,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "download_manifest_count": 47,
         "download_log_count": 48,
         "downloaded_file_bytes": 685734093,
-        "metadata_profile_metric_count": 68,
+        "metadata_profile_metric_count": 70,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
@@ -9886,8 +9886,8 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
 
     expected_status_counts = {
         "has_committed_public_asset_or_metadata": 2,
-        "has_download_log_only": 5,
-        "has_downloaded_metadata_profile": 10,
+        "has_download_log_only": 4,
+        "has_downloaded_metadata_profile": 11,
         "has_relationship_graph_derivatives": 4,
     }
     if dict(status_counts) != expected_status_counts:
@@ -10068,16 +10068,16 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "node_degree_summary_rows:101619",
         ],
         "review_queues": [
-            "review_log_files:52",
+            "review_log_files:50",
             "evidence_collection_note_files:49",
             "undeciphered_review_queue_rows:9408",
             "cambridge_hopkins_crosswalk_review_queue_rows:612",
-            "source_engineering_gap_queue_rows:21",
+            "source_engineering_gap_queue_rows:19",
             "source_engineering_execution_matrix_rows:21",
-            "source_engineering_gap_review_log_draft_rows:21",
-            "source_engineering_gap_evidence_snapshot_rows:21",
-            "source_engineering_next_action_checklist_rows:21",
-            "source_engineering_next_action_result_scaffold_rows:21",
+            "source_engineering_gap_review_log_draft_rows:19",
+            "source_engineering_gap_evidence_snapshot_rows:19",
+            "source_engineering_next_action_checklist_rows:19",
+            "source_engineering_next_action_result_scaffold_rows:19",
             "source_engineering_lane_route_pack_files:1",
             "source_field_map_scaffold_rows:3",
             "source_field_map_review_checklist_rows:3",
@@ -10107,8 +10107,8 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_file_checklist_rows:210",
             "source_pipeline_phase_action_evidence_presence_rows:210",
             "source_pipeline_phase_action_evidence_gap_summary_rows:21",
-            "source_pipeline_phase_action_missing_evidence_action_queue_rows:32",
-            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:32",
+            "source_pipeline_phase_action_missing_evidence_action_queue_rows:30",
+            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:30",
             "source_pipeline_phase_action_missing_evidence_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_source_summary_rows:18",
             "source_pipeline_phase_action_missing_evidence_review_draft_rows:18",
@@ -10243,12 +10243,12 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "obimd_main_character_staging": "3936",
         "hust_obimd_evobc_codepoint_crosswalk": "1588",
         "cambridge_hopkins_inscription_crosswalk_review_queue": "612",
-        "source_engineering_gap_queue": "21",
+        "source_engineering_gap_queue": "19",
         "source_engineering_execution_matrix": "21",
-        "source_engineering_gap_review_log_draft_manifest": "21",
-        "source_engineering_gap_evidence_snapshot": "21",
-        "source_engineering_next_action_checklist": "21",
-        "source_engineering_next_action_result_scaffold": "21",
+        "source_engineering_gap_review_log_draft_manifest": "19",
+        "source_engineering_gap_evidence_snapshot": "19",
+        "source_engineering_next_action_checklist": "19",
+        "source_engineering_next_action_result_scaffold": "19",
         "source_engineering_lane_summary": "5",
         "source_field_map_scaffold": "3",
         "source_field_map_review_checklist": "3",
@@ -10306,56 +10306,56 @@ def check_data_quality_audit(root: Path) -> list[str]:
     if "review_status=needs_human_review:612" not in cambridge_queue_quality.get("status_counts", ""):
         issues.append(f"{DATA_QUALITY_AUDIT} Cambridge/Hopkins review queue status counts changed")
     source_gap_quality = by_dataset.get("source_engineering_gap_queue", {})
-    if "review_status=needs_source_engineering_review:21" not in source_gap_quality.get("status_counts", ""):
+    if "review_status=needs_source_engineering_review:19" not in source_gap_quality.get("status_counts", ""):
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering gap queue status counts changed")
     source_execution_quality = by_dataset.get("source_engineering_execution_matrix", {})
     execution_status_counts = source_execution_quality.get("status_counts", "")
-    if "review_status=needs_source_engineering_review:12" not in execution_status_counts:
+    if "review_status=needs_source_engineering_review:10" not in execution_status_counts:
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering execution review count changed")
-    if "review_status=no_current_source_engineering_gap:9" not in execution_status_counts:
+    if "review_status=no_current_source_engineering_gap:11" not in execution_status_counts:
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering execution no-gap count changed")
     source_gap_draft_quality = by_dataset.get("source_engineering_gap_review_log_draft_manifest", {})
     draft_status_counts = source_gap_draft_quality.get("status_counts", "")
     for expected_fragment in [
-        "draft_status=draft_not_collected:21",
-        "evidence_collection_status=not_collected:21",
-        "human_review_status=pending_human_review:21",
-        "rights_decision_status=no_new_rights_decision:21",
-        "source_promotion_status=not_promoted:21",
+        "draft_status=draft_not_collected:19",
+        "evidence_collection_status=not_collected:19",
+        "human_review_status=pending_human_review:19",
+        "rights_decision_status=no_new_rights_decision:19",
+        "source_promotion_status=not_promoted:19",
     ]:
         if expected_fragment not in draft_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering draft status missing {expected_fragment}")
     source_gap_snapshot_quality = by_dataset.get("source_engineering_gap_evidence_snapshot", {})
     snapshot_status_counts = source_gap_snapshot_quality.get("status_counts", "")
     for expected_fragment in [
-        "evidence_status=metadata_only_existing_records_snapshot:21",
-        "rights_decision_status=no_new_rights_decision:21",
-        "source_promotion_status=not_promoted:21",
-        "corpus_import_status=not_imported:21",
+        "evidence_status=metadata_only_existing_records_snapshot:19",
+        "rights_decision_status=no_new_rights_decision:19",
+        "source_promotion_status=not_promoted:19",
+        "corpus_import_status=not_imported:19",
     ]:
         if expected_fragment not in snapshot_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering snapshot status missing {expected_fragment}")
     source_next_action_quality = by_dataset.get("source_engineering_next_action_checklist", {})
     next_action_status_counts = source_next_action_quality.get("status_counts", "")
     for expected_fragment in [
-        "action_status=ready_for_source_engineering_review:21",
-        "human_review_status=pending_human_review:21",
-        "rights_decision_status=no_new_rights_decision:21",
-        "source_promotion_status=not_promoted:21",
-        "corpus_import_status=not_imported:21",
+        "action_status=ready_for_source_engineering_review:19",
+        "human_review_status=pending_human_review:19",
+        "rights_decision_status=no_new_rights_decision:19",
+        "source_promotion_status=not_promoted:19",
+        "corpus_import_status=not_imported:19",
     ]:
         if expected_fragment not in next_action_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering next-action status missing {expected_fragment}")
     source_next_action_result_quality = by_dataset.get("source_engineering_next_action_result_scaffold", {})
     next_action_result_status_counts = source_next_action_result_quality.get("status_counts", "")
     for expected_fragment in [
-        "result_status=not_started:21",
-        "evidence_collection_status=not_collected:21",
-        "human_review_status=pending_human_review:21",
-        "rights_decision_status=no_new_rights_decision:21",
-        "source_promotion_status=not_promoted:21",
-        "corpus_import_status=not_imported:21",
-        "decipherment_claim_status=no_decipherment_claim:21",
+        "result_status=not_started:19",
+        "evidence_collection_status=not_collected:19",
+        "human_review_status=pending_human_review:19",
+        "rights_decision_status=no_new_rights_decision:19",
+        "source_promotion_status=not_promoted:19",
+        "corpus_import_status=not_imported:19",
+        "decipherment_claim_status=no_decipherment_claim:19",
     ]:
         if expected_fragment not in next_action_result_status_counts:
             issues.append(
@@ -10453,8 +10453,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
 
     expected_stage_counts = {
         "discovered_access_boundary_or_error": 1,
-        "pending_human_review": 16,
-        "structured": 4,
+        "pending_human_review": 17,
+        "structured": 3,
     }
     if summary.get("stage_counts") != expected_stage_counts:
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} stage counts changed")
@@ -10471,8 +10471,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "field_map_count": 57,
         "graph_edge_count": 117138,
         "large_source_register_count": 18,
-        "metadata_profile_count": 68,
-        "missing_evidence_action_count": 32,
+        "metadata_profile_count": 70,
+        "missing_evidence_action_count": 30,
         "missing_evidence_assignment_count": 18,
         "object_local_material_bundle_count": 29903,
         "object_local_partial_bundle_count": 0,
@@ -11023,9 +11023,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 13196,
         "formal_record_count": 101679,
         "graph_edge_count": 220887,
-        "manual_review_backlog_count": 13193,
-        "review_queue_count": 12937,
-        "staging_record_count": 75250,
+        "manual_review_backlog_count": 13170,
+        "review_queue_count": 12914,
+        "staging_record_count": 75261,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -11072,14 +11072,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "formal_record_count": "21",
-            "staging_record_count": "220",
-            "review_queue_count": "1060",
+            "staging_record_count": "231",
+            "review_queue_count": "1038",
             "review_queue_path": SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
         },
         "published_research_notes": {
             "formal_record_count": "6",
             "staging_record_count": "6",
-            "review_queue_count": "126",
+            "review_queue_count": "125",
         },
     }
     by_area = {row.get("corpus_area", ""): row for row in matrix_rows}
@@ -11691,10 +11691,10 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_pack_id changed")
     if source_metadata_profile_route_pack.get("action_lane") != "metadata_profile_extraction_planning":
         issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} action lane changed")
-    if source_metadata_profile_route_pack.get("source_count") != 4:
-        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} source_count should be 4")
-    if source_metadata_profile_route_pack.get("route_count") != 4:
-        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_count should be 4")
+    if source_metadata_profile_route_pack.get("source_count") != 3:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} source_count should be 3")
+    if source_metadata_profile_route_pack.get("route_count") != 3:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_count should be 3")
     if source_metadata_profile_route_pack.get("review_status") != "route_pack_pending_metadata_profile_review":
         issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} review status changed")
     if (
@@ -11867,7 +11867,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     expected_summary_lanes = {
         "access_boundary_followup": ("access_outcome", 6, SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK),
         "checksum_and_download_status_review": ("checksum_outcome", 5, SOURCE_CHECKSUM_REVIEW_ROUTE_PACK),
-        "metadata_profile_extraction_planning": ("metadata_profile_decision", 4, SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK),
+        "metadata_profile_extraction_planning": ("metadata_profile_decision", 3, SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK),
         "source_field_map_planning": ("field_map_decision", 3, SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK),
         "package_manifest_or_not_applicable_review": (
             "manifest_decision",
@@ -11960,7 +11960,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} lane order changed")
     if handoff_items and handoff_items[0].get("next_action_id") != "source-engineering-next-action-0001":
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} first route changed")
-    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0019":
+    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0018":
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} last route changed")
     generated_from = source_engineering_review_wave_handoff_scaffold.get("generated_from", [])
     for value in generated_from:
@@ -15994,9 +15994,12 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "Published Research Note Phase Gap Human Guide",
         "Human Review Entry Order",
         "Open the source-object dossier first",
-        PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST,
-        CORE_CORPUS_PHASE_GAP_ACTION_QUEUE,
-        SOURCE_INDEX,
+        "corpus/009_statistics-and-derived-features/",
+        Path(PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST).name,
+        Path(CORE_CORPUS_PHASE_GAP_ACTION_QUEUE).name,
+        "corpus/006_research-sources-and-bibliography/",
+        "000_source-registers/",
+        Path(SOURCE_INDEX).name,
         "002_published-scholarship-review-guide.md",
         "research/",
         "doc/public/user_research/",
@@ -16005,7 +16008,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "linked: `mixed_or_partial`",
         "verified: `missing`",
         "research note files: 7",
-        "user or AI draft review files: 128",
+        "user or AI draft review files: 127",
         "source register files: 506",
         "bibliographic identity",
         "source trail",
@@ -23640,7 +23643,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "source_count": 21,
         "download_manifest_count": 47,
         "download_log_count": 48,
-        "metadata_profile_metric_count": 68,
+        "metadata_profile_metric_count": 70,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
@@ -23655,8 +23658,8 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage {key} changed")
     if source_coverage.get("coverage_status_counts") != {
         "has_committed_public_asset_or_metadata": 2,
-        "has_download_log_only": 5,
-        "has_downloaded_metadata_profile": 10,
+        "has_download_log_only": 4,
+        "has_downloaded_metadata_profile": 11,
         "has_relationship_graph_derivatives": 4,
     }:
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage status counts changed")

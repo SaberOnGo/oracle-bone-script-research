@@ -51,22 +51,20 @@
     },
     {
       "phase": "metadata_profile",
-      "status": "not_present_in_current_registers",
+      "status": "metadata_profile_rows_present",
       "evidence_file": "05_metadata-profile-route-index.csv",
-      "evidence_count": 0,
+      "evidence_count": 2,
       "review_status": "needs_human_source_review"
     },
     {
       "phase": "cleaned_structured_linked",
       "status": "candidate_routes_available_not_final_import",
       "evidence_file": "08_source-processing-status.md",
-      "evidence_count": 2,
+      "evidence_count": 4,
       "review_status": "pending_human_review"
     }
   ],
-  "missing_or_review_items": [
-    "metadata_profile_route"
-  ],
+  "missing_or_review_items": [],
   "human_entry": "08_source-processing-status.md",
   "research_boundary": "source_processing_status_preprocessing_only; statuses mark evidence availability and review work, not scholarly conclusions",
   "decipherment_claim_status": "no_claim",

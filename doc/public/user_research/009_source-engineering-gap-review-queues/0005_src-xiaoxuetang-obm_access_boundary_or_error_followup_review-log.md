@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0001`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0001`
+-   - `source-engineering-gap-review-log-draft-0005`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0005`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,25 +18,26 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-british-museum-oracle-bone`
+- Source ID / 来源 ID: `src-xiaoxuetang-obm`
 - Gap type / 缺口类型: `access_boundary_or_error_followup`
 - Priority rank / 优先级: `1`
-- Current stage / 当前阶段: `discovered_access_boundary_or_error`
-- Authority tier / 来源层级: `museum_collection`
+- Current stage / 当前阶段: `structured`
+- Authority tier / 来源层级: `core_institutional`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-- Observed item / 已观察项: `current_stage=discovered_access_boundary_or_error`
-- Observed item / 已观察项: `download_status_counts=http_error:1`
-- Observed item / 已观察项: `downloaded_count=0`
-- Observed item / 已观察项: `download_log_count=1`
-- Observed item / 已观察项: `checksum_present_count=0`
-- Observed item / 已观察项: `field_map_count=0`
-- Observed item / 已观察项: `package_manifest_count=0`
+- Observed item / 已观察项: `current_stage=structured`
+- Observed item / 已观察项:
+-   - `download_status_counts=downloaded_access_restricted_page:4`
+- Observed item / 已观察项: `downloaded_count=4`
+- Observed item / 已观察项: `download_log_count=4`
+- Observed item / 已观察项: `checksum_present_count=4`
+- Observed item / 已观察项: `field_map_count=6`
+- Observed item / 已观察项: `package_manifest_count=4`
 - Observed item / 已观察项: `metadata_profile_count=0`
 - Observed item / 已观察项: `graph_edge_count=0`
-- Observed item / 已观察项: `downloaded_file_bytes=0`
+- Observed item / 已观察项: `downloaded_file_bytes=147668`
 - Observed item / 已观察项: `gap_type=access_boundary_or_error_followup`
 
 ## Route Files To Open / 待打开路线文件
@@ -59,6 +60,9 @@
 - Route file / 路线文件:
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `013_source-download-status-codebook.csv`
+- Route file / 路线文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `014_browser-verified-metadata-capture.csv`
 - Route file / 路线文件:
 -   - `corpus/009_statistics-and-derived-features`
 -   - `009_ai-agent-source-route-review-queue.csv`
@@ -88,17 +92,20 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0001`
+  `source-engineering-gap-evidence-snapshot-0005`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Download manifest IDs / 下载 manifest ID: `dl-british-museum-oa-165`
-- Download log IDs / 下载日志 ID: `dl-british-museum-oa-165`
-- download_log_status_counts: `http_error:1`
-- download_log_http_status_counts: `403:1`
-- download_log_file_size_bytes_total: `0`
-- download_log_checksum_present_count: `0`
-- package_file_ids: `none`
+- Download manifest IDs / 下载 manifest ID: `dl-xxt-obm-example;dl-xxt-obm-guide;d
+  l-xxt-obm-appendix01;dl-xxt-obm-appendix02`
+- Download log IDs / 下载日志 ID: `dl-xxt-obm-example;dl-xxt-obm-guide;dl-xxt-obm-ap
+  pendix01;dl-xxt-obm-appendix02`
+- download_log_status_counts: `downloaded_access_restricted_page:4`
+- download_log_http_status_counts: `200:4`
+- download_log_file_size_bytes_total: `147668`
+- download_log_checksum_present_count: `4`
+- package_file_ids:
+  `pkg-file-000032;pkg-file-000033;pkg-file-000034;pkg-file-000035`
 - metadata_profile_ids: `none`
 - Route file missing count / 缺失路线文件数: `0`
 

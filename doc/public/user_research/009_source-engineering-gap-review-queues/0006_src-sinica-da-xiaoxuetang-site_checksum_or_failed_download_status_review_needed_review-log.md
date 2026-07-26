@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0009`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0009`
+-   - `source-engineering-gap-review-log-draft-0006`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0006`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,11 +18,11 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-sinica-yinshang-oracle-vocabulary`
+- Source ID / 来源 ID: `src-sinica-da-xiaoxuetang-site`
 - Gap type / 缺口类型: `checksum_or_failed_download_status_review_needed`
 - Priority rank / 优先级: `2`
 - Current stage / 当前阶段: `pending_human_review`
-- Authority tier / 来源层级: `institutional_database`
+- Authority tier / 来源层级: `institutional_portal`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
@@ -32,9 +32,9 @@
 - Observed item / 已观察项: `downloaded_count=0`
 - Observed item / 已观察项: `download_log_count=1`
 - Observed item / 已观察项: `checksum_present_count=0`
-- Observed item / 已观察项: `field_map_count=2`
+- Observed item / 已观察项: `field_map_count=1`
 - Observed item / 已观察项: `package_manifest_count=0`
-- Observed item / 已观察项: `metadata_profile_count=2`
+- Observed item / 已观察项: `metadata_profile_count=3`
 - Observed item / 已观察项: `graph_edge_count=0`
 - Observed item / 已观察项: `downloaded_file_bytes=0`
 - Observed item / 已观察项:
@@ -51,6 +51,9 @@
 - Route file / 路线文件:
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `013_source-download-status-codebook.csv`
+- Route file / 路线文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `014_browser-verified-metadata-capture.csv`
 - Route file / 路线文件:
 -   - `corpus/009_statistics-and-derived-features`
 -   - `009_ai-agent-source-route-review-queue.csv`
@@ -81,18 +84,19 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0009`
+  `source-engineering-gap-evidence-snapshot-0006`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Download manifest IDs / 下载 manifest ID: `dl-sinica-yinshang-oracle-vocabulary`
-- Download log IDs / 下载日志 ID: `dl-sinica-yinshang-oracle-vocabulary`
+- Download manifest IDs / 下载 manifest ID: `dl-sinica-da-xiaoxuetang-site`
+- Download log IDs / 下载日志 ID: `dl-sinica-da-xiaoxuetang-site`
 - download_log_status_counts: `download_error:1`
 - download_log_http_status_counts: `none`
 - download_log_file_size_bytes_total: `0`
 - download_log_checksum_present_count: `0`
 - package_file_ids: `none`
-- metadata_profile_ids: `metadata-profile-000047;metadata-profile-000048`
+- metadata_profile_ids:
+  `metadata-profile-000044;metadata-profile-000045;metadata-profile-000046`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界

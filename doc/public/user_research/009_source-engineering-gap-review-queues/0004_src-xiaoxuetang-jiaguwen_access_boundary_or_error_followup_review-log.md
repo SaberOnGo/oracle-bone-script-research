@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0008`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0008`
+-   - `source-engineering-gap-review-log-draft-0004`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0004`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -18,27 +18,27 @@
 
 ## Source Route / 来源路线
 
-- Source ID / 来源 ID: `src-sinica-da-xiaoxuetang-site`
-- Gap type / 缺口类型: `checksum_or_failed_download_status_review_needed`
-- Priority rank / 优先级: `2`
-- Current stage / 当前阶段: `pending_human_review`
-- Authority tier / 来源层级: `institutional_portal`
+- Source ID / 来源 ID: `src-xiaoxuetang-jiaguwen`
+- Gap type / 缺口类型: `access_boundary_or_error_followup`
+- Priority rank / 优先级: `1`
+- Current stage / 当前阶段: `structured`
+- Authority tier / 来源层级: `core_institutional`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-- Observed item / 已观察项: `current_stage=pending_human_review`
-- Observed item / 已观察项: `download_status_counts=download_error:1`
-- Observed item / 已观察项: `downloaded_count=0`
-- Observed item / 已观察项: `download_log_count=1`
-- Observed item / 已观察项: `checksum_present_count=0`
-- Observed item / 已观察项: `field_map_count=1`
-- Observed item / 已观察项: `package_manifest_count=0`
-- Observed item / 已观察项: `metadata_profile_count=3`
+- Observed item / 已观察项: `current_stage=structured`
+- Observed item / 已观察项: `download_status_counts=download_error:2`
+- Observed item / 已观察项: `downloaded_access_restricted_page:2`
+- Observed item / 已观察项: `downloaded_count=2`
+- Observed item / 已观察项: `download_log_count=4`
+- Observed item / 已观察项: `checksum_present_count=2`
+- Observed item / 已观察项: `field_map_count=6`
+- Observed item / 已观察项: `package_manifest_count=2`
+- Observed item / 已观察项: `metadata_profile_count=0`
 - Observed item / 已观察项: `graph_edge_count=0`
-- Observed item / 已观察项: `downloaded_file_bytes=0`
-- Observed item / 已观察项:
--   - `gap_type=checksum_or_failed_download_status_review_needed`
+- Observed item / 已观察项: `downloaded_file_bytes=73834`
+- Observed item / 已观察项: `gap_type=access_boundary_or_error_followup`
 
 ## Route Files To Open / 待打开路线文件
 
@@ -46,29 +46,40 @@
 -   - `corpus/009_statistics-and-derived-features`
 -   - `094_source-processing-pipeline-audit.csv`
 - Route file / 路线文件:
+-   - `corpus/009_statistics-and-derived-features`
+-   - `007_source-coverage-summary.csv`
+- Route file / 路线文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `001_all-sources-index.csv`
+- Route file / 路线文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `003_source-download-manifest.csv`
+- Route file / 路线文件:
 -   - `project_registry/006_large-source-register`
 -   - `002_source-download-log.csv`
 - Route file / 路线文件:
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `013_source-download-status-codebook.csv`
 - Route file / 路线文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `014_browser-verified-metadata-capture.csv`
+- Route file / 路线文件:
 -   - `corpus/009_statistics-and-derived-features`
 -   - `009_ai-agent-source-route-review-queue.csv`
 
 ## Required Next Checks / 必需下一步检查
 
-- `open_download_log`
-  - English: Open the download log and distinguish successful rows from
-    boundary rows.
-  - 简体中文：打开下载日志，并区分成功下载行与访问边界行。
-- `separate_failed_or_restricted_rows_from checksum-bearing downloads`
-  - English: Separate failed or restricted rows from checksum-bearing
-    downloads.
-  - 简体中文：将失败或受限访问行与带 checksum 的下载行分开。
-- `record_no_source_package_or_metadata_promotion_without verified checksum`
-  - English: Record that no package or metadata promotion is allowed without
-    verified checksum evidence.
-  - 简体中文：记录没有经验证 checksum 时不得提升来源包或 metadata。
+- `open_download_log_and_status_codebook`
+  - English: Open the download log and status codebook before retry or
+    access decisions.
+  - 简体中文：在重试或访问判定前打开下载日志和状态码表。
+- `record_retry_manual_access_or_metadata_only_boundary`
+  - English: Record whether the next route is retry, manual access, or
+    metadata-only boundary.
+  - 简体中文：记录下一步是重试、人工访问，还是 metadata-only 边界。
+- `do_not_promote_failed_or_restricted_download_as_source_content`
+  - English: Do not promote failed or restricted access as source content.
+  - 简体中文：不要把失败或受限访问记录提升为来源内容。
 
 ## Evidence Collection / 证据收集
 
@@ -81,19 +92,21 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0008`
+  `source-engineering-gap-evidence-snapshot-0004`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`
-- Download manifest IDs / 下载 manifest ID: `dl-sinica-da-xiaoxuetang-site`
-- Download log IDs / 下载日志 ID: `dl-sinica-da-xiaoxuetang-site`
-- download_log_status_counts: `download_error:1`
-- download_log_http_status_counts: `none`
-- download_log_file_size_bytes_total: `0`
-- download_log_checksum_present_count: `0`
-- package_file_ids: `none`
-- metadata_profile_ids:
-  `metadata-profile-000044;metadata-profile-000045;metadata-profile-000046`
+- Download manifest IDs / 下载 manifest ID: `dl-xxt-jgw-home;dl-xxt-jgw-about;dl-x
+  xt-jgw-kaiorder-0502;dl-xxt-jgw-kaiorder-1176`
+- Download log IDs / 下载日志 ID: `dl-xxt-jgw-home;dl-xxt-jgw-about;dl-xxt-jgw-kaior
+  der-0502;dl-xxt-jgw-kaiorder-1176`
+- download_log_status_counts:
+  `download_error:2;downloaded_access_restricted_page:2`
+- download_log_http_status_counts: `200:2`
+- download_log_file_size_bytes_total: `73834`
+- download_log_checksum_present_count: `2`
+- package_file_ids: `pkg-file-000030;pkg-file-000031`
+- metadata_profile_ids: `none`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界

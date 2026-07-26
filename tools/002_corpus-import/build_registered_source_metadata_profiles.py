@@ -18,7 +18,7 @@ SOURCE_DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_sourc
 DOWNLOADED_METADATA_PROFILE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"
 )
-UPDATED_AT = "2026-07-22"
+UPDATED_AT = "2026-07-27"
 REVIEW_STATUS = "reviewed_metadata_only"
 
 OUTPUT_FIELDS = [
@@ -135,6 +135,26 @@ REGISTERED_PROFILE_ROWS = [
         "profile_unit": "bytes",
         "import_relevance": "Confirms the lightweight collection page download size recorded in the source log",
         "caution": "Downloaded page size is provenance metadata and not proof of complete collection coverage",
+    },
+    {
+        "source_id": "src-obid-ancientbooks",
+        "evidence_download_id": "dl-obid-ancientbooks-home",
+        "metadata_file": "04_field-map-route-index.csv",
+        "profile_metric": "registered_access_modes",
+        "profile_value": "inscription_browsing;transcription_search;original_text_search;oracle_dictionary",
+        "profile_unit": "named_access_mode_labels",
+        "import_relevance": "Preserves four reviewed discovery entry labels for planning human source lookup and later object-level cross-reference",
+        "caution": "Labels come from the reviewed 2026-06-04 field map; the current endpoint returned HTTP 403 and no hidden records or live functions were reverified",
+    },
+    {
+        "source_id": "src-obid-ancientbooks",
+        "evidence_download_id": "dl-obid-ancientbooks-home",
+        "metadata_file": "04_field-map-route-index.csv",
+        "profile_metric": "registered_explicit_catalog_prefix_examples",
+        "profile_value": "H;GB;SG",
+        "profile_unit": "catalog_prefix_examples",
+        "import_relevance": "Keeps three explicitly reviewed catalog-prefix examples visible for future object-level identifier crosswalk review",
+        "caution": "Examples are metadata-only lookup aids, not a complete prefix list, catalog import, object identity, or rights clearance",
     },
     {
         "source_id": "src-yinqi-wenyuan",

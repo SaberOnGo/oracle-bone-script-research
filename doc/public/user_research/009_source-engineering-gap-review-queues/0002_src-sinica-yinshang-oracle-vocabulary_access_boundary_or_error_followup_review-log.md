@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0003`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0003`
+-   - `source-engineering-gap-review-log-draft-0002`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0002`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -60,6 +60,9 @@
 -   - `corpus/006_research-sources-and-bibliography/000_source-registers`
 -   - `013_source-download-status-codebook.csv`
 - Route file / 路线文件:
+-   - `corpus/006_research-sources-and-bibliography/000_source-registers`
+-   - `014_browser-verified-metadata-capture.csv`
+- Route file / 路线文件:
 -   - `corpus/009_statistics-and-derived-features`
 -   - `009_ai-agent-source-route-review-queue.csv`
 
@@ -88,7 +91,7 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0003`
+  `source-engineering-gap-evidence-snapshot-0002`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `metadata_only_until_verified`

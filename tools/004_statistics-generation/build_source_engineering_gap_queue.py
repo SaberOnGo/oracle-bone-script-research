@@ -29,13 +29,17 @@ DOWNLOADED_METADATA_PROFILE = Path(
 SOURCE_DOWNLOAD_STATUS_CODEBOOK = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/013_source-download-status-codebook.csv"
 )
+BROWSER_VERIFIED_METADATA_CAPTURE = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "014_browser-verified-metadata-capture.csv"
+)
 SOURCE_DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_source-download-log.csv")
 LARGE_SOURCE_REGISTER = Path("project_registry/006_large-source-register/001_large-source-register.csv")
 DEFAULT_OUTPUT = Path(
     "corpus/009_statistics-and-derived-features/099_ai-agent-source-engineering-gap-queue.csv"
 )
 
-UPDATED_AT = "2026-06-19"
+UPDATED_AT = "2026-07-27"
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 RESEARCH_BOUNDARY = "source_engineering_gap_queue_metadata_only_not_scholarship"
 CAUTION = (
@@ -136,12 +140,14 @@ ROUTE_FILES_BY_GAP = {
         SOURCE_DOWNLOAD_MANIFEST,
         SOURCE_DOWNLOAD_LOG,
         SOURCE_DOWNLOAD_STATUS_CODEBOOK,
+        BROWSER_VERIFIED_METADATA_CAPTURE,
         SOURCE_ROUTE_REVIEW_QUEUE,
     ],
     "checksum_or_failed_download_status_review_needed": [
         SOURCE_PROCESSING_PIPELINE_AUDIT,
         SOURCE_DOWNLOAD_LOG,
         SOURCE_DOWNLOAD_STATUS_CODEBOOK,
+        BROWSER_VERIFIED_METADATA_CAPTURE,
         SOURCE_ROUTE_REVIEW_QUEUE,
     ],
     "large_source_register_review_needed": [
@@ -194,17 +200,59 @@ def int_value(row: dict[str, str], key: str) -> int:
     return int(value) if value else 0
 
 
-def source_gap_types(pipeline_row: dict[str, str], coverage_row: dict[str, str]) -> list[str]:
+def download_access_boundary_count(status_counts: str) -> int:
+    count = 0
+    for item in status_counts.split(";"):
+        if not item or ":" not in item:
+            continue
+        status, raw_count = item.rsplit(":", 1)
+        if (
+            "access_restricted" in status
+            or status == "download_error"
+            or status == "http_error"
+        ):
+            count += int(raw_count)
+    return count
+
+
+def reviewed_browser_capture_counts(
+    rows: list[dict[str, str]],
+) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for row in rows:
+        if (
+            row.get("review_status") == "reviewed_metadata_only"
+            and row.get("payload_status") == "no_page_payload_saved"
+            and row.get("source_checksum_status") == "no_source_payload_checksum"
+            and row.get("research_boundary")
+            == "metadata_route_only_not_scholarship"
+        ):
+            source_id = row.get("source_id", "")
+            counts[source_id] = counts.get(source_id, 0) + 1
+    return counts
+
+
+def source_gap_types(
+    pipeline_row: dict[str, str],
+    coverage_row: dict[str, str],
+    reviewed_browser_capture_count: int = 0,
+) -> list[str]:
     gap_types: list[str] = []
     status_counts = pipeline_row.get("download_status_counts", "")
-    if (
-        int_value(pipeline_row, "access_boundary_or_error_count") > 0
-        or "http_error" in status_counts
-        or "download_error" in status_counts
-        or "access_restricted" in status_counts
-    ):
+    access_boundary_count = max(
+        download_access_boundary_count(status_counts)
+        - reviewed_browser_capture_count,
+        0,
+    )
+    if access_boundary_count > 0:
         gap_types.append("access_boundary_or_error_followup")
-    if int_value(pipeline_row, "download_log_count") > int_value(pipeline_row, "checksum_present_count"):
+    checksum_exception_count = max(
+        int_value(pipeline_row, "download_log_count")
+        - int_value(pipeline_row, "checksum_present_count")
+        - reviewed_browser_capture_count,
+        0,
+    )
+    if checksum_exception_count > 0:
         gap_types.append("checksum_or_failed_download_status_review_needed")
     if (
         int_value(coverage_row, "downloaded_file_bytes") >= SIZE_LIMIT_BYTES
@@ -255,13 +303,19 @@ def expected_output_path(source_id: str, gap_type: str, index: int) -> str:
 def build_gap_rows(
     pipeline_rows: list[dict[str, str]],
     coverage_rows: list[dict[str, str]],
+    browser_metadata_rows: list[dict[str, str]] | None = None,
 ) -> list[dict[str, str]]:
     coverage_by_source = {row["source_id"]: row for row in coverage_rows}
+    capture_counts = reviewed_browser_capture_counts(browser_metadata_rows or [])
     draft_rows: list[tuple[dict[str, str], str]] = []
     for pipeline_row in pipeline_rows:
         source_id = pipeline_row["source_id"]
         coverage_row = coverage_by_source[source_id]
-        for gap_type in source_gap_types(pipeline_row, coverage_row):
+        for gap_type in source_gap_types(
+            pipeline_row,
+            coverage_row,
+            capture_counts.get(source_id, 0),
+        ):
             draft_rows.append((pipeline_row, gap_type))
 
     draft_rows.sort(key=lambda item: (GAP_PRIORITY[item[1]], item[0]["source_id"]))
@@ -326,6 +380,7 @@ def main() -> int:
     rows = build_gap_rows(
         read_csv_rows(root / SOURCE_PROCESSING_PIPELINE_AUDIT),
         read_csv_rows(root / SOURCE_COVERAGE_SUMMARY),
+        read_csv_rows(root / BROWSER_VERIFIED_METADATA_CAPTURE),
     )
     output = args.output if args.output.is_absolute() else root / args.output
     write_csv(output, rows)

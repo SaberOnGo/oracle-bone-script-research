@@ -13,10 +13,10 @@
   "risk_note": "Professional/editorial source but commercial platform; access and redistribution rights require visible caution.",
   "review_status": "reviewed",
   "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/006_src-obid-ancientbooks_source-object",
-  "download_route_count": 1,
+  "download_route_count": 2,
   "package_route_count": 1,
   "field_map_route_count": 2,
-  "metadata_profile_route_count": 0,
+  "metadata_profile_route_count": 2,
   "local_files": [
     "README.md",
     "01_source-packet.json",
@@ -40,9 +40,11 @@
     "19_source-access-integrity-index.json",
     "20_source-presearch-readiness-review.md",
     "21_source-presearch-readiness-index.json",
-    "22_source-research-brief.md"
+    "22_source-research-brief.md",
+    "23_browser-verified-metadata.md",
+    "24_browser-verified-metadata-index.json"
   ],
-  "browser_metadata_capture_count": 0,
+  "browser_metadata_capture_count": 1,
   "field_map_review": false,
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",

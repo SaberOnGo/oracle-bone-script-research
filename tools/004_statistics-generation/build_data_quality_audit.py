@@ -21,7 +21,7 @@ from typing import NamedTuple
 
 OUTPUT_CSV = Path("corpus/009_statistics-and-derived-features/092_data-quality-audit.csv")
 OUTPUT_JSON = Path("corpus/009_statistics-and-derived-features/093_data-quality-summary.json")
-UPDATED_AT = "2026-06-20"
+UPDATED_AT = "2026-07-27"
 CAUTION = (
     "Data-quality audit only; zero engineering issues here does not confirm "
     "oracle-character identity, readings, components, inscription context, "
@@ -426,16 +426,8 @@ def build_csv_specs() -> list[CsvDatasetSpec]:
                 "capture_method",
                 "page_title",
                 "object_type",
-                "museum_number",
                 "description",
-                "cultures_or_periods",
-                "production_date",
-                "findspot",
-                "materials",
-                "location",
-                "acquisition_date",
                 "department",
-                "registration_number",
                 "payload_status",
                 "source_checksum_status",
                 "rights_status",

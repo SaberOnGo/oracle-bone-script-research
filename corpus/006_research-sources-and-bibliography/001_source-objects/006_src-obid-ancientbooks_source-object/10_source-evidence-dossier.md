@@ -18,10 +18,10 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: adopted_professional_discovery_with_rights_caution
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 1
-- Download statuses / 下载状态: downloaded
+- Download route count / 下载路线数: 2
+- Download statuses / 下载状态: downloaded; http_error
 - Checksum route count / checksum 路线数: 1
-- Size route count / 大小记录路线数: 1
+- Size route count / 大小记录路线数: 2
 - Local temp route count / 临时路径路线数: 1
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
@@ -46,12 +46,25 @@ review status.
   only.
 - Review status / 复核状态: metadata_route_needs_human_review
 
+### Route 002
+- Download ID / 下载 ID: dl-obid-ancientbooks-head-probe-20260727
+- Artifact kind / 资料类型: database_home_page_head_probe
+- Status / 状态: http_error
+- HTTP status / HTTP 状态: 403
+- File size bytes / 文件大小 bytes: 0
+- Checksum SHA-256 / checksum SHA-256: not recorded
+- Commit policy / 提交策略: log_access_boundary_only
+- Local temp path / 本地临时路径: not recorded
+- Risk note / 风险提示: HEAD probe returned 403 Forbidden; endpoint reachability and
+  access boundary only; no source content captured.
+- Review status / 复核状态: metadata_route_needs_human_review
+
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
 - Package route count / 来源包路线数: 1
 - Package kinds / 来源包类型: lightweight_html_page
 - Field map route count / 字段映射路线数: 2
 - Target record types / 目标记录类型: external_source_prefix; source_record
-- Metadata route count / metadata 路线数: 0
+- Metadata route count / metadata 路线数: 2
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -107,8 +120,34 @@ target object directory.
 
 ## Metadata Profile Evidence / 元数据概况证据
 
-No metadata profile route is recorded in the current source registers. Record
-profile metrics before relying on source-scale coverage or quality claims.
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000071
+- Evidence download ID / 证据下载 ID: dl-obid-ancientbooks-home
+- Metadata file / 元数据文件: 04_field-map-route-index.csv
+- Profile metric / 概况指标: registered_access_modes
+- Profile value / 概况值:
+  inscription_browsing;transcription_search;original_text_search;oracle_dictiona
+  ry
+- Profile unit / 概况单位: named_access_mode_labels
+- Import relevance / 导入相关性: Preserves four reviewed discovery entry labels for
+  planning human source lookup and later object-level cross-reference
+- Caution / 提醒: Labels come from the reviewed 2026-06-04 field map; the current
+  endpoint returned HTTP 403 and no hidden records or live functions were
+  reverified
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000072
+- Evidence download ID / 证据下载 ID: dl-obid-ancientbooks-home
+- Metadata file / 元数据文件: 04_field-map-route-index.csv
+- Profile metric / 概况指标: registered_explicit_catalog_prefix_examples
+- Profile value / 概况值: H;GB;SG
+- Profile unit / 概况单位: catalog_prefix_examples
+- Import relevance / 导入相关性: Keeps three explicitly reviewed catalog-prefix
+  examples visible for future object-level identifier crosswalk review
+- Caution / 提醒: Examples are metadata-only lookup aids, not a complete prefix
+  list, catalog import, object identity, or rights clearance
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位
 

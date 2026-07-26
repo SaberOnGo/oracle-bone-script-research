@@ -8,35 +8,36 @@ metadata evidence only; no page payload, image, or source checksum was captured.
 checksum。
 
 ## Source / 来源
-- Source ID / 来源 ID: src-british-museum-oracle-bone
-- Source page / 来源页面: https://www.britishmuseum.org/collection/object/A_OA-165
-- Source rights status / 来源权利状态: metadata_only_until_verified
+- Source ID / 来源 ID: src-obid-ancientbooks
+- Source page / 来源页面: https://obid.ancientbooks.cn/
+- Source rights status / 来源权利状态: source_marked_risk_noted
 
 ## Observed Official Fields / 官方页面观察字段
 
-- Capture ID / 观察记录 ID: browser-meta-000001
-- Access record / 访问记录: browser-access-000001
-- Captured at / 观察日期: 2026-07-19
-- Page title / 页面标题: oracle-bone | British Museum
-- Object type / 对象类型: oracle-bone
-- Museum number / 博物馆编号: OA+.165
-- Description / 描述: Oracle bone. Ten small fragments.
-- Culture or period / 文化或时期: Shang dynasty
-- Production date / 制作年代: 13thC BC-11thC BC
-- Findspot / 出土地线索: Found/Acquired: China
-- Material / 材料: bone
-- Location / 展示位置: Not on display
-- Acquisition date / 入藏日期: 1972
-- Department / 部门: Asia
-- Registration number / 登记号: OA+.165
+- Capture ID / 观察记录 ID: browser-meta-000002
+- Access record / 访问记录: browser-access-000002
+- Captured at / 观察日期: 2026-07-27
+- Page title / 页面标题: 殷墟甲骨文数据库
+- Object type / 对象类型: online_oracle_bone_database
+- Museum number / 博物馆编号: not recorded
+- Description / 描述: Visible homepage entry points: 卜辞浏览; 释文检索; 原文检索; 甲骨字典.
+- Culture or period / 文化或时期: not recorded
+- Production date / 制作年代: not recorded
+- Findspot / 出土地线索: not recorded
+- Material / 材料: not recorded
+- Location / 展示位置: not recorded
+- Acquisition date / 入藏日期: not recorded
+- Department / 部门: 浙江师范大学; 浙江中医药大学浙江中医药文化研究院
+- Registration number / 登记号: not recorded
 
 ## Access And Rights Boundary / 访问与权利边界
 - Payload status / 页面载荷状态: no_page_payload_saved
 - Source checksum status / 来源 checksum 状态: no_source_payload_checksum
 - Review status / 复核状态: reviewed_metadata_only
 - Research boundary / 研究边界: metadata_route_only_not_scholarship
-- Risk note / 风险提示: Official museum metadata was read in a browser; image and
-  licensing status require object-level review.
+- Risk note / 风险提示: Official database metadata was read in a browser; no page
+  payload or hidden records were captured and bulk reuse remains subject to
+  access and redistribution review.
 
 The observed fields may support a source-marked official metadata route. They do
 not support an image claim, inscription identity, reading, component assignment,

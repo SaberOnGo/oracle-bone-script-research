@@ -255,13 +255,13 @@ def browser_metadata_capture_text(
             *bullet("Risk note / 风险提示", rows[0].get("risk_note") if rows else "not recorded"),
             "",
             *wrapped(
-                "The observed fields may support a source-marked museum metadata "
+                "The observed fields may support a source-marked official metadata "
                 "route. They do not support an image claim, inscription identity, "
                 "reading, component assignment, rights clearance, or decipherment."
             ),
             "",
             *wrapped(
-                "这些观察字段只能支持带来源标记的博物馆 metadata 路线，不能支持图像结论、"
+                "这些观察字段只能支持带来源标记的官方 metadata 路线，不能支持图像结论、"
                 "卜辞身份、释读、构件归属、权利清理或破译结论。"
             ),
         ]

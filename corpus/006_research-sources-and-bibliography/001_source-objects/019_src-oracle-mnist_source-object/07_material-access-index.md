@@ -35,14 +35,19 @@ note, or concrete next-check questions.
 结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、事实矩阵、权利说明或具体待查问题。
 
 ## Route Signals / 路线信号
-- Download route count / 下载路线数: 1
+- Download route count / 下载路线数: 2
 - Download statuses / 下载状态: downloaded
-- Package route count / 来源包路线数: 1
-- Package kinds / 来源包类型: lightweight_md_text
-- Field map count / 字段映射数: 0
-- Target records / 目标记录: none
-- Metadata profile count / 元数据概况数: 2
-- Profile metrics / 概况指标: downloaded_readme_size_bytes; registered_dataset_scope
+- Package route count / 来源包路线数: 2
+- Package kinds / 来源包类型: lightweight_md_text;
+  lightweight_md_text_current_recheck
+- Field map count / 字段映射数: 7
+- Target records / 目标记录: asset_metadata; oracle_character;
+  published_research_note; source_reference; source_reference;asset_metadata
+- Metadata profile count / 元数据概况数: 6
+- Profile metrics / 概况指标: current_readme_size_bytes;
+  downloaded_readme_size_bytes; registered_dataset_scope;
+  source_reported_benchmark_counts; source_reported_image_format;
+  source_reported_package_files
 
 ## Next Review Step / 下一步复核入口
 - Rights status / 权利状态: source_marked_risk_noted

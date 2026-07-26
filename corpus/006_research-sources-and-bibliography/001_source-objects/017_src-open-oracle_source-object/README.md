@@ -84,10 +84,10 @@ note, or concrete next-check questions.
 结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、事实矩阵、权利说明或具体待查问题。
 
 ## Evidence Counts / 证据计数
-- Download evidence count / 下载证据数: 1
-- Package evidence count / 来源包证据数: 1
-- Field-map evidence count / 字段映射证据数: 0
-- Metadata profile count / 元数据概况数: 2
+- Download evidence count / 下载证据数: 2
+- Package evidence count / 来源包证据数: 2
+- Field-map evidence count / 字段映射证据数: 5
+- Metadata profile count / 元数据概况数: 5
 - Browser metadata capture count / 浏览器核验 metadata 数: 0
 
 ## Risk And Boundary / 风险与边界

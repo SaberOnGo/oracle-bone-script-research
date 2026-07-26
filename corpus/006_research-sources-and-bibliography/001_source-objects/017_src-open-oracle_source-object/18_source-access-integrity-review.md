@@ -43,20 +43,20 @@ proposer, dispute, or scholarship note this source can actually support.
 
 ## Access Download Checksum And Size / 访问下载校验与大小
 - Download route file / 下载路线文件: 02_download-route-index.csv
-- Download route count / 下载路线数: 1
-- Checksum route count / checksum 路线数: 1
+- Download route count / 下载路线数: 2
+- Checksum route count / checksum 路线数: 2
 - Missing checksum count / 缺 checksum 数: 0
-- Size route count / 大小路线数: 1
+- Size route count / 大小路线数: 2
 - Missing size count / 缺大小数: 0
-- Local temp route count / 本地临时路线数: 1
+- Local temp route count / 本地临时路线数: 2
 
 ## Package Manifest Field Map And Derivatives / 清单映射与派生
 - Package route file / 来源包路线文件: 03_package-route-index.csv
-- Package route count / 来源包路线数: 1
+- Package route count / 来源包路线数: 2
 - Field map file / 字段映射文件: 04_field-map-route-index.csv
-- Field map route count / 字段映射路线数: 0
+- Field map route count / 字段映射路线数: 5
 - Metadata profile file / 元数据概况文件: 05_metadata-profile-route-index.csv
-- Metadata profile count / 元数据概况数: 2
+- Metadata profile count / 元数据概况数: 5
 - Evidence dossier / 来源证据档案: 10_source-evidence-dossier.md
 - Fact matrix / 来源事实矩阵: 12_source-provenance-fact-matrix.md
 

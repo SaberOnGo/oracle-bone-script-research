@@ -17,11 +17,11 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: adopted_project_index
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 1
+- Download route count / 下载路线数: 2
 - Download statuses / 下载状态: downloaded
-- Checksum route count / checksum 路线数: 1
-- Size route count / 大小记录路线数: 1
-- Local temp route count / 临时路径路线数: 1
+- Checksum route count / checksum 路线数: 2
+- Size route count / 大小记录路线数: 2
+- Local temp route count / 临时路径路线数: 2
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
 review status.
@@ -45,12 +45,29 @@ review status.
   only.
 - Review status / 复核状态: metadata_route_needs_human_review
 
+### Route 002
+- Download ID / 下载 ID: dl-open-oracle-readme-recheck-20260727
+- Artifact kind / 资料类型: github_readme_current_recheck
+- Status / 状态: downloaded
+- HTTP status / HTTP 状态: 200
+- File size bytes / 文件大小 bytes: 21353
+- Checksum SHA-256 / checksum SHA-256:
+  6fff5f28a136bd7fb0a83067977dab3db61fdbd88a1b8a2f9c911c7ac730a8ab
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径:
+  tmp/source_downloads/dl-open-oracle-readme-recheck-20260727.md
+- Risk note / 风险提示: Stored under ignored tmp directory; commit log/checksum
+  only.
+- Review status / 复核状态: metadata_route_needs_human_review
+
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
-- Package route count / 来源包路线数: 1
-- Package kinds / 来源包类型: lightweight_md_text
-- Field map route count / 字段映射路线数: 0
-- Target record types / 目标记录类型: none
-- Metadata route count / metadata 路线数: 2
+- Package route count / 来源包路线数: 2
+- Package kinds / 来源包类型: lightweight_md_text;
+  lightweight_md_text_current_recheck
+- Field map route count / 字段映射路线数: 5
+- Target record types / 目标记录类型: published_research_note; source_reference;
+  source_reference;published_research_note
+- Metadata route count / metadata 路线数: 5
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -73,10 +90,105 @@ target object directory.
 - Rights status / 权利状态: source_marked_risk_noted
 - Review status / 复核状态: reviewed_metadata_only
 
+### Route 002
+- Package file ID / 来源包文件 ID: pkg-file-000037
+- Source package ID / 来源包 ID: light-src-open-oracle
+- File name / 文件名: dl-open-oracle-readme-recheck-20260727.md
+- File kind / 文件类型: lightweight_md_text_current_recheck
+- File size bytes / 文件大小 bytes: 21353
+- Download ID / 下载 ID: dl-open-oracle-readme-recheck-20260727
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Handling strategy / 处理策略: Current README evidence is represented by committed
+  provenance, size, checksum, reviewed field maps, and an object-local human
+  dossier; the ignored payload is not committed as source content.
+- Rights status / 权利状态: source_marked_risk_noted
+- Review status / 复核状态: reviewed_metadata_only
+
 ## Field Map Evidence / 字段映射证据
 
-No field-map route is recorded in the current source registers. Do not import
-source fields into corpus objects until mappings are reviewed.
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000067
+- Source level / 来源层级: current_readme_table
+- Source field or unit / 来源字段或单位:
+  recent_projects_and_papers.year;project_or_paper;venue_and_status;category;lin
+  ks
+- Source meaning / 来源含义: README columns for discovering recent projects papers
+  venues task labels and official routes
+- Target record type / 目标记录类型: source_reference;published_research_note
+- Target project field / 目标字段:
+  publication_year;source_title;venue_status;task_category;source_links
+- Import action / 导入动作: Create or update a separate source or bibliography
+  review route only after opening the linked primary record
+- Rights boundary / 权利边界: An index row does not verify publication status
+  transfer authority or confirm a research claim
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000068
+- Source level / 来源层级: current_readme_table
+- Source field or unit / 来源字段或单位:
+  datasets_and_benchmarks.dataset_or_benchmark;task;scale_and_notes;links
+- Source meaning / 来源含义: README columns for locating dataset and benchmark
+  sources and their reported scope
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段:
+  source_title;task_label;source_reported_scale;source_links
+- Import action / 导入动作: Route every dataset to its own source object and compare
+  its paper package rights and provenance before use
+- Rights boundary / 权利边界: The project index does not transfer dataset rights
+  prove reported scale or establish paleographic coverage
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Field map ID / 字段映射 ID: field-map-000069
+- Source level / 来源层级: current_readme_table
+- Source field or unit / 来源字段或单位: online_resources.resource;link
+- Source meaning / 来源含义: README resource label and URL pairs for websites
+  databases and museum collections
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: source_title;source_url;source_discovery_route
+- Import action / 导入动作: Use only to discover a target source object and record
+  its independent access catalog and rights evidence
+- Rights boundary / 权利边界: A link label is not an object identity source
+  endorsement rights clearance or scholarly conclusion
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Field map ID / 字段映射 ID: field-map-000070
+- Source level / 来源层级: current_readme_bibliography_block
+- Source field or unit / 来源字段或单位:
+  authors;title;venue;year;doi;paper_code_data_links
+- Source meaning / 来源含义: README bibliography and link units attached to
+  highlighted projects
+- Target record type / 目标记录类型: published_research_note
+- Target project field / 目标字段:
+  authors;title;venue;publication_year;doi;source_links
+- Import action / 导入动作: Use as a bibliography discovery route and verify each
+  paper against its publisher DOI or repository before citation
+- Rights boundary / 权利边界: README bibliography text is mutable index metadata and
+  does not validate paper claims or decipherment results
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Field map ID / 字段映射 ID: field-map-000071
+- Source level / 来源层级: current_readme_governance
+- Source field or unit / 来源字段或单位:
+  last_maintained;contribution_fields;copyright_contact
+- Source meaning / 来源含义: README maintenance contribution and contact statements
+  for index governance and drift review
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段:
+  source_reported_maintenance_date;contribution_guidance;source_contact
+- Import action / 导入动作: Preserve as source-page governance context and compare
+  future snapshots before citing index entries
+- Rights boundary / 权利边界: The Copyright heading and contact text are not a reuse
+  license and do not clear linked third-party content
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Metadata Profile Evidence / 元数据概况证据
 
@@ -103,6 +215,46 @@ source fields into corpus objects until mappings are reviewed.
 - Import relevance / 导入相关性: Confirms the lightweight README download size
   recorded in the source log
 - Caution / 提醒: README size is routing metadata and not corpus extraction
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000086
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: current_readme_size_bytes
+- Profile value / 概况值: 21353
+- Profile unit / 概况单位: bytes
+- Import relevance / 导入相关性: Records the current lightweight README size for
+  snapshot comparison
+- Caution / 提醒: Size and checksum are access-integrity metadata rather than
+  corpus or scholarship evidence
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000087
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: source_reported_last_maintained
+- Profile value / 概况值: 2026-07-02
+- Profile unit / 概况单位: date_label
+- Import relevance / 导入相关性: Preserves the README maintenance label so later
+  reviewers can detect index drift
+- Caution / 提醒: Source-reported maintenance date only; it does not verify every
+  linked item or claim
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Profile ID / 概况 ID: metadata-profile-000088
+- Evidence download ID / 证据下载 ID: dl-open-oracle-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: current_index_sections
+- Profile value / 概况值: recent_projects_and_papers;datasets_and_benchmarks;paper_
+  index;online_resources;our_projects;contributing;copyright
+- Profile unit / 概况单位: section_labels
+- Import relevance / 导入相关性: Identifies human-review entrances for project source
+  and bibliography discovery
+- Caution / 提醒: Section labels are routes only and do not transfer authority
+  rights or conclusions from linked sources
 - Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位

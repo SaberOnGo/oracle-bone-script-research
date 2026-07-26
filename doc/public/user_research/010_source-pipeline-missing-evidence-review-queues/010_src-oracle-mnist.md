@@ -21,24 +21,20 @@
 
 ## Missing Evidence / 缺失证据
 
-- Missing route count / 缺失路由数: `2`
-- Missing file role count / 缺失文件角色数: `2`
+- Missing route count / 缺失路由数: `1`
+- Missing file role count / 缺失文件角色数: `1`
 
 ### Missing file roles / 缺失文件角色
 
 - `large_source_register`
-- `source_field_map`
 
 ### Files to open / 待打开文件
 
 - `project_registry/006_large-source-register/001_large-source-register.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-`
-  `registers/007_source-field-map.csv`
 
 ### Required review actions / 必需复核动作
 
 - `review_large_source_register_applicability_or_mark_not_applicable`
-- `review_or_create_source_field_map_row`
 
 ## Route References / 路由引用
 
@@ -51,18 +47,15 @@
 
 ### Route IDs / 路由 ID
 
-- `source-pipeline-phase-action-missing-evidence-route-012`
-- `source-pipeline-phase-action-missing-evidence-route-013`
+- `source-pipeline-phase-action-missing-evidence-route-011`
 
 ### Action IDs / 动作 ID
 
-- `source-pipeline-phase-action-missing-evidence-012`
-- `source-pipeline-phase-action-missing-evidence-013`
+- `source-pipeline-phase-action-missing-evidence-011`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
-- `source-pipeline-phase-action-missing-evidence-result-012`
-- `source-pipeline-phase-action-missing-evidence-result-013`
+- `source-pipeline-phase-action-missing-evidence-result-011`
 
 ## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 
@@ -73,17 +66,22 @@ summarized here before any human outcome review.
 不替代后续人工结论复核。
 
 - all_sources_index_row_count: `1`
-- downloaded_metadata_profile_row_count: `2`
+- downloaded_metadata_profile_row_count: `6`
 - large_source_register_row_count: `0`
-- source_download_log_row_count: `1`
-- source_field_map_row_count: `0`
-- source_package_file_manifest_row_count: `1`
+- source_download_log_row_count: `2`
+- source_field_map_row_count: `7`
+- source_package_file_manifest_row_count: `2`
 - all_sources_review_status_counts: `reviewed:1`
-- metadata_profile_ids: `metadata-profile-000058;metadata-profile-000059`
+- metadata_profile_ids: `metadata-profile-000058;metadata-`
+  `profile-000059;metadata-profile-000089;metadata-profile-000090;metadata-`
+  `profile-000091;metadata-profile-000092`
 - large_source_package_ids: `none`
-- source_download_log_ids: `dl-oracle-mnist-readme`
-- source_field_map_ids: `none`
-- source_package_file_ids: `pkg-file-000026`
+- source_download_log_ids: `dl-oracle-mnist-readme;dl-oracle-mnist-readme-`
+  `recheck-20260727`
+- source_field_map_ids: `field-map-000072;field-map-000073;field-`
+  `map-000074;field-map-000075;field-map-000076;field-map-000077;field-`
+  `map-000078`
+- source_package_file_ids: `pkg-file-000026;pkg-file-000038`
 
 ## Review Outcome Boundary / 复核结果边界
 
@@ -104,17 +102,19 @@ reviewed outcome. They are candidate evidence paths only.
 这些只是候选待查证据路径。
 
 - `project_registry/006_large-source-register/001_large-source-register.csv`
-- `corpus/006_research-sources-and-bibliography/000_source-`
-  `registers/007_source-field-map.csv`
 
 ### Current snapshot IDs / 当前快照 ID
 
-- download log ids / 下载记录 ID: `dl-oracle-mnist-readme`
+- download log ids / 下载记录 ID: `dl-oracle-mnist-readme;dl-oracle-mnist-readme-`
+  `recheck-20260727`
 - metadata profile ids / metadata profile ID: `metadata-`
-  `profile-000058;metadata-profile-000059`
+  `profile-000058;metadata-profile-000059;metadata-profile-000089;metadata-`
+  `profile-000090;metadata-profile-000091;metadata-profile-000092`
 - large source package ids / 大型来源包 ID: `none`
-- source field map ids / 字段映射 ID: `none`
-- package file ids / package file ID: `pkg-file-000026`
+- source field map ids / 字段映射 ID: `field-map-000072;field-map-000073;field-`
+  `map-000074;field-map-000075;field-map-000076;field-map-000077;field-`
+  `map-000078`
+- package file ids / package file ID: `pkg-file-000026;pkg-file-000038`
 
 - Reviewed evidence paths / 已复核证据路径: none reviewed yet
 - Reviewed outcome summary / 已复核结果摘要: no reviewed outcome yet

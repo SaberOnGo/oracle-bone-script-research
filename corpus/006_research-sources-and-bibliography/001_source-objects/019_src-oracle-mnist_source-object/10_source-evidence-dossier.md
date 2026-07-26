@@ -18,11 +18,11 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: candidate_ai_benchmark
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 1
+- Download route count / 下载路线数: 2
 - Download statuses / 下载状态: downloaded
-- Checksum route count / checksum 路线数: 1
-- Size route count / 大小记录路线数: 1
-- Local temp route count / 临时路径路线数: 1
+- Checksum route count / checksum 路线数: 2
+- Size route count / 大小记录路线数: 2
+- Local temp route count / 临时路径路线数: 2
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
 review status.
@@ -46,12 +46,29 @@ review status.
   only.
 - Review status / 复核状态: metadata_route_needs_human_review
 
+### Route 002
+- Download ID / 下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Artifact kind / 资料类型: github_readme_current_recheck
+- Status / 状态: downloaded
+- HTTP status / HTTP 状态: 200
+- File size bytes / 文件大小 bytes: 5013
+- Checksum SHA-256 / checksum SHA-256:
+  e88cd6164fa22182ccce5bfa8cee5198591af748b75baa6ca99c5fe7af226ab8
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径:
+  tmp/source_downloads/dl-oracle-mnist-readme-recheck-20260727.md
+- Risk note / 风险提示: Stored under ignored tmp directory; commit log/checksum
+  only.
+- Review status / 复核状态: metadata_route_needs_human_review
+
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
-- Package route count / 来源包路线数: 1
-- Package kinds / 来源包类型: lightweight_md_text
-- Field map route count / 字段映射路线数: 0
-- Target record types / 目标记录类型: none
-- Metadata route count / metadata 路线数: 2
+- Package route count / 来源包路线数: 2
+- Package kinds / 来源包类型: lightweight_md_text;
+  lightweight_md_text_current_recheck
+- Field map route count / 字段映射路线数: 7
+- Target record types / 目标记录类型: asset_metadata; oracle_character;
+  published_research_note; source_reference; source_reference;asset_metadata
+- Metadata route count / metadata 路线数: 6
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -74,10 +91,137 @@ target object directory.
 - Rights status / 权利状态: source_marked_risk_noted
 - Review status / 复核状态: reviewed_metadata_only
 
+### Route 002
+- Package file ID / 来源包文件 ID: pkg-file-000038
+- Source package ID / 来源包 ID: light-src-oracle-mnist
+- File name / 文件名: dl-oracle-mnist-readme-recheck-20260727.md
+- File kind / 文件类型: lightweight_md_text_current_recheck
+- File size bytes / 文件大小 bytes: 5013
+- Download ID / 下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Handling strategy / 处理策略: Current README evidence is represented by committed
+  provenance, size, checksum, reviewed field maps, and an object-local human
+  dossier; dataset files and the ignored payload are not committed by this row.
+- Rights status / 权利状态: source_marked_risk_noted
+- Review status / 复核状态: reviewed_metadata_only
+
 ## Field Map Evidence / 字段映射证据
 
-No field-map route is recorded in the current source registers. Do not import
-source fields into corpus objects until mappings are reviewed.
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000072
+- Source level / 来源层级: current_readme_dataset_summary
+- Source field or unit / 来源字段或单位:
+  image_dimensions;grayscale;total_images;category_count;train_count;test_count
+- Source meaning / 来源含义: README statements describing benchmark image format and
+  reported split scale
+- Target record type / 目标记录类型: source_reference;asset_metadata
+- Target project field / 目标字段: source_image_dimensions;source_color_mode;source_
+  reported_total_count;source_reported_category_count;source_reported_split_coun
+  ts
+- Import action / 导入动作: Preserve reported technical scope for package review and
+  compare it with downloaded IDX headers before any benchmark use
+- Rights boundary / 权利边界: README counts are source-reported and do not establish
+  class identity corpus completeness or accepted readings
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000073
+- Source level / 来源层级: current_readme_file_table
+- Source field or unit / 来源字段或单位: name;content;examples;size
+- Source meaning / 来源含义: README columns listing four reported train and test
+  image or label files
+- Target record type / 目标记录类型: source_reference;asset_metadata
+- Target project field / 目标字段: source_package_file_name;source_package_file_kind
+  ;source_reported_example_count;source_reported_file_size
+- Import action / 导入动作: Create candidate package-manifest rows only after
+  downloading each file and recording actual size checksum storage and rights
+  review
+- Rights boundary / 权利边界: Reported names counts and sizes are not
+  downloaded-file evidence and do not authorize redistribution
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Field map ID / 字段映射 ID: field-map-000074
+- Source level / 来源层级: current_readme_data_format
+- Source field or unit / 来源字段或单位: MNIST_IDX_label_values
+- Source meaning / 来源含义: Source class labels encoded in MNIST-compatible label
+  files without class semantics in the README
+- Target record type / 目标记录类型: oracle_character
+- Target project field / 目标字段: source_class_candidate_id
+- Import action / 导入动作: Keep label values as source-local candidate class IDs
+  until image and scholarly crosswalk review
+- Rights boundary / 权利边界: Numeric labels do not identify modern characters
+  confirm oracle-character identities or supply readings
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Field map ID / 字段映射 ID: field-map-000075
+- Source level / 来源层级: current_readme_data_format
+- Source field or unit / 来源字段或单位: MNIST_IDX_images;28x28_grayscale
+- Source meaning / 来源含义: Source-reported image encoding and dimensions for
+  parser and technical validation planning
+- Target record type / 目标记录类型: asset_metadata
+- Target project field / 目标字段:
+  source_data_format;source_image_dimensions;source_color_mode
+- Import action / 导入动作: Use only to validate downloaded package headers and
+  construct a reversible staging parser
+- Rights boundary / 权利边界: Technical compatibility is not image provenance rights
+  clearance glyph analysis or corpus import approval
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Field map ID / 字段映射 ID: field-map-000076
+- Source level / 来源层级: current_readme_processing_note
+- Source field or unit / 来源字段或单位:
+  preprocessed_images;conversion_pipeline;original_image_download_routes
+- Source meaning / 来源含义: README distinguishes preprocessed benchmark images from
+  separately linked original images
+- Target record type / 目标记录类型: source_reference;asset_metadata
+- Target project field / 目标字段:
+  source_processing_note;original_source_discovery_route
+- Import action / 导入动作: Record both routes separately and require checksums
+  source provenance and rights review before comparing derivatives to originals
+- Rights boundary / 权利边界: The pipeline illustration and download links do not
+  prove original-image provenance or permit public reuse
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 006
+- Field map ID / 字段映射 ID: field-map-000077
+- Source level / 来源层级: current_readme_access_route
+- Source field or unit / 来源字段或单位:
+  google_drive;baidu_drive;repository_data_oracle
+- Source meaning / 来源含义: README download and repository paths for candidate
+  dataset package access
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: source_access_route
+- Import action / 导入动作: Use as candidate access routes and record a new download
+  log for every retrieved package
+- Rights boundary / 权利边界: Route availability is not a checksum rights decision
+  package completeness claim or redistribution permission
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 007
+- Field map ID / 字段映射 ID: field-map-000078
+- Source level / 来源层级: current_readme_citation
+- Source field or unit / 来源字段或单位:
+  title;authors;journal;volume;number;pages;year;publisher
+- Source meaning / 来源含义: README citation block for the Scientific Data dataset
+  paper
+- Target record type / 目标记录类型: published_research_note
+- Target project field / 目标字段:
+  title;authors;journal;volume;issue;pages;publication_year;publisher
+- Import action / 导入动作: Use to locate the publisher record and review the paper
+  methods provenance license and limitations before scholarly reuse
+- Rights boundary / 权利边界: README citation metadata does not verify the paper
+  content dataset provenance or paleographic conclusions
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Metadata Profile Evidence / 元数据概况证据
 
@@ -105,6 +249,60 @@ source fields into corpus objects until mappings are reviewed.
   recorded in the source log
 - Caution / 提醒: README size is routing metadata and not image import or rights
   clearance
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000089
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: current_readme_size_bytes
+- Profile value / 概况值: 5013
+- Profile unit / 概况单位: bytes
+- Import relevance / 导入相关性: Records the unchanged current README size for
+  snapshot comparison
+- Caution / 提醒: Size and checksum are access-integrity metadata rather than
+  image or scholarship evidence
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000090
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: source_reported_benchmark_counts
+- Profile value / 概况值:
+  total_images=30222;categories=10;train_images=27222;test_images=3000
+- Profile unit / 概况单位: reported_counts
+- Import relevance / 导入相关性: Preserves source-reported benchmark scale for human
+  dataset-scope review
+- Caution / 提醒: Reported benchmark counts do not identify classes establish
+  paleographic coverage or confirm readings
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Profile ID / 概况 ID: metadata-profile-000091
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: source_reported_image_format
+- Profile value / 概况值: 28x28_grayscale;MNIST_IDX
+- Profile unit / 概况单位: format_labels
+- Import relevance / 导入相关性: Records the source-reported technical format for
+  later package validation and parser planning
+- Caution / 提醒: Technical format does not prove image provenance class identity
+  or rights clearance
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 006
+- Profile ID / 概况 ID: metadata-profile-000092
+- Evidence download ID / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Metadata file / 元数据文件: README.md
+- Profile metric / 概况指标: source_reported_package_files
+- Profile value / 概况值: train-images-idx3-ubyte.gz;train-labels-idx1-ubyte.gz;t10
+  k-images-idx3-ubyte.gz;t10k-labels-idx1-ubyte.gz
+- Profile unit / 概况单位: file_names
+- Import relevance / 导入相关性: Preserves the four README-listed package names for
+  later size checksum and content verification
+- Caution / 提醒: File names and reported sizes are not downloaded-file evidence
+  and do not authorize redistribution
 - Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位

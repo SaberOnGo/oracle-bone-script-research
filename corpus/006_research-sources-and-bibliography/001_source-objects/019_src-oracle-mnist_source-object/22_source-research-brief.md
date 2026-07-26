@@ -16,20 +16,50 @@ limits on research use.
 - Source page / 来源页面: https://github.com/wm-bupt/oracle-mnist
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 1
-- Recorded checksums / 已记录 checksum: 1
-- Recorded file sizes / 已记录文件大小: 1
-- Package files / 来源包文件: 1
-- Field mappings / 字段映射: 0
-- Metadata measurements / 元数据测量: 2
+- Download or access records / 下载或访问记录: 2
+- Recorded checksums / 已记录 checksum: 2
+- Recorded file sizes / 已记录文件大小: 2
+- Package files / 来源包文件: 2
+- Field mappings / 字段映射: 7
+- Metadata measurements / 元数据测量: 6
 
 - Recorded access item / 已记录访问项: dl-oracle-mnist-readme; downloaded; 5013 bytes
+- Recorded access item / 已记录访问项: dl-oracle-mnist-readme-recheck-20260727;
+  downloaded; 5013 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Package material / 来源包资料: dl-oracle-mnist-readme.md; lightweight_md_text;
   Lightweight source evidence is represented by committed provenance, size,
   checksum, and derived metadata only; ignored tmp downloads are not committed
   as source content.
+- Package material / 来源包资料: dl-oracle-mnist-readme-recheck-20260727.md;
+  lightweight_md_text_current_recheck; Current README evidence is represented by
+  committed provenance, size, checksum, reviewed field maps, and an object-local
+  human dossier; dataset files and the ignored payload are not committed by this
+  row.
+- Candidate transfer field / 候选转入字段:
+  image_dimensions;grayscale;total_images;category_count;train_count;test_count
+  -> source_reference;asset_metadata -> source_image_dimensions;source_color_mod
+  e;source_reported_total_count;source_reported_category_count;source_reported_s
+  plit_counts
+- Candidate transfer field / 候选转入字段: name;content;examples;size ->
+  source_reference;asset_metadata -> source_package_file_name;source_package_fil
+  e_kind;source_reported_example_count;source_reported_file_size
+- Candidate transfer field / 候选转入字段: MNIST_IDX_label_values -> oracle_character
+  -> source_class_candidate_id
+- Candidate transfer field / 候选转入字段: MNIST_IDX_images;28x28_grayscale ->
+  asset_metadata -> source_data_format;source_image_dimensions;source_color_mode
+- Candidate transfer field / 候选转入字段:
+  preprocessed_images;conversion_pipeline;original_image_download_routes ->
+  source_reference;asset_metadata ->
+  source_processing_note;original_source_discovery_route
+- Candidate transfer field / 候选转入字段:
+  google_drive;baidu_drive;repository_data_oracle -> source_reference ->
+  source_access_route
+- Candidate transfer field / 候选转入字段:
+  title;authors;journal;volume;number;pages;year;publisher ->
+  published_research_note ->
+  title;authors;journal;volume;issue;pages;publication_year;publisher
 
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: source_marked_risk_noted

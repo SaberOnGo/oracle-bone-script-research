@@ -15,20 +15,41 @@ limits on research use.
 - Source page / 来源页面: https://github.com/Yuliang-Liu/Open-Oracle
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 1
-- Recorded checksums / 已记录 checksum: 1
-- Recorded file sizes / 已记录文件大小: 1
-- Package files / 来源包文件: 1
-- Field mappings / 字段映射: 0
-- Metadata measurements / 元数据测量: 2
+- Download or access records / 下载或访问记录: 2
+- Recorded checksums / 已记录 checksum: 2
+- Recorded file sizes / 已记录文件大小: 2
+- Package files / 来源包文件: 2
+- Field mappings / 字段映射: 5
+- Metadata measurements / 元数据测量: 5
 
 - Recorded access item / 已记录访问项: dl-open-oracle-readme; downloaded; 15942 bytes
+- Recorded access item / 已记录访问项: dl-open-oracle-readme-recheck-20260727;
+  downloaded; 21353 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Package material / 来源包资料: dl-open-oracle-readme.md; lightweight_md_text;
   Lightweight source evidence is represented by committed provenance, size,
   checksum, and derived metadata only; ignored tmp downloads are not committed
   as source content.
+- Package material / 来源包资料: dl-open-oracle-readme-recheck-20260727.md;
+  lightweight_md_text_current_recheck; Current README evidence is represented by
+  committed provenance, size, checksum, reviewed field maps, and an object-local
+  human dossier; the ignored payload is not committed as source content.
+- Candidate transfer field / 候选转入字段:
+  recent_projects_and_papers.year;project_or_paper;venue_and_status;category;lin
+  ks -> source_reference;published_research_note ->
+  publication_year;source_title;venue_status;task_category;source_links
+- Candidate transfer field / 候选转入字段:
+  datasets_and_benchmarks.dataset_or_benchmark;task;scale_and_notes;links ->
+  source_reference -> source_title;task_label;source_reported_scale;source_links
+- Candidate transfer field / 候选转入字段: online_resources.resource;link ->
+  source_reference -> source_title;source_url;source_discovery_route
+- Candidate transfer field / 候选转入字段:
+  authors;title;venue;year;doi;paper_code_data_links -> published_research_note
+  -> authors;title;venue;publication_year;doi;source_links
+- Candidate transfer field / 候选转入字段:
+  last_maintained;contribution_fields;copyright_contact -> source_reference ->
+  source_reported_maintenance_date;contribution_guidance;source_contact
 
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: source_marked_risk_noted

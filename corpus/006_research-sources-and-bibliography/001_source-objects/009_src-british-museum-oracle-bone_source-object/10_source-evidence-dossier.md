@@ -49,7 +49,7 @@ review status.
 - Package kinds / 来源包类型: none
 - Field map route count / 字段映射路线数: 0
 - Target record types / 目标记录类型: none
-- Metadata route count / metadata 路线数: 0
+- Metadata route count / metadata 路线数: 5
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -68,8 +68,70 @@ source fields into corpus objects until mappings are reviewed.
 
 ## Metadata Profile Evidence / 元数据概况证据
 
-No metadata profile route is recorded in the current source registers. Record
-profile metrics before relying on source-scale coverage or quality claims.
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000081
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Metadata file / 元数据文件: 014_browser-verified-metadata-capture.csv
+- Profile metric / 概况指标: browser_verified_museum_number
+- Profile value / 概况值: OA+.165
+- Profile unit / 概况单位: museum_number_label
+- Import relevance / 导入相关性: Preserves the official museum number as a human
+  lookup and later object cross-reference route
+- Caution / 提醒: Controlled-browser metadata only; no page payload, image, source
+  checksum, or object identity crosswalk was captured
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000082
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Metadata file / 元数据文件: 014_browser-verified-metadata-capture.csv
+- Profile metric / 概况指标: browser_verified_object_type
+- Profile value / 概况值: oracle-bone
+- Profile unit / 概况单位: official_object_type_label
+- Import relevance / 导入相关性: Records the official object-type label for source
+  discovery and museum-record comparison
+- Caution / 提醒: The museum label is source metadata; it does not establish an
+  inscription identity, reading, or corpus-scale coverage
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000083
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Metadata file / 元数据文件: 014_browser-verified-metadata-capture.csv
+- Profile metric / 概况指标: browser_verified_period_and_date
+- Profile value / 概况值: Shang dynasty;13thC BC-11thC BC
+- Profile unit / 概况单位: official_period_and_date_labels
+- Import relevance / 导入相关性: Keeps the official period and production-date labels
+  visible for later provenance review
+- Caution / 提醒: Source-page labels only; archaeological dating and group
+  assignment require independent object-level review
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000084
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Metadata file / 元数据文件: 014_browser-verified-metadata-capture.csv
+- Profile metric / 概况指标: browser_verified_findspot
+- Profile value / 概况值: Found/Acquired: China
+- Profile unit / 概况单位: official_findspot_label
+- Import relevance / 导入相关性: Preserves the official findspot wording so its broad
+  provenance scope remains reviewable
+- Caution / 提醒: The broad country-level wording is not an excavation site, pit,
+  batch, or secure archaeological context
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Profile ID / 概况 ID: metadata-profile-000085
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Metadata file / 元数据文件: 014_browser-verified-metadata-capture.csv
+- Profile metric / 概况指标: browser_verified_material_acquisition_department
+- Profile value / 概况值: bone;1972;Asia
+- Profile unit / 概况单位: official_material_acquisition_department_labels
+- Import relevance / 导入相关性: Keeps material, acquisition year, and department
+  labels available for museum provenance checking
+- Caution / 提醒: Metadata-only routing aid; it is not rights clearance, image
+  availability, or evidence of original excavation context
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位
 

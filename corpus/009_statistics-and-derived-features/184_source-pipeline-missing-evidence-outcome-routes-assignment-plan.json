@@ -152,7 +152,6 @@
       "assignment_files_to_open": [
         "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
         "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
         "corpus/009_statistics-and-derived-features/148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv",

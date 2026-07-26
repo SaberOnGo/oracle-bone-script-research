@@ -6,8 +6,8 @@
   "handoff_item_count": 18,
   "handoff_wave_count": 5,
   "source_count": 18,
-  "route_file_reference_count": 260,
-  "unique_route_file_count": 34,
+  "route_file_reference_count": 259,
+  "unique_route_file_count": 33,
   "pipeline_gap_status_counts": {
     "needs_access_boundary_review": 3,
     "needs_download_or_access_review": 3,
@@ -33,7 +33,6 @@
   "route_files_to_open": [
     "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
     "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
-    "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
     "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
     "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
     "corpus/009_statistics-and-derived-features/148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv",
@@ -91,7 +90,6 @@
       "route_files_to_open": [
         "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
         "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
         "corpus/009_statistics-and-derived-features/148_source-pipeline-phase-action-missing-evidence-review-draft-manifest.csv",
@@ -109,7 +107,7 @@
         "doc/public/user_research/010_source-pipeline-missing-evidence-review-queues/013_src-sinica-yinshang-oracle-vocabulary.md",
         "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
-      "route_file_count": 19,
+      "route_file_count": 18,
       "handoff_status": "ready_for_outcome_review_not_started",
       "assignment_status": "planned_not_assigned",
       "handoff_readiness_status": "planned_for_outcome_review_handoff",
@@ -349,10 +347,9 @@
       "source_type": "museum_collection",
       "rights_status": "metadata_only_until_verified",
       "pipeline_gap_status": "needs_download_or_access_review",
-      "missing_route_count": "4",
-      "missing_file_role_count": "4",
+      "missing_route_count": "3",
+      "missing_file_role_count": "3",
       "missing_file_roles": [
-        "downloaded_metadata_profile",
         "large_source_register",
         "source_field_map",
         "source_package_file_manifest"
@@ -362,7 +359,6 @@
         "source:src-british-museum-oracle-bone",
         "gap_status:needs_download_or_access_review",
         "missing_evidence_review",
-        "role:downloaded_metadata_profile",
         "role:large_source_register",
         "role:source_field_map",
         "role:source_package_file_manifest"
@@ -378,7 +374,6 @@
         "leave_unchecked_roles_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_downloaded_metadata_profile_or_not_applicable_boundary",
         "verify_large_source_register_applicability",
         "verify_source_field_map_or_create_reviewed_row",
         "verify_package_manifest_or_not_applicable_boundary"
@@ -397,7 +392,6 @@
         "do_not_write_ai_hypothesis_as_scholarship"
       ],
       "required_review_actions": [
-        "review_downloaded_metadata_profile_or_mark_not_applicable",
         "review_large_source_register_applicability_or_mark_not_applicable",
         "review_or_create_source_field_map_row",
         "review_package_manifest_applicability_or_create_row"
@@ -430,12 +424,11 @@
         "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
         "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
         "corpus/009_statistics-and-derived-features/151_source-pipeline-phase-action-missing-evidence-review-route-pack.json",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "project_registry/006_large-source-register/001_large-source-register.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv"
       ],
-      "route_file_count": 17,
+      "route_file_count": 16,
       "reserved_outcome_fields": [
         "source_metadata_outcome_reviewed",
         "access_boundary_outcome_reviewed",

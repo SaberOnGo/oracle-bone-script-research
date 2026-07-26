@@ -21,7 +21,7 @@ limits on research use.
 - Recorded file sizes / 已记录文件大小: 1
 - Package files / 来源包文件: 0
 - Field mappings / 字段映射: 0
-- Metadata measurements / 元数据测量: 0
+- Metadata measurements / 元数据测量: 5
 
 - Recorded access item / 已记录访问项: dl-british-museum-oa-165; http_error; 0 bytes
 

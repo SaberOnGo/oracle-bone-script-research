@@ -267,6 +267,10 @@ def source_gap_types(
         gap_types.append("package_file_manifest_or_not_applicable_decision_needed")
     if (
         int_value(pipeline_row, "metadata_profile_count") > 0
+        and (
+            int_value(pipeline_row, "downloaded_count") > 0
+            or reviewed_browser_capture_count == 0
+        )
         and int_value(pipeline_row, "package_manifest_count") == 0
         and int_value(pipeline_row, "graph_edge_count") == 0
         and int_value(pipeline_row, "candidate_queue_count") == 0

@@ -43,7 +43,7 @@
     "size_route_count": 1,
     "package_route_count": 0,
     "field_map_route_count": 0,
-    "metadata_profile_route_count": 0,
+    "metadata_profile_route_count": 5,
     "package_kinds": [],
     "target_record_types": [],
     "download_statuses": [

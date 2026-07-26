@@ -16724,7 +16724,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["source_count"], 21)
         self.assertEqual(data["coverage"]["download_manifest_count"], 48)
         self.assertEqual(data["coverage"]["download_log_count"], 49)
-        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 80)
+        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 85)
         self.assertEqual(data["coverage"]["committed_asset_count"], 21363)
         self.assertEqual(data["coverage"]["committed_asset_bytes"], 96318352)
         self.assertEqual(data["coverage"]["graph_edge_count"], 128174)
@@ -16737,8 +16737,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             data["coverage"]["coverage_status_counts"],
             {
                 "has_committed_public_asset_or_metadata": 2,
-                "has_download_log_only": 1,
-                "has_downloaded_metadata_profile": 14,
+                "has_downloaded_metadata_profile": 15,
                 "has_relationship_graph_derivatives": 4,
             },
         )
@@ -21161,6 +21160,26 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             metrics[
                 (
+                    "src-british-museum-oracle-bone",
+                    "dl-british-museum-oa-165",
+                    "browser_verified_museum_number",
+                )
+            ]["profile_value"],
+            "OA+.165",
+        )
+        self.assertEqual(
+            metrics[
+                (
+                    "src-british-museum-oracle-bone",
+                    "dl-british-museum-oa-165",
+                    "browser_verified_findspot",
+                )
+            ]["profile_value"],
+            "Found/Acquired: China",
+        )
+        self.assertEqual(
+            metrics[
+                (
                     "src-tsinghua-oracle-bones",
                     "dl-tsinghua-oracle-bones-overview",
                     "registered_collection_provenance_names",
@@ -22603,7 +22622,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 21)
         self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 48)
         self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 49)
-        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 80)
+        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 85)
         self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 21363)
         self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 96318352)
         self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 128174)
@@ -26208,17 +26227,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             data["stage_counts"],
             {
-                "discovered_access_boundary_or_error": 1,
-                "pending_human_review": 20,
+                "pending_human_review": 21,
             },
         )
         self.assertEqual(data["totals"]["download_manifest_count"], 48)
         self.assertEqual(data["totals"]["download_log_count"], 49)
-        self.assertEqual(data["totals"]["metadata_profile_count"], 80)
+        self.assertEqual(data["totals"]["metadata_profile_count"], 85)
         self.assertEqual(data["totals"]["graph_edge_count"], 117138)
         self.assertEqual(data["totals"]["candidate_queue_count"], 10996)
         self.assertEqual(data["totals"]["source_phase_action_count"], 62)
-        self.assertEqual(data["totals"]["missing_evidence_action_count"], 26)
+        self.assertEqual(data["totals"]["missing_evidence_action_count"], 25)
         self.assertEqual(data["totals"]["missing_evidence_assignment_count"], 18)
         self.assertEqual(data["totals"]["object_local_material_bundle_count"], 29903)
         self.assertEqual(data["totals"]["object_local_review_image_object_count"], 13715)
@@ -26258,9 +26276,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["source_phase_action_count"], "6")
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["missing_evidence_action_count"], "1")
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["object_local_material_bundle_count"], "1")
-        self.assertEqual(by_source["src-british-museum-oracle-bone"]["current_stage"], "discovered_access_boundary_or_error")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["current_stage"], "pending_human_review")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["source_phase_action_count"], "7")
-        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_evidence_action_count"], "4")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_evidence_action_count"], "3")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["object_local_material_bundle_count"], "1")
         self.assertTrue(all(row["source_route_review_queue_count"] == "1" for row in rows))
         self.assertTrue(all("Source processing pipeline audit only" in row["caution"] for row in rows))
@@ -26319,7 +26337,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-cambridge-hopkins"]["pipeline_gap_status"], "needs_safe_derived_record_review")
         self.assertEqual(
             by_source["src-british-museum-oracle-bone"]["gap_flags"],
-            "not_downloaded_or_access_not_resolved;missing_field_map;missing_package_manifest;missing_metadata_profile",
+            "not_downloaded_or_access_not_resolved;missing_field_map;missing_package_manifest",
         )
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["review_lane"], "access_and_checksum_boundary_resolution")
         self.assertEqual(by_source["src-nlc-oracle-world"]["review_lane"], "source_register_monitoring")
@@ -26743,8 +26761,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         checklist_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST)
         rows = module.build_evidence_presence_rows(repo_root(), checklist_rows)
         self.assertEqual(len(rows), 210)
-        self.assertEqual(sum(1 for row in rows if row["match_status"] == "present"), 184)
-        self.assertEqual(sum(1 for row in rows if row["match_status"] == "missing_for_source"), 26)
+        self.assertEqual(sum(1 for row in rows if row["match_status"] == "present"), 185)
+        self.assertEqual(sum(1 for row in rows if row["match_status"] == "missing_for_source"), 25)
         role_counts = module.role_presence_counts(rows)
         self.assertEqual(role_counts["source_download_log"], {"present": 21})
         self.assertEqual(role_counts["source_field_map"], {"missing_for_source": 4, "present": 17})
@@ -26765,11 +26783,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             rows = list(csv.DictReader(file))
         self.assertEqual(len(rows), 21)
         by_source = {row["source_id"]: row for row in rows}
-        self.assertEqual(by_source["src-british-museum-oracle-bone"]["present_file_role_count"], "6")
-        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_file_role_count"], "4")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["present_file_role_count"], "7")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_file_role_count"], "3")
         self.assertEqual(
             by_source["src-british-museum-oracle-bone"]["missing_file_roles"],
-            "downloaded_metadata_profile;large_source_register;source_field_map;source_package_file_manifest",
+            "large_source_register;source_field_map;source_package_file_manifest",
         )
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["gap_status"], "has_missing_source_evidence_rows")
         self.assertEqual(by_source["src-hust-obc"]["present_file_role_count"], "10")
@@ -26806,16 +26824,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 26)
+        self.assertEqual(len(rows), 25)
         role_counts = Counter(row["missing_file_role"] for row in rows)
         self.assertEqual(role_counts["source_package_file_manifest"], 3)
         self.assertEqual(role_counts["large_source_register"], 18)
-        self.assertEqual(role_counts["downloaded_metadata_profile"], 1)
+        self.assertNotIn("downloaded_metadata_profile", role_counts)
         self.assertEqual(role_counts["source_field_map"], 4)
         by_key = {(row["source_id"], row["missing_file_role"]): row for row in rows}
         self.assertEqual(
-            by_key[("src-british-museum-oracle-bone", "downloaded_metadata_profile")]["action_type"],
-            "review_downloaded_metadata_profile_or_mark_not_applicable",
+            by_key[("src-british-museum-oracle-bone", "source_field_map")]["action_type"],
+            "review_or_create_source_field_map_row",
         )
         self.assertEqual(
             by_key[("src-british-museum-oracle-bone", "source_field_map")]["action_priority"],
@@ -26831,11 +26849,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_source_pipeline_phase_action_missing_evidence_action_queue_module()
         evidence_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX)
         rows = module.build_missing_evidence_action_rows(evidence_rows)
-        self.assertEqual(len(rows), 26)
+        self.assertEqual(len(rows), 25)
         self.assertEqual(rows[0]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-001")
         self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
-        self.assertEqual(rows[0]["missing_file_role"], "downloaded_metadata_profile")
-        self.assertEqual(rows[-1]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-026")
+        self.assertEqual(rows[0]["missing_file_role"], "large_source_register")
+        self.assertEqual(rows[-1]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-025")
         self.assertEqual(rows[-1]["source_id"], "src-yinqi-wenyuan")
         self.assertEqual(rows[-1]["missing_file_role"], "source_field_map")
         self.assertEqual(rows[-1]["research_boundary"], module.RESEARCH_BOUNDARY)
@@ -26850,11 +26868,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 26)
+        self.assertEqual(len(rows), 25)
         self.assertEqual(rows[0]["missing_evidence_result_scaffold_id"], "source-pipeline-phase-action-missing-evidence-result-001")
         self.assertEqual(rows[0]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-001")
-        self.assertEqual(rows[0]["missing_file_role"], "downloaded_metadata_profile")
-        self.assertEqual(rows[-1]["missing_evidence_result_scaffold_id"], "source-pipeline-phase-action-missing-evidence-result-026")
+        self.assertEqual(rows[0]["missing_file_role"], "large_source_register")
+        self.assertEqual(rows[-1]["missing_evidence_result_scaffold_id"], "source-pipeline-phase-action-missing-evidence-result-025")
         self.assertTrue(all(row["result_status"] == "not_started" for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
@@ -26868,11 +26886,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_source_pipeline_phase_action_missing_evidence_result_scaffold_module()
         action_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE)
         rows = module.build_missing_evidence_result_scaffold_rows(action_rows)
-        self.assertEqual(len(rows), 26)
+        self.assertEqual(len(rows), 25)
         by_action = {row["missing_evidence_action_id"]: row for row in rows}
         first = by_action["source-pipeline-phase-action-missing-evidence-001"]
         self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
-        self.assertEqual(first["missing_file_role"], "downloaded_metadata_profile")
+        self.assertEqual(first["missing_file_role"], "large_source_register")
         self.assertEqual(first["action_queue_path"], module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE.as_posix())
         self.assertIn("missing_role_applicability_reviewed", first["reserved_outcome_fields"])
         self.assertEqual(first["target_source_row_action_reviewed"], "")
@@ -26887,20 +26905,20 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "146_source-pipeline-phase-action-missing-evidence-route-summary.json"
         )
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["route_count"], 26)
+        self.assertEqual(data["route_count"], 25)
         self.assertEqual(data["source_count"], 18)
         self.assertEqual(data["missing_file_role_counts"]["source_package_file_manifest"], 3)
         self.assertEqual(data["missing_file_role_counts"]["large_source_register"], 18)
-        self.assertEqual(data["missing_file_role_counts"]["downloaded_metadata_profile"], 1)
+        self.assertNotIn("downloaded_metadata_profile", data["missing_file_role_counts"])
         self.assertEqual(data["missing_file_role_counts"]["source_field_map"], 4)
-        self.assertEqual(data["result_status_counts"], {"not_started": 26})
-        self.assertEqual(data["evidence_collection_status_counts"], {"not_collected": 26})
-        self.assertEqual(data["rights_decision_status_counts"], {"no_new_rights_decision": 26})
-        self.assertEqual(data["decipherment_claim_status_counts"], {"no_decipherment_claim": 26})
+        self.assertEqual(data["result_status_counts"], {"not_started": 25})
+        self.assertEqual(data["evidence_collection_status_counts"], {"not_collected": 25})
+        self.assertEqual(data["rights_decision_status_counts"], {"no_new_rights_decision": 25})
+        self.assertEqual(data["decipherment_claim_status_counts"], {"no_decipherment_claim": 25})
         self.assertEqual(data["routes"][0]["route_id"], "source-pipeline-phase-action-missing-evidence-route-001")
         self.assertEqual(data["routes"][0]["source_id"], "src-british-museum-oracle-bone")
-        self.assertEqual(data["routes"][0]["missing_file_role"], "downloaded_metadata_profile")
-        self.assertEqual(data["routes"][-1]["route_id"], "source-pipeline-phase-action-missing-evidence-route-026")
+        self.assertEqual(data["routes"][0]["missing_file_role"], "large_source_register")
+        self.assertEqual(data["routes"][-1]["route_id"], "source-pipeline-phase-action-missing-evidence-route-025")
         self.assertEqual(data["routes"][-1]["source_id"], "src-yinqi-wenyuan")
         self.assertEqual(data["routes"][-1]["missing_file_role"], "source_field_map")
 
@@ -26910,8 +26928,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD
         )
         data = module.build_route_summary(scaffold_rows)
-        self.assertEqual(data["route_count"], 26)
-        self.assertEqual(data["source_counts"]["src-british-museum-oracle-bone"], 4)
+        self.assertEqual(data["route_count"], 25)
+        self.assertEqual(data["source_counts"]["src-british-museum-oracle-bone"], 3)
         self.assertEqual(data["source_counts"]["src-yinqi-wenyuan"], 2)
         self.assertEqual(data["action_result_scaffold_path"], module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD.as_posix())
         self.assertEqual(data["research_boundary"], module.RESEARCH_BOUNDARY)
@@ -26929,11 +26947,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             rows = list(csv.DictReader(file))
         self.assertEqual(len(rows), 18)
         by_source = {row["source_id"]: row for row in rows}
-        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_route_count"], "4")
-        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_file_role_count"], "4")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_route_count"], "3")
+        self.assertEqual(by_source["src-british-museum-oracle-bone"]["missing_file_role_count"], "3")
         self.assertEqual(
             by_source["src-british-museum-oracle-bone"]["missing_file_roles"],
-            "downloaded_metadata_profile;large_source_register;source_field_map;source_package_file_manifest",
+            "large_source_register;source_field_map;source_package_file_manifest",
         )
         self.assertEqual(by_source["src-cambridge-hopkins"]["missing_route_count"], "1")
         self.assertEqual(by_source["src-yinqi-wenyuan"]["missing_route_count"], "2")
@@ -26956,7 +26974,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "source-pipeline-phase-action-missing-evidence-source-summary-001",
         )
         self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
-        self.assertEqual(rows[0]["missing_route_count"], "4")
+        self.assertEqual(rows[0]["missing_route_count"], "3")
         self.assertIn("package_manifest_gap_review:1", rows[0]["action_priority_counts"])
         self.assertEqual(
             rows[-1]["missing_evidence_source_summary_id"],
@@ -26984,7 +27002,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "source-pipeline-missing-evidence-review-draft-001",
         )
         self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
-        self.assertEqual(rows[0]["missing_file_roles"], "downloaded_metadata_profile;large_source_register;source_field_map;source_package_file_manifest")
+        self.assertEqual(rows[0]["missing_file_roles"], "large_source_register;source_field_map;source_package_file_manifest")
         self.assertEqual(
             rows[0]["draft_path"],
             "doc/public/user_research/010_source-pipeline-missing-evidence-review-queues/001_src-british-museum-oracle-bone.md",
@@ -27006,7 +27024,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("downloaded_metadata_profile", text)
         self.assertIn("Existing Source Metadata Snapshot", text)
         self.assertIn("all_sources_index_row_count: `1`", text)
-        self.assertIn("downloaded_metadata_profile_row_count: `0`", text)
+        self.assertIn("downloaded_metadata_profile_row_count: `5`", text)
         self.assertIn("source_package_file_manifest_row_count: `0`", text)
         self.assertNotIn("No reviewed evidence has been collected in this draft", text)
         self.assertIn("Candidate evidence paths to inspect", text)
@@ -27062,7 +27080,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(rows[0]["review_draft_id"], "source-pipeline-missing-evidence-review-draft-001")
         self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
-        self.assertEqual(rows[0]["missing_file_roles"], "downloaded_metadata_profile;large_source_register;source_field_map;source_package_file_manifest")
+        self.assertEqual(rows[0]["missing_file_roles"], "large_source_register;source_field_map;source_package_file_manifest")
         self.assertEqual(rows[-1]["result_scaffold_id"], "source-pipeline-missing-evidence-result-scaffold-018")
         self.assertEqual(rows[-1]["source_id"], "src-yinqi-wenyuan")
         self.assertEqual({row["result_status"] for row in rows}, {"not_started"})
@@ -29387,10 +29405,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 3, "targeted_review": 7})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13132)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13130)
         self.assertEqual(data["totals"]["candidate_record_count"], 13196)
         self.assertEqual(data["totals"]["formal_record_count"], 101679)
-        self.assertEqual(data["totals"]["staging_record_count"], 75272)
+        self.assertEqual(data["totals"]["staging_record_count"], 75277)
         self.assertEqual(data["totals"]["graph_edge_count"], 220887)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -29413,7 +29431,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "213")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1005")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1003")
         self.assertEqual(
             by_area["research_sources_and_bibliography"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv",

@@ -21,20 +21,17 @@
 
 ## Missing Evidence / 缺失证据
 
-- Missing route count / 缺失路由数: `4`
-- Missing file role count / 缺失文件角色数: `4`
+- Missing route count / 缺失路由数: `3`
+- Missing file role count / 缺失文件角色数: `3`
 
 ### Missing file roles / 缺失文件角色
 
-- `downloaded_metadata_profile`
 - `large_source_register`
 - `source_field_map`
 - `source_package_file_manifest`
 
 ### Files to open / 待打开文件
 
-- `corpus/006_research-sources-and-bibliography/000_source-`
-  `registers/010_downloaded-metadata-profile.csv`
 - `project_registry/006_large-source-register/001_large-source-register.csv`
 - `corpus/006_research-sources-and-bibliography/000_source-`
   `registers/007_source-field-map.csv`
@@ -43,7 +40,6 @@
 
 ### Required review actions / 必需复核动作
 
-- `review_downloaded_metadata_profile_or_mark_not_applicable`
 - `review_large_source_register_applicability_or_mark_not_applicable`
 - `review_or_create_source_field_map_row`
 - `review_package_manifest_applicability_or_create_row`
@@ -62,21 +58,18 @@
 - `source-pipeline-phase-action-missing-evidence-route-001`
 - `source-pipeline-phase-action-missing-evidence-route-002`
 - `source-pipeline-phase-action-missing-evidence-route-003`
-- `source-pipeline-phase-action-missing-evidence-route-004`
 
 ### Action IDs / 动作 ID
 
 - `source-pipeline-phase-action-missing-evidence-001`
 - `source-pipeline-phase-action-missing-evidence-002`
 - `source-pipeline-phase-action-missing-evidence-003`
-- `source-pipeline-phase-action-missing-evidence-004`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
 - `source-pipeline-phase-action-missing-evidence-result-001`
 - `source-pipeline-phase-action-missing-evidence-result-002`
 - `source-pipeline-phase-action-missing-evidence-result-003`
-- `source-pipeline-phase-action-missing-evidence-result-004`
 
 ## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 
@@ -87,13 +80,15 @@ summarized here before any human outcome review.
 不替代后续人工结论复核。
 
 - all_sources_index_row_count: `1`
-- downloaded_metadata_profile_row_count: `0`
+- downloaded_metadata_profile_row_count: `5`
 - large_source_register_row_count: `0`
 - source_download_log_row_count: `1`
 - source_field_map_row_count: `0`
 - source_package_file_manifest_row_count: `0`
 - all_sources_review_status_counts: `reviewed:1`
-- metadata_profile_ids: `none`
+- metadata_profile_ids: `metadata-profile-000081;metadata-`
+  `profile-000082;metadata-profile-000083;metadata-profile-000084;metadata-`
+  `profile-000085`
 - large_source_package_ids: `none`
 - source_download_log_ids: `dl-british-museum-oa-165`
 - source_field_map_ids: `none`
@@ -117,8 +112,6 @@ reviewed outcome. They are candidate evidence paths only.
 简体中文：记录任何已复核结果前，先打开下列来源文件路线。
 这些只是候选待查证据路径。
 
-- `corpus/006_research-sources-and-bibliography/000_source-`
-  `registers/010_downloaded-metadata-profile.csv`
 - `project_registry/006_large-source-register/001_large-source-register.csv`
 - `corpus/006_research-sources-and-bibliography/000_source-`
   `registers/007_source-field-map.csv`
@@ -128,7 +121,9 @@ reviewed outcome. They are candidate evidence paths only.
 ### Current snapshot IDs / 当前快照 ID
 
 - download log ids / 下载记录 ID: `dl-british-museum-oa-165`
-- metadata profile ids / metadata profile ID: `none`
+- metadata profile ids / metadata profile ID: `metadata-`
+  `profile-000081;metadata-profile-000082;metadata-profile-000083;metadata-`
+  `profile-000084;metadata-profile-000085`
 - large source package ids / 大型来源包 ID: `none`
 - source field map ids / 字段映射 ID: `none`
 - package file ids / package file ID: `none`

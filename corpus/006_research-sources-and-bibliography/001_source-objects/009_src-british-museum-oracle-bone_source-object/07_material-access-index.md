@@ -41,8 +41,11 @@ note, or concrete next-check questions.
 - Package kinds / 来源包类型: none
 - Field map count / 字段映射数: 0
 - Target records / 目标记录: none
-- Metadata profile count / 元数据概况数: 0
-- Profile metrics / 概况指标: none
+- Metadata profile count / 元数据概况数: 5
+- Profile metrics / 概况指标: browser_verified_findspot;
+  browser_verified_material_acquisition_department;
+  browser_verified_museum_number; browser_verified_object_type;
+  browser_verified_period_and_date
 
 ## Next Review Step / 下一步复核入口
 - Rights status / 权利状态: metadata_only_until_verified

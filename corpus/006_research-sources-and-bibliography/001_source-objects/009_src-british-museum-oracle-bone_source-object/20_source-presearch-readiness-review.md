@@ -81,8 +81,7 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - Status / 状态: needs_followup_before_formal_research
 - Evidence / 证据文件: 20_source-presearch-readiness-review.md
 - Question / 待查问题: which access rows still lack checksum evidence; which package
-  manifest row must be created; which field map must be reviewed; whether
-  metadata profile rows are absent by design
+  manifest row must be created; which field map must be reviewed
 
 ## Concrete Questions Before Formal Research / 正式研究前待查问题
 - Which visible image, rubbing, plate, catalog, or URL is evidence?

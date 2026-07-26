@@ -252,7 +252,11 @@ def source_gap_types(
         - reviewed_browser_capture_count,
         0,
     )
-    if checksum_exception_count > 0:
+    # A failed or access-restricted attempt has no source payload to hash. Its
+    # absent checksum is evidence of the same access condition, not a second
+    # human task. Only checksum exceptions beyond unresolved access attempts
+    # remain an independent gap.
+    if checksum_exception_count > access_boundary_count:
         gap_types.append("checksum_or_failed_download_status_review_needed")
     if (
         int_value(coverage_row, "downloaded_file_bytes") >= SIZE_LIMIT_BYTES

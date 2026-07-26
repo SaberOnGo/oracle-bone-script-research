@@ -63,6 +63,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   records the current evidence gap before any character-inscription edge.
 - `224_character-inscription-linkage-audit-index.json`
   is the machine-readable count supporting the human linkage audit.
+- `225_source-access-boundary-human-review.md`
+  groups repeated access attempts into source and failure-condition tasks.
+- `226_source-access-boundary-review-index.csv`
+  preserves the supporting download IDs and route evidence for each task.
 - `190_project-id-source-map-audit.csv`
   audits project-local ID to source-reference maps.
 - `191_project-id-source-map-summary.json`
@@ -119,6 +123,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   checklists, outcome scaffolds, and route summaries.
 - Use them to continue preprocessing before any source is promoted.
 - Rights, import, source promotion, and evidence outcomes remain human-gated.
+- Open `225_source-access-boundary-human-review.md` before scheduling another
+  retry from the older source-engineering gap chain.
+- Failed access and its missing payload checksum are one review condition,
+  while every access attempt remains preserved in the download log.
 
 ### Object-Local And Project-ID Coverage / 对象内与 ID 覆盖
 

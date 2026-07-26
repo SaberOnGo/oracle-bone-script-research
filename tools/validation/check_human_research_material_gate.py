@@ -181,6 +181,11 @@ def human_markdown_path(relative: str) -> bool:
     # would be a category error.
     if path.name == "22_source-research-brief.md":
         return False
+    # This source-level access audit explains transport and provenance
+    # boundaries. Requiring character dossier slots such as glyph form,
+    # components, or inscription text would be a category error.
+    if path.name == "225_source-access-boundary-human-review.md":
+        return False
     patterns = [
         "README.md",
         "*human*.md",

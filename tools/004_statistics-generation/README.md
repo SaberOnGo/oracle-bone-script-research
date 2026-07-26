@@ -68,6 +68,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `219_shape-component-evolution-phase-gap-human-guide.md`.
 - Character-inscription linkage audit:
   `223_character-inscription-linkage-audit.md` and its supporting index.
+- Source access-boundary review:
+  `225_source-access-boundary-human-review.md` and
+  `226_source-access-boundary-review-index.csv`.
 
 ## Current Review Surfaces / 当前复核入口
 
@@ -103,6 +106,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Character-inscription linkage:
   run `build_character_inscription_linkage_audit.py`, then open the human
   audit before changing any relation edge.
+- Source access boundaries:
+  run `build_source_access_boundary_review.py`, then open the human guide
+  before scheduling another access retry.
 
 ## Concrete Questions To Check / 具体待查问题
 

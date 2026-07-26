@@ -244,6 +244,21 @@ def load_character_inscription_linkage_audit_module():
     return module
 
 
+def load_source_access_boundary_review_module():
+    path = (
+        repo_root()
+        / "tools/004_statistics-generation/"
+        / "build_source_access_boundary_review.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "build_source_access_boundary_review", path
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_cambridge_hopkins_topic_materials_module():
     path = repo_root() / "tools/002_corpus-import/build_cambridge_hopkins_topic_materials.py"
     spec = importlib.util.spec_from_file_location("build_cambridge_hopkins_topic_materials", path)
@@ -2870,6 +2885,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.human_markdown_path(
                 "corpus/006_research-sources-and-bibliography/001_source-objects/"
                 "015_src-hust-obc_source-object/22_source-research-brief.md"
+            )
+        )
+        self.assertFalse(
+            module.human_markdown_path(
+                "corpus/009_statistics-and-derived-features/"
+                "225_source-access-boundary-human-review.md"
             )
         )
 
@@ -24384,7 +24405,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SOURCE_COVERAGE_SUMMARY),
             module.read_csv_rows(root / module.BROWSER_VERIFIED_METADATA_CAPTURE),
         )
-        self.assertEqual(len(rows), 15)
+        self.assertEqual(len(rows), 9)
         self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
         self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
         self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
@@ -24404,7 +24425,48 @@ class RepositorySkeletonTests(unittest.TestCase):
             "src-british-museum-oracle-bone",
             {row["source_id"] for row in rows},
         )
+        self.assertNotIn(
+            "checksum_or_failed_download_status_review_needed",
+            {row["gap_type"] for row in rows},
+        )
         self.assertEqual(rows[-1]["gap_type"], "safe_derived_record_decision_needed")
+
+    def test_source_access_boundary_review_groups_attempts_by_condition(self) -> None:
+        module = load_source_access_boundary_review_module()
+        root = repo_root()
+        rows = module.build_review_rows(
+            module.read_csv_rows(root / module.DOWNLOAD_LOG),
+            module.read_csv_rows(root / module.BROWSER_CAPTURE),
+        )
+        self.assertEqual(len(rows), 8)
+        self.assertEqual(len({row["source_id"] for row in rows}), 7)
+        self.assertEqual(
+            sum(int(row["affected_attempt_count"]) for row in rows), 16
+        )
+        self.assertNotIn(
+            "src-obid-ancientbooks", {row["source_id"] for row in rows}
+        )
+        xxt_rows = [
+            row for row in rows if row["source_id"] == "src-xiaoxuetang-jiaguwen"
+        ]
+        self.assertEqual(
+            {row["failure_condition"] for row in xxt_rows},
+            {"access_restricted_response", "tls_handshake_failure"},
+        )
+        british = next(
+            row
+            for row in rows
+            if row["source_id"] == "src-british-museum-oracle-bone"
+        )
+        self.assertEqual(british["affected_attempt_count"], "2")
+        self.assertIn("browser-meta-000001", british["browser_capture_ids"])
+        guide = module.build_human_guide(
+            rows, module.read_csv_rows(root / module.GAP_QUEUE)
+        )
+        assert_human_markdown_lines_wrapped(
+            self, guide, "source access boundary human review"
+        )
+        self.assertIn("重试次数不会增加人类任务数", guide)
 
     def test_source_engineering_execution_matrix_records_source_work_surface(self) -> None:
         path = (
@@ -26994,7 +27056,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["totals"]["manual_review_backlog_count"], 12751)
         self.assertEqual(data["totals"]["candidate_record_count"], 13196)
         self.assertEqual(data["totals"]["formal_record_count"], 101679)
-        self.assertEqual(data["totals"]["staging_record_count"], 75313)
+        self.assertEqual(data["totals"]["staging_record_count"], 75314)
         self.assertEqual(data["totals"]["graph_edge_count"], 220887)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -27015,7 +27077,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "213")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "214")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "863")
         self.assertEqual(by_area["research_sources_and_bibliography"]["staging_record_count"], "283")

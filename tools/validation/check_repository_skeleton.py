@@ -4823,6 +4823,57 @@ def check_inscription_crosswalk_candidate_local_materials(root: Path) -> list[st
     return issues
 
 
+def check_source_access_boundary_review(root: Path) -> list[str]:
+    issues: list[str] = []
+    human_relative = (
+        "corpus/009_statistics-and-derived-features/"
+        "225_source-access-boundary-human-review.md"
+    )
+    index_relative = (
+        "corpus/009_statistics-and-derived-features/"
+        "226_source-access-boundary-review-index.csv"
+    )
+    human_path = root / human_relative
+    index_path = root / index_relative
+    if not path_exists(human_path):
+        issues.append(f"{human_relative} missing")
+    else:
+        text = human_path.read_text(encoding="utf-8")
+        for snippet in [
+            "Source Access Boundary Review",
+            "来源访问边界复核",
+            "重试次数不会增加人类任务数",
+            "missing checksum for an",
+            "does not prove source",
+        ]:
+            if snippet not in text:
+                issues.append(f"{human_relative} missing marker: {snippet}")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{human_relative}:{line_number} line exceeds 80 characters"
+                )
+    if not path_exists(index_path):
+        issues.append(f"{index_relative} missing")
+    else:
+        with index_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        if len(rows) != 8:
+            issues.append(f"{index_relative} should contain 8 grouped tasks")
+        if len({row.get("source_id", "") for row in rows}) != 7:
+            issues.append(f"{index_relative} should cover 7 unresolved sources")
+        if sum(int(row.get("affected_attempt_count", "0")) for row in rows) != 16:
+            issues.append(f"{index_relative} should preserve 16 access attempts")
+        if any(row.get("source_id") == "src-obid-ancientbooks" for row in rows):
+            issues.append(f"{index_relative} includes browser-resolved OBID probe")
+        if any(
+            row.get("review_status") != "grouped_condition_needs_human_review"
+            for row in rows
+        ):
+            issues.append(f"{index_relative} review status changed")
+    return issues
+
+
 def check_evolution_candidate_local_materials(root: Path) -> list[str]:
     issues: list[str] = []
     evolution_map_path = (
@@ -11100,7 +11151,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 12751,
         "review_queue_count": 12734,
-        "staging_record_count": 75313,
+        "staging_record_count": 75314,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -11141,7 +11192,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "213",
+            "staging_record_count": "214",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -34212,6 +34263,7 @@ def main() -> int:
     issues.extend(check_codepoint_crosswalk_candidate_local_materials(root))
     issues.extend(check_component_candidate_local_materials(root))
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
+    issues.extend(check_source_access_boundary_review(root))
     issues.extend(check_evolution_candidate_local_materials(root))
     issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_cambridge_hopkins_topic_candidate_local_materials(root))

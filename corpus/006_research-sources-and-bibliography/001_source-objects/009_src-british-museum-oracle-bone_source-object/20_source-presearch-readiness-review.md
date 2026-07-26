@@ -55,8 +55,10 @@ scope, rights boundary, and concrete missing questions in one readable place.
 ### 03. package_and_field_map
 - Status / 状态: needs_human_review
 - Evidence / 证据文件: 03_package-route-index.csv; 04_field-map-route-index.csv
-- Question / 待查问题: Which package, manifest, and field-map rows can support none
-  without becoming claims?
+- Question / 待查问题: Which package, manifest, and field-map rows can support
+  asset_metadata;excavation_or_collection_context;
+  excavation_or_collection_context; source_reference;
+  source_reference;excavation_or_collection_context without becoming claims?
 
 ### 04. human_dossier_transfer
 - Status / 状态: needs_target_dossier_review
@@ -81,7 +83,7 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - Status / 状态: needs_followup_before_formal_research
 - Evidence / 证据文件: 20_source-presearch-readiness-review.md
 - Question / 待查问题: which access rows still lack checksum evidence; which package
-  manifest row must be created; which field map must be reviewed
+  manifest row must be created
 
 ## Concrete Questions Before Formal Research / 正式研究前待查问题
 - Which visible image, rubbing, plate, catalog, or URL is evidence?

@@ -41,10 +41,15 @@
     },
     {
       "phase": "field_mapping",
-      "status": "not_present_in_current_registers",
+      "status": "field_map_routes_present",
       "evidence_file": "04_field-map-route-index.csv",
-      "evidence_count": 0,
-      "target_record_types": [],
+      "evidence_count": 5,
+      "target_record_types": [
+        "asset_metadata;excavation_or_collection_context",
+        "excavation_or_collection_context",
+        "source_reference",
+        "source_reference;excavation_or_collection_context"
+      ],
       "review_status": "candidate_mapping_needs_human_review"
     },
     {
@@ -58,13 +63,12 @@
       "phase": "cleaned_structured_linked",
       "status": "candidate_routes_available_not_final_import",
       "evidence_file": "08_source-processing-status.md",
-      "evidence_count": 5,
+      "evidence_count": 10,
       "review_status": "pending_human_review"
     }
   ],
   "missing_or_review_items": [
     "package_manifest_route",
-    "field_map_route",
     "checksum_for_some_download_routes"
   ],
   "human_entry": "08_source-processing-status.md",

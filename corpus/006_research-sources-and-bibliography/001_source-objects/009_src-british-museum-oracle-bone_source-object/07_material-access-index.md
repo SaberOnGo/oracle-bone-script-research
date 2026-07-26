@@ -39,8 +39,10 @@ note, or concrete next-check questions.
 - Download statuses / 下载状态: http_error
 - Package route count / 来源包路线数: 0
 - Package kinds / 来源包类型: none
-- Field map count / 字段映射数: 0
-- Target records / 目标记录: none
+- Field map count / 字段映射数: 5
+- Target records / 目标记录: asset_metadata;excavation_or_collection_context;
+  excavation_or_collection_context; source_reference;
+  source_reference;excavation_or_collection_context
 - Metadata profile count / 元数据概况数: 5
 - Profile metrics / 概况指标: browser_verified_findspot;
   browser_verified_material_acquisition_department;

@@ -20,14 +20,24 @@ limits on research use.
 - Recorded checksums / 已记录 checksum: 0
 - Recorded file sizes / 已记录文件大小: 1
 - Package files / 来源包文件: 0
-- Field mappings / 字段映射: 0
+- Field mappings / 字段映射: 5
 - Metadata measurements / 元数据测量: 5
 
 - Recorded access item / 已记录访问项: dl-british-museum-oa-165; http_error; 0 bytes
 
 ## Usable Material Routes / 可用资料路径
-- Usable material route / 可用资料路径: No package or field-map route is registered;
-  source use remains pending.
+- Candidate transfer field / 候选转入字段: museum_number;registration_number ->
+  source_reference;excavation_or_collection_context ->
+  source_collection_item_id;registration_number
+- Candidate transfer field / 候选转入字段: object_type -> source_reference ->
+  source_object_type_label
+- Candidate transfer field / 候选转入字段: culture_or_period;production_date ->
+  excavation_or_collection_context -> source_period_label;source_date_label
+- Candidate transfer field / 候选转入字段: findspot ->
+  excavation_or_collection_context -> source_findspot_label
+- Candidate transfer field / 候选转入字段: material;acquisition_date;department ->
+  asset_metadata;excavation_or_collection_context ->
+  source_material_label;acquisition_year;holding_department
 
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: metadata_only_until_verified

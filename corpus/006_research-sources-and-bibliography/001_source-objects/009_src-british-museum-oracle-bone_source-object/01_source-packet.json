@@ -15,7 +15,7 @@
   "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/009_src-british-museum-oracle-bone_source-object",
   "download_route_count": 1,
   "package_route_count": 0,
-  "field_map_route_count": 0,
+  "field_map_route_count": 5,
   "metadata_profile_route_count": 5,
   "local_files": [
     "README.md",

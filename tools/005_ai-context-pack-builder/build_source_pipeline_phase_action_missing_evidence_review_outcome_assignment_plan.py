@@ -28,6 +28,7 @@ GAP_ORDER = [
     "needs_field_map_review",
     "needs_package_manifest_review",
     "needs_safe_derived_record_review",
+    "ready_for_source_engineering_review",
 ]
 ASSIGNMENT_STATUS = "planned_not_assigned"
 HANDOFF_READINESS_STATUS = "planned_for_outcome_review_handoff"

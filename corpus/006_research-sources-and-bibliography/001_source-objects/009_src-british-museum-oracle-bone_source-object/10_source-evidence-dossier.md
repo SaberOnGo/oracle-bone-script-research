@@ -47,8 +47,10 @@ review status.
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
 - Package route count / 来源包路线数: 0
 - Package kinds / 来源包类型: none
-- Field map route count / 字段映射路线数: 0
-- Target record types / 目标记录类型: none
+- Field map route count / 字段映射路线数: 5
+- Target record types / 目标记录类型: asset_metadata;excavation_or_collection_context;
+  excavation_or_collection_context; source_reference;
+  source_reference;excavation_or_collection_context
 - Metadata route count / metadata 路线数: 5
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
@@ -63,8 +65,79 @@ reusable files as unverified until a manifest row is added.
 
 ## Field Map Evidence / 字段映射证据
 
-No field-map route is recorded in the current source registers. Do not import
-source fields into corpus objects until mappings are reviewed.
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000058
+- Source level / 来源层级: controlled_browser_object_field
+- Source field or unit / 来源字段或单位: museum_number;registration_number
+- Source meaning / 来源含义: British Museum object and registration number labels
+  for OA+.165
+- Target record type / 目标记录类型: source_reference;excavation_or_collection_context
+- Target project field / 目标字段: source_collection_item_id;registration_number
+- Import action / 导入动作: Preserve the museum-local identifiers as lookup and
+  provenance fields for later object review
+- Rights boundary / 权利边界: Museum-local numbers do not establish an inscription
+  identity and must not replace project IDs
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000059
+- Source level / 来源层级: controlled_browser_object_field
+- Source field or unit / 来源字段或单位: object_type
+- Source meaning / 来源含义: British Museum object-type label oracle-bone
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段: source_object_type_label
+- Import action / 导入动作: Preserve the official object-type label for source
+  discovery and museum-record comparison
+- Rights boundary / 权利边界: The source label does not establish glyph identity
+  inscription identity or decipherment
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Field map ID / 字段映射 ID: field-map-000060
+- Source level / 来源层级: controlled_browser_object_field
+- Source field or unit / 来源字段或单位: culture_or_period;production_date
+- Source meaning / 来源含义: British Museum period and production-date labels Shang
+  dynasty and 13thC BC-11thC BC
+- Target record type / 目标记录类型: excavation_or_collection_context
+- Target project field / 目标字段: source_period_label;source_date_label
+- Import action / 导入动作: Preserve source-page dating labels for later
+  archaeological and catalog comparison
+- Rights boundary / 权利边界: Source-page labels are not independently verified
+  dating or group assignment
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Field map ID / 字段映射 ID: field-map-000061
+- Source level / 来源层级: controlled_browser_object_field
+- Source field or unit / 来源字段或单位: findspot
+- Source meaning / 来源含义: British Museum findspot wording Found/Acquired: China
+- Target record type / 目标记录类型: excavation_or_collection_context
+- Target project field / 目标字段: source_findspot_label
+- Import action / 导入动作: Preserve the broad official wording and its uncertainty
+  for later provenance review
+- Rights boundary / 权利边界: Country-level wording is not an excavation site pit
+  batch or secure archaeological context
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 005
+- Field map ID / 字段映射 ID: field-map-000062
+- Source level / 来源层级: controlled_browser_object_field
+- Source field or unit / 来源字段或单位: material;acquisition_date;department
+- Source meaning / 来源含义: British Museum material acquisition-year and department
+  labels bone 1972 and Asia
+- Target record type / 目标记录类型: asset_metadata;excavation_or_collection_context
+- Target project field / 目标字段:
+  source_material_label;acquisition_year;holding_department
+- Import action / 导入动作: Preserve museum metadata labels for object provenance
+  checks and later rights review
+- Rights boundary / 权利边界: Metadata-only mapping is not image availability rights
+  clearance or original excavation evidence
+- Evidence download ID / 证据下载 ID: dl-british-museum-oa-165
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Metadata Profile Evidence / 元数据概况证据
 

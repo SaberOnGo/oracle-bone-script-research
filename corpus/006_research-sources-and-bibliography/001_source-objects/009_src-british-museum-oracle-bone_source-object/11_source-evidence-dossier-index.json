@@ -42,10 +42,15 @@
     "checksum_route_count": 0,
     "size_route_count": 1,
     "package_route_count": 0,
-    "field_map_route_count": 0,
+    "field_map_route_count": 5,
     "metadata_profile_route_count": 5,
     "package_kinds": [],
-    "target_record_types": [],
+    "target_record_types": [
+      "asset_metadata;excavation_or_collection_context",
+      "excavation_or_collection_context",
+      "source_reference",
+      "source_reference;excavation_or_collection_context"
+    ],
     "download_statuses": [
       "http_error"
     ]

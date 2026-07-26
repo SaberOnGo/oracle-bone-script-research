@@ -42,9 +42,9 @@ review before formal research use.
 - Review status / 复核状态: needs_human_source_review
 
 ### field_mapping
-- Status / 状态: not_present_in_current_registers
+- Status / 状态: field_map_routes_present
 - Evidence file / 证据文件: 04_field-map-route-index.csv
-- Evidence count / 证据数量: 0
+- Evidence count / 证据数量: 5
 - Review status / 复核状态: candidate_mapping_needs_human_review
 
 ### metadata_profile
@@ -56,12 +56,11 @@ review before formal research use.
 ### cleaned_structured_linked
 - Status / 状态: candidate_routes_available_not_final_import
 - Evidence file / 证据文件: 08_source-processing-status.md
-- Evidence count / 证据数量: 5
+- Evidence count / 证据数量: 10
 - Review status / 复核状态: pending_human_review
 
 ## Missing Or Review Items / 缺失或待复核项
-- Items / 项目: package_manifest_route; field_map_route;
-  checksum_for_some_download_routes
+- Items / 项目: package_manifest_route; checksum_for_some_download_routes
 
 ## Concrete Questions To Check / 具体待查问题
 - 应核对哪些下载、访问或 checksum 记录？

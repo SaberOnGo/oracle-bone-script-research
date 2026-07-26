@@ -47,15 +47,15 @@
 
 ### Route IDs / 路由 ID
 
-- `source-pipeline-phase-action-missing-evidence-route-005`
+- `source-pipeline-phase-action-missing-evidence-route-004`
 
 ### Action IDs / 动作 ID
 
-- `source-pipeline-phase-action-missing-evidence-005`
+- `source-pipeline-phase-action-missing-evidence-004`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
-- `source-pipeline-phase-action-missing-evidence-result-005`
+- `source-pipeline-phase-action-missing-evidence-result-004`
 
 ## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 

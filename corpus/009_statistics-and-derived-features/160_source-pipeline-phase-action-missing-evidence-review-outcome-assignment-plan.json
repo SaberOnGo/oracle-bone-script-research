@@ -50,9 +50,8 @@
         "src-sinica-da-xiaoxuetang-site",
         "src-sinica-yinshang-oracle-vocabulary"
       ],
-      "route_file_count": 18,
+      "route_file_count": 17,
       "route_files_to_open": [
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv",
         "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
         "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
@@ -299,7 +298,7 @@
       "pipeline_gap_statuses": [
         "needs_download_or_access_review"
       ],
-      "route_file_count": 16
+      "route_file_count": 15
     },
     {
       "source_id": "src-cambridge-hopkins",
@@ -552,11 +551,10 @@
       "source_type": "museum_collection",
       "rights_status": "metadata_only_until_verified",
       "pipeline_gap_status": "needs_download_or_access_review",
-      "missing_route_count": "3",
-      "missing_file_role_count": "3",
+      "missing_route_count": "2",
+      "missing_file_role_count": "2",
       "missing_file_roles": [
         "large_source_register",
-        "source_field_map",
         "source_package_file_manifest"
       ],
       "priority_rank": "1",
@@ -565,7 +563,6 @@
         "gap_status:needs_download_or_access_review",
         "missing_evidence_review",
         "role:large_source_register",
-        "role:source_field_map",
         "role:source_package_file_manifest"
       ],
       "required_review_steps": [
@@ -580,7 +577,6 @@
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
         "verify_large_source_register_applicability",
-        "verify_source_field_map_or_create_reviewed_row",
         "verify_package_manifest_or_not_applicable_boundary"
       ],
       "required_precheck_steps": [
@@ -598,7 +594,6 @@
       ],
       "required_review_actions": [
         "review_large_source_register_applicability_or_mark_not_applicable",
-        "review_or_create_source_field_map_row",
         "review_package_manifest_applicability_or_create_row"
       ],
       "route_summary_path": "corpus/009_statistics-and-derived-features/159_source-pipeline-phase-action-missing-evidence-review-outcome-handoff-route-summary.json",
@@ -629,10 +624,9 @@
         "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
         "corpus/009_statistics-and-derived-features/151_source-pipeline-phase-action-missing-evidence-review-route-pack.json",
         "project_registry/006_large-source-register/001_large-source-register.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv",
         "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv"
       ],
-      "route_file_count": 16,
+      "route_file_count": 15,
       "reserved_outcome_fields": [
         "source_metadata_outcome_reviewed",
         "access_boundary_outcome_reviewed",

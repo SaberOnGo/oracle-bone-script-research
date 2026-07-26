@@ -10154,8 +10154,8 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_file_checklist_rows:210",
             "source_pipeline_phase_action_evidence_presence_rows:210",
             "source_pipeline_phase_action_evidence_gap_summary_rows:21",
-            "source_pipeline_phase_action_missing_evidence_action_queue_rows:25",
-            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:25",
+            "source_pipeline_phase_action_missing_evidence_action_queue_rows:24",
+            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:24",
             "source_pipeline_phase_action_missing_evidence_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_source_summary_rows:18",
             "source_pipeline_phase_action_missing_evidence_review_draft_rows:18",
@@ -10513,11 +10513,11 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "download_log_count": 49,
         "download_manifest_count": 48,
         "downloaded_count": 42,
-        "field_map_count": 57,
+        "field_map_count": 62,
         "graph_edge_count": 117138,
         "large_source_register_count": 18,
         "metadata_profile_count": 85,
-        "missing_evidence_action_count": 25,
+        "missing_evidence_action_count": 24,
         "missing_evidence_assignment_count": 18,
         "object_local_material_bundle_count": 29903,
         "object_local_partial_bundle_count": 0,
@@ -10588,7 +10588,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "current_stage": "pending_human_review",
             "downloaded_count": "0",
             "source_phase_action_count": "7",
-            "missing_evidence_action_count": "3",
+            "missing_evidence_action_count": "2",
             "object_local_material_bundle_count": "1",
             "object_local_route_object_count": "1",
         },
@@ -10632,7 +10632,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         },
         "src-british-museum-oracle-bone": {
             "pipeline_gap_status": "needs_download_or_access_review",
-            "gap_flags": "not_downloaded_or_access_not_resolved;missing_field_map;missing_package_manifest;missing_metadata_profile",
+            "gap_flags": "not_downloaded_or_access_not_resolved;missing_package_manifest",
         },
         "src-nlc-oracle-world": {
             "review_lane": "source_register_monitoring",
@@ -11068,9 +11068,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 13196,
         "formal_record_count": 101679,
         "graph_edge_count": 220887,
-        "manual_review_backlog_count": 13130,
-        "review_queue_count": 12874,
-        "staging_record_count": 75277,
+        "manual_review_backlog_count": 13128,
+        "review_queue_count": 12872,
+        "staging_record_count": 75282,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -11117,8 +11117,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "formal_record_count": "21",
-            "staging_record_count": "247",
-            "review_queue_count": "1003",
+            "staging_record_count": "252",
+            "review_queue_count": "1001",
             "review_queue_path": SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
         },
         "published_research_notes": {
@@ -17358,7 +17358,7 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} should contain exactly 210 rows")
     present_count = sum(1 for row in rows if row.get("match_status") == "present")
     missing_count = sum(1 for row in rows if row.get("match_status") == "missing_for_source")
-    if present_count != 185 or missing_count != 25:
+    if present_count != 186 or missing_count != 24:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} match status counts changed")
 
     by_key = {(row.get("source_id", ""), row.get("file_role", "")): row for row in rows}
@@ -17369,9 +17369,15 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
             "join_strategy": "source_id",
         },
         ("src-british-museum-oracle-bone", "source_field_map"): {
-            "matched_row_count": "0",
-            "match_status": "missing_for_source",
-            "matched_ids": "",
+            "matched_row_count": "5",
+            "match_status": "present",
+            "matched_ids": (
+                "src-british-museum-oracle-bone;"
+                "src-british-museum-oracle-bone;"
+                "src-british-museum-oracle-bone;"
+                "src-british-museum-oracle-bone;"
+                "src-british-museum-oracle-bone"
+            ),
         },
         ("src-hust-obc", "source_download_log"): {
             "matched_row_count": "8",
@@ -17417,7 +17423,7 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         "large_source_register": {"missing_for_source": 18, "present": 3},
         "source_download_log": {"present": 21},
         "source_download_manifest": {"present": 21},
-        "source_field_map": {"missing_for_source": 4, "present": 17},
+        "source_field_map": {"missing_for_source": 3, "present": 18},
         "source_package_file_manifest": {"missing_for_source": 3, "present": 18},
         "source_pipeline_gap_matrix": {"present": 21},
         "source_processing_pipeline_audit": {"present": 21},
@@ -17465,10 +17471,10 @@ def check_source_pipeline_phase_action_evidence_gap_summary(root: Path) -> list[
     by_source = {row.get("source_id", ""): row for row in rows}
     expected_fragments = {
         "src-british-museum-oracle-bone": {
-            "present_file_role_count": "7",
-            "missing_file_role_count": "3",
-            "total_matched_row_count": "11",
-            "missing_file_roles": "large_source_register;source_field_map;source_package_file_manifest",
+            "present_file_role_count": "8",
+            "missing_file_role_count": "2",
+            "total_matched_row_count": "16",
+            "missing_file_roles": "large_source_register;source_package_file_manifest",
             "gap_status": "has_missing_source_evidence_rows",
             "next_review_action": "triage_missing_source_evidence_rows_before_review_outcome",
         },
@@ -17538,19 +17544,14 @@ def check_source_pipeline_phase_action_missing_evidence_action_queue(root: Path)
     role_counts = Counter(row.get("missing_file_role", "") for row in rows)
     expected_role_counts = {
         "large_source_register": 18,
-        "source_field_map": 4,
+        "source_field_map": 3,
         "source_package_file_manifest": 3,
     }
     if dict(role_counts) != expected_role_counts:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE} missing role counts changed")
 
     by_key = {(row.get("source_id", ""), row.get("missing_file_role", "")): row for row in rows}
-    expected_fragments = {
-        ("src-british-museum-oracle-bone", "source_field_map"): {
-            "action_type": "review_or_create_source_field_map_row",
-            "action_priority": "field_map_gap_review",
-        },
-    }
+    expected_fragments = {}
     for key, expected_values in expected_fragments.items():
         row = by_key.get(key, {})
         if not row:
@@ -17652,7 +17653,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         "route_summary_id": "source-pipeline-phase-action-missing-evidence-route-summary-001",
         "updated_at": "2026-06-19",
         "action_result_scaffold_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
-        "route_count": 25,
+        "route_count": 24,
         "source_count": 18,
         "automation_boundary": "routing_only_no_missing_evidence_outcome_capture",
         "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
@@ -17662,20 +17663,20 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {field} changed")
     expected_role_counts = {
         "large_source_register": 18,
-        "source_field_map": 4,
+        "source_field_map": 3,
         "source_package_file_manifest": 3,
     }
     if data.get("missing_file_role_counts") != expected_role_counts:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} role counts changed")
     for field, expected_value in {
-        "result_status_counts": {"not_started": 25},
-        "route_status_counts": {"not_started": 25},
-        "evidence_collection_status_counts": {"not_collected": 25},
-        "human_review_status_counts": {"pending_human_review": 25},
-        "rights_decision_status_counts": {"no_new_rights_decision": 25},
-        "source_promotion_status_counts": {"not_promoted": 25},
-        "corpus_import_status_counts": {"not_imported": 25},
-        "decipherment_claim_status_counts": {"no_decipherment_claim": 25},
+        "result_status_counts": {"not_started": 24},
+        "route_status_counts": {"not_started": 24},
+        "evidence_collection_status_counts": {"not_collected": 24},
+        "human_review_status_counts": {"pending_human_review": 24},
+        "rights_decision_status_counts": {"no_new_rights_decision": 24},
+        "source_promotion_status_counts": {"not_promoted": 24},
+        "corpus_import_status_counts": {"not_imported": 24},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": 24},
     }.items():
         if data.get(field) != expected_value:
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {field} changed")
@@ -17683,7 +17684,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} caution changed")
 
     routes = data.get("routes", [])
-    if not isinstance(routes, list) or len(routes) != 25:
+    if not isinstance(routes, list) or len(routes) != 24:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} routes changed")
         return issues
     first = routes[0]
@@ -17694,7 +17695,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first source changed")
     if first.get("missing_file_role") != "large_source_register":
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first role changed")
-    if last.get("route_id") != "source-pipeline-phase-action-missing-evidence-route-025":
+    if last.get("route_id") != "source-pipeline-phase-action-missing-evidence-route-024":
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} last route id changed")
     if last.get("source_id") != "src-yinqi-wenyuan":
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} last source changed")
@@ -17729,9 +17730,9 @@ def check_source_pipeline_phase_action_missing_evidence_source_summary(root: Pat
     by_source = {row.get("source_id", ""): row for row in rows}
     expected_fragments = {
         "src-british-museum-oracle-bone": {
-            "missing_route_count": "3",
-            "missing_file_role_count": "3",
-            "missing_file_roles": "large_source_register;source_field_map;source_package_file_manifest",
+            "missing_route_count": "2",
+            "missing_file_role_count": "2",
+            "missing_file_roles": "large_source_register;source_package_file_manifest",
         },
         "src-cambridge-hopkins": {
             "missing_route_count": "1",
@@ -17792,7 +17793,7 @@ def check_source_pipeline_phase_action_missing_evidence_review_drafts(root: Path
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} first draft id changed")
         if first.get("source_id") != "src-british-museum-oracle-bone":
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} first source changed")
-        if first.get("missing_file_roles") != "large_source_register;source_field_map;source_package_file_manifest":
+        if first.get("missing_file_roles") != "large_source_register;source_package_file_manifest":
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} first roles changed")
         if last.get("review_draft_id") != "source-pipeline-missing-evidence-review-draft-018":
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_DRAFT_MANIFEST} last draft id changed")
@@ -17886,7 +17887,7 @@ def check_source_pipeline_phase_action_missing_evidence_review_result_scaffold(r
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD} first draft link changed")
         if first.get("source_id") != "src-british-museum-oracle-bone":
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD} first source changed")
-        if first.get("missing_file_roles") != "large_source_register;source_field_map;source_package_file_manifest":
+        if first.get("missing_file_roles") != "large_source_register;source_package_file_manifest":
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD} first roles changed")
         if last.get("result_scaffold_id") != "source-pipeline-missing-evidence-result-scaffold-018":
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_REVIEW_RESULT_SCAFFOLD} last result id changed")

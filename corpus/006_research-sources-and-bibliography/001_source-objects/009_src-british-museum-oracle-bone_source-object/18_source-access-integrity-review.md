@@ -42,10 +42,10 @@ proposer, dispute, or scholarship note this source can actually support.
 
 ## Access Download Checksum And Size / 访问下载校验与大小
 - Download route file / 下载路线文件: 02_download-route-index.csv
-- Download route count / 下载路线数: 1
+- Download route count / 下载路线数: 2
 - Checksum route count / checksum 路线数: 0
-- Missing checksum count / 缺 checksum 数: 1
-- Size route count / 大小路线数: 1
+- Missing checksum count / 缺 checksum 数: 2
+- Size route count / 大小路线数: 2
 - Missing size count / 缺大小数: 0
 - Local temp route count / 本地临时路线数: 0
 

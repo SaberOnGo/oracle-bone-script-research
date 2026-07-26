@@ -16,6 +16,9 @@ SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST = Path(
 SOURCE_PACKAGE_FILE_MANIFEST = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv"
 )
+SOURCE_DOWNLOAD_LOG = Path(
+    "project_registry/006_large-source-register/002_source-download-log.csv"
+)
 UPDATED_AT = "2026-06-19"
 REVIEW_STATUS = "pending_human_review"
 RESEARCH_BOUNDARY = "source_pipeline_phase_action_evidence_presence_matrix_not_scholarship"
@@ -95,23 +98,98 @@ def row_identifier(row: dict[str, str]) -> str:
     return ""
 
 
-def match_rows(root: Path, checklist_row: dict[str, str], source_package_ids: dict[str, set[str]]) -> tuple[str, list[str]]:
+def downloaded_source_ids(root: Path) -> set[str]:
+    return {
+        row["source_id"]
+        for row in read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+        if row.get("status", "").startswith("downloaded")
+        and row.get("file_size_bytes", "") not in {"", "0"}
+        and row.get("checksum_sha256", "")
+    }
+
+
+def match_rows(
+    root: Path,
+    checklist_row: dict[str, str],
+    source_package_ids: dict[str, set[str]],
+    sources_with_downloaded_payloads: set[str],
+) -> tuple[str, list[str], str, str]:
     source_id = checklist_row["source_id"]
     file_path = checklist_row["file_to_open"]
     file_rows = read_csv_rows(root / file_path)
     if not file_rows:
-        return "empty_file", []
+        return (
+            "empty_file",
+            [],
+            "missing_for_source",
+            "record_missing_source_row_or_not_applicable_after_review",
+        )
 
     if checklist_row["file_role"] == "large_source_register":
         package_ids = source_package_ids.get(source_id, set())
         matched = [row for row in file_rows if row.get("source_package_id", "") in package_ids]
-        return "source_package_id_via_package_manifest", [row_identifier(row) for row in matched]
+        matched_ids = [row_identifier(row) for row in matched]
+        if matched_ids:
+            return (
+                "source_package_id_via_package_manifest",
+                matched_ids,
+                "present",
+                "open_matched_rows_and_record_human_review_outcome",
+            )
+        if package_ids and all(package_id.startswith("light-src-") for package_id in package_ids):
+            return (
+                "source_package_id_via_package_manifest",
+                [],
+                "not_applicable_lightweight_source",
+                "no_large_source_register_action_required",
+            )
+        if source_id not in sources_with_downloaded_payloads:
+            return (
+                "download_log_status_and_checksum",
+                [],
+                "not_applicable_no_downloaded_payload",
+                "retain_access_boundary_and_recheck_before_large_source_review",
+            )
+        return (
+            "source_package_id_via_package_manifest",
+            [],
+            "missing_for_source",
+            "review_large_source_register_applicability_or_mark_not_applicable",
+        )
 
     if "source_id" in file_rows[0]:
         matched = [row for row in file_rows if row.get("source_id", "") == source_id]
-        return "source_id", [row_identifier(row) for row in matched]
+        matched_ids = [row_identifier(row) for row in matched]
+        if matched_ids:
+            return (
+                "source_id",
+                matched_ids,
+                "present",
+                "open_matched_rows_and_record_human_review_outcome",
+            )
+        if (
+            checklist_row["file_role"] == "source_package_file_manifest"
+            and source_id not in sources_with_downloaded_payloads
+        ):
+            return (
+                "download_log_status_and_checksum",
+                [],
+                "not_applicable_no_downloaded_payload",
+                "retain_access_boundary_and_recheck_before_manifest",
+            )
+        return (
+            "source_id",
+            [],
+            "missing_for_source",
+            "record_missing_source_row_or_not_applicable_after_review",
+        )
 
-    return "no_source_join_field", []
+    return (
+        "no_source_join_field",
+        [],
+        "missing_for_source",
+        "record_missing_source_row_or_not_applicable_after_review",
+    )
 
 
 def role_presence_counts(rows: list[dict[str, str]]) -> dict[str, dict[str, int]]:
@@ -124,10 +202,15 @@ def role_presence_counts(rows: list[dict[str, str]]) -> dict[str, dict[str, int]
 
 def build_evidence_presence_rows(root: Path, checklist_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     source_package_ids = package_ids_by_source(root)
+    sources_with_downloaded_payloads = downloaded_source_ids(root)
     rows: list[dict[str, str]] = []
     for checklist_row in checklist_rows:
-        join_strategy, matched_ids = match_rows(root, checklist_row, source_package_ids)
-        match_status = "present" if matched_ids else "missing_for_source"
+        join_strategy, matched_ids, match_status, next_review_action = match_rows(
+            root,
+            checklist_row,
+            source_package_ids,
+            sources_with_downloaded_payloads,
+        )
         rows.append(
             {
                 "evidence_presence_row_id": f"source-pipeline-phase-action-evidence-presence-{len(rows) + 1:03d}",
@@ -144,11 +227,7 @@ def build_evidence_presence_rows(root: Path, checklist_rows: list[dict[str, str]
                 "matched_row_count": str(len(matched_ids)),
                 "match_status": match_status,
                 "matched_ids": ";".join(matched_ids),
-                "next_review_action": (
-                    "open_matched_rows_and_record_human_review_outcome"
-                    if matched_ids
-                    else "record_missing_source_row_or_not_applicable_after_review"
-                ),
+                "next_review_action": next_review_action,
                 "file_checklist_path": SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST.as_posix(),
                 "source_summary_path": checklist_row["source_summary_path"],
                 "route_ids": checklist_row["route_ids"],

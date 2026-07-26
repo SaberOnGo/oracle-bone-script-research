@@ -9915,8 +9915,8 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         status_counts[row.get("coverage_status", "")] += 1
 
     expected_totals = {
-        "download_manifest_count": 51,
-        "download_log_count": 52,
+        "download_manifest_count": 54,
+        "download_log_count": 55,
         "downloaded_file_bytes": 685760459,
         "metadata_profile_metric_count": 92,
         "committed_asset_count": 21363,
@@ -10066,9 +10066,9 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
     expected_fragments = {
         "source_registry": [
             "source_rows:21",
-            "download_log_rows:52",
+            "download_log_rows:55",
             "downloaded_rows:44",
-            "download_error_or_boundary_rows:8",
+            "download_error_or_boundary_rows:11",
         ],
         "large_source_register": [
             "large_source_rows:4",
@@ -10154,48 +10154,48 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_file_checklist_rows:210",
             "source_pipeline_phase_action_evidence_presence_rows:210",
             "source_pipeline_phase_action_evidence_gap_summary_rows:21",
-            "source_pipeline_phase_action_missing_evidence_action_queue_rows:21",
-            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:21",
+            "source_pipeline_phase_action_missing_evidence_action_queue_rows:0",
+            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:0",
             "source_pipeline_phase_action_missing_evidence_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_source_summary_rows:18",
-            "source_pipeline_phase_action_missing_evidence_review_draft_rows:18",
-            "source_pipeline_phase_action_missing_evidence_review_result_scaffold_rows:18",
-            "source_pipeline_phase_action_missing_evidence_review_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_source_summary_rows:0",
+            "source_pipeline_phase_action_missing_evidence_review_draft_rows:0",
+            "source_pipeline_phase_action_missing_evidence_review_result_scaffold_rows:0",
+            "source_pipeline_phase_action_missing_evidence_review_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_route_pack_files:1",
             "source_pipeline_phase_action_missing_evidence_review_handoff_scaffold_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_handoff_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_handoff_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_handoff_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_scaffold_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_scaffold_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_route_pack_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_handoff_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_handoff_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_handoff_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_plan_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist_rows:18",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist_rows:0",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_rows:18",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary_rows:0",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_route_pack_files:1",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_scaffold_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_scaffold_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_scaffold_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_scaffold_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_scaffold_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary_files:1",
-            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_checklist_rows:18",
+            "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_checklist_rows:0",
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_plan_files:1",
-            "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows:5",
+            "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows:0",
             "object_local_material_coverage_audit_rows:29754",
             "object_local_material_coverage_summary_files:1",
         ],
@@ -10279,9 +10279,9 @@ def check_data_quality_audit(root: Path) -> list[str]:
 
     expected_dataset_counts = {
         "source_index": "21",
-        "source_download_manifest": "51",
+        "source_download_manifest": "54",
         "browser_verified_metadata_capture": "2",
-        "source_download_log": "52",
+        "source_download_log": "55",
         "large_source_register": "4",
         "source_package_file_manifest": "38",
         "asset_source_index": "21363",
@@ -10505,26 +10505,26 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} stage counts changed")
 
     expected_totals = {
-        "access_boundary_or_error_count": 11,
+        "access_boundary_or_error_count": 13,
         "asset_count": 21363,
         "candidate_queue_count": 10996,
         "checksum_present_count": 44,
         "cross_source_crosswalk_match_count": 1737,
-        "download_log_count": 52,
-        "download_manifest_count": 51,
+        "download_log_count": 55,
+        "download_manifest_count": 54,
         "downloaded_count": 44,
         "field_map_count": 78,
         "graph_edge_count": 117138,
         "large_source_register_count": 18,
         "metadata_profile_count": 92,
-        "missing_evidence_action_count": 21,
-        "missing_evidence_assignment_count": 18,
+        "missing_evidence_action_count": 0,
+        "missing_evidence_assignment_count": 0,
         "object_local_material_bundle_count": 29903,
         "object_local_partial_bundle_count": 0,
         "object_local_review_image_object_count": 13715,
         "object_local_route_object_count": 29903,
         "package_manifest_count": 38,
-        "size_recorded_count": 52,
+        "size_recorded_count": 55,
         "source_phase_action_count": 62,
         "source_route_review_queue_count": 21,
     }
@@ -10572,7 +10572,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "graph_edge_count": "4403",
             "downloaded_count": "1",
             "source_phase_action_count": "1",
-            "missing_evidence_assignment_count": "1",
+            "missing_evidence_assignment_count": "0",
             "object_local_material_bundle_count": "633",
             "object_local_route_object_count": "633",
         },
@@ -10580,7 +10580,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "current_stage": "pending_human_review",
             "access_boundary_or_error_count": "4",
             "source_phase_action_count": "6",
-            "missing_evidence_action_count": "1",
+            "missing_evidence_action_count": "0",
             "object_local_material_bundle_count": "1",
             "object_local_route_object_count": "1",
         },
@@ -10588,7 +10588,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "current_stage": "pending_human_review",
             "downloaded_count": "0",
             "source_phase_action_count": "7",
-            "missing_evidence_action_count": "2",
+            "missing_evidence_action_count": "0",
             "object_local_material_bundle_count": "1",
             "object_local_route_object_count": "1",
         },
@@ -11098,9 +11098,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 13196,
         "formal_record_count": 101679,
         "graph_edge_count": 220887,
-        "manual_review_backlog_count": 13122,
-        "review_queue_count": 12866,
-        "staging_record_count": 75310,
+        "manual_review_backlog_count": 12751,
+        "review_queue_count": 12734,
+        "staging_record_count": 75313,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -11147,8 +11147,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "formal_record_count": "21",
-            "staging_record_count": "280",
-            "review_queue_count": "995",
+            "staging_record_count": "283",
+            "review_queue_count": "863",
             "review_queue_path": SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
         },
         "published_research_notes": {
@@ -15795,9 +15795,9 @@ def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
         for source_id in row.get("source_ids", "").split(";")
         if source_id
     }
-    if len(assignment_rows) != 5:
+    if len(assignment_rows) != 0:
         issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment group source changed")
-    if len(source_ids) != 18:
+    if len(source_ids) != 0:
         issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} source coverage changed")
     required_source_slots = {
         "source_system",
@@ -15847,11 +15847,14 @@ def check_research_source_phase_gap_review_checklist(root: Path) -> list[str]:
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} review priority changed: {review_id}")
         if row.get("review_status") != "needs_human_review":
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} review status changed: {review_id}")
-        if row.get("assignment_group_count") != "5":
+        if row.get("assignment_group_count") != "0":
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment group count changed: {review_id}")
-        if row.get("assignment_source_count_total") != "18":
+        if row.get("assignment_source_count_total") != "0":
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment source count changed: {review_id}")
-        if set(row.get("assignment_checklist_ids", "").split(";")) != assignment_ids:
+        row_assignment_ids = {
+            value for value in row.get("assignment_checklist_ids", "").split(";") if value
+        }
+        if row_assignment_ids != assignment_ids:
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} assignment IDs changed: {review_id}")
         if row.get("claim_boundary") != "research_source_phase_gap_review_checklist_not_review_outcome_not_scholarship":
             issues.append(f"{RESEARCH_SOURCE_PHASE_GAP_REVIEW_CHECKLIST} claim boundary changed: {review_id}")
@@ -15904,9 +15907,8 @@ def check_research_source_phase_gap_human_guide(root: Path) -> list[str]:
         "extracted: `mixed_or_partial`",
         "cleaned: `mixed_or_partial`",
         "verified: `mixed_or_partial`",
-        "assignment groups: 5",
-        "assignment source ids: 18",
-        "source-pipeline-missing-evidence-outcome-routes-assignment-checklist-004:7",
+        "assignment groups: 0",
+        "assignment source ids: 0",
         "source system, provider, catalog, book, paper, museum, or URL",
         "access or download record, access date, package name",
         "file size and checksum",
@@ -17388,7 +17390,10 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} should contain exactly 210 rows")
     present_count = sum(1 for row in rows if row.get("match_status") == "present")
     missing_count = sum(1 for row in rows if row.get("match_status") == "missing_for_source")
-    if present_count != 189 or missing_count != 21:
+    not_applicable_count = sum(
+        1 for row in rows if row.get("match_status", "").startswith("not_applicable_")
+    )
+    if present_count != 189 or missing_count != 0 or not_applicable_count != 21:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} match status counts changed")
 
     by_key = {(row.get("source_id", ""), row.get("file_role", "")): row for row in rows}
@@ -17430,7 +17435,7 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         },
         ("src-yinqi-wenyuan", "large_source_register"): {
             "matched_row_count": "0",
-            "match_status": "missing_for_source",
+            "match_status": "not_applicable_lightweight_source",
             "join_strategy": "source_package_id_via_package_manifest",
             "matched_ids": "",
         },
@@ -17470,11 +17475,18 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         role_status_counts[row.get("file_role", "")][row.get("match_status", "")] += 1
     expected_role_counts = {
         "downloaded_metadata_profile": {"present": 21},
-        "large_source_register": {"missing_for_source": 18, "present": 3},
+        "large_source_register": {
+            "not_applicable_no_downloaded_payload": 3,
+            "not_applicable_lightweight_source": 15,
+            "present": 3,
+        },
         "source_download_log": {"present": 21},
         "source_download_manifest": {"present": 21},
         "source_field_map": {"present": 21},
-        "source_package_file_manifest": {"missing_for_source": 3, "present": 18},
+        "source_package_file_manifest": {
+            "not_applicable_no_downloaded_payload": 3,
+            "present": 18,
+        },
         "source_pipeline_gap_matrix": {"present": 21},
         "source_processing_pipeline_audit": {"present": 21},
         "source_register": {"present": 21},
@@ -17513,61 +17525,67 @@ def check_source_pipeline_phase_action_evidence_gap_summary(root: Path) -> list[
 
     if len(rows) != 21:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY} should contain exactly 21 rows")
-    all_present_count = sum(1 for row in rows if row.get("gap_status") == "all_review_files_have_source_rows")
+    all_present_count = sum(
+        1 for row in rows if row.get("gap_status") == "all_required_review_files_resolved"
+    )
     missing_count = sum(1 for row in rows if row.get("gap_status") == "has_missing_source_evidence_rows")
-    if all_present_count != 3 or missing_count != 18:
+    if all_present_count != 21 or missing_count != 0:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY} gap status counts changed")
 
     by_source = {row.get("source_id", ""): row for row in rows}
     expected_fragments = {
         "src-british-museum-oracle-bone": {
             "present_file_role_count": "8",
-            "missing_file_role_count": "2",
-            "total_matched_row_count": "16",
-            "missing_file_roles": "large_source_register;source_package_file_manifest",
-            "gap_status": "has_missing_source_evidence_rows",
-            "next_review_action": "triage_missing_source_evidence_rows_before_review_outcome",
+            "missing_file_role_count": "0",
+            "not_applicable_file_role_count": "2",
+            "total_matched_row_count": "18",
+            "not_applicable_file_roles": "large_source_register;source_package_file_manifest",
+            "gap_status": "all_required_review_files_resolved",
+            "next_review_action": "open_matched_rows_and_retain_not_applicable_boundaries",
         },
         "src-hust-obc": {
             "present_file_role_count": "10",
             "missing_file_role_count": "0",
             "total_matched_row_count": "42",
             "missing_file_roles": "",
-            "gap_status": "all_review_files_have_source_rows",
-            "next_review_action": "open_all_matched_source_rows_and_record_review_outcomes",
+            "gap_status": "all_required_review_files_resolved",
+            "next_review_action": "open_matched_rows_and_retain_not_applicable_boundaries",
         },
         "src-obimd": {
             "present_file_role_count": "10",
             "missing_file_role_count": "0",
             "total_matched_row_count": "40",
-            "gap_status": "all_review_files_have_source_rows",
+            "gap_status": "all_required_review_files_resolved",
         },
         "src-evobc": {
             "present_file_role_count": "10",
             "missing_file_role_count": "0",
             "total_matched_row_count": "27",
-            "gap_status": "all_review_files_have_source_rows",
+            "gap_status": "all_required_review_files_resolved",
         },
         "src-yinqi-wenyuan": {
             "present_file_role_count": "9",
-            "missing_file_role_count": "1",
+            "missing_file_role_count": "0",
+            "not_applicable_file_role_count": "1",
             "total_matched_row_count": "15",
-            "missing_file_roles": "large_source_register",
-            "gap_status": "has_missing_source_evidence_rows",
+            "not_applicable_file_roles": "large_source_register",
+            "gap_status": "all_required_review_files_resolved",
         },
         "src-open-oracle": {
             "present_file_role_count": "9",
-            "missing_file_role_count": "1",
+            "missing_file_role_count": "0",
+            "not_applicable_file_role_count": "1",
             "total_matched_row_count": "20",
-            "missing_file_roles": "large_source_register",
-            "gap_status": "has_missing_source_evidence_rows",
+            "not_applicable_file_roles": "large_source_register",
+            "gap_status": "all_required_review_files_resolved",
         },
         "src-oracle-mnist": {
             "present_file_role_count": "9",
-            "missing_file_role_count": "1",
+            "missing_file_role_count": "0",
+            "not_applicable_file_role_count": "1",
             "total_matched_row_count": "23",
-            "missing_file_roles": "large_source_register",
-            "gap_status": "has_missing_source_evidence_rows",
+            "not_applicable_file_roles": "large_source_register",
+            "gap_status": "all_required_review_files_resolved",
         },
     }
     for source_id, expected_values in expected_fragments.items():
@@ -17595,6 +17613,44 @@ def check_source_pipeline_phase_action_evidence_gap_summary(root: Path) -> list[
                 issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY} {row_id} {field} changed")
         if "only rolls up existing source-file presence" not in row.get("caution", ""):
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_GAP_SUMMARY} caution changed: {row_id}")
+    return issues
+
+
+def check_source_pipeline_resolved_missing_evidence_chain(root: Path) -> list[str]:
+    """Validate that resolved applicability boundaries leave no fake work rows."""
+
+    issues: list[str] = []
+    stat_dir = root / "corpus/009_statistics-and-derived-features"
+    list_keys = {
+        "routes",
+        "handoffs",
+        "assignment_items",
+        "handoff_items",
+        "source_summaries",
+    }
+    for number in range(144, 186):
+        paths = sorted(stat_dir.glob(f"{number:03d}_source-pipeline*"))
+        if len(paths) != 1:
+            issues.append(f"resolved missing-evidence output {number:03d} count changed")
+            continue
+        path = paths[0]
+        relative_path = path.relative_to(root).as_posix()
+        if path.suffix == ".csv":
+            rows, csv_issues = _read_csv_rows(path)
+            issues.extend(csv_issues)
+            if rows:
+                issues.append(f"{relative_path} should contain no resolved fake work rows")
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            issues.append(f"{relative_path} invalid JSON: {error}")
+            continue
+        for key, value in data.items():
+            if key.endswith("_count") and isinstance(value, int) and value != 0:
+                issues.append(f"{relative_path} {key} should be 0")
+            if key in list_keys and value != []:
+                issues.append(f"{relative_path} {key} should be empty")
     return issues
 
 
@@ -23738,8 +23794,8 @@ def check_ai_context_packs(root: Path) -> list[str]:
     source_coverage = source_context_pack.get("coverage", {})
     expected_source_coverage = {
         "source_count": 21,
-        "download_manifest_count": 51,
-        "download_log_count": 52,
+        "download_manifest_count": 54,
+        "download_log_count": 55,
         "metadata_profile_metric_count": 92,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,
@@ -34247,48 +34303,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_phase_action_file_checklist(root))
     issues.extend(check_source_pipeline_phase_action_evidence_presence_matrix(root))
     issues.extend(check_source_pipeline_phase_action_evidence_gap_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_action_queue(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_result_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_source_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_drafts(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_result_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_route_pack(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_handoff_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_handoff_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_handoff_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_route_pack(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_handoff_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_assignment_plan(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_plan(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_route_pack(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_scaffold(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_route_summary_outcome_route_summary(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_checklist(root))
-    issues.extend(check_source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary(root))
-    issues.extend(check_source_pipeline_missing_evidence_outcome_routes_assignment_plan(root))
-    issues.extend(check_source_pipeline_missing_evidence_outcome_routes_assignment_checklist(root))
+    issues.extend(check_source_pipeline_resolved_missing_evidence_chain(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
 

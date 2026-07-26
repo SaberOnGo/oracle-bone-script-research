@@ -26,7 +26,7 @@ review before formal research use.
 ### download_or_access
 - Status / 状态: download_or_access_routes_present
 - Evidence file / 证据文件: 02_download-route-index.csv
-- Evidence count / 证据数量: 1
+- Evidence count / 证据数量: 2
 - Review status / 复核状态: metadata_route_needs_human_review
 
 ### checksum_and_size

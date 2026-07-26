@@ -17,7 +17,7 @@
       "phase": "download_or_access",
       "status": "download_or_access_routes_present",
       "evidence_file": "02_download-route-index.csv",
-      "evidence_count": 1,
+      "evidence_count": 2,
       "status_values": [
         "download_error"
       ],
@@ -28,7 +28,7 @@
       "status": "partial_or_complete_checksum_size_evidence",
       "evidence_file": "02_download-route-index.csv",
       "checksum_row_count": 0,
-      "size_row_count": 1,
+      "size_row_count": 2,
       "local_temp_path_row_count": 0,
       "review_status": "needs_human_source_review"
     },

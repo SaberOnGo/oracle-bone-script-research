@@ -33,10 +33,12 @@ OUTPUT_FIELDS = [
     "phase_names",
     "present_file_role_count",
     "missing_file_role_count",
+    "not_applicable_file_role_count",
     "total_file_role_count",
     "total_matched_row_count",
     "present_file_roles",
     "missing_file_roles",
+    "not_applicable_file_roles",
     "gap_status",
     "next_review_action",
     "evidence_presence_matrix_path",
@@ -81,7 +83,10 @@ def build_gap_summary_rows(evidence_rows: list[dict[str, str]]) -> list[dict[str
         first = source_rows[0]
         present_rows = [row for row in source_rows if row["match_status"] == "present"]
         missing_rows = [row for row in source_rows if row["match_status"] == "missing_for_source"]
-        gap_status = "all_review_files_have_source_rows" if not missing_rows else "has_missing_source_evidence_rows"
+        not_applicable_rows = [
+            row for row in source_rows if row["match_status"].startswith("not_applicable_")
+        ]
+        gap_status = "all_required_review_files_resolved" if not missing_rows else "has_missing_source_evidence_rows"
         rows.append(
             {
                 "evidence_gap_summary_id": f"source-pipeline-phase-action-evidence-gap-summary-{index:03d}",
@@ -93,13 +98,17 @@ def build_gap_summary_rows(evidence_rows: list[dict[str, str]]) -> list[dict[str
                 "phase_names": first["phase_names"],
                 "present_file_role_count": str(len(present_rows)),
                 "missing_file_role_count": str(len(missing_rows)),
+                "not_applicable_file_role_count": str(len(not_applicable_rows)),
                 "total_file_role_count": str(len(source_rows)),
                 "total_matched_row_count": str(sum(int(row["matched_row_count"]) for row in source_rows)),
                 "present_file_roles": sorted_join([row["file_role"] for row in present_rows]),
                 "missing_file_roles": sorted_join([row["file_role"] for row in missing_rows]),
+                "not_applicable_file_roles": sorted_join(
+                    [row["file_role"] for row in not_applicable_rows]
+                ),
                 "gap_status": gap_status,
                 "next_review_action": (
-                    "open_all_matched_source_rows_and_record_review_outcomes"
+                    "open_matched_rows_and_retain_not_applicable_boundaries"
                     if not missing_rows
                     else "triage_missing_source_evidence_rows_before_review_outcome"
                 ),

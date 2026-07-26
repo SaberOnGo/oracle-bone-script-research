@@ -26,38 +26,14 @@ and not a decipherment conclusion.
 
 - updated at: 2026-06-30
 - checklist rows: 5
-- assignment groups: 5
-- assignment source ids: 18
+- assignment groups: 0
+- assignment source ids: 0
 - pipeline gap statuses:
-  - `needs_access_boundary_review`
-  - `needs_download_or_access_review`
-  - `needs_field_map_review`
-  - `needs_package_manifest_review`
-  - `needs_safe_derived_record_review`
 - downloaded: `mixed_or_partial`
 - unpacked: `mixed_or_partial`
 - extracted: `mixed_or_partial`
 - cleaned: `mixed_or_partial`
 - verified: `mixed_or_partial`
-- source-pipeline-missing-evidence-outcome-routes-assignment-checklist-004:7
-- source id: `src-british-museum-oracle-bone`
-- source id: `src-cambridge-hopkins`
-- source id: `src-gbedobc`
-- source id: `src-ihp-museum-oracle-bones`
-- source id: `src-ihp-oracle-rubbings`
-- source id: `src-metmuseum-oracle-bone`
-- source id: `src-nlc-oracle-world`
-- source id: `src-obid-ancientbooks`
-- source id: `src-open-oracle`
-- source id: `src-oracle-mnist`
-- source id: `src-penn-museum-oracle-bone`
-- source id: `src-sinica-da-xiaoxuetang-site`
-- source id: `src-sinica-yinshang-oracle-vocabulary`
-- source id: `src-smithsonian-nmaa-oracle-bone`
-- source id: `src-tsinghua-oracle-bones`
-- source id: `src-xiaoxuetang-jiaguwen`
-- source id: `src-xiaoxuetang-obm`
-- source id: `src-yinqi-wenyuan`
 
 ## Human Review Entry Order / 人工复核入口顺序
 

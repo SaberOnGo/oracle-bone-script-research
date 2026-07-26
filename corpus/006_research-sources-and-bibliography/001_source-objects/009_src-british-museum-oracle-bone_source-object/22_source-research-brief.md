@@ -16,14 +16,16 @@ limits on research use.
 - Source page / 来源页面: https://www.britishmuseum.org/collection/object/A_OA-165
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 1
+- Download or access records / 下载或访问记录: 2
 - Recorded checksums / 已记录 checksum: 0
-- Recorded file sizes / 已记录文件大小: 1
+- Recorded file sizes / 已记录文件大小: 2
 - Package files / 来源包文件: 0
 - Field mappings / 字段映射: 5
 - Metadata measurements / 元数据测量: 5
 
 - Recorded access item / 已记录访问项: dl-british-museum-oa-165; http_error; 0 bytes
+- Recorded access item / 已记录访问项: dl-british-museum-oa-165-recheck-20260727;
+  http_error; 0 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Candidate transfer field / 候选转入字段: museum_number;registration_number ->

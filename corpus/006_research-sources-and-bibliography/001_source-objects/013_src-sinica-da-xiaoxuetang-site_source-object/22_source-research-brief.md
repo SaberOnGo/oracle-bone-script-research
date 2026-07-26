@@ -16,15 +16,17 @@ limits on research use.
 - Source page / 来源页面: https://sinica.digitalarchives.tw/site_6071.html
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 1
+- Download or access records / 下载或访问记录: 2
 - Recorded checksums / 已记录 checksum: 0
-- Recorded file sizes / 已记录文件大小: 1
+- Recorded file sizes / 已记录文件大小: 2
 - Package files / 来源包文件: 0
 - Field mappings / 字段映射: 1
 - Metadata measurements / 元数据测量: 3
 
 - Recorded access item / 已记录访问项: dl-sinica-da-xiaoxuetang-site; download_error;
   0 bytes
+- Recorded access item / 已记录访问项: dl-sinica-da-xiaoxuetang-site-recheck-20260727;
+  download_error; 0 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Candidate transfer field / 候选转入字段: 字形涵蓋甲骨文;金文;戰國文字;小篆;楷書 -> source_reference

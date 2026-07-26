@@ -18,10 +18,10 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: adopted_source_context
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 1
+- Download route count / 下载路线数: 2
 - Download statuses / 下载状态: download_error
 - Checksum route count / checksum 路线数: 0
-- Size route count / 大小记录路线数: 1
+- Size route count / 大小记录路线数: 2
 - Local temp route count / 临时路径路线数: 0
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
@@ -44,6 +44,19 @@ review status.
 - Risk note / 风险提示: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate
   verify failed: Hostname mismatch, certificate is not valid for
   'sinica.digitalarchives.tw'. (_ssl.c:1032)>
+- Review status / 复核状态: metadata_route_needs_human_review
+
+### Route 002
+- Download ID / 下载 ID: dl-sinica-da-xiaoxuetang-site-recheck-20260727
+- Artifact kind / 资料类型: institutional_portal_page_current_route
+- Status / 状态: download_error
+- HTTP status / HTTP 状态: not recorded
+- File size bytes / 文件大小 bytes: 0
+- Checksum SHA-256 / checksum SHA-256: not recorded
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径: not recorded
+- Risk note / 风险提示: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate
+  verify failed: certificate has expired (_ssl.c:1081)>
 - Review status / 复核状态: metadata_route_needs_human_review
 
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录

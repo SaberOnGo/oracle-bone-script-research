@@ -32,9 +32,9 @@
     "large_source_exception_or_storage"
   ],
   "route_counts": {
-    "download_route_count": 1,
+    "download_route_count": 2,
     "checksum_route_count": 0,
-    "size_route_count": 1,
+    "size_route_count": 2,
     "package_route_count": 0,
     "field_map_route_count": 1,
     "metadata_profile_route_count": 3,

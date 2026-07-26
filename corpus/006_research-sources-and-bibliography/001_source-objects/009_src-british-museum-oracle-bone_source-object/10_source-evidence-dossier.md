@@ -18,10 +18,10 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: adopted_collection_reference
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 1
+- Download route count / 下载路线数: 2
 - Download statuses / 下载状态: http_error
 - Checksum route count / checksum 路线数: 0
-- Size route count / 大小记录路线数: 1
+- Size route count / 大小记录路线数: 2
 - Local temp route count / 临时路径路线数: 0
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
@@ -35,6 +35,18 @@ review status.
 ### Route 001
 - Download ID / 下载 ID: dl-british-museum-oa-165
 - Artifact kind / 资料类型: museum_object_page
+- Status / 状态: http_error
+- HTTP status / HTTP 状态: 403
+- File size bytes / 文件大小 bytes: 0
+- Checksum SHA-256 / checksum SHA-256: not recorded
+- Commit policy / 提交策略: download_to_tmp_log_checksum_only
+- Local temp path / 本地临时路径: not recorded
+- Risk note / 风险提示: Forbidden
+- Review status / 复核状态: metadata_route_needs_human_review
+
+### Route 002
+- Download ID / 下载 ID: dl-british-museum-oa-165-recheck-20260727
+- Artifact kind / 资料类型: museum_object_page_current_recheck
 - Status / 状态: http_error
 - HTTP status / HTTP 状态: 403
 - File size bytes / 文件大小 bytes: 0

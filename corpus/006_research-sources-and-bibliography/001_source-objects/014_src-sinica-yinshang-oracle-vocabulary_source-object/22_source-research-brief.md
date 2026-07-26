@@ -16,15 +16,17 @@ limits on research use.
 - Source page / 来源页面: https://sinica.digitalarchives.tw/collection_3334351.html
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 1
+- Download or access records / 下载或访问记录: 2
 - Recorded checksums / 已记录 checksum: 0
-- Recorded file sizes / 已记录文件大小: 1
+- Recorded file sizes / 已记录文件大小: 2
 - Package files / 来源包文件: 0
 - Field mappings / 字段映射: 2
 - Metadata measurements / 元数据测量: 2
 
 - Recorded access item / 已记录访问项: dl-sinica-yinshang-oracle-vocabulary;
   download_error; 0 bytes
+- Recorded access item / 已记录访问项:
+  dl-sinica-yinshang-oracle-vocabulary-recheck-20260727; download_error; 0 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Candidate transfer field / 候选转入字段:

@@ -94,7 +94,7 @@ review status.
 - Field map route count / 字段映射路线数: 6
 - Target record types / 目标记录类型: excavation_or_collection_context;
   oracle_inscription; source_reference
-- Metadata route count / metadata 路线数: 0
+- Metadata route count / metadata 路线数: 4
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -246,8 +246,58 @@ target object directory.
 
 ## Metadata Profile Evidence / 元数据概况证据
 
-No metadata profile route is recorded in the current source registers. Record
-profile metrics before relying on source-scale coverage or quality claims.
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000077
+- Evidence download ID / 证据下载 ID: dl-xxt-obm-example
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_heji_range_upper_bound
+- Profile value / 概况值: 41956
+- Profile unit / 概况单位: heji_number_upper_bound
+- Import relevance / 导入相关性: Preserves the reviewed 1 through 41956 source range
+  for human material-source lookup and completeness planning
+- Caution / 提醒: Registered range metadata only; it is not a local import count
+  or proof that every number has complete object evidence
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000078
+- Evidence download ID / 证据下载 ID: dl-xxt-obm-example
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_old_catalog_abbreviation_count
+- Profile value / 概况值: 90
+- Profile unit / 概况单位: old_catalog_book_abbreviations
+- Import relevance / 导入相关性: Preserves the reviewed abbreviation-table scale for
+  later source-cited expansion of old catalog references
+- Caution / 提醒: Abbreviation count is planning metadata; titles and row-level
+  relations remain pending source and rights review
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000079
+- Evidence download ID / 证据下载 ID: dl-xxt-obm-example
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_holding_abbreviation_count
+- Profile value / 概况值: 211
+- Profile unit / 概况单位: rubbing_or_holding_abbreviations
+- Import relevance / 导入相关性: Preserves the reviewed holding-abbreviation scale
+  for future collection-provenance crosswalk checks
+- Caution / 提醒: Institution labels are metadata-only and require object-level
+  verification before provenance claims
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000080
+- Evidence download ID / 证据下载 ID: dl-xxt-obm-example
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_source_table_fields
+- Profile value / 概况值:
+  heji_number;zhetuo_ref;selected_ref;duplicate_ref;join_ref;holding_ref;note
+- Profile unit / 概况单位: normalized_source_table_field_labels
+- Import relevance / 导入相关性: Keeps the reviewed source-table fields visible for
+  human provenance review and future inscription staging
+- Caution / 提醒: Field labels do not establish row completeness, catalog
+  identity, collection provenance, or rights clearance
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位
 

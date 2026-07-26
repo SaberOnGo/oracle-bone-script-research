@@ -13,7 +13,7 @@
   },
   "lane_count": 6,
   "route_pack_count": 6,
-  "total_route_count": 16,
+  "total_route_count": 14,
   "total_decision_filled_count": 0,
   "total_result_started_count": 0,
   "review_status": "route_summary_pending_source_engineering_review",
@@ -115,43 +115,25 @@
       "route_pack_id": "source-metadata-profile-review-route-pack-001",
       "route_pack_path": "corpus/009_statistics-and-derived-features/115_ai-agent-source-metadata-profile-review-route-pack.json",
       "decision_field": "metadata_profile_decision",
-      "route_count": 2,
-      "source_count": 2,
-      "priority_min": 4,
-      "priority_max": 4,
-      "gap_type_counts": {
-        "metadata_profile_extraction_needed": 2
-      },
-      "result_status_counts": {
-        "not_started": 2
-      },
-      "evidence_collection_status_counts": {
-        "not_collected": 2
-      },
-      "human_review_status_counts": {
-        "pending_human_review": 2
-      },
-      "rights_decision_status_counts": {
-        "no_new_rights_decision": 2
-      },
-      "source_promotion_status_counts": {
-        "not_promoted": 2
-      },
-      "corpus_import_status_counts": {
-        "not_imported": 2
-      },
-      "decipherment_claim_status_counts": {
-        "no_decipherment_claim": 2
-      },
+      "route_count": 0,
+      "source_count": 0,
+      "priority_min": 0,
+      "priority_max": 0,
+      "gap_type_counts": {},
+      "result_status_counts": {},
+      "evidence_collection_status_counts": {},
+      "human_review_status_counts": {},
+      "rights_decision_status_counts": {},
+      "source_promotion_status_counts": {},
+      "corpus_import_status_counts": {},
+      "decipherment_claim_status_counts": {},
       "decision_filled_count": 0,
       "result_started_count": 0,
-      "blocking_conditions": [
-        "no_profile_from_raw_or_restricted_material_until_source_route_is_reviewed"
-      ],
-      "first_next_action_id": "source-engineering-next-action-0010",
-      "first_source_id": "src-xiaoxuetang-jiaguwen",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0010_src-xiaoxuetang-jiaguwen_metadata_profile_extraction_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0010_src-xiaoxuetang-jiaguwen_metadata_profile_extraction_needed_next-action-result.md",
+      "blocking_conditions": [],
+      "first_next_action_id": "",
+      "first_source_id": "",
+      "first_review_log_path": "",
+      "first_result_record_path": "",
       "review_status": "route_pack_pending_metadata_profile_review",
       "research_boundary": "source_metadata_profile_review_route_pack_not_extraction_decision"
     },
@@ -193,10 +175,10 @@
       "blocking_conditions": [
         "no_field_map_import_until_semantics_and_rights_are_reviewed"
       ],
-      "first_next_action_id": "source-engineering-next-action-0012",
+      "first_next_action_id": "source-engineering-next-action-0010",
       "first_source_id": "src-open-oracle",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-open-oracle_source_field_map_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0012_src-open-oracle_source_field_map_needed_next-action-result.md",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0010_src-open-oracle_source_field_map_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0010_src-open-oracle_source_field_map_needed_next-action-result.md",
       "review_status": "route_pack_pending_field_map_review",
       "research_boundary": "source_field_map_review_route_pack_not_reviewed_mapping"
     },
@@ -265,10 +247,10 @@
       "blocking_conditions": [
         "no_derived_record_promotion_without_source_marked_reviewed_boundary"
       ],
-      "first_next_action_id": "source-engineering-next-action-0015",
+      "first_next_action_id": "source-engineering-next-action-0013",
       "first_source_id": "src-sinica-da-xiaoxuetang-site",
-      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0015_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
-      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0015_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
+      "first_review_log_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0013_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_review-log.md",
+      "first_result_record_path": "doc/public/user_research/009_source-engineering-gap-review-queues/0013_src-sinica-da-xiaoxuetang-site_safe_derived_record_decision_needed_next-action-result.md",
       "review_status": "route_pack_pending_safe_derived_record_review",
       "research_boundary": "source_safe_derived_record_review_route_pack_not_promotion_decision"
     }

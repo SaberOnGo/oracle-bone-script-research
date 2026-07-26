@@ -42,8 +42,10 @@ note, or concrete next-check questions.
 - Field map count / 字段映射数: 6
 - Target records / 目标记录: excavation_or_collection_context; oracle_inscription;
   source_reference
-- Metadata profile count / 元数据概况数: 0
-- Profile metrics / 概况指标: none
+- Metadata profile count / 元数据概况数: 4
+- Profile metrics / 概况指标: registered_heji_range_upper_bound;
+  registered_holding_abbreviation_count;
+  registered_old_catalog_abbreviation_count; registered_source_table_fields
 
 ## Next Review Step / 下一步复核入口
 - Rights status / 权利状态: metadata_only_until_verified

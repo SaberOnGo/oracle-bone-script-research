@@ -42,8 +42,10 @@ note, or concrete next-check questions.
 - Field map count / 字段映射数: 6
 - Target records / 目标记录: oracle_character; oracle_character_occurrence;
   oracle_glyph_form; source_reference
-- Metadata profile count / 元数据概况数: 0
-- Profile metrics / 概况指标: none
+- Metadata profile count / 元数据概况数: 4
+- Profile metrics / 概况指标: registered_official_character_head_count;
+  registered_official_glyph_form_count; registered_primary_glyph_source_basis;
+  registered_simple_search_fields
 
 ## Next Review Step / 下一步复核入口
 - Rights status / 权利状态: metadata_only_until_verified

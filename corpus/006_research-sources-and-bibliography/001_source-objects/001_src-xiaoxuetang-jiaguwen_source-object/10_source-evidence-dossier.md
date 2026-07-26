@@ -95,7 +95,7 @@ review status.
 - Field map route count / 字段映射路线数: 6
 - Target record types / 目标记录类型: oracle_character; oracle_character_occurrence;
   oracle_glyph_form; source_reference
-- Metadata route count / metadata 路线数: 0
+- Metadata route count / metadata 路线数: 4
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
 target object directory.
@@ -216,8 +216,58 @@ target object directory.
 
 ## Metadata Profile Evidence / 元数据概况证据
 
-No metadata profile route is recorded in the current source registers. Record
-profile metrics before relying on source-scale coverage or quality claims.
+### Route 001
+- Profile ID / 概况 ID: metadata-profile-000073
+- Evidence download ID / 证据下载 ID: dl-xxt-jgw-home
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_official_character_head_count
+- Profile value / 概况值: 2548
+- Profile unit / 概况单位: character_heads
+- Import relevance / 导入相关性: Preserves the reviewed official scale target for
+  human planning of character-head lookup and later source cross-reference
+- Caution / 提醒: Registered scale metadata only; it is not a count of locally
+  imported or human-verified character records
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Profile ID / 概况 ID: metadata-profile-000074
+- Evidence download ID / 证据下载 ID: dl-xxt-jgw-home
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_official_glyph_form_count
+- Profile value / 概况值: 24701
+- Profile unit / 概况单位: glyph_forms
+- Import relevance / 导入相关性: Preserves the reviewed official scale target for
+  later glyph-form lookup and variant comparison planning
+- Caution / 提醒: Registered scale metadata only; it does not establish local
+  image availability, reuse rights, or reviewed variant relations
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Profile ID / 概况 ID: metadata-profile-000075
+- Evidence download ID / 证据下载 ID: dl-xxt-jgw-home
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_simple_search_fields
+- Profile value / 概况值: character_number;glyph_form;jiaguwen_bian_page;heji_numbe
+  r;old_catalog_ref;class_group
+- Profile unit / 概况单位: normalized_search_field_labels
+- Import relevance / 导入相关性: Keeps the reviewed discovery fields visible for
+  human lookup and future source-marked crosswalk work
+- Caution / 提醒: Search-field labels are routing metadata and not imported
+  records, identifier equivalences, or decipherment evidence
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Profile ID / 概况 ID: metadata-profile-000076
+- Evidence download ID / 证据下载 ID: dl-xxt-jgw-about
+- Metadata file / 元数据文件: 011_core-institutional-access-profile.csv
+- Profile metric / 概况指标: registered_primary_glyph_source_basis
+- Profile value / 概况值: jiaguwen_bian_primary_basis
+- Profile unit / 概况单位: source_basis_label
+- Import relevance / 导入相关性: Records the reviewed database-level statement that
+  glyph coverage is based mainly on Jiaguwen Bian
+- Caution / 提醒: Database-level source basis only; each page, glyph, catalog
+  link, and reading still requires object-level evidence review
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Human Research Review Slots / 人工研究复核槽位
 

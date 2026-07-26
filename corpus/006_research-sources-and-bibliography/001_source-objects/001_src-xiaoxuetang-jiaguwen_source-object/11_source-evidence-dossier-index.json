@@ -43,7 +43,7 @@
     "size_route_count": 4,
     "package_route_count": 2,
     "field_map_route_count": 6,
-    "metadata_profile_route_count": 0,
+    "metadata_profile_route_count": 4,
     "package_kinds": [
       "access_restricted_page_capture"
     ],

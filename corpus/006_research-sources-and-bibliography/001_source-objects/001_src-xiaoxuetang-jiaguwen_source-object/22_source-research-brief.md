@@ -21,7 +21,7 @@ limits on research use.
 - Recorded file sizes / 已记录文件大小: 4
 - Package files / 来源包文件: 2
 - Field mappings / 字段映射: 6
-- Metadata measurements / 元数据测量: 0
+- Metadata measurements / 元数据测量: 4
 
 - Recorded access item / 已记录访问项: dl-xxt-jgw-home;
   downloaded_access_restricted_page; 36917 bytes

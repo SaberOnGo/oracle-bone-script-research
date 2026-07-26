@@ -9918,7 +9918,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "download_manifest_count": 48,
         "download_log_count": 49,
         "downloaded_file_bytes": 685734093,
-        "metadata_profile_metric_count": 72,
+        "metadata_profile_metric_count": 80,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
@@ -9934,8 +9934,8 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
 
     expected_status_counts = {
         "has_committed_public_asset_or_metadata": 2,
-        "has_download_log_only": 3,
-        "has_downloaded_metadata_profile": 12,
+        "has_download_log_only": 1,
+        "has_downloaded_metadata_profile": 14,
         "has_relationship_graph_derivatives": 4,
     }
     if dict(status_counts) != expected_status_counts:
@@ -9996,7 +9996,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         },
         "src-xiaoxuetang-jiaguwen": {
             "download_status_counts": "download_error:2;downloaded_access_restricted_page:2",
-            "coverage_status": "has_download_log_only",
+            "coverage_status": "has_downloaded_metadata_profile",
         },
     }
     for source_id, expected_values in expected_source_values.items():
@@ -10116,16 +10116,16 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "node_degree_summary_rows:101619",
         ],
         "review_queues": [
-            "review_log_files:47",
+            "review_log_files:45",
             "evidence_collection_note_files:49",
             "undeciphered_review_queue_rows:9408",
             "cambridge_hopkins_crosswalk_review_queue_rows:612",
-            "source_engineering_gap_queue_rows:16",
+            "source_engineering_gap_queue_rows:14",
             "source_engineering_execution_matrix_rows:21",
-            "source_engineering_gap_review_log_draft_rows:16",
-            "source_engineering_gap_evidence_snapshot_rows:16",
-            "source_engineering_next_action_checklist_rows:16",
-            "source_engineering_next_action_result_scaffold_rows:16",
+            "source_engineering_gap_review_log_draft_rows:14",
+            "source_engineering_gap_evidence_snapshot_rows:14",
+            "source_engineering_next_action_checklist_rows:14",
+            "source_engineering_next_action_result_scaffold_rows:14",
             "source_engineering_lane_route_pack_files:1",
             "source_field_map_scaffold_rows:3",
             "source_field_map_review_checklist_rows:3",
@@ -10155,8 +10155,8 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_file_checklist_rows:210",
             "source_pipeline_phase_action_evidence_presence_rows:210",
             "source_pipeline_phase_action_evidence_gap_summary_rows:21",
-            "source_pipeline_phase_action_missing_evidence_action_queue_rows:30",
-            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:30",
+            "source_pipeline_phase_action_missing_evidence_action_queue_rows:26",
+            "source_pipeline_phase_action_missing_evidence_result_scaffold_rows:26",
             "source_pipeline_phase_action_missing_evidence_route_summary_files:1",
             "source_pipeline_phase_action_missing_evidence_source_summary_rows:18",
             "source_pipeline_phase_action_missing_evidence_review_draft_rows:18",
@@ -10291,13 +10291,13 @@ def check_data_quality_audit(root: Path) -> list[str]:
         "obimd_main_character_staging": "3936",
         "hust_obimd_evobc_codepoint_crosswalk": "1588",
         "cambridge_hopkins_inscription_crosswalk_review_queue": "612",
-        "source_engineering_gap_queue": "16",
+        "source_engineering_gap_queue": "14",
         "source_engineering_execution_matrix": "21",
-        "source_engineering_gap_review_log_draft_manifest": "16",
-        "source_engineering_gap_evidence_snapshot": "16",
-        "source_engineering_next_action_checklist": "16",
-        "source_engineering_next_action_result_scaffold": "16",
-        "source_engineering_lane_summary": "5",
+        "source_engineering_gap_review_log_draft_manifest": "14",
+        "source_engineering_gap_evidence_snapshot": "14",
+        "source_engineering_next_action_checklist": "14",
+        "source_engineering_next_action_result_scaffold": "14",
+        "source_engineering_lane_summary": "4",
         "source_field_map_scaffold": "3",
         "source_field_map_review_checklist": "3",
         "source_field_map_review_result_scaffold": "3",
@@ -10354,7 +10354,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
     if "review_status=needs_human_review:612" not in cambridge_queue_quality.get("status_counts", ""):
         issues.append(f"{DATA_QUALITY_AUDIT} Cambridge/Hopkins review queue status counts changed")
     source_gap_quality = by_dataset.get("source_engineering_gap_queue", {})
-    if "review_status=needs_source_engineering_review:16" not in source_gap_quality.get("status_counts", ""):
+    if "review_status=needs_source_engineering_review:14" not in source_gap_quality.get("status_counts", ""):
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering gap queue status counts changed")
     source_execution_quality = by_dataset.get("source_engineering_execution_matrix", {})
     execution_status_counts = source_execution_quality.get("status_counts", "")
@@ -10365,45 +10365,45 @@ def check_data_quality_audit(root: Path) -> list[str]:
     source_gap_draft_quality = by_dataset.get("source_engineering_gap_review_log_draft_manifest", {})
     draft_status_counts = source_gap_draft_quality.get("status_counts", "")
     for expected_fragment in [
-        "draft_status=draft_not_collected:16",
-        "evidence_collection_status=not_collected:16",
-        "human_review_status=pending_human_review:16",
-        "rights_decision_status=no_new_rights_decision:16",
-        "source_promotion_status=not_promoted:16",
+        "draft_status=draft_not_collected:14",
+        "evidence_collection_status=not_collected:14",
+        "human_review_status=pending_human_review:14",
+        "rights_decision_status=no_new_rights_decision:14",
+        "source_promotion_status=not_promoted:14",
     ]:
         if expected_fragment not in draft_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering draft status missing {expected_fragment}")
     source_gap_snapshot_quality = by_dataset.get("source_engineering_gap_evidence_snapshot", {})
     snapshot_status_counts = source_gap_snapshot_quality.get("status_counts", "")
     for expected_fragment in [
-        "evidence_status=metadata_only_existing_records_snapshot:16",
-        "rights_decision_status=no_new_rights_decision:16",
-        "source_promotion_status=not_promoted:16",
-        "corpus_import_status=not_imported:16",
+        "evidence_status=metadata_only_existing_records_snapshot:14",
+        "rights_decision_status=no_new_rights_decision:14",
+        "source_promotion_status=not_promoted:14",
+        "corpus_import_status=not_imported:14",
     ]:
         if expected_fragment not in snapshot_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering snapshot status missing {expected_fragment}")
     source_next_action_quality = by_dataset.get("source_engineering_next_action_checklist", {})
     next_action_status_counts = source_next_action_quality.get("status_counts", "")
     for expected_fragment in [
-        "action_status=ready_for_source_engineering_review:16",
-        "human_review_status=pending_human_review:16",
-        "rights_decision_status=no_new_rights_decision:16",
-        "source_promotion_status=not_promoted:16",
-        "corpus_import_status=not_imported:16",
+        "action_status=ready_for_source_engineering_review:14",
+        "human_review_status=pending_human_review:14",
+        "rights_decision_status=no_new_rights_decision:14",
+        "source_promotion_status=not_promoted:14",
+        "corpus_import_status=not_imported:14",
     ]:
         if expected_fragment not in next_action_status_counts:
             issues.append(f"{DATA_QUALITY_AUDIT} source-engineering next-action status missing {expected_fragment}")
     source_next_action_result_quality = by_dataset.get("source_engineering_next_action_result_scaffold", {})
     next_action_result_status_counts = source_next_action_result_quality.get("status_counts", "")
     for expected_fragment in [
-        "result_status=not_started:16",
-        "evidence_collection_status=not_collected:16",
-        "human_review_status=pending_human_review:16",
-        "rights_decision_status=no_new_rights_decision:16",
-        "source_promotion_status=not_promoted:16",
-        "corpus_import_status=not_imported:16",
-        "decipherment_claim_status=no_decipherment_claim:16",
+        "result_status=not_started:14",
+        "evidence_collection_status=not_collected:14",
+        "human_review_status=pending_human_review:14",
+        "rights_decision_status=no_new_rights_decision:14",
+        "source_promotion_status=not_promoted:14",
+        "corpus_import_status=not_imported:14",
+        "decipherment_claim_status=no_decipherment_claim:14",
     ]:
         if expected_fragment not in next_action_result_status_counts:
             issues.append(
@@ -10411,7 +10411,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
             )
     source_lane_summary_quality = by_dataset.get("source_engineering_lane_summary", {})
     if (
-        "review_status=summary_only_pending_source_engineering_review:5"
+        "review_status=summary_only_pending_source_engineering_review:4"
         not in source_lane_summary_quality.get("status_counts", "")
     ):
         issues.append(f"{DATA_QUALITY_AUDIT} source-engineering lane summary review status changed")
@@ -10501,8 +10501,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
 
     expected_stage_counts = {
         "discovered_access_boundary_or_error": 1,
-        "pending_human_review": 18,
-        "structured": 2,
+        "pending_human_review": 20,
     }
     if summary.get("stage_counts") != expected_stage_counts:
         issues.append(f"{SOURCE_PROCESSING_PIPELINE_SUMMARY} stage counts changed")
@@ -10519,8 +10518,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "field_map_count": 57,
         "graph_edge_count": 117138,
         "large_source_register_count": 18,
-        "metadata_profile_count": 72,
-        "missing_evidence_action_count": 30,
+        "metadata_profile_count": 80,
+        "missing_evidence_action_count": 26,
         "missing_evidence_assignment_count": 18,
         "object_local_material_bundle_count": 29903,
         "object_local_partial_bundle_count": 0,
@@ -10580,10 +10579,10 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "object_local_route_object_count": "633",
         },
         "src-xiaoxuetang-jiaguwen": {
-            "current_stage": "structured",
+            "current_stage": "pending_human_review",
             "access_boundary_or_error_count": "4",
             "source_phase_action_count": "6",
-            "missing_evidence_action_count": "2",
+            "missing_evidence_action_count": "1",
             "object_local_material_bundle_count": "1",
             "object_local_route_object_count": "1",
         },
@@ -11071,9 +11070,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "candidate_record_count": 13196,
         "formal_record_count": 101679,
         "graph_edge_count": 220887,
-        "manual_review_backlog_count": 13152,
-        "review_queue_count": 12896,
-        "staging_record_count": 75264,
+        "manual_review_backlog_count": 13132,
+        "review_queue_count": 12876,
+        "staging_record_count": 75272,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -11120,14 +11119,14 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         },
         "research_sources_and_bibliography": {
             "formal_record_count": "21",
-            "staging_record_count": "234",
-            "review_queue_count": "1023",
+            "staging_record_count": "242",
+            "review_queue_count": "1005",
             "review_queue_path": SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
         },
         "published_research_notes": {
             "formal_record_count": "6",
             "staging_record_count": "6",
-            "review_queue_count": "122",
+            "review_queue_count": "120",
         },
     }
     by_area = {row.get("corpus_area", ""): row for row in matrix_rows}
@@ -11739,10 +11738,10 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_pack_id changed")
     if source_metadata_profile_route_pack.get("action_lane") != "metadata_profile_extraction_planning":
         issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} action lane changed")
-    if source_metadata_profile_route_pack.get("source_count") != 2:
-        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} source_count should be 2")
-    if source_metadata_profile_route_pack.get("route_count") != 2:
-        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_count should be 2")
+    if source_metadata_profile_route_pack.get("source_count") != 0:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} source_count should be 0")
+    if source_metadata_profile_route_pack.get("route_count") != 0:
+        issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} route_count should be 0")
     if source_metadata_profile_route_pack.get("review_status") != "route_pack_pending_metadata_profile_review":
         issues.append(f"{SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK} review status changed")
     if (
@@ -11915,7 +11914,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     expected_summary_lanes = {
         "access_boundary_followup": ("access_outcome", 5, SOURCE_ACCESS_BOUNDARY_REVIEW_ROUTE_PACK),
         "checksum_and_download_status_review": ("checksum_outcome", 4, SOURCE_CHECKSUM_REVIEW_ROUTE_PACK),
-        "metadata_profile_extraction_planning": ("metadata_profile_decision", 2, SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK),
+        "metadata_profile_extraction_planning": ("metadata_profile_decision", 0, SOURCE_METADATA_PROFILE_REVIEW_ROUTE_PACK),
         "source_field_map_planning": ("field_map_decision", 3, SOURCE_FIELD_MAP_REVIEW_ROUTE_PACK),
         "package_manifest_or_not_applicable_review": (
             "manifest_decision",
@@ -11984,18 +11983,18 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
     expected_handoff_coverage = {
         "handoff_item_count": 6,
         "action_lane_count": 6,
-        "source_count": 4,
-        "review_log_count": 6,
-        "result_record_count": 6,
+        "source_count": 3,
+        "review_log_count": 5,
+        "result_record_count": 5,
         "decision_filled_count": 0,
-        "result_started_count": 1,
+        "result_started_count": 2,
     }
     for field, expected_value in expected_handoff_coverage.items():
         if handoff_coverage.get(field) != expected_value:
             issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} {field} changed")
     expected_handoff_status_counts = {
-        "evidence_collection_status_counts": {"not_applicable_no_current_route": 1, "not_collected": 5},
-        "human_review_status_counts": {"not_applicable_no_current_route": 1, "pending_human_review": 5},
+        "evidence_collection_status_counts": {"not_applicable_no_current_route": 2, "not_collected": 4},
+        "human_review_status_counts": {"not_applicable_no_current_route": 2, "pending_human_review": 4},
         "rights_decision_status_counts": {"no_new_rights_decision": 6},
         "source_promotion_status_counts": {"not_promoted": 6},
         "corpus_import_status_counts": {"not_imported": 6},
@@ -12008,7 +12007,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} lane order changed")
     if handoff_items and handoff_items[0].get("next_action_id") != "source-engineering-next-action-0001":
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} first route changed")
-    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0015":
+    if handoff_items and handoff_items[-1].get("next_action_id") != "source-engineering-next-action-0013":
         issues.append(f"{SOURCE_ENGINEERING_REVIEW_WAVE_HANDOFF_SCAFFOLD} last route changed")
     generated_from = source_engineering_review_wave_handoff_scaffold.get("generated_from", [])
     for value in generated_from:
@@ -16056,7 +16055,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "linked: `mixed_or_partial`",
         "verified: `missing`",
         "research note files: 7",
-        "user or AI draft review files: 124",
+        "user or AI draft review files: 122",
         "source register files: 508",
         "bibliographic identity",
         "source trail",
@@ -17361,7 +17360,7 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} should contain exactly 210 rows")
     present_count = sum(1 for row in rows if row.get("match_status") == "present")
     missing_count = sum(1 for row in rows if row.get("match_status") == "missing_for_source")
-    if present_count != 180 or missing_count != 30:
+    if present_count != 184 or missing_count != 26:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX} match status counts changed")
 
     by_key = {(row.get("source_id", ""), row.get("file_role", "")): row for row in rows}
@@ -17416,7 +17415,7 @@ def check_source_pipeline_phase_action_evidence_presence_matrix(root: Path) -> l
         role_status_counts.setdefault(row.get("file_role", ""), Counter())
         role_status_counts[row.get("file_role", "")][row.get("match_status", "")] += 1
     expected_role_counts = {
-        "downloaded_metadata_profile": {"missing_for_source": 5, "present": 16},
+        "downloaded_metadata_profile": {"missing_for_source": 1, "present": 20},
         "large_source_register": {"missing_for_source": 18, "present": 3},
         "source_download_log": {"present": 21},
         "source_download_manifest": {"present": 21},
@@ -17541,7 +17540,7 @@ def check_source_pipeline_phase_action_missing_evidence_action_queue(root: Path)
     role_counts = Counter(row.get("missing_file_role", "") for row in rows)
     expected_role_counts = {
         "large_source_register": 18,
-        "downloaded_metadata_profile": 5,
+        "downloaded_metadata_profile": 1,
         "source_field_map": 4,
         "source_package_file_manifest": 3,
     }
@@ -17660,7 +17659,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         "route_summary_id": "source-pipeline-phase-action-missing-evidence-route-summary-001",
         "updated_at": "2026-06-19",
         "action_result_scaffold_path": SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD,
-        "route_count": 30,
+        "route_count": 26,
         "source_count": 18,
         "automation_boundary": "routing_only_no_missing_evidence_outcome_capture",
         "research_boundary": "source_pipeline_phase_action_missing_evidence_route_summary_not_scholarship",
@@ -17669,7 +17668,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         if data.get(field) != expected_value:
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {field} changed")
     expected_role_counts = {
-        "downloaded_metadata_profile": 5,
+        "downloaded_metadata_profile": 1,
         "large_source_register": 18,
         "source_field_map": 4,
         "source_package_file_manifest": 3,
@@ -17677,14 +17676,14 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
     if data.get("missing_file_role_counts") != expected_role_counts:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} role counts changed")
     for field, expected_value in {
-        "result_status_counts": {"not_started": 30},
-        "route_status_counts": {"not_started": 30},
-        "evidence_collection_status_counts": {"not_collected": 30},
-        "human_review_status_counts": {"pending_human_review": 30},
-        "rights_decision_status_counts": {"no_new_rights_decision": 30},
-        "source_promotion_status_counts": {"not_promoted": 30},
-        "corpus_import_status_counts": {"not_imported": 30},
-        "decipherment_claim_status_counts": {"no_decipherment_claim": 30},
+        "result_status_counts": {"not_started": 26},
+        "route_status_counts": {"not_started": 26},
+        "evidence_collection_status_counts": {"not_collected": 26},
+        "human_review_status_counts": {"pending_human_review": 26},
+        "rights_decision_status_counts": {"no_new_rights_decision": 26},
+        "source_promotion_status_counts": {"not_promoted": 26},
+        "corpus_import_status_counts": {"not_imported": 26},
+        "decipherment_claim_status_counts": {"no_decipherment_claim": 26},
     }.items():
         if data.get(field) != expected_value:
             issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} {field} changed")
@@ -17692,7 +17691,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} caution changed")
 
     routes = data.get("routes", [])
-    if not isinstance(routes, list) or len(routes) != 30:
+    if not isinstance(routes, list) or len(routes) != 26:
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} routes changed")
         return issues
     first = routes[0]
@@ -17703,7 +17702,7 @@ def check_source_pipeline_phase_action_missing_evidence_route_summary(root: Path
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first source changed")
     if first.get("missing_file_role") != "downloaded_metadata_profile":
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} first role changed")
-    if last.get("route_id") != "source-pipeline-phase-action-missing-evidence-route-030":
+    if last.get("route_id") != "source-pipeline-phase-action-missing-evidence-route-026":
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} last route id changed")
     if last.get("source_id") != "src-yinqi-wenyuan":
         issues.append(f"{SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ROUTE_SUMMARY} last source changed")
@@ -23691,7 +23690,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "source_count": 21,
         "download_manifest_count": 48,
         "download_log_count": 49,
-        "metadata_profile_metric_count": 72,
+        "metadata_profile_metric_count": 80,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
@@ -23706,8 +23705,8 @@ def check_ai_context_packs(root: Path) -> list[str]:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage {key} changed")
     if source_coverage.get("coverage_status_counts") != {
         "has_committed_public_asset_or_metadata": 2,
-        "has_download_log_only": 3,
-        "has_downloaded_metadata_profile": 12,
+        "has_download_log_only": 1,
+        "has_downloaded_metadata_profile": 14,
         "has_relationship_graph_derivatives": 4,
     }:
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} coverage status counts changed")
@@ -23799,7 +23798,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 "committed_asset_count": 1,
             },
             "src-xiaoxuetang-jiaguwen": {
-                "route": "open_download_log_and_source_register",
+                "route": "open_metadata_profile_and_source_register",
                 "download_status_counts": "download_error:2;downloaded_access_restricted_page:2",
             },
         }

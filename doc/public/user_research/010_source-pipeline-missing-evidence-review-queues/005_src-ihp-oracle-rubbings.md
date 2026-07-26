@@ -21,23 +21,19 @@
 
 ## Missing Evidence / 缺失证据
 
-- Missing route count / 缺失路由数: `2`
-- Missing file role count / 缺失文件角色数: `2`
+- Missing route count / 缺失路由数: `1`
+- Missing file role count / 缺失文件角色数: `1`
 
 ### Missing file roles / 缺失文件角色
 
-- `downloaded_metadata_profile`
 - `large_source_register`
 
 ### Files to open / 待打开文件
 
-- `corpus/006_research-sources-and-bibliography/000_source-`
-  `registers/010_downloaded-metadata-profile.csv`
 - `project_registry/006_large-source-register/001_large-source-register.csv`
 
 ### Required review actions / 必需复核动作
 
-- `review_downloaded_metadata_profile_or_mark_not_applicable`
 - `review_large_source_register_applicability_or_mark_not_applicable`
 
 ## Route References / 路由引用
@@ -52,17 +48,14 @@
 ### Route IDs / 路由 ID
 
 - `source-pipeline-phase-action-missing-evidence-route-008`
-- `source-pipeline-phase-action-missing-evidence-route-009`
 
 ### Action IDs / 动作 ID
 
 - `source-pipeline-phase-action-missing-evidence-008`
-- `source-pipeline-phase-action-missing-evidence-009`
 
 ### Result scaffold IDs / 结果脚手架 ID
 
 - `source-pipeline-phase-action-missing-evidence-result-008`
-- `source-pipeline-phase-action-missing-evidence-result-009`
 
 ## Existing Source Metadata Snapshot / 已有来源 metadata 快照
 
@@ -73,13 +66,13 @@ summarized here before any human outcome review.
 不替代后续人工结论复核。
 
 - all_sources_index_row_count: `1`
-- downloaded_metadata_profile_row_count: `0`
+- downloaded_metadata_profile_row_count: `2`
 - large_source_register_row_count: `0`
 - source_download_log_row_count: `1`
 - source_field_map_row_count: `1`
 - source_package_file_manifest_row_count: `1`
 - all_sources_review_status_counts: `reviewed:1`
-- metadata_profile_ids: `none`
+- metadata_profile_ids: `metadata-profile-000069;metadata-profile-000070`
 - large_source_package_ids: `none`
 - source_download_log_ids: `dl-ihp-rubbings-overview`
 - source_field_map_ids: `field-map-000034`
@@ -103,14 +96,13 @@ reviewed outcome. They are candidate evidence paths only.
 简体中文：记录任何已复核结果前，先打开下列来源文件路线。
 这些只是候选待查证据路径。
 
-- `corpus/006_research-sources-and-bibliography/000_source-`
-  `registers/010_downloaded-metadata-profile.csv`
 - `project_registry/006_large-source-register/001_large-source-register.csv`
 
 ### Current snapshot IDs / 当前快照 ID
 
 - download log ids / 下载记录 ID: `dl-ihp-rubbings-overview`
-- metadata profile ids / metadata profile ID: `none`
+- metadata profile ids / metadata profile ID: `metadata-`
+  `profile-000069;metadata-profile-000070`
 - large source package ids / 大型来源包 ID: `none`
 - source field map ids / 字段映射 ID: `field-map-000034`
 - package file ids / package file ID: `pkg-file-000019`

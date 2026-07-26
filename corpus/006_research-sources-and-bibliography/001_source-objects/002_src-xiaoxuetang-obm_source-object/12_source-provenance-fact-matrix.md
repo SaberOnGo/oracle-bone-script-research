@@ -72,7 +72,7 @@ before any source material is reused.
 - Status / 状态: present
 - Evidence files / 证据文件: 06_human-source-review-sheet.md;
   07_material-access-index.md; 08_source-processing-status.md;
-  10_source-evidence-dossier.md
+  10_source-evidence-dossier.md; 05_metadata-profile-route-index.csv
 - Next check / 下一步核查: Open human files first, then use structured support
   indexes only as routes.
 

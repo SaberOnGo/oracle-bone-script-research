@@ -65,7 +65,7 @@
       "slot": "concrete_missing_questions",
       "status": "needs_followup_before_formal_research",
       "evidence": "20_source-presearch-readiness-review.md",
-      "human_question": "whether metadata profile rows are absent by design"
+      "human_question": "which human reviewer can close remaining route checks"
     }
   ],
   "route_counts": {
@@ -74,7 +74,7 @@
     "size_route_count": 4,
     "package_route_count": 4,
     "field_map_route_count": 6,
-    "metadata_profile_route_count": 0
+    "metadata_profile_route_count": 4
   },
   "claim_boundary": [
     "no rights decision",

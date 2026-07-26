@@ -3,8 +3,8 @@
 ## Status / 状态
 
 - Review log draft ID / 复核日志草稿 ID:
--   - `source-engineering-gap-review-log-draft-0013`
-- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0013`
+-   - `source-engineering-gap-review-log-draft-0011`
+- Source engineering gap ID / 来源工程缺口 ID: `source-engineering-gap-0011`
 - Draft status / 草稿状态: `draft_not_collected`
 - Evidence collection status / 证据收集状态: `not_collected`
 - Human review status / 人工复核状态: `pending_human_review`
@@ -81,7 +81,7 @@ It remains metadata-only and does not promote source content.
 ## Existing Metadata Snapshot / 已有 metadata 快照
 
 - Evidence snapshot ID / 证据快照 ID:
-  `source-engineering-gap-evidence-snapshot-0013`
+  `source-engineering-gap-evidence-snapshot-0011`
 - Evidence status / 证据状态: `metadata_only_existing_records_snapshot`
 - Source review status / 来源复核状态: `reviewed`
 - Rights status / 权利状态: `source_marked_risk_noted`

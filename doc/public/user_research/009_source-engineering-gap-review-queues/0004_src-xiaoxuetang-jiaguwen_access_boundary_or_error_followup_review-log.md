@@ -21,13 +21,13 @@
 - Source ID / 来源 ID: `src-xiaoxuetang-jiaguwen`
 - Gap type / 缺口类型: `access_boundary_or_error_followup`
 - Priority rank / 优先级: `1`
-- Current stage / 当前阶段: `structured`
+- Current stage / 当前阶段: `pending_human_review`
 - Authority tier / 来源层级: `core_institutional`
 - Rights status / 权利状态: `metadata_only_until_verified`
 
 ## Observed Gap Evidence / 已观察缺口证据
 
-- Observed item / 已观察项: `current_stage=structured`
+- Observed item / 已观察项: `current_stage=pending_human_review`
 - Observed item / 已观察项: `download_status_counts=download_error:2`
 - Observed item / 已观察项: `downloaded_access_restricted_page:2`
 - Observed item / 已观察项: `downloaded_count=2`
@@ -35,7 +35,7 @@
 - Observed item / 已观察项: `checksum_present_count=2`
 - Observed item / 已观察项: `field_map_count=6`
 - Observed item / 已观察项: `package_manifest_count=2`
-- Observed item / 已观察项: `metadata_profile_count=0`
+- Observed item / 已观察项: `metadata_profile_count=4`
 - Observed item / 已观察项: `graph_edge_count=0`
 - Observed item / 已观察项: `downloaded_file_bytes=73834`
 - Observed item / 已观察项: `gap_type=access_boundary_or_error_followup`
@@ -106,7 +106,8 @@ It remains metadata-only and does not promote source content.
 - download_log_file_size_bytes_total: `73834`
 - download_log_checksum_present_count: `2`
 - package_file_ids: `pkg-file-000030;pkg-file-000031`
-- metadata_profile_ids: `none`
+- metadata_profile_ids: `metadata-profile-000073;metadata-profile-000074;metadat
+  a-profile-000075;metadata-profile-000076`
 - Route file missing count / 缺失路线文件数: `0`
 
 ## Snapshot Boundary / 快照边界

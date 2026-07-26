@@ -56,7 +56,7 @@ proposer, dispute, or scholarship note this source can actually support.
 - Field map file / 字段映射文件: 04_field-map-route-index.csv
 - Field map route count / 字段映射路线数: 6
 - Metadata profile file / 元数据概况文件: 05_metadata-profile-route-index.csv
-- Metadata profile count / 元数据概况数: 0
+- Metadata profile count / 元数据概况数: 4
 - Evidence dossier / 来源证据档案: 10_source-evidence-dossier.md
 - Fact matrix / 来源事实矩阵: 12_source-provenance-fact-matrix.md
 

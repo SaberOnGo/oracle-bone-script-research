@@ -16724,7 +16724,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["coverage"]["source_count"], 21)
         self.assertEqual(data["coverage"]["download_manifest_count"], 48)
         self.assertEqual(data["coverage"]["download_log_count"], 49)
-        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 72)
+        self.assertEqual(data["coverage"]["metadata_profile_metric_count"], 80)
         self.assertEqual(data["coverage"]["committed_asset_count"], 21363)
         self.assertEqual(data["coverage"]["committed_asset_bytes"], 96318352)
         self.assertEqual(data["coverage"]["graph_edge_count"], 128174)
@@ -16737,8 +16737,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             data["coverage"]["coverage_status_counts"],
             {
                 "has_committed_public_asset_or_metadata": 2,
-                "has_download_log_only": 3,
-                "has_downloaded_metadata_profile": 12,
+                "has_download_log_only": 1,
+                "has_downloaded_metadata_profile": 14,
                 "has_relationship_graph_derivatives": 4,
             },
         )
@@ -21181,6 +21181,46 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(
             metrics[
                 (
+                    "src-xiaoxuetang-jiaguwen",
+                    "dl-xxt-jgw-home",
+                    "registered_official_character_head_count",
+                )
+            ]["profile_value"],
+            "2548",
+        )
+        self.assertEqual(
+            metrics[
+                (
+                    "src-xiaoxuetang-jiaguwen",
+                    "dl-xxt-jgw-home",
+                    "registered_official_glyph_form_count",
+                )
+            ]["profile_value"],
+            "24701",
+        )
+        self.assertEqual(
+            metrics[
+                (
+                    "src-xiaoxuetang-obm",
+                    "dl-xxt-obm-example",
+                    "registered_heji_range_upper_bound",
+                )
+            ]["profile_value"],
+            "41956",
+        )
+        self.assertEqual(
+            metrics[
+                (
+                    "src-xiaoxuetang-obm",
+                    "dl-xxt-obm-example",
+                    "registered_holding_abbreviation_count",
+                )
+            ]["profile_value"],
+            "211",
+        )
+        self.assertEqual(
+            metrics[
+                (
                     "src-ihp-oracle-rubbings",
                     "dl-ihp-rubbings-overview",
                     "reported_rubbing_count_lower_bound",
@@ -22563,7 +22603,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 21)
         self.assertEqual(sum(int(row["download_manifest_count"]) for row in rows), 48)
         self.assertEqual(sum(int(row["download_log_count"]) for row in rows), 49)
-        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 72)
+        self.assertEqual(sum(int(row["metadata_profile_metric_count"]) for row in rows), 80)
         self.assertEqual(sum(int(row["committed_asset_count"]) for row in rows), 21363)
         self.assertEqual(sum(int(row["committed_asset_bytes"]) for row in rows), 96318352)
         self.assertEqual(sum(int(row["graph_edge_count"]) for row in rows), 128174)
@@ -22624,7 +22664,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_source["src-smithsonian-nmaa-oracle-bone"]["coverage_status"],
             "has_committed_public_asset_or_metadata",
         )
-        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["coverage_status"], "has_download_log_only")
+        self.assertEqual(
+            by_source["src-xiaoxuetang-jiaguwen"]["coverage_status"],
+            "has_downloaded_metadata_profile",
+        )
         self.assertIn("source_registers", rows[0]["generated_from"])
 
     def test_ai_agent_relationship_graph_context_pack_preserves_routing_summary(self) -> None:
@@ -23862,7 +23905,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["character_object_research_dossiers"]["count_summary"],
         )
         self.assertIn(
-            "source_engineering_gap_queue_rows:16",
+            "source_engineering_gap_queue_rows:14",
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
@@ -23870,19 +23913,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
-            "source_engineering_gap_review_log_draft_rows:16",
+            "source_engineering_gap_review_log_draft_rows:14",
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
-            "source_engineering_gap_evidence_snapshot_rows:16",
+            "source_engineering_gap_evidence_snapshot_rows:14",
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
-            "source_engineering_next_action_checklist_rows:16",
+            "source_engineering_next_action_checklist_rows:14",
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
-            "source_engineering_next_action_result_scaffold_rows:16",
+            "source_engineering_next_action_result_scaffold_rows:14",
             by_type["review_queues"]["count_summary"],
         )
         self.assertIn(
@@ -24046,7 +24089,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["dataset_count"], 30)
         self.assertEqual(data["quality_status_counts"], {"pass": 30})
-        self.assertEqual(data["totals"]["row_count"], 166616)
+        self.assertEqual(data["totals"]["row_count"], 166605)
         self.assertEqual(data["totals"]["boundary_status_violation_count"], 0)
         self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
@@ -24088,7 +24131,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             ],
             "0",
         )
-        self.assertEqual(by_dataset["source_engineering_gap_queue"]["row_count"], "16")
+        self.assertEqual(by_dataset["source_engineering_gap_queue"]["row_count"], "14")
         self.assertEqual(by_dataset["source_engineering_gap_queue"]["missing_path_count"], "0")
         self.assertEqual(by_dataset["source_engineering_gap_queue"]["boundary_status_violation_count"], "0")
         self.assertEqual(by_dataset["source_engineering_execution_matrix"]["row_count"], "21")
@@ -24098,7 +24141,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "review_status=needs_source_engineering_review:8",
             by_dataset["source_engineering_execution_matrix"]["status_counts"],
         )
-        self.assertEqual(by_dataset["source_engineering_gap_review_log_draft_manifest"]["row_count"], "16")
+        self.assertEqual(by_dataset["source_engineering_gap_review_log_draft_manifest"]["row_count"], "14")
         self.assertEqual(
             by_dataset["source_engineering_gap_review_log_draft_manifest"]["missing_path_count"],
             "0",
@@ -24108,59 +24151,59 @@ class RepositorySkeletonTests(unittest.TestCase):
             "0",
         )
         self.assertIn(
-            "draft_status=draft_not_collected:16",
+            "draft_status=draft_not_collected:14",
             by_dataset["source_engineering_gap_review_log_draft_manifest"]["status_counts"],
         )
-        self.assertEqual(by_dataset["source_engineering_gap_evidence_snapshot"]["row_count"], "16")
+        self.assertEqual(by_dataset["source_engineering_gap_evidence_snapshot"]["row_count"], "14")
         self.assertEqual(by_dataset["source_engineering_gap_evidence_snapshot"]["missing_path_count"], "0")
         self.assertEqual(
             by_dataset["source_engineering_gap_evidence_snapshot"]["boundary_status_violation_count"],
             "0",
         )
         self.assertIn(
-            "evidence_status=metadata_only_existing_records_snapshot:16",
+            "evidence_status=metadata_only_existing_records_snapshot:14",
             by_dataset["source_engineering_gap_evidence_snapshot"]["status_counts"],
         )
         self.assertIn(
-            "corpus_import_status=not_imported:16",
+            "corpus_import_status=not_imported:14",
             by_dataset["source_engineering_gap_evidence_snapshot"]["status_counts"],
         )
-        self.assertEqual(by_dataset["source_engineering_next_action_checklist"]["row_count"], "16")
+        self.assertEqual(by_dataset["source_engineering_next_action_checklist"]["row_count"], "14")
         self.assertEqual(by_dataset["source_engineering_next_action_checklist"]["missing_path_count"], "0")
         self.assertEqual(
             by_dataset["source_engineering_next_action_checklist"]["boundary_status_violation_count"],
             "0",
         )
         self.assertIn(
-            "action_status=ready_for_source_engineering_review:16",
+            "action_status=ready_for_source_engineering_review:14",
             by_dataset["source_engineering_next_action_checklist"]["status_counts"],
         )
         self.assertIn(
             "safe_to_automate_status=planning_safe_derivative_promotion_blocked:2",
             by_dataset["source_engineering_next_action_checklist"]["status_counts"],
         )
-        self.assertEqual(by_dataset["source_engineering_next_action_result_scaffold"]["row_count"], "16")
+        self.assertEqual(by_dataset["source_engineering_next_action_result_scaffold"]["row_count"], "14")
         self.assertEqual(by_dataset["source_engineering_next_action_result_scaffold"]["missing_path_count"], "0")
         self.assertEqual(
             by_dataset["source_engineering_next_action_result_scaffold"]["boundary_status_violation_count"],
             "0",
         )
         self.assertIn(
-            "result_status=not_started:16",
+            "result_status=not_started:14",
             by_dataset["source_engineering_next_action_result_scaffold"]["status_counts"],
         )
         self.assertIn(
-            "decipherment_claim_status=no_decipherment_claim:16",
+            "decipherment_claim_status=no_decipherment_claim:14",
             by_dataset["source_engineering_next_action_result_scaffold"]["status_counts"],
         )
-        self.assertEqual(by_dataset["source_engineering_lane_summary"]["row_count"], "5")
+        self.assertEqual(by_dataset["source_engineering_lane_summary"]["row_count"], "4")
         self.assertEqual(by_dataset["source_engineering_lane_summary"]["missing_path_count"], "0")
         self.assertEqual(
             by_dataset["source_engineering_lane_summary"]["boundary_status_violation_count"],
             "0",
         )
         self.assertIn(
-            "review_status=summary_only_pending_source_engineering_review:5",
+            "review_status=summary_only_pending_source_engineering_review:4",
             by_dataset["source_engineering_lane_summary"]["status_counts"],
         )
         self.assertEqual(by_dataset["source_field_map_scaffold"]["row_count"], "3")
@@ -24235,13 +24278,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(
             Counter(row["gap_type"] for row in rows),
             {
                 "access_boundary_or_error_followup": 5,
                 "checksum_or_failed_download_status_review_needed": 4,
-                "metadata_profile_extraction_needed": 2,
                 "safe_derived_record_decision_needed": 2,
                 "source_field_map_needed": 3,
             },
@@ -24260,7 +24302,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SOURCE_COVERAGE_SUMMARY),
             module.read_csv_rows(root / module.BROWSER_VERIFIED_METADATA_CAPTURE),
         )
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
         self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
         self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
@@ -24314,13 +24356,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         summary = module.build_summary(rows)
         self.assertEqual(len(rows), 21)
         self.assertEqual(summary["source_with_gap_count"], 8)
-        self.assertEqual(summary["total_gap_count"], 16)
+        self.assertEqual(summary["total_gap_count"], 14)
         self.assertEqual(
             summary["gap_type_counts"],
             {
                 "access_boundary_or_error_followup": 5,
                 "checksum_or_failed_download_status_review_needed": 4,
-                "metadata_profile_extraction_needed": 2,
                 "safe_derived_record_decision_needed": 2,
                 "source_field_map_needed": 3,
             },
@@ -24335,13 +24376,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(
             Counter(row["gap_type"] for row in rows),
             {
                 "access_boundary_or_error_followup": 5,
                 "checksum_or_failed_download_status_review_needed": 4,
-                "metadata_profile_extraction_needed": 2,
                 "safe_derived_record_decision_needed": 2,
                 "source_field_map_needed": 3,
             },
@@ -24416,7 +24456,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         rows = module.build_draft_manifest_rows(
             module.read_csv_rows(root / module.SOURCE_ENGINEERING_GAP_QUEUE)
         )
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(rows[0]["review_log_draft_id"], "source-engineering-gap-review-log-draft-0001")
         self.assertEqual(rows[0]["draft_status"], "draft_not_collected")
         self.assertEqual(rows[0]["evidence_collection_status"], "not_collected")
@@ -24437,13 +24477,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(
             Counter(row["gap_type"] for row in rows),
             {
                 "access_boundary_or_error_followup": 5,
                 "checksum_or_failed_download_status_review_needed": 4,
-                "metadata_profile_extraction_needed": 2,
                 "safe_derived_record_decision_needed": 2,
                 "source_field_map_needed": 3,
             },
@@ -24460,7 +24499,7 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_gap_evidence_snapshot_builder_keeps_boundaries(self) -> None:
         module = load_source_engineering_gap_evidence_snapshot_module()
         rows = module.build_snapshot_rows(repo_root())
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(rows[0]["evidence_snapshot_id"], "source-engineering-gap-evidence-snapshot-0001")
         self.assertEqual(rows[0]["source_id"], "src-sinica-da-xiaoxuetang-site")
         self.assertEqual(rows[0]["download_log_status_counts"], "download_error:1")
@@ -24481,13 +24520,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(
             Counter(row["action_lane"] for row in rows),
             {
                 "access_boundary_followup": 5,
                 "checksum_and_download_status_review": 4,
-                "metadata_profile_extraction_planning": 2,
                 "safe_derived_record_decision": 2,
                 "source_field_map_planning": 3,
             },
@@ -24504,7 +24542,7 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_next_action_checklist_builder_keeps_boundaries(self) -> None:
         module = load_source_engineering_next_action_checklist_module()
         rows = module.build_checklist_rows(repo_root())
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0001")
         self.assertEqual(rows[0]["evidence_snapshot_id"], "source-engineering-gap-evidence-snapshot-0001")
         self.assertEqual(rows[0]["action_lane"], "access_boundary_followup")
@@ -24522,7 +24560,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual({row["result_status"] for row in rows}, {"not_started"})
         self.assertEqual({row["evidence_collection_status"] for row in rows}, {"not_collected"})
         self.assertEqual({row["rights_decision_status"] for row in rows}, {"no_new_rights_decision"})
@@ -24536,7 +24574,7 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_next_action_result_scaffold_builder_keeps_empty_results(self) -> None:
         module = load_source_engineering_next_action_result_scaffold_module()
         rows = module.build_result_scaffold_rows(repo_root())
-        self.assertEqual(len(rows), 16)
+        self.assertEqual(len(rows), 14)
         self.assertEqual(rows[0]["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0001")
         self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0001")
         self.assertEqual(rows[0]["action_lane"], "access_boundary_followup")
@@ -24554,7 +24592,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(rows), 4)
         by_lane = {row["action_lane"]: row for row in rows}
         self.assertNotIn("package_manifest_or_not_applicable_review", by_lane)
         self.assertEqual(by_lane["safe_derived_record_decision"]["action_count"], "2")
@@ -24570,12 +24608,12 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_lane_summary_builder_counts_lanes(self) -> None:
         module = load_source_engineering_lane_summary_module()
         rows = module.build_lane_summary_rows(repo_root())
-        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(rows), 4)
         self.assertEqual(rows[0]["lane_summary_id"], "source-engineering-lane-summary-001")
         by_lane = {row["action_lane"]: row for row in rows}
         self.assertEqual(by_lane["access_boundary_followup"]["priority_min"], "1")
         self.assertEqual(by_lane["access_boundary_followup"]["action_count"], "5")
-        self.assertEqual(by_lane["metadata_profile_extraction_planning"]["result_status_counts"], "not_started:2")
+        self.assertNotIn("metadata_profile_extraction_planning", by_lane)
         self.assertEqual(by_lane["checksum_and_download_status_review"]["evidence_collection_status_counts"], "not_collected:4")
         self.assertTrue(all(row["review_status"] == module.REVIEW_STATUS for row in rows))
         self.assertIn("does not complete source-engineering review", rows[0]["caution"])
@@ -24588,9 +24626,9 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["route_pack_id"], "source-engineering-lane-route-pack-001")
-        self.assertEqual(data["lane_count"], 5)
-        self.assertEqual(data["action_count"], 16)
-        self.assertEqual(data["result_scaffold_count"], 16)
+        self.assertEqual(data["lane_count"], 4)
+        self.assertEqual(data["action_count"], 14)
+        self.assertEqual(data["result_scaffold_count"], 14)
         self.assertEqual(data["review_status"], "route_pack_pending_source_engineering_review")
         self.assertIn("does not collect evidence", data["caution"])
         by_lane = {lane["action_lane"]: lane for lane in data["lanes"]}
@@ -24612,8 +24650,8 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_lane_route_pack_builder_keeps_metadata_boundaries(self) -> None:
         module = load_source_engineering_lane_route_pack_module()
         data = module.build_route_pack(repo_root())
-        self.assertEqual(data["lane_count"], 5)
-        self.assertEqual(data["action_count"], 16)
+        self.assertEqual(data["lane_count"], 4)
+        self.assertEqual(data["action_count"], 14)
         self.assertEqual(data["lanes"][0]["action_lane"], "access_boundary_followup")
         self.assertEqual(data["lanes"][0]["tasks"][0]["next_action_id"], "source-engineering-next-action-0001")
         self.assertIn("open_download_log", data["lanes"][0]["tasks"][0]["checklist_items"])
@@ -24793,26 +24831,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["route_pack_id"], "source-metadata-profile-review-route-pack-001")
         self.assertEqual(data["action_lane"], "metadata_profile_extraction_planning")
-        self.assertEqual(data["source_count"], 2)
-        self.assertEqual(data["route_count"], 2)
+        self.assertEqual(data["source_count"], 0)
+        self.assertEqual(data["route_count"], 0)
         self.assertEqual(data["review_status"], "route_pack_pending_metadata_profile_review")
         self.assertEqual(data["research_boundary"], "source_metadata_profile_review_route_pack_not_extraction_decision")
         self.assertIn("does not extract metadata profiles", data["caution"])
         for source_path in data["source_paths"].values():
             self.assertTrue((repo_root() / source_path).exists(), source_path)
-        self.assertNotIn("src-cambridge-hopkins", {route["source_id"] for route in data["routes"]})
-        first_route = data["routes"][0]
-        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0010")
-        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0010")
-        self.assertEqual(first_route["metadata_profile_decision"], "")
-        self.assertEqual(first_route["result_status"], "not_started")
-        self.assertEqual(first_route["evidence_collection_status"], "not_collected")
-        self.assertEqual(first_route["rights_decision_status"], "no_new_rights_decision")
-        self.assertEqual(first_route["source_promotion_status"], "not_promoted")
-        self.assertEqual(first_route["corpus_import_status"], "not_imported")
-        self.assertEqual(first_route["decipherment_claim_status"], "no_decipherment_claim")
-        self.assertIn("define_profile_metrics", first_route["checklist_items"])
-        self.assertIn("record_extraction_boundary", first_route["checklist_items"])
+        self.assertEqual(data["routes"], [])
         for route in data["routes"]:
             for field in [
                 "primary_input_path",
@@ -24831,20 +24857,8 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_metadata_profile_review_route_pack_builder_keeps_empty_decisions(self) -> None:
         module = load_source_metadata_profile_review_route_pack_module()
         data = module.build_route_pack(repo_root())
-        self.assertEqual(data["route_count"], 2)
-        self.assertEqual(data["routes"][0]["source_id"], "src-xiaoxuetang-jiaguwen")
-        self.assertEqual(data["routes"][0]["gap_type"], "metadata_profile_extraction_needed")
-        self.assertEqual(
-            data["routes"][0]["automation_scope"],
-            "profile_extraction_can_be_scripted_from_reviewed_local_or_registered_rows",
-        )
-        self.assertEqual(
-            data["routes"][0]["blocking_condition"],
-            "no_profile_from_raw_or_restricted_material_until_source_route_is_reviewed",
-        )
-        self.assertEqual(data["routes"][0]["metadata_profile_decision"], "")
-        self.assertEqual(data["routes"][0]["result_status"], "not_started")
-        self.assertEqual(data["routes"][0]["human_review_status"], "pending_human_review")
+        self.assertEqual(data["route_count"], 0)
+        self.assertEqual(data["routes"], [])
         self.assertIn("not a corpus import", data["caution"])
 
     def test_source_safe_derived_record_review_route_pack_indexes_safe_derived_lane(self) -> None:
@@ -24865,8 +24879,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertTrue((repo_root() / source_path).exists(), source_path)
         self.assertIn("src-sinica-da-xiaoxuetang-site", {route["source_id"] for route in data["routes"]})
         first_route = data["routes"][0]
-        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0015")
-        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0015")
+        self.assertEqual(first_route["next_action_id"], "source-engineering-next-action-0013")
+        self.assertEqual(first_route["result_scaffold_id"], "source-engineering-next-action-result-scaffold-0013")
         self.assertEqual(first_route["safe_derived_record_decision"], "")
         self.assertEqual(first_route["result_status"], "not_started")
         self.assertEqual(first_route["evidence_collection_status"], "not_collected")
@@ -24917,7 +24931,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["summary_id"], "source-engineering-review-route-summary-001")
         self.assertEqual(data["lane_count"], 6)
         self.assertEqual(data["route_pack_count"], 6)
-        self.assertEqual(data["total_route_count"], 16)
+        self.assertEqual(data["total_route_count"], 14)
         self.assertEqual(data["review_status"], "route_summary_pending_source_engineering_review")
         self.assertEqual(data["research_boundary"], "source_engineering_review_route_summary_not_review_result")
         self.assertIn("does not record reviewed outcomes", data["caution"])
@@ -24963,7 +24977,7 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_review_route_summary_builder_preserves_empty_results(self) -> None:
         module = load_source_engineering_review_route_summary_module()
         data = module.build_summary(repo_root())
-        self.assertEqual(data["total_route_count"], 16)
+        self.assertEqual(data["total_route_count"], 14)
         self.assertEqual(data["total_decision_filled_count"], 0)
         self.assertEqual(data["total_result_started_count"], 0)
         first_lane = data["lanes"][0]
@@ -24986,13 +25000,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["handoff_scope"]["wave_id"], "source-engineering-review-wave-001")
         self.assertEqual(data["coverage"]["handoff_item_count"], 6)
         self.assertEqual(data["coverage"]["action_lane_count"], 6)
-        self.assertEqual(data["coverage"]["source_count"], 4)
-        self.assertEqual(data["coverage"]["review_log_count"], 6)
-        self.assertEqual(data["coverage"]["result_record_count"], 6)
+        self.assertEqual(data["coverage"]["source_count"], 3)
+        self.assertEqual(data["coverage"]["review_log_count"], 5)
+        self.assertEqual(data["coverage"]["result_record_count"], 5)
         self.assertEqual(data["coverage"]["decision_filled_count"], 0)
-        self.assertEqual(data["coverage"]["result_started_count"], 1)
-        self.assertEqual(data["coverage"]["evidence_collection_status_counts"], {"not_applicable_no_current_route": 1, "not_collected": 5})
-        self.assertEqual(data["coverage"]["human_review_status_counts"], {"not_applicable_no_current_route": 1, "pending_human_review": 5})
+        self.assertEqual(data["coverage"]["result_started_count"], 2)
+        self.assertEqual(data["coverage"]["evidence_collection_status_counts"], {"not_applicable_no_current_route": 2, "not_collected": 4})
+        self.assertEqual(data["coverage"]["human_review_status_counts"], {"not_applicable_no_current_route": 2, "pending_human_review": 4})
         self.assertEqual(data["coverage"]["rights_decision_status_counts"], {"no_new_rights_decision": 6})
         self.assertEqual(data["coverage"]["source_promotion_status_counts"], {"not_promoted": 6})
         self.assertEqual(data["coverage"]["corpus_import_status_counts"], {"not_imported": 6})
@@ -25010,7 +25024,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(data["handoff_items"][0]["next_action_id"], "source-engineering-next-action-0001")
         self.assertEqual(data["handoff_items"][0]["source_id"], "src-sinica-da-xiaoxuetang-site")
-        self.assertEqual(data["handoff_items"][-1]["next_action_id"], "source-engineering-next-action-0015")
+        self.assertEqual(data["handoff_items"][-1]["next_action_id"], "source-engineering-next-action-0013")
         for source_path in data["generated_from"]:
             self.assertTrue((repo_root() / source_path).exists(), source_path)
         for item in data["handoff_items"]:
@@ -25035,7 +25049,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = module.build_wave_handoff_scaffold(repo_root(), summary)
         self.assertEqual(data["coverage"]["handoff_item_count"], 6)
         self.assertEqual(data["coverage"]["decision_filled_count"], 0)
-        self.assertEqual(data["coverage"]["result_started_count"], 1)
+        self.assertEqual(data["coverage"]["result_started_count"], 2)
         self.assertEqual(data["route_files_to_open"][0], module.REVIEW_ROUTE_SUMMARY.as_posix())
         self.assertIn("not a rights decision", data["agent_use_rules"][2])
 
@@ -25107,7 +25121,7 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_source_engineering_first_wave_review_results_builder_preserves_boundaries(self) -> None:
         module = load_source_engineering_first_wave_review_results_module()
         rows = module.build_result_rows(repo_root())
-        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(rows), 4)
         self.assertEqual(rows[0]["first_wave_result_id"], "source-engineering-first-wave-review-result-0001")
         self.assertEqual(rows[0]["evidence_snapshot_id"], "source-engineering-gap-evidence-snapshot-0001")
         self.assertEqual(rows[0]["source_id"], "src-sinica-da-xiaoxuetang-site")
@@ -26005,7 +26019,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         rows = module.build_scaffold_rows(repo_root())
         self.assertEqual(len(rows), 3)
         self.assertEqual(rows[0]["field_map_scaffold_id"], "source-field-map-scaffold-001")
-        self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0012")
+        self.assertEqual(rows[0]["next_action_id"], "source-engineering-next-action-0010")
         self.assertEqual(rows[0]["source_id"], "src-open-oracle")
         self.assertEqual(rows[0]["proposed_source_field_or_unit"], "field_semantics_unreviewed")
         self.assertEqual(rows[0]["proposed_target_project_fields"], "pending_human_review")
@@ -26195,17 +26209,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             data["stage_counts"],
             {
                 "discovered_access_boundary_or_error": 1,
-                "pending_human_review": 18,
-                "structured": 2,
+                "pending_human_review": 20,
             },
         )
         self.assertEqual(data["totals"]["download_manifest_count"], 48)
         self.assertEqual(data["totals"]["download_log_count"], 49)
-        self.assertEqual(data["totals"]["metadata_profile_count"], 72)
+        self.assertEqual(data["totals"]["metadata_profile_count"], 80)
         self.assertEqual(data["totals"]["graph_edge_count"], 117138)
         self.assertEqual(data["totals"]["candidate_queue_count"], 10996)
         self.assertEqual(data["totals"]["source_phase_action_count"], 62)
-        self.assertEqual(data["totals"]["missing_evidence_action_count"], 30)
+        self.assertEqual(data["totals"]["missing_evidence_action_count"], 26)
         self.assertEqual(data["totals"]["missing_evidence_assignment_count"], 18)
         self.assertEqual(data["totals"]["object_local_material_bundle_count"], 29903)
         self.assertEqual(data["totals"]["object_local_review_image_object_count"], 13715)
@@ -26238,9 +26251,12 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_source["src-cambridge-hopkins"]["current_stage"], "pending_human_review")
         self.assertEqual(by_source["src-cambridge-hopkins"]["missing_evidence_assignment_count"], "1")
         self.assertEqual(by_source["src-cambridge-hopkins"]["object_local_material_bundle_count"], "633")
-        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["current_stage"], "structured")
+        self.assertEqual(
+            by_source["src-xiaoxuetang-jiaguwen"]["current_stage"],
+            "pending_human_review",
+        )
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["source_phase_action_count"], "6")
-        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["missing_evidence_action_count"], "2")
+        self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["missing_evidence_action_count"], "1")
         self.assertEqual(by_source["src-xiaoxuetang-jiaguwen"]["object_local_material_bundle_count"], "1")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["current_stage"], "discovered_access_boundary_or_error")
         self.assertEqual(by_source["src-british-museum-oracle-bone"]["source_phase_action_count"], "7")
@@ -26727,8 +26743,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         checklist_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_FILE_CHECKLIST)
         rows = module.build_evidence_presence_rows(repo_root(), checklist_rows)
         self.assertEqual(len(rows), 210)
-        self.assertEqual(sum(1 for row in rows if row["match_status"] == "present"), 182)
-        self.assertEqual(sum(1 for row in rows if row["match_status"] == "missing_for_source"), 28)
+        self.assertEqual(sum(1 for row in rows if row["match_status"] == "present"), 184)
+        self.assertEqual(sum(1 for row in rows if row["match_status"] == "missing_for_source"), 26)
         role_counts = module.role_presence_counts(rows)
         self.assertEqual(role_counts["source_download_log"], {"present": 21})
         self.assertEqual(role_counts["source_field_map"], {"missing_for_source": 4, "present": 17})
@@ -26790,11 +26806,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 30)
+        self.assertEqual(len(rows), 26)
         role_counts = Counter(row["missing_file_role"] for row in rows)
         self.assertEqual(role_counts["source_package_file_manifest"], 3)
         self.assertEqual(role_counts["large_source_register"], 18)
-        self.assertEqual(role_counts["downloaded_metadata_profile"], 5)
+        self.assertEqual(role_counts["downloaded_metadata_profile"], 1)
         self.assertEqual(role_counts["source_field_map"], 4)
         by_key = {(row["source_id"], row["missing_file_role"]): row for row in rows}
         self.assertEqual(
@@ -26815,11 +26831,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_source_pipeline_phase_action_missing_evidence_action_queue_module()
         evidence_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_EVIDENCE_PRESENCE_MATRIX)
         rows = module.build_missing_evidence_action_rows(evidence_rows)
-        self.assertEqual(len(rows), 30)
+        self.assertEqual(len(rows), 26)
         self.assertEqual(rows[0]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-001")
         self.assertEqual(rows[0]["source_id"], "src-british-museum-oracle-bone")
         self.assertEqual(rows[0]["missing_file_role"], "downloaded_metadata_profile")
-        self.assertEqual(rows[-1]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-030")
+        self.assertEqual(rows[-1]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-026")
         self.assertEqual(rows[-1]["source_id"], "src-yinqi-wenyuan")
         self.assertEqual(rows[-1]["missing_file_role"], "source_field_map")
         self.assertEqual(rows[-1]["research_boundary"], module.RESEARCH_BOUNDARY)
@@ -26834,11 +26850,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         with path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        self.assertEqual(len(rows), 30)
+        self.assertEqual(len(rows), 26)
         self.assertEqual(rows[0]["missing_evidence_result_scaffold_id"], "source-pipeline-phase-action-missing-evidence-result-001")
         self.assertEqual(rows[0]["missing_evidence_action_id"], "source-pipeline-phase-action-missing-evidence-001")
         self.assertEqual(rows[0]["missing_file_role"], "downloaded_metadata_profile")
-        self.assertEqual(rows[-1]["missing_evidence_result_scaffold_id"], "source-pipeline-phase-action-missing-evidence-result-030")
+        self.assertEqual(rows[-1]["missing_evidence_result_scaffold_id"], "source-pipeline-phase-action-missing-evidence-result-026")
         self.assertTrue(all(row["result_status"] == "not_started" for row in rows))
         self.assertTrue(all(row["evidence_collection_status"] == "not_collected" for row in rows))
         self.assertTrue(all(row["reviewed_outcome_summary"] == "" for row in rows))
@@ -26852,7 +26868,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_source_pipeline_phase_action_missing_evidence_result_scaffold_module()
         action_rows = module.read_csv_rows(repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_ACTION_QUEUE)
         rows = module.build_missing_evidence_result_scaffold_rows(action_rows)
-        self.assertEqual(len(rows), 30)
+        self.assertEqual(len(rows), 26)
         by_action = {row["missing_evidence_action_id"]: row for row in rows}
         first = by_action["source-pipeline-phase-action-missing-evidence-001"]
         self.assertEqual(first["source_id"], "src-british-museum-oracle-bone")
@@ -26871,20 +26887,20 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "146_source-pipeline-phase-action-missing-evidence-route-summary.json"
         )
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["route_count"], 30)
+        self.assertEqual(data["route_count"], 26)
         self.assertEqual(data["source_count"], 18)
         self.assertEqual(data["missing_file_role_counts"]["source_package_file_manifest"], 3)
         self.assertEqual(data["missing_file_role_counts"]["large_source_register"], 18)
-        self.assertEqual(data["missing_file_role_counts"]["downloaded_metadata_profile"], 5)
+        self.assertEqual(data["missing_file_role_counts"]["downloaded_metadata_profile"], 1)
         self.assertEqual(data["missing_file_role_counts"]["source_field_map"], 4)
-        self.assertEqual(data["result_status_counts"], {"not_started": 30})
-        self.assertEqual(data["evidence_collection_status_counts"], {"not_collected": 30})
-        self.assertEqual(data["rights_decision_status_counts"], {"no_new_rights_decision": 30})
-        self.assertEqual(data["decipherment_claim_status_counts"], {"no_decipherment_claim": 30})
+        self.assertEqual(data["result_status_counts"], {"not_started": 26})
+        self.assertEqual(data["evidence_collection_status_counts"], {"not_collected": 26})
+        self.assertEqual(data["rights_decision_status_counts"], {"no_new_rights_decision": 26})
+        self.assertEqual(data["decipherment_claim_status_counts"], {"no_decipherment_claim": 26})
         self.assertEqual(data["routes"][0]["route_id"], "source-pipeline-phase-action-missing-evidence-route-001")
         self.assertEqual(data["routes"][0]["source_id"], "src-british-museum-oracle-bone")
         self.assertEqual(data["routes"][0]["missing_file_role"], "downloaded_metadata_profile")
-        self.assertEqual(data["routes"][-1]["route_id"], "source-pipeline-phase-action-missing-evidence-route-030")
+        self.assertEqual(data["routes"][-1]["route_id"], "source-pipeline-phase-action-missing-evidence-route-026")
         self.assertEqual(data["routes"][-1]["source_id"], "src-yinqi-wenyuan")
         self.assertEqual(data["routes"][-1]["missing_file_role"], "source_field_map")
 
@@ -26894,7 +26910,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             repo_root() / module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD
         )
         data = module.build_route_summary(scaffold_rows)
-        self.assertEqual(data["route_count"], 30)
+        self.assertEqual(data["route_count"], 26)
         self.assertEqual(data["source_counts"]["src-british-museum-oracle-bone"], 4)
         self.assertEqual(data["source_counts"]["src-yinqi-wenyuan"], 2)
         self.assertEqual(data["action_result_scaffold_path"], module.SOURCE_PIPELINE_PHASE_ACTION_MISSING_EVIDENCE_RESULT_SCAFFOLD.as_posix())
@@ -29371,10 +29387,10 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 3, "targeted_review": 7})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13152)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 13132)
         self.assertEqual(data["totals"]["candidate_record_count"], 13196)
         self.assertEqual(data["totals"]["formal_record_count"], 101679)
-        self.assertEqual(data["totals"]["staging_record_count"], 75264)
+        self.assertEqual(data["totals"]["staging_record_count"], 75272)
         self.assertEqual(data["totals"]["graph_edge_count"], 220887)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -29397,7 +29413,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "213")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1023")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "1005")
         self.assertEqual(
             by_area["research_sources_and_bibliography"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv",
@@ -30886,7 +30902,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
-        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"124"})
+        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
         self.assertEqual({row["source_register_file_count"] for row in rows}, {"508"})
         self.assertTrue(
             all(
@@ -30984,7 +31000,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "linked: `mixed_or_partial`",
             "verified: `missing`",
             "research note files: 7",
-            "user or AI draft review files: 124",
+            "user or AI draft review files: 122",
             "source register files: 508",
             "bibliographic identity",
             "source trail",
@@ -31011,7 +31027,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         text = module.build_markdown(repo_root())
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
-        self.assertIn("user or AI draft review files: 124", text)
+        self.assertIn("user or AI draft review files: 122", text)
         self.assertIn("source register files: 508", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(

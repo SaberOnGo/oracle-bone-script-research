@@ -384,10 +384,9 @@
       "source_type": "online_database",
       "rights_status": "metadata_only_until_verified",
       "pipeline_gap_status": "needs_package_manifest_review",
-      "missing_route_count": "2",
-      "missing_file_role_count": "2",
+      "missing_route_count": "1",
+      "missing_file_role_count": "1",
       "missing_file_roles": [
-        "downloaded_metadata_profile",
         "large_source_register"
       ],
       "priority_rank": "5",
@@ -395,7 +394,6 @@
         "source:src-ihp-oracle-rubbings",
         "gap_status:needs_package_manifest_review",
         "missing_evidence_review",
-        "role:downloaded_metadata_profile",
         "role:large_source_register"
       ],
       "required_review_steps": [
@@ -409,7 +407,6 @@
         "leave_unchecked_roles_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_downloaded_metadata_profile_or_not_applicable_boundary",
         "verify_large_source_register_applicability"
       ],
       "blocking_condition": "open_all_routed_files_before_recording_missing_evidence_outcomes",
@@ -420,27 +417,21 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-008",
-        "source-pipeline-phase-action-missing-evidence-route-009"
+        "source-pipeline-phase-action-missing-evidence-route-008"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-008",
-        "source-pipeline-phase-action-missing-evidence-009"
+        "source-pipeline-phase-action-missing-evidence-008"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-008",
-        "source-pipeline-phase-action-missing-evidence-result-009"
+        "source-pipeline-phase-action-missing-evidence-result-008"
       ],
       "evidence_presence_row_ids": [
-        "source-pipeline-phase-action-evidence-presence-069",
         "source-pipeline-phase-action-evidence-presence-070"
       ],
       "files_to_open": [
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "required_review_actions": [
-        "review_downloaded_metadata_profile_or_mark_not_applicable",
         "review_large_source_register_applicability_or_mark_not_applicable"
       ],
       "route_status": "not_started",
@@ -505,13 +496,13 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-010"
+        "source-pipeline-phase-action-missing-evidence-route-009"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-010"
+        "source-pipeline-phase-action-missing-evidence-009"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-010"
+        "source-pipeline-phase-action-missing-evidence-result-009"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-080"
@@ -584,13 +575,13 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-011"
+        "source-pipeline-phase-action-missing-evidence-route-010"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-011"
+        "source-pipeline-phase-action-missing-evidence-010"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-011"
+        "source-pipeline-phase-action-missing-evidence-result-010"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-090"
@@ -630,10 +621,9 @@
       "source_type": "online_database",
       "rights_status": "source_marked_risk_noted",
       "pipeline_gap_status": "needs_package_manifest_review",
-      "missing_route_count": "2",
-      "missing_file_role_count": "2",
+      "missing_route_count": "1",
+      "missing_file_role_count": "1",
       "missing_file_roles": [
-        "downloaded_metadata_profile",
         "large_source_register"
       ],
       "priority_rank": "8",
@@ -641,7 +631,6 @@
         "source:src-obid-ancientbooks",
         "gap_status:needs_package_manifest_review",
         "missing_evidence_review",
-        "role:downloaded_metadata_profile",
         "role:large_source_register"
       ],
       "required_review_steps": [
@@ -655,7 +644,6 @@
         "leave_unchecked_roles_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_downloaded_metadata_profile_or_not_applicable_boundary",
         "verify_large_source_register_applicability"
       ],
       "blocking_condition": "open_all_routed_files_before_recording_missing_evidence_outcomes",
@@ -666,27 +654,21 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-012",
-        "source-pipeline-phase-action-missing-evidence-route-013"
+        "source-pipeline-phase-action-missing-evidence-route-011"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-012",
-        "source-pipeline-phase-action-missing-evidence-013"
+        "source-pipeline-phase-action-missing-evidence-011"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-012",
-        "source-pipeline-phase-action-missing-evidence-result-013"
+        "source-pipeline-phase-action-missing-evidence-result-011"
       ],
       "evidence_presence_row_ids": [
-        "source-pipeline-phase-action-evidence-presence-099",
         "source-pipeline-phase-action-evidence-presence-100"
       ],
       "files_to_open": [
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "required_review_actions": [
-        "review_downloaded_metadata_profile_or_mark_not_applicable",
         "review_large_source_register_applicability_or_mark_not_applicable"
       ],
       "route_status": "not_started",
@@ -754,16 +736,16 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-014",
-        "source-pipeline-phase-action-missing-evidence-route-015"
+        "source-pipeline-phase-action-missing-evidence-route-012",
+        "source-pipeline-phase-action-missing-evidence-route-013"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-014",
-        "source-pipeline-phase-action-missing-evidence-015"
+        "source-pipeline-phase-action-missing-evidence-012",
+        "source-pipeline-phase-action-missing-evidence-013"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-014",
-        "source-pipeline-phase-action-missing-evidence-result-015"
+        "source-pipeline-phase-action-missing-evidence-result-012",
+        "source-pipeline-phase-action-missing-evidence-result-013"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-120",
@@ -842,16 +824,16 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-016",
-        "source-pipeline-phase-action-missing-evidence-route-017"
+        "source-pipeline-phase-action-missing-evidence-route-014",
+        "source-pipeline-phase-action-missing-evidence-route-015"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-016",
-        "source-pipeline-phase-action-missing-evidence-017"
+        "source-pipeline-phase-action-missing-evidence-014",
+        "source-pipeline-phase-action-missing-evidence-015"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-016",
-        "source-pipeline-phase-action-missing-evidence-result-017"
+        "source-pipeline-phase-action-missing-evidence-result-014",
+        "source-pipeline-phase-action-missing-evidence-result-015"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-130",
@@ -927,13 +909,13 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-018"
+        "source-pipeline-phase-action-missing-evidence-route-016"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-018"
+        "source-pipeline-phase-action-missing-evidence-016"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-018"
+        "source-pipeline-phase-action-missing-evidence-result-016"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-140"
@@ -1009,16 +991,16 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-019",
-        "source-pipeline-phase-action-missing-evidence-route-020"
+        "source-pipeline-phase-action-missing-evidence-route-017",
+        "source-pipeline-phase-action-missing-evidence-route-018"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-019",
-        "source-pipeline-phase-action-missing-evidence-020"
+        "source-pipeline-phase-action-missing-evidence-017",
+        "source-pipeline-phase-action-missing-evidence-018"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-019",
-        "source-pipeline-phase-action-missing-evidence-result-020"
+        "source-pipeline-phase-action-missing-evidence-result-017",
+        "source-pipeline-phase-action-missing-evidence-result-018"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-150",
@@ -1097,16 +1079,16 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-021",
-        "source-pipeline-phase-action-missing-evidence-route-022"
+        "source-pipeline-phase-action-missing-evidence-route-019",
+        "source-pipeline-phase-action-missing-evidence-route-020"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-021",
-        "source-pipeline-phase-action-missing-evidence-022"
+        "source-pipeline-phase-action-missing-evidence-019",
+        "source-pipeline-phase-action-missing-evidence-020"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-021",
-        "source-pipeline-phase-action-missing-evidence-result-022"
+        "source-pipeline-phase-action-missing-evidence-result-019",
+        "source-pipeline-phase-action-missing-evidence-result-020"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-160",
@@ -1182,13 +1164,13 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-023"
+        "source-pipeline-phase-action-missing-evidence-route-021"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-023"
+        "source-pipeline-phase-action-missing-evidence-021"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-023"
+        "source-pipeline-phase-action-missing-evidence-result-021"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-170"
@@ -1261,13 +1243,13 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-024"
+        "source-pipeline-phase-action-missing-evidence-route-022"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-024"
+        "source-pipeline-phase-action-missing-evidence-022"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-024"
+        "source-pipeline-phase-action-missing-evidence-result-022"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-180"
@@ -1307,10 +1289,9 @@
       "source_type": "online_database",
       "rights_status": "metadata_only_until_verified",
       "pipeline_gap_status": "needs_access_boundary_review",
-      "missing_route_count": "2",
-      "missing_file_role_count": "2",
+      "missing_route_count": "1",
+      "missing_file_role_count": "1",
       "missing_file_roles": [
-        "downloaded_metadata_profile",
         "large_source_register"
       ],
       "priority_rank": "16",
@@ -1318,7 +1299,6 @@
         "source:src-xiaoxuetang-jiaguwen",
         "gap_status:needs_access_boundary_review",
         "missing_evidence_review",
-        "role:downloaded_metadata_profile",
         "role:large_source_register"
       ],
       "required_review_steps": [
@@ -1332,7 +1312,6 @@
         "leave_unchecked_roles_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_downloaded_metadata_profile_or_not_applicable_boundary",
         "verify_large_source_register_applicability"
       ],
       "blocking_condition": "open_all_routed_files_before_recording_missing_evidence_outcomes",
@@ -1343,27 +1322,21 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-025",
-        "source-pipeline-phase-action-missing-evidence-route-026"
+        "source-pipeline-phase-action-missing-evidence-route-023"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-025",
-        "source-pipeline-phase-action-missing-evidence-026"
+        "source-pipeline-phase-action-missing-evidence-023"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-025",
-        "source-pipeline-phase-action-missing-evidence-result-026"
+        "source-pipeline-phase-action-missing-evidence-result-023"
       ],
       "evidence_presence_row_ids": [
-        "source-pipeline-phase-action-evidence-presence-189",
         "source-pipeline-phase-action-evidence-presence-190"
       ],
       "files_to_open": [
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "required_review_actions": [
-        "review_downloaded_metadata_profile_or_mark_not_applicable",
         "review_large_source_register_applicability_or_mark_not_applicable"
       ],
       "route_status": "not_started",
@@ -1395,10 +1368,9 @@
       "source_type": "online_database",
       "rights_status": "metadata_only_until_verified",
       "pipeline_gap_status": "needs_access_boundary_review",
-      "missing_route_count": "2",
-      "missing_file_role_count": "2",
+      "missing_route_count": "1",
+      "missing_file_role_count": "1",
       "missing_file_roles": [
-        "downloaded_metadata_profile",
         "large_source_register"
       ],
       "priority_rank": "17",
@@ -1406,7 +1378,6 @@
         "source:src-xiaoxuetang-obm",
         "gap_status:needs_access_boundary_review",
         "missing_evidence_review",
-        "role:downloaded_metadata_profile",
         "role:large_source_register"
       ],
       "required_review_steps": [
@@ -1420,7 +1391,6 @@
         "leave_unchecked_roles_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_downloaded_metadata_profile_or_not_applicable_boundary",
         "verify_large_source_register_applicability"
       ],
       "blocking_condition": "open_all_routed_files_before_recording_missing_evidence_outcomes",
@@ -1431,27 +1401,21 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-027",
-        "source-pipeline-phase-action-missing-evidence-route-028"
+        "source-pipeline-phase-action-missing-evidence-route-024"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-027",
-        "source-pipeline-phase-action-missing-evidence-028"
+        "source-pipeline-phase-action-missing-evidence-024"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-027",
-        "source-pipeline-phase-action-missing-evidence-result-028"
+        "source-pipeline-phase-action-missing-evidence-result-024"
       ],
       "evidence_presence_row_ids": [
-        "source-pipeline-phase-action-evidence-presence-199",
         "source-pipeline-phase-action-evidence-presence-200"
       ],
       "files_to_open": [
-        "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv",
         "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "required_review_actions": [
-        "review_downloaded_metadata_profile_or_mark_not_applicable",
         "review_large_source_register_applicability_or_mark_not_applicable"
       ],
       "route_status": "not_started",
@@ -1519,16 +1483,16 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-029",
-        "source-pipeline-phase-action-missing-evidence-route-030"
+        "source-pipeline-phase-action-missing-evidence-route-025",
+        "source-pipeline-phase-action-missing-evidence-route-026"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-029",
-        "source-pipeline-phase-action-missing-evidence-030"
+        "source-pipeline-phase-action-missing-evidence-025",
+        "source-pipeline-phase-action-missing-evidence-026"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-029",
-        "source-pipeline-phase-action-missing-evidence-result-030"
+        "source-pipeline-phase-action-missing-evidence-result-025",
+        "source-pipeline-phase-action-missing-evidence-result-026"
       ],
       "evidence_presence_row_ids": [
         "source-pipeline-phase-action-evidence-presence-210",

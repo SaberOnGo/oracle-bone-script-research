@@ -35,13 +35,13 @@
       "slot": "access_checksum_size",
       "status": "needs_human_review",
       "evidence": "02_download-route-index.csv; 18_source-access-integrity-review.md",
-      "human_question": "Which access or download row has status downloaded; which checksum and size rows are ready for audit?"
+      "human_question": "Which access or download row has status download_error; downloaded; which checksum and size rows are ready for audit?"
     },
     {
       "slot": "package_and_field_map",
       "status": "needs_human_review",
       "evidence": "03_package-route-index.csv; 04_field-map-route-index.csv",
-      "human_question": "Which package, manifest, and field-map rows can support none without becoming claims?"
+      "human_question": "Which package, manifest, and field-map rows can support source_reference; source_reference;asset_metadata; source_reference;oracle_inscription; source_reference;published_research_note without becoming claims?"
     },
     {
       "slot": "human_dossier_transfer",
@@ -65,15 +65,15 @@
       "slot": "concrete_missing_questions",
       "status": "needs_followup_before_formal_research",
       "evidence": "20_source-presearch-readiness-review.md",
-      "human_question": "which field map must be reviewed"
+      "human_question": "which access rows still lack checksum evidence"
     }
   ],
   "route_counts": {
-    "download_route_count": 1,
+    "download_route_count": 2,
     "checksum_route_count": 1,
-    "size_route_count": 1,
+    "size_route_count": 2,
     "package_route_count": 1,
-    "field_map_route_count": 0,
+    "field_map_route_count": 4,
     "metadata_profile_route_count": 2
   },
   "claim_boundary": [

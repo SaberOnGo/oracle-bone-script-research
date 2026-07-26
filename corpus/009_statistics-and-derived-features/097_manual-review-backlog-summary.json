@@ -7,16 +7,16 @@
     "ready_for_human_review": 10
   },
   "review_priority_counts": {
-    "high_batch_review": 3,
-    "targeted_review": 7
+    "high_batch_review": 2,
+    "targeted_review": 8
   },
   "totals": {
     "candidate_record_count": 13196,
     "formal_record_count": 101679,
     "graph_edge_count": 220887,
-    "manual_review_backlog_count": 13128,
-    "review_queue_count": 12872,
-    "staging_record_count": 75282
+    "manual_review_backlog_count": 13126,
+    "review_queue_count": 12870,
+    "staging_record_count": 75287
   },
   "completion_boundary": "This summary is a preprocessing readiness and manual-review backlog index. It does not start formal decipherment research or confirm candidate scholarship.",
   "totals_note": "Totals are row-sums across readiness areas and may include shared derivatives exposed through both corpus-specific rows and the graph/statistics row.",
@@ -168,13 +168,13 @@
       "label_en": "Research source and bibliography infrastructure",
       "label_zh": "研究来源与书目基础设施",
       "formal_record_count": "21",
-      "staging_record_count": "252",
+      "staging_record_count": "257",
       "candidate_record_count": "0",
       "graph_edge_count": "0",
-      "review_queue_count": "1001",
-      "manual_review_backlog_count": "1257",
+      "review_queue_count": "999",
+      "manual_review_backlog_count": "1255",
       "readiness_stage": "ready_for_human_review",
-      "review_priority": "high_batch_review",
+      "review_priority": "targeted_review",
       "primary_entry_path": "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
       "review_queue_path": "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv",
       "next_action": "open_source_pipeline_missing_evidence_outcome_routes_assignment_checklist_then_assign_human_gated_source_outcome_reviews",

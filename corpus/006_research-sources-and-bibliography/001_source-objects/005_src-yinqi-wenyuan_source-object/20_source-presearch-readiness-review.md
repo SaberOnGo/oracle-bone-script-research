@@ -49,13 +49,15 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - Status / 状态: needs_human_review
 - Evidence / 证据文件: 02_download-route-index.csv;
   18_source-access-integrity-review.md
-- Question / 待查问题: Which access or download row has status downloaded; which
-  checksum and size rows are ready for audit?
+- Question / 待查问题: Which access or download row has status download_error;
+  downloaded; which checksum and size rows are ready for audit?
 
 ### 03. package_and_field_map
 - Status / 状态: needs_human_review
 - Evidence / 证据文件: 03_package-route-index.csv; 04_field-map-route-index.csv
-- Question / 待查问题: Which package, manifest, and field-map rows can support none
+- Question / 待查问题: Which package, manifest, and field-map rows can support
+  source_reference; source_reference;asset_metadata;
+  source_reference;oracle_inscription; source_reference;published_research_note
   without becoming claims?
 
 ### 04. human_dossier_transfer
@@ -80,7 +82,7 @@ scope, rights boundary, and concrete missing questions in one readable place.
 ### 07. concrete_missing_questions
 - Status / 状态: needs_followup_before_formal_research
 - Evidence / 证据文件: 20_source-presearch-readiness-review.md
-- Question / 待查问题: which field map must be reviewed
+- Question / 待查问题: which access rows still lack checksum evidence
 
 ## Concrete Questions Before Formal Research / 正式研究前待查问题
 - Which visible image, rubbing, plate, catalog, or URL is evidence?

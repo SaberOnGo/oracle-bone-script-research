@@ -35,12 +35,13 @@ note, or concrete next-check questions.
 结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、事实矩阵、权利说明或具体待查问题。
 
 ## Route Signals / 路线信号
-- Download route count / 下载路线数: 1
-- Download statuses / 下载状态: downloaded
+- Download route count / 下载路线数: 2
+- Download statuses / 下载状态: download_error; downloaded
 - Package route count / 来源包路线数: 1
 - Package kinds / 来源包类型: lightweight_html_page
-- Field map count / 字段映射数: 0
-- Target records / 目标记录: none
+- Field map count / 字段映射数: 4
+- Target records / 目标记录: source_reference; source_reference;asset_metadata;
+  source_reference;oracle_inscription; source_reference;published_research_note
 - Metadata profile count / 元数据概况数: 2
 - Profile metrics / 概况指标: downloaded_page_size_bytes;
   registered_platform_sections

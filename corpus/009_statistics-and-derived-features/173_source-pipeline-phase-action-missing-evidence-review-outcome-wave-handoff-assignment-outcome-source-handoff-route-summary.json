@@ -3138,16 +3138,14 @@
       "assignment_outcome_route_ids": [
         "source-pipeline-missing-evidence-review-outcome-wave-handoff-assignment-outcome-summary-route-010"
       ],
-      "missing_file_role_count": "2",
+      "missing_file_role_count": "1",
       "missing_file_roles": [
-        "large_source_register",
-        "source_field_map"
+        "large_source_register"
       ],
       "priority_tags": [
         "gap_status:needs_field_map_review",
         "missing_evidence_review",
         "role:large_source_register",
-        "role:source_field_map",
         "source:src-yinqi-wenyuan"
       ],
       "required_source_review_steps": [
@@ -3160,8 +3158,7 @@
         "leave_unreviewed_outcome_fields_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_large_source_register_applicability",
-        "verify_source_field_map_or_create_reviewed_row"
+        "verify_large_source_register_applicability"
       ],
       "required_source_handoff_check_steps": [
         "verify_source_handoff_against_171",
@@ -3202,8 +3199,7 @@
         "corpus/009_statistics-and-derived-features/153_source-pipeline-phase-action-missing-evidence-review-handoff-checklist.csv",
         "corpus/009_statistics-and-derived-features/152_source-pipeline-phase-action-missing-evidence-review-handoff-scaffold.json",
         "corpus/009_statistics-and-derived-features/151_source-pipeline-phase-action-missing-evidence-review-route-pack.json",
-        "project_registry/006_large-source-register/001_large-source-register.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv"
+        "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "source_handoff_files_to_open": [
         "corpus/009_statistics-and-derived-features/171_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-scaffold.json",
@@ -3230,8 +3226,7 @@
         "corpus/009_statistics-and-derived-features/153_source-pipeline-phase-action-missing-evidence-review-handoff-checklist.csv",
         "corpus/009_statistics-and-derived-features/152_source-pipeline-phase-action-missing-evidence-review-handoff-scaffold.json",
         "corpus/009_statistics-and-derived-features/151_source-pipeline-phase-action-missing-evidence-review-route-pack.json",
-        "project_registry/006_large-source-register/001_large-source-register.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv"
+        "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "draft_paths": [
         "doc/public/user_research/010_source-pipeline-missing-evidence-review-queues/018_src-yinqi-wenyuan.md"
@@ -3287,8 +3282,7 @@
         "corpus/009_statistics-and-derived-features/153_source-pipeline-phase-action-missing-evidence-review-handoff-checklist.csv",
         "corpus/009_statistics-and-derived-features/152_source-pipeline-phase-action-missing-evidence-review-handoff-scaffold.json",
         "corpus/009_statistics-and-derived-features/151_source-pipeline-phase-action-missing-evidence-review-route-pack.json",
-        "project_registry/006_large-source-register/001_large-source-register.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv"
+        "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "source_handoff_summary_route_id": "source-pipeline-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-summary-route-018",
       "source_handoff_checklist_path": "corpus/009_statistics-and-derived-features/172_source-pipeline-phase-action-missing-evidence-review-outcome-wave-handoff-assignment-outcome-source-handoff-checklist.csv"

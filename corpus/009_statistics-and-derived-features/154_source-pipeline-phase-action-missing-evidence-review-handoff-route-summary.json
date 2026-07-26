@@ -1967,19 +1967,17 @@
       "source_type": "online_database",
       "rights_status": "source_marked_risk_noted",
       "pipeline_gap_status": "needs_field_map_review",
-      "missing_route_count": "2",
-      "missing_file_role_count": "2",
+      "missing_route_count": "1",
+      "missing_file_role_count": "1",
       "missing_file_roles": [
-        "large_source_register",
-        "source_field_map"
+        "large_source_register"
       ],
       "priority_rank": "18",
       "priority_tags": [
         "source:src-yinqi-wenyuan",
         "gap_status:needs_field_map_review",
         "missing_evidence_review",
-        "role:large_source_register",
-        "role:source_field_map"
+        "role:large_source_register"
       ],
       "required_review_steps": [
         "open_missing_evidence_result_scaffold",
@@ -1992,8 +1990,7 @@
         "leave_unchecked_roles_empty",
         "do_not_import_or_promote_until_reviewed",
         "do_not_write_ai_hypothesis_as_scholarship",
-        "verify_large_source_register_applicability",
-        "verify_source_field_map_or_create_reviewed_row"
+        "verify_large_source_register_applicability"
       ],
       "required_precheck_steps": [
         "verify_handoff_row_against_152",
@@ -2008,8 +2005,7 @@
         "do_not_write_ai_hypothesis_as_scholarship"
       ],
       "required_review_actions": [
-        "review_large_source_register_applicability_or_mark_not_applicable",
-        "review_or_create_source_field_map_row"
+        "review_large_source_register_applicability_or_mark_not_applicable"
       ],
       "blocking_condition": "open_all_routed_files_before_recording_missing_evidence_outcomes",
       "handoff_scaffold_path": "corpus/009_statistics-and-derived-features/152_source-pipeline-phase-action-missing-evidence-review-handoff-scaffold.json",
@@ -2022,24 +2018,19 @@
       "source_summary_path": "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
       "route_summary_path": "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
       "route_ids": [
-        "source-pipeline-phase-action-missing-evidence-route-023",
-        "source-pipeline-phase-action-missing-evidence-route-024"
+        "source-pipeline-phase-action-missing-evidence-route-023"
       ],
       "missing_evidence_action_ids": [
-        "source-pipeline-phase-action-missing-evidence-023",
-        "source-pipeline-phase-action-missing-evidence-024"
+        "source-pipeline-phase-action-missing-evidence-023"
       ],
       "missing_evidence_result_scaffold_ids": [
-        "source-pipeline-phase-action-missing-evidence-result-023",
-        "source-pipeline-phase-action-missing-evidence-result-024"
+        "source-pipeline-phase-action-missing-evidence-result-023"
       ],
       "evidence_presence_row_ids": [
-        "source-pipeline-phase-action-evidence-presence-210",
-        "source-pipeline-phase-action-evidence-presence-207"
+        "source-pipeline-phase-action-evidence-presence-210"
       ],
       "files_to_open": [
-        "project_registry/006_large-source-register/001_large-source-register.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv"
+        "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "handoff_files_to_open": [
         "corpus/009_statistics-and-derived-features/152_source-pipeline-phase-action-missing-evidence-review-handoff-scaffold.json",
@@ -2049,8 +2040,7 @@
         "doc/public/user_research/010_source-pipeline-missing-evidence-review-queues/018_src-yinqi-wenyuan.md",
         "corpus/009_statistics-and-derived-features/147_source-pipeline-phase-action-missing-evidence-source-summary.csv",
         "corpus/009_statistics-and-derived-features/146_source-pipeline-phase-action-missing-evidence-route-summary.json",
-        "project_registry/006_large-source-register/001_large-source-register.csv",
-        "corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv"
+        "project_registry/006_large-source-register/001_large-source-register.csv"
       ],
       "checklist_status": "not_started",
       "assignment_status": "planned_not_assigned",

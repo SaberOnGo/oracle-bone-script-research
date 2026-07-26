@@ -66,7 +66,7 @@
     },
     {
       "fact": "Field map / 字段映射",
-      "status": "missing_route",
+      "status": "present",
       "evidence_files": "04_field-map-route-index.csv",
       "next_check": "Review source fields before moving data into corpus objects."
     },

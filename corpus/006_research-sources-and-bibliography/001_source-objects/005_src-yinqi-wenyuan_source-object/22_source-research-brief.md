@@ -16,20 +16,32 @@ limits on research use.
 - Source page / 来源页面: https://jgw.aynu.edu.cn/
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 1
+- Download or access records / 下载或访问记录: 2
 - Recorded checksums / 已记录 checksum: 1
-- Recorded file sizes / 已记录文件大小: 1
+- Recorded file sizes / 已记录文件大小: 2
 - Package files / 来源包文件: 1
-- Field mappings / 字段映射: 0
+- Field mappings / 字段映射: 4
 - Metadata measurements / 元数据测量: 2
 
 - Recorded access item / 已记录访问项: dl-yinqi-home; downloaded; 32900 bytes
+- Recorded access item / 已记录访问项: dl-yinqi-home-recheck-20260727; download_error;
+  0 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Package material / 来源包资料: dl-yinqi-home.html; lightweight_html_page;
   Lightweight source evidence is represented by committed provenance, size,
   checksum, and derived metadata only; ignored tmp downloads are not committed
   as source content.
+- Candidate transfer field / 候选转入字段: glyph -> source_reference;asset_metadata ->
+  source_section_label;glyph_discovery_route
+- Candidate transfer field / 候选转入字段: catalog ->
+  source_reference;oracle_inscription ->
+  source_section_label;catalog_discovery_route
+- Candidate transfer field / 候选转入字段: literature ->
+  source_reference;published_research_note ->
+  source_section_label;bibliography_discovery_route
+- Candidate transfer field / 候选转入字段: knowledge_service -> source_reference ->
+  source_section_label;knowledge_service_discovery_route
 
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: source_marked_risk_noted

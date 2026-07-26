@@ -18,10 +18,10 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: adopted_core_with_rights_caution
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 1
-- Download statuses / 下载状态: downloaded
+- Download route count / 下载路线数: 2
+- Download statuses / 下载状态: download_error; downloaded
 - Checksum route count / checksum 路线数: 1
-- Size route count / 大小记录路线数: 1
+- Size route count / 大小记录路线数: 2
 - Local temp route count / 临时路径路线数: 1
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
@@ -46,11 +46,27 @@ review status.
   only.
 - Review status / 复核状态: metadata_route_needs_human_review
 
+### Route 002
+- Download ID / 下载 ID: dl-yinqi-home-recheck-20260727
+- Artifact kind / 资料类型: platform_home_page_access_recheck
+- Status / 状态: download_error
+- HTTP status / HTTP 状态: not recorded
+- File size bytes / 文件大小 bytes: 0
+- Checksum SHA-256 / checksum SHA-256: not recorded
+- Commit policy / 提交策略: access_log_only_if_unavailable
+- Local temp path / 本地临时路径: not recorded
+- Risk note / 风险提示: Python urllib SSL handshake timed out after 30 seconds; the
+  independent browser fetch also timed out. Preserve the 2026-06-04 checksum as
+  historical evidence and do not claim current page availability.
+- Review status / 复核状态: metadata_route_needs_human_review
+
 ## Package Manifest Field Map And Derivatives / 来源包清单、字段映射与派生记录
 - Package route count / 来源包路线数: 1
 - Package kinds / 来源包类型: lightweight_html_page
-- Field map route count / 字段映射路线数: 0
-- Target record types / 目标记录类型: none
+- Field map route count / 字段映射路线数: 4
+- Target record types / 目标记录类型: source_reference;
+  source_reference;asset_metadata; source_reference;oracle_inscription;
+  source_reference;published_research_note
 - Metadata route count / metadata 路线数: 2
 Package rows, field maps, and metadata profiles are candidate routes. They do
 not approve corpus import until a human reviewer checks the source trail and
@@ -76,8 +92,66 @@ target object directory.
 
 ## Field Map Evidence / 字段映射证据
 
-No field-map route is recorded in the current source registers. Do not import
-source fields into corpus objects until mappings are reviewed.
+### Route 001
+- Field map ID / 字段映射 ID: field-map-000063
+- Source level / 来源层级: registered_home_page_section
+- Source field or unit / 来源字段或单位: glyph
+- Source meaning / 来源含义: Registered 殷契文渊 glyph-section label from the reviewed
+  home-page metadata profile
+- Target record type / 目标记录类型: source_reference;asset_metadata
+- Target project field / 目标字段: source_section_label;glyph_discovery_route
+- Import action / 导入动作: Use only to locate candidate glyph or image pages after
+  recording a stable item URL and object-local rights review
+- Rights boundary / 权利边界: The section label does not identify a character prove
+  image availability or permit image reuse
+- Evidence download ID / 证据下载 ID: dl-yinqi-home
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 002
+- Field map ID / 字段映射 ID: field-map-000064
+- Source level / 来源层级: registered_home_page_section
+- Source field or unit / 来源字段或单位: catalog
+- Source meaning / 来源含义: Registered 殷契文渊 catalog-section label from the reviewed
+  home-page metadata profile
+- Target record type / 目标记录类型: source_reference;oracle_inscription
+- Target project field / 目标字段: source_section_label;catalog_discovery_route
+- Import action / 导入动作: Use only to locate candidate catalog or inscription
+  records after checking record number plate page Heji route and text quality
+- Rights boundary / 权利边界: The section label is not an inscription record full
+  text catalog identity or crosswalk confirmation
+- Evidence download ID / 证据下载 ID: dl-yinqi-home
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 003
+- Field map ID / 字段映射 ID: field-map-000065
+- Source level / 来源层级: registered_home_page_section
+- Source field or unit / 来源字段或单位: literature
+- Source meaning / 来源含义: Registered 殷契文渊 literature-section label from the
+  reviewed home-page metadata profile
+- Target record type / 目标记录类型: source_reference;published_research_note
+- Target project field / 目标字段: source_section_label;bibliography_discovery_route
+- Import action / 导入动作: Use to locate bibliography or database notes and record
+  citation proposer scope disagreement and dispute before reuse
+- Rights boundary / 权利边界: A literature-section route is not reviewed scholarship
+  and does not establish scholarly agreement
+- Evidence download ID / 证据下载 ID: dl-yinqi-home
+- Review status / 复核状态: reviewed_metadata_only
+
+### Route 004
+- Field map ID / 字段映射 ID: field-map-000066
+- Source level / 来源层级: registered_home_page_section
+- Source field or unit / 来源字段或单位: knowledge_service
+- Source meaning / 来源含义: Registered 殷契文渊 knowledge-service section label from
+  the reviewed home-page metadata profile
+- Target record type / 目标记录类型: source_reference
+- Target project field / 目标字段:
+  source_section_label;knowledge_service_discovery_route
+- Import action / 导入动作: Use only to record the service entry and its stated
+  scope before evaluating any later research assistance output
+- Rights boundary / 权利边界: A service label is not source evidence not a reviewed
+  academic conclusion and not a decipherment result
+- Evidence download ID / 证据下载 ID: dl-yinqi-home
+- Review status / 复核状态: reviewed_metadata_only
 
 ## Metadata Profile Evidence / 元数据概况证据
 

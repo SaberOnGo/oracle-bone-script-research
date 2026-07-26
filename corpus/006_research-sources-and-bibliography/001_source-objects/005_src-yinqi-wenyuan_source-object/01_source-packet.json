@@ -13,9 +13,9 @@
   "risk_note": "Professional and important platform, but rights status is mixed; use metadata and cross-check against institutional/catalog sources.",
   "review_status": "reviewed",
   "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/005_src-yinqi-wenyuan_source-object",
-  "download_route_count": 1,
+  "download_route_count": 2,
   "package_route_count": 1,
-  "field_map_route_count": 0,
+  "field_map_route_count": 4,
   "metadata_profile_route_count": 2,
   "local_files": [
     "README.md",

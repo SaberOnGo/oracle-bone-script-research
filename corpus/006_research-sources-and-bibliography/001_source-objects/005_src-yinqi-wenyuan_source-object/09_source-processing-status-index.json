@@ -17,8 +17,9 @@
       "phase": "download_or_access",
       "status": "download_or_access_routes_present",
       "evidence_file": "02_download-route-index.csv",
-      "evidence_count": 1,
+      "evidence_count": 2,
       "status_values": [
+        "download_error",
         "downloaded"
       ],
       "review_status": "metadata_route_needs_human_review"
@@ -28,7 +29,7 @@
       "status": "partial_or_complete_checksum_size_evidence",
       "evidence_file": "02_download-route-index.csv",
       "checksum_row_count": 1,
-      "size_row_count": 1,
+      "size_row_count": 2,
       "local_temp_path_row_count": 1,
       "review_status": "needs_human_source_review"
     },
@@ -41,10 +42,15 @@
     },
     {
       "phase": "field_mapping",
-      "status": "not_present_in_current_registers",
+      "status": "field_map_routes_present",
       "evidence_file": "04_field-map-route-index.csv",
-      "evidence_count": 0,
-      "target_record_types": [],
+      "evidence_count": 4,
+      "target_record_types": [
+        "source_reference",
+        "source_reference;asset_metadata",
+        "source_reference;oracle_inscription",
+        "source_reference;published_research_note"
+      ],
       "review_status": "candidate_mapping_needs_human_review"
     },
     {
@@ -58,12 +64,12 @@
       "phase": "cleaned_structured_linked",
       "status": "candidate_routes_available_not_final_import",
       "evidence_file": "08_source-processing-status.md",
-      "evidence_count": 3,
+      "evidence_count": 7,
       "review_status": "pending_human_review"
     }
   ],
   "missing_or_review_items": [
-    "field_map_route"
+    "checksum_for_some_download_routes"
   ],
   "human_entry": "08_source-processing-status.md",
   "research_boundary": "source_processing_status_preprocessing_only; statuses mark evidence availability and review work, not scholarly conclusions",

@@ -62,7 +62,7 @@ before any source material is reused.
   derivatives.
 
 ### Fact 08: Field map / 字段映射
-- Status / 状态: missing_route
+- Status / 状态: present
 - Evidence files / 证据文件: 04_field-map-route-index.csv
 - Next check / 下一步核查: Review source fields before moving data into corpus
   objects.

@@ -251,6 +251,9 @@ def browser_metadata_capture_text(
     source: dict[str, str],
     rows: list[dict[str, str]],
 ) -> str:
+    boundary_error = any(
+        row.get("object_type") == "access_boundary_error_page" for row in rows
+    )
     lines = [
         "# Browser-Verified Metadata Capture / 浏览器核验 Metadata",
         "",
@@ -316,6 +319,29 @@ def browser_metadata_capture_text(
             ),
         ]
     )
+    if boundary_error:
+        source_index = next(
+            index
+            for index, line in enumerate(lines)
+            if line.startswith("## Source /")
+        )
+        lines = [
+            lines[0],
+            "",
+            *wrapped(
+                "This human-readable note records a controlled-browser "
+                "access-boundary result for an official source route. The "
+                "browser displayed an error page; no official source field, "
+                "page payload, image, or source checksum was captured."
+            ),
+            "",
+            *wrapped(
+                "\u672c\u9875\u8bb0\u5f55\u5b98\u65b9\u6765\u6e90\u8def\u7ebf\u5728\u53d7\u63a7\u6d4f\u89c8\u5668\u4e2d\u7684\u8bbf\u95ee\u8fb9\u754c\u7ed3\u679c\u3002"
+                "\u6d4f\u89c8\u5668\u663e\u793a\u9519\u8bef\u9875\u9762\uff1b\u6ca1\u6709\u83b7\u53d6\u5b98\u65b9\u6765\u6e90\u5b57\u6bb5\u3001\u9875\u9762\u6b63\u6587\u3001\u56fe\u7247\u6216\u6765\u6e90\u9875 checksum\u3002"
+            ),
+            "",
+            *lines[source_index:],
+        ]
     return "\n".join(lines)
 
 

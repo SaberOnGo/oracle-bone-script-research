@@ -30,7 +30,7 @@ checksum。
 - Material / 材料: not recorded
 - Location / 展示位置: not recorded
 - Acquisition date / 入藏日期: not recorded
-- Department / 部门: not recorded
+- Department / 部门: Digital Culture Center
 - Registration number / 登记号: not recorded
 
 ## Access And Rights Boundary / 访问与权利边界
@@ -40,7 +40,7 @@ checksum。
 - Research boundary / 研究边界: metadata_route_only_not_scholarship
 - Risk note / 风险提示: Official collection URL currently resolves to a maintenance
   notice in the browser; this records an access boundary only and does not prove
-  vocabulary rows or database payload availability.
+  portal rows or database payload availability.
 
 The observed fields may support a source-marked official metadata route. They do
 not support an image claim, inscription identity, reading, component assignment,

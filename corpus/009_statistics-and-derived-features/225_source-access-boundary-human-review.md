@@ -2,9 +2,9 @@
 
 ## Human Result / 人类阅读结果
 
-- Affected source count: 1
-- Grouped failure-condition task count: 1
-- Preserved access-attempt count: 1
+- Affected source count: 0
+- Grouped failure-condition task count: 0
+- Preserved access-attempt count: 0
 - Older source-engineering access/checksum gap rows: 9
 
 原始访问记录逐条保留，但人工任务按来源和故障条件归并。无来源
@@ -17,18 +17,6 @@ unsaved payload is evidence of the same access boundary, not a second
 independent review task.
 
 ## Grouped Tasks / 归并后任务
-
-### `src-yinqi-wenyuan`
-
-- Network timeout / 网络超时
-- Attempts preserved: 1
-- Download IDs / 下载记录：
-  - `dl-yinqi-home-recheck-20260727`
-- Status counts: download_error:1
-- Latest attempt: 2026-07-26T20:41:47+00:00
-- Historical successful context: dl-yinqi-home
-- Next checks: compare_latest_timeout_with_historical_success;
-  retry_only_when_network_condition_or_official_route_changes
 
 ## Opening Order / 复核顺序
 

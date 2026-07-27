@@ -30,7 +30,7 @@ checksum。
 - Material / 材料: not recorded
 - Location / 展示位置: not recorded
 - Acquisition date / 入藏日期: not recorded
-- Department / 部门: not recorded
+- Department / 部门: Digital Culture Center
 - Registration number / 登记号: not recorded
 
 ## Access And Rights Boundary / 访问与权利边界

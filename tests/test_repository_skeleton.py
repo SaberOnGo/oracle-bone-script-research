@@ -7697,6 +7697,19 @@ class RepositorySkeletonTests(unittest.TestCase):
             "pointed upper outline",
             outputs["obs-char-000023"]["material_observation_text"],
         )
+        for project_id, expected_fragment in {
+            "obs-unk-005708": "dense central branching cluster",
+            "obs-unk-006294": "two separated groups",
+            "obs-unk-006258": "upper arched loop",
+            "obs-unk-006674": "Two vertically separated groups",
+            "obs-unk-006657": "broad upper horizontal cap",
+            "obs-unk-006553": "tall pointed upper contour",
+            "obs-unk-006570": "broad arched enclosure",
+        }.items():
+            self.assertIn(
+                expected_fragment,
+                outputs[project_id]["material_observation_text"],
+            )
         self.assertIn(
             "leftward branching marks",
             outputs["obs-char-000025"]["material_observation_text"],

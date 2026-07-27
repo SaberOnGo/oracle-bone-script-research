@@ -628,6 +628,31 @@ CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS = {
         "079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
         "094_obs-unk-006294_hust-obc-und-X-006294_oracle-character-candidate"
     ),
+    "obs-unk-006258": (
+        "corpus/001_oracle-characters/"
+        "079_undeciphered-006201-006300_obs-unk-bucket_oracle-character-candidates/"
+        "058_obs-unk-006258_hust-obc-und-X-006258_oracle-character-candidate"
+    ),
+    "obs-unk-006674": (
+        "corpus/001_oracle-characters/"
+        "083_undeciphered-006601-006700_obs-unk-bucket_oracle-character-candidates/"
+        "074_obs-unk-006674_hust-obc-und-X-006674_oracle-character-candidate"
+    ),
+    "obs-unk-006657": (
+        "corpus/001_oracle-characters/"
+        "083_undeciphered-006601-006700_obs-unk-bucket_oracle-character-candidates/"
+        "057_obs-unk-006657_hust-obc-und-X-006657_oracle-character-candidate"
+    ),
+    "obs-unk-006553": (
+        "corpus/001_oracle-characters/"
+        "082_undeciphered-006501-006600_obs-unk-bucket_oracle-character-candidates/"
+        "053_obs-unk-006553_hust-obc-und-X-006553_oracle-character-candidate"
+    ),
+    "obs-unk-006570": (
+        "corpus/001_oracle-characters/"
+        "082_undeciphered-006501-006600_obs-unk-bucket_oracle-character-candidates/"
+        "070_obs-unk-006570_hust-obc-und-X-006570_oracle-character-candidate"
+    ),
 }
 HUST_OBC_UNDECIPHERED_FIRST_BUCKET_MANIFEST = (
     "corpus/001_oracle-characters/"
@@ -2975,6 +3000,7 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
         expects_material_observation = project_id in (
             {f"obs-char-{index:06d}" for index in range(1, 1589)}
             | {f"obs-unk-{index:06d}" for index in range(1601, 1701)}
+            | set(CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS)
         )
         packet_paths = list(object_dir.glob("01_*packet.json"))
         if not object_dir.exists():

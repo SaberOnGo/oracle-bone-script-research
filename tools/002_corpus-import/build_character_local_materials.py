@@ -13,7 +13,15 @@ from pathlib import Path
 
 MAX_HUMAN_MARKDOWN_LINE_LENGTH = 80
 OBS_CHAR_LOCAL_MATERIAL_LIMIT = 1588
-EXTRA_TARGET_PROJECT_IDS = ("obs-unk-005708", "obs-unk-006294")
+EXTRA_TARGET_PROJECT_IDS = (
+    "obs-unk-005708",
+    "obs-unk-006294",
+    "obs-unk-006258",
+    "obs-unk-006674",
+    "obs-unk-006657",
+    "obs-unk-006553",
+    "obs-unk-006570",
+)
 TARGET_PROJECT_IDS = tuple(
     [f"obs-char-{index:06d}" for index in range(1, OBS_CHAR_LOCAL_MATERIAL_LIMIT + 1)]
     + list(EXTRA_TARGET_PROJECT_IDS)
@@ -7389,6 +7397,34 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-char-001140": (
         "A narrow upright form has a central crossing, two short upper branches, and a long lower descending stroke.",
         "狭长直立形体有中央交叉、两条短上部分枝和长下行笔。",
+    ),
+    "obs-unk-006294": (
+        "The image contains two separated groups: an upper oval loop with a pointed top and a lower broad curved form with a short upright at each side.",
+        "图像中可见两个分离的形体：上方是顶端尖出的圆环，下方是宽弧曲形，两侧还有短直立痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-005708": (
+        "The image shows a dense central branching cluster with long descending strokes and several detached short marks near the upper left and upper right.",
+        "图像中央为紧密的分叉笔群，向下有多条较长笔画，上左与上右附近可见几个分离的短痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-006258": (
+        "The image has an upper arched loop, a separate middle curved enclosure, and an irregular lower group with detached strokes at the sides.",
+        "图像上方有弧拱环状形，中部有分离的弯曲闭合形，下方是不规则组合，两侧可见分离笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-006674": (
+        "Two vertically separated groups are visible: the upper group has a small double enclosure and a descending stem, while the lower group is a compact forked form.",
+        "图像中可见上下两组分离的形体：上方有小型双重闭合轮廓和向下伸出的主干，下方是紧凑的分叉形。本记录不确认字形身份。",
+    ),
+    "obs-unk-006657": (
+        "The image shows a broad upper horizontal cap, a small central enclosed mark, and a long central stroke descending toward a pointed lower end; short strokes flank the left.",
+        "图像上方有宽横方向笔画，中部有小型闭合痕迹，中央长笔向下延伸至尖端，左侧附近有短痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-006553": (
+        "The image has a tall pointed upper contour, a central crossing, and several long branching strokes extending downward and to the sides.",
+        "图像呈高而尖顶的外轮廓，中部有笔画交叉，下方和两侧都有多条较长的分叉笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-006570": (
+        "The image shows a broad arched enclosure with a nearly level lower stroke and curved side strokes extending outward on both sides.",
+        "图像中央为宽弧形闭合轮廓，下缘接近水平笔画，左右两侧均有向外弯出的曲线。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

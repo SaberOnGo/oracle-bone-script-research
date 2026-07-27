@@ -54,6 +54,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000038",
     "obs-unk-000039",
     "obs-unk-000040",
+    "obs-unk-000041",
+    "obs-unk-000042",
+    "obs-unk-000043",
+    "obs-unk-000044",
+    "obs-unk-000045",
+    "obs-unk-000046",
+    "obs-unk-000047",
+    "obs-unk-000048",
+    "obs-unk-000049",
+    "obs-unk-000050",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7625,6 +7635,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000040": (
         "The image repeats the form of candidate 000039, with a rounded upper mark and branching lower strokes.",
         "图像重复候选 000039 的圆弧上部痕迹和下方分叉笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000041": (
+        "The dense form has crossing upper strokes, a compact central cluster, and several short lower branches.",
+        "密集形体上部有交叉笔画，中部为紧凑笔群，下方有数条短分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000042": (
+        "The angular form stacks zigzag strokes, with a broader upper section and a narrow lower extension.",
+        "折角形体由曲折笔画叠置而成，上部较宽，下方有窄长延伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000043": (
+        "The image has a broad horizontal upper stroke, a small left curl, and a long central descending stem.",
+        "图像上部有宽横笔画，左侧有小弯曲痕迹，中间有长向下主干。本记录不确认字形身份。",
+    ),
+    "obs-unk-000044": (
+        "The form contains a dense branching group at left and a separate rounded cluster at right.",
+        "图像左侧为密集分叉笔群，右侧为分离的圆弧笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000045": (
+        "The image has a broad upper frame, a central descending stroke, and two diagonal lower branches.",
+        "图像上部有宽框架痕迹，中间有向下笔画，下方有两条斜向分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000046": (
+        "Two separated components are visible: a dense angular group at left and a rounded group with a lower horizontal mark at right.",
+        "图像可见两个分离部分：左侧为密集折角笔群，右侧为圆弧笔群并带下方横痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000047": (
+        "The image has a tall upright stroke, a compact crossed middle group, and a narrow lower projection.",
+        "图像有高直立笔画，中部为紧凑交叉笔群，下方有窄长外伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000048": (
+        "The form shows a dense left cluster, a narrow central stem, and a separate curved right group.",
+        "图像左侧为密集笔群，中间为窄直立主干，右侧为分离的弯曲笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000049": (
+        "The image has a broad upper stroke, a central vertical stem, and a curved lower-right extension.",
+        "图像上部有宽横笔画，中间为竖直主干，右下方有弯曲延伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000050": (
+        "Two separated upright strokes are visible; the left has branching marks and the right is a long curved stroke.",
+        "图像可见两条分离的直立笔画；左侧有分叉痕迹，右侧为长弯曲笔画。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

@@ -37,7 +37,7 @@
     "issue_count": 0,
     "missing_path_count": 0,
     "missing_required_value_count": 0,
-    "row_count": 166626,
+    "row_count": 166634,
     "unknown_download_ref_count": 0,
     "unknown_large_source_ref_count": 0,
     "unknown_source_ref_count": 0
@@ -94,7 +94,7 @@
       "dataset_id": "browser_verified_metadata_capture",
       "dataset_type": "source_metadata_capture",
       "path": "corpus/006_research-sources-and-bibliography/000_source-registers/014_browser-verified-metadata-capture.csv",
-      "row_count": "9",
+      "row_count": "17",
       "key_fields": "capture_id",
       "required_fields": "capture_id;source_id;access_record_id;official_url;captured_at;capture_method;page_title;object_type;description;department;payload_status;source_checksum_status;rights_status;risk_note;review_status;research_boundary",
       "duplicate_key_count": "0",
@@ -106,7 +106,7 @@
       "boundary_status_violation_count": "0",
       "issue_count": "0",
       "completeness_percent": "100.00",
-      "status_counts": "review_status=reviewed_metadata_only:9",
+      "status_counts": "review_status=reviewed_metadata_only:17",
       "quality_status": "pass",
       "caution": "Data-quality audit only; zero engineering issues here does not confirm oracle-character identity, readings, components, inscription context, or evolution/correspondence claims.",
       "updated_at": "2026-07-27"

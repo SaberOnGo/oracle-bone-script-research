@@ -46,7 +46,7 @@
     "25_safe-derivative-decision.md",
     "26_safe-derivative-decision-index.json"
   ],
-  "browser_metadata_capture_count": 1,
+  "browser_metadata_capture_count": 2,
   "field_map_review": false,
   "safe_derivative_decision_recorded": true,
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",

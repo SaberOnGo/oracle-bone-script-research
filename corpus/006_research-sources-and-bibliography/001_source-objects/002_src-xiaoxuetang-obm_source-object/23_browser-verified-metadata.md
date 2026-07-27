@@ -32,6 +32,59 @@ checksum。
 - Department / 部门: Academia Sinica IHP and IIS
 - Registration number / 登记号: not recorded
 
+- Capture ID / 观察记录 ID: browser-meta-000013
+- Access record / 访问记录: browser-access-000013
+- Captured at / 观察日期: 2026-07-27
+- Page title / 页面标题: 服务限制访问 | ASCDC
+- Object type / 对象类型: access_boundary_notice
+- Museum number / 博物馆编号: not recorded
+- Description / 描述: Controlled browser navigation displayed the official ASCDC
+  service restriction page; no catalog row plate image or source payload was
+  visible.
+- Culture or period / 文化或时期: not recorded
+- Production date / 制作年代: not recorded
+- Findspot / 出土地线索: not recorded
+- Material / 材料: not recorded
+- Location / 展示位置: not recorded
+- Acquisition date / 入藏日期: not recorded
+- Department / 部门: Academia Sinica Digital Culture Center
+- Registration number / 登记号: not recorded
+
+- Capture ID / 观察记录 ID: browser-meta-000014
+- Access record / 访问记录: browser-access-000014
+- Captured at / 观察日期: 2026-07-27
+- Page title / 页面标题: 服务限制访问 | ASCDC
+- Object type / 对象类型: access_boundary_notice
+- Museum number / 博物馆编号: not recorded
+- Description / 描述: Controlled browser navigation displayed the official ASCDC
+  service restriction page; no catalog row plate image or source payload was
+  visible.
+- Culture or period / 文化或时期: not recorded
+- Production date / 制作年代: not recorded
+- Findspot / 出土地线索: not recorded
+- Material / 材料: not recorded
+- Location / 展示位置: not recorded
+- Acquisition date / 入藏日期: not recorded
+- Department / 部门: Academia Sinica Digital Culture Center
+- Registration number / 登记号: not recorded
+
+- Capture ID / 观察记录 ID: browser-meta-000015
+- Access record / 访问记录: browser-access-000015
+- Captured at / 观察日期: 2026-07-27
+- Page title / 页面标题: 服务限制访问 | ASCDC
+- Object type / 对象类型: access_boundary_notice
+- Museum number / 博物馆编号: not recorded
+- Description / 描述: Controlled browser navigation to the guide PDF displayed the
+  official ASCDC service restriction page; no PDF payload was visible.
+- Culture or period / 文化或时期: not recorded
+- Production date / 制作年代: not recorded
+- Findspot / 出土地线索: not recorded
+- Material / 材料: not recorded
+- Location / 展示位置: not recorded
+- Acquisition date / 入藏日期: not recorded
+- Department / 部门: Academia Sinica Digital Culture Center
+- Registration number / 登记号: not recorded
+
 ## Access And Rights Boundary / 访问与权利边界
 - Payload status / 页面载荷状态: no_page_payload_saved
 - Source checksum status / 来源 checksum 状态: no_source_payload_checksum

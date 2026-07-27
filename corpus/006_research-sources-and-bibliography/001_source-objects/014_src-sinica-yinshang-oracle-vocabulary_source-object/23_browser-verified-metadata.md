@@ -1,11 +1,10 @@
 # Browser-Verified Metadata Capture / 浏览器核验 Metadata
 
-This human-readable note records fields observed on an official source page in a
-controlled browser after automated access reached an HTTP boundary. It is
-metadata evidence only; no page payload, image, or source checksum was captured.
+This human-readable note records a controlled-browser access-boundary result for
+an official source route. The browser displayed an error page; no official
+source field, page payload, image, or source checksum was captured.
 
-本页记录自动访问遇到 HTTP 边界后，在受控浏览器中读取官方来源页所见的字段。它只属于 metadata 证据；没有保存页面正文、图片或来源页
-checksum。
+本页记录官方来源路线在受控浏览器中的访问边界结果。浏览器显示错误页面；没有获取官方来源字段、页面正文、图片或来源页 checksum。
 
 ## Source / 来源
 - Source ID / 来源 ID: src-sinica-yinshang-oracle-vocabulary
@@ -31,6 +30,24 @@ checksum。
 - Location / 展示位置: not recorded
 - Acquisition date / 入藏日期: not recorded
 - Department / 部门: Digital Culture Center
+- Registration number / 登记号: not recorded
+
+- Capture ID / 观察记录 ID: browser-meta-000017
+- Access record / 访问记录: browser-access-000017
+- Captured at / 观察日期: 2026-07-27
+- Page title / 页面标题: 隐私设置错误
+- Object type / 对象类型: access_boundary_error_page
+- Museum number / 博物馆编号: not recorded
+- Description / 描述: Controlled browser navigation displayed a certificate error
+  page with ERR_CERT_DATE_INVALID; no official collection field or payload was
+  visible.
+- Culture or period / 文化或时期: not recorded
+- Production date / 制作年代: not recorded
+- Findspot / 出土地线索: not recorded
+- Material / 材料: not recorded
+- Location / 展示位置: not recorded
+- Acquisition date / 入藏日期: not recorded
+- Department / 部门: not recorded
 - Registration number / 登记号: not recorded
 
 ## Access And Rights Boundary / 访问与权利边界

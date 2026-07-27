@@ -24263,7 +24263,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["dataset_count"], 30)
         self.assertEqual(data["quality_status_counts"], {"pass": 30})
-        self.assertEqual(data["totals"]["row_count"], 166626)
+        self.assertEqual(data["totals"]["row_count"], 166634)
         self.assertEqual(data["totals"]["boundary_status_violation_count"], 0)
         self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
@@ -24274,7 +24274,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 30)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
-        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "9")
+        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "17")
         self.assertEqual(by_dataset["browser_verified_metadata_capture"]["issue_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
         self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["missing_path_count"], "0")
@@ -24478,34 +24478,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SAFE_DERIVATIVE_DECISION_INDEX),
             module.read_csv_rows(root / module.FIELD_MAP_REVIEW_DECISION_INDEX),
         )
-        self.assertEqual(len(rows), 4)
-        self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
-        self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
-        self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
-        self.assertIn(
-            "project_registry/006_large-source-register/002_source-download-log.csv",
-            rows[0]["route_files_to_open"],
-        )
-        self.assertIn(
-            "014_browser-verified-metadata-capture.csv",
-            rows[0]["route_files_to_open"],
-        )
-        self.assertNotIn(
-            "src-obid-ancientbooks",
-            {row["source_id"] for row in rows},
-        )
-        self.assertNotIn(
-            "src-british-museum-oracle-bone",
-            {row["source_id"] for row in rows},
-        )
-        self.assertNotIn(
-            "checksum_or_failed_download_status_review_needed",
-            {row["gap_type"] for row in rows},
-        )
-        self.assertEqual(
-            {row["gap_type"] for row in rows},
-            {"access_boundary_or_error_followup"},
-        )
+        self.assertEqual(len(rows), 0)
+        self.assertEqual({row["gap_type"] for row in rows}, set())
 
     def test_source_access_boundary_review_groups_attempts_by_condition(self) -> None:
         module = load_source_access_boundary_review_module()

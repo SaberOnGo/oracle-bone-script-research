@@ -10464,7 +10464,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
     expected_dataset_counts = {
         "source_index": "21",
         "source_download_manifest": "54",
-        "browser_verified_metadata_capture": "9",
+        "browser_verified_metadata_capture": "17",
         "source_download_log": "55",
         "large_source_register": "4",
         "source_package_file_manifest": "38",

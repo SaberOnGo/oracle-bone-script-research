@@ -44,7 +44,7 @@
     "23_browser-verified-metadata.md",
     "24_browser-verified-metadata-index.json"
   ],
-  "browser_metadata_capture_count": 1,
+  "browser_metadata_capture_count": 4,
   "field_map_review": false,
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",

@@ -24,9 +24,8 @@ reading or component assignment.
 ## Direct Visual Record / 直接可见记录
 
 - English observation: The narrow image has a long upright stroke, a short
-  horizontal branch near the middle, and a longer stroke extending toward the
-  lower right.
-- 中文观察: 狭长图像有长直立笔，中部附近有短横向分支，并有较长笔画向右下伸展。
+  horizontal branch near the middle, and a long lower continuation.
+- 中文观察: 狭长图像有长直立笔，中部附近有短横向分支，并有长下行延续笔画。
 
 ## Next Checks / 下一步核查
 

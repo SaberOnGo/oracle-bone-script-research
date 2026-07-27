@@ -37,6 +37,10 @@ SAFE_DERIVATIVE_DECISION_INDEX = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "015_source-safe-derivative-decision.csv"
 )
+FIELD_MAP_REVIEW_DECISION_INDEX = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "016_source-field-map-review-decision.csv"
+)
 SOURCE_DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_source-download-log.csv")
 LARGE_SOURCE_REGISTER = Path("project_registry/006_large-source-register/001_large-source-register.csv")
 DEFAULT_OUTPUT = Path(
@@ -241,6 +245,7 @@ def source_gap_types(
     coverage_row: dict[str, str],
     reviewed_browser_capture_count: int = 0,
     safe_derivative_decision_reviewed: bool = False,
+    field_map_reviewed: bool = False,
 ) -> list[str]:
     gap_types: list[str] = []
     status_counts = pipeline_row.get("download_status_counts", "")
@@ -270,7 +275,11 @@ def source_gap_types(
         gap_types.append("large_source_register_review_needed")
     if int_value(pipeline_row, "downloaded_count") > 0 and int_value(pipeline_row, "metadata_profile_count") == 0:
         gap_types.append("metadata_profile_extraction_needed")
-    if int_value(pipeline_row, "downloaded_count") > 0 and int_value(pipeline_row, "field_map_count") == 0:
+    if (
+        int_value(pipeline_row, "downloaded_count") > 0
+        and int_value(pipeline_row, "field_map_count") == 0
+        and not field_map_reviewed
+    ):
         gap_types.append("source_field_map_needed")
     if int_value(pipeline_row, "downloaded_count") > 0 and int_value(pipeline_row, "package_manifest_count") == 0:
         gap_types.append("package_file_manifest_or_not_applicable_decision_needed")
@@ -319,6 +328,7 @@ def build_gap_rows(
     coverage_rows: list[dict[str, str]],
     browser_metadata_rows: list[dict[str, str]] | None = None,
     safe_derivative_decision_rows: list[dict[str, str]] | None = None,
+    field_map_decision_rows: list[dict[str, str]] | None = None,
 ) -> list[dict[str, str]]:
     coverage_by_source = {row["source_id"]: row for row in coverage_rows}
     capture_counts = reviewed_browser_capture_counts(browser_metadata_rows or [])
@@ -329,6 +339,13 @@ def build_gap_rows(
         and row.get("decision")
         == "metadata_scope_only_until_payload_and_rights_verified"
     }
+    reviewed_field_map_sources = {
+        row.get("source_id", "")
+        for row in (field_map_decision_rows or [])
+        if row.get("review_status") == "reviewed_source_engineering_field_map"
+        and row.get("decision")
+        == "source_level_mapping_only_until_object_payload_and_rights_reviewed"
+    }
     draft_rows: list[tuple[dict[str, str], str]] = []
     for pipeline_row in pipeline_rows:
         source_id = pipeline_row["source_id"]
@@ -338,6 +355,7 @@ def build_gap_rows(
             coverage_row,
             capture_counts.get(source_id, 0),
             source_id in reviewed_safe_derivative_sources,
+            source_id in reviewed_field_map_sources,
         ):
             draft_rows.append((pipeline_row, gap_type))
 
@@ -405,6 +423,7 @@ def main() -> int:
         read_csv_rows(root / SOURCE_COVERAGE_SUMMARY),
         read_csv_rows(root / BROWSER_VERIFIED_METADATA_CAPTURE),
         read_csv_rows(root / SAFE_DERIVATIVE_DECISION_INDEX),
+        read_csv_rows(root / FIELD_MAP_REVIEW_DECISION_INDEX),
     )
     output = args.output if args.output.is_absolute() else root / args.output
     write_csv(output, rows)

@@ -4941,6 +4941,72 @@ def check_source_safe_derivative_decisions(root: Path) -> list[str]:
     return issues
 
 
+def check_source_field_map_review_decisions(root: Path) -> list[str]:
+    issues: list[str] = []
+    relative = (
+        "corpus/006_research-sources-and-bibliography/000_source-registers/"
+        "016_source-field-map-review-decision.csv"
+    )
+    path = root / relative
+    if not path_exists(path):
+        return [f"{relative} missing"]
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        rows = list(csv.DictReader(file))
+    expected_sources = {
+        "src-ihp-museum-oracle-bones",
+        "src-open-oracle",
+        "src-oracle-mnist",
+        "src-yinqi-wenyuan",
+    }
+    if len(rows) != 4:
+        issues.append(f"{relative} should contain 4 reviewed decisions")
+    if {row.get("source_id", "") for row in rows} != expected_sources:
+        issues.append(f"{relative} source set changed")
+    for row in rows:
+        source_id = row.get("source_id", "")
+        if row.get("decision") != (
+            "source_level_mapping_only_until_object_payload_and_rights_reviewed"
+        ):
+            issues.append(f"{relative} decision changed: {source_id}")
+        if row.get("review_status") != "reviewed_source_engineering_field_map":
+            issues.append(f"{relative} review status changed: {source_id}")
+        human_path = root / row.get("human_decision_path", "")
+        index_path = root / row.get("support_index_path", "")
+        if not path_exists(human_path):
+            issues.append(f"{relative} missing human review: {source_id}")
+            continue
+        if not path_exists(index_path):
+            issues.append(f"{relative} missing support index: {source_id}")
+            continue
+        text = human_path.read_text(encoding="utf-8")
+        for snippet in [
+            "Source Field-Map Review",
+            "source-level field mapping",
+            "not rights clearance",
+            "not a decipherment",
+        ]:
+            if snippet not in text:
+                issues.append(
+                    f"{human_path.relative_to(root).as_posix()} missing marker: {snippet}"
+                )
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{human_path.relative_to(root).as_posix()}:"
+                    f"{line_number} line exceeds 80 characters"
+                )
+        data = json.loads(index_path.read_text(encoding="utf-8"))
+        if data.get("record_type") != "source_field_map_review_index":
+            issues.append(f"{index_path.relative_to(root).as_posix()} type changed")
+        if data.get("decision") != row.get("decision"):
+            issues.append(f"{index_path.relative_to(root).as_posix()} decision changed")
+        if "object_level_field_import" not in data.get("blocked_mapping_scope", []):
+            issues.append(
+                f"{index_path.relative_to(root).as_posix()} missing object import boundary"
+            )
+    return issues
+
+
 def check_evolution_candidate_local_materials(root: Path) -> list[str]:
     issues: list[str] = []
     evolution_map_path = (
@@ -16204,7 +16270,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 122",
-        "source register files: 513",
+        "source register files: 520",
         "bibliographic identity",
         "source trail",
         "scope",
@@ -34332,6 +34398,7 @@ def main() -> int:
     issues.extend(check_inscription_crosswalk_candidate_local_materials(root))
     issues.extend(check_source_access_boundary_review(root))
     issues.extend(check_source_safe_derivative_decisions(root))
+    issues.extend(check_source_field_map_review_decisions(root))
     issues.extend(check_evolution_candidate_local_materials(root))
     issues.extend(check_collection_object_candidate_local_materials(root))
     issues.extend(check_cambridge_hopkins_topic_candidate_local_materials(root))

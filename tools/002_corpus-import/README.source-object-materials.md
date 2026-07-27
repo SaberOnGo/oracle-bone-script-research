@@ -45,6 +45,15 @@ Each concrete source object directory contains:
 - `21_source-presearch-readiness-index.json`: structured readiness index.
 - `22_source-research-brief.md`: short human-readable source brief.
 
+When a source-level field-map review has been recorded, the matching source
+object also contains:
+
+- `25_source-field-map-review.md`: human-readable mapping review and limits.
+- `26_source-field-map-review-index.json`: structured support for that review.
+
+当来源级字段映射已经完成复核时，同一来源对象还包含上述两个文件；
+它们只记录来源字段和路由边界，不批准对象级导入、字形身份或释读。
+
 When current evidence supports only a metadata-scope derivative, the matching
 source object also contains:
 

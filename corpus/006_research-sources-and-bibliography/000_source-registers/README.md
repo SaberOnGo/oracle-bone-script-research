@@ -52,6 +52,14 @@ cited human decision before using this supporting table.
 `015_source-safe-derivative-decision.csv` 索引对象目录内已经复核的安全派生
 决定。使用此辅助表前，必须先打开其中指向的人类可读决定。
 
+`016_source-field-map-review-decision.csv` records source-level field-map
+decisions whose human review files stay inside each source object directory.
+It permits source-level routing only; it does not approve object-level import.
+
+`016_source-field-map-review-decision.csv` records bilingual source-level
+mapping decisions. The action files remain co-located in each source object
+directory and do not approve object-level import.
+
 ## Human Research Reading Order / 人类研究阅读顺序
 
 This register supports a human research file, not a route-only inventory.

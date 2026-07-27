@@ -9,6 +9,9 @@ map, not a rights decision.
 本索引说明同一来源对象目录中有哪些资料入口，以及哪些结构化辅助文件保存结构化路线。它只是访问地图，不是权利结论或学术结论。
 
 ## Human-Readable Entrances / 人类可读入口
+- Field-map review / Source field-map review: 25_source-field-map-review.md
+- Field-map review index / Source field-map review index:
+  26_source-field-map-review-index.json
 - Source summary / 来源摘要: README.md
 - Human review sheet / 人工复核单: 06_human-source-review-sheet.md
 - Material access index / 资料访问索引: 07_material-access-index.md

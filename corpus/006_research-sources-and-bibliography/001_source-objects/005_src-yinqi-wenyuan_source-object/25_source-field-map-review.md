@@ -7,11 +7,12 @@ metadata profiles already recorded in this repository.
 本页记录已登记来源的来源层字段映射。映射只使用本仓库已经登记的下载日志、来源包清单和 metadata profile。
 
 ## Review Result / 复核结果
-- Source ID / 来源 ID: src-ihp-museum-oracle-bones
+- Source ID / 来源 ID: src-yinqi-wenyuan
 - Review status / 复核状态: reviewed_metadata_only
-- Field-map IDs / 字段映射 ID: field-map-000055; field-map-000056; field-map-000057
-- Evidence download IDs / 证据下载 ID: dl-ihp-museum-oracle-bones
-- Download routes / 下载路线数: 1
+- Field-map IDs / 字段映射 ID: field-map-000063; field-map-000064; field-map-000065;
+  field-map-000066
+- Evidence download IDs / 证据下载 ID: dl-yinqi-home
+- Download routes / 下载路线数: 2
 - Package routes / 来源包路线数: 1
 - Metadata profiles / metadata profile 数: 2
 

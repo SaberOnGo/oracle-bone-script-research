@@ -67,6 +67,9 @@ local-private.
 - Literature scope / 文献范围: 16_source-literature-scope-review.md
 - Access integrity / 访问完整性: 18_source-access-integrity-review.md
 - Pre-research readiness / 预研究就绪: 20_source-presearch-readiness-review.md
+- Field-map review / Source field-map review: 25_source-field-map-review.md
+- Field-map review index / Source field-map review index:
+  26_source-field-map-review-index.json
 
 ## Structured Support Entrances / 结构化辅助入口
 - Structured source packet / 结构化来源包: 01_source-packet.json
@@ -90,6 +93,7 @@ note, or concrete next-check questions.
 - Field-map evidence count / 字段映射证据数: 7
 - Metadata profile count / 元数据概况数: 6
 - Browser metadata capture count / 浏览器核验 metadata 数: 0
+- Field-map review / 字段映射复核: 25_source-field-map-review.md
 
 ## Risk And Boundary / 风险与边界
 Useful for recognition tests but too narrow for corpus construction.

@@ -25,10 +25,19 @@ SAFE_DERIVATIVE_DECISION_INDEX = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "015_source-safe-derivative-decision.csv"
 )
+FIELD_MAP_REVIEW_DECISION_INDEX = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "016_source-field-map-review-decision.csv"
+)
 OUTPUT_ROOT = Path("corpus/006_research-sources-and-bibliography/001_source-objects")
 UPDATED_AT = "2026-06-21"
 MAX_HUMAN_LINE_LENGTH = 80
-FIELD_MAP_REVIEW_SOURCE_IDS = {"src-ihp-museum-oracle-bones"}
+FIELD_MAP_REVIEW_SOURCE_IDS = {
+    "src-ihp-museum-oracle-bones",
+    "src-open-oracle",
+    "src-oracle-mnist",
+    "src-yinqi-wenyuan",
+}
 METADATA_ONLY_DERIVATIVE_SOURCE_IDS = {
     "src-sinica-da-xiaoxuetang-site",
     "src-sinica-yinshang-oracle-vocabulary",
@@ -110,6 +119,22 @@ SAFE_DERIVATIVE_DECISION_FIELDS = [
     "evidence_download_ids",
     "metadata_profile_ids",
     "field_map_ids",
+    "human_decision_path",
+    "support_index_path",
+    "rights_status",
+    "review_status",
+    "research_boundary",
+    "updated_at",
+]
+
+FIELD_MAP_REVIEW_DECISION_FIELDS = [
+    "decision_id",
+    "source_id",
+    "decision",
+    "allowed_mapping_scope",
+    "blocked_mapping_scope",
+    "field_map_ids",
+    "evidence_download_ids",
     "human_decision_path",
     "support_index_path",
     "rights_status",
@@ -508,13 +533,13 @@ def field_map_review_text(
         "",
         *wrapped(
             "This human-readable review records a source-level field mapping "
-            "for the registered IHP museum page. The mapping uses only the "
+            "for the registered source. The mapping uses only the "
             "download log, package manifest, and metadata profiles already "
             "recorded in this repository."
         ),
         "",
         *wrapped(
-            "本页记录史语所博物馆来源页面的来源层字段映射。映射只使用本仓库已经登记的"
+            "本页记录已登记来源的来源层字段映射。映射只使用本仓库已经登记的"
             "下载日志、来源包清单和 metadata profile。"
         ),
         "",
@@ -576,7 +601,8 @@ def field_map_review_text(
         *wrapped(
             "This is a preprocessing and provenance result, not rights clearance, "
             "source promotion, corpus import, object identification, component "
-            "assignment, evolution correspondence, or decipherment."
+            "assignment, evolution correspondence. This is not a decipherment "
+            "conclusion."
         ),
         "",
         *wrapped(
@@ -590,11 +616,13 @@ def field_map_review_text(
 def field_map_review_index_payload(
     source: dict[str, str],
     field_routes: list[dict[str, str]],
+    decision_row: dict[str, str],
 ) -> dict[str, object]:
     return {
         "record_type": "source_field_map_review_index",
         "source_id": source["source_id"],
         "review_status": "reviewed_metadata_only",
+        "decision": decision_row["decision"],
         "field_map_ids": [row.get("map_id", "") for row in field_routes],
         "evidence_download_ids": sorted(
             {
@@ -607,6 +635,8 @@ def field_map_review_index_payload(
         "ai_support_files": ["26_source-field-map-review-index.json"],
         "rights_boundary": "metadata_only_until_verified",
         "source_payload_currently_available": False,
+        "allowed_mapping_scope": decision_row["allowed_mapping_scope"].split(";"),
+        "blocked_mapping_scope": decision_row["blocked_mapping_scope"].split(";"),
         "claim_boundary": (
             "source_level_field_mapping_only; no object, inscription, character, "
             "reading, or decipherment claim"
@@ -617,6 +647,53 @@ def field_map_review_index_payload(
             "transfer only human-reviewed object evidence into object dossiers",
         ],
         "updated_at": UPDATED_AT,
+    }
+
+
+def field_map_review_decision_row(
+    source: dict[str, str],
+    field_routes: list[dict[str, str]],
+    download_routes: list[dict[str, str]],
+    object_relative: Path,
+) -> dict[str, str]:
+    evidence_ids = {
+        row.get("evidence_download_id", "")
+        for row in field_routes
+        if row.get("evidence_download_id")
+    }
+    evidence_ids.update(
+        row.get("download_id", "")
+        for row in download_routes
+        if row.get("download_id")
+    )
+    return {
+        "decision_id": f"field-map-review-{source['source_id']}",
+        "source_id": source["source_id"],
+        "decision": (
+            "source_level_mapping_only_until_object_payload_and_rights_reviewed"
+        ),
+        "allowed_mapping_scope": (
+            "source_identity;source_reported_scope;source_level_field_map;"
+            "target_record_type_route;access_integrity_metadata"
+        ),
+        "blocked_mapping_scope": (
+            "object_level_field_import;glyph_identity;inscription_identity;"
+            "reading_or_decipherment;rights_clearance"
+        ),
+        "field_map_ids": ";".join(
+            row.get("map_id", "") for row in field_routes if row.get("map_id")
+        ),
+        "evidence_download_ids": ";".join(sorted(evidence_ids)),
+        "human_decision_path": (
+            object_relative / "25_source-field-map-review.md"
+        ).as_posix(),
+        "support_index_path": (
+            object_relative / "26_source-field-map-review-index.json"
+        ).as_posix(),
+        "rights_status": source["rights_status"],
+        "review_status": "reviewed_source_engineering_field_map",
+        "research_boundary": "source_field_mapping_only_not_scholarship",
+        "updated_at": "2026-07-27",
     }
 
 
@@ -692,6 +769,11 @@ def source_packet(
         "local_files": local_files,
         "browser_metadata_capture_count": len(browser_metadata_rows),
         "field_map_review": field_map_review,
+        **(
+            {"field_map_review_decision_recorded": True}
+            if field_map_review
+            else {}
+        ),
         **(
             {"safe_derivative_decision_recorded": True}
             if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS
@@ -3832,6 +3914,12 @@ def readme_text(
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
         *bullet("Pre-research readiness / 预研究就绪", "20_source-presearch-readiness-review.md"),
+        *(bullet("Field-map review / Source field-map review",
+                  "25_source-field-map-review.md")
+          if field_map_review else []),
+        *(bullet("Field-map review index / Source field-map review index",
+                  "26_source-field-map-review-index.json")
+          if field_map_review else []),
         *(bullet("Safe derivative decision / 安全派生决定", "25_safe-derivative-decision.md")
           if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS else []),
         *(bullet("Finding-list reconciliation / 清单分区对账", "21_finding-list-reconciliation.md")
@@ -3902,6 +3990,7 @@ def material_access_index_text(
     package_routes: list[dict[str, str]],
     field_routes: list[dict[str, str]],
     metadata_routes: list[dict[str, str]],
+    field_map_review: bool,
 ) -> str:
     download_statuses = sorted({row.get("download_status", "") for row in download_routes if row.get("download_status")})
     package_kinds = sorted({row.get("file_kind", "") for row in package_routes if row.get("file_kind")})
@@ -3924,6 +4013,12 @@ def material_access_index_text(
         ),
         "",
         "## Human-Readable Entrances / 人类可读入口",
+        *(bullet("Field-map review / Source field-map review",
+                  "25_source-field-map-review.md")
+          if field_map_review else []),
+        *(bullet("Field-map review index / Source field-map review index",
+                  "26_source-field-map-review-index.json")
+          if field_map_review else []),
         *bullet("Source summary / 来源摘要", "README.md"),
         *bullet("Human review sheet / 人工复核单", "06_human-source-review-sheet.md"),
         *bullet("Material access index / 资料访问索引", "07_material-access-index.md"),
@@ -4207,6 +4302,7 @@ def build_materials(root: Path) -> dict[str, int]:
     browser_metadata_by_source = index_by_source(read_csv(root / BROWSER_METADATA_CAPTURE))
 
     safe_derivative_rows: list[dict[str, str]] = []
+    field_map_decision_rows: list[dict[str, str]] = []
     for index, source in enumerate(sources, start=1):
         source_id = source["source_id"]
         object_dir = root / OUTPUT_ROOT / source_dir_name(index, source_id)
@@ -4265,6 +4361,12 @@ def build_materials(root: Path) -> dict[str, int]:
                 browser_metadata_capture_index_payload(source, browser_metadata_rows),
             )
         if field_map_review:
+            field_map_decision = field_map_review_decision_row(
+                source,
+                field_routes,
+                download_routes,
+                object_dir.relative_to(root),
+            )
             write_human_markdown(
                 object_dir / "25_source-field-map-review.md",
                 f"{source_id}/25_source-field-map-review.md",
@@ -4278,8 +4380,13 @@ def build_materials(root: Path) -> dict[str, int]:
             )
             write_json(
                 object_dir / "26_source-field-map-review-index.json",
-                field_map_review_index_payload(source, field_routes),
+                field_map_review_index_payload(
+                    source,
+                    field_routes,
+                    field_map_decision,
+                ),
             )
+            field_map_decision_rows.append(field_map_decision)
         if source_id in METADATA_ONLY_DERIVATIVE_SOURCE_IDS:
             decision_row = safe_derivative_decision_row(
                 source,
@@ -4323,6 +4430,7 @@ def build_materials(root: Path) -> dict[str, int]:
                 package_routes,
                 field_routes,
                 metadata_routes,
+                field_map_review,
             ),
         )
         write_human_markdown(
@@ -4437,9 +4545,15 @@ def build_materials(root: Path) -> dict[str, int]:
         safe_derivative_rows,
         SAFE_DERIVATIVE_DECISION_FIELDS,
     )
+    write_csv(
+        root / FIELD_MAP_REVIEW_DECISION_INDEX,
+        field_map_decision_rows,
+        FIELD_MAP_REVIEW_DECISION_FIELDS,
+    )
     return {
         "source_object_count": len(sources),
         "safe_derivative_decision_count": len(safe_derivative_rows),
+        "field_map_review_decision_count": len(field_map_decision_rows),
     }
 
 

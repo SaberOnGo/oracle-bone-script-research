@@ -1,15 +1,16 @@
 {
   "record_type": "source_field_map_review_index",
-  "source_id": "src-ihp-museum-oracle-bones",
+  "source_id": "src-yinqi-wenyuan",
   "review_status": "reviewed_metadata_only",
   "decision": "source_level_mapping_only_until_object_payload_and_rights_reviewed",
   "field_map_ids": [
-    "field-map-000055",
-    "field-map-000056",
-    "field-map-000057"
+    "field-map-000063",
+    "field-map-000064",
+    "field-map-000065",
+    "field-map-000066"
   ],
   "evidence_download_ids": [
-    "dl-ihp-museum-oracle-bones"
+    "dl-yinqi-home"
   ],
   "human_readable_files": [
     "25_source-field-map-review.md"

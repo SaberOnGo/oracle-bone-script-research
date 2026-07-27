@@ -1,15 +1,19 @@
 {
   "record_type": "source_field_map_review_index",
-  "source_id": "src-ihp-museum-oracle-bones",
+  "source_id": "src-oracle-mnist",
   "review_status": "reviewed_metadata_only",
   "decision": "source_level_mapping_only_until_object_payload_and_rights_reviewed",
   "field_map_ids": [
-    "field-map-000055",
-    "field-map-000056",
-    "field-map-000057"
+    "field-map-000072",
+    "field-map-000073",
+    "field-map-000074",
+    "field-map-000075",
+    "field-map-000076",
+    "field-map-000077",
+    "field-map-000078"
   ],
   "evidence_download_ids": [
-    "dl-ihp-museum-oracle-bones"
+    "dl-oracle-mnist-readme-recheck-20260727"
   ],
   "human_readable_files": [
     "25_source-field-map-review.md"

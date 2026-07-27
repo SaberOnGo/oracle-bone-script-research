@@ -46,6 +46,7 @@
   ],
   "browser_metadata_capture_count": 0,
   "field_map_review": true,
+  "field_map_review_decision_recorded": true,
   "research_boundary": "source_object_packet_preprocessing_only; source metadata, routes, download logs, package manifests, field maps, and status cards are not decipherment, identity, component, inscription, or correspondence conclusions",
   "decipherment_claim_status": "no_claim",
   "updated_at": "2026-06-21"

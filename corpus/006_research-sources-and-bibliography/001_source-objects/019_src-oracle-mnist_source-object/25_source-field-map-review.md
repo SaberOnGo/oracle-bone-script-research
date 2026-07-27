@@ -7,13 +7,14 @@ metadata profiles already recorded in this repository.
 本页记录已登记来源的来源层字段映射。映射只使用本仓库已经登记的下载日志、来源包清单和 metadata profile。
 
 ## Review Result / 复核结果
-- Source ID / 来源 ID: src-ihp-museum-oracle-bones
+- Source ID / 来源 ID: src-oracle-mnist
 - Review status / 复核状态: reviewed_metadata_only
-- Field-map IDs / 字段映射 ID: field-map-000055; field-map-000056; field-map-000057
-- Evidence download IDs / 证据下载 ID: dl-ihp-museum-oracle-bones
-- Download routes / 下载路线数: 1
-- Package routes / 来源包路线数: 1
-- Metadata profiles / metadata profile 数: 2
+- Field-map IDs / 字段映射 ID: field-map-000072; field-map-000073; field-map-000074;
+  field-map-000075; field-map-000076; field-map-000077; field-map-000078
+- Evidence download IDs / 证据下载 ID: dl-oracle-mnist-readme-recheck-20260727
+- Download routes / 下载路线数: 2
+- Package routes / 来源包路线数: 2
+- Metadata profiles / metadata profile 数: 6
 
 ## What Was Mapped / 已映射内容
 The collection-level scope is retained as source provenance. The recorded file

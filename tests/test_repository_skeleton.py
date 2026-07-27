@@ -11813,6 +11813,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         result = module.build_materials(repo_root())
         self.assertEqual(result["source_object_count"], 21)
         self.assertEqual(result["safe_derivative_decision_count"], 2)
+        self.assertEqual(result["field_map_review_decision_count"], 4)
         object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"
@@ -11872,6 +11873,38 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertEqual(
                 decision_index["review_status"],
                 "reviewed_source_engineering_decision",
+            )
+        field_map_decision_rows = module.read_csv(
+            repo_root() / module.FIELD_MAP_REVIEW_DECISION_INDEX
+        )
+        self.assertEqual(len(field_map_decision_rows), 4)
+        self.assertEqual(
+            {row["source_id"] for row in field_map_decision_rows},
+            module.FIELD_MAP_REVIEW_SOURCE_IDS,
+        )
+        for row in field_map_decision_rows:
+            review_text = (repo_root() / row["human_decision_path"]).read_text(
+                encoding="utf-8"
+            )
+            review_index = json.loads(
+                (repo_root() / row["support_index_path"]).read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertIn("Source Field-Map Review", review_text)
+            self.assertIn("source-level field mapping", review_text)
+            self.assertTrue(all(len(line) <= 80 for line in review_text.splitlines()))
+            self.assertEqual(
+                row["decision"],
+                "source_level_mapping_only_until_object_payload_and_rights_reviewed",
+            )
+            self.assertEqual(
+                row["review_status"], "reviewed_source_engineering_field_map"
+            )
+            self.assertEqual(review_index["decision"], row["decision"])
+            self.assertIn(
+                "object_level_field_import",
+                review_index["blocked_mapping_scope"],
             )
         british_object_dir = (
             repo_root()
@@ -24443,6 +24476,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SOURCE_COVERAGE_SUMMARY),
             module.read_csv_rows(root / module.BROWSER_VERIFIED_METADATA_CAPTURE),
             module.read_csv_rows(root / module.SAFE_DERIVATIVE_DECISION_INDEX),
+            module.read_csv_rows(root / module.FIELD_MAP_REVIEW_DECISION_INDEX),
         )
         self.assertEqual(len(rows), 7)
         self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
@@ -28611,7 +28645,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"513"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"520"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -28709,7 +28743,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 122",
-            "source register files: 513",
+            "source register files: 520",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -28736,7 +28770,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 122", text)
-        self.assertIn("source register files: 513", text)
+        self.assertIn("source register files: 520", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

@@ -94,6 +94,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000078",
     "obs-unk-000079",
     "obs-unk-000080",
+    "obs-unk-000081",
+    "obs-unk-000082",
+    "obs-unk-000083",
+    "obs-unk-000084",
+    "obs-unk-000085",
+    "obs-unk-000086",
+    "obs-unk-000087",
+    "obs-unk-000088",
+    "obs-unk-000089",
+    "obs-unk-000090",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7825,6 +7835,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000080": (
         "Curved side marks frame a short central form with a small angled stroke below.",
         "弧状侧部痕迹夹着短小中部形体，下方有一笔小折向痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000081": (
+        "A central horizontal bar is paired with rounded upper and crossed lower strokes.",
+        "中部横向笔画连接上部弧线和下部交叉笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000082": (
+        "A dark central bar separates short upper marks from two lower diagonal strokes.",
+        "深色中部横画将上部短痕迹与下方两条斜向笔画分开。本记录不确认字形身份。",
+    ),
+    "obs-unk-000083": (
+        "The form has an arched upper contour, side branches, and a long lower stroke.",
+        "形体上部呈拱形轮廓，两侧有分支，下方有一条长笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000084": (
+        "A closed angular upper contour sits above a bar and a crossed lower cluster.",
+        "封闭折角状上部轮廓位于横画之上，下方为交叉笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000085": (
+        "The narrow image contains a tall branching stroke group with curved side marks.",
+        "狭长图像包含高耸分支笔群及弧状侧部痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000086": (
+        "A vertical stroke crosses a horizontal bar, with angled marks above and below.",
+        "纵向笔画穿过横画，上下均可见折向痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000087": (
+        "A broad pointed upper mark leads into a curved lower stroke and a short branch.",
+        "宽大的尖状上部痕迹连接弧形下笔画和一条短分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000088": (
+        "The tall compact form has two upper diagonals and a crossed lower point.",
+        "高而紧凑的形体上部有两条斜线，下部形成交叉尖点。本记录不确认字形身份。",
+    ),
+    "obs-unk-000089": (
+        "An angled left mark and pointed right contour join a long descending curve.",
+        "左侧折向痕迹与右侧尖状轮廓连接一条长向下弧线。本记录不确认字形身份。",
+    ),
+    "obs-unk-000090": (
+        "The narrow image contains a tall branching stroke group with curved side marks.",
+        "狭长图像包含高耸分支笔群及弧状侧部痕迹。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

@@ -104,6 +104,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000088",
     "obs-unk-000089",
     "obs-unk-000090",
+    "obs-unk-000091",
+    "obs-unk-000092",
+    "obs-unk-000093",
+    "obs-unk-000094",
+    "obs-unk-000095",
+    "obs-unk-000096",
+    "obs-unk-000097",
+    "obs-unk-000098",
+    "obs-unk-000099",
+    "obs-unk-000100",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7875,6 +7885,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000090": (
         "The narrow image contains a tall branching stroke group with curved side marks.",
         "狭长图像包含高耸分支笔群及弧状侧部痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000091": (
+        "A compact curved form contains a dark central stroke and a short lower hook.",
+        "紧凑弧形体内有深色中部笔画和一条短下钩痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000092": (
+        "Several diagonal strokes cross a curved central mark, with short side branches.",
+        "数条斜向笔画交叉于弧状中部痕迹，并带有短侧分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000093": (
+        "The image has an upright branching cluster with a rounded lower contour.",
+        "图像呈现竖向分支笔群，下部带有圆弧状轮廓。本记录不确认字形身份。",
+    ),
+    "obs-unk-000094": (
+        "Two separated vertical groups contain a tapering stroke and an angular enclosure.",
+        "两个分离的纵向笔群分别含渐细笔画和折角围合痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000095": (
+        "A compact angled cluster combines a small upper loop with several lower branches.",
+        "紧凑折向笔群结合上部小环状痕迹和下方数条分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000096": (
+        "A rounded upper cluster sits above a bar and two splayed lower strokes.",
+        "圆弧状上部笔群位于横画之上，下方有两条外张笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000097": (
+        "A central upright stroke is crossed by short upper bars and a curved lower line.",
+        "中部竖向笔画与上方短横画交叉，下方连接弧形线条。本记录不确认字形身份。",
+    ),
+    "obs-unk-000098": (
+        "An angular upper mark leads into two long curved strokes descending below it.",
+        "折角状上部痕迹下方延伸出两条长弧形笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000099": (
+        "The dense form has a central vertical cluster, side branches, and curved lower marks.",
+        "密集形体中部为纵向笔群，两侧有分支，下方有弧状痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000100": (
+        "Several long diagonal strokes form a tall narrow cluster with a curved right side.",
+        "数条长斜向笔画形成高而狭的笔群，右侧带有弧状痕迹。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

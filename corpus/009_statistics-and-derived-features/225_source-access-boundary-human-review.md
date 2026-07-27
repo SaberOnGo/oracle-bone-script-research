@@ -2,9 +2,9 @@
 
 ## Human Result / 人类阅读结果
 
-- Affected source count: 5
-- Grouped failure-condition task count: 6
-- Preserved access-attempt count: 13
+- Affected source count: 1
+- Grouped failure-condition task count: 1
+- Preserved access-attempt count: 1
 - Older source-engineering access/checksum gap rows: 9
 
 原始访问记录逐条保留，但人工任务按来源和故障条件归并。无来源
@@ -17,68 +17,6 @@ unsaved payload is evidence of the same access boundary, not a second
 independent review task.
 
 ## Grouped Tasks / 归并后任务
-
-### `src-sinica-da-xiaoxuetang-site`
-
-- TLS certificate validation failure / TLS 证书校验失败
-- Attempts preserved: 2
-- Download IDs / 下载记录：
-  - `dl-sinica-da-xiaoxuetang-site`
-  - `dl-sinica-da-xiaoxuetang-site-recheck-20260727`
-- Status counts: download_error:2
-- Latest attempt: 2026-07-26T22:18:09+00:00
-- Next checks: verify_current_official_domain_and_certificate_state;
-  do_not_disable_tls_validation_or claim_payload_access
-
-### `src-sinica-yinshang-oracle-vocabulary`
-
-- TLS certificate validation failure / TLS 证书校验失败
-- Attempts preserved: 2
-- Download IDs / 下载记录：
-  - `dl-sinica-yinshang-oracle-vocabulary`
-  - `dl-sinica-yinshang-oracle-vocabulary-recheck-20260727`
-- Status counts: download_error:2
-- Latest attempt: 2026-07-26T22:18:15+00:00
-- Next checks: verify_current_official_domain_and_certificate_state;
-  do_not_disable_tls_validation_or claim_payload_access
-
-### `src-xiaoxuetang-jiaguwen`
-
-- Access-restricted response / 受限访问响应
-- Attempts preserved: 2
-- Download IDs / 下载记录：
-  - `dl-xxt-jgw-home`
-  - `dl-xxt-jgw-about`
-- Status counts: downloaded_access_restricted_page:2
-- Latest attempt: 2026-06-04T09:28:31+00:00
-- Next checks: open_saved_restricted_page_then_manually_verify_official_route;
-  do_not_treat_restricted_html_as_source_content
-
-### `src-xiaoxuetang-jiaguwen`
-
-- TLS handshake failure / TLS 握手失败
-- Attempts preserved: 2
-- Download IDs / 下载记录：
-  - `dl-xxt-jgw-kaiorder-0502`
-  - `dl-xxt-jgw-kaiorder-1176`
-- Status counts: download_error:2
-- Latest attempt: 2026-06-11T11:06:09.7325982Z
-- Next checks: verify_current_official_route_in_independent_browser;
-  record_route_change_before_another automated retry
-
-### `src-xiaoxuetang-obm`
-
-- Access-restricted response / 受限访问响应
-- Attempts preserved: 4
-- Download IDs / 下载记录：
-  - `dl-xxt-obm-example`
-  - `dl-xxt-obm-guide`
-  - `dl-xxt-obm-appendix01`
-  - `dl-xxt-obm-appendix02`
-- Status counts: downloaded_access_restricted_page:4
-- Latest attempt: 2026-06-04T10:47:36+00:00
-- Next checks: open_saved_restricted_page_then_manually_verify_official_route;
-  do_not_treat_restricted_html_as_source_content
 
 ### `src-yinqi-wenyuan`
 

@@ -24263,7 +24263,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["dataset_count"], 30)
         self.assertEqual(data["quality_status_counts"], {"pass": 30})
-        self.assertEqual(data["totals"]["row_count"], 166621)
+        self.assertEqual(data["totals"]["row_count"], 166625)
         self.assertEqual(data["totals"]["boundary_status_violation_count"], 0)
         self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
@@ -24274,7 +24274,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 30)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
-        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "4")
+        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "8")
         self.assertEqual(by_dataset["browser_verified_metadata_capture"]["issue_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
         self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["missing_path_count"], "0")
@@ -24514,20 +24514,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.DOWNLOAD_LOG),
             module.read_csv_rows(root / module.BROWSER_CAPTURE),
         )
-        self.assertEqual(len(rows), 6)
-        self.assertEqual(len({row["source_id"] for row in rows}), 5)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(len({row["source_id"] for row in rows}), 1)
         self.assertEqual(
-            sum(int(row["affected_attempt_count"]) for row in rows), 13
+            sum(int(row["affected_attempt_count"]) for row in rows), 1
         )
         self.assertNotIn(
             "src-obid-ancientbooks", {row["source_id"] for row in rows}
         )
-        xxt_rows = [
-            row for row in rows if row["source_id"] == "src-xiaoxuetang-jiaguwen"
-        ]
-        self.assertEqual(
-            {row["failure_condition"] for row in xxt_rows},
-            {"access_restricted_response", "tls_handshake_failure"},
+        self.assertNotIn(
+            "src-xiaoxuetang-jiaguwen", {row["source_id"] for row in rows}
         )
         self.assertNotIn(
             "src-british-museum-oracle-bone", {row["source_id"] for row in rows}
@@ -28739,7 +28735,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 122",
-            "source register files: 522",
+            "source register files: 530",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -28766,7 +28762,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 122", text)
-        self.assertIn("source register files: 522", text)
+        self.assertIn("source register files: 530", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

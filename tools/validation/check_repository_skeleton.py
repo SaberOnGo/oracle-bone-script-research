@@ -243,6 +243,56 @@ CHARACTER_LOCAL_MATERIAL_EXTRA_TARGETS = {
         "obs-unk-bucket_oracle-character-candidates/020_obs-unk-000020_"
         "hust-obc-und-L-000020_oracle-character-candidate"
     ),
+    "obs-unk-000021": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/021_obs-unk-000021_"
+        "hust-obc-und-L-000021_oracle-character-candidate"
+    ),
+    "obs-unk-000022": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/022_obs-unk-000022_"
+        "hust-obc-und-L-000022_oracle-character-candidate"
+    ),
+    "obs-unk-000023": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/023_obs-unk-000023_"
+        "hust-obc-und-L-000023_oracle-character-candidate"
+    ),
+    "obs-unk-000024": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/024_obs-unk-000024_"
+        "hust-obc-und-L-000024_oracle-character-candidate"
+    ),
+    "obs-unk-000025": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/025_obs-unk-000025_"
+        "hust-obc-und-L-000025_oracle-character-candidate"
+    ),
+    "obs-unk-000026": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/026_obs-unk-000026_"
+        "hust-obc-und-L-000026_oracle-character-candidate"
+    ),
+    "obs-unk-000027": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/027_obs-unk-000027_"
+        "hust-obc-und-L-000027_oracle-character-candidate"
+    ),
+    "obs-unk-000028": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/028_obs-unk-000028_"
+        "hust-obc-und-L-000028_oracle-character-candidate"
+    ),
+    "obs-unk-000029": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/029_obs-unk-000029_"
+        "hust-obc-und-L-000029_oracle-character-candidate"
+    ),
+    "obs-unk-000030": (
+        "corpus/001_oracle-characters/017_undeciphered-000001-000100_"
+        "obs-unk-bucket_oracle-character-candidates/030_obs-unk-000030_"
+        "hust-obc-und-L-000030_oracle-character-candidate"
+    ),
     "obs-unk-001601": (
         "corpus/001_oracle-characters/033_undeciphered-001601-001700_"
         "obs-unk-bucket_oracle-character-candidates/001_obs-unk-001601_"

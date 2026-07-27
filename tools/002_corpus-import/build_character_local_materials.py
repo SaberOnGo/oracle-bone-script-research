@@ -34,6 +34,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000018",
     "obs-unk-000019",
     "obs-unk-000020",
+    "obs-unk-000021",
+    "obs-unk-000022",
+    "obs-unk-000023",
+    "obs-unk-000024",
+    "obs-unk-000025",
+    "obs-unk-000026",
+    "obs-unk-000027",
+    "obs-unk-000028",
+    "obs-unk-000029",
+    "obs-unk-000030",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7525,6 +7535,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000020": (
         "The image repeats a dense pointed form with a compact central cluster and several short descending branches.",
         "图像呈密集尖状形，中部为紧凑笔群，下方分出几条短向下笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000021": (
+        "The image shows a dense dark form with an angled upper stroke, a compact central cluster, and several short lower branches.",
+        "图像呈密集深色形，上方有斜向笔画，中部为紧凑笔群，下方有多条短支笔。本记录不确认字形身份。",
+    ),
+    "obs-unk-000022": (
+        "The form has a narrow upright stem, branching side strokes, and a long descending stroke ending below the main cluster.",
+        "图像有窄直立主干、侧向分叉笔画，以及向下延伸并位于主体下方的长笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000023": (
+        "The compact block-like image has a broad upper contour, a slanted inner stroke, and a few short marks along the lower edge.",
+        "紧凑块状图像上部较宽，内部有斜向笔画，下缘分布几处短痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000024": (
+        "The slender central stroke has a small angled mark at left and crossing base strokes.",
+        "直立图像以纤细中央笔画为主，左侧有小斜痕迹，接近下部可见交叉笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000025": (
+        "The image repeats the dense branching form seen in this batch, with a pointed upper contour and multiple short lower extensions.",
+        "图像再次出现密集分叉形，上方有尖状轮廓，下方分出多条短外伸笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000026": (
+        "Two separated components are visible: a small angular group at left and a larger curved cluster with a hooked lower contour at right.",
+        "图像可见左侧小折角笔群和右侧较大弯曲笔群，右组下缘有钩曲轮廓，二者分离。本记录不确认字形身份。",
+    ),
+    "obs-unk-000027": (
+        "The left group has a pointed upper tip and a narrow descending body; a separate slim branching stroke stands to its right.",
+        "左侧笔群上方呈尖状，下方为窄长延伸，右侧另有分离的细长分叉笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000028": (
+        "The compact image is roughly symmetric, with two upper arms, a central vertical stroke, and two lower diagonal projections.",
+        "紧凑图像大致对称，上方分出两臂，中间为竖向笔画，下方有两处斜向外伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000029": (
+        "The image contains a crossed angular group at left, a separate curved and branching group at right, and a small lower mark.",
+        "图像左侧为交叉折角笔群，右侧为分离的弯曲分叉笔群，下方有小垂直痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000030": (
+        "The image has a broad symmetric upper frame, a central descending stroke, and a forked lower end.",
+        "图像上方为宽大对称框架痕迹，中部有向下笔画，下端分叉收尾。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

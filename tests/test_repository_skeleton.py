@@ -11923,7 +11923,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("no_source_payload_checksum", browser_metadata_text)
         self.assertIn("metadata_route_only_not_scholarship", browser_metadata_text)
         self.assertTrue(all(len(line) <= 80 for line in browser_metadata_text.splitlines()))
-        self.assertEqual(browser_metadata_index["capture_count"], 1)
+        self.assertEqual(browser_metadata_index["capture_count"], 2)
         self.assertEqual(
             browser_metadata_index["claim_boundary"],
             "metadata_route_only_not_scholarship",
@@ -24263,7 +24263,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["dataset_count"], 30)
         self.assertEqual(data["quality_status_counts"], {"pass": 30})
-        self.assertEqual(data["totals"]["row_count"], 166620)
+        self.assertEqual(data["totals"]["row_count"], 166621)
         self.assertEqual(data["totals"]["boundary_status_violation_count"], 0)
         self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
@@ -24274,7 +24274,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 30)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
-        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "3")
+        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "4")
         self.assertEqual(by_dataset["browser_verified_metadata_capture"]["issue_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
         self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["missing_path_count"], "0")
@@ -24478,7 +24478,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SAFE_DERIVATIVE_DECISION_INDEX),
             module.read_csv_rows(root / module.FIELD_MAP_REVIEW_DECISION_INDEX),
         )
-        self.assertEqual(len(rows), 6)
+        self.assertEqual(len(rows), 5)
         self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
         self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
         self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
@@ -24494,7 +24494,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "src-obid-ancientbooks",
             {row["source_id"] for row in rows},
         )
-        self.assertIn(
+        self.assertNotIn(
             "src-british-museum-oracle-bone",
             {row["source_id"] for row in rows},
         )
@@ -24514,10 +24514,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.DOWNLOAD_LOG),
             module.read_csv_rows(root / module.BROWSER_CAPTURE),
         )
-        self.assertEqual(len(rows), 7)
-        self.assertEqual(len({row["source_id"] for row in rows}), 6)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(len({row["source_id"] for row in rows}), 5)
         self.assertEqual(
-            sum(int(row["affected_attempt_count"]) for row in rows), 15
+            sum(int(row["affected_attempt_count"]) for row in rows), 13
         )
         self.assertNotIn(
             "src-obid-ancientbooks", {row["source_id"] for row in rows}
@@ -24529,13 +24529,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             {row["failure_condition"] for row in xxt_rows},
             {"access_restricted_response", "tls_handshake_failure"},
         )
-        british = next(
-            row
-            for row in rows
-            if row["source_id"] == "src-british-museum-oracle-bone"
+        self.assertNotIn(
+            "src-british-museum-oracle-bone", {row["source_id"] for row in rows}
         )
-        self.assertEqual(british["affected_attempt_count"], "2")
-        self.assertIn("browser-meta-000001", british["browser_capture_ids"])
         guide = module.build_human_guide(
             rows, module.read_csv_rows(root / module.GAP_QUEUE)
         )

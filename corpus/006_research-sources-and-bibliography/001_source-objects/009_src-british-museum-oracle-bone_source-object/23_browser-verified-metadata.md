@@ -30,6 +30,22 @@ checksum。
 - Department / 部门: Asia
 - Registration number / 登记号: OA+.165
 
+- Capture ID / 观察记录 ID: browser-meta-000004
+- Access record / 访问记录: browser-access-000004
+- Captured at / 观察日期: 2026-07-27
+- Page title / 页面标题: oracle-bone
+- Object type / 对象类型: oracle-bone
+- Museum number / 博物馆编号: OA+.165
+- Description / 描述: Oracle bone. Ten small fragments.
+- Culture or period / 文化或时期: Shang dynasty
+- Production date / 制作年代: 13thC BC-11thC BC
+- Findspot / 出土地线索: Found/Acquired: China
+- Material / 材料: bone
+- Location / 展示位置: Not on display
+- Acquisition date / 入藏日期: 1972
+- Department / 部门: Asia
+- Registration number / 登记号: OA+.165
+
 ## Access And Rights Boundary / 访问与权利边界
 - Payload status / 页面载荷状态: no_page_payload_saved
 - Source checksum status / 来源 checksum 状态: no_source_payload_checksum

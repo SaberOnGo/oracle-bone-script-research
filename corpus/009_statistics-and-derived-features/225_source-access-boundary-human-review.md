@@ -2,9 +2,9 @@
 
 ## Human Result / 人类阅读结果
 
-- Affected source count: 6
-- Grouped failure-condition task count: 7
-- Preserved access-attempt count: 15
+- Affected source count: 5
+- Grouped failure-condition task count: 6
+- Preserved access-attempt count: 13
 - Older source-engineering access/checksum gap rows: 9
 
 原始访问记录逐条保留，但人工任务按来源和故障条件归并。无来源
@@ -17,19 +17,6 @@ unsaved payload is evidence of the same access boundary, not a second
 independent review task.
 
 ## Grouped Tasks / 归并后任务
-
-### `src-british-museum-oracle-bone`
-
-- HTTP 403 boundary / HTTP 403 访问边界
-- Attempts preserved: 2
-- Download IDs / 下载记录：
-  - `dl-british-museum-oa-165`
-  - `dl-british-museum-oa-165-recheck-20260727`
-- Status counts: http_error:2
-- Latest attempt: 2026-07-26T22:18:08+00:00
-- Reviewed browser metadata: browser-meta-000001
-- Next checks: open_official_object_route_in_reviewed_browser;
-  record_metadata_only_boundary_if_payload_remains_blocked
 
 ### `src-sinica-da-xiaoxuetang-site`
 

@@ -14,6 +14,16 @@ from pathlib import Path
 MAX_HUMAN_MARKDOWN_LINE_LENGTH = 80
 OBS_CHAR_LOCAL_MATERIAL_LIMIT = 1588
 EXTRA_TARGET_PROJECT_IDS = (
+    "obs-unk-000001",
+    "obs-unk-000002",
+    "obs-unk-000003",
+    "obs-unk-000004",
+    "obs-unk-000005",
+    "obs-unk-000006",
+    "obs-unk-000007",
+    "obs-unk-000008",
+    "obs-unk-000009",
+    "obs-unk-000010",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7425,6 +7435,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-006570": (
         "The image shows a broad arched enclosure with a nearly level lower stroke and curved side strokes extending outward on both sides.",
         "图像中央为宽弧形闭合轮廓，下缘接近水平笔画，左右两侧均有向外弯出的曲线。本记录不确认字形身份。",
+    ),
+    "obs-unk-000001": (
+        "The small image shows a rounded central form with two tall side strokes, a pointed upper mark, and short descending strokes below.",
+        "小型图像中央呈圆弧形体，两侧有高直笔画，上方有尖状痕迹，下方有短向下笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000002": (
+        "The image has a pointed upper junction, two descending side strokes, and a narrow lower fork with a small detached mark.",
+        "图像上方有尖状交接处，两侧笔画向下延伸，下部为窄分叉形，旁有小型分离痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000003": (
+        "The image shows a tall left stroke, a short upper cross stroke, a compact central knot, and a separate lower curved mark.",
+        "图像有高直左侧笔画、上方短横痕、紧凑中央交结和分离的下部弯曲痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000004": (
+        "Two narrow vertical groups are visible, each with short crossing strokes and hooked lower ends; the right group is denser.",
+        "图像可见两个狭长竖向笔群，各有交叉短笔和下部钩状端部；右侧笔群更为密集。本记录不确认字形身份。",
+    ),
+    "obs-unk-000005": (
+        "The image has a broad upper horizontal stroke, a central descending stem, and two curved lower branches that open outward.",
+        "图像上方有宽横笔，中部有向下主干，下方分出两条向外展开的弯曲笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000006": (
+        "The upright form contains a short upper cluster, a long central curve, and a separate rounded lower hook on the right.",
+        "直立形体上部有短笔群，中部有长弯曲笔画，右下另有圆弧钩状痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000007": (
+        "The dense image contains two neighboring compact groups with short crossing strokes and several small lower projections.",
+        "图像中有两个相邻的紧凑笔群，内部有短交叉笔画，下方还有几处小型外伸痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000008": (
+        "Two separated upright forms are visible, with a curved upper stroke on the left and a small hooked lower mark on the right.",
+        "图像可见两个分离的直立形体，左侧上方有弯曲笔画，右侧下方有小型钩状痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000009": (
+        "The image shows a broad left contour, a compact central cluster, and a long horizontal stroke extending toward the right.",
+        "图像左侧有宽外轮廓，中部为紧凑笔群，并有长横笔向右侧延伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000010": (
+        "The compact form has two small rounded upper marks, a descending central stroke, and a separate curved stroke at lower right.",
+        "紧凑形体上方有两个小圆弧痕迹，中部有向下笔画，右下另有分离的弯曲笔画。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

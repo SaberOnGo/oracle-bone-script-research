@@ -7698,6 +7698,16 @@ class RepositorySkeletonTests(unittest.TestCase):
             outputs["obs-char-000023"]["material_observation_text"],
         )
         for project_id, expected_fragment in {
+            "obs-unk-000001": "rounded central form",
+            "obs-unk-000002": "pointed upper junction",
+            "obs-unk-000003": "tall left stroke",
+            "obs-unk-000004": "Two narrow vertical groups",
+            "obs-unk-000005": "broad upper horizontal stroke",
+            "obs-unk-000006": "short upper cluster",
+            "obs-unk-000007": "two neighboring compact groups",
+            "obs-unk-000008": "Two separated upright forms",
+            "obs-unk-000009": "broad left contour",
+            "obs-unk-000010": "two small rounded upper marks",
             "obs-unk-005708": "dense central branching cluster",
             "obs-unk-006294": "two separated groups",
             "obs-unk-006258": "upper arched loop",

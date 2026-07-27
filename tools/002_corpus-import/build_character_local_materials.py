@@ -74,6 +74,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000058",
     "obs-unk-000059",
     "obs-unk-000060",
+    "obs-unk-000061",
+    "obs-unk-000062",
+    "obs-unk-000063",
+    "obs-unk-000064",
+    "obs-unk-000065",
+    "obs-unk-000066",
+    "obs-unk-000067",
+    "obs-unk-000068",
+    "obs-unk-000069",
+    "obs-unk-000070",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7725,6 +7735,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000060": (
         "The form has a broad upper bar, a central vertical stroke, two diagonal sides, and a lower bar.",
         "形体有宽上横笔画、中央竖笔画、两侧斜笔画和下方横笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000061": (
+        "The image has forked upper strokes above a rounded rectangular lower enclosure.",
+        "图像上部有分叉笔画，下方为圆弧矩形围合。本记录不确认字形身份。",
+    ),
+    "obs-unk-000062": (
+        "The form has a small upper cap, a central enclosed loop, and two curved lower sides.",
+        "形体上部有小盖部，中间为围合环状痕迹，下方有两侧弯曲笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000063": (
+        "The compact form has a narrow rounded upper mark and a broad horizontal lower base.",
+        "紧凑形体上部有窄圆弧痕迹，下方为宽横底部。本记录不确认字形身份。",
+    ),
+    "obs-unk-000064": (
+        "The image has a central upright stroke, a rounded upper crossing, and short lower branches.",
+        "图像有中央直立笔画，上部有圆弧交叉，下方有短分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000065": (
+        "The form has small angular upper marks above a broad trapezoid-like lower group.",
+        "形体上部有小折角痕迹，下方为宽大的梯形状笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000066": (
+        "Two separated pointed groups are visible with a narrow crossing between them.",
+        "图像可见两个分离的尖状笔群，中间有窄交叉部。本记录不确认字形身份。",
+    ),
+    "obs-unk-000067": (
+        "The form has a small left upright mark, a rounded lower loop, and a long right stroke.",
+        "形体左侧有小直立痕迹，下方有圆弧环状笔画，右侧有长笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000068": (
+        "The image combines a rounded left enclosure, angular upper marks, and a long lower stroke.",
+        "图像结合了左侧圆弧围合、上部折角痕迹和长向下笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000069": (
+        "The compact form has a rounded left mark, a dense central cluster, and short right branches.",
+        "紧凑形体左侧有圆弧痕迹，中部为密集笔群，右侧有短分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000070": (
+        "The image has a broad arched upper contour and several long descending branches.",
+        "图像上部有宽大的拱形轮廓，下方有数条长向下分支。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

@@ -4858,12 +4858,12 @@ def check_source_access_boundary_review(root: Path) -> list[str]:
     else:
         with index_path.open("r", encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))
-        if len(rows) != 8:
-            issues.append(f"{index_relative} should contain 8 grouped tasks")
-        if len({row.get("source_id", "") for row in rows}) != 7:
-            issues.append(f"{index_relative} should cover 7 unresolved sources")
-        if sum(int(row.get("affected_attempt_count", "0")) for row in rows) != 16:
-            issues.append(f"{index_relative} should preserve 16 access attempts")
+        if len(rows) != 7:
+            issues.append(f"{index_relative} should contain 7 grouped tasks")
+        if len({row.get("source_id", "") for row in rows}) != 6:
+            issues.append(f"{index_relative} should cover 6 unresolved sources")
+        if sum(int(row.get("affected_attempt_count", "0")) for row in rows) != 15:
+            issues.append(f"{index_relative} should preserve 15 access attempts")
         if any(row.get("source_id") == "src-obid-ancientbooks" for row in rows):
             issues.append(f"{index_relative} includes browser-resolved OBID probe")
         if any(
@@ -10464,7 +10464,7 @@ def check_data_quality_audit(root: Path) -> list[str]:
     expected_dataset_counts = {
         "source_index": "21",
         "source_download_manifest": "54",
-        "browser_verified_metadata_capture": "2",
+        "browser_verified_metadata_capture": "3",
         "source_download_log": "55",
         "large_source_register": "4",
         "source_package_file_manifest": "38",
@@ -16270,7 +16270,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 122",
-        "source register files: 520",
+        "source register files: 522",
         "bibliographic identity",
         "source trail",
         "scope",

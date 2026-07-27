@@ -2,9 +2,9 @@
 
 ## Human Result / 人类阅读结果
 
-- Affected source count: 7
-- Grouped failure-condition task count: 8
-- Preserved access-attempt count: 16
+- Affected source count: 6
+- Grouped failure-condition task count: 7
+- Preserved access-attempt count: 15
 - Older source-engineering access/checksum gap rows: 9
 
 原始访问记录逐条保留，但人工任务按来源和故障条件归并。无来源
@@ -54,18 +54,6 @@ independent review task.
 - Latest attempt: 2026-07-26T22:18:15+00:00
 - Next checks: verify_current_official_domain_and_certificate_state;
   do_not_disable_tls_validation_or claim_payload_access
-
-### `src-smithsonian-nmaa-oracle-bone`
-
-- HTTP 403 boundary / HTTP 403 访问边界
-- Attempts preserved: 1
-- Download IDs / 下载记录：
-  - `dl-smithsonian-nmaa-fsc-o-28`
-- Status counts: http_error:1
-- Latest attempt: 2026-06-05T06:55:31+00:00
-- Historical successful context: dl-smithsonian-nmaa-fsc-o-26-archive
-- Next checks: open_official_object_route_in_reviewed_browser;
-  record_metadata_only_boundary_if_payload_remains_blocked
 
 ### `src-xiaoxuetang-jiaguwen`
 

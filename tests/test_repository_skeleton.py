@@ -24263,7 +24263,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data["dataset_count"], 30)
         self.assertEqual(data["quality_status_counts"], {"pass": 30})
-        self.assertEqual(data["totals"]["row_count"], 166619)
+        self.assertEqual(data["totals"]["row_count"], 166620)
         self.assertEqual(data["totals"]["boundary_status_violation_count"], 0)
         self.assertEqual(data["totals"]["issue_count"], 0)
         self.assertIn("does not promote candidate identities", data["completion_boundary"])
@@ -24274,7 +24274,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(len(rows), 30)
         by_dataset = {row["dataset_id"]: row for row in rows}
         self.assertEqual(by_dataset["source_download_log"]["unknown_source_ref_count"], "0")
-        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "2")
+        self.assertEqual(by_dataset["browser_verified_metadata_capture"]["row_count"], "3")
         self.assertEqual(by_dataset["browser_verified_metadata_capture"]["issue_count"], "0")
         self.assertEqual(by_dataset["source_package_file_manifest"]["unknown_large_source_ref_count"], "0")
         self.assertEqual(by_dataset["hust_obc_promotion_review_queue"]["missing_path_count"], "0")
@@ -24478,7 +24478,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SAFE_DERIVATIVE_DECISION_INDEX),
             module.read_csv_rows(root / module.FIELD_MAP_REVIEW_DECISION_INDEX),
         )
-        self.assertEqual(len(rows), 7)
+        self.assertEqual(len(rows), 6)
         self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
         self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
         self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
@@ -24514,10 +24514,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.DOWNLOAD_LOG),
             module.read_csv_rows(root / module.BROWSER_CAPTURE),
         )
-        self.assertEqual(len(rows), 8)
-        self.assertEqual(len({row["source_id"] for row in rows}), 7)
+        self.assertEqual(len(rows), 7)
+        self.assertEqual(len({row["source_id"] for row in rows}), 6)
         self.assertEqual(
-            sum(int(row["affected_attempt_count"]) for row in rows), 16
+            sum(int(row["affected_attempt_count"]) for row in rows), 15
         )
         self.assertNotIn(
             "src-obid-ancientbooks", {row["source_id"] for row in rows}
@@ -28645,7 +28645,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"520"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"522"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -28743,7 +28743,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 122",
-            "source register files: 520",
+            "source register files: 522",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -28770,7 +28770,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 122", text)
-        self.assertIn("source register files: 520", text)
+        self.assertIn("source register files: 522", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

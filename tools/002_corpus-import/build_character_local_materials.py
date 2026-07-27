@@ -24,6 +24,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000008",
     "obs-unk-000009",
     "obs-unk-000010",
+    "obs-unk-000011",
+    "obs-unk-000012",
+    "obs-unk-000013",
+    "obs-unk-000014",
+    "obs-unk-000015",
+    "obs-unk-000016",
+    "obs-unk-000017",
+    "obs-unk-000018",
+    "obs-unk-000019",
+    "obs-unk-000020",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7475,6 +7485,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000010": (
         "The compact form has two small rounded upper marks, a descending central stroke, and a separate curved stroke at lower right.",
         "紧凑形体上方有两个小圆弧痕迹，中部有向下笔画，右下另有分离的弯曲笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000011": (
+        "The dense upright form has a pointed upper loop, several crossing central strokes, and multiple short lower branches.",
+        "密集直立形体上方有尖状环形，中部有多处交叉笔画，下方分出几条短枝。本记录不确认字形身份。",
+    ),
+    "obs-unk-000012": (
+        "The image shows two broad upper strokes, a narrow central stem, and a pointed lower fork with a small detached mark.",
+        "图像上方有两条宽笔画，中部为窄主干，下方形成尖状分叉，旁有小型分离痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000013": (
+        "A compact upper enclosure sits above a long curved descending stroke and a small lower hooked group.",
+        "紧凑的上部闭合形位于长弯曲下行笔上方，下部另有小型钩状笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000014": (
+        "The upright image has three short upper prongs, a narrow central shaft, and a broad lower base with separated sides.",
+        "直立图像上方有三个短分叉，中部为窄长主干，下部为宽底座，两侧彼此分离。本记录不确认字形身份。",
+    ),
+    "obs-unk-000015": (
+        "The image repeats a dense branching form with a pointed upper contour, crossing strokes, and short lower extensions.",
+        "图像呈密集分叉形，上方有尖状轮廓，中部有交叉笔画，下方有短外伸痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000016": (
+        "The broad bowl-like form has an open upper edge, two upright side strokes, and a narrow stem below.",
+        "宽大的碗状形体上缘开放，两侧有直立笔画，下方接窄长主干。本记录不确认字形身份。",
+    ),
+    "obs-unk-000017": (
+        "The compact dark form has a rounded upper mass, a short left projection, and a long narrow lower extension.",
+        "紧凑深色形体上部呈圆弧块状，左侧有短外伸，下方有长而窄的延伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000018": (
+        "Two separated upright groups are visible; the left is a tall curved stroke and the right is a compact crossed cluster.",
+        "图像可见两个分离的直立笔群：左侧为高而弯曲的笔画，右侧为紧凑交叉笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000019": (
+        "The image contains a tall left contour, a pointed central lower group, and a separate narrow right-hand stroke.",
+        "图像含高直左侧轮廓、尖状中央下部笔群，以及分离的右侧窄笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000020": (
+        "The image repeats a dense pointed form with a compact central cluster and several short descending branches.",
+        "图像呈密集尖状形，中部为紧凑笔群，下方分出几条短向下笔画。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

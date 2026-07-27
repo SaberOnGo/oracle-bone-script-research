@@ -64,6 +64,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000048",
     "obs-unk-000049",
     "obs-unk-000050",
+    "obs-unk-000051",
+    "obs-unk-000052",
+    "obs-unk-000053",
+    "obs-unk-000054",
+    "obs-unk-000055",
+    "obs-unk-000056",
+    "obs-unk-000057",
+    "obs-unk-000058",
+    "obs-unk-000059",
+    "obs-unk-000060",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7675,6 +7685,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000050": (
         "Two separated upright strokes are visible; the left has branching marks and the right is a long curved stroke.",
         "图像可见两条分离的直立笔画；左侧有分叉痕迹，右侧为长弯曲笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000051": (
+        "The image has a curled upper stroke, a narrow central stem, and a small lower branching group.",
+        "图像上部有弯曲笔画，中间为窄直立主干，下方有小型分叉笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000052": (
+        "The form is enclosed by an oval contour, with a central diagonal stroke and a narrow lower extension.",
+        "形体由椭圆轮廓围合，内部有中央斜笔画，下方有窄长延伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000053": (
+        "The image has angular upper marks at left, a long right contour, and a compact lower junction.",
+        "图像左侧有折角上部痕迹，右侧有长轮廓，下方形成紧凑交接处。本记录不确认字形身份。",
+    ),
+    "obs-unk-000054": (
+        "The dark form has a compact left mass, a tall right stroke, and a narrow lower junction.",
+        "深色形体左侧为紧凑块面，右侧有高直立笔画，下方为窄交接处。本记录不确认字形身份。",
+    ),
+    "obs-unk-000055": (
+        "The form has several short upper strokes, a central descending stroke, and a diagonal lower crossing.",
+        "形体上部有数条短笔画，中间有向下笔画，下方有斜向交叉。本记录不确认字形身份。",
+    ),
+    "obs-unk-000056": (
+        "The image has a pointed curved upper cap and two crossing lower branches.",
+        "图像上部有尖状弯曲盖部，下方有两条交叉分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000057": (
+        "The upright form has a central upper stem, diagonal side branches, and a compact lower enclosure.",
+        "直立形体上部有中央主干，两侧有斜向分支，下方为紧凑围合。本记录不确认字形身份。",
+    ),
+    "obs-unk-000058": (
+        "The slender form has a pointed upper tip, crossing middle strokes, and two long lower branches.",
+        "纤细形体上端呈尖状，中部有交叉笔画，下方有两条长分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000059": (
+        "The image is roughly symmetric, with a narrow waist between a broad upper and lower frame.",
+        "图像大致对称，上下框架较宽，中间由窄部连接。本记录不确认字形身份。",
+    ),
+    "obs-unk-000060": (
+        "The form has a broad upper bar, a central vertical stroke, two diagonal sides, and a lower bar.",
+        "形体有宽上横笔画、中央竖笔画、两侧斜笔画和下方横笔画。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

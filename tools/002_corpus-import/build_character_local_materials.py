@@ -44,6 +44,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000028",
     "obs-unk-000029",
     "obs-unk-000030",
+    "obs-unk-000031",
+    "obs-unk-000032",
+    "obs-unk-000033",
+    "obs-unk-000034",
+    "obs-unk-000035",
+    "obs-unk-000036",
+    "obs-unk-000037",
+    "obs-unk-000038",
+    "obs-unk-000039",
+    "obs-unk-000040",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7575,6 +7585,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000030": (
         "The image has a broad symmetric upper frame, a central descending stroke, and a forked lower end.",
         "图像上方为宽大对称框架痕迹，中部有向下笔画，下端分叉收尾。本记录不确认字形身份。",
+    ),
+    "obs-unk-000031": (
+        "The compact form has an arched upper contour, angular inner strokes, and two long descending lower strokes.",
+        "紧凑形体上部呈拱形轮廓，内部有折角笔画，下方有两条长向下笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000032": (
+        "The image has a curved outer contour, a dense upper cluster, and a long lower extension.",
+        "图像有弯曲外轮廓、密集上部笔群和一条长的下方延伸。本记录不确认字形身份。",
+    ),
+    "obs-unk-000033": (
+        "The form combines separated upper marks with a larger rounded lower enclosure and short interior strokes.",
+        "图像把分离的上部痕迹与较大的圆弧下部轮廓结合，内部有短笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000034": (
+        "The form has a narrow upright stem, branching side strokes, and a long descending stroke.",
+        "图像有窄直立主干、侧向分叉笔画和长向下笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000035": (
+        "The compact block-like form has a broad upper contour, a slanted inner stroke, and short lower marks.",
+        "紧凑块状形体上部较宽，内部有斜向笔画，下方有短痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000036": (
+        "The upright form has a pointed upper frame, a central descending stroke, and two long side branches.",
+        "直立形体上部有尖状框架，中间有向下笔画，两侧有两条长分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000037": (
+        "The image is a broad horizontal cluster with short branching marks on both sides and a lower extension.",
+        "图像为宽阔横向笔群，两侧有短分叉痕迹，下方有延伸笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000038": (
+        "The image has a capped upper enclosure, a narrow central stem, and several hanging lower strokes.",
+        "图像上部有盖状轮廓，中间为窄直立主干，下方悬有数条笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000039": (
+        "A small rounded mark sits at upper left beside a branching central form and separated right strokes.",
+        "上方左侧有小圆弧痕迹，旁边是中央分叉形体，右侧还有分离笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000040": (
+        "The image repeats the form of candidate 000039, with a rounded upper mark and branching lower strokes.",
+        "图像重复候选 000039 的圆弧上部痕迹和下方分叉笔画。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

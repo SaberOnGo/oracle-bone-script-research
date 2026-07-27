@@ -19,6 +19,13 @@ later formal research.
 | object_page_url | `https://www.penn.museum/collections/object/76960` |
 | rights_status | `metadata_only_until_verified` |
 | review_status | `needs_human_collection_object_review` |
+| access_route_index | `corpus/006_research-sources-and-bibliography/001_source-objects/011_src-penn-museum-oracle-bone_source-object/02_download-route-index.csv` |
+| download_status | `downloaded` |
+| http_status | `200` |
+| accessed_file_size_bytes | `29678` |
+| checksum_sha256 | `331982b694181de3e752d3e650c0de903afed14bd13acbf34b5c689a889ffa12` |
+| local_temp_path | `tmp/source_downloads/dl-penn-museum-49-14-7a.html` |
+| route_review_status | `metadata_route_needs_human_review` |
 
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 

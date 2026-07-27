@@ -5948,6 +5948,12 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 "Catalog Page And Source Row",
                 "著录页与来源行",
                 "Rights Checksum And Risk Route",
+                "access_route_index",
+                "download_status",
+                "http_status",
+                "accessed_file_size_bytes",
+                "checksum_sha256",
+                "route_review_status",
                 "权利、checksum 与风险路线",
                 "Findspot Period Batch Plate Evidence",
                 "出土地、时期、批次与图版证据",
@@ -6005,6 +6011,8 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
                 issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing human dossier link")
             if not any(path.endswith("02_collection-source-index.csv") for path in source_files):
                 issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing source index link")
+            if not any(path.endswith("02_download-route-index.csv") for path in source_files):
+                issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing source route link")
             if "which download log row records access time, checksum, size, and rights status" not in questions:
                 issues.append(f"{provenance_index_path.relative_to(root).as_posix()} missing checksum question")
             if "candidate evidence only" not in provenance_index.get("claim_boundary", ""):

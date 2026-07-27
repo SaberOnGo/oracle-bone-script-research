@@ -7081,6 +7081,15 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertIn("Catalog Page And Source Row", provenance_text)
             self.assertIn("著录页与来源行", provenance_text)
             self.assertIn("Rights Checksum And Risk Route", provenance_text)
+            for access_field in [
+                "access_route_index",
+                "download_status",
+                "http_status",
+                "accessed_file_size_bytes",
+                "checksum_sha256",
+                "route_review_status",
+            ]:
+                self.assertIn(access_field, provenance_text)
             self.assertIn("权利、checksum 与风险路线", provenance_text)
             self.assertIn("Findspot Period Batch Plate Evidence", provenance_text)
             self.assertIn("出土地、时期、批次与图版证据", provenance_text)
@@ -7126,6 +7135,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
             self.assertIn(
                 "02_collection-source-index.csv",
+                ";".join(provenance_index["source_evidence_files"]),
+            )
+            self.assertIn(
+                "02_download-route-index.csv",
                 ";".join(provenance_index["source_evidence_files"]),
             )
             self.assertIn(

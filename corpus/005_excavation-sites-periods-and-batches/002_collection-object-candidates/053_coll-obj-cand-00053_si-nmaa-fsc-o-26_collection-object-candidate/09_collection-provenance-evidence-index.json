@@ -9,7 +9,7 @@
   "claim_boundary": "candidate evidence only; no confirmed collection object identity; no confirmed inscription identity; no transcription; no formal reading; no decipherment conclusion",
   "evidence_status": {
     "catalog_page": "source_row_recorded_needs_human_review",
-    "download_log": "route_recorded_needs_checksum_size_review",
+    "download_log": "downloaded; size=115569; checksum=4e641c8fe84a92f800bbe2bea1b118230a4ad01c8d560cb10f6130901c18c6cb",
     "findspot_period_batch_plate": "candidate_metadata_needs_review",
     "inscription_character_context": "not_confirmed_candidate_route_only",
     "visual_asset": "committed_public_domain_asset"
@@ -34,6 +34,7 @@
   "rights_status": "public_domain_verified",
   "source_evidence_files": [
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/003_smithsonian-nmaa-oracle-bone-object-staging.csv",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/010_src-smithsonian-nmaa-oracle-bone_source-object/02_download-route-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/053_coll-obj-cand-00053_si-nmaa-fsc-o-26_collection-object-candidate/02_collection-source-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/053_coll-obj-cand-00053_si-nmaa-fsc-o-26_collection-object-candidate/03_visual-asset-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/053_coll-obj-cand-00053_si-nmaa-fsc-o-26_collection-object-candidate/04_visual-gallery.md"

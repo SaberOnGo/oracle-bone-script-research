@@ -15,6 +15,9 @@ from pathlib import Path
 COLLECTION_ROOT = Path("corpus/005_excavation-sites-periods-and-batches")
 REGISTER_ROOT = COLLECTION_ROOT / "000_collection-registers"
 OBJECT_ROOT = COLLECTION_ROOT / "002_collection-object-candidates"
+SOURCE_OBJECT_ROOT = Path(
+    "corpus/006_research-sources-and-bibliography/001_source-objects"
+)
 OBJECT_ID_MAP = Path(
     "project_registry/002_project-id-to-source-reference-map/"
     "006_collection-object-id-source-map.csv"
@@ -251,6 +254,24 @@ def load_assets(root: Path) -> tuple[dict[str, dict[str, str]], dict[str, dict[s
         for row in read_csv_rows(root / ASSET_VISUAL_PROFILE)
     }
     return asset_by_related, technical_by_asset, visual_by_asset
+
+
+def load_source_routes(
+    root: Path,
+) -> tuple[dict[tuple[str, str], dict[str, str]], dict[tuple[str, str], str]]:
+    """Load exact source access rows for object-local provenance review."""
+
+    route_rows: dict[tuple[str, str], dict[str, str]] = {}
+    route_paths: dict[tuple[str, str], str] = {}
+    source_root = root / SOURCE_OBJECT_ROOT
+    for route_path in sorted(source_root.glob("*_source-object/02_download-route-index.csv")):
+        for row in read_csv_rows(route_path):
+            key = (row.get("source_id", ""), row.get("download_id", ""))
+            if not all(key):
+                continue
+            route_rows[key] = row
+            route_paths[key] = route_path.relative_to(root).as_posix()
+    return route_rows, route_paths
 
 
 def selected_metadata(row: dict[str, str]) -> dict[str, str]:
@@ -789,6 +810,8 @@ def collection_provenance_evidence_dossier_text(
     metadata: dict[str, str],
     source_row: dict[str, str],
     visual_row: dict[str, str],
+    source_route: dict[str, str],
+    source_route_path: str,
 ) -> str:
     pid = project_id(index)
     intro = wrapped_paragraph(
@@ -817,6 +840,13 @@ def collection_provenance_evidence_dossier_text(
             f"| object_page_url | `{source_row.get('object_page_url', '')}` |",
             f"| rights_status | `{source_row['rights_status']}` |",
             f"| review_status | `{REVIEW_STATUS}` |",
+            f"| access_route_index | `{source_route_path or 'pending source-object route index'}` |",
+            f"| download_status | `{source_route.get('download_status', 'pending')}` |",
+            f"| http_status | `{source_route.get('http_status', 'pending')}` |",
+            f"| accessed_file_size_bytes | `{source_route.get('file_size_bytes', 'pending')}` |",
+            f"| checksum_sha256 | `{source_route.get('checksum_sha256', 'pending')}` |",
+            f"| local_temp_path | `{source_route.get('local_temp_path', 'pending')}` |",
+            f"| route_review_status | `{source_route.get('review_status', 'pending')}` |",
         ]
     )
     visual_table = "\n".join(
@@ -943,6 +973,8 @@ def collection_provenance_evidence_index_payload(
     row: dict[str, str],
     source_row: dict[str, str],
     visual_row: dict[str, str],
+    source_route: dict[str, str],
+    source_route_path: str,
 ) -> dict[str, object]:
     return {
         "project_id": project_id(index),
@@ -957,6 +989,7 @@ def collection_provenance_evidence_index_payload(
         ],
         "source_evidence_files": [
             source_row["source_file_path"],
+            source_route_path,
             (relative_dir / "02_collection-source-index.csv").as_posix(),
             (relative_dir / "03_visual-asset-index.csv").as_posix(),
             (relative_dir / "04_visual-gallery.md").as_posix(),
@@ -969,7 +1002,11 @@ def collection_provenance_evidence_index_payload(
         ],
         "evidence_status": {
             "catalog_page": "source_row_recorded_needs_human_review",
-            "download_log": "route_recorded_needs_checksum_size_review",
+            "download_log": (
+                f"{source_route.get('download_status', 'pending')}; "
+                f"size={source_route.get('file_size_bytes', 'pending')}; "
+                f"checksum={source_route.get('checksum_sha256', 'pending')}"
+            ),
             "visual_asset": visual_row.get("visual_entry_type", ""),
             "findspot_period_batch_plate": "candidate_metadata_needs_review",
             "inscription_character_context": "not_confirmed_candidate_route_only",
@@ -1900,6 +1937,7 @@ identification, component analysis, formal reading, or decipherment conclusion.
 
 def build_outputs(root: Path) -> dict[str, dict[str, object]]:
     asset_by_related, technical_by_asset, visual_by_asset = load_assets(root)
+    source_routes, source_route_paths = load_source_routes(root)
     outputs: dict[str, dict[str, object]] = {}
     for index, (source_path, _provider_key, external_prefix, source_row_index, row) in enumerate(
         load_object_rows(root),
@@ -1913,6 +1951,9 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
         visual_profile_row = visual_by_asset.get(asset_row["asset_id"]) if asset_row else None
         src_row = source_index_row(index, source_path, source_row_index, row)
         vis_row = visual_index_row(index, row, asset_row, technical_row, visual_profile_row)
+        route_key = (src_row["source_id"], src_row["evidence_download_id"])
+        source_route = source_routes.get(route_key, {})
+        source_route_path = source_route_paths.get(route_key, "")
         metadata = selected_metadata(row)
         fact_rows = collection_provenance_fact_rows(row, metadata, src_row, vis_row)
         outputs[pid] = {
@@ -1944,6 +1985,8 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 metadata,
                 src_row,
                 vis_row,
+                source_route,
+                source_route_path,
             ),
             "provenance_evidence_index": collection_provenance_evidence_index_payload(
                 index,
@@ -1951,6 +1994,8 @@ def build_outputs(root: Path) -> dict[str, dict[str, object]]:
                 row,
                 src_row,
                 vis_row,
+                source_route,
+                source_route_path,
             ),
             "collection_provenance_fact_matrix_text": (
                 collection_provenance_fact_matrix_text(

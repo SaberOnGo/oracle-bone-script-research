@@ -9,7 +9,7 @@
   "claim_boundary": "candidate evidence only; no confirmed collection object identity; no confirmed inscription identity; no transcription; no formal reading; no decipherment conclusion",
   "evidence_status": {
     "catalog_page": "source_row_recorded_needs_human_review",
-    "download_log": "route_recorded_needs_checksum_size_review",
+    "download_log": "downloaded; size=1590; checksum=74efc7255beeed6cf1400d86c336c5b97a5638a683956e83fa7216ad42f152b9",
     "findspot_period_batch_plate": "candidate_metadata_needs_review",
     "inscription_character_context": "not_confirmed_candidate_route_only",
     "visual_asset": "committed_public_domain_asset"
@@ -34,6 +34,7 @@
   "rights_status": "public_domain_verified",
   "source_evidence_files": [
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/005_metmuseum-oracle-bone-object-staging.csv",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/012_src-metmuseum-oracle-bone_source-object/02_download-route-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/055_coll-obj-cand-00055_met-obj-42045_collection-object-candidate/02_collection-source-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/055_coll-obj-cand-00055_met-obj-42045_collection-object-candidate/03_visual-asset-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/055_coll-obj-cand-00055_met-obj-42045_collection-object-candidate/04_visual-gallery.md"

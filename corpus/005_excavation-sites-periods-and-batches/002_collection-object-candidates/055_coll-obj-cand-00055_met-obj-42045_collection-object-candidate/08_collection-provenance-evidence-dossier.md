@@ -19,6 +19,13 @@ later formal research.
 | object_page_url | `https://www.metmuseum.org/art/collection/search/42045` |
 | rights_status | `public_domain_verified` |
 | review_status | `needs_human_collection_object_review` |
+| access_route_index | `corpus/006_research-sources-and-bibliography/001_source-objects/012_src-metmuseum-oracle-bone_source-object/02_download-route-index.csv` |
+| download_status | `downloaded` |
+| http_status | `200` |
+| accessed_file_size_bytes | `1590` |
+| checksum_sha256 | `74efc7255beeed6cf1400d86c336c5b97a5638a683956e83fa7216ad42f152b9` |
+| local_temp_path | `tmp/source_downloads/dl-metmuseum-object-42045.json` |
+| route_review_status | `metadata_route_needs_human_review` |
 
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 

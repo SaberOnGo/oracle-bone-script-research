@@ -19,6 +19,13 @@ later formal research.
 | object_page_url | `https://museum.sinica.edu.tw/en/collection/32/item/766/` |
 | rights_status | `metadata_only_until_verified` |
 | review_status | `needs_human_collection_object_review` |
+| access_route_index | `corpus/006_research-sources-and-bibliography/001_source-objects/004_src-ihp-museum-oracle-bones_source-object/02_download-route-index.csv` |
+| download_status | `downloaded` |
+| http_status | `200` |
+| accessed_file_size_bytes | `54136` |
+| checksum_sha256 | `3756b0a5bbf7dc4b595e0f363bd9f5a0ab818d667ca0303903ef74eb7dcdfe57` |
+| local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
+| route_review_status | `metadata_route_needs_human_review` |
 
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 

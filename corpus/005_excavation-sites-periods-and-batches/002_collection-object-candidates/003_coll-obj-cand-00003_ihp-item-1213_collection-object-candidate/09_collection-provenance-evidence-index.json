@@ -9,7 +9,7 @@
   "claim_boundary": "candidate evidence only; no confirmed collection object identity; no confirmed inscription identity; no transcription; no formal reading; no decipherment conclusion",
   "evidence_status": {
     "catalog_page": "source_row_recorded_needs_human_review",
-    "download_log": "route_recorded_needs_checksum_size_review",
+    "download_log": "downloaded; size=54136; checksum=3756b0a5bbf7dc4b595e0f363bd9f5a0ab818d667ca0303903ef74eb7dcdfe57",
     "findspot_period_batch_plate": "candidate_metadata_needs_review",
     "inscription_character_context": "not_confirmed_candidate_route_only",
     "visual_asset": "external_thumbnail_url_metadata_only"
@@ -34,6 +34,7 @@
   "rights_status": "metadata_only_until_verified",
   "source_evidence_files": [
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/002_ihp-museum-oracle-bone-object-staging.csv",
+    "corpus/006_research-sources-and-bibliography/001_source-objects/004_src-ihp-museum-oracle-bones_source-object/02_download-route-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/003_coll-obj-cand-00003_ihp-item-1213_collection-object-candidate/02_collection-source-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/003_coll-obj-cand-00003_ihp-item-1213_collection-object-candidate/03_visual-asset-index.csv",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/003_coll-obj-cand-00003_ihp-item-1213_collection-object-candidate/04_visual-gallery.md"

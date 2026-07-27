@@ -19,6 +19,13 @@ later formal research.
 | object_page_url | `https://asia-archive.si.edu/object/FSC-O-26` |
 | rights_status | `public_domain_verified` |
 | review_status | `needs_human_collection_object_review` |
+| access_route_index | `corpus/006_research-sources-and-bibliography/001_source-objects/010_src-smithsonian-nmaa-oracle-bone_source-object/02_download-route-index.csv` |
+| download_status | `downloaded` |
+| http_status | `200` |
+| accessed_file_size_bytes | `115569` |
+| checksum_sha256 | `4e641c8fe84a92f800bbe2bea1b118230a4ad01c8d560cb10f6130901c18c6cb` |
+| local_temp_path | `tmp/source_downloads/dl-smithsonian-nmaa-fsc-o-26-archive.html` |
+| route_review_status | `metadata_route_needs_human_review` |
 
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 

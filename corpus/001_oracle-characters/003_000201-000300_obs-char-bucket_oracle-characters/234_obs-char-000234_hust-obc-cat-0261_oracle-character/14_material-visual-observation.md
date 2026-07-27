@@ -23,9 +23,11 @@ reading or component assignment.
 
 ## Direct Visual Record / 直接可见记录
 
-- English observation: Two tall tapered strokes rise side by side, with a small
-  angled connection near the top; the lower ends remain separate.
-- 中文观察: 两道高而渐尖的笔画并列上行，顶部附近有小型折角连接，下端仍彼此分离。
+- English observation: Two tall tapered strokes rise side by side; their upper
+  tips angle inward without a definite junction, and the lower ends remain
+  separate.
+- 中文观察: 两道高而渐尖的笔画并列上行；上端向内倾斜但未见明确连接，
+  下端仍彼此分离。
 
 ## Next Checks / 下一步核查
 

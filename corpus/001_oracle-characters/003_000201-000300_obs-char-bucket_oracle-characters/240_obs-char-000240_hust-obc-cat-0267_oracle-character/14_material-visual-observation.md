@@ -23,9 +23,11 @@ reading or component assignment.
 
 ## Direct Visual Record / 直接可见记录
 
-- English observation: A slanting upper stroke runs above two small angular
-  enclosed marks; the lower marks are separated and partly irregular.
-- 中文观察: 一道斜向上部笔画位于两个小型折角围合痕迹之上；下部痕迹分离且部分不规则。
+- English observation: A slanting upper stroke runs above three small angular
+  marks; the marks are separated, with the lowest one offset below the other
+  two.
+- 中文观察: 一道斜向上部笔画位于三个小型折角痕迹之上；三处痕迹彼此分离，
+  最低一处偏下。
 
 ## Next Checks / 下一步核查
 

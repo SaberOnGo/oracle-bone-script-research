@@ -66,6 +66,7 @@ local-private.
 - Literature scope / 文献范围: 16_source-literature-scope-review.md
 - Access integrity / 访问完整性: 18_source-access-integrity-review.md
 - Pre-research readiness / 预研究就绪: 20_source-presearch-readiness-review.md
+- Safe derivative decision / 安全派生决定: 25_safe-derivative-decision.md
 
 ## Structured Support Entrances / 结构化辅助入口
 - Structured source packet / 结构化来源包: 01_source-packet.json
@@ -76,6 +77,7 @@ local-private.
 - Status index / 处理状态索引: 09_source-processing-status-index.json
 - Access integrity index / 访问完整性索引: 19_source-access-integrity-index.json
 - Readiness index / 就绪索引: 21_source-presearch-readiness-index.json
+- Safe derivative index / 安全派生索引: 26_safe-derivative-decision-index.json
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

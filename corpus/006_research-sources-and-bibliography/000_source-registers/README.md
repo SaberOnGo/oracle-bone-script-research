@@ -45,6 +45,13 @@ Derived staging indexes built from logged downloads are stored in their subject 
 observations without treating them as downloaded page payloads or
 checksum-backed source content.
 
+`015_source-safe-derivative-decision.csv` indexes reviewed object-local
+decisions about which source derivatives are allowed or blocked. Open the
+cited human decision before using this supporting table.
+
+`015_source-safe-derivative-decision.csv` 索引对象目录内已经复核的安全派生
+决定。使用此辅助表前，必须先打开其中指向的人类可读决定。
+
 ## Human Research Reading Order / 人类研究阅读顺序
 
 This register supports a human research file, not a route-only inventory.

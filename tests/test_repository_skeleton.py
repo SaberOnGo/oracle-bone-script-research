@@ -11812,6 +11812,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_source_object_materials_module()
         result = module.build_materials(repo_root())
         self.assertEqual(result["source_object_count"], 21)
+        self.assertEqual(result["safe_derivative_decision_count"], 2)
         object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"
@@ -11835,6 +11836,43 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "20_source-presearch-readiness-review.md").is_file())
         self.assertTrue((object_dir / "21_source-presearch-readiness-index.json").is_file())
         self.assertTrue((object_dir / "22_source-research-brief.md").is_file())
+        safe_decision_rows = module.read_csv(
+            repo_root() / module.SAFE_DERIVATIVE_DECISION_INDEX
+        )
+        self.assertEqual(len(safe_decision_rows), 2)
+        self.assertEqual(
+            {row["source_id"] for row in safe_decision_rows},
+            module.METADATA_ONLY_DERIVATIVE_SOURCE_IDS,
+        )
+        for row in safe_decision_rows:
+            decision_text = (repo_root() / row["human_decision_path"]).read_text(
+                encoding="utf-8"
+            )
+            decision_index = json.loads(
+                (repo_root() / row["support_index_path"]).read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertIn("Safe Derivative Decision", decision_text)
+            self.assertIn("安全派生资料决定", decision_text)
+            self.assertIn("source payload was saved", decision_text)
+            self.assertIn("不得根据当前 metadata profile", decision_text)
+            self.assertNotIn("not_collected", decision_text)
+            self.assertTrue(
+                all(len(line) <= 80 for line in decision_text.splitlines())
+            )
+            self.assertEqual(
+                decision_index["decision"],
+                "metadata_scope_only_until_payload_and_rights_verified",
+            )
+            self.assertIn(
+                "formal_corpus_record",
+                decision_index["blocked_derivative_scope"],
+            )
+            self.assertEqual(
+                decision_index["review_status"],
+                "reviewed_source_engineering_decision",
+            )
         british_object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"
@@ -24404,8 +24442,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.read_csv_rows(root / module.SOURCE_PROCESSING_PIPELINE_AUDIT),
             module.read_csv_rows(root / module.SOURCE_COVERAGE_SUMMARY),
             module.read_csv_rows(root / module.BROWSER_VERIFIED_METADATA_CAPTURE),
+            module.read_csv_rows(root / module.SAFE_DERIVATIVE_DECISION_INDEX),
         )
-        self.assertEqual(len(rows), 9)
+        self.assertEqual(len(rows), 7)
         self.assertEqual(rows[0]["source_engineering_gap_id"], "source-engineering-gap-0001")
         self.assertEqual(rows[0]["gap_type"], "access_boundary_or_error_followup")
         self.assertIn("open_download_log_and_status_codebook", rows[0]["required_next_checks"])
@@ -24429,7 +24468,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             "checksum_or_failed_download_status_review_needed",
             {row["gap_type"] for row in rows},
         )
-        self.assertEqual(rows[-1]["gap_type"], "safe_derived_record_decision_needed")
+        self.assertEqual(
+            {row["gap_type"] for row in rows},
+            {"access_boundary_or_error_followup"},
+        )
 
     def test_source_access_boundary_review_groups_attempts_by_condition(self) -> None:
         module = load_source_access_boundary_review_module()
@@ -28569,7 +28611,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"508"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"513"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -28667,7 +28709,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 122",
-            "source register files: 508",
+            "source register files: 513",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -28694,7 +28736,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 122", text)
-        self.assertIn("source register files: 508", text)
+        self.assertIn("source register files: 513", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

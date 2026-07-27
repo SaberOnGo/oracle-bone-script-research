@@ -43,6 +43,18 @@ Each concrete source object directory contains:
 - `19_source-access-integrity-index.json`: structured access index.
 - `20_source-presearch-readiness-review.md`: human-readable readiness review.
 - `21_source-presearch-readiness-index.json`: structured readiness index.
+- `22_source-research-brief.md`: short human-readable source brief.
+
+When current evidence supports only a metadata-scope derivative, the matching
+source object also contains:
+
+- `25_safe-derivative-decision.md`: human-readable allowed/blocked decision.
+- `26_safe-derivative-decision-index.json`: structured support for that decision.
+
+当现有证据只能支持 metadata 范围派生资料时，对应来源对象还包含：
+
+- `25_safe-derivative-decision.md`：人类可读的允许与暂停派生决定。
+- `26_safe-derivative-decision-index.json`：该决定的结构化辅助索引。
 
 ## Human Reading Rules / 人类阅读规则
 

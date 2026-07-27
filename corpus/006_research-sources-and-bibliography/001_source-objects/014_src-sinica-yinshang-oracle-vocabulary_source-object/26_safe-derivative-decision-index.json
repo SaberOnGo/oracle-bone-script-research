@@ -1,0 +1,38 @@
+{
+  "record_type": "source_safe_derivative_decision_index",
+  "decision_id": "safe-derivative-src-sinica-yinshang-oracle-vocabulary",
+  "source_id": "src-sinica-yinshang-oracle-vocabulary",
+  "decision": "metadata_scope_only_until_payload_and_rights_verified",
+  "allowed_derivative_scope": [
+    "source_identity",
+    "institutional_scope",
+    "access_failure",
+    "cautioned_profile_counts",
+    "source_level_field_map"
+  ],
+  "blocked_derivative_scope": [
+    "glyph_or_image",
+    "inscription_or_ocr",
+    "catalog_object",
+    "candidate_or_graph_edge",
+    "formal_corpus_record"
+  ],
+  "evidence_download_ids": [
+    "dl-sinica-yinshang-oracle-vocabulary",
+    "dl-sinica-yinshang-oracle-vocabulary-recheck-20260727"
+  ],
+  "metadata_profile_ids": [
+    "metadata-profile-000047",
+    "metadata-profile-000048"
+  ],
+  "field_map_ids": [
+    "field-map-000053",
+    "field-map-000054"
+  ],
+  "human_decision_path": "corpus/006_research-sources-and-bibliography/001_source-objects/014_src-sinica-yinshang-oracle-vocabulary_source-object/25_safe-derivative-decision.md",
+  "support_index_path": "corpus/006_research-sources-and-bibliography/001_source-objects/014_src-sinica-yinshang-oracle-vocabulary_source-object/26_safe-derivative-decision-index.json",
+  "rights_status": "metadata_only_until_verified",
+  "review_status": "reviewed_source_engineering_decision",
+  "research_boundary": "source_metadata_derivative_decision_only_not_scholarship",
+  "updated_at": "2026-07-27"
+}

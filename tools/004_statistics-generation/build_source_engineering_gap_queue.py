@@ -33,6 +33,10 @@ BROWSER_VERIFIED_METADATA_CAPTURE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "014_browser-verified-metadata-capture.csv"
 )
+SAFE_DERIVATIVE_DECISION_INDEX = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "015_source-safe-derivative-decision.csv"
+)
 SOURCE_DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_source-download-log.csv")
 LARGE_SOURCE_REGISTER = Path("project_registry/006_large-source-register/001_large-source-register.csv")
 DEFAULT_OUTPUT = Path(
@@ -236,6 +240,7 @@ def source_gap_types(
     pipeline_row: dict[str, str],
     coverage_row: dict[str, str],
     reviewed_browser_capture_count: int = 0,
+    safe_derivative_decision_reviewed: bool = False,
 ) -> list[str]:
     gap_types: list[str] = []
     status_counts = pipeline_row.get("download_status_counts", "")
@@ -279,6 +284,7 @@ def source_gap_types(
         and int_value(pipeline_row, "graph_edge_count") == 0
         and int_value(pipeline_row, "candidate_queue_count") == 0
         and int_value(pipeline_row, "asset_count") == 0
+        and not safe_derivative_decision_reviewed
     ):
         gap_types.append("safe_derived_record_decision_needed")
     return gap_types
@@ -312,9 +318,17 @@ def build_gap_rows(
     pipeline_rows: list[dict[str, str]],
     coverage_rows: list[dict[str, str]],
     browser_metadata_rows: list[dict[str, str]] | None = None,
+    safe_derivative_decision_rows: list[dict[str, str]] | None = None,
 ) -> list[dict[str, str]]:
     coverage_by_source = {row["source_id"]: row for row in coverage_rows}
     capture_counts = reviewed_browser_capture_counts(browser_metadata_rows or [])
+    reviewed_safe_derivative_sources = {
+        row.get("source_id", "")
+        for row in (safe_derivative_decision_rows or [])
+        if row.get("review_status") == "reviewed_source_engineering_decision"
+        and row.get("decision")
+        == "metadata_scope_only_until_payload_and_rights_verified"
+    }
     draft_rows: list[tuple[dict[str, str], str]] = []
     for pipeline_row in pipeline_rows:
         source_id = pipeline_row["source_id"]
@@ -323,6 +337,7 @@ def build_gap_rows(
             pipeline_row,
             coverage_row,
             capture_counts.get(source_id, 0),
+            source_id in reviewed_safe_derivative_sources,
         ):
             draft_rows.append((pipeline_row, gap_type))
 
@@ -389,6 +404,7 @@ def main() -> int:
         read_csv_rows(root / SOURCE_PROCESSING_PIPELINE_AUDIT),
         read_csv_rows(root / SOURCE_COVERAGE_SUMMARY),
         read_csv_rows(root / BROWSER_VERIFIED_METADATA_CAPTURE),
+        read_csv_rows(root / SAFE_DERIVATIVE_DECISION_INDEX),
     )
     output = args.output if args.output.is_absolute() else root / args.output
     write_csv(output, rows)

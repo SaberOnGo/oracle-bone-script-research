@@ -21,10 +21,18 @@ BROWSER_METADATA_CAPTURE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/"
     "014_browser-verified-metadata-capture.csv"
 )
+SAFE_DERIVATIVE_DECISION_INDEX = Path(
+    "corpus/006_research-sources-and-bibliography/000_source-registers/"
+    "015_source-safe-derivative-decision.csv"
+)
 OUTPUT_ROOT = Path("corpus/006_research-sources-and-bibliography/001_source-objects")
 UPDATED_AT = "2026-06-21"
 MAX_HUMAN_LINE_LENGTH = 80
 FIELD_MAP_REVIEW_SOURCE_IDS = {"src-ihp-museum-oracle-bones"}
+METADATA_ONLY_DERIVATIVE_SOURCE_IDS = {
+    "src-sinica-da-xiaoxuetang-site",
+    "src-sinica-yinshang-oracle-vocabulary",
+}
 
 
 DOWNLOAD_ROUTE_FIELDS = [
@@ -90,6 +98,23 @@ METADATA_ROUTE_FIELDS = [
     "import_relevance",
     "caution",
     "review_status",
+    "updated_at",
+]
+
+SAFE_DERIVATIVE_DECISION_FIELDS = [
+    "decision_id",
+    "source_id",
+    "decision",
+    "allowed_derivative_scope",
+    "blocked_derivative_scope",
+    "evidence_download_ids",
+    "metadata_profile_ids",
+    "field_map_ids",
+    "human_decision_path",
+    "support_index_path",
+    "rights_status",
+    "review_status",
+    "research_boundary",
     "updated_at",
 ]
 
@@ -287,6 +312,182 @@ def browser_metadata_capture_index_payload(
     }
 
 
+def safe_derivative_decision_row(
+    source: dict[str, str],
+    download_routes: list[dict[str, str]],
+    field_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+    object_relative: Path,
+) -> dict[str, str]:
+    source_id = source["source_id"]
+    return {
+        "decision_id": f"safe-derivative-{source_id}",
+        "source_id": source_id,
+        "decision": "metadata_scope_only_until_payload_and_rights_verified",
+        "allowed_derivative_scope": (
+            "source_identity;institutional_scope;access_failure;"
+            "cautioned_profile_counts;source_level_field_map"
+        ),
+        "blocked_derivative_scope": (
+            "glyph_or_image;inscription_or_ocr;catalog_object;"
+            "candidate_or_graph_edge;formal_corpus_record"
+        ),
+        "evidence_download_ids": ";".join(
+            row.get("download_id", "")
+            for row in download_routes
+            if row.get("download_id")
+        ),
+        "metadata_profile_ids": ";".join(
+            row.get("profile_id", "")
+            for row in metadata_routes
+            if row.get("profile_id")
+        ),
+        "field_map_ids": ";".join(
+            row.get("map_id", "")
+            for row in field_routes
+            if row.get("map_id")
+        ),
+        "human_decision_path": (
+            object_relative / "25_safe-derivative-decision.md"
+        ).as_posix(),
+        "support_index_path": (
+            object_relative / "26_safe-derivative-decision-index.json"
+        ).as_posix(),
+        "rights_status": source["rights_status"],
+        "review_status": "reviewed_source_engineering_decision",
+        "research_boundary": (
+            "source_metadata_derivative_decision_only_not_scholarship"
+        ),
+        "updated_at": "2026-07-27",
+    }
+
+
+def safe_derivative_decision_text(
+    source: dict[str, str],
+    row: dict[str, str],
+    download_routes: list[dict[str, str]],
+    metadata_routes: list[dict[str, str]],
+) -> str:
+    lines = [
+        "# Safe Derivative Decision / 安全派生资料决定",
+        "",
+        "## Human Decision / 人类复核决定",
+        "",
+        *wrapped(
+            "The current evidence supports only a source-marked metadata scope "
+            "brief. No source payload was saved, no payload checksum exists, "
+            "and no object-level record can be verified."
+        ),
+        "",
+        *wrapped(
+            "当前证据只支持带来源标记的 metadata 范围简报。尚未保存来源 "
+            "payload，没有 payload checksum，也无法复核任何对象级记录。"
+        ),
+        "",
+        "## Evidence Opened / 已核对证据",
+        *bullet("Source ID / 来源 ID", source["source_id"]),
+        *bullet("Official source / 官方来源", source["source_url"]),
+        *bullet("Rights status / 权利状态", source["rights_status"]),
+        *bullet("Access record count / 访问记录数", len(download_routes)),
+        *bullet("Metadata profile count / metadata profile 数", len(metadata_routes)),
+        "",
+        "### Access Records / 访问记录",
+        *[
+            f"- `{download_id}`"
+            for download_id in row["evidence_download_ids"].split(";")
+            if download_id
+        ],
+        "",
+        "### Metadata Profiles / Metadata 概况",
+        *[
+            f"- `{profile_id}`"
+            for profile_id in row["metadata_profile_ids"].split(";")
+            if profile_id
+        ],
+        "",
+        "### Field Maps / 字段映射",
+        *[
+            f"- `{map_id}`"
+            for map_id in row["field_map_ids"].split(";")
+            if map_id
+        ],
+        "",
+        "## Allowed Public Derivatives / 可公开派生资料",
+        "",
+        *wrapped(
+            "Keep the source identity, provider, official URL, institutional "
+            "scope, access failures, cautioned profile counts, source-level "
+            "field maps, rights status, and concrete next checks."
+        ),
+        "",
+        *wrapped(
+            "可保留来源身份、提供方、官方 URL、机构级适用范围、访问失败、带风险"
+            "提示的概况计数、来源级字段映射、权利状态和具体待查问题。"
+        ),
+        "",
+        "## Blocked Derivatives / 暂停派生资料",
+        "",
+        *wrapped(
+            "Do not create glyph or image records, inscription or OCR text, "
+            "catalog objects, character candidates, graph edges, or formal "
+            "corpus rows from the current metadata profiles."
+        ),
+        "",
+        *wrapped(
+            "不得根据当前 metadata profile 生成字形或图片记录、卜辞或 OCR 文本、"
+            "著录对象、单字候选、图边或正式语料行。"
+        ),
+        "",
+        "## Reopen Conditions / 重新评估条件",
+        "",
+        "- Official content route becomes accessible and is recorded.",
+        "- A source payload has size and checksum evidence.",
+        "- Rights and redistribution limits are reviewed.",
+        "- Object-level fields can be traced to the saved payload.",
+        "- 官方内容路线恢复，并有新的访问记录。",
+        "- 来源 payload 已记录文件大小和 checksum。",
+        "- 权利与再分发边界已经复核。",
+        "- 对象级字段能够追溯到已保存 payload。",
+        "",
+        "## Remaining Questions / 具体待查问题",
+        "",
+        "- Which current official route exposes the described database?",
+        "- What license or terms govern metadata and object-level reuse?",
+        "- Which saved payload proves each institutional-scale count?",
+        "- 哪条现行官方路线可以打开所述数据库？",
+        "- 哪项许可或条款约束 metadata 与对象级资料复用？",
+        "- 哪个已保存 payload 能逐项证明机构级规模数字？",
+        "",
+        "## Boundary / 边界",
+        "",
+        *wrapped(
+            "This is a source-engineering decision, not rights clearance, "
+            "source promotion, corpus import, an identity claim, a reading, "
+            "or a decipherment conclusion."
+        ),
+        "",
+        *wrapped(
+            "这是来源工程决定，不是权利清理、来源提升、语料导入、身份确认、释读"
+            "或破译结论。"
+        ),
+    ]
+    return "\n".join(lines)
+
+
+def safe_derivative_decision_index_payload(
+    row: dict[str, str],
+) -> dict[str, object]:
+    return {
+        "record_type": "source_safe_derivative_decision_index",
+        **row,
+        "allowed_derivative_scope": row["allowed_derivative_scope"].split(";"),
+        "blocked_derivative_scope": row["blocked_derivative_scope"].split(";"),
+        "evidence_download_ids": row["evidence_download_ids"].split(";"),
+        "metadata_profile_ids": row["metadata_profile_ids"].split(";"),
+        "field_map_ids": row["field_map_ids"].split(";"),
+    }
+
+
 def field_map_review_text(
     source: dict[str, str],
     field_routes: list[dict[str, str]],
@@ -462,6 +663,13 @@ def source_packet(
         local_files.extend(
             ["25_source-field-map-review.md", "26_source-field-map-review-index.json"]
         )
+    if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS:
+        local_files.extend(
+            [
+                "25_safe-derivative-decision.md",
+                "26_safe-derivative-decision-index.json",
+            ]
+        )
     return {
         "record_type": "source_object_packet",
         "source_id": source["source_id"],
@@ -484,6 +692,11 @@ def source_packet(
         "local_files": local_files,
         "browser_metadata_capture_count": len(browser_metadata_rows),
         "field_map_review": field_map_review,
+        **(
+            {"safe_derivative_decision_recorded": True}
+            if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS
+            else {}
+        ),
         "research_boundary": (
             "source_object_packet_preprocessing_only; source metadata, routes, "
             "download logs, package manifests, field maps, and status cards are "
@@ -3619,6 +3832,8 @@ def readme_text(
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
         *bullet("Pre-research readiness / 预研究就绪", "20_source-presearch-readiness-review.md"),
+        *(bullet("Safe derivative decision / 安全派生决定", "25_safe-derivative-decision.md")
+          if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS else []),
         *(bullet("Finding-list reconciliation / 清单分区对账", "21_finding-list-reconciliation.md")
           if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
@@ -3631,6 +3846,8 @@ def readme_text(
         *bullet("Status index / 处理状态索引", "09_source-processing-status-index.json"),
         *bullet("Access integrity index / 访问完整性索引", "19_source-access-integrity-index.json"),
         *bullet("Readiness index / 就绪索引", "21_source-presearch-readiness-index.json"),
+        *(bullet("Safe derivative index / 安全派生索引", "26_safe-derivative-decision-index.json")
+          if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS else []),
         *(bullet("Finding-list reconciliation index / 清单对账索引", "22_finding-list-reconciliation-index.json")
           if source["source_id"] == "src-cambridge-hopkins" else []),
         *(bullet("Finding-list row reconciliation / 清单逐行对账", "23_finding-list-row-reconciliation.csv")
@@ -3716,6 +3933,8 @@ def material_access_index_text(
         *bullet("Transfer review / 转入复核", "14_source-to-dossier-transfer-review.md"),
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
+        *(bullet("Safe derivative decision / 安全派生决定", "25_safe-derivative-decision.md")
+          if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS else []),
         *(bullet("Finding-list reconciliation / 清单分区对账", "21_finding-list-reconciliation.md")
           if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
@@ -3727,6 +3946,8 @@ def material_access_index_text(
         *bullet("Metadata profile table / 元数据概况表", "05_metadata-profile-route-index.csv"),
         *bullet("Processing status JSON / 处理状态索引", "09_source-processing-status-index.json"),
         *bullet("Access integrity JSON / 访问完整性索引", "19_source-access-integrity-index.json"),
+        *(bullet("Safe derivative JSON / 安全派生索引", "26_safe-derivative-decision-index.json")
+          if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS else []),
         *(bullet("Finding-list reconciliation JSON / 清单对账索引", "22_finding-list-reconciliation-index.json")
           if source["source_id"] == "src-cambridge-hopkins" else []),
         *(bullet("Finding-list row table / 清单逐行表", "23_finding-list-row-reconciliation.csv")
@@ -3985,6 +4206,7 @@ def build_materials(root: Path) -> dict[str, int]:
     metadata_by_source = index_by_source(read_csv(root / METADATA_PROFILE))
     browser_metadata_by_source = index_by_source(read_csv(root / BROWSER_METADATA_CAPTURE))
 
+    safe_derivative_rows: list[dict[str, str]] = []
     for index, source in enumerate(sources, start=1):
         source_id = source["source_id"]
         object_dir = root / OUTPUT_ROOT / source_dir_name(index, source_id)
@@ -4058,6 +4280,29 @@ def build_materials(root: Path) -> dict[str, int]:
                 object_dir / "26_source-field-map-review-index.json",
                 field_map_review_index_payload(source, field_routes),
             )
+        if source_id in METADATA_ONLY_DERIVATIVE_SOURCE_IDS:
+            decision_row = safe_derivative_decision_row(
+                source,
+                download_routes,
+                field_routes,
+                metadata_routes,
+                object_dir.relative_to(root),
+            )
+            write_human_markdown(
+                object_dir / "25_safe-derivative-decision.md",
+                f"{source_id}/25_safe-derivative-decision.md",
+                safe_derivative_decision_text(
+                    source,
+                    decision_row,
+                    download_routes,
+                    metadata_routes,
+                ),
+            )
+            write_json(
+                object_dir / "26_safe-derivative-decision-index.json",
+                safe_derivative_decision_index_payload(decision_row),
+            )
+            safe_derivative_rows.append(decision_row)
         write_json(object_dir / "01_source-packet.json", packet)
         write_csv(object_dir / "02_download-route-index.csv", download_routes, DOWNLOAD_ROUTE_FIELDS)
         write_csv(object_dir / "03_package-route-index.csv", package_routes, PACKAGE_ROUTE_FIELDS)
@@ -4187,7 +4432,15 @@ def build_materials(root: Path) -> dict[str, int]:
                 metadata_routes,
             ),
         )
-    return {"source_object_count": len(sources)}
+    write_csv(
+        root / SAFE_DERIVATIVE_DECISION_INDEX,
+        safe_derivative_rows,
+        SAFE_DERIVATIVE_DECISION_FIELDS,
+    )
+    return {
+        "source_object_count": len(sources),
+        "safe_derivative_decision_count": len(safe_derivative_rows),
+    }
 
 
 def main() -> int:

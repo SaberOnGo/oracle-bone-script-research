@@ -18,6 +18,7 @@ map, not a rights decision.
 - Transfer review / 转入复核: 14_source-to-dossier-transfer-review.md
 - Literature scope / 文献范围: 16_source-literature-scope-review.md
 - Access integrity / 访问完整性: 18_source-access-integrity-review.md
+- Safe derivative decision / 安全派生决定: 25_safe-derivative-decision.md
 
 ## Structured Support Entrances / 结构化辅助入口
 - Structured source packet / 结构化来源包: 01_source-packet.json
@@ -27,6 +28,7 @@ map, not a rights decision.
 - Metadata profile table / 元数据概况表: 05_metadata-profile-route-index.csv
 - Processing status JSON / 处理状态索引: 09_source-processing-status-index.json
 - Access integrity JSON / 访问完整性索引: 19_source-access-integrity-index.json
+- Safe derivative JSON / 安全派生索引: 26_safe-derivative-decision-index.json
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

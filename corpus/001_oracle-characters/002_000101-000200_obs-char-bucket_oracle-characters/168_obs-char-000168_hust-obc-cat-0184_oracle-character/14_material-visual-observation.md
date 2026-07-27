@@ -23,9 +23,11 @@ reading or component assignment.
 
 ## Direct Visual Record / 直接可见记录
 
-- English observation: The low-resolution gray image has a small triangular
-  upper frame above a short rectangular lower enclosure.
-- 中文观察: 低分辨率灰度图像上方有小型三角框，下方接短小长方形围合。
+- English observation: The low-resolution image shows two separated tall
+  curved forms, a broad outer curve on the left and a narrower branching form
+  on the right; a small isolated mark appears near the lower right.
+- 中文观察: 低分辨率图像可见左右分离的两处高形：左侧为宽大的弯曲
+  外轮廓，右侧为较窄的分叉形；右下方另有小孤立痕迹。
 
 ## Next Checks / 下一步核查
 

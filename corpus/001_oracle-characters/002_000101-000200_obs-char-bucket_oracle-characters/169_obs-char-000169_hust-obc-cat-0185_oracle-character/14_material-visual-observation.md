@@ -23,10 +23,10 @@ reading or component assignment.
 
 ## Direct Visual Record / 直接可见记录
 
-- English observation: The narrow image has a long central descending stroke
-  with short horizontal and diagonal branches extending to the left near the
-  upper half.
-- 中文观察: 狭长图像中部有长下行主笔，上半部左侧伸出短横笔和短斜向分支。
+- English observation: The small gray image shows a rough triangular enclosure
+  with crossing interior strokes and an open lower edge.
+- 中文观察: 小型灰度图像可见粗略三角围合，内部有交叉笔画，下缘留有
+  开口。
 
 ## Next Checks / 下一步核查
 

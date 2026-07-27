@@ -84,6 +84,16 @@ EXTRA_TARGET_PROJECT_IDS = (
     "obs-unk-000068",
     "obs-unk-000069",
     "obs-unk-000070",
+    "obs-unk-000071",
+    "obs-unk-000072",
+    "obs-unk-000073",
+    "obs-unk-000074",
+    "obs-unk-000075",
+    "obs-unk-000076",
+    "obs-unk-000077",
+    "obs-unk-000078",
+    "obs-unk-000079",
+    "obs-unk-000080",
     "obs-unk-005708",
     "obs-unk-006294",
     "obs-unk-006258",
@@ -7775,6 +7785,46 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000070": (
         "The image has a broad arched upper contour and several long descending branches.",
         "图像上部有宽大的拱形轮廓，下方有数条长向下分支。本记录不确认字形身份。",
+    ),
+    "obs-unk-000071": (
+        "The compact image has angled upper strokes and a dense lower crossing cluster.",
+        "紧凑图像上部有折向笔画，下部为密集交叉笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000072": (
+        "Two rounded side marks flank a short central form with an angled lower stroke.",
+        "两个圆弧状侧部痕迹夹着短小中部形体，下方有折向笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000073": (
+        "A pointed upper contour sits above several straight descending strokes.",
+        "尖状上部轮廓下方可见数条直向下笔画。本记录不确认字形身份。",
+    ),
+    "obs-unk-000074": (
+        "The narrow form is built from a long curved stroke and several short parallel marks.",
+        "狭长形体由一条长弧线和数条短平行痕迹组成。本记录不确认字形身份。",
+    ),
+    "obs-unk-000075": (
+        "The image shows a dense symmetric-looking cluster of branching and curved strokes.",
+        "图像呈现密集、近似对称的分支与弧线笔群。本记录不确认字形身份。",
+    ),
+    "obs-unk-000076": (
+        "Several diagonal strokes cross near the center, with a small isolated mark at upper right.",
+        "数条斜向笔画在中部交叉，右上方另有一个小的孤立痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000077": (
+        "The image contains a dense central vertical cluster with short branching marks.",
+        "图像中部为密集纵向笔群，并带有短分支痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000078": (
+        "A rounded loop-like contour is paired with a long lower horizontal stroke and two dots.",
+        "圆弧环状轮廓连接下方长横向笔画，底部可见两个点状痕迹。本记录不确认字形身份。",
+    ),
+    "obs-unk-000079": (
+        "A pointed upper mark stands above a short horizontal line and a double wavy base.",
+        "尖状上部痕迹位于短横线之上，下方为双重波曲底部。本记录不确认字形身份。",
+    ),
+    "obs-unk-000080": (
+        "Curved side marks frame a short central form with a small angled stroke below.",
+        "弧状侧部痕迹夹着短小中部形体，下方有一笔小折向痕迹。本记录不确认字形身份。",
     ),
 }
 IMAGE_REFERENCE_RESULTS = (

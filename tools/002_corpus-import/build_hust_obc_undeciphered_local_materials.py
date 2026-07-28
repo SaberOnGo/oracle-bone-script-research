@@ -5453,6 +5453,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A vertical layered knot has forked upper strokes, a central opening, and two lower extensions.",
             "竖向叠置线簇上部有分叉线条，中部留开口，下方伸出两条延展线。",
         ),
+        "obs-unk-001161": (
+            "Two upper looped forms meet at a central junction above a broad lower U-shaped frame.",
+            "两个上部回环在中央交汇，下方接宽大的 U 形框线。",
+        ),
+        "obs-unk-001162": (
+            "A gridded left enclosure is joined to a horizontal middle bar and a long descending right line.",
+            "格状左侧围合连接横向中部线条，右侧伸出长下垂线。",
+        ),
+        "obs-unk-001163": (
+            "A narrow stacked left knot with two openings stands beside a small angular right form.",
+            "带两个开口的狭长左侧线簇与小型右侧折线形并列。",
+        ),
+        "obs-unk-001164": (
+            "An angular upper enclosure contains openings above a compact lower knot and a separate right zigzag.",
+            "折线上部围合内有开口，下方接紧密线簇，右侧另有曲折线条。",
+        ),
+        "obs-unk-001165": (
+            "A horizontal layered body has several openings, a central descending stem, and a low side branch.",
+            "横向叠置主体有数个开口、中央下垂主线和低位侧分支。",
+        ),
+        "obs-unk-001166": (
+            "Several branching upper strokes rise from a lower looped bar, with two block-like ends below.",
+            "数条分支上部线条从下方回环横带升起，底部有两个块状端部。",
+        ),
+        "obs-unk-001167": (
+            "A broad upper band with repeated openings descends through an angular loop to a flat base.",
+            "带重复开口的宽大上部横带经折线回环向下连接平直底部。",
+        ),
+        "obs-unk-001168": (
+            "A compact vertical form has a forked top, a central opening, and a broad curved lower extension.",
+            "紧密竖向形上部有分叉，中部留开口，下方接宽大的弯曲延展线。",
+        ),
+        "obs-unk-001169": (
+            "Two tall adjacent looped forms contain inner openings and taper toward a shared lower junction.",
+            "两个高大的相邻回环各含内开口，并向共同下部交汇处收束。",
+        ),
+        "obs-unk-001170": (
+            "A roof-like outer frame contains a central diamond opening and two lower looped strokes.",
+            "屋顶状外框包围中央菱形开口，下方有两条回环线。",
+        ),
+        "obs-unk-001171": (
+            "A central vertical stem with side spikes rises above a broad lower arched enclosure.",
+            "带侧向突出的中央竖线位于宽大下部拱形围合之上。",
+        ),
+        "obs-unk-001172": (
+            "A rounded upper knot with horizontal bands sits above a broad crescent-like lower frame.",
+            "带横向线带的圆弧上部线簇位于宽大弧月状下部框线之上。",
+        ),
+        "obs-unk-001173": (
+            "A pointed upper opening rests over a broad body with side openings and a short lower opening.",
+            "尖状上部开口位于宽大主体之上，主体两侧及下方留有开口。",
+        ),
+        "obs-unk-001174": (
+            "A small upper band caps a rounded enclosure with a central opening and branching lower strokes.",
+            "小型上部横带覆盖圆弧围合，内部有中央开口，下方有分支线条。",
+        ),
+        "obs-unk-001175": (
+            "A diamond opening sits above a rounded middle frame and two short lower block-like forms.",
+            "菱形开口位于圆弧中部框线之上，下方接两个短块状形。",
+        ),
+        "obs-unk-001176": (
+            "A large triangular outer form contains a smaller lower opening beside a separate curved right line.",
+            "大型三角外形内含较小下部开口，右侧另有弯曲线条。",
+        ),
+        "obs-unk-001177": (
+            "Two stacked upper bars stand over a pointed central form with a looped right side.",
+            "两道叠置上部横带位于尖状中央形之上，右侧带有回环线。",
+        ),
+        "obs-unk-001178": (
+            "A pointed upper cap and short stem lead into a double-lobed lower enclosure.",
+            "尖状上部和短主线向下连接双瓣状围合。",
+        ),
+        "obs-unk-001179": (
+            "A left vertical strip with openings accompanies a forked central form and a right stacked loop.",
+            "带开口的左侧竖向线带与中央分叉形、右侧叠置回环并列。",
+        ),
+        "obs-unk-001180": (
+            "A left strip stands beside a rounded upper knot with an opening, a crossbar, and a long lower stem.",
+            "左侧线带旁有带开口的圆弧上部线簇、横线和长下垂主线。",
+        ),
     }
 )
 

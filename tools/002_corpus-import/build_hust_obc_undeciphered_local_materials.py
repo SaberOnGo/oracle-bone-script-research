@@ -874,6 +874,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "extension.",
         "弧形直立轮廓内有两条短横笔，下方有弯曲伸出。",
     ),
+    "obs-unk-000141": (
+        "A narrow upright image has an arched upper contour, a dense central "
+        "crossing, and a long lower-left projection.",
+        "狭长直立图像上方有拱形轮廓，中部密集交叉，下方左侧有长伸出。",
+    ),
+    "obs-unk-000142": (
+        "A narrow upright form has a pointed upper enclosure, a central vertical, "
+        "and two angled lower projections.",
+        "狭长直立形体上方有尖状围合，中部有竖笔，下方有两处斜向伸出。",
+    ),
+    "obs-unk-000143": (
+        "A narrow upright image has a pointed upper contour, a central crossing, "
+        "and paired lower angular strokes.",
+        "狭长直立图像上方有尖状轮廓，中部交叉，下方有成对折角笔。",
+    ),
+    "obs-unk-000144": (
+        "An open form has two long upper slants, a narrow central stem, and a "
+        "forked lower extension.",
+        "开放形体上方有两条长斜笔，中部为窄笔干，下方有分叉伸出。",
+    ),
+    "obs-unk-000145": (
+        "A narrow form has two long upper strokes, a dense center, and a thin "
+        "descending lower stroke.",
+        "狭长形体上方有两条长笔，中部密集，下方有细长下降笔。",
+    ),
+    "obs-unk-000146": (
+        "A compact upright image has a pointed upper contour, short interior "
+        "crossings, and several lower projections.",
+        "紧凑直立图像上方有尖状轮廓，内部有短交叉笔，下方有数处伸出。",
+    ),
+    "obs-unk-000147": (
+        "An angular form has a short upper bar, a long left diagonal, and a split "
+        "lower-right stroke.",
+        "折角形体上方有短横笔，左侧有长斜笔，右下有分开的笔画。",
+    ),
+    "obs-unk-000148": (
+        "A dense dark form has a pointed upper cap, a compact central mass, and "
+        "several short lower projections.",
+        "密集深色形体上方有尖顶，中部成团，下方有数处短伸出。",
+    ),
+    "obs-unk-000149": (
+        "An open form has two short upper strokes, a central horizontal crossing, "
+        "and a rounded lower sweep.",
+        "开放形体上方有两条短笔，中部有横向交叉，下方有弧形扫笔。",
+    ),
+    "obs-unk-000150": (
+        "A compact form has separated upper side marks, a central crossing, and a "
+        "long lower diagonal.",
+        "紧凑形体上部两侧有分离短痕，中部交叉，下方有长斜笔。",
+    ),
+    "obs-unk-000151": (
+        "An open form has two upper slants, separated left marks, and a long curved "
+        "stroke on the right.",
+        "开放形体上方有两条斜笔，左侧有分离短痕，右侧有长弯笔。",
+    ),
+    "obs-unk-000152": (
+        "A compact form has a long upper crossbar, a central vertical, and a broad "
+        "curved lower stroke.",
+        "紧凑形体上方有长横笔，中部有竖笔，下方有宽大的弯曲笔。",
+    ),
+    "obs-unk-000153": (
+        "A compact symmetrical form has a pointed upper pair, a horizontal middle "
+        "bar, and a rounded lower enclosure.",
+        "紧凑对称形体上方有成对尖笔，中部有横笔，下方有弧形围合。",
+    ),
+    "obs-unk-000154": (
+        "A dense horizontal form has several stacked crossbars and a long slanting "
+        "lower-right stroke.",
+        "密集横向形体有数条叠置横笔，右下有长斜笔。",
+    ),
+    "obs-unk-000155": (
+        "An open form has paired curved upper strokes, a central crossing, and a "
+        "pointed lower extension.",
+        "开放形体上方有成对弧形笔，中部交叉，下方有尖状伸出。",
+    ),
+    "obs-unk-000156": (
+        "A compact dense form has a long upper bar, crossing central strokes, and a "
+        "rounded lower enclosure.",
+        "紧凑密集形体上方有长横笔，中部交叉，下方有弧形围合。",
+    ),
+    "obs-unk-000157": (
+        "An open form has a narrow left vertical cluster, a central descending "
+        "stroke, and a rounded right loop.",
+        "开放形体左侧有窄竖笔群，中部有下降笔，右侧有弧形环。",
+    ),
+    "obs-unk-000158": (
+        "A compact angular form has a pointed upper-left mark, a central crossing, "
+        "and a long lower-right stroke.",
+        "紧凑折角形体左上有尖状痕，中部交叉，右下有长笔。",
+    ),
+    "obs-unk-000159": (
+        "An open form has a short upper-left cluster, a central vertical, and a "
+        "rounded lower-right mark.",
+        "开放形体左上有短笔群，中部有竖笔，右下有弧形痕。",
+    ),
+    "obs-unk-000160": (
+        "A narrow form has a short upper bar, a long descending central stroke, and "
+        "a rounded lower loop.",
+        "狭长形体上方有短横笔，中部有长下降笔，下方有弧形环。",
+    ),
 }
 
 

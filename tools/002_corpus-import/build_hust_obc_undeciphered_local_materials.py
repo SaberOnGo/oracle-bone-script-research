@@ -4318,6 +4318,90 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
         ),
     }
 )
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000881": (
+            "A tall straight left stem stands beside stacked loops and angular strokes, ending in a small lower enclosure.",
+            "高直左侧主线旁有叠置回环和折角笔画，末端形成小下部围合。",
+        ),
+        "obs-unk-000882": (
+            "A dense upper looped cluster sits left of a small angular form; broad curved strokes descend below both areas.",
+            "密集上部回环线束位于小型折角形态左侧；两处下方都有宽曲笔画延伸。",
+        ),
+        "obs-unk-000883": (
+            "A compact looped upper cluster is paired with a separate pointed form and a long curved lower descent.",
+            "紧密回环上部形态旁有分离尖角形态，并有长曲线向下延伸。",
+        ),
+        "obs-unk-000884": (
+            "A broad top bar spans a narrow central stem and loop; a rectangular lower block sits left of a curved right stroke.",
+            "宽顶横线跨过窄中央主线和回环；左下为矩形块，右侧接曲线。",
+        ),
+        "obs-unk-000885": (
+            "A looped upper cluster stands left of a small angular form, with two long curved strokes descending below.",
+            "回环上部线束位于小型折角形态左侧，下方有两条长曲线延伸。",
+        ),
+        "obs-unk-000886": (
+            "A paired upper loop and angular form is followed by a broad lower curve and a short separated terminal stroke.",
+            "上部回环与折角形态成对出现，下方接宽曲线和短分离末端笔画。",
+        ),
+        "obs-unk-000887": (
+            "A shallow rounded upper bowl crosses a central stem; an oval opening and a pointed lower section follow beneath.",
+            "浅圆上部碗形交叉中央主线；下方依次有椭圆开口和尖状下部。",
+        ),
+        "obs-unk-000888": (
+            "Three stacked sections show a narrow top loop, a broad middle loop, and a lower frame with a horizontal bar.",
+            "三个上下层次依次为窄顶回环、宽中部回环和带横线的下框。",
+        ),
+        "obs-unk-000889": (
+            "A small angled loop sits above a large rounded lower enclosure with several short projecting strokes.",
+            "小型折角回环位于大型圆曲下部围合之上，下部有数条短突出笔画。",
+        ),
+        "obs-unk-000890": (
+            "A separated upper angular cluster is paired with a small lower triangular enclosure resting on a short base line.",
+            "分离的上部折角线束与小型下三角围合相对，三角形置于短底线上。",
+        ),
+        "obs-unk-000891": (
+            "An upper rounded enclosure has three short projections and stacked horizontal bands, followed by a wavy lower stem.",
+            "上部圆曲围合带三个短突和叠置横带，下方接波曲直立主线。",
+        ),
+        "obs-unk-000892": (
+            "A narrow upper loop, broad middle band, and wide lower frame are aligned along one central stem.",
+            "窄顶回环、宽中部横带和宽下框沿同一中央主线排列。",
+        ),
+        "obs-unk-000893": (
+            "A small rectangular loop on a short base stands beside a taller angled loop with a long descending stroke.",
+            "带短底座的小矩形回环旁有较高折角回环，并接长下行笔画。",
+        ),
+        "obs-unk-000894": (
+            "A left rectangular enclosure with an inner opening stands beside a tall central loop and a long curled descent.",
+            "左侧矩形围合内有开口，旁边是高大中央回环和长卷曲下行线。",
+        ),
+        "obs-unk-000895": (
+            "A short upright form with a broad crossing sits left of a separate rounded loop and long curving lower stroke.",
+            "带宽交叉线的短直立形态位于左侧；右侧为分离回环和长曲下行线。",
+        ),
+        "obs-unk-000896": (
+            "A double-loop wavy stem stands beside a compact bowl-like form with a top bar and short lower support.",
+            "双回环波曲主线旁有带顶横线和短支座的紧密碗状形态。",
+        ),
+        "obs-unk-000897": (
+            "A horizontal crossbar at left is paired with an elongated loop at right and two diagonal descending strokes.",
+            "左侧横档与右侧细长回环相对，并有两条斜向下行笔画。",
+        ),
+        "obs-unk-000898": (
+            "Two separated slim forms each have an upper loop and a long lower stroke; the left lower line is more wavy.",
+            "两个分离的细长形态各有上部回环和长下行线；左侧下线更为波曲。",
+        ),
+        "obs-unk-000899": (
+            "A small left loop and a taller right double loop descend in parallel with separate zigzag lower strokes.",
+            "左侧小回环和右侧高大双回环并列下行，各自带曲折下部笔画。",
+        ),
+        "obs-unk-000900": (
+            "A peaked upper contour overlaps a broad curved lower form, with a compact angular stroke centered between them.",
+            "尖顶上部轮廓叠在宽大曲线下部之上，两者之间有中央紧密折角笔画。",
+        ),
+    }
+)
 
 @dataclass(frozen=True)
 class Candidate:

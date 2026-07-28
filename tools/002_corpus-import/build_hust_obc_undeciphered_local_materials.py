@@ -5133,6 +5133,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A narrow stacked upper form descends through a long central stem into branching lower strokes.",
             "窄长的层叠上部形体经长中央主线向下连接分支线条。",
         ),
+        "obs-unk-001081": (
+            "Dense upper bars and a central stem lead into a lower triangular loop, with a curved left border and detached marks.",
+            "密集上部横线和中央主线连接下部三角回环，左侧有弧形边和分离痕。",
+        ),
+        "obs-unk-001082": (
+            "A U-shaped upper band rests over a rounded lower frame with side projections and a long lower loop.",
+            "U 形上部横带位于圆曲下框之上，两侧有突出线，下方接长回环。",
+        ),
+        "obs-unk-001083": (
+            "A broad triangular upper frame contains a central stem and continues into a long lower line ending in a loop.",
+            "宽大的三角上框含中央主线，并向下延成长线，末端收于回环。",
+        ),
+        "obs-unk-001084": (
+            "A narrow stacked rectangular form descends into several branching lower strokes.",
+            "窄长的层叠矩形形体向下连接数条分支线。",
+        ),
+        "obs-unk-001085": (
+            "A branching hooked form on the left stands beside a tall right loop with an inner opening and a zigzag descent.",
+            "左侧分支钩形与右侧带内部开口的高大回环并列，下方连接折线。",
+        ),
+        "obs-unk-001086": (
+            "A dense upper central frame has side projections and continues into a broad angular lower structure.",
+            "密集的上部中央框形带侧向突出，并向下连接宽大的折线结构。",
+        ),
+        "obs-unk-001087": (
+            "Branching upper strokes stand over a rounded horizontal base and a rectangular lower section.",
+            "分支上部线条位于圆曲横向底部和矩形下部结构之上。",
+        ),
+        "obs-unk-001088": (
+            "A short left stem is paired with a right diamond loop containing two openings and a pointed lower stroke.",
+            "短左侧主线与右侧含两个开口的菱状回环并列，下方收于尖形线。",
+        ),
+        "obs-unk-001089": (
+            "A left branching hooked form accompanies a tall right loop with an inner opening and a zigzag lower line.",
+            "左侧分支钩形伴随右侧带内部开口的高大回环，下方为折线。",
+        ),
+        "obs-unk-001090": (
+            "A short left stem stands beside a diamond-like loop with inner openings and a pointed lower extension.",
+            "短左侧主线与带内部开口的菱状回环并列，下方接尖形延伸。",
+        ),
+        "obs-unk-001091": (
+            "A small looped left stem is paired with a pointed right enclosure containing an inner opening.",
+            "左侧小回环主线与右侧含内部开口的尖形围合并列。",
+        ),
+        "obs-unk-001092": (
+            "A dense rounded central enclosure has branching side projections and a large lower loop.",
+            "密集的中央圆曲围合带分支侧向突出，下方接大型回环。",
+        ),
+        "obs-unk-001093": (
+            "A cross-like left stem ends in a lower loop, beside a central oval form and a long right descending curve.",
+            "左侧十字状主线收于下部回环，旁边是中央椭圆形和右侧长下垂弧线。",
+        ),
+        "obs-unk-001094": (
+            "A central oval loop and a long right curve stand beside a left stem with a lower loop and short side marks.",
+            "中央椭圆回环和右侧长弧线与左侧带下部回环的主线并列，旁有短侧痕。",
+        ),
+        "obs-unk-001095": (
+            "A large rounded upper enclosure contains angular inner forms and continues into a lower branching frame.",
+            "大型圆曲上部围合含内部折线形体，并向下连接分支框形。",
+        ),
+        "obs-unk-001096": (
+            "A diamond-like upper opening connects to a broad lower rectangular frame with four inner openings.",
+            "菱状上部开口连接宽大的下部矩形框，框内有四个开口。",
+        ),
+        "obs-unk-001097": (
+            "A rounded upper band encloses an inner opening above a lower looped cluster and a long curved stroke.",
+            "圆曲上部横带围住内部开口，下方连接回环线簇和长弧线。",
+        ),
+        "obs-unk-001098": (
+            "A pointed outer enclosure contains an inner opening and ends over a broad wavy lower base.",
+            "尖形外框含内部开口，末端位于宽大的波曲下部底座之上。",
+        ),
+        "obs-unk-001099": (
+            "A broad rounded outer form contains angular inner strokes and continues into a lower rectangular base.",
+            "宽大的圆曲外形含内部折线，并向下连接矩形底部。",
+        ),
+        "obs-unk-001100": (
+            "A large circular outer loop contains a narrow inner opening and extends into three long lower strokes.",
+            "大型圆形外回环含窄内部开口，并向下延出三条长线。",
+        ),
     }
 )
 

@@ -51,6 +51,21 @@ period, batch, plate, inscription, and character context.
 - transcription_status: pending source-page transcription check
 - character_link_status: candidate route only
 
+## Component Clues / 构件线索
+
+- component status: no component assignment; inspect the image first.
+- 构件线索仅作待查记录，不能替代实物图像和卜辞复核。
+
+## Scholarship And Dispute Route / 文献与争议路线
+
+- bibliography, proposer, reading history, and dispute: pending.
+- 书目、提出者、释读史和争议：待查，不能写成已确认结论。
+
+## Variant And Relationship Route / 异体与关系路线
+
+- variants, near forms, bronze, seal, and modern relations: pending.
+- 异体、近形、金文、小篆、今字关系：待复核。
+
 ## Source Evidence And Rights Trail / 来源证据与权利链
 
 - source_id: `src-penn-museum-oracle-bone`

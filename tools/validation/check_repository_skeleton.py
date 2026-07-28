@@ -2673,6 +2673,10 @@ CAMBRIDGE_CUL52_OBJECT_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "006_cambridge-cul52-oracle-bone-object-staging.csv"
 )
+BRITISH_MUSEUM_OBJECT_STAGING = (
+    "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
+    "007_british-museum-oracle-bone-object-staging.csv"
+)
 COLLECTION_OBJECT_CANDIDATE_MANIFEST = (
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/"
     "000_collection-object-candidate-manifest.csv"
@@ -3172,6 +3176,7 @@ REQUIRED_PATHS = [
     PENN_MUSEUM_OBJECT_STAGING,
     METMUSEUM_OBJECT_STAGING,
     CAMBRIDGE_CUL52_OBJECT_STAGING,
+    BRITISH_MUSEUM_OBJECT_STAGING,
     COLLECTION_OBJECT_ID_SOURCE_MAP,
     COLLECTION_OBJECT_CANDIDATE_MANIFEST,
     "project_registry/002_project-id-to-source-reference-map/005_evolution-candidate-id-source-map.csv",
@@ -6163,13 +6168,13 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
         map_rows = list(csv.DictReader(file))
     with manifest_path.open("r", encoding="utf-8-sig", newline="") as file:
         manifest_rows = list(csv.DictReader(file))
-    if len(map_rows) != 57:
-        issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} should contain 57 collection object rows")
-    if len(manifest_rows) != 57:
-        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} should contain 57 collection object rows")
+    if len(map_rows) != 58:
+        issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} should contain 58 collection object rows")
+    if len(manifest_rows) != 58:
+        issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} should contain 58 collection object rows")
     if map_rows and map_rows[0].get("project_id") != "coll-obj-cand-00001":
         issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} first project_id changed")
-    if map_rows and map_rows[-1].get("project_id") != "coll-obj-cand-00057":
+    if map_rows and map_rows[-1].get("project_id") != "coll-obj-cand-00058":
         issues.append(f"{COLLECTION_OBJECT_ID_SOURCE_MAP} last project_id changed")
     if manifest_rows and manifest_rows[52].get("visual_entry_status") != "committed_public_domain_asset":
         issues.append(f"{COLLECTION_OBJECT_CANDIDATE_MANIFEST} Smithsonian visual status changed")
@@ -6203,6 +6208,7 @@ def check_collection_object_candidate_local_materials(root: Path) -> list[str]:
     ]
     expected_sources = {
         "src-cambridge-hopkins",
+        "src-british-museum-oracle-bone",
         "src-ihp-museum-oracle-bones",
         "src-smithsonian-nmaa-oracle-bone",
         "src-penn-museum-oracle-bone",
@@ -7436,7 +7442,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         "research_boundary",
         "decipherment_claim_status",
     }
-    if len(rows) != 29755:
+    if len(rows) != 29756:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} row count changed")
     if rows:
         missing_fields = required_fields - set(rows[0])
@@ -7447,7 +7453,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
             )
     expected_area_counts = {
         "codepoint_crosswalk_candidates": 1588,
-        "collection_object_candidates": 57,
+        "collection_object_candidates": 58,
         "evolution_correspondence_candidates": 13714,
         "graphemic_component_candidates": 2747,
         "inscription_crosswalk_candidates": 612,
@@ -7459,7 +7465,7 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
     if dict(sorted(area_counts.items())) != expected_area_counts:
         issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} corpus area counts changed")
     expected_status_counts = {
-        "object_local_bundle_with_evidence_routes": 16040,
+        "object_local_bundle_with_evidence_routes": 16041,
         "object_local_bundle_with_review_image": 13715,
     }
     status_counts = Counter(row.get("material_bundle_status", "") for row in rows)
@@ -7498,13 +7504,13 @@ def check_object_local_material_coverage_audit(root: Path) -> list[str]:
         if "not_scholarship" not in boundary or "decipherment conclusions" not in boundary:
             issues.append(f"{OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT} boundary missing caution: {row_id}")
     expected_summary_values = {
-        "object_directory_count": 29755,
+        "object_directory_count": 29756,
         "corpus_area_counts": expected_area_counts,
         "material_bundle_status_counts": expected_status_counts,
-        "human_entry_object_count": 29755,
-        "ai_entry_object_count": 29755,
+        "human_entry_object_count": 29756,
+        "ai_entry_object_count": 29756,
         "local_visual_asset_object_count": 13715,
-        "route_gallery_or_route_index_object_count": 29755,
+        "route_gallery_or_route_index_object_count": 29756,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
     }
@@ -7567,7 +7573,7 @@ def check_object_local_human_research_depth_audit(root: Path) -> list[str]:
             )
     expected_area_counts = {
         "codepoint_crosswalk_candidates": 1588,
-        "collection_object_candidates": 57,
+        "collection_object_candidates": 58,
         "evolution_correspondence_candidates": 13714,
         "graphemic_component_candidates": 2747,
         "inscription_crosswalk_candidates": 612,
@@ -7658,10 +7664,10 @@ def check_object_local_human_research_depth_audit(root: Path) -> list[str]:
             issues.append(f"{OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT} missing concrete question: {row_id}")
     expected_summary_values = {
         "area_count": 8,
-        "object_directory_count": 29755,
-        "human_entry_object_count": 29755,
-        "ai_entry_object_count": 29755,
-        "complete_bundle_object_count": 29755,
+        "object_directory_count": 29756,
+        "human_entry_object_count": 29756,
+        "ai_entry_object_count": 29756,
+        "complete_bundle_object_count": 29756,
         "partial_or_missing_bundle_count": 0,
         "parallel_human_directory_count": 0,
         "depth_review_status_counts": {"needs_human_research_depth_review": 8},
@@ -8279,7 +8285,7 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
         "asset_id_source_map": "21363",
         "component_id_source_map": "2747",
         "evolution_candidate_id_source_map": "13714",
-        "collection_object_id_source_map": "57",
+        "collection_object_id_source_map": "58",
     }
     expected_stages = {
         "oracle_character_id_source_map": "registered_empty_map",
@@ -8335,7 +8341,7 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
 
     expected_summary = {
         "map_count": 6,
-        "total_row_count": 38493,
+        "total_row_count": 38494,
         "stage_counts": {
             "registered_empty_map": 1,
             "validated_route_map": 5,
@@ -8349,7 +8355,7 @@ def check_project_id_source_map_audit(root: Path) -> list[str]:
             "oracle_inscription_or_crosswalk_candidate": 1,
         },
         "totals": {
-            "row_count": 38493,
+            "row_count": 38494,
             "missing_canonical_path_count": 0,
             "unknown_source_id_count": 0,
             "missing_primary_external_ref_count": 0,
@@ -10723,9 +10729,9 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
         "promotion_queue_candidate_count": 1588,
-        "object_local_material_bundle_count": 29904,
+        "object_local_material_bundle_count": 29905,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 29904,
+        "object_local_route_object_count": 29905,
         "object_local_partial_bundle_count": 0,
     }
     for field, expected_value in expected_totals.items():
@@ -10996,7 +11002,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "source_pipeline_phase_action_missing_evidence_review_outcome_wave_handoff_assignment_outcome_source_handoff_outcome_checklist_outcome_routes_summary_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_plan_files:1",
             "source_pipeline_missing_evidence_outcome_routes_assignment_checklist_rows:0",
-            "object_local_material_coverage_audit_rows:29755",
+            "object_local_material_coverage_audit_rows:29756",
             "object_local_material_coverage_summary_files:1",
         ],
         "character_object_research_dossiers": [
@@ -11015,7 +11021,7 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
             "formal_component_map_rows:2747",
             "formal_asset_map_rows:21363",
             "candidate_evolution_map_rows:13714",
-            "collection_object_map_rows:57",
+            "collection_object_map_rows:58",
             "project_id_source_map_audit_rows:6",
             "project_id_source_map_summary_files:1",
         ],
@@ -11319,10 +11325,10 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "metadata_profile_count": 92,
         "missing_evidence_action_count": 0,
         "missing_evidence_assignment_count": 0,
-        "object_local_material_bundle_count": 29904,
+        "object_local_material_bundle_count": 29905,
         "object_local_partial_bundle_count": 0,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 29904,
+        "object_local_route_object_count": 29905,
         "package_manifest_count": 38,
         "size_recorded_count": 55,
         "source_phase_action_count": 62,
@@ -11389,8 +11395,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
             "downloaded_count": "0",
             "source_phase_action_count": "7",
             "missing_evidence_action_count": "0",
-            "object_local_material_bundle_count": "1",
-            "object_local_route_object_count": "1",
+            "object_local_material_bundle_count": "2",
+            "object_local_route_object_count": "2",
         },
     }
     for source_id, expected_values in expected_source_fragments.items():
@@ -17217,7 +17223,7 @@ def check_collection_provenance_phase_gap_human_guide(root: Path) -> list[str]:
         "downloaded: `mixed_or_partial`",
         "linked: `missing`",
         "verified: `mixed_or_partial`",
-        "collection object candidates: 57",
+        "collection object candidates: 58",
         "museum object assets: 3",
         "institution, object record, accession, or catalog number",
         "findspot, excavation site, period, batch, or pit context",
@@ -24601,9 +24607,9 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "committed_asset_bytes": 96318352,
         "graph_edge_count": 128174,
         "promotion_queue_candidate_count": 1588,
-        "object_local_material_bundle_count": 29904,
+        "object_local_material_bundle_count": 29905,
         "object_local_review_image_object_count": 13715,
-        "object_local_route_object_count": 29904,
+        "object_local_route_object_count": 29905,
         "object_local_partial_bundle_count": 0,
     }
     for key, value in expected_source_coverage.items():

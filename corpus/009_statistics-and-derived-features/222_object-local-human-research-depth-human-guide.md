@@ -8,8 +8,8 @@ It routes a researcher to object-local dossiers before any formal claim.
 ## Current Baseline / 当前基线
 
 - Corpus areas / 资料区: 8
-- Object directories / 对象目录: 29755
-- Complete human+AI bundles / 人类与 AI 完整包: 29755
+- Object directories / 对象目录: 29756
+- Complete human+AI bundles / 人类与 AI 完整包: 29756
 - Depth status / 深度状态: needs_human_research_depth_review
 - Boundary / 边界: this is a navigation audit, not scholarship or decipherment.
 - 边界：这是人类阅读入口审计，不是学术结论，也不是释读或破译。
@@ -33,8 +33,8 @@ It routes a researcher to object-local dossiers before any formal claim.
 
 ### collection_object_candidates
 
-- Objects / 对象数: 57
-- Human files / 人类文件: 57
+- Objects / 对象数: 58
+- Human files / 人类文件: 58
 - Review status / 复核状态: needs_human_research_depth_review
 - First human route / 首个应打开的人类路线:
   corpus/005_excavation-sites-periods-and-batches/002_collection-object-cand

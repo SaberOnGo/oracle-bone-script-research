@@ -22,9 +22,10 @@ scholarship, and not a decipherment conclusion.
 - updated at: 2026-06-30
 - checklist rows: 3
 - collection staging rows: 4
-- collection object candidates: 57
+- collection object candidates: 58
 - museum object assets: 3
 - OBM follow-up routes: 4
+- source id: `src-british-museum-oracle-bone`
 - source id: `src-cambridge-hopkins`
 - source id: `src-ihp-museum-oracle-bones`
 - source id: `src-ihp-oracle-rubbings`

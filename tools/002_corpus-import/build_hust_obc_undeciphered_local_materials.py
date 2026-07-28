@@ -2798,6 +2798,112 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "lower strokes; it is visually similar to obs-unk-000463 only.",
         "弧形中央围合带分叉上伸和两条斜向下伸；仅作与 obs-unk-000463 的视觉比较。",
     ),
+    "obs-unk-000501": (
+        "A rounded central enclosure has forked upper projections and a compact "
+        "lower rectangular base; it is visually similar to obs-unk-000500 only.",
+        "弧形中央围合带分叉上伸和紧凑下部矩形基部；仅作与 obs-unk-000500 的视觉比较。",
+    ),
+    "obs-unk-000502": (
+        "A broad horizontal central stroke has short upper side marks and a lower "
+        "pointed enclosure with a small interior opening.",
+        "宽幅中央横笔带短上部侧痕，下方有尖角围合并含小型内部空隙。",
+    ),
+    "obs-unk-000503": (
+        "Two tall side strokes frame a small upper rectangular block and a central "
+        "pointed lower enclosure.",
+        "两条高直侧笔围住小型上部矩形笔块和中央尖角下部围合；"
+        "仅作与 obs-unk-000498 的视觉比较。",
+    ),
+    "obs-unk-000504": (
+        "A diagonal left enclosure contains a rounded central mark; separate curved "
+        "and forked strokes stand to the right.",
+        "斜向左侧围合内有中央弧形痕迹；右侧另有弯曲和分叉笔画。",
+    ),
+    "obs-unk-000505": (
+        "Two small upper rectangular marks sit above a central crossing and a dense "
+        "lower branching cluster.",
+        "两个小型上部矩形痕迹位于中央交叉和密集下部分支笔组之上。",
+    ),
+    "obs-unk-000506": (
+        "A rounded central enclosure is flanked by branching side strokes and a "
+        "narrow wavy form on the right; short lower points project below.",
+        "弧形中央围合两侧有分支笔，右侧另有窄长弯曲形体；下方有短尖角外伸。",
+    ),
+    "obs-unk-000507": (
+        "A rectangular frame contains several horizontal interior strokes and has "
+        "short projections above and below; two vertical side marks flank it.",
+        "矩形框内有数条横向内部笔，两侧由竖笔夹持，上下有短外伸。",
+    ),
+    "obs-unk-000508": (
+        "Two separated forms are visible: a small branching cluster on the left and "
+        "a taller looped upright on the right.",
+        "图像中有两个分离形体：左侧为小型分支笔组，右侧为更高的环状直立形体。",
+    ),
+    "obs-unk-000509": (
+        "A dense diagonal left cluster stands beside a narrow right upright with "
+        "several short branching projections.",
+        "密集斜向左侧笔组旁有窄直立右侧形体，并带数个短分支外伸。",
+    ),
+    "obs-unk-000510": (
+        "A narrow forked upright form stands beside a dense right cluster and a "
+        "pointed lower extension; it is visually similar to obs-unk-000401 only.",
+        "窄直立分叉形体旁有密集右侧笔组和尖角下伸；仅作与 obs-unk-000401 的视觉比较。",
+    ),
+    "obs-unk-000511": (
+        "A central rounded mark is crossed by a left curved stroke and right side "
+        "projections; a small rectangular base sits below.",
+        "中央弧形痕迹被左侧弯曲笔穿过，右侧有外伸，下方有小型矩形基部。",
+    ),
+    "obs-unk-000512": (
+        "A rounded central enclosure is crossed by a long horizontal stroke with "
+        "short side projections; a stem and small lower block extend below.",
+        "弧形中央围合被长横笔穿过并带短侧伸；下方接笔干和小型下部笔块。",
+    ),
+    "obs-unk-000513": (
+        "Only a very small U-shaped mark is visible in the low-resolution image; "
+        "individual stroke details require a higher-resolution source check.",
+        "低分辨率图像中仅清楚可见极小 U 形痕迹；单条笔画细节需用更高分辨率来源复核。",
+    ),
+    "obs-unk-000514": (
+        "Two separated compact rectangular forms are visible, each with a short "
+        "upright or horizontal projection.",
+        "图像中有两个分离的紧凑矩形形体，各自带短直立或横向外伸。",
+    ),
+    "obs-unk-000515": (
+        "A dense diagonal left cluster stands beside a narrow right upright with "
+        "several short branching projections; it is visually similar to "
+        "obs-unk-000509 only.",
+        "密集斜向左侧笔组旁有窄直立右侧形体并带短分支外伸；"
+        "仅作与 obs-unk-000509 的视觉比较。",
+    ),
+    "obs-unk-000516": (
+        "A rectangular frame contains several horizontal interior strokes and has "
+        "short projections above and below; it is visually similar to obs-unk-000507 "
+        "only.",
+        "矩形框内有数条横向内部笔，上下有短外伸；仅作与 obs-unk-000507 的视觉比较。",
+    ),
+    "obs-unk-000517": (
+        "A central rounded mark is crossed by a left curved stroke and right side "
+        "projections; a small rectangular base sits below; it is visually similar "
+        "to obs-unk-000511 only.",
+        "中央弧形痕迹被左侧弯曲笔穿过，右侧有外伸，下方有小型矩形基部；"
+        "仅作与 obs-unk-000511 的视觉比较。",
+    ),
+    "obs-unk-000518": (
+        "Two separated rectangular forms have narrow central stems and short upper "
+        "or lower projections.",
+        "两个分离的矩形形体各有窄中央笔干和短上部或下部外伸。",
+    ),
+    "obs-unk-000519": (
+        "A dense upright branching cluster has a small horizontal left projection "
+        "and several curved strokes descending on the right.",
+        "密集直立分支笔组带小型左横向外伸，右侧有数条弯曲下行笔。",
+    ),
+    "obs-unk-000520": (
+        "A dense diagonal composite has crossing central strokes, a pointed lower "
+        "contour, and short side projections.",
+        "密集斜向组合体有中央交叉笔、尖角下部轮廓和短侧向外伸。",
+    ),
 
 }
 

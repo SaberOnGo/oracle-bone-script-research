@@ -5693,6 +5693,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "Two upper looped forms meet at a central junction above a broad curved lower frame.",
             "两个上部回环在中央交汇，下方接宽大的弯曲框线。",
         ),
+        "obs-unk-001221": (
+            "Several branching upper strokes rise from a horizontal middle bar above two low block-like ends.",
+            "数条分支上部线条从中部横带升起，下方有两个低位块状端部。",
+        ),
+        "obs-unk-001222": (
+            "A repeated-opening upper band descends through an angular loop to a pointed lower frame.",
+            "带重复开口的上部横带经折线回环向下连接尖状底部框线。",
+        ),
+        "obs-unk-001223": (
+            "A gridded left enclosure joins a horizontal bar and a long descending right stroke.",
+            "格状左侧围合连接横向线条，右侧伸出长下垂线。",
+        ),
+        "obs-unk-001224": (
+            "Branching upper strokes extend from a horizontal bar above two low block-like forms.",
+            "分支上部线条从横带向外伸展，下方接两个低位块状形。",
+        ),
+        "obs-unk-001225": (
+            "A branching vertical cluster contains a small inner opening above a lower bar and loop.",
+            "分支竖向线簇内有小开口，下方连接横带和回环。",
+        ),
+        "obs-unk-001226": (
+            "A large rectangular enclosure contains a central diamond opening and a lower pointed loop.",
+            "大型矩形围合内有中央菱形开口，下方接尖状回环。",
+        ),
+        "obs-unk-001227": (
+            "Stacked upper bars surround a narrow central opening and end in a pointed lower branch.",
+            "叠置上部横带围出狭窄中央开口，下方以尖状分支收束。",
+        ),
+        "obs-unk-001228": (
+            "A roof-like triangular cap rests over a short stem and a long rectangular enclosure.",
+            "屋顶状三角上盖位于短主线和长方形围合之上。",
+        ),
+        "obs-unk-001229": (
+            "A rounded upper enclosure contains an opening above a lower frame divided into two openings.",
+            "圆弧上部围合内有开口，下方框线分成两个开口。",
+        ),
+        "obs-unk-001230": (
+            "A stacked rounded and diamond-like upper form stands above a broad curved lower frame.",
+            "叠置的圆弧与菱状上部形位于宽大的弯曲下部框线之上。",
+        ),
+        "obs-unk-001231": (
+            "Two horizontal upper bands sit over a rounded lower enclosure divided into several openings.",
+            "两道横向上部横带位于分成数个开口的圆弧下部围合之上。",
+        ),
+        "obs-unk-001232": (
+            "A forked central stem with side spikes rises above a broad curved lower enclosure.",
+            "带侧向突出的分叉中央主线位于宽大弯曲下部围合之上。",
+        ),
+        "obs-unk-001233": (
+            "A dense left vertical knot is paired with a rounded right loop and branching lower strokes.",
+            "密集左侧竖向线簇与圆弧右侧回环并列，下方有分支线条。",
+        ),
+        "obs-unk-001234": (
+            "Several upper horizontal bands stand above a small left loop and a tall right stacked form.",
+            "数道上部横带位于左侧小回环和右侧高大叠置形之上。",
+        ),
+        "obs-unk-001235": (
+            "A rounded upper enclosure contains a central opening above a lower group of short blocks.",
+            "圆弧上部围合内有中央开口，下方接一组短块状形。",
+        ),
+        "obs-unk-001236": (
+            "Two angular upper points surround a broad middle opening with paired lower looped strokes.",
+            "两个折线状上部尖点围出宽大中部开口，下方有成对回环线条。",
+        ),
+        "obs-unk-001237": (
+            "A dense central knot has a small upper opening, side projections, and a low horizontal frame.",
+            "密集中央线簇带有小上部开口、侧向突起和低位横向框线。",
+        ),
+        "obs-unk-001238": (
+            "Branching upper strokes lead to a central horizontal band and a pointed lower enclosure.",
+            "分支上部线条连接中央横带和尖状下部围合。",
+        ),
+        "obs-unk-001239": (
+            "Two diagonally separated looped forms carry inner openings and short lower side strokes.",
+            "两个沿对角线分隔的回环形各有内开口和短下部侧线。",
+        ),
+        "obs-unk-001240": (
+            "A small left diamond-like cluster stands beside a large curved right form with two lower loops.",
+            "小型菱状左侧线簇与大型弯曲右侧形并列，下方有两个回环。",
+        ),
     }
 )
 

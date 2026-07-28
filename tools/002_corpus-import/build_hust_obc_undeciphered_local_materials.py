@@ -2244,6 +2244,127 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "稀疏分枝直立标记位于较高尖头围合形体旁，后者下方连接"
         "长弧形笔干；仅作与 obs-unk-000396 的视觉比较，不作身份确认。",
     ),
+    "obs-unk-000401": (
+        "A narrow upright mark has a forked upper stroke beside a dense right "
+        "cluster, with a pointed lower extension and several interior strokes.",
+        "窄直立痕迹上部有分叉笔画，右侧邻接密集笔组；下方有尖角外伸，"
+        "内部可见数条笔画。",
+    ),
+    "obs-unk-000402": (
+        "A compact upper crossing sits above a central descending stroke; the "
+        "lower portion forms a rounded loop with a short rightward extension.",
+        "紧凑上部交叉笔组下接中央下行笔画；下部形成弧形环状笔组，"
+        "并向右有短外伸。",
+    ),
+    "obs-unk-000403": (
+        "A small rounded upper cluster is attached to a tall curved central "
+        "stroke, with short right-side projections and a longer lower curve.",
+        "小型弧形上部笔组连接高直弯曲中央笔画，右侧有短外伸，"
+        "下方接较长弧形笔。",
+    ),
+    "obs-unk-000404": (
+        "The image shows a narrow forked upright form beside a dense right "
+        "cluster and a pointed lower extension; it is visually similar to "
+        "obs-unk-000401 only.",
+        "图像显示窄直立分叉形体与右侧密集笔组相邻，并有尖角下伸；"
+        "仅作与 obs-unk-000401 的视觉比较。",
+    ),
+    "obs-unk-000405": (
+        "Two tall curved strokes rise around a rounded lower enclosure; the "
+        "enclosure contains small interior marks and remains visually separate "
+        "from the outer strokes.",
+        "两条高直弯曲笔画围绕下部弧形围合上行；围合内有小型痕迹，"
+        "与外侧笔画的连接关系仍只作视觉记录。",
+    ),
+    "obs-unk-000406": (
+        "A tall narrow form has crossing strokes near the upper middle and an "
+        "open rounded lower contour with a diagonal interior stroke.",
+        "高直窄形体中上部有交叉笔画，下部为开放弧形轮廓，"
+        "内部可见斜向笔画。",
+    ),
+    "obs-unk-000407": (
+        "A broad pointed contour slopes downward and contains several interior "
+        "partitions, including a small enclosed opening near the lower left.",
+        "宽幅尖部轮廓向下倾斜，内部有数处分格，左下附近可见"
+        "小型围合空隙。",
+    ),
+    "obs-unk-000408": (
+        "A small rounded cap sits above a slender descending stem; a broad low "
+        "base extends horizontally with a pointed projection on the right.",
+        "小型弧形上部位于窄长下行笔干之上；下部有宽横基部，"
+        "右侧带尖角外伸。",
+    ),
+    "obs-unk-000409": (
+        "A short upper cross stroke sits over a descending central stem; two "
+        "rounded lower lobes join a long horizontal base.",
+        "短横上部笔位于中央下行笔干之上；下部有两个弧形侧部，"
+        "并连接长横基部。",
+    ),
+    "obs-unk-000410": (
+        "A rectangular upper frame with internal divisions sits above a central "
+        "stem and a broad rounded lower enclosure with a pointed right edge.",
+        "带内部分格的矩形上框位于中央笔干之上；下部为宽弧形围合，"
+        "右缘有尖角外伸。",
+    ),
+    "obs-unk-000411": (
+        "A short upper stem leads into paired curved side contours and a rounded "
+        "lower enclosure, with a small point at the bottom.",
+        "短上部笔干向下连接成对弧形侧轮廓和下部弧形围合，"
+        "最下端带小型尖角。",
+    ),
+    "obs-unk-000412": (
+        "A rounded upper loop with an interior diagonal sits above a broad lower "
+        "block; short side strokes project from the lower horizontal bar.",
+        "弧形上部环状笔组内有斜笔，下方连接宽幅笔块；"
+        "下部横笔两侧有短外伸。",
+    ),
+    "obs-unk-000413": (
+        "A compact rectangular frame contains four visible interior openings; "
+        "two long lower strokes descend and spread apart beneath it.",
+        "紧凑矩形框内可见四处内部空隙；下方有两条长笔向下并"
+        "向两侧分开。",
+    ),
+    "obs-unk-000414": (
+        "A rounded cap sits above a slender descending stem and a broad low base "
+        "with a pointed right projection; it is visually similar to obs-unk-000408 "
+        "only.",
+        "弧形上部位于窄长下行笔干之上，下部有宽横基部和右侧尖角外伸；"
+        "仅作与 obs-unk-000408 的视觉比较。",
+    ),
+    "obs-unk-000415": (
+        "A short upper cross stroke sits above a descending stem and two rounded "
+        "lower lobes joined to a long base; it is visually similar to "
+        "obs-unk-000409 only.",
+        "短横上部笔位于下行笔干之上，下部有两个弧形侧部并连接长基部；"
+        "仅作与 obs-unk-000409 的视觉比较。",
+    ),
+    "obs-unk-000416": (
+        "A detached dark triangular mark is above a broad lower curved enclosure "
+        "crossed by horizontal strokes and a diagonal interior line.",
+        "分离的深色三角痕迹位于下部宽弧形围合之上；围合内有横向笔画，"
+        "并可见一条内部斜笔。",
+    ),
+    "obs-unk-000417": (
+        "A three-lobed upper cluster sits above a rounded enclosure containing a "
+        "small central rectangular opening.",
+        "三瓣状上部笔组位于弧形围合之上，围合内部有小型中央矩形空隙。",
+    ),
+    "obs-unk-000418": (
+        "A tall oval enclosure contains two narrow interior vertical strokes; a "
+        "rounded lower loop or base is attached below it.",
+        "高直椭圆围合内有两条窄长内部竖笔；下方连接弧形环状笔组或基部。",
+    ),
+    "obs-unk-000419": (
+        "A broad upper bar contains two rounded divisions above a short central "
+        "stem and a small lower rounded rectangular enclosure.",
+        "宽幅上横笔内有两处分格，下方连接短中央笔干和小型下部弧角矩形围合。",
+    ),
+    "obs-unk-000420": (
+        "A pointed triangular upper contour sits above a narrow stem and an open "
+        "rounded lower form with a short rightward stroke.",
+        "尖角三角上部轮廓位于窄长笔干之上；下部为开放弧形形体，"
+        "右侧带短向外笔画。",
+    ),
 
 }
 

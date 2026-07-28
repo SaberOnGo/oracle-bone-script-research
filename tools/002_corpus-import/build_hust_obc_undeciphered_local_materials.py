@@ -1276,6 +1276,107 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "only.",
         "图像与视觉对比的 obs-unk-000217 相似，均见弧形轮廓、向下长斜笔和底部短横笔；不作身份确认。",
     ),
+    "obs-unk-000221": (
+        "A forked upper contour rises above a narrow central stem; short lower "
+        "branches extend outward on both sides.",
+        "分叉的上部轮廓位于窄中央笔干之上；下方两侧各有向外伸出的短分支。",
+    ),
+    "obs-unk-000222": (
+        "A compact crossed form has two long diagonal side strokes, a central "
+        "crossing, and short lower projections.",
+        "紧凑交叉形体有两条长斜侧笔，中部交叉，下方有短外伸痕迹。",
+    ),
+    "obs-unk-000223": (
+        "A dense closed-looking form has a broad upright left section, angular "
+        "central crossings, and short projections on the right.",
+        "密集且外围较封闭的形体左侧为宽直立部分，中部有折角交叉，右侧有短外伸痕迹。",
+    ),
+    "obs-unk-000224": (
+        "Two separated upright groups are visible: a narrow left cluster and a "
+        "right cluster with crossing upper strokes and a curved lower extension.",
+        "图像可见两个分离的直立笔组：左侧为窄笔组，右侧上部交叉并向下接弯曲外伸痕迹。",
+    ),
+    "obs-unk-000225": (
+        "A symmetrical stacked form has a broad upper horizontal bar, central "
+        "crossing diagonals, and a long lower horizontal base.",
+        "对称叠置形体上部有宽横栏，中部为交叉斜笔，下方有长横向底部。",
+    ),
+    "obs-unk-000226": (
+        "A pointed upper cap sits above a narrow central stem; two lower side "
+        "groups contain several short prongs.",
+        "尖状上部位于窄中央笔干之上；下方两侧笔组各含数处短尖痕迹。",
+    ),
+    "obs-unk-000227": (
+        "A broad upper horizontal form sits above a central descending stem and "
+        "two small lower pendant clusters.",
+        "宽大的上部横向形体下接中央下降笔干，底部有两个小型下垂笔组。",
+    ),
+    "obs-unk-000228": (
+        "The image repeats the compact crossed form, long diagonal side strokes, "
+        "and short lower projections seen for obs-unk-000222; visual comparison "
+        "only.",
+        "图像与视觉对比的 obs-unk-000222 相似，均见紧凑交叉形体、长斜侧笔和下方短外伸痕迹；不作身份确认。",
+    ),
+    "obs-unk-000229": (
+        "A dense form contains several upright and curved strokes, with a small "
+        "rounded mark on the left and clustered projections on the right.",
+        "密集形体含多条直向和弯曲笔画，左侧有小型弧形痕迹，右侧有成组外伸痕迹。",
+    ),
+    "obs-unk-000230": (
+        "Two open upper branches meet a descending central stem; a short "
+        "horizontal base closes the lower end.",
+        "两个开放的上部支分汇入中央下降笔干；下端由短横向底部收束。",
+    ),
+    "obs-unk-000231": (
+        "A tall narrow dense form has parallel side strokes, a compact central "
+        "cluster, and a short lower block.",
+        "高而窄的密集形体有平行侧笔，中部为紧凑笔组，下方有短块状部分。",
+    ),
+    "obs-unk-000232": (
+        "An open rounded upper contour contains a short central crossbar and a "
+        "long curved stroke descending on the right.",
+        "开放的弧形上部轮廓内有短中央横笔，右侧向下接长弯曲笔画。",
+    ),
+    "obs-unk-000233": (
+        "A dense upper cluster has crossing strokes and a rounded lower enclosure "
+        "with a short right-side extension.",
+        "密集上部笔组含交叉笔画，下方有弧形围合，并带一处右侧短外伸痕迹。",
+    ),
+    "obs-unk-000234": (
+        "A compact upright form has a central descending stem with two diagonal "
+        "side branches crossing near the middle.",
+        "紧凑直立形体有中央下降笔干，中部附近交叉着两条斜向侧分支。",
+    ),
+    "obs-unk-000235": (
+        "The image repeats the narrow upright form, upper short prongs, and "
+        "stacked lower crossbars seen for obs-unk-000214; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000214 相似，均见窄长直立形体、上方短尖和下方叠置横笔；不作身份确认。",
+    ),
+    "obs-unk-000236": (
+        "A forked upper section sits above a small central block and a broad "
+        "lower horizontal bar.",
+        "分叉的上部位于小型中央块状部分之上，下方有宽横向底栏。",
+    ),
+    "obs-unk-000237": (
+        "An open rounded upper enclosure contains dense short strokes; a long "
+        "descending stroke turns outward on the lower right.",
+        "开放的弧形上部围合内有密集短笔，下方右侧接长下降笔并向外转出。",
+    ),
+    "obs-unk-000238": (
+        "The image repeats the open rounded enclosure and long lower-right "
+        "descending stroke seen for obs-unk-000237; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000237 相似，均见开放弧形围合和右下长下降笔；不作身份确认。",
+    ),
+    "obs-unk-000239": (
+        "Two small upper groups flank a central gap; the lower area has a long "
+        "diagonal stroke and a short hooked extension.",
+        "两个小型上部笔组夹住中央空隙；下方有长斜笔和短钩状外伸痕迹。",
+    ),
+    "obs-unk-000240": (
+        "Two separated marks are visible: a narrow left form with a crossbar and "
+        "long diagonal, and a small closed-looking right form.",
+        "图像可见两个分离痕迹：左侧窄形体带横笔和长斜笔，右侧为小型外围较封闭形体。",
+    ),
 }
 
 

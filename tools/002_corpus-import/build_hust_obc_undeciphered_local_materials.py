@@ -3497,6 +3497,91 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
     }
 )
 
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000681": (
+            "A left rectangular panel and a right looped form are linked by a central stem, with a long descent below the right form.",
+            "左侧矩形笔板与右侧环状笔组由中轴连接，右侧下方有长下行笔画。",
+        ),
+        "obs-unk-000682": (
+            "A detached curved stroke stands left of a dense upper cluster with an inner band and a long descent to a lower rectangle.",
+            "分离弧形笔位于密集上部笔组左侧，笔组内有横带，长笔下行至下部矩形。",
+        ),
+        "obs-unk-000683": (
+            "A looped left form with a long lower descent stands beside a pointed upper mark and a separate tall stem.",
+            "带长下行笔的环状左部旁有尖角上部痕迹和分离高直中轴。",
+        ),
+        "obs-unk-000684": (
+            "A dense diagonal cluster has a small central opening, parallel lower strokes, and pointed outer projections.",
+            "密集斜向笔组中有小型中部空隙，下方有平行笔画和尖角外伸。",
+        ),
+        "obs-unk-000685": (
+            "A broad angular enclosure contains an upper horizontal bar and central stem, bounded by two curved side strokes.",
+            "宽折角围合内有上部横痕和中轴，两侧由弧形笔画围住。",
+        ),
+        "obs-unk-000686": (
+            "Two rectangular looped panels flank a central crossing and upright stroke, with pointed projections below.",
+            "两个矩形环状笔板夹住中部交叉和竖向笔画，下方有尖角外伸。",
+        ),
+        "obs-unk-000687": (
+            "A tall wavy looped form stands left of a separate pointed cap and an open lower loop with pointed projections.",
+            "高直波曲环状笔组位于分离尖角笔帽和开放下部环组左侧，下部有尖角外伸。",
+        ),
+        "obs-unk-000688": (
+            "Two rectangular panels each contain horizontal interior bars, with a short lower base on the left and a curved descent on the right.",
+            "两个矩形笔板各有横向内痕，左下方有短底部，右侧有弧形下行。",
+        ),
+        "obs-unk-000689": (
+            "A horizontal crossing surrounds a small central oval, with a curved stem and side projections extending below.",
+            "横向交叉围绕小型中部椭圆痕迹，下方有弧形中轴和侧向外伸。",
+        ),
+        "obs-unk-000690": (
+            "A tall pointed central mass stands between curved side strokes above a broad lower enclosure with a small opening.",
+            "高直尖角中部位于两侧弧形笔之间，下方接带小空隙的宽围合。",
+        ),
+        "obs-unk-000691": (
+            "A tall rectangular panel with a lower curved projection stands beside a separate short curved vertical stroke.",
+            "高直矩形笔板下方有弧形外伸，旁边另有分离短弧形竖笔。",
+        ),
+        "obs-unk-000692": (
+            "A broad upper arch and horizontal band sit above a central oval and dense lower branching projections.",
+            "宽上部拱形和横带位于中部椭圆痕迹之上，下方有密集分支外伸。",
+        ),
+        "obs-unk-000693": (
+            "A tall central branching form has an inner opening and curled side marks, ending in a lower triangular base.",
+            "高直中部分支笔组有内侧空隙和两侧卷曲痕迹，底部收于三角底座。",
+        ),
+        "obs-unk-000694": (
+            "A peaked dense cluster has a rounded central opening, parallel lower strokes, and a pointed right edge.",
+            "密集尖顶笔组中有圆形中部空隙，下方有平行笔画，右侧边缘尖出。",
+        ),
+        "obs-unk-000695": (
+            "A stacked looped left form stands beside a tall narrow right stem with a small lower loop and point.",
+            "叠置环状左部位于高窄右侧中轴旁，右侧下方有小环和尖角外伸。",
+        ),
+        "obs-unk-000696": (
+            "A tall rectangular left panel with an inner opening stands beside a smaller right looped panel and lower curved strokes.",
+            "高直左侧矩形笔板内有空隙，旁边是较小右侧环状笔板和下部弧形笔画。",
+        ),
+        "obs-unk-000697": (
+            "A stacked double-loop form descends to a pointed lower mark, beside a separate tall stem with a pointed cap.",
+            "叠置双环笔组向下连接尖角痕迹，旁边有带尖角笔帽的分离高直中轴。",
+        ),
+        "obs-unk-000698": (
+            "Two rectangular panels stand above a lower central crossing with branching downward projections.",
+            "两个矩形笔板位于下部中部交叉之上，下方有分支下行外伸。",
+        ),
+        "obs-unk-000699": (
+            "A broad rounded left loop is paired with a tall curved right form containing a small opening and lower hook.",
+            "宽弧形左环与高直弧形右部并列，右部内有小空隙和下部钩状笔画。",
+        ),
+        "obs-unk-000700": (
+            "Two dense neighboring forms are visible: the left is wavy and looped, while the right has pointed upper and lower projections.",
+            "可见两个相邻密集笔组：左侧波曲并带环状痕迹，右侧上下都有尖角外伸。",
+        ),
+    }
+)
+
 @dataclass(frozen=True)
 class Candidate:
     project_id: str

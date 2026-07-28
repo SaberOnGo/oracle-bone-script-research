@@ -4653,6 +4653,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A broad dark upper curve sits over a lower framed block with two horizontal bands and a separate right curve.",
             "宽厚的上部深色弧线位于下部框状块体之上，块体含两道横带，右侧另有曲线。",
         ),
+        "obs-unk-000961": (
+            "A tall left loop with two horizontal bands stands beside a central stem and a hooked right stroke, with a lower descent.",
+            "左侧高大的回环带两道横带，旁边是中央主线和右侧钩形线，下方继续下垂。",
+        ),
+        "obs-unk-000962": (
+            "A tall central stem rises from a broad lower lattice, with short side curves and a diagonal upper tip.",
+            "高大的中央主线从宽大的下部格状线簇升起，两侧有短曲线，顶部带斜向尖端。",
+        ),
+        "obs-unk-000963": (
+            "A curved vertical stroke on the left frames an angular central cluster beside a pointed right form and crossing lower strokes.",
+            "左侧弯曲竖线围合中央折线簇，右侧为尖形体，下方有交叉线条。",
+        ),
+        "obs-unk-000964": (
+            "A compact branching cluster combines a left rounded enclosure, central crossing strokes, and a pointed right tip.",
+            "紧密的分叉线簇由左侧圆曲围合、中央交叉线和右侧尖端组成。",
+        ),
+        "obs-unk-000965": (
+            "A large pointed outer arch encloses several looped and angular inner forms, ending in a zigzag lower stroke.",
+            "大型尖拱外框围住数个回环与折线内部形体，末端接下部曲折线。",
+        ),
+        "obs-unk-000966": (
+            "Two upper side loops flank a central peak, above a lower framed loop and a pointed descending stroke.",
+            "两个上部侧回环夹住中央尖峰，下方是框状回环和尖形下垂线。",
+        ),
+        "obs-unk-000967": (
+            "A central vertical oval rises above a triangular middle and broad lower frame, flanked by two small side loops.",
+            "中央竖向椭圆位于三角中部和宽下框之上，两侧有两个小回环。",
+        ),
+        "obs-unk-000968": (
+            "A tall stem ends in a U-shaped upper loop with a detached dot, above two side loops and a framed lower section.",
+            "高大主线顶部收于带分离点的 U 形回环，下方两侧有回环并接框状底部。",
+        ),
+        "obs-unk-000969": (
+            "A pointed outer arch encloses a dense inner cluster and a small dot, followed by a pointed lower loop.",
+            "尖拱外框围住密集内部线簇和小点，下方接尖形回环。",
+        ),
+        "obs-unk-000970": (
+            "Short horizontal marks sit left of a forked upper stem, with a lower square-like form and a large right loop.",
+            "短横线位于分叉上部主线左侧，下方有方框状形体，右侧为大型回环。",
+        ),
+        "obs-unk-000971": (
+            "A small hooked form, a large rounded loop, and a tall upright stem form a clustered arrangement with lower loops.",
+            "小钩形、大圆回环和高直立主线组成线簇，下方还有回环形体。",
+        ),
+        "obs-unk-000972": (
+            "A dense horizontal upper lattice carries repeated short vertical projections and a broad curved descent at the right.",
+            "密集的上部横向格状线带有重复短竖向突出，右侧连接宽大的弧形下垂。",
+        ),
+        "obs-unk-000973": (
+            "Two upper side loops flank a central point, above a lower framed loop that ends in a pointed stroke.",
+            "两个上部侧回环夹住中央尖点，下方为框状回环并收于尖形线。",
+        ),
+        "obs-unk-000974": (
+            "A tall curved left outline surrounds a central angular cluster, beside a broad right curve and a small lower tip.",
+            "高大的左侧弧形外线围住中央折线簇，右侧为宽弧线并带小下部尖端。",
+        ),
+        "obs-unk-000975": (
+            "A short T-like left form stands beside a tall central loop and a dense right lattice with lower rounded openings.",
+            "左侧短 T 形线旁为高大的中央回环，右侧是密集格状线簇并有下部圆曲开口。",
+        ),
+        "obs-unk-000976": (
+            "A broad curved left stroke borders a dense central looped cluster, with angled right strokes and a lower hook.",
+            "宽大的左侧弧线围着中央密集回环簇，右侧有倾斜线，下方接钩形线。",
+        ),
+        "obs-unk-000977": (
+            "A long left curve accompanies a central looped cluster and a crossing right form that ends in a pointed lower stroke.",
+            "长左弧线与中央回环簇并列，右侧交叉形体末端为尖形下垂线。",
+        ),
+        "obs-unk-000978": (
+            "A rounded upper loop with an inner opening sits over angular lower strokes, beside a separate left curve.",
+            "带内部开口的圆曲上部回环位于下部折线之上，左侧另有分离弧线。",
+        ),
+        "obs-unk-000979": (
+            "A rounded upper loop and central opening are joined to angular lower strokes, with a separate curved left line.",
+            "圆曲上部回环和中央开口连接下部折线，左侧有分离曲线。",
+        ),
+        "obs-unk-000980": (
+            "A broad curved left stroke meets a long pointed horizontal form, with a separate small pointed stroke below.",
+            "宽大的左侧弧线与长尖横向形体相接，下方另有小尖形线。",
+        ),
     }
 )
 

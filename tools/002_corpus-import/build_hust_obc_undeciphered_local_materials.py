@@ -5213,6 +5213,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A large circular outer loop contains a narrow inner opening and extends into three long lower strokes.",
             "大型圆形外回环含窄内部开口，并向下延出三条长线。",
         ),
+        "obs-unk-001101": (
+            "A broad outer curve arches over a rounded lower enclosure with three inner openings and a pointed upper tip.",
+            "宽大的外弧线拱过圆曲下部围合，围合内有三个开口，顶部带尖端。",
+        ),
+        "obs-unk-001102": (
+            "A central branching cluster stands beside a tall rectangular right enclosure and angular lower strokes.",
+            "中央分支线簇与高大的右侧矩形围合并列，下方为折线。",
+        ),
+        "obs-unk-001103": (
+            "A pointed triangular cap sits over a small rectangular middle section and a lower triangular loop.",
+            "尖三角顶部位于小矩形中部和下部三角回环之上。",
+        ),
+        "obs-unk-001104": (
+            "A triangular upper cap has a small lower rectangle, a broad wavy base, and detached side dots.",
+            "三角上部顶部带小下部矩形、宽波曲底部和分离侧点。",
+        ),
+        "obs-unk-001105": (
+            "A central vertical zigzag loop rises into broad branching strokes and ends in a lower pointed form.",
+            "中央竖向折线回环向上连接宽分支线，并收于下部尖形。",
+        ),
+        "obs-unk-001106": (
+            "Two upper looped stems sit above a central stack of rounded horizontal bands.",
+            "两个上部回环主线位于中央层叠圆曲横带之上。",
+        ),
+        "obs-unk-001107": (
+            "A detached curved stroke on the left accompanies a tall angular enclosure with inner openings and a long right line.",
+            "左侧分离弧线伴随高大的折线围合，围合内有开口，右侧接长线。",
+        ),
+        "obs-unk-001108": (
+            "A broad rounded outer form contains angular inner openings and rests over a lower triangular base.",
+            "宽大的圆曲外形含折线内部开口，并位于下部三角底座之上。",
+        ),
+        "obs-unk-001109": (
+            "A broad pointed upper form leads into a lower angular frame with a small rectangular opening.",
+            "宽大的尖形上部连接下部折线框，框内有小矩形开口。",
+        ),
+        "obs-unk-001110": (
+            "A circular upper loop on a stem connects to a lower loop and a branching right form.",
+            "主线上的圆形上部回环连接下部回环和右侧分支形体。",
+        ),
+        "obs-unk-001111": (
+            "A rounded upper band with several openings sits above dense lower loops and a long curved descent.",
+            "带多个开口的圆曲上部横带位于密集下部回环和长弧下垂之上。",
+        ),
+        "obs-unk-001112": (
+            "A broad upper band with inner openings leads into dense lower looped forms and a long curved stroke.",
+            "宽大的带内部开口上部横带连接密集下部回环形和长弧线。",
+        ),
+        "obs-unk-001113": (
+            "A narrow vertical looped stack has branching upper strokes and several lower side projections.",
+            "窄长的竖向回环层叠形带分支上部线和数个下部侧向突出。",
+        ),
+        "obs-unk-001114": (
+            "A pointed triangular top caps a central looped stack, with a long angled descent on the right.",
+            "尖三角顶部覆盖中央回环层叠形，右侧连接长倾斜下垂线。",
+        ),
+        "obs-unk-001115": (
+            "A dense left vertical cluster stands beside an angular right loop and a lower rectangular loop.",
+            "左侧密集竖向线簇与右侧折线回环并列，下方接矩形回环。",
+        ),
+        "obs-unk-001116": (
+            "A narrow stacked looped form has branching upper strokes and pointed lower side projections.",
+            "窄长的层叠回环形带分支上部线和尖形下部侧向突出。",
+        ),
+        "obs-unk-001117": (
+            "A left diamond loop with inner openings is paired with a small right loop and branching lower strokes.",
+            "左侧带内部开口的菱状回环与右侧小回环并列，下方为分支线。",
+        ),
+        "obs-unk-001118": (
+            "Several narrow vertical looped forms stand beside a large angular right enclosure with a lower frame.",
+            "数个窄长竖向回环形与右侧大型折线围合并列，围合下方接框形。",
+        ),
+        "obs-unk-001119": (
+            "Multiple vertical looped forms accompany a tall angular right form with a lower rectangular opening.",
+            "多个竖向回环形伴随高大的右侧折线形体，下方有矩形开口。",
+        ),
+        "obs-unk-001120": (
+            "A large pointed outer enclosure contains a central stem and inner looped strokes.",
+            "大型尖形外框围住中央主线和内部回环线条。",
+        ),
     }
 )
 

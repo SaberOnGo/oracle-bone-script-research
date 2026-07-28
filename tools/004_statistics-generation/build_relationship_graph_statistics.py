@@ -20,6 +20,7 @@ GRAPH_EDGE_FILES = [
     Path("corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl"),
     Path("corpus/008_relationship-graph/013_character-source-graph-edges.jsonl"),
+    Path("corpus/008_relationship-graph/014_character-variant-graph-edges.jsonl"),
 ]
 DEFAULT_EDGE_TYPE_OUTPUT = Path(
     "corpus/009_statistics-and-derived-features/"

@@ -63,6 +63,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   records the current evidence gap before any character-inscription edge.
 - `224_character-inscription-linkage-audit-index.json`
   is the machine-readable count supporting the human linkage audit.
+- `225_character-variant-linkage-audit.md`
+  records the human-readable evidence boundary for candidate variant routes.
+- `226_character-variant-linkage-audit-index.json`
+  is the machine-readable count supporting the variant linkage audit.
 - `225_source-access-boundary-human-review.md`
   groups repeated access attempts into source and failure-condition tasks.
 - `226_source-access-boundary-review-index.csv`
@@ -90,6 +94,8 @@ substitutes for object-local dossiers, source records, or review sheets.
 
 - Open `223_character-inscription-linkage-audit.md` before using any
   character-inscription graph route.
+- Open `225_character-variant-linkage-audit.md` before using any
+  character-variant graph route.
 - Follow its cited object-local `21_character-inscription-linkage-review.md`
   files to collect plate, text, position, and character-ID evidence.
 - A zero promoted-edge count is an audited evidence gap, not a claim that

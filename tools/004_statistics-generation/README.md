@@ -68,6 +68,8 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `219_shape-component-evolution-phase-gap-human-guide.md`.
 - Character-inscription linkage audit:
   `223_character-inscription-linkage-audit.md` and its supporting index.
+- Character-variant linkage audit:
+  `225_character-variant-linkage-audit.md` and its supporting index.
 - Character image observation audit:
   `226_character-visual-observation-coverage-audit.md` and
   `227_character-visual-observation-coverage.csv`.

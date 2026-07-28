@@ -75,6 +75,8 @@ using any edge as evidence.
   writes topic, period, and inscription-crosswalk route edges.
 - `build_character_source_graph_edges.py`
   writes character-candidate to registered-source provenance routes.
+- `build_character_variant_graph_edges.py`
+  writes OBIMD sub-character/main-character variant review routes.
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -85,6 +87,7 @@ using any edge as evidence.
 - Does the edge merely link codepoints, or does it have reviewed evidence?
 - Which component, inscription, or evolution link remains candidate-only?
 - Which graph edge must not be treated as a scholarly conclusion?
+- Which OBIMD hierarchy row still needs side-by-side visual comparison?
 
 - 哪个图边文件包含该候选对象的路线？
 - 哪条来源行、package manifest 和 checksum 支撑这条图边？
@@ -93,6 +96,7 @@ using any edge as evidence.
 - 图边只是连接 codepoint，还是已有复核证据？
 - 哪条构件、卜辞或演化路线仍只是候选？
 - 哪条图边不能被当作学术结论？
+- 哪条 OBIMD 层级记录仍需并列图像比较？
 
 ## Boundaries / 边界
 

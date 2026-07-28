@@ -1,0 +1,28 @@
+{
+  "claim_boundary": [
+    "no formal variant judgment",
+    "no oracle-character identity claim",
+    "no accepted reading",
+    "no decipherment conclusion"
+  ],
+  "graph_edge_count": 2747,
+  "graph_file": "corpus/008_relationship-graph/014_character-variant-graph-edges.jsonl",
+  "graph_review_status_counts": {
+    "needs_cross_source_review": 2747
+  },
+  "human_readable_file": "corpus/009_statistics-and-derived-features/225_character-variant-linkage-audit.md",
+  "promotion_status_counts": {
+    "": 2747
+  },
+  "record_type": "character_variant_linkage_audit_index",
+  "relation_type_counts": {
+    "": 2747
+  },
+  "review_status": "candidate_variant_routes_require_human_review",
+  "source_id": "src-obimd",
+  "staging_file": "corpus/003_graphemic-components/000_component-registers/002_obimd-subcharacter-main-staging.csv",
+  "staging_row_count": 2747,
+  "unique_main_character_count": 1730,
+  "unique_subcharacter_count": 2747,
+  "updated_at": "2026-07-29"
+}

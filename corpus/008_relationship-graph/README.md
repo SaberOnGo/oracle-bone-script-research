@@ -51,6 +51,7 @@ English:
 | `011_component-asset-graph-edges.jsonl` | Component to local asset review routes. |
 | `012_cambridge-hopkins-topic-candidate-graph-edges.jsonl` | Topic and crosswalk review routes. |
 | `013_character-source-graph-edges.jsonl` | Character candidate to registered source routes. |
+| `014_character-variant-graph-edges.jsonl` | Candidate variant review routes. |
 
 ## Edge Dossier Content / 图边档案内容
 
@@ -78,6 +79,15 @@ English:
 - Which `cross-source-id` edge has conflicting external ids?
 - Which `evolution/correspondence` edge is only a dataset route?
 - Which edge must not be cited as accepted scholarship?
+
+The `014_character-variant-graph-edges.jsonl` file is derived from the
+OBIMD sub-character/main-character staging table. Its rows are dataset
+hierarchy routes only. They require visual comparison, source checking, and
+scholarly review before any variant relation is promoted.
+
+`014_character-variant-graph-edges.jsonl` 来自 OBIMD 子字符/主字符
+staging 表。每行只是数据集层级路线，必须经过字形图像比较、来源核对
+和学术复核，才能考虑提升为异体关系。
 
 简体中文：
 

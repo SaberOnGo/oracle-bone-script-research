@@ -2584,6 +2584,114 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "two long diverging lower strokes.",
         "中央直立笔干被两条上部斜笔交叉，并在下方分成两条长外张笔。",
     ),
+    "obs-unk-000461": (
+        "Two neighboring narrow rectangular forms each have a short upper cap, "
+        "interior vertical strokes, and a pointed lower extension.",
+        "两个相邻窄矩形形体各有短上部笔帽、内部竖笔和尖角下伸。",
+    ),
+    "obs-unk-000462": (
+        "Two adjacent forms are visible: the left has a rounded top and split "
+        "lower legs, while the right is a compact framed mark with a small upper "
+        "projection.",
+        "图像中有两个相邻形体：左侧顶部弧形、下部笔画分开，右侧为紧凑围框痕迹，"
+        "上部带小型外伸。",
+    ),
+    "obs-unk-000463": (
+        "A rounded central enclosure has several forked upper projections and two "
+        "diagonal lower strokes extending outward.",
+        "弧形中央围合带有数个分叉上伸，下方有两条斜笔向外延伸。",
+    ),
+    "obs-unk-000464": (
+        "A tall branching form has two curved outer legs and a narrower central "
+        "stroke descending between them.",
+        "高直分支形体有两条弧形外侧笔，中间夹一条较窄下行笔。",
+    ),
+    "obs-unk-000465": (
+        "A dense upper crossing cluster sits above a rounded rectangular lower "
+        "enclosure with a short central extension.",
+        "密集上部交叉笔组位于弧角矩形下部围合之上，围合下方有短中央外伸。",
+    ),
+    "obs-unk-000466": (
+        "Two tall upper strokes frame a small central rounded opening; several "
+        "short pointed strokes project from the lower cluster.",
+        "两条高直上部笔围住小型中央弧形空隙，下部笔组有数条短尖角外伸。",
+    ),
+    "obs-unk-000467": (
+        "Several dense wavy vertical strokes form a narrow cluster with a small "
+        "central loop and a slanting side projection.",
+        "数条密集弯曲竖笔形成窄长笔组，中部有小型环状笔，侧面有斜向外伸。",
+    ),
+    "obs-unk-000468": (
+        "A thick left upright is crossed by a central horizontal stroke; a small "
+        "upper diamond-like mark and short lower projections stand to the right.",
+        "粗重左侧直笔被中央横笔穿过；右侧有小型菱角状上部痕迹和短下伸。",
+    ),
+    "obs-unk-000469": (
+        "A broad two-legged curved form stands beside a separate narrow right mark "
+        "with a small rounded lower end.",
+        "宽幅双足弧形形体旁边有分离的窄长右侧痕迹，末端带小型弧形笔。",
+    ),
+    "obs-unk-000470": (
+        "A rounded rectangular upper frame contains a central loop; several "
+        "pointed lower strokes descend beneath it.",
+        "弧角矩形上框内有中央环状笔组，下方有数条尖角下行笔。",
+    ),
+    "obs-unk-000471": (
+        "A small curved central cluster is surrounded by several detached short "
+        "diagonal marks; the image limits resolution of individual breaks.",
+        "小型弧形中央笔组周围有数个分离短斜痕；图像分辨率限制了"
+        "单条笔画断续的判断。",
+    ),
+    "obs-unk-000472": (
+        "A tall central stem has a small rounded upper enclosure, curved side "
+        "strokes, and a pointed lower extension.",
+        "高直中央笔干上部有小型弧形围合，两侧有弯曲笔画，下方有尖角外伸。",
+    ),
+    "obs-unk-000473": (
+        "A tall central stem has a small rounded upper enclosure, curved side "
+        "strokes, and a pointed lower extension; it is visually similar to "
+        "obs-unk-000472 only.",
+        "高直中央笔干上部有小型弧形围合，两侧有弯曲笔画，下方有尖角外伸；"
+        "仅作与 obs-unk-000472 的视觉比较。",
+    ),
+    "obs-unk-000474": (
+        "A tall central stem has a small rounded upper enclosure, curved side "
+        "strokes, and a pointed lower extension; it is visually similar to "
+        "obs-unk-000472 and obs-unk-000473 only.",
+        "高直中央笔干上部有小型弧形围合，两侧有弯曲笔画，下方有尖角外伸；"
+        "仅作与 obs-unk-000472、obs-unk-000473 的视觉比较。",
+    ),
+    "obs-unk-000475": (
+        "A sparse rectangular frame has a curved left side and a long angled "
+        "stroke descending from the right.",
+        "稀疏矩形框左侧为弧形笔，右侧有长斜笔向下延伸。",
+    ),
+    "obs-unk-000476": (
+        "A rounded left mark connects to a curved right stem ending below a small "
+        "detached upper block.",
+        "左侧弧形痕迹连接右侧弯曲笔干，笔干上方有分离的小型笔块。",
+    ),
+    "obs-unk-000477": (
+        "A compact upper rectangular cluster sits above a central stem that splits "
+        "into two long lower strokes.",
+        "紧凑上部矩形笔组位于中央笔干之上，中央笔干下方分成两条长笔。",
+    ),
+    "obs-unk-000478": (
+        "A diagonal composite has stacked diamond-like upper enclosures and lower "
+        "angular strokes extending toward the left.",
+        "斜向组合体上部有叠置菱角状围合，下部折角笔画向左外伸。",
+    ),
+    "obs-unk-000479": (
+        "A broad pointed upper enclosure contains several descending interior "
+        "strokes that end at different heights.",
+        "宽幅尖角上部围合内有数条下行内部笔画，末端高度不一。",
+    ),
+    "obs-unk-000480": (
+        "A rounded left mark connects to a curved right stem ending below a small "
+        "detached upper block; it is visually similar to obs-unk-000476 only.",
+        "左侧弧形痕迹连接右侧弯曲笔干，笔干上方有分离的小型笔块；"
+        "仅作与 obs-unk-000476 的视觉比较。",
+    ),
 
 }
 

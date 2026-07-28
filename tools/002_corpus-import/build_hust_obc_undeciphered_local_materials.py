@@ -5293,6 +5293,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A large pointed outer enclosure contains a central stem and inner looped strokes.",
             "大型尖形外框围住中央主线和内部回环线条。",
         ),
+        "obs-unk-001121": (
+            "A small diamond enclosure with a central opening sits above a broad four-cell frame.",
+            "小型菱形围合带中央开口，位于宽大的四区格框架上方。",
+        ),
+        "obs-unk-001122": (
+            "A pointed upper cap and narrow central loop descend into a long split lower form.",
+            "尖状上部与狭窄中央回环向下连接成长条分叉形。",
+        ),
+        "obs-unk-001123": (
+            "A tall triangular loop crowns a broad horizontal body with a small side opening.",
+            "高耸三角回环位于宽阔横向主体上方，侧面留有小开口。",
+        ),
+        "obs-unk-001124": (
+            "A roof-like triangular frame rests over a short stem and a long rectangular enclosure.",
+            "屋顶状三角框位于短主线和长方形围合的上方。",
+        ),
+        "obs-unk-001125": (
+            "A compact crossed upper cluster encloses a narrow loop and ends in a pointed lower tip.",
+            "紧密交叉的上部线簇围出细长回环，并以尖状下端收束。",
+        ),
+        "obs-unk-001126": (
+            "Two angular upper lobes flank a central opening above a rounded lower loop.",
+            "两个折线状上部突起夹着中央开口，下方接圆弧回环。",
+        ),
+        "obs-unk-001127": (
+            "A small rounded cluster is paired with a tall narrow loop and a short lower branch.",
+            "小型圆弧线簇与高而窄的回环并列，并带有短小下部分支。",
+        ),
+        "obs-unk-001128": (
+            "A small left loop stands beside a larger right angular enclosure with an inner opening.",
+            "左侧小回环与右侧较大的折线围合并列，右侧内部留有开口。",
+        ),
+        "obs-unk-001129": (
+            "A pointed outer frame contains a long inner opening and a separate curved right stroke.",
+            "尖状外框包围长形内开口，右侧另有独立弯曲线条。",
+        ),
+        "obs-unk-001130": (
+            "A triangular outline with a smaller inner triangle is followed by a narrow curved side form.",
+            "三角外轮廓内含较小三角开口，旁接细长弯曲侧部形。",
+        ),
+        "obs-unk-001131": (
+            "A diamond-shaped loop with a central opening sits over a short rounded base.",
+            "带中央开口的菱形回环位于短小圆弧底部之上。",
+        ),
+        "obs-unk-001132": (
+            "A stacked upper pair of horizontal openings narrows into a rounded lower enclosure.",
+            "上部两层横向开口叠置，向下收成圆弧形围合。",
+        ),
+        "obs-unk-001133": (
+            "A tall rounded enclosure contains a narrow inner loop and a pointed lower projection.",
+            "高而圆弧的围合内含细长回环，下方伸出尖状突起。",
+        ),
+        "obs-unk-001134": (
+            "A branching upper stem spreads over an angular left opening and a small right loop.",
+            "分支上部主线横展于左侧折线开口与右侧小回环之上。",
+        ),
+        "obs-unk-001135": (
+            "A dense vertical central bundle is crossed by short side strokes and a pointed lower end.",
+            "密集中央竖向线束被短侧线交叉，下端形成尖状收束。",
+        ),
+        "obs-unk-001136": (
+            "A tall angular enclosure contains two inner openings and a long curved stroke on the side.",
+            "高大的折线围合内有两个开口，侧面伴随一条长弯曲线。",
+        ),
+        "obs-unk-001137": (
+            "A pointed inner loop is enclosed by a broad outer frame with a separate vertical side line.",
+            "尖状内回环被宽大外框围住，旁有独立竖向线条。",
+        ),
+        "obs-unk-001138": (
+            "A horizontal upper bar supports a central branching form and a small lower rounded loop.",
+            "横向上部线条承托中央分支形，并连接下方小圆弧回环。",
+        ),
+        "obs-unk-001139": (
+            "A broad pointed loop contains a small inner opening and is paired with a curved right stroke.",
+            "宽大尖状回环内有小开口，右侧与弯曲线条并列。",
+        ),
+        "obs-unk-001140": (
+            "A narrow stacked form has two upper bars, a central opening, and a pointed lower loop.",
+            "狭长叠置形上部有两道横线，中部留开口，下部为尖状回环。",
+        ),
     }
 )
 

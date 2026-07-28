@@ -4893,6 +4893,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A dense left vertical cluster is paired with a tall pointed right form that continues as a long descending stroke.",
             "密集的左侧竖向线簇与高大的右侧尖形体并列，并向下延成长线。",
         ),
+        "obs-unk-001021": (
+            "A branching left cluster meets a broad angular central stroke and a small looped right form with a lower point.",
+            "左侧分支线簇连接宽大的中央折线和右侧小回环形，下方收于尖点。",
+        ),
+        "obs-unk-001022": (
+            "Small branching strokes on the left flank a central loop, while a tall pointed right form descends beside them.",
+            "左侧小分支线围住中央回环，高大的右侧尖形体沿旁边向下延伸。",
+        ),
+        "obs-unk-001023": (
+            "A broad angular central stroke joins a branching left cluster and a small right looped form with a long lower line.",
+            "宽大的中央折线连接左侧分支线簇和右侧小回环形，并带长下部线。",
+        ),
+        "obs-unk-001024": (
+            "A vertical stacked central form has a rounded top band, side marks, and a lower U-shaped enclosure with detached dots.",
+            "竖向层叠中央形体顶部有圆曲横带，两侧有痕迹，下方为 U 形围合并带分离点。",
+        ),
+        "obs-unk-001025": (
+            "A small diamond opening at the top connects through a narrow stem to a broad lower frame with four openings.",
+            "顶部小菱形开口经窄主线连接宽大的下框，下框可见四个开口。",
+        ),
+        "obs-unk-001026": (
+            "Several detached dots accompany a small twin-loop upper form, a descending stem, and a broad wavy base.",
+            "数个分离点状痕伴随小型双回环上部形、下垂主线和宽波曲底部。",
+        ),
+        "obs-unk-001027": (
+            "A pointed teardrop-like enclosure contains inner strokes, with a separate rounded rectangular mark at the right.",
+            "尖形泪滴状围合含内部线条，右侧另有圆角矩形痕。",
+        ),
+        "obs-unk-001028": (
+            "A large diamond-like enclosure contains an inner opening and meets forked strokes along the right edge.",
+            "大型菱状围合含内部开口，右缘连接分叉线条。",
+        ),
+        "obs-unk-001029": (
+            "A small upper rectangular grille descends through a zigzag stem, with short detached bars on the right.",
+            "小型上部矩形格状形经折线主线向下延伸，右侧有分离短横线。",
+        ),
+        "obs-unk-001030": (
+            "A broad rectangular upper frame has a central notch and surrounds a rounded lower looped cluster.",
+            "宽大的矩形上框中央有缺口，并围住圆曲下部回环簇。",
+        ),
+        "obs-unk-001031": (
+            "A broad pointed upper form leads into angular lower strokes, with a separate small rectangular enclosure at right.",
+            "宽大的尖形上部连接下部折线，右侧另有小矩形围合。",
+        ),
+        "obs-unk-001032": (
+            "A left diamond loop with several inner openings is paired with a dense branching angular form on the right.",
+            "左侧带多个内部开口的菱状回环与右侧密集分支折线形并列。",
+        ),
+        "obs-unk-001033": (
+            "A broad rounded upper band rests over a central horizontal stem, side projections, and a large lower loop.",
+            "宽大的圆曲上部横带位于中央横向主线、侧向突出和大型下部回环之上。",
+        ),
+        "obs-unk-001034": (
+            "A rounded upper band spans a central stem above side projections and a large curved lower loop.",
+            "圆曲上部横带跨过中央主线，下方连接侧向突出和大型弧形回环。",
+        ),
+        "obs-unk-001035": (
+            "A broad left arc frames an oval central loop and a right upright stem, with a small lower enclosure.",
+            "宽大的左弧线围住中央椭圆回环和右侧直立主线，下方有小围合。",
+        ),
+        "obs-unk-001036": (
+            "A large left arc borders an oval central loop and a right upright stem, followed by a small lower framed form.",
+            "大型左弧线连接中央椭圆回环和右侧直立主线，下方接小框状形体。",
+        ),
+        "obs-unk-001037": (
+            "A small oval top sits over a large rounded central opening with side projections and a long right vertical stroke.",
+            "小椭圆顶部位于大型圆曲中央开口之上，两侧有突出线，右侧接长竖线。",
+        ),
+        "obs-unk-001038": (
+            "A short cross-like upper stem accompanies a large oval loop and an elongated right loop, with lower side forms.",
+            "短十字状上部主线与大型椭圆回环和右侧延展回环并列，下方有侧向形体。",
+        ),
+        "obs-unk-001039": (
+            "A compact upper crossing joins a central oval loop and a smaller right loop, with angular lower projections.",
+            "紧密的上部交叉连接中央椭圆回环和较小右侧回环，下方有折线突出。",
+        ),
+        "obs-unk-001040": (
+            "A short upper cross form stands beside a central oval loop and right elongated loop, above lower angled strokes.",
+            "短上部交叉形与中央椭圆回环及右侧延展回环并列，下方为倾斜线条。",
+        ),
     }
 )
 

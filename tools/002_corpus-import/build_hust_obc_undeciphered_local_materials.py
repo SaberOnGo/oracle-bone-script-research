@@ -3244,6 +3244,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A curved outer enclosure surrounds a central rectangular and curved cluster with long descending sides.",
         "弧形外部围合包住中央矩形和弧形笔组，两侧有长下行笔。",
     ),
+    "obs-unk-000621": (
+        "Two detached curved marks sit above a compact branching cluster with a long right descent.",
+        "两个分离弧形痕迹位于紧凑分支笔组之上，右侧有长下行笔。",
+    ),
+    "obs-unk-000622": (
+        "Two detached upper marks sit above a broad horizontal stroke, a central oval, and a curved lower descent.",
+        "两个分离上部痕迹位于宽横笔、中央椭圆和弧形下行笔之上。",
+    ),
+    "obs-unk-000623": (
+        "Two detached dark marks sit above a dense crossed lower cluster with a long left diagonal stroke.",
+        "两个分离深色痕迹位于密集交叉下部笔组之上，左侧有长斜笔。",
+    ),
+    "obs-unk-000624": (
+        "Two long outer strokes frame a central rounded cluster with a pointed upper mark and lower projections.",
+        "两条长外侧笔围合中央弧形笔组，上部有尖角痕迹，下部有外伸。",
+    ),
+    "obs-unk-000625": (
+        "A dense angular central cluster has several detached short side marks and a long lower stroke.",
+        "密集折角中央笔组带数个分离短侧痕迹和长下部笔。",
+    ),
+    "obs-unk-000626": (
+        "A tall triangular upper frame sits above a rounded enclosure with pointed interior strokes and detached sides.",
+        "高直三角形上部框架位于弧形围合之上，围合内有尖角笔，侧有分离痕迹。",
+    ),
+    "obs-unk-000627": (
+        "Four triangular lobes meet around a central crossing to form a compact four-sided cluster.",
+        "四个三角形笔瓣围绕中央交叉汇合，形成紧凑四向笔组。",
+    ),
+    "obs-unk-000628": (
+        "A small pointed cap and horizontal bar sit above a rectangular enclosure containing crossing strokes.",
+        "小型尖角笔帽和横笔位于矩形围合之上，围合内有交叉笔。",
+    ),
+    "obs-unk-000629": (
+        "A crossed upper cluster sits above horizontal bands and two long descending side strokes.",
+        "交叉上部笔组位于横向带痕之上，两侧有长下行笔。",
+    ),
+    "obs-unk-000630": (
+        "A small upper cap and branching mark sit above a rectangular banded block with a short lower base.",
+        "小型上部笔帽和分支痕迹位于带横带矩形笔块之上，下方有短基座。",
+    ),
+    "obs-unk-000631": (
+        "An hourglass-like upper crossing sits above a broad rounded lower block with two long descending strokes.",
+        "沙漏状上部交叉位于宽幅弧形下部笔块之上，下方伸出两条长笔。",
+    ),
+    "obs-unk-000632": (
+        "A dense upper cap joins stacked left side loops and a broad curved stroke descending on the right.",
+        "密集上部笔帽连接左侧叠置弧形环，右侧有宽幅弧形下行笔。",
+    ),
+    "obs-unk-000633": (
+        "A dense rounded cluster on the left is paired with a tall right panel containing horizontal bands.",
+        "左侧密集弧形笔组连接高直右侧笔板，笔板内有横向带痕。",
+    ),
+    "obs-unk-000634": (
+        "A narrow wavy central cluster is paired with a pointed right panel and short side strokes.",
+        "窄幅波状中央笔组连接尖角右侧笔板，并带短侧笔。",
+    ),
+    "obs-unk-000635": (
+        "A small wavy left cluster stands beside a tall pointed right stroke with a narrow interior opening.",
+        "小型波状左侧笔组旁有高直尖角右笔，右笔内有窄空隙。",
+    ),
+    "obs-unk-000636": (
+        "A tall rectangular panel has two interior sections and long curved strokes descending on both sides.",
+        "高直矩形笔板内分为两段，两侧有长弧形下行笔。",
+    ),
+    "obs-unk-000637": (
+        "A small gridded block on the left is paired with a dense branching diagonal cluster and long descent.",
+        "左侧小型格状笔块连接密集分支斜向笔组和长下行笔。",
+    ),
+    "obs-unk-000638": (
+        "A broad rounded enclosure contains central horizontal and vertical strokes with branching right projections.",
+        "宽幅弧形围合内有中央横竖笔，右侧带分支外伸。",
+    ),
+    "obs-unk-000639": (
+        "A pointed upper arch encloses a central rounded mark above a dense lower branching cluster.",
+        "尖角上部拱形围合中央弧形痕迹，下方连接密集分支笔组。",
+    ),
+    "obs-unk-000640": (
+        "A tall open angular enclosure on the left is separated from a rounded horizontal-banded cluster on the right.",
+        "左侧高直开放折角围合与右侧弧形横带笔组分离。",
+    ),
 
 }
 

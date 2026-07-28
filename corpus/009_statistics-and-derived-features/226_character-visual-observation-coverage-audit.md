@@ -8,8 +8,8 @@ It is a preprocessing audit, not a character identity or reading claim.
 
 - Character object directories / 单字对象目录: 10996
 - Objects with local images / 有本地图像: 10996
-- Direct visual records / 有直接观察记录: 2315
-- Images without direct records / 有图无观察: 8681
+- Direct visual records / 有直接观察记录: 2335
+- Images without direct records / 有图无观察: 8661
 - Objects without local images / 无本地图像: 0
 - Status / 状态: needs_human_visual_observation_review
 
@@ -17,7 +17,7 @@ It is a preprocessing audit, not a character identity or reading claim.
 
 - oracle_character: 1588 objects; 1588 with images; 1588 with direct visual reco
   rds
-- undeciphered_candidate: 9408 objects; 9408 with images; 727 with direct visual
+- undeciphered_candidate: 9408 objects; 9408 with images; 747 with direct visual
    records
 
 ## What The Gap Means / 缺口含义
@@ -42,42 +42,42 @@ It is a preprocessing audit, not a character identity or reading claim.
 
 ## Representative Missing Routes / 代表性缺口路线
 
-- obs-unk-000621: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/021_obs-unk-000621_hust-obc-und-L-000
-  621_oracle-character-candidate
-- obs-unk-000622: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/022_obs-unk-000622_hust-obc-und-L-000
-  622_oracle-character-candidate
-- obs-unk-000623: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/023_obs-unk-000623_hust-obc-und-L-000
-  623_oracle-character-candidate
-- obs-unk-000624: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/024_obs-unk-000624_hust-obc-und-L-000
-  624_oracle-character-candidate
-- obs-unk-000625: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/025_obs-unk-000625_hust-obc-und-L-000
-  625_oracle-character-candidate
-- obs-unk-000626: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/026_obs-unk-000626_hust-obc-und-L-000
-  626_oracle-character-candidate
-- obs-unk-000627: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/027_obs-unk-000627_hust-obc-und-L-000
-  627_oracle-character-candidate
-- obs-unk-000628: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/028_obs-unk-000628_hust-obc-und-L-000
-  628_oracle-character-candidate
-- obs-unk-000629: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/029_obs-unk-000629_hust-obc-und-L-000
-  629_oracle-character-candidate
-- obs-unk-000630: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/030_obs-unk-000630_hust-obc-und-L-000
-  630_oracle-character-candidate
-- obs-unk-000631: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/031_obs-unk-000631_hust-obc-und-L-000
-  631_oracle-character-candidate
-- obs-unk-000632: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
-  s-unk-bucket_oracle-character-candidates/032_obs-unk-000632_hust-obc-und-L-000
-  632_oracle-character-candidate
+- obs-unk-000641: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/041_obs-unk-000641_hust-obc-und-L-000
+  641_oracle-character-candidate
+- obs-unk-000642: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/042_obs-unk-000642_hust-obc-und-L-000
+  642_oracle-character-candidate
+- obs-unk-000643: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/043_obs-unk-000643_hust-obc-und-L-000
+  643_oracle-character-candidate
+- obs-unk-000644: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/044_obs-unk-000644_hust-obc-und-L-000
+  644_oracle-character-candidate
+- obs-unk-000645: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/045_obs-unk-000645_hust-obc-und-L-000
+  645_oracle-character-candidate
+- obs-unk-000646: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/046_obs-unk-000646_hust-obc-und-L-000
+  646_oracle-character-candidate
+- obs-unk-000647: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/047_obs-unk-000647_hust-obc-und-L-000
+  647_oracle-character-candidate
+- obs-unk-000648: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/048_obs-unk-000648_hust-obc-und-L-000
+  648_oracle-character-candidate
+- obs-unk-000649: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/049_obs-unk-000649_hust-obc-und-L-000
+  649_oracle-character-candidate
+- obs-unk-000650: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/050_obs-unk-000650_hust-obc-und-L-000
+  650_oracle-character-candidate
+- obs-unk-000651: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/051_obs-unk-000651_hust-obc-und-L-000
+  651_oracle-character-candidate
+- obs-unk-000652: corpus/001_oracle-characters/023_undeciphered-000601-000700_ob
+  s-unk-bucket_oracle-character-candidates/052_obs-unk-000652_hust-obc-und-L-000
+  652_oracle-character-candidate
 
 The complete object list is in:
 - `corpus/009_statistics-and-derived-features/227_character-visual-observation-c

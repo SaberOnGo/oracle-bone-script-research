@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import subprocess
 from collections import Counter
 from pathlib import Path
@@ -1780,6 +1781,14 @@ OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_GUIDE = (
     "corpus/009_statistics-and-derived-features/"
     "222_object-local-human-research-depth-human-guide.md"
 )
+CHARACTER_VISUAL_OBSERVATION_COVERAGE_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "226_character-visual-observation-coverage-audit.md"
+)
+CHARACTER_VISUAL_OBSERVATION_COVERAGE = (
+    "corpus/009_statistics-and-derived-features/"
+    "227_character-visual-observation-coverage.csv"
+)
 PROJECT_ID_SOURCE_MAP_AUDIT = (
     "corpus/009_statistics-and-derived-features/"
     "190_project-id-source-map-audit.csv"
@@ -3199,6 +3208,8 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_data_quality_audit.py",
     "tools/004_statistics-generation/build_source_processing_pipeline_audit.py",
     "tools/004_statistics-generation/build_project_id_source_map_audit.py",
+    "tools/004_statistics-generation/"
+    "build_character_visual_observation_coverage_audit.py",
     "tools/004_statistics-generation/build_core_corpus_readiness_matrix.py",
     "tools/004_statistics-generation/build_source_engineering_gap_queue.py",
     "tools/004_statistics-generation/build_source_engineering_execution_matrix.py",
@@ -9338,6 +9349,71 @@ def check_statistics_readme_human_entry(root: Path) -> list[str]:
     return issues
 
 
+def check_character_visual_observation_coverage(root: Path) -> list[str]:
+    issues: list[str] = []
+    report_relative = CHARACTER_VISUAL_OBSERVATION_COVERAGE_AUDIT
+    csv_relative = CHARACTER_VISUAL_OBSERVATION_COVERAGE
+    report_path = root / report_relative
+    csv_path = root / csv_relative
+    for path, relative in [(report_path, report_relative), (csv_path, csv_relative)]:
+        if not path.exists():
+            issues.append(f"{relative} missing")
+    if not report_path.exists() or not csv_path.exists():
+        return issues
+    report = report_path.read_text(encoding="utf-8")
+    for marker in [
+        "Character Visual Observation Coverage",
+        "Human Reading Result",
+        "Images without direct records",
+        "needs_human_visual_observation_review",
+        "本报告区分本地图像和人工图像观察",
+        "本审计不把图像 metadata 转成观察",
+    ]:
+        if marker not in report:
+            issues.append(f"{report_relative} missing marker: {marker}")
+    for line_number, line in enumerate(report.splitlines(), start=1):
+        if len(line) > 80:
+            issues.append(f"{report_relative}:{line_number} line exceeds 80 characters")
+    try:
+        rows, row_issues = _read_csv_rows(csv_path)
+        issues.extend(row_issues)
+    except (OSError, UnicodeError) as exc:
+        issues.append(f"{csv_relative} cannot be read: {exc}")
+        return issues
+    required = {
+        "coverage_id",
+        "project_id",
+        "object_dir",
+        "asset_count",
+        "observation_path",
+        "visual_observation_status",
+        "next_human_action",
+    }
+    if rows and not required.issubset(rows[0]):
+        issues.append(f"{csv_relative} missing required fields: {sorted(required - set(rows[0]))}")
+    project_ids = [str(row.get("project_id", "")) for row in rows]
+    if len(project_ids) != len(set(project_ids)):
+        issues.append(f"{csv_relative} contains duplicate project IDs")
+    if not rows:
+        issues.append(f"{csv_relative} must contain character observation rows")
+    allowed_statuses = {
+        "direct_visual_record_present",
+        "missing_direct_visual_record",
+        "observation_file_without_direct_record",
+    }
+    for row in rows:
+        if row.get("visual_observation_status") not in allowed_statuses:
+            issues.append(
+                f"{csv_relative} invalid visual observation status: "
+                f"{row.get('visual_observation_status')}"
+            )
+            break
+        if not re.fullmatch(r"obs-(?:char|unk)-\d{6}", row.get("project_id", "")):
+            issues.append(f"{csv_relative} invalid project_id: {row.get('project_id')}")
+            break
+    return issues
+
+
 def check_statistics_generation_tools_readme_human_entry(root: Path) -> list[str]:
     issues: list[str] = []
     relative = "tools/004_statistics-generation/README.md"
@@ -11818,7 +11894,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 12751,
         "review_queue_count": 12734,
-        "staging_record_count": 75314,
+        "staging_record_count": 75315,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -11859,7 +11935,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "214",
+            "staging_record_count": "215",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -34982,6 +35058,7 @@ def main() -> int:
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))
+    issues.extend(check_character_visual_observation_coverage(root))
     issues.extend(check_preprocessing_status_audit(root))
     issues.extend(check_data_quality_audit(root))
     issues.extend(check_source_processing_pipeline_audit(root))

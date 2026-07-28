@@ -67,6 +67,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   groups repeated access attempts into source and failure-condition tasks.
 - `226_source-access-boundary-review-index.csv`
   preserves the supporting download IDs and route evidence for each task.
+- `226_character-visual-observation-coverage-audit.md`
+  distinguishes extracted images from direct human visual records.
+- `227_character-visual-observation-coverage.csv`
+  routes every character image and observation gap to its object directory.
 - `190_project-id-source-map-audit.csv`
   audits project-local ID to source-reference maps.
 - `191_project-id-source-map-summary.json`
@@ -90,6 +94,14 @@ substitutes for object-local dossiers, source records, or review sheets.
   files to collect plate, text, position, and character-ID evidence.
 - A zero promoted-edge count is an audited evidence gap, not a claim that
   inscriptions contain no characters.
+
+### Character Image Observation Review / 单字图像观察复核
+
+- Open `226_character-visual-observation-coverage-audit.md` before treating
+  local image coverage as a completed human observation.
+- Follow `227_character-visual-observation-coverage.csv` to the concrete
+  object directory and its image/source index.
+- A local image without a direct visual record remains a human review gap.
 
 ## File Families / 文件族
 

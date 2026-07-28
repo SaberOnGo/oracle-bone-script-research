@@ -68,6 +68,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `219_shape-component-evolution-phase-gap-human-guide.md`.
 - Character-inscription linkage audit:
   `223_character-inscription-linkage-audit.md` and its supporting index.
+- Character image observation audit:
+  `226_character-visual-observation-coverage-audit.md` and
+  `227_character-visual-observation-coverage.csv`.
 - Source access-boundary review:
   `225_source-access-boundary-human-review.md` and
   `226_source-access-boundary-review-index.csv`.
@@ -116,6 +119,7 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Which source lacks checksum, package manifest, field map, or risk note?
 - Which phase is missing, mixed, partial, or waiting for human review?
 - Which object-local material coverage row points to a partial bundle?
+- Which object has a local image but no direct visual observation record?
 - Which object corpus area still needs human research depth review?
 - Which source-processing pipeline row needs a concrete evidence route?
 - Which phase gap review row opens the most direct next source file?
@@ -126,6 +130,7 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - 哪个来源仍缺 checksum、package manifest、字段映射或风险说明？
 - 哪个阶段是 missing、mixed、partial 或等待人工复核？
 - 哪条 object-local material coverage 行指向部分缺失的对象资料包？
+- 哪个对象已有本地图像，却没有直接图像观察记录？
 - 哪条 source-processing pipeline 行还需要具体证据路线？
 - 哪条 phase gap review 行能打开最直接的下一步来源文件？
 - 哪个人工可填写 outcome scaffold 目前按设计仍为空？

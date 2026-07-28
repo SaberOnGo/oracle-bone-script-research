@@ -27224,7 +27224,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["totals"]["manual_review_backlog_count"], 12751)
         self.assertEqual(data["totals"]["candidate_record_count"], 13196)
         self.assertEqual(data["totals"]["formal_record_count"], 101679)
-        self.assertEqual(data["totals"]["staging_record_count"], 75314)
+        self.assertEqual(data["totals"]["staging_record_count"], 75315)
         self.assertEqual(data["totals"]["graph_edge_count"], 220887)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
@@ -27245,7 +27245,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "214")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "215")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "863")
         self.assertEqual(by_area["research_sources_and_bibliography"]["staging_record_count"], "283")

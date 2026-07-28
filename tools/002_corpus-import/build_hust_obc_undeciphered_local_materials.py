@@ -3664,6 +3664,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "Two stacked rectangular arches are visible, each containing a peaked interior line.",
             "可见上下叠置的两个矩形拱框，每个框内都有尖峰状内笔。",
         ),
+        "obs-unk-000721": (
+            "A detached curved cap sits above a rectangular lower panel containing two horizontal interior bars.",
+            "分离的弧曲上帽位于下方矩形框板之上，框内含两道横向内笔。",
+        ),
+        "obs-unk-000722": (
+            "A branching upper form arches over a rounded lower frame with a small square opening at the center.",
+            "分支状上部形体拱护下方圆弧框，框中央有小型方形空隙。",
+        ),
+        "obs-unk-000723": (
+            "A peaked upper frame with a horizontal band connects to a pointed central stem and curved side projections.",
+            "带横带的尖峰上框连接中央尖状直笔，两侧伸出弧曲笔画。",
+        ),
+        "obs-unk-000724": (
+            "Two separated forms are visible: a tall curved upper stroke and a lower stem with a triangular cap and box base.",
+            "可见两个分离形体：高直弧曲的上部笔画，以及带三角上帽和方框底座的下部直笔。",
+        ),
+        "obs-unk-000725": (
+            "A dense vertical form surrounds a rounded opening near the top and continues into several hooked lower strokes.",
+            "密集竖向笔组在上部围出圆形空隙，并向下延伸出数道钩曲笔画。",
+        ),
+        "obs-unk-000726": (
+            "A small looped left form stands beside a dense curved right form that ends in a long descending hook.",
+            "左侧小型环状笔组旁有密集弧曲右部，右部末端接长下行钩笔。",
+        ),
+        "obs-unk-000727": (
+            "A long central stem with a peaked top is flanked by two small round marks and ends in a framed lower base.",
+            "尖峰上端的长中央直笔两侧各有小圆形笔记，末端连接框状底部。",
+        ),
+        "obs-unk-000728": (
+            "A form similar to the neighboring specimen has a peaked central stem, paired round side marks, and a framed base.",
+            "与相邻样本相近，包含尖峰中央直笔、成对圆形侧部笔记和框状底部。",
+        ),
+        "obs-unk-000729": (
+            "A broad left curve with an inner loop stands beside a separate narrow right curve and a short lower hook.",
+            "带内环的宽大左弧曲笔组旁有分离的窄右弧曲笔和短下钩。",
+        ),
+        "obs-unk-000730": (
+            "A broad upper horizontal bar with side strokes sits above a compact central crossing and branching lower marks.",
+            "宽大上部横笔及两侧笔画位于紧密中央交叉和下方分支笔画之上。",
+        ),
+        "obs-unk-000731": (
+            "A tall peaked central frame is flanked by small round marks and ends in paired lower loops.",
+            "高直尖峰中央框两侧有小圆形笔记，下方收于成对环状笔画。",
+        ),
+        "obs-unk-000732": (
+            "A dense upper looped cluster descends through a long curved stroke, with a small detached mark at the left.",
+            "密集环状上部笔组经长弧曲笔画向下延伸，左侧另有小型分离笔记。",
+        ),
+        "obs-unk-000733": (
+            "A peaked upper cap sits over a rectangular middle with two horizontal interior bars and a broad lower frame.",
+            "尖峰上帽位于中部矩形框之上，框内含两道横笔，下方连接宽大底框。",
+        ),
+        "obs-unk-000734": (
+            "A tall left stroke with an inner opening stands beside a compact right panel and several wavy lower strokes.",
+            "带内空隙的高直左笔旁有紧密右侧框板及数道波曲下行笔画。",
+        ),
+        "obs-unk-000735": (
+            "A vertical stem rises from a broad upper frame with a diagonal interior bar, above three pointed lower loops.",
+            "中央直笔从带斜向内笔的宽大上框升起，下方排列三个尖状环笔。",
+        ),
+        "obs-unk-000736": (
+            "A tall outer curve encloses a small upper loop and descends beside a central stem with branching lower strokes.",
+            "高直外弧围出上部小环，并在中央直笔旁向下连接分支笔画。",
+        ),
+        "obs-unk-000737": (
+            "A small looped branch at the left is paired with a tall right panel containing several horizontal interior bars.",
+            "左侧小型环状分支笔组与右侧高直框板并列，框内有数道横向内笔。",
+        ),
+        "obs-unk-000738": (
+            "A broad angular left form ends in a lower loop, beside a tall right stack of three triangular openings.",
+            "宽大折角左部末端接下方环状笔，旁边是由三个三角空隙叠成的高直右部。",
+        ),
+        "obs-unk-000739": (
+            "A small top cap and central oval opening sit above a rounded lower frame, with a separate curved stroke on the right.",
+            "小型上帽和中央椭圆空隙位于圆弧下框之上，右侧另有分离弧曲笔。",
+        ),
+        "obs-unk-000740": (
+            "A small looped left cluster stands beside a tall stacked right form with horizontal and angled interior strokes.",
+            "左侧小型环状笔组旁有高直叠置右部，内部含横向和斜向笔画。",
+        ),
     }
 )
 

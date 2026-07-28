@@ -2692,6 +2692,112 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "左侧弧形痕迹连接右侧弯曲笔干，笔干上方有分离的小型笔块；"
         "仅作与 obs-unk-000476 的视觉比较。",
     ),
+    "obs-unk-000481": (
+        "A tall upper enclosure contains a small rounded central mark and side "
+        "curves; three short descending strokes project below it.",
+        "高直上部围合内有小型中央弧形痕迹和侧弧笔，下方有三条短下伸。",
+    ),
+    "obs-unk-000482": (
+        "A broad upper horizontal stroke crosses a central stem; a small detached "
+        "mark sits left of it and a rounded lower loop extends beneath.",
+        "宽幅上横笔穿过中央笔干；左侧有小型分离痕迹，下方连接弧形环状笔组。",
+    ),
+    "obs-unk-000483": (
+        "A broad rounded enclosure contains repeated narrow interior loops and "
+        "short lower extensions.",
+        "宽幅弧形围合内有重复的窄长内部环状笔组，并有短下部外伸。",
+    ),
+    "obs-unk-000484": (
+        "A broad rounded enclosure contains repeated narrow interior loops and "
+        "short lower extensions; it is visually similar to obs-unk-000483 only.",
+        "宽幅弧形围合内有重复的窄长内部环状笔组，并有短下部外伸；"
+        "仅作与 obs-unk-000483 的视觉比较。",
+    ),
+    "obs-unk-000485": (
+        "A compact cross-like arrangement has a long upper horizontal stroke, a "
+        "central vertical, and short lateral lower projections.",
+        "紧凑交叉排列有长上横笔、中央竖笔和短侧向下部外伸。",
+    ),
+    "obs-unk-000486": (
+        "A tall narrow framed form has a pointed upper contour, an interior cross "
+        "stroke, and two lower legs; a separate curved stroke stands on the right.",
+        "高直窄围框形体上部尖角，中部有交叉笔，下方分成两条笔；"
+        "右侧另有弧形直笔。",
+    ),
+    "obs-unk-000487": (
+        "A dense left cluster contains a small rounded center; a separate narrow "
+        "crossing upright form stands on the right.",
+        "左侧密集笔组内有小型弧形中央痕迹，右侧另有窄长交叉直立形体。",
+    ),
+    "obs-unk-000488": (
+        "A broad upper horizontal stroke crosses a central descending form; lower "
+        "curved strokes create a small enclosed loop.",
+        "宽幅上横笔穿过中央下行形体；下部弧笔形成小型围合环状笔组。",
+    ),
+    "obs-unk-000489": (
+        "A tall central upright has short side branches; a curved lower branch "
+        "extends left and a small detached mark sits to the right.",
+        "高直中央笔带短侧分支；下方有弧形左伸，右侧有小型分离痕迹。",
+    ),
+    "obs-unk-000490": (
+        "A double-lobed upper bar sits above several descending strokes; a separate "
+        "rounded triangular mark stands on the right.",
+        "双瓣状上横笔位于数条下行笔之上；右侧另有弧角三角痕迹。",
+    ),
+    "obs-unk-000491": (
+        "A forked upper contour crosses a horizontal stroke; a long central stem "
+        "descends with a shorter side stroke on the left.",
+        "分叉上部轮廓穿过横笔；长中央笔干向下延伸，左侧有较短侧笔。",
+    ),
+    "obs-unk-000492": (
+        "A branching form has a small upper oval, curved side projections, and a "
+        "pointed lower contour ending above a short horizontal bar.",
+        "分支形体上部有小型椭圆，两侧有弧形外伸；下部为尖角轮廓，"
+        "末端上方另有短横笔。",
+    ),
+    "obs-unk-000493": (
+        "A compact upper rectangular frame sits above a central stem that divides "
+        "into two lower diverging strokes.",
+        "紧凑上部矩形框位于中央笔干之上，中央笔干下方分成两条外张笔。",
+    ),
+    "obs-unk-000494": (
+        "A large open curved enclosure surrounds a central crossing stroke and a "
+        "short lower branching mark.",
+        "大型开放弧形围合包住中央交叉笔和短下部分支痕迹。",
+    ),
+    "obs-unk-000495": (
+        "Two separated forms are visible: a sparse branching left cluster with "
+        "detached small marks and a taller looped upright on the right.",
+        "图像中有两个分离形体：左侧为稀疏分支笔组并带小型分离痕迹，"
+        "右侧为更高的环状直立形体。",
+    ),
+    "obs-unk-000496": (
+        "A small upper oval sits above a broad horizontal bar and a descending "
+        "central stroke; a short curved projection extends on the lower right.",
+        "小型上部椭圆位于宽横笔之上，并连接中央下行笔；下右有短弧形外伸。",
+    ),
+    "obs-unk-000497": (
+        "A dense diagonal composite has a small lower enclosure and many short "
+        "strokes projecting around its upper and right edges.",
+        "密集斜向组合体下部有小型围合，周围上缘和右缘有多条短外伸笔。",
+    ),
+    "obs-unk-000498": (
+        "Two tall side strokes frame a small upper rectangular block and a central "
+        "pointed lower enclosure.",
+        "两条高直侧笔围住小型上部矩形笔块和中央尖角下部围合。",
+    ),
+    "obs-unk-000499": (
+        "Two separated compact forms are visible: a small upright rectangular mark "
+        "on the left and a lower rounded rectangular form with an upper cross stroke "
+        "on the right.",
+        "图像中有两个分离的紧凑形体：左侧为小型直立矩形痕迹，右侧为"
+        "带上部横笔的下部弧角矩形形体。",
+    ),
+    "obs-unk-000500": (
+        "A rounded central enclosure has forked upper projections and two diagonal "
+        "lower strokes; it is visually similar to obs-unk-000463 only.",
+        "弧形中央围合带分叉上伸和两条斜向下伸；仅作与 obs-unk-000463 的视觉比较。",
+    ),
 
 }
 

@@ -5373,6 +5373,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A narrow stacked form has two upper bars, a central opening, and a pointed lower loop.",
             "狭长叠置形上部有两道横线，中部留开口，下部为尖状回环。",
         ),
+        "obs-unk-001141": (
+            "A central vertical stem is flanked by upper loops, short side bars, and two lower branches.",
+            "中央竖向主线两侧有上部回环、短横线和两条下部分支。",
+        ),
+        "obs-unk-001142": (
+            "A broad leftward bar crosses a central stem, with stepped right projections and a lower frame.",
+            "宽大的左向横线穿过中央主线，右侧有阶梯状突起，下方接框形线条。",
+        ),
+        "obs-unk-001143": (
+            "A rounded left loop joins a horizontal middle bar and a tall angular right enclosure.",
+            "圆弧左侧回环连接横向中部线条和高大的右侧折线围合。",
+        ),
+        "obs-unk-001144": (
+            "A small side loop accompanies a tall forked stem with an inner opening and a short base bar.",
+            "小型侧回环伴随高大的分叉主线，内部有开口并连接短底横线。",
+        ),
+        "obs-unk-001145": (
+            "A narrow irregular left strip stands beside a branching right form with two lower legs.",
+            "狭窄不规则左侧线带与右侧分支形并列，右侧下方伸出两条支线。",
+        ),
+        "obs-unk-001146": (
+            "A forked upper stem rises above a central opening, beside a small loop and a lower frame.",
+            "分叉上部主线位于中央开口之上，旁有小回环和下部框形线条。",
+        ),
+        "obs-unk-001147": (
+            "A small diamond-like opening sits left of a dense central knot and a long curved right stroke.",
+            "小型菱状开口位于密集中央线簇左侧，右侧接长弯曲线条。",
+        ),
+        "obs-unk-001148": (
+            "An angled upper bar contains two openings and descends into a curved lower side form.",
+            "倾斜上部横带含两个开口，并向下连接弯曲的侧部形。",
+        ),
+        "obs-unk-001149": (
+            "A rounded upper arch encloses an oval opening above a dense body and a right curling stroke.",
+            "圆弧上拱围出椭圆开口，下方为密集主体，右侧有卷曲线条。",
+        ),
+        "obs-unk-001150": (
+            "A broad double-opening cap rests over two lower loops and a long descending right stroke.",
+            "宽大的双开口上部横带位于两个下部回环和右侧长下垂线之上。",
+        ),
+        "obs-unk-001151": (
+            "A similar double-opening upper band sits above a paired lower cluster and a curved side line.",
+            "相似的双开口上部横带下方有成对线簇，侧面连接弯曲线条。",
+        ),
+        "obs-unk-001152": (
+            "A forked upper stem rises from a rectangular middle enclosure with several lower branches.",
+            "分叉上部主线从矩形中部围合升起，下方伸出数条分支。",
+        ),
+        "obs-unk-001153": (
+            "A compact vertical knot has two upper prongs, two inner openings, and spreading lower strokes.",
+            "紧密竖向线簇上部有两叉，中部有两个开口，下方线条向外展开。",
+        ),
+        "obs-unk-001154": (
+            "A rounded double-opening cap stands over two descending legs and a long right-side loop.",
+            "圆弧双开口上部位于两条下垂支线和右侧长回环之上。",
+        ),
+        "obs-unk-001155": (
+            "A compact upper frame with two openings narrows into split lower legs and a small side branch.",
+            "带两个开口的紧密上部框形向下收成分叉支线，并带小侧分支。",
+        ),
+        "obs-unk-001156": (
+            "A forked central stem rises from a broad horizontal enclosure with multiple pointed lower branches.",
+            "分叉中央主线从宽大横向围合中升起，下方有多条尖状分支。",
+        ),
+        "obs-unk-001157": (
+            "A curved outer enclosure contains several short horizontal bands and a separate lower side stroke.",
+            "弯曲外框内有数道短横带，旁侧另有独立下部线条。",
+        ),
+        "obs-unk-001158": (
+            "A left rectangular loop supports branching upper strokes, beside a curling right form and a low bar.",
+            "左侧矩形回环承托分支上部线条，旁有卷曲右侧形和低位横线。",
+        ),
+        "obs-unk-001159": (
+            "A forked upper stem and central opening sit above a broad bar with several lower projections.",
+            "分叉上部主线和中央开口位于宽大横带之上，下方伸出多条突起。",
+        ),
+        "obs-unk-001160": (
+            "A vertical layered knot has forked upper strokes, a central opening, and two lower extensions.",
+            "竖向叠置线簇上部有分叉线条，中部留开口，下方伸出两条延展线。",
+        ),
     }
 )
 

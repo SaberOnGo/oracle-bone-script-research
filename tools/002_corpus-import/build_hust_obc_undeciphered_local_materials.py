@@ -674,6 +674,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "and a narrow lower extension with short diagonal marks.",
         "高形图像有尖状外轮廓，内部笔画交叉，下部有窄长延伸形体和短斜向痕迹。",
     ),
+    "obs-unk-000101": (
+        "A narrow upright image has two detached short marks on the left and a "
+        "long angular stroke that bends inward on the right.",
+        "狭长直立图像左侧有两处分离短痕，右侧有一条向内折转的长折笔。",
+    ),
+    "obs-unk-000102": (
+        "A compact vertical form has two thin left-side strokes, a crossed central "
+        "bar, an angular upper-right mark, and a curved lower-right stroke.",
+        "紧凑直立形体左侧有两条细笔，中部有交叉横笔，右上有折角痕，右下有弯曲笔画。",
+    ),
+    "obs-unk-000103": (
+        "A dense upright image has a dark angular upper enclosure, several short "
+        "descending marks, and a separate jagged stroke on the left.",
+        "密集直立图像上部有深色折角轮廓和数个向下短痕，左侧另有锯齿状笔画。",
+    ),
+    "obs-unk-000104": (
+        "A small upright image has a horizontal top bar, stacked central strokes, "
+        "a rounded lower-left enclosure, and a narrow right extension.",
+        "小型直立图像上方有横笔，中部笔画叠置，左下有弧形围合，右侧有窄长伸出。",
+    ),
+    "obs-unk-000105": (
+        "A tall narrow image has a slanted upper cluster with branching side marks "
+        "and several long descending strokes.",
+        "高而狭长图像上部为斜向密集笔群，两侧有分支短痕，并有数条长下降笔画。",
+    ),
+    "obs-unk-000106": (
+        "A compact image has a pointed upper-left contour, a zigzag central stroke, "
+        "and multiple short lower projections.",
+        "紧凑图像左上有尖状轮廓，中部有锯齿状笔画，下方有多处短伸出。",
+    ),
+    "obs-unk-000107": (
+        "A compact image has a pointed upper contour, a narrow central crossing, "
+        "and several short lower projections.",
+        "紧凑图像上方有尖状轮廓，中部有窄的交叉笔，下方有多处短伸出。",
+    ),
+    "obs-unk-000108": (
+        "A narrow image has a rounded left loop, an angular upper-right cluster, "
+        "and several separated descending strokes.",
+        "狭长图像左侧有弧形环状笔群，右上有折角密集笔群，下方有数个分离下降痕。",
+    ),
+    "obs-unk-000109": (
+        "An open angular form has a long slanting upper stroke, a short vertical "
+        "left edge, and two rounded lower marks.",
+        "开放折角形体上方有长斜笔，左侧有短竖边，下方有两处弧形短痕。",
+    ),
+    "obs-unk-000110": (
+        "A compact image has a pointed upper-left contour, a zigzag central stroke, "
+        "and multiple short lower projections.",
+        "紧凑图像左上有尖状轮廓，中部有锯齿状笔画，下方有多处短伸出。",
+    ),
+    "obs-unk-000111": (
+        "A vertical form has a small rounded loop at top, a crossing central stem, "
+        "stacked horizontal marks, and a short lower bar.",
+        "直立形体顶部有小弧环，中部有交叉主干和叠置横笔，下方有短横笔。",
+    ),
+    "obs-unk-000112": (
+        "A compact image has a pointed upper contour, a narrow central crossing, "
+        "and several short lower projections.",
+        "紧凑图像上方有尖状轮廓，中部有窄的交叉笔，下方有多处短伸出。",
+    ),
+    "obs-unk-000113": (
+        "A small upright form has a long central vertical stroke, short crossbars "
+        "on both sides, and a pointed lower projection.",
+        "小型直立形体有长中央竖笔，两侧有短横笔，下方有尖状伸出。",
+    ),
+    "obs-unk-000114": (
+        "An open angular form has a long slanting upper stroke, a short vertical "
+        "left edge, and two rounded lower marks.",
+        "开放折角形体上方有长斜笔，左侧有短竖边，下方有两处弧形短痕。",
+    ),
+    "obs-unk-000115": (
+        "A compact image has a pointed upper-left contour, a zigzag central stroke, "
+        "and multiple short lower projections.",
+        "紧凑图像左上有尖状轮廓，中部有锯齿状笔画，下方有多处短伸出。",
+    ),
+    "obs-unk-000116": (
+        "A compact image has an angular upper cluster, a rounded lower enclosure, "
+        "and a short left-side projection.",
+        "紧凑图像上部有折角笔群，下方有弧形围合，左侧有短伸出。",
+    ),
+    "obs-unk-000117": (
+        "A small upright form has a long central vertical stroke, short crossbars "
+        "on both sides, and a pointed lower projection.",
+        "小型直立形体有长中央竖笔，两侧有短横笔，下方有尖状伸出。",
+    ),
+    "obs-unk-000118": (
+        "A small dense form has two pointed upper strokes, a narrow central vertical, "
+        "and a short lower crossing.",
+        "小型密集形体上方有两处尖状笔，中部有窄竖笔，下方有短交叉笔。",
+    ),
+    "obs-unk-000119": (
+        "A horizontal upper bar sits over two vertical stems; both stems end in "
+        "forked lower strokes.",
+        "上方横笔下有两条竖干，两条竖干下端都以分叉笔收束。",
+    ),
+    "obs-unk-000120": (
+        "A narrow upright form has a long central vertical with several short "
+        "horizontal crossings and a stepped lower outline.",
+        "狭长直立形体有长中央竖笔，交叉数条短横笔，下方轮廓呈阶梯状。",
+    ),
 }
 
 
@@ -1295,6 +1395,35 @@ def readme_text(candidate: Candidate, asset_id: str, asset_name: str) -> str:
     return "\n".join(lines) + "\n"
 
 
+def ensure_material_observation_link(readme_path: Path) -> None:
+    """Add the human observation route without replacing curated README text."""
+    if not readme_path.exists():
+        return
+    text = readme_path.read_text(encoding="utf-8")
+    if "14_material-visual-observation.md" in text:
+        return
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if (
+            "Local review image" in line
+            or "本地复核图像" in line
+            or "Committed glyph image" in line
+            or "已提交字形图像" in line
+        ):
+            lines.insert(
+                index + 1,
+                "- Human visual observation / 人类图像观察: "
+                "`14_material-visual-observation.md`",
+            )
+            readme_path.write_text(
+                "\n".join(lines).rstrip() + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
+            return
+    raise ValueError(f"README has no local-image route: {readme_path}")
+
+
 def gallery_text(candidate: Candidate, asset_id: str, asset_name: str, metadata_name: str) -> str:
     lines = [
         f"# {candidate.project_id} Visual Gallery / {candidate.project_id} 图像资料页",
@@ -1693,6 +1822,7 @@ def build_materials(
                 if not output_file.exists():
                     output_file.write_text(content, encoding="utf-8", newline="\n")
             if candidate.project_id in MATERIAL_VISUAL_OBSERVATIONS:
+                ensure_material_observation_link(candidate.object_dir / "README.md")
                 with open(
                     filesystem_path(
                         candidate.object_dir / "14_material-visual-observation.md"

@@ -86,6 +86,11 @@ local-private.
   24_official-digital-collection-route-review.md
 - Official digital route index / 官方数字路线索引:
   25_official-digital-route-index.csv
+- Official Cambridge literature and dispute review /
+  Cambridge 官方文献与争议复核:
+  26_official-cambridge-literature-and-dispute-review.md
+- Official literature route index / 官方文献路线索引:
+  27_official-literature-route-index.csv
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

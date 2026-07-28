@@ -12456,6 +12456,45 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             all(row["rights_status"] == "metadata_only_until_verified" for row in digital_routes)
         )
+        literature_review = (
+            cambridge_object_dir
+            / "26_official-cambridge-literature-and-dispute-review.md"
+        ).read_text(encoding="utf-8")
+        literature_flat = " ".join(literature_review.split())
+        self.assertIn("Official Cambridge Literature And Dispute Review", literature_review)
+        self.assertIn("Cambridge 官方文献与争议复核", literature_review)
+        self.assertIn("614", literature_flat)
+        self.assertIn("over 800", literature_flat)
+        self.assertIn("609", literature_flat)
+        self.assertIn("612", literature_flat)
+        self.assertIn("CUL.52", literature_flat)
+        self.assertIn("Interpretation history", literature_review)
+        self.assertIn("Proposer or editor", literature_review)
+        self.assertIn("Different opinions", literature_review)
+        self.assertIn("Count dispute", literature_review)
+        self.assertIn("not a confirmed CUL.52-to-crosswalk identity", literature_review)
+        self.assertNotIn("not_collected", literature_review)
+        self.assertTrue(all(len(line) <= 80 for line in literature_review.splitlines()))
+        with (cambridge_object_dir / "27_official-literature-route-index.csv").open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as file:
+            literature_routes = list(csv.DictReader(file))
+        self.assertEqual(len(literature_routes), 4)
+        self.assertEqual(
+            {row["literature_route_id"] for row in literature_routes},
+            {
+                "cam-hopkins-official-finding-list",
+                "cam-hopkins-2016-3d-news",
+                "cam-hopkins-collection-introduction",
+                "cam-hopkins-digital-collections",
+            },
+        )
+        self.assertTrue(
+            all(
+                row["rights_status"] == "metadata_only_until_verified"
+                for row in literature_routes
+            )
+        )
         hust_object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"
@@ -30551,7 +30590,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"534"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"536"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -30649,7 +30688,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 122",
-            "source register files: 534",
+            "source register files: 536",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -30676,7 +30715,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 122", text)
-        self.assertIn("source register files: 534", text)
+        self.assertIn("source register files: 536", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

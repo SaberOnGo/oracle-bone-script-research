@@ -4234,6 +4234,90 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
         ),
     }
 )
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000861": (
+            "A compact angular upper form with a small inner opening rises from a broad lower base with two open spaces.",
+            "带小内开口的紧密折角上部从宽大下部升起，下部有两个开口。",
+        ),
+        "obs-unk-000862": (
+            "A peaked upper contour overlaps a broad curved lower form; an angular stroke descends on the right.",
+            "尖顶上部轮廓叠在宽大曲线下部之上；右侧有折角笔画下行。",
+        ),
+        "obs-unk-000863": (
+            "A slim looped stroke stands at left beside a taller rectangular enclosure with a small inner opening.",
+            "左侧为细长回环笔画，旁边是带小内开口的较高矩形围合。",
+        ),
+        "obs-unk-000864": (
+            "A top crossbar joins two short verticals at left; a separate elongated looped stroke angles downward at right.",
+            "左侧顶横线连接两条短直线；右侧另有细长回环笔画斜向下行。",
+        ),
+        "obs-unk-000865": (
+            "A broad peaked top sits over a curved lower enclosure, with a compact angular stroke in the center.",
+            "宽大的尖顶位于弯曲下部围合之上，中央有紧密折角笔画。",
+        ),
+        "obs-unk-000866": (
+            "Two separated curved forms are visible: a small capped loop above and a larger loop with a central descent below.",
+            "可见两个分离的曲线形态：上方为带小顶的回环，下方为带中央下行线的大回环。",
+        ),
+        "obs-unk-000867": (
+            "A narrow double loop stands over a wavy lower stroke, with a detached oval mark beneath.",
+            "窄小双回环位于波曲下线之上，下方另有分离的椭圆笔画。",
+        ),
+        "obs-unk-000868": (
+            "A tall angled frame on the left contains short interior marks; a rounded compact form and long strokes sit at right.",
+            "左侧高大的折角框内有短内线；右侧有圆曲紧密形态和长笔画。",
+        ),
+        "obs-unk-000869": (
+            "A tall left contour supports a horizontal top band; a central curled stroke descends beside a small detached mark.",
+            "左侧高轮廓连接顶部横带；中央卷曲笔画下行，旁有分离小线。",
+        ),
+        "obs-unk-000870": (
+            "An upper rounded enclosure has three short projections, stacked middle bars, and a wavy lower extension.",
+            "上部圆曲围合带三个短上突，中部有叠置横线，下方接波曲延伸线。",
+        ),
+        "obs-unk-000871": (
+            "Two broad upper arms meet a central vertical stem, which continues into a wide rectangular lower base.",
+            "两条宽大的上部侧线汇入中央直立主线，并继续连接宽矩形底部。",
+        ),
+        "obs-unk-000872": (
+            "Several horizontal bands stack above two lower rectangular openings and a long central descending curve.",
+            "数道横带叠置在两个下部矩形开口之上，并接中央长曲下行线。",
+        ),
+        "obs-unk-000873": (
+            "A rectangular upper frame contains two small openings; a central angular extension projects below.",
+            "矩形上框内部有两个小开口；中央折角延伸线向下突出。",
+        ),
+        "obs-unk-000874": (
+            "A slim wavy figure at left stands beside a taller looped contour with an open angular lower section.",
+            "左侧细长波曲形态旁有较高回环轮廓，下部呈开放折角形。",
+        ),
+        "obs-unk-000875": (
+            "A dense crossing cluster has a small central opening; a broad curved stroke descends on the right.",
+            "密集交叉线束中央有小开口；右侧有宽大的曲线向下延伸。",
+        ),
+        "obs-unk-000876": (
+            "A tall rectangular left frame encloses a small loop, while a separate right stem bends into an open lower curl.",
+            "左侧高矩形框围合小回环；右侧另有直线主干并弯入开放下部回曲。",
+        ),
+        "obs-unk-000877": (
+            "Stacked upper bars lead into a central downward curl and a broad lower bowl with a small central point.",
+            "叠置上横线连接中央下卷曲线和宽大下部碗形，碗中带小中央尖点。",
+        ),
+        "obs-unk-000878": (
+            "A rounded upper rectangular loop descends through a central stem; a small right loop and long left curve remain separate.",
+            "圆曲上部矩形回环经中央主线下行；右侧小回环和左侧长曲线相对分离。",
+        ),
+        "obs-unk-000879": (
+            "Two upright figures stand apart: a looped left form on a stem and an angular right form with a zigzag lower part.",
+            "两个直立形态彼此分离：左侧为带主线的回环，右侧为下部曲折的折角形。",
+        ),
+        "obs-unk-000880": (
+            "Two rounded upper loops sit above a central crossing and a long wavy lower tail.",
+            "两个圆曲上部回环位于中央交叉线和长波曲下尾之上。",
+        ),
+    }
+)
 
 @dataclass(frozen=True)
 class Candidate:

@@ -2013,6 +2013,107 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "slanting side strokes extending below.",
         "数条叠置横笔集中于上部中央，下方有长斜向侧笔外伸。",
     ),
+    "obs-unk-000361": (
+        "Two compact angular or rounded clusters are stacked vertically, with a "
+        "long narrow stroke extending along the right side.",
+        "两个折角或弧形紧凑笔组上下叠置，右侧有长窄笔外伸。",
+    ),
+    "obs-unk-000362": (
+        "A rounded central block has a broad horizontal top, a narrow lower stem, "
+        "and a long right-side stroke.",
+        "弧角中央笔块带宽上横笔、窄下部笔干和长右侧笔。",
+    ),
+    "obs-unk-000363": (
+        "A dense zigzag central cluster is framed by curved side strokes and short "
+        "upper projections.",
+        "密集折线中央笔组由弯曲侧笔夹持，上方有短外伸笔。",
+    ),
+    "obs-unk-000364": (
+        "Two stacked horizontal groups are crossed by narrow vertical strokes, "
+        "with short side projections.",
+        "两组叠置横向笔画被窄直笔穿过，两侧有短外伸笔。",
+    ),
+    "obs-unk-000365": (
+        "Two compact rectangular groups are stacked, each containing a central "
+        "crossing and short side marks.",
+        "两个紧凑矩形笔组上下叠置，各自含中央交叉和短侧痕迹。",
+    ),
+    "obs-unk-000366": (
+        "A rounded upper enclosure sits above several long diagonal lower strokes "
+        "and a short right-side extension.",
+        "弧角上部围合位于数条长斜向下部笔之上，右侧有短外伸。",
+    ),
+    "obs-unk-000367": (
+        "The image repeats the rounded upper enclosure and long diagonal lower "
+        "strokes seen for obs-unk-000366; visual comparison only.",
+        "图像与 obs-unk-000366 均见弧角上部围合和长斜向下部笔；仅作视觉 "
+        "比较，不作身份确认。",
+    ),
+    "obs-unk-000368": (
+        "A dense rounded and angular cluster contains several crossing strokes and "
+        "short outer projections.",
+        "密集弧形和折角笔组内有数条交叉笔画及短外伸痕迹。",
+    ),
+    "obs-unk-000369": (
+        "A tall branching right-side form stands beside a short detached left "
+        "mark and a central crossing.",
+        "高直分支右侧形体旁有短分离左侧痕迹和中央交叉。",
+    ),
+    "obs-unk-000370": (
+        "A dense angular composite has a short upper projection, crossing middle "
+        "strokes, and a curved lower edge.",
+        "密集折角组合体带短上部外伸、中部交叉笔画和弯曲下缘。",
+    ),
+    "obs-unk-000371": (
+        "A dense central crossing is framed by short pointed upper projections and "
+        "long lower side strokes.",
+        "密集中央交叉由短尖角上部外伸和长下部侧笔夹持。",
+    ),
+    "obs-unk-000372": (
+        "A rounded rectangular lower enclosure has two pointed upper projections "
+        "and a compact central mark.",
+        "弧角矩形下部围合带有两个尖角上部外伸和紧凑中央痕迹。",
+    ),
+    "obs-unk-000373": (
+        "A small pointed upper mark sits above a broad curved enclosure with a "
+        "short lower projection.",
+        "小型尖角上部痕迹位于宽弯曲围合之上，下方有短外伸笔。",
+    ),
+    "obs-unk-000374": (
+        "Four broad strokes meet around a central crossing and continue into a "
+        "pointed lower extension.",
+        "四条宽笔围绕中央交叉汇合，并向下连接尖角外伸。",
+    ),
+    "obs-unk-000375": (
+        "A narrow pointed enclosure contains a central vertical stroke and a "
+        "short horizontal upper mark.",
+        "窄尖围合内有中央直笔和短上部横向痕迹。",
+    ),
+    "obs-unk-000376": (
+        "A short crossing form stands beside a tall narrow enclosure, with a "
+        "small lower projection.",
+        "短交叉形体旁有高直窄围合，下方带小型外伸笔。",
+    ),
+    "obs-unk-000377": (
+        "A rounded upright enclosure with a descending stem stands beside a "
+        "separate curved stroke on the right.",
+        "弧角直立围合连接下降笔干，右侧另有分离弯曲笔。",
+    ),
+    "obs-unk-000378": (
+        "A small rounded upper mark connects to a narrow stem and a broad zigzag "
+        "lower contour.",
+        "小型弧形上部痕迹连接窄笔干和宽折线下部轮廓。",
+    ),
+    "obs-unk-000379": (
+        "A tall rounded rectangular enclosure contains dense crossing interior "
+        "strokes and a narrow lower extension.",
+        "高直弧角矩形围合内有密集交叉内部笔画和窄下部延伸。",
+    ),
+    "obs-unk-000380": (
+        "A rounded horizontal enclosure contains a central crossing and a short "
+        "lower stem, forming a compact near-symmetrical arrangement.",
+        "弧形横向围合内有中央交叉和短下部笔干，形成紧凑近对称排列。",
+    ),
 }
 
 

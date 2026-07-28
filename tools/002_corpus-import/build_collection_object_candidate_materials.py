@@ -65,6 +65,11 @@ STAGING_SPECS = [
         "met",
         "met-obj",
     ),
+    (
+        REGISTER_ROOT / "006_cambridge-cul52-oracle-bone-object-staging.csv",
+        "cambridge",
+        "cam-cul",
+    ),
 ]
 
 MAP_FIELDS = [

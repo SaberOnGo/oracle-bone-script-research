@@ -1,8 +1,8 @@
 {
-  "object_directory_count": 29754,
+  "object_directory_count": 29755,
   "corpus_area_counts": {
     "codepoint_crosswalk_candidates": 1588,
-    "collection_object_candidates": 56,
+    "collection_object_candidates": 57,
     "evolution_correspondence_candidates": 13714,
     "graphemic_component_candidates": 2747,
     "inscription_crosswalk_candidates": 612,
@@ -11,13 +11,13 @@
     "research_topic_candidates": 20
   },
   "material_bundle_status_counts": {
-    "object_local_bundle_with_evidence_routes": 16039,
+    "object_local_bundle_with_evidence_routes": 16040,
     "object_local_bundle_with_review_image": 13715
   },
-  "human_entry_object_count": 29754,
-  "ai_entry_object_count": 29754,
+  "human_entry_object_count": 29755,
+  "ai_entry_object_count": 29755,
   "local_visual_asset_object_count": 13715,
-  "route_gallery_or_route_index_object_count": 29754,
+  "route_gallery_or_route_index_object_count": 29755,
   "partial_or_missing_bundle_count": 0,
   "parallel_human_directory_count": 0,
   "research_boundary": "object_local_material_coverage_audit_not_scholarship; routes, images, candidate packets, and review sheets are preprocessing infrastructure, not identity, component, inscription, evolution, reading, or decipherment conclusions",

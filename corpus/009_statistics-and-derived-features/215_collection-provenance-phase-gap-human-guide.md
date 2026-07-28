@@ -22,7 +22,7 @@ scholarship, and not a decipherment conclusion.
 - updated at: 2026-06-30
 - checklist rows: 3
 - collection staging rows: 4
-- collection object candidates: 56
+- collection object candidates: 57
 - museum object assets: 3
 - OBM follow-up routes: 4
 - source id: `src-cambridge-hopkins`

@@ -31,6 +31,14 @@ map, not a rights decision.
 - Finding-list reconciliation JSON / 清单对账索引:
   22_finding-list-reconciliation-index.json
 - Finding-list row table / 清单逐行表: 23_finding-list-row-reconciliation.csv
+- Official digital collection route review / official digital route review:
+  24_official-digital-collection-route-review.md
+- Official digital route index / official digital route index:
+  25_official-digital-route-index.csv
+- Official Cambridge literature and dispute review / Cambridge 官方文献与争议复核:
+  26_official-cambridge-literature-and-dispute-review.md
+- Official literature route index / official literature route index:
+  27_official-literature-route-index.csv
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

@@ -3,7 +3,7 @@
   "updated_at": "2026-06-20",
   "audit_csv_path": "corpus/009_statistics-and-derived-features/190_project-id-source-map-audit.csv",
   "map_count": 6,
-  "total_row_count": 38492,
+  "total_row_count": 38493,
   "stage_counts": {
     "registered_empty_map": 1,
     "validated_route_map": 5
@@ -17,7 +17,7 @@
     "oracle_inscription_or_crosswalk_candidate": 1
   },
   "totals": {
-    "row_count": 38492,
+    "row_count": 38493,
     "missing_canonical_path_count": 0,
     "unknown_source_id_count": 0,
     "missing_primary_external_ref_count": 0,
@@ -154,7 +154,7 @@
       "map_id": "collection_object_id_source_map",
       "record_family": "collection_object_candidate",
       "map_path": "project_registry/002_project-id-to-source-reference-map/006_collection-object-id-source-map.csv",
-      "row_count": "56",
+      "row_count": "57",
       "nonempty_map_status": "has_candidate_or_asset_routes",
       "missing_canonical_path_count": "0",
       "unknown_source_id_count": "0",
@@ -163,9 +163,9 @@
       "missing_source_ids_count": "0",
       "missing_rights_status_count": "0",
       "missing_review_status_count": "0",
-      "rights_status_counts": "metadata_only_until_verified:53;public_domain_verified:3",
-      "review_status_counts": "needs_human_collection_object_review:56",
-      "source_id_counts": "src-ihp-museum-oracle-bones:52;src-metmuseum-oracle-bone:2;src-penn-museum-oracle-bone:1;src-smithsonian-nmaa-oracle-bone:1",
+      "rights_status_counts": "metadata_only_until_verified:54;public_domain_verified:3",
+      "review_status_counts": "needs_human_collection_object_review:57",
+      "source_id_counts": "src-cambridge-hopkins:1;src-ihp-museum-oracle-bones:52;src-metmuseum-oracle-bone:2;src-penn-museum-oracle-bone:1;src-smithsonian-nmaa-oracle-bone:1",
       "current_stage": "validated_route_map",
       "next_entry_path": "project_registry/002_project-id-to-source-reference-map/006_collection-object-id-source-map.csv",
       "next_action": "use_map_as_object_local_route_index_and_continue_human_review",

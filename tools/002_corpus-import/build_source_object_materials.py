@@ -3966,6 +3966,18 @@ def readme_text(
           if source["source_id"] == "src-cambridge-hopkins" else []),
         *(bullet("Finding-list row reconciliation / 清单逐行对账", "23_finding-list-row-reconciliation.csv")
           if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official digital collection route review / official digital route review",
+                  "24_official-digital-collection-route-review.md")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official digital route index / official digital route index",
+                  "25_official-digital-route-index.csv")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official Cambridge literature and dispute review / Cambridge 官方文献与争议复核",
+                  "26_official-cambridge-literature-and-dispute-review.md")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official literature route index / official literature route index",
+                  "27_official-literature-route-index.csv")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
         *wrapped(
             "Structured support files only serve the human source dossier. They "
@@ -4072,6 +4084,18 @@ def material_access_index_text(
         *(bullet("Finding-list reconciliation JSON / 清单对账索引", "22_finding-list-reconciliation-index.json")
           if source["source_id"] == "src-cambridge-hopkins" else []),
         *(bullet("Finding-list row table / 清单逐行表", "23_finding-list-row-reconciliation.csv")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official digital collection route review / official digital route review",
+                  "24_official-digital-collection-route-review.md")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official digital route index / official digital route index",
+                  "25_official-digital-route-index.csv")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official Cambridge literature and dispute review / Cambridge 官方文献与争议复核",
+                  "26_official-cambridge-literature-and-dispute-review.md")
+          if source["source_id"] == "src-cambridge-hopkins" else []),
+        *(bullet("Official literature route index / official literature route index",
+                  "27_official-literature-route-index.csv")
           if source["source_id"] == "src-cambridge-hopkins" else []),
         "",
         *wrapped(

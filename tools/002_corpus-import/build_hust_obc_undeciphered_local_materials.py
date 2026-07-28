@@ -3904,6 +3904,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A looped left form with a small opening stands beside a tall oval right form on a short base.",
             "带小空隙的环状左部旁有置于短底座上的高直椭圆右部。",
         ),
+        "obs-unk-000781": (
+            "A tall left frame with an inner opening stands beside a separate winding right stroke with a lower hook.",
+            "带内空隙的高直左框旁有分离的曲折右笔，末端接下钩。",
+        ),
+        "obs-unk-000782": (
+            "A narrow left panel with a horizontal interior bar stands beside a tall looped right form and lower curve.",
+            "带横向内笔的窄左框旁有高直环状右部和下方弧曲笔。",
+        ),
+        "obs-unk-000783": (
+            "A peaked upper cap and small lower mark stand beside a dense curved form with a long descending stroke.",
+            "尖峰上帽和小型下部笔记旁有密集弧曲形体及长下行笔。",
+        ),
+        "obs-unk-000784": (
+            "A broad upper band with short side uprights connects to a central stem and a zigzag lower descent.",
+            "宽大上横带及两侧短直笔连接中央直笔和曲折下行笔。",
+        ),
+        "obs-unk-000785": (
+            "A rounded upper bowl with two side uprights narrows into a broad lower curve and pointed base.",
+            "带两侧短直笔的圆弧上部形体向下收束为宽弧下部和尖状底部。",
+        ),
+        "obs-unk-000786": (
+            "Three small upper openings sit on a horizontal bar above a rounded lower frame with a central point.",
+            "三个小型上部空隙置于横带之上，下方连接带中央尖笔的圆弧框。",
+        ),
+        "obs-unk-000787": (
+            "Two stacked arched frames are visible, each containing a peaked interior line.",
+            "可见上下叠置的两个拱框，每个框内都有尖峰状内笔。",
+        ),
+        "obs-unk-000788": (
+            "A compact peaked upper cluster sits above crossed lower strokes and a small rounded base mark.",
+            "紧密尖峰上部笔组位于交叉下部笔画和小型圆弧底部笔记之上。",
+        ),
+        "obs-unk-000789": (
+            "A tall leaf-like upper form rises from a rectangular lower frame containing two side openings.",
+            "高直叶状上部形体从矩形下框中升起，下框两侧留有空隙。",
+        ),
+        "obs-unk-000790": (
+            "A detached curved cap sits above a rectangular panel containing several horizontal interior bars.",
+            "分离的弧曲上帽位于矩形框板之上，框内含数道横向内笔。",
+        ),
+        "obs-unk-000791": (
+            "A tall pointed frame with an inner loop is flanked by curved strokes and ends in a triangular lower base.",
+            "带内环的高直尖峰框两侧有弧曲笔，底部收于三角形底座。",
+        ),
+        "obs-unk-000792": (
+            "A rounded upper cap and central crossing connect to a broad lower frame with short side projections.",
+            "圆弧上帽和中央交叉笔连接宽大下框，下框两侧有短外伸笔。",
+        ),
+        "obs-unk-000793": (
+            "Small separated looped marks flank a central stem, which continues into a curved lower descent.",
+            "数个分离环状笔记夹住中央直笔，中央笔向下连接弧曲下行笔。",
+        ),
+        "obs-unk-000794": (
+            "A rounded upper loop stands above two lower rectangular panels with horizontal interior bars.",
+            "圆弧上环位于下方两个矩形框板之上，框内含横向内笔。",
+        ),
+        "obs-unk-000795": (
+            "A small left loop is joined to a wavy right stem, with a detached rounded mark below.",
+            "左侧小环连接波曲右侧直笔，下方另有分离的圆弧笔记。",
+        ),
+        "obs-unk-000796": (
+            "A small rectangular left panel stands beside a tall oval right form resting on a short base.",
+            "小型矩形左框旁有置于短底座上的高直椭圆右部。",
+        ),
+        "obs-unk-000797": (
+            "A tall enclosing arch contains a pointed inner opening and descends into a long curved lower stroke.",
+            "高直拱形外框围出尖状内空隙，并向下连接长弧曲笔画。",
+        ),
+        "obs-unk-000798": (
+            "A small central looped form is flanked by short side marks and continues into angular lower strokes.",
+            "小型中央环状形体两侧有短笔记，并向下连接折角笔画。",
+        ),
+        "obs-unk-000799": (
+            "A tall angular upper form with an inner opening narrows into a long curved lower descent.",
+            "带内空隙的高直折角上部形体向下收束为长弧曲下行笔。",
+        ),
+        "obs-unk-000800": (
+            "A dense left cluster stands beside an arrow-like right form with horizontal bars and a long lower curve.",
+            "密集左部笔组旁有带横笔和长弧下行笔的箭状右部形体。",
+        ),
     }
 )
 

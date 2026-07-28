@@ -3164,6 +3164,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A tall rectangular arch has an interior horizontal division and two long descending side strokes.",
         "高直矩形拱形围合内有横向分隔，两侧有长下行笔。",
     ),
+    "obs-unk-000601": (
+        "A rounded upper enclosure with a pointed interior sits above a shallow lower curve and a long right descent.",
+        "弧形上部围合内有尖角笔，位于浅弧形下部笔和长右侧下行笔之上。",
+    ),
+    "obs-unk-000602": (
+        "Two zigzag upper rows sit above a central stem with three horizontal bars and a short lower base.",
+        "两排折线状上部笔位于中央笔干之上，笔干带三道横笔和短下部基座。",
+    ),
+    "obs-unk-000603": (
+        "A pointed upper frame with crossing interior strokes sits above a lower angular enclosure and central stem.",
+        "带交叉内部笔画的尖角上部框架位于折角下部围合和中央笔干之上。",
+    ),
+    "obs-unk-000604": (
+        "A tall central form is enclosed by curved side strokes, with a pointed upper mark and triangular lower base.",
+        "高直中央形体由弧形侧笔围合，上部有尖角痕迹，下部有三角形基座。",
+    ),
+    "obs-unk-000605": (
+        "A rectangular upper band contains repeated pointed strokes above a curved lower enclosure and horizontal base.",
+        "矩形上部横带内有重复尖角笔，下方连接弧形围合和横向基座。",
+    ),
+    "obs-unk-000606": (
+        "A tall triangular left frame is paired with a branching right cluster and a small upper cap.",
+        "高直三角形左框连接分支状右侧笔组，上方带小型笔帽。",
+    ),
+    "obs-unk-000607": (
+        "Two separate arch-like frames are stacked vertically, each with a short interior diagonal stroke.",
+        "两个分离拱形框上下排列，每个框内都有短斜向笔。",
+    ),
+    "obs-unk-000608": (
+        "A small rectangular frame on the left is paired with a dense branching diagonal cluster on the right.",
+        "左侧小型矩形框连接右侧密集分支斜向笔组。",
+    ),
+    "obs-unk-000609": (
+        "A small rounded mark and long central descent stand beside a broad rounded enclosure with an inner block.",
+        "小型弧形痕迹和长中央下行笔旁有宽幅弧形围合，围合内有笔块。",
+    ),
+    "obs-unk-000610": (
+        "A small rounded left mark and wavy descent stand beside a tall pointed enclosure on a short base.",
+        "小型弧形左侧痕迹和波状下行笔旁有高直尖角围合及短基座。",
+    ),
+    "obs-unk-000611": (
+        "A long curved left stroke stands beside a narrow upper frame and a broad rounded lower enclosure.",
+        "长弧形左笔旁有窄上部框架和宽幅弧形下部围合。",
+    ),
+    "obs-unk-000612": (
+        "A broad left wedge with horizontal divisions is paired with a dense curved branching cluster on the right.",
+        "带横向分隔的宽幅左侧折角笔块连接右侧密集弧形分支笔组。",
+    ),
+    "obs-unk-000613": (
+        "A small wavy rounded cluster on the left is paired with a tall pointed right panel containing interior marks.",
+        "左侧小型波状弧形笔组连接高直尖角右侧笔板，笔板内有内部痕迹。",
+    ),
+    "obs-unk-000614": (
+        "Two rounded separated lobes sit beside a tall rectangular panel with several horizontal interior bands.",
+        "两个分离弧形笔瓣位于高直矩形笔板旁，笔板内有数道横带。",
+    ),
+    "obs-unk-000615": (
+        "A broad curved upper stroke arches over a pointed central form ending in two long lower strokes.",
+        "宽幅弧形上笔覆盖尖角中央形体，中央形体下端伸出两条长笔。",
+    ),
+    "obs-unk-000616": (
+        "A tall arch-like frame encloses a central horizontal and vertical cluster with short outer side strokes.",
+        "高直拱形框围合中央横竖笔组，外侧带短侧笔。",
+    ),
+    "obs-unk-000617": (
+        "A rounded left cluster with an interior loop is paired with a tall pointed right panel.",
+        "带内部环的弧形左侧笔组连接高直尖角右侧笔板。",
+    ),
+    "obs-unk-000618": (
+        "Detached short upper strokes sit above a small rounded central cluster and curved lower descents.",
+        "分离短上部笔位于小型弧形中央笔组和弧形下行笔之上。",
+    ),
+    "obs-unk-000619": (
+        "Detached curved upper marks surround a compact central cluster with long horizontal side strokes.",
+        "分离弧形上部痕迹围绕紧凑中央笔组，中央两侧有长横笔。",
+    ),
+    "obs-unk-000620": (
+        "A curved outer enclosure surrounds a central rectangular and curved cluster with long descending sides.",
+        "弧形外部围合包住中央矩形和弧形笔组，两侧有长下行笔。",
+    ),
 
 }
 

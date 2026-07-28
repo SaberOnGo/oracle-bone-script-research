@@ -2365,6 +2365,119 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "尖角三角上部轮廓位于窄长笔干之上；下部为开放弧形形体，"
         "右侧带短向外笔画。",
     ),
+    "obs-unk-000421": (
+        "Two small rounded rectangular marks sit above a broad pointed contour "
+        "with two long descending legs and a central opening.",
+        "两个小型弧角矩形痕迹位于宽幅尖角轮廓之上；下部有两条长下行笔，"
+        "中间保留空隙。",
+    ),
+    "obs-unk-000422": (
+        "A pointed forked upright form with a long stem stands beside a separate "
+        "narrow angular form with a short upper projection.",
+        "尖角分叉直立形体连接长笔干，旁边另有窄长折角形体，"
+        "上部带短外伸。",
+    ),
+    "obs-unk-000423": (
+        "A broad rounded upper enclosure contains a central crossing and a lower "
+        "tapered stem; two small detached marks sit to the left.",
+        "宽幅弧形上部围合内有中央交叉，下方接收窄下行笔干；"
+        "左侧有两个小型分离痕迹。",
+    ),
+    "obs-unk-000424": (
+        "A broad rounded upper enclosure contains a central crossing and a lower "
+        "tapered stem; it is visually similar to obs-unk-000423 only.",
+        "宽幅弧形上部围合内有中央交叉，下方接收窄下行笔干；"
+        "仅作与 obs-unk-000423 的视觉比较。",
+    ),
+    "obs-unk-000425": (
+        "A rectangular enclosure contains crossing interior strokes, including a "
+        "small rounded upper mark and a curved diagonal lower stroke.",
+        "矩形围合内有交叉内部笔画，其中包括小型弧形上部痕迹和"
+        "弯曲斜向下部笔画。",
+    ),
+    "obs-unk-000426": (
+        "A dense central upright cluster has several short side projections and "
+        "a longer curved stroke descending on the right.",
+        "密集中央直立笔组带有数个短侧向外伸，右侧连接较长弯曲下行笔。",
+    ),
+    "obs-unk-000427": (
+        "Crossing diagonal strokes form a tall narrow structure with a small "
+        "central rounded opening and a pointed lower end.",
+        "交叉斜向笔画构成高直窄形体，中部有小型弧形空隙，"
+        "下端收成尖角。",
+    ),
+    "obs-unk-000428": (
+        "A forked upper cluster sits above a broad open lower contour with a "
+        "small rounded point at the bottom.",
+        "分叉上部笔组位于宽幅开放下部轮廓之上，最下端有小型弧形尖点。",
+    ),
+    "obs-unk-000429": (
+        "A sparse upright arrangement has a curved left axis, crossing middle "
+        "strokes, and a separate narrow right upright with a rounded top.",
+        "稀疏直立排列有弯曲左侧轴线、中部交叉笔画，右侧另有"
+        "窄直立形体并带弧形上端。",
+    ),
+    "obs-unk-000430": (
+        "A compact diagonal composite has a small rounded upper mark, a central "
+        "slanting stroke, and a pointed lower fork.",
+        "紧凑斜向组合体带有小型弧形上部痕迹、中央斜笔和尖角下部叉形。",
+    ),
+    "obs-unk-000431": (
+        "Three tall descending strokes or branches stand together, with crossing "
+        "marks through the central area and uneven lower ends.",
+        "三个高直下行笔或分枝并列，中部有交叉痕迹，下端长短不一。",
+    ),
+    "obs-unk-000432": (
+        "A small upper rectangular frame sits above crossing diagonal strokes and "
+        "a rounded lower loop.",
+        "小型上部矩形框位于交叉斜向笔画之上，下方连接弧形环状笔组。",
+    ),
+    "obs-unk-000433": (
+        "A dense star-like cluster on the left stands beside a separate slender "
+        "curved descending form on the right.",
+        "左侧是密集星状笔组，右侧另有窄长弯曲下行形体。",
+    ),
+    "obs-unk-000434": (
+        "A forked upper cluster sits above a broad open lower contour with a "
+        "small rounded point; it is visually similar to obs-unk-000428 only.",
+        "分叉上部笔组位于宽幅开放下部轮廓之上，最下端有小型弧形尖点；"
+        "仅作与 obs-unk-000428 的视觉比较。",
+    ),
+    "obs-unk-000435": (
+        "A compact four-lobed crossing cluster stands beside a separate narrow "
+        "right upright with a short upper diagonal mark.",
+        "紧凑四瓣交叉笔组旁边有分离的窄直立右侧形体，"
+        "上部带短斜向痕迹。",
+    ),
+    "obs-unk-000436": (
+        "A broad upper crossing has branching side strokes; the lower area "
+        "contains a small curved enclosure and a short pointed projection.",
+        "宽幅上部交叉笔组带分枝侧笔；下部有小型弧形围合和"
+        "短尖角外伸。",
+    ),
+    "obs-unk-000437": (
+        "A pointed upper enclosure sits above a broad rounded lower basin with "
+        "several short descending strokes.",
+        "尖角上部围合位于宽幅弧形下部笔组之上，下部有数条短下行笔。",
+    ),
+    "obs-unk-000438": (
+        "A broad upper horizontal stroke crosses a narrow central stem; the lower "
+        "section forms an angular left contour with a short right projection.",
+        "宽幅上横笔穿过窄中央笔干；下部形成折角左侧轮廓，"
+        "右侧带短外伸。",
+    ),
+    "obs-unk-000439": (
+        "A short upright stem sits above a small rectangular block and a lower "
+        "zigzag contour with several pointed projections.",
+        "短直立笔干位于小型矩形笔块之上；下部为带数个尖角外伸的"
+        "折线轮廓。",
+    ),
+    "obs-unk-000440": (
+        "A short upright stem sits above a small rectangular block and a broad "
+        "lower zigzag contour; it is visually similar to obs-unk-000439 only.",
+        "短直立笔干位于小型矩形笔块之上，下部为宽幅折线轮廓；"
+        "仅作与 obs-unk-000439 的视觉比较。",
+    ),
 
 }
 

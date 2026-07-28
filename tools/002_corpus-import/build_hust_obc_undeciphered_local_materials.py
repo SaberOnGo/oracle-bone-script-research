@@ -5853,6 +5853,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "The composition repeats the curved stem, stacked loops, rounded right opening, and lower zigzag strokes.",
             "构图重复弯曲主线、叠置回环、右侧圆形开口及下部曲折线。",
         ),
+        "obs-unk-001261": (
+            "A gridded left enclosure stands beside a narrow looped form with a long descending stroke and low stem.",
+            "网格状左侧围合与狭长回环形并列，后者带有长下伸线和低位主线。",
+        ),
+        "obs-unk-001262": (
+            "Several small forked marks surround a compact lower enclosure and a tall right-hand looped cluster.",
+            "多个小型分叉标记围绕紧凑下部围合，并伴随高位右侧回环线簇。",
+        ),
+        "obs-unk-001263": (
+            "The image shows a compact lower enclosure, scattered forked marks, and a tall looping right cluster.",
+            "图像显示紧凑下部围合、分散的分叉标记和高位回环右侧线簇。",
+        ),
+        "obs-unk-001264": (
+            "A small lower frame is paired with upper forked marks and a long right-side loop descending to a pointed end.",
+            "小型下部框形与上部分叉标记相配，右侧长回环向下收至尖端。",
+        ),
+        "obs-unk-001265": (
+            "Forked upper marks, a small framed lower form, and a tall right loop with descending branches fill the image.",
+            "分叉上部标记、小型下部框形和带下伸分支的高位右侧回环组成图像。",
+        ),
+        "obs-unk-001266": (
+            "A small peaked cap sits above a horizontal band and broad enclosure containing several curved inner strokes.",
+            "小型尖顶位于横带和宽围合之上，围合内部有多条弯曲线。",
+        ),
+        "obs-unk-001267": (
+            "An angular upper enclosure with an inner opening rests on a horizontal band and a narrow stem over a low base.",
+            "带内开口的棱角上部围合位于横带之上，下接狭长主线和低位基座。",
+        ),
+        "obs-unk-001268": (
+            "A forked upper stem rises from a broad rectangular enclosure containing two opposing angular inner strokes.",
+            "分叉上部主线从宽矩形围合中升起，围合内有两条相向棱角线。",
+        ),
+        "obs-unk-001269": (
+            "Three rounded or diamond-like bands stack vertically above a separate open curved form.",
+            "三个圆弧或菱状横带上下叠置，下方另有开放弯曲形。",
+        ),
+        "obs-unk-001270": (
+            "A long rectangular upper band with inner openings sits above a compact knot and a pointed lower projection.",
+            "带内开口的长矩形上部横带位于紧凑线结之上，并向下伸出尖状突起。",
+        ),
+        "obs-unk-001271": (
+            "A slender slanting stem carries an upper fork and small opening, with a compact loop at the middle.",
+            "纤细斜向主线带有上部分叉和小开口，中部有紧凑回环。",
+        ),
+        "obs-unk-001272": (
+            "A tall split stem and horizontal band lead to pointed side strokes above a broad lower enclosure.",
+            "高位分叉主线和横带连接下方宽围合，上部两侧有尖状线条。",
+        ),
+        "obs-unk-001273": (
+            "A dense vertical zigzag cluster bends into a long lower curve and a small right-side loop.",
+            "密集竖向曲折线簇向下弯成长龙曲线，右侧伴随小型回环。",
+        ),
+        "obs-unk-001274": (
+            "A central looping cluster has two upper prongs, pointed side strokes, and a tapered lower extension.",
+            "中央回环线簇带有两个上部分叉、尖状侧线和收尖下伸部。",
+        ),
+        "obs-unk-001275": (
+            "A rounded upper enclosure contains a forked inner mark, while a separate pair of curved strokes sits below.",
+            "圆弧上部围合内含分叉标记，下方另有一对弯曲线条。",
+        ),
+        "obs-unk-001276": (
+            "The form repeats a central looped cluster with upper prongs, pointed side strokes, and a tapered lower line.",
+            "形体重复中央回环线簇、上部分叉、尖状侧线和收尖下伸线。",
+        ),
+        "obs-unk-001277": (
+            "A rounded upper cap and inner loop sit above a low band, with a right diagonal stroke descending to a point.",
+            "圆弧上盖和内回环位于低位横带之上，右侧斜线向下收至尖端。",
+        ),
+        "obs-unk-001278": (
+            "A rounded cap, inner loop, and low horizontal base are joined to a right-side diagonal descending stroke.",
+            "圆弧上盖、内回环和低位横基线连接右侧斜向下伸线。",
+        ),
+        "obs-unk-001279": (
+            "A curved left frame borders a rounded upper band and a lower branching cluster above two short parallel lines.",
+            "弯曲左侧外框围住圆弧上部横带和下部线簇，其下方有两条短平行线。",
+        ),
+        "obs-unk-001280": (
+            "A forked left form with two upper dots stands beside a dense rounded right cluster with repeated prongs.",
+            "带有两个上部点状标记的左侧分叉形与密集圆弧右侧线簇并列，后者含重复分叉。",
+        ),
     }
 )
 

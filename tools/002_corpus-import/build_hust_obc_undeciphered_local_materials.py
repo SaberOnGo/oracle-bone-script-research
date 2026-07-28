@@ -4973,6 +4973,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A short upper cross form stands beside a central oval loop and right elongated loop, above lower angled strokes.",
             "短上部交叉形与中央椭圆回环及右侧延展回环并列，下方为倾斜线条。",
         ),
+        "obs-unk-001041": (
+            "A cross-like left stem ends in a long lower loop, beside a central oval form and a right descending curve.",
+            "左侧十字状主线收于长下部回环，旁边是中央椭圆形和右侧下垂弧线。",
+        ),
+        "obs-unk-001042": (
+            "A stacked central looped form has a rounded upper band, detached side marks, and a lower U-shaped section.",
+            "层叠的中央回环形带圆曲上部横带、分离侧痕和下部 U 形结构。",
+        ),
+        "obs-unk-001043": (
+            "A rounded upper band caps a vertical looped stack, with side marks and a broad lower U-shaped enclosure.",
+            "圆曲上部横带覆盖竖向回环层叠形，两侧有痕，下方为宽 U 形围合。",
+        ),
+        "obs-unk-001044": (
+            "A large slanted enclosure contains several rounded openings and tapers toward a lower pointed end.",
+            "大型倾斜围合含多个圆曲开口，并向下收成尖端。",
+        ),
+        "obs-unk-001045": (
+            "A pointed upper cap sits over a rectangular middle frame and a broad lower loop, with a curved right stem.",
+            "尖形顶部位于矩形中部框和宽下部回环之上，右侧接弧形主线。",
+        ),
+        "obs-unk-001046": (
+            "A pointed outer frame encloses a central round opening and two lower side openings.",
+            "尖形外框围住中央圆曲开口和两个下部侧开口。",
+        ),
+        "obs-unk-001047": (
+            "Two upper side openings surround a central lower opening, followed by a small round loop and a lower band.",
+            "两个上部侧开口围住中央下部开口，随后连接小圆回环和下部横带。",
+        ),
+        "obs-unk-001048": (
+            "A tall triangular loop with a narrow inner opening stands above a horizontal band and rounded lower strokes.",
+            "高大的三角回环带窄内部开口，位于横带和圆曲下部线条之上。",
+        ),
+        "obs-unk-001049": (
+            "A pointed triangular top rests over a broad horizontal band and an angular lower frame.",
+            "尖三角顶部位于宽横带和折线下部框形之上。",
+        ),
+        "obs-unk-001050": (
+            "A shield-like enclosure contains small inner loops and narrows to a pointed lower extension.",
+            "盾形围合含小内部回环，并向下收成尖形延伸。",
+        ),
+        "obs-unk-001051": (
+            "A large triangular cap sits over a rectangular middle section and a lower triangular structure.",
+            "大型三角顶部位于矩形中部和下部三角结构之上。",
+        ),
+        "obs-unk-001052": (
+            "Detached vertical marks stand left of a central bar cluster, with a curved descending stroke on the right.",
+            "分离竖向痕位于中央横线簇左侧，右侧连接弧形下垂线。",
+        ),
+        "obs-unk-001053": (
+            "A broad triangular upper form has several internal openings and continues into angular lower curves.",
+            "宽大的三角上部形体含多个内部开口，并向下连接折线弧曲。",
+        ),
+        "obs-unk-001054": (
+            "A shield-like enclosure contains a horizontal band and lower loop, with two detached oval marks beneath.",
+            "盾形围合含横带和下部回环，下方有两个分离椭圆痕。",
+        ),
+        "obs-unk-001055": (
+            "A pointed outer arch encloses an angular inner cluster and extends into a long right descending curve.",
+            "尖拱外框围住折线内部簇，并向右下延成长弧线。",
+        ),
+        "obs-unk-001056": (
+            "Several detached vertical marks accompany a central bar cluster and a curved right descent.",
+            "数个分离竖向痕伴随中央横线簇，右侧连接弧形下垂线。",
+        ),
+        "obs-unk-001057": (
+            "Detached dots surround a pointed upper enclosure above a broad wavy and looped lower cluster.",
+            "分离点状痕环绕尖形上部围合，下方为宽波曲和回环线簇。",
+        ),
+        "obs-unk-001058": (
+            "A shield-like enclosure has a horizontal upper band, a rounded lower loop, and two detached oval marks.",
+            "盾形围合带上部横带和圆曲下部回环，并有两个分离椭圆痕。",
+        ),
+        "obs-unk-001059": (
+            "A pointed outer arch encloses dense inner strokes and continues into a long curved right descent.",
+            "尖拱外框围住密集内部线条，并向右下延成长弧线。",
+        ),
+        "obs-unk-001060": (
+            "A rounded upper band with two inner horizontals rests over branching lower strokes and two openings.",
+            "带两道内部横线的圆曲上部横带位于分支下部线和两个开口之上。",
+        ),
     }
 )
 

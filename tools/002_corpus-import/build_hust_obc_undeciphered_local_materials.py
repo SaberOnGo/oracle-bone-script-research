@@ -5053,6 +5053,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A rounded upper band with two inner horizontals rests over branching lower strokes and two openings.",
             "带两道内部横线的圆曲上部横带位于分支下部线和两个开口之上。",
         ),
+        "obs-unk-001061": (
+            "A large central oval loop has a curved left border, small right loops, and a long lower loop.",
+            "大型中央椭圆回环带弧形左缘、右侧小回环和长下部回环。",
+        ),
+        "obs-unk-001062": (
+            "A tall pointed outer form contains several openings and continues into a broad curved right descent.",
+            "高大的尖形外框含多个开口，并向右下连接宽弧线。",
+        ),
+        "obs-unk-001063": (
+            "A central oval enclosure is bordered by a long left curve and small right loops, with a lower looped descent.",
+            "中央椭圆围合左侧有长弧线，右侧有小回环，下方接回环下垂。",
+        ),
+        "obs-unk-001064": (
+            "A tall pointed frame contains inner openings and is paired with a broad curved stroke on the right.",
+            "高大的尖形框含内部开口，右侧与宽弧线并列。",
+        ),
+        "obs-unk-001065": (
+            "A shield-like enclosure has a horizontal upper band, a pointed lower section, and two detached oval marks.",
+            "盾形围合带上部横带和尖形下部，两侧下方有两个分离椭圆痕。",
+        ),
+        "obs-unk-001066": (
+            "Short left bars accompany a central rectangular upper grille on a stem and a zigzag right descent.",
+            "短左侧横线伴随主线上的中央矩形格状形，右侧连接折线下垂。",
+        ),
+        "obs-unk-001067": (
+            "A small rectangular grille on a central stem is flanked by short marks and a long angular lower descent.",
+            "中央主线上的小矩形格状形两侧有短痕，并向下连接长折线。",
+        ),
+        "obs-unk-001068": (
+            "A broad curved upper stroke branches left and right over a lower cluster with several detached dots.",
+            "宽大的上部弧线向左右分支，位于带多个分离点的下部线簇之上。",
+        ),
+        "obs-unk-001069": (
+            "A large rectangular outer frame with a central notch encloses a rounded lower looped cluster.",
+            "大型矩形外框中央有缺口，内部围住圆曲下部回环簇。",
+        ),
+        "obs-unk-001070": (
+            "A dense branching central cluster rises into a pointed upper enclosure beside a tall angular right form.",
+            "密集中央分支线簇向上连接尖形围合，右侧为高大的折线形体。",
+        ),
+        "obs-unk-001071": (
+            "A horizontal upper loop with two openings sits above dense lower loops and a long curved descent, with detached dots.",
+            "带两个开口的横向上部回环位于密集下部回环和长弧下垂之上，并有分离点。",
+        ),
+        "obs-unk-001072": (
+            "A vertical branching form contains inner openings and extends into a long curved stroke on the right.",
+            "竖向分支形体含内部开口，并向右下延出长弧线。",
+        ),
+        "obs-unk-001073": (
+            "A broad upper horizontal frame leads through a central stem to a rounded lower cluster.",
+            "宽大的上部横向框形经中央主线连接圆曲下部线簇。",
+        ),
+        "obs-unk-001074": (
+            "A broad pointed upper form leads into angular lower strokes, with a separate small rectangular enclosure at right.",
+            "宽大的尖形上部连接折线下部，右侧另有小矩形围合。",
+        ),
+        "obs-unk-001075": (
+            "Branching upper strokes sit above a rounded horizontal base and a rectangular lower section.",
+            "分支上部线条位于圆曲横向底部和矩形下部结构之上。",
+        ),
+        "obs-unk-001076": (
+            "Stacked angular loops cross near the top and continue to a lower triangular form with side projections.",
+            "层叠折线回环在顶部附近交叉，向下连接带侧向突出的三角形。",
+        ),
+        "obs-unk-001077": (
+            "A U-shaped upper band rests over a lower rectangular frame with several vertical looped openings.",
+            "U 形上部横带位于带多个竖向回环开口的矩形下框之上。",
+        ),
+        "obs-unk-001078": (
+            "A central rectangular enclosure has a pointed top, curved side strokes, and a pointed lower extension.",
+            "中央矩形围合顶部尖形，两侧有弧线，下方接尖形延伸。",
+        ),
+        "obs-unk-001079": (
+            "A broad pointed upper form connects to angular lower strokes, with a separate small rectangular form at right.",
+            "宽大的尖形上部连接折线下部，右侧另有小矩形形体。",
+        ),
+        "obs-unk-001080": (
+            "A narrow stacked upper form descends through a long central stem into branching lower strokes.",
+            "窄长的层叠上部形体经长中央主线向下连接分支线条。",
+        ),
     }
 )
 

@@ -2924,6 +2924,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
     "obs-unk-000538": ("A dense diagonal form has a pointed upper projection and a compact lower crossing.", "密集斜向形体带尖角上伸和紧凑下部交叉。"),
     "obs-unk-000539": ("A dense diagonal form has a broad left block and several pointed right projections.", "密集斜向形体左侧宽厚，右侧有数个尖角外伸。"),
     "obs-unk-000540": ("A rounded enclosure has a segmented left interior and a pointed right projection.", "弧形围合内左侧有分格，右侧带尖角外伸。"),
+    "obs-unk-000541": (
+        "Two small enclosed marks sit above an open angular lower frame with two descending side strokes.",
+        "两个小型围合痕迹位于开放的下部折角框架之上，框架两侧有下行笔。",
+    ),
+    "obs-unk-000542": (
+        "A tall central stem has a pointed upper wedge, two detached side marks, and a U-shaped lower base.",
+        "高直中央笔干带尖角上部，两侧有分离小痕迹，下部为 U 形基座。",
+    ),
+    "obs-unk-000543": (
+        "The compact form repeats a tall central stem, pointed upper wedge, detached side marks, and U-shaped base.",
+        "紧凑形体重复高直中央笔干、尖角上部、两侧分离痕迹和 U 形基座。",
+    ),
+    "obs-unk-000544": (
+        "A broad conical cap sits above two horizontal bands, a narrow stem, and forked lower strokes.",
+        "宽幅锥形上部位于两道横向带痕、窄笔干和分叉下部笔画之上。",
+    ),
+    "obs-unk-000545": (
+        "A tall arch-like outer contour encloses a rectangular grid of horizontal and vertical strokes.",
+        "高直拱形外轮廓围合横、竖笔画组成的矩形格状内部。",
+    ),
+    "obs-unk-000546": (
+        "A tall arch-like contour encloses a smaller rounded rectangular cluster with several crossing strokes.",
+        "高直拱形轮廓围合较小的弧边矩形笔组，内部有数条交叉笔。",
+    ),
+    "obs-unk-000547": (
+        "A small pointed cap and horizontal bar sit above a rectangular enclosure containing crossing strokes.",
+        "小型尖角上部和横向笔位于矩形围合之上，围合内有交叉笔画。",
+    ),
+    "obs-unk-000548": (
+        "A small rounded upper mark sits on a narrow stem above a broad shallow enclosure with side projections.",
+        "小型弧形上部痕迹位于窄笔干之上，下方是带侧向外伸的宽浅围合。",
+    ),
+    "obs-unk-000549": (
+        "A crossed upper cluster sits left of a rectangular lower block with an interior horizontal line and two stems.",
+        "交叉上部笔组位于矩形下部笔块左侧，笔块内有横线并向下伸出两笔。",
+    ),
+    "obs-unk-000550": (
+        "A diagonal composite has a rounded upper loop, a crossing middle, and a pointed lower triangular end.",
+        "斜向组合体带弧形上部环、中央交叉和尖角三角形下端。",
+    ),
+    "obs-unk-000551": (
+        "A dense upright cluster has a long descending left stroke, compact central marks, and rounded right strokes.",
+        "密集直立笔组带长下行左笔，中央笔画紧凑，右侧有弧形笔。",
+    ),
+    "obs-unk-000552": (
+        "The form repeats a small rounded upper mark, narrow stem, and broad shallow lower enclosure with projections.",
+        "该形体重复小型弧形上部痕迹、窄笔干和带外伸的宽浅下部围合。",
+    ),
+    "obs-unk-000553": (
+        "A dense composite has a dark upper cap, a central horizontal crossing, and a large curved right descent.",
+        "密集组合体带深色上部笔帽、中央横向交叉和宽大的右侧弧形下行笔。",
+    ),
+    "obs-unk-000554": (
+        "An arched outer contour encloses a central curved stroke and small detached rectangular side marks.",
+        "拱形外轮廓围合中央弧形笔，左右有小型分离矩形痕迹。",
+    ),
+    "obs-unk-000555": (
+        "The arched enclosure and central curved stroke resemble obs-unk-000554, with no identity claim made.",
+        "拱形围合和中央弧形笔与 obs-unk-000554 视觉相近；不作身份判断。",
+    ),
+    "obs-unk-000556": (
+        "A pointed arch-like enclosure has an open triangular interior and a long curved stroke on the right.",
+        "尖角拱形围合内有开放三角形笔组，右侧带长弧形笔。",
+    ),
+    "obs-unk-000557": (
+        "A compact crossed cluster has a rounded upper loop, a horizontal bar, and diverging lower strokes.",
+        "紧凑交叉笔组带弧形上部环、横向笔和向两侧分开的下部笔。",
+    ),
+    "obs-unk-000558": (
+        "A narrow framed block on the left is paired with two tall pointed strokes on the right.",
+        "左侧为窄框状笔块，右侧并列两条高直尖角笔。",
+    ),
+    "obs-unk-000559": (
+        "A long horizontal top stroke with short ends sits above a rounded pointed lower enclosure.",
+        "长横上笔两端有短下伸，位于弧形尖底下部围合之上。",
+    ),
+    "obs-unk-000560": (
+        "A tall rectangular lower enclosure has an interior horizontal division and a long left side stroke.",
+        "高直矩形下部围合内有横向分隔，左侧带长竖向笔。",
+    ),
 
 }
 

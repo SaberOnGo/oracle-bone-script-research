@@ -4733,6 +4733,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A broad curved left stroke meets a long pointed horizontal form, with a separate small pointed stroke below.",
             "宽大的左侧弧线与长尖横向形体相接，下方另有小尖形线。",
         ),
+        "obs-unk-000981": (
+            "A large triangular cap sits over a rectangular enclosure, with angled lower strokes continuing below.",
+            "大型三角形顶部位于矩形围合之上，下方继续延出倾斜线条。",
+        ),
+        "obs-unk-000982": (
+            "A vertical stack of rounded loops descends through a zigzag middle section to a small oval base.",
+            "竖向层叠的圆曲回环穿过折线中部，向下收于小椭圆底部。",
+        ),
+        "obs-unk-000983": (
+            "A pointed outer arch stands beside a tall central pointed form, with a curved hook extending at lower left.",
+            "尖拱外形与高大的中央尖形并列，左下方延出弧形钩线。",
+        ),
+        "obs-unk-000984": (
+            "A large upper triangular enclosure has a smaller lower triangle, above a broad wavy base and detached side dots.",
+            "大型上部三角围合带较小下三角，下方为宽波曲底部，两侧有分离点状痕。",
+        ),
+        "obs-unk-000985": (
+            "A tall pointed outer form encloses a dense lower cluster, with a separate rounded loop at the right.",
+            "高大的尖形外框围住密集下部线簇，右侧另有圆曲回环。",
+        ),
+        "obs-unk-000986": (
+            "A left looped upright form joins an elongated rounded right form and a short descending lower stroke.",
+            "左侧回环直立形连接右侧延展的圆曲形，并带短下垂线。",
+        ),
+        "obs-unk-000987": (
+            "A large diamond-like enclosure contains inner openings and meets a tall curved descent on the right.",
+            "大型菱状围合含内部开口，并在右侧连接高大的弧形下垂线。",
+        ),
+        "obs-unk-000988": (
+            "A shallow upper arch spans two upright strokes and continues to a small hooked lower line.",
+            "浅弧形上部跨过两条直立线，并向下连接小钩形线。",
+        ),
+        "obs-unk-000989": (
+            "A diamond-like looped cluster has inner openings and a long curved descent along the right edge.",
+            "菱状回环簇带内部开口，右缘沿长弧线向下延伸。",
+        ),
+        "obs-unk-000990": (
+            "A shield-like upper enclosure contains a horizontal band and central point, with two detached oval marks below.",
+            "盾形上部围合含横带和中央尖点，下方有两个分离的椭圆痕。",
+        ),
+        "obs-unk-000991": (
+            "A small looped cluster at upper left is paired with a rounded rectangular form at right and a long lower stroke.",
+            "左上小回环线簇与右侧圆角矩形形体并列，下方接长线。",
+        ),
+        "obs-unk-000992": (
+            "A large rectangular outer frame has a small top notch and encloses a lower looped cluster.",
+            "大型矩形外框顶部有小缺口，内部围住下部回环线簇。",
+        ),
+        "obs-unk-000993": (
+            "Several angular upper branches meet a diagonal lower stroke and a long vertical line.",
+            "数条上部折线分支汇入下部斜线和长竖线。",
+        ),
+        "obs-unk-000994": (
+            "A broad horizontal bar supports a stem above a large round lower enclosure with an inner opening.",
+            "宽大的横带承接上方主线，下方为带内部开口的大圆曲围合。",
+        ),
+        "obs-unk-000995": (
+            "A tall central stem with a forked top rises from a rectangular lower enclosure, flanked by small side loops.",
+            "带分叉顶部的高大中央主线从矩形下部围合升起，两侧有小回环。",
+        ),
+        "obs-unk-000996": (
+            "A U-shaped upper curve encloses dense inner strokes and continues downward as a long central line.",
+            "U 形上部弧线围住密集内部线条，并向下延成长中央线。",
+        ),
+        "obs-unk-000997": (
+            "A large looped enclosure has a curved left border, small right loops, and a long lower loop.",
+            "大型回环围合带弧形左缘、右侧小回环和长下部回环。",
+        ),
+        "obs-unk-000998": (
+            "Tall outer stems enclose angular inner forms above a rectangular base, with small side loops on both sides.",
+            "高大的外侧主线围住折线内部形体并接矩形底部，两侧有小回环。",
+        ),
+        "obs-unk-000999": (
+            "A broad looped enclosure with a curved left border and small right loop extends into a long lower loop.",
+            "宽大的回环围合带弧形左缘和右侧小回环，并向下延成长回环。",
+        ),
+        "obs-unk-001000": (
+            "Stacked angular loops cross near the top and continue to a lower triangular form with side projections.",
+            "层叠折线回环在顶部附近交叉，向下连接带侧向突出的小三角形。",
+        ),
     }
 )
 

@@ -1074,6 +1074,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "vertical, and a long lower point.",
         "紧凑对称形体上方有数处短尖，中部有竖笔，下方有长尖状伸出。",
     ),
+    "obs-unk-000181": (
+        "A dense angular form has several crossing strokes, a short upper-left "
+        "projection, and a pointed lower extension.",
+        "密集折角形体有数条交叉笔，左上有短伸出，下方有尖状伸出。",
+    ),
+    "obs-unk-000182": (
+        "An open form has a rounded left loop, a central crossing, and a long "
+        "lower-right stroke.",
+        "开放形体左侧有弧形环，中部交叉，右下有长笔。",
+    ),
+    "obs-unk-000183": (
+        "A compact form has a pointed upper mark, a central enclosed crossing, and "
+        "a long lower-right diagonal.",
+        "紧凑形体上方有尖状痕，中部有围合交叉，右下有长斜笔。",
+    ),
+    "obs-unk-000184": (
+        "A dense angular image has crossing central strokes, short side projections, "
+        "and two long lower diagonals.",
+        "密集折角图像中部笔画交叉，两侧有短伸出，下方有两条长斜笔。",
+    ),
+    "obs-unk-000185": (
+        "A compact form has paired pointed upper strokes, a central crossing, and a "
+        "long lower extension.",
+        "紧凑形体上方有成对尖笔，中部交叉，下方有长伸出。",
+    ),
+    "obs-unk-000186": (
+        "An open form has paired pointed side marks around a narrow central gap and "
+        "short lower strokes.",
+        "开放形体两侧有成对尖状痕，中部留窄间隙，下方有短笔。",
+    ),
+    "obs-unk-000187": (
+        "An open angular form has a rounded left loop, a central crossing, and a "
+        "long right stem.",
+        "开放折角形体左侧有弧形环，中部交叉，右侧有长笔干。",
+    ),
+    "obs-unk-000188": (
+        "A narrow image has three short upper marks, a horizontal crossbar, and a "
+        "long descending diagonal.",
+        "狭长图像上方有三处短痕，中部有横笔，下方有长下降斜笔。",
+    ),
+    "obs-unk-000189": (
+        "A compact symmetrical form has several short upper prongs, a central "
+        "vertical, and a long lower point.",
+        "紧凑对称形体上方有数处短尖，中部有竖笔，下方有长尖状伸出。",
+    ),
+    "obs-unk-000190": (
+        "An open form has a rounded left loop, a central crossing, and a long "
+        "lower-right stroke.",
+        "开放形体左侧有弧形环，中部交叉，右下有长笔。",
+    ),
+    "obs-unk-000191": (
+        "An open form has branched left strokes, stacked upper crossbars, and a long "
+        "curved right stroke.",
+        "开放形体左侧有分支笔，上方有叠置横笔，右侧有长弯笔。",
+    ),
+    "obs-unk-000192": (
+        "A compact symmetrical form has a rounded upper mark, a central vertical, "
+        "and paired lower side strokes.",
+        "紧凑对称形体上方有弧形痕，中部有竖笔，下方有成对侧笔。",
+    ),
+    "obs-unk-000193": (
+        "A dense form has two long side strokes, several central crossbars, and a "
+        "lower diagonal.",
+        "密集形体有两条长侧笔，中部有数条横笔，下方有斜笔。",
+    ),
+    "obs-unk-000194": (
+        "A compact form has two upright side strokes, a central crossing, and a "
+        "short lower diagonal.",
+        "紧凑形体有两条直立侧笔，中部交叉，下方有短斜笔。",
+    ),
+    "obs-unk-000195": (
+        "Two separated marks are visible: a narrow left cluster and a rounded right "
+        "enclosure with an upper diagonal.",
+        "图像中可见两处分离痕：左侧为窄笔群，右侧为带上斜笔的弧形围合。",
+    ),
+    "obs-unk-000196": (
+        "A compact form has a long upper bar, crossing central strokes, and a broad "
+        "curved lower stroke.",
+        "紧凑形体上方有长横笔，中部交叉，下方有宽大的弯曲笔。",
+    ),
+    "obs-unk-000197": (
+        "A compact form has a long upper bar, crossing central strokes, and a broad "
+        "curved lower stroke.",
+        "紧凑形体上方有长横笔，中部交叉，下方有宽大的弯曲笔。",
+    ),
+    "obs-unk-000198": (
+        "A compact symmetrical form has several short upper prongs, a central "
+        "vertical, and a long lower point.",
+        "紧凑对称形体上方有数处短尖，中部有竖笔，下方有长尖状伸出。",
+    ),
+    "obs-unk-000199": (
+        "A compact form has a rounded lower enclosure, two short upper strokes, and "
+        "a central vertical.",
+        "紧凑形体下方有弧形围合，上方有两条短笔，中部有竖笔。",
+    ),
+    "obs-unk-000200": (
+        "A dense upright form has several pointed upper strokes, a narrow central "
+        "stem, and multiple short lower projections.",
+        "密集直立形体上方有数条尖笔，中部为窄笔干，下方有多处短伸出。",
+    ),
 }
 
 

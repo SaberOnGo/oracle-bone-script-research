@@ -1686,6 +1686,113 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "a compact symmetrical arrangement.",
         "四条短笔围绕中央点交叉，端部较圆，整体呈紧凑近对称排列。",
     ),
+    "obs-unk-000301": (
+        "A tall rounded enclosure contains stacked horizontal strokes and a "
+        "compact central mark, with a broad lower bar.",
+        "高直弧角围合内有叠置横向笔画和紧凑中央痕迹，下部有宽横笔。",
+    ),
+    "obs-unk-000302": (
+        "A rounded rectangular outer contour contains two horizontal interior "
+        "marks and a compact lower enclosure.",
+        "弧角矩形外轮廓内有两条横向内部笔画和紧凑下部围合。",
+    ),
+    "obs-unk-000303": (
+        "A narrow upright contour contains a long diagonal interior stroke; two "
+        "short strokes project from the lower right.",
+        "窄直轮廓内有长斜向内部笔画，右下方有两条短外伸笔画。",
+    ),
+    "obs-unk-000304": (
+        "A curved diagonal outer contour contains crossing interior strokes and a "
+        "short upright projection on the right.",
+        "弯曲斜向外轮廓内有交叉笔画，右侧有短直立外伸笔画。",
+    ),
+    "obs-unk-000305": (
+        "A narrow upright body has paired slanting side strokes and a short lower "
+        "extension; the image is visually similar to obs-unk-000311 only.",
+        "窄直主体带有成对斜向侧笔和短下部延伸；仅记录其与 "
+        "obs-unk-000311 的视觉相似，不作身份确认。",
+    ),
+    "obs-unk-000306": (
+        "A compact angular enclosure has a crossing central cluster and a short "
+        "projection toward the lower right.",
+        "紧凑折角围合内有中央交叉笔组，右下方有短外伸笔画。",
+    ),
+    "obs-unk-000307": (
+        "Two pointed or looped upper forms meet around a central crossing, with a "
+        "tall narrow stroke on the right.",
+        "两个尖角或环状上部形体围绕中央交叉相接，右侧有高直窄笔。",
+    ),
+    "obs-unk-000308": (
+        "The image repeats the rounded upper mark, upright stroke, and zigzag "
+        "lower contour seen for obs-unk-000293; visual comparison only.",
+        "图像与 obs-unk-000293 均见弧形上部痕迹、直笔和折线下部轮廓；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000309": (
+        "The image repeats the rounded upper mark, descending stroke, and broad "
+        "lower contour seen for obs-unk-000294; visual comparison only.",
+        "图像与 obs-unk-000294 均见弧形上部痕迹、下降笔和宽下部轮廓；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000310": (
+        "The image repeats the capped upper mark, narrow stem, and broad angular "
+        "base seen for obs-unk-000295; visual comparison only.",
+        "图像与 obs-unk-000295 均见带帽上部痕迹、窄笔干和宽折角底部；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000311": (
+        "The narrow upright body has paired slanting side strokes and a short "
+        "lower extension; it is visually similar to obs-unk-000305 only.",
+        "窄直主体带有成对斜向侧笔和短下部延伸；仅记录其与 "
+        "obs-unk-000305 的视觉相似，不作身份确认。",
+    ),
+    "obs-unk-000312": (
+        "Several stacked curved horizontal strokes occupy the center, with a "
+        "short upper projection and a curved lower side stroke.",
+        "数条叠置弧形横笔集中于中央，上部有短外伸笔，下部有弯曲侧笔。",
+    ),
+    "obs-unk-000313": (
+        "A peaked outer contour encloses crossing interior strokes and a tall "
+        "right-side extension.",
+        "尖顶外轮廓内有交叉内部笔画，右侧有高直外伸笔。",
+    ),
+    "obs-unk-000314": (
+        "A small curved upper mark connects to a descending diagonal stem and a "
+        "compact angular lower cluster.",
+        "小型弧形上部痕迹连接下降斜笔干和紧凑折角下部笔组。",
+    ),
+    "obs-unk-000315": (
+        "The image repeats the curved upper mark, descending stem, and angular "
+        "lower cluster seen for obs-unk-000314; visual comparison only.",
+        "图像与 obs-unk-000314 均见弧形上部痕迹、下降笔干和折角下部笔组；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000316": (
+        "A rounded upper form sits above a narrow vertical stem and a pointed "
+        "lower enclosure with an interior crossing.",
+        "弧形上部形体位于窄直笔干之上，下方连接带内部交叉的尖角围合。",
+    ),
+    "obs-unk-000317": (
+        "Layered slanting strokes cluster around a narrow central stem, with a "
+        "short pointed extension at the lower end.",
+        "叠置斜向笔画围绕窄中央笔干分布，下端有短尖角外伸笔。",
+    ),
+    "obs-unk-000318": (
+        "The image repeats the narrow upright contour, diagonal interior stroke, "
+        "and lower-right projections seen for obs-unk-000303; comparison only.",
+        "图像与 obs-unk-000303 均见窄直轮廓、斜向内部笔画和右下外伸；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000319": (
+        "Stacked rounded or pointed forms sit above a compact lower cluster, with "
+        "a detached diagonal stroke on the left.",
+        "叠置弧形或尖角形体位于紧凑下部笔组之上，左侧有分离斜向笔。",
+    ),
+    "obs-unk-000320": (
+        "A tall curved outer contour contains short interior horizontal and "
+        "vertical strokes, with a long side extension.",
+        "高直弯曲外轮廓内有短横向和直向内部笔画，侧面有长外伸笔。",
+    ),
 }
 
 

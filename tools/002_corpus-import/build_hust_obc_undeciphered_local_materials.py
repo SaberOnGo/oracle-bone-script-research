@@ -4066,6 +4066,90 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
         ),
     }
 )
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000821": (
+            "A compact crossing sits at left, with a tall angular frame at right and a long curving stroke below.",
+            "左侧为紧密交叉线束，右侧有高大的折角框形，下方接一条长曲线。",
+        ),
+        "obs-unk-000822": (
+            "A broad horizontal stroke caps a narrow left stem; the lower area contains a rounded looped cluster.",
+            "宽横线覆盖在左侧窄直线之上；下部为圆曲并带回环的密集线束。",
+        ),
+        "obs-unk-000823": (
+            "The upper portion forms a hooked frame with two detached marks; a vertical stem and angular right stroke descend below.",
+            "上部呈钩状框形并带两个分离小笔画；下方有直立主线和右侧折曲长线。",
+        ),
+        "obs-unk-000824": (
+            "Two tall narrow forms stand side by side, each with a small top cap and an open lower interior.",
+            "两个高而窄的形态并列，各自有小顶端，下部内部留有开口。",
+        ),
+        "obs-unk-000825": (
+            "A crossing line group fills the left, while a tall looped contour with a long descending stroke occupies the right.",
+            "左侧为交叉线束；右侧为高大的回环轮廓，并有长线向下延伸。",
+        ),
+        "obs-unk-000826": (
+            "Two separated stacked forms are visible, each surrounded by small detached dot-like marks.",
+            "可见两个分离的上下层形态，周围分布若干脱离主体的点状笔画。",
+        ),
+        "obs-unk-000827": (
+            "Three slim descending forms align across the image; the leftmost has a small upper loop and a longer lower curve.",
+            "三个细长下垂形态横向排列；左侧形态上部有小回环，下部曲线较长。",
+        ),
+        "obs-unk-000828": (
+            "A left figure has a peaked top and rectangular middle loop; a separate angular figure stands to the right.",
+            "左侧形态顶部尖起，中部有矩形回环；右侧另有独立的折角形态。",
+        ),
+        "obs-unk-000829": (
+            "The central figure combines a rounded lower enclosure with an upper fork; a separate pointed form sits at right.",
+            "中央形态下部为圆曲围合，上部呈分叉；右侧另有尖角形态。",
+        ),
+        "obs-unk-000830": (
+            "A narrow branched form appears on the left, beside a taller right form with two horizontal bars and a curved lower edge.",
+            "左侧为窄小分叉形态；右侧较高，带两道横线和弯曲下缘。",
+        ),
+        "obs-unk-000831": (
+            "Two separate vertical figures are shown: a looped double-bulge at left and a straight stem with a crossbar at right.",
+            "图中有两个分离的直立形态：左侧为双重回环，右侧为带横档的直线主干。",
+        ),
+        "obs-unk-000832": (
+            "A tall left stem bends inward near the top; the right side contains stacked rectangular loops and a long curved extension.",
+            "左侧高直线在顶部附近向内弯；右侧有上下叠置的矩形回环，并接长曲线。",
+        ),
+        "obs-unk-000833": (
+            "Two separated slim figures have small upper loops and wavy lower strokes; the right figure is slightly larger.",
+            "两个分离的细长形态上部带小回环，下部为波曲线条；右侧形态略大。",
+        ),
+        "obs-unk-000834": (
+            "A large peaked arch encloses a rounded inner opening, with a blocky base and a small side stroke.",
+            "大幅尖顶拱形围合一个圆曲内开口，下方为块状底部，侧边带小笔画。",
+        ),
+        "obs-unk-000835": (
+            "A dense cluster of vertical and hooked strokes fills the right; a separated small loop and lower pointed stroke sit at left.",
+            "右侧为密集的直线与钩曲线束；左侧有分离的小回环和下方尖状笔画。",
+        ),
+        "obs-unk-000836": (
+            "Several tall parallel strokes rise from a shared lower area, with a detached dark wedge at the lower left.",
+            "数条高直平行线从共同下部区域升起，左下另有脱离主体的深色楔状笔画。",
+        ),
+        "obs-unk-000837": (
+            "A broad top bar crosses a central stacked form; a separate compact angular cluster extends on the right.",
+            "宽横顶线横跨中央叠置形态；右侧另有紧密的折角线束。",
+        ),
+        "obs-unk-000838": (
+            "Two upright looped contours stand at left and center, while a separate vertical form with short side bars is at right.",
+            "左侧和中央各有一个直立回环轮廓；右侧另有带短侧横线的直立形态。",
+        ),
+        "obs-unk-000839": (
+            "A small double-loop figure stands left of a taller straight figure with a crossbar and a rounded lower section.",
+            "小型双回环形态位于左侧；右侧为较高直立形态，带横档和圆曲下部。",
+        ),
+        "obs-unk-000840": (
+            "A large pointed enclosure surrounds two rounded inner openings; the lower boundary curves inward on both sides.",
+            "大型尖顶围合结构内部有两个圆曲开口；下缘两侧向内弯曲。",
+        ),
+    }
+)
 
 @dataclass(frozen=True)
 class Candidate:

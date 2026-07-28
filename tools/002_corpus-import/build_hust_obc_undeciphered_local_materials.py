@@ -1586,6 +1586,106 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "to form a compact radial arrangement.",
         "四个三角或楔状外伸部分围绕中央交叉汇合，形成紧凑的放射状排列。",
     ),
+    "obs-unk-000281": (
+        "Three tall rounded uprights rise from a shared lower contour, with short "
+        "crossing strokes near the upper ends.",
+        "三条高直弧角笔画从共同下部轮廓升起，上端附近有短交叉笔画。",
+    ),
+    "obs-unk-000282": (
+        "A pointed angular outer contour encloses crossing interior strokes and a "
+        "small rounded mark toward the lower center.",
+        "尖角外部轮廓内有交叉笔画，下部中央附近有小型弧形痕迹。",
+    ),
+    "obs-unk-000283": (
+        "The image shows a narrow pointed upper contour, a long curved side "
+        "stroke, and a short lower extension.",
+        "图像呈窄尖上部轮廓、长弯曲侧笔和短下部外伸笔画。",
+    ),
+    "obs-unk-000284": (
+        "Two broad roof-like angular strokes are stacked above a shorter lower "
+        "stroke, with an open central gap.",
+        "两条宽折角横笔上下叠置于较短下部笔画之上，中部留有开口空隙。",
+    ),
+    "obs-unk-000285": (
+        "A small rounded mark sits above a broad lower bar and two short upright "
+        "strokes; the form is compact and dark.",
+        "小型弧形痕迹位于宽下横笔和两条短直笔之上，整体紧凑且较深。",
+    ),
+    "obs-unk-000286": (
+        "Four detached rounded or diamond-like marks form a loose cluster around "
+        "a smaller central mark.",
+        "四个分离的弧形或菱形痕迹围绕较小中央痕迹形成疏松笔组。",
+    ),
+    "obs-unk-000287": (
+        "A rounded outer enclosure contains a compact central crossing and a "
+        "small lower mark, with short side projections.",
+        "弧角外部围合内有紧凑中央交叉和小型下部痕迹，两侧有短外伸笔画。",
+    ),
+    "obs-unk-000288": (
+        "The image has two stacked horizontal bars, a central enclosed mark, and "
+        "a short detached stroke below.",
+        "图像有两条叠置横栏、中央围合痕迹和下方短分离笔画。",
+    ),
+    "obs-unk-000289": (
+        "A rounded rectangular outer contour encloses dense crossing strokes and "
+        "a small lower projection.",
+        "弧角矩形外轮廓内有密集交叉笔画，下部有小型外伸痕迹。",
+    ),
+    "obs-unk-000290": (
+        "A tall rounded enclosure contains several crossing interior strokes and "
+        "a narrow lower extension.",
+        "高直弧角围合内有数条交叉内部笔画，并向下连接窄外伸部分。",
+    ),
+    "obs-unk-000291": (
+        "Two long curved strokes meet near the upper center; short branches extend "
+        "from a narrow lower stem.",
+        "两条长弯曲笔画在上部中央附近相接，窄下部笔干有短分支外伸。",
+    ),
+    "obs-unk-000292": (
+        "A compact angular central block has a tall left stroke, a short right "
+        "projection, and a narrow lower extension.",
+        "紧凑折角中央笔块带有高直左笔、短右侧外伸和窄下部延伸。",
+    ),
+    "obs-unk-000293": (
+        "A small rounded upper mark sits on a long upright stroke above a broad "
+        "zigzag lower contour.",
+        "小型弧形上部痕迹位于长直笔之上，长直笔下方连接宽折线下部轮廓。",
+    ),
+    "obs-unk-000294": (
+        "The form has a rounded upper mark, a descending central stroke, and a "
+        "broad lower contour with a short side projection.",
+        "形体有弧形上部痕迹、下降中央笔和宽下部轮廓，侧面带短外伸笔画。",
+    ),
+    "obs-unk-000295": (
+        "A small capped upper mark sits over a narrow stem and a broad angular "
+        "lower base.",
+        "小型带帽上部痕迹位于窄笔干之上，下方连接宽折角底部。",
+    ),
+    "obs-unk-000296": (
+        "A short upright stroke descends into a pointed lower enclosure, with a "
+        "small horizontal mark near the upper junction.",
+        "短直笔向下连接尖角下部围合，上部连接处附近有小横向痕迹。",
+    ),
+    "obs-unk-000297": (
+        "A rounded rectangular upper enclosure contains a central vertical mark "
+        "and continues into a long lower stem.",
+        "弧角矩形上部围合内有中央直笔，并向下连接长笔干。",
+    ),
+    "obs-unk-000298": (
+        "A rounded upper enclosure narrows into a pointed lower stem, with a "
+        "small crossing mark inside the upper section.",
+        "弧角上部围合向下收束为尖形笔干，上部内部有小交叉痕迹。",
+    ),
+    "obs-unk-000299": (
+        "A rounded horizontal upper form sits above a narrow vertical stem and "
+        "a short lower base.",
+        "弧形横向上部形体位于窄直笔干之上，下方有短底部笔画。",
+    ),
+    "obs-unk-000300": (
+        "Four short strokes cross around a central point, with rounded ends and "
+        "a compact symmetrical arrangement.",
+        "四条短笔围绕中央点交叉，端部较圆，整体呈紧凑近对称排列。",
+    ),
 }
 
 

@@ -3327,6 +3327,91 @@ MATERIAL_VISUAL_OBSERVATIONS = {
 
 }
 
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000641": (
+            "A curved upper stroke descends into a narrow central stem, with detached short marks on the left and crossed lower projections.",
+            "上部弧形笔画向下连接窄中轴；左侧有分离短痕，底部有交叉外伸。",
+        ),
+        "obs-unk-000642": (
+            "A compact lower triangular enclosure contains two horizontal bars, with detached marks above and a separate curved descent on the right.",
+            "紧凑下部三角围合内有两道横痕；上方有分离痕迹，右侧另有弧形下行笔画。",
+        ),
+        "obs-unk-000643": (
+            "Two rectangular side panels with horizontal interior bars flank a central crossing and upright strokes.",
+            "两侧矩形笔组各有横向内痕，中部可见交叉和竖向笔画。",
+        ),
+        "obs-unk-000644": (
+            "A detached short vertical mark stands left of a tall composite with a pointed upper crossing and a long curved lower descent.",
+            "高窄笔组左侧有分离短竖痕；上部有尖角交叉，底部有长弧形下行。",
+        ),
+        "obs-unk-000645": (
+            "A broad rounded enclosure has two short upper prongs, two inner horizontal bars, and a lower stem splitting into two feet.",
+            "宽弧形围合上方有两处短竖出头，内部有两道横痕，底部中轴分成两处外伸。",
+        ),
+        "obs-unk-000646": (
+            "Stacked crossing and rounded marks form a narrow center above a broad lower oval with a short base.",
+            "交叉和弧形痕迹叠置形成窄中部，下方接宽圆形笔组和短底座。",
+        ),
+        "obs-unk-000647": (
+            "A separated long curved stroke stands beside a compact looped cluster, with a small detached diagonal mark below.",
+            "分离的长弧形笔画位于紧凑环状笔组一侧，下方另有小型分离斜痕。",
+        ),
+        "obs-unk-000648": (
+            "A left rectangular loop and a taller right panel are linked by a central diagonal stroke and a long lower descent.",
+            "左侧矩形环状笔组与右侧高直笔板由中部斜笔连接，底部有长下行笔画。",
+        ),
+        "obs-unk-000649": (
+            "Two rounded diamond-like loops are stacked around a central stem, with a detached curved stroke at the left.",
+            "两个带圆弧的棱形环圈围绕中轴叠置，左侧有分离弧形笔画。",
+        ),
+        "obs-unk-000650": (
+            "A tall left stroke with a short branch stands beside a rounded right enclosure containing a horizontal bar and upright stroke.",
+            "左侧高直笔画带短分支，右侧弧形围合内可见横痕和竖向笔画。",
+        ),
+        "obs-unk-000651": (
+            "A dense crossed upper cluster is paired with a detached vertical mark and an open lower loop with two rounded projections.",
+            "上部密集交叉笔组旁有分离竖痕，下部为开放回环并有两处圆形外伸。",
+        ),
+        "obs-unk-000652": (
+            "A wavy left stem with small loops stands beside a tall angular right enclosure with a broad inner opening and base.",
+            "波曲左侧竖干带小型回环，旁有高直折角围合，内部可见宽开口和底部。",
+        ),
+        "obs-unk-000653": (
+            "Two rectangular side panels with horizontal interior bars flank a central crossing and upright strokes.",
+            "两侧矩形笔组各有横向内痕，中部可见交叉和竖向笔画。",
+        ),
+        "obs-unk-000654": (
+            "A tall curved left form is paired with a narrow central stem, a small rounded mark, and a detached short right stroke.",
+            "高直弧形左侧笔组连接窄中轴，中部附近有小圆弧痕，右侧有分离短笔。",
+        ),
+        "obs-unk-000655": (
+            "Short crossed marks form a compact left cluster beside a tall zigzagging curved stroke on the right.",
+            "短小交叉笔画形成紧凑左侧笔组，右侧有高直且曲折的长笔。",
+        ),
+        "obs-unk-000656": (
+            "A broad curved enclosure surrounds a small interior opening and descends to an open lower base; a detached dot sits above right.",
+            "宽弧形围合内有小型空隙，底部收于开放底部；右上方有分离小点痕。",
+        ),
+        "obs-unk-000657": (
+            "A long curved upper stroke extends toward a short central stem, with a separate upright stroke and lower branch at the right.",
+            "长弧形上部笔画向短中轴延伸，右侧另有竖向笔画和下部外伸分支。",
+        ),
+        "obs-unk-000658": (
+            "A large arched outer contour contains a small upper opening and central stroke, with two pointed lower projections.",
+            "大型拱形外轮廓内有小型上部空隙和中部笔画，下方有两处尖角外伸。",
+        ),
+        "obs-unk-000659": (
+            "A stacked double-loop mark sits above a horizontal crossing and a broad lower cluster with side projections.",
+            "叠置双环痕迹位于横向交叉笔画之上，下方为宽笔组并有两侧外伸。",
+        ),
+        "obs-unk-000660": (
+            "A tall angular enclosure frames a central pointed upright form, with a detached wavy stroke at the left.",
+            "高直折角围合框住中部尖角竖向笔组，左侧有分离波曲笔画。",
+        ),
+    }
+)
+
 @dataclass(frozen=True)
 class Candidate:
     project_id: str

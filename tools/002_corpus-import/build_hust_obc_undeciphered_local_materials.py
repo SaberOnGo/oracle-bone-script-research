@@ -3744,6 +3744,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A small looped left cluster stands beside a tall stacked right form with horizontal and angled interior strokes.",
             "左侧小型环状笔组旁有高直叠置右部，内部含横向和斜向笔画。",
         ),
+        "obs-unk-000741": (
+            "A dense upper cluster with a small left loop descends through a long curved stem, with a detached lower mark.",
+            "带左侧小环的密集上部笔组经长弧曲直笔向下延伸，底部另有分离笔记。",
+        ),
+        "obs-unk-000742": (
+            "A peaked cap and narrow middle with two horizontal bars sit above a broad lower frame and central descent.",
+            "尖峰上帽和含两道横笔的窄中部位于宽大下框及中央下行笔之上。",
+        ),
+        "obs-unk-000743": (
+            "A rounded rectangular upper panel sits on a short stem, beside a smaller looped form and a curved lower stroke.",
+            "圆角矩形上框置于短直笔之上，旁边有较小环状形体和弧曲下行笔画。",
+        ),
+        "obs-unk-000744": (
+            "Several tall strokes form a dense central cluster, with a long straight descent and short curved side marks.",
+            "数道高直笔构成密集中央笔组，带长直下行笔和短弧曲侧部笔画。",
+        ),
+        "obs-unk-000745": (
+            "A small rectangular loop at the left is paired with a winding right form that ends in a long lower stroke.",
+            "左侧小矩形环与右侧曲折笔组并列，右部末端接长下行笔画。",
+        ),
+        "obs-unk-000746": (
+            "A tall left frame contains two inner openings, beside a separate narrow stem with a lower curved loop.",
+            "高直左框内含两个空隙，旁边是分离的窄直笔及下方弧曲环。",
+        ),
+        "obs-unk-000747": (
+            "A zigzag left stroke is marked by two small round openings, beside a narrow right panel with a long descent.",
+            "左侧曲折笔带两个小圆形空隙，旁边是窄右框及长下行笔画。",
+        ),
+        "obs-unk-000748": (
+            "A large stepped outline forms two stacked rectangular compartments with a narrow central connection.",
+            "宽大的阶梯状外框形成上下叠置的两个矩形空间，并由窄中央部相连。",
+        ),
+        "obs-unk-000749": (
+            "Two curved upper lobes flank a central loop and narrow into a pointed triangular lower base.",
+            "两个弧曲上部形体夹住中央环状空隙，并向下收束为尖状三角底部。",
+        ),
+        "obs-unk-000750": (
+            "Two small round loops flank a central crossing, which continues into a curved lower stem.",
+            "两个小型圆环夹住中央交叉笔画，交叉处向下连接弧曲直笔。",
+        ),
+        "obs-unk-000751": (
+            "A left stacked panel contains several horizontal bars, beside a dense right vertical form with a hooked end.",
+            "左侧叠置框板内含数道横笔，旁边是末端带钩的密集右侧竖向形体。",
+        ),
+        "obs-unk-000752": (
+            "A tall curved left form encloses a small loop, beside a wavy right stem ending in a short hook.",
+            "高直弧曲左部围出小环，旁边是末端带短钩的波曲右侧直笔。",
+        ),
+        "obs-unk-000753": (
+            "A short top bar sits above an arched cap and horizontal band, with a central oval opening and pointed lower mark.",
+            "短上横笔位于拱形上帽和横带之上，中部有椭圆空隙，下方接尖状笔记。",
+        ),
+        "obs-unk-000754": (
+            "A rectangular left panel stands beside a smaller looped upper form and a long curved lower descent.",
+            "矩形左框旁有较小环状上部形体及长弧曲下行笔。",
+        ),
+        "obs-unk-000755": (
+            "A dense looped left cluster stands beside a separate curved right stem with a long lower hook.",
+            "密集环状左部笔组旁有分离的弧曲右侧直笔，末端接长下钩。",
+        ),
+        "obs-unk-000756": (
+            "A compact looped left cluster is paired with a branching right form above a small lower rectangular panel.",
+            "紧密环状左部笔组与右侧分支形体并列，右部下方接小型矩形框。",
+        ),
+        "obs-unk-000757": (
+            "A tall central panel with a horizontal interior bar descends to a lower stem beside a pointed right cluster.",
+            "带横向内笔的高直中央框向下连接直笔，旁边是尖状右侧密集笔组。",
+        ),
+        "obs-unk-000758": (
+            "A small rectangular upper cluster stands over wavy lower strokes, beside a tall angled right form with repeated openings.",
+            "小型矩形上部笔组位于波曲下行笔画之上，旁边是带重复空隙的高直斜向右部。",
+        ),
+        "obs-unk-000759": (
+            "A short top bar, arched cap, and horizontal band sit above a central oval opening and pointed lower mark.",
+            "短上横笔、拱形上帽和横带位于中央椭圆空隙及下方尖状笔记之上。",
+        ),
+        "obs-unk-000760": (
+            "Two looped upper clusters flank a central crossing, with a branching right form and a small lower base.",
+            "两个环状上部笔组夹住中央交叉笔画，右侧接分支形体和小型底部。",
+        ),
     }
 )
 

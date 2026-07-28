@@ -1483,6 +1483,109 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "diagonal branches and a short upper central mark.",
         "紧凑下部笔组含三条下降直笔，由斜向分支相连，上方中央还有短痕迹。",
     ),
+    "obs-unk-000261": (
+        "A short upper horizontal stroke leads into a descending central section "
+        "and a compact lower block with a rightward curve.",
+        "短上横笔向下连接中央部分和紧凑下部块状体，右侧带弯曲外伸。",
+    ),
+    "obs-unk-000262": (
+        "The image repeats the angled upper section, several descending strokes, "
+        "and rounded lower contour seen for obs-unk-000241; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000241 相似，均见倾斜上部、数条下降笔和弧形下部轮廓；不作身份确认。",
+    ),
+    "obs-unk-000263": (
+        "The image repeats the short upper horizontal, descending central section, "
+        "and compact lower block seen for obs-unk-000261; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000261 相似，均见短上横笔、中央下降部分和紧凑下部块状体；不作身份确认。",
+    ),
+    "obs-unk-000264": (
+        "The image repeats the forked upper contour, narrow central stem, and "
+        "short lower side branches seen for obs-unk-000221; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000221 相似，均见分叉上部、窄中央笔干和下方短侧分支；不作身份确认。",
+    ),
+    "obs-unk-000265": (
+        "The image repeats the rectangular enclosure, broad upper bar, inner "
+        "upright strokes, and lower crossbars seen for obs-unk-000245; visual "
+        "comparison only.",
+        "图像与视觉对比的 obs-unk-000245 相似，均见矩形围合、宽上横栏、内部直笔和下部横笔；不作身份确认。",
+    ),
+    "obs-unk-000266": (
+        "The image repeats the compact pointed upper cluster, narrow central stem, "
+        "and paired lower spreading strokes seen for obs-unk-000201; visual "
+        "comparison only.",
+        "图像与视觉对比的 obs-unk-000201 相似，均见紧凑尖状上部、窄中央笔干和向下分开的成对笔画；不作身份确认。",
+    ),
+    "obs-unk-000267": (
+        "A tall outer rectangular form contains a forked upper mark and separated "
+        "short interior strokes in its lower half.",
+        "高直外围形体内有分叉上部痕迹，下半部含分离的短内部笔画。",
+    ),
+    "obs-unk-000268": (
+        "The image repeats the paired forked branches, descending central stroke, "
+        "and rounded lower contour seen for obs-unk-000247; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000247 相似，均见成对分叉侧支、中央下降笔和弧形下部轮廓；不作身份确认。",
+    ),
+    "obs-unk-000269": (
+        "The image repeats the symmetrical stacked form, small upper triangle, "
+        "central bar, and broad lower contour seen for obs-unk-000215; visual "
+        "comparison only.",
+        "图像与视觉对比的 obs-unk-000215 相似，均见对称叠置形体、小上三角、中部横栏和宽下部轮廓；不作身份确认。",
+    ),
+    "obs-unk-000270": (
+        "A dense upper horizontal cluster descends into a central stem and a "
+        "rounded rectangular lower block.",
+        "密集上部横向笔组向下连接中央笔干和弧角矩形下部块状体。",
+    ),
+    "obs-unk-000271": (
+        "The image repeats the narrow upright left stroke and denser curved right "
+        "group seen for obs-unk-000249; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000249 相似，均见窄直立左笔和较密集弯曲右侧笔组；不作身份确认。",
+    ),
+    "obs-unk-000272": (
+        "Two narrow side strokes frame a central upright and lower block; short "
+        "branches project near the lower sides.",
+        "两条窄侧笔夹住中央直笔和下部块状体，近下方两侧有短分支外伸。",
+    ),
+    "obs-unk-000273": (
+        "A dense upper horizontal group extends toward a curved right side; a "
+        "long lower stroke turns outward below.",
+        "密集上部横向笔组向弯曲右侧延伸，下方有长笔向外转出。",
+    ),
+    "obs-unk-000274": (
+        "Two tall side strokes flank a central crossing, with a compact cluster "
+        "and short projections along the lower edge.",
+        "两条高直侧笔夹住中央交叉，下缘有紧凑笔组和短外伸痕迹。",
+    ),
+    "obs-unk-000275": (
+        "A compact upright form has a rounded left enclosure, a narrow central "
+        "stem, and short right-side strokes.",
+        "紧凑直立形体左侧有弧形围合，中部为窄笔干，右侧有短笔画。",
+    ),
+    "obs-unk-000276": (
+        "The form has branched upper strokes, a narrow central stem, and stacked "
+        "crossing marks along the lower portion.",
+        "形体上部有分支笔画，中部为窄笔干，下部排列叠置交叉痕迹。",
+    ),
+    "obs-unk-000277": (
+        "The image repeats the branched upper strokes, narrow stem, and stacked "
+        "lower crossing marks seen for obs-unk-000276; visual comparison only.",
+        "图像与视觉对比的 obs-unk-000276 相似，均见上部分支、窄笔干和下部叠置交叉痕迹；不作身份确认。",
+    ),
+    "obs-unk-000278": (
+        "A pointed crown-like upper section sits above a rounded rectangular "
+        "enclosure containing a small inner oval mark.",
+        "尖冠状上部位于弧角矩形围合之上，围合内有小型椭圆痕迹。",
+    ),
+    "obs-unk-000279": (
+        "Several broad angular projections radiate around a central crossing, "
+        "with a short lower side extension.",
+        "数个宽折角外伸部分围绕中央交叉分布，下方侧面有短外伸痕迹。",
+    ),
+    "obs-unk-000280": (
+        "Four triangular or wedge-like projections meet around a central crossing "
+        "to form a compact radial arrangement.",
+        "四个三角或楔状外伸部分围绕中央交叉汇合，形成紧凑的放射状排列。",
+    ),
 }
 
 

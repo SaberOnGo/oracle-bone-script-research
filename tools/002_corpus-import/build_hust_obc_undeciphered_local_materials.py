@@ -3984,6 +3984,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A dense left cluster stands beside an arrow-like right form with horizontal bars and a long lower curve.",
             "密集左部笔组旁有带横笔和长弧下行笔的箭状右部形体。",
         ),
+        "obs-unk-000801": (
+            "A broad upper band with side uprights connects to a central crossing and a long winding lower stroke.",
+            "宽大上横带及两侧直笔连接中央交叉笔和长曲折下行笔。",
+        ),
+        "obs-unk-000802": (
+            "A tall enclosing arch contains a narrow central stem and small separated lower marks.",
+            "高直拱形外框内含窄中央直笔，下方有小型分离笔记。",
+        ),
+        "obs-unk-000803": (
+            "A dense angular upper cluster has a small inner opening and descends through a curved central stroke.",
+            "密集折角上部笔组带小型内空隙，并经中央弧曲笔向下延伸。",
+        ),
+        "obs-unk-000804": (
+            "A peaked compact cluster surrounds a small opening, with side marks and a long lower descent.",
+            "尖峰紧密笔组围出小空隙，两侧有分离笔记，下方连接长下行笔。",
+        ),
+        "obs-unk-000805": (
+            "A rounded upper bowl with side uprights sits above a looped middle and a long curved right stroke.",
+            "带两侧直笔的圆弧上部形体位于环状中部和右侧长弧曲笔之上。",
+        ),
+        "obs-unk-000806": (
+            "A U-shaped upper frame with an interior bar leads to a central stem and a broad lower panel.",
+            "带横向内笔的 U 形上框连接中央直笔和宽大下部框板。",
+        ),
+        "obs-unk-000807": (
+            "Several narrow stacked forms run down a central axis and rest on a broad oval lower base.",
+            "数个窄小叠置形体沿中央轴线下行，末端置于宽大椭圆底座上。",
+        ),
+        "obs-unk-000808": (
+            "A dense looped upper cluster descends through a long curved stroke, with a detached lower-left mark.",
+            "密集环状上部笔组经长弧曲笔向下延伸，左下方另有分离笔记。",
+        ),
+        "obs-unk-000809": (
+            "A peaked cap and central oval loop sit above a lower frame, beside a separate curved right stroke.",
+            "尖峰上帽和中央椭圆环位于下框之上，旁边有分离的右侧弧曲笔。",
+        ),
+        "obs-unk-000810": (
+            "A tall right frame contains repeated triangular openings, beside a separate angled left stem and base.",
+            "高直右框内有重复三角空隙，旁边是分离的斜向左笔和底座。",
+        ),
+        "obs-unk-000811": (
+            "A tall central stem has a looped upper branch and broad branching strokes below.",
+            "高直中央笔带环状上部分支，下方伸出宽大的分支笔画。",
+        ),
+        "obs-unk-000812": (
+            "A small rectangular left panel with an inner loop stands beside a central stem and a wavy right form.",
+            "带内环的小型矩形左框旁有中央直笔和波曲右部形体。",
+        ),
+        "obs-unk-000813": (
+            "A small looped left branch stands beside a tall right panel containing several horizontal bars.",
+            "小型环状左部分支旁有高直右框，框内含数道横向内笔。",
+        ),
+        "obs-unk-000814": (
+            "Two stacked rectangular panels with inner openings stand beside a long separate curved stroke.",
+            "两个带内空隙的叠置矩形框旁有一条分离的长弧曲笔。",
+        ),
+        "obs-unk-000815": (
+            "A short upper bar and central stem descend into a small diamond-like lower base.",
+            "短上横笔和中央直笔向下连接小型菱形底部。",
+        ),
+        "obs-unk-000816": (
+            "A tall narrow central panel is flanked by a small left loop and a separate curved right form.",
+            "高直窄中央框两侧分别有小型左环和分离的右侧弧曲形体。",
+        ),
+        "obs-unk-000817": (
+            "A large enclosing arch contains two rounded inner openings and a long curved descent below.",
+            "宽大拱形外框内含两个圆形空隙，下方连接长弧曲下行笔。",
+        ),
+        "obs-unk-000818": (
+            "A small oval loop at the left stands beside a tall central stem with horizontal arms and a lower base.",
+            "左侧小型椭圆环旁有带横向侧笔和底座的高直中央笔。",
+        ),
+        "obs-unk-000819": (
+            "A broad upper crossing leads to a lower rectangular loop and a long curved right descent.",
+            "宽大上部交叉笔连接下方矩形环和右侧长弧曲下行笔。",
+        ),
+        "obs-unk-000820": (
+            "A dense diagonal upper cluster with a small left opening connects to a wavy right lower form.",
+            "带左侧小空隙的密集斜向上部笔组连接波曲右侧下部形体。",
+        ),
     }
 )
 

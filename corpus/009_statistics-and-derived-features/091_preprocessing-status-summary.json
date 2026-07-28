@@ -127,7 +127,7 @@
       "label_en": "Candidate relationship graph edges and summaries",
       "label_zh": "候选关系图边与统计",
       "current_stage": "verified",
-      "count_summary": "edge_type_count:24;edge_type_summary_rows:30;graph_edge_rows:127846;node_degree_summary_rows:101619",
+      "count_summary": "edge_type_count:25;edge_type_summary_rows:31;graph_edge_rows:138842;node_degree_summary_rows:101620",
       "next_entry_path": "corpus/008_relationship-graph/",
       "review_status": "candidate_graph_edges",
       "caution": "Preprocessing audit only; all identity, component, evolution, inscription, and decipherment-facing rows remain candidates or review routes until source evidence and human review promote them.",

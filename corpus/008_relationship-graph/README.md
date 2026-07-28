@@ -50,6 +50,7 @@ English:
 | `010_cross-source-id-graph-edges.jsonl` | Cross-source id lookup routes. |
 | `011_component-asset-graph-edges.jsonl` | Component to local asset review routes. |
 | `012_cambridge-hopkins-topic-candidate-graph-edges.jsonl` | Topic and crosswalk review routes. |
+| `013_character-source-graph-edges.jsonl` | Character candidate to registered source routes. |
 
 ## Edge Dossier Content / 图边档案内容
 

@@ -4,7 +4,7 @@
 
 - Candidate packet count: 612
 - Packets with explicit character-link fields: 0
-- Graph edges scanned across JSONL files: 127846
+- Graph edges scanned across JSONL files: 138842
 - Cambridge/Hopkins catalog-route graph edges: 4403
 - Character-inscription edges promoted: 0
 - Review state: `candidate_only_no_character_inscription_edge_promoted`

@@ -73,6 +73,8 @@ using any edge as evidence.
   writes HUST/OBIMD/EVOBC lookup-route edges.
 - `build_cambridge_hopkins_topic_graph_edges.py`
   writes topic, period, and inscription-crosswalk route edges.
+- `build_character_source_graph_edges.py`
+  writes character-candidate to registered-source provenance routes.
 
 ## Concrete Questions To Check / 具体待查问题
 

@@ -9,7 +9,7 @@
     "no decipherment conclusion"
   ],
   "explicit_link_field_counts": {},
-  "graph_edge_count_all_jsonl": 127846,
+  "graph_edge_count_all_jsonl": 138842,
   "graph_root": "corpus/008_relationship-graph",
   "human_readable_file": "corpus/009_statistics-and-derived-features/223_character-inscription-linkage-audit.md",
   "packet_count": 612,

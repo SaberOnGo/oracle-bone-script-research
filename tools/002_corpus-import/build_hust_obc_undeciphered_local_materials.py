@@ -4402,6 +4402,90 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
         ),
     }
 )
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000901": (
+            "A broad rounded upper cap contains a small opening and leads into a curved lower form with a long right descent.",
+            "宽大圆曲上帽内有小开口，并连接弯曲下部形态和右侧长下行线。",
+        ),
+        "obs-unk-000902": (
+            "A tall pointed enclosure contains a central stem, a horizontal middle bar, and a rounded lower base.",
+            "高大的尖顶围合内部有中央主线、中部横档和圆曲下部底座。",
+        ),
+        "obs-unk-000903": (
+            "A peaked arch surrounds a small inner loop and central descent; a separate angular form projects at lower right.",
+            "尖顶拱形围合小内回环和中央下行线；右下另有折角形态突出。",
+        ),
+        "obs-unk-000904": (
+            "A broad arch contains two small upper loops and a central stem ending in a pointed lower stroke.",
+            "宽拱形内部有两个小上部回环和中央主线，末端接尖状下笔画。",
+        ),
+        "obs-unk-000905": (
+            "A dense group of short vertical loops stands left of a separate long curved stroke and a detached dot.",
+            "密集短直回环线束位于分离长曲线左侧，旁边另有脱离的点状笔画。",
+        ),
+        "obs-unk-000906": (
+            "A tall angled frame encloses a small inner opening; a rounded side form and long lower strokes extend rightward.",
+            "高大折角框内有小内开口；右侧接圆曲形态和长下行笔画。",
+        ),
+        "obs-unk-000907": (
+            "A small rectangular loop at left is paired with a broad right curve and a compact lower curl.",
+            "左侧小矩形回环与宽大右曲线相对，下方有紧密卷曲笔画。",
+        ),
+        "obs-unk-000908": (
+            "A dense low cluster of short loops sits beside a separate tall slender loop with a small detached mark.",
+            "密集短回环低位线束旁有分离的高大细回环，并带一个脱离小线。",
+        ),
+        "obs-unk-000909": (
+            "An upper rounded enclosure has three short projections and horizontal bands, followed by a wavy lower stem.",
+            "上部圆曲围合带三个短突和横向层次，下方接波曲主线。",
+        ),
+        "obs-unk-000910": (
+            "A compact dense cluster contains repeated short loops and is flanked by two detached oval marks.",
+            "紧密密集线束内有重复短回环，两侧各有脱离的椭圆笔画。",
+        ),
+        "obs-unk-000911": (
+            "A rounded upper enclosure with short projections leads into a lower looped stem; a separate curve stands at right.",
+            "带短突的圆曲上部围合连接下部回环主线；右侧另有分离曲线。",
+        ),
+        "obs-unk-000912": (
+            "A tall wavy central contour descends into a broad lower form with an open interior and a small side stroke.",
+            "高大的中央波曲轮廓向下进入宽下部形态，内部留有开口并带侧小线。",
+        ),
+        "obs-unk-000913": (
+            "Two separated figures stand together: a small pointed form at left and a taller looped form with a long descent at right.",
+            "两个分离形态并列：左侧为小尖顶形，右侧为带长下行线的高大回环。",
+        ),
+        "obs-unk-000914": (
+            "A small left rectangular loop stands beside a taller right looped contour and a long wavy lower stroke.",
+            "左侧小矩形回环旁有较高右侧回环轮廓和长波曲下行线。",
+        ),
+        "obs-unk-000915": (
+            "A large enclosing arch contains an inner loop and a dense lower angular mass, with a detached mark at right.",
+            "大型围合拱形内有回环和密集下部折角线束，右侧另有分离笔画。",
+        ),
+        "obs-unk-000916": (
+            "A tall narrow stacked form at left is paired with a separate compact pointed loop and lower curve at right.",
+            "左侧高窄叠置形态与右侧分离的紧密尖顶回环及下曲线相对。",
+        ),
+        "obs-unk-000917": (
+            "A broad upper arch encloses a lower horizontal band and two side points, with a small angular top mark.",
+            "宽大上拱围合下部横带和两个侧尖，顶部另有小折角笔画。",
+        ),
+        "obs-unk-000918": (
+            "A pointed upper loop sits over a broad rounded lower form; a detached short mark is visible at left.",
+            "尖顶上部回环位于宽圆下部形态之上；左侧可见分离短笔画。",
+        ),
+        "obs-unk-000919": (
+            "Three slim descending forms align across the image, with a small rectangular loop at left and two wavy contours at right.",
+            "三个细长下行形态横向排列，左侧有小矩形回环，右侧有两个波曲轮廓。",
+        ),
+        "obs-unk-000920": (
+            "A dense central looped form rises from a broad lower base; a separate forked form with a curled tail sits at right.",
+            "密集中央回环形态从宽大底部升起；右侧另有带卷曲尾部的分叉形态。",
+        ),
+    }
+)
 
 @dataclass(frozen=True)
 class Candidate:

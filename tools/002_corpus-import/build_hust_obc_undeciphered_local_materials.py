@@ -4150,6 +4150,90 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
         ),
     }
 )
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000841": (
+            "A large peaked arch encloses two tall interior strokes; the left side is rounded and a short curve descends at right.",
+            "大型尖顶拱形围合两条高直内线；左侧较圆，右侧有短曲线向下延伸。",
+        ),
+        "obs-unk-000842": (
+            "A dense angular upper cluster sits above a horizontal band, a lower rectangular loop, and a curled terminal stroke.",
+            "密集折角上部位于横带之上，下方接矩形回环和卷曲末端笔画。",
+        ),
+        "obs-unk-000843": (
+            "Two short upward prongs cross a compact central loop; several angular strokes extend below and to the sides.",
+            "两条短上伸尖线交于中央小回环；下方及两侧有数条折角笔画。",
+        ),
+        "obs-unk-000844": (
+            "A tall central stem supports a forked top, a rounded middle opening, and a narrow pedestal; a small loop is detached at left.",
+            "高直中央主线连接分叉顶端、圆曲中部开口和窄底座；左侧有分离小回环。",
+        ),
+        "obs-unk-000845": (
+            "Two upright panel-like forms stand side by side, each with an upper loop and several curved lower strokes.",
+            "两个直立的框板状形态并列，各自上部有回环，下部有数条曲线。",
+        ),
+        "obs-unk-000846": (
+            "A broad curled upper frame contains a small inner loop and descends through a central stem to a squared lower base.",
+            "宽大的卷曲上框内有小回环，并经中央主线下接方形底部。",
+        ),
+        "obs-unk-000847": (
+            "A pointed arch surrounds two descending interior forms; the right interior stroke continues farther toward the bottom.",
+            "尖顶拱形围合两条向下内线；右侧内线继续延伸至更低处。",
+        ),
+        "obs-unk-000848": (
+            "A tall left frame encloses several short interior marks; a separate long curved stroke descends on the right.",
+            "左侧高框围合数个短内线；右侧另有一条分离的长曲线向下延伸。",
+        ),
+        "obs-unk-000849": (
+            "Stacked horizontal strokes form a narrow top and a rounded middle opening, with a crossing curved stroke below.",
+            "上下叠置横线形成窄顶和圆曲中部开口，下方接交叉曲线。",
+        ),
+        "obs-unk-000850": (
+            "Broad upper and lower bars surround a narrow central stem, while the lower sides curve outward symmetrically.",
+            "宽大的上下横线围绕窄中央主线，下部两侧对称向外弯曲。",
+        ),
+        "obs-unk-000851": (
+            "Several detached short marks sit at left beside a tall hooked stroke that bends into a long lower descent.",
+            "左侧有数个分离短线，旁边是一条高大的钩曲线并向下长伸。",
+        ),
+        "obs-unk-000852": (
+            "A compact crossed upper form with a small opening leads to a central stem and a broad lower base with side peaks.",
+            "上部为带小开口的紧密交叉形态，下接中央主线和带侧尖的宽底部。",
+        ),
+        "obs-unk-000853": (
+            "Two separated slim hooked forms rise independently; small short marks and a lower curve appear between them.",
+            "两个分离的细长钩曲形态各自上伸；中间有短线和下部曲线。",
+        ),
+        "obs-unk-000854": (
+            "A double rectangular upper frame sits above a broad rounded bowl, which narrows into a short lower support.",
+            "双重矩形上框位于宽圆曲碗形之上，碗形向下收窄接短支座。",
+        ),
+        "obs-unk-000855": (
+            "A small angular loop lies within a broad curved upper bowl; the lower portion narrows to a short base.",
+            "小型折角回环位于宽圆曲上部之内；下部收窄至短底座。",
+        ),
+        "obs-unk-000856": (
+            "A central vertical stem carries a top bar and a large rightward curl; a separate rectangular loop is at lower left.",
+            "中央直立主线带有顶横线和向右大卷曲；左下另有矩形回环。",
+        ),
+        "obs-unk-000857": (
+            "A pointed triangular outer contour encloses a zigzag lower interior with two open lower spaces.",
+            "尖顶三角外轮廓围合下部曲折内线，并形成两个下方开口。",
+        ),
+        "obs-unk-000858": (
+            "Three stacked sections are visible: a narrow top loop, a central stem, and a broad lower frame with side legs.",
+            "可见三个上下层次：窄小顶部回环、中央主线和带侧脚的宽下框。",
+        ),
+        "obs-unk-000859": (
+            "A broad curved upper enclosure has two short upward projections, a small central loop, and a long wavy descent.",
+            "宽大弯曲上部有两个短上突、小中央回环及长波曲下行线。",
+        ),
+        "obs-unk-000860": (
+            "A right-facing wedge-like upper form sits above a rectangular lower block containing two horizontal bars.",
+            "向右的楔状上部位于矩形下块之上，下块内有两道横线。",
+        ),
+    }
+)
 
 @dataclass(frozen=True)
 class Candidate:

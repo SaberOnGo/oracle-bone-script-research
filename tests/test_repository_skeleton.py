@@ -6520,7 +6520,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             self.assertNotIn("CSV", fact_matrix_opening)
             self.assertNotIn("JSON", fact_matrix_opening)
             for snippet in [
-                "| Fact area / 事实领域 |",
+                "## Fact Areas / 事实领域",
                 "Evolution candidate / 演化候选",
                 "Oracle-side route / 甲骨侧路线",
                 "Bronze seal modern route / 金文小篆今字路线",
@@ -6819,7 +6819,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertNotIn("JSON", fact_matrix_opening)
         self.assertIn("not an evolution-chain conclusion", first["fact_matrix_text"])
         for snippet in [
-            "| Fact area / 事实领域 |",
+            "## Fact Areas / 事实领域",
             "Evolution candidate / 演化候选",
             "Oracle-side route / 甲骨侧路线",
             "Bronze seal modern route / 金文小篆今字路线",

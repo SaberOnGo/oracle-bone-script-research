@@ -28,18 +28,60 @@ Simplified Chinese:
 
 ## Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵
 
-| Fact area / 事实领域 | Human review use / 人工复核用途 | Open these routes / 打开这些路线 |
-| --- | --- | --- |
-| Evolution candidate / 演化候选 | Dataset category candidate only; no accepted correspondence. | `01_candidate-evolution-packet.json`; `07_human-evolution-dossier.md` |
-| Oracle-side route / 甲骨侧路线 | Check image, rubbing, inscription, plate, catalog, Heji, findspot, collection, period, group, and batch evidence. | `09_cross-period-review-dossier.md` |
-| Bronze seal modern route / 金文小篆今字路线 | Treat bronze, seal, variant, component, modern codepoint, meaning, and reading links as candidates until sources are opened. | `09_cross-period-review-dossier.md` |
-| Image reference route / 图像引用路线 | 4 route rows; local visual evidence must still be opened from source routes. | `05_image-reference-route-index.csv`; `06_image-reference-route-gallery.md` |
-| Era and source-code route / 时期与来源代码路线 | 8 era/source rows; dataset labels are search aids only. | `03_era-source-code-index.csv` |
-| Graph edge route / 图边路线 | Graph route only; not an accepted paleographic correspondence. | `corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl` |
-| Bibliography and dispute route / 文献与争议路线 | Check proposer, bibliography, web database scope, reading history, dispute, and disagreement before any claim. | `research/`; `09_cross-period-review-dossier.md` |
-| Source and rights trail / 来源与权利链 | `src-evobc` with rights status `source_marked_risk_noted`. | `02_evolution-source-index.csv`; `project_registry/` |
-| Missing evidence route / 缺失证据路线 | Record exact gaps for image, inscription, bronze, seal, codepoint, bibliography, rights, findspot, collection, period, group, and batch. | `07_human-evolution-dossier.md`; `09_cross-period-review-dossier.md` |
-| Review status / 复核状态 | `needs_human_evolution_review`. | `08_evolution-dossier-index.json`; `10_cross-period-review-index.json` |
+## Fact Areas / 事实领域
+
+### Evolution candidate / 演化候选
+- Human review use: Dataset category candidate only; no accepted correspondence.
+- Open these routes: `01_candidate-evolution-packet.json`;
+  `07_human-evolution-dossier.md`
+
+### Oracle-side route / 甲骨侧路线
+- Human review use: Check image, rubbing, inscription, plate, catalog, Heji,
+  findspot, collection, period, group, and batch evidence.
+- Open these routes: `09_cross-period-review-dossier.md`
+
+### Bronze seal modern route / 金文小篆今字路线
+- Human review use: Treat bronze, seal, variant, component, modern codepoint,
+  meaning, and reading links as candidates until sources are opened.
+- Open these routes: `09_cross-period-review-dossier.md`
+
+### Image reference route / 图像引用路线
+- Human review use: 4 route rows; local visual evidence must still be opened
+  from source routes.
+- Open these routes: `05_image-reference-route-index.csv`;
+  `06_image-reference-route-gallery.md`
+
+### Era and source-code route / 时期与来源代码路线
+- Human review use: 8 era/source rows; dataset labels are search aids only.
+- Open these routes: `03_era-source-code-index.csv`
+
+### Graph edge route / 图边路线
+- Human review use: Graph route only; not an accepted paleographic
+  correspondence.
+- Open these routes:
+  `corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl`
+
+### Bibliography and dispute route / 文献与争议路线
+- Human review use: Check proposer, bibliography, web database scope, reading
+  history, dispute, and disagreement before any claim.
+- Open these routes: `research/`; `09_cross-period-review-dossier.md`
+
+### Source and rights trail / 来源与权利链
+- Human review use: `src-evobc` with rights status `source_marked_risk_noted`.
+- Open these routes: `02_evolution-source-index.csv`; `project_registry/`
+
+### Missing evidence route / 缺失证据路线
+- Human review use: Record exact gaps for image, inscription, bronze, seal,
+  codepoint, bibliography, rights, findspot, collection, period, group, and
+  batch.
+- Open these routes: `07_human-evolution-dossier.md`;
+  `09_cross-period-review-dossier.md`
+
+### Review status / 复核状态
+- Human review use: `needs_human_evolution_review`.
+- Open these routes: `08_evolution-dossier-index.json`;
+  `10_cross-period-review-index.json`
+
 
 ## Concrete Review Questions
 

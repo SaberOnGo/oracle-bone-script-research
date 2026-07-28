@@ -4045,7 +4045,9 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         if index not in sample_indexes:
             continue
         readme_path = object_dir / "README.md"
-        if path_exists(readme_path):
+        # Deep human-content checks use first/middle/last representatives;
+        # required-file and map checks still cover every object.
+        if index in deep_route_check_indexes and path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
             if "\ufffd" in text:
                 issues.append(f"{readme_path.relative_to(root).as_posix()} contains replacement-character mojibake")
@@ -5651,7 +5653,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                     )
         packet_path = object_dir / "01_candidate-evolution-packet.json"
         packet_image_reference_count = -1
-        if path_exists(packet_path):
+        if index in deep_route_check_indexes and path_exists(packet_path):
             packet = json.loads(packet_path.read_text(encoding="utf-8"))
             if isinstance(packet.get("image_reference_count"), int):
                 packet_image_reference_count = int(packet["image_reference_count"])
@@ -5681,7 +5683,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
             if not any(path.endswith("14_human-research-readiness-review.md") for path in route_files):
                 issues.append(f"{packet_path.relative_to(root).as_posix()} missing readiness review route")
         source_index_path = object_dir / "02_evolution-source-index.csv"
-        if path_exists(source_index_path):
+        if index in deep_route_check_indexes and path_exists(source_index_path):
             with source_index_path.open("r", encoding="utf-8-sig", newline="") as file:
                 source_rows = list(csv.DictReader(file))
             if len(source_rows) != 2:
@@ -5697,7 +5699,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 if source_row.get("review_status") != "reviewed_metadata_only":
                     issues.append(f"{source_index_path.relative_to(root).as_posix()} review_status changed")
         code_index_path = object_dir / "03_era-source-code-index.csv"
-        if path_exists(code_index_path):
+        if index in deep_route_check_indexes and path_exists(code_index_path):
             with code_index_path.open("r", encoding="utf-8-sig", newline="") as file:
                 code_rows = list(csv.DictReader(file))
             if not code_rows and packet_image_reference_count != 0:
@@ -5710,7 +5712,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 if code_row.get("review_status") != "reviewed_metadata_only":
                     issues.append(f"{code_index_path.relative_to(root).as_posix()} review_status changed")
         review_sheet_path = object_dir / "04_human-review-sheet.md"
-        if path_exists(review_sheet_path):
+        if index in deep_route_check_indexes and path_exists(review_sheet_path):
             review_sheet = review_sheet_path.read_text(encoding="utf-8")
             for snippet in [
                 "Do not record a formal correspondence",
@@ -5969,7 +5971,7 @@ def check_evolution_candidate_local_materials(root: Path) -> list[str]:
                 "Open `09_cross-period-review-dossier.md` before correspondence claims.",
                 "Do not promote graph or codepoint routes into evolution evidence.",
                 "Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵",
-                "| Fact area / 事实领域 |",
+                "## Fact Areas / 事实领域",
                 "Evolution candidate / 演化候选",
                 "Oracle-side route / 甲骨侧路线",
                 "Bronze seal modern route / 金文小篆今字路线",

@@ -1517,11 +1517,15 @@ def evolution_review_fact_matrix_text(
             "`08_evolution-dossier-index.json`; `10_cross-period-review-index.json`",
         ),
     ]
-    table_lines = [
-        "| Fact area / 事实领域 | Human review use / 人工复核用途 | Open these routes / 打开这些路线 |",
-        "| --- | --- | --- |",
-        *[f"| {area} | {fact} | {routes} |" for area, fact, routes in table_rows],
+    fact_lines = [
+        "## Fact Areas / 事实领域",
+        "",
     ]
+    for area, fact, routes in table_rows:
+        fact_lines.append(f"### {area}")
+        fact_lines.extend(wrapped_bullet(f"Human review use: {fact}"))
+        fact_lines.extend(wrapped_bullet(f"Open these routes: {routes}"))
+        fact_lines.append("")
     concrete_questions = bullet_block(
         [
             "Open `02_evolution-source-index.csv` before trusting source rows.",
@@ -1565,7 +1569,7 @@ Simplified Chinese:
 
 ## Evolution And Correspondence Fact Matrix / 字形演化与对应事实矩阵
 
-{chr(10).join(table_lines)}
+{chr(10).join(fact_lines)}
 
 ## Concrete Review Questions
 

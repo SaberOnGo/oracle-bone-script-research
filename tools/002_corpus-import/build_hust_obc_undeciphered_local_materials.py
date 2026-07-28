@@ -1903,6 +1903,116 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "图像与 obs-unk-000335 均见弧角矩形笔块、叠置痕迹、中央直笔和右伸；"
         "仅作视觉比较，不作身份确认。",
     ),
+    "obs-unk-000341": (
+        "The image repeats stacked rounded or pointed forms above a compact lower "
+        "cluster and a detached left diagonal stroke seen for obs-unk-000319; "
+        "visual comparison only.",
+        "图像与 obs-unk-000319 均见叠置弧形或尖角形体、紧凑下部笔组和左侧"
+        "分离斜笔；仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000342": (
+        "The image repeats the rounded rectangular block, stacked marks, central "
+        "vertical stroke, and right extension seen for obs-unk-000335; comparison "
+        "only.",
+        "图像与 obs-unk-000335 均见弧角矩形笔块、叠置痕迹、中央直笔和右伸；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000343": (
+        "A broad horizontal upper stroke sits above a compact lower group of "
+        "rounded and angular marks.",
+        "宽横上部笔画位于弧形和折角痕迹组成的紧凑下部笔组之上。",
+    ),
+    "obs-unk-000344": (
+        "Several tall pointed strokes form a symmetrical upper cluster around a "
+        "central vertical line and a narrow lower extension.",
+        "数条高直尖角笔形成近对称上部笔组，围绕中央直线并连接窄下部延伸。",
+    ),
+    "obs-unk-000345": (
+        "Stacked horizontal strokes cross a central upright, with short side "
+        "projections and a compact lower bar.",
+        "叠置横向笔画穿过中央直笔，两侧有短外伸，下方有紧凑横栏。",
+    ),
+    "obs-unk-000346": (
+        "The image repeats the rounded rectangular block, stacked horizontal "
+        "marks, central upright, and right extension seen for obs-unk-000335; "
+        "comparison only.",
+        "图像与 obs-unk-000335 均见弧角矩形笔块、叠置横笔、中央直笔和右伸；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000347": (
+        "A small rounded upper mark sits above several short diagonal strokes and "
+        "a long narrow right-side extension.",
+        "小型弧形上部痕迹位于数条短斜笔之上，右侧有长窄外伸笔。",
+    ),
+    "obs-unk-000348": (
+        "The image repeats the rounded upper mark, diagonal strokes, and right "
+        "extension seen for obs-unk-000347; visual comparison only.",
+        "图像与 obs-unk-000347 均见弧形上部痕迹、斜向笔画和右侧外伸；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000349": (
+        "A broad angular upper stroke crosses a rounded lower cluster, with a "
+        "short pointed projection toward the upper left.",
+        "宽折角上部笔画穿过弧形下部笔组，左上方有短尖角外伸。",
+    ),
+    "obs-unk-000350": (
+        "Layered angular strokes form a dense upper group above a pointed lower "
+        "extension and a short side mark.",
+        "叠置折角笔形成密集上部笔组，下方连接尖角延伸并带短侧痕迹。",
+    ),
+    "obs-unk-000351": (
+        "A rounded central enclosure is framed by short side projections and a "
+        "broad upper contour.",
+        "弧角中央围合由短侧外伸和宽上部轮廓夹持。",
+    ),
+    "obs-unk-000352": (
+        "A compact upper block with a central vertical mark sits above two long "
+        "diagonal lower strokes.",
+        "带中央直向痕迹的紧凑上部笔块位于两条长斜向下部笔之上。",
+    ),
+    "obs-unk-000353": (
+        "Two small rounded side marks flank a central crossing and narrow lower "
+        "stem; a separate long upright stroke stands at the right.",
+        "两个小型弧形侧痕迹夹住中央交叉和窄下部笔干，右侧另有长直笔。",
+    ),
+    "obs-unk-000354": (
+        "Two separated upright groups each contain a small upper block, crossing "
+        "middle strokes, and a short lower extension.",
+        "两组分离直立形体各自含小型上部笔块、中部交叉和短下部延伸。",
+    ),
+    "obs-unk-000355": (
+        "The image repeats the paired rounded side marks, central crossing, and "
+        "separate right upright seen for obs-unk-000353; comparison only.",
+        "图像与 obs-unk-000353 均见成对弧形侧痕迹、中央交叉和分离右直笔；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000356": (
+        "The image repeats the rounded central enclosure, short side projections, "
+        "and broad upper contour seen for obs-unk-000351; comparison only.",
+        "图像与 obs-unk-000351 均见弧角中央围合、短侧外伸和宽上部轮廓；"
+        "仅作视觉比较，不作身份确认。",
+    ),
+    "obs-unk-000357": (
+        "Two short upper side strokes flank a pointed lower enclosure containing "
+        "a small interior crossing.",
+        "两条短上部侧笔夹住尖角下部围合，围合内有小型交叉痕迹。",
+    ),
+    "obs-unk-000358": (
+        "A curved outer contour encloses a compact radial lower cluster and a "
+        "short upper crossing.",
+        "弯曲外轮廓内有紧凑放射状下部笔组和短上部交叉。",
+    ),
+    "obs-unk-000359": (
+        "The image repeats the curved contour and compact radial cluster seen for "
+        "obs-unk-000358; visual comparison only.",
+        "图像与 obs-unk-000358 均见弯曲轮廓和紧凑放射状笔组；仅作视觉比较，"
+        "不作身份确认。",
+    ),
+    "obs-unk-000360": (
+        "Several stacked horizontal strokes occupy the upper center, with long "
+        "slanting side strokes extending below.",
+        "数条叠置横笔集中于上部中央，下方有长斜向侧笔外伸。",
+    ),
 }
 
 

@@ -5613,6 +5613,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A small left loop stands beside a right stacked form with a diamond opening and two lower bands.",
             "小型左侧回环与右侧叠置形并列，右侧有菱形开口和两道下部横带。",
         ),
+        "obs-unk-001201": (
+            "A tall leaf-like enclosure contains several inner openings above two lower pointed projections.",
+            "高大的叶状围合内有数个开口，下方伸出两个尖状突起。",
+        ),
+        "obs-unk-001202": (
+            "Two upper horizontal bands cap a pointed central opening beside a right loop and lower curl.",
+            "两道上部横带覆盖尖状中央开口，旁有右侧回环和下部卷曲线。",
+        ),
+        "obs-unk-001203": (
+            "A large pointed enclosure contains an inner opening and a small lower triangle beside a curved form.",
+            "大型尖状围合内有开口和小型下部三角形，旁接弯曲形。",
+        ),
+        "obs-unk-001204": (
+            "Two pointed upper forms stand together, with a small right loop leading to a long curved stroke.",
+            "两个尖状上部形并列，右侧小回环向下连接长弯曲线。",
+        ),
+        "obs-unk-001205": (
+            "A narrow stacked knot has a pointed cap, a central opening, zigzag side strokes, and a low oval.",
+            "狭长叠置线簇有尖状上盖、中央开口、曲折侧线和低位椭圆形。",
+        ),
+        "obs-unk-001206": (
+            "Two adjacent angular loops descend from slender stems and end in small pointed lower feet.",
+            "两个相邻折线回环从细长主线下垂，末端收成小型尖状底部。",
+        ),
+        "obs-unk-001207": (
+            "A paired angular form repeats the looped upper openings and pointed lower ends of the neighboring record.",
+            "成对折线形重复相邻记录的上部回环开口和尖状下端。",
+        ),
+        "obs-unk-001208": (
+            "A large pointed outer frame contains a lower rectangular opening beside a separate curved side form.",
+            "大型尖状外框内有下部矩形开口，旁侧另有弯曲形。",
+        ),
+        "obs-unk-001209": (
+            "A rounded upper enclosure contains a broad opening above a branching body and three low blocks.",
+            "圆弧上部围合内有宽大开口，下方为分支主体和三个低位块状形。",
+        ),
+        "obs-unk-001210": (
+            "A dense central knot has upper loops, side projections, and several lower branching strokes.",
+            "密集中央线簇带有上部回环、侧向突起和数条下部分支。",
+        ),
+        "obs-unk-001211": (
+            "Several horizontal upper bars sit over a broad lower enclosure with a small inner opening.",
+            "数道上部横带位于宽大下部围合之上，围合内有小开口。",
+        ),
+        "obs-unk-001212": (
+            "A small diamond-like left cluster is paired with a large curved right form and two lower loops.",
+            "小型菱状左侧线簇与大型弯曲右侧形并列，下方有两个回环。",
+        ),
+        "obs-unk-001213": (
+            "A small side loop accompanies a tall forked stem with an inner opening and a short base.",
+            "小型侧回环伴随高大的分叉主线，内部有开口并连接短底部。",
+        ),
+        "obs-unk-001214": (
+            "A gridded left enclosure joins a horizontal middle bar and a long descending right line.",
+            "格状左侧围合连接横向中部线条，右侧伸出长下垂线。",
+        ),
+        "obs-unk-001215": (
+            "A large pointed left enclosure stands beside a tall narrow right loop with a lower extension.",
+            "大型尖状左侧围合与高而窄的右侧回环并列，右侧带下部延展线。",
+        ),
+        "obs-unk-001216": (
+            "Two rounded openings are stacked vertically between branching left and right side strokes.",
+            "两个圆弧开口上下叠置，左右由分支侧线包围。",
+        ),
+        "obs-unk-001217": (
+            "A left stacked loop with a pointed upper leaf stands beside a separate forked right form.",
+            "带尖状上部叶形的左侧叠置回环与独立分叉右侧形并列。",
+        ),
+        "obs-unk-001218": (
+            "Several upward prongs rise above paired lower loops and a long right-side stroke.",
+            "数条向上分叉线位于成对下部回环和右侧长线之上。",
+        ),
+        "obs-unk-001219": (
+            "Two tall pointed stems rise from a small lower loop, joined by a long curved right line.",
+            "两个高大的尖状主线从小型下部回环升起，右侧以长弯曲线连接。",
+        ),
+        "obs-unk-001220": (
+            "Two upper looped forms meet at a central junction above a broad curved lower frame.",
+            "两个上部回环在中央交汇，下方接宽大的弯曲框线。",
+        ),
     }
 )
 

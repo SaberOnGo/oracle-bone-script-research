@@ -4045,9 +4045,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
         if index not in sample_indexes:
             continue
         readme_path = object_dir / "README.md"
-        # Deep human-content checks use first/middle/last representatives;
-        # required-file and map checks still cover every object.
-        if index in deep_route_check_indexes and path_exists(readme_path):
+        if path_exists(readme_path):
             text = readme_path.read_text(encoding="utf-8")
             if "\ufffd" in text:
                 issues.append(f"{readme_path.relative_to(root).as_posix()} contains replacement-character mojibake")

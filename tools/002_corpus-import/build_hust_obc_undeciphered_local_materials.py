@@ -4571,6 +4571,91 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
     }
 )
 
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000941": (
+            "Two separated tall upper curves with pointed caps stand over a broad lower angular cluster and a short left stroke.",
+            "两个分离的高位弯曲线条带尖端，位于宽大的下部折线簇和左侧短线之上。",
+        ),
+        "obs-unk-000942": (
+            "A compact looped upper cluster descends in a long wave, with a separate looped curve on the right.",
+            "紧密的上部回环线簇向下延成长波线，右侧另有分离的回环曲线。",
+        ),
+        "obs-unk-000943": (
+            "A small pointed loop on the left sits above a short base, beside a taller loop with a long descending curve.",
+            "左侧小尖环位于短底座之上，旁边是带长下垂曲线的较高回环形。",
+        ),
+        "obs-unk-000944": (
+            "A tall looped wavy form on the left is paired with a smaller upright rounded form on a short base.",
+            "左侧高大的回环波曲形与右侧短底座上的较小直立圆曲形并列。",
+        ),
+        "obs-unk-000945": (
+            "A small rectangular enclosure on the left base is paired with a tall angled loop and a long descending stroke.",
+            "左侧底部的小矩形围合与高大的倾斜回环形及长下垂线并列。",
+        ),
+        "obs-unk-000946": (
+            "Two tall slender looped figures stand side by side, each carrying a long curved descent below.",
+            "两个高而细的回环形并列，各自向下带出长曲线。",
+        ),
+        "obs-unk-000947": (
+            "A compact angular looped upper form extends into a long descending stroke and a broad curved lower base.",
+            "紧密的上部折线回环形向下延出长线，并接宽大的弧形底部。",
+        ),
+        "obs-unk-000948": (
+            "Three stacked sections show a narrow top loop, a broad middle band, and a wide lower frame.",
+            "三个上下层次依次呈现窄顶回环、宽中部横带和宽下部框形。",
+        ),
+        "obs-unk-000949": (
+            "A broad rounded crossing occupies the upper area, meets a central stem, and ends in a wide framed base.",
+            "宽大的圆曲交叉占据上部，与中央主线相接，末端为宽框形底部。",
+        ),
+        "obs-unk-000950": (
+            "An upper pointed triangular form has short side bars, with a separate small triangular enclosure below.",
+            "上部尖三角形带有短侧横线，下方另有一个小三角围合。",
+        ),
+        "obs-unk-000951": (
+            "A rounded upper enclosure has three projecting tips and stacked bands, followed by a wavy lower stem.",
+            "圆曲上部围合带三个突出端和层叠横带，下方接一条波曲主线。",
+        ),
+        "obs-unk-000952": (
+            "A dense angular upper cluster rests over a broad lower frame or bowl with short side projections.",
+            "密集的上部折线簇位于宽大的下部框形或碗形之上，两侧有短突出线。",
+        ),
+        "obs-unk-000953": (
+            "Repeated stacked loops lead into a long lower curve and a broad curved base.",
+            "重复的层叠回环向下连接长曲线，并接宽大的弧形底部。",
+        ),
+        "obs-unk-000954": (
+            "An irregular dense cluster combines upright loops with several angled strokes in the lower area.",
+            "不规则的密集线簇由直立回环和下部数条倾斜线组成。",
+        ),
+        "obs-unk-000955": (
+            "Several slim looped curves rise above a low horizontal base marked by small triangular openings.",
+            "数个细长回环曲线立于低矮横向底座之上，底座可见小三角开口。",
+        ),
+        "obs-unk-000956": (
+            "Two separated compact forms appear: an angular loop with a lower curve on the left and a pointed loop with a long stroke on the right.",
+            "两个分离的紧密形体并列：左侧为带下曲线的折线回环，右侧为带长线的尖回环。",
+        ),
+        "obs-unk-000957": (
+            "A large pointed arch encloses two inner forms and terminates in a blocky lower base.",
+            "一个大型尖拱形围住两个内部形体，末端接块状下部底座。",
+        ),
+        "obs-unk-000958": (
+            "A pointed arch contains small upper and inner loops, then continues as a long central stem to a curved tip.",
+            "尖拱形内含小的上部和内部回环，随后延成长中央主线并收于曲尖。",
+        ),
+        "obs-unk-000959": (
+            "A broad pointed arch contains two looped forms, with a detached dot and wavy pointed strokes below.",
+            "宽大的尖拱形内含两个回环形，下方有分离点状痕和波曲尖线。",
+        ),
+        "obs-unk-000960": (
+            "A broad dark upper curve sits over a lower framed block with two horizontal bands and a separate right curve.",
+            "宽厚的上部深色弧线位于下部框状块体之上，块体含两道横带，右侧另有曲线。",
+        ),
+    }
+)
+
 @dataclass(frozen=True)
 class Candidate:
     project_id: str

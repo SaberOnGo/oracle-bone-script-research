@@ -4486,6 +4486,90 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
         ),
     }
 )
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000921": (
+            "A horizontal lower bar supports two rounded upper looped forms, with several short detached marks below.",
+            "水平下横线支撑两个圆曲上部回环，下方有数个分离短笔画。",
+        ),
+        "obs-unk-000922": (
+            "A tall left stem stands beside stacked loops and angular strokes, ending in a broad lower base and long curve.",
+            "高直左侧主线旁有叠置回环和折角笔画，下部接宽底和长曲线。",
+        ),
+        "obs-unk-000923": (
+            "A dense looped cluster at left is paired with a separate pointed form and several curved lower descents.",
+            "左侧密集回环线束与分离尖角形态相对，下方有数条曲线下行。",
+        ),
+        "obs-unk-000924": (
+            "A tall pointed central contour is flanked by long curved strokes on both sides, with a small loop at lower right.",
+            "高大的中央尖顶轮廓两侧有长曲线，下右侧带一个小回环。",
+        ),
+        "obs-unk-000925": (
+            "Two separated slim forms have small upper loops and long wavy strokes descending toward the bottom.",
+            "两个分离的细长形态上部有小回环，长波曲线向下延伸。",
+        ),
+        "obs-unk-000926": (
+            "A stacked upper form with a broad middle band leads into a long lower curve and a separate right angular stroke.",
+            "叠置上部形态带宽中部横带，下接长曲线，右侧另有折角笔画。",
+        ),
+        "obs-unk-000927": (
+            "Two parallel looped forms descend together, each with a small lower opening and separate side strokes.",
+            "两个并列回环形态共同下行，各自带小下部开口和侧边笔画。",
+        ),
+        "obs-unk-000928": (
+            "A horizontal lower bar supports two rounded upper loops, with short marks spaced beneath the left side.",
+            "水平下横线支撑两个圆曲上部回环，左侧下方分布短笔画。",
+        ),
+        "obs-unk-000929": (
+            "A rectangular upper frame contains two open panels and descends into two separate long lower stems.",
+            "矩形上框内有两个开口分区，下方接两条分离的长直主线。",
+        ),
+        "obs-unk-000930": (
+            "A long central forked stem divides into two lower curls, with a small detached stroke near the left curl.",
+            "长直中央分叉主线分成两个下部回曲，左侧回曲旁有小分离笔画。",
+        ),
+        "obs-unk-000931": (
+            "Two adjacent figures each combine an upper loop with a lower angular descent; a small detached mark is at left.",
+            "两个相邻形态各自由上部回环和下部折角线组成，左侧有分离小线。",
+        ),
+        "obs-unk-000932": (
+            "A paired set of looped upper forms descends into angular lower strokes, with a short detached mark on the left.",
+            "成对上部回环向下连接折角笔画，左侧带短分离笔画。",
+        ),
+        "obs-unk-000933": (
+            "Two slim wavy figures stand side by side, each extending in a long curved stroke toward the bottom.",
+            "两个细长波曲形态并列，各自以长曲线向下延伸。",
+        ),
+        "obs-unk-000934": (
+            "A dense irregular looped cluster fills the center, with short side strokes and a broad lower extension.",
+            "密集不规则回环线束占据中央，侧边有短线，下方接宽大延伸。",
+        ),
+        "obs-unk-000935": (
+            "A compact tall looped form rises from a broad lower base with curved side strokes and a small inner opening.",
+            "紧密高大回环形态从宽底升起，两侧有曲线，内部有小开口。",
+        ),
+        "obs-unk-000936": (
+            "A dense upper cluster overlaps a broad triangular lower mass, with a detached rounded mark at right.",
+            "密集上部线束叠在宽大三角下部形态之上，右侧有分离圆曲笔画。",
+        ),
+        "obs-unk-000937": (
+            "Two tall parallel stems are flanked by curved side lines and terminate in separate lower pointed forms.",
+            "两个高直平行主线两侧有曲线，末端各自接下部尖状形态。",
+        ),
+        "obs-unk-000938": (
+            "Three stacked sections show a narrow top loop, a broad middle band, and a wide lower frame.",
+            "三个上下层次依次为窄顶回环、宽中部横带和宽下框。",
+        ),
+        "obs-unk-000939": (
+            "A shallow rounded upper bowl crosses a central stem, enclosing a small oval and ending in a pointed lower form.",
+            "浅圆上部碗形交叉中央主线，内部有小椭圆，末端接尖状下部。",
+        ),
+        "obs-unk-000940": (
+            "A curved upper cap leads into a rounded lower enclosure with several short projecting strokes on the right.",
+            "弯曲上帽连接圆曲下部围合，右侧有数条短突出笔画。",
+        ),
+    }
+)
 
 @dataclass(frozen=True)
 class Candidate:

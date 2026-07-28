@@ -1174,6 +1174,108 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "stem, and multiple short lower projections.",
         "密集直立形体上方有数条尖笔，中部为窄笔干，下方有多处短伸出。",
     ),
+    "obs-unk-000201": (
+        "A compact form has a pointed upper cluster, a narrow central stem, and "
+        "paired lower strokes that spread outward.",
+        "紧凑形体上方有尖状笔画组，中部有窄笔干，下方有向外分开的成对笔画。",
+    ),
+    "obs-unk-000202": (
+        "The image repeats the compact pointed upper cluster, narrow central stem, "
+        "and paired lower spreading strokes seen for obs-unk-000201; visual "
+        "comparison only.",
+        "图像与视觉对比的 obs-unk-000201 相似，均见紧凑尖状上部、窄中央笔干和向下分开的成对笔画；不作身份确认。",
+    ),
+    "obs-unk-000203": (
+        "A tall narrow form has a short upper crossbar, two upright side strokes, "
+        "and a long descending central stroke with small side marks.",
+        "高状窄长形体上部有短横栏，两侧有直向笔画，中央为长下降笔干，并有小型侧痕迹。",
+    ),
+    "obs-unk-000204": (
+        "Two upright side groups flank a narrow center; the lower area contains "
+        "short crossing strokes and a slanting extension.",
+        "两个直向侧笔组包夹中部窄隙；下部可见短交叉笔和一处斜向外伸痕迹。",
+    ),
+    "obs-unk-000205": (
+        "A dense form has an angular upper contour, crossing middle strokes, and "
+        "several short lower projections.",
+        "密集形体上部为折角轮廓，中部笔画交叉，下方有多处短外伸痕迹。",
+    ),
+    "obs-unk-000206": (
+        "A closed-looking outer contour encloses dense crossing and diagonal "
+        "strokes, with short projections along both sides.",
+        "图像外围轮廓较封闭，内部笔画密集交叉并带斜向，两侧均有短的外伸痕迹。",
+    ),
+    "obs-unk-000207": (
+        "An oval outer enclosure contains a central upright stroke with a short "
+        "diagonal mark near its lower portion.",
+        "图像有大致椭圆的外围围合，内部为中央直笔，下部附近有一处短斜笔。",
+    ),
+    "obs-unk-000208": (
+        "A forked upper stem rises above a trapezoid-like lower block; a short "
+        "horizontal mark crosses the middle.",
+        "上部为分叉的直向笔干，下方为较宽的梯形块状体，中部有短横笔。",
+    ),
+    "obs-unk-000209": (
+        "A compact form has a rounded cap-like upper contour, a central vertical "
+        "axis, and several short horizontal lower strokes.",
+        "紧凑形体上部为弧形盖状轮廓，中部有直向中轴，下方排列多条短横笔。",
+    ),
+    "obs-unk-000210": (
+        "Two open upper branches flank a central descending stroke; the lower end "
+        "turns into a short hooked mark.",
+        "两个开放的上部支分夹住中央下降笔画，下端向一侧转成短钩状痕迹。",
+    ),
+    "obs-unk-000211": (
+        "A forked upper pair sits above a narrow central stem and a broad lower "
+        "horizontal bar with short side ends.",
+        "上部为分叉成对笔画，下接窄中央笔干，底部为两端较短的宽横栏。",
+    ),
+    "obs-unk-000212": (
+        "The left side is a dense knot of short strokes, while the right side has "
+        "a long descending curved stroke and small branches.",
+        "图像左侧为短笔画密集的结，右侧有长下降弯曲笔和小型分支。",
+    ),
+    "obs-unk-000213": (
+        "A sparse form shows several upright and diagonal strokes, with small "
+        "separated marks near the upper left and lower right.",
+        "稀疏形体可见多条直向和斜向笔画，左上及右下附近各有小型分离痕迹。",
+    ),
+    "obs-unk-000214": (
+        "A narrow upright form has three short upper prongs, a central stem, and "
+        "stacked lower crossbars forming a tapered base.",
+        "窄长直立形体上方有三处短尖，中部有直向笔干，下方叠置横笔，底部逐渐收尖。",
+    ),
+    "obs-unk-000215": (
+        "A symmetrical stacked form has a small upper triangle, a central bar, and "
+        "a broad lower V-shaped contour.",
+        "对称叠置形体上部有小三角形，中部有横栏，下方有较宽的开叉轮廓。",
+    ),
+    "obs-unk-000216": (
+        "A long slanting stroke stands on the left of a narrow upright group with "
+        "two small enclosed or stacked lower marks.",
+        "一条长斜笔位于左侧，右侧为窄长直向笔组，下方可见两个小型围合或叠置痕迹。",
+    ),
+    "obs-unk-000217": (
+        "A rounded upper contour sits above a long descending diagonal; the lower "
+        "area contains several short horizontal strokes.",
+        "上部为弧形轮廓，下接一条长斜下降笔，底部可见多条短横笔。",
+    ),
+    "obs-unk-000218": (
+        "An open angular form has a left loop-like contour, a central crossing, and "
+        "a long upright right stroke.",
+        "开放形体左侧有环状轮廓，中部交叉，右侧有长直向笔画。",
+    ),
+    "obs-unk-000219": (
+        "A compact form has branched upper strokes, a long central diagonal, and a "
+        "short curved lower extension.",
+        "紧凑形体上部有分支笔画，中部有长斜笔，下方有短弯曲外伸痕迹。",
+    ),
+    "obs-unk-000220": (
+        "The image repeats the rounded upper contour, long descending diagonal, and "
+        "short lower horizontal strokes seen for obs-unk-000217; visual comparison "
+        "only.",
+        "图像与视觉对比的 obs-unk-000217 相似，均见弧形轮廓、向下长斜笔和底部短横笔；不作身份确认。",
+    ),
 }
 
 

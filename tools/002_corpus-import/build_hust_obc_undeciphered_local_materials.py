@@ -5533,6 +5533,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A left strip stands beside a rounded upper knot with an opening, a crossbar, and a long lower stem.",
             "左侧线带旁有带开口的圆弧上部线簇、横线和长下垂主线。",
         ),
+        "obs-unk-001181": (
+            "A central forked cluster has two upper openings, a right vertical loop, and lower descending strokes.",
+            "中央分叉线簇上部有两个开口，右侧接竖向回环，下方有下垂线条。",
+        ),
+        "obs-unk-001182": (
+            "A forked upper stem rises between side loops and a broad lower frame with branching ends.",
+            "分叉上部主线位于侧回环之间，下方接宽大框线和分支端部。",
+        ),
+        "obs-unk-001183": (
+            "A narrow left strip stands beside a tall forked form with a central opening and two lower legs.",
+            "狭窄左侧线带与高大的分叉形并列，后者有中央开口和两条下部支线。",
+        ),
+        "obs-unk-001184": (
+            "Two angled looped forms are separated diagonally, each carrying openings and short trailing strokes.",
+            "两个倾斜回环形沿对角线分隔，各自带有开口和短尾线。",
+        ),
+        "obs-unk-001185": (
+            "A vertical compact knot has forked upper strokes, a central opening, and spreading lower branches.",
+            "紧密竖向线簇上部有分叉线条，中部留开口，下方分支向外展开。",
+        ),
+        "obs-unk-001186": (
+            "A large pointed left enclosure contains an opening beside a narrow right form with a lower curl.",
+            "大型尖状左侧围合内有开口，旁接带下部卷曲线的狭窄右侧形。",
+        ),
+        "obs-unk-001187": (
+            "A forked upper knot encloses a small opening above a dense body and two lower side projections.",
+            "分叉上部线簇围出小开口，下方为密集主体并伸出两侧突起。",
+        ),
+        "obs-unk-001188": (
+            "A gridded left enclosure joins a horizontal central bar and a long descending right stroke.",
+            "格状左侧围合连接中央横带，右侧伸出长下垂线条。",
+        ),
+        "obs-unk-001189": (
+            "Three vertical forms stand together: a long left stroke, a paired central loop, and a right loop.",
+            "三组竖向形并列：左侧长线、中央成对回环和右侧回环。",
+        ),
+        "obs-unk-001190": (
+            "A broad rounded upper enclosure contains an opening above a lower loop and a short side stem.",
+            "宽大的圆弧上部围合内有开口，下方接回环和短侧主线。",
+        ),
+        "obs-unk-001191": (
+            "Several short upper bars span a central triangle above a rectangular middle enclosure and lower frame.",
+            "数道短上部横线跨过中央三角形，下方接矩形中部围合和底部框线。",
+        ),
+        "obs-unk-001192": (
+            "A roof-like upper enclosure with horizontal bands narrows into a small diamond-shaped pendant.",
+            "带横向线带的屋顶状上部围合向下收成小型菱状垂饰。",
+        ),
+        "obs-unk-001193": (
+            "A large curved upper enclosure contains an inner opening above a lower double-opening frame.",
+            "大型弯曲上部围合内有开口，下方连接双开口框线。",
+        ),
+        "obs-unk-001194": (
+            "A pointed upper enclosure contains a central opening and ends above three short lower projections.",
+            "尖状上部围合内有中央开口，下方以三条短突起收束。",
+        ),
+        "obs-unk-001195": (
+            "A tall angular enclosure contains an inner loop and narrows to a pointed lower loop.",
+            "高大的折线围合内含回环，向下收成尖状下部回环。",
+        ),
+        "obs-unk-001196": (
+            "Two angled upper sides surround a broad arched opening above a segmented rounded lower enclosure.",
+            "两个倾斜上侧围出宽大拱形开口，下方接分格圆弧围合。",
+        ),
+        "obs-unk-001197": (
+            "Two stacked horizontal bands sit above a lower rounded enclosure divided into several openings.",
+            "两道叠置横带位于下部圆弧围合之上，围合内分出数个开口。",
+        ),
+        "obs-unk-001198": (
+            "A small rounded left cluster stands beside a tall right loop with a separate inner opening.",
+            "小型圆弧左侧线簇与高大的右侧回环并列，右侧另有内开口。",
+        ),
+        "obs-unk-001199": (
+            "A small left loop accompanies a tall rectangular right stack and several lower branching strokes.",
+            "小型左侧回环伴随高大的右侧矩形叠置形，下方有数条分支线。",
+        ),
+        "obs-unk-001200": (
+            "A small left loop stands beside a right stacked form with a diamond opening and two lower bands.",
+            "小型左侧回环与右侧叠置形并列，右侧有菱形开口和两道下部横带。",
+        ),
     }
 )
 

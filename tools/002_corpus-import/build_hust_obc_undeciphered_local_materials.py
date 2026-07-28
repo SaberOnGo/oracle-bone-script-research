@@ -5933,6 +5933,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A forked left form with two upper dots stands beside a dense rounded right cluster with repeated prongs.",
             "带有两个上部点状标记的左侧分叉形与密集圆弧右侧线簇并列，后者含重复分叉。",
         ),
+        "obs-unk-001281": (
+            "A thin curving left stem supports a dense rectangular stroke bundle beside two long right vertical strokes.",
+            "纤细弯曲左侧主线托住密集矩形线簇，右侧并列两条长竖线。",
+        ),
+        "obs-unk-001282": (
+            "A broad pointed upper enclosure sits above two lower looped forms, with the right loop extending downward.",
+            "宽大的尖角上部围合位于两个下部回环之上，右侧回环继续向下伸展。",
+        ),
+        "obs-unk-001283": (
+            "A dense upper cluster rests on a broad curved lower enclosure with a clear inner opening.",
+            "密集上部线簇置于宽弯曲下部围合之上，围合内部有明显开口。",
+        ),
+        "obs-unk-001284": (
+            "A forked central stem rises over a small enclosure, accompanied by a curled left form and a low horizontal base.",
+            "中央分叉主线从小型围合上方升起，左侧伴随卷曲形，下方有低位横基线。",
+        ),
+        "obs-unk-001285": (
+            "A peaked central frame and horizontal band lead to a rounded lower enclosure with an inner forked stroke.",
+            "尖顶中央框形和横带连接圆弧下部围合，围合内有分叉线。",
+        ),
+        "obs-unk-001286": (
+            "A slanting central stem is flanked by several curled and forked side strokes that form a diagonal cluster.",
+            "斜向中央主线两侧有多条卷曲和分叉线，整体形成对角线簇。",
+        ),
+        "obs-unk-001287": (
+            "A large upper looped enclosure overlaps a diagonal middle stroke and compact lower framed forms.",
+            "大型上部回环围合与斜向中部主线交叠，下方连接紧凑框形。",
+        ),
+        "obs-unk-001288": (
+            "The image repeats a diagonal stem with curled side strokes and a small lower angular enclosure.",
+            "图像重复斜向主线、卷曲侧线和小型下部棱角围合。",
+        ),
+        "obs-unk-001289": (
+            "A peaked upper frame and horizontal band sit above a broad enclosure with wavy inner strokes and two low posts.",
+            "尖顶上部框形和横带位于宽围合之上，围合内有波状线并带两条低位支柱。",
+        ),
+        "obs-unk-001290": (
+            "Only a small isolated dark mark is visible near the center; no connected stroke structure is resolved.",
+            "图像中央附近仅见小型孤立深色标记，未能分辨相连线条结构。",
+        ),
+        "obs-unk-001291": (
+            "A rounded outer enclosure contains three upper looped forms and two lower inner openings, with a side oval.",
+            "圆弧外部围合内含三个上部回环和两个下部内开口，右侧另有椭圆形。",
+        ),
+        "obs-unk-001292": (
+            "A tall rectangular enclosure with an inner vertical stroke stands on a broad horizontal base and side projection.",
+            "高位矩形围合内有竖向线，整体立于宽横基线之上并带侧向突伸。",
+        ),
+        "obs-unk-001293": (
+            "Layered angular bands form a broad stepped body with inner openings, a left vertical edge, and right projections.",
+            "叠置棱角横带形成宽大的阶梯状主体，内部有开口，左侧竖边并向右突伸。",
+        ),
+        "obs-unk-001294": (
+            "Several stacked sloping bands create a stepped form with a high right edge and a pointed lower corner.",
+            "多条叠置斜向横带组成阶梯形，右侧边缘较高，下部收于尖角。",
+        ),
+        "obs-unk-001295": (
+            "Four rounded or angular lobes radiate around a compact center, each lobe containing a small opening.",
+            "四个圆弧或棱角叶片围绕紧凑中央展开，每个叶片内有小开口。",
+        ),
+        "obs-unk-001296": (
+            "The form repeats layered bands, inner openings, a left vertical edge, and a rightward projecting stroke.",
+            "形体重复叠置横带、内部开口、左侧竖边和向右突伸线。",
+        ),
+        "obs-unk-001297": (
+            "A stepped stack of sloping bands ends in a pointed lower corner beneath a high right edge.",
+            "阶梯状斜向横带叠置于高位右边缘之下，末端收成尖角。",
+        ),
+        "obs-unk-001298": (
+            "Two narrow vertical lobes stand side by side, each carrying three inner openings and a pointed lower end.",
+            "两个狭长竖向叶片并列，每个内部有三个开口并向下收尖。",
+        ),
+        "obs-unk-001299": (
+            "A small stacked loop rises above a broad angular lateral form, with a separate rounded lower mark.",
+            "小型叠置回环位于宽大棱角横向形之上，下方另有圆弧标记。",
+        ),
+        "obs-unk-001300": (
+            "Rounded stacked bands form a vertical figure with inner openings and a short paired lower projection.",
+            "圆弧叠置横带形成竖向形体，内部有开口并带短小双叉下伸部。",
+        ),
     }
 )
 

@@ -3004,6 +3004,86 @@ MATERIAL_VISUAL_OBSERVATIONS = {
         "A tall rectangular lower enclosure has an interior horizontal division and a long left side stroke.",
         "高直矩形下部围合内有横向分隔，左侧带长竖向笔。",
     ),
+    "obs-unk-000561": (
+        "A rounded upper loop and two diagonal side strokes sit above a broad curved lower enclosure.",
+        "弧形上部环和两条斜向侧笔位于宽幅弧形下部围合之上。",
+    ),
+    "obs-unk-000562": (
+        "A dense connected form combines a left rectangular frame, central crossings, a rounded right cluster, and a long descending stroke.",
+        "密集相连形体组合左侧矩形框、中央交叉、右侧弧形笔组和长下行笔。",
+    ),
+    "obs-unk-000563": (
+        "A long curved left stroke stands beside a gridded upper block and a branching lower cluster.",
+        "长弧形左笔旁有格状上部笔块和分支状下部笔组。",
+    ),
+    "obs-unk-000564": (
+        "Two long curved left strokes flank a dense gridded right cluster with short detached side marks.",
+        "两条长弧形左笔围绕右侧密集格状笔组，旁有短分离痕迹。",
+    ),
+    "obs-unk-000565": (
+        "A rounded upper loop flows into a broad curved lower contour with three pointed lower projections.",
+        "弧形上部环连接宽幅弧形下部轮廓，下缘有三个尖角外伸。",
+    ),
+    "obs-unk-000566": (
+        "A compact crossed cluster has a rounded upper loop, a horizontal crossing, and diverging lower strokes.",
+        "紧凑交叉笔组带弧形上部环、横向交叉和分开的下部笔。",
+    ),
+    "obs-unk-000567": (
+        "A tall diagonal cluster contains a chain of small enclosed crossings and long outer strokes.",
+        "高直斜向笔组内有连续小型围合交叉，外侧带长笔。",
+    ),
+    "obs-unk-000568": (
+        "A rectangular gridded block with forked upper strokes has a long central descent and curved side strokes.",
+        "矩形格状笔块上方有分叉笔，下方有长中央下行笔和弧形侧笔。",
+    ),
+    "obs-unk-000569": (
+        "A dense angular cluster has pointed upper strokes, a central crossing, and rounded lower openings.",
+        "密集折角笔组带尖角上部笔、中央交叉和弧形下部空隙。",
+    ),
+    "obs-unk-000570": (
+        "A gridded central block has forked upper strokes, a long lower stem, and two curved side marks.",
+        "格状中央笔块带分叉上部笔、长下行笔干和两侧弧形痕迹。",
+    ),
+    "obs-unk-000571": (
+        "A tall diagonal chain of enclosed crossings ends in long strokes spreading at the lower sides.",
+        "高直斜向连续围合交叉下端向两侧伸出长笔。",
+    ),
+    "obs-unk-000572": (
+        "A broad left framed wedge is joined to a dense right cluster with branching strokes.",
+        "宽幅左侧框状折角笔块连接右侧密集笔组，右侧有分支笔。",
+    ),
+    "obs-unk-000573": (
+        "A dense diagonal form has pointed left strokes, a narrow central descent, and rounded right marks.",
+        "密集斜向形体带尖角左笔、窄中央下行笔和弧形右侧痕迹。",
+    ),
+    "obs-unk-000574": (
+        "Several tall diagonal strokes surround a rounded central opening and a compact lower cluster.",
+        "数条高直斜向笔围绕弧形中央空隙，下部有紧凑笔组。",
+    ),
+    "obs-unk-000575": (
+        "A small gridded upper block sits above a narrow central stem ending in two pointed lower loops.",
+        "小型格状上部笔块位于窄中央笔干之上，笔干末端有两个尖角下部环。",
+    ),
+    "obs-unk-000576": (
+        "A crossed central cluster has a rounded upper loop, a horizontal bar, and two long lower strokes.",
+        "交叉中央笔组带弧形上部环、横向笔和两条长下部笔。",
+    ),
+    "obs-unk-000577": (
+        "A compact symmetric cluster has a central rounded opening and multiple short lateral and lower strokes.",
+        "紧凑近对称笔组有中央弧形空隙，并带多条短侧笔和下部笔。",
+    ),
+    "obs-unk-000578": (
+        "A vertical oval grid on the left is paired with branching right strokes and a long slanting descent.",
+        "左侧竖向椭圆格状笔组连接右侧分支笔和长斜向下行笔。",
+    ),
+    "obs-unk-000579": (
+        "A smaller oval grid on the left is paired with branching right strokes and a long curved descent.",
+        "较小椭圆格状笔组位于左侧，右侧有分支笔和长弧形下行笔。",
+    ),
+    "obs-unk-000580": (
+        "An elongated pointed upper enclosure sits above a lower row of three rounded marks and side strokes.",
+        "细长尖角上部围合位于下部三个弧形痕迹和侧笔之上。",
+    ),
 
 }
 

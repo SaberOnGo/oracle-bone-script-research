@@ -62,6 +62,7 @@ Structured support files only serve the human oracle-character dossier.
 - Status / 状态: `committed_review_image_derivative`
 - Source image reference rows / 来源图像路径引用行数: `1`
 - Committed glyph image / 已提交字形图像:
+- Human visual observation / 人类图像观察: `14_material-visual-observation.md`
   03_visual-assets/001_asset-001981_hust-obc-und-L-000388_glyph.jpg
 - Registered image routes / 已登记图像路线: `1`
 

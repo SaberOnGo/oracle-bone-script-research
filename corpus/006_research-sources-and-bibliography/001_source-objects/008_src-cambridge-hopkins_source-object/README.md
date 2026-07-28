@@ -82,6 +82,10 @@ local-private.
   22_finding-list-reconciliation-index.json
 - Finding-list row reconciliation / 清单逐行对账:
   23_finding-list-row-reconciliation.csv
+- Official digital collection route review / 官方数字馆藏路线复核:
+  24_official-digital-collection-route-review.md
+- Official digital route index / 官方数字路线索引:
+  25_official-digital-route-index.csv
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

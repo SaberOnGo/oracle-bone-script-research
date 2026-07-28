@@ -16880,7 +16880,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 122",
-        "source register files: 532",
+        "source register files: 534",
         "bibliographic identity",
         "source trail",
         "scope",

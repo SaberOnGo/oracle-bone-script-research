@@ -12430,6 +12430,32 @@ class RepositorySkeletonTests(unittest.TestCase):
         )
         self.assertIn("period-i-group-19", reconciliation_index["count_mismatch_sections"])
         self.assertTrue(all(len(line) <= 80 for line in reconciliation_text.splitlines()))
+        digital_route_review = (
+            cambridge_object_dir / "24_official-digital-collection-route-review.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Official Digital Collection Route Review", digital_route_review)
+        self.assertIn("官方数字馆藏路线复核", digital_route_review)
+        self.assertIn("614", digital_route_review)
+        self.assertIn("over 800", digital_route_review)
+        self.assertIn("not establish an", digital_route_review)
+        self.assertTrue(all(len(line) <= 80 for line in digital_route_review.splitlines()))
+        with (cambridge_object_dir / "25_official-digital-route-index.csv").open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as file:
+            digital_routes = list(csv.DictReader(file))
+        self.assertEqual(len(digital_routes), 4)
+        self.assertEqual(
+            {row["route_id"] for row in digital_routes},
+            {
+                "src-cambridge-hopkins-finding-list",
+                "src-cambridge-digital-chinese-works",
+                "src-cambridge-wongavery-digital-collection",
+                "src-cambridge-hopkins-3d-cul52",
+            },
+        )
+        self.assertTrue(
+            all(row["rights_status"] == "metadata_only_until_verified" for row in digital_routes)
+        )
         hust_object_dir = (
             repo_root()
             / "corpus/006_research-sources-and-bibliography/001_source-objects/"
@@ -30525,7 +30551,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
         self.assertEqual({row["research_note_file_count"] for row in rows}, {"7"})
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"532"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"534"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -30623,7 +30649,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 7",
             "user or AI draft review files: 122",
-            "source register files: 532",
+            "source register files: 534",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -30650,7 +30676,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 7", text)
         self.assertIn("user or AI draft review files: 122", text)
-        self.assertIn("source register files: 532", text)
+        self.assertIn("source register files: 534", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

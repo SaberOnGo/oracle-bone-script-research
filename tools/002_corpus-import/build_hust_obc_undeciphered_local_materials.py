@@ -5773,6 +5773,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "A small left diamond-like cluster stands beside a large curved right form with two lower loops.",
             "小型菱状左侧线簇与大型弯曲右侧形并列，下方有两个回环。",
         ),
+        "obs-unk-001241": (
+            "An angular upper enclosure, a diagonal middle stroke, and a broad curved lower form align over a short base.",
+            "上部为棱角围合，中部有斜向主线，下部为宽弯曲形并置于短基线上。",
+        ),
+        "obs-unk-001242": (
+            "A forked vertical stem rises above a small lower enclosure; a looped side form descends along the left.",
+            "分叉竖向主线伸出小型下部围合，左侧有回环形向下延伸。",
+        ),
+        "obs-unk-001243": (
+            "Stacked angular loops occupy the center, with a curved upper stem, a rounded right opening, and lower zigzags.",
+            "中央叠置棱角回环，上接弯曲主线，右侧有圆形开口，下方有曲折线。",
+        ),
+        "obs-unk-001244": (
+            "A tall central fork is flanked by pointed side projections above a horizontal band and three lower strokes.",
+            "高位中央分叉线两侧有尖状突起，下接横带和三条下伸线。",
+        ),
+        "obs-unk-001245": (
+            "The form repeats a central fork, two pointed side projections, a broad horizontal band, and a pronged base.",
+            "形体重复中央分叉、两侧尖状突起、宽横带和下部多叉基线。",
+        ),
+        "obs-unk-001246": (
+            "A gridded rectangular block stands beside a narrow forked form with a long descending stroke.",
+            "网格状矩形块与狭长分叉形并列，后者带有长下伸线。",
+        ),
+        "obs-unk-001247": (
+            "A long upper band leads to a central descending stem that ends in a rectangular enclosure and lower projection.",
+            "长横带连接中央下行主线，末端为矩形围合并有下部突伸。",
+        ),
+        "obs-unk-001248": (
+            "A central pointed stem is bordered by repeated angular side strokes and a rounded lower enclosure.",
+            "中央尖状主线两侧有重复棱角线，下部连接圆弧围合。",
+        ),
+        "obs-unk-001249": (
+            "A rounded upper cap sits over an open triangular center, with a looping descending stroke at right.",
+            "圆弧上盖位于开放三角形中央之上，右侧有回环下伸线。",
+        ),
+        "obs-unk-001250": (
+            "A pointed upper arch frames an open triangular center beside a sinuous right-hand stroke.",
+            "尖状上拱围出开放三角形中央，右侧伴随蜿蜒线条。",
+        ),
+        "obs-unk-001251": (
+            "A rounded cap encloses stacked inner bars; curled side strokes and a low horizontal base extend outward.",
+            "圆弧上盖内含叠置横线，侧边有卷曲线并向低位横基线展开。",
+        ),
+        "obs-unk-001252": (
+            "The image shows a rounded cap with inner bars, a curled side loop, and a descending right stroke.",
+            "图像显示圆弧上盖、内部横线、侧向回环和右侧下伸线。",
+        ),
+        "obs-unk-001253": (
+            "A square left enclosure contrasts with a tall right loop, while branched strokes gather along the lower edge.",
+            "左侧方形围合与高位右侧回环对照，下缘聚集分支线条。",
+        ),
+        "obs-unk-001254": (
+            "A diagonal outer frame contains a compact central knot with small openings and a tapered lower stroke.",
+            "斜向外框包围紧凑中央线结，内部有小开口并向下收尖。",
+        ),
+        "obs-unk-001255": (
+            "A slim left oval and a broad upper band sit above several downward branches and a right-side curve.",
+            "狭长左侧椭圆与宽上部横带位于多条下伸分支及右侧弯线之上。",
+        ),
+        "obs-unk-001256": (
+            "A dense lower zigzag cluster rises toward a slanted central stem, with a small isolated upper-right mark.",
+            "密集下部曲折线簇向斜向中央主线汇聚，右上有小型孤立标记。",
+        ),
+        "obs-unk-001257": (
+            "A tall pointed outer frame surrounds a small inner loop, with branching strokes at the lower left.",
+            "高位尖状外框围住小型内回环，左下聚集分支线。",
+        ),
+        "obs-unk-001258": (
+            "A forked upper stem rises over a small enclosure; a side loop and angular lower stroke extend to the left.",
+            "分叉上部主线位于小型围合之上，侧向回环和棱角下伸线向左展开。",
+        ),
+        "obs-unk-001259": (
+            "A curved upper stem feeds into stacked angular loops, joined by a rounded right opening and lower zigzag.",
+            "弯曲上部主线连接叠置棱角回环，右侧有圆形开口并接下部曲折线。",
+        ),
+        "obs-unk-001260": (
+            "The composition repeats the curved stem, stacked loops, rounded right opening, and lower zigzag strokes.",
+            "构图重复弯曲主线、叠置回环、右侧圆形开口及下部曲折线。",
+        ),
     }
 )
 

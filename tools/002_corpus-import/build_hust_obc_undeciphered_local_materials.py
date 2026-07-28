@@ -3582,6 +3582,91 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
     }
 )
 
+MATERIAL_VISUAL_OBSERVATIONS.update(
+    {
+        "obs-unk-000701": (
+            "A wavy left cluster with a looped opening is joined to a narrow right stem and a long lower curve.",
+            "左侧为带环状空隙的波曲笔组，连接右侧窄直笔和下方长弧形笔画。",
+        ),
+        "obs-unk-000702": (
+            "Two separated upright forms are visible: a tall left stem with an inner loop and a smaller right panel with a descent.",
+            "可见两个分离的竖向形体：左侧高直笔内有环状空隙，右侧较小框状笔组向下延伸。",
+        ),
+        "obs-unk-000703": (
+            "A dense diagonal upper cluster surrounds a small opening and continues into a broad curved lower stroke.",
+            "上部为密集斜向笔组，围出小空隙，并向下连接宽大的弧形笔画。",
+        ),
+        "obs-unk-000704": (
+            "A rounded central panel rests on a short base beneath a forked upper form, with a detached loop on the left.",
+            "分叉上部形体下方是置于短底座上的圆形中部框，左侧另有分离环状笔组。",
+        ),
+        "obs-unk-000705": (
+            "Two rectangular side panels flank a central crossing, with angular and curved projections below.",
+            "两个矩形侧部框板夹住中央交叉笔画，下方有折角和弧形外伸笔画。",
+        ),
+        "obs-unk-000706": (
+            "A compact upper crossing leads to a rounded middle opening and several curved strokes descending below.",
+            "紧密的上部交叉笔组连接圆形中部空隙，下方有数道弧曲下行笔画。",
+        ),
+        "obs-unk-000707": (
+            "A tall left stem with an inner loop stands beside a smaller right panel and a long straight descent.",
+            "左侧高直笔内有环状空隙，旁边是较小右侧框板及一条长直下行笔画。",
+        ),
+        "obs-unk-000708": (
+            "Two upright rectangular forms sit above paired branching lower strokes, with open interior spaces in the upper forms.",
+            "两个竖向矩形形体位于成对分支下行笔画之上，上部形体内部留有空隙。",
+        ),
+        "obs-unk-000709": (
+            "Two small horn-like curved marks sit on a horizontal base, with short vertical supports at both sides.",
+            "两个小型角状弧曲笔画置于横向底笔之上，两侧各有短直支撑笔画。",
+        ),
+        "obs-unk-000710": (
+            "A broad crossing mass has an upright upper stem, two side loops, and a rounded lower loop.",
+            "宽大的交叉笔组带有上方直立笔、两侧环状笔画和下方圆弧环。",
+        ),
+        "obs-unk-000711": (
+            "A pointed curved upper form rises from a rectangular lower frame containing a horizontal interior bar.",
+            "尖曲的上部形体从下方矩形框中升起，框内含一道横向内笔。",
+        ),
+        "obs-unk-000712": (
+            "A rounded upper loop sits on a central stem above a crossed middle and a small diamond-like lower mark.",
+            "圆弧上环置于中央直笔之上，中部有交叉笔画，下方接近菱形的小笔组。",
+        ),
+        "obs-unk-000713": (
+            "An upper enclosure with horizontal interior bars connects to a central stem and angled lower projections.",
+            "带横向内笔的上部框形连接中央直笔，并向下伸出斜向笔画。",
+        ),
+        "obs-unk-000714": (
+            "A triangular cap and horizontal band sit above a central stem, with branching strokes extending below.",
+            "三角形上帽和横带位于中央直笔之上，下方伸出分支笔画。",
+        ),
+        "obs-unk-000715": (
+            "A rounded upper enclosure contains a horizontal interior bar and narrows into a lower branching stem.",
+            "圆弧上部框形内含横向内笔，并向下收束为分支状中央笔。",
+        ),
+        "obs-unk-000716": (
+            "A broad upper frame with an interior bar narrows through a central stem to a pointed lower curve.",
+            "带横向内笔的宽大上框经中央直笔收束，连接下方尖曲笔画。",
+        ),
+        "obs-unk-000717": (
+            "An upper rounded frame with a horizontal interior bar joins a lower broad frame and a small pointed base.",
+            "带横向内笔的上部圆框连接下方宽框，底部有小型尖状笔画。",
+        ),
+        "obs-unk-000718": (
+            "A form similar to the neighboring specimen has an upper rounded frame, a lower broad frame, and a pointed base.",
+            "与相邻样本相近，包含上部圆框、下部宽框及底部尖状笔画。",
+        ),
+        "obs-unk-000719": (
+            "A small pointed opening at the top leads into a curved central stem and a lower rectangular arch with a hook-like stroke.",
+            "顶部有小型尖状空隙，向下连接弧曲中央笔和带钩状笔画的矩形拱框。",
+        ),
+        "obs-unk-000720": (
+            "Two stacked rectangular arches are visible, each containing a peaked interior line.",
+            "可见上下叠置的两个矩形拱框，每个框内都有尖峰状内笔。",
+        ),
+    }
+)
+
 @dataclass(frozen=True)
 class Candidate:
     project_id: str

@@ -4813,6 +4813,86 @@ MATERIAL_VISUAL_OBSERVATIONS.update(
             "Stacked angular loops cross near the top and continue to a lower triangular form with side projections.",
             "层叠折线回环在顶部附近交叉，向下连接带侧向突出的小三角形。",
         ),
+        "obs-unk-001001": (
+            "A large spiral loop occupies the lower left, with several detached angled strokes at the upper and lower right.",
+            "大型螺旋回环占据左下部，右上和右下有数条分离的倾斜线。",
+        ),
+        "obs-unk-001002": (
+            "A central rectangular enclosure has pointed upper and lower ends and is flanked by tall curved side strokes.",
+            "中央矩形围合上下带尖端，两侧有高大的弧形线条。",
+        ),
+        "obs-unk-001003": (
+            "A vertical central stem rises above a rectangular lower frame, with small looped forms on both sides.",
+            "中央竖向主线位于矩形下框之上，两侧有小回环形体。",
+        ),
+        "obs-unk-001004": (
+            "Stacked triangular loops on the left are paired with a large angular descending form on the right and a detached upper mark.",
+            "左侧层叠三角回环与右侧大型折线下垂形并列，上方有分离痕迹。",
+        ),
+        "obs-unk-001005": (
+            "A pointed outer arch contains an inner diamond-like loop and continues into a long lower curve.",
+            "尖拱外框内含菱状回环，并向下延成长弧线。",
+        ),
+        "obs-unk-001006": (
+            "A detached top bar sits over a broad curved band, side projections, and a lower pointed loop.",
+            "分离的顶部横痕位于宽弧横带、两侧突出线和下部尖回环之上。",
+        ),
+        "obs-unk-001007": (
+            "Left stacked triangular loops stand beside a long angular and curved form descending along the right.",
+            "左侧层叠三角回环与右侧长折线和弧形下垂形并列。",
+        ),
+        "obs-unk-001008": (
+            "Two branching upper strokes rise over a rounded horizontal base with inner bands and a pointed right extension.",
+            "两条分叉上部线条位于带内部横带的圆曲横向底部之上，右侧延出尖形线。",
+        ),
+        "obs-unk-001009": (
+            "A broad left arc frames a central oval loop and a right upright stem, with a small lower framed hook.",
+            "宽大的左弧线围住中央椭圆回环和右侧直立主线，下方有小框状钩线。",
+        ),
+        "obs-unk-001010": (
+            "A dense upright looped cluster combines several rounded openings with a short side projection.",
+            "密集的直立回环簇由多个圆曲开口和短侧突出线组成。",
+        ),
+        "obs-unk-001011": (
+            "A broad horizontal rounded enclosure contains an inner opening, descends through a central stem, and ends in a curved base.",
+            "宽大的圆曲横向围合含内部开口，经中央主线向下连接弧形底部。",
+        ),
+        "obs-unk-001012": (
+            "A dense rounded upper cluster rests over a broad U-shaped lower loop with short side projections.",
+            "密集的圆曲上部线簇位于宽大的 U 形下部回环之上，两侧有短突出线。",
+        ),
+        "obs-unk-001013": (
+            "A narrow stacked diamond-like form has a small upper cap and pointed lower curves.",
+            "窄长的层叠菱状形体带小顶部并收于尖形下部曲线。",
+        ),
+        "obs-unk-001014": (
+            "A broad left arc frames an oval central loop and a right upright stem, with a small lower enclosure.",
+            "宽大的左弧线围住中央椭圆回环和右侧直立主线，下方有小围合。",
+        ),
+        "obs-unk-001015": (
+            "A tall pointed oval with inner bands rises between branching side strokes and a broad curved lower base.",
+            "高大的尖椭圆含内部横带，位于两侧分支线和宽弧下部底座之间。",
+        ),
+        "obs-unk-001016": (
+            "A large rounded central opening is topped by a small loop and flanked by side projections and a right vertical stroke.",
+            "大型圆曲中央开口顶部有小回环，两侧有突出线，右侧接竖线。",
+        ),
+        "obs-unk-001017": (
+            "A dense central rounded frame is surrounded by branching side strokes and a large lower loop.",
+            "密集的中央圆曲框形周围有分支侧线，下方接大型回环。",
+        ),
+        "obs-unk-001018": (
+            "A dense vertical cluster on the left stands beside a tall pointed loop with a long descending stroke on the right.",
+            "左侧密集竖向线簇与右侧带长下垂线的高大尖回环并列。",
+        ),
+        "obs-unk-001019": (
+            "A branching left cluster meets a broad angular central stroke and a small looped right form, with a pointed lower line.",
+            "左侧分支线簇连接宽大的中央折线和右侧小回环，下方接尖形线。",
+        ),
+        "obs-unk-001020": (
+            "A dense left vertical cluster is paired with a tall pointed right form that continues as a long descending stroke.",
+            "密集的左侧竖向线簇与高大的右侧尖形体并列，并向下延成长线。",
+        ),
     }
 )
 

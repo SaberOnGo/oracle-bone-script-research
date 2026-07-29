@@ -21,6 +21,8 @@ verify the human-readable evidence.
   `10_archaeology-paleography-review.md`
 - Human-readable readiness review / 人类可读研究准备度复核:
   `12_human-research-readiness-review.md`
+- Human-readable visual observation / 人类可读图像观察:
+  `14_material-visual-observation.md`
 - Structured support candidate packet / 结构化辅助候选包:
   `01_undeciphered-candidate-packet.json`
 - Structured support visual/source index / 结构化辅助图像来源索引:

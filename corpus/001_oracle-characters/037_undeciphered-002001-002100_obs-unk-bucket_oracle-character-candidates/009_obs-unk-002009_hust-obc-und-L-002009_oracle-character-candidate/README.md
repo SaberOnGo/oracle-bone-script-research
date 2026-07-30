@@ -25,6 +25,8 @@ verify the human-readable evidence.
   `01_undeciphered-candidate-packet.json`
 - Structured support visual/source index / 结构化辅助图像来源索引:
   `02_visual-source-index.csv`
+- Human-readable visual observation / 人类可读图像观察:
+  `14_material-visual-observation.md`
 - Structured support readiness index / 结构化辅助准备度索引:
   `13_human-research-readiness-index.json`
 

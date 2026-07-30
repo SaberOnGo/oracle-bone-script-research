@@ -64,6 +64,7 @@ Structured support files only serve the human oracle-character dossier.
 - Committed glyph image / 已提交字形图像:
   03_visual-assets/001_asset-003990_hust-obc-und-L-002397_glyph.jpg
 - Registered image routes / 已登记图像路线: `1`
+- Material visual observation / 材料视觉观察: `14_material-visual-observation.md`
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are

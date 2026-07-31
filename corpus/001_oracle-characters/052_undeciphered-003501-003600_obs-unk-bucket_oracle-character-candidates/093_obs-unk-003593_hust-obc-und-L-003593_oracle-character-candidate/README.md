@@ -14,6 +14,8 @@ verify the human-readable evidence.
 
 - Human-readable page / 人类可读页面: `README.md`
 - Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
+- Direct material visual observation / 直接材料视觉观察:
+  `14_material-visual-observation.md`
 - Human-readable research dossier / 人类可读研究档案: `05_human-research-dossier.md`
 - Human-readable context dossier / 人类可读语境档案:
   `08_character-context-evidence-dossier.md`

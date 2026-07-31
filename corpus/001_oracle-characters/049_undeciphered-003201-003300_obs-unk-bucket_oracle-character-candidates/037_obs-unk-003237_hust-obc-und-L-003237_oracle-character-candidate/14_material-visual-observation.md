@@ -6,7 +6,7 @@
 - Opened locally / 本地打开日期: 2026-07-31
 - 中文：已在本地打开提交的派生图像，并只记录可见材料特征。
 
-## Direct Visual Record / 直接视觉记录
+## Direct Visual Record / 直接可见记录
 
 - The crop shows a compact cluster of dark strokes with a narrow upright spine, a small angular loop near the upper left, and a hooked stroke extending below; edges are slightly soft and the surrounding field is light and plain.
 - The crop contains no visible inscription context, scale, plate number,

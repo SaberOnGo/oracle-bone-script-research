@@ -6,7 +6,7 @@
 - Opened locally / 本地打开日期: 2026-07-31
 - 中文：已在本地打开提交的派生图像，并只记录可见材料特征。
 
-## Direct Visual Record / 直接视觉记录
+## Direct Visual Record / 直接可见记录
 
 - The crop shows two small upper marks separated by a narrow gap, with a thin curved stroke descending from the right-hand mark; the left mark is angular and the right mark is irregularly enclosed.
 - The crop contains no visible inscription context, scale, plate number,

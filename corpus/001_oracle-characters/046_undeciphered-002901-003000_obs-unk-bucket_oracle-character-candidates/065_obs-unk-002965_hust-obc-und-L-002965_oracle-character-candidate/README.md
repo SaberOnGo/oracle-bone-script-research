@@ -59,6 +59,8 @@ Structured support files only serve the human oracle-character dossier.
 
 ## Visual Material Status / 图像资料状态
 
+- Material visual observation / 材料视觉观察: `14_material-visual-observation.md`
+
 - Status / 状态: `committed_review_image_derivative`
 - Source image reference rows / 来源图像路径引用行数: `1`
 - Committed glyph image / 已提交字形图像:

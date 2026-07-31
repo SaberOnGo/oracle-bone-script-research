@@ -86,6 +86,9 @@ character record, not an accepted reading, not a component conclusion, and not a
 decipherment conclusion.
 This is not a decipherment conclusion.
 
+- Human-readable visual observation / material record:
+  14_material-visual-observation.md
+
 简体中文：
 本页只是准备阶段的对象入口。它不是正式甲骨单字记录，不是已确认释读，不是构件结论，也不是破译结论。
 

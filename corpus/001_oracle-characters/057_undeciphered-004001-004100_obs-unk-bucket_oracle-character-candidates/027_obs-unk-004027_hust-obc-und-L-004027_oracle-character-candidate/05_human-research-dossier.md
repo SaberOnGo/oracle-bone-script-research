@@ -107,9 +107,14 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A branching upright trace rises from a lower angular
+  outline. The lower outline has a curved base and an open upper edge, while
+  short side traces appear near both sides. This is a visual record only; any
+  cross-object similarity needs checksum and source review.
+- 中文观察：一条向上分叉的直立痕迹从下部折角轮廓中升起；下部轮廓有弧形底边和开放
+    上缘，左右附近可见短侧痕。这里只作可视记录，跨对象的相似性仍需 checksum
+    和来源复核。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +251,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

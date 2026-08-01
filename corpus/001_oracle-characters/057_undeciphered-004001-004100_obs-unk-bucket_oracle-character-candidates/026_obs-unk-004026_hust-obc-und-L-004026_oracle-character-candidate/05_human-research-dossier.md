@@ -107,9 +107,12 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: Two tall pointed contours stand side by side. A lower
+  horizontal or trapezoidal cluster sits between them, with a darker central
+  trace. The crop does not show the complete outer ends.
+- 中文观察：两条高向尖顶轮廓并列；下部两者之间有横向或梯形痕迹组合，中央较深。
+    图像未显示外侧轮廓的完整末端。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +249,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

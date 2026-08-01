@@ -13,7 +13,7 @@
   "risk_note": "Dataset card reports CC-BY 4.0 while the GitHub README includes narrower academic-use wording; raw files remain large and need rights review before import.",
   "review_status": "reviewed",
   "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/016_src-obimd_source-object",
-  "download_route_count": 8,
+  "download_route_count": 10,
   "package_route_count": 7,
   "field_map_route_count": 9,
   "metadata_profile_route_count": 5,
@@ -40,7 +40,9 @@
     "19_source-access-integrity-index.json",
     "20_source-presearch-readiness-review.md",
     "21_source-presearch-readiness-index.json",
-    "22_source-research-brief.md"
+    "22_source-research-brief.md",
+    "23_external-package-integrity-review.md",
+    "24_external-package-integrity-index.json"
   ],
   "browser_metadata_capture_count": 0,
   "field_map_review": false,

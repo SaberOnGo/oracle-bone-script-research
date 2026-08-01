@@ -17,7 +17,7 @@
       "phase": "download_or_access",
       "status": "download_or_access_routes_present",
       "evidence_file": "02_download-route-index.csv",
-      "evidence_count": 8,
+      "evidence_count": 10,
       "status_values": [
         "downloaded",
         "downloaded_to_external_archive"
@@ -28,9 +28,9 @@
       "phase": "checksum_and_size",
       "status": "partial_or_complete_checksum_size_evidence",
       "evidence_file": "02_download-route-index.csv",
-      "checksum_row_count": 8,
-      "size_row_count": 8,
-      "local_temp_path_row_count": 8,
+      "checksum_row_count": 10,
+      "size_row_count": 10,
+      "local_temp_path_row_count": 10,
       "review_status": "needs_human_source_review"
     },
     {
@@ -70,9 +70,8 @@
     }
   ],
   "missing_or_review_items": [
-    "pkg-file-000006 facsimile.zip lacks a download route, checksum, external path, and extraction manifest.",
-    "pkg-file-000007 rubbing.zip lacks a download route, checksum, external path, and extraction manifest.",
-    "Raw data.json has a download checksum but no reviewed derivative or human acceptance decision."
+    "Raw data.json has integrity evidence but no reviewed derivative or human acceptance decision.",
+    "facsimile.zip and rubbing.zip have ZIP integrity evidence but no reviewed image subset or human object match."
   ],
   "human_entry": "08_source-processing-status.md",
   "research_boundary": "source_processing_status_preprocessing_only; statuses mark evidence availability and review work, not scholarly conclusions",

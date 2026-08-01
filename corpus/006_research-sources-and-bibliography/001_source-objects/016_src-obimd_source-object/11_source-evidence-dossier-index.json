@@ -12,7 +12,8 @@
     "14_source-to-dossier-transfer-review.md",
     "16_source-literature-scope-review.md",
     "18_source-access-integrity-review.md",
-    "20_source-presearch-readiness-review.md"
+    "20_source-presearch-readiness-review.md",
+    "23_external-package-integrity-review.md"
   ],
   "ai_support_files": [
     "01_source-packet.json",
@@ -26,7 +27,8 @@
     "15_source-to-dossier-transfer-index.json",
     "17_source-literature-scope-index.json",
     "19_source-access-integrity-index.json",
-    "21_source-presearch-readiness-index.json"
+    "21_source-presearch-readiness-index.json",
+    "24_external-package-integrity-index.json"
   ],
   "source_route_files": [
     "corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv",
@@ -38,10 +40,11 @@
     "10_source-evidence-dossier.md"
   ],
   "evidence_counts": {
-    "download_route_count": 8,
-    "checksum_route_count": 8,
-    "size_route_count": 8,
+    "download_route_count": 10,
+    "checksum_route_count": 10,
+    "size_route_count": 10,
     "package_route_count": 7,
+    "external_package_integrity_record_count": 3,
     "field_map_route_count": 9,
     "metadata_profile_route_count": 5,
     "package_kinds": [

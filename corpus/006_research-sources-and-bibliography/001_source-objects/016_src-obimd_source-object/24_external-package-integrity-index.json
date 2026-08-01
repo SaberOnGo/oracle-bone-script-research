@@ -1,0 +1,47 @@
+{
+  "record_type": "external_package_integrity_index",
+  "source_id": "src-obimd",
+  "human_entry": "23_external-package-integrity-review.md",
+  "storage_root": "external_local_archive/source_packages/obimd/",
+  "regular_git_policy": "raw_packages_external_only",
+  "records": [
+    {
+      "file_name": "data.json",
+      "download_id": "dl-obimd-data-json",
+      "size_bytes": 41732948,
+      "sha256": "b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19",
+      "integrity_check": "json_parse_ok",
+      "observed_structure": "top_level_list_10077_items",
+      "review_status": "raw_source_needs_human_review"
+    },
+    {
+      "file_name": "facsimile.zip",
+      "download_id": "dl-obimd-facsimile",
+      "size_bytes": 210800641,
+      "sha256": "b1544e34ee1a6a34fc0a83475a227fd2141a67293f795eaa3c52760fedb50b0e",
+      "integrity_check": "zip_test_ok",
+      "member_count": 10078,
+      "top_level_member": "facsimile/",
+      "review_status": "raw_source_needs_human_review"
+    },
+    {
+      "file_name": "rubbing.zip",
+      "download_id": "dl-obimd-rubbing",
+      "size_bytes": 558367972,
+      "sha256": "4d07dca94e94c2d17edd7fa25be72b5673161c0c2d03dac4d2c094e5341b7747",
+      "integrity_check": "zip_test_ok",
+      "member_count": 10078,
+      "top_level_member": "rubbing/",
+      "review_status": "raw_source_needs_human_review"
+    }
+  ],
+  "claim_boundary": [
+    "no rights decision",
+    "no extraction approval",
+    "no corpus import approval",
+    "no confirmed character identity",
+    "no accepted reading",
+    "no decipherment conclusion"
+  ],
+  "updated_at": "2026-08-01"
+}

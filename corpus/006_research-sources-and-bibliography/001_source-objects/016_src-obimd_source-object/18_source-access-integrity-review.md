@@ -45,16 +45,19 @@ proposer, dispute, or scholarship note this source can actually support.
 
 ## Access Download Checksum And Size / 访问下载校验与大小
 - Download route file / 下载路线文件: 02_download-route-index.csv
-- Download route count / 下载路线数: 8
-- Checksum route count / checksum 路线数: 8
+- Download route count / 下载路线数: 10
+- Checksum route count / checksum 路线数: 10
 - Missing checksum count / 缺 checksum 数: 0
-- Size route count / 大小路线数: 8
+- Size route count / 大小路线数: 10
 - Missing size count / 缺大小数: 0
-- Local temp route count / 本地临时路线数: 8
+- Local temp route count / 本地临时路线数: 10
 
 ## Package Manifest Field Map And Derivatives / 清单映射与派生
 - Package route file / 来源包路线文件: 03_package-route-index.csv
 - Package route count / 来源包路线数: 7
+- External package integrity records / 外部来源包完整性记录数: 3
+- External package integrity review / 外部来源包完整性复核:
+  23_external-package-integrity-review.md; 24_external-package-integrity-index.json
 - Field map file / 字段映射文件: 04_field-map-route-index.csv
 - Field map route count / 字段映射路线数: 9
 - Metadata profile file / 元数据概况文件: 05_metadata-profile-route-index.csv

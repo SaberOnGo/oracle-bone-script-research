@@ -81,6 +81,13 @@ before any source material is reused.
 - Next check / 下一步核查: Record unresolved items as concrete human follow-up
   questions.
 
+### Fact 11: External package integrity / 外部来源包完整性
+- Status / 状态: integrity_checked_raw_packages
+- Evidence files / 证据文件: 23_external-package-integrity-review.md;
+  24_external-package-integrity-index.json; 02_download-route-index.csv
+- Next check / 下一步核查: Match any selected image member to its source UID,
+  manifest row, and object-local dossier before creating a reviewed derivative.
+
 ## Human Research Slots / 人类研究槽位
 Glyph image and rubbing slot: check whether this source has a visible glyph
 image, rubbing, photograph, or plate image that can later support a concrete
@@ -112,11 +119,15 @@ disagreement, dispute, and scope limits visible beside later human notes.
 - Which field maps can safely feed concrete corpus directories?
 - Which rights or redistribution risk blocks public promotion?
 - Which derived files should a human reviewer open first?
+- Which selected image member can be matched to a source UID, manifest row, and
+  object-local dossier without turning package metadata into an identity claim?
 - 哪些访问或下载记录已有日期、大小和 checksum？
 - 哪些来源包 manifest 行说明了可复核派生记录？
 - 哪些字段映射可以安全进入具体语料对象目录？
 - 哪些权利或再分发风险阻止公开提升？
 - 人工复核者应先打开哪些派生文件？
+- 哪个选定图像成员可以与来源 UID、manifest 行和对象内档案逐项匹配，且不把来源包
+  元数据写成字形身份结论？
 
 ## Boundary / 边界
 - not a rights decision

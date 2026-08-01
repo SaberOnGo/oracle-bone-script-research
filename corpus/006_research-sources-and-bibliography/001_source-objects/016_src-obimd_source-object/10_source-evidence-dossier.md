@@ -20,11 +20,11 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: candidate_large_source
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 7
+- Download route count / 下载路线数: 10
 - Download statuses / 下载状态: downloaded; downloaded_to_external_archive
-- Checksum route count / checksum 路线数: 7
-- Size route count / 大小记录路线数: 7
-- Local temp route count / 临时路径路线数: 7
+- Checksum route count / checksum 路线数: 10
+- Size route count / 大小记录路线数: 10
+- Local temp route count / 临时路径路线数: 10
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
 review status.
@@ -173,10 +173,10 @@ target object directory.
 - File name / 文件名: facsimile.zip
 - File kind / 文件类型: raw_image_zip
 - File size bytes / 文件大小 bytes: 210800641
-- Download ID / 下载 ID: not recorded
+- Download ID / 下载 ID: dl-obimd-facsimile
 - Commit policy / 提交策略: do_not_commit_regular_git
-- Handling strategy / 处理策略: Raw image package stays outside Git; commit only
-  metadata and reviewed derivatives
+- Handling strategy / 处理策略: Raw image package stays outside Git; ZIP integrity
+  is verified with 10078 members; commit only metadata and reviewed derivatives
 - Rights status / 权利状态: licensed_for_repository
 - Review status / 复核状态: reviewed_metadata_only
 
@@ -186,10 +186,10 @@ target object directory.
 - File name / 文件名: rubbing.zip
 - File kind / 文件类型: raw_image_zip
 - File size bytes / 文件大小 bytes: 558367972
-- Download ID / 下载 ID: not recorded
+- Download ID / 下载 ID: dl-obimd-rubbing
 - Commit policy / 提交策略: do_not_commit_regular_git
-- Handling strategy / 处理策略: Raw image package stays outside Git; commit only
-  metadata and reviewed derivatives
+- Handling strategy / 处理策略: Raw image package stays outside Git; ZIP integrity
+  is verified with 10078 members; commit only metadata and reviewed derivatives
 - Rights status / 权利状态: licensed_for_repository
 - Review status / 复核状态: reviewed_metadata_only
 

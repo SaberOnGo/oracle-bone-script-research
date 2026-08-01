@@ -29,13 +29,13 @@ review before formal research use.
 ### download_or_access
 - Status / 状态: download_or_access_routes_present
 - Evidence file / 证据文件: 02_download-route-index.csv
-- Evidence count / 证据数量: 8
+- Evidence count / 证据数量: 10
 - Review status / 复核状态: metadata_route_needs_human_review
 
 ### checksum_and_size
 - Status / 状态: partial_or_complete_checksum_size_evidence
 - Evidence file / 证据文件: 02_download-route-index.csv
-- Evidence count / 证据数量: not recorded
+- Evidence count / 证据数量: 10
 - Review status / 复核状态: needs_human_source_review
 
 ### package_manifest
@@ -63,7 +63,13 @@ review before formal research use.
 - Review status / 复核状态: pending_human_review
 
 ## Missing Or Review Items / 缺失或待复核项
-- Items / 项目: none_recorded
+- Raw data.json has integrity evidence but no reviewed derivative or human
+  acceptance decision.
+- facsimile.zip and rubbing.zip have ZIP integrity evidence but no reviewed
+  image subset or human object match.
+- data.json 有完整性证据，但仍没有人工复核的派生记录或接受决定。
+- facsimile.zip 与 rubbing.zip 有 ZIP 完整性证据，但仍没有人工复核的图像子集
+  或对象匹配。
 
 ## Concrete Questions To Check / 具体待查问题
 - 应核对哪些下载、访问或 checksum 记录？

@@ -40,6 +40,76 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - 复用资料前先读 `18_source-access-integrity-review.md`。
 - JSON 和 CSV 只能在人类文件清楚之后作为辅助资料使用。
 
+## Object-Level Visual Review Checkpoint / 对象级图像复核检查点
+The repository has 10,364 committed source-marked assets, 2,770 object-local
+material bundles, and 2,719 object-local review-image objects. Four OBIMD
+component-candidate objects (002744-002747) were opened for image inspection;
+the notes record only visible marks and keep component, identity, reading,
+variant, inscription, period, and decipherment claims unconfirmed.
+
+仓库目前有 10,364 个带来源标记的已提交资产、2,770 个对象内资料包和 2,719 个
+对象内复核图像对象。已打开四个 OBIMD 构件候选对象（002744-002747）检查图像；
+记录只描述可见痕迹，构件、身份、释读、异体、卜辞、时期和破译均未确认。
+
+The next human checks are the asset manifest, image UID, catalog or
+inscription reference, object dossier, and rights wording. Evidence paths are
+the object-local visual-observation pages and the source asset and graph
+registers; no image inspection here is a formal decipherment result.
+
+下一步人工检查是资产 manifest、图像 UID、著录或卜辞出处、对象档案和权利措辞。
+证据路径是对象内字形观察页、来源资产登记和图边登记；本页图像检查不是正式释读
+结果。
+
+Concrete follow-up questions / 具体待查问题：
+
+- Which package manifest row supports each opened image and its checksum?
+- Does each image match the candidate UID, or is the match still pending?
+- Which catalogue, collection, plate, or excavation record locates the object?
+- Which inscription text, OCR, or neighboring-sign context can be cited?
+- Which mapping labels are source records rather than accepted relations?
+- Which rights wording governs the raw package and each derivative?
+- 每幅已打开图像由哪条来源包清单和 checksum 记录支持？
+- 图像是否与候选 UID 一致，还是仍待核对？
+- 哪条著录、馆藏、图版或出土记录能定位对象？
+- 哪条卜辞全文、OCR 或邻字语境可以引用？
+- 哪些映射标签只是来源记录，而不是已确认关系？
+- 原始包和每个派生件分别适用什么权利说明？
+
+Evidence paths / 证据路径：
+`22_source-research-brief.md`; `18_source-access-integrity-review.md`;
+`corpus/003_graphemic-components/028_002701-002800_obs-comp-cand-bucket_`
+`component-candidates/`
+
+## Package-to-Download Trace Review / 来源包到下载路线复核
+All three newly downloaded large package rows now have matched download IDs,
+checksums, sizes, external paths, and integrity records. They remain raw source
+packages and have not produced reviewed image subsets or scholarly claims.
+
+新下载的三个大型来源包均已匹配下载 ID、checksum、大小、外部路径和完整性记录。
+它们仍是原始来源包，尚未生成经人工复核的图像子集，也没有形成学术结论。
+
+- data.json parses as a JSON list with 10,077 items.
+- facsimile.zip passes ZIP integrity testing with 10,078 members.
+- rubbing.zip passes ZIP integrity testing with 10,078 members.
+- A reviewer must match selected members to UIDs and record an extraction
+  manifest before creating any human-readable derivative.
+- Rights wording still needs human comparison between the dataset card and
+  repository README.
+
+- data.json 已解析为含 10,077 项的 JSON 列表。
+- facsimile.zip 已通过 ZIP 完整性检查，共 10,078 个成员。
+- rubbing.zip 已通过 ZIP 完整性检查，共 10,078 个成员。
+- 生成任何人类可读派生资料前，复核者必须把选定成员匹配到 UID，并记录抽取
+  manifest。
+- 数据集卡片与代码仓库 README 的权利措辞仍需人工对照。
+
+The package checks establish transport and archive integrity only. They do not
+establish image identity, inscription identity, component assignment, reading,
+dating, provenance, or permission to redistribute raw files.
+
+来源包检查只证明传输和归档完整性，不证明图像身份、卜辞身份、构件归属、释读、
+断代、出处或原始文件再分发许可。
+
 ## Readiness Slots / 就绪复核槽位
 
 ### 01. visible_source_identity
@@ -98,90 +168,6 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - 哪个目标档案只能接收路线，而不能接收结论？
 - 哪条书目、提出者、不同意见或争议仍需打开？
 - 哪个权利、风险、大小或提交策略问题阻止复用？
-
-## Object-Level Visual Review Checkpoint / 对象级图像复核检查点
-
-The source brief records `10364` committed assets and `2770` object-local
-bundles or routes. Four OBIMD component-candidate objects (`002744`–`002747`)
-now have opened-image observations in their own directories.
-
-来源简报记录了 `10364` 个已提交资产和 `2770` 个对象内资料包或路线。
-目前有四个 OBIMD 构件候选对象（`002744`–`002747`）已在各自目录中打开图像
-并记录观察。
-
-These four observations describe visible marks only. They do not confirm a
-component, character identity, reading, variant, inscription, period, or
-decipherment. The remaining bundles and review-image objects still require
-independent human review.
-
-这四份观察只描述可见痕迹，不确认构件、字形身份、释读、异体、卜辞、时期
-或破译。其余资料包和复核图像对象仍需独立人工复核。
-
-Concrete follow-up questions / 具体待查问题：
-
-- Which package manifest row supports each opened image and its checksum?
-- Does each image match the candidate UID, or is the match still pending?
-- Which catalogue, collection, plate, or excavation record locates the object?
-- Which inscription text, OCR, or neighboring-sign context can be cited?
-- Which mapping labels are source records rather than accepted relations?
-- Which rights wording governs the raw package and each derivative?
-- 每幅已打开图像由哪条来源包清单和 checksum 记录支持？
-- 图像是否与候选 UID 一致，还是仍待核对？
-- 哪条著录、馆藏、图版或出土记录能定位对象？
-- 哪条卜辞全文、OCR 或邻字语境可以引用？
-- 哪些映射标签只是来源记录，而不是已确认关系？
-- 原始包和每个派生件分别适用什么权利说明？
-
-Evidence paths / 证据路径：
-`22_source-research-brief.md`; `18_source-access-integrity-review.md`;
-`corpus/003_graphemic-components/028_002701-002800_obs-comp-cand-bucket_`
-`component-candidates/`
-
-## Package-to-Download Trace Review / 来源包到下载路线复核
-
-The `data.json` package now has a matched download route, checksum, size, and
-external archive path. Two registered image-package rows still have no
-`download_id` in the package route or source-package manifest:
-
-- `pkg-file-000006` `facsimile.zip`, 210,800,641 bytes;
-- `pkg-file-000007` `rubbing.zip`, 558,367,972 bytes.
-
-The data package evidence is recorded as `dl-obimd-data-json` with SHA-256
-`b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19` at
-`external_local_archive/source_packages/obimd/data.json`. It remains raw source
-material; no reviewed derivative or scholarly claim has been created.
-
-The two image-package rows have provider URLs, but the current download log
-still has no matching access record, checksum, external path, or extraction
-manifest. They remain provenance gaps before any derivative is created.
-
-`data.json` 来源包现在已有匹配的下载路线、checksum、大小和外部归档路径。
-仍有两个图像来源包没有 `download_id`：
-
-- `pkg-file-000006` 的 `facsimile.zip`，210,800,641 字节；
-- `pkg-file-000007` 的 `rubbing.zip`，558,367,972 字节。
-
-`data.json` 的证据记录为 `dl-obimd-data-json`，SHA-256 为
-`b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19`，路径为
-`external_local_archive/source_packages/obimd/data.json`。它仍是原始来源资料，
-尚未生成人工复核派生件，也没有形成学术结论。
-
-两个图像包虽有提供方 URL，但下载日志仍没有对应访问记录、checksum、外部路径
-或抽取清单。在补齐前不得生成新的派生资料。
-
-Concrete follow-up questions / 具体待查问题：
-
-- When will `facsimile.zip` and `rubbing.zip` be accessed, and on what date?
-- Where will their raw files be stored outside regular Git?
-- Which checksum and manifest will identify each image package?
-- What rights wording applies to facsimile and rubbing derivatives?
-- `facsimile.zip` 和 `rubbing.zip` 何时访问，访问日期是什么？
-- 两个原始文件将存放在普通 Git 之外的什么位置？
-- 哪条 checksum 和 manifest 能唯一标识两个图像包？
-- facsimile 和 rubbing 派生件适用什么权利说明？
-
-Boundary / 边界：package URLs alone do not prove download, access, or review.
-仅有来源包 URL 不证明已经下载、访问或复核。
 
 ## Boundary / 边界
 - not a rights decision

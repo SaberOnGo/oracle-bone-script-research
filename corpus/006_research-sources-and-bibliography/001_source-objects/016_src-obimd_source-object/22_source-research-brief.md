@@ -18,9 +18,9 @@ limits on research use.
 - Source page / 来源页面: https://www.nature.com/articles/s41597-026-06967-0
 
 ## Actual Registered Evidence / 已登记的实际证据
-- Download or access records / 下载或访问记录: 7
-- Recorded checksums / 已记录 checksum: 7
-- Recorded file sizes / 已记录文件大小: 7
+- Download or access records / 下载或访问记录: 10
+- Recorded checksums / 已记录 checksum: 10
+- Recorded file sizes / 已记录文件大小: 10
 - Package files / 来源包文件: 7
 - Field mappings / 字段映射: 9
 - Metadata measurements / 元数据测量: 5
@@ -36,14 +36,22 @@ limits on research use.
   71318 bytes
 - Recorded access item / 已记录访问项: dl-obimd-subcharacter-images;
   downloaded_to_external_archive; 40436910 bytes
+- Recorded access item / 已记录访问项: dl-obimd-data-json;
+  downloaded_to_external_archive; 41732948 bytes
+- Recorded access item / 已记录访问项: dl-obimd-facsimile;
+  downloaded_to_external_archive; 210800641 bytes
+- Recorded access item / 已记录访问项: dl-obimd-rubbing;
+  downloaded_to_external_archive; 558367972 bytes
 
 ## Usable Material Routes / 可用资料路径
 - Package material / 来源包资料: data.json; raw_annotation_json; Raw annotation JSON
   exceeds SIZE_LIMIT; keep outside regular Git and extract reviewed subsets only
 - Package material / 来源包资料: facsimile.zip; raw_image_zip; Raw image package
-  stays outside Git; commit only metadata and reviewed derivatives
+  stays outside Git; ZIP integrity is verified with 10078 members; commit only
+  metadata and reviewed derivatives
 - Package material / 来源包资料: rubbing.zip; raw_image_zip; Raw image package stays
-  outside Git; commit only metadata and reviewed derivatives
+  outside Git; ZIP integrity is verified with 10078 members; commit only
+  metadata and reviewed derivatives
 - Package material / 来源包资料: Sub-character Images.zip; raw_image_zip; Above
   SIZE_LIMIT; raw zip is kept in ignored external archive and only object-local
   PNG derivatives with provenance are committed
@@ -74,35 +82,6 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: SeatFont; Mark ->
   oracle_character_occurrence -> missing_or_special_marker
 
-## Current Pipeline Gap / 当前流水线缺口
-
-- Committed assets: `10364`; committed bytes: `38387085`.
-- 已提交资产：`10364`；已提交字节数：`38387085`。
-- Object-local bundles/routes: `2770`; review-image objects: `2719`.
-- 对象内资料包/路线：`2770`；复核图像对象：`2719`。
-- Graph edges: `57603`; source promotion: not promoted.
-- 图边：`57603`；来源提升：未提升。
-- Current source status: evidence and derivatives present, human review pending.
-- 当前来源状态：证据和派生资料已在库，人工复核仍待完成。
-- Raw packages above repository limits remain outside regular Git.
-- 超过仓库限制的原始包仍保存在普通 Git 之外。
-
-Concrete human checks / 具体人工核查：
-
-- Which image, bounding box, order number, and sentence support each edge?
-- 每条关系边由哪幅图像、边界框、序号和卜辞支持？
-- How do the CC-BY statement and narrower README wording reconcile?
-- CC-BY 说明与 README 较窄的学术使用措辞如何互证？
-- Which source catalog or plate route confirms a database row?
-- 哪条来源著录或图版路线能确认数据库行？
-- Does `data.json` remain a source-record package rather than an accepted
-  character identity, reading, component, or inscription claim?
-- `data.json` 是否仍只是来源记录包，而不是已确认的字形身份、释读、
-  构件或卜辞结论？
-
-Sub-character mappings remain candidate routes until image and context review.
-子字映射在图像和语境复核前仍只是候选路线。
-
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: licensed_for_repository
 - Risk note / 风险提示: Dataset card reports CC-BY 4.0 while the GitHub README
@@ -113,6 +92,43 @@ Open 10_source-evidence-dossier.md for full checksums, package rows, field-map
 details, and source-specific pending questions.
 
 需要完整 checksum、来源包条目、字段映射和具体待查问题时，请打开 10_source-evidence-dossier.md。
+
+## Current Pipeline Gap / 当前流水线缺口
+The repository currently records 10,364 committed source-marked assets,
+38,387,085 committed asset bytes, 2,770 object-local material bundles,
+2,719 object-local review-image objects, and 57,603 graph edges. These are
+preprocessing routes and candidate records; the OBIMD source has not been
+promoted into accepted scholarship.
+
+当前仓库记录 10,364 个带来源标记的已提交资产、38,387,085 字节资产、2,770 个
+对象内资料包、2,719 个对象内复核图像对象和 57,603 条图边。这些只是预处理路线
+和候选记录；OBIMD 尚未提升为已接受的学术资料。
+
+The raw data.json, facsimile.zip, and rubbing.zip packages remain in the
+external archive. Before any source promotion, a reviewer must match selected
+members to source UIDs, an extraction manifest, image/object dossiers, and
+rights wording. The data rows and package members are not accepted identities,
+readings, components, inscriptions, periods, or decipherment claims.
+
+原始 data.json、facsimile.zip 和 rubbing.zip 仍在外部归档。提升来源前，复核者
+必须把选定成员与来源 UID、抽取 manifest、图像或对象档案及权利措辞逐项匹配。
+数据行和来源包成员不是已确认身份、释读、构件、卜辞、时期或破译结论。
+
+Concrete human checks / 具体人工核查：
+
+- Which image, bounding box, order number, and sentence support each edge?
+- How do the CC-BY statement and narrower README wording reconcile?
+- Which source catalog or plate route confirms a database row?
+- Does `data.json` remain a source-record package rather than an accepted
+  character identity, reading, component, or inscription claim?
+- 每条关系边由哪幅图像、边界框、序号和卜辞支持？
+- CC-BY 说明与 README 较窄的学术使用措辞如何互证？
+- 哪条来源著录或图版路线能确认数据库行？
+- `data.json` 是否仍只是来源记录包，而不是已确认的字形身份、释读、
+  构件或卜辞结论？
+
+Sub-character mappings remain candidate routes until image and context review.
+子字映射在图像和语境复核前仍只是候选路线。
 
 ## Boundary / 边界
 - not a rights decision

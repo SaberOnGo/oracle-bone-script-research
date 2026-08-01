@@ -1,11 +1,12 @@
 {
   "record_type": "character_archaeology_paleography_review_index",
   "project_id": "obs-unk-004306",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-08-02",
   "object_dir": "corpus/001_oracle-characters/060_undeciphered-004301-004400_obs-unk-bucket_oracle-character-candidates/006_obs-unk-004306_hust-obc-und-L-004306_oracle-character-candidate",
   "human_readable_files": [
     "README.md",
     "04_visual-gallery.md",
+    "14_material-visual-observation.md",
     "05_human-research-dossier.md",
     "06_human-review-sheet.md",
     "08_character-context-evidence-dossier.md",
@@ -36,6 +37,8 @@
     "source_image_route_count": "1",
     "first_committed_image": "001_asset-005899_hust-obc-und-L-004306_glyph.jpg",
     "first_source_image_route": "L_？_9500.jpg",
+    "observation_record": "14_material-visual-observation.md",
+    "observation_status": "direct_visual_record_present",
     "rights_status": "source_marked_risk_noted",
     "review_status": "needs_human_visual_review"
   },

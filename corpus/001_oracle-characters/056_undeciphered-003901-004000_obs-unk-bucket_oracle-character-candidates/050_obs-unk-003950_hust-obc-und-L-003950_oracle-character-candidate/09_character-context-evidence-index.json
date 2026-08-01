@@ -1,14 +1,15 @@
 {
   "record_type": "character_context_evidence_dossier_index",
   "project_id": "obs-unk-003950",
-  "updated_at": "2026-06-23",
+  "updated_at": "2026-08-01",
   "object_dir": "corpus/001_oracle-characters/056_undeciphered-003901-004000_obs-unk-bucket_oracle-character-candidates/050_obs-unk-003950_hust-obc-und-L-003950_oracle-character-candidate",
   "human_readable_files": [
     "README.md",
     "04_visual-gallery.md",
     "05_human-research-dossier.md",
     "06_human-review-sheet.md",
-    "08_character-context-evidence-dossier.md"
+    "08_character-context-evidence-dossier.md",
+    "14_material-visual-observation.md"
   ],
   "ai_support_files": [
     "01_*packet.json",

@@ -107,9 +107,14 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: The crop shows a compact vertical cluster. A narrow
+  stroke rises on the left and bends toward a pointed upper form. A second
+  pointed contour sits to the right; lower traces converge into a darker
+  loop-like area. Joins and direction remain uncertain.
+- 中文观察：图像中是紧凑的竖向痕迹组。左侧细痕向上并弯向尖状上部，
+  右侧另有一个尖状轮廓；下方痕迹汇入较深的近似环状区域。连接关系和
+  行笔方向仍待核查。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +251,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

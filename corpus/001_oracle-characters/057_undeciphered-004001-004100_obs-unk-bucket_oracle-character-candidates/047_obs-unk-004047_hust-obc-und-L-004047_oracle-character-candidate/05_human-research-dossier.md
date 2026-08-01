@@ -107,9 +107,15 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A narrow left frame-like trace contains two
+  chevron-like interior marks. A separate thin trace descends on the right
+  and bends outward near the bottom. Its coarse arrangement appears visually
+  similar to candidate 004046; no checksum or deduplication decision has been
+  made.
+- 中文观察：左侧窄框状痕迹内有两个近似折线的内部痕迹。右侧另有细痕向下
+  延伸，并在下部向外弯折。整体粗略形态似与候选 004046 相近；尚未进行
+  checksum 或去重判定。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +252,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

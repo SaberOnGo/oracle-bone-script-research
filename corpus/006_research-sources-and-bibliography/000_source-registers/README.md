@@ -58,6 +58,10 @@ cross-check it against stronger sources before using it.
   client challenges, download errors, HTTP errors, and size-limit skips.
 - `013_source-download-status-codebook.csv`：来源下载日志状态语义表，覆盖成功下载、访问限制页、客户端挑战、下载错误、
   HTTP 错误和尺寸限制跳过。
+- `017_human-source-presearch-gap-review.md`: bilingual human reading map
+  for current source gaps before formal research.
+- `017_human-source-presearch-gap-review.md`：正式研究前当前来源缺口的双语
+  人类阅读地图。
 
 Derived staging indexes built from logged downloads are stored in their subject
 corpus areas, not in this source-register directory. For example, EVOBC

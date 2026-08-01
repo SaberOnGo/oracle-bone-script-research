@@ -154,3 +154,39 @@ Evidence paths / 证据路径：
 `22_source-research-brief.md`; `18_source-access-integrity-review.md`;
 `corpus/003_graphemic-components/028_002701-002800_obs-comp-cand-bucket_`
 `component-candidates/`
+
+## Package-to-Download Trace Review / 来源包到下载路线复核
+
+Three registered package rows still have no `download_id` in the package
+route or source-package manifest:
+
+- `pkg-file-000005` `data.json`, 41,732,948 bytes;
+- `pkg-file-000006` `facsimile.zip`, 210,800,641 bytes;
+- `pkg-file-000007` `rubbing.zip`, 558,367,972 bytes.
+
+Their package rows contain provider URLs, but the current download log has no
+matching access record, checksum, local or external storage path, or extraction
+manifest. They must remain provenance gaps before any derivative is created.
+
+已有三条来源包记录在来源包路线和来源包 manifest 中没有 `download_id`：
+
+- `pkg-file-000005` 的 `data.json`，41,732,948 字节；
+- `pkg-file-000006` 的 `facsimile.zip`，210,800,641 字节；
+- `pkg-file-000007` 的 `rubbing.zip`，558,367,972 字节。
+
+这些包行虽有提供方 URL，但当前下载日志没有对应访问记录、checksum、
+本地或外部存放路径，也没有抽取清单。在补齐前不得生成新的派生资料。
+
+Concrete follow-up questions / 具体待查问题：
+
+- Were these three packages actually accessed, and on what date?
+- Where are their raw files stored outside regular Git?
+- Which checksum and manifest identify each downloaded package?
+- What rights wording applies to facsimile and rubbing derivatives?
+- 这三个来源包是否实际访问过，访问日期是什么？
+- 原始文件存放在普通 Git 之外的什么位置？
+- 哪条 checksum 和 manifest 能唯一标识各个下载包？
+- facsimile 和 rubbing 派生件适用什么权利说明？
+
+Boundary / 边界：package URLs alone do not prove download, access, or review.
+仅有来源包 URL 不证明已经下载、访问或复核。

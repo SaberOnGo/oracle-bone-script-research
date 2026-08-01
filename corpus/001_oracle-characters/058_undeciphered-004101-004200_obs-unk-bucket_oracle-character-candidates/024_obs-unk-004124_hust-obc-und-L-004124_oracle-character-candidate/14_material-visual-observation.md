@@ -1,0 +1,43 @@
+# obs-unk-004124 Material Visual Observation / 材料视觉观察
+
+- Project id / 项目 ID: `obs-unk-004124`
+- Asset / 资料资产: `asset-005717`
+- Image route / 图像路径:
+  `03_visual-assets/001_asset-005717_hust-obc-und-L-004124_glyph.jpg`
+- Source image / 来源图像: `HUST-OBC/undeciphered/L/4124/L_？_8889.jpg`
+- Observation date / 观察日期: `2026-08-02`
+- Review state / 复核状态: `direct_visual_record_present`
+
+## Scope / 范围
+
+This note records only what is visible in the opened source-marked image.
+本记录只写已打开的带来源图像中的可见形态。
+
+It does not establish a glyph identity, reading, meaning, component,
+variant, period, inscription, or decipherment conclusion.
+本记录不确认字形身份、读音、意义、构件、异体、时期、卜辞或释读结论。
+
+## Direct Visual Record / 直接可见记录
+
+- English: Two tall angled strokes rise on the upper left and right sides.
+- English: The center is a dense dark cluster with crossing traces.
+- English: A rounded or horizontal lower base has small dark marks nearby.
+- English: The lower marks and stroke joins remain partly uncertain.
+- 中文：上部左右两侧各有较高的斜向笔画。
+- 中文：中央为包含交叉痕迹的密集深色痕迹簇。
+- 中文：下部有圆弧或横向基部，附近还见小的深色痕迹。
+- 中文：下部痕迹和笔画连接处仍有部分不确定。
+
+## Concrete Follow-up Questions / 具体待查问题
+
+1. Which higher-resolution source image confirms the lower base?
+2. Which catalog or plate record corroborates this visual observation?
+3. Are the small nearby marks attached or separate surface traces?
+4. 哪张更高分辨率来源图能核对下部基部？
+5. 哪条著录或图版记录能佐证这项视觉观察？
+6. 附近小痕迹是相连笔画，还是独立的表面痕迹？
+
+## Boundary / 边界
+
+This is a source-linked candidate record for human review, not a decipherment.
+这是供人类复核的来源候选记录，不是释读结论。

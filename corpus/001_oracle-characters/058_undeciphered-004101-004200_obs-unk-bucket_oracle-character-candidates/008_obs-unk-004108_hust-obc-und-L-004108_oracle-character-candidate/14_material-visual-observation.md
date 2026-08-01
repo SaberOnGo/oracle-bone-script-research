@@ -17,7 +17,7 @@ It does not establish a glyph identity, reading, meaning, component,
 variant, period, inscription, or decipherment conclusion.
 本记录不确认字形身份、读音、意义、构件、异体、时期、卜辞或释读结论。
 
-## Direct visual record / 直接视觉记录
+## Direct Visual Record / 直接可见记录
 
 - English: A small pointed or paired-stroke cluster appears at the top.
 - English: A narrow central stem descends from the upper cluster.

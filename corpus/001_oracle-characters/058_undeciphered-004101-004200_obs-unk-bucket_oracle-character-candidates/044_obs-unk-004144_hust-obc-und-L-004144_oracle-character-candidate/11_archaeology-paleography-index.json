@@ -1,11 +1,12 @@
 {
   "record_type": "character_archaeology_paleography_review_index",
   "project_id": "obs-unk-004144",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-08-02",
   "object_dir": "corpus/001_oracle-characters/058_undeciphered-004101-004200_obs-unk-bucket_oracle-character-candidates/044_obs-unk-004144_hust-obc-und-L-004144_oracle-character-candidate",
   "human_readable_files": [
     "README.md",
     "04_visual-gallery.md",
+    "14_material-visual-observation.md",
     "05_human-research-dossier.md",
     "06_human-review-sheet.md",
     "08_character-context-evidence-dossier.md",

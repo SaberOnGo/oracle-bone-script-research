@@ -107,9 +107,14 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A compact left-hand group has a short upper bar and a
+  rounded or angular enclosure that narrows to a lower point. A separate thin
+  vertical trace appears on the right with a short angled mark near its top;
+  whether it belongs to the same group is unresolved.
+- 中文观察：左侧有一个紧凑痕迹组，上部有短横痕迹，下方为圆弧或折角轮廓，向下
+  收窄成尖点。右侧另有一条细长竖向痕迹，顶部附近带短斜痕；它是否属于同一痕迹组
+  尚未确定。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +251,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

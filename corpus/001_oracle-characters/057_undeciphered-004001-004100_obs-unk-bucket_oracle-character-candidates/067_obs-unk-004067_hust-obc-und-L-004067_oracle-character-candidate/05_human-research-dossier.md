@@ -107,9 +107,13 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: Two shallow curved traces extend from the upper sides
+  toward a central descending point. Below them is a narrow pointed outline
+  with a darker interior. The apparent symmetry and the joins are not fully
+  resolved at this image size.
+- 中文观察：上部两侧有浅弯的痕迹，向中央下行的尖点靠近。其下是一个狭长的
+  尖状轮廓，内部较深。在当前图像尺寸下，表面呈现的对称性和连接处仍未完全分辨。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +250,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

@@ -1,11 +1,12 @@
 {
   "project_id": "obs-unk-004059",
-  "updated_at": "2026-06-21",
+  "updated_at": "2026-08-02",
   "object_dir": "corpus/001_oracle-characters/057_undeciphered-004001-004100_obs-unk-bucket_oracle-character-candidates/059_obs-unk-004059_hust-obc-und-L-004059_oracle-character-candidate",
   "human_files": [
     "README.md",
     "04_visual-gallery.md",
     "05_human-research-dossier.md",
+    "14_material-visual-observation.md",
     "06_human-review-sheet.md",
     "08_character-context-evidence-dossier.md"
   ],

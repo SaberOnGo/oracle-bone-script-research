@@ -160,9 +160,9 @@ target object directory.
 - File name / 文件名: data.json
 - File kind / 文件类型: raw_annotation_json
 - File size bytes / 文件大小 bytes: 41732948
-- Download ID / 下载 ID: not recorded
+- Download ID / 下载 ID: dl-obimd-data-json
 - Commit policy / 提交策略: do_not_commit_regular_git
-- Handling strategy / 处理策略: Raw annotation JSON is above 40 MiB; keep outside
+- Handling strategy / 处理策略: Raw annotation JSON exceeds SIZE_LIMIT; keep outside
   regular Git and extract reviewed subsets only
 - Rights status / 权利状态: licensed_for_repository
 - Review status / 复核状态: reviewed_metadata_only

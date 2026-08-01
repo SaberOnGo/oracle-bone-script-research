@@ -17,7 +17,7 @@
       "phase": "download_or_access",
       "status": "download_or_access_routes_present",
       "evidence_file": "02_download-route-index.csv",
-      "evidence_count": 7,
+      "evidence_count": 8,
       "status_values": [
         "downloaded",
         "downloaded_to_external_archive"
@@ -28,9 +28,9 @@
       "phase": "checksum_and_size",
       "status": "partial_or_complete_checksum_size_evidence",
       "evidence_file": "02_download-route-index.csv",
-      "checksum_row_count": 7,
-      "size_row_count": 7,
-      "local_temp_path_row_count": 7,
+      "checksum_row_count": 8,
+      "size_row_count": 8,
+      "local_temp_path_row_count": 8,
       "review_status": "needs_human_source_review"
     },
     {
@@ -69,9 +69,13 @@
       "review_status": "pending_human_review"
     }
   ],
-  "missing_or_review_items": [],
+  "missing_or_review_items": [
+    "pkg-file-000006 facsimile.zip lacks a download route, checksum, external path, and extraction manifest.",
+    "pkg-file-000007 rubbing.zip lacks a download route, checksum, external path, and extraction manifest.",
+    "Raw data.json has a download checksum but no reviewed derivative or human acceptance decision."
+  ],
   "human_entry": "08_source-processing-status.md",
   "research_boundary": "source_processing_status_preprocessing_only; statuses mark evidence availability and review work, not scholarly conclusions",
   "decipherment_claim_status": "no_claim",
-  "updated_at": "2026-06-21"
+  "updated_at": "2026-08-01"
 }

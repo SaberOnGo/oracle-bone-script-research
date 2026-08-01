@@ -35,7 +35,7 @@ note, or concrete next-check questions.
 结构化辅助文件只服务人类来源档案，不得替代来源摘要、复核单、证据档案、事实矩阵、权利说明或具体待查问题。
 
 ## Route Signals / 路线信号
-- Download route count / 下载路线数: 7
+- Download route count / 下载路线数: 8
 - Download statuses / 下载状态: downloaded; downloaded_to_external_archive
 - Package route count / 来源包路线数: 7
 - Package kinds / 来源包类型: hierarchical_metadata_json; hierarchical_metadata_xlsx;

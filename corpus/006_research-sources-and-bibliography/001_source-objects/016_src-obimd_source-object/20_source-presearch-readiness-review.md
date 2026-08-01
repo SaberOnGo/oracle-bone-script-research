@@ -99,24 +99,6 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - 哪条书目、提出者、不同意见或争议仍需打开？
 - 哪个权利、风险、大小或提交策略问题阻止复用？
 
-## Boundary / 边界
-- not a rights decision
-- not corpus import approval
-- not a confirmed source promotion
-- not an accepted reading
-- not a component assignment
-- not an inscription identity
-- not a correspondence conclusion
-- not a decipherment conclusion
-- 不是权利结论
-- 不是语料导入批准
-- 不是来源提升结论
-- 不是已接受释读
-- 不是构件归属
-- 不是卜辞身份确认
-- 不是字形对应结论
-- 不是破译结论
-
 ## Object-Level Visual Review Checkpoint / 对象级图像复核检查点
 
 The source brief records `10364` committed assets and `2770` object-local
@@ -157,36 +139,64 @@ Evidence paths / 证据路径：
 
 ## Package-to-Download Trace Review / 来源包到下载路线复核
 
-Three registered package rows still have no `download_id` in the package
-route or source-package manifest:
+The `data.json` package now has a matched download route, checksum, size, and
+external archive path. Two registered image-package rows still have no
+`download_id` in the package route or source-package manifest:
 
-- `pkg-file-000005` `data.json`, 41,732,948 bytes;
 - `pkg-file-000006` `facsimile.zip`, 210,800,641 bytes;
 - `pkg-file-000007` `rubbing.zip`, 558,367,972 bytes.
 
-Their package rows contain provider URLs, but the current download log has no
-matching access record, checksum, local or external storage path, or extraction
-manifest. They must remain provenance gaps before any derivative is created.
+The data package evidence is recorded as `dl-obimd-data-json` with SHA-256
+`b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19` at
+`external_local_archive/source_packages/obimd/data.json`. It remains raw source
+material; no reviewed derivative or scholarly claim has been created.
 
-已有三条来源包记录在来源包路线和来源包 manifest 中没有 `download_id`：
+The two image-package rows have provider URLs, but the current download log
+still has no matching access record, checksum, external path, or extraction
+manifest. They remain provenance gaps before any derivative is created.
 
-- `pkg-file-000005` 的 `data.json`，41,732,948 字节；
+`data.json` 来源包现在已有匹配的下载路线、checksum、大小和外部归档路径。
+仍有两个图像来源包没有 `download_id`：
+
 - `pkg-file-000006` 的 `facsimile.zip`，210,800,641 字节；
 - `pkg-file-000007` 的 `rubbing.zip`，558,367,972 字节。
 
-这些包行虽有提供方 URL，但当前下载日志没有对应访问记录、checksum、
-本地或外部存放路径，也没有抽取清单。在补齐前不得生成新的派生资料。
+`data.json` 的证据记录为 `dl-obimd-data-json`，SHA-256 为
+`b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19`，路径为
+`external_local_archive/source_packages/obimd/data.json`。它仍是原始来源资料，
+尚未生成人工复核派生件，也没有形成学术结论。
+
+两个图像包虽有提供方 URL，但下载日志仍没有对应访问记录、checksum、外部路径
+或抽取清单。在补齐前不得生成新的派生资料。
 
 Concrete follow-up questions / 具体待查问题：
 
-- Were these three packages actually accessed, and on what date?
-- Where are their raw files stored outside regular Git?
-- Which checksum and manifest identify each downloaded package?
+- When will `facsimile.zip` and `rubbing.zip` be accessed, and on what date?
+- Where will their raw files be stored outside regular Git?
+- Which checksum and manifest will identify each image package?
 - What rights wording applies to facsimile and rubbing derivatives?
-- 这三个来源包是否实际访问过，访问日期是什么？
-- 原始文件存放在普通 Git 之外的什么位置？
-- 哪条 checksum 和 manifest 能唯一标识各个下载包？
+- `facsimile.zip` 和 `rubbing.zip` 何时访问，访问日期是什么？
+- 两个原始文件将存放在普通 Git 之外的什么位置？
+- 哪条 checksum 和 manifest 能唯一标识两个图像包？
 - facsimile 和 rubbing 派生件适用什么权利说明？
 
 Boundary / 边界：package URLs alone do not prove download, access, or review.
 仅有来源包 URL 不证明已经下载、访问或复核。
+
+## Boundary / 边界
+- not a rights decision
+- not corpus import approval
+- not a confirmed source promotion
+- not an accepted reading
+- not a component assignment
+- not an inscription identity
+- not a correspondence conclusion
+- not a decipherment conclusion
+- 不是权利结论
+- 不是语料导入批准
+- 不是来源提升结论
+- 不是已接受释读
+- 不是构件归属
+- 不是卜辞身份确认
+- 不是字形对应结论
+- 不是破译结论

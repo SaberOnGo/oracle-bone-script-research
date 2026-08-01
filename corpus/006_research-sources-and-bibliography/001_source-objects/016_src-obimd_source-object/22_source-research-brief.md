@@ -39,7 +39,7 @@ limits on research use.
 
 ## Usable Material Routes / 可用资料路径
 - Package material / 来源包资料: data.json; raw_annotation_json; Raw annotation JSON
-  is above 40 MiB; keep outside regular Git and extract reviewed subsets only
+  exceeds SIZE_LIMIT; keep outside regular Git and extract reviewed subsets only
 - Package material / 来源包资料: facsimile.zip; raw_image_zip; Raw image package
   stays outside Git; commit only metadata and reviewed derivatives
 - Package material / 来源包资料: rubbing.zip; raw_image_zip; Raw image package stays
@@ -95,6 +95,10 @@ Concrete human checks / 具体人工核查：
 - CC-BY 说明与 README 较窄的学术使用措辞如何互证？
 - Which source catalog or plate route confirms a database row?
 - 哪条来源著录或图版路线能确认数据库行？
+- Does `data.json` remain a source-record package rather than an accepted
+  character identity, reading, component, or inscription claim?
+- `data.json` 是否仍只是来源记录包，而不是已确认的字形身份、释读、
+  构件或卜辞结论？
 
 Sub-character mappings remain candidate routes until image and context review.
 子字映射在图像和语境复核前仍只是候选路线。

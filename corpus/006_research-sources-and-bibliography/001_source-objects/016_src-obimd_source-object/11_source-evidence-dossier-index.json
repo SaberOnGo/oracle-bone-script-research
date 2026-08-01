@@ -38,9 +38,9 @@
     "10_source-evidence-dossier.md"
   ],
   "evidence_counts": {
-    "download_route_count": 7,
-    "checksum_route_count": 7,
-    "size_route_count": 7,
+    "download_route_count": 8,
+    "checksum_route_count": 8,
+    "size_route_count": 8,
     "package_route_count": 7,
     "field_map_route_count": 9,
     "metadata_profile_route_count": 5,
@@ -80,5 +80,5 @@
     "no decipherment conclusion"
   ],
   "review_status": "needs_human_source_review",
-  "updated_at": "2026-06-21"
+  "updated_at": "2026-08-01"
 }

@@ -74,6 +74,31 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: SeatFont; Mark ->
   oracle_character_occurrence -> missing_or_special_marker
 
+## Current Pipeline Gap / 当前流水线缺口
+
+- Committed assets: `10364`; committed bytes: `38387085`.
+- 已提交资产：`10364`；已提交字节数：`38387085`。
+- Object-local bundles/routes: `2770`; review-image objects: `2719`.
+- 对象内资料包/路线：`2770`；复核图像对象：`2719`。
+- Graph edges: `57603`; source promotion: not promoted.
+- 图边：`57603`；来源提升：未提升。
+- Current source status: evidence and derivatives present, human review pending.
+- 当前来源状态：证据和派生资料已在库，人工复核仍待完成。
+- Raw packages above repository limits remain outside regular Git.
+- 超过仓库限制的原始包仍保存在普通 Git 之外。
+
+Concrete human checks / 具体人工核查：
+
+- Which image, bounding box, order number, and sentence support each edge?
+- 每条关系边由哪幅图像、边界框、序号和卜辞支持？
+- How do the CC-BY statement and narrower README wording reconcile?
+- CC-BY 说明与 README 较窄的学术使用措辞如何互证？
+- Which source catalog or plate route confirms a database row?
+- 哪条来源著录或图版路线能确认数据库行？
+
+Sub-character mappings remain candidate routes until image and context review.
+子字映射在图像和语境复核前仍只是候选路线。
+
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: licensed_for_repository
 - Risk note / 风险提示: Dataset card reports CC-BY 4.0 while the GitHub README

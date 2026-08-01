@@ -44,6 +44,29 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: 229170 images; 13714 categories ->
   source_record -> source_scope_statistics
 
+## Current Pipeline Gap / 当前流水线缺口
+
+- Object-local bundles/routes: `13842`; committed assets: `0`.
+- 对象内资料包/路线：`13842`；已提交资产：`0`。
+- Graph edges: `51948`; review-image objects: `0`.
+- 图边：`51948`；复核图像对象：`0`。
+- Current source status: evidence and derivatives present, human review pending.
+- 当前来源状态：证据和派生资料已在库，人工复核仍待完成。
+- Rights remain source-marked risk; no source promotion or corpus import.
+- 权利仍标为来源风险；未提升来源，也未导入正式语料。
+
+Concrete human checks / 具体人工核查：
+
+- Which source image supports each proposed stage correspondence route?
+- 每条候选时期对应路线由哪幅来源图像支持？
+- Which labels are dataset metadata rather than scholarly interpretation?
+- 哪些标签只是数据集 metadata，而不是学术解释？
+- Can each edge be traced to a package row, checksum, and review status?
+- 每条关系边能否追溯到来源包行、checksum 和复核状态？
+
+Evolution edges remain candidate routes and do not prove historical change.
+演变关系边仍是候选路线，不证明历史演变已经成立。
+
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: source_marked_risk_noted
 - Risk note / 风险提示: Useful for evolution-chain experiments, but source

@@ -34,6 +34,30 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: collection number -> asset_metadata;
   excavation_or_collection_context -> collection_number; cross_reference_key
 
+## Current Pipeline Gap / 当前流水线缺口
+
+- Object-local route objects: `1`; committed assets: `0`; graph edges: `0`.
+- 对象内路线对象：`1`；已提交资产：`0`；图边：`0`。
+- Overview access route: `1`; checksum: `1`; file size: `1`.
+- 概览访问路线：`1`；checksum：`1`；文件大小：`1`。
+- Pipeline gaps: linked and verified remain pending.
+- 流水线缺口：linked 和 verified 仍待完成。
+- The reported scale distinguishes a `40000` lower-bound report from
+  `21556` searchable records; these are not interchangeable counts.
+- 来源报告的 `40000` 下限规模和 `21556` 可检索记录必须分开，不能混用。
+
+Concrete human checks / 具体人工核查：
+
+- Which searchable record opens a rubbing, plate, or collection object?
+- 哪条可检索记录能打开拓片、图版或馆藏对象？
+- What policy permits an image derivative, if any, in this repository?
+- 哪条政策允许在本仓库保存图像派生件（如有）？
+- Which collection number and cross-reference can be cited for each route?
+- 每条路线可引用哪个馆藏号和交叉参考号？
+
+Keep raw image reuse pending the institutional policy review.
+原始图像复用须等待机构政策复核。
+
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: metadata_only_until_verified
 - Risk note / 风险提示: Official collection database with explicit site policy; raw

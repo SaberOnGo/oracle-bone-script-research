@@ -38,6 +38,27 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: checksum_sha256 -> source_reference ->
   source_payload_checksum_sha256
 
+## Current Pipeline Gap / 当前流水线缺口
+
+- Object-local route objects: `53`; committed assets: `0`; graph edges: `0`.
+- 对象内路线对象：`53`；已提交资产：`0`；图边：`0`。
+- Overview access route: `1`; checksum: `1`; file size: `1`.
+- 概览访问路线：`1`；checksum：`1`；文件大小：`1`。
+- Pipeline gaps: linked and verified remain pending.
+- 流水线缺口：linked 和 verified 仍待完成。
+
+Concrete human checks / 具体人工核查：
+
+- Which collection-page label maps to a museum object record?
+- 哪个馆藏页面标签能对应到博物馆对象记录？
+- Which artifact page provides image, plate, date, and holding evidence?
+- 哪个器物页面提供图像、图版、年代和馆藏证据？
+- What museum policy governs any image derivative or screenshot?
+- 哪条博物馆政策适用于图像派生件或截图？
+
+Do not treat the overview page as proof of each artifact identity.
+不要把概览页面当作每件器物身份已经确认的证据。
+
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: metadata_only_until_verified
 - Risk note / 风险提示: Official museum page; image reuse requires museum policy

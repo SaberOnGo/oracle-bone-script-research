@@ -62,6 +62,29 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: 拓本和現藏簡稱 -> excavation_or_collection_context
   -> holding_abbrev; holding_label
 
+## Current Pipeline Gap / 当前流水线缺口
+
+- Object-local route objects: `1`; committed assets: `0`; graph edges: `0`.
+- 对象内路线对象：`1`；已提交资产：`0`；图边：`0`。
+- Access routes: `4`; all four are restricted-page captures.
+- 访问路线：`4`；四条都是受限页面捕获。
+- Recorded checksums and sizes: `4` and `4`.
+- 已记录 checksum 和大小：分别为 `4` 和 `4`。
+- Pipeline gaps: downloaded, linked, and verified remain pending.
+- 流水线缺口：downloaded、linked、verified 仍待完成。
+
+Concrete human checks / 具体人工核查：
+
+- Which official appendix or source-table route exposes the cited Heji row?
+- 哪条官方附录或来源表路线能打开所引合集行？
+- Which old-catalog and holding abbreviation has a cited expansion?
+- 哪个旧著录简称和现藏简称有可引用的展开说明？
+- Is each Heji value a plate/material reference rather than a character ID?
+- 每个合集号是否只是图版/材料参考，而不是单字 ID？
+
+Keep all rows as metadata-only source routes until these checks are cited.
+在这些核查有引文前，所有行都保持 metadata-only 来源路线。
+
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: metadata_only_until_verified
 - Risk note / 风险提示: Official source table; Heji identifiers are plate/material

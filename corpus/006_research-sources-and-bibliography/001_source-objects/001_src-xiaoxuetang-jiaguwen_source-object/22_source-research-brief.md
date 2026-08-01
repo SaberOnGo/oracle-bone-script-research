@@ -53,6 +53,29 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: 類組 -> oracle_character ->
   source_class_group
 
+## Current Pipeline Gap / 当前流水线缺口
+
+- Object-local route objects: `1`; committed assets: `0`; graph edges: `0`.
+- 对象内路线对象：`1`；已提交资产：`0`；图边：`0`。
+- Access routes: `4`; restricted-page captures: `2`; download errors: `2`.
+- 访问路线：`4`；受限页捕获：`2`；下载错误：`2`。
+- Recorded checksums: `2`; recorded sizes: `4`.
+- 已记录 checksum：`2`；已记录大小：`4`。
+- Pipeline gaps: downloaded, linked, and verified remain pending.
+- 流水线缺口：downloaded、linked、verified 仍待完成。
+
+Concrete human checks / 具体人工核查：
+
+- Which official route opens a character record rather than a restricted page?
+- 哪条官方路线能打开实际字形记录，而不是受限页面？
+- Can a complete asset checksum and rights statement be recorded?
+- 能否记录完整资料的 checksum 和权利说明？
+- Which source page supports each character-head or glyph-form route?
+- 哪个来源页面支持每条字头或字形路线？
+
+Keep the source metadata-only until these questions have cited answers.
+在这些问题有引文答案前，继续保持 metadata-only。
+
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: metadata_only_until_verified
 - Risk note / 风险提示: Official academic database; automated downloads may be

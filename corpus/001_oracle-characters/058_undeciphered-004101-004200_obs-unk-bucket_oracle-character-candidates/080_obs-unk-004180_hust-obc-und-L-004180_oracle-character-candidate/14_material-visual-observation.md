@@ -1,0 +1,42 @@
+# obs-unk-004180 Material Visual Observation / 材料视觉观察
+
+- Project id / 项目 ID: `obs-unk-004180`
+- Asset / 材料资产: `asset-005773`
+- Image route / 图像路径:
+  `03_visual-assets/001_asset-005773_hust-obc-und-L-004180_glyph.jpg`
+- Source image / 来源图像: `HUST-OBC/undeciphered/L/4180/L_？_9057.jpg`
+- Observation date / 观察日期: `2026-08-02`
+- Review state / 复核状态: `direct_visual_record_present`
+
+## Scope / 范围
+
+This note records only visible marks in the opened source-marked image.
+本记录只写已打开的带来源图像中的可见形态。
+It does not establish identity, reading, meaning, component, variant,
+period, inscription, or decipherment.
+本记录不确认字形身份、读音、意义、构件、异体、时期、卜辞或释读。
+
+## Direct Visual Record / 直接可见记录
+
+- English: Several short horizontal strokes branch from the upper left.
+- English: A narrow vertical trace runs through the central group.
+- English: A lower rectangular outline appears toward the right.
+- English: A short horizontal mark crosses the lower outline.
+- 中文：左上方有数条短的横向分支笔画。
+- 中文：中央形态中有一条较窄的纵向痕迹。
+- 中文：右下方出现一组近矩形轮廓。
+- 中文：一条短横向痕迹穿过下部轮廓。
+
+## Concrete Follow-up Questions / 具体待查问题
+
+1. Which scan clarifies the upper-left horizontal branches?
+2. Is the central vertical trace continuous through the lower outline?
+3. Which plate or catalog record preserves the lower cross-stroke?
+4. 哪份扫描图能澄清左上方横向分支笔画？
+5. 中央纵向痕迹是否贯穿下部轮廓？
+6. 哪条图版或著录记录保留了下部交叉横笔？
+
+## Boundary / 边界
+
+This is a source-linked candidate record for human review, not a decipherment.
+这是供人类复核的来源候选记录，不是释读结论。

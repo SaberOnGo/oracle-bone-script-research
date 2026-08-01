@@ -107,9 +107,14 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A compact dark form has a rounded upper trace and
+  several narrow strokes descending below it. The right edge appears to end
+  in a short angled projection; individual joins remain uncertain at this
+  image size.
+- 中文观察：图像中可见一个较紧凑的深色形体，上部有弯曲轮廓，
+  下方有数条细长痕迹向下延伸。右缘似有一小段斜向外伸的痕迹，
+  在当前图像尺寸下，各笔画的连接关系仍不确定。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +251,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

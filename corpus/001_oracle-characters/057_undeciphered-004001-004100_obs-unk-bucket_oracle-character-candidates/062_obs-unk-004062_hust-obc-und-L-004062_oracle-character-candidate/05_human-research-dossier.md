@@ -107,9 +107,12 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: Several short upward traces stand above a broad lower
+  rounded or rectangular contour. Dark interior bands are visible within the
+  lower area. The upper-to-lower connections remain uncertain.
+- 中文观察：宽大的下部圆弧或矩形轮廓上方有数条短的向上痕迹。下部内部可见
+  较深的带状痕迹。上下区域的连接关系仍待核查。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +249,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

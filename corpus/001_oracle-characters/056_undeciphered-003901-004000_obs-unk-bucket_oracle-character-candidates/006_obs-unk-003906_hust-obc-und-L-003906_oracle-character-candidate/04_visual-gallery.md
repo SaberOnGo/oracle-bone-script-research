@@ -31,13 +31,17 @@ not a component conclusion, and not a decipherment conclusion.
 
 ## obs-unk-003906-visual-source-001 / 图像条目
 
-![obs-unk-003906 glyph candidate](03_visual-assets/001_asset-005499_hust-obc-und-L-003906_glyph.jpg)
+![obs-unk-003906 glyph candidate][glyph-image-003906]
+
+[glyph-image-003906]:
+  03_visual-assets/001_asset-005499_hust-obc-und-L-003906_glyph.jpg
 
 - Local image / 本地图像:
   `03_visual-assets/001_asset-005499_hust-obc-und-L-003906_glyph.jpg`
 - Local metadata / 本地 metadata:
   `03_visual-assets/001_asset-005499_hust-obc-und-L-003906_glyph.yaml`
-- Source image path / 来源图像路径: `HUST-OBC/undeciphered/L/3906/L_？_8219.jpg`
+- Source image path / 来源图像路径:
+  `HUST-OBC/undeciphered/L/3906/L_Јї_8219.jpg`
 - Source package / 来源包: `large-src-000001`
 - Download ID / 下载 ID: `dl-hust-obc-figshare-raw`
 - Rights status / 权利状态: `source_marked_risk_noted`

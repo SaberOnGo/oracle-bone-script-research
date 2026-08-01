@@ -107,9 +107,13 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: An oval or loop-like trace sits near the upper
+  area, with a crossing dark mark inside. A thin descending stroke extends
+  below and to the side. The relation between the loop and the stroke is
+  uncertain.
+- 中文观察：上部附近有椭圆或环状痕迹，内部可见交叉暗痕；一条细长下行痕迹向下并
+    向侧方延伸。环状痕迹与下行痕迹的关系尚不明确。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +250,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

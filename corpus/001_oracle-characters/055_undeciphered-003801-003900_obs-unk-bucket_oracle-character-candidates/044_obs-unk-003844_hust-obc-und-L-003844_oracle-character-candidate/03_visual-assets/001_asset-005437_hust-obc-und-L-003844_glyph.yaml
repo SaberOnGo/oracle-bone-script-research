@@ -15,7 +15,7 @@ related_external_ref_ids:
 source_id: src-hust-obc
 source_package_id: large-src-000001
 download_id: dl-hust-obc-figshare-raw
-source_image_path: HUST-OBC/undeciphered/L/3844/L_？_8030.jpg
+source_image_path: HUST-OBC/undeciphered/L/3844/L_Јї_8030.jpg
 source_image_count_expected: 1
 raw_source_image_checksum_sha256: a5838bac51dd6705db289f346a2ebe017fd2ff9d7f74068f3999e10ae44d0a8a
 rights_status: source_marked_risk_noted
@@ -24,4 +24,4 @@ risk_note: HUST-OBC glyph candidate image extracted from registered large source
 review_status: needs_human_visual_review
 research_boundary: candidate_image_not_scholarship
 caution: Source-marked candidate image only; not an accepted glyph identity, not an accepted reading, not a component conclusion, and not a decipherment conclusion.
-updated_at: 2026-06-20
+updated_at: 2026-08-01

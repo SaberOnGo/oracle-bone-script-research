@@ -41,7 +41,7 @@ not a component conclusion, and not a decipherment conclusion.
 - Local metadata / 本地 metadata:
   `03_visual-assets/001_asset-005509_hust-obc-und-L-003916_glyph.yaml`
 - Source image path / 来源图像路径:
-  `HUST-OBC/undeciphered/L/3916/L_Јї_824.jpg`
+  `HUST-OBC/undeciphered/L/3916/L_？_824.jpg`
 - Source package / 来源包: `large-src-000001`
 - Download ID / 下载 ID: `dl-hust-obc-figshare-raw`
 - Rights status / 权利状态: `source_marked_risk_noted`

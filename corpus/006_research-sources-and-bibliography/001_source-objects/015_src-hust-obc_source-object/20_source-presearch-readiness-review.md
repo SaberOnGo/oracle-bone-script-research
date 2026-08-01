@@ -118,13 +118,13 @@ scope, rights boundary, and concrete missing questions in one readable place.
 ## Object-Level Visual Review Checkpoint / 对象级图像复核检查点
 
 As of 2026-08-01, the repository audit lists `10996` HUST-OBC character
-objects with local image derivatives. `5527` objects have a separate
-object-local `14_material-visual-observation.md` record, while `5469` still
+objects with local image derivatives. `5531` objects have a separate
+object-local `14_material-visual-observation.md` record, while `5465` still
 need a direct visual observation.
 
 截至 2026-08-01，仓库审计显示 HUST-OBC 的 `10996` 个单字对象都有本地
-图像派生件。其中 `5527` 个对象已有对象内独立的
-`14_material-visual-observation.md`，仍有 `5469` 个对象需要直接图像观察。
+图像派生件。其中 `5531` 个对象已有对象内独立的
+`14_material-visual-observation.md`，仍有 `5465` 个对象需要直接图像观察。
 
 The audited records are preparation-stage visual notes. They do not confirm
 character identity, reading, component structure, inscription identity,

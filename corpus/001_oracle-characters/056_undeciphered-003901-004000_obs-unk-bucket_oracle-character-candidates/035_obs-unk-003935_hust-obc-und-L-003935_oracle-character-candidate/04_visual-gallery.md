@@ -31,18 +31,22 @@ not a component conclusion, and not a decipherment conclusion.
 
 ## obs-unk-003935-visual-source-001 / 图像条目
 
-![obs-unk-003935 glyph candidate](03_visual-assets/001_asset-005528_hust-obc-und-L-003935_glyph.jpg)
+![obs-unk-003935 glyph candidate][glyph-image-003935]
+
+[glyph-image-003935]:
+  03_visual-assets/001_asset-005528_hust-obc-und-L-003935_glyph.jpg
 
 - Local image / 本地图像:
   `03_visual-assets/001_asset-005528_hust-obc-und-L-003935_glyph.jpg`
 - Local metadata / 本地 metadata:
   `03_visual-assets/001_asset-005528_hust-obc-und-L-003935_glyph.yaml`
-- Source image path / 来源图像路径: `HUST-OBC/undeciphered/L/3935/L_？_8295.jpg`
+- Source image path / 来源图像路径:
+  `HUST-OBC/undeciphered/L/3935/L_？_8295.jpg`
 - Source package / 来源包: `large-src-000001`
 - Download ID / 下载 ID: `dl-hust-obc-figshare-raw`
 - Rights status / 权利状态: `source_marked_risk_noted`
 - Review status / 复核状态: `needs_human_visual_review`
-- Risk note / 风险提示: HUST-OBC glyph candidate image extracted from registered
-  large source package for preparation-stage object-local visual review; rights
-  signals conflict between Figshare package metadata and the Scientific Data
-  article page.
+- Risk note / 风险提示: HUST-OBC glyph candidate image extracted from
+  registered large source package for preparation-stage object-local visual
+  review; rights signals conflict between Figshare package metadata and the
+  Scientific Data article page.

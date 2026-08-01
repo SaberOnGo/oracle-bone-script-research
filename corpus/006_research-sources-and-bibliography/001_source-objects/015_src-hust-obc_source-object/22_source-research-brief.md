@@ -91,10 +91,10 @@ opens them.
 - 对象内资料包/路线：`12585`；复核图像对象：`10996`。
 - Graph edges: `27291`; promotion-queue candidates: `1588`.
 - 图边：`27291`；提升队列候选：`1588`。
-- Direct visual observations currently cover `5527` of `10996` images.
-- 当前直接视觉观察覆盖 `10996` 幅图像中的 `5527` 幅。
-- Images with a local derivative but no direct observation: `5469`.
-- 已有本地派生件但尚无直接观察的图像：`5469` 幅。
+- Direct visual observations currently cover `5531` of `10996` images.
+- 当前直接视觉观察覆盖 `10996` 幅图像中的 `5531` 幅。
+- Images with a local derivative but no direct observation: `5465`.
+- 已有本地派生件但尚无直接观察的图像：`5465` 幅。
 - Human review is still pending; source and image rights remain risk-marked.
 - 人工复核仍待完成；来源和图像权利仍标为有风险。
 

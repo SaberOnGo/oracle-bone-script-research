@@ -248,6 +248,7 @@ a component assignment.
 
 - `01_*packet.json`
 - `02_visual-source-index.csv`
+- `04_visual-gallery.md`
 - `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`

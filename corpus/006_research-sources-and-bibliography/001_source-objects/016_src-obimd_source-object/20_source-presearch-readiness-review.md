@@ -116,3 +116,41 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - 不是卜辞身份确认
 - 不是字形对应结论
 - 不是破译结论
+
+## Object-Level Visual Review Checkpoint / 对象级图像复核检查点
+
+The source brief records `10364` committed assets and `2770` object-local
+bundles or routes. Four OBIMD component-candidate objects (`002744`–`002747`)
+now have opened-image observations in their own directories.
+
+来源简报记录了 `10364` 个已提交资产和 `2770` 个对象内资料包或路线。
+目前有四个 OBIMD 构件候选对象（`002744`–`002747`）已在各自目录中打开图像
+并记录观察。
+
+These four observations describe visible marks only. They do not confirm a
+component, character identity, reading, variant, inscription, period, or
+decipherment. The remaining bundles and review-image objects still require
+independent human review.
+
+这四份观察只描述可见痕迹，不确认构件、字形身份、释读、异体、卜辞、时期
+或破译。其余资料包和复核图像对象仍需独立人工复核。
+
+Concrete follow-up questions / 具体待查问题：
+
+- Which package manifest row supports each opened image and its checksum?
+- Does each image match the candidate UID, or is the match still pending?
+- Which catalogue, collection, plate, or excavation record locates the object?
+- Which inscription text, OCR, or neighboring-sign context can be cited?
+- Which mapping labels are source records rather than accepted relations?
+- Which rights wording governs the raw package and each derivative?
+- 每幅已打开图像由哪条来源包清单和 checksum 记录支持？
+- 图像是否与候选 UID 一致，还是仍待核对？
+- 哪条著录、馆藏、图版或出土记录能定位对象？
+- 哪条卜辞全文、OCR 或邻字语境可以引用？
+- 哪些映射标签只是来源记录，而不是已确认关系？
+- 原始包和每个派生件分别适用什么权利说明？
+
+Evidence paths / 证据路径：
+`22_source-research-brief.md`; `18_source-access-integrity-review.md`;
+`corpus/003_graphemic-components/028_002701-002800_obs-comp-cand-bucket_`
+`component-candidates/`

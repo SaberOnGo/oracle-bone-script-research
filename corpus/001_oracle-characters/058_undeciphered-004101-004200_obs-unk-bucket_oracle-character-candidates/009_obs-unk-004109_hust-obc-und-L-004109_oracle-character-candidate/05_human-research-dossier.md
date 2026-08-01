@@ -25,6 +25,7 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 ## 2. Glyph And Visual Evidence / 字形与图像证据
 
 - visual gallery: `04_visual-gallery.md`
+- material visual observation: `14_material-visual-observation.md`
 - visual source index: `02_visual-source-index.csv`
 - visual index rows: `1`
 - local review images: `1`
@@ -107,9 +108,10 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: The opened image shows a compact upper form, a curved
+  middle trace, and a short darker mark below.
+- 中文观察：已打开图像可见紧凑上部形态、弯曲中部痕迹和下方短深色痕迹。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.

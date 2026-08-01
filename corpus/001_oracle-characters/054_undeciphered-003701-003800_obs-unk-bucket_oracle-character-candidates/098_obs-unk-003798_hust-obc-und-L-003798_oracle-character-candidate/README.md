@@ -27,6 +27,8 @@ verify the human-readable evidence.
   `02_visual-source-index.csv`
 - Structured support readiness index / 结构化辅助准备度索引:
   `13_human-research-readiness-index.json`
+- Direct material visual observation / 直接材料视觉观察:
+  `14_material-visual-observation.md`
 
 ## Human Oracle Character Review Slots / 甲骨单字人工复核槽位
 

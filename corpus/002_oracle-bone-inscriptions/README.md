@@ -35,6 +35,8 @@ inscription record is created.
   stores 612 Cambridge/Hopkins finding-list crosswalk candidates.
 - `000_inscription-registers/003_cambridge-hopkins-classified-summary.csv`
   summarizes 20 Cambridge/Hopkins topic and period groups.
+- `000_inscription-registers/004_human-inscription-plate-presearch-map.md`
+  records the current human-readable inscription and plate review gaps.
 - `../009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-`
   `inscription-crosswalk-review-queue.csv`
   routes all 612 candidates into metadata-only human review.

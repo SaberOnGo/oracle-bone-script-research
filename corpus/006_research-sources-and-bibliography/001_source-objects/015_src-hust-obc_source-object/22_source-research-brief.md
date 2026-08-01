@@ -65,6 +65,24 @@ limits on research use.
   source_category_id -> oracle_character -> source_category_id;
   source_modern_label_candidate; linked_candidate_class_id
 
+## Human Route Reading Note / 人类来源路线阅读说明
+
+The raw package route keeps a class, bucket, local sequence, and file name.
+For example, `HUST-OBC/undeciphered/L/3833/L_Јї_8016.jpg` points to an
+undeciphered `L` route and a local image sequence.
+
+来源包路径保留类别、分桶、局部序号和文件名。例如，
+`HUST-OBC/undeciphered/L/3833/L_Јї_8016.jpg` 只能指向未释 `L` 路线和
+一个局部图像序号。
+
+The route does not by itself provide a primary plate, complete inscription,
+catalogue page, excavation record, collection object, or character position.
+Those links must remain concrete follow-up questions until a cited source record
+opens them.
+
+该路线本身不提供原始图版、完整卜辞、著录页、出土记录、馆藏对象或字形
+位置。在有引文的来源记录打开这些信息前，相关关联必须继续列为具体待查项。
+
 ## Current Pipeline Gap / 当前流水线缺口
 
 - Committed assets: `10996`; committed bytes: `53009139`.
@@ -73,8 +91,10 @@ limits on research use.
 - 对象内资料包/路线：`12585`；复核图像对象：`10996`。
 - Graph edges: `27291`; promotion-queue candidates: `1588`.
 - 图边：`27291`；提升队列候选：`1588`。
-- Direct visual observations currently cover `5427` of `10996` images.
-- 当前直接视觉观察覆盖 `10996` 幅图像中的 `5427` 幅。
+- Direct visual observations currently cover `5455` of `10996` images.
+- 当前直接视觉观察覆盖 `10996` 幅图像中的 `5455` 幅。
+- Images with a local derivative but no direct observation: `5541`.
+- 已有本地派生件但尚无直接观察的图像：`5541` 幅。
 - Human review is still pending; source and image rights remain risk-marked.
 - 人工复核仍待完成；来源和图像权利仍标为有风险。
 

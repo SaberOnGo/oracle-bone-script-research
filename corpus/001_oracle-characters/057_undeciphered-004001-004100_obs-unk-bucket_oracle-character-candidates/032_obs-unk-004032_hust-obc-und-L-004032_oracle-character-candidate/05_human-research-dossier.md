@@ -107,9 +107,13 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A long curved or upright trace runs along the right
+  side. At the left is a branching upper trace above a compact rounded area
+  with small internal openings. The crop does not show whether the two sides
+  are connected.
+- 中文观察：右侧有长而弯曲或直立的痕迹；左侧分叉上痕迹下方有紧凑的圆弧区域，
+    内部可见小型留白。图像未显示左右两侧是否相连。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +250,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

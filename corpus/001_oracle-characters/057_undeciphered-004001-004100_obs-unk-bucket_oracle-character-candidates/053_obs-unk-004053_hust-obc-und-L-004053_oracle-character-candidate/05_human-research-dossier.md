@@ -107,9 +107,13 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: Short angular traces occupy the upper area. A narrow
+  central trace descends into a compact darker lower loop-like area. The
+  coarse arrangement appears visually similar to candidate 004037; no
+  checksum or deduplication decision has been made.
+- 中文观察：上部有数条短折痕，中央细痕向下进入紧凑而较深的近似环状区域。
+  整体粗略形态似与候选 004037 相近；尚未进行 checksum 或去重判定。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +250,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

@@ -107,9 +107,12 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A long dark stroke slopes down into a compact lower
+  cluster. The lower cluster includes a wedge-like outline and a small
+  enclosed or recessed mark on the right. The outer joins remain uncertain.
+- 中文观察：一条较长的深色痕迹斜向下进入紧凑的下部痕迹组。下部包含近似
+  楔形的轮廓，右侧有小型封闭或凹入痕迹。外部连接点仍待核查。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +249,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

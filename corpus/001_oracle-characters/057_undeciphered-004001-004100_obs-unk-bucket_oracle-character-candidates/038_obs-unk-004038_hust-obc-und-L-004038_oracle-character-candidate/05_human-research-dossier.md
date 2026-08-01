@@ -107,9 +107,13 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: A thin branching trace rises on the left, with several
+  short marks near the upper right. A longer central trace descends toward the
+  lower edge. The image appears similar to a nearby candidate, but no checksum
+  or deduplication decision has been made.
+- 中文观察：左侧有细长分叉痕迹，右上附近有数枚短痕；较长中央痕迹向下延伸至下缘。
+    图像与邻近候选外观相似，但尚未完成 checksum 或去重判断。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -246,6 +250,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `14_material-visual-observation.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

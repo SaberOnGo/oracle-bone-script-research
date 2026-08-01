@@ -31,6 +31,7 @@ verification.
 ## Glyph Image Observation / 字形图像观察
 
 - local_image_status: `source_image_extracted`
+- direct_material_observation: `18_material-visual-observation.md`
 - visual_asset_count: `1`
 - glyph_codepoint_count: `2`
 - glyph_codepoint_uplus_sample: `U+FF818, U+FF819`

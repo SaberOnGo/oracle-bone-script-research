@@ -32,4 +32,6 @@ assignment, and not a decipherment claim.
 - source_zip_member: `Sub-character Images/bt5y2iq3kp/bt5y2iq3kp/bt5y2iq3kp.png`
 - checksum_sha256: see `06_component-visual-index.csv`.
 - review_status: `needs_human_visual_review`
+- direct_material_observation: `18_material-visual-observation.md`
+- component_review_status: `needs_human_component_review`
 - caution: source-marked review image only.

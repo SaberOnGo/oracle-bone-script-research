@@ -26,4 +26,13 @@ component assignment, or decipherment.
 
 | Asset ID | Source zip member | Image legible? | Matches candidate UID? | Reuse acceptable? | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `asset-021361` | `Sub-character Images/wwo5dsfe25/wwo5dsfe25/wwo5dsfe25.png` | pending | pending | pending | |
+| `asset-021361` | `Sub-character Images/wwo5dsfe25/wwo5dsfe25/wwo5dsfe25.png` | yes | pending | pending | Opened; see 18_material-visual-observation.md. |
+
+## Research Slots / 研究资料槽位
+
+- Meaning or reading: 待查：是否有来源明确提出释义或释读？
+- Scholarship: 待查：应核对哪些书目、论文、提出者和不同意见？
+- Excavation: 待查：出土地、馆藏、时期和著录依据是什么？
+- Inscription: 待查：关联哪条卜辞、全文、图版和合集记录？
+- Boundary: these are review questions, not accepted conclusions.
+- 边界：以上是复核问题，不是已确认的结论。

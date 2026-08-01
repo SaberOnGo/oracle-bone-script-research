@@ -62,6 +62,7 @@ Structured support files only serve the human component dossier.
 - `05_component-visual-assets/`: Source-marked OBIMD PNG review assets.
 - `06_component-visual-index.csv`: Structured support index for visual assets.
 - `07_component-visual-gallery.md`: Human component image gallery.
+- `18_material-visual-observation.md`: Human-readable material observation.
 - `08_human-visual-review-sheet.md`: Manual visual review sheet.
 - `09_component-visual-route-index.csv`: Structured support index for visual
   routes.

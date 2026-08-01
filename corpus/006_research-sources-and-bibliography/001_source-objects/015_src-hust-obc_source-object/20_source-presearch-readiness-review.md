@@ -114,3 +114,36 @@ scope, rights boundary, and concrete missing questions in one readable place.
 - 不是卜辞身份确认
 - 不是字形对应结论
 - 不是破译结论
+
+## Object-Level Visual Review Checkpoint / 对象级图像复核检查点
+
+As of 2026-08-01, the repository audit lists `10996` HUST-OBC character
+objects with local image derivatives. `5503` objects have a separate
+object-local `14_material-visual-observation.md` record, while `5493` still
+need a direct visual observation.
+
+截至 2026-08-01，仓库审计显示 HUST-OBC 的 `10996` 个单字对象都有本地
+图像派生件。其中 `5503` 个对象已有对象内独立的
+`14_material-visual-observation.md`，仍有 `5493` 个对象需要直接图像观察。
+
+The audited records are preparation-stage visual notes. They do not confirm
+character identity, reading, component structure, inscription identity,
+period, or decipherment.
+
+审计记录只是准备阶段的图像观察，不确认字形身份、释读、构件结构、卜辞
+身份、时期或破译。
+
+Concrete follow-up questions / 具体待查问题：
+
+- Which remaining image route should be opened next, and who will review it?
+- Which catalogue, plate, collection, or excavation record supports each route?
+- Which full inscription, OCR, or neighboring-sign context can be cited?
+- Which rights statement governs each derivative and its public reuse?
+- 下一步应打开哪条剩余图像路线，由谁复核？
+- 每条路线由哪条著录、图版、馆藏或出土记录支持？
+- 哪一条完整卜辞、OCR 或邻字语境可以引用？
+- 每个派生件适用哪一条权利说明，公开复用边界是什么？
+
+Evidence path / 证据路径:
+`corpus/009_statistics-and-derived-features/226_character-visual-
+observation-coverage-audit.md`

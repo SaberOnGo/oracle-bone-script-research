@@ -853,13 +853,15 @@ def context_index(
         "project_id": project_id,
         "updated_at": UPDATED_AT,
         "object_dir": object_dir.relative_to(root).as_posix(),
-        "human_readable_files": [
+        "human_readable_files": ([
             "README.md",
             "04_visual-gallery.md",
             "05_human-research-dossier.md",
             "06_human-review-sheet.md",
             "08_character-context-evidence-dossier.md",
-        ],
+        ] + (['14_material-visual-observation.md']
+             if (object_dir / "14_material-visual-observation.md").exists()
+             else [])),
         "ai_support_files": [
             "01_*packet.json",
             "02_visual-source-index.csv",

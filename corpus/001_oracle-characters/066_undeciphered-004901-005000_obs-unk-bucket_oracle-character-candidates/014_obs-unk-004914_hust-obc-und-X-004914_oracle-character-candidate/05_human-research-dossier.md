@@ -70,6 +70,17 @@ accepted reading, or rights clearance.
   or component conclusion?
 - 哪条观察只是来源记录，而不是释读或构件结论？
 
+### Opened Image Observation / 已打开图像观察
+
+- Direct record: `14_material-visual-observation.md`
+- The image is a noisy high-contrast crop without a clean outer boundary.
+- Reliable stroke separation remains pending a source-quality review.
+- 直接记录：`14_material-visual-observation.md`
+- 图像是噪声较多的高反差裁切，缺少清晰外轮廓。
+- 可靠区分单独笔画仍待来源质量复核。
+- These are direct visible marks only, not a component or reading.
+- 这些只是直接可见痕迹，不是构件归属或释读。
+
 ### Source Record Ledger / 来源记录台账
 
 The following values are copied from the current candidate packet, visual

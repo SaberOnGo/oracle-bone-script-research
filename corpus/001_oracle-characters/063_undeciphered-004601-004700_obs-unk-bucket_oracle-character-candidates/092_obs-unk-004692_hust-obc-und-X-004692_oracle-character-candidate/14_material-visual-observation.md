@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004692`
 - Source asset: `001_asset-006285_hust-obc-und-X-004692_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - Two main dark stroke groups stand apart on a pale background.
 - The left group has a short upper horizontal extension.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Are the two groups separated on the original surface or by cropping?
 - Does the source scan clarify the right group's branch junctions?

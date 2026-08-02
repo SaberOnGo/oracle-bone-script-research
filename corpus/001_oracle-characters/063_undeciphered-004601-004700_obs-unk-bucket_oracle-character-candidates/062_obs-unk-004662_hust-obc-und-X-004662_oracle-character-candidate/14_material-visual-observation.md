@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004662`
 - Source asset: `001_asset-006255_hust-obc-und-X-004662_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - An irregular tall contour surrounds a pale central field.
 - The upper-left region bends around a small pale opening.
@@ -21,7 +21,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Are the two inner vertical strokes attached to the outer contour?
 - Does the source scan clarify the right-side branch terminal?

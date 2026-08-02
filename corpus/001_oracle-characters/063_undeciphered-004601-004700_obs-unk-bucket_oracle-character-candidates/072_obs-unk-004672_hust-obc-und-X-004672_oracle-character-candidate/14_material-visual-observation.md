@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004672`
 - Source asset: `001_asset-006265_hust-obc-und-X-004672_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - Several separated strokes occupy the image.
 - The left group branches upward from a lower crossing.
@@ -21,7 +21,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Are the left and central groups part of one source sign?
 - Does the original scan clarify the right group's separation?

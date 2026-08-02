@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004652`
 - Source asset: `001_asset-006245_hust-obc-und-X-004652_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; source-count discrepancy pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - A tall narrow contour rises to a pointed upper region.
 - A small pale opening is enclosed near the upper part.
@@ -25,7 +25,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Where is the second source image for this candidate?
 - Does the second view change the apparent open lower end?

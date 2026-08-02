@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004638`
 - Source asset: `001_asset-006231_hust-obc-und-X-004638_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - A thick, roughly rectangular contour encloses a pale central field.
 - The top edge is broadly horizontal but has several uneven interruptions.
@@ -21,7 +21,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Is the upper-right projection continuous with the main contour?
 - Does a source scan show whether the lower projection is a break or a stroke?

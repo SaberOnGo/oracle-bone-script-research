@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004680`
 - Source asset: `001_asset-006273_hust-obc-und-X-004680_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; source views pending retrieval
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - The image combines a left block with a tall right-hand stroke.
 - The upper left block encloses a large pale rectangular opening.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Where are the three additional source images for this candidate?
 - Do the other views clarify the left block's lower boundary?

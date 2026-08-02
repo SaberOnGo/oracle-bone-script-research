@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004690`
 - Source asset: `001_asset-006283_hust-obc-und-X-004690_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - Several narrow dark strokes stand separately across the image width.
 - The leftmost stroke is broader and has an uneven lower end.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Are the separated central strokes connected in the source scan?
 - Does the right curve continue beyond the visible lower edge?

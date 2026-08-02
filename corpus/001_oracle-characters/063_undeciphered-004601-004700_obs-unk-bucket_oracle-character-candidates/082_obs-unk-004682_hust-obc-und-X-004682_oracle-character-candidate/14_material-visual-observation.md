@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004682`
 - Source asset: `001_asset-006275_hust-obc-und-X-004682_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; image-polarity review pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - A dark rectangular field fills the image around a pale central band.
 - The pale band widens sharply into a broad upper diamond-like area.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Is the pale central band a mark or an inverted image background?
 - Can an unthresholded scan recover the upper and lower boundaries?

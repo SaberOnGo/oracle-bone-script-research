@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004686`
 - Source asset: `001_asset-006279_hust-obc-und-X-004686_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - Two adjoining dark blocks form a broad horizontal arrangement.
 - The left block has two upward prongs and a pale lower opening.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Are the two blocks continuous in the original surface image?
 - Does the pale gap continue below the visible central opening?

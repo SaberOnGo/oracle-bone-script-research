@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004647`
 - Source asset: `001_asset-006240_hust-obc-und-X-004647_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - A tall dark form leans from the upper-left toward the lower center.
 - Two pale openings interrupt the upper and middle portions.
@@ -21,7 +21,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Are the upper and middle openings preserved in the source scan?
 - Is the thin right contour a separate neighboring mark?

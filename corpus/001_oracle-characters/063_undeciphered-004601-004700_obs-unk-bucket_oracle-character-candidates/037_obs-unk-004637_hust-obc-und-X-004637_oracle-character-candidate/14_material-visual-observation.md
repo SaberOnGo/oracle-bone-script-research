@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004637`
 - Source asset: `001_asset-006230_hust-obc-und-X-004637_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; internal grouping pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - A thick curved contour forms most of an enclosed, pale interior field.
 - The contour is broader on the right and narrows toward a lower-left tail.
@@ -21,7 +21,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Does the source package contain another view of this candidate?
 - Does the full-resolution image confirm the apparent lower-left tail?

@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004687`
 - Source asset: `001_asset-006280_hust-obc-und-X-004687_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; two source views pending retrieval
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - A curved outer line forms a broad upper cap across the image.
 - Several short dark strokes sit inside the upper outlined area.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Where are the two additional source images for this candidate?
 - Do other views clarify the upper cap and inner short strokes?

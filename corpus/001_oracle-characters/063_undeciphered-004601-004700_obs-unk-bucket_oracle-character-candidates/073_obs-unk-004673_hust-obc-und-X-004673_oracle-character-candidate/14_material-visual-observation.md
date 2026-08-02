@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004673`
 - Source asset: `001_asset-006266_hust-obc-und-X-004673_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; image-quality review pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - Dense black areas occupy both side margins and the lower edge.
 - Irregular pale gaps divide a mostly vertical central band.
@@ -23,7 +23,7 @@
 - These observations describe visible marks only; no component, variant, or
   reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Can the source scan restore marks lost in the dense black areas?
 - Is the central pale band one mark or multiple gaps?

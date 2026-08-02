@@ -1,4 +1,4 @@
-# Material Visual Observation / Material Visual Observation
+# Material Visual Observation / 材料图像观察
 
 - Object: `obs-unk-004657`
 - Source asset: `001_asset-006250_hust-obc-und-X-004657_glyph.jpg`
@@ -6,7 +6,7 @@
 - Observation date: `2026-08-02`
 - Review status: direct visual record; image quality review pending
 
-## Direct Visual Record / Direct Visual Record
+## Direct Visual Record / 直接可见记录
 
 - The derivative has a large dark background with light, broken regions.
 - A broad pale diagonal region runs from the upper-left toward the center.
@@ -21,7 +21,7 @@
 - These observations describe image quality and visible contrast only; no
   component, variant, or reading is assigned.
 
-## Follow-up Questions / Follow-up Questions
+## Follow-up Questions / 待查问题
 
 - Can an unthresholded source image replace this noisy derivative?
 - Which processing step inverted or fragmented the visible regions?

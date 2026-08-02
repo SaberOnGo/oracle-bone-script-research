@@ -70,6 +70,17 @@ accepted reading, or rights clearance.
   or component conclusion?
 - 哪条观察只是来源记录，而不是释读或构件结论？
 
+### Opened Image Observation / 已打开图像观察
+
+- Direct record: `14_material-visual-observation.md`
+- Two separated groups are visible with a long right descent.
+- The single source view is present locally.
+- 直接记录：`14_material-visual-observation.md`
+- 可见两组彼此分开，右侧有长下行笔画。
+- 单一来源视图已在本地保存。
+- These are direct visible marks only, not a component or reading.
+- 这些只是直接可见痕迹，不是构件归属或释读。
+
 ### Source Record Ledger / 来源记录台账
 
 The following values are copied from the current candidate packet, visual

@@ -59,6 +59,16 @@ accepted reading, or rights clearance.
 
 这些行只标出带来源的复核图像和来源图片路线。它们是视觉证据入口，不是字形分析、构件归属、已接受释读或权利清理结论。
 
+### Opened Image Observation / 已打开图像观察
+
+- Direct record: `14_material-visual-observation.md`
+- A tall bending left stroke and a broad inner curve are visible.
+- The source packet records one expected view and one local image.
+- 直接记录：`14_material-visual-observation.md`
+- 可见左侧高位弯折笔画和较宽内弧。
+- 来源包记录一个预期视图，当前有一个本地图像。
+- These are direct visible marks only, not a component or reading.
+
 ### Glyph Observation Checklist / 字形观察记录
 
 - Which visible strokes, outlines, breaks, or uncertain marks

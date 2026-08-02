@@ -1,11 +1,12 @@
 {
   "record_type": "character_human_research_readiness_index",
   "project_id": "obs-unk-004453",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-08-02",
   "object_dir": "corpus/001_oracle-characters/061_undeciphered-004401-004500_obs-unk-bucket_oracle-character-candidates/053_obs-unk-004453_hust-obc-und-X-004453_oracle-character-candidate",
   "human_readable_files": [
     "README.md",
     "04_visual-gallery.md",
+    "14_material-visual-observation.md",
     "05_human-research-dossier.md",
     "06_human-review-sheet.md",
     "08_character-context-evidence-dossier.md",
@@ -31,7 +32,7 @@
     "source_manifest_checksum_field_map_risk"
   ],
   "missing_evidence_questions": [
-    "which opened image row supports the first glyph observation",
+    "which catalog or source row corroborates the recorded visual observation",
     "which stroke outline damage or uncertain mark remains pending",
     "which variant or near form image must be compared side by side",
     "which component clue is only a candidate route",
@@ -43,7 +44,7 @@
     "which manifest checksum field map rights note and risk note apply"
   ],
   "quality_blockers": [
-    "glyph_observation_not_reviewed_from_opened_image",
+    "glyph_observation_recorded_but_source_context_pending",
     "variant_near_form_comparison_pending",
     "component_assignment_not_reviewed",
     "inscription_context_not_tied_to_opened_text",
@@ -68,6 +69,8 @@
     "source_image_route_count": "1",
     "first_committed_image": "001_asset-006046_hust-obc-und-X-004453_glyph.jpg",
     "first_source_image_route": "X_？_8188_1.png",
+    "observation_record": "14_material-visual-observation.md",
+    "observation_status": "direct_visual_record_present",
     "rights_status": "source_marked_risk_noted",
     "review_status": "needs_human_visual_review"
   },

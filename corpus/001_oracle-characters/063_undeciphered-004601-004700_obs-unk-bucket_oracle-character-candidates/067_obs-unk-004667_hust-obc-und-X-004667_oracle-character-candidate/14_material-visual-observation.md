@@ -1,0 +1,34 @@
+# Material Visual Observation / Material Visual Observation
+
+- Object: `obs-unk-004667`
+- Source asset: `001_asset-006260_hust-obc-und-X-004667_glyph.jpg`
+- Source route: `HUST-OBC/undeciphered/X/223/X_？_8394_1.png`
+- Observation date: `2026-08-02`
+- Review status: direct visual record; internal grouping pending
+
+## Direct Visual Record / Direct Visual Record
+
+- A broad horizontal form extends across the image.
+- The left end curls around a dark rounded cluster.
+- The right end rises into a thick vertical terminal.
+- A shallow pale opening lies beneath the upper left region.
+- A small separate horizontal mark sits below the main form.
+- 一条宽的横向形体横贯图像。
+- 左端围绕一团深色圆弧聚集并向内弯曲。
+- 右端向上收成粗重的竖向端部。
+- 左上区域下方有一处浅色开口。
+- 主体下方另有一条分离的短横向痕迹。
+- These observations describe visible marks only; no component, variant, or
+  reading is assigned.
+
+## Follow-up Questions / Follow-up Questions
+
+- Is the lower separate mark part of the same source sign?
+- Does the original scan clarify the left curled cluster?
+- Which plate or catalog record preserves the right terminal?
+- 下方分离痕迹是否属于同一来源字形？
+- 原始扫描能否澄清左侧卷曲聚集？
+- 哪条图版或著录记录保存了右侧端部？
+
+This record describes visible marks only. It does not assign a component,
+variant, period, inscription identity, reading, meaning, or decipherment.

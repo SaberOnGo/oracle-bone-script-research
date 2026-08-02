@@ -1,0 +1,30 @@
+# Material Visual Observation / 材料图像观察
+
+- Object: `obs-unk-004392`
+- Source asset: `001_asset-005985_hust-obc-und-L-004392_glyph.jpg`
+- Source route: `HUST-OBC/undeciphered/L/4392/L_？_9766.jpg`
+- Observation date: `2026-08-02`
+- Review status: direct visual record; identity and reading pending
+
+## Direct Visual Record / 直接可见记录
+
+- A small irregular cluster occupies the left side of the image.
+- A long right trace descends from a short upper angular mark.
+- A separate pointed outline appears near the upper right.
+- The lower left cluster has several short dark projections.
+- 左侧有一组不规则的小型痕迹群。
+- 一条右侧长痕从上部短斜角痕迹向下延伸。
+- 右上附近另有一处尖状轮廓。
+- 左下痕迹群带有数处短小深色伸出痕迹。
+
+## Follow-up Questions / 待查问题
+
+- Which manifest and checksum verify this local crop?
+- Is the long right trace connected to the upper pointed outline?
+- Can a wider image clarify the left projections and terminals?
+- 哪份清单和 checksum 可以核对这张本地裁剪图？
+- 右侧长痕是否与上部尖状轮廓相连？
+- 是否有更宽图像可核对左侧伸出痕迹和末端？
+
+This record describes visible marks only. It does not assign a component,
+variant, period, inscription identity, reading, meaning, or decipherment.

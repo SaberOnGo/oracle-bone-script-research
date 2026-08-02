@@ -59,6 +59,17 @@ accepted reading, or rights clearance.
 
 这些行只标出带来源的复核图像和来源图片路线。它们是视觉证据入口，不是字形分析、构件归属、已接受释读或权利清理结论。
 
+### Opened Image Observation / 已打开图像观察
+
+- Direct record: `14_material-visual-observation.md`
+- One of five expected views was opened; a central opening and lower branches
+  are visible.
+- 直接记录：`14_material-visual-observation.md`
+- 五个预期视图中当前打开一个，可见中央开口和下部分枝。
+- The remaining source views are a concrete follow-up requirement.
+- 其余来源视图是明确的后续待查项。
+- These are direct visible marks only, not a component or reading.
+
 ### Glyph Observation Checklist / 字形观察记录
 
 - Which visible strokes, outlines, breaks, or uncertain marks

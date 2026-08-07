@@ -199,6 +199,8 @@ def human_markdown_path(relative: str) -> bool:
     # components, or inscription text would be a category error.
     if path.name == "225_source-access-boundary-human-review.md":
         return False
+    if path.name == "230_preformal-research-preprocessing-closure.md":
+        return True
     # Review sheets and topic routing dossiers are support materials.  Their
     # route/checklist language is intentional and must not be scored as the
     # substance of a human-readable character or source dossier.

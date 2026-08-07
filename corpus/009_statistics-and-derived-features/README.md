@@ -89,6 +89,8 @@ substitutes for object-local dossiers, source records, or review sheets.
   gives a human-readable guide for character candidate phase gaps.
 - `219_shape-component-evolution-phase-gap-human-guide.md`
   gives a human-readable guide for shape, component, and evolution gaps.
+- `230_preformal-research-preprocessing-closure.md`
+  records the human-first closure boundary and remaining review questions.
 
 ### Character-Inscription Linkage Review / 字形—卜辞关联复核
 

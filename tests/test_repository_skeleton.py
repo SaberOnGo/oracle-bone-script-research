@@ -30497,6 +30497,19 @@ class RepositorySkeletonTests(unittest.TestCase):
                 continue
             self.assertLessEqual(len(line), 80, line)
 
+    def test_preformal_closure_report_is_bilingual_and_wrapped(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            "230_preformal-research-preprocessing-closure.md"
+        )
+        self.assertTrue(path.exists())
+        text = path.read_text(encoding="utf-8")
+        self.assertIn("Human Archive Coverage / 人类档案覆盖", text)
+        self.assertIn("正式研究状态", text)
+        self.assertIn("no_claim", text)
+        self.assertFalse(any(len(line) > 80 for line in text.splitlines()))
+
     def test_character_candidate_phase_gap_human_guide_builder(self) -> None:
         module = load_character_candidate_phase_gap_human_guide_module()
         text = module.build_markdown(repo_root())

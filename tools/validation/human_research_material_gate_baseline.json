@@ -3,10 +3,10 @@
   "purpose": "Regression gate for human-readable research material drift.",
   "note": "This baseline records current debt; it is not an acceptance target.",
   "maximums": {
-    "scanned_markdown_count": 122109,
-    "machine_dominant_docs": 52264,
-    "missing_core_research_docs": 43856,
-    "modern_label_risk_docs": 1588,
-    "mojibake_docs": 3
+    "scanned_markdown_count": 156793,
+    "machine_dominant_docs": 0,
+    "missing_core_research_docs": 0,
+    "modern_label_risk_docs": 0,
+    "mojibake_docs": 0
   }
 }

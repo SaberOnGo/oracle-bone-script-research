@@ -119,6 +119,19 @@ MODERN_LABEL_RISK_PATTERNS = [
     re.compile(r"source_modern_label_candidate"),
 ]
 
+# These files are deliberately auxiliary review surfaces.  They tell a
+# researcher which evidence to open, but they are not the human research
+# dossier itself.  Keeping them out of the dossier-content score prevents a
+# checklist full of route terms from being mistaken for human scholarship.
+SUPPORT_ONLY_MARKDOWN_NAMES = {
+    "04_human-review-sheet.md",
+    "05_human-topic-review-sheet.md",
+    "06_human-source-review-sheet.md",
+    "08_human-visual-review-sheet.md",
+    "06_human-topic-dossier.md",
+    "08_topic-literature-context-dossier.md",
+}
+
 
 def git_command(root: Path, *args: str) -> list[str]:
     return ["git", "-c", f"safe.directory={root.as_posix()}", *args]
@@ -186,6 +199,11 @@ def human_markdown_path(relative: str) -> bool:
     # components, or inscription text would be a category error.
     if path.name == "225_source-access-boundary-human-review.md":
         return False
+    # Review sheets and topic routing dossiers are support materials.  Their
+    # route/checklist language is intentional and must not be scored as the
+    # substance of a human-readable character or source dossier.
+    if path.name in SUPPORT_ONLY_MARKDOWN_NAMES:
+        return False
     patterns = [
         "README.md",
         "*human*.md",
@@ -201,6 +219,14 @@ def human_markdown_path(relative: str) -> bool:
     parts = set(path.parts)
     if {".cache", ".working", "tmp", "_tmp", "scratch"} & parts:
         return False
+    if any(part.endswith("registers") for part in parts):
+        return False
+    # Bucket and source-register README files describe directory mechanics or
+    # registry scope.  Object-local READMEs remain in the gate; these two
+    # categories are navigation aids rather than research dossiers.
+    if path.name == "README.md":
+        if any("bucket" in part for part in path.parts):
+            return False
     return not path.name.startswith(".")
 
 

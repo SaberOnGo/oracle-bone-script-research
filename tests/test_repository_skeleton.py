@@ -2913,6 +2913,37 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
         )
 
+    def test_human_research_material_gate_keeps_support_surfaces_secondary(self) -> None:
+        module = load_human_research_material_gate_module()
+        self.assertFalse(
+            module.human_markdown_path(
+                "corpus/004_bronze-seal-modern-correspondences/"
+                "001_000001-000100_obs-evo-cand-bucket_evolution-candidates/"
+                "001_obs-evo-cand-000001_evobc-cat-00001_evolution-candidate/"
+                "04_human-review-sheet.md"
+            )
+        )
+        self.assertFalse(
+            module.human_markdown_path(
+                "corpus/003_graphemic-components/"
+                "001_000001-000100_obs-comp-cand-bucket_component-candidates/"
+                "001_obs-comp-cand-000001_obimd-sub-p8w7ujqanz_component-candidate/"
+                "08_human-visual-review-sheet.md"
+            )
+        )
+        self.assertFalse(
+            module.human_markdown_path(
+                "corpus/001_oracle-characters/"
+                "001_000001-000100_obs-char-bucket_oracle-characters/README.md"
+            )
+        )
+        self.assertFalse(
+            module.human_markdown_path(
+                "corpus/006_research-sources-and-bibliography/"
+                "000_source-registers/004_first-stage-source-adoption-notes.md"
+            )
+        )
+
     def test_bilingual_markers_exist(self) -> None:
         self.assertEqual(check_bilingual_markers(repo_root()), [])
 

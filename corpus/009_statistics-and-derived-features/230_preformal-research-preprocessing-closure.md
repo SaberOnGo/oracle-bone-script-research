@@ -21,7 +21,7 @@ statistics, and validation.
 ## Snapshot / 快照
 
 - Snapshot date / 快照日期: `2026-08-07`
-- Repository commit / 仓库提交: `407b746299506fa1476d8ed188e424ee791ff13f`
+- Repository commit / 仓库提交: `c58eea95a97`
 - Human archive status / 人类档案状态:
   `preprocessing_ready_for_human_review`
 - Formal research status / 正式研究状态: `not_started`

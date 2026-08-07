@@ -131,7 +131,8 @@ English:
   candidate with a local image.
 - `repair_hust_obc_material_visual_observations.py` keeps existing visible
   descriptions, normalizes follow-up and boundary headings, and wraps every
-  HUST object-local visual note to 80 characters.
+  HUST object-local visual note to 80 characters; it also repairs promoted
+  character context indexes that omitted the visual route.
 - The profile is a reproducible routing fact, not a human stroke observation.
   Each object still needs a person to open the image and record visible marks,
   damage, context, and limits.
@@ -144,7 +145,7 @@ English:
   并为有本地图像的其余未释候选补入像素 profile。
 - `repair_hust_obc_material_visual_observations.py` 保留已有可见描述，
   统一待查与边界标题，并把每个 HUST 对象内图像观察 Markdown 控制在
-  每行 80 字符以内。
+  每行 80 字符以内；同时修复已提升单字的 context index 中遗漏的图像路线。
 - profile 只是可复现的路线事实，不是人工笔画观察。每个对象仍需由人打开图像，
   记录可见痕迹、残损、语境和观察边界。
 - 脚本还把 `14_material-visual-observation.md` 路线加入同一对象的 README 和研究索引，

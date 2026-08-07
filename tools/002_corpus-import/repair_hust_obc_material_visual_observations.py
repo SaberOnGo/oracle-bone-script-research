@@ -19,6 +19,7 @@ from pathlib import Path
 
 CHARACTER_ROOT = Path("corpus/001_oracle-characters")
 OBSERVATION_NAME = "14_material-visual-observation.md"
+CONTEXT_INDEX_NAME = "09_character-context-evidence-index.json"
 MAX_LINE_LENGTH = 80
 
 NEXT_HEADING = "## Next Checks / 下一步核查"
@@ -154,6 +155,29 @@ def repair_text(text: str) -> tuple[str, dict[str, bool]]:
     }
 
 
+def ensure_context_index_link(path: Path) -> bool:
+    """Add the visual note to the context dossier's human-file list."""
+
+    if not path.exists():
+        return False
+    data = json.loads(path.read_text(encoding="utf-8"))
+    files = data.get("human_readable_files")
+    if not isinstance(files, list) or OBSERVATION_NAME in files:
+        return False
+    insert_at = len(files)
+    for index, value in enumerate(files):
+        if value == "08_character-context-evidence-dossier.md":
+            insert_at = index + 1
+            break
+    files.insert(insert_at, OBSERVATION_NAME)
+    path.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    return True
+
+
 def repair(root: Path) -> dict[str, int]:
     root = root.resolve()
     scanned = 0
@@ -161,12 +185,16 @@ def repair(root: Path) -> dict[str, int]:
     wrapped_files = 0
     added_next = 0
     added_boundary = 0
+    context_index_links_added = 0
     for path in sorted((root / CHARACTER_ROOT).rglob(OBSERVATION_NAME)):
         if "hust-obc" not in path.parent.name:
             continue
         scanned += 1
         original = path.read_text(encoding="utf-8")
         repaired, details = repair_text(original)
+        index_path = path.parent / CONTEXT_INDEX_NAME
+        if ensure_context_index_link(index_path):
+            context_index_links_added += 1
         if repaired == original:
             continue
         path.write_text(repaired, encoding="utf-8", newline="\n")
@@ -181,6 +209,7 @@ def repair(root: Path) -> dict[str, int]:
         "wrapped_or_reformatted": wrapped_files,
         "next_sections_added": added_next,
         "boundary_sections_added": added_boundary,
+        "context_index_links_added": context_index_links_added,
     }
 
 

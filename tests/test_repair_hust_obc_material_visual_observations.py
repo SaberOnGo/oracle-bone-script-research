@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -72,6 +73,40 @@ class RepairHustObcMaterialVisualObservationTests(unittest.TestCase):
             self.assertEqual(result["scanned"], 1)
             self.assertEqual(result["changed"], 1)
             self.assertIn("Next Checks", note.read_text(encoding="utf-8"))
+
+    def test_context_index_receives_visual_route_without_note_rewrite(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            object_dir = (
+                root
+                / "corpus/001_oracle-characters/001_bucket/001_obs-char-000001_hust-obc"
+            )
+            object_dir.mkdir(parents=True)
+            note = object_dir / "14_material-visual-observation.md"
+            note.write_text(
+                "# Note\n\n## Direct Visual Record / 直接可见记录\n\n"
+                "## Next Checks / 下一步核查\n\n"
+                "## Boundary / 边界\n",
+                encoding="utf-8",
+            )
+            index = object_dir / "09_character-context-evidence-index.json"
+            index.write_text(
+                json.dumps(
+                    {"human_readable_files": [
+                        "README.md",
+                        "08_character-context-evidence-dossier.md",
+                    ]},
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            before = note.read_text(encoding="utf-8")
+            result = MODULE.repair(root)
+            self.assertEqual(result["changed"], 0)
+            self.assertEqual(result["context_index_links_added"], 1)
+            self.assertEqual(note.read_text(encoding="utf-8"), before)
+            files = json.loads(index.read_text(encoding="utf-8"))["human_readable_files"]
+            self.assertIn("14_material-visual-observation.md", files)
 
 
 if __name__ == "__main__":

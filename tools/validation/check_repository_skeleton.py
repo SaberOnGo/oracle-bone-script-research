@@ -10861,8 +10861,8 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
 
     expected_totals = {
         "download_manifest_count": 54,
-        "download_log_count": 55,
-        "downloaded_file_bytes": 685760459,
+        "download_log_count": 58,
+        "downloaded_file_bytes": 1496662020,
         "metadata_profile_metric_count": 92,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,
@@ -10900,7 +10900,7 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "coverage_status": "has_relationship_graph_derivatives",
         },
         "src-obimd": {
-            "download_status_counts": "downloaded:6;downloaded_to_external_archive:1",
+            "download_status_counts": "downloaded:6;downloaded_to_external_archive:4",
             "committed_asset_count": "10364",
             "committed_asset_bytes": "38387085",
             "asset_rights_status_counts": "licensed_for_repository:10364",
@@ -11011,14 +11011,14 @@ def check_preprocessing_status_audit(root: Path) -> list[str]:
     expected_fragments = {
         "source_registry": [
             "source_rows:21",
-            "download_log_rows:55",
-            "downloaded_rows:44",
+            "download_log_rows:58",
+            "downloaded_rows:47",
             "download_error_or_boundary_rows:11",
         ],
         "large_source_register": [
             "large_source_rows:4",
             "downloaded_large_source_rows:2",
-            "not_downloaded_registered_rows:2",
+            "not_downloaded_registered_rows:1",
         ],
         "oracle_character_candidates": [
             "validation_class_rows:1588",
@@ -11453,11 +11453,11 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "access_boundary_or_error_count": 13,
         "asset_count": 21363,
         "candidate_queue_count": 10996,
-        "checksum_present_count": 44,
+        "checksum_present_count": 47,
         "cross_source_crosswalk_match_count": 1737,
-        "download_log_count": 55,
+        "download_log_count": 58,
         "download_manifest_count": 54,
-        "downloaded_count": 44,
+        "downloaded_count": 47,
         "field_map_count": 78,
         "graph_edge_count": 130881,
         "large_source_register_count": 18,
@@ -11469,8 +11469,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "object_local_review_image_object_count": 13715,
         "object_local_route_object_count": 29905,
         "package_manifest_count": 38,
-        "size_recorded_count": 55,
-        "source_phase_action_count": 62,
+        "size_recorded_count": 58,
+        "source_phase_action_count": 49,
         "source_route_review_queue_count": 21,
     }
     if summary.get("totals") != expected_totals:
@@ -11492,8 +11492,8 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         },
         "src-obimd": {
             "current_stage": "pending_human_review",
-            "downloaded_count": "7",
-            "checksum_present_count": "7",
+            "downloaded_count": "10",
+            "checksum_present_count": "10",
             "asset_count": "10364",
             "graph_edge_count": "47239",
             "large_source_register_count": "1",
@@ -11524,7 +11524,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "src-xiaoxuetang-jiaguwen": {
             "current_stage": "pending_human_review",
             "access_boundary_or_error_count": "4",
-            "source_phase_action_count": "6",
+            "source_phase_action_count": "3",
             "missing_evidence_action_count": "0",
             "object_local_material_bundle_count": "1",
             "object_local_route_object_count": "1",
@@ -11532,7 +11532,7 @@ def check_source_processing_pipeline_audit(root: Path) -> list[str]:
         "src-british-museum-oracle-bone": {
             "current_stage": "pending_human_review",
             "downloaded_count": "0",
-            "source_phase_action_count": "7",
+            "source_phase_action_count": "4",
             "missing_evidence_action_count": "0",
             "object_local_material_bundle_count": "2",
             "object_local_route_object_count": "2",
@@ -24742,7 +24742,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
     expected_source_coverage = {
         "source_count": 21,
         "download_manifest_count": 54,
-        "download_log_count": 55,
+        "download_log_count": 58,
         "metadata_profile_metric_count": 92,
         "committed_asset_count": 21363,
         "committed_asset_bytes": 96318352,

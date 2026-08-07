@@ -12,7 +12,7 @@
   斜向痕相交；下部有数条短折线向两侧分开。墨痕密度和裁切边缘限制细部
   比较。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

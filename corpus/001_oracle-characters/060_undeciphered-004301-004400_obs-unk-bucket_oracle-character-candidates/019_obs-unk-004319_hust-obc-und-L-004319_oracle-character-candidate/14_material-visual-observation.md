@@ -28,7 +28,7 @@ English:
 - 下部有短的侧向痕迹和一个尖状中央末端。
 - 左右外侧痕迹的弯曲程度并不相同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Do the two upper curves meet the central descending trace?
 - Which crop clarifies the lower side-trace terminals?

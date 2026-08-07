@@ -34,7 +34,7 @@ English:
 - 下部轮廓内部可见一条短横笔画。
 - 图像不足以确认轮廓或交叉笔画是否相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour endpoints and damage.
 - Compare variants without assigning a reading or component identity.

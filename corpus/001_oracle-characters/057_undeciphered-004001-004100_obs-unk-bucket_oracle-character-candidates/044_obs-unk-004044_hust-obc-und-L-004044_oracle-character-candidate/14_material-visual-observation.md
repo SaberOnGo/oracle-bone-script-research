@@ -11,7 +11,7 @@
 - 中文观察：一条长斜向痕迹从左上方伸向右侧，形成近似楔形的开放区域。
   较深的中央痕迹向下进入交叉或钩状痕迹，右侧轮廓和下部连接点部分不清。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the long slanting contour?

@@ -10,7 +10,7 @@
 - 中文观察：中央附近有一条较长的竖向痕迹，右侧带有圆弧或环状痕迹。左侧和
   下方有短斜痕向外伸展；各个痕迹是否分开以及连接关系尚未分辨。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the right-hand loop connected to the central upright trace?

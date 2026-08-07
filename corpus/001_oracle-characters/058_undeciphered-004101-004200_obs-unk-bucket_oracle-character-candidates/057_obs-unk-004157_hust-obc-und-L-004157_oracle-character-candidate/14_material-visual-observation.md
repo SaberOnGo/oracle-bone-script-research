@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：圆弧痕迹下方有一条短而窄的痕迹向下延伸。
 - 中文：上部和下部痕迹之间的连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image confirms the two upper curved traces?
 2. Is the lower rounded trace enclosed or crossed by another mark?

@@ -11,7 +11,7 @@
 - 中文观察：图像中是紧凑的矩形轮廓。中央竖痕和数条短横痕分隔内部，外缘
   并不平整。上下方的连接点仍需分别核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the interior vertical and horizontal marks?

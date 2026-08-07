@@ -11,7 +11,7 @@
 - 中文观察：上部和左侧有数条斜向痕迹。右下方可见一个圆弧或环状轮廓，内部较
   深；上部痕迹与下部轮廓之间的关系尚未确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the lower loop continuous with any upper trace?

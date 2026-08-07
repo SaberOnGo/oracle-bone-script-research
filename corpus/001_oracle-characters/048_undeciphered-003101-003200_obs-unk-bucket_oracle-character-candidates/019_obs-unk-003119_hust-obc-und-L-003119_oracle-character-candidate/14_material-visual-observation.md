@@ -13,20 +13,21 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop shows a long curved stroke on the left and a loop-like mark on the right.
+- The crop shows a long curved stroke on the left and a loop-like mark on the
+  right.
 - Several short horizontal strokes sit near the lower edge.
 - 图像左侧有长弧形笔画，右侧有近环状痕迹。
 - 下缘附近有数条短横笔画。
 - The image has no surrounding inscription, scale, or plate context.
 - 图像未显示周围卜辞、比例尺或图版环境。
 
-## Research Boundary / 研究边界
+## Boundary / 边界
 
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
 
-## Missing Items and Next Checks / 缺失项与下一步核查
+## Next Checks / 下一步核查
 
 - Is another crop, rubbing, plate view, or reverse view available?
 - Which catalog number, inscription, plate, findspot, period, and collection

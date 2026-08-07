@@ -32,7 +32,7 @@ English:
 - 左右形态的可见深浅并不相同。
 - 图像不能证明底部笔画是否为连接笔画。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the original crop for joins and possible damage.
 - Search repeated forms while retaining all relations as candidates.

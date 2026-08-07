@@ -15,7 +15,8 @@
 
 - A pointed arch-like top encloses a pale interior. Two long strokes descend
 - from the upper region, with shorter irregular marks near their lower ends.
-- The contour is visually close to another candidate; source relation remains pending.
+- The contour is visually close to another candidate; source relation remains
+  pending.
 - 尖拱形上部围出较浅内部空间，两条长笔画从上部向下延伸。
 - 下端附近有较短不规则痕迹。
 - 轮廓与另一候选在视觉上相近，来源关系仍待核对。

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧另有一条向下弯曲并带钩状末端的痕迹。
 - 中文：中央间隙和下端形态部分不规则。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the tall left trace?
 2. Is the central open cluster made of separate strokes?

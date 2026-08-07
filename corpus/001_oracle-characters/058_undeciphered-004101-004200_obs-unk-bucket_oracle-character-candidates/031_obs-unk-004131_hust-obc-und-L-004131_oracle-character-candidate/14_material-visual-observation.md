@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧一组有较高的痕迹，并带短斜向笔痕。
 - 中文：两组之间及下端的连接关系尚不完全清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger scan clarifies the small left enclosed outline?
 2. Which catalog or plate record corroborates the right-side marks?

@@ -11,7 +11,7 @@
 - 中文观察：上部有拱形或尖顶轮廓，内部可见一条横向暗痕；下方有一条
   短直痕，接近下缘处另有数条分离的横向或波曲痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the lower traces are connected?

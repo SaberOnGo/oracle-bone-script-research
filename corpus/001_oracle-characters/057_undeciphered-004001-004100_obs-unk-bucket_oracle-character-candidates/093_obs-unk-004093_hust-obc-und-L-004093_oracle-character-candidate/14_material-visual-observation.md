@@ -10,7 +10,7 @@
 - 中文观察：图像中可见两个相邻的深色痕迹组。左侧痕迹组含有短斜向
   痕迹，下部较为密集；右侧有一条细长竖向痕迹，末端似呈斜向或弯曲。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the two dark clusters one mark or neighboring marks?

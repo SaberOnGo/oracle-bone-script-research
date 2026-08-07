@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A peaked outer contour spans the top of the mark and encloses two descending strokes.
-- The lower ends remain separated, with no surrounding inscription or plate scale visible.
+- A peaked outer contour spans the top of the mark and encloses two descending
+  strokes.
+- The lower ends remain separated, with no surrounding inscription or plate
+  scale visible.
 - 顶部有尖顶外轮廓，内部有两条向下延伸的线。
 - 下部末端彼此分开，图像中未见周围卜辞或图版比例尺。
 - The image has no surrounding inscription, scale, or plate context.

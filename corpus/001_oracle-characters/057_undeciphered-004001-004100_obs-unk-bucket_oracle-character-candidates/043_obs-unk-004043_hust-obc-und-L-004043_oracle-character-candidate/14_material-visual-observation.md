@@ -11,7 +11,7 @@
 - 中文观察：上半部可见两个近似闭合的折线轮廓，中间留有窄缝。数条
   斜向痕迹向下汇入交叉或分叉区域，外缘和连接点在此图中不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Do the upper angular outlines remain separate in a wider image?

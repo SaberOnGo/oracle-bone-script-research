@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop contains a tall vertical arrangement with two short slanting strokes near the top.
-- The lower area has a dense group of parallel or near-parallel strokes, with a separate short stroke on the left.
+- The crop contains a tall vertical arrangement with two short slanting
+  strokes near the top.
+- The lower area has a dense group of parallel or near-parallel strokes, with
+  a separate short stroke on the left.
 - 此裁切图呈较高的纵向布局，顶部附近可见两条短斜线。
 - 下部有一组较密的平行或近似平行线迹，左侧另有一条短线。
 - The image has no surrounding inscription, scale, or plate context.

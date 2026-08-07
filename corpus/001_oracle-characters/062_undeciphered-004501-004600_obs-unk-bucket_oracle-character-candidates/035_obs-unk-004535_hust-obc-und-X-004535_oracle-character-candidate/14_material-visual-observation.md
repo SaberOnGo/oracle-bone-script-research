@@ -19,7 +19,7 @@
 - 下部右侧旁边可见一个深色圆状痕迹。
 - 下部区域有数条彼此分离的分支痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source scan confirms the dark rounded mark near the lower right?
 - Are the lower branching traces connected in the source image?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

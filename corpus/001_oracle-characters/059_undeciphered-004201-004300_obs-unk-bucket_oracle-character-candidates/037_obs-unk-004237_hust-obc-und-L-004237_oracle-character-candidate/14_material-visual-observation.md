@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两者下方有一条较短的横向下部笔画。
 - 中文：下端形态不均，并有部分分离。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the left curved trace's lower end?
 2. Is the upper-right rounded trace open or closed?

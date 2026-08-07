@@ -10,7 +10,7 @@
 - 中文观察：上部可见两个圆弧或环状的深色痕迹。中央有一条长斜痕向下穿过，并在
   下部带有其他折角痕迹；各痕迹之间的连接和叠加关系尚未确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the two upper loops separate traces or one interrupted outline?

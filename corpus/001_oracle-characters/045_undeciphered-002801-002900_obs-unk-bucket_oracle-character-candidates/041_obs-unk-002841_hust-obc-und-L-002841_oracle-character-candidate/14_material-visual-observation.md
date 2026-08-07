@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - Two rounded or forked strokes open at the top above a narrow central line.
-- The lower section contains several short curved and diagonal strokes with a small central gap.
+- The lower section contains several short curved and diagonal strokes with a
+  small central gap.
 - 顶部有两条近圆弧或分叉线，下面接窄幅中央线。
 - 下部有数条短弯线和斜线，中间留有小开口。
 - The image has no surrounding inscription, scale, or plate context.

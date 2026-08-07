@@ -34,7 +34,7 @@ English:
 - 右侧笔画下端逐渐变细。
 - 小尺寸图像无法确认哪些笔画彼此相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and terminal damage.
 - Compare other catalogue images without assigning a reading.

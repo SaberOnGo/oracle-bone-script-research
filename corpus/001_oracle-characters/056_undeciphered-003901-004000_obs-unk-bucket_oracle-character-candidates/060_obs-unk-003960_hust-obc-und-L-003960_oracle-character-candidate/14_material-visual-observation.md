@@ -10,7 +10,7 @@
 - 中文观察：上部有弧向和交叉痕迹，下方连接较宽的围合轮廓。中央短痕向下
   进入围合内，围合下缘呈较深的横向或拱形痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

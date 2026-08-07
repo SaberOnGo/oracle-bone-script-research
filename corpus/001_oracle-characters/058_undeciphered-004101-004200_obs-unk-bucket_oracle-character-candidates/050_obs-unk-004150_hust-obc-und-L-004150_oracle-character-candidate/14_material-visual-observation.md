@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧一组有较高的弯曲或斜向痕迹。
 - 中文：下部痕迹在中央密集区域交叉或相接。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan separates the two upright groups?
 2. Are the lower crossing traces physically connected?

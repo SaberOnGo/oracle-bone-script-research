@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下缘向下伸出两条较长笔画。
 - 中文：笔画末端和上部连接处部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan separates the upper band from surface damage?
 2. Are the two descending strokes joined to the upper band?

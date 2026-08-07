@@ -11,7 +11,7 @@
   痕迹组。多条斜向痕迹在其下方交叉，两侧还有细痕向下延伸；这些
   交叉痕迹目前不能完全分开。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. How many separate traces make up the central crossing group?

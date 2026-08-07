@@ -12,7 +12,7 @@
   短痕迹。左右两侧各有竖向分支状痕迹向上延伸；两侧痕迹与下部
   轮廓之间的关系尚未完全厘清。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the central dark spot part of the lower outline or a separate mark?

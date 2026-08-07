@@ -27,7 +27,7 @@ English:
 - 右侧保留一条独立的弯曲或竖向痕迹。
 - 下部末端不均匀，未见可确认的连接底线。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the dark upper mass into individual traces?
 - Do the two descending traces share an upper junction?

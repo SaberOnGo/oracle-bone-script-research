@@ -32,7 +32,7 @@ English:
 - 下部边缘在中央两侧向下延伸。
 - 图像不能证明外轮廓是否闭合。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the source-resolution crop for faint joins and damage.
 - Search variants while retaining relations as candidates.

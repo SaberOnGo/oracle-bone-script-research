@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右上方可见一处小的圆弧状深色痕迹。
 - 中文：上部痕迹与竖向痕迹之间的连接关系不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image confirms the upper-right rounded mark?
 2. Is the vertical trace continuous with the upper-left mark?

@@ -32,7 +32,7 @@ English:
 - 主笔画下方可见一个小的弧形或环状笔画。
 - 图像不能证明各笔画之间的连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the source-resolution crop for faint joins and damage.
 - Compare variants without assigning a reading or identity.

@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a compact vertical mark with an upper cross stroke.
-- The lower area contains angular strokes and a longer right-side descending stroke.
+- The lower area contains angular strokes and a longer right-side descending
+  stroke.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个带上部交叉笔画的紧凑竖向记号。
 - 下部含折线笔画和一条较长的右侧下行笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

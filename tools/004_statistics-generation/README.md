@@ -73,6 +73,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Character image observation audit:
   `226_character-visual-observation-coverage-audit.md` and
   `227_character-visual-observation-coverage.csv`.
+- HUST-OBC character visual profiles:
+  `build_hust_obc_undeciphered_visual_observations.py` keeps the 6,595
+  direct records and routes 4,401 pixel profiles to human image review.
 - OBIMD component image observation audit:
   `229_component-visual-observation-coverage-audit.md` and
   `228_component-visual-observation-coverage.csv`.

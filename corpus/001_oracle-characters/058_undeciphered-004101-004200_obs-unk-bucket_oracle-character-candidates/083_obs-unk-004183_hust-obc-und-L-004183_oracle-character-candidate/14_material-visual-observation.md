@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上缘向上伸出两处短的外突痕迹。
 - 中文：轮廓下方有一条横向的下缘痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the inner dark mark?
 2. Are both upper projections part of the enclosure outline?

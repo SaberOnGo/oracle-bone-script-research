@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下边缘横向有一条较宽的弯曲笔画。
 - 中文：上下痕迹之间的间隙不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the small upper-left rounded trace?
 2. Does the diagonal stroke meet the lower curved stroke?

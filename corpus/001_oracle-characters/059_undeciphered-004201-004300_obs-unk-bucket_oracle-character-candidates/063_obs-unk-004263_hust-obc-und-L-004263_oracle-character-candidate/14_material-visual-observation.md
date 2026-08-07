@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧另有一条弯曲末端向下延伸。
 - 中文：上部痕迹与下部痕迹之间留有可见间隙。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the short upper bar and central trace?
 2. Is the lower-left curve one continuous stroke?

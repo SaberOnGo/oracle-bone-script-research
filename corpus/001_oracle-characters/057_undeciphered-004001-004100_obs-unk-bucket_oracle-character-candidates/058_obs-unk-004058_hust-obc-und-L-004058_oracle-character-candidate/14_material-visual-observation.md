@@ -10,7 +10,7 @@
 - 中文观察：上部中央有数条短痕交叉成近似星状。斜向痕迹向下汇入宽大的
   矩形或梯形轮廓。图像未能清楚显示外部连接点。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper crossing of traces?

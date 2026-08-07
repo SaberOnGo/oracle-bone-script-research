@@ -10,7 +10,7 @@
 - 中文观察：宽大的下部圆弧或矩形轮廓上方有数条短的向上痕迹。下部内部可见
   较深的带状痕迹。上下区域的连接关系仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the full set of upper traces?

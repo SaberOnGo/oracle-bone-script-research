@@ -32,7 +32,7 @@ English:
 - 右侧中央附近有一条弯曲或带钩的笔画。
 - 左侧斜笔画与中央笔画是否相连仍不能确定。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop for faint strokes and joins.
 - Compare with variants before describing structural relations.

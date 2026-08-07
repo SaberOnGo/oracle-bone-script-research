@@ -34,7 +34,7 @@ English:
 - 两条竖向笔画之间没有清晰可见的横笔画。
 - 小尺寸图像无法确认上部轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify endpoints and surface damage.
 - Compare other images for variant or near-form relationships.

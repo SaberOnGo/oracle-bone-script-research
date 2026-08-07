@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop contains a narrow vertical arrangement with bent strokes near the upper left.
-- Short diagonal strokes branch from the central and lower area, with a small crossing cluster.
+- The crop contains a narrow vertical arrangement with bent strokes near the
+  upper left.
+- Short diagonal strokes branch from the central and lower area, with a small
+  crossing cluster.
 - 裁切图中有窄幅纵向线组，左上方可见弯折线迹。
 - 中部和下部向外分出短斜线，接近一个小型交叉线组。
 - The image has no surrounding inscription, scale, or plate context.

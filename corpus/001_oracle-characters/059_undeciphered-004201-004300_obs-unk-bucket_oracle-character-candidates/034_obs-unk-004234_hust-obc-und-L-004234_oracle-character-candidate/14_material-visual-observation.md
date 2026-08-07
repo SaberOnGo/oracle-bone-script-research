@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条较长的斜向笔画向下延伸。
 - 中文：下端形态不均，并有部分分离。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the rounded traces on the left?
 2. Is the central vertical trace continuous or broken?

@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：上部两侧笔痕的外端清晰度并不相同。
 - 中文：下部痕迹是否与中央痕迹相连，仍有部分不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image confirms the two upper curved strokes?
 2. Which catalog or plate record corroborates the lower mark?

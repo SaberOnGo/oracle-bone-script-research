@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧分支组中有一条较窄的纵向痕迹。
 - 中文：两侧形态之间的连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the left enclosure and its inner mark?
 2. Are the right branching strokes attached to the enclosure?

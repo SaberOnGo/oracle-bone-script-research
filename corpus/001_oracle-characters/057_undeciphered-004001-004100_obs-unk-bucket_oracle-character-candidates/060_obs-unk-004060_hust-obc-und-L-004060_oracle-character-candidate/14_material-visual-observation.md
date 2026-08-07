@@ -10,7 +10,7 @@
 - 中文观察：两侧有成对的分叉痕迹，围绕中央细长主体。中央轮廓向下进入
   较深的尖状下部痕迹组，两侧痕迹在图中似未完全相连。下部连接点需核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the paired side traces?

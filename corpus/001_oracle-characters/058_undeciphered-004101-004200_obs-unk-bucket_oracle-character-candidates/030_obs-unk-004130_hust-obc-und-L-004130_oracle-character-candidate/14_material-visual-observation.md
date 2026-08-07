@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：其下有一条窄的竖向痕迹，并带斜向侧痕。
 - 中文：下端可见一处短的分叉或折角痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger image clarifies the upper-left dark mark?
 2. Is the rightward trace continuous with the upper mark?

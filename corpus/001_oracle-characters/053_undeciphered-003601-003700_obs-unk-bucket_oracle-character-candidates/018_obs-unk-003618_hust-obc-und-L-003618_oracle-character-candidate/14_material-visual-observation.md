@@ -33,7 +33,7 @@ English:
 - 两个形态上下对齐，但图中没有看到相接处。
 - 图像较小，不能判断笔顺或刻写表面细节。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare both marks with the raw crop at its original resolution.
 - Check whether the apparent two-part layout is one connected sign.

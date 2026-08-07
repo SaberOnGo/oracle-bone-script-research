@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧可见带内部横向痕迹的圆弧状轮廓。
 - 中文：两组痕迹之间的关系有部分被遮掩。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image separates the lower-left branches?
 2. Are the inner right marks inside the rounded outline?

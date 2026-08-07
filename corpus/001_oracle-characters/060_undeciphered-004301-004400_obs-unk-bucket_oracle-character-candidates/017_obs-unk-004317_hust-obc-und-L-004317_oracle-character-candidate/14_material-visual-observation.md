@@ -28,7 +28,7 @@ English:
 - 中部有一条较宽的横向痕迹穿过图像。
 - 交汇处下方有一条较窄的下伸痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Do the upper diagonal traces meet at a single point?
 - Which scan clarifies the middle horizontal trace width?

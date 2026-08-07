@@ -10,7 +10,7 @@
 - 中文观察：上左方有一个开放的折线轮廓。中央细痕向下延伸，右侧另有较长
   的弯曲或斜向痕迹。图像中的开口和连接点尚不能确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper-left outline?

@@ -9454,6 +9454,7 @@ def check_character_visual_observation_coverage(root: Path) -> list[str]:
     for marker in [
         "Character Visual Observation Coverage",
         "Human Reading Result",
+        "Pixel profile records",
         "Images without direct records",
         "needs_human_visual_observation_review",
         "本报告区分本地图像和人工图像观察",
@@ -9486,8 +9487,12 @@ def check_character_visual_observation_coverage(root: Path) -> list[str]:
         issues.append(f"{csv_relative} contains duplicate project IDs")
     if not rows:
         issues.append(f"{csv_relative} must contain character observation rows")
+    if len(rows) != 10996:
+        issues.append(f"{csv_relative} row count changed")
     allowed_statuses = {
         "direct_visual_record_present",
+        "pixel_profile_and_boundary_present",
+        "missing_image_route_and_boundary_present",
         "missing_direct_visual_record",
         "observation_file_without_direct_record",
     }
@@ -9500,6 +9505,13 @@ def check_character_visual_observation_coverage(root: Path) -> list[str]:
             break
         if not re.fullmatch(r"obs-(?:char|unk)-\d{6}", row.get("project_id", "")):
             issues.append(f"{csv_relative} invalid project_id: {row.get('project_id')}")
+            break
+        observation_path = str(row.get("observation_path", ""))
+        if not observation_path or not (root / observation_path).exists():
+            issues.append(
+                f"{csv_relative} missing object-local observation route: "
+                f"{row.get('project_id')}"
+            )
             break
     return issues
 

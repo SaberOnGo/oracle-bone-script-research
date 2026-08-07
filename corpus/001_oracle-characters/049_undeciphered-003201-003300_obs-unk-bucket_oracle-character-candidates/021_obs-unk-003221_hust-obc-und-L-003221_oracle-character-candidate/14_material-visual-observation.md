@@ -22,13 +22,13 @@
 - 外部痕迹在上缘附近出现明显转折。
 - 图像未显示周围卜辞、比例尺或图版环境。
 
-## Research Boundary / 研究边界
+## Boundary / 边界
 
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
 
-## Missing Items and Next Checks / 缺失项与下一步核查
+## Next Checks / 下一步核查
 
 - Is another crop, rubbing, plate view, or reverse view available?
 - Which catalog number, inscription, plate, findspot, period, and collection

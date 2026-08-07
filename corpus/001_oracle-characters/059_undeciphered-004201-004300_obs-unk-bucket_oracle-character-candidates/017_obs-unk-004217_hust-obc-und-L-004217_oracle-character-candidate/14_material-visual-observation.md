@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：圆弧状痕迹下方可见短交叉笔画。
 - 中文：右下端向斜下方延伸，末端形态不均。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the left curved trace and its lower terminal?
 2. Is the rounded upper trace open, closed, or partly damaged?

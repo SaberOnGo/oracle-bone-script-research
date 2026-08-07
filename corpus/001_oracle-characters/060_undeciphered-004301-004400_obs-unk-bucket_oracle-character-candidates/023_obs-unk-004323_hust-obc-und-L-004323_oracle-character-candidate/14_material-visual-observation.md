@@ -28,7 +28,7 @@ English:
 - 中部附近还有一条较长的下伸笔痕。
 - 下部末端彼此分开，结束高度各不相同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the compact upper diagonal traces?
 - Do the two long lower strokes begin at one junction?

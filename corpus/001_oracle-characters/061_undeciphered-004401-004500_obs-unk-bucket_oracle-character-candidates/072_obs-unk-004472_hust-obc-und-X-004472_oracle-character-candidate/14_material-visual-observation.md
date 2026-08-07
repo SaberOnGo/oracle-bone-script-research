@@ -17,7 +17,7 @@
 - 中央痕迹两侧都可见封闭开口。
 - 下部长弧线继续向下弯折，并以渐细痕迹收尾。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source view confirms the number and position of enclosed openings?
 - Are the crossing diagonals continuous or overlaid damage?
@@ -28,3 +28,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

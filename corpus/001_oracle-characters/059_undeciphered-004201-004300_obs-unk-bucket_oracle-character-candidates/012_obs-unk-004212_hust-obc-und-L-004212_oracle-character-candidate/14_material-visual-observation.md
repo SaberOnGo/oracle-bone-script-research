@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部弯曲笔画向右下方转折。
 - 中文：左侧边缘和下部连接处部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the inner bars in the upper block?
 2. Is the right vertical trace attached to the lower curve?

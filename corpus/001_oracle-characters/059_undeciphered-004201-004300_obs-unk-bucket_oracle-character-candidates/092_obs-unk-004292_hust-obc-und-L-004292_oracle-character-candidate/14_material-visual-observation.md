@@ -27,7 +27,7 @@ English:
 - 右侧沿边缘向下延伸一条较长的断续痕迹。
 - 下缘出现数个彼此分开的不均匀末端。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the dense upper cluster into visible strokes?
 - Is the left curved mark joined to the upper cluster?

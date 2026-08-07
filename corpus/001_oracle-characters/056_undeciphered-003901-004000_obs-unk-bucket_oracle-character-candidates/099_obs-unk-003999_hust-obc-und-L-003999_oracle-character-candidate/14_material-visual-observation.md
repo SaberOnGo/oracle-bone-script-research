@@ -9,7 +9,7 @@
 - 中文观察：当前分辨率下打开的栅格图像看起来均匀空白；
   本次检查未见可辨痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Does the original package contain a non-blank or higher-resolution asset?
 2. Is the blank raster caused by extraction, transparency, or a source error?

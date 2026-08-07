@@ -28,7 +28,7 @@ English:
 - 中部向下延伸出数条较长的斜向痕迹。
 - 下方末端在粗细、长短和深浅上并不一致。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper bend contain a visible break or gap?
 - Which crop best separates the short inner stroke?

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条较短的横向笔画伸出。
 - 中文：下端形态不均，并有部分淡化痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two inner horizontal marks?
 2. Is the central descending stroke continuous below the outline?

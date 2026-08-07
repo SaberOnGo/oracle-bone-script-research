@@ -12,7 +12,7 @@
   斜向痕迹向下延伸。下部有较宽横痕穿过形体，其下另有较短斜痕；裁切
   截去了外侧边缘。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

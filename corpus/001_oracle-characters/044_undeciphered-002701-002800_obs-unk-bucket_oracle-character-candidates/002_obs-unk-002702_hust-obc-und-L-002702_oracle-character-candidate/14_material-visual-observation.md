@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a compact group of dark strokes on a light field.
-- Two upright strokes rise above a lower horizontal and curved base; the edges are soft.
+- Two upright strokes rise above a lower horizontal and curved base; the edges
+  are soft.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像在浅色底上显示一组紧凑的深色笔画。
 - 两条直立笔画位于下方横向和弯曲基部之上；边缘较为模糊。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

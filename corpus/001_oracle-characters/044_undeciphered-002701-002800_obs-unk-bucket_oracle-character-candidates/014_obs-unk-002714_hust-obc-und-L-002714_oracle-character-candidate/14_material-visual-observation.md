@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a vertical dark mark with a pointed upper end.
-- The lower area contains a short horizontal stroke and several downward projections.
+- The lower area contains a short horizontal stroke and several downward
+  projections.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个上端尖出的竖向深色记号。
 - 下部含一条短横笔画和数个向下突出的笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

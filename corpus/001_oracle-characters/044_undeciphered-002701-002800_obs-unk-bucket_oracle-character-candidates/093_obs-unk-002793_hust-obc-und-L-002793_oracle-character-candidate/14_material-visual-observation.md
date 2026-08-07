@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The compact vertical mark has a long angled stroke at the top and a small curved enclosure below it.
-- Short strokes cluster near the lower left, while a longer line descends along the right.
+- The compact vertical mark has a long angled stroke at the top and a small
+  curved enclosure below it.
+- Short strokes cluster near the lower left, while a longer line descends
+  along the right.
 - 紧凑的纵向线迹顶部有一条较长斜线，下方有小型弯曲或封闭线组。
 - 左下方聚集短线，右侧另有一条较长线向下延伸。
 - The image has no surrounding inscription, scale, or plate context.

@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The narrow mark has a central descending line with irregular short strokes on the left.
-- A rounded loop-like contour appears on the right, with additional short strokes below it.
+- The narrow mark has a central descending line with irregular short strokes
+  on the left.
+- A rounded loop-like contour appears on the right, with additional short
+  strokes below it.
 - 窄幅线迹中有一条中央下行线，左侧分布不规则短线。
 - 右侧有近环状轮廓，其下方还有数条短线。
 - The image has no surrounding inscription, scale, or plate context.

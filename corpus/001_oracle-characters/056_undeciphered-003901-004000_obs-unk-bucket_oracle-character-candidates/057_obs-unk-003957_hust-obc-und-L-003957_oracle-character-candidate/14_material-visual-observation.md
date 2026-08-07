@@ -10,7 +10,7 @@
 - 中文观察：上部有短分叉或斜向痕迹。一条较窄中央痕迹向下进入较宽的下部
   围合轮廓；轮廓下方有两处短向下延伸，并由低处痕迹相连。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

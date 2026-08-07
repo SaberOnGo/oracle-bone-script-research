@@ -28,7 +28,7 @@ English:
 - 一条较长的弯曲痕迹沿右侧向下延伸。
 - 左下和右下末端的方向并不相同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the small rounded upper mark?
 - Are the left and right curved traces connected below?

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右下方有一列相连的圆弧状痕迹。
 - 中文：主要形态下方另有一处近似 T 形的痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the separate lower T-like mark?
 2. Is the rounded chain continuous along the lower right?

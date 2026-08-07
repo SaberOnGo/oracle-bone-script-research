@@ -28,7 +28,7 @@ English:
 - 靠近中右部可见一条细的纵向痕迹。
 - 下部有一条短斜痕和一个较淡的末端。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Do the separated zones belong to one source crop or adjacent traces?
 - Which scan clarifies the upper-left stroke crossings?

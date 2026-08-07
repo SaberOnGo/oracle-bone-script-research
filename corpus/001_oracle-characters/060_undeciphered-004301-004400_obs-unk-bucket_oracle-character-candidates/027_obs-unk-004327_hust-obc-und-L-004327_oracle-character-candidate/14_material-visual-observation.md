@@ -28,7 +28,7 @@ English:
 - 右侧痕迹的外侧边缘颜色较深。
 - 两条下部末端的结束高度不同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the gap between the two long traces?
 - Does the left inward bend contain a visible break?

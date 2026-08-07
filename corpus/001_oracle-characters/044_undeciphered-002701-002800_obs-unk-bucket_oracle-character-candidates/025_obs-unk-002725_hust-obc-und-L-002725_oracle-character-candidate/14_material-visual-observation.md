@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows an enclosed rounded upper area with two long lower strokes.
-- The upper outline has a small interior opening; the lower strokes descend separately.
+- The upper outline has a small interior opening; the lower strokes descend
+  separately.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个带有圆弧上部围合区和两条长下行笔画的记号。
 - 上部轮廓内有小空隙；两条下部笔画分别向下延伸。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

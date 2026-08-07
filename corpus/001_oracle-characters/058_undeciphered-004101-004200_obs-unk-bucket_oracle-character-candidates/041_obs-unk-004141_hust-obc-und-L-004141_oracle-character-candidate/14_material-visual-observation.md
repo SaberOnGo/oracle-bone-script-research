@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部有一条较宽的波状横向痕迹。
 - 中文：上部轮廓与下部痕迹的连接关系不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image confirms the upper pointed outline?
 2. Are the small side marks attached to the main outline?

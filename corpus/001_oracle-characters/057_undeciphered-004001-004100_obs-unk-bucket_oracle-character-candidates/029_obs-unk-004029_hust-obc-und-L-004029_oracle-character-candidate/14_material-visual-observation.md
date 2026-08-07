@@ -11,7 +11,7 @@
 - 中文观察：上部中央有深色分叉痕迹，下方有数条分离的圆弧或波曲横向
   痕迹。图像外观与邻近候选图像相似，但尚未完成 checksum 或去重判断。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Which source image checksum should be compared for the apparent similarity?

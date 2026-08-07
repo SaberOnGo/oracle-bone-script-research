@@ -34,7 +34,7 @@ English:
 - 一条横向笔画构成该笔画群的下部边缘。
 - 小尺寸图像无法确认上下笔画群是否相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify the internal mark and joins.
 - Compare other images for variant or near-form relationships.

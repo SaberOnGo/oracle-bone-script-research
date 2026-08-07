@@ -27,7 +27,7 @@ English:
 - 一条斜向痕迹与中央下行痕迹相交。
 - 下部末端不均匀，右侧另有一条分离痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does this image duplicate the visible trace layout of 004289?
 - Which scan clarifies the diagonal crossing point?

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条较长的斜向痕迹向下延伸。
 - 中文：下端末端尖细，形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the short upper bar?
 2. Are the inner bars continuous inside the outlined block?

@@ -34,7 +34,7 @@ English:
 - 下部轮廓两侧笔画不齐，内部还有一条短笔画。
 - 图像不足以确认笔顺或笔画连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify the contour and endpoints.
 - Compare variants without assigning a reading or component identity.

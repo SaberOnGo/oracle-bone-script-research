@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows separated short marks above a broader lower cluster.
-- The lower cluster forms an open V-like arrangement with a curved lower stroke; no context is visible.
+- The lower cluster forms an open V-like arrangement with a curved lower
+  stroke; no context is visible.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示数条分离的短笔画位于较宽的下部笔画簇之上。
 - 下部形成开放的 V 形安排，并有弯曲下笔画；图像未显示周围环境。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

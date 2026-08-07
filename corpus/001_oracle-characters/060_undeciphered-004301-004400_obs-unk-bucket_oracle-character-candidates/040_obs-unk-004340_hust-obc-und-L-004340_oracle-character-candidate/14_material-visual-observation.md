@@ -28,7 +28,7 @@ English:
 - 下部中间有一条横向痕迹穿过。
 - 右侧附近有一条较窄的下伸痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the two detached upper traces?
 - Does the central bend meet the lower horizontal trace?

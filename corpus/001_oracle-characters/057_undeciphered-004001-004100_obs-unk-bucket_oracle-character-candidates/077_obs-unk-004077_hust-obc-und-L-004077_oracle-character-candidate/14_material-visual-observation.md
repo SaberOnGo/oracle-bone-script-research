@@ -10,7 +10,7 @@
 - 中文观察：上部有一条较宽的浅弧形横向痕迹或轮廓。中央有一条狭长痕迹向下
   延伸，下端附近带有较短的斜向痕迹；上部边界和下部连接处部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the central descending trace continuous through the upper bar?

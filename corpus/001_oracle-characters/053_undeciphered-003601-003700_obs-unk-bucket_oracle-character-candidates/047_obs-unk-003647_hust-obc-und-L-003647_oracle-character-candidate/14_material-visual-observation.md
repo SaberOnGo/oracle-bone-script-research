@@ -32,7 +32,7 @@ English:
 - 下部有一条较宽的弧形或横向笔画。
 - 图像不能证明这些部分是否构成同一形态。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the source crop for joins and surface damage.
 - Compare variants before describing structural relations.

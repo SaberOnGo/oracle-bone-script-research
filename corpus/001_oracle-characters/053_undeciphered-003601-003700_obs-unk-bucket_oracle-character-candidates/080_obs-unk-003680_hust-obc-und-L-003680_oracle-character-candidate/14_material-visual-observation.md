@@ -34,7 +34,7 @@ English:
 - 该笔画下端在小图中部分模糊。
 - 小尺寸图像无法确认包围轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour joins and damage.
 - Compare variants without assigning a reading or component identity.

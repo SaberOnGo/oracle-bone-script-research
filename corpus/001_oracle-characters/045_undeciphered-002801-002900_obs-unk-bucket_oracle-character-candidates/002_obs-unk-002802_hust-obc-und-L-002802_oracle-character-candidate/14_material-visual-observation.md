@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The central mark is an angular cluster with an open peaked outline and short interior strokes.
-- A long descending stroke runs along the right side; no surrounding plate context is visible.
+- The central mark is an angular cluster with an open peaked outline and short
+  interior strokes.
+- A long descending stroke runs along the right side; no surrounding plate
+  context is visible.
 - 中央线迹是带开口尖顶轮廓的折线组，内部有数条短线。
 - 右侧有一条较长下行线，图像中未见周围图版环境。
 - The image has no surrounding inscription, scale, or plate context.

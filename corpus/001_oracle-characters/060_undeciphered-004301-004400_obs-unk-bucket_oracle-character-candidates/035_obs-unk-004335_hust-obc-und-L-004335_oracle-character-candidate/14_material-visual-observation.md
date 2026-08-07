@@ -28,7 +28,7 @@ English:
 - 一条较短的深色痕迹穿过该紧密形状中部。
 - 下部末端呈圆转状并彼此分开。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the boundary of the central compact trace?
 - Does the short middle trace cross or join the outer traces?

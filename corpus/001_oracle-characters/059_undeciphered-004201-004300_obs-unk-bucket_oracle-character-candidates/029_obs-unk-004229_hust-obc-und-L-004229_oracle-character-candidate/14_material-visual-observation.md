@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：交叉处下方有数条短笔画向下延伸。
 - 中文：下端形态不均，并有部分淡化痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the top of the triangular outline?
 2. Does the central trace continue below the crossing?

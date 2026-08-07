@@ -11,7 +11,7 @@
 - 中文观察：上部有数条短折痕，中央细痕向下进入紧凑而较深的近似环状区域。
   整体粗略形态似与候选 004037 相近；尚未进行 checksum 或去重判定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Do side-by-side source images preserve the apparent similarity to 004037?

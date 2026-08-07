@@ -27,7 +27,7 @@ English:
 - 下部轮廓向尖状底端逐渐收窄。
 - 右侧有数条较细的弯曲痕迹向外延伸。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the small upper-left mark connected to the main outline?
 - Does the rounded lower outline close at its upper opening?

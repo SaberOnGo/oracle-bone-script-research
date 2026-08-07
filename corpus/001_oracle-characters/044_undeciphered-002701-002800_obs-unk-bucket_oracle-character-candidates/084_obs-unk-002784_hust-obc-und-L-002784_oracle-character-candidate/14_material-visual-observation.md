@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The tall crop shows slanting boundary-like strokes on both sides of a central vertical arrangement.
-- A crossing stroke appears near the center, with a denser angular group toward the lower portion.
+- The tall crop shows slanting boundary-like strokes on both sides of a
+  central vertical arrangement.
+- A crossing stroke appears near the center, with a denser angular group
+  toward the lower portion.
 - 窄高裁切图两侧可见斜向线迹，中间形成纵向排列。
 - 中部有交叉线，下部线迹较密并带有多处折角。
 - The image has no surrounding inscription, scale, or plate context.

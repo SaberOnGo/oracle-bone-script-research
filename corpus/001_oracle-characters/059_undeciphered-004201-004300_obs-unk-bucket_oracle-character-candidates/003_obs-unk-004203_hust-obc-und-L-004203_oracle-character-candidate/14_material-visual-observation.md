@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上部横笔画下方有一处小的纵向痕迹。
 - 中文：右侧有一条较长的弯曲笔画向下延伸。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the spacing of the upper bars?
 2. Is the small vertical mark separate from the upper bars?

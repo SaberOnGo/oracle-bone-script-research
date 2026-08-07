@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A short horizontal and vertical stroke group appears above a compact lower enclosure.
-- The lower enclosure contains several interior angular strokes; the crop leaves little surrounding margin.
+- A short horizontal and vertical stroke group appears above a compact lower
+  enclosure.
+- The lower enclosure contains several interior angular strokes; the crop
+  leaves little surrounding margin.
 - 上部可见短横线和竖线组成的线组，下方是较紧凑的封闭或半封闭轮廓。
 - 下部轮廓内部有数条折线，裁切边缘与主体线迹距离较近。
 - The image has no surrounding inscription, scale, or plate context.

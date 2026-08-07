@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- Several rounded or forked strokes rise from the upper part of a central descending line.
+- Several rounded or forked strokes rise from the upper part of a central
+  descending line.
 - The lower section continues with short diagonal strokes and separated ends.
 - 中央下行线的上部伸出数条圆弧或分叉线。
 - 下部继续出现短斜线，末端彼此分开。

@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The upper portion forms an angled, roof-like cluster above a rounded interior contour.
-- Several short strokes extend below the central contour; the crop is isolated from any plate context.
+- The upper portion forms an angled, roof-like cluster above a rounded
+  interior contour.
+- Several short strokes extend below the central contour; the crop is isolated
+  from any plate context.
 - 上部是带斜向边的线组，下方有一个较圆的内部轮廓。
 - 中央轮廓下方伸出数条短线，图像与图版环境分离。
 - The image has no surrounding inscription, scale, or plate context.

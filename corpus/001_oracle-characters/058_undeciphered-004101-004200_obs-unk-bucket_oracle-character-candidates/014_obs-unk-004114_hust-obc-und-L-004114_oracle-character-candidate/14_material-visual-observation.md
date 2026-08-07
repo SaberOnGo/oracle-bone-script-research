@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：两侧斜向笔画连接到较深的下部横向或弧向基部。
 - 中文：上下两部分的连接处目前不能确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the lower outline?
 2. Which catalog or plate record corroborates this visual observation?

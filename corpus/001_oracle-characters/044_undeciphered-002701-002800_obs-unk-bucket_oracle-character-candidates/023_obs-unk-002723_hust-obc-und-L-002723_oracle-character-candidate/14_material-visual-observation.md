@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a short upper horizontal stroke over a dense lower cluster.
-- The lower cluster contains repeated angled strokes inside a shallow curved outline.
+- The lower cluster contains repeated angled strokes inside a shallow curved
+  outline.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一条上部短横笔画位于密集下部笔画簇之上。
 - 下部笔画簇在浅弧形轮廓内含有重复的斜向笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

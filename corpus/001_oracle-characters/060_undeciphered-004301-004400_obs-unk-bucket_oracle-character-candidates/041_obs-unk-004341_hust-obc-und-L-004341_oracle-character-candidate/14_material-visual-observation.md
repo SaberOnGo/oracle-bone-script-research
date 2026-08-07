@@ -28,7 +28,7 @@ English:
 - 中部与右侧痕迹之间有一条窄的深色空隙。
 - 下部末端的方向略有不同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the three adjacent curved traces?
 - Are the inward bends continuous through the upper area?

@@ -17,7 +17,7 @@
 - 中右部可见一条较窄的纵向痕迹。
 - 右缘有一个呈锯齿状或断裂状的末端。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source manifest and checksum verify this local crop?
 - Are the central short traces separate marks or one blurred stroke?
@@ -28,3 +28,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

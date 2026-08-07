@@ -27,7 +27,7 @@ English:
 - 下部区域可见一个较小的圆弧或环状轮廓。
 - 下缘周围仍有短而不规则的末端。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Are the two upper curved traces joined to the central trace?
 - Which scan clarifies the small lower looped outline?

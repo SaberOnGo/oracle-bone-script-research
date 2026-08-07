@@ -10,7 +10,7 @@
 - 中文观察：中央有一个较紧凑的深色痕迹组，包含交织或环状痕迹。右侧另有一条
   细长斜向痕迹向下延伸；它与中央痕迹组的关系尚不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the right-hand trace part of the central cluster or a neighboring mark?

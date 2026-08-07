@@ -10,7 +10,7 @@
 - 中文观察：一条向上分叉的直立痕迹从下部折角轮廓中升起；下部轮廓有
   弧形底边和开放上缘，左右附近可见短侧痕。图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the upper branch continues?

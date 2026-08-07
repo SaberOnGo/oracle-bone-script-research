@@ -10,7 +10,7 @@
 - 中文观察：中央下行痕迹两侧有向上弯曲并分叉的痕迹。下部有两个圆弧或环状
   轮廓，内部较深。两侧痕迹的连接关系尚未完全看清。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the paired upper branches?

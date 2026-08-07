@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A small curved and forked cluster appears at the top above a central descending line.
-- The lower portion forms an open angular outline with a short horizontal base-like stroke.
+- A small curved and forked cluster appears at the top above a central
+  descending line.
+- The lower portion forms an open angular outline with a short horizontal
+  base-like stroke.
 - 顶部有小型弯曲和分叉线组，下方接一条向下延伸的中央线。
 - 下部形成开口折线轮廓，底部附近有一条短横向线迹。
 - The image has no surrounding inscription, scale, or plate context.

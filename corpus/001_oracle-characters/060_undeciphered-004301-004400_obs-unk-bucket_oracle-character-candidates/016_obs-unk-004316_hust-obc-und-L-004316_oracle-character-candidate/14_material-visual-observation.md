@@ -28,7 +28,7 @@ English:
 - 一条较长的斜向痕迹沿左下边缘向下延伸。
 - 右侧末端深浅不一，并可见小段空隙。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which marks belong to the central cluster after higher-resolution review?
 - Are the short upper crossings connected or only overlapping visually?

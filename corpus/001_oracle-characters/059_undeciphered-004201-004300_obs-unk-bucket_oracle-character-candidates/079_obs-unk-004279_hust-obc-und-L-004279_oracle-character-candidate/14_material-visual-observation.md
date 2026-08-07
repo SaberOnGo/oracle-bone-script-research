@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部轮廓上宽下窄，逐渐收拢。
 - 中文：下端痕迹较深，形态略有不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two upper horizontal marks?
 2. Is the central vertical trace continuous into the outline?

@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧由短斜向和竖向痕迹组成较密的痕迹组。
 - 中文：不同痕迹之间的边界需用更高分辨率图像复核。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the upper outline?
 2. Which catalog or plate record corroborates this visual observation?

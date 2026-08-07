@@ -10,7 +10,7 @@
 - 中文观察：裁切形体有较宽的弧状围合轮廓，内部有短斜痕。下方伸出两条
   窄痕，并与低处弧线或横痕相接；外侧边缘裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

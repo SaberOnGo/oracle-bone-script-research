@@ -27,7 +27,7 @@ English:
 - 一条长横痕穿过下部中间。
 - 可见末端彼此分开且不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper bent trace meet the long diagonal?
 - Which scan clarifies the long lower horizontal terminal?

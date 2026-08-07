@@ -32,7 +32,7 @@ English:
 - 左上侧有一条向外伸出的短横笔画。
 - 图像不能证明下部轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the source-resolution crop for joins and damage.
 - Search variants while retaining all relations as candidates.

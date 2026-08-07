@@ -32,7 +32,7 @@ English:
 - 下部有一条向右转折的短笔画。
 - 图像不能证明各部分是否构成同一单位。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the source-resolution crop for joins and missing faint strokes.
 - Check variants before describing any structural correspondence.

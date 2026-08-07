@@ -19,7 +19,7 @@
 - 内部小环中间较浅，两侧是深色圆弧痕。
 - 当前图像中看不见内外两个形体之间的明确连接痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the inner loop detached in the original source image?
 - Which scan preserves the lower end of the outer contour?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

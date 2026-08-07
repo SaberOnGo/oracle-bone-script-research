@@ -34,7 +34,7 @@ English:
 - 中央笔画群下方继续可见小型折角笔画。
 - 图像不足以确认两侧轮廓是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish strokes from damage.
 - Compare variants and near-forms without assigning a reading.

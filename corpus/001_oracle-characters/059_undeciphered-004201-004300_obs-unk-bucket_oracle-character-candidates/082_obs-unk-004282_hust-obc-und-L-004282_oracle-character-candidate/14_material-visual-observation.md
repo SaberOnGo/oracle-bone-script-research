@@ -27,7 +27,7 @@ English:
 - 右侧另有一条较长的竖向痕迹。
 - 下端有不均匀的深色边缘，未见清楚的封闭底部。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Do the two upper forks meet a shared horizontal trace?
 - Is the long right trace part of the same mark or a nearby mark?

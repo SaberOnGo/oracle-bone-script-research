@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右上方可见数条短而尖的斜向痕迹。
 - 中文：下部有重叠的深色痕迹，并见一处弯曲末端。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger scan clarifies the left turning trace?
 2. Which catalog or plate record corroborates the pointed upper strokes?

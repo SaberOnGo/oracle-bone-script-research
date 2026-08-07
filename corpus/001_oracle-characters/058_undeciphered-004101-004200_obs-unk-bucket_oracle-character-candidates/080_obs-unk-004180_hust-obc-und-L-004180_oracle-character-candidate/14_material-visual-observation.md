@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右下方出现一组近矩形轮廓。
 - 中文：一条短横向痕迹穿过下部轮廓。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper-left horizontal branches?
 2. Is the central vertical trace continuous through the lower outline?

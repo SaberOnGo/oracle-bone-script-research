@@ -34,7 +34,7 @@ English:
 - 短横笔画触及或穿过下部轮廓。
 - 图像不足以确认下部轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour endpoints and damage.
 - Compare variants without assigning a reading or component identity.

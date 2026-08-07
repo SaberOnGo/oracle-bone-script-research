@@ -19,7 +19,7 @@
 - 下部中央收窄，并形成一个小的封闭开口。
 - 一条较长的外部痕迹继续沿右侧下行。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source scan confirms the number of long outer traces?
 - Are the inner channels continuous to the lower opening?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

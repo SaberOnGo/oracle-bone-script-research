@@ -11,7 +11,7 @@
 - 中文观察：顶部有一条较长的横向痕迹，中央有一条竖向痕迹向下延伸。下部沿着
   较宽的底部可见数个三角或尖状痕迹；它们的间距和连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the lower pointed marks separate traces or one interrupted outline?

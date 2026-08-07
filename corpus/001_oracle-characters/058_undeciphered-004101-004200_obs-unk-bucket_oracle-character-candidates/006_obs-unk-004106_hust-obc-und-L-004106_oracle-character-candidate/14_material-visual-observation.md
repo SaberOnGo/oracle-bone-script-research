@@ -29,7 +29,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：中央可见数条相交的斜向和横向笔画。
 - 中文：右侧有一条细长的下伸笔画。
 
-## Concrete follow-up checks / 具体待查问题
+## Next Checks / 下一步核查
 
 - Which higher-resolution source image confirms the central intersections?
 - Which catalog or plate record corroborates this visual observation?

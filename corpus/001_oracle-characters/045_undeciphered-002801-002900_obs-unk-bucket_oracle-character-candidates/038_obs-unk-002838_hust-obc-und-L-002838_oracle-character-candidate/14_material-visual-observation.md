@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A small forked stroke group at the top leads into one long curved descending line.
-- The lower line curls inward to form an open loop-like turn, with no surrounding context visible.
+- A small forked stroke group at the top leads into one long curved descending
+  line.
+- The lower line curls inward to form an open loop-like turn, with no
+  surrounding context visible.
 - 顶部有小型分叉线组，向下连接一条较长弯曲线。
 - 下部线迹向内弯成开口环状转折，图像中未见周围环境。
 - The image has no surrounding inscription, scale, or plate context.

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：横向笔画下方有两条直立笔画向下延伸。
 - 中文：下端长短不一，部分边缘较为模糊。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the curled traces at both ends?
 2. Are both upright strokes attached to the upper stroke?

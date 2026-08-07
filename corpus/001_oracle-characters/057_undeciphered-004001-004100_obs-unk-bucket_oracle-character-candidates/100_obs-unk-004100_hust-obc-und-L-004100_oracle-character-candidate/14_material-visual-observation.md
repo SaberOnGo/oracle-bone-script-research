@@ -12,7 +12,7 @@
   痕迹组。下部左侧似有小型折线轮廓，右侧有数条竖向或分支状痕迹；
   在小尺寸图像中，各处连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the upper two-part mark connected to the lower group?

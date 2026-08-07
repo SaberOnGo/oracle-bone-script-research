@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The narrow mark has two short horizontal or branching strokes on the upper left.
-- A central descending line meets a separate angular group toward the lower right.
+- The narrow mark has two short horizontal or branching strokes on the upper
+  left.
+- A central descending line meets a separate angular group toward the lower
+  right.
 - 窄幅线迹左上方有两条短横线或分叉线。
 - 中央下行线在右下方连接到另一组折角线迹。
 - The image has no surrounding inscription, scale, or plate context.

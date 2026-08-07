@@ -10,7 +10,7 @@
 - 中文观察：上部轮廓较宽，呈弧状或折角状，内部有短痕。下方有数条较细的
   弧向或竖向痕迹向下延伸；下端和侧缘较浅或被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

@@ -34,7 +34,7 @@ English:
 - 下部笔画逐渐变细，末端清晰度不一致。
 - 图像不足以确认左侧和中央笔画群是否相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify bars, joins, and damage.
 - Compare variants and near-forms without assigning a reading.

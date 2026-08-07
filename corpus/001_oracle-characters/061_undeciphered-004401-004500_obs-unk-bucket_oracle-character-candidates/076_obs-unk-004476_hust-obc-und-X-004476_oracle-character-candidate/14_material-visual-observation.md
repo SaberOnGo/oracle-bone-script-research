@@ -17,7 +17,7 @@
 - 浅色竖向和弧形痕迹把深色区域分隔开。
 - 中部和下部附近出现若干孤立的深浅开口。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source scan separates material contrast from glyph strokes?
 - Is the crop inverted or otherwise processed from the source scan?
@@ -28,3 +28,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

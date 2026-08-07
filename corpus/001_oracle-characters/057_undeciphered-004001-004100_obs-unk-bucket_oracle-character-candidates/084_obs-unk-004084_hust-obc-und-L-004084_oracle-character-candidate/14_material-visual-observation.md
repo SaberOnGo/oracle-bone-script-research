@@ -12,7 +12,7 @@
   痕迹，顶部附近带短斜痕；当前尺寸下它与 004068 视觉上相近，但尚未进行
   checksum 或去重比较。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the apparent similarity to 004068 confirmed by source data?

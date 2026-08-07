@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上缘附近有短的斜向交叉笔画。
 - 中文：外围底部和上部连接处部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the rounded triangular outline?
 2. Are the three inner marks separate from the outer strokes?

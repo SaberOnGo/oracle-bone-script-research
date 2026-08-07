@@ -34,7 +34,7 @@ English:
 - 一条较长弯曲笔画延伸至右下侧。
 - 图像不足以确认这些笔画群是否构成同一轮廓。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify branches and surface damage.
 - Compare variants and near-forms without assigning a reading.

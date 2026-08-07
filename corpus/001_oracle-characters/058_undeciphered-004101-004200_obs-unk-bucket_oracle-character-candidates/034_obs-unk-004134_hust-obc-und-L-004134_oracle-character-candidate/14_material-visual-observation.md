@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：左下侧可见一处圆弧状痕迹。
 - 中文：右侧有数条向外伸出的斜向痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger image clarifies the rounded lower-left mark?
 2. Are the upper bent strokes continuous with the central trace?

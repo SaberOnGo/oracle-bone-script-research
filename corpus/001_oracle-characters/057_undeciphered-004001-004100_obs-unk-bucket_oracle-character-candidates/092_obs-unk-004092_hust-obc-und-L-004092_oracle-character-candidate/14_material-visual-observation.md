@@ -12,7 +12,7 @@
   一条弯曲的中央痕迹从上部向下延伸，下方又有小型钩状或弧状痕迹；
   在当前尺寸下，末端及各处连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the dark interior part of the upper outline or image contrast?

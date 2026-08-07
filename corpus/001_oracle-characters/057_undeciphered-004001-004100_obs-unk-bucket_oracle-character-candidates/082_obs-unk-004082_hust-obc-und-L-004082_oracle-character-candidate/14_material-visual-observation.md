@@ -12,7 +12,7 @@
   较小的折角轮廓，内部较深；当前尺寸下它与 004073 视觉上相近，但尚未进行
   checksum 或去重比较。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the apparent similarity to 004073 confirmed by source data?

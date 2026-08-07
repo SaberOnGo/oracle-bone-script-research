@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：中央区域向下伸出一条较长的窄笔画。
 - 中文：右下方可见一条短的侧向笔画。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the pointed upper outline?
 2. Is the dark inner edge continuous with the outer contour?

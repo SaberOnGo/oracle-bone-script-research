@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部有一处近似围合并带交叉痕迹的形态。
 - 中文：下端有一条向右伸出的短痕迹，末端粗细不均。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two thin upper curved strokes?
 2. Is the lower enclosed-looking mark a single continuous trace?

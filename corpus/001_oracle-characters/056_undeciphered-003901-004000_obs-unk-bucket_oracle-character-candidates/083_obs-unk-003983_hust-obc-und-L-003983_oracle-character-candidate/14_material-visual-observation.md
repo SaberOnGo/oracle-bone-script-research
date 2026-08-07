@@ -10,7 +10,7 @@
 - 中文观察：数条斜向痕迹交叉于较窄中央区域。两侧有短弧向或折角痕迹，右下方
   有较深痕迹；图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

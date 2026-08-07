@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条较窄的中央痕迹分隔上部和中部痕迹。
 - 中文：右侧有一条较长的竖向痕迹向下延伸。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the angular upper outline?
 2. Is the inner bar continuous across the middle outline?

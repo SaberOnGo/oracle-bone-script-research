@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧有一条较细的竖向痕迹，并带折角痕迹。
 - 中文：这些痕迹与主体之间的间距关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan confirms whether the lower-left mark is separate?
 2. Which image clarifies the thin right-side trace?

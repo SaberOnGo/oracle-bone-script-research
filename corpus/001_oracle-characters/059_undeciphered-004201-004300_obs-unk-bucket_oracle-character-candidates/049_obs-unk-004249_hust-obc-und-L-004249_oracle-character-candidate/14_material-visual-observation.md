@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一处带内部开口的弯曲痕迹簇。
 - 中文：下端痕迹较短，形态不均一，部分有所淡化。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the short branches from the left trace?
 2. Is the right rounded cluster one continuous outline?

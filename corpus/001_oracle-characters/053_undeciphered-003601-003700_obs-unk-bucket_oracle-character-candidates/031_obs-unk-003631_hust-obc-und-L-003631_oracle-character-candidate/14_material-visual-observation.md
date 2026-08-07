@@ -32,7 +32,7 @@ English:
 - 中央笔画以不规则曲折形态向下延伸。
 - 图像不能证明上部笔画是否与中央相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop to distinguish damage from intentional strokes.
 - Compare repeated forms without assigning a reading.

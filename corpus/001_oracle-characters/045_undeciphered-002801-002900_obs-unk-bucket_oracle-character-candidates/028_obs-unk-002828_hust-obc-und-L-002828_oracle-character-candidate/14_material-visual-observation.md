@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A small curved and branched group appears at the top above a central vertical line.
-- The lower right is denser than the left, with several short vertical and diagonal strokes.
+- A small curved and branched group appears at the top above a central
+  vertical line.
+- The lower right is denser than the left, with several short vertical and
+  diagonal strokes.
 - 顶部有小型弯曲和分叉线组，下方接一条中央竖线。
 - 右下方线迹比左侧密集，可见数条短竖线和斜线。
 - The image has no surrounding inscription, scale, or plate context.

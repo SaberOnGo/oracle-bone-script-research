@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部横笔画连接两条下伸的旁侧笔画。
 - 中文：上部痕迹和下部框状轮廓边缘不均并有断裂感。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the small upper angular marks?
 2. Are both vertical side strokes continuous into the lower stroke?

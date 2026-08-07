@@ -34,7 +34,7 @@ English:
 - 下部末端逐渐变细，并在小图中部分模糊。
 - 图像不足以确认两组笔画是否构成同一轮廓。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish strokes from damage.
 - Compare variants and near-forms without assigning a reading.

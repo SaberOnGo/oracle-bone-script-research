@@ -10,7 +10,7 @@
 - 中文观察：较小的弧状或梯状上部围合轮廓下方有数条弧向和斜向下行痕迹。左侧
   有一处较短分开痕迹；下端被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

@@ -11,7 +11,7 @@
   右侧有一条较长的细痕向下延伸；它与中央轮廓的关系及下方末端
   仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the right-hand long trace connected to the central outline?

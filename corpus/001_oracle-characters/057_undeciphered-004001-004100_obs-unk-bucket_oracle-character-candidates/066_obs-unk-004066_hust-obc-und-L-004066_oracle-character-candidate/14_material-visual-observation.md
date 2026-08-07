@@ -12,7 +12,7 @@
   外侧痕迹向下方尖点收窄，中央区域较深且部分相连；各条痕迹的连接关系
   仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Which dark marks are separate traces rather than merged contrast?

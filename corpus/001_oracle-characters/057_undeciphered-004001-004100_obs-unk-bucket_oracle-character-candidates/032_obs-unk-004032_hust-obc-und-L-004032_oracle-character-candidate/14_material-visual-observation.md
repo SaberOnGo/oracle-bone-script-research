@@ -11,7 +11,7 @@
 - 中文观察：右侧有长而弯曲或直立的痕迹；左侧分叉上痕迹下方有紧凑的
   圆弧区域，内部可见小型留白。图像未显示左右两侧是否相连。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the right-side trace and left lower openings?

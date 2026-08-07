@@ -32,7 +32,7 @@ English:
 - 斜向笔画下方可见一条弯曲带状笔画。
 - 下部轮廓呈圆弧状，但末端不清楚。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify the contour and endpoints.
 - Compare variants and possible near-forms without assigning a reading.

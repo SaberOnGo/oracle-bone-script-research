@@ -11,7 +11,7 @@
 - 中文观察：数条折角状痕迹沿斜向分布；上部较长痕迹与下行痕迹相接，
   下部可见近似封闭的弧形痕迹。图像较小，外端位置尚不明确。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper and lower trace connections?

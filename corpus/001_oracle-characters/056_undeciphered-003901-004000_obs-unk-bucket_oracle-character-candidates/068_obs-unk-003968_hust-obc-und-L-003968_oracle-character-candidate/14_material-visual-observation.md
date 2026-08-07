@@ -10,7 +10,7 @@
 - 中文观察：紧凑折角上部痕迹位于较宽中部横痕之上。横痕下方有多条短下行痕，
   左右下部可见较深痕迹；裁切限制了外轮廓判断。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

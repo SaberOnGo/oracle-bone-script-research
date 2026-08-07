@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop shows a compact upper loop or enclosure with a short interior diagonal stroke.
-- A longer curved stroke descends on the left, while a straighter stroke continues down on the right.
+- The crop shows a compact upper loop or enclosure with a short interior
+  diagonal stroke.
+- A longer curved stroke descends on the left, while a straighter stroke
+  continues down on the right.
 - 裁切图上部可见紧凑的环状或封闭线组，内部有一条短斜线。
 - 左侧有较长弯曲线向下延伸，右侧有较直的线继续向下。
 - The image has no surrounding inscription, scale, or plate context.

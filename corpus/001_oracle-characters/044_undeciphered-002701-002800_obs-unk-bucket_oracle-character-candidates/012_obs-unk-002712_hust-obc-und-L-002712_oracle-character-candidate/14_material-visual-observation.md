@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows two angular dark areas linked by a diagonal stroke.
-- The upper area is compact; the lower area includes a short cross-like intersection.
+- The upper area is compact; the lower area includes a short cross-like
+  intersection.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示两个由斜向笔画连接的折线状深色区域。
 - 上部较紧凑；下部包含一个短的交叉状笔画相交处。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

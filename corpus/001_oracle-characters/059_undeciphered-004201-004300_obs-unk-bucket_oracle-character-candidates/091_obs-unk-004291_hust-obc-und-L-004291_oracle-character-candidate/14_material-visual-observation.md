@@ -27,7 +27,7 @@ English:
 - 右侧有一条较长的弯曲痕迹向下延伸。
 - 下部末端明显处在不同高度。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper upright trace meet the right curved trace?
 - Which scan clarifies the left horizontal stroke's terminal?

@@ -17,7 +17,7 @@
 - 上部连接处附近可见一个小型中央开口。
 - 下部向多个方向分开，形成数条长弧形末端。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Are the isolated upper strokes part of this form or separate marks?
 - Which source view confirms the central opening and side traces?
@@ -28,3 +28,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

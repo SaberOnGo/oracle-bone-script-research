@@ -11,7 +11,7 @@
 - 中文观察：图像中部是紧凑的深色竖向痕迹。上方有数条短折痕，
   中部较粗，内部可见较窄的浅色断开。下缘渐收或弯曲，连接关系待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper strokes and the central break?

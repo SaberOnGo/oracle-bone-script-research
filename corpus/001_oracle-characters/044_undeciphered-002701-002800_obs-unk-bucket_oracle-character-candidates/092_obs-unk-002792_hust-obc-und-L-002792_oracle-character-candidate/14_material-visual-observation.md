@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The compact mark has a rounded outer contour and several irregular strokes at the top.
-- Multiple short curved strokes fill the lower interior, with no surrounding inscription visible.
+- The compact mark has a rounded outer contour and several irregular strokes
+  at the top.
+- Multiple short curved strokes fill the lower interior, with no surrounding
+  inscription visible.
 - 该紧凑线迹具有近圆弧形外轮廓，顶部有数条不规则线。
 - 下部内部由多条短弯线填充，图像中未见周围卜辞。
 - The image has no surrounding inscription, scale, or plate context.

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：斜向笔画向左下和右下两侧延伸。
 - 中文：上部轮廓和中央痕迹部分出现断裂。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper angular outline?
 2. Is the rounded central trace continuous across the middle?

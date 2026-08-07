@@ -34,7 +34,7 @@ English:
 - 圆弧轮廓在数处似有中断或重叠。
 - 小尺寸图像无法确认上方长笔画是否与其相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish joins from gaps.
 - Compare other images for variant or near-form relationships.

@@ -14,15 +14,15 @@ longer wedge-like mark; their relation to the upper mass is uncertain.
 右上有短侧笔画。下部有两个分离标记，一个近似点状，另一个较长。
 这些下部标记与上部笔画团的关系尚不能确定。
 
-Concrete follow-up questions / 具体待查问题：
+## Next Checks / 下一步核查
 Are the two lower marks part of one damaged form or separate marks?
 Does the upper loop contain a crossing stroke? Which plate, catalog, and
 inscription context correspond to HUST-OBC path L/3342/L_？_6358.jpg?
 
-Boundary / 边界：
+## Boundary / 边界
 This records visible material only. It does not confirm identity,
 reading, component, variant, period, or decipherment.
 本页只记录可见材料，不确认字形身份、释读、构件、异体、时期或破译。
 # Material Visual Observation / 材料视觉观察
 
-Direct Visual Record / 直接可见记录
+## Direct Visual Record / 直接可见记录

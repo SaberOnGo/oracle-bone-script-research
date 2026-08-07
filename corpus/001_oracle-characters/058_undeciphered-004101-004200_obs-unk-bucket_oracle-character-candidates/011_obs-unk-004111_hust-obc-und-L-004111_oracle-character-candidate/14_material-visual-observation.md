@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部出现折角笔画，并有右侧下伸尾笔。
 - 中文：下部连接处和表面断裂目前不能完全确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the upper outline?
 2. Which catalog or plate record corroborates this visual observation?

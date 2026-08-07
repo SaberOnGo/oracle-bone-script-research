@@ -33,7 +33,7 @@ English:
 - 形态右上端附近可见一处小的深色笔画。
 - 分辨率较低，不能可靠统计独立笔画数量。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop to distinguish strokes from image noise.
 - Check whether the isolated left marks connect to the central stroke.

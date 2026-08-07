@@ -27,7 +27,7 @@ English:
 - 图像框内没有可见方向线索或材料表面细节。
 - 因此本资产记录的是空白视觉区域，不是已观察到的字形。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the blank derivative an extraction failure or a blank source crop?
 - Which checksum and manifest entry produced this asset?

@@ -27,7 +27,7 @@ English:
 - 痕迹组右侧仍有一条短分支状痕迹。
 - 左下末端看起来与上部痕迹组分开。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper crossbar continue into the right-side trace?
 - Which scan clarifies the long diagonal trace's lower terminal?

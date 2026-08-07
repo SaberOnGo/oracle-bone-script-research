@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：该围合轮廓内部可见两条短横向痕迹。
 - 中文：一条较细的斜向痕迹向右下方交叉延伸。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the jagged upper-right trace?
 2. Are both inner horizontal marks complete?

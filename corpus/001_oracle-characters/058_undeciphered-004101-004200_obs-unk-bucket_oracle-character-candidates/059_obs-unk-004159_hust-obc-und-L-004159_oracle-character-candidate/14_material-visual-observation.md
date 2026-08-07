@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部逐渐收窄，趋向一个较窄的末端。
 - 中文：部分位置的单条笔痕边界难以分开。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger image separates the central upright traces?
 2. Are the short side marks attached to the main cluster?

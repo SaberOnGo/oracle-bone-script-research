@@ -1,6 +1,6 @@
 # Material Visual Observation / 材料视觉观察
 
-Direct Visual Record / 直接可见记录
+## Direct Visual Record / 直接可见记录
 
 Object / 对象: obs-unk-003596
 Image / 图像: 03_visual-assets/001_asset-005189_hust-obc-und-L-003596_glyph.jpg
@@ -14,13 +14,13 @@ appears below the main form.
 图像呈现上下叠置的折角形态。上部向左伸出，中部收窄并形成
 弯折笔画；主体下方另有一条近似圆弧的横带。
 
-Concrete follow-up questions / 具体待查问题：
+## Next Checks / 下一步核查
 1. Which catalogue entry, plate, and page contain this
    candidate?
 2. Can the complete inscription context and neighboring signs be located?
 3. Does the source package record scale, orientation, or retouching?
 
-Boundary / 边界：
+## Boundary / 边界
 This records visible material only. It does not confirm identity,
 reading, component, variant, period, or decipherment.
 本页只记录可见材料，不确认字形身份、释读、构件、异体、时期或破译。

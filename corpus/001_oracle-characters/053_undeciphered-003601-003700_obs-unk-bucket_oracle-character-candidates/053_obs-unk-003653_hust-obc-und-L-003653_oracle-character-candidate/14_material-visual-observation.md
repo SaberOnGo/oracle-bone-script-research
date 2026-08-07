@@ -34,7 +34,7 @@ English:
 - 较长笔画之间可见短横或斜向点状笔画。
 - 小尺寸图像无法确认哪些笔画彼此相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and surface damage.
 - Compare other catalogue images without assigning a reading.

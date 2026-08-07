@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The upper portion contains short horizontal and curved strokes above a narrow descending line.
-- A compact lower group branches to the left and right, with uneven stroke lengths.
+- The upper portion contains short horizontal and curved strokes above a
+  narrow descending line.
+- A compact lower group branches to the left and right, with uneven stroke
+  lengths.
 - 上部有短横线和弧线，下面接一条窄幅下行线。
 - 下部线迹向左右分叉，笔画长度不均。
 - The image has no surrounding inscription, scale, or plate context.

@@ -10,7 +10,7 @@
 - 中文观察：上部有横向圆弧轮廓，内部可见小型暗痕；一条细长渐窄痕迹
   从下部中央向下延伸。图像未明确外缘和下端。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the upper outline is closed?

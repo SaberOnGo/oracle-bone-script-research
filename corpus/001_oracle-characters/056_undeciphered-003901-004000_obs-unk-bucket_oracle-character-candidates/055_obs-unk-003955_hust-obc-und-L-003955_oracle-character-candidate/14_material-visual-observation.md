@@ -12,7 +12,7 @@
   连出一条弯曲痕迹并向内收；其下方偏左另有一条弧形下行痕迹，末端与前
   者分开。图像未显示完整周边。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

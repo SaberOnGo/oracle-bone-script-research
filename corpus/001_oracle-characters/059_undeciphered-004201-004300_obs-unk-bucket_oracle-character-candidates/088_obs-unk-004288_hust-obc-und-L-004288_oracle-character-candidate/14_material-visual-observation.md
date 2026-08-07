@@ -27,7 +27,7 @@ English:
 - 中央线条向下进入狭窄的下部轮廓。
 - 较细的斜向侧痕迹分别伸向左下和右下。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does this image duplicate the visible trace layout of 004286?
 - Is the upper curved trace continuous across the central line?

@@ -11,7 +11,7 @@
 - 中文观察：上部中央有深色分叉痕迹，向下延伸至紧凑轮廓；下部可见近似
   圆弧或封闭的形态，左侧和上缘附近还有分离短痕。图像未显示其关系。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image distinguish connected strokes from adjacent marks?

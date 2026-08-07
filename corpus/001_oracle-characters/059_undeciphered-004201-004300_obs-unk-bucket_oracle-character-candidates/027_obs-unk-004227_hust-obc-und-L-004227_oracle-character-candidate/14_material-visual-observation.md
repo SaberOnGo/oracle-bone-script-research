@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条较宽的弯曲笔画横贯下端。
 - 中文：图像各处对比度和下端形态不一致。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two small upper marks?
 2. Are the dark lower traces enclosed or surface breaks?

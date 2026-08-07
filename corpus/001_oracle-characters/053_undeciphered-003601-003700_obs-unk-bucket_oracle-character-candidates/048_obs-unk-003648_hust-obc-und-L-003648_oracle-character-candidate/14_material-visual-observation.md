@@ -32,7 +32,7 @@ English:
 - 下端向左右两侧略微分开。
 - 图像不能证明外轮廓是否闭合。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the source-resolution crop for joins and damaged areas.
 - Search repeated forms without assigning a reading or identity.

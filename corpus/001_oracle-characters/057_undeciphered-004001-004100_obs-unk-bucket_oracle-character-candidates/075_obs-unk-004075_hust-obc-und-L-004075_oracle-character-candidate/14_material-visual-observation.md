@@ -10,7 +10,7 @@
 - 中文观察：顶部有一条短的弯曲或横向痕迹。其下有向两侧斜出的痕迹，并有一个
   紧凑的折角下部轮廓，中央较深；上下痕迹之间的连接处未能完全看清。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the top trace join both sides of the lower outline?

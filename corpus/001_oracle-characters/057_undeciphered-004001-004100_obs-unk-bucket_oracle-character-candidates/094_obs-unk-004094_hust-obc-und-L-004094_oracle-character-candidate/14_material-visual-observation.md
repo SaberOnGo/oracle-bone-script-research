@@ -11,7 +11,7 @@
   至少两条上部痕迹分叉为短斜向末端；下部轮廓较深，与上方痕迹的
   连接关系尚未完全明确。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. How many upper strokes are actually present in the source image?

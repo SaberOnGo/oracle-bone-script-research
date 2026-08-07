@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A short branched group appears at the top of a long slanting and curved arrangement.
+- A short branched group appears at the top of a long slanting and curved
+  arrangement.
 - The lower stroke bends inward and ends near the lower left edge of the crop.
 - 顶部有小型分叉线组，下方是较长斜向和弯曲线迹。
 - 下部线向内弯曲，末端接近裁切图左下边缘。

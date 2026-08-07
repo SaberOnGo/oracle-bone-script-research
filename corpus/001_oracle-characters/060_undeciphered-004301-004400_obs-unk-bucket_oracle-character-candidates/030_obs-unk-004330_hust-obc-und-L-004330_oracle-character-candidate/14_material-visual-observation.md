@@ -28,7 +28,7 @@ English:
 - 一条较长的深色痕迹向左下边缘延伸。
 - 下部末端较宽，颜色深于上部痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the marks in the compact diagonal cluster?
 - Is the small upper gap a break or a light surface area?

@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a small rounded upper form with a short horizontal stroke.
-- A long diagonal stroke descends from the center and crosses a shorter lower stroke.
+- A long diagonal stroke descends from the center and crosses a shorter lower
+  stroke.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个带短横笔画的小型圆弧上部形态。
 - 一条长斜向笔画从中央向下延伸，并与较短下部笔画相交。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

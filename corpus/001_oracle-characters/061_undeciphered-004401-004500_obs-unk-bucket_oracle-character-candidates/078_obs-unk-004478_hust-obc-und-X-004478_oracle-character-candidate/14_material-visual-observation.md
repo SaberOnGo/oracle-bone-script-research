@@ -17,7 +17,7 @@
 - 中部和下部横痕之间形成较大的开放三角空间。
 - 中央连接处把上部和下部痕迹联系起来。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source view confirms the exact number of horizontal strokes?
 - Are the triangular spaces open or partly filled by surface loss?
@@ -28,3 +28,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

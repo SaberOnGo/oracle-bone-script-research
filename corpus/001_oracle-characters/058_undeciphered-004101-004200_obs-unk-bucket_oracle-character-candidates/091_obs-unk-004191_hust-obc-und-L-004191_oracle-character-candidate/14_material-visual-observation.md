@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：左右两条竖向笔画的角度和宽度略有不同。
 - 中文：下端逐渐变浅，边缘不规则。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the small curls at the upper ends?
 2. Are the differences between the two shafts material or damage?

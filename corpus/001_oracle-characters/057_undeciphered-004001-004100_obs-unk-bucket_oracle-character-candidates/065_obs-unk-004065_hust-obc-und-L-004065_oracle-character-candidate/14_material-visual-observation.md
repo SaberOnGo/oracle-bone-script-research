@@ -11,7 +11,7 @@
   中央痕迹。下部可见较宽的方形或圆弧轮廓，内部较深；连接处和开口边界
   仍不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a higher-resolution image clarify the upper trace joins?

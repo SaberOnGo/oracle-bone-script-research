@@ -19,7 +19,7 @@
 - 斜向痕迹中段另有一条向左弯曲的短分支。
 - 下部框体有深色底边，左右轮廓并不完全规整。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper slanting trace connect continuously to the enclosure?
 - Which image preserves the short left branch without threshold noise?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

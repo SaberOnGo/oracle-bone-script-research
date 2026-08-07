@@ -10,7 +10,7 @@
 - 中文观察：上部中央可见紧凑的封闭轮廓。下方两条较长的弧形痕迹
   向下延伸，左右分列；上部轮廓内部可见小型暗部或交叉痕迹。图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the ends and joining of the descending traces?

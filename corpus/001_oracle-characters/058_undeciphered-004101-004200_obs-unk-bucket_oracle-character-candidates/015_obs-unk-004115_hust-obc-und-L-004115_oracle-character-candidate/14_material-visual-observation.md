@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部有近圆弧或横向基部，并见小的深色延伸。
 - 中文：笔画连接处和下部边界仍有部分不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the central crossings?
 2. Which catalog or plate record corroborates this visual observation?

@@ -34,7 +34,7 @@ English:
 - 下部末端彼此分离，并在小图中部分模糊。
 - 小尺寸图像无法确认这些笔画之间的连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and terminal damage.
 - Compare other images for variant or near-form relationships.

@@ -34,7 +34,7 @@ English:
 - 中央下部有一条短斜向外伸笔画。
 - 小尺寸图像不足以确认各笔画群是否相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify the interior mark and joins.
 - Compare variants without assigning a reading or component identity.

@@ -11,7 +11,7 @@
 - 中文观察：左侧是较粗的近似矩形痕迹，内部可见数条横向带状痕迹。
   右侧有较细痕迹向下延伸，并在下端附近弯折。两部分的边界在此图中不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the interior bands are continuous?

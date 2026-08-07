@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部有数条笔画向右侧延伸。
 - 中文：上部和下部两组形态的间距不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two upper slanting strokes?
 2. Is the darker compact mark continuous with the upper join?

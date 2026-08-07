@@ -34,7 +34,7 @@ English:
 - 一条较长的窄笔画沿右边缘向下延伸。
 - 小尺寸图像无法确认哪些笔画彼此相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour joins and damage.
 - Compare variants without assigning a reading or component identity.

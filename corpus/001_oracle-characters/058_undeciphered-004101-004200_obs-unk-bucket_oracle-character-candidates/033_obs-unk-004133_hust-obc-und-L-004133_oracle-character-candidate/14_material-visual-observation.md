@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：左侧和下侧可见一些较小的深色痕迹。
 - 中文：痕迹交叉密集，单条笔痕边界不易完全分开。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image separates the crossing traces?
 2. Which catalog or plate record corroborates the center-right trace?

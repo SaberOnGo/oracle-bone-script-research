@@ -11,7 +11,7 @@
   中部下行痕迹向下延伸至数条弯曲痕迹；图像裁切省略了
   周围表面的部分区域。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is a wider or higher-resolution source image available?

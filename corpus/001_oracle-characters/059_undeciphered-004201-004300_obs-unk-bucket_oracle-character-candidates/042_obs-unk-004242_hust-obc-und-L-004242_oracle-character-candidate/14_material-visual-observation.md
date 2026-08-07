@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部痕迹之间仍可见中央间隙。
 - 中文：下端形态不均，并有部分淡化痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the short protrusions on the upper cluster?
 2. Are the two lower curved traces symmetric or damaged differently?

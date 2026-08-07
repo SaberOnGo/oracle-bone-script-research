@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows an angular central cluster with an open triangular or peaked outline and several short interior strokes.
-- A long descending stroke runs along the right side, while small detached marks appear toward the left and lower edge.
+- The image shows an angular central cluster with an open triangular or peaked
+  outline and several short interior strokes.
+- A long descending stroke runs along the right side, while small detached
+  marks appear toward the left and lower edge.
 - 图像中央是带开口三角或尖顶轮廓的折线组，内部还有数条短线。
 - 右侧有一条向下延伸的长线，左侧及下边缘附近可见少量分离线迹。
 - The image has no surrounding inscription, scale, or plate context.

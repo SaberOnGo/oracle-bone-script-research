@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条弯曲痕迹向上延伸。
 - 中文：下部中央末端逐渐变细，淡化程度不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the short upper-left crosswise marks?
 2. Does the right curved trace connect to the central trace?

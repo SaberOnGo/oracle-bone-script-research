@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下方另有一条弧形横向笔画。
 - 中文：上下两组形态是否连接并不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the gap between the upper traces?
 2. Is the lower curved stroke separate from the upper group?

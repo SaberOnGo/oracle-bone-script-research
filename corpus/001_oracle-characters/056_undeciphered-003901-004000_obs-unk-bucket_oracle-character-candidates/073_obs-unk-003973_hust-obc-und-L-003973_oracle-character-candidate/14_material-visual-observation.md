@@ -10,7 +10,7 @@
 - 中文观察：数条弧向或竖向痕迹围绕较窄中央区域。较长弧痕向左下方伸展，
   右侧保留一条较深窄痕；裁切限制了外缘判断。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

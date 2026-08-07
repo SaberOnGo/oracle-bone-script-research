@@ -12,7 +12,7 @@
   内上部似有短斜痕；下方伸出两条较窄的向下痕迹，并与低处的弧线或横痕
   相接。图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

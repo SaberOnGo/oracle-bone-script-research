@@ -34,7 +34,7 @@ English:
 - 中央下部有数条斜向分支笔画。
 - 小尺寸图像无法确认这些笔画之间的连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and internal marks.
 - Compare other images for variant or near-form relationships.

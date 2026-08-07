@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The upper mark branches into two short strokes before continuing into a long curved line.
-- The lower curve turns inward and ends without a visible plate or inscription context.
+- The upper mark branches into two short strokes before continuing into a long
+  curved line.
+- The lower curve turns inward and ends without a visible plate or inscription
+  context.
 - 上部线迹分成两条短线，随后延续为一条较长弯曲线。
 - 下部弧线向内转折，图像中未见图版或卜辞环境。
 - The image has no surrounding inscription, scale, or plate context.

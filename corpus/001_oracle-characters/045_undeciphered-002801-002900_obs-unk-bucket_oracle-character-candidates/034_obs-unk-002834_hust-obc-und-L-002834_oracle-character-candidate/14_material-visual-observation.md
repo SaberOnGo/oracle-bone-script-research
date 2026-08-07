@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop contains a compact enclosed or semi-enclosed group with vertical side strokes.
-- Several short horizontal and angular strokes cross the interior and lower portion.
+- The crop contains a compact enclosed or semi-enclosed group with vertical
+  side strokes.
+- Several short horizontal and angular strokes cross the interior and lower
+  portion.
 - 裁切图中有紧凑的封闭或半封闭线组，两侧可见竖向线迹。
 - 内部和下部有数条短横线及折角线交叉。
 - The image has no surrounding inscription, scale, or plate context.

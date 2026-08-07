@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A small curved and angular cluster sits above a long horizontal stroke across the middle.
-- On the right, a vertical stroke descends from the horizontal line to a short lower bar.
+- A small curved and angular cluster sits above a long horizontal stroke
+  across the middle.
+- On the right, a vertical stroke descends from the horizontal line to a short
+  lower bar.
 - 中央横向长线的上方有一小组弯曲和折角线迹。
 - 横线右侧有一条向下竖线，并在下方接近一条短横线。
 - The image has no surrounding inscription, scale, or plate context.

@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部有数条细笔画向下延伸。
 - 中文：上部小痕迹是否分离，目前仍不能确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the upper marks?
 2. Which catalog or plate record corroborates this visual observation?

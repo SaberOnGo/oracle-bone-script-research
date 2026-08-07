@@ -12,7 +12,7 @@
   弧形底边和开放上缘，左右附近可见短侧痕。这里只作可视记录，跨对象的
   相似性仍需 checksum 和来源复核。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a checksum comparison identify any duplicate image derivative?

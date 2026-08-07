@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop shows a dark, compact mark near the upper center, with a long angled stroke and a descending vertical or curved stroke.
-- A separate small cluster of short curved and angular strokes appears at lower left; margins are tight around the mark.
+- The crop shows a dark, compact mark near the upper center, with a long
+  angled stroke and a descending vertical or curved stroke.
+- A separate small cluster of short curved and angular strokes appears at
+  lower left; margins are tight around the mark.
 - 此裁切图在上部中央可见深色紧凑线迹，包括一条较长斜线和向下的竖向或弯曲线。
 - 左下方另有由短弯线和折线组成的小组，图像边缘距离线迹较近。
 - The image has no surrounding inscription, scale, or plate context.

@@ -10,7 +10,7 @@
 - 中文观察：上部有短直立痕迹簇，下方延伸出斜向痕迹。
   右侧有小型斜向分支；图像裁切使下端不完整。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a complete image show the missing lower tip?

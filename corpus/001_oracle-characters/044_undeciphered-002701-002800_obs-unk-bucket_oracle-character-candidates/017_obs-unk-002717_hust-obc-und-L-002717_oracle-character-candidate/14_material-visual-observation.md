@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a dark mark with a short upper horizontal stroke.
-- Below it, a narrow angled stroke descends into a small branching lower cluster.
+- Below it, a narrow angled stroke descends into a small branching lower
+  cluster.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个带有上部短横笔画的深色记号。
 - 其下方一条狭长斜向笔画向下延伸至小型分支笔画簇。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

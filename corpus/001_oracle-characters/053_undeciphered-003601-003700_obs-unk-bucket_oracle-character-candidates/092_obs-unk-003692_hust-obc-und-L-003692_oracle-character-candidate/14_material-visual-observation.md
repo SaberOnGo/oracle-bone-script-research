@@ -34,7 +34,7 @@ English:
 - 下半部的笔画密度较高。
 - 小尺寸图像无法确认横带的连接关系或行向。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify bands, joins, and damage.
 - Compare variants without assigning a reading or component identity.

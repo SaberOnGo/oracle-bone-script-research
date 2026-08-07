@@ -28,7 +28,7 @@ English:
 - 一条窄的纵向痕迹从中部向下延伸。
 - 下部末端渐细，边缘略不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper rounded trace close fully in the source scan?
 - Which scan clarifies the horizontal trace thickness?

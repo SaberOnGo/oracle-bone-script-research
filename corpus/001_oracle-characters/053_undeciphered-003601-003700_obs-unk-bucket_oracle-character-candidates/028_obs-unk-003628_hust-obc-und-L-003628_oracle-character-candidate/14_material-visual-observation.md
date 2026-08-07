@@ -32,7 +32,7 @@ English:
 - 一条窄的分支向右延伸，另有短笔画向下。
 - 笔画末端与可能的表面损伤仍难以分开。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the source-resolution crop to distinguish damage from strokes.
 - Search for repeated forms and retain all relations as candidates.

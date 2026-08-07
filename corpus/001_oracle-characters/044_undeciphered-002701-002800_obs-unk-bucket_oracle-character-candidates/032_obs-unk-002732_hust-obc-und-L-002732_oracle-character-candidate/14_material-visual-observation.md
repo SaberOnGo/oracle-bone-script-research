@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a long curved upper stroke beside a dense lower cluster.
-- Several short angled strokes gather below; a narrow side stroke is also visible.
+- Several short angled strokes gather below; a narrow side stroke is also
+  visible.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一条长弯曲上部笔画旁有密集下部笔画簇。
 - 下方聚集数条短斜笔画，旁边还可见一条狭长侧笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

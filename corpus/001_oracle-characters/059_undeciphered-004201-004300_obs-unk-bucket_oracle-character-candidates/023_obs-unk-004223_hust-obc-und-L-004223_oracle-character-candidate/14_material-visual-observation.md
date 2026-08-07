@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条较窄的弯曲笔画向下延伸。
 - 中文：下端彼此分离，显影对比也不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the ends of the broad upper stroke?
 2. Is the rounded central trace open or closed at its lower end?

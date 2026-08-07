@@ -32,7 +32,7 @@ English:
 - 左下边缘可见一条向外突出的短笔画。
 - 图像不能证明外部轮廓是否闭合。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the crop with the raw source at original resolution.
 - Separate possible damage from intentional interior strokes.

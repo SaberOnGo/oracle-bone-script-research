@@ -32,7 +32,7 @@ English:
 - 较长笔画向下方中央和右下方延伸。
 - 图像较小，不能判断这些笔画的先后或连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop for faint joins and surface damage.
 - Search for repeated forms without assigning a reading.

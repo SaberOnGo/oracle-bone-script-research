@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a narrow vertical dark mark with a broad lower area.
-- A central upright stroke meets a short cross stroke and several small lower projections.
+- A central upright stroke meets a short cross stroke and several small lower
+  projections.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个带有较宽下部的狭长竖向深色记号。
 - 中央直立笔画连接短横笔画和数个下部小突笔。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

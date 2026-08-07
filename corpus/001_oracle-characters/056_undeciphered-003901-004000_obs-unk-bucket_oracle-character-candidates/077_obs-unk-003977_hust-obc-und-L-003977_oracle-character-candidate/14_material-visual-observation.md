@@ -10,7 +10,7 @@
 - 中文观察：两条窄上部痕迹在较宽下部横痕上方汇合。短中央痕迹穿过横痕向下，
   左下方有弧形痕迹；外缘被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

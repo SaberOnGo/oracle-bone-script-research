@@ -12,7 +12,7 @@
   向下收窄成尖点。右侧另有一条细长竖向痕迹，顶部附近带短斜痕；它是否
   属于同一痕迹组尚未确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the thin right-hand trace part of the candidate or a neighboring mark?

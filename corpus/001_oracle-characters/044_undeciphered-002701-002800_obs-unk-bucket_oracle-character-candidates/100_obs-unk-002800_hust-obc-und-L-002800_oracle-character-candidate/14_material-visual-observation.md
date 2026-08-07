@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - A long angled stroke runs across the top of a compact lower cluster.
-- The lower cluster contains separated vertical and diagonal strokes with an open central space.
+- The lower cluster contains separated vertical and diagonal strokes with an
+  open central space.
 - 顶部有一条较长斜向线，下面是紧凑的线迹组。
 - 下部由分离的竖线和斜线组成，中间留有开口空间。
 - The image has no surrounding inscription, scale, or plate context.

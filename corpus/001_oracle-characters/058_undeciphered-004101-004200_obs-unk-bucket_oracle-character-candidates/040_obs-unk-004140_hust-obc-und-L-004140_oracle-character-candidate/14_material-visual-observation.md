@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部逐渐收窄，形成一处折角连接。
 - 中文：左侧痕迹是否属于主体痕迹簇，仍不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source separates the left detached marks?
 2. Are the left marks attached to the main right cluster?

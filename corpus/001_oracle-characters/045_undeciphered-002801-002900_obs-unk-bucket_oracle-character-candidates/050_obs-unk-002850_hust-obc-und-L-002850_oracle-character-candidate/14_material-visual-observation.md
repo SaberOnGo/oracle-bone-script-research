@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - A long angled stroke runs across the top of a compact lower enclosure.
-- Several diagonal and curved strokes overlap within the lower area, leaving a small open gap.
+- Several diagonal and curved strokes overlap within the lower area, leaving a
+  small open gap.
 - 顶部有一条较长斜线横跨紧凑的下部轮廓。
 - 下部有多条斜线和弧线重叠，中间留有小开口。
 - The image has no surrounding inscription, scale, or plate context.

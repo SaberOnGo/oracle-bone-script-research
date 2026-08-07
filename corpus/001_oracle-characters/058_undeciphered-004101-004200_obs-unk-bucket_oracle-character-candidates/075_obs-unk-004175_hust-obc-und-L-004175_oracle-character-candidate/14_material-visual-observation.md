@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧出现一组近方框状轮廓。
 - 中文：该轮廓内部可见一条窄的内向笔画。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan separates the left branches from nearby surface marks?
 2. Is the central long stroke continuous across the whole image?

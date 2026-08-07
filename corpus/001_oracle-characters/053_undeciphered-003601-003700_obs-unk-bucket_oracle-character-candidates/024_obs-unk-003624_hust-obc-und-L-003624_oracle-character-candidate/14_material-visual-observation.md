@@ -32,7 +32,7 @@ English:
 - 下部内部散布几处小的深色笔画。
 - 右上侧外轮廓看起来有开口或断裂。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Check the original crop to distinguish breaks from image damage.
 - Compare repeated forms and keep variant relations as unconfirmed.

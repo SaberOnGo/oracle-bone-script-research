@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a dark mark with a broad upper cap and a rounded lower stroke.
-- The upper area is angular; the lower stroke curves inward and leaves a small light opening.
+- The upper area is angular; the lower stroke curves inward and leaves a small
+  light opening.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个上部较宽、下部带弧形笔画的深色记号。
 - 上部轮廓较折曲；下部笔画向内弯曲并留下小的浅色空隙。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条较窄的痕迹从轮廓右侧伸出。
 - 中文：上端和下端痕迹的粗细不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the long left-side strokes?
 2. Is the inner horizontal bar continuous across the outline?

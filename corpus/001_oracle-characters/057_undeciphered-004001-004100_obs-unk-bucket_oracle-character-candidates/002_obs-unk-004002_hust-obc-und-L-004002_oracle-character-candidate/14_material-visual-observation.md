@@ -9,7 +9,7 @@
 - 中文观察：图像中有角状闭合轮廓，中部有交叉痕迹穿过。
   外部尖角部分被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the original image show the complete outer outline?

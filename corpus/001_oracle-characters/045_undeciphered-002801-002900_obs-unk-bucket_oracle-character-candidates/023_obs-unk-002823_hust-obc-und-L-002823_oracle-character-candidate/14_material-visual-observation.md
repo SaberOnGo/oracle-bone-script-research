@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - A central vertical line is crossed by short horizontal strokes near the top.
-- The lower portion branches into several diagonal strokes with a compact terminal cluster.
+- The lower portion branches into several diagonal strokes with a compact
+  terminal cluster.
 - 中央有一条纵向线，顶部附近被短横线交叉。
 - 下部向多个方向分叉为斜线，末端线迹较为集中。
 - The image has no surrounding inscription, scale, or plate context.

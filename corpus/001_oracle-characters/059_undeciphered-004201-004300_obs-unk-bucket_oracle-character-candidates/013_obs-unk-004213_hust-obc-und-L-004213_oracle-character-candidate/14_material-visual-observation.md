@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下伸中央痕迹两侧有较短的旁侧笔画。
 - 中文：外围边缘和下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the horizontal mark inside the upper frame?
 2. Does the central descending trace continue through the lower curve?

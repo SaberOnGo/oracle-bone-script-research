@@ -17,7 +17,7 @@
 - 中部向左伸出弧线，右侧另有一条向下弯曲的侧痕。
 - 下部长痕迹在末端分成两条向外延伸的支痕。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source view confirms the rounded upper opening and side traces?
 - Is the left hooked cluster connected to the central stem throughout?
@@ -28,3 +28,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

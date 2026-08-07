@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - Two long slanting strokes flank a compact angular central contour.
-- A separate curved stroke descends along the lower left side, with tight margins around the crop.
+- A separate curved stroke descends along the lower left side, with tight
+  margins around the crop.
 - 两条较长斜线包围中央紧凑的折角轮廓。
 - 左下方另有一条弯曲下行线，裁切边缘与主体距离较近。
 - The image has no surrounding inscription, scale, or plate context.

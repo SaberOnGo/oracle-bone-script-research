@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下方和右侧伸出数条短小痕迹。
 - 中文：下端痕迹较细，形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the compact upper outline?
 2. Does the left descending trace connect to the outline?

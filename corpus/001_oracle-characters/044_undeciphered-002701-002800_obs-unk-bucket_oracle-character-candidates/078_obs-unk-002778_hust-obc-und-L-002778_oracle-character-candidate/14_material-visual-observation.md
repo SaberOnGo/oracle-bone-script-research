@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The mark is arranged vertically, with a small crossed or branching stroke group at the top.
-- A narrow central line continues downward toward several separated, fork-like strokes at the bottom.
+- The mark is arranged vertically, with a small crossed or branching stroke
+  group at the top.
+- A narrow central line continues downward toward several separated, fork-like
+  strokes at the bottom.
 - 线迹总体呈纵向排列，顶部有小型交叉或分叉线组。
 - 中部有较窄的纵向线，向下连接至数条彼此分开的叉状线迹。
 - The image has no surrounding inscription, scale, or plate context.

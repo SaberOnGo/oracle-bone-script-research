@@ -28,7 +28,7 @@ English:
 - 下部逐渐收窄，形成向下延伸的渐细痕迹。
 - 中部外缘颜色较深且不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the edges of the central dark shape?
 - Is the horizontal trace continuous across the middle?

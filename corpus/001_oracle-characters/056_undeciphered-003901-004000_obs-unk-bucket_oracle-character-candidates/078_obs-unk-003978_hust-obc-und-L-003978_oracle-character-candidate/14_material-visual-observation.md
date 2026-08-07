@@ -10,7 +10,7 @@
 - 中文观察：紧凑中央痕迹组左侧有分开的弧痕。中央痕迹组包含交叉折线和下方
   短分叉；图像围绕痕迹裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

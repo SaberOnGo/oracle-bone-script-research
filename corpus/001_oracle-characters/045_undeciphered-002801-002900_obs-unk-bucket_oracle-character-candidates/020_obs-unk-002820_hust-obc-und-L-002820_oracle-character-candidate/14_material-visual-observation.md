@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A short horizontal and curved group appears above a compact vertical arrangement.
-- The bottom opens into a rounded curved form with several short interior strokes.
+- A short horizontal and curved group appears above a compact vertical
+  arrangement.
+- The bottom opens into a rounded curved form with several short interior
+  strokes.
 - 上部有短横线和弧线组成的线组，下方是紧凑的纵向排列。
 - 底部展开为圆弧形轮廓，内部有数条短线。
 - The image has no surrounding inscription, scale, or plate context.

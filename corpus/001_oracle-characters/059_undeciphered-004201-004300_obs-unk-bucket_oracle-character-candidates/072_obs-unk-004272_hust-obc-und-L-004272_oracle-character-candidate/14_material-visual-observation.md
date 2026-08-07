@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条较宽的弯曲痕迹向右下方扫过。
 - 中文：弯曲的下端较细，形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the short horizontal upper marks?
 2. Does the central trace continue into the lower curve?

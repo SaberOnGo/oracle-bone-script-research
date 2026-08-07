@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：形态下方伸出两条较长的窄笔画。
 - 中文：左下方有一条较细的分支痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper rounded outline?
 2. Are the two lower strokes joined above the visible crop?

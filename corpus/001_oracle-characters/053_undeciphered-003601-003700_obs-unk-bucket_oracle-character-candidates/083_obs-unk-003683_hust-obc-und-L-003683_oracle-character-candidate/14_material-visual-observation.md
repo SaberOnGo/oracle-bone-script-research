@@ -34,7 +34,7 @@ English:
 - 一条短横向笔画构成下部边界。
 - 任何异体判断前，都应先与相邻记录进行图像比较。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour joins and damage.
 - Compare other catalogue images without assigning a reading.

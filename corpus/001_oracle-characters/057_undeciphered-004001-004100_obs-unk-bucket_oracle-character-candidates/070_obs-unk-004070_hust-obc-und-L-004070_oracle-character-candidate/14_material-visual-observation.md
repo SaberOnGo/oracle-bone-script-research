@@ -11,7 +11,7 @@
 - 中文观察：上部有短小的折向痕迹，围绕中央较深的痕迹。下部有数条斜向痕迹
   向两侧展开，中部附近有较深的交叉处；确切的笔画顺序和连接关系仍未确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Which lower strokes are continuous and which are separate marks?

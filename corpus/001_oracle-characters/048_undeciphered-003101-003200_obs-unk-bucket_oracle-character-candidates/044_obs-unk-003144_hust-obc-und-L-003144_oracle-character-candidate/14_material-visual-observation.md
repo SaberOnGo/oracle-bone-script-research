@@ -13,20 +13,21 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop shows a dark rectangular mark on the left and a curved mark on the right.
+- The crop shows a dark rectangular mark on the left and a curved mark on the
+  right.
 - The right mark has a pale interior opening and uneven edge.
 - 图像左侧显示深色矩形痕迹，右侧有弧形痕迹。
 - 右侧痕迹内部有浅色开口，边缘不均匀。
 - The image has no surrounding inscription, scale, or plate context.
 - 图像未显示周围卜辞、比例尺或图版环境。
 
-## Research Boundary / 研究边界
+## Boundary / 边界
 
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
 
-## Missing Items and Next Checks / 缺失项与下一步核查
+## Next Checks / 下一步核查
 
 - Is another crop, rubbing, plate view, or reverse view available?
 - Which catalog number, inscription, plate, findspot, period, and collection

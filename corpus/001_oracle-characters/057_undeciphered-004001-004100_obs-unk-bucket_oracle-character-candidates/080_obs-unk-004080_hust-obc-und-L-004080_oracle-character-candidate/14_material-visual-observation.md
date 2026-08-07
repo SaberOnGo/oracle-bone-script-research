@@ -11,7 +11,7 @@
 - 中文观察：上部和左侧有数条斜向痕迹，右下方有圆弧或环状轮廓，内部较深。在
   当前尺寸下它与 004074 视觉上相近，但尚未进行 checksum 或去重比较。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the apparent similarity to 004074 confirmed by checksum or source data?

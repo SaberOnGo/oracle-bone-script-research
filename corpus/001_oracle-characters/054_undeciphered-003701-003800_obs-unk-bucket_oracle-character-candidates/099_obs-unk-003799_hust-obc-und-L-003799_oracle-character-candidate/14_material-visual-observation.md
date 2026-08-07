@@ -1,6 +1,6 @@
 # Material Visual Observation / 材料视觉观察
 
-Direct Visual Record / 直接可见记录
+## Direct Visual Record / 直接可见记录
 
 Object / 对象: obs-unk-003799
 Image / 图像: 03_visual-assets/001_asset-005392_hust-obc-und-L-003799_glyph.jpg
@@ -14,12 +14,12 @@ on either side.
 该痕迹为小型紧凑组合。圆弧状深色痕迹位于短横向交叉之上，下部细痕迹向下延伸，
 两侧留有开放亮色空间。
 
-Concrete follow-up questions / 具体待查问题：
+## Next Checks / 下一步核查
 1. Which catalogue entry, plate, and page contain this candidate?
 2. Can the complete inscription context and neighboring signs be located?
 3. Does the source package record scale, orientation, or retouching?
 
-Boundary / 边界：
+## Boundary / 边界
 This records visible material only. It does not confirm identity,
 reading, component, variant, period, or decipherment.
 本页只记录可见材料，不确认字形身份、释读、构件、异体、时期或破译。

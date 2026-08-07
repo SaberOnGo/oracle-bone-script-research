@@ -10,7 +10,7 @@
 - 中文观察：上部中央有深色分叉痕迹；下方有数条分离的圆弧或波曲横向
   痕迹，上下区域之间可见窄直连接痕。图像较小。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the narrow connection?

@@ -32,7 +32,7 @@ English:
 - 右侧另有一条窄的下行笔画。
 - 图像不能证明两侧笔画是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the original crop for faint joins and damage.
 - Search repeated forms while retaining relations as candidates.

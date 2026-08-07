@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条较窄的弯曲边界向下延伸。
 - 中文：下部有一条横向痕迹向右伸出。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the long curved trace on the left?
 2. Is the short top bar connected to the middle block?

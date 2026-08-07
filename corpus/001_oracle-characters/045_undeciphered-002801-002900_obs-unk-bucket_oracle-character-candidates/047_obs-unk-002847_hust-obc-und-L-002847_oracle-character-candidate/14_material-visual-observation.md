@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A rounded upper stroke group leads into a narrow central stem that forks near the bottom.
+- A rounded upper stroke group leads into a narrow central stem that forks
+  near the bottom.
 - Several short detached strokes appear to the right of the main body.
 - 上部有圆弧线组，向下连接窄幅中央线，并在底部附近分叉。
 - 主体右侧有数条短小的分离线迹。

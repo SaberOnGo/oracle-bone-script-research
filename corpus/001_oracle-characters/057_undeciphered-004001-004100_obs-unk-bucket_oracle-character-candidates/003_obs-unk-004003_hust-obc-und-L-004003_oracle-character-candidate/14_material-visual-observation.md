@@ -10,7 +10,7 @@
   下方有两条弯曲下行痕迹。
   下端呈开放状态，周围图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the complete upper and lower traces?

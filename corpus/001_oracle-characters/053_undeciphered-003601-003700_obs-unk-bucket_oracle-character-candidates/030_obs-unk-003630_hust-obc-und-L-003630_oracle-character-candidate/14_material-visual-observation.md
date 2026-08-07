@@ -32,7 +32,7 @@ English:
 - 中部附近有一条较深的笔画向左伸展。
 - 图像不能证明折转部分是否连续。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the source-resolution crop for faint strokes and joins.
 - Check variants before describing any structural relation.

@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下端逐渐收窄，形成尖状或窄的痕迹。
 - 中文：部分外缘较淡，不易完全分开。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source confirms the upper curved trace?
 2. Are the two lower bars continuous or separate surface marks?

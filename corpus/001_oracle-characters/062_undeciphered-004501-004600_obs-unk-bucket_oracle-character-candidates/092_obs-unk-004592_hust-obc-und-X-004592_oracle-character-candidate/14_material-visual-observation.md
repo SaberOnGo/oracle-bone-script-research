@@ -19,7 +19,7 @@
 - 细笔画、开口和末端无法可靠分离。
 - 不依据此图指定释读、构件或卜辞身份。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source file provides a higher-quality scan for this object?
 - Is the dark field caused by thresholding, cropping, or source damage?
@@ -31,3 +31,11 @@
 This record describes visible image quality and fragments only. It does not
 assign a component, variant, period, inscription identity, reading, meaning,
 or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

@@ -11,7 +11,7 @@
 - 中文观察：一条细竖向痕迹从上方小痕迹向下延伸。下部中央分出两条
   斜向痕迹，分别止于圆弧或钩状末端。图像尚不能确定分支是否相连。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the top mark and the branch endpoints?

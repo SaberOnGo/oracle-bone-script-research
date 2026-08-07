@@ -11,7 +11,7 @@
 - 中文观察：左侧有细长分叉痕迹，右上附近有数枚短痕；较长中央痕迹向下
   延伸至下缘。图像与邻近候选外观相似，但尚未完成 checksum 或去重判断。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Which source image checksum should be compared for the apparent similarity?

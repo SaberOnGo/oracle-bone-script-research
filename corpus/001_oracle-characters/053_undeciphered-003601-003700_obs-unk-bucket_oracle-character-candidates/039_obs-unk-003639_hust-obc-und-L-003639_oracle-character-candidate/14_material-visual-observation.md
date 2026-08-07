@@ -32,7 +32,7 @@ English:
 - 右上侧附近可见一处小的深色笔画。
 - 图像不能证明上部笔画是否连续。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the source-resolution crop for faint strokes and joins.
 - Compare variants before describing structural relations.

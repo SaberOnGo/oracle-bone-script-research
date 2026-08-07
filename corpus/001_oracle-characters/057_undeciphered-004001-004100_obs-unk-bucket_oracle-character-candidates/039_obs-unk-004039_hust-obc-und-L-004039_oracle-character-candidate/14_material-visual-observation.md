@@ -10,7 +10,7 @@
 - 中文观察：上部有分叉或交叉痕迹，下方是圆弧或波曲轮廓；上下区域之间
   可见窄直中央痕迹。图像未显示两侧完整边缘。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper crossed traces?

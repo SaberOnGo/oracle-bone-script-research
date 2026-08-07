@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The narrow mark contains wavy or bent strokes on both sides of a central vertical area.
-- A longer descending stroke extends on the right, with shorter crossing strokes toward the middle.
+- The narrow mark contains wavy or bent strokes on both sides of a central
+  vertical area.
+- A longer descending stroke extends on the right, with shorter crossing
+  strokes toward the middle.
 - 窄幅线迹两侧都有波折或弯曲线，中部形成纵向区域。
 - 右侧有较长下行线，中部附近还有较短的交叉线。
 - The image has no surrounding inscription, scale, or plate context.

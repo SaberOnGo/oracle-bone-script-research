@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有紧凑的棱角轮廓及内部痕迹。
 - 中文：下端形态不均，彼此之间有部分分离。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the long diagonal stroke's lower terminal?
 2. Are the left crossing strokes separate or joined at the surface?

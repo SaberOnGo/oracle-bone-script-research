@@ -10,7 +10,7 @@
 - 中文观察：上部有一条短竖向痕迹，顶端带小横痕，下方有两条向两侧斜出的痕迹。
   下部形成开放的折角轮廓，中央较深；各痕迹的连接处尚未完全分辨。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the two lower side traces joined to the upper mark?

@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop contains a narrow vertical group with a long slanting stroke on the right.
-- Short angular strokes branch from the central area, while the lower ends remain separated.
+- The crop contains a narrow vertical group with a long slanting stroke on the
+  right.
+- Short angular strokes branch from the central area, while the lower ends
+  remain separated.
 - 裁切图中有窄幅纵向线组，右侧有一条较长斜线。
 - 中部向外分出短折线，下部末端彼此分离。
 - The image has no surrounding inscription, scale, or plate context.

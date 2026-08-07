@@ -10,7 +10,7 @@
 - 中文观察：左侧有细长分叉痕迹，右上附近分布数枚短痕；较长的中央痕迹
   向下延伸至下缘。图像较小，各痕迹之间的关系尚不明确。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the upper short marks are connected?

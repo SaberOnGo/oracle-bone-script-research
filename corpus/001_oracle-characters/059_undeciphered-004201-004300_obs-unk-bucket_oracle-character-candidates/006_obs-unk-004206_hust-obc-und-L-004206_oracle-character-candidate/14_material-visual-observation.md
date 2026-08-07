@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部形态中可见两条较深的直立痕迹。
 - 中文：上下两部分之间的过渡关系不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the horizontal traces in the upper block?
 2. Are the two lower upright traces separate strokes?

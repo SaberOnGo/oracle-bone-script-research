@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：左侧链状形态包含数个重复的窄小开口。
 - 中文：两组形态的上端和下端连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the openings in the left vertical chain?
 2. Is the right upright stroke attached to the left group?

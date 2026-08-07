@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - A small angled stroke group sits above a central descending arrangement.
-- The lower area contains several crossing and branching strokes with uneven spacing.
+- The lower area contains several crossing and branching strokes with uneven
+  spacing.
 - 顶部有小型斜向线组，下方形成中央下行的线迹排列。
 - 下部包含数条交叉和分叉线迹，间距不均。
 - The image has no surrounding inscription, scale, or plate context.

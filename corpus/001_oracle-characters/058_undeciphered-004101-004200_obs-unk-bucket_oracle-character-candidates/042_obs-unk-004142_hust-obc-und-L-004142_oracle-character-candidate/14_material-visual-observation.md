@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部内部可见一些深色痕迹。
 - 中文：轮廓和内部边界有些位置并不平整。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger scan clarifies the enclosing outline?
 2. Is the upper horizontal trace continuous across the outline?

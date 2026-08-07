@@ -28,7 +28,7 @@ English:
 - 痕迹组右侧伸出一条较短的侧向痕迹。
 - 下部末端尖细，边缘略不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the upper angled trace boundary?
 - Is the lower cluster connected to the upper trace?

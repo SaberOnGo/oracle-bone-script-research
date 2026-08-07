@@ -11,7 +11,7 @@
 - 中文观察：可见材料沿斜向分布。中央有较深的弯曲或折线状痕迹，左侧
   有两枚分离的短痕，右上方另有细长弧形痕迹；周围留白较多。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image show whether the separated left marks join the center?

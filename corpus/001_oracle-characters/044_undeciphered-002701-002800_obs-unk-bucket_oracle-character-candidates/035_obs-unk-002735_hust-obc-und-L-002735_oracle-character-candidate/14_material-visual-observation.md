@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows several parallel curved strokes beside a central cluster.
-- The central area includes a short crossing stroke; the image is vertically oriented.
+- The central area includes a short crossing stroke; the image is vertically
+  oriented.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示数条平行弯曲笔画旁有中央笔画簇。
 - 中央区域含短交叉笔画；图像整体呈竖向。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

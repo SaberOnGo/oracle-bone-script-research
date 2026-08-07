@@ -10,7 +10,7 @@
   中部可见纵向痕迹。
   下缘和侧边被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image preserve the complete lower curve?

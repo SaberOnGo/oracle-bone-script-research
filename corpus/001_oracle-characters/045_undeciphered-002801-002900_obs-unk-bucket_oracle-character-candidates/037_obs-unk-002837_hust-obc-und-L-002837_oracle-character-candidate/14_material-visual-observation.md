@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A rounded upper contour encloses short interior strokes above a narrow central line.
-- Two separated curved strokes extend below the main body, with a small detached mark at right.
+- A rounded upper contour encloses short interior strokes above a narrow
+  central line.
+- Two separated curved strokes extend below the main body, with a small
+  detached mark at right.
 - 上部圆弧轮廓包围短内部线迹，下方接窄幅中央线。
 - 主体下方有两条分开的弯曲线，右侧另有小型分离线迹。
 - The image has no surrounding inscription, scale, or plate context.

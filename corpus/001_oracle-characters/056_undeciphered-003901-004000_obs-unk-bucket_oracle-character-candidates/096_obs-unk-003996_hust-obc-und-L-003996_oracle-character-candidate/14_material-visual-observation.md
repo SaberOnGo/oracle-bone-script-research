@@ -9,7 +9,7 @@
 - 中文观察：上部窄痕迹带有短侧向分支。
   下方有数条细痕迹向下延伸；下缘较淡且裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is a less-cropped or higher-resolution source image available?

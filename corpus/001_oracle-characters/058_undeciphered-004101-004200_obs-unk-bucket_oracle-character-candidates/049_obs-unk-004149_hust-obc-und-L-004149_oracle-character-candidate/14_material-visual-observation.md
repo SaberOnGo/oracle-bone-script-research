@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：左侧有折角轮廓和短横痕迹。
 - 中文：两侧之间的间隔及可能的连接关系不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image separates the right inner marks?
 2. Are the left angular traces joined to the right curved trace?

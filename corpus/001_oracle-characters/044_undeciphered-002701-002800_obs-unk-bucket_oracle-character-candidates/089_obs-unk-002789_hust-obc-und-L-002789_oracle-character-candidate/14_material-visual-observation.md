@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The tall crop has several long slanting strokes on the left and a denser vertical group on the right.
-- Short crossing or branching strokes appear around the middle and lower part of the mark.
+- The tall crop has several long slanting strokes on the left and a denser
+  vertical group on the right.
+- Short crossing or branching strokes appear around the middle and lower part
+  of the mark.
 - 窄高裁切图左侧有数条长斜线，右侧线迹较密并呈纵向分布。
 - 中部和下部可见短小交叉或分叉线迹。
 - The image has no surrounding inscription, scale, or plate context.

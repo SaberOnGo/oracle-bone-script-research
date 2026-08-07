@@ -34,7 +34,7 @@ English:
 - 左下区域有一条相对独立的带钩外伸笔画。
 - 小尺寸图像无法确认这些笔画群是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and terminal damage.
 - Compare other images for variant or near-form relationships.

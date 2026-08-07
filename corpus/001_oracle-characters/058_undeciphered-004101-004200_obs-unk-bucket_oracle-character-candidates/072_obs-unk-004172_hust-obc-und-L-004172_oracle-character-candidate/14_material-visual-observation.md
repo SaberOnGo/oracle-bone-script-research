@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：中央下部向下伸出两条较长的弧曲笔画。
 - 中文：两条下伸笔画在可见末端附近仍彼此分开。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the points along the upper contour?
 2. Are the two lower curves joined above the visible crop?

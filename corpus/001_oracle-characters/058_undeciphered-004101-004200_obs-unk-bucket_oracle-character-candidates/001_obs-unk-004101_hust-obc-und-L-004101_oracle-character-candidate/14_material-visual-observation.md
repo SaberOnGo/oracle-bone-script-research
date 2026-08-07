@@ -11,7 +11,7 @@
   下部有两条斜向痕迹在一个小型折线区域附近相接；具体连接处和
   末端仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the upper upright trace touch the lower group?

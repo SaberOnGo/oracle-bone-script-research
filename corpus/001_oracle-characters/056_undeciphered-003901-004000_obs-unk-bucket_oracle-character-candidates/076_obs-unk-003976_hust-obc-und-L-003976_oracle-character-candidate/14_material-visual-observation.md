@@ -10,7 +10,7 @@
 - 中文观察：小的交叉或折角上部痕迹位于弧状下部围合轮廓之上。较深斜痕位于
   围合内部或侧旁，下缘附近有短痕；图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

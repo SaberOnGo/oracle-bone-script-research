@@ -11,7 +11,7 @@
 - 中文观察：上部短痕交叉后向下延伸，进入宽大的矩形或梯形轮廓。整体粗略
   形态似与候选 004058 相近；尚未进行 checksum 或去重判定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Do side-by-side source images preserve the apparent similarity to 004058?

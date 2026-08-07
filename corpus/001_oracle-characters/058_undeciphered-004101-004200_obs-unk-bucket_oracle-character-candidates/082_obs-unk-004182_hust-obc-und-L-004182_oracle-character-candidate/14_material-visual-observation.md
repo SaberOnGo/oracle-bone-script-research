@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：中央下部形成一组紧凑的折角痕迹。
 - 中文：最下方的一条笔画指向右下方。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the long upper stroke?
 2. Which diagonal strokes are continuous rather than damage?

@@ -32,7 +32,7 @@ English:
 - 一条弯曲或带钩笔画向右下方延伸。
 - 图像不能证明各分支之间的连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the original crop for faint joins and surface damage.
 - Search repeated forms without assigning a reading or identity.

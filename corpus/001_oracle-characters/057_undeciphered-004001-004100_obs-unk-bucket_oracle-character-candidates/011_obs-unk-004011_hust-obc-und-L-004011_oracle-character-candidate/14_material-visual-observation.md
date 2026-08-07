@@ -9,7 +9,7 @@
 - 中文观察：三条短痕迹位于长斜向或下行痕迹之上。
   下部附近可见较小的侧向分支。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image preserve the full diagonal trace?

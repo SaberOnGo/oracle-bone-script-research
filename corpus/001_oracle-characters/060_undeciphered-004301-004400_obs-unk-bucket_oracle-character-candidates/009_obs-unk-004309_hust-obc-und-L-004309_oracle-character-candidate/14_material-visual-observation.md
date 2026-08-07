@@ -27,7 +27,7 @@ English:
 - 左右末端向不同的下部位置展开。
 - 下部边缘不均匀，部分位置仍呈开放状态。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does this image duplicate the visible layout of 004299, 004300, and 004306?
 - Which scan separates the outer outline from inner traces?

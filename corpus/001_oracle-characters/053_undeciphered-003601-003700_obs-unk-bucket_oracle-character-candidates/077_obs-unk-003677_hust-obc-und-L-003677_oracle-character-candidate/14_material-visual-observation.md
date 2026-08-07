@@ -34,7 +34,7 @@ English:
 - 一条短横向笔画构成下部边界。
 - 小尺寸图像无法确认外部轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour joins and damage.
 - Compare other catalogue images without assigning a reading.

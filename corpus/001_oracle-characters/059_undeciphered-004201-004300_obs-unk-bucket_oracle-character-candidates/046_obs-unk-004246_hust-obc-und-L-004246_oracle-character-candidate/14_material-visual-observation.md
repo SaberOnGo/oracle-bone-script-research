@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：中央竖向区域内有数条较窄的痕迹。
 - 中文：下端呈尖细或淡化状态，形态并不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the short angled marks on the left?
 2. Does the long right trace continue behind the central marks?

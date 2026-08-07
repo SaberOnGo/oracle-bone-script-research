@@ -34,7 +34,7 @@ English:
 - 外部两侧不均匀地向下延伸至下方角部。
 - 小尺寸图像无法确认轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify contour joins and damage.
 - Compare variants and near-forms without assigning a reading.

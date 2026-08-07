@@ -10,7 +10,7 @@
   下方有较宽的角状痕迹带。
   下端较宽，周围图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the lower angular band?

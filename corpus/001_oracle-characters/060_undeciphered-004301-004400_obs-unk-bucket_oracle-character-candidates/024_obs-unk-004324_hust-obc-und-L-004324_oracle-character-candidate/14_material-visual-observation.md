@@ -28,7 +28,7 @@ English:
 - 右下部附近可见一条较短的钩状痕迹。
 - 下部痕迹在一处深浅不匀的交汇处相接。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the broad upper trace continuous at its left edge?
 - Which scan clarifies the central downward bend?

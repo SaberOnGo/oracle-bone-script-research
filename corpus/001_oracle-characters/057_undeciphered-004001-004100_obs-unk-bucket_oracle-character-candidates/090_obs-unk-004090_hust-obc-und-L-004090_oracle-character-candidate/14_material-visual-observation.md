@@ -11,7 +11,7 @@
   右部附近似有小型封闭或带钩轮廓；下方有数条痕迹向下延伸，
   但各自的末端较淡，尚不能确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the small right-hand outline continuous or interrupted by damage?

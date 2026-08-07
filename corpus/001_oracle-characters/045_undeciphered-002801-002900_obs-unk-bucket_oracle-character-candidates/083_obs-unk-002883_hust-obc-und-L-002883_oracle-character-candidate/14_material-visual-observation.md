@@ -16,7 +16,8 @@
 - A narrow central axis is flanked by repeated slanting strokes that open
 - outward and then turn back inward. The lower cluster is denser and darker
 - than the upper strokes.
-- The isolated image does not establish whether the marks are layered or connected.
+- The isolated image does not establish whether the marks are layered or
+  connected.
 - 窄中央轴线两侧有重复斜向笔画，向外展开后又向内转。
 - 下部笔画簇比上部更密、更深。
 - 孤立图像不能确定这些痕迹是分层叠写还是相互连接。

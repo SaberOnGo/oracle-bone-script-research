@@ -10,7 +10,7 @@
 - 中文观察：两条短直立或分叉痕迹位于较宽矩形下部围合轮廓之上。中央斜向或
   交叉痕迹位于围合内；两侧边缘被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

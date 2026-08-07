@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部中央可见一处紧凑的折角痕迹。
 - 中文：不同痕迹的粗细和末端清晰度并不一致。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image confirms the two upper curved strokes?
 2. Are the lower ends connected to the central trace?

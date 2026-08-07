@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop contains a dense diagonal stroke cluster with uneven lengths and spacing.
-- Several strokes cross or overlap near the center, and no surrounding inscription is visible.
+- The crop contains a dense diagonal stroke cluster with uneven lengths and
+  spacing.
+- Several strokes cross or overlap near the center, and no surrounding
+  inscription is visible.
 - 裁切图中有一组密集的斜向线迹，长度和间距不均。
 - 数条线在中央附近交叉或重叠，图像中未见周围卜辞。
 - The image has no surrounding inscription, scale, or plate context.

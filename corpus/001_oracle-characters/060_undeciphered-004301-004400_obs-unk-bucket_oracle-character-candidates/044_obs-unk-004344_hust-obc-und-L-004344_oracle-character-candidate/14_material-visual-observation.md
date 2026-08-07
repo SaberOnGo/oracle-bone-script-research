@@ -28,7 +28,7 @@ English:
 - 交叉处上方可见数条短斜痕。
 - 下部痕迹发生弯折，末端不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the central vertical trace edges?
 - Does the horizontal trace cross fully from left to right?

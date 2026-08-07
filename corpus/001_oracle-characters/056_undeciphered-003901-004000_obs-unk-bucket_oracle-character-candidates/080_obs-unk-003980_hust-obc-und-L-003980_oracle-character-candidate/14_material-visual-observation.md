@@ -10,7 +10,7 @@
 - 中文观察：数个尖锐上部折角位于较深竖痕之上。较宽下部横痕穿过形体，其下
   另有较短斜痕；外侧边缘被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

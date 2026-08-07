@@ -16,7 +16,8 @@
 - Two dark upright strokes support a broad upper connection, leaving an open
 - central space below. A short angled projection appears near the upper left,
 - and the right stroke continues downward with a slight outward turn.
-- This crop is visually close to another nearby candidate; duplication requires checking.
+- This crop is visually close to another nearby candidate; duplication
+  requires checking.
 - 两条深色竖向笔画支撑上部宽连接，中间下方留有开放空间。
 - 左上附近有短斜向突笔，右侧笔画继续下行并略向外转。
 - 该裁切图与附近另一候选在视觉上相近，重复关系需核对。

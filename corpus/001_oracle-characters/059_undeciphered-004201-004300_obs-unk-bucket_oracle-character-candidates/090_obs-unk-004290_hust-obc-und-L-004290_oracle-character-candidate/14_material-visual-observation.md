@@ -27,7 +27,7 @@ English:
 - 数条斜向痕迹在下部中间呈层叠分布。
 - 右侧仍可见数条向外伸出的短痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Are the two upper traces parallel or connected at one end?
 - Which scan separates the stacked lower traces?

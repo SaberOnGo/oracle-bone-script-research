@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The narrow crop contains a dense vertical group of long and short bent strokes.
-- Several strokes run close together through the center, with uneven ends and spacing.
+- The narrow crop contains a dense vertical group of long and short bent
+  strokes.
+- Several strokes run close together through the center, with uneven ends and
+  spacing.
 - 窄幅裁切图中有一组密集的纵向长短折线。
 - 多条线迹在中央相互靠近，末端和间距并不均匀。
 - The image has no surrounding inscription, scale, or plate context.

@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部轮廓内部或旁边可见一些小的深色痕迹。
 - 中文：上部痕迹与下部轮廓的连接关系尚不完全清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger image confirms the lower broad outline?
 2. Are the small lower marks inside the outline or beside it?

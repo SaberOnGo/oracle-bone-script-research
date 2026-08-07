@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - Two long slanting strokes frame a narrow central sequence of bent lines.
-- The central sequence changes direction several times and ends in a short lower stroke.
+- The central sequence changes direction several times and ends in a short
+  lower stroke.
 - 两条较长斜线包围一组窄幅中央折线。
 - 中央线迹多次改变方向，末端接一条较短下行线。
 - The image has no surrounding inscription, scale, or plate context.

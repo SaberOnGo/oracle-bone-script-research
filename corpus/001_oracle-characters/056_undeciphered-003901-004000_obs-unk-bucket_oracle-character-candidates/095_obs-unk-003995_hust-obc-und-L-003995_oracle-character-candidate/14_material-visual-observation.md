@@ -9,7 +9,7 @@
 - 中文观察：左侧有弯曲痕迹，旁边是较紧凑的围合状轮廓。
   上下各有短痕迹；图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image clarify the left mark's connection to the outline?

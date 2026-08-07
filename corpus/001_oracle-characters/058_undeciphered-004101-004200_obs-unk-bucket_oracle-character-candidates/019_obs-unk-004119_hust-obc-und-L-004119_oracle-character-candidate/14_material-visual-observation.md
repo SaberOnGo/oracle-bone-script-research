@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：左下方可见数条细小的分支或折角笔画。
 - 中文：外部轮廓和下部端点仍有部分不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the central enclosure?
 2. Which catalog or plate record corroborates this visual observation?

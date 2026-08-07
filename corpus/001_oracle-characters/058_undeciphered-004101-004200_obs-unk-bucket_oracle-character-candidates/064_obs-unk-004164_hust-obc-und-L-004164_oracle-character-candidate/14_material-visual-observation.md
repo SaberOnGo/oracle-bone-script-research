@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：左下方有一处小型折角包围状痕迹。
 - 中文：下部形态向外伸出一条较细的斜向笔画。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper cross-stroke?
 2. Is the lower-left angular mark closed or interrupted?

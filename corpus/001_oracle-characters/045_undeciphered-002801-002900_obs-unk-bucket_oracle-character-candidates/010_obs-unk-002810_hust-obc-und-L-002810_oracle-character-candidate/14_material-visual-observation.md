@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A detached short stroke appears at the upper left beside a narrow vertical arrangement.
-- The lower section forms an open curved contour with several interior angular strokes.
+- A detached short stroke appears at the upper left beside a narrow vertical
+  arrangement.
+- The lower section forms an open curved contour with several interior angular
+  strokes.
 - 上左侧有一条与主体分离的短线，主体线迹呈窄幅纵向排列。
 - 下部形成开口弧形轮廓，内部有数条折线。
 - The image has no surrounding inscription, scale, or plate context.

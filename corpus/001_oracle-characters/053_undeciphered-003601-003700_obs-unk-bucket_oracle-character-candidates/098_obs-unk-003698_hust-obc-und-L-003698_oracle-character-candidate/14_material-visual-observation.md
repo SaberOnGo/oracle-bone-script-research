@@ -34,7 +34,7 @@ English:
 - 一条较长笔画从中央区域继续向下延伸。
 - 小尺寸图像无法确认这些笔画群是否构成同一轮廓。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and surface damage.
 - Compare variants without assigning a reading or component identity.

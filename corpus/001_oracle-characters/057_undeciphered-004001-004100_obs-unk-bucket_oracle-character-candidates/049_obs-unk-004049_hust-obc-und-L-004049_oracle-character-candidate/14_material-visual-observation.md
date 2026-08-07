@@ -10,7 +10,7 @@
 - 中文观察：左侧有一条向上分叉的细痕。右侧是较粗的块状痕迹，内部有数条
   短横痕。两部分在下方的连接关系受到图像裁切影响，仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the left branching trace?

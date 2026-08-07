@@ -27,7 +27,7 @@ English:
 - 弧形痕迹右侧仍有一条短的向内钩状痕迹。
 - 下部末端明显处在不同高度。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the long left trace meet the upper arc at one junction?
 - Which scan clarifies the short right hook?

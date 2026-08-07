@@ -10,7 +10,7 @@
 - 中文观察：两条相近的弯曲痕迹从上部小痕迹簇向下延伸。
   一条长斜向痕迹伸向左下方；周围表面不完整。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery preserve the surrounding surface?

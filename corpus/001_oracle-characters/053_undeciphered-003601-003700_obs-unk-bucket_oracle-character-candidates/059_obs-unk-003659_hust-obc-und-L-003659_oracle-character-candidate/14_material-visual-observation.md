@@ -34,7 +34,7 @@ English:
 - 最下方笔画以狭窄尖状或渐细末端结束。
 - 小尺寸图像无法确认上部笔画是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and terminal damage.
 - Compare other images for variant or near-form relationships.

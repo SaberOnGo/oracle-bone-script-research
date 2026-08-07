@@ -107,7 +107,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   local image coverage as a completed human observation.
 - Follow `227_character-visual-observation-coverage.csv` to the concrete
   object directory and its image/source index.
-- A local image without a direct visual record remains a human review gap.
+- The 4,401 HUST-OBC pixel profiles are routing facts only. A pixel profile or
+  local image without a direct visual record remains a human review gap.
+- Neither a profile nor a local image confirms a shape, identity, reading, or
+  component assignment.
 
 ## File Families / 文件族
 

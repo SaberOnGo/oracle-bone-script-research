@@ -10,7 +10,7 @@
 - 中文观察：窄而尖顶的轮廓位于宽大的圆弧下部轮廓之上；下部内部可见
   数条直立或弯曲痕迹。图像较小，未显示完整外缘。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper and lower outline connections?

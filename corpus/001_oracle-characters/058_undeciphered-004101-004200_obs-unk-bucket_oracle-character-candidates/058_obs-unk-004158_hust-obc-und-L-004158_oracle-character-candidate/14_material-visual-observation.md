@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部基底包含一条短的横向深色痕迹。
 - 中文：上下痕迹之间的连接处有部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the small upper side marks?
 2. Are the two angled traces joined to the lower base?

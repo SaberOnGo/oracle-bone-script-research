@@ -27,7 +27,7 @@ English:
 - 两条较长的斜向痕迹向下侧延伸。
 - 下部末端彼此分开且不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the dense upper cluster into visible traces?
 - Are the small loops complete or interrupted by damage?

@@ -28,7 +28,7 @@ English:
 - 下部中间有数条细痕向下延伸。
 - 上下两个区域之间隔着一条窄的浅色空隙。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the broad upper trace continuous across the crop?
 - Which scan clarifies the short band below it?

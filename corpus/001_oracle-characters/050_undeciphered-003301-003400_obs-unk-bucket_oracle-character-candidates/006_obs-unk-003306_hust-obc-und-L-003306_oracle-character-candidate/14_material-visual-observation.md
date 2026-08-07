@@ -29,7 +29,7 @@
   unreviewed scholarly conclusion is made.
 - 简体中文：仅作材料描述；不作释读、定字或未经复核的学术结论。
 
-## Missing Items and Follow-up Questions / 缺失项与待查问题
+## Next Checks / 下一步核查
 
 - Is an alternate crop, rubbing, plate view, reverse, or higher-resolution
   derivative available for comparison?

@@ -27,7 +27,7 @@ English:
 - 下部中间有一条短横痕向左伸出。
 - 较细的弯曲或斜向痕迹沿左下侧继续分布。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Do the two upper slants share a clear junction?
 - Which scan clarifies the central trace's lower terminal?

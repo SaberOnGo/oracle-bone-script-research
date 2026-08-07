@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The mark has a rounded outer contour with irregular curved strokes inside.
-- Short branched strokes project toward the upper left, while the lower interior is densely curved.
+- Short branched strokes project toward the upper left, while the lower
+  interior is densely curved.
 - 线迹外侧有圆弧形轮廓，内部包含不规则弯曲线。
 - 左上方有短小分叉线迹，下部内部的弯曲线较为密集。
 - The image has no surrounding inscription, scale, or plate context.

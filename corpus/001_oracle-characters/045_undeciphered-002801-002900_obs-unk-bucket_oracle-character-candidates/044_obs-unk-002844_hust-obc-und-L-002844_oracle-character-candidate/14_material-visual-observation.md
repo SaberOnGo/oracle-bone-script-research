@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - A rounded outer contour encloses several short angular interior strokes.
-- A longer curved stroke descends along the right side and ends below the main contour.
+- A longer curved stroke descends along the right side and ends below the main
+  contour.
 - 圆弧形外轮廓包围数条短折线。
 - 右侧有较长弯曲线向下延伸，末端低于主体轮廓。
 - The image has no surrounding inscription, scale, or plate context.

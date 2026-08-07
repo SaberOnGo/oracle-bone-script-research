@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：图像下部附近另见一处较短的深色痕迹。
 - 中文：受当前分辨率限制，连接处和笔画端点仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the upper stroke boundary?
 2. Which catalog or plate record corroborates this visual observation?

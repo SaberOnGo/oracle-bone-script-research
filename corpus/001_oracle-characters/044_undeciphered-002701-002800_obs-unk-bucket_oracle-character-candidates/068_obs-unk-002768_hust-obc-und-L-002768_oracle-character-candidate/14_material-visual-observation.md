@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows two short upper marks above a central lower cluster.
-- The lower cluster contains several upward and downward strokes; edges are soft.
+- The lower cluster contains several upward and downward strokes; edges are
+  soft.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示两个上部短记号位于中央下部笔画簇之上。
 - 下部笔画簇含数条向上和向下笔画；边缘较为模糊。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

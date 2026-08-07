@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两条下伸笔画之间有一处较小的中央痕迹。
 - 中文：外围边缘和下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the inner marks in the upper outline?
 2. Is the small central trace joined to either lower stroke?

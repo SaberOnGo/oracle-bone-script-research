@@ -11,7 +11,7 @@
   汇聚。其下方似有一个小型带轮廓的折线区域；在当前尺寸下，
   上部连接关系和下部轮廓尚未完全清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Which upper traces touch the broad central form in the source image?

@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows a compact angular upper outline with several short lower marks.
-- The lower marks are separated and vary in direction; no surrounding context is visible.
+- The image shows a compact angular upper outline with several short lower
+  marks.
+- The lower marks are separated and vary in direction; no surrounding context
+  is visible.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个紧凑的折线上部轮廓和数条下部短笔画。
 - 下部短笔画彼此分离、方向不同；未显示周围环境。
@@ -37,4 +39,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

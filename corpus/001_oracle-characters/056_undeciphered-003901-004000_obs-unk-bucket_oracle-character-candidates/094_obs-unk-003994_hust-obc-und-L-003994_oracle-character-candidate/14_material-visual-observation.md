@@ -9,7 +9,7 @@
 - 中文观察：顶部有窄直立痕迹，并带短侧向分支。
   下方有数条细痕迹向下延伸；下部细节较淡。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a higher-resolution image clarify the faint lower details?

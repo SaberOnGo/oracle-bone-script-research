@@ -28,7 +28,7 @@ English:
 - 下部痕迹组附近有一条较宽的横向痕迹。
 - 最下方痕迹呈弯曲状，末端略不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the two stacked trace groups?
 - Does the upper diagonal trace meet the central group?

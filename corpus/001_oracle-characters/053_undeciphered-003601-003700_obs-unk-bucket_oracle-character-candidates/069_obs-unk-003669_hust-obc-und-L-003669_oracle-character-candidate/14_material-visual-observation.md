@@ -34,7 +34,7 @@ English:
 - 一条细斜向笔画向左下方外伸。
 - 小尺寸图像不足以确认笔画顺序或连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and surface damage.
 - Compare other catalogue images without assigning a reading.

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右下方有一条向外弯曲的细笔画。
 - 中文：左下方的锯齿状痕迹仍有部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan separates the upper outline from surface damage?
 2. Is the central zigzag continuous through the lower group?

@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部有一组紧凑的斜向或折角痕迹。
 - 中文：右侧有一条较细的竖向痕迹向下延伸。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan confirms the open upper outline?
 2. Is the right vertical trace connected to the lower angled cluster?

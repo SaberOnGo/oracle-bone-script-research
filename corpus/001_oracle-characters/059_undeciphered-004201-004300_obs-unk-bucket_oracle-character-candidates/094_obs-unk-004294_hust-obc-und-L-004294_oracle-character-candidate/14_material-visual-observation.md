@@ -27,7 +27,7 @@ English:
 - 一条断续的中央痕迹从上部痕迹组向下延伸。
 - 下部弯曲痕迹向右侧和下缘展开。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the dark upper cluster into individual traces?
 - Does the right projection meet the descending central trace?

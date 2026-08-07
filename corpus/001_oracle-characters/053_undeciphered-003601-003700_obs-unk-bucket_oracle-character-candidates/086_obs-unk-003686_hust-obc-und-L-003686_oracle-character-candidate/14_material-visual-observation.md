@@ -34,7 +34,7 @@ English:
 - 一条较长斜向笔画从笔画群下方向下延伸。
 - 小尺寸图像无法确认各分支笔画的连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify branches and terminal damage.
 - Compare variants and near-forms without assigning a reading.

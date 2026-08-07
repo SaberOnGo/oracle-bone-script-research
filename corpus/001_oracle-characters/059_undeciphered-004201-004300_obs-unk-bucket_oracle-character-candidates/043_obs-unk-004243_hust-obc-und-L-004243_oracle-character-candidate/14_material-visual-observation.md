@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部痕迹末端呈尖细或逐渐变细形态。
 - 中文：上部边缘和下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two outward-curving upper strokes?
 2. Is the central lower trace continuous from the upper marks?

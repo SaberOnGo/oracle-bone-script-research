@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部中央和右侧附近可见短小的分离痕迹。
 - 中文：外围边缘和下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two horizontal marks in the upper outline?
 2. Are the lower short marks connected to the central trace?

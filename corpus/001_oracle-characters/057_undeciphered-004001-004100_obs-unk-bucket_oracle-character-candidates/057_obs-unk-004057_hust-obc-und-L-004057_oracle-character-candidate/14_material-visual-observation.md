@@ -10,7 +10,7 @@
 - 中文观察：上方有数条短的分叉状痕迹。中央细痕向下进入紧凑的矩形或盆状
   下部轮廓。上部连接点和下部深色边界仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper prong-like traces?

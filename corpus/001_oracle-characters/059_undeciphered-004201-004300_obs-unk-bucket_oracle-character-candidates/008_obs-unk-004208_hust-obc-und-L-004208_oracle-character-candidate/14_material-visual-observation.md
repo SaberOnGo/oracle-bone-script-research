@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：底部沿横向分布数条波曲笔画。
 - 中文：中央组与两侧形态在图像中仍有明显间隔。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the pointed central outline?
 2. Are the side marks detached or joined by faint traces?

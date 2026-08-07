@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The upper part contains several short zigzag and branching strokes above a central line.
+- The upper part contains several short zigzag and branching strokes above a
+  central line.
 - The lower section opens into two diagonal arms with a pointed central end.
 - 上部有数条短折线和分叉线，下面接中央线。
 - 下部展开为两条斜向分支，中央末端呈尖折状。

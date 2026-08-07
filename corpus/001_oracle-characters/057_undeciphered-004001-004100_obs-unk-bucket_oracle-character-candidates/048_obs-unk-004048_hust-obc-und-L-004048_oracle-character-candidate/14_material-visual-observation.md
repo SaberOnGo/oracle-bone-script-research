@@ -11,7 +11,7 @@
 - 中文观察：拱形外轮廓覆盖图像的上部和中部，中间有尖峰或脊状痕迹。
   左下侧带有短拖痕，右侧向下延伸为长弯曲痕迹。开口和连接点仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the arched outer contour and its openings?

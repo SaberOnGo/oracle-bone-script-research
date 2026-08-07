@@ -11,7 +11,7 @@
 - 中文观察：上部有较宽的斜向或三角轮廓，内部可见数条短痕；下方有
   分离的弧形痕迹和窄直下行痕。图像未明确这些痕迹的关系。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the upper outline and internal marks completely?

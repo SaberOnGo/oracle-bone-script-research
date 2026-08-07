@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上端分别向相反两侧展开。
 - 中文：交叉处和下端痕迹粗细不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two broad diagonal traces?
 2. Is the short lower mark connected at the crossing?

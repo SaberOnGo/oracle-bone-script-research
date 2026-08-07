@@ -10,7 +10,7 @@
 - 中文观察：左侧有长而斜向下行的轮廓；下部中央有紧凑折角区域，内部较深，
   右侧另有弧形边缘上行。图像较小。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the left contour and right curved edge?

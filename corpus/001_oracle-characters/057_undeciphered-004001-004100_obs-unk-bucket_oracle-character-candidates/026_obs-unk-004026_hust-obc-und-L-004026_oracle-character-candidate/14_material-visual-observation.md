@@ -10,7 +10,7 @@
 - 中文观察：两条高向尖顶轮廓并列；下部两者之间有横向或梯形痕迹组合，
   中央较深。图像未显示外侧轮廓的完整末端。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the pointed upper ends?

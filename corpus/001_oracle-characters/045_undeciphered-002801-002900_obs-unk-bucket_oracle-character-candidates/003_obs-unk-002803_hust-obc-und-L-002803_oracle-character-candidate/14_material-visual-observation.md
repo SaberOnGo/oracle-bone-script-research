@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A small rounded or diamond-like contour encloses several short interior strokes.
+- A small rounded or diamond-like contour encloses several short interior
+  strokes.
 - Two separated strokes extend downward from the lower part of the contour.
 - 小型圆弧或菱形轮廓包围数条短内部线迹。
 - 轮廓下方有两条彼此分开的线向下延伸。

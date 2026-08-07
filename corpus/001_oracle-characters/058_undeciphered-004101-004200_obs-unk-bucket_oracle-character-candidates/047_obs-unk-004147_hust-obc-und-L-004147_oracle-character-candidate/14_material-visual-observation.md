@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧有带尖端的上部轮廓和外侧竖向痕迹。
 - 中文：中央痕迹及下端的连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger image clarifies the left upright outline?
 2. Are the left and right outlines joined by the central trace?

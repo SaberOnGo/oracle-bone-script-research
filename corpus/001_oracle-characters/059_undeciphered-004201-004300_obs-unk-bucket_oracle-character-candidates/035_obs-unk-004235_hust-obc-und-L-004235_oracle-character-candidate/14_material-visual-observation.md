@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条短分支向右下方伸出。
 - 中文：笔画宽度和下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan distinguishes the left bars from surface breaks?
 2. Where do the long diagonal strokes begin and separate?

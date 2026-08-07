@@ -34,7 +34,7 @@ English:
 - 右侧可见一组较细的竖向笔画。
 - 小尺寸图像不足以确认笔画顺序或连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify the upper marks and joins.
 - Compare variants without assigning a reading or component identity.

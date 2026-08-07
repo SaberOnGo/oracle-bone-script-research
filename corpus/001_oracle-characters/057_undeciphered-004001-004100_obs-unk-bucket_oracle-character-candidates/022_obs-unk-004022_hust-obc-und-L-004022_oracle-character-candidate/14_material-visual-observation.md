@@ -10,7 +10,7 @@
 - 中文观察：一条窄直痕从紧凑的横向痕迹组合中向上延伸；上端有短小
   凸出痕迹，下部组合两侧有细小延伸。图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the ends of the horizontal cluster?

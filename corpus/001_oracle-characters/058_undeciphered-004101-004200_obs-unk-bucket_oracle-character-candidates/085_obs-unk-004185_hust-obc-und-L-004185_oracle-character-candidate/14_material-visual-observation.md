@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部有两条较宽的笔画向下方分开。
 - 中文：下部连接处和末端断点仍需核对。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper forked strokes?
 2. Are both lower projections continuous in the source material?

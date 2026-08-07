@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The vertical crop shows several branching and angular strokes around a central line.
-- The lower section separates into diagonal strokes, with uneven spacing between the visible marks.
+- The vertical crop shows several branching and angular strokes around a
+  central line.
+- The lower section separates into diagonal strokes, with uneven spacing
+  between the visible marks.
 - 纵向裁切图中，中央线周围有数条分叉和折角线迹。
 - 下部线迹分成斜向笔画，各可见线迹之间的间距不均。
 - The image has no surrounding inscription, scale, or plate context.

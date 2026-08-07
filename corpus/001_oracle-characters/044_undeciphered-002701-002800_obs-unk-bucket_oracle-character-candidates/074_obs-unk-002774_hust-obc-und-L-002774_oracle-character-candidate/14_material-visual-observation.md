@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows an arched upper outline with dense side strokes below.
-- The lower strokes spread downward from the upper outline and overlap near the center.
+- The lower strokes spread downward from the upper outline and overlap near
+  the center.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示拱形上部轮廓和下方密集侧向笔画。
 - 下部笔画从上部轮廓向下展开，并在中央附近重叠。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

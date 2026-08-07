@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows a dense upper cluster of angled strokes over a curved lower outline.
+- The image shows a dense upper cluster of angled strokes over a curved lower
+  outline.
 - The lower outline is shallow and open; the image has no plate context.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示密集的上部斜向笔画簇位于弯曲下部轮廓之上。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

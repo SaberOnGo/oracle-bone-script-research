@@ -19,7 +19,7 @@
 - 下部长痕多次弯折，末端形成短的向下尖端。
 - 中央交会处可见多条较厚的交叉痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source scan confirms the central crossing and upper segment?
 - Is the winding lower trace continuous through the bends?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

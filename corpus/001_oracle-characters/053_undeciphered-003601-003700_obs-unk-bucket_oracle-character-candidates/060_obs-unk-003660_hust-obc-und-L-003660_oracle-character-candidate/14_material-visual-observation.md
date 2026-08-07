@@ -34,7 +34,7 @@ English:
 - 圆弧轮廓在数处似有中断或重叠。
 - 任何异体判断前，都应先与相邻记录进行图像比较。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish joins from gaps.
 - Compare 003655 and other nearby images without asserting identity.

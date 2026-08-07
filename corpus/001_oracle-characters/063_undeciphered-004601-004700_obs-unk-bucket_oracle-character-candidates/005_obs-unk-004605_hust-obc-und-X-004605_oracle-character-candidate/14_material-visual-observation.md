@@ -20,7 +20,7 @@
 - 右上方另有一条短小的分离痕迹。
 - 中央下部向左下斜分出一条痕迹，右侧还有一条近竖痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Are the two upper detached traces part of the same source object?
 - Which scan preserves the central branching and both lower traces?
@@ -31,3 +31,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

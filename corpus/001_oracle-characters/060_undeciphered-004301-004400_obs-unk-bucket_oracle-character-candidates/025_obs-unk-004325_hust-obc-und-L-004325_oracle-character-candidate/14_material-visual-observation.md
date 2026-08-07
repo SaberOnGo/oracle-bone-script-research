@@ -28,7 +28,7 @@ English:
 - 一条较窄的中央痕迹向下延伸至下边缘。
 - 中央区域两侧有长短不一的短痕伸出。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the diagonal traces at the upper junction?
 - Does the central descending trace reach the crop edge?

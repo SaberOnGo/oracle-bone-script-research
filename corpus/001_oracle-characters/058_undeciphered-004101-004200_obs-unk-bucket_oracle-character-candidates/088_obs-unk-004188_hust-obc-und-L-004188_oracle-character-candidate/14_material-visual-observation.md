@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：中央位置可见一条横向交叉痕迹。
 - 中文：右侧有一条向下弯曲的笔画。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the two upper joins?
 2. Is the upright trace continuous with the central crossing?

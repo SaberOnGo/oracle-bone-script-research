@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右侧较高的痕迹上有重复出现的小斜向痕迹。
 - 中文：顶部和底部末端有部分痕迹较淡，仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source confirms the central lateral marks?
 2. Which image clarifies the faint top and bottom endpoints?

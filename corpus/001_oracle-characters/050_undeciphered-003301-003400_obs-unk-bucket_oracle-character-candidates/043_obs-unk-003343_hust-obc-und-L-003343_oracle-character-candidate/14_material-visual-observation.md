@@ -14,15 +14,15 @@ visible, while the small image does not resolve all joins.
 右侧形成较密的交叉或叠置笔画块。下部有短笔画。
 图像较小，部分连接关系无法确认。
 
-Concrete follow-up questions / 具体待查问题：
+## Next Checks / 下一步核查
 Is the right block one contour or several overlapping strokes? Does the
 left pair meet the central upright? Which plate and inscription context
 correspond to HUST-OBC path L/3343/L_？_6359.jpg?
 
-Boundary / 边界：
+## Boundary / 边界
 This records visible material only. It does not confirm identity,
 reading, component, variant, period, or decipherment.
 本页只记录可见材料，不确认字形身份、释读、构件、异体、时期或破译。
 # Material Visual Observation / 材料视觉观察
 
-Direct Visual Record / 直接可见记录
+## Direct Visual Record / 直接可见记录

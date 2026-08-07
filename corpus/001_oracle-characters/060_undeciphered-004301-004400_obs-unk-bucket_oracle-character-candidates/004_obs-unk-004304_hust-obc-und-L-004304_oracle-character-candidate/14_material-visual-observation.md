@@ -27,7 +27,7 @@ English:
 - 下部中间叠有数条短横向痕迹。
 - 下端逐渐收窄，两侧末端不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper outline close behind the central vertical trace?
 - Which scan separates the stacked transverse traces?

@@ -19,7 +19,7 @@
 - 两侧各有长痕从交叉处向下延伸。
 - 一条窄的中央痕迹在两侧长痕之间向下延伸。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source scan confirms the triangular openings at the crossing?
 - Is the rounded upper enclosure complete in the source image?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

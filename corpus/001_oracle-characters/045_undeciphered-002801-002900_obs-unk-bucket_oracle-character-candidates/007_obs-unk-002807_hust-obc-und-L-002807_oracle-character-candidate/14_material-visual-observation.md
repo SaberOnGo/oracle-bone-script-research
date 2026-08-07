@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A compact radial stroke group appears at the top above a descending central line.
-- The bottom opens into a curved form; the crop contains no surrounding inscription or scale.
+- A compact radial stroke group appears at the top above a descending central
+  line.
+- The bottom opens into a curved form; the crop contains no surrounding
+  inscription or scale.
 - 上部有紧凑的放射状线组，下方接一条向下延伸的中央线。
 - 底部展开为弧形轮廓，裁切图中未见周围卜辞或比例尺。
 - The image has no surrounding inscription, scale, or plate context.

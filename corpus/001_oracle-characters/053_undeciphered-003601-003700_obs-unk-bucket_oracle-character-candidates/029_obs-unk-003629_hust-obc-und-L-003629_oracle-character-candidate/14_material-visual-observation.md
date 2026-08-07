@@ -32,7 +32,7 @@ English:
 - 下半部附近有一条向左伸出的短笔画。
 - 图像较小，不能分辨所有笔画的连接处。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop for joins and possible surface damage.
 - Search for repeated forms while keeping all relations as candidates.

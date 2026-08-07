@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两侧之间可见一处短的交叉痕迹。
 - 中文：左侧环状痕迹与右侧笔画是否相连并不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the lower-left loop-like trace?
 2. Is the short crossing mark attached to the right stroke?

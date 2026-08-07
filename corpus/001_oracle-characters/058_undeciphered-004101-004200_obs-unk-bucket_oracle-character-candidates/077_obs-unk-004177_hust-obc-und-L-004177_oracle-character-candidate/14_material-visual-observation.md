@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧向下伸出一条较长的窄笔画。
 - 中文：下方有一条向右下外伸的弧曲痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the gap between the upper groups?
 2. Is the long right stroke continuous with the lower curve?

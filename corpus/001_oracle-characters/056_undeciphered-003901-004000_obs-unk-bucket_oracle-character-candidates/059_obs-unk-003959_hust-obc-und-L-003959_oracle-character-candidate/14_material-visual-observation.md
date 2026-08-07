@@ -10,7 +10,7 @@
 - 中文观察：上部有一组紧凑痕迹，位于中央尖点状交接处之上。数条折线向
   下展开，其中包括左侧斜痕和右侧较深轮廓；裁切限制了外缘判断。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

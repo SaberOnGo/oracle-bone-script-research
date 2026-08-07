@@ -10,7 +10,7 @@
 - 中文观察：上部有分叉痕迹，下方是下行的中部痕迹。
   右下区域聚集较密的折线痕迹；外缘被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the cropped outer edge?

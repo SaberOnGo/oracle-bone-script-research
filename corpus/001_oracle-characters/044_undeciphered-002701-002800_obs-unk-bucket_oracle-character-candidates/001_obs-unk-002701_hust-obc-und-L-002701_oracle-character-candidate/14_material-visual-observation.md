@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows two separated dark strokes on a light field.
-- The left stroke is short and tapered; the right stroke bends downward and ends in a pointed lower mark.
+- The left stroke is short and tapered; the right stroke bends downward and
+  ends in a pointed lower mark.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像在浅色底上显示两条分离的深色笔画。
 - 左侧笔画短而渐细；右侧笔画向下弯折，并以尖状下部收束。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

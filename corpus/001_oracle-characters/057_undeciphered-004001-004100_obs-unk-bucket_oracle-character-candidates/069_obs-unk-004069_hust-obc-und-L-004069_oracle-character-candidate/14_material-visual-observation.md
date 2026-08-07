@@ -11,7 +11,7 @@
 - 中文观察：左侧有一个较宽的紧凑痕迹组，圆弧或折角轮廓内部可见深色的横向
   和竖向痕迹。右侧有一条较细的斜向痕迹向下延伸；它是否连接左侧痕迹组尚不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the right-hand trace part of the same group or a neighboring mark?

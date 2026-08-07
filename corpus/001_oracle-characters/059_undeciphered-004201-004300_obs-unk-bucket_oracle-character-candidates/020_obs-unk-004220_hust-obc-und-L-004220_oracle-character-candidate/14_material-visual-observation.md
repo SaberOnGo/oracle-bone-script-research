@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条细长笔画向下延伸。
 - 中文：下端形态不均，连接关系并不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the top and bottom of the left outline?
 2. Are both horizontal inner bars continuous across the outline?

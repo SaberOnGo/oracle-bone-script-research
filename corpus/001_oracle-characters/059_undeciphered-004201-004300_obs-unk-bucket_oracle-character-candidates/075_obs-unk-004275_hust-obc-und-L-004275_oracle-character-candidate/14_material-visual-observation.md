@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部斜向痕迹彼此交叉，并向两侧分支。
 - 中文：最下端逐渐变细，淡化程度不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the short angular upper bar?
 2. Are the lower diagonal strokes connected to the central trace?

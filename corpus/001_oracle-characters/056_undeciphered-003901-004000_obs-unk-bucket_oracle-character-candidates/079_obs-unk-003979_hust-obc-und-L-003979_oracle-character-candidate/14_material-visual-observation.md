@@ -10,7 +10,7 @@
 - 中文观察：紧凑中央形体左侧有一条分开短痕。中央有弧向和折角痕迹向下伸展，
   右下方有窄痕；图像裁切较近。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

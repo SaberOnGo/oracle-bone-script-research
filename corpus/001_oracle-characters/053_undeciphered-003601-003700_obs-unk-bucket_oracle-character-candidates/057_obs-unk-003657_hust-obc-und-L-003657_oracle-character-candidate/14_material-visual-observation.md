@@ -34,7 +34,7 @@ English:
 - 下部轮廓右侧有一个尖状外伸部分。
 - 小尺寸图像无法确认轮廓是否封闭。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins and surface damage.
 - Compare other catalogue images without assigning a reading.

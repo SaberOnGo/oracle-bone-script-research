@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a short upper horizontal stroke over a narrow central stem.
-- The lower area contains a rounded loop or diamond-like opening with a short lower stroke.
+- The lower area contains a rounded loop or diamond-like opening with a short
+  lower stroke.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一条上部短横笔画位于狭窄中央笔干之上。
 - 下部含圆弧或菱形空隙，并有一条短下部笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

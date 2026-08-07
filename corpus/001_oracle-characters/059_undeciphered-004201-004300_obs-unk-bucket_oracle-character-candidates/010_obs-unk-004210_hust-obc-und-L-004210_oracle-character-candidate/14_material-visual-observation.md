@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：交叉痕迹下方有数条短的波曲笔画。
 - 中文：上部尖顶与下部波曲痕迹仍有间隔。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the pointed upper outline?
 2. Is the broad cross trace continuous across the mark?

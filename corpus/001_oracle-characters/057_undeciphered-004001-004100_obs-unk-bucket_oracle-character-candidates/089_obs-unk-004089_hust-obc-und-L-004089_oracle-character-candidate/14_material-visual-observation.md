@@ -12,7 +12,7 @@
   下方有数条细长痕迹向下延伸。右缘似有一小段斜向外伸的痕迹，
   在当前图像尺寸下，各笔画的连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a higher-resolution source image separate the upper curve and

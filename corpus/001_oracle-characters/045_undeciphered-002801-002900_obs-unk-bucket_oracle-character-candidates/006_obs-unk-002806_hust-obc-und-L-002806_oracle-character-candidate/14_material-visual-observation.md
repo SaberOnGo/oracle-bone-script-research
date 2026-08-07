@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A short angled and horizontal group spans the top of a thin vertical arrangement.
-- Several branching strokes project from the center and lower part at different angles.
+- A short angled and horizontal group spans the top of a thin vertical
+  arrangement.
+- Several branching strokes project from the center and lower part at
+  different angles.
 - 顶部有短斜线和横线组成的线组，下方形成窄幅纵向排列。
 - 中部及下部有数条以不同角度伸出的分叉线。
 - The image has no surrounding inscription, scale, or plate context.

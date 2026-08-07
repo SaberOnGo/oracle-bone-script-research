@@ -89,6 +89,8 @@ Run these scripts from the repository root when the source inputs are ready:
 - `build_character_human_research_dossiers.py`
 - `extract_hust_obc_local_glyph_images.py`
 - `build_hust_obc_undeciphered_local_materials.py`
+- `build_hust_obc_undeciphered_visual_observations.py`
+- `repair_hust_obc_material_visual_observations.py`
 - `build_obimd_component_candidate_materials.py`
 - `build_obimd_component_visual_observations.py`
 - `build_cambridge_hopkins_inscription_crosswalk_materials.py`
@@ -119,6 +121,34 @@ English:
 - 覆盖审计脚本位于
   `tools/004_statistics-generation/`。
 - 脚本名为 `build_component_visual_observation_coverage_audit.py`。
+
+## HUST-OBC Visual Observation Route / HUST-OBC 图像观察路线
+
+English:
+
+- `build_hust_obc_undeciphered_visual_observations.py` preserves existing
+  human records and adds a pixel profile for every remaining undeciphered
+  candidate with a local image.
+- `repair_hust_obc_material_visual_observations.py` keeps existing visible
+  descriptions, normalizes follow-up and boundary headings, and wraps every
+  HUST object-local visual note to 80 characters.
+- The profile is a reproducible routing fact, not a human stroke observation.
+  Each object still needs a person to open the image and record visible marks,
+  damage, context, and limits.
+- It adds the `14_material-visual-observation.md` route to each co-located
+  README and research index; it does not create a parallel human directory.
+
+简体中文：
+
+- `build_hust_obc_undeciphered_visual_observations.py` 保留已有人工记录，
+  并为有本地图像的其余未释候选补入像素 profile。
+- `repair_hust_obc_material_visual_observations.py` 保留已有可见描述，
+  统一待查与边界标题，并把每个 HUST 对象内图像观察 Markdown 控制在
+  每行 80 字符以内。
+- profile 只是可复现的路线事实，不是人工笔画观察。每个对象仍需由人打开图像，
+  记录可见痕迹、残损、语境和观察边界。
+- 脚本还把 `14_material-visual-observation.md` 路线加入同一对象的 README 和研究索引，
+  不另建并行的人类目录。
 
 Simplified Chinese:
 来源输入准备好后，从仓库根目录运行这些脚本：

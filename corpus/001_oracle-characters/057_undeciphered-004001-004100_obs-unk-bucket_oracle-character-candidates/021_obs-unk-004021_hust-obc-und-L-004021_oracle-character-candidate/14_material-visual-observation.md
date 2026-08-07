@@ -10,7 +10,7 @@
 - 中文观察：上部有折角状痕迹横过短直痕；下方是紧凑的痕迹组合，
   两侧各有斜向痕迹，中央较深。图像未显示周围材料。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the upper and lower traces connect?

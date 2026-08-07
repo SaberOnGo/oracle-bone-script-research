@@ -10,7 +10,7 @@
 - 中文观察：紧凑上部痕迹组包含弧向和折角痕迹。中央下方有数条窄痕向下分开，
   中部可见小的交接痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

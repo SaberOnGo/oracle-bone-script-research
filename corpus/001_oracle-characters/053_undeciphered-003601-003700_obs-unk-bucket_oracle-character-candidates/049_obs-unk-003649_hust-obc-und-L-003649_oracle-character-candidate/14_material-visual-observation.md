@@ -32,7 +32,7 @@ English:
 - 中央笔画群下方有一条较长的弯曲或带钩笔画。
 - 小尺寸图像不足以确认笔画是否相接或重叠。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify joins, damage, and ink edges.
 - Compare other catalogue images without assigning a reading.

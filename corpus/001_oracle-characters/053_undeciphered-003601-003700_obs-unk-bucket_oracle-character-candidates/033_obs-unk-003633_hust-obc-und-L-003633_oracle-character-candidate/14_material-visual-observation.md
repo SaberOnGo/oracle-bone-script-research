@@ -32,7 +32,7 @@ English:
 - 一条较长的斜向笔画向右下方延伸。
 - 图像不能证明上部形态是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the source-resolution crop for joins and damaged areas.
 - Search for repeated forms without assigning a reading.

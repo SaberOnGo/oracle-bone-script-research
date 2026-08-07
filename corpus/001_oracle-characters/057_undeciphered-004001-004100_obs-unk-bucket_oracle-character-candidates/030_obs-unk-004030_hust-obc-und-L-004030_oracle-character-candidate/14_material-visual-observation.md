@@ -10,7 +10,7 @@
 - 中文观察：上部有较宽的尖顶轮廓，内部可见数条折角痕迹；一条长而渐窄
   的痕迹从下部中央向下延伸。图像未显示外侧轮廓的完整边缘。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper outline and internal traces?

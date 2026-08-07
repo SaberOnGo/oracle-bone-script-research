@@ -10,7 +10,7 @@
 - 中文观察：数条短直立痕迹形成较密的上部带状区域。一条较长中央痕迹向下延伸，
   下方左侧有弧形痕迹，右侧另有窄痕。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

@@ -10,7 +10,7 @@
 - 中文观察：两条向上的弯曲痕迹分列上部两侧。轮廓向中央下方的细部收窄，
   下端形成尖状三角轮廓，内部有短痕。连接点和下部开口仍不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the two upper curved traces?

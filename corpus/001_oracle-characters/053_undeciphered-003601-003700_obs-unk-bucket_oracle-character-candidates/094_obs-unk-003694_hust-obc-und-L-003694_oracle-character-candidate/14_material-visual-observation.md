@@ -34,7 +34,7 @@ English:
 - 基线附近有数条短横向或折角笔画。
 - 图像不足以确认竖向笔画与基线的连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify bars, joins, and damage.
 - Compare variants and near-forms without assigning a reading.

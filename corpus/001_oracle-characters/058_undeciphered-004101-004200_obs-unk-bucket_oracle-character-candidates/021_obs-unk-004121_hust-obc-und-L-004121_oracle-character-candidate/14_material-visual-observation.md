@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部散开为细小的折线或分支痕迹。
 - 中文：上部边界和下部端点目前仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the upper boundary?
 2. Which catalog or plate record corroborates this visual observation?

@@ -10,7 +10,7 @@
 - 中文观察：上方短痕向中央下行痕迹延伸。下部中央可见两个圆弧或环状痕迹，
   右侧有长斜向轮廓向下延伸。各痕迹的连接关系不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the two lower rounded marks?

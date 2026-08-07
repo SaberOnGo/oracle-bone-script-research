@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - A detached short arc appears above a compact rounded lower cluster.
-- Several pointed or curved strokes descend from the lower cluster; margins are tight.
+- Several pointed or curved strokes descend from the lower cluster; margins
+  are tight.
 - 一个分离的短弧线位于紧凑的圆弧形下部线组上方。
 - 下部线组向下伸出数条尖折或弯曲线，裁切边缘较近。
 - The image has no surrounding inscription, scale, or plate context.

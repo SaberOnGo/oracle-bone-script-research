@@ -32,7 +32,7 @@ English:
 - 一条较长的弧形笔画沿右侧下行。
 - 图像不能证明这些笔画是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop for joins and surface damage.
 - Compare repeated forms without assigning a reading.

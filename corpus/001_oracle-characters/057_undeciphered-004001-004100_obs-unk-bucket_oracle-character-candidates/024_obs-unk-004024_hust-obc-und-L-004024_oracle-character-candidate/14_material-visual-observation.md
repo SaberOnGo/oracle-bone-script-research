@@ -10,7 +10,7 @@
 - 中文观察：较宽的上部轮廓横跨图像，内部有小型暗部；一条长而渐窄
   的痕迹从下部中央向下延伸，上缘附近还留有短侧痕。图像较小。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the internal dark area and upper edges?

@@ -32,7 +32,7 @@ English:
 - 一条短横笔画与下行笔画交叉。
 - 图像不能证明上部形态是否闭合。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop for joins and surface damage.
 - Compare repeated forms without assigning a reading.

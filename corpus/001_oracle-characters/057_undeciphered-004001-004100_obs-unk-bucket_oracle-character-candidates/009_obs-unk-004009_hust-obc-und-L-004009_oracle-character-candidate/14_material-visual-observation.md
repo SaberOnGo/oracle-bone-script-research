@@ -9,7 +9,7 @@
 - 中文观察：角状围合轮廓包围数条中部的分支痕迹。
   下部开口和两侧边缘裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image show the complete enclosing outline?

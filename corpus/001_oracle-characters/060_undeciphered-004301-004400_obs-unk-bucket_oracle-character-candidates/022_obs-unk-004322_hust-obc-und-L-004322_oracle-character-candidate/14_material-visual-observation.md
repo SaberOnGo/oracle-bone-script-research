@@ -28,7 +28,7 @@ English:
 - 下部有三条角度不同的窄痕向下延伸。
 - 下部末端在长短和深浅上并不一致。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the rounded upper trace have a visible opening?
 - Which scan separates the lower three strokes?

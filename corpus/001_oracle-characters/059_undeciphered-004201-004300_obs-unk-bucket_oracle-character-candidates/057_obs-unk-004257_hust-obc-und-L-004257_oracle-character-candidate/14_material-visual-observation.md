@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部形成一处棱角状的围合轮廓。
 - 中文：下部轮廓内部可见一条较短的横向痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the broad upper horizontal trace?
 2. Is the central trace continuous into the lower outline?

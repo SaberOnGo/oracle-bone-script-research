@@ -10,7 +10,7 @@
 - 中文观察：上部和右侧有开放的折线轮廓。一条长斜向痕迹向下进入较深的交叉
   或三角状下部痕迹组。下部连接点和外部开口仍不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the upper open contour?

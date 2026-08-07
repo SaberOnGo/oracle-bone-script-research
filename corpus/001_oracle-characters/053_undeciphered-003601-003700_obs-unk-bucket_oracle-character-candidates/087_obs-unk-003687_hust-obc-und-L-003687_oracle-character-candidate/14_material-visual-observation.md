@@ -34,7 +34,7 @@ English:
 - 一条斜向笔画继续延伸至右下区域。
 - 小尺寸图像不足以确认笔顺或笔画连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify bars and terminal damage.
 - Compare other images for variant or near-form relationships.

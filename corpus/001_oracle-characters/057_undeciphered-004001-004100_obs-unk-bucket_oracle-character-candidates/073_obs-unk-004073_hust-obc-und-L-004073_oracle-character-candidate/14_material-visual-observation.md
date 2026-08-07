@@ -10,7 +10,7 @@
 - 中文观察：上部有一条较宽的横向痕迹或轮廓，下方接一条狭长的下行痕迹。下部
   有一个较小的折角轮廓，内部较深；上下部分之间似乎有浅的断开处。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the upper bar connected to the lower angular outline?

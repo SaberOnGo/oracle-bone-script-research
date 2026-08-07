@@ -29,7 +29,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部笔画向外弯曲，右侧有较长的下伸尾笔。
 - 中文：上部较密，下部相对展开，笔画密度有所变化。
 
-## Concrete follow-up checks / 具体待查问题
+## Next Checks / 下一步核查
 
 - Which higher-resolution source image confirms the rounded upper strokes?
 - Which catalog or plate record corroborates this visual observation?

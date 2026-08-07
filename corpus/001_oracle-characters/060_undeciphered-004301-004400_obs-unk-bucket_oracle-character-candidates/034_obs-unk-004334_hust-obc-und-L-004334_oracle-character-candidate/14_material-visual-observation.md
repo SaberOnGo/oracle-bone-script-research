@@ -28,7 +28,7 @@ English:
 - 下部横跨一条较宽的横向痕迹。
 - 左下末端比上部痕迹更深、更宽。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the short parallel right-side marks?
 - Is the upper angled trace continuous at its corner?

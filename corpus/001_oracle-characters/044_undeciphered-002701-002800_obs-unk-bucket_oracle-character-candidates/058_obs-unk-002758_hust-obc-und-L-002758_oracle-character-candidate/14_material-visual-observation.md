@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a pointed arched outline with a central upright stroke.
-- A short lower stroke branches toward the right; the image has no plate context.
+- A short lower stroke branches toward the right; the image has no plate
+  context.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个尖拱形轮廓和中央直立笔画。
 - 一条短下部笔画向右分支；图像没有图版环境。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

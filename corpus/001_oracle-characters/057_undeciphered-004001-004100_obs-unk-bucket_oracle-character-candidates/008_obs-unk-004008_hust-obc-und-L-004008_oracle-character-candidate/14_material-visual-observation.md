@@ -10,7 +10,7 @@
 - 中文观察：左侧有矩形轮廓，右侧有较小的圆弧状痕迹。
   下部横向痕迹在两者之间穿过；外缘裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the complete right-hand trace?

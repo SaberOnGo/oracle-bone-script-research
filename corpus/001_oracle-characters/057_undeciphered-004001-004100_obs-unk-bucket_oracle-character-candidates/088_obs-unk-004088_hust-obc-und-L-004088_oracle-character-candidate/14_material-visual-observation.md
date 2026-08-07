@@ -10,7 +10,7 @@
 - 中文观察：三个竖向的圆弧或环状痕迹彼此靠近。每个痕迹内部较深，下端带尖点
   或收窄；它们之间的间距和可能的连接关系尚不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the three rounded traces separate marks or one repeated outline?

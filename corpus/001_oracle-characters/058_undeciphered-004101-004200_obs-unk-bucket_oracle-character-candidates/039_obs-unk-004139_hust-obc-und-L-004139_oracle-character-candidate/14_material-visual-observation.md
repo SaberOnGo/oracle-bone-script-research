@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下行痕迹旁有短的侧向痕迹伸出。
 - 中文：下端较深，部分边界不易分开。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan confirms whether the upper-left mark is isolated?
 2. Which image clarifies the center-right descending trace?

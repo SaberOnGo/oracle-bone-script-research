@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：中央斜向笔画交叉后向下分开。
 - 中文：右侧笔画较有棱角，末端形态不均。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan distinguishes the left curved trace from surface damage?
 2. Where do the central diagonal strokes cross or separate?

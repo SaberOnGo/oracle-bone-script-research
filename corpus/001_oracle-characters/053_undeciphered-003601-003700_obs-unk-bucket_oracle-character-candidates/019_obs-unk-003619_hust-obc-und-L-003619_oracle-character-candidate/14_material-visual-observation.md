@@ -33,7 +33,7 @@ English:
 - 右侧另有一组斜向笔画向外伸展。
 - 图像不能证明这些笔画是否共用同一底部。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Recheck the original crop for joins hidden by the small derivative.
 - Compare the right-side cluster with possible variant images.

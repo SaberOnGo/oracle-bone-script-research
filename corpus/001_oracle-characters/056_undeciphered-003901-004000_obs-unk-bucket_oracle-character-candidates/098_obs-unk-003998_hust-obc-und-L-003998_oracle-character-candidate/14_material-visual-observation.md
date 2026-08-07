@@ -11,7 +11,7 @@
   下方有弯曲或下行痕迹；它与相邻候选图像看起来
   较为接近。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the two adjacent image records duplicates or separate source rows?

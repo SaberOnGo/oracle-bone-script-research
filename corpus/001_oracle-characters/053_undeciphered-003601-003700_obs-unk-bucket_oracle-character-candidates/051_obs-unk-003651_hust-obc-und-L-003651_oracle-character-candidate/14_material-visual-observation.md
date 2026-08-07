@@ -34,7 +34,7 @@ English:
 - 上方笔画群下方可见近似封闭的圆弧状笔画。
 - 小尺寸图像无法确认三个区域是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish joins from gaps.
 - Compare other images for variant or near-form relationships.

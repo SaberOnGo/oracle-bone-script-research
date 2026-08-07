@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧有一条较长的竖向痕迹。
 - 中文：下部边缘和末端粗细不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the open upper cluster?
 2. Is the central trace continuous into the tapered outline?

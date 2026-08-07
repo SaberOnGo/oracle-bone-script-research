@@ -28,7 +28,7 @@ English:
 - 右下部有一条圆转的钩状痕迹。
 - 斜向痕迹和下部痕迹形成深浅不匀的交汇处。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source scan separates the upper-left short traces?
 - Does the diagonal trace continue behind the lower hook?

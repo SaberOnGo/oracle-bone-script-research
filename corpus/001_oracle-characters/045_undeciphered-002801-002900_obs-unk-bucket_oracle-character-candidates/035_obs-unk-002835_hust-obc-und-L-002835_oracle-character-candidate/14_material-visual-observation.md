@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - Slanting and curved strokes cluster near the top above a dense lower group.
-- The lower group contains short horizontal, diagonal, and vertical strokes with uneven spacing.
+- The lower group contains short horizontal, diagonal, and vertical strokes
+  with uneven spacing.
 - 顶部聚集斜向和弯曲线迹，下方是较密的线迹组。
 - 下部包含短横线、斜线和竖线，间距不均。
 - The image has no surrounding inscription, scale, or plate context.

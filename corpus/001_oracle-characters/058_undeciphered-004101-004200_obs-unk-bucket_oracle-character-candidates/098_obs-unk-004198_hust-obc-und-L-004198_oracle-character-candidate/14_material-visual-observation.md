@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两条斜向笔画向下方两侧延伸。
 - 中文：下端和中央连接处的形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the dark tapered upper mark?
 2. Is the curved middle stroke continuous on both sides?

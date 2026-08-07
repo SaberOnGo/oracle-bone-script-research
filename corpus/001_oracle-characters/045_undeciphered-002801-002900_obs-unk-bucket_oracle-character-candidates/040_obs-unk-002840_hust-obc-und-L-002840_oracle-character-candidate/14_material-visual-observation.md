@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- Several short branched strokes appear at the upper left of a narrow diagonal arrangement.
-- A central slanting line leads to a short angular lower segment with separated ends.
+- Several short branched strokes appear at the upper left of a narrow diagonal
+  arrangement.
+- A central slanting line leads to a short angular lower segment with
+  separated ends.
 - 窄幅斜向线组左上方有数条短分叉线。
 - 中央斜线连接至下部短折线段，末端彼此分开。
 - The image has no surrounding inscription, scale, or plate context.

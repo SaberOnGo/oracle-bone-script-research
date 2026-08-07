@@ -27,7 +27,7 @@ English:
 - 一条狭窄的中央线条从痕迹组向下延伸。
 - 数条不均匀的斜向痕迹沿左下侧继续分布。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the angular upper traces into individual marks?
 - Does the right horizontal trace meet the central line?

@@ -10,7 +10,7 @@
 - 中文观察：高耸的弧形轮廓围绕下部的弯曲痕迹簇。
   右侧有独立直立痕迹；图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the complete right-side stroke?

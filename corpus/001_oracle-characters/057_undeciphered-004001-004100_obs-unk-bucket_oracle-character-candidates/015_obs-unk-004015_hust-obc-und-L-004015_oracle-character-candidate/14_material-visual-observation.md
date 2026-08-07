@@ -12,7 +12,7 @@
   深色折角状痕迹，其中可见小型留白；右侧另有独立的直立轮廓。图像未显示
   周围上下文。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the upper-left light opening a gap in the mark or image texture?

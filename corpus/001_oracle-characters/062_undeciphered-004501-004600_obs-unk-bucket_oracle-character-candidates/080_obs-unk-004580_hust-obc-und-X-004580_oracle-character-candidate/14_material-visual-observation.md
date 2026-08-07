@@ -19,7 +19,7 @@
 - 右下轮廓继续形成一处钩状外伸部分。
 - 来源索引预期有两张图，但当前只有一张本地派生图。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which source route identifies the second expected image?
 - Does the missing image show another form or the same form at another view?
@@ -30,3 +30,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

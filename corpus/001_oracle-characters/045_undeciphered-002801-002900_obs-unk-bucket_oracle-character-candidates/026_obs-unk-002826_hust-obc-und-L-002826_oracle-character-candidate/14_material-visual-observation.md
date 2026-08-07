@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- Several short horizontal and curved strokes are stacked in the upper part of the mark.
+- Several short horizontal and curved strokes are stacked in the upper part of
+  the mark.
 - A central descending line reaches a crossing group near the lower edge.
 - 线迹上部叠有数条短横线和弧线。
 - 一条中央下行线在下部边缘附近连接到交叉线组。

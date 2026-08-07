@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部笔画向上转折，形成弯曲末端。
 - 中文：上部横笔画与下部痕迹之间可见间隔。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the spacing of the two upper bars?
 2. Is the lower angular stroke a single continuous trace?

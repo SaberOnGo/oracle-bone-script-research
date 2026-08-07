@@ -10,7 +10,7 @@
 - 中文观察：图像中央有一个向下逐渐收窄的轮廓，两侧有细长竖向痕迹。
   上缘上方伸出短小的分支状痕迹；中央连接处和下方末端仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the side traces separate marks or part of the central outline?

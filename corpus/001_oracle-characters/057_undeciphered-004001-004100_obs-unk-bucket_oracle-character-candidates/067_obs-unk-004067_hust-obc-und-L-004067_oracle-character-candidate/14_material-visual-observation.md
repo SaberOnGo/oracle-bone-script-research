@@ -12,7 +12,7 @@
   的尖状轮廓，内部较深。在当前图像尺寸下，表面呈现的对称性和连接处仍未
   完全分辨。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the upper curved traces continuous with the lower outline?

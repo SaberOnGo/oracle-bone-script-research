@@ -10,7 +10,7 @@
 - 中文观察：左侧有一条狭长而不规则的下行痕迹。右上方有圆弧或折角轮廓，内部
   较深并向下收窄；这两个区域是否属于同一痕迹组尚不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the left trace joined to the upper-right enclosure?

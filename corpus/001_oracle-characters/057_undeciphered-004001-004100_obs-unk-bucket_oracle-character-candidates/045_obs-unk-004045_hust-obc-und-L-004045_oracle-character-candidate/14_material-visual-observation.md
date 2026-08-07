@@ -12,7 +12,7 @@
   右侧另有一个尖状轮廓；下方痕迹汇入较深的近似环状区域。连接关系和
   行笔方向仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the two upper pointed contours?

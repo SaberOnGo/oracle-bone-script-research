@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows two separated dark forms on a light field.
-- The upper form is short and horizontal; the lower form has a central crossing stroke.
+- The upper form is short and horizontal; the lower form has a central
+  crossing stroke.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像在浅色底上显示两个分离的深色形态。
 - 上部形态短而横向；下部形态含中央交叉笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

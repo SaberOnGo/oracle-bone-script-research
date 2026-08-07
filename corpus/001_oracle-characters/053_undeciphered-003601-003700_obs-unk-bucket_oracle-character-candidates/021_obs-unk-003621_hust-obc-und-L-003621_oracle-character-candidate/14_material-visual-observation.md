@@ -32,7 +32,7 @@ English:
 - 在当前分辨率下，右侧看起来比左侧更开放。
 - 图像不能证明两侧形态是否相互连接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare with the original crop to verify joins and surface damage.
 - Search other source collections for repeated or variant forms.

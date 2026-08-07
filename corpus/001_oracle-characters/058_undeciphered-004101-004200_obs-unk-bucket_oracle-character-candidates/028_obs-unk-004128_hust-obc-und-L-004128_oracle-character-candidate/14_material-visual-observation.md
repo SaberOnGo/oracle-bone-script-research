@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：右上方有数条向外伸出的短痕迹。
 - 中文：下部痕迹彼此重叠，并以小的弯曲痕迹收尾。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source separates the left broken trace?
 2. Which catalog or plate record corroborates the upper-right strokes?

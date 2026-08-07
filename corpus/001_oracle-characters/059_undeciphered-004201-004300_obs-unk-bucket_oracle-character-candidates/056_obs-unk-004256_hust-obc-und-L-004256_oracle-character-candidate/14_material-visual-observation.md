@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：左下方可见一处较小的尖细围合痕迹。
 - 中文：一条弯曲的右侧末端从交叉区域向下延伸。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper crossing mark?
 2. Is the small lower enclosed mark connected to the left trace?

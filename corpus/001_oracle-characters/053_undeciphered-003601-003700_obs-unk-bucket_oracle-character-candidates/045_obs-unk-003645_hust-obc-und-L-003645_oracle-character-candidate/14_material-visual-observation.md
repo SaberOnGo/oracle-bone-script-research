@@ -32,7 +32,7 @@ English:
 - 外侧两边不对称地向下延伸。
 - 图像不能证明外轮廓是否闭合。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the source-resolution crop for joins and surface damage.
 - Compare variants without assigning a reading.

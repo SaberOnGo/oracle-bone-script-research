@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下方有一处尖状末端继续向下。
 - 中文：上部连接处比下部痕迹颜色更深。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the broad upper outline?
 2. Are the two central descending strokes continuous?

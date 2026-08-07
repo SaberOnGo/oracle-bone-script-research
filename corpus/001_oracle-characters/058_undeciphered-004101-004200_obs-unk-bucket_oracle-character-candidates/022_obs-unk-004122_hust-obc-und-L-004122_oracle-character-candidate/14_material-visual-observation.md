@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：一条较窄的中央主干向下延伸到尖状端点。
 - 中文：左右两侧笔画连接处需用更高分辨率图像核对。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source image confirms the upper strokes?
 2. Which catalog or plate record corroborates this visual observation?

@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The narrow crop contains a vertical arrangement with a small branched stroke group at the top.
-- Near the center and lower area, several diagonal strokes cross a descending central line.
+- The narrow crop contains a vertical arrangement with a small branched stroke
+  group at the top.
+- Near the center and lower area, several diagonal strokes cross a descending
+  central line.
 - 窄幅裁切图中线迹呈纵向排列，顶部有一个小型分叉线组。
 - 中部及下部有数条斜线与向下延伸的中央线相交。
 - The image has no surrounding inscription, scale, or plate context.

@@ -27,7 +27,7 @@ English:
 - 一条狭窄痕迹从中央轮廓向下延伸。
 - 右下方另有一个较小的矩形标记。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the central outline closed at its upper and lower joins?
 - Which scan clarifies both lateral horizontal terminals?

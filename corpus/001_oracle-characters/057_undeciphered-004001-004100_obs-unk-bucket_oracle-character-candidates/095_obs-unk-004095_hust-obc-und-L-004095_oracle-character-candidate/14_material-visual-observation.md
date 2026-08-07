@@ -11,7 +11,7 @@
   状轮廓。痕迹组下方有两条较窄的痕迹向下延伸；在小尺寸图像中，
   它们的边缘和末端部分模糊。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Are the upper rounded lobes continuous or separate traces?

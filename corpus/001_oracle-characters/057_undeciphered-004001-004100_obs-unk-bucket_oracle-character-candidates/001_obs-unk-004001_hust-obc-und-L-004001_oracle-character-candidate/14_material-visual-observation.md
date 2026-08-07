@@ -9,7 +9,7 @@
 - 中文观察：数条窄弯曲痕迹大致纵向排列。
   中部附近有较深的痕迹簇；两侧边缘被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show the cropped side edges?

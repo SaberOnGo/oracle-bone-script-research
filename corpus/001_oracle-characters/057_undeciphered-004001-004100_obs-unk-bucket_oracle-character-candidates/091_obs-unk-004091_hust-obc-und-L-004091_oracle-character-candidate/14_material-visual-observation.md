@@ -11,7 +11,7 @@
   再向下可见数条交叉或分支状痕迹，并有一条较窄的痕迹延向下缘；
   各痕迹之间的连接目前不能完全确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the upper angled trace touch the central cluster?

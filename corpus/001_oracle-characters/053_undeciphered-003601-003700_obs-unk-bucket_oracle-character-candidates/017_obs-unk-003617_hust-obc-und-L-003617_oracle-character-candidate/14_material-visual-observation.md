@@ -33,7 +33,7 @@ English:
 - 下部可见一条短横线或略带弧度的笔画。
 - 受图像尺寸影响，外轮廓与内部笔画不能完全分开。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the derivative with the raw-package crop and record any lost strokes.
 - Check whether the upper outline is open, closed, or joined at the sides.

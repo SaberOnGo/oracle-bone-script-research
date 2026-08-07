@@ -10,7 +10,7 @@
 - 中文观察：一个圆弧状下部轮廓上方有数条细长的分支痕迹向上伸展。下部内部
   中央较深，并带有一条短横边；分支数量及其连接关系仍未完全分辨。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Which upper branches are continuous with the rounded lower outline?

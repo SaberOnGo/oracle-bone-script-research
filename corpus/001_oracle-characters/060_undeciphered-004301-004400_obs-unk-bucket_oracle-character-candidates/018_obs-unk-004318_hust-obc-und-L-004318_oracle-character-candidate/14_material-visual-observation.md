@@ -28,7 +28,7 @@ English:
 - 靠近下部中间可见一处较深的交汇痕迹。
 - 交汇处下方有两条较短的下伸笔痕。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the individual upper curved traces?
 - Are the alternating bends continuous through the middle?

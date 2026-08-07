@@ -10,7 +10,7 @@
 - 中文观察：一条长弯曲轮廓沿左侧向下延伸。上方有短痕向右伸出，右下方有
   较深的圆弧状痕迹。这些区域之间的连接关系仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the left contour and upper traces?

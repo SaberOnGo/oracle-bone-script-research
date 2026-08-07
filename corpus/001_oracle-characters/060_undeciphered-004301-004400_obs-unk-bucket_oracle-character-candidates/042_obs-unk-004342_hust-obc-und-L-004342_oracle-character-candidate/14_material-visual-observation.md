@@ -28,7 +28,7 @@ English:
 - 下部有数条较短的角状痕迹。
 - 下边缘附近有一条较宽且不均匀的痕迹。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the two separate upper marks?
 - Are the lower angular traces connected to the upper mark?

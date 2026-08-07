@@ -34,7 +34,7 @@ English:
 - 下部末端不齐，并在小图中部分模糊。
 - 图像不足以确认笔顺或笔画连接关系。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to verify bars, joins, and damage.
 - Compare variants without assigning a reading or component identity.

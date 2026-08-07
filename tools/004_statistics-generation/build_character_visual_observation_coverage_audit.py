@@ -80,9 +80,14 @@ def observation_status(object_dir: Path, root: Path) -> tuple[str, str]:
     if not path.exists():
         return "missing_direct_visual_record", ""
     text = path.read_text(encoding="utf-8")
-    if "Direct Visual Record" not in text or "直接可见记录" not in text:
-        return "observation_file_without_direct_record", relative(path, root)
-    return "direct_visual_record_present", relative(path, root)
+    relative_path = relative(path, root)
+    if "Direct Visual Record" in text and "直接可见记录" in text:
+        return "direct_visual_record_present", relative_path
+    if "Pixel Profile" in text and "像素 profile" in text:
+        return "pixel_profile_and_boundary_present", relative_path
+    if "Missing Image Route" in text and "缺图路线" in text:
+        return "missing_image_route_and_boundary_present", relative_path
+    return "observation_file_without_direct_record", relative_path
 
 
 def build_rows(root: Path) -> list[dict[str, str]]:
@@ -101,6 +106,10 @@ def build_rows(root: Path) -> list[dict[str, str]]:
         asset_count = len(image_paths(object_dir))
         if status == "direct_visual_record_present":
             action = "check source cross-links and inscription context"
+        elif status == "pixel_profile_and_boundary_present":
+            action = "open the local image and record neutral visible marks"
+        elif status == "missing_image_route_and_boundary_present":
+            action = "follow the source image route before visual observation"
         elif asset_count:
             action = "open the local image and record neutral visible marks"
         else:
@@ -155,7 +164,7 @@ def build_report(rows: list[dict[str, str]], csv_path: str) -> str:
     by_status = Counter(row["visual_observation_status"] for row in rows)
     with_assets = sum(row["asset_count"] != "0" for row in rows)
     direct = by_status["direct_visual_record_present"]
-    missing = by_status["missing_direct_visual_record"]
+    profiles = by_status["pixel_profile_and_boundary_present"]
     lines = [
         "# Character Visual Observation Coverage / 单字图像观察覆盖审计",
         "",
@@ -169,40 +178,47 @@ def build_report(rows: list[dict[str, str]], csv_path: str) -> str:
     lines += wrap_bullet("Character object directories / 单字对象目录", str(total))
     lines += wrap_bullet("Objects with local images / 有本地图像", str(with_assets))
     lines += wrap_bullet("Direct visual records / 有直接观察记录", str(direct))
-    lines += wrap_bullet("Images without direct records / 有图无观察", str(with_assets - direct))
+    lines += wrap_bullet("Pixel profile records / 像素 profile 记录", str(profiles))
+    lines += wrap_bullet(
+        "Images without direct records / 有图无人工观察",
+        str(with_assets - direct),
+    )
     lines += wrap_bullet("Objects without local images / 无本地图像", str(total - with_assets))
     lines += wrap_bullet("Status / 状态", "needs_human_visual_observation_review")
     lines += ["", "## Counts By Object Type / 按对象类型计数", ""]
     for kind in ("oracle_character", "undeciphered_candidate"):
         subset = [row for row in rows if row["project_id_type"] == kind]
         direct_count = sum(row["visual_observation_status"] == "direct_visual_record_present" for row in subset)
+        profile_count = sum(row["visual_observation_status"] == "pixel_profile_and_boundary_present" for row in subset)
         image_count = sum(row["asset_count"] != "0" for row in subset)
         lines += wrap_bullet(
             kind,
             f"{len(subset)} objects; {image_count} with images; "
-            f"{direct_count} with direct visual records",
+            f"{direct_count} direct records; {profile_count} pixel profiles",
         )
     lines += ["", "## What The Gap Means / 缺口含义", ""]
     lines += wrap_bullet(
         "English",
         "A local derivative proves only that an image was extracted. "
-        "The 14_material-visual-observation.md record is the separate "
-        "human-readable trace of neutral marks seen in that image.",
+        "A pixel profile is still not a human visual observation; the "
+        "object-local note routes the next image review.",
     )
     lines += wrap_bullet(
         "中文",
-        "本地派生件只能证明图像已经抽取。14_material-visual-observation.md "
-        "才是记录图像中直接可见中性痕迹的人类档案。",
+        "本地派生件只能证明图像已经抽取。像素 profile 不是人工观察，"
+        "对象内档案只负责引导下一次图像复核。",
     )
     lines += ["", "## Human Opening Order / 人工开包顺序", ""]
     for item in [
         "Open the concrete object README and 04_visual-gallery.md.",
         "Open the image and 02_visual-source-index.csv together.",
+        "Treat a pixel profile as routing evidence, not a human observation.",
         "Record only visible shape, damage, orientation, contrast, and limits.",
         "Keep identity, component, reading, and inscription links pending.",
         "Record the reviewer, date, image path, source route, rights, and risk.",
         "先打开具体对象 README 和 04_visual-gallery.md。",
         "同时打开图像和 02_visual-source-index.csv。",
+        "像素 profile 只作路线证据，不等于人工图像观察。",
         "只记录形态、残损、方向、对比度和观察边界。",
         "字形身份、构件、释读和卜辞关联继续保持待复核。",
         "记录复核人、日期、图像路径、来源路线、权利和风险。",
@@ -218,7 +234,7 @@ def build_report(rows: list[dict[str, str]], csv_path: str) -> str:
         "",
         "## Boundary / 边界",
         "",
-        "This audit does not convert image metadata into observations, identity,",
+        "This audit does not convert image metadata into human observations, identity,",
         "component assignments, readings, evolution, or decipherment.",
         "本审计不把图像 metadata 转成观察、身份、构件、释读、演化或破译结论。",
         "",

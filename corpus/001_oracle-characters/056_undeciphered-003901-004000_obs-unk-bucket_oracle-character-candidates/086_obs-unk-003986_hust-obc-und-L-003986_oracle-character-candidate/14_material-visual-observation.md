@@ -11,7 +11,7 @@
   中部下行痕迹与下方数条弯曲痕迹相接；右侧和下缘裁切
   较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Is a less-cropped source image available for checking the lower margin?

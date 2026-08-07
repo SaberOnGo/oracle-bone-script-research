@@ -16,7 +16,8 @@
 - A long narrow stroke rises toward the upper right and bends slightly at
 - the tip. A compact group of curved and angular marks sits below and left
 - of it, with several pointed projections.
-- The arrangement is visually close to a nearby candidate; source identity remains pending.
+- The arrangement is visually close to a nearby candidate; source identity
+  remains pending.
 - 一条长而窄的笔画向右上延伸，末端略弯。
 - 其下方左侧有弯曲和折角痕迹组成的紧凑簇，并带数个尖状突笔。
 - 结构与附近候选在视觉上相近，来源身份仍待核对。

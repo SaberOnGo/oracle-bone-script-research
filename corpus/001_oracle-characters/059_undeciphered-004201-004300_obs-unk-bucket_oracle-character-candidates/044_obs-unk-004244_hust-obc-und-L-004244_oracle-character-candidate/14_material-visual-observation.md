@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条中央竖向痕迹连接上下两个区域。
 - 中文：外围边缘和下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the narrowing upper outline?
 2. Is the inner horizontal mark continuous across the lower outline?

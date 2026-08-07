@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部中央有一组较小的环状内部痕迹。
 - 中文：外轮廓与内部痕迹的连接清晰度不一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the angular outer outline?
 2. Is the inner loop continuous with the diagonal strokes?

@@ -13,7 +13,7 @@
   延伸，并在下部向外弯折。整体粗略形态似与候选 004046 相近；尚未进行
   checksum 或去重判定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Do side-by-side source images preserve the apparent similarity to 004046?

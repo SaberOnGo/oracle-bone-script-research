@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows a short upper horizontal stroke above a descending angled cluster.
+- The image shows a short upper horizontal stroke above a descending angled
+  cluster.
 - The lower cluster has a small branching stroke and an open light gap.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一条上部短横笔画位于下行斜向笔画簇之上。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

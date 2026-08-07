@@ -10,7 +10,7 @@
 - 中文观察：较高较窄的形体两侧有弧向痕迹。顶部中央附近有尖点状或拱形痕迹，
   下部中央较浅且部分被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

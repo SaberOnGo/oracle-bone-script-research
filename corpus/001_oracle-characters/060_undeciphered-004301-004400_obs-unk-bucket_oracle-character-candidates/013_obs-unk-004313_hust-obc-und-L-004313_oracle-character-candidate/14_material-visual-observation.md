@@ -28,7 +28,7 @@ English:
 - 下半部有数条狭长斜向痕迹向下延伸。
 - 下部痕迹彼此分开，末端深浅和长短不一。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the upper turn close or remain open in the source scan?
 - Which crop shows the inner upper stroke most clearly?

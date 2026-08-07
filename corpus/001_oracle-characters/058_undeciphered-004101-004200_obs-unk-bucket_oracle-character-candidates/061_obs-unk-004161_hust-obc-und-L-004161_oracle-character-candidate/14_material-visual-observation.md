@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上部形态下方可见数条较窄的下伸笔画。
 - 中文：下部笔画及其连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper angular trace and short cross-stroke?
 2. Which lower strokes are continuous rather than surface damage?

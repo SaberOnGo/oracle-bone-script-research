@@ -32,7 +32,7 @@ English:
 - 左侧形态有较深的方折或弧形轮廓。
 - 图像不能证明顶部两个形态是否相连。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the original crop for faint joins and surface damage.
 - Search variants while retaining the relation as unconfirmed.

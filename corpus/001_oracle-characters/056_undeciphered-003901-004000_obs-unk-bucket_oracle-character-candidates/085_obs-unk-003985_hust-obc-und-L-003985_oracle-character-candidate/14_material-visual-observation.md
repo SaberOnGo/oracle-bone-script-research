@@ -11,7 +11,7 @@
   中部有较窄下行痕迹，向下连接数条弯曲或斜向痕迹；
   图像裁切使外缘不完整。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

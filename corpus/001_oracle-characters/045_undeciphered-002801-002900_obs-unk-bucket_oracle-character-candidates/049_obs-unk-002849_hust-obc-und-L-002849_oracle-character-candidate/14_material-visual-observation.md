@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A compact lower open enclosure supports two upward slanting strokes and a central descending line.
-- The lower boundary is angular, with separated ends and no surrounding plate context visible.
+- A compact lower open enclosure supports two upward slanting strokes and a
+  central descending line.
+- The lower boundary is angular, with separated ends and no surrounding plate
+  context visible.
 - 下部有紧凑的开口轮廓，承托两条上斜线和一条中央下行线。
 - 下部边界呈折角形，末端分离，图像中未见周围图版环境。
 - The image has no surrounding inscription, scale, or plate context.

@@ -96,7 +96,31 @@ class CharacterVisualObservationCoverageTests(unittest.TestCase):
         )
         self.assertLessEqual(max(len(line) for line in report.splitlines()), 80)
         self.assertIn("needs_human_visual_observation_review", report)
-        self.assertIn("有图无观察", report)
+        self.assertIn("Pixel profile records", report)
+        self.assertIn("有图无人工观察", report)
+
+    def test_build_rows_recognizes_pixel_profile_boundary_record(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            object_dir = self.make_object(
+                root,
+                "001_obs-unk-000001_test_oracle-character-candidate",
+                "01_undeciphered-candidate-packet.json",
+                {"unknown_candidate_id": "obs-unk-000001"},
+                False,
+            )
+            (object_dir / "14_material-visual-observation.md").write_text(
+                "# Material Visual Observation\n\n"
+                "## Pixel Profile / 像素 profile\n\n"
+                "## Boundary / 边界\n",
+                encoding="utf-8",
+            )
+            rows = MODULE.build_rows(root)
+            self.assertEqual(
+                rows[0]["visual_observation_status"],
+                "pixel_profile_and_boundary_present",
+            )
+            self.assertIn("open the local image", rows[0]["next_human_action"])
 
 
 if __name__ == "__main__":

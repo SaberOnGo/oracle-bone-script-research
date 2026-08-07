@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：一条窄竖向痕迹向下延伸，并以分叉痕迹收尾。
 - 中文：上部痕迹与横向痕迹的连接关系仍不确定。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which larger image clarifies the upper rounded mark?
 2. Is the vertical lower trace joined to the horizontal trace?

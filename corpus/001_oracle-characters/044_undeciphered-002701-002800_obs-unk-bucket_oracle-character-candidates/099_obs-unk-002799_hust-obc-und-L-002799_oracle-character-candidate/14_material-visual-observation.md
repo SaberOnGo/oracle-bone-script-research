@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The upper section branches into several short upright strokes with uneven spacing.
-- A long curved line descends from the center toward a small crossing or forked lower section.
+- The upper section branches into several short upright strokes with uneven
+  spacing.
+- A long curved line descends from the center toward a small crossing or
+  forked lower section.
 - 上部由数条短竖线分叉组成，线迹间距不均。
 - 一条较长弯曲线从中央向下延伸，接近下部的小型交叉或分叉线组。
 - The image has no surrounding inscription, scale, or plate context.

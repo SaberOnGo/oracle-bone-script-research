@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - The image shows a pointed upper outline with a narrow central opening.
-- A long thin stroke descends from the lower center; no surrounding context is visible.
+- A long thin stroke descends from the lower center; no surrounding context is
+  visible.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个尖顶轮廓和狭长中央空隙。
 - 一条细长笔画从下部中央向下延伸；未显示周围环境。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

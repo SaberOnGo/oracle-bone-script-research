@@ -27,7 +27,7 @@ English:
 - 下部包含一个较小的封闭矩形轮廓。
 - 侧向痕迹在下部轮廓外向下延伸，末端不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Are the upper slanting traces separate marks or one joined outline?
 - Does the horizontal bar continue through the side traces?

@@ -28,7 +28,7 @@ English:
 - 一条较长的外侧弯曲痕迹沿右侧向下延伸。
 - 下部末端彼此分开，长短并不一致。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the upper angular cluster?
 - Do the lower narrow traces share a junction?

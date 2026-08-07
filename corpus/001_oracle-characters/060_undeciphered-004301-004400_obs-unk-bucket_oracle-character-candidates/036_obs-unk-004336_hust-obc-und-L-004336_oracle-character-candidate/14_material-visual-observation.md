@@ -28,7 +28,7 @@ English:
 - 一条较长的弯曲痕迹沿右侧向下延伸。
 - 下部末端颜色较深，宽度并不一致。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Does the broad upper trace continue across the left edge?
 - Which scan clarifies the pointed central terminal?

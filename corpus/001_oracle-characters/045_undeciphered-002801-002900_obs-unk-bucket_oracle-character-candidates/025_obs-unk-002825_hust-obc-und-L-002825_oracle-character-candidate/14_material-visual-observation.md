@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The upper part has a short horizontal and angled stroke group above a compact lower cluster.
-- Several diagonal and vertical strokes meet near the lower center, leaving small open gaps.
+- The upper part has a short horizontal and angled stroke group above a
+  compact lower cluster.
+- Several diagonal and vertical strokes meet near the lower center, leaving
+  small open gaps.
 - 上部有短横线和斜线组成的线组，下方是紧凑的线迹群。
 - 数条斜线和竖线在下部中央附近相交，之间留有小开口。
 - The image has no surrounding inscription, scale, or plate context.

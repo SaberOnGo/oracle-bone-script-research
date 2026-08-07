@@ -10,7 +10,7 @@
 - 中文观察：紧凑上部痕迹组位于较宽中部横痕之上。横痕下方有短折线下行，右侧
   可见小圆弧状痕迹；周边表面被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source gallery provide an uncropped or higher-resolution image?

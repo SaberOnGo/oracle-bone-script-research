@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：一条弯曲痕迹从该痕迹的下部向下延伸。
 - 中文：轮廓边界和内部痕迹有部分不平整或较淡。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution source clarifies the enclosing outline?
 2. Are the inner marks connected to the outline or separate traces?

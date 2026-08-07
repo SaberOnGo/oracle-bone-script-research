@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows a broad angular upper outline and a long diagonal lower stroke.
+- The image shows a broad angular upper outline and a long diagonal lower
+  stroke.
 - The upper area includes a short crossing stroke and an open interior.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个较宽的折线状上部轮廓和长斜向下笔画。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

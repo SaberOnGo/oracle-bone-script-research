@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两条下部笔画之间保留中央空隙。
 - 中文：下端和上部连接处的形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the broad upper arch?
 2. Are both descending strokes continuous from the upper joins?

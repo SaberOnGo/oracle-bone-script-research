@@ -32,7 +32,7 @@ English:
 - 另有一条弧形笔画向右下方伸展。
 - 图像不能证明这些形态是否构成同一单位。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect the original crop for faint joins and surface damage.
 - Compare variants before describing structural relations.

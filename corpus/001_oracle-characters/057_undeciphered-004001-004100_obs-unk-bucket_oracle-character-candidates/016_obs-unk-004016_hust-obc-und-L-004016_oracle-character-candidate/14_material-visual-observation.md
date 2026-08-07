@@ -12,7 +12,7 @@
   窄直痕。下缘有独立的波曲状痕迹，中央周围还可见少量分离痕迹。图像较小，
   各痕迹之间的关系尚不明确。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the pointed and lower traces are connected?

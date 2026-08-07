@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- Short angled and branched strokes appear at the top above a long horizontal line.
-- Two vertical strokes descend below the horizontal line, with a crossing mark near the center.
+- Short angled and branched strokes appear at the top above a long horizontal
+  line.
+- Two vertical strokes descend below the horizontal line, with a crossing mark
+  near the center.
 - 顶部有短斜线和分叉线组，下方是一条较长横线。
 - 横线下方有两条竖向线，中部附近可见交叉线迹。
 - The image has no surrounding inscription, scale, or plate context.

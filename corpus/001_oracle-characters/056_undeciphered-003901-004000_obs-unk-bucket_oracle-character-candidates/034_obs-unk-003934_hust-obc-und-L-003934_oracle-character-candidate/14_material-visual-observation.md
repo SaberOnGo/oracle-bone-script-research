@@ -1,6 +1,6 @@
 # Material Visual Observation / 材料视觉观察
 
-Direct Visual Record / 直接可见记录
+## Direct Visual Record / 直接可见记录
 
 Object / 对象: `obs-unk-003934`
 Image / 图像:
@@ -17,12 +17,12 @@ is cropped on all sides.
 痕迹。下部有交叉的斜向痕迹，围绕一个较深的小中央痕迹。
 四周表面均被裁切。
 
-Concrete follow-up questions / 具体待查问题：
+## Next Checks / 下一步核查
 1. Which catalogue, plate, and page locate this candidate?
 2. Is the right-edge trace part of the same mark or surface noise?
 3. Can the full inscription and neighboring signs be located?
 
-Boundary / 边界：
+## Boundary / 边界
 This records visible material only. It does not confirm identity, reading,
 component, variant, period, or decipherment.
 本页只记录可见材料，不确认字形身份、释读、构件、异体、时期或破译。

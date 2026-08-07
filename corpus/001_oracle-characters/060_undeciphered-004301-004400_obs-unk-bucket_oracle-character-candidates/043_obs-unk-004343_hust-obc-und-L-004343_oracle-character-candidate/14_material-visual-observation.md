@@ -28,7 +28,7 @@ English:
 - 一条较长的痕迹从左下区域向下延伸。
 - 一条外侧弯曲痕迹向右下方伸展。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the upper compact trace and inner mark?
 - Does the lower-left trace continue to its terminal?

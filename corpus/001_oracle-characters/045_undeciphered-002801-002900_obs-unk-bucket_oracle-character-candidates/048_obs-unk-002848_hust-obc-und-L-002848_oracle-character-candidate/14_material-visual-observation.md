@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The tall crop contains several long curved strokes on both sides of a central line.
-- Short crossing and branching strokes cluster around the center and lower section.
+- The tall crop contains several long curved strokes on both sides of a
+  central line.
+- Short crossing and branching strokes cluster around the center and lower
+  section.
 - 窄高裁切图两侧有数条较长弯曲线，中间形成中央线。
 - 中部和下部聚集短小交叉及分叉线迹。
 - The image has no surrounding inscription, scale, or plate context.

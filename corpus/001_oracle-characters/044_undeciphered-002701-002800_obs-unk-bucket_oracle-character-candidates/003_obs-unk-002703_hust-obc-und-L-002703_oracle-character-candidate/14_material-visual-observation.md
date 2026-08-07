@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows a dark mark with a thin left stroke and a denser right cluster.
-- The right cluster includes angled and zigzag strokes; no surrounding context is visible.
+- The image shows a dark mark with a thin left stroke and a denser right
+  cluster.
+- The right cluster includes angled and zigzag strokes; no surrounding context
+  is visible.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个左侧细笔画和右侧较密笔画簇组成的深色记号。
 - 右侧笔画簇含斜向和折线笔画；图像未显示周围环境。
@@ -37,4 +39,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

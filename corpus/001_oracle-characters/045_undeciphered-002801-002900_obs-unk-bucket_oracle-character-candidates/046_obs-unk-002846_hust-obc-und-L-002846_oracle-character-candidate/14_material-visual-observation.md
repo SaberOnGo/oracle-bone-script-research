@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- An elongated rounded contour encloses several short interior marks and a small upper protrusion.
+- An elongated rounded contour encloses several short interior marks and a
+  small upper protrusion.
 - Two lower strokes extend from the contour, with tight margins around the crop.
 - 细长圆弧轮廓包围数条短内部线迹，顶部有小型突出线。
 - 轮廓下方伸出两条线，裁切边缘与主体距离较近。

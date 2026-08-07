@@ -10,7 +10,7 @@
 - 中文观察：上部较宽的弧形痕迹带有许多短直立缺口。
   下方可见弯曲和下行痕迹；两侧边缘裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the cropped side edges?

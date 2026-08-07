@@ -10,7 +10,7 @@
 - 中文观察：一条较长的深色痕迹斜向下进入紧凑的下部痕迹组。下部包含近似
   楔形的轮廓，右侧有小型封闭或凹入痕迹。外部连接点仍待核查。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the long sloping stroke?

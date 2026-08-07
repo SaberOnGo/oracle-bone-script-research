@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：折角笔画向左下方展开。
 - 中文：右下方有两处短的外伸痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper crossing strokes?
 2. Is the central descending trace continuous with the upper group?

@@ -27,7 +27,7 @@ English:
 - 两组痕迹之间有明显间隔。
 - 两组痕迹的下部末端都不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Is the gap between the clusters part of the original layout?
 - Which scan separates the short marks in the right cluster?

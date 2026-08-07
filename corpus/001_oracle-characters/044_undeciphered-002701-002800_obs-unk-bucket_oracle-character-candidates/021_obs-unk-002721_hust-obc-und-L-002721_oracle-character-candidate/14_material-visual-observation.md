@@ -13,7 +13,8 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The image shows a compact dark mark with a short left stroke and a taller right form.
+- The image shows a compact dark mark with a short left stroke and a taller
+  right form.
 - The right form includes a curved upper turn and a narrow descending stroke.
 - The image has no surrounding inscription, scale, or plate context.
 - 图像显示一个带有左侧短笔画和右侧较高形态的紧凑深色记号。
@@ -37,4 +38,3 @@
 - This is a material description only, not a form, component, or reading
   identification.
 - 以上仅为材料观察，不构成字形、构件或释读认定。
-

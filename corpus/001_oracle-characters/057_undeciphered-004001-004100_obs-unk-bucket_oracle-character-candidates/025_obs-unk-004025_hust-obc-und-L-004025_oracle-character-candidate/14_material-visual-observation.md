@@ -10,7 +10,7 @@
 - 中文观察：右侧有高而窄的轮廓；左下方有紧凑的环状区域，其中横过数条
   痕迹，上方另有小型分离痕。图像未明确这些痕迹的关系。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the right contour joins the lower area?

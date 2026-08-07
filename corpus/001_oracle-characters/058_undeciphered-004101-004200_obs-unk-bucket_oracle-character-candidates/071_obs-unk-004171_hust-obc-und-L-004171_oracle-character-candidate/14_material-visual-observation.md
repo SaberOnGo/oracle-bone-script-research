@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：右侧形态的外部轮廓较为弯曲。
 - 中文：两组形态之间仍可见一条较窄的间隙。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the narrow gap between both groups?
 2. Are the angular turns on the left group continuous marks?

@@ -27,7 +27,7 @@ English:
 - 下部痕迹在不同的可见高度处结束。
 - 未见包围全部痕迹的清楚封闭轮廓。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan separates the central vertical traces?
 - Do the upper angled traces share a junction?

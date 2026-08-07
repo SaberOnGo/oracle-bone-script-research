@@ -28,7 +28,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：中部向下收束，连接到下方较密的基部。
 - 中文：下部有横向或弧向笔画，并见小的深色痕迹。
 
-## Concrete follow-up checks / 具体待查问题
+## Next Checks / 下一步核查
 
 - Which higher-resolution source image confirms the upper stroke boundaries?
 - Which catalog or plate record corroborates this visual observation?

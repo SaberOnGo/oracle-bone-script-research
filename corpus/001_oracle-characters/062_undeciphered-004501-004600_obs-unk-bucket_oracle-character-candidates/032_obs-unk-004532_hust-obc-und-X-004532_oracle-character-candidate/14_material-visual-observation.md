@@ -20,7 +20,7 @@
 - 一条长中央痕迹从下部中央连接处向下延伸。
 - 左右外侧痕迹的可见高度并不相同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which two source rows correspond to the single local JPG?
 - Is the inner curve continuous across the full source image?
@@ -31,3 +31,11 @@
 
 This record describes visible marks only. It does not assign a component,
 variant, period, inscription identity, reading, meaning, or decipherment.
+
+## Boundary / 边界
+
+- This record preserves source-linked visual material only. It does not
+  confirm identity, variant, component, inscription reading, period,
+  evolution, or decipherment.
+- 中文：本记录只保存有来源的可见材料，不确认字形身份、异体、构件、
+  卜辞释读、时期、演变或破译。

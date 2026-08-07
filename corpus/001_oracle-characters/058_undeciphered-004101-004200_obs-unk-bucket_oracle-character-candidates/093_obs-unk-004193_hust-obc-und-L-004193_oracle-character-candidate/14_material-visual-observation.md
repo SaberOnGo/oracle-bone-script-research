@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上部直立痕迹旁有一条短的弧形笔画。
 - 中文：下部折角笔画向右下方转折。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the isolated round mark?
 2. Is the short rounded stroke attached to the upright trace?

@@ -34,7 +34,7 @@ English:
 - 一条较长弯曲笔画从右侧向下延伸。
 - 小尺寸图像无法确认三个笔画群是否相接。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish joins from gaps.
 - Compare other images for variant or near-form relationships.

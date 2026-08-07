@@ -28,7 +28,7 @@ English:
 - 一条较短的横向痕迹向右侧伸出。
 - 下部痕迹的末端在高度和宽度上各不相同。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the left outer curve and its terminal?
 - Is the middle diagonal trace continuous beneath the crossing?

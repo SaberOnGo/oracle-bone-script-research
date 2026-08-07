@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：横笔画下方有一条向下收窄的中央笔画。
 - 中文：下端似有小的斜向分叉，仍需核对。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the rounded upper mark?
 2. Is the short vertical trace a separate stroke or a join?

@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：下部有彼此重叠的斜向深色痕迹。
 - 中文：下部痕迹密集，部分边界被遮掩。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the angular upper trace?
 2. Is the right vertical trace connected to the lower marks?

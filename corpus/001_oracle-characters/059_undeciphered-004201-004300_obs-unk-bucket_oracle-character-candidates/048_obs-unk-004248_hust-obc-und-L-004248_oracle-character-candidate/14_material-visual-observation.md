@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：左侧痕迹与中部痕迹簇之间留有开口间隙。
 - 中文：右侧较高的弯曲痕迹下端形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the separate curved trace on the left?
 2. Is the open gap between the clusters an actual break or fading?

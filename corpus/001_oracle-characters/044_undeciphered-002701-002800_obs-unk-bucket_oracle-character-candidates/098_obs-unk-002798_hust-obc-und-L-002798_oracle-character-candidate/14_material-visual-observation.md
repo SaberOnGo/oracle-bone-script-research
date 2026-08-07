@@ -14,7 +14,8 @@
 ## Direct Visual Record / 直接可见记录
 
 - Several upright and angled strokes rise from a compact lower curved enclosure.
-- The lower enclosure contains two rounded interior bands and short vertical marks.
+- The lower enclosure contains two rounded interior bands and short vertical
+  marks.
 - 数条竖向和斜向线迹从下部紧凑的弧形轮廓中向上伸出。
 - 下部轮廓内可见两道圆弧状线带和数条短竖线。
 - The image has no surrounding inscription, scale, or plate context.

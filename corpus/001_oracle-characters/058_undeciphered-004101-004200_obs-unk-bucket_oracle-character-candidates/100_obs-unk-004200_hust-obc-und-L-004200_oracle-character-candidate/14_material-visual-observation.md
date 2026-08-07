@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：上部圆弧轮廓宽于下部下伸笔画。
 - 中文：两者之间的连接关系部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the inner trace inside the upper loop?
 2. Is the descending stroke joined to the loop or separate?

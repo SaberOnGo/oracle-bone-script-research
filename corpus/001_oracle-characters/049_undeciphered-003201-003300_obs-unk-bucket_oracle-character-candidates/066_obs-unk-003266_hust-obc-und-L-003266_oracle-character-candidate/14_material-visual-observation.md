@@ -2,13 +2,15 @@
 
 - Object / 对象: obs-unk-003266
 - Record type / 记录类型: direct visual record of a committed derivative
-- Evidence opened / 已打开证据: `03_visual-assets/001_asset-004859_hust-obc-und-L-003266_glyph.jpg`
+- Evidence opened / 已打开证据:
+  `03_visual-assets/001_asset-004859_hust-obc-und-L-003266_glyph.jpg`
 - Opened locally / 本地打开日期: 2026-07-31
 - 中文：已在本地打开提交的派生图像，并只记录可见材料特征。
 
 ## Direct Visual Record / 直接可见记录
 
-- The crop shows a narrow central crossing of upright strokes, a short hooked mark at upper left, and a separate curved vertical stroke at the right.
+- The crop shows a narrow central crossing of upright strokes, a short hooked
+  mark at upper left, and a separate curved vertical stroke at the right.
 - The crop contains no visible inscription context, scale, plate number,
   or neighboring catalog marks.
 - This record describes the opened derivative only; it does not establish
@@ -26,7 +28,7 @@
   unreviewed scholarly conclusion is made.
 - 中文：仅作材料描述；不作释读、定字或未经复核的学术结论。
 
-## Missing Items and Follow-up Questions / 缺失项与待查问题
+## Next Checks / 下一步核查
 
 - Is an alternate crop, rubbing, plate view, reverse, or higher-resolution
   derivative available for comparison?

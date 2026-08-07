@@ -32,7 +32,7 @@ English:
 - 上下两部分在图像中大致上下对齐。
 - 图像不能证明它们是否属于同一个相连形态。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Compare the original crop to verify the upper cluster and joins.
 - Check other source collections for repeated or variant images.

@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- The tall crop has long slanting strokes on both sides of a central vertical arrangement.
-- Short crossing and branching strokes cluster toward the center and lower portion.
+- The tall crop has long slanting strokes on both sides of a central vertical
+  arrangement.
+- Short crossing and branching strokes cluster toward the center and lower
+  portion.
 - 窄高裁切图两侧有较长斜线，中间形成纵向线迹排列。
 - 中部和下部聚集短小交叉及分叉线迹。
 - The image has no surrounding inscription, scale, or plate context.

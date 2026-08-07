@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两处圆转痕迹在中部之间留有开口间隙。
 - 中文：下端逐渐变细，彼此并不齐平。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the tall angled left trace?
 2. Are the two rounded curves separate or connected?

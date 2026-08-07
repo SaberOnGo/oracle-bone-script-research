@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：长斜向笔画从上部向下延伸。
 - 中文：下端逐渐变细，连接关系并不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the opening of the upper outline?
 2. Is the dark inner trace a continuous mark or a break?

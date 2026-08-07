@@ -9,7 +9,7 @@
 - 中文观察：两条尖状上部痕迹位于矩形下部围合轮廓之上。
   围合内部较浅，下缘被裁切。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image preserve the complete lower edge?

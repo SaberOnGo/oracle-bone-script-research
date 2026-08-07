@@ -27,7 +27,7 @@ English:
 - 中央线条向下进入狭窄的尖状下部轮廓。
 - 下部轮廓在上接处仍有开口，尖端附近颜色较深。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan resolution separates the upper horizontal trace from surface noise?
 - Do both side traces continue into the lower outline?

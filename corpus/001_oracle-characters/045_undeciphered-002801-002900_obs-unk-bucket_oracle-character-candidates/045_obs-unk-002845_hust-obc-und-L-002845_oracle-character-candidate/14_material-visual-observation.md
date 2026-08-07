@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- A rounded forked group appears at the top above two long separated descending strokes.
-- The lower strokes taper unevenly and remain isolated from any surrounding inscription.
+- A rounded forked group appears at the top above two long separated
+  descending strokes.
+- The lower strokes taper unevenly and remain isolated from any surrounding
+  inscription.
 - 顶部有近圆弧的分叉线组，下方是两条较长且分离的下行线。
 - 下部线迹末端粗细不一，并与周围卜辞环境分离。
 - The image has no surrounding inscription, scale, or plate context.

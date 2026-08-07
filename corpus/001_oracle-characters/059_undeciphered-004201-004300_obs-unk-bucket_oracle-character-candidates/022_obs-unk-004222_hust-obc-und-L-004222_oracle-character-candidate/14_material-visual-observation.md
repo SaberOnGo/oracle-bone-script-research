@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：楔状轮廓下方有一条较宽的下部横向弯曲笔画。
 - 中文：上下痕迹之间的间隙不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the opening of the left wedge?
 2. Is the short upper stroke separate from the wedge?

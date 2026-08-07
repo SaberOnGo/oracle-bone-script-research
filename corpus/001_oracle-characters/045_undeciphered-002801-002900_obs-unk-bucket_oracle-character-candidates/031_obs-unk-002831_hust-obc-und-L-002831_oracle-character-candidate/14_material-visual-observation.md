@@ -13,8 +13,10 @@
 
 ## Direct Visual Record / 直接可见记录
 
-- Several compact crossed or star-like stroke clusters are stacked along a vertical axis.
-- The visible marks are dense and closely spaced, with no surrounding plate context.
+- Several compact crossed or star-like stroke clusters are stacked along a
+  vertical axis.
+- The visible marks are dense and closely spaced, with no surrounding plate
+  context.
 - 多个紧凑的交叉或星状线组沿纵向轴线排列。
 - 可见线迹密集且彼此靠近，图像中未见周围图版环境。
 - The image has no surrounding inscription, scale, or plate context.

@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：一条较窄的下部痕迹从上部痕迹簇向下延伸。
 - 中文：下端痕迹较深，形态不均一。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the compact upper cluster?
 2. Are the short central branches separate traces?

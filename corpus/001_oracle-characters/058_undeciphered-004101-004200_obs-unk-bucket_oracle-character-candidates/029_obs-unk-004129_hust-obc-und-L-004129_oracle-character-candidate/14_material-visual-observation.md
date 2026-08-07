@@ -27,7 +27,7 @@ variant, period, inscription, or decipherment conclusion.
 - 中文：上部偏右可见数条短的斜向痕迹。
 - 中文：下部较为密集，并有一处小的弯曲或钩状痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which higher-resolution image separates the dense lower traces?
 2. Which catalog or plate record corroborates the upper-right strokes?

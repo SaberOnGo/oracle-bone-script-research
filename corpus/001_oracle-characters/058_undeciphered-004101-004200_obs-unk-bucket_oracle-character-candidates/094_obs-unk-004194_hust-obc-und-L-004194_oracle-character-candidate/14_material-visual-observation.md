@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：下部边缘由一条较宽的弧形横向笔画形成。
 - 中文：上下叠置形态之间的连接处部分不清楚。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies the upper angular loop?
 2. Is the middle trace continuous with the lower stroke?

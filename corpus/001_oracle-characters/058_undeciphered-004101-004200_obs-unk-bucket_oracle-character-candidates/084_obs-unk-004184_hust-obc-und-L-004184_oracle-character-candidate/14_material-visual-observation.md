@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：内部笔画形成不规则的中央痕迹组。
 - 中文：外部轮廓在数处存在断开或不确定之处。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan clarifies breaks in the outer rounded outline?
 2. Which inner strokes are continuous across the central cluster?

@@ -34,7 +34,7 @@ English:
 - 下端有一条向右外伸的小笔画。
 - 小尺寸图像无法确认轮廓的连接关系或行向。
 
-## Pending checks / 待查问题
+## Next Checks / 下一步核查
 
 - Inspect a source-resolution crop to distinguish stroke from damage.
 - Compare variants and near-forms without assigning a reading.

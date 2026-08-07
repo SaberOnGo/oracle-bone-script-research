@@ -10,7 +10,7 @@
 - 中文观察：上部有数条尖顶或分叉痕迹；一条窄直中央痕迹向下延伸至另一个
   圆弧或波曲下部组合。图像未明确上下区域的连接关系。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image clarify the pointed upper traces?

@@ -9,7 +9,7 @@
 - 中文观察：两条直立痕迹由下部横向或弯曲痕迹连接。
   上端较圆，侧边图像裁切较紧。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does the source image show the complete upper ends?

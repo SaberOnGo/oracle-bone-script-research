@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：两侧痕迹之间有短交叉笔画。
 - 中文：下端逐渐变细，并有部分淡化痕迹。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan separates the upper-left rounded traces?
 2. Does the right descending trace continue to the lower terminal?

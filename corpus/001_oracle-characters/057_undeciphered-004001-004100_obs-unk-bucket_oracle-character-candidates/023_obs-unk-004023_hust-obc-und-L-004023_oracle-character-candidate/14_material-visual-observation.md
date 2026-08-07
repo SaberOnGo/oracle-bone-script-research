@@ -10,7 +10,7 @@
 - 中文观察：上部附近有椭圆或环状痕迹，内部可见交叉暗痕；一条细长
   下行痕迹向下并向侧方延伸。环状痕迹与下行痕迹的关系尚不明确。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which catalogue, plate, and page locate this candidate?
 2. Does a wider image show whether the loop is closed?

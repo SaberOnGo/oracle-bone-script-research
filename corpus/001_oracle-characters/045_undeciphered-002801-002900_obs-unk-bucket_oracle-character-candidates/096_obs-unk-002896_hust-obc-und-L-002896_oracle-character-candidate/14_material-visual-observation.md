@@ -16,7 +16,8 @@
 - Several diagonal and curved strokes branch from a narrow central axis. A
 - short horizontal or curved base appears at the bottom, while the upper
 - strokes remain separated and irregular.
-- The arrangement is visually close to another candidate; duplication needs checking.
+- The arrangement is visually close to another candidate; duplication needs
+  checking.
 - 多条斜向和弯曲笔画从窄中央轴线分出。
 - 底部可见短横或弧形基部，上部笔画彼此分离且不规则。
 - 结构与另一候选在视觉上相近，重复关系需核对。

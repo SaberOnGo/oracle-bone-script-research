@@ -28,7 +28,7 @@ English:
 - 下部有一条较宽的痕迹连接下方末端。
 - 末端呈圆转状，深浅不均匀。
 
-## Follow-up Questions / 待查问题
+## Next Checks / 下一步核查
 
 - Which scan clarifies the central trace between the curves?
 - Does the broad lower trace remain continuous?

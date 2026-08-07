@@ -27,7 +27,7 @@ period, inscription, or decipherment.
 - 中文：斜向痕迹下方有一条向旁侧分出的短笔画。
 - 中文：轮廓及下端形态不均，并有部分断裂感。
 
-## Concrete Follow-up Questions / 具体待查问题
+## Next Checks / 下一步核查
 
 1. Which scan resolves the inner marks in the upper outline?
 2. Does the lower short stroke join the descending diagonal trace?

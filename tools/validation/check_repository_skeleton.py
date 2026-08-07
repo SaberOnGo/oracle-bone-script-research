@@ -12157,7 +12157,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         "graph_edge_count": 220887,
         "manual_review_backlog_count": 12725,
         "review_queue_count": 12708,
-        "staging_record_count": 75316,
+        "staging_record_count": 75317,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -12198,7 +12198,7 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "216",
+            "staging_record_count": "217",
             "graph_edge_count": "116810",
             "review_queue_count": "3",
         },
@@ -17143,7 +17143,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 7",
         "user or AI draft review files: 122",
-        "source register files: 536",
+        "source register files: 539",
         "bibliographic identity",
         "source trail",
         "scope",

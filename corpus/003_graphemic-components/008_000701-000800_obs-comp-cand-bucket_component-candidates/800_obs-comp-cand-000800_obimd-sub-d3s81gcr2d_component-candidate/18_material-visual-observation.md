@@ -1,0 +1,53 @@
+# Material Visual Observation / obs-comp-cand-000800 实物图像观察
+
+English:
+This object-local note records a source-linked visual asset or a specific
+missing-image route. Pixel facts are reproducible preprocessing evidence; stroke
+shape, component boundaries, variants, readings, and identity remain pending
+human review.
+
+简体中文：
+本对象记录一项有来源链接的图像资料，或一条具体的缺图路线。像素事实是可复现的预处理证据；笔画形态、构件边界、异体、释读和字形身份仍待人工复核。
+
+## Evidence Opened / 已打开证据
+
+- Candidate ID / 候选 ID: `obs-comp-cand-000800`
+- External reference / 外部参照: `obimd-sub-d3s81gcr2d`
+- Source / 来源: `src-obimd`
+- Download route / 下载路线: `dl-obimd-subchar-main-mapping`
+- Local image / 本地图像: `pending`
+- Source zip member / 来源压缩包成员: `pending source member`
+- Checksum / 校验和: `pending`
+- Rights status / 权利状态: `pending rights review`
+- Review status / 复核状态: `needs_human_visual_review`
+
+## Direct Visual Record / 直接可见记录
+
+- English observation: No local PNG/JPEG asset is currently registered for this
+  candidate; no shape observation is made.
+- 简体中文观察：当前没有登记的本地 PNG/JPEG 资料；本记录不作字形观察。
+- The absence is a source-processing gap, not evidence that the source object
+  has no image.
+- 缺图是来源预处理缺口，不表示来源对象本身没有图像。
+
+## Next Checks / 下一步核查
+
+- Open the local asset together with 06_component-visual-index.csv.
+- Compare the image with independent character and component sources.
+- Check whether a rubbing, inscription, plate, or second image exists.
+- Record visible damage, orientation, contrast, and scale limits by hand.
+- Keep component boundaries, variants, readings, and disputes as pending.
+- 打开本地图像并同时核对 06_component-visual-index.csv。
+- 将图像与独立单字、构件来源进行比较。
+- 核查是否存在拓片、卜辞、图版或第二张图像。
+- 人工记录可见残损、方向、对比度和尺寸限制。
+- 构件边界、异体、释读和争议继续标为待复核。
+
+## Boundary / 边界
+
+This is a visible-material preprocessing record, not a confirmed component form
+or oracle-character identity claim. It is not a component assignment; it is not
+a decipherment conclusion.
+本记录是图像资料预处理档案，不是已确认的构件形体或甲骨单字身份。本记录不是构件归属，也不是释读结论。
+- Claim boundary: not a component assignment; not a decipherment conclusion.
+- 边界标记：不是构件归属；不是释读结论。

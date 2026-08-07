@@ -498,9 +498,7 @@ def build_rows(root: Path) -> list[dict[str, str]]:
                 route_files = route_files + (
                     "14_material-visual-observation.md",
                 )
-            if spec.corpus_area == "graphemic_component_candidates" and project_id in {
-                f"obs-comp-cand-{index:06d}" for index in range(1, 11)
-            }:
+            if spec.corpus_area == "graphemic_component_candidates":
                 required_human_files = required_human_files + (
                     "18_material-visual-observation.md",
                 )

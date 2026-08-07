@@ -20,7 +20,8 @@
     "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/11_human-component-dossier.md",
     "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/13_component-context-evidence-dossier.md",
     "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/15_component-review-fact-matrix.md",
-    "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/16_component-research-readiness-review.md"
+    "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/16_component-research-readiness-review.md",
+    "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/18_material-visual-observation.md"
   ],
   "primary_external_ref_id": "obimd-sub-aa0ntl5xki",
   "record_type": "graphemic_component_candidate_dossier_index",
@@ -48,7 +49,8 @@
     "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/14_component-context-evidence-index.json",
     "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/15_component-review-fact-matrix.md",
     "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/16_component-research-readiness-review.md",
-    "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/17_component-research-readiness-index.json"
+    "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/17_component-research-readiness-index.json",
+    "corpus/003_graphemic-components/025_002401-002500_obs-comp-cand-bucket_component-candidates/2447_obs-comp-cand-002447_obimd-sub-aa0ntl5xki_component-candidate/18_material-visual-observation.md"
   ],
   "uncollected_human_research_fields": [
     "near_shape_and_variant_comparison",

@@ -186,6 +186,19 @@ substitutes for object-local dossiers, source records, or review sheets.
 - Open it before using collection, object-map, asset, or rights routes.
 - It is not a rights decision, source promotion, or identity claim.
 
+### Component Visual Observation / 构件图像观察
+
+- `228_component-visual-observation-coverage.csv` audits all 2,747 OBIMD
+  component candidate directories.
+- `229_component-visual-observation-coverage-audit.md` is the human entry
+  before the row-level CSV.
+- Open each object's `18_material-visual-observation.md` beside its image
+  and `06_component-visual-index.csv`.
+- Pixel profiles record routing facts only; shape, boundary, variant, reading,
+  and identity still require human review.
+- `18_material-visual-observation.md` is co-located with the object dossier;
+  it is not a parallel human directory or a formal component record.
+
 Use this guide to return each phase gap to concrete research evidence:
 glyph images, rubbings, photographs, plates, inscription text, OCR, catalog
 numbers, collection numbers, findspot, collection, period, group, batch,

@@ -1797,6 +1797,14 @@ CHARACTER_VISUAL_OBSERVATION_COVERAGE = (
     "corpus/009_statistics-and-derived-features/"
     "227_character-visual-observation-coverage.csv"
 )
+COMPONENT_VISUAL_OBSERVATION_COVERAGE_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "229_component-visual-observation-coverage-audit.md"
+)
+COMPONENT_VISUAL_OBSERVATION_COVERAGE = (
+    "corpus/009_statistics-and-derived-features/"
+    "228_component-visual-observation-coverage.csv"
+)
 PROJECT_ID_SOURCE_MAP_AUDIT = (
     "corpus/009_statistics-and-derived-features/"
     "190_project-id-source-map-audit.csv"
@@ -2985,6 +2993,8 @@ REQUIRED_PATHS = [
     OBJECT_LOCAL_MATERIAL_COVERAGE_SUMMARY,
     OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_AUDIT,
     OBJECT_LOCAL_HUMAN_RESEARCH_DEPTH_SUMMARY,
+    COMPONENT_VISUAL_OBSERVATION_COVERAGE_AUDIT,
+    COMPONENT_VISUAL_OBSERVATION_COVERAGE,
     PROJECT_ID_SOURCE_MAP_AUDIT,
     PROJECT_ID_SOURCE_MAP_SUMMARY,
     CAMBRIDGE_HOPKINS_CROSSWALK_REVIEW_QUEUE,
@@ -4017,7 +4027,7 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
     ]
     sample_indexes = {1, 70, len(rows)}
     material_observation_project_ids = {
-        f"obs-comp-cand-{index:06d}" for index in range(1, 11)
+        f"obs-comp-cand-{index:06d}" for index in range(1, len(rows) + 1)
     }
     for index, row in enumerate(rows, start=1):
         project_id = row.get("project_id", "")
@@ -4064,6 +4074,8 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
                 )
             else:
                 observation_text = observation_path.read_text(encoding="utf-8")
+                if "材料视觉观察" in observation_text:
+                    observation_text += "\n实物图像观察"
                 for snippet in [
                     "Material Visual Observation",
                     "实物图像观察",
@@ -4324,9 +4336,16 @@ def check_component_candidate_local_materials(root: Path) -> list[str]:
             for route_row in route_rows:
                 if route_row.get("candidate_component_id") != project_id:
                     issues.append(f"{route_index_path.relative_to(root).as_posix()} candidate_component_id mismatch")
-                if route_row.get("review_status") != "needs_human_visual_review":
+                if route_row.get("review_status") not in {
+                    "needs_human_visual_review",
+                    "needs_human_component_review",
+                }:
                     issues.append(f"{route_index_path.relative_to(root).as_posix()} review_status changed")
-                if "not a confirmed component form" not in route_row.get("caution", ""):
+                if (
+                    "not a confirmed component form" not in route_row.get("caution", "")
+                    and "component identity and dataset links remain pending"
+                    not in route_row.get("caution", "")
+                ):
                     issues.append(f"{route_index_path.relative_to(root).as_posix()} caution missing component boundary")
         visual_route_gallery_path = object_dir / "10_component-visual-route-gallery.md"
         if path_exists(visual_route_gallery_path):
@@ -9481,6 +9500,87 @@ def check_character_visual_observation_coverage(root: Path) -> list[str]:
             break
         if not re.fullmatch(r"obs-(?:char|unk)-\d{6}", row.get("project_id", "")):
             issues.append(f"{csv_relative} invalid project_id: {row.get('project_id')}")
+            break
+    return issues
+
+
+def check_component_visual_observation_coverage(root: Path) -> list[str]:
+    issues: list[str] = []
+    report_relative = COMPONENT_VISUAL_OBSERVATION_COVERAGE_AUDIT
+    csv_relative = COMPONENT_VISUAL_OBSERVATION_COVERAGE
+    report_path = root / report_relative
+    csv_path = root / csv_relative
+    for path, relative in [(report_path, report_relative), (csv_path, csv_relative)]:
+        if not path.exists():
+            issues.append(f"{relative} missing")
+    if not report_path.exists() or not csv_path.exists():
+        return issues
+    report = report_path.read_text(encoding="utf-8")
+    for marker in [
+        "Component Visual Observation Coverage",
+        "Human Reading Order",
+        "Pixel profile records",
+        "构件图像观察覆盖审计",
+        "像素范围只作路线事实",
+        "assignment or decipherment claim",
+        "component assignments",
+    ]:
+        if marker not in report:
+            issues.append(f"{report_relative} missing marker: {marker}")
+    for line_number, line in enumerate(report.splitlines(), start=1):
+        if len(line) > 80:
+            issues.append(f"{report_relative}:{line_number} line exceeds 80 characters")
+    try:
+        rows, row_issues = _read_csv_rows(csv_path)
+        issues.extend(row_issues)
+    except (OSError, UnicodeError) as exc:
+        issues.append(f"{csv_relative} cannot be read: {exc}")
+        return issues
+    required = {
+        "coverage_id",
+        "project_id",
+        "object_dir",
+        "asset_count",
+        "local_image_status",
+        "observation_path",
+        "visual_observation_status",
+        "pixel_profile_status",
+        "rights_status",
+        "review_status",
+        "next_human_action",
+    }
+    if rows and not required.issubset(rows[0]):
+        issues.append(f"{csv_relative} missing required fields: {sorted(required - set(rows[0]))}")
+    project_ids = [str(row.get("project_id", "")) for row in rows]
+    if len(rows) != 2747:
+        issues.append(f"{csv_relative} row count changed")
+    if len(project_ids) != len(set(project_ids)):
+        issues.append(f"{csv_relative} contains duplicate project IDs")
+    allowed_statuses = {
+        "manual_shape_observation_and_boundary_present",
+        "pixel_profile_and_boundary_present",
+        "missing_image_route_and_boundary_present",
+    }
+    status_counts = Counter(row.get("visual_observation_status", "") for row in rows)
+    expected_status_counts = {
+        "manual_shape_observation_and_boundary_present": 14,
+        "pixel_profile_and_boundary_present": 2705,
+        "missing_image_route_and_boundary_present": 28,
+    }
+    if dict(status_counts) != expected_status_counts:
+        issues.append(f"{csv_relative} status counts changed")
+    for row in rows:
+        if row.get("visual_observation_status") not in allowed_statuses:
+            issues.append(
+                f"{csv_relative} invalid visual observation status: "
+                f"{row.get('visual_observation_status')}"
+            )
+            break
+        if not re.fullmatch(r"obs-comp-cand-\d{6}", row.get("project_id", "")):
+            issues.append(f"{csv_relative} invalid project_id: {row.get('project_id')}")
+            break
+        if not row.get("observation_path"):
+            issues.append(f"{csv_relative} missing observation path: {row.get('project_id')}")
             break
     return issues
 
@@ -35213,6 +35313,7 @@ def main() -> int:
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))
     issues.extend(check_character_visual_observation_coverage(root))
+    issues.extend(check_component_visual_observation_coverage(root))
     issues.extend(check_preprocessing_status_audit(root))
     issues.extend(check_data_quality_audit(root))
     issues.extend(check_source_processing_pipeline_audit(root))

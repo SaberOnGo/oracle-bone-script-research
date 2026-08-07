@@ -77,6 +77,8 @@ Structured support files only serve the human component dossier.
   formal component research.
 - `17_component-research-readiness-index.json`: Structured support index for
   readiness slots.
+- `18_material-visual-observation.md`: Direct visible-material observation for
+  this local image.
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -127,3 +129,4 @@ Route files / 路由文件:
 - 15_component-review-fact-matrix.md
 - 16_component-research-readiness-review.md
 - 17_component-research-readiness-index.json
+- 18_material-visual-observation.md

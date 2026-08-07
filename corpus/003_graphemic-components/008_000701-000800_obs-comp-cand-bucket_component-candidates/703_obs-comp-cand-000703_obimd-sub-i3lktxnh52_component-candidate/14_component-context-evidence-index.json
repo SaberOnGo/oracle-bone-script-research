@@ -18,7 +18,8 @@
     "11_human-component-dossier.md",
     "13_component-context-evidence-dossier.md",
     "15_component-review-fact-matrix.md",
-    "16_component-research-readiness-review.md"
+    "16_component-research-readiness-review.md",
+    "18_material-visual-observation.md"
   ],
   "missing_or_review_fields": [
     "near_shape_variant_and_component_comparison_to_check",

@@ -90,11 +90,35 @@ Run these scripts from the repository root when the source inputs are ready:
 - `extract_hust_obc_local_glyph_images.py`
 - `build_hust_obc_undeciphered_local_materials.py`
 - `build_obimd_component_candidate_materials.py`
+- `build_obimd_component_visual_observations.py`
 - `build_cambridge_hopkins_inscription_crosswalk_materials.py`
 - `build_evobc_evolution_candidate_materials.py`
 - `build_collection_object_candidate_materials.py`
 - `build_source_object_materials.py`
 - `build_cambridge_hopkins_topic_materials.py`
+
+## OBIMD Visual Observation Route / OBIMD 图像观察路线
+
+English:
+
+- `build_obimd_component_visual_observations.py` keeps the first ten
+  manually described notes and adds conservative pixel profiles or concrete
+  missing-image routes for the remaining component objects.
+- Pixel profiles are human opening aids only; they do not segment strokes or
+  establish a component, variant, reading, or identity.
+- The coverage audit is under
+  `tools/004_statistics-generation/`.
+- Run `build_component_visual_observation_coverage_audit.py` there.
+
+简体中文：
+
+- `build_obimd_component_visual_observations.py` 保留前十条人工观察，
+  并为其余构件对象写入保守的像素 profile 或具体缺图路线。
+- 像素 profile 只服务人工打开和复核，不分割笔画，也不确认构件、异体、
+  释读或字形身份。
+- 覆盖审计脚本位于
+  `tools/004_statistics-generation/`。
+- 脚本名为 `build_component_visual_observation_coverage_audit.py`。
 
 Simplified Chinese:
 来源输入准备好后，从仓库根目录运行这些脚本：

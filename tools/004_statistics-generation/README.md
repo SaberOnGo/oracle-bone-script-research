@@ -73,6 +73,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Character image observation audit:
   `226_character-visual-observation-coverage-audit.md` and
   `227_character-visual-observation-coverage.csv`.
+- OBIMD component image observation audit:
+  `229_component-visual-observation-coverage-audit.md` and
+  `228_component-visual-observation-coverage.csv`.
 - Source access-boundary review:
   `225_source-access-boundary-human-review.md` and
   `226_source-access-boundary-review-index.csv`.

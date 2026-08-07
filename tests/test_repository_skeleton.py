@@ -33,6 +33,7 @@ from tools.validation.check_repository_skeleton import (
     check_collection_object_candidate_local_materials,
     check_cambridge_hopkins_topic_candidate_local_materials,
     check_character_object_material_coverage_audit,
+    check_component_visual_observation_coverage,
     check_object_local_material_coverage_audit,
     check_object_local_human_research_depth_audit,
     check_bronze_seal_modern_readme_human_entry,
@@ -11271,6 +11272,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_object_local_material_coverage_audit_tracks_all_core_object_dirs(self) -> None:
         self.assertEqual(check_object_local_material_coverage_audit(repo_root()), [])
+
+    def test_component_visual_observation_coverage_tracks_all_obimd_objects(self) -> None:
+        self.assertEqual(check_component_visual_observation_coverage(repo_root()), [])
         path = (
             repo_root()
             / "corpus/009_statistics-and-derived-features/"
@@ -11348,9 +11352,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_project["obs-comp-cand-000070"]["material_bundle_status"],
             "object_local_bundle_with_evidence_routes",
         )
-        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "9")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["human_file_count"], "10")
         self.assertEqual(by_project["obs-comp-cand-000070"]["ai_file_count"], "8")
-        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "4")
+        self.assertEqual(by_project["obs-comp-cand-000070"]["route_file_count"], "5")
         self.assertEqual(by_project["coll-obj-cand-00001"]["human_file_count"], "9")
         self.assertEqual(by_project["coll-obj-cand-00001"]["ai_file_count"], "9")
         self.assertEqual(by_project["coll-obj-cand-00001"]["route_file_count"], "5")

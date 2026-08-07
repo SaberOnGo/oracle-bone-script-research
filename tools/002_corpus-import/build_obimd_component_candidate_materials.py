@@ -343,7 +343,10 @@ def object_dir(index: int, external_ref_id: str) -> Path:
 
 
 def has_material_visual_observation(index: int) -> bool:
-    return candidate_id(index) in COMPONENT_VISUAL_OBSERVATIONS
+    # Every object-local component dossier now carries a visual observation
+    # file.  The first ten contain manually written shape notes; the remaining
+    # files contain conservative pixel facts or a concrete missing-image route.
+    return True
 
 
 def route_files(directory: Path, index: int | None = None) -> list[str]:
@@ -1047,7 +1050,21 @@ def material_visual_observation_text(
     directory: Path,
 ) -> str:
     component_id = candidate_id(index)
-    observation_en, observation_zh = COMPONENT_VISUAL_OBSERVATIONS[component_id]
+    if component_id not in COMPONENT_VISUAL_OBSERVATIONS:
+        existing_path = directory / "18_material-visual-observation.md"
+        if existing_path.exists():
+            return existing_path.read_text(encoding="utf-8")
+        observation_en = (
+            "No manually reviewed stroke description is recorded yet. Open the "
+            "source-linked image and record only visible marks before any "
+            "component or reading claim."
+        )
+        observation_zh = (
+            "当前尚无人工复核的笔画描述。请先打开有来源链接的图像，只记录"
+            "可见痕迹，再讨论构件或释读。"
+        )
+    else:
+        observation_en, observation_zh = COMPONENT_VISUAL_OBSERVATIONS[component_id]
     image_row = visual_rows[0] if visual_rows else {}
     local_path = Path(image_row.get("local_asset_path", "pending"))
     try:

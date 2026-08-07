@@ -24,3 +24,5 @@ Boundary / 边界：
 This records visible material only. It does not confirm a component,
 character identity, reading, variant, period, or decipherment.
 本页只记录可见材料，不确认构件、字形身份、释读、异体、时期或破译。
+- Claim boundary: not a component assignment; not a decipherment conclusion.
+- 边界标记：不是构件归属；不是释读结论。

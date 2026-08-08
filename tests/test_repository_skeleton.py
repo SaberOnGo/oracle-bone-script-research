@@ -25161,6 +25161,98 @@ class RepositorySkeletonTests(unittest.TestCase):
             data["properties"]["assignment_status"]["enum"],
         )
 
+    def test_ai_agent_strategy_keeps_autonomous_candidate_boundary(self) -> None:
+        strategy_path = (
+            repo_root()
+            / "doc/project/005_ai-agent-research-assistant-design/README.md"
+        )
+        strategy = strategy_path.read_text(encoding="utf-8")
+        required_terms = {
+            "normative_strategy",
+            "working_hypothesis",
+            "ai_adjudicated_candidate",
+            "confirmed_scholarship",
+            "without prior human-specialist approval",
+            "not confirmed scholarship",
+            "uncalibrated_score",
+            "delivery_status",
+            "minimum_effective_cases",
+            "out_of_calibration_domain",
+            "HMAC-SHA-256",
+            "pretraining_exposure=unknown",
+            "Two evidence families are necessary, not sufficient",
+            "dependency-labelled",
+            "Independent Agent Courts",
+            "Falsification And Reopening",
+            "Gate-Based Roadmap",
+        }
+        for term in required_terms:
+            self.assertIn(term, strategy)
+
+        strategy_files = list(
+            (repo_root() / "doc/project").glob("*/README.md")
+        )
+        normative_count = sum(
+            path.read_text(encoding="utf-8-sig").count("normative_strategy")
+            for path in strategy_files
+        )
+        self.assertEqual(normative_count, 1)
+
+        skill = (
+            repo_root() / "skills/ai-agent-evidence-pack-review/SKILL.md"
+        ).read_text(encoding="utf-8-sig")
+        schema_readme = (
+            repo_root()
+            / "schemas/006_ai-agent-evidence-pack-schema/README.md"
+        ).read_text(encoding="utf-8-sig")
+        user_research_readme = (
+            repo_root() / "doc/public/user_research/README.md"
+        ).read_text(encoding="utf-8-sig")
+        for text in (skill, schema_readme):
+            self.assertIn("ai_adjudicated_candidate", text)
+            self.assertIn("delivery", text.lower())
+            self.assertIn("assignment_status", text)
+        self.assertIn("delivery_status=ai_adjudicated_candidate", user_research_readme)
+        self.assertIn("`deprecated`", user_research_readme)
+
+        user_plan = (
+            repo_root() / "doc/public/user_plan/README.md"
+        ).read_text(encoding="utf-8")
+        closure = (
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "230_preformal-research-preprocessing-closure.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("historical architecture draft", user_plan)
+        self.assertIn("../../project/005_ai-agent-research-assistant-design/", user_plan)
+        self.assertIn("Human review remains optional", closure)
+        self.assertIn("Neither this closure report", closure)
+        self.assertIn("证据开包顺序", closure)
+
+        root_docs = [repo_root() / "README.md", repo_root() / "README.zh-CN.md"]
+        for path in root_docs:
+            text = path.read_text(encoding="utf-8-sig")
+            self.assertIn("ai_adjudicated_candidate", text)
+            self.assertIn(
+                "doc/project/005_ai-agent-research-assistant-design/",
+                text,
+            )
+
+        human_docs = root_docs + [
+            strategy_path,
+            repo_root() / "doc/public/user_plan/README.md",
+            repo_root() / "doc/public/user_research/README.md",
+            repo_root()
+            / "corpus/009_statistics-and-derived-features/"
+            / "230_preformal-research-preprocessing-closure.md",
+        ]
+        for path in human_docs:
+            lines = path.read_text(encoding="utf-8-sig").splitlines()
+            self.assertFalse(
+                [index for index, line in enumerate(lines, 1) if len(line) > 80],
+                path.as_posix(),
+            )
+
     def test_ai_agent_first_evidence_pack_draft_is_empty_scaffold(self) -> None:
         path = (
             repo_root()

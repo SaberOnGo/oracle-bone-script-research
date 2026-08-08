@@ -18,6 +18,31 @@ statistics, and validation.
 对象内人类可读档案仍是主体。JSON、CSV、图边、manifest 和路线索引只
 用于追溯、比较、统计和校验，不能替代对象档案。
 
+## Relationship To Current Strategy / 与当前战略的关系
+
+This report remains a historical snapshot of the `2026-08-07` preprocessing
+state. Its counts, `not_started`, `no_claim`, source, rights, and validation
+statements are not silently rewritten by later strategy.
+
+本报告继续作为 `2026-08-07` 预处理状态的历史快照。后续战略不会静默
+改写其中的计数、`not_started`、`no_claim`、来源、权利或校验记录。
+
+The current execution baseline is the [AI candidate strategy][ai-strategy].
+It replaces only the assumption that the next evidence-opening step must be
+performed or approved by a human specialist.
+
+当前执行基线是 [AI Agent 自主候选裁决战略][ai-strategy]。它只取代
+“下一步必须由真人专家执行或批准”的假设。
+
+AI agents may now open evidence routes, run independent review, adjudicate,
+and submit qualifying high-confidence candidates to the user. Human-specialist
+review is an optional escalation and audit route, not a delivery prerequisite.
+Neither this closure report nor an AI candidate is confirmed scholarship.
+
+AI Agent 现在可以打开证据路线、独立复核、裁决并向用户提交达到门槛的
+高置信候选。真人专家复核是可选升级和审计路线，不是交付前置条件。本
+闭合报告和 AI 候选都不因此成为已确认学术结论。
+
 ## Snapshot / 快照
 
 - Snapshot date / 快照日期: `2026-08-07`
@@ -135,7 +160,7 @@ The repository-wide skeleton validator and full unittest suite are deliberately
 reported separately at release time because they are long-running checks. A
 timeout or interrupted process must not be treated as a pass.
 
-## Human Review Opening Order / 人工开包顺序
+## Evidence Opening Order / 证据开包顺序
 
 1. Open the concrete object `README.md` and the first human dossier.
 2. Open the local image, rubbing, plate, or route gallery with its source row.
@@ -143,15 +168,25 @@ timeout or interrupted process must not be treated as a pass.
    map, checksum, rights, and risk records.
 4. Compare independent catalog, inscription, findspot, collection, period,
    batch, bibliography, reading-history, and disagreement evidence.
-5. Record the reviewer, date, exact route, uncertainty, and missing evidence
-   in the object-local human dossier.
+5. Record the agent or reviewer, date, exact route, uncertainty, and missing
+   evidence in the object-local human dossier.
 6. Use JSON, CSV, and graph files only after the human evidence route is open.
 
-## Remaining Concrete Review Questions / 尚待人工复核的具体问题
+1. 打开具体对象的 `README.md` 和第一份人类可读档案。
+2. 打开本地图像、拓片、图版或路线图集，并同时查看来源记录。
+3. 打开来源对象档案中的下载、manifest、字段映射、checksum、权利和
+   风险记录。
+4. 比较独立著录、卜辞、出土地、馆藏、时期、组类、文献、释读史和
+   分歧证据。
+5. 在对象内人类档案记录 Agent 或复核者、日期、精确路线、不确定性和
+   缺失证据。
+6. 只有在人类证据路线已经打开后，才使用 JSON、CSV 和图谱文件。
+
+## Remaining Concrete Review Questions / 尚待复核的具体问题
 
 - Which of the `4,401` HUST pixel-profile objects can now receive a direct,
-  neutral visible record after a human opens its image?
-- Which of the `2,705` OBIMD profile objects can receive a manual component-
+  neutral visible record after an agent or reviewer opens its image?
+- Which of the `2,705` OBIMD profile objects can receive a reviewed component-
   shape note, and which `28` missing-image routes require re-extraction or a
   rights decision?
 - Which Cambridge/Hopkins plate, page, image, OCR, full text, and catalog route
@@ -164,10 +199,16 @@ timeout or interrupted process must not be treated as a pass.
 - Which proposed relation has an explicit plate position, inscription text,
   character occurrence, source citation, reviewer, and disagreement record?
 
-These are the next human research tasks, not empty placeholders and not
-academic conclusions. Until they are answered with opened evidence, all
-candidate identities, readings, variants, components, inscriptions,
-correspondences, and evolution relations remain pending.
+These are concrete evidence-opening tasks, not empty placeholders and not
+academic conclusions. AI agents are now the default operators and
+adjudicators. Human review remains optional. Until the questions are answered
+with opened evidence and the current strategy gates are passed, candidate
+identities, readings, variants, components, inscriptions, correspondences,
+and evolution relations remain pending.
+
+这些是具体证据开包任务，不是空占位，也不是学术结论。AI Agent 现为默认
+执行者和裁决者，人工复核为可选路线。在问题由已打开证据回答且通过当前
+战略门槛前，候选身份、释读、异体、构件、卜辞、对应和演化关系仍待定。
 
 ## Boundary / 边界
 
@@ -180,3 +221,5 @@ decipherment conclusion.
 本闭合报告确认的是可追溯、以人类档案为主体的预处理基础设施。它不确认
 甲骨字释读、卜辞身份、构件边界、异体关系、今字对应、历史演变、权利
 清理或破译结论。
+
+[ai-strategy]: ../../doc/project/005_ai-agent-research-assistant-design/

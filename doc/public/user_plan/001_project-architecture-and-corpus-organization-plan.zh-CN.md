@@ -1,12 +1,25 @@
 ﻿# Oracle Bone Script Research Project Architecture Plan
 
-> Status: discussion draft. This document is only for project planning. Do not implement the directory structure, record schema, database, or scripts until the owner confirms the architecture.
+> 历史状态：本文件保留早期架构讨论。其命名和来源设计仍可参考，但关于
+> “必须由人工复核后才能提交候选”的执行假设已由当前规范性战略取代：
+> [AI Agent 自主候选裁决战略][current-strategy]。
+> 当前规则允许独立 AI Agent 自主裁决并向用户提交高置信候选，但候选仍
+> 不等于已确认学术结论。
+> [Companion index](README.md)
+
+> Status: discussion draft. This document is only for project planning.
+> Do not implement its old architecture assumptions without checking the
+> current normative strategy.
 
 ## 1. 项目定位
 
 本项目不是“自动破译甲骨文模型”，而是建设一个可长期积累、可机器检索、可支持 AI Agent 推理与协作的甲骨文开放研究基础设施。
 
-项目的长期目标是推动甲骨文研究的民主化。甲骨文研究长期具有较高资料门槛、专业门槛和工具门槛，普通人即使有热忱和好奇心，也很难进入。本项目希望通过结构化资料、可追溯证据链、知识图谱和 AI Agent 工作流，降低资料门槛、专业信息差和工具门槛，让普通人也能在规范证据框架下进行检索、比对、提问、假说生成和人工复核。
+项目的长期目标是推动甲骨文研究的民主化。甲骨文研究长期具有较高的
+资料、专业和工具门槛，普通人即使有热忱和好奇心，也很难进入。本项目
+希望通过结构化资料、可追溯证据链、知识图谱和 AI Agent 工作流，降低
+资料门槛、专业信息差和工具门槛，让普通人也能在规范证据框架下进行
+检索、比对、提问、假说生成和复核。
 
 项目希望把资料、方法和证据链转化为更开放、可访问、可复核、可扩展的研究系统。
 
@@ -41,11 +54,13 @@ Democratizing access to oracle bone script research with AI agents.
 ```
 
 ```text
-A knowledge base, knowledge graph, and AI agent framework for making oracle bone script research accessible, searchable, and evidence-based.
+A knowledge base, knowledge graph, and AI agent framework for making oracle
+bone script research accessible, searchable, and evidence-based.
 ```
 
 ```text
-From high-barrier scholarship to evidence-based public research powered by AI agents.
+From high-barrier scholarship to evidence-based public research powered by
+AI agents.
 ```
 
 关键词：
@@ -220,20 +235,28 @@ oracle-bone-script-research/
 - `README.zh-CN.md`: 简体中文项目首页。
 - `doc/project/`: 项目规则、研究边界、资料政策、AI Agent 推理设计。
 - `doc/public/user_plan/`: 用户讨论草案，不一定是最终正式文档位置。
-- `doc/public/user_research/`: 普通用户或 AI Agent 的研究草稿、假说、阶段性分析和复核记录。这里的内容可以频繁变化，不等同于已发表学术结论。
+- `doc/public/user_research/`: 普通用户或 AI Agent 的研究草稿、假说、
+  阶段性分析和复核记录。这里的内容可以频繁变化，不等同于已发表学术
+  结论。
 - `readme/`: 其他语言 README 或扩展说明。
 - `license/`: 代码、数据、图片、论文引用、第三方来源的授权和使用边界说明。
-- `project_registry/`: 根目录级项目注册表，集中说明项目结构、命名规则、本项目 ID 与外部来源 ID 的映射、资料引用来源和中英文术语。它是人类和 AI Agent 追溯数据来源的第一入口。
+- `project_registry/`: 根目录级项目注册表，集中说明项目结构、命名规则、
+  本项目 ID 与外部来源 ID 的映射、资料引用来源和中英文术语。它是人类
+  和 AI Agent 追溯数据来源的第一入口。
 - `schemas/`: 每类结构化文件的字段规范。
 - `corpus/`: 人工维护的核心资料。
-- `research/`: 已有学术研究、已发表观点、专家释读史、论文索引和严谨文献摘录。这里不同于 `doc/public/user_research/`，不能随意写入未经复核的 AI 假说。
+- `research/`: 已有学术研究、已发表观点、专家释读史、论文索引和严谨
+  文献摘录。这里不同于 `doc/public/user_research/`，不能随意写入未经
+  复核的 AI 假说。
 - `skills/`: 面向 AI Agent 和贡献者的可复用工作流说明。
 - `tools/`: 后续用于校验、导入、生成统计和构建 AI Agent 上下文包的脚本。
 - `tests/`: 数据结构、命名规则、来源引用、导入逻辑和工具行为的测试。
 - `database/`: PostgreSQL 等数据库落地结构。
 - `apps/`: 后续 Web/API AI Agent 研究助手。
 
-注：用户提到的 `test/`、`tool/` 在正式仓库中建议采用常见复数形式 `tests/`、`tools/`，与参考仓库结构和常见工程习惯一致。如果最终希望严格使用单数目录名，可在实施前统一调整。
+注：用户提到的 `test/`、`tool/` 在正式仓库中建议采用常见复数形式
+`tests/`、`tools/`，与常见工程习惯一致。如果最终希望严格使用单数
+目录名，可在实施前统一调整。
 
 ### 3.1 `project_registry/` 的职责
 
@@ -272,7 +295,8 @@ project_registry/
     002_terms.en.md
 ```
 
-`002_project-id-to-source-reference-map/` 是核心。它应允许通过 `obs-char-000001`、`obi-000001`、`asset-000001` 等本项目 ID 找到：
+`002_project-id-to-source-reference-map/` 是核心。它应允许通过
+`obs-char-000001`、`obi-000001`、`asset-000001` 等本项目 ID 找到：
 
 - 首选外部 ID。
 - 全部外部 ID。
@@ -284,9 +308,20 @@ project_registry/
 
 示例字段：
 
-```csv
-project_id,record_type,canonical_path,primary_external_ref_id,all_external_ref_ids,source_ids,rights_status,review_status,updated_at
-obs-char-000001,oracle_character,corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/001_obs-char-000001_xxt-jgw-0001_oracle-character,xxt-jgw-0001,"xxt-jgw-0001;unicode-u99ac","src-xiaoxuetang-jiaguwen;src-unicode",metadata_only_until_verified,draft,2026-06-04
+```yaml
+project_id: obs-char-000001
+record_type: oracle_character
+canonical_path: corpus/.../obs-char-000001/
+primary_external_ref_id: xxt-jgw-0001
+all_external_ref_ids:
+  - xxt-jgw-0001
+  - unicode-u99ac
+source_ids:
+  - src-xiaoxuetang-jiaguwen
+  - src-unicode
+rights_status: metadata_only_until_verified
+review_status: draft
+updated_at: 2026-06-04
 ```
 
 这样文件名/目录名可以保持短而自说明，完整引用来源则集中保存在 `project_registry/` 与各资料包 metadata 中。
@@ -353,7 +388,9 @@ obs-char-000001_xxt-jgw-0001
 - `obs-char-000001`: 本项目内部稳定编号，由本项目分配。
 - `xxt-jgw-0001`: 首选外部来源编号，用于追溯到现有权威或常用资料系统。
 
-不要只使用 `obs-char-000001`，因为它只能在本项目内部定位，不能直接证明该资料来自哪一个现有数据库、字编、著录或图版来源。也不要只使用外部编号，因为不同字编、数据库、论文和图版系统可能有不同编号，且同一字可能需要对应多个来源。
+不要只使用 `obs-char-000001`，因为它只能在本项目内部定位，不能直接
+证明资料来自哪一个数据库、字编、著录或图版。也不要只使用外部编号，
+因为不同系统可能有不同编号，同一字也可能需要对应多个来源。
 
 因此推荐规则是：
 
@@ -418,7 +455,7 @@ unicode-u9aa8      可对应现代汉字时的 Unicode 编码
 
 - [小學堂甲骨文資料庫](https://xiaoxue.iis.sinica.edu.tw/jiaguwen)
 - [小學堂甲骨文資料庫簡介](https://xiaoxue.iis.sinica.edu.tw/jiaguwen/About/About)
-- [漢字古今字資料庫使用簡介](https://xiaoxue.iis.sinica.edu.tw/CCDB/Content/Files/ccdb-Get_Started.pdf)
+- [漢字古今字資料庫](https://xiaoxue.iis.sinica.edu.tw/CCDB)
 - [甲骨文合集材料來源表](https://xiaoxue.iis.sinica.edu.tw/obm)
 - [甲骨文合集材料來源表凡例](https://xiaoxue.iis.sinica.edu.tw/obm/Home/Example)
 
@@ -484,7 +521,9 @@ external_references:
 - `xxt-jgw-0001`: 字头/字形数据库外部编号。
 - `heji-010308`: 《甲骨文合集》图版号或卜辞出处编号。
 - `oldcat-tie-001-002`: 旧著录来源编号。
-- 文件名只放最关键的 1 个首选外部追溯 ID 和极短类型说明。完整来源、版权、下载 URL、截图范围、图版位置、其他外部 ID 放入 asset metadata 和 `project_registry/`。
+- 文件名只放最关键的 1 个首选外部追溯 ID 和极短类型说明。完整来源、
+  版权、下载 URL、截图范围、图版位置和其他外部 ID 放入 asset metadata
+  和 `project_registry/`。
 
 推荐每个图片目录都保留资产索引：
 
@@ -993,7 +1032,9 @@ corpus/009_statistics-and-derived-features/
 
 AI Agent 不直接“凭记忆猜字”。它应先检索证据、调用工具、组织上下文，再进行推理。
 
-AI Agent 的角色不是取代专家，也不是给出不可质疑的结论，而是帮助普通研究者和专业研究者共同完成资料检索、证据整理、交叉比对、统计分析、假说生成和复核记录。它应让研究过程更透明，而不是制造新的黑箱。
+AI Agent 的角色不是给出不可质疑的结论，而是执行资料检索、证据整理、
+交叉比对、统计分析、假说生成和复核记录。它应让研究过程更透明，而
+不是制造新的黑箱。
 
 推荐流程：
 
@@ -1077,7 +1118,8 @@ AI Agent 输出应固定包含：
 
 实施前建议先确认这些架构决策：
 
-1. 单字目录是否采用 `001_obs-char-000001_xxt-jgw-0001_oracle-character` 这种“数字前缀 + 本系统 ID + 首选外部来源 ID + 简短类型”的组合。
+1. 单字目录是否采用“数字前缀 + 本系统 ID + 首选外部 ID + 简短类型”：
+   `001_obs-char-000001_xxt-jgw-0001_oracle-character`。
 2. 单字分桶是否固定每 100 个一个目录。
 3. 目录名是否默认 ASCII，且避免使用现代汉字、隶定字、拼音或英文释义作为路径依据。
 4. GitHub 是否只存公开可分发资料，版权不明确资料只存引用。
@@ -1086,7 +1128,8 @@ AI Agent 输出应固定包含：
 7. 是否优先用 PostgreSQL，图谱先用 edges 表表达，而不是一开始引入 Neo4j。
 8. 是否把 AI Agent 假说与人工确认严格分开，避免模型输出污染正式资料。
 9. 根目录是否采用 `project_registry/` 作为项目结构、命名规则、本项目 ID 到外部来源引用的总入口。
-10. 是否明确区分 `doc/public/user_research/` 的用户/AI Agent 草稿研究与根目录 `research/` 的已发表学术研究。
+10. 是否明确区分 `doc/public/user_research/` 的用户/AI Agent 草稿研究，
+    与根目录 `research/` 的已发表学术研究。
 11. 正式目录是否采用 `tools/`、`tests/` 复数形式，而不是 `tool/`、`test/` 单数形式。
 
 ## 15. 推荐实施阶段
@@ -1224,3 +1267,5 @@ AI Agent 输出应固定包含：
 ```
 
 下一步不是立即实施，而是先确认第 14 节的关键问题。确认后再创建正式目录、schema、样例数据和校验工具。
+
+[current-strategy]: ../../project/005_ai-agent-research-assistant-design/

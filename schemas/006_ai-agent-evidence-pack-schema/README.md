@@ -25,3 +25,23 @@ Simplified Chinese:
   `reserved_candidate_not_assigned`。
 - 空草稿中的证据章节应标记为 `not_collected`。
 - 草稿应放在 `doc/public/user_research/`，不要放入根目录 `research/`。
+
+## Strategy Compatibility / 战略兼容
+
+This v1 schema does not encode the strategy's `delivery_status` axis.
+`ai_adjudicated_candidate` is therefore not a valid value for this schema's
+`status` or `assignment_status` fields. A v1 pack may remain a hypothesis
+while a separate, versioned adjudication record authorizes delivery to the
+user.
+
+The value `candidate_promoted_after_human_review` refers only to promotion
+into the formal character corpus. It is not a prerequisite for AI candidate
+delivery and it does not mean confirmed scholarship.
+
+本 v1 schema 不编码战略中的 `delivery_status` 轴。因此，
+`ai_adjudicated_candidate` 不是本 schema 的 `status` 或
+`assignment_status` 合法值。v1 证据包可以继续保持 hypothesis，同时由
+独立、版本化的裁决记录授权向用户交付。
+
+`candidate_promoted_after_human_review` 只表示提升进入正式单字语料，不是
+AI 候选交付的前置条件，也不表示已确认学术结论。

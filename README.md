@@ -50,6 +50,21 @@ to be checked, or pending review.
 不得把未经复核的 AI 假说写成已确认的学术结论。未确认内容必须标为
 候选、来源记录、争议、待查或待复核。
 
+## AI Candidate Strategy / AI 候选战略
+
+Independent AI agents may now investigate, falsify, rerun, calibrate, and
+adjudicate hypotheses. A candidate that passes every registered gate may be
+delivered directly to the user without prior human-specialist approval.
+
+独立 AI Agent 可以调查、反证、复跑、校准并裁决假说。通过全部预登记
+门槛的候选，可以在没有真人专家预先批准的情况下直接提交给用户。
+
+The delivery status is `ai_adjudicated_candidate`, not confirmed scholarship.
+The normative design is the [AI autonomous candidate strategy][ai-strategy].
+
+交付状态是 `ai_adjudicated_candidate`，不是已确认学术结论。规范性设计见
+[AI Agent 自主候选裁决战略][ai-strategy]。
+
 ## Human Research Entry Order / 人工研究入口顺序
 
 English:
@@ -91,6 +106,8 @@ English:
 - `AGENTS.md`: mandatory agent rules and validation requirements.
 - `project_registry/`: source provenance, rights, and large-source records.
 - `doc/project/`: project boundaries, provenance policy, and record model.
+- `doc/project/005_ai-agent-research-assistant-design/`: normative AI
+  candidate adjudication strategy.
 - `corpus/`: object-local research dossiers and support files.
 - `schemas/`: machine-readable contracts for support data.
 - `tools/`: generators, validators, audits, and import helpers.
@@ -105,3 +122,5 @@ python tools/validation/check_repository_skeleton.py
 python -m unittest discover -s tests -v
 git diff --check
 ```
+
+[ai-strategy]: doc/project/005_ai-agent-research-assistant-design/

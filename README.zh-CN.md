@@ -30,6 +30,19 @@ an automatic decipherment model.
 不得把未经复核的 AI 假说写成已确认的学术结论。未确认内容必须标为
 候选、来源记录、争议、待查或待复核。
 
+## AI 候选战略 / AI Candidate Strategy
+
+独立 AI Agent 可以调查、反证、复跑、校准并裁决假说。通过全部预登记
+门槛的候选，可以在没有真人专家预先批准的情况下直接提交给用户。
+
+交付状态是 `ai_adjudicated_candidate`，不是已确认学术结论。规范性设计见
+[AI Agent 自主候选裁决战略][ai-strategy]。
+
+Independent AI agents may investigate, falsify, rerun, calibrate, and
+adjudicate hypotheses. A candidate that passes every registered gate may be
+delivered to the user without prior human-specialist approval. It remains a
+high-confidence AI candidate, not confirmed scholarship.
+
 ## 人工研究入口顺序 / Human Research Entry Order
 
 1. 先打开单字、卜辞、图版或来源包所在的对象目录。
@@ -67,6 +80,8 @@ manifest、解包清单、字段映射、异常、派生路径和复核状态。
 - `AGENTS.md`：Agent 必读规则和校验要求。
 - `project_registry/`：来源链、权利状态和大文件登记。
 - `doc/project/`：项目边界、来源政策和记录模型。
+- `doc/project/005_ai-agent-research-assistant-design/`：规范性的 AI 候选
+  裁决战略。
 - `corpus/`：对象内人类研究档案和辅助文件。
 - `schemas/`：辅助数据的机器可读契约。
 - `tools/`：生成器、校验器、审计和导入工具。
@@ -80,3 +95,5 @@ python tools/validation/check_repository_skeleton.py
 python -m unittest discover -s tests -v
 git diff --check
 ```
+
+[ai-strategy]: doc/project/005_ai-agent-research-assistant-design/

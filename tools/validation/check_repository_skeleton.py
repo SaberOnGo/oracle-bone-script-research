@@ -8164,7 +8164,10 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
             continue
         if fact_matrix_index.get("record_type") != "source_provenance_fact_matrix_index":
             issues.append(f"{fact_matrix_index_path.relative_to(root)} record_type changed")
-        if fact_matrix_index.get("fact_count") != 10:
+        expected_fact_count = 11 if object_dir.name == (
+            "016_src-obimd_source-object"
+        ) else 10
+        if fact_matrix_index.get("fact_count") != expected_fact_count:
             issues.append(f"{fact_matrix_index_path.relative_to(root)} fact_count changed")
         if "12_source-provenance-fact-matrix.md" not in fact_matrix_index.get("human_readable_files", []):
             issues.append(f"{fact_matrix_index_path.relative_to(root)} missing human matrix link")

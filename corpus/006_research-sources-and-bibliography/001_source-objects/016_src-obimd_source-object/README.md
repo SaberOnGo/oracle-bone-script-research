@@ -79,7 +79,8 @@ local-private.
 - Status index / 处理状态索引: 09_source-processing-status-index.json
 - Access integrity index / 访问完整性索引: 19_source-access-integrity-index.json
 - Readiness index / 就绪索引: 21_source-presearch-readiness-index.json
-- External package integrity index / 外部来源包完整性索引: 24_external-package-integrity-index.json
+- External package integrity index / 外部来源包完整性索引:
+  24_external-package-integrity-index.json
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights

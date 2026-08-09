@@ -57,7 +57,8 @@ proposer, dispute, or scholarship note this source can actually support.
 - Package route count / 来源包路线数: 7
 - External package integrity records / 外部来源包完整性记录数: 3
 - External package integrity review / 外部来源包完整性复核:
-  23_external-package-integrity-review.md; 24_external-package-integrity-index.json
+  23_external-package-integrity-review.md;
+  24_external-package-integrity-index.json
 - Field map file / 字段映射文件: 04_field-map-route-index.csv
 - Field map route count / 字段映射路线数: 9
 - Metadata profile file / 元数据概况文件: 05_metadata-profile-route-index.csv

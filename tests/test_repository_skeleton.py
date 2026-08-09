@@ -142,6 +142,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_pipeline_missing_evidence_outcome_routes_assignment_checklist,
     check_source_coverage_statistics,
     check_source_registers,
+    check_obimd_rights_override,
     check_tracked_temp_artifacts,
     path_exists,
     repo_root,
@@ -15054,6 +15055,9 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
+
+    def test_obimd_rights_override(self) -> None:
+        self.assertEqual(check_obimd_rights_override(repo_root()), [])
 
     def test_hust_obc_undeciphered_candidates(self) -> None:
         self.assertEqual(check_hust_obc_undeciphered_candidates(repo_root()), [])

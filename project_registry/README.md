@@ -20,13 +20,15 @@ Use the registry in this order:
 3. Open `002_project-id-to-source-reference-map/` for ID maps.
 4. Open `003_external-source-prefixes/` for source abbreviations.
 5. Open `004_asset-source-and-rights-index/` for asset rights.
-6. Open `006_large-source-register/` for the large-source register.
-7. Return to the object-local dossier before recording review outcomes.
+6. Apply any active rights override and conflict review in that index.
+7. Open `006_large-source-register/` for the large-source register.
+8. Return to the object-local dossier before recording review outcomes.
 
 简体中文：
 使用登记表时，先打开对象目录内档案或人工复核表，再查路径规则、
-ID 映射、来源前缀、资产权利和大型来源登记。记录复核结果前，要
-回到对象目录内档案核对。
+ID 映射、来源前缀、资产权利和大型来源登记。若资产权利索引有生效的
+冲突复核和状态覆盖表，必须先应用它。记录复核结果前，要回到对象
+目录内档案核对。
 
 ## Main Areas / 主要分区
 
@@ -34,6 +36,8 @@ ID 映射、来源前缀、资产权利和大型来源登记。记录复核结�
 - `002_project-id-to-source-reference-map/` maps repository IDs to sources.
 - `003_external-source-prefixes/` lists source system abbreviations.
 - `004_asset-source-and-rights-index/` records asset provenance and rights.
+- The asset-rights index may contain an active conflict note and effective
+  status override; apply it before treating a source as reusable.
 - `006_large-source-register/` records oversized or risky source packages.
 
 ## Concrete Questions To Check / 具体待查问题

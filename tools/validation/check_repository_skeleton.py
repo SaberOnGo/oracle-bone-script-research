@@ -28,6 +28,12 @@ ASSET_SOURCE_INDEX = "project_registry/004_asset-source-and-rights-index/001_ass
 ASSET_RIGHTS_REVIEW_LOG = "project_registry/004_asset-source-and-rights-index/002_asset-rights-review-log.csv"
 ASSET_IMAGE_TECHNICAL_PROFILE = "project_registry/004_asset-source-and-rights-index/004_asset-image-technical-profile.csv"
 ASSET_IMAGE_VISUAL_PROFILE = "project_registry/004_asset-source-and-rights-index/005_asset-image-visual-profile.csv"
+OBIMD_RIGHTS_CONFLICT_REVIEW = (
+    "project_registry/004_asset-source-and-rights-index/006_obimd-rights-conflict-review.md"
+)
+OBIMD_RIGHTS_STATUS_OVERRIDE = (
+    "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv"
+)
 EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
 ASSET_ID_SOURCE_MAP = "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
 COLLECTION_OBJECT_ID_SOURCE_MAP = (
@@ -2829,6 +2835,8 @@ REQUIRED_PATHS = [
     "project_registry/004_asset-source-and-rights-index/003_size-limit-exceptions.csv",
     ASSET_IMAGE_TECHNICAL_PROFILE,
     ASSET_IMAGE_VISUAL_PROFILE,
+    OBIMD_RIGHTS_CONFLICT_REVIEW,
+    OBIMD_RIGHTS_STATUS_OVERRIDE,
     "project_registry/005_bilingual-project-glossary/001_terms.zh-CN.md",
     "project_registry/005_bilingual-project-glossary/002_terms.en.md",
     "project_registry/006_large-source-register/README.md",
@@ -10130,6 +10138,178 @@ def check_ai_agent_evidence_pack_validator(root: Path) -> list[str]:
         return []
     output = "\n".join(part for part in [result.stdout.strip(), result.stderr.strip()] if part)
     return [f"AI Agent evidence-pack validator failed:\n{output}"]
+
+
+def check_obimd_rights_override(root: Path) -> list[str]:
+    """Check the effective OBIMD rights decision without rewriting legacy rows."""
+    issues: list[str] = []
+    override_path = root / OBIMD_RIGHTS_STATUS_OVERRIDE
+    conflict_path = root / OBIMD_RIGHTS_CONFLICT_REVIEW
+    if not override_path.exists():
+        return [f"{OBIMD_RIGHTS_STATUS_OVERRIDE} missing"]
+    if not conflict_path.exists():
+        issues.append(f"{OBIMD_RIGHTS_CONFLICT_REVIEW} missing")
+    override_rows, override_issues = _read_csv_rows(override_path)
+    issues.extend(override_issues)
+    if len(override_rows) != 6:
+        issues.append(
+            f"{OBIMD_RIGHTS_STATUS_OVERRIDE} should contain exactly six active rows"
+        )
+
+    expected = {
+        "obimd-rights-override-001": (
+            "source",
+            "src-obimd",
+            "metadata_only_until_verified",
+            "metadata_only_no_public_redistribution_until_reconciled",
+            1,
+        ),
+        "obimd-rights-override-002": (
+            "large_source",
+            "large-src-000002;large-src-000004",
+            "metadata_only_until_verified",
+            "raw_packages_external_archive_metadata_only_until_reconciled",
+            2,
+        ),
+        "obimd-rights-override-003": (
+            "package_manifest",
+            "src-obimd",
+            "metadata_only_until_verified",
+            "no_public_derivative_promotion_until_reconciled",
+            7,
+        ),
+        "obimd-rights-override-004": (
+            "asset_source_index",
+            "source_ids:src-obimd",
+            "metadata_only_until_verified",
+            "no_public_asset_redistribution_until_reconciled",
+            10364,
+        ),
+        "obimd-rights-override-005": (
+            "component_staging",
+            "002_obimd-subcharacter-main-staging.csv",
+            "metadata_only_until_verified",
+            "no_public_component_derivative_promotion_until_reconciled",
+            2747,
+        ),
+        "obimd-rights-override-006": (
+            "orphan_rights_log",
+            "asset-011000..asset-011049",
+            "local_private_only",
+            "do_not_publish_or_derive_until_asset_identity_restored",
+            50,
+        ),
+    }
+    required_evidence_ids = {"dl-obimd-hf-readme", "dl-obimd-github-readme"}
+    required_evidence_urls = {
+        "https://huggingface.co/datasets/KLOBIP/OBIMD",
+        "https://raw.githubusercontent.com/libang1991/OBIMD/main/README.md",
+    }
+    required_evidence_checksums = {
+        "2ad91fb999e3ea176a2f7dd39cf67b5e8cfb327d9f22f6713aa1d196a61932de",
+        "3361eb37c65a01de05d73b57525500eeed6db7c35dcc16c303794a467c4bbd3e",
+    }
+    seen_ids: set[str] = set()
+    for row in override_rows:
+        override_id = row.get("override_id", "")
+        seen_ids.add(override_id)
+        expected_row = expected.get(override_id)
+        if expected_row is None:
+            issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} unexpected override_id: {override_id}")
+            continue
+        scope_type, scope_id, effective_status, public_decision, record_count = expected_row
+        for field, value in {
+            "scope_type": scope_type,
+            "scope_id": scope_id,
+            "effective_status": effective_status,
+            "public_commit_decision": public_decision,
+            "record_count": str(record_count),
+            "legacy_status": "licensed_for_repository",
+            "review_status": "active_conflict_review",
+            "research_boundary": "rights_audit_only_not_scholarship",
+        }.items():
+            if row.get(field, "") != value:
+                issues.append(
+                    f"{OBIMD_RIGHTS_STATUS_OVERRIDE} {override_id} "
+                    f"{field} mismatch: {row.get(field, '')}"
+                )
+        if not required_evidence_ids.issubset(set(row.get("evidence_download_ids", "").split(";"))):
+            issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} {override_id} missing evidence download")
+        if not required_evidence_urls.issubset(set(row.get("evidence_urls", "").split(";"))):
+            issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} {override_id} missing evidence URL")
+        if not required_evidence_checksums.issubset(
+            set(row.get("evidence_checksums", "").split(";"))
+        ):
+            issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} {override_id} missing evidence checksum")
+        if row.get("updated_at") != "2026-08-09":
+            issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} {override_id} has unexpected updated_at")
+        if "rights" not in row.get("caution", "").lower():
+            issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} {override_id} missing rights caution")
+    missing_ids = sorted(set(expected) - seen_ids)
+    for override_id in missing_ids:
+        issues.append(f"{OBIMD_RIGHTS_STATUS_OVERRIDE} missing override_id: {override_id}")
+
+    source_rows, source_issues = _read_csv_rows(root / SOURCE_INDEX)
+    large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
+    package_rows, package_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
+    asset_rows, asset_issues = _read_csv_rows(root / ASSET_SOURCE_INDEX)
+    rights_rows, rights_issues = _read_csv_rows(root / ASSET_RIGHTS_REVIEW_LOG)
+    component_rows, component_issues = _read_csv_rows(root / OBIMD_SUBCHARACTER_MAIN_STAGING)
+    issues.extend(
+        source_issues
+        + large_issues
+        + package_issues
+        + asset_issues
+        + rights_issues
+        + component_issues
+    )
+    if not any(row.get("source_id") == "src-obimd" for row in source_rows):
+        issues.append(f"{SOURCE_INDEX} missing src-obimd")
+    large_ids = {row.get("source_package_id") for row in large_rows}
+    if not {"large-src-000002", "large-src-000004"}.issubset(large_ids):
+        issues.append(f"{LARGE_SOURCE_REGISTER} missing OBIMD package rows")
+    package_obimd = [row for row in package_rows if row.get("source_id") == "src-obimd"]
+    if len(package_obimd) != 7:
+        issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} should contain seven OBIMD rows")
+    asset_obimd = [
+        row for row in asset_rows if "src-obimd" in row.get("source_ids", "").split(";")
+    ]
+    if len(asset_obimd) != 10364:
+        issues.append(f"{ASSET_SOURCE_INDEX} should contain 10364 OBIMD assets")
+    asset_obimd_ids = {row.get("asset_id", "") for row in asset_obimd}
+    rights_obimd = [row for row in rights_rows if row.get("asset_id", "") in asset_obimd_ids]
+    if len(rights_obimd) != 10364:
+        issues.append(f"{ASSET_RIGHTS_REVIEW_LOG} should contain 10364 matching OBIMD rights rows")
+    expected_orphans = {f"asset-011{i:03d}" for i in range(50)}
+    actual_orphans = {
+        row.get("asset_id", "") for row in rights_rows if row.get("asset_id", "") in expected_orphans
+    }
+    if actual_orphans != expected_orphans:
+        issues.append(f"{ASSET_RIGHTS_REVIEW_LOG} missing the 50 documented OBIMD orphan rows")
+    if len(component_rows) != 2747:
+        issues.append(f"{OBIMD_SUBCHARACTER_MAIN_STAGING} should contain 2747 OBIMD rows")
+
+    if conflict_path.exists():
+        conflict_text = conflict_path.read_text(encoding="utf-8")
+        for marker in [
+            "CC BY-NC-ND",
+            "academic research only",
+            "metadata_only_until_verified",
+            "https://huggingface.co/datasets/KLOBIP/OBIMD",
+            "https://raw.githubusercontent.com/libang1991/OBIMD/main/README.md",
+            "2ad91fb999e3ea176a2f7dd39cf67b5e8cfb327d9f22f6713aa1d196a61932de",
+            "3361eb37c65a01de05d73b57525500eeed6db7c35dcc16c303794a467c4bbd3e",
+        ]:
+            if marker not in conflict_text:
+                issues.append(f"{OBIMD_RIGHTS_CONFLICT_REVIEW} missing marker: {marker}")
+        if "not scholarship" not in conflict_text.lower():
+            issues.append(f"{OBIMD_RIGHTS_CONFLICT_REVIEW} missing non-scholarship boundary")
+        if "\ufffd" in conflict_text:
+            issues.append(f"{OBIMD_RIGHTS_CONFLICT_REVIEW} contains replacement-character mojibake")
+        for line_number, line in enumerate(conflict_text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(f"{OBIMD_RIGHTS_CONFLICT_REVIEW}:{line_number} line exceeds 80 characters")
+    return issues
 
 
 def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
@@ -35500,6 +35680,7 @@ def main() -> int:
     issues.extend(check_root_gitignore_patterns(root))
     issues.extend(check_tracked_temp_artifacts(root))
     issues.extend(check_asset_records(root))
+    issues.extend(check_obimd_rights_override(root))
     issues.extend(check_source_registers(root))
     issues.extend(check_hust_obc_undeciphered_candidates(root))
     issues.extend(check_relationship_graph_edges(root))

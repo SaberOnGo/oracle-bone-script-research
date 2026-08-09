@@ -17,21 +17,23 @@ English:
 
 1. Open `001_asset-source-index.csv` and identify the asset row.
 2. Open `002_asset-rights-review-log.csv` for rights status and risk note.
-3. Check file size, checksum, source provenance, and public-commit decision.
-4. If the source package exceeds `SIZE_LIMIT`, open the large-source register.
-5. Check technical profile rows before using the image file itself.
-6. Treat visual profile rows as algorithmic metadata, not glyph analysis.
-7. Open the object-local dossier or review sheet before drawing conclusions.
+3. Open an active rights override and conflict note, if present.
+4. Check file size, checksum, source provenance, and public-commit decision.
+5. If the source package exceeds `SIZE_LIMIT`, open the large-source register.
+6. Check technical profile rows before using the image file itself.
+7. Treat visual profile rows as algorithmic metadata, not glyph analysis.
+8. Open the object-local dossier or review sheet before drawing conclusions.
 
 简体中文：
 
 1. 先打开 `001_asset-source-index.csv`，确认资产行。
 2. 打开 `002_asset-rights-review-log.csv`，核查权利状态和风险提示。
-3. 核对文件大小、checksum、source provenance 和公开提交决定。
-4. 如果来源包超过 `SIZE_LIMIT`，继续打开 large-source register。
-5. 使用图像文件前，先核查 technical profile 行。
-6. visual profile 只是算法 metadata，不是字形分析。
-7. 得出任何结论前，先打开对象内 dossier 或人工复核表。
+3. 如存在生效的权利覆盖表和冲突复核页，先打开它们。
+4. 核对文件大小、checksum、source provenance 和公开提交决定。
+5. 如果来源包超过 `SIZE_LIMIT`，继续打开 large-source register。
+6. 使用图像文件前，先核查 technical profile 行。
+7. visual profile 只是算法 metadata，不是字形分析。
+8. 得出任何结论前，先打开对象内 dossier 或人工复核表。
 
 ## Files / 文件
 
@@ -42,6 +44,8 @@ English:
 - `003_size-limit-exceptions.csv`: reviewed `SIZE_LIMIT` exceptions.
 - `004_asset-image-technical-profile.csv`: technical profile metadata.
 - `005_asset-image-visual-profile.csv`: deterministic visual profile metadata.
+- `006_obimd-rights-conflict-review.md`: human conflict review and boundary.
+- `006_obimd-rights-status-override.csv`: effective rights override ledger.
 
 简体中文：
 
@@ -50,6 +54,8 @@ English:
 - `003_size-limit-exceptions.csv`：已复核的 `SIZE_LIMIT` 例外。
 - `004_asset-image-technical-profile.csv`：图像技术 profile metadata。
 - `005_asset-image-visual-profile.csv`：确定性视觉 profile metadata。
+- `006_obimd-rights-conflict-review.md`：人工权利冲突复核和边界。
+- `006_obimd-rights-status-override.csv`：生效权利状态覆盖表。
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -80,14 +86,18 @@ outside regular Git under the large-source register.
 
 OBIMD component-candidate images are small object-local PNG review assets
 derived from the registered `Sub-character Images.zip` package. The raw zip
-stays outside regular Git in the ignored external archive.
+stays outside regular Git in the ignored external archive. Its rights
+statements conflict; open the conflict review and apply the override before
+treating any OBIMD asset as reusable.
 
 简体中文：
 HUST-OBC 未释字候选图像是从已登记大型来源包抽取的小型对象内复核图。
 原始 zip 通过 large-source register 保留在普通 Git 外部。
 
 OBIMD 构件候选图像是从已登记 `Sub-character Images.zip` 来源包抽取的
-小型对象内 PNG 复核资产。原始 zip 保留在已忽略外部归档中。
+小型对象内 PNG 复核资产。原始 zip 保留在已忽略外部归档中。其权利说明
+存在冲突；把任何 OBIMD 资产当作可复用资料前，必须先打开冲突复核页并
+应用覆盖表。
 
 ## Research Boundary / 研究边界
 

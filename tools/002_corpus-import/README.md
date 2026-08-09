@@ -93,6 +93,26 @@ Simplified Chinese:
 - `build_collection_object_candidate_materials.py`
 - `build_source_object_materials.py`
 
+### Package Route Join / 来源包路线联结
+
+English:
+`build_source_object_materials.py` joins each package manifest row to its
+download-log row by `download_id`, then to the large-source register by
+`source_package_id`. It checks URL and byte-size agreement before writing the
+object-local package route. When a package URL and size exactly identify a
+registered large archive, the package ID must identify that same archive.
+Aggregate large-source rows remain valid for related files whose own URL and
+size are different. The builder must be run in a temporary or ignored output
+root when existing object dossiers contain local edits.
+
+简体中文：
+`build_source_object_materials.py` 先用 `download_id` 将来源包清单行与
+下载日志联结，再用 `source_package_id` 联结大来源登记表。写入对象目录
+前，脚本会检查 URL 和文件字节数是否一致。若来源包 URL 与大小能精确
+识别某个大包，则来源包 ID 必须指向同一个大包。聚合大包行仍可服务于
+URL 和大小不同的关联文件。现有对象档案含有本地编辑时，必须在临时或
+忽略区根目录运行生成器。
+
 ## Cross-Source Routes / 跨来源路线
 
 English:

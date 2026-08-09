@@ -10146,6 +10146,14 @@ def _read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
     return rows, issues
 
 
+def _first_row_value(row: dict[str, str], *keys: str) -> str:
+    for key in keys:
+        value = row.get(key, "")
+        if value not in (None, ""):
+            return str(value)
+    return ""
+
+
 def _read_jsonl_rows(path: Path) -> tuple[list[dict[str, object]], list[str]]:
     issues: list[str] = []
     rows: list[dict[str, object]] = []
@@ -33519,6 +33527,17 @@ def check_source_registers(root: Path) -> list[str]:
         issues.append(f"{SOURCE_FIELD_MAP} should contain at least 20 reviewed metadata field maps")
 
     large_source_ids = {row.get("source_package_id", "") for row in large_rows}
+    download_by_id = {row.get("download_id", ""): row for row in log_rows}
+    large_by_id = {row.get("source_package_id", ""): row for row in large_rows}
+    exact_large_by_url_and_size = {
+        (
+            _first_row_value(row, "source_url", "url"),
+            _first_row_value(row, "file_size_bytes", "size_bytes"),
+        ): row
+        for row in large_rows
+        if _first_row_value(row, "source_url", "url")
+        and _first_row_value(row, "file_size_bytes", "size_bytes")
+    }
     for row in package_file_rows:
         source_id = row.get("source_id", "")
         package_id = row.get("source_package_id", "")
@@ -33542,6 +33561,47 @@ def check_source_registers(root: Path) -> list[str]:
             issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} references unknown source_package_id: {package_id}")
         if download_id and download_id not in log_ids:
             issues.append(f"{SOURCE_PACKAGE_FILE_MANIFEST} references missing download log id: {download_id}")
+        download_row = download_by_id.get(download_id, {}) if download_id else {}
+        manifest_url = _first_row_value(row, "source_url", "url")
+        manifest_size = _first_row_value(row, "file_size_bytes", "size_bytes")
+        download_url = _first_row_value(download_row, "url", "source_url")
+        download_size = _first_row_value(download_row, "file_size_bytes", "size_bytes")
+        if manifest_url and download_url and manifest_url != download_url:
+            issues.append(
+                f"{SOURCE_PACKAGE_FILE_MANIFEST} download URL mismatch: "
+                f"{row.get('package_file_id', '')}"
+            )
+        if manifest_size and download_size and manifest_size != download_size:
+            issues.append(
+                f"{SOURCE_PACKAGE_FILE_MANIFEST} download size mismatch: "
+                f"{row.get('package_file_id', '')}"
+            )
+        exact_large = exact_large_by_url_and_size.get((manifest_url, manifest_size))
+        if exact_large:
+            expected_package_id = _first_row_value(
+                exact_large, "source_package_id"
+            )
+            if package_id != expected_package_id:
+                issues.append(
+                    f"{SOURCE_PACKAGE_FILE_MANIFEST} exact large-source route "
+                    f"mismatch: {row.get('package_file_id', '')}"
+                )
+            download_checksum = _first_row_value(
+                download_row, "checksum_sha256", "download_checksum_sha256"
+            )
+            large_checksum = _first_row_value(
+                exact_large, "checksum_sha256", "large_source_checksum_sha256"
+            )
+            if download_checksum and large_checksum and download_checksum != large_checksum:
+                issues.append(
+                    f"{SOURCE_PACKAGE_FILE_MANIFEST} download/large-source checksum "
+                    f"mismatch: {row.get('package_file_id', '')}"
+                )
+        if package_id.startswith("large-src-") and package_id not in large_by_id:
+            issues.append(
+                f"{SOURCE_PACKAGE_FILE_MANIFEST} large-source route missing: "
+                f"{row.get('package_file_id', '')}"
+            )
         if file_size and file_size.isdigit() and int(file_size) >= HARD_FILE_LIMIT_BYTES:
             if commit_policy != "do_not_commit_regular_git":
                 issues.append(

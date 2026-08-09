@@ -12057,6 +12057,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             module.SOURCE_INDEX,
             module.DOWNLOAD_MANIFEST,
             module.DOWNLOAD_LOG,
+            module.LARGE_SOURCE_REGISTER,
             module.PACKAGE_MANIFEST,
             module.FIELD_MAP,
             module.METADATA_PROFILE,
@@ -12098,6 +12099,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue((object_dir / "12_source-provenance-fact-matrix.md").is_file())
         self.assertTrue((object_dir / "13_source-provenance-fact-matrix-index.json").is_file())
         self.assertTrue((object_dir / "14_source-to-dossier-transfer-review.md").is_file())
+
         self.assertTrue((object_dir / "15_source-to-dossier-transfer-index.json").is_file())
         self.assertTrue((object_dir / "16_source-literature-scope-review.md").is_file())
         self.assertTrue((object_dir / "17_source-literature-scope-index.json").is_file())
@@ -12929,6 +12931,91 @@ class RepositorySkeletonTests(unittest.TestCase):
             "no decipherment conclusion",
             readiness_index["claim_boundary"],
         )
+
+    def test_source_package_routes_join_download_and_large_register(self) -> None:
+        module = load_source_object_materials_module()
+        manifest_rows = [
+            {
+                "package_file_id": "pkg-file-000001",
+                "source_package_id": "large-src-000001",
+                "source_id": "src-hust-obc",
+                "file_name": "HUST-OBC.zip",
+                "file_kind": "raw_dataset_zip",
+                "source_url": "https://example.test/hust.zip",
+                "file_size_bytes": "607933810",
+                "download_id": "dl-hust-raw",
+                "commit_policy": "do_not_commit_regular_git",
+                "handling_strategy": "external_archive",
+                "rights_status": "source_marked_risk_noted",
+                "review_status": "reviewed_metadata_only",
+                "updated_at": "2026-06-10",
+            }
+        ]
+        log_rows = [
+            {
+                "download_id": "dl-hust-raw",
+                "source_id": "src-hust-obc",
+                "url": "https://example.test/hust.zip",
+                "status": "downloaded",
+                "http_status": "200",
+                "file_size_bytes": "607933810",
+                "checksum_sha256": "a" * 64,
+                "local_temp_path": "external_local_archive/source_packages/hust.zip",
+                "risk_note": "raw package stays outside Git",
+            }
+        ]
+        large_rows = [
+            {
+                "source_package_id": "large-src-000001",
+                "source_url": "https://example.test/hust.zip",
+                "file_size_bytes": "607933810",
+                "checksum_sha256": "a" * 64,
+                "storage_status": "downloaded_to_external_local_archive_registered",
+                "storage_hint": "external_local_archive/source_packages/hust.zip",
+                "risk_note": "raw package stays outside Git",
+                "review_status": "reviewed_metadata_only",
+            }
+        ]
+
+        routes = module.build_package_routes(
+            "src-hust-obc", manifest_rows, log_rows, large_rows
+        )
+        self.assertEqual(len(routes), 1)
+        route = routes[0]
+        self.assertEqual(route["download_status"], "downloaded")
+        self.assertEqual(route["download_checksum_sha256"], "a" * 64)
+        self.assertEqual(route["large_source_id"], "large-src-000001")
+        self.assertEqual(route["large_source_checksum_sha256"], "a" * 64)
+        self.assertEqual(
+            route["large_source_storage_hint"],
+            "external_local_archive/source_packages/hust.zip",
+        )
+
+        with self.assertRaisesRegex(ValueError, "large-source register"):
+            module.build_package_routes(
+                "src-hust-obc",
+                [
+                    {
+                        **manifest_rows[0],
+                        "source_package_id": "large-src-000002",
+                    }
+                ],
+                log_rows,
+                large_rows,
+            )
+
+        with self.assertRaisesRegex(ValueError, "download route mismatch"):
+            module.build_package_routes(
+                "src-hust-obc",
+                manifest_rows,
+                [
+                    {
+                        **log_rows[0],
+                        "file_size_bytes": "4180",
+                    }
+                ],
+                large_rows,
+            )
 
     def test_hust_obc_undeciphered_local_materials_builder_reads_full_candidate_set(self) -> None:
         module = load_hust_obc_undeciphered_local_materials_module()

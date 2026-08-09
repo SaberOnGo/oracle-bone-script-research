@@ -14,6 +14,7 @@ from pathlib import Path
 SOURCE_INDEX = Path("corpus/006_research-sources-and-bibliography/000_source-registers/001_all-sources-index.csv")
 DOWNLOAD_MANIFEST = Path("corpus/006_research-sources-and-bibliography/000_source-registers/003_source-download-manifest.csv")
 DOWNLOAD_LOG = Path("project_registry/006_large-source-register/002_source-download-log.csv")
+LARGE_SOURCE_REGISTER = Path("project_registry/006_large-source-register/001_large-source-register.csv")
 FIELD_MAP = Path("corpus/006_research-sources-and-bibliography/000_source-registers/007_source-field-map.csv")
 PACKAGE_MANIFEST = Path("corpus/006_research-sources-and-bibliography/000_source-registers/009_source-package-file-manifest.csv")
 METADATA_PROFILE = Path("corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv")
@@ -77,6 +78,22 @@ PACKAGE_ROUTE_FIELDS = [
     "rights_status",
     "review_status",
     "updated_at",
+    "download_url",
+    "download_status",
+    "download_http_status",
+    "download_file_size_bytes",
+    "download_checksum_sha256",
+    "download_storage_path",
+    "download_risk_note",
+    "large_source_id",
+    "large_source_url",
+    "large_source_file_size_bytes",
+    "large_source_checksum_sha256",
+    "large_source_storage_status",
+    "large_source_storage_hint",
+    "large_source_risk_note",
+    "large_source_review_status",
+    "large_source_join_status",
 ]
 
 FIELD_ROUTE_FIELDS = [
@@ -235,6 +252,162 @@ def build_download_routes(
                 "local_temp_path": log.get("local_temp_path", ""),
                 "risk_note": log.get("risk_note", ""),
                 "review_status": "metadata_route_needs_human_review",
+            }
+        )
+    return routes
+
+
+def _row_value(row: dict[str, str], *keys: str) -> str:
+    """Return the first present non-empty value from a register row."""
+    for key in keys:
+        value = row.get(key, "")
+        if value not in (None, ""):
+            return str(value)
+    return ""
+
+
+def _same_size(left: str, right: str) -> bool:
+    return bool(left and right and left == right)
+
+
+def build_package_routes(
+    source_id: str,
+    manifest_rows: list[dict[str, str]],
+    log_rows: list[dict[str, str]],
+    large_rows: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Join package, download-log, and large-source rows without inference.
+
+    The package manifest is the object-local entry point.  A package row must
+    have one download-log row when it names a download.  A ``large-src-*``
+    package ID must also exist in the large-source register.  Exact URL and
+    size matches between a package row and a large-source row are checked
+    against the package ID; this catches a package-specific archive that was
+    accidentally attached to an aggregate source package.
+    """
+    log_by_download_id: dict[str, dict[str, str]] = {}
+    for row in log_rows:
+        download_id = _row_value(row, "download_id")
+        if download_id in log_by_download_id:
+            raise ValueError(f"duplicate download log ID: {download_id}")
+        if download_id:
+            log_by_download_id[download_id] = row
+
+    large_by_package_id: dict[str, dict[str, str]] = {}
+    for row in large_rows:
+        package_id = _row_value(row, "source_package_id")
+        if package_id in large_by_package_id:
+            raise ValueError(f"duplicate large-source register ID: {package_id}")
+        if package_id:
+            large_by_package_id[package_id] = row
+
+    exact_large_by_url_and_size: dict[tuple[str, str], dict[str, str]] = {}
+    for row in large_rows:
+        url = _row_value(row, "source_url", "url")
+        size = _row_value(row, "file_size_bytes", "size_bytes")
+        if url and size:
+            exact_large_by_url_and_size[(url, size)] = row
+
+    routes: list[dict[str, str]] = []
+    for index, manifest in enumerate(manifest_rows, start=1):
+        manifest_source_id = _row_value(manifest, "source_id")
+        if manifest_source_id and manifest_source_id != source_id:
+            raise ValueError(
+                f"package source mismatch for {manifest.get('package_file_id', '')}: "
+                f"{manifest_source_id} != {source_id}"
+            )
+        package_id = _row_value(manifest, "source_package_id")
+        download_id = _row_value(manifest, "download_id")
+        log = log_by_download_id.get(download_id, {}) if download_id else {}
+        if download_id and not log:
+            raise ValueError(
+                f"missing download route for package {manifest.get('package_file_id', '')}: "
+                f"{download_id}"
+            )
+
+        manifest_url = _row_value(manifest, "source_url", "url")
+        manifest_size = _row_value(manifest, "file_size_bytes", "size_bytes")
+        log_url = _row_value(log, "url", "source_url")
+        log_size = _row_value(log, "file_size_bytes", "size_bytes")
+        if manifest_url and log_url and manifest_url != log_url:
+            raise ValueError(
+                f"download route mismatch for {manifest.get('package_file_id', '')}: URL"
+            )
+        if manifest_size and log_size and not _same_size(manifest_size, log_size):
+            raise ValueError(
+                f"download route mismatch for {manifest.get('package_file_id', '')}: size"
+            )
+
+        is_lightweight = package_id.startswith("light-src-")
+        large = large_by_package_id.get(package_id, {})
+        if not is_lightweight and not large:
+            raise ValueError(
+                f"missing large-source register row for package {package_id}"
+            )
+
+        exact_large = exact_large_by_url_and_size.get((manifest_url, manifest_size))
+        if exact_large:
+            exact_large_id = _row_value(exact_large, "source_package_id")
+            if package_id != exact_large_id:
+                raise ValueError(
+                    f"large-source register mismatch for "
+                    f"{manifest.get('package_file_id', '')}: "
+                    f"expected {exact_large_id}, got {package_id}"
+                )
+            log_checksum = _row_value(log, "checksum_sha256", "download_checksum_sha256")
+            large_checksum = _row_value(
+                exact_large, "checksum_sha256", "large_source_checksum_sha256"
+            )
+            if log_checksum and large_checksum and log_checksum != large_checksum:
+                raise ValueError(
+                    f"download/large-source checksum mismatch for "
+                    f"{manifest.get('package_file_id', '')}"
+                )
+
+        large_join_status = "not_applicable_lightweight"
+        if not is_lightweight:
+            large_join_status = "registered_by_source_package_id"
+            if exact_large:
+                large_join_status = "exact_url_size_match"
+
+        routes.append(
+            {
+                "package_route_id": f"{source_id}-package-route-{index:03d}",
+                "source_id": source_id,
+                "package_file_id": manifest.get("package_file_id", ""),
+                "source_package_id": package_id,
+                "file_name": manifest.get("file_name", ""),
+                "file_kind": manifest.get("file_kind", ""),
+                "source_url": manifest_url,
+                "file_size_bytes": manifest_size,
+                "download_id": download_id,
+                "commit_policy": manifest.get("commit_policy", ""),
+                "handling_strategy": manifest.get("handling_strategy", ""),
+                "rights_status": manifest.get("rights_status", ""),
+                "review_status": manifest.get("review_status", ""),
+                "updated_at": manifest.get("updated_at", ""),
+                "download_url": log_url,
+                "download_status": _row_value(log, "status", "download_status"),
+                "download_http_status": _row_value(log, "http_status"),
+                "download_file_size_bytes": log_size,
+                "download_checksum_sha256": _row_value(
+                    log, "checksum_sha256", "download_checksum_sha256"
+                ),
+                "download_storage_path": _row_value(log, "local_temp_path", "storage_path"),
+                "download_risk_note": _row_value(log, "risk_note"),
+                "large_source_id": package_id if not is_lightweight else "",
+                "large_source_url": _row_value(large, "source_url", "url"),
+                "large_source_file_size_bytes": _row_value(
+                    large, "file_size_bytes", "size_bytes"
+                ),
+                "large_source_checksum_sha256": _row_value(
+                    large, "checksum_sha256", "large_source_checksum_sha256"
+                ),
+                "large_source_storage_status": _row_value(large, "storage_status"),
+                "large_source_storage_hint": _row_value(large, "storage_hint"),
+                "large_source_risk_note": _row_value(large, "risk_note"),
+                "large_source_review_status": _row_value(large, "review_status"),
+                "large_source_join_status": large_join_status,
             }
         )
     return routes
@@ -976,6 +1149,7 @@ def source_evidence_dossier_index_payload(
             SOURCE_INDEX.as_posix(),
             DOWNLOAD_MANIFEST.as_posix(),
             DOWNLOAD_LOG.as_posix(),
+            LARGE_SOURCE_REGISTER.as_posix(),
             PACKAGE_MANIFEST.as_posix(),
             FIELD_MAP.as_posix(),
             METADATA_PROFILE.as_posix(),
@@ -3282,6 +3456,17 @@ def package_manifest_evidence_lines(
             ("handling_strategy", "Handling strategy / 处理策略"),
             ("rights_status", "Rights status / 权利状态"),
             ("review_status", "Review status / 复核状态"),
+            ("download_url", "Download URL / 下载 URL"),
+            ("download_status", "Download status / 下载状态"),
+            ("download_file_size_bytes", "Downloaded bytes / 下载字节"),
+            ("download_checksum_sha256", "Download checksum / 下载 checksum"),
+            ("download_storage_path", "Download storage / 下载存储"),
+            ("large_source_id", "Large-source ID / 大型来源 ID"),
+            ("large_source_file_size_bytes", "Large-source bytes / 大型来源字节"),
+            ("large_source_checksum_sha256", "Large-source checksum / 大型来源 checksum"),
+            ("large_source_storage_status", "Large-source status / 大型来源状态"),
+            ("large_source_storage_hint", "Large-source storage / 大型来源存储"),
+            ("large_source_join_status", "Large-source join / 大型来源联结"),
         ],
         (
             "No package manifest route is recorded in the current source "
@@ -4347,6 +4532,7 @@ def build_materials(root: Path) -> dict[str, int]:
     downloads_by_source = index_by_source(read_csv(root / DOWNLOAD_MANIFEST))
     download_logs_by_source = index_by_source(read_csv(root / DOWNLOAD_LOG))
     packages_by_source = index_by_source(read_csv(root / PACKAGE_MANIFEST))
+    large_source_rows = read_csv(root / LARGE_SOURCE_REGISTER)
     fields_by_source = index_by_source(read_csv(root / FIELD_MAP))
     metadata_by_source = index_by_source(read_csv(root / METADATA_PROFILE))
     browser_metadata_by_source = index_by_source(read_csv(root / BROWSER_METADATA_CAPTURE))
@@ -4362,8 +4548,11 @@ def build_materials(root: Path) -> dict[str, int]:
             downloads_by_source.get(source_id, []),
             download_logs_by_source.get(source_id, []),
         )
-        package_routes = add_route_ids(
-            source_id, packages_by_source.get(source_id, []), "package-route", "package_route_id"
+        package_routes = build_package_routes(
+            source_id,
+            packages_by_source.get(source_id, []),
+            download_logs_by_source.get(source_id, []),
+            large_source_rows,
         )
         field_routes = add_route_ids(source_id, fields_by_source.get(source_id, []), "field-route", "field_route_id")
         metadata_routes = add_route_ids(

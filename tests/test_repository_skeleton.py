@@ -20,6 +20,7 @@ from tools.validation.check_repository_skeleton import (
     check_ai_context_pack_builder_readme_human_entry,
     check_ai_agent_evidence_pack_validator,
     check_ai_agent_benchmark_contract,
+    _count_candidate_files_under,
     _iter_repository_candidate_paths,
     _tracked_files,
     check_asset_records,
@@ -3907,6 +3908,38 @@ class RepositorySkeletonTests(unittest.TestCase):
 
         self.assertNotIn(".working/nested-worktree/tracked.txt", paths)
         self.assertIn("ordinary/tracked.txt", paths)
+
+    def test_candidate_file_count_prunes_ignored_archives(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            ordinary = (
+                root
+                / "corpus/002_oracle-bone-inscriptions"
+                / "ordinary"
+            )
+            ordinary.mkdir(parents=True)
+            (ordinary / "01_candidate-inscription-crosswalk-packet.json").write_text(
+                "{}",
+                encoding="utf-8",
+            )
+            ignored = (
+                root
+                / ".working/nested-worktree/corpus/002_oracle-bone-inscriptions"
+                / "ignored"
+            )
+            ignored.mkdir(parents=True)
+            (ignored / "01_candidate-inscription-crosswalk-packet.json").write_text(
+                "{}",
+                encoding="utf-8",
+            )
+
+            count = _count_candidate_files_under(
+                root,
+                "corpus/002_oracle-bone-inscriptions",
+                "01_candidate-inscription-crosswalk-packet.json",
+            )
+
+        self.assertEqual(count, 1)
 
     def test_forbidden_top_level_dirs_absent(self) -> None:
         self.assertEqual(check_forbidden_top_level_dirs(repo_root()), [])

@@ -11,6 +11,7 @@ import os
 import re
 import subprocess
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 
 
@@ -9787,11 +9788,12 @@ def check_inscription_readme_human_entry(root: Path) -> list[str]:
 
 def check_forbidden_paths(root: Path) -> list[str]:
     issues: list[str] = []
-    for path in _iter_repository_candidate_paths(root):
+    for relative_path in _repository_candidate_relative_paths(str(root.resolve())):
+        path = root / relative_path
         path_text = path.as_posix()
         for forbidden in FORBIDDEN_PATH_PARTS:
             if forbidden in path_text:
-                issues.append(f"forbidden path naming pattern: {path.relative_to(root)}")
+                issues.append(f"forbidden path naming pattern: {relative_path}")
     return issues
 
 
@@ -9805,9 +9807,8 @@ def check_forbidden_top_level_dirs(root: Path) -> list[str]:
 
 def check_forbidden_policy_text(root: Path) -> list[str]:
     issues: list[str] = []
-    for path in _iter_repository_candidate_paths(root):
-        if not path.is_file():
-            continue
+    for relative_path in _repository_candidate_relative_paths(str(root.resolve())):
+        path = root / relative_path
         if _is_generated_evolution_candidate_material_path(path, root):
             continue
         if _is_raw_user_prompt_archive_path(path, root):
@@ -9819,7 +9820,7 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
         text = path.read_text(encoding="utf-8", errors="replace")
         for snippet in FORBIDDEN_TEXT_SNIPPETS:
             if snippet in text:
-                issues.append(f"forbidden old policy text in {path.relative_to(root)}")
+                issues.append(f"forbidden old policy text in {relative_path}")
     return issues
 
 
@@ -9872,6 +9873,36 @@ def _iter_repository_candidate_paths(root: Path):
         path = root / relative
         if path.exists():
             yield path
+
+
+@lru_cache(maxsize=8)
+def _repository_candidate_relative_paths(root_text: str) -> tuple[str, ...]:
+    """Return existing, non-ignored candidate paths once per repository root."""
+
+    root = Path(root_text)
+    return tuple(
+        _relative_posix(path, root)
+        for path in _iter_repository_candidate_paths(root)
+    )
+
+
+def _count_candidate_files_under(
+    root: Path,
+    prefix: str,
+    filename: str | None = None,
+) -> int:
+    """Count candidate files below a path prefix without a recursive glob."""
+
+    normalized_prefix = prefix.rstrip("/") + "/"
+    count = 0
+    for relative_path in _repository_candidate_relative_paths(str(root.resolve())):
+        if not relative_path.startswith(normalized_prefix):
+            continue
+        if filename is not None and Path(relative_path).name != filename:
+            continue
+        if (root / relative_path).is_file():
+            count += 1
+    return count
 
 
 def _is_generated_evolution_candidate_material_path(path: Path, root: Path) -> bool:
@@ -9933,10 +9964,10 @@ def check_file_size_limits(root: Path) -> list[str]:
     exceptions, exception_issues = _load_size_limit_exceptions(root)
     issues.extend(exception_issues)
 
-    for path in _iter_repository_candidate_paths(root):
+    for relative_path in _repository_candidate_relative_paths(str(root.resolve())):
+        path = root / relative_path
         if not path.is_file():
             continue
-        relative_path = _relative_posix(path, root)
         if relative_path.startswith(IGNORED_LOCAL_ARCHIVE_PREFIXES):
             continue
         file_size = path.stat().st_size
@@ -17365,15 +17396,14 @@ def check_published_research_note_phase_gap_review_checklist(root: Path) -> list
         issues.append(f"{PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST} corpus area changed")
 
     expected_counts = {
-        "research_note_file_count": str(sum(1 for path in (root / "research").rglob("*") if path.is_file())),
+        "research_note_file_count": str(_count_candidate_files_under(root, "research")),
         "user_research_review_file_count": str(
-            sum(1 for path in (root / "doc/public/user_research").rglob("*") if path.is_file())
+            _count_candidate_files_under(root, "doc/public/user_research")
         ),
         "source_register_file_count": str(
-            sum(
-                1
-                for path in (root / "corpus/006_research-sources-and-bibliography").rglob("*")
-                if path.is_file()
+            _count_candidate_files_under(
+                root,
+                "corpus/006_research-sources-and-bibliography",
             )
         ),
         "source_index_row_count": str(len(source_rows)),
@@ -17881,22 +17911,20 @@ def check_inscription_plate_crosswalk_phase_gap_review_checklist(root: Path) -> 
     candidate_map_rows = [
         row for row in map_rows if row.get("record_type") == "inscription_crosswalk_candidate"
     ]
-    candidate_packet_count = sum(
-        1
-        for path in (root / "corpus/002_oracle-bone-inscriptions").rglob(
-            "01_candidate-inscription-crosswalk-packet.json"
-        )
-        if path.is_file()
+    candidate_packet_count = _count_candidate_files_under(
+        root,
+        "corpus/002_oracle-bone-inscriptions",
+        "01_candidate-inscription-crosswalk-packet.json",
     )
-    plate_route_index_count = sum(
-        1
-        for path in (root / "corpus/002_oracle-bone-inscriptions").rglob("05_plate-text-route-index.csv")
-        if path.is_file()
+    plate_route_index_count = _count_candidate_files_under(
+        root,
+        "corpus/002_oracle-bone-inscriptions",
+        "05_plate-text-route-index.csv",
     )
-    plate_gallery_count = sum(
-        1
-        for path in (root / "corpus/002_oracle-bone-inscriptions").rglob("06_plate-text-gallery.md")
-        if path.is_file()
+    plate_gallery_count = _count_candidate_files_under(
+        root,
+        "corpus/002_oracle-bone-inscriptions",
+        "06_plate-text-gallery.md",
     )
     expected_counts = {
         "cambridge_hopkins_crosswalk_staging_count": str(len(staging_rows)),
@@ -18079,22 +18107,20 @@ def check_shape_component_evolution_verification_gap_review_checklist(root: Path
     if {row.get("phase_status", "") for row in rows} != {"missing"}:
         issues.append(f"{SHAPE_COMPONENT_EVOLUTION_VERIFICATION_GAP_REVIEW_CHECKLIST} phase status changed")
 
-    component_packet_count = sum(
-        1
-        for path in (root / "corpus/003_graphemic-components").rglob("01_candidate-component-packet.json")
-        if path.is_file()
+    component_packet_count = _count_candidate_files_under(
+        root,
+        "corpus/003_graphemic-components",
+        "01_candidate-component-packet.json",
     )
-    codepoint_packet_count = sum(
-        1
-        for path in (root / "corpus/001_oracle-characters").rglob("01_codepoint-crosswalk-packet.json")
-        if path.is_file()
+    codepoint_packet_count = _count_candidate_files_under(
+        root,
+        "corpus/001_oracle-characters",
+        "01_codepoint-crosswalk-packet.json",
     )
-    evolution_packet_count = sum(
-        1
-        for path in (root / "corpus/004_bronze-seal-modern-correspondences").rglob(
-            "01_candidate-evolution-packet.json"
-        )
-        if path.is_file()
+    evolution_packet_count = _count_candidate_files_under(
+        root,
+        "corpus/004_bronze-seal-modern-correspondences",
+        "01_candidate-evolution-packet.json",
     )
     expected_by_area = {
         "cross_source_codepoint_routes": {

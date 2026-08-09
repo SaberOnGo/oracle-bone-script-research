@@ -21,6 +21,7 @@ from tools.validation.check_repository_skeleton import (
     check_ai_agent_evidence_pack_validator,
     check_ai_agent_benchmark_contract,
     _iter_repository_candidate_paths,
+    _tracked_files,
     check_asset_records,
     check_required_paths,
     check_relationship_graph_edges,
@@ -3891,6 +3892,21 @@ class RepositorySkeletonTests(unittest.TestCase):
 
         self.assertNotIn(".working/nested-worktree/deciphered_ma.txt", paths)
         self.assertIn("ordinary/deciphered_ma.txt", paths)
+
+    def test_tracked_file_fallback_prunes_ignored_archives_before_descent(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            ignored = root / ".working" / "nested-worktree"
+            ignored.mkdir(parents=True)
+            (ignored / "tracked.txt").write_text("ignored", encoding="utf-8")
+            ordinary = root / "ordinary"
+            ordinary.mkdir()
+            (ordinary / "tracked.txt").write_text("ordinary", encoding="utf-8")
+
+            paths = set(_tracked_files(root))
+
+        self.assertNotIn(".working/nested-worktree/tracked.txt", paths)
+        self.assertIn("ordinary/tracked.txt", paths)
 
     def test_forbidden_top_level_dirs_absent(self) -> None:
         self.assertEqual(check_forbidden_top_level_dirs(repo_root()), [])

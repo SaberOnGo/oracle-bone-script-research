@@ -9827,6 +9827,20 @@ def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
 
 
+def _iter_filesystem_candidate_paths(root: Path):
+    """Yield non-ignored filesystem paths without descending into archives."""
+
+    for directory, dirnames, filenames in os.walk(root):
+        dirnames[:] = [
+            dirname
+            for dirname in dirnames
+            if dirname not in SCAN_IGNORED_DIR_NAMES
+        ]
+        directory_path = Path(directory)
+        for filename in filenames:
+            yield directory_path / filename
+
+
 def _iter_repository_candidate_paths(root: Path):
     """Yield tracked and non-ignored files without descending into archives."""
 
@@ -9846,15 +9860,7 @@ def _iter_repository_candidate_paths(root: Path):
             encoding="utf-8",
         )
     except (OSError, subprocess.CalledProcessError):
-        for directory, dirnames, filenames in os.walk(root):
-            dirnames[:] = [
-                dirname
-                for dirname in dirnames
-                if dirname not in SCAN_IGNORED_DIR_NAMES
-            ]
-            directory_path = Path(directory)
-            for filename in filenames:
-                yield directory_path / filename
+        yield from _iter_filesystem_candidate_paths(root)
         return
 
     for raw_relative in result.stdout.split("\0"):
@@ -9893,7 +9899,7 @@ def _tracked_files(root: Path) -> list[str]:
     except (OSError, subprocess.CalledProcessError):
         return [
             _relative_posix(path, root)
-            for path in root.rglob("*")
+            for path in _iter_filesystem_candidate_paths(root)
             if path.is_file() and ".git" not in path.parts
         ]
     return [line.strip().replace("\\", "/") for line in result.stdout.splitlines() if line.strip()]

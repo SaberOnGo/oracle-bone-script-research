@@ -142,6 +142,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_pipeline_missing_evidence_outcome_routes_assignment_checklist,
     check_source_coverage_statistics,
     check_source_registers,
+    check_source_object_route_joins,
     check_obimd_rights_override,
     check_tracked_temp_artifacts,
     path_exists,
@@ -15055,6 +15056,65 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_registers(self) -> None:
         self.assertEqual(check_source_registers(repo_root()), [])
+
+    def test_source_object_route_joins(self) -> None:
+        self.assertEqual(check_source_object_route_joins(repo_root()), [])
+
+    def test_hust_raw_metadata_profile_uses_raw_download_route(self) -> None:
+        profile_path = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/000_source-registers/"
+            / "010_downloaded-metadata-profile.csv"
+        )
+        with profile_path.open("r", encoding="utf-8-sig", newline="") as file:
+            rows = {row["profile_id"]: row for row in csv.DictReader(file)}
+        self.assertEqual(
+            rows["metadata-profile-000001"]["evidence_download_id"],
+            "dl-hust-obc-figshare-raw",
+        )
+
+    def test_hust_source_object_package_and_profile_routes_join_raw_download(self) -> None:
+        object_dir = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "015_src-hust-obc_source-object"
+        )
+        with (object_dir / "03_package-route-index.csv").open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as file:
+            package_rows = list(csv.DictReader(file))
+        raw_package = next(row for row in package_rows if row["file_name"] == "HUST-OBC.zip")
+        self.assertEqual(raw_package["download_id"], "dl-hust-obc-figshare-raw")
+        self.assertEqual(raw_package["source_package_id"], "large-src-000001")
+        with (object_dir / "05_metadata-profile-route-index.csv").open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as file:
+            profile_rows = list(csv.DictReader(file))
+        raw_profile = next(
+            row for row in profile_rows if row["profile_id"] == "metadata-profile-000001"
+        )
+        self.assertEqual(raw_profile["evidence_download_id"], "dl-hust-obc-figshare-raw")
+        dossier = (object_dir / "10_source-evidence-dossier.md").read_text(encoding="utf-8")
+        self.assertIn("External archive route count / 外部归档路线数: 1", dossier)
+        self.assertIn("dl-hust-obc-figshare-raw", dossier)
+
+    def test_obimd_source_object_subcharacter_package_uses_specific_large_route(self) -> None:
+        object_dir = (
+            repo_root()
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "016_src-obimd_source-object"
+        )
+        with (object_dir / "03_package-route-index.csv").open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as file:
+            rows = list(csv.DictReader(file))
+        subcharacter = next(row for row in rows if row["package_file_id"] == "pkg-file-000008")
+        self.assertEqual(subcharacter["source_package_id"], "large-src-000004")
+        self.assertEqual(subcharacter["download_id"], "dl-obimd-subcharacter-images")
+        dossier = (object_dir / "10_source-evidence-dossier.md").read_text(encoding="utf-8")
+        marker = "Package file ID / 来源包文件 ID: pkg-file-000008"
+        excerpt = dossier.split(marker, maxsplit=1)[1].split("### Route", maxsplit=1)[0]
+        self.assertIn("Source package ID / 来源包 ID: large-src-000004", excerpt)
 
     def test_obimd_rights_override(self) -> None:
         self.assertEqual(check_obimd_rights_override(repo_root()), [])
@@ -30654,6 +30714,25 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("HUST-OBC/undeciphered/L/1/", unknown_text)
         self.assertIn("9411 undeciphered characters", unknown_text)
         self.assertIn("Source Record Ledger / 来源记录台账", unknown_text)
+
+    def test_hust_visual_observation_records_route_reconciliation(self) -> None:
+        path = (
+            repo_root()
+            / "corpus/001_oracle-characters/001_000001-000100_obs-char-bucket_oracle-characters/"
+            / "001_obs-char-000001_hust-obc-cat-0001_oracle-character/"
+            / "14_material-visual-observation.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        for marker in [
+            "Route Reconciliation / 来源路线核对",
+            "pkg-file-000001",
+            "dl-hust-obc-figshare-raw",
+            "metadata-profile-000001",
+            "No public redistribution or source promotion",
+            "不产生公开再分发、来源提升或释读结论",
+        ]:
+            self.assertIn(marker, text)
+        self.assertTrue(all(len(line) <= 80 for line in text.splitlines()))
 
     def test_shape_component_evolution_phase_gap_human_guide_exists(self) -> None:
         path = (

@@ -195,7 +195,7 @@ target object directory.
 
 ### Route 004
 - Package file ID / 来源包文件 ID: pkg-file-000008
-- Source package ID / 来源包 ID: large-src-000002
+- Source package ID / 来源包 ID: large-src-000004
 - File name / 文件名: Sub-character Images.zip
 - File kind / 文件类型: raw_image_zip
 - File size bytes / 文件大小 bytes: 40436910

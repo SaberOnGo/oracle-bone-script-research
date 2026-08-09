@@ -8340,6 +8340,97 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
     return issues
 
 
+def check_source_object_route_joins(root: Path) -> list[str]:
+    """Ensure object-local route tables mirror the central source registers."""
+    issues: list[str] = []
+    source_object_root = (
+        root / "corpus/006_research-sources-and-bibliography/001_source-objects"
+    )
+    central_download_rows, central_download_issues = _read_csv_rows(
+        root / SOURCE_DOWNLOAD_LOG
+    )
+    central_package_rows, central_package_issues = _read_csv_rows(
+        root / SOURCE_PACKAGE_FILE_MANIFEST
+    )
+    central_profile_rows, central_profile_issues = _read_csv_rows(
+        root / DOWNLOADED_METADATA_PROFILE
+    )
+    issues.extend(
+        central_download_issues + central_package_issues + central_profile_issues
+    )
+    central_by_download = {
+        row.get("download_id", ""): row for row in central_download_rows
+    }
+    central_by_package = {
+        row.get("package_file_id", ""): row for row in central_package_rows
+    }
+    central_by_profile = {
+        row.get("profile_id", ""): row for row in central_profile_rows
+    }
+    route_specs = (
+        (
+            "02_download-route-index.csv",
+            central_by_download,
+            (
+                "source_id",
+                "url",
+                "file_size_bytes",
+                "checksum_sha256",
+                "local_temp_path",
+            ),
+            "download_id",
+        ),
+        (
+            "03_package-route-index.csv",
+            central_by_package,
+            (
+                "source_id",
+                "source_package_id",
+                "file_name",
+                "source_url",
+                "file_size_bytes",
+                "download_id",
+            ),
+            "package_file_id",
+        ),
+        (
+            "05_metadata-profile-route-index.csv",
+            central_by_profile,
+            (
+                "source_id",
+                "evidence_download_id",
+                "metadata_file",
+                "profile_metric",
+                "profile_value",
+                "profile_unit",
+            ),
+            "profile_id",
+        ),
+    )
+    if not source_object_root.exists():
+        return [f"{source_object_root.as_posix()} missing"]
+    for object_dir in sorted(path for path in source_object_root.iterdir() if path.is_dir()):
+        for filename, central_by_id, fields, id_field in route_specs:
+            path = object_dir / filename
+            if not path.exists():
+                continue
+            rows, row_issues = _read_csv_rows(path)
+            issues.extend(row_issues)
+            relative = path.relative_to(root).as_posix()
+            for row in rows:
+                route_id = row.get(id_field, "")
+                central = central_by_id.get(route_id)
+                if central is None:
+                    issues.append(f"{relative} references unknown {id_field}: {route_id}")
+                    continue
+                for field in fields:
+                    if row.get(field, "") != central.get(field, ""):
+                        issues.append(
+                            f"{relative} {route_id} {field} differs from central register"
+                        )
+    return issues
+
+
 def check_project_id_source_map_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_rows, audit_issues = _read_csv_rows(root / PROJECT_ID_SOURCE_MAP_AUDIT)
@@ -33803,6 +33894,23 @@ def check_source_registers(root: Path) -> list[str]:
                 f"{DOWNLOADED_METADATA_PROFILE} profile row not reviewed_metadata_only: "
                 f"{row.get('profile_id', '')}"
             )
+        profile_metric = row.get("profile_metric", "").lower()
+        metadata_file = row.get("metadata_file", "")
+        profile_value = row.get("profile_value", "")
+        matching_package_rows = [
+            package_row
+            for package_row in package_file_rows
+            if package_row.get("source_id") == row.get("source_id")
+            and package_row.get("file_name") == metadata_file
+            and package_row.get("file_size_bytes") == profile_value
+        ]
+        if "size" in profile_metric and len(matching_package_rows) == 1:
+            expected_download_id = matching_package_rows[0].get("download_id", "")
+            if expected_download_id and download_id != expected_download_id:
+                issues.append(
+                    f"{DOWNLOADED_METADATA_PROFILE} size profile route mismatch: "
+                    f"{row.get('profile_id', '')}"
+                )
     if len(metadata_profile_rows) < 15:
         issues.append(f"{DOWNLOADED_METADATA_PROFILE} should contain at least 15 metadata profile rows")
 
@@ -35643,6 +35751,7 @@ def main() -> int:
     issues.extend(check_object_local_material_coverage_audit(root))
     issues.extend(check_object_local_human_research_depth_audit(root))
     issues.extend(check_source_object_human_material_quality(root))
+    issues.extend(check_source_object_route_joins(root))
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_project_registry_readme_human_entry(root))
     issues.extend(check_asset_source_rights_readme_human_entry(root))

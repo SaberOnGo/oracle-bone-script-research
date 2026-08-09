@@ -20,11 +20,12 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Adoption status / 采用状态: candidate_large_source
 
 ## Access Download Checksum And Size / 访问、下载、checksum 与大小
-- Download route count / 下载路线数: 7
+- Download route count / 下载路线数: 8
 - Download statuses / 下载状态: downloaded
-- Checksum route count / checksum 路线数: 7
-- Size route count / 大小记录路线数: 7
+- Checksum route count / checksum 路线数: 8
+- Size route count / 大小记录路线数: 8
 - Local temp route count / 临时路径路线数: 7
+- External archive route count / 外部归档路线数: 1
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
 review status.
@@ -85,7 +86,8 @@ review status.
 - Checksum SHA-256 / checksum SHA-256:
   2bd4e7c1194a387516c22452175784a950092921b8ec8ce0ea2d1cc832c91b5d
 - Commit policy / 提交策略: download_to_tmp_log_checksum_only
-- Local temp path / 本地临时路径: tmp/source_downloads/dl-hust-obc-figshare-api.json
+- Local temp path / 本地临时路径:
+  tmp/source_downloads/dl-hust-obc-figshare-api.json
 - Risk note / 风险提示: Stored under ignored tmp directory; commit log/checksum
   only.
 - Review status / 复核状态: metadata_route_needs_human_review
@@ -155,7 +157,7 @@ target object directory.
 - File name / 文件名: HUST-OBC.zip
 - File kind / 文件类型: raw_dataset_zip
 - File size bytes / 文件大小 bytes: 607933810
-- Download ID / 下载 ID: dl-hust-obc-figshare-api
+- Download ID / 下载 ID: dl-hust-obc-figshare-raw
 - Commit policy / 提交策略: do_not_commit_regular_git
 - Handling strategy / 处理策略: Keep raw package outside Git; extract class indexes
   and source-marked metadata only
@@ -310,7 +312,7 @@ target object directory.
 
 ### Route 001
 - Profile ID / 概况 ID: metadata-profile-000001
-- Evidence download ID / 证据下载 ID: dl-hust-obc-figshare-api
+- Evidence download ID / 证据下载 ID: dl-hust-obc-figshare-raw
 - Metadata file / 元数据文件: HUST-OBC.zip
 - Profile metric / 概况指标: figshare_file_size_bytes
 - Profile value / 概况值: 607933810

@@ -2602,6 +2602,10 @@ AI_AGENT_EVIDENCE_PACK_SCHEMA = (
     "schemas/006_ai-agent-evidence-pack-schema/"
     "ai-agent-evidence-pack.schema.json"
 )
+AI_AGENT_BENCHMARK_EXPERIMENT_SCHEMA = (
+    "schemas/007_ai-agent-benchmark-experiment-schema/"
+    "ai-agent-benchmark-experiment-v2.schema.json"
+)
 AI_AGENT_HUST_OBC_FIRST_EVIDENCE_PACK_DRAFT = (
     "doc/public/user_research/001_ai-agent-evidence-packs/hust-obc/"
     "001_000001-000100_obs-char-bucket/"
@@ -2842,6 +2846,10 @@ REQUIRED_PATHS = [
     "schemas/README.md",
     "schemas/006_ai-agent-evidence-pack-schema/README.md",
     AI_AGENT_EVIDENCE_PACK_SCHEMA,
+    "schemas/007_ai-agent-benchmark-experiment-schema/README.md",
+    AI_AGENT_BENCHMARK_EXPERIMENT_SCHEMA,
+    "tools/validation/validate_ai_agent_benchmark_experiments.py",
+    "tests/test_ai_agent_benchmark_experiments.py",
     "corpus/README.md",
     "corpus/006_research-sources-and-bibliography/000_source-registers/README.md",
     SOURCE_INDEX,
@@ -3418,6 +3426,22 @@ FORBIDDEN_PATH_PARTS = [
     "ma-馬",
     "ren-人",
 ]
+
+SCAN_IGNORED_DIR_NAMES = {
+    ".git",
+    ".working",
+    ".cache",
+    "_tmp",
+    "tmp",
+    "temp",
+    "scratch",
+    ".scratch",
+    "external_local_archive",
+    "external_sources_local",
+    "large_sources_local",
+    "local_private_data",
+    "private_data",
+}
 
 FORBIDDEN_TOP_LEVEL_DIRS = ["data", "knowledge_base"]
 
@@ -9664,9 +9688,7 @@ def check_inscription_readme_human_entry(root: Path) -> list[str]:
 
 def check_forbidden_paths(root: Path) -> list[str]:
     issues: list[str] = []
-    for path in root.rglob("*"):
-        if ".git" in path.parts:
-            continue
+    for path in _iter_repository_candidate_paths(root):
         path_text = path.as_posix()
         for forbidden in FORBIDDEN_PATH_PARTS:
             if forbidden in path_text:
@@ -9684,8 +9706,8 @@ def check_forbidden_top_level_dirs(root: Path) -> list[str]:
 
 def check_forbidden_policy_text(root: Path) -> list[str]:
     issues: list[str] = []
-    for path in root.rglob("*"):
-        if ".git" in path.parts or not path.is_file():
+    for path in _iter_repository_candidate_paths(root):
+        if not path.is_file():
             continue
         if _is_generated_evolution_candidate_material_path(path, root):
             continue
@@ -9704,6 +9726,47 @@ def check_forbidden_policy_text(root: Path) -> list[str]:
 
 def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
+
+
+def _iter_repository_candidate_paths(root: Path):
+    """Yield tracked and non-ignored files without descending into archives."""
+
+    try:
+        result = subprocess.run(
+            git_command(
+                root,
+                "ls-files",
+                "--cached",
+                "--others",
+                "--exclude-standard",
+                "-z",
+            ),
+            cwd=root,
+            check=True,
+            capture_output=True,
+            encoding="utf-8",
+        )
+    except (OSError, subprocess.CalledProcessError):
+        for directory, dirnames, filenames in os.walk(root):
+            dirnames[:] = [
+                dirname
+                for dirname in dirnames
+                if dirname not in SCAN_IGNORED_DIR_NAMES
+            ]
+            directory_path = Path(directory)
+            for filename in filenames:
+                yield directory_path / filename
+        return
+
+    for raw_relative in result.stdout.split("\0"):
+        if not raw_relative:
+            continue
+        relative = Path(raw_relative)
+        if any(part in SCAN_IGNORED_DIR_NAMES for part in relative.parts[:-1]):
+            continue
+        path = root / relative
+        if path.exists():
+            yield path
 
 
 def _is_generated_evolution_candidate_material_path(path: Path, root: Path) -> bool:
@@ -9765,8 +9828,8 @@ def check_file_size_limits(root: Path) -> list[str]:
     exceptions, exception_issues = _load_size_limit_exceptions(root)
     issues.extend(exception_issues)
 
-    for path in root.rglob("*"):
-        if ".git" in path.parts or not path.is_file():
+    for path in _iter_repository_candidate_paths(root):
+        if not path.is_file():
             continue
         relative_path = _relative_posix(path, root)
         if relative_path.startswith(IGNORED_LOCAL_ARCHIVE_PREFIXES):
@@ -35262,6 +35325,64 @@ def check_codepoint_crosswalk_candidate_local_materials(root: Path) -> list[str]
     return issues
 
 
+def check_ai_agent_benchmark_contract(root: Path) -> list[str]:
+    """Check the v2 contract's critical boundary constants and paths."""
+
+    relative = AI_AGENT_BENCHMARK_EXPERIMENT_SCHEMA
+    schema_path = root / relative
+    try:
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"{relative} cannot be parsed: {exc}"]
+
+    issues: list[str] = []
+    if schema.get("title") != "AI Agent Oracle Bone Candidate Benchmark Experiment v2":
+        issues.append(f"{relative} title changed")
+    properties = schema.get("properties", {})
+    if properties.get("research_boundary", {}).get("const") != (
+        "benchmark_experiment_not_scholarship"
+    ):
+        issues.append(f"{relative} research boundary changed")
+    required = set(schema.get("required", []))
+    for field in ("benchmark", "protocol", "runs", "adjudication", "evaluation", "human_delivery_package"):
+        if field not in required:
+            issues.append(f"{relative} missing required field: {field}")
+    definitions = schema.get("$defs", {})
+    case_definition = definitions.get("case", {})
+    case_required = set(case_definition.get("required", []))
+    for field in (
+        "case_type",
+        "blind_alias",
+        "evidence_cutoff_at",
+        "source_checksums",
+        "pretraining_exposure",
+        "benchmark_eligibility",
+        "dependency_manifest",
+    ):
+        if field not in case_required:
+            issues.append(f"{relative} case missing required field: {field}")
+    if (
+        definitions.get("sealed_gold", {})
+        .get("properties", {})
+        .get("storage_class", {})
+        .get("enum")
+        != ["ignored_local_diagnostic", "external_isolated_scorer"]
+    ):
+        issues.append(f"{relative} gold storage boundary changed")
+    evaluation_properties = definitions.get("evaluation", {}).get("properties", {})
+    if "gold_payload_sha256" in evaluation_properties:
+        issues.append(f"{relative} must not expose a raw gold payload hash")
+    adjudicator_enum = (
+        definitions.get("adjudication", {})
+        .get("properties", {})
+        .get("adjudicator_kind", {})
+        .get("enum")
+    )
+    if adjudicator_enum != ["ai_agent", "agent_panel"]:
+        issues.append(f"{relative} adjudicator enum permits non-AI review")
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
@@ -35371,6 +35492,7 @@ def main() -> int:
     issues.extend(check_source_pipeline_resolved_missing_evidence_chain(root))
     issues.extend(check_ai_context_packs(root))
     issues.extend(check_ai_agent_evidence_pack_validator(root))
+    issues.extend(check_ai_agent_benchmark_contract(root))
 
     if issues:
         print("FAIL repository skeleton")

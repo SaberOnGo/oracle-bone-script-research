@@ -933,6 +933,7 @@ Normative companion policies:
 - [source rights and provenance](../002_source-rights-and-provenance-policy/)
 - [research methods](../004_oracle-bone-script-research-methods/)
 - [evidence-pack schema](../../../schemas/006_ai-agent-evidence-pack-schema/)
+- [benchmark experiment v2 schema][benchmark-v2]
 - [evidence-pack review skill](../../../skills/ai-agent-evidence-pack-review/)
 - [English root README](../../../README.md)
 - [Chinese root README](../../../README.zh-CN.md)
@@ -952,6 +953,8 @@ does not move automatically between those areas.
 
 AI 与用户假说继续放在 `doc/public/user_research/`，已发表研究笔记继续放在
 `research/`。`ai_adjudicated_candidate` 不会自动跨越这两个研究区。
+
+[benchmark-v2]: ../../../schemas/007_ai-agent-benchmark-experiment-schema/
 
 ## 20. Source Notes / 来源说明
 

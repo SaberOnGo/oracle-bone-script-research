@@ -19,6 +19,8 @@ from tools.validation.check_repository_skeleton import (
     check_ai_context_packs,
     check_ai_context_pack_builder_readme_human_entry,
     check_ai_agent_evidence_pack_validator,
+    check_ai_agent_benchmark_contract,
+    _iter_repository_candidate_paths,
     check_asset_records,
     check_required_paths,
     check_relationship_graph_edges,
@@ -3863,6 +3865,30 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_forbidden_path_patterns_absent(self) -> None:
         self.assertEqual(check_forbidden_paths(repo_root()), [])
+
+    def test_repository_candidate_scan_prunes_ignored_archives_before_descent(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            ignored = root / ".working" / "nested-worktree"
+            ignored.mkdir(parents=True)
+            (ignored / "deciphered_ma.txt").write_text("ignored", encoding="utf-8")
+            (ignored / "old-policy.md").write_text(
+                "Do not download or commit external "
+                "oracle bone images",
+                encoding="utf-8",
+            )
+            ordinary = root / "ordinary"
+            ordinary.mkdir()
+            forbidden = ordinary / "deciphered_ma.txt"
+            forbidden.write_text("ordinary", encoding="utf-8")
+
+            paths = {
+                path.relative_to(root).as_posix()
+                for path in _iter_repository_candidate_paths(root)
+            }
+
+        self.assertNotIn(".working/nested-worktree/deciphered_ma.txt", paths)
+        self.assertIn("ordinary/deciphered_ma.txt", paths)
 
     def test_forbidden_top_level_dirs_absent(self) -> None:
         self.assertEqual(check_forbidden_top_level_dirs(repo_root()), [])
@@ -25224,6 +25250,21 @@ class RepositorySkeletonTests(unittest.TestCase):
             "reserved_candidate_not_assigned",
             data["properties"]["assignment_status"]["enum"],
         )
+
+    def test_ai_agent_benchmark_contract_keeps_delivery_boundary(self) -> None:
+        self.assertEqual(check_ai_agent_benchmark_contract(repo_root()), [])
+
+        schema_path = (
+            repo_root()
+            / "schemas/007_ai-agent-benchmark-experiment-schema/"
+            / "ai-agent-benchmark-experiment-v2.schema.json"
+        )
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        self.assertIn(
+            "external_isolated_scorer",
+            schema["$defs"]["sealed_gold"]["properties"]["storage_class"]["enum"],
+        )
+        self.assertIn("human_delivery_package", schema["required"])
 
     def test_ai_agent_strategy_keeps_autonomous_candidate_boundary(self) -> None:
         strategy_path = (

@@ -43,8 +43,66 @@ Use repository tools in this order:
 - `004_statistics-generation/` builds statistics for coverage, gaps, and
   review queues.
 - `005_ai-context-pack-builder/` builds AI context-pack support files.
-- `validation/` runs repository-wide skeleton and policy checks.
+- [`validation/`][benchmark-validator] runs repository-wide skeleton, policy,
+  evidence-pack, and blinded benchmark-experiment checks.
 - `git/` checks commit-message rules before GitHub push.
+
+## Benchmark v2 Validator / Benchmark v2 验证器
+
+The benchmark validator discovers only
+`*_benchmark-experiment-v2.json`. It first evaluates the complete public
+[schema 007][schema-007], then applies cross-field gates. Those gates cover the
+four case types, blind aliases, cutoffs, source and derivative snapshots,
+pretraining eligibility, `unknown_or_other`, run independence, scoring,
+human delivery, rights, and evidence-family requirements.
+
+benchmark validator 只发现 `*_benchmark-experiment-v2.json`。它先执行完整
+公开 [schema 007][schema-007]，再执行跨字段门禁。门禁覆盖四类案件、
+盲别名、时间截点、来源与派生快照、预训练资格、`unknown_or_other`、
+运行独立性、评分、人类交付、权利和证据家族要求。
+
+Public validation without private gold:
+
+```powershell
+python tools/validation/validate_ai_agent_benchmark_experiments.py `
+  --path doc/public/user_research/generated/ai-agent-benchmark-experiments
+```
+
+When no gold is supplied, a successful run prints
+`METRICS_NOT_RECOMPUTED`. This is not metric verification or delivery
+authorization.
+
+未提供 gold 时，成功运行会输出 `METRICS_NOT_RECOMPUTED`。这不是指标复核，
+也不是交付授权。
+
+An ignored-local gold payload may be supplied only for diagnostic
+recomputation. It cannot create the external scoring receipt required for
+delivery. Delivery requires a scorer-derived clean holdout, a verified
+external isolated scorer, exactly one scoring query, and retirement after that
+score.
+
+本地忽略 gold 只能用于诊断复算，不能形成交付所需的外部评分 receipt。交付
+要求 scorer 派生的干净留出集、已复核外部隔离评分器、恰好一次评分请求，
+并在该次评分后退役。
+
+Same-model reruns count only as execution reruns. Candidate delivery also
+requires a separately marked model-independent rerun, a complete bilingual
+human delivery package, and at least two reviewed independent evidence
+families.
+
+同模型复跑只能计作执行复跑。候选交付还要求单独标记的模型独立复跑、
+完整双语人类交付包，以及至少两个经复核的独立证据家族。
+
+Source and evidence records must audit rights status, risk note, allowed
+delivery form, large-source register reference, checksum, and dependency
+status under the [rights policy] and [large-source policy]. The
+[strategy] remains authoritative, and [schema 006][schema-006] remains the v1
+draft contract.
+
+来源与证据记录必须依照[权利政策][rights-policy]和
+[大型来源政策][large-source-policy]审计权利状态、风险提示、允许交付形式、
+大来源登记引用、checksum 和依赖状态。[战略][strategy]保持规范权威，
+[schema 006][schema-006]继续作为 v1 草稿合同。
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -67,9 +125,18 @@ English:
 Tool outputs are preprocessing and review aids. A passed validator, generated
 CSV, JSON route, graph edge, statistic, or AI context-pack is not scholarship,
 not corpus import approval, not a rights decision, and not a decipherment
-conclusion. This is not a decipherment conclusion.
+conclusion. Even a gate-valid `ai_adjudicated_candidate` remains an AI
+candidate, not confirmed scholarship.
 
 简体中文：
 工具输出只是预处理和复核辅助。通过 validator、生成 CSV、JSON 路线、
 图边、统计或 AI 上下文包，都不是学术结论，不是语料导入批准，不是
-权利决定，也不是释读结论。这不是释读结论。
+权利决定，也不是释读结论。即使通过门禁，`ai_adjudicated_candidate`
+仍是 AI 候选，不是已确认学术结论。
+
+[benchmark-validator]: validation/validate_ai_agent_benchmark_experiments.py
+[strategy]: ../doc/project/005_ai-agent-research-assistant-design/
+[schema-006]: ../schemas/006_ai-agent-evidence-pack-schema/
+[schema-007]: ../schemas/007_ai-agent-benchmark-experiment-schema/
+[rights-policy]: ../doc/project/002_source-rights-and-provenance-policy/
+[large-source-policy]: ../doc/project/006_large-source-material-handling/

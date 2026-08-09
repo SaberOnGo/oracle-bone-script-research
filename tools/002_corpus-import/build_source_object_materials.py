@@ -3878,6 +3878,44 @@ def source_research_brief_text(
                 "10_source-evidence-dossier.md。"
             ),
             "",
+            "## Concrete Human Research Questions / 具体人类研究问题",
+            *wrapped(
+                f"Which cited page, bibliography note, or database record defines "
+                f"{source['title']} and its registered scope?"
+            ),
+            *wrapped(
+                "Which access, download, checksum, and size rows can be reopened "
+                "from 02_download-route-index.csv?"
+            ),
+            *wrapped(
+                "Which package file or field map can safely enter a concrete "
+                "object directory, and why?"
+            ),
+            *wrapped(
+                "Which image, rubbing, plate, inscription, OCR, or metadata "
+                "route is actually present for research?"
+            ),
+            *wrapped(
+                "Which findspot, collection, period, group, or batch record is "
+                "linked, and which one is still a concrete gap?"
+            ),
+            *wrapped(
+                "Which variant, component, bronze, seal, or modern-form route "
+                "is only a comparison candidate?"
+            ),
+            *wrapped(
+                "Which proposer, citation relation, reading history, "
+                "disagreement, or dispute must remain visible?"
+            ),
+            *wrapped(
+                "Which rights, risk, checksum, and derivative rule blocks "
+                "public promotion or reuse?"
+            ),
+            *wrapped(
+                "上述问题必须回到本对象的来源、著录、图像、卜辞、文献和权利记录逐项核对；"
+                "没有来源行支持的内容不能写成研究事实。"
+            ),
+            "",
             "## Boundary / 边界",
             "- not a rights decision",
             "- not corpus import approval",

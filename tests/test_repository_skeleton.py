@@ -12099,6 +12099,16 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(
             (generated_object_dir / "07_material-access-index.md").is_file()
         )
+        generated_brief = (
+            generated_object_dir / "22_source-research-brief.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn(
+            "Concrete Human Research Questions / 具体人类研究问题",
+            generated_brief,
+        )
+        self.assertIn("Which cited page, bibliography note", generated_brief)
+        self.assertIn("Which proposer, citation relation", generated_brief)
+        self.assertIn("Which rights, risk, checksum", generated_brief)
         self.assertEqual(result["source_object_count"], 21)
         self.assertEqual(result["safe_derivative_decision_count"], 2)
         self.assertEqual(result["field_map_review_decision_count"], 4)

@@ -435,6 +435,113 @@ def attach_private_gold(
     return {**committed_payload, "commitment_key_hex": key_hex}
 
 
+def complete_candidate_delivery_experiment() -> dict[str, object]:
+    record = canonical_experiment()
+    test_case = record["benchmark"]["cases"][1]
+    test_case["pretraining_exposure"] = "verified_post_training_cutoff"
+    test_case["benchmark_eligibility"] = "clean_holdout_eligible"
+    test_case["training_cutoff_evidence"]["review_status"] = "verified"
+    for run in record["runs"]:
+        run["training_knowledge"] = "documented"
+        run["predictions"][0]["leakage_assessment"]["types"] = []
+    rerun = record["runs"][1]
+    rerun["role"] = "model_independent_rerun"
+    rerun["independence_tier"] = "model_independent"
+    rerun["independence_axes"] = ["agent_context", "model_family"]
+    rerun["model_id"] = "independent-test-model-1"
+    rerun["model_family"] = "independent-test-family"
+    record["protocol"]["leakage_controls"]["model_training_knowledge"] = (
+        "documented"
+    )
+    calibration = record["benchmark"]["calibration"]
+    calibration["eligibility_scope"] = "clean_holdout"
+    calibration["derivation_status"] = "isolated_scorer_verified"
+    calibration["artifact_ref"] = {
+        "artifact_id": "calibration-receipt-000001",
+        "path": "external/calibration-receipt.json",
+        "sha256": "c" * 64,
+        "review_status": "verified",
+        "note": "Synthetic isolated scorer receipt.",
+    }
+    calibration["threshold_status"] = "scorer_derived_supported"
+    calibration["minimum_effective_cases"] = 1
+    calibration["selective_precision_lower_bound"] = 0.95
+    record["human_delivery_package"]["status"] = "complete"
+    record["human_delivery_package"]["rights_review_status"] = "complete"
+    record["human_delivery_package"]["content_review_status"] = "complete"
+    record["human_delivery_package"]["missing_items"] = []
+    second_evidence = copy.deepcopy(
+        record["runs"][0]["predictions"][0]["supporting_evidence"]["items"][0]
+    )
+    second_evidence["evidence_ref_id"] = "evidence-000002"
+    second_evidence["evidence_family_id"] = "evidence-family-context-000001"
+    second_evidence["source_id"] = "src-ihp-oracle-rubbings"
+    second_evidence["source_ancestor_id"] = "src-ihp-oracle-rubbings"
+    for run in record["runs"]:
+        run["predictions"][0]["supporting_evidence"]["items"].append(
+            copy.deepcopy(second_evidence)
+        )
+    sealed_gold = record["benchmark"]["sealed_gold"]
+    sealed_gold["storage_class"] = "external_isolated_scorer"
+    sealed_gold["unseal_status"] = "scorer_only_unsealed_retired"
+    sealed_gold["unsealed_at"] = "2026-08-09T00:07:00Z"
+    evaluation = record["evaluation"]
+    evaluation.update(
+        {
+            "status": "scored",
+            "validity_status": "valid",
+            "scored_at": "2026-08-09T00:08:00Z",
+            "scorer_id": "external-scorer-000001",
+            "scorer_version": "2.0.0",
+            "scoring_mode": "external_isolated",
+            "holdout_status": "retired_after_single_scoring",
+            "score_query_count": 1,
+            "scoring_request_sha256": "a" * 64,
+            "scoring_receipt": {
+                "artifact_id": "scoring-receipt-000001",
+                "path": "external/scoring-receipt.json",
+                "sha256": "b" * 64,
+                "review_status": "verified",
+                "note": "Synthetic isolated scorer receipt.",
+            },
+            "metric_sets": [
+                {
+                    "run_id": "run-primary-000001",
+                    "test_case_count": 1,
+                    "abstained_count": 0,
+                    "covered_count": 1,
+                    "brier_multiclass_mean": 0.08,
+                    "log_loss_nats_mean": 0.223143551314,
+                    "ece_top1": 0.2,
+                    "coverage": 1.0,
+                    "selective_risk": 0.0,
+                },
+                {
+                    "run_id": "run-rerun-000001",
+                    "test_case_count": 1,
+                    "abstained_count": 0,
+                    "covered_count": 1,
+                    "brier_multiclass_mean": 0.08,
+                    "log_loss_nats_mean": 0.223143551314,
+                    "ece_top1": 0.2,
+                    "coverage": 1.0,
+                    "selective_risk": 0.0,
+                },
+            ],
+        }
+    )
+    decision = record["adjudication"]["case_decisions"][0]
+    decision.update(
+        {
+            "delivery_status": "ai_adjudicated_candidate",
+            "probability": 0.96,
+            "probability_lower_bound": 0.95,
+            "disagreement_resolved": True,
+        }
+    )
+    return record
+
+
 class BenchmarkExperimentValidationTests(unittest.TestCase):
     def test_v2_schema_preserves_autonomous_candidate_boundary(self) -> None:
         schema_path = (
@@ -922,109 +1029,81 @@ class BenchmarkExperimentValidationTests(unittest.TestCase):
         )
 
     def test_complete_ai_candidate_delivery_contract_can_pass(self) -> None:
-        record = canonical_experiment()
-        test_case = record["benchmark"]["cases"][1]
-        test_case["pretraining_exposure"] = "verified_post_training_cutoff"
-        test_case["benchmark_eligibility"] = "clean_holdout_eligible"
-        test_case["training_cutoff_evidence"]["review_status"] = "verified"
-        for run in record["runs"]:
-            run["training_knowledge"] = "documented"
-            run["predictions"][0]["leakage_assessment"]["types"] = []
-        rerun = record["runs"][1]
-        rerun["role"] = "model_independent_rerun"
-        rerun["independence_tier"] = "model_independent"
-        rerun["independence_axes"] = ["agent_context", "model_family"]
-        rerun["model_family"] = "independent-test-family"
-        record["protocol"]["leakage_controls"]["model_training_knowledge"] = (
-            "documented"
-        )
-        calibration = record["benchmark"]["calibration"]
-        calibration["eligibility_scope"] = "clean_holdout"
-        calibration["derivation_status"] = "isolated_scorer_verified"
-        calibration["artifact_ref"] = {
-            "artifact_id": "calibration-receipt-000001",
-            "path": "external/calibration-receipt.json",
-            "sha256": "c" * 64,
-            "review_status": "verified",
-            "note": "Synthetic isolated scorer receipt.",
-        }
-        calibration["threshold_status"] = "scorer_derived_supported"
-        calibration["minimum_effective_cases"] = 1
-        calibration["selective_precision_lower_bound"] = 0.95
-        record["human_delivery_package"]["status"] = "complete"
-        record["human_delivery_package"]["rights_review_status"] = "complete"
-        record["human_delivery_package"]["content_review_status"] = "complete"
-        record["human_delivery_package"]["missing_items"] = []
-        second_evidence = copy.deepcopy(
-            record["runs"][0]["predictions"][0]["supporting_evidence"]["items"][0]
-        )
-        second_evidence["evidence_ref_id"] = "evidence-000002"
-        second_evidence["evidence_family_id"] = "evidence-family-context-000001"
-        second_evidence["source_id"] = "src-ihp-oracle-rubbings"
-        for run in record["runs"]:
-            run["predictions"][0]["supporting_evidence"]["items"].append(
-                copy.deepcopy(second_evidence)
-            )
-        sealed_gold = record["benchmark"]["sealed_gold"]
-        sealed_gold["storage_class"] = "external_isolated_scorer"
-        sealed_gold["unseal_status"] = "scorer_only_unsealed_retired"
-        sealed_gold["unsealed_at"] = "2026-08-09T00:07:00Z"
-        evaluation = record["evaluation"]
-        evaluation.update(
-            {
-                "status": "scored",
-                "validity_status": "valid",
-                "scored_at": "2026-08-09T00:08:00Z",
-                "scorer_id": "external-scorer-000001",
-                "scorer_version": "2.0.0",
-                "scoring_mode": "external_isolated",
-                "holdout_status": "retired_after_single_scoring",
-                "score_query_count": 1,
-                "scoring_request_sha256": "a" * 64,
-                "scoring_receipt": {
-                    "artifact_id": "scoring-receipt-000001",
-                    "path": "external/scoring-receipt.json",
-                    "sha256": "b" * 64,
-                    "review_status": "verified",
-                    "note": "Synthetic isolated scorer receipt.",
-                },
-                "metric_sets": [
-                    {
-                        "run_id": "run-primary-000001",
-                        "test_case_count": 1,
-                        "abstained_count": 0,
-                        "covered_count": 1,
-                        "brier_multiclass_mean": 0.08,
-                        "log_loss_nats_mean": 0.223143551314,
-                        "ece_top1": 0.2,
-                        "coverage": 1.0,
-                        "selective_risk": 0.0,
-                    },
-                    {
-                        "run_id": "run-rerun-000001",
-                        "test_case_count": 1,
-                        "abstained_count": 0,
-                        "covered_count": 1,
-                        "brier_multiclass_mean": 0.08,
-                        "log_loss_nats_mean": 0.223143551314,
-                        "ece_top1": 0.2,
-                        "coverage": 1.0,
-                        "selective_risk": 0.0,
-                    },
-                ],
-            }
-        )
-        decision = record["adjudication"]["case_decisions"][0]
-        decision.update(
-            {
-                "delivery_status": "ai_adjudicated_candidate",
-                "probability": 0.96,
-                "probability_lower_bound": 0.95,
-                "disagreement_resolved": True,
-            }
-        )
+        record = complete_candidate_delivery_experiment()
 
         self.assertEqual(validate_experiment(record), [])
+
+    def test_clean_holdout_requires_verified_training_cutoff_evidence(self) -> None:
+        record = complete_candidate_delivery_experiment()
+        record["benchmark"]["cases"][1]["training_cutoff_evidence"][
+            "review_status"
+        ] = "pending"
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("training cutoff evidence is not verified" in issue for issue in issues),
+            issues,
+        )
+
+    def test_delivery_evaluation_must_reference_sealed_gold(self) -> None:
+        record = complete_candidate_delivery_experiment()
+        record["evaluation"]["sealed_gold_commitment_ref"] = "wrong-gold-key"
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("evaluation does not reference sealed gold" in issue for issue in issues),
+            issues,
+        )
+
+    def test_delivery_metrics_must_cover_every_locked_run(self) -> None:
+        record = complete_candidate_delivery_experiment()
+        record["evaluation"]["metric_sets"].pop()
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("metric sets must bind every locked run" in issue for issue in issues),
+            issues,
+        )
+
+    def test_model_independent_rerun_requires_distinct_model_family(self) -> None:
+        record = complete_candidate_delivery_experiment()
+        record["runs"][1]["model_family"] = record["runs"][0]["model_family"]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("model-independent rerun reuses model family" in issue for issue in issues),
+            issues,
+        )
+
+    def test_model_independent_rerun_requires_distinct_model_id(self) -> None:
+        record = complete_candidate_delivery_experiment()
+        record["runs"][1]["model_id"] = record["runs"][0]["model_id"]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("model-independent rerun reuses model id" in issue for issue in issues),
+            issues,
+        )
+
+    def test_delivery_evidence_families_require_distinct_source_ancestors(
+        self,
+    ) -> None:
+        record = complete_candidate_delivery_experiment()
+        for run in record["runs"]:
+            items = run["predictions"][0]["supporting_evidence"]["items"]
+            items[1]["source_ancestor_id"] = items[0]["source_ancestor_id"]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("independent source ancestors" in issue for issue in issues),
+            issues,
+        )
 
     def test_gold_must_be_sealed_before_first_run(self) -> None:
         record = canonical_experiment()
@@ -1258,7 +1337,7 @@ class BenchmarkExperimentValidationTests(unittest.TestCase):
                 "run-primary-000001",
             )
 
-    def test_cli_recomputes_metrics_with_committed_private_gold(self) -> None:
+    def test_cli_recomputes_metrics_with_ignored_private_gold(self) -> None:
         record = canonical_experiment()
         private_gold = attach_private_gold(
             record, {"case-test-000001": "candidate-a"}

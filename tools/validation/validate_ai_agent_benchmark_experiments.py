@@ -323,6 +323,17 @@ def _validate_case_identifiers(data: dict[str, object]) -> list[str]:
                 f"benchmark.cases[{index}] clean eligibility requires "
                 "verified post-cutoff exposure"
             )
+        cutoff_evidence = case.get("training_cutoff_evidence")
+        if (
+            eligibility == "clean_holdout_eligible"
+            and (
+                not isinstance(cutoff_evidence, dict)
+                or cutoff_evidence.get("review_status") != "verified"
+            )
+        ):
+            issues.append(
+                f"benchmark.cases[{index}] training cutoff evidence is not verified"
+            )
         if (
             exposure == "unknown"
             and eligibility != "pretraining_exposure_unknown"
@@ -563,6 +574,20 @@ def _validate_run_independence(data: dict[str, object]) -> list[str]:
         isinstance(run, dict) and run.get("role") in rerun_roles for run in runs
     ):
         issues.append("experiment requires at least one independent rerun")
+    primary_model_families = {
+        run.get("model_family")
+        for run in runs
+        if isinstance(run, dict)
+        and run.get("role") == "primary"
+        and isinstance(run.get("model_family"), str)
+    }
+    primary_model_ids = {
+        run.get("model_id")
+        for run in runs
+        if isinstance(run, dict)
+        and run.get("role") == "primary"
+        and isinstance(run.get("model_id"), str)
+    }
     for index, run in enumerate(runs):
         if isinstance(run, dict) and run.get("gold_access") != "sealed_unavailable":
             issues.append(f"runs[{index}] agent gold_access must remain sealed")
@@ -581,6 +606,22 @@ def _validate_run_independence(data: dict[str, object]) -> list[str]:
         ):
             issues.append(
                 f"runs[{index}] independent rerun cannot read prior run output"
+            )
+        if (
+            isinstance(run, dict)
+            and run.get("role") == "model_independent_rerun"
+            and run.get("model_family") in primary_model_families
+        ):
+            issues.append(
+                f"runs[{index}] model-independent rerun reuses model family"
+            )
+        if (
+            isinstance(run, dict)
+            and run.get("role") == "model_independent_rerun"
+            and run.get("model_id") in primary_model_ids
+        ):
+            issues.append(
+                f"runs[{index}] model-independent rerun reuses model id"
             )
     return issues
 
@@ -833,6 +874,7 @@ def _validate_adjudication(data: dict[str, object]) -> list[str]:
                                 f"delivery disagrees with locked run {run_index}"
                             )
             evidence_families: set[str] = set()
+            evidence_source_ancestors: set[str] = set()
             if isinstance(runs, list):
                 for run in runs:
                     if not isinstance(run, dict):
@@ -856,10 +898,18 @@ def _validate_adjudication(data: dict[str, object]) -> list[str]:
                                 and isinstance(item.get("evidence_family_id"), str)
                             ):
                                 evidence_families.add(item["evidence_family_id"])
+                                source_ancestor_id = item.get("source_ancestor_id")
+                                if isinstance(source_ancestor_id, str):
+                                    evidence_source_ancestors.add(source_ancestor_id)
             if len(evidence_families) < 2:
                 issues.append(
                     f"adjudication.case_decisions[{index}] candidate delivery "
                     "requires two independent evidence families"
+                )
+            if len(evidence_source_ancestors) < 2:
+                issues.append(
+                    f"adjudication.case_decisions[{index}] candidate delivery "
+                    "requires two independent source ancestors"
                 )
             if (
                 adjudication.get("status") != "completed"
@@ -901,6 +951,38 @@ def _validate_adjudication(data: dict[str, object]) -> list[str]:
                 issues.append(
                     f"adjudication.case_decisions[{index}] "
                     "delivery requires a scored valid evaluation"
+                )
+            if (
+                not isinstance(evaluation, dict)
+                or not isinstance(sealed_gold, dict)
+                or evaluation.get("sealed_gold_commitment_ref")
+                != sealed_gold.get("gold_key_id")
+            ):
+                issues.append(
+                    f"adjudication.case_decisions[{index}] "
+                    "evaluation does not reference sealed gold"
+                )
+            metric_sets = (
+                evaluation.get("metric_sets")
+                if isinstance(evaluation, dict)
+                else None
+            )
+            metric_run_ids = (
+                [
+                    metric_set.get("run_id")
+                    for metric_set in metric_sets
+                    if isinstance(metric_set, dict)
+                ]
+                if isinstance(metric_sets, list)
+                else []
+            )
+            if (
+                len(metric_run_ids) != len(set(metric_run_ids))
+                or set(metric_run_ids) != run_ids
+            ):
+                issues.append(
+                    f"adjudication.case_decisions[{index}] "
+                    "metric sets must bind every locked run"
                 )
             protocol = data.get("protocol")
             leakage_controls = (

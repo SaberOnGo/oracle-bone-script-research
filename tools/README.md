@@ -127,12 +127,14 @@ CSV, JSON route, graph edge, statistic, or AI context-pack is not scholarship,
 not corpus import approval, not a rights decision, and not a decipherment
 conclusion. Even a gate-valid `ai_adjudicated_candidate` remains an AI
 candidate, not confirmed scholarship.
+This is not a decipherment conclusion.
 
 简体中文：
 工具输出只是预处理和复核辅助。通过 validator、生成 CSV、JSON 路线、
 图边、统计或 AI 上下文包，都不是学术结论，不是语料导入批准，不是
 权利决定，也不是释读结论。即使通过门禁，`ai_adjudicated_candidate`
 仍是 AI 候选，不是已确认学术结论。
+这不是释读结论。
 
 [benchmark-validator]: validation/validate_ai_agent_benchmark_experiments.py
 [strategy]: ../doc/project/005_ai-agent-research-assistant-design/

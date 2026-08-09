@@ -11989,7 +11989,71 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_object_materials_builder_keeps_source_routes_colocated(self) -> None:
         module = load_source_object_materials_module()
-        result = module.build_materials(repo_root())
+        repository_root = repo_root()
+
+        def source_material_fingerprint() -> dict[str, tuple[int, int, str]]:
+            paths = [
+                path
+                for path in (repository_root / module.OUTPUT_ROOT).rglob("*")
+                if path.is_file()
+            ]
+            for relative_path in (
+                module.SAFE_DERIVATIVE_DECISION_INDEX,
+                module.FIELD_MAP_REVIEW_DECISION_INDEX,
+            ):
+                path = repository_root / relative_path
+                if path.is_file():
+                    paths.append(path)
+            fingerprint = {}
+            for path in paths:
+                stat = path.stat()
+                fingerprint[path.relative_to(repository_root).as_posix()] = (
+                    stat.st_size,
+                    stat.st_mtime_ns,
+                    hashlib.sha256(path.read_bytes()).hexdigest(),
+                )
+            return fingerprint
+
+        repository_fingerprint_before = source_material_fingerprint()
+
+        def assert_repository_outputs_unchanged() -> None:
+            self.assertEqual(
+                source_material_fingerprint(),
+                repository_fingerprint_before,
+                "source-object builder test changed the real repository",
+            )
+
+        self.addCleanup(assert_repository_outputs_unchanged)
+        temporary_directory = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary_directory.cleanup)
+        root = Path(temporary_directory.name)
+        for relative_path in (
+            module.SOURCE_INDEX,
+            module.DOWNLOAD_MANIFEST,
+            module.DOWNLOAD_LOG,
+            module.PACKAGE_MANIFEST,
+            module.FIELD_MAP,
+            module.METADATA_PROFILE,
+            module.BROWSER_METADATA_CAPTURE,
+        ):
+            source_path = repository_root / relative_path
+            target_path = root / relative_path
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+            target_path.write_bytes(source_path.read_bytes())
+
+        self.assertNotEqual(root.resolve(), repo_root().resolve())
+        self.assertFalse((root / "external_local_archive").exists())
+        result = module.build_materials(root)
+        self.assertFalse((root / "external_local_archive").exists())
+        generated_object_dir = (
+            root
+            / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+            / "001_src-xiaoxuetang-jiaguwen_source-object"
+        )
+        self.assertTrue((generated_object_dir / "README.md").is_file())
+        self.assertTrue(
+            (generated_object_dir / "07_material-access-index.md").is_file()
+        )
         self.assertEqual(result["source_object_count"], 21)
         self.assertEqual(result["safe_derivative_decision_count"], 2)
         self.assertEqual(result["field_map_review_decision_count"], 4)

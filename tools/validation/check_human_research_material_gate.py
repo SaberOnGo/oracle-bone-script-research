@@ -15,12 +15,21 @@ import fnmatch
 import json
 import re
 import subprocess
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
 
 BASELINE_PATH = Path("tools/validation/human_research_material_gate_baseline.json")
 CORPUS_ROOT = Path("corpus")
+
+BASELINE_MINIMUM_KEYS = ("scanned_markdown_count",)
+BASELINE_MAXIMUM_KEYS = (
+    "machine_dominant_docs",
+    "missing_core_research_docs",
+    "modern_label_risk_docs",
+    "mojibake_docs",
+)
 
 MOJIBAKE_FRAGMENTS = [
     "绠€",
@@ -306,16 +315,30 @@ def summarize(scores: list[DocumentScore]) -> dict[str, int]:
     }
 
 
-def load_baseline(root: Path) -> dict[str, int]:
+def load_baseline(root: Path) -> dict[str, dict[str, int]]:
     path = root / BASELINE_PATH
     if not path.exists():
         raise FileNotFoundError(path)
     data = json.loads(path.read_text(encoding="utf-8"))
-    return {key: int(value) for key, value in data["maximums"].items()}
+    return {
+        group: {key: int(value) for key, value in data[group].items()}
+        for group in ("minimums", "maximums")
+    }
 
 
-def build_issues(root: Path, strict: bool = False, full: bool = False) -> list[str]:
-    scores = [score_markdown(path, root) for path in iter_human_markdown(root, full)]
+def collect_scores(root: Path, full: bool = False) -> list[DocumentScore]:
+    return [score_markdown(path, root) for path in iter_human_markdown(root, full)]
+
+
+def build_issues(
+    root: Path,
+    strict: bool = False,
+    full: bool = False,
+    *,
+    scores: list[DocumentScore] | None = None,
+) -> list[str]:
+    if scores is None:
+        scores = collect_scores(root, full)
     summary = summarize(scores)
     issues: list[str] = []
 
@@ -337,25 +360,52 @@ def build_issues(root: Path, strict: bool = False, full: bool = False) -> list[s
                 issues.append(
                     f"{score.path} risks treating a modern label as the glyph"
                 )
-        return issues
 
-    baseline = load_baseline(root)
-    for key, value in summary.items():
-        maximum = baseline.get(key)
-        if maximum is None:
-            issues.append(f"human research gate baseline missing key: {key}")
-        elif value > maximum:
-            issues.append(
-                f"human research gate regression for {key}: "
-                f"{value} exceeds baseline {maximum}"
-            )
+    if full:
+        baseline = load_baseline(root)
+        minimums = baseline["minimums"]
+        maximums = baseline["maximums"]
+        for key in BASELINE_MINIMUM_KEYS:
+            minimum = minimums.get(key)
+            if minimum is None:
+                issues.append(
+                    f"human research gate baseline missing minimum key: {key}"
+                )
+            elif summary[key] < minimum:
+                issues.append(
+                    f"human research gate regression for {key}: "
+                    f"{summary[key]} is below baseline minimum {minimum}"
+                )
+        for key in BASELINE_MAXIMUM_KEYS:
+            maximum = maximums.get(key)
+            if maximum is None:
+                issues.append(
+                    f"human research gate baseline missing maximum key: {key}"
+                )
+            elif summary[key] > maximum:
+                issues.append(
+                    f"human research gate regression for {key}: "
+                    f"{summary[key]} exceeds baseline maximum {maximum}"
+                )
     return issues
 
 
-def print_summary(root: Path, full: bool = False) -> None:
-    scores = [score_markdown(path, root) for path in iter_human_markdown(root, full)]
+def print_summary(
+    root: Path,
+    full: bool = False,
+    *,
+    scores: list[DocumentScore] | None = None,
+) -> None:
+    if scores is None:
+        scores = collect_scores(root, full)
     summary = summarize(scores)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
+
+
+def print_issues(issues: list[str], *, file=None) -> None:
+    print("FAIL human research material gate", file=file)
+    for issue in issues:
+        print(f"- {issue}", file=file)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -371,15 +421,22 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     root = args.root.resolve()
+    scores = collect_scores(root, full=args.full)
+    issues = build_issues(
+        root,
+        strict=args.strict,
+        full=args.full,
+        scores=scores,
+    )
     if args.summary:
-        print_summary(root, full=args.full)
+        print_summary(root, full=args.full, scores=scores)
+        if issues:
+            print_issues(issues, file=sys.stderr)
+            return 1
         return 0
 
-    issues = build_issues(root, strict=args.strict, full=args.full)
     if issues:
-        print("FAIL human research material gate")
-        for issue in issues:
-            print(f"- {issue}")
+        print_issues(issues)
         return 1
     print("PASS human research material gate")
     return 0

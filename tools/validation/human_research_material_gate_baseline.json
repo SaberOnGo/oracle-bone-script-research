@@ -1,9 +1,11 @@
 {
-  "version": 1,
+  "version": 2,
   "purpose": "Regression gate for human-readable research material drift.",
-  "note": "This baseline records current debt; it is not an acceptance target.",
+  "note": "The minimum is a coverage floor; maximums are debt ceilings, not scholarly acceptance targets.",
+  "minimums": {
+    "scanned_markdown_count": 156794
+  },
   "maximums": {
-    "scanned_markdown_count": 156794,
     "machine_dominant_docs": 0,
     "missing_core_research_docs": 0,
     "modern_label_risk_docs": 0,

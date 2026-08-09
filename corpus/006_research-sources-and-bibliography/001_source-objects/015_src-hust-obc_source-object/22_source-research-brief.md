@@ -68,47 +68,46 @@ limits on research use.
 ## Human Route Reading Note / 人类来源路线阅读说明
 
 The raw package route keeps a class, bucket, local sequence, and file name.
+It does not by itself provide a primary plate, complete inscription, catalogue
+page, excavation record, collection object, or character position.
+
 For example, `HUST-OBC/undeciphered/L/3833/L_Јї_8016.jpg` points to an
-undeciphered `L` route and a local image sequence.
+undeciphered `L` route and a local image sequence, not a confirmed identity.
 
-来源包路径保留类别、分桶、局部序号和文件名。例如，
-`HUST-OBC/undeciphered/L/3833/L_Јї_8016.jpg` 只能指向未释 `L` 路线和
-一个局部图像序号。
+例如，`HUST-OBC/undeciphered/L/3833/L_Јї_8016.jpg` 只能指向未释 `L` 路线和
+一个局部图像序号，不能确认字形身份。
 
-The route does not by itself provide a primary plate, complete inscription,
-catalogue page, excavation record, collection object, or character position.
-Those links must remain concrete follow-up questions until a cited source record
-opens them.
+原始包路线保留类别、分桶、局部序号和文件名。它本身不提供原始图版、完整
+卜辞、著录页、出土记录、馆藏对象或字形位置。
 
-该路线本身不提供原始图版、完整卜辞、著录页、出土记录、馆藏对象或字形
-位置。在有引文的来源记录打开这些信息前，相关关联必须继续列为具体待查项。
+The raw package is registered through `dl-hust-obc-figshare-raw`, with its
+size, checksum, and external archive path in the route files. The API JSON
+route remains metadata evidence only; it must not be mistaken for the raw ZIP.
 
-## Current Pipeline Gap / 当前流水线缺口
-
-- Committed assets: `10996`; committed bytes: `53009139`.
-- 已提交资产：`10996`；已提交字节数：`53009139`。
-- Object-local bundles/routes: `12585`; review-image objects: `10996`.
-- 对象内资料包/路线：`12585`；复核图像对象：`10996`。
-- Graph edges: `27291`; promotion-queue candidates: `1588`.
-- 图边：`27291`；提升队列候选：`1588`。
-- Direct visual observations currently cover `5543` of `10996` images.
-- 当前直接视觉观察覆盖 `10996` 幅图像中的 `5543` 幅。
-- Images with a local derivative but no direct observation: `5453`.
-- 已有本地派生件但尚无直接观察的图像：`5453` 幅。
-- Human review is still pending; source and image rights remain risk-marked.
-- 人工复核仍待完成；来源和图像权利仍标为有风险。
-
-Concrete human checks / 具体人工核查：
-
-- Which remaining image can be opened and recorded next in its object folder?
-- 下一张可打开并记录到对象目录的图像是哪一张？
-- Which candidate image has a primary plate, catalog, or inscription route?
-- 哪个候选图像已有原始图版、著录或卜辞路线？
-- Which rights statement governs each derivative and source class?
-- 每个派生件和来源类别适用哪条权利说明？
+原始包通过 `dl-hust-obc-figshare-raw` 登记，大小、checksum 和外部归档路径
+见路线文件。API JSON 路线仅是元数据证据，不能误当原始 ZIP。
 
 Modern labels and OCR mappings remain source routes, not confirmed readings.
 现代标签和 OCR 映射仍是来源路线，不是已确认释读。
+
+The route links must remain concrete follow-up questions until a cited source
+record opens them. Human review and source/image rights remain pending.
+在有引文的来源记录打开这些链接前，相关关联必须继续列为具体待查项；人工复核和
+来源、图片权利仍待完成。
+
+## Concrete Questions Before Formal Research / 正式研究前具体待查问题
+- Does the HUST source-category label describe a source class only, or does
+  it assert a modern reading that must remain a candidate?
+- Can each undeciphered image be traced to the raw ZIP route, package member,
+  checksum, source record, and rights note?
+- Which plate, catalog number, inscription text, neighboring signs, or OCR
+  record is available for a given image, and which is still absent?
+- Has an independent second source family supplied bronze, seal, later-script,
+  or scholarship evidence, or must the AI adjudicator abstain?
+- HUST 的来源分类标签只是来源类别，还是暗含必须保持为候选的今字释读？
+- 每幅未释图片能否追溯到原始 ZIP 路线、包内文件、checksum、来源记录和权利说明？
+- 每幅图片有哪些图版、著录号、卜辞全文、邻字或 OCR，哪些仍缺失？
+- 是否已有独立的第二来源族提供金文、小篆、今字或文献证据，否则 AI 应弃权？
 
 ## Research-Use Limits / 研究使用限制
 - Rights status / 权利状态: source_marked_risk_noted

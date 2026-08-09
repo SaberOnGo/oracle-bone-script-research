@@ -44,25 +44,19 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: 229170 images; 13714 categories ->
   source_record -> source_scope_statistics
 
-## Current Pipeline Gap / 当前流水线缺口
-
-- Object-local bundles/routes: `13842`; committed assets: `0`.
-- 对象内资料包/路线：`13842`；已提交资产：`0`。
-- Graph edges: `51948`; review-image objects: `0`.
-- 图边：`51948`；复核图像对象：`0`。
-- Current source status: evidence and derivatives present, human review pending.
-- 当前来源状态：证据和派生资料已在库，人工复核仍待完成。
-- Rights remain source-marked risk; no source promotion or corpus import.
-- 权利仍标为来源风险；未提升来源，也未导入正式语料。
-
-Concrete human checks / 具体人工核查：
-
-- Which source image supports each proposed stage correspondence route?
-- 每条候选时期对应路线由哪幅来源图像支持？
-- Which labels are dataset metadata rather than scholarly interpretation?
-- 哪些标签只是数据集 metadata，而不是学术解释？
-- Can each edge be traced to a package row, checksum, and review status?
-- 每条关系边能否追溯到来源包行、checksum 和复核状态？
+## Concrete Questions Before Formal Research / 正式研究前具体待查问题
+- Which image, category, era label, and source page support each proposed
+  evolution link?
+- Can every image derivative be traced by checksum to the original asset and
+  package member without treating a category as a confirmed correspondence?
+- Which bronze, seal, small-seal, or modern-script comparison is independently
+  sourced, and which is only a dataset candidate label?
+- What period, corpus, provenance, and disagreement evidence is missing before
+  an evolution hypothesis can be released to the user?
+- 每条演化关系由哪幅图片、类别、时代标签和来源页面支持？
+- 每个图片派生文件能否以 checksum 追溯到原始资产和包内文件，且不把类别当作已确认对应？
+- 哪些金文、小篆或今字比较有独立出处，哪些只是数据集候选标签？
+- 在向用户提交演化假说前，还缺哪些时期、语料、出处和争议证据？
 
 Evolution edges remain candidate routes and do not prove historical change.
 演变关系边仍是候选路线，不证明历史演变已经成立。

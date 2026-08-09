@@ -53,27 +53,20 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: 類組 -> oracle_character ->
   source_class_group
 
-## Current Pipeline Gap / 当前流水线缺口
+## Concrete Questions Before Formal Research / 正式研究前具体待查问题
+- Which official page opens the character record when the public page is
+  restricted, and what access event or error was observed?
+- Which source row, page, image, checksum, and rights note support that route?
+- Can the character-head page, glyph image, and dictionary page be joined
+  without treating a modern label as an identity?
+- Which cited proposer, reading history, disagreement, or dispute is still
+  missing from the source dossier?
+- 官方页面受限时，应记录哪个正式入口、访问结果和错误信息？
+- 哪条来源行、页面、图片、checksum 和权利说明能支持该路线？
+- 字头页、字形图和字典页能否在不把今字标签当作身份的前提下关联？
+- 哪位提出者、释读史、不同意见或争议仍需打开原始文献？
 
-- Object-local route objects: `1`; committed assets: `0`; graph edges: `0`.
-- 对象内路线对象：`1`；已提交资产：`0`；图边：`0`。
-- Access routes: `4`; restricted-page captures: `2`; download errors: `2`.
-- 访问路线：`4`；受限页捕获：`2`；下载错误：`2`。
-- Recorded checksums: `2`; recorded sizes: `4`.
-- 已记录 checksum：`2`；已记录大小：`4`。
-- Pipeline gaps: downloaded, linked, and verified remain pending.
-- 流水线缺口：downloaded、linked、verified 仍待完成。
-
-Concrete human checks / 具体人工核查：
-
-- Which official route opens a character record rather than a restricted page?
-- 哪条官方路线能打开实际字形记录，而不是受限页面？
-- Can a complete asset checksum and rights statement be recorded?
-- 能否记录完整资料的 checksum 和权利说明？
-- Which source page supports each character-head or glyph-form route?
-- 哪个来源页面支持每条字头或字形路线？
-
-Keep the source metadata-only until these questions have cited answers.
+Keep this source metadata-only until these questions have cited answers.
 在这些问题有引文答案前，继续保持 metadata-only。
 
 ## Research-Use Limits / 研究使用限制

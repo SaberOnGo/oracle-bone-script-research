@@ -62,25 +62,19 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: 拓本和現藏簡稱 -> excavation_or_collection_context
   -> holding_abbrev; holding_label
 
-## Current Pipeline Gap / 当前流水线缺口
-
-- Object-local route objects: `1`; committed assets: `0`; graph edges: `0`.
-- 对象内路线对象：`1`；已提交资产：`0`；图边：`0`。
-- Access routes: `4`; all four are restricted-page captures.
-- 访问路线：`4`；四条都是受限页面捕获。
-- Recorded checksums and sizes: `4` and `4`.
-- 已记录 checksum 和大小：分别为 `4` 和 `4`。
-- Pipeline gaps: downloaded, linked, and verified remain pending.
-- 流水线缺口：downloaded、linked、verified 仍待完成。
-
-Concrete human checks / 具体人工核查：
-
-- Which official appendix or source-table route exposes the cited Heji row?
-- 哪条官方附录或来源表路线能打开所引合集行？
-- Which old-catalog and holding abbreviation has a cited expansion?
-- 哪个旧著录简称和现藏简称有可引用的展开说明？
-- Is each Heji value a plate/material reference rather than a character ID?
-- 每个合集号是否只是图版/材料参考，而不是单字 ID？
+## Concrete Questions Before Formal Research / 正式研究前具体待查问题
+- Which OBM record, variant image, character index, and restricted page
+  correspond to each proposed source row?
+- Which field-map entry distinguishes a record identifier from a Heji or
+  modern reading label?
+- What checksum, rights statement, and access result support each image or
+  rubbing route?
+- Which inscription context, collection, excavation, period, or dispute is
+  absent and must remain a pending question?
+- 每条来源行对应哪一个 OBM 记录、异体图、字表和受限页面？
+- 哪个字段映射能区分记录编号与合集号或今字释读标签？
+- 哪条 checksum、权利说明和访问结果支持每条图片或拓本路线？
+- 哪个卜辞上下文、馆藏、出土地点、时期或争议尚未登记？
 
 Keep all rows as metadata-only source routes until these checks are cited.
 在这些核查有引文前，所有行都保持 metadata-only 来源路线。

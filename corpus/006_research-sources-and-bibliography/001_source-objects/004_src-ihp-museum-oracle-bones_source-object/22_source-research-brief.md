@@ -38,23 +38,19 @@ limits on research use.
 - Candidate transfer field / 候选转入字段: checksum_sha256 -> source_reference ->
   source_payload_checksum_sha256
 
-## Current Pipeline Gap / 当前流水线缺口
-
-- Object-local route objects: `53`; committed assets: `0`; graph edges: `0`.
-- 对象内路线对象：`53`；已提交资产：`0`；图边：`0`。
-- Overview access route: `1`; checksum: `1`; file size: `1`.
-- 概览访问路线：`1`；checksum：`1`；文件大小：`1`。
-- Pipeline gaps: linked and verified remain pending.
-- 流水线缺口：linked 和 verified 仍待完成。
-
-Concrete human checks / 具体人工核查：
-
-- Which collection-page label maps to a museum object record?
-- 哪个馆藏页面标签能对应到博物馆对象记录？
-- Which artifact page provides image, plate, date, and holding evidence?
-- 哪个器物页面提供图像、图版、年代和馆藏证据？
-- What museum policy governs any image derivative or screenshot?
-- 哪条博物馆政策适用于图像派生件或截图？
+## Concrete Questions Before Formal Research / 正式研究前具体待查问题
+- Which museum object, accession number, image, plate, and catalog entry
+  refer to the same physical bone?
+- Which page records findspot, collection, period, and batch, and what is the
+  source checksum or access date for that page?
+- Is a rubbing, OCR, inscription context, or later-script comparison actually
+  linked, or only suggested by a filename or modern label?
+- Which rights, citation, reading-history, or dispute record must be checked
+  before any candidate is formed?
+- 哪个博物馆对象、入藏号、图片、图版和著录条目指向同一块实物？
+- 哪个页面记录出土地点、馆藏、时期和批次，并有何 checksum 或访问日期？
+- 拓片、OCR、卜辞上下文或后世字形关联是真实链接，还是仅由文件名或今字标签推测？
+- 形成候选前还必须核对哪些权利、引文、释读史或争议记录？
 
 Do not treat the overview page as proof of each artifact identity.
 不要把概览页面当作每件器物身份已经确认的证据。

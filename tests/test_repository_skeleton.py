@@ -30713,6 +30713,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         unknown_text = unknown_path.read_text(encoding="utf-8")
         self.assertIn("HUST-OBC/undeciphered/L/1/", unknown_text)
         self.assertIn("9411 undeciphered characters", unknown_text)
+        self.assertIn("AI Adjudication Decision / AI 裁决决定", unknown_text)
+        self.assertIn("abstain_withhold_candidate", unknown_text)
+        self.assertIn("Hypothesis probability / 假说概率: `not_estimated`", unknown_text)
+        self.assertIn("No sealed clean-holdout calibration", unknown_text)
+        self.assertIn("Require a second evidence family", unknown_text)
         self.assertIn("Source Record Ledger / 来源记录台账", unknown_text)
 
     def test_hust_visual_observation_records_route_reconciliation(self) -> None:

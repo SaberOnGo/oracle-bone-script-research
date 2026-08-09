@@ -241,7 +241,63 @@ a component assignment.
 - 下一步应打开哪些来源记录、权利记录、checksum 和 manifest，
   才能复用图像或来源派生资料？
 
-## 11. Local Files To Open / 本目录入口
+## 11. AI Adjudication Decision / AI 裁决决定
+
+### Decision / 决定
+
+- Delivery status / 交付状态: `abstain_withhold_candidate`
+- Candidate proposition / 候选命题: none released; no reading or meaning is
+  submitted for `obs-unk-000001`.
+- Hypothesis probability / 假说概率: `not_estimated`.
+- Research state / 研究状态: `working_hypothesis_not_started`.
+
+The agents withhold a user-facing `ai_adjudicated_candidate`. The only opened
+semantic evidence is one HUST image derivative from one source family. This is
+below the two-family minimum and cannot support a calibrated probability.
+
+AI Agent 暂不向用户交付 `ai_adjudicated_candidate`。当前只打开了一条 HUST
+来源族的一个图像派生件，低于两类独立证据的最低要求，不能给出经过校准的
+释读概率。
+
+### Blocking Evidence / 阻断证据
+
+- No full inscription, OCR, neighboring characters, plate, or catalog context
+  is linked to this object.
+- Findspot, collection, period, batch, and excavation records are unresolved.
+- No independent bronze, seal, modern-form, or scholarly reading route is
+  currently linked.
+- The HUST package remains rights-risk-marked and the raw archive stays outside
+  regular Git.
+- No sealed clean-holdout calibration or model-independent rerun exists for
+  this task family, so an agent score would not be a research probability.
+
+当前没有卜辞全文、OCR、邻字、图版或著录上下文；出土地、馆藏、时期、批次和考古
+记录也未解决。当前没有独立金文、小篆、今字或释读史路线；HUST 原始包仍有权利
+风险并留在 Git 外。该任务族还没有封闭校准集和模型独立复跑，因此 Agent 分数
+不能当作研究概率。
+
+### Falsification And Next Highest-Value Checks / 反证与下一步
+
+- First open the registered raw-image route and verify the asset checksum and
+  dimensions against `02_visual-source-index.csv`.
+- Search the HUST source package for an inscription, plate, catalog, or same-
+  batch route before comparing any later script.
+- Require a second evidence family and an independent model run before any
+  candidate proposition can leave `abstain_withhold_candidate`.
+- Reopen this decision if a cited route supplies context or a registered
+  benchmark establishes task-specific calibration.
+
+下一步先核对登记的原始图像路线、checksum 和尺寸，再在 HUST 来源包中查找卜辞、图版、
+著录或同批次路线。只有补足第二个独立证据族并完成模型独立复跑，才可重新考虑候选
+命题；若新来源提供上下文或基准建立了任务族校准，也应重新打开本裁决。
+
+This is an AI abstention record, not a decipherment result, not a confirmed
+scholarly claim, and not a human-specialist approval requirement.
+
+本节是 AI 弃权记录，不是破译结果或已确认学术主张，也不把真人专家设为候选交付的
+前置条件。
+
+## 12. Local Files To Open / 本目录入口
 
 - `01_*packet.json`
 - `02_visual-source-index.csv`

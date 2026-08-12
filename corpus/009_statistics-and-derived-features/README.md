@@ -91,6 +91,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   gives a human-readable guide for shape, component, and evolution gaps.
 - `230_preformal-research-preprocessing-closure.md`
   records the human-first closure boundary and remaining review questions.
+- `231_preprocessing-completion-audit-2026-08-12.md`
+  rechecks the nineteen requirements against current material depth.
+- Open `231` before treating the historical `230` snapshot as proof of
+  completion; the current audit result is `not_complete`.
 
 ### Character-Inscription Linkage Review / 字形—卜辞关联复核
 

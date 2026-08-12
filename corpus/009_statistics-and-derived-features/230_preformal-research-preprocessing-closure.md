@@ -27,6 +27,13 @@ statements are not silently rewritten by later strategy.
 本报告继续作为 `2026-08-07` 预处理状态的历史快照。后续战略不会静默
 改写其中的计数、`not_started`、`no_claim`、来源、权利或校验记录。
 
+The current [completion audit][completion-audit] records material-depth and
+truth defects found after this snapshot. Read it before using the word
+`closure` as a claim that every research requirement is complete.
+
+当前[完成度审计][completion-audit]记录了本快照之后发现的资料深度与真值
+缺陷。把 `closure` 理解为全部研究要求已经完成前，必须先阅读该审计。
+
 The current execution baseline is the [AI candidate strategy][ai-strategy].
 It replaces only the assumption that the next evidence-opening step must be
 performed or approved by a human specialist.
@@ -223,3 +230,4 @@ decipherment conclusion.
 清理或破译结论。
 
 [ai-strategy]: ../../doc/project/005_ai-agent-research-assistant-design/
+[completion-audit]: 231_preprocessing-completion-audit-2026-08-12.md

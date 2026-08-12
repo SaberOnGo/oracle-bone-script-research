@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 import textwrap
 from collections import defaultdict
@@ -42,6 +43,16 @@ CROSSWALK_FILE = Path(
 )
 UPDATED_AT = "2026-06-21"
 WIDTH = 78
+LOCAL_IMAGE_SUFFIXES = {
+    ".bmp",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".tif",
+    ".tiff",
+    ".webp",
+}
 
 
 def repo_root() -> Path:
@@ -371,14 +382,34 @@ def filename_catalog_route_clues(
 def local_asset_exists(root: Path, path: str) -> bool:
     if not path:
         return False
+    repository_root = root.resolve()
     candidate = Path(path)
     if not candidate.is_absolute():
-        candidate = (root / candidate).resolve()
+        candidate = repository_root / candidate
+    candidate = candidate.resolve()
+    try:
+        candidate.relative_to(repository_root)
+    except ValueError:
+        return False
+    if candidate.suffix.lower() not in LOCAL_IMAGE_SUFFIXES:
+        return False
     if candidate.is_file():
         return True
-    if candidate.is_absolute() and candidate.drive:
+    if os.name == "nt" and candidate.drive:
         return Path("\\\\?\\" + str(candidate)).is_file()
     return False
+
+
+def local_visual_status(
+    root: Path,
+    path: str,
+    source_reference: str = "",
+) -> str:
+    if local_asset_exists(root, path):
+        return "local_file_present"
+    if path or source_reference:
+        return "source_route_only_local_file_missing"
+    return "no_local_image_route"
 
 
 def visual_summary(rows: list[dict[str, str]], root: Path) -> dict[str, str]:
@@ -412,10 +443,10 @@ def primary_visual_material_lines(
         return lines
     for index, row in enumerate(rows[:limit], start=1):
         image_path = row.get("committed_image_path", "")
-        image_status = (
-            "local_file_present"
-            if local_asset_exists(root, image_path)
-            else "registered_route_only_local_file_missing"
+        image_status = local_visual_status(
+            root,
+            image_path,
+            row.get("source_image_reference_path", ""),
         )
         lines.extend(
             [
@@ -1081,7 +1112,13 @@ def ai_index(
             "line_width_limit": "80_chars_for_human_markdown",
         },
         "archaeological_folder_coverage": {
-            "glyph_images": "available_or_route_indexed",
+            "glyph_images": (
+                "local_file_present"
+                if int(visual_summary(visual_rows, root)["image_count"])
+                else "source_route_only_local_file_missing"
+                if int(visual_summary(visual_rows, root)["image_route_count"])
+                else "no_local_image_route"
+            ),
             "variant_forms": "needs_human_variant_review_route",
             "later_script_links": "candidate_route_needs_human_review",
             "inscription_occurrences": "needs_inscription_plate_text_review_route",

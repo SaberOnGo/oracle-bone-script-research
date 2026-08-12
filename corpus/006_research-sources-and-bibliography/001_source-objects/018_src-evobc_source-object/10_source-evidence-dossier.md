@@ -23,6 +23,23 @@ risk, field-map, package, and derivative-route evidence for one source object.
 - Checksum route count / checksum 路线数: 5
 - Size route count / 大小记录路线数: 5
 - Local temp route count / 临时路径路线数: 5
+
+### Large-source scope distinction / 大型来源范围区分
+
+`large-src-000003` records an unacquired unified/raw-image package scope.
+Its `not_downloaded_registered` status applies only to that aggregate scope.
+It does not override the five itemized `src-evobc` download-log rows below.
+Those rows record an arXiv page, a repository README, two JSON files, and one
+workbook as separately downloaded snapshots. The three dataset files linked
+through the package manifest do not prove that a unified raw image package
+was identified or acquired.
+
+`large-src-000003` 登记的是尚未取得的统一原始图像包范围。
+`not_downloaded_registered` 只适用于这一汇总范围，不会覆盖下列 5 条
+`src-evobc` 分文件下载日志。它们分别记录 arXiv 页面、仓库 README、两个
+JSON 文件和一个工作簿的已下载快照。来源包清单关联的 3 个数据文件也不能
+证明已经识别或取得统一原始图像包。
+
 Open `02_download-route-index.csv` before reusing any downloaded file. Check
 URL, access date, checksum, file size, local archive path, rights note, and
 review status.

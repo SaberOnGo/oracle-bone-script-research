@@ -17,6 +17,16 @@ from pathlib import Path
 
 SIZE_LIMIT_BYTES = 30 * 1024 * 1024
 HARD_FILE_LIMIT_BYTES = 40 * 1024 * 1024
+LOCAL_IMAGE_SUFFIXES = {
+    ".bmp",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".tif",
+    ".tiff",
+    ".webp",
+}
 IGNORED_LOCAL_ARCHIVE_PREFIXES = (
     "external_local_archive/",
     "external_sources_local/",
@@ -2859,7 +2869,12 @@ REQUIRED_PATHS = [
     AI_AGENT_BENCHMARK_EXPERIMENT_SCHEMA,
     "tools/validation/validate_ai_agent_benchmark_experiments.py",
     "tests/test_ai_agent_benchmark_experiments.py",
+    "tools/006_ai-benchmark-pilot/README.md",
+    "tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py",
+    "tests/test_ai_benchmark_pilot.py",
     "corpus/README.md",
+    "corpus/009_statistics-and-derived-features/"
+    "231_preprocessing-completion-audit-2026-08-12.md",
     "corpus/006_research-sources-and-bibliography/000_source-registers/README.md",
     SOURCE_INDEX,
     SOURCE_INVENTORY,
@@ -9640,6 +9655,110 @@ def check_character_visual_observation_coverage(root: Path) -> list[str]:
                 f"{row.get('project_id')}"
             )
             break
+    return issues
+
+
+def _repository_local_image_exists(root: Path, route: str) -> bool:
+    if not route:
+        return False
+    repository_root = root.resolve()
+    candidate = Path(route)
+    if not candidate.is_absolute():
+        candidate = repository_root / candidate
+    candidate = candidate.resolve()
+    try:
+        candidate.relative_to(repository_root)
+    except ValueError:
+        return False
+    if candidate.suffix.lower() not in LOCAL_IMAGE_SUFFIXES:
+        return False
+    if candidate.is_file():
+        return True
+    if os.name == "nt" and candidate.drive:
+        return Path("\\\\?\\" + str(candidate)).is_file()
+    return False
+
+
+def _expected_local_image_status(
+    root: Path,
+    route: str,
+    source_reference: str = "",
+) -> str:
+    if _repository_local_image_exists(root, route):
+        return "local_file_present"
+    if route or source_reference:
+        return "source_route_only_local_file_missing"
+    return "no_local_image_route"
+
+
+def check_character_dossier_local_image_truth(root: Path) -> list[str]:
+    """Require dossier image claims to match repository-local image files."""
+    issues: list[str] = []
+    dossiers = sorted(
+        (root / "corpus/001_oracle-characters").glob(
+            "*/*/05_human-research-dossier.md"
+        )
+    )
+    item_status_pattern = re.compile(
+        r"^- local image status: `([^`]+)`$", re.MULTILINE
+    )
+    glyph_status_pattern = re.compile(
+        r"^- glyph image: `([^`]+)`$", re.MULTILINE
+    )
+    for dossier_path in dossiers:
+        object_dir = dossier_path.parent
+        relative = dossier_path.relative_to(root).as_posix()
+        project_id = next(
+            (
+                part
+                for part in object_dir.name.split("_")
+                if re.fullmatch(r"obs-(?:char|unk)-\d{6}", part)
+            ),
+            object_dir.name,
+        )
+        visual_rows, csv_issues = _read_csv_rows(
+            object_dir / "02_visual-source-index.csv"
+        )
+        if csv_issues:
+            issues.append(
+                f"{project_id} cannot verify local image truth: "
+                f"{csv_issues[0]}"
+            )
+            continue
+        routes = [str(row.get("committed_image_path", "")) for row in visual_rows]
+        expected_items = [
+            _expected_local_image_status(
+                root,
+                str(row.get("committed_image_path", "")),
+                str(row.get("source_image_reference_path", "")),
+            )
+            for row in visual_rows[:3]
+        ]
+        expected_glyph = (
+            "local_file_present"
+            if any(_repository_local_image_exists(root, route) for route in routes)
+            else "source_route_only_local_file_missing"
+            if any(routes)
+            else "no_local_image_route"
+        )
+        text = dossier_path.read_text(encoding="utf-8")
+        actual_items = [
+            "source_route_only_local_file_missing"
+            if value == "registered_route_only_local_file_missing"
+            else value
+            for value in item_status_pattern.findall(text)
+        ]
+        if actual_items != expected_items:
+            issues.append(
+                f"{project_id} {relative} visual-item local image status "
+                f"does not match repository files"
+            )
+        glyph_matches = glyph_status_pattern.findall(text)
+        if glyph_matches != [expected_glyph]:
+            issues.append(
+                f"{project_id} {relative} glyph image status "
+                f"does not match repository files"
+            )
     return issues
 
 
@@ -35766,6 +35885,106 @@ def check_ai_agent_benchmark_contract(root: Path) -> list[str]:
     return issues
 
 
+def check_evobc_large_source_scope_separation(root: Path) -> list[str]:
+    """Keep the unacquired EVOBC aggregate distinct from file snapshots."""
+
+    large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
+    download_rows, download_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    package_rows, package_issues = _read_csv_rows(
+        root / SOURCE_PACKAGE_FILE_MANIFEST
+    )
+    issues = large_issues + download_issues + package_issues
+
+    matching_large_rows = [
+        row
+        for row in large_rows
+        if row.get("source_package_id") == "large-src-000003"
+    ]
+    if len(matching_large_rows) != 1:
+        issues.append(
+            f"{LARGE_SOURCE_REGISTER} must contain exactly one large-src-000003 row"
+        )
+        return issues
+
+    large_row = matching_large_rows[0]
+    if large_row.get("storage_status") != "not_downloaded_registered":
+        issues.append(
+            f"{LARGE_SOURCE_REGISTER} large-src-000003 must keep the unacquired "
+            "aggregate status"
+        )
+    for field in ("downloaded_at", "file_size_bytes", "checksum_sha256"):
+        if large_row.get(field):
+            issues.append(
+                f"{LARGE_SOURCE_REGISTER} large-src-000003 must not borrow "
+                f"snapshot {field} evidence"
+            )
+    access_method = large_row.get("access_method", "").lower()
+    required_scope_markers = (
+        "five individually addressed snapshots were downloaded",
+        "unified raw image package was not identified or downloaded",
+    )
+    if not all(marker in access_method for marker in required_scope_markers):
+        issues.append(
+            f"{LARGE_SOURCE_REGISTER} large-src-000003 does not distinguish "
+            "the unacquired unified raw package from downloaded snapshots"
+        )
+
+    expected_download_ids = {
+        "dl-evobc-arxiv-abs",
+        "dl-evobc-readme",
+        "dl-evobc-key-value-json",
+        "dl-evobc-list-json",
+        "dl-evobc-statistics-xlsx",
+    }
+    evobc_download_rows = [
+        row for row in download_rows if row.get("source_id") == "src-evobc"
+    ]
+    actual_download_ids = {
+        row.get("download_id", "") for row in evobc_download_rows
+    }
+    if actual_download_ids != expected_download_ids:
+        issues.append(
+            f"{SOURCE_DOWNLOAD_LOG} EVOBC snapshot set changed: "
+            f"{sorted(actual_download_ids)}"
+        )
+    for row in evobc_download_rows:
+        download_id = row.get("download_id", "")
+        if row.get("status") != "downloaded":
+            issues.append(
+                f"{SOURCE_DOWNLOAD_LOG} {download_id} must remain an itemized "
+                "downloaded snapshot"
+            )
+        if not row.get("file_size_bytes"):
+            issues.append(f"{SOURCE_DOWNLOAD_LOG} {download_id} missing file size")
+        if not re.fullmatch(r"[0-9a-f]{64}", row.get("checksum_sha256", "")):
+            issues.append(f"{SOURCE_DOWNLOAD_LOG} {download_id} missing SHA-256")
+
+    expected_package_download_ids = {
+        "dl-evobc-key-value-json",
+        "dl-evobc-list-json",
+        "dl-evobc-statistics-xlsx",
+    }
+    evobc_package_rows = [
+        row
+        for row in package_rows
+        if row.get("source_package_id") == "large-src-000003"
+    ]
+    actual_package_download_ids = {
+        row.get("download_id", "") for row in evobc_package_rows
+    }
+    if actual_package_download_ids != expected_package_download_ids:
+        issues.append(
+            f"{SOURCE_PACKAGE_FILE_MANIFEST} large-src-000003 itemized dataset "
+            f"snapshot set changed: {sorted(actual_package_download_ids)}"
+        )
+    if not actual_package_download_ids.issubset(actual_download_ids):
+        issues.append(
+            f"{SOURCE_PACKAGE_FILE_MANIFEST} large-src-000003 has a package-file "
+            "route without matching download evidence"
+        )
+    return issues
+
+
 def main() -> int:
     root = repo_root()
     issues = []
@@ -35825,12 +36044,14 @@ def main() -> int:
     issues.extend(check_tracked_temp_artifacts(root))
     issues.extend(check_asset_records(root))
     issues.extend(check_obimd_rights_override(root))
+    issues.extend(check_evobc_large_source_scope_separation(root))
     issues.extend(check_source_registers(root))
     issues.extend(check_hust_obc_undeciphered_candidates(root))
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))
     issues.extend(check_character_visual_observation_coverage(root))
+    issues.extend(check_character_dossier_local_image_truth(root))
     issues.extend(check_component_visual_observation_coverage(root))
     issues.extend(check_preprocessing_status_audit(root))
     issues.extend(check_data_quality_audit(root))

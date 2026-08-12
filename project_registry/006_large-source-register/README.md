@@ -68,6 +68,24 @@ sheets, graph edges, statistics, or bibliography records.
 和复核状态。已复核派生记录可以包括 metadata 行、字段映射、OCR 文本、
 图像路线、对象内复核表、图谱边、统计或书目记录。
 
+## Package Scope And File Snapshots / 来源包范围与分文件快照
+
+English:
+`large-src-000003` records an EVOBC unified/raw-image package scope that has
+not been identified or downloaded. It does not mean that no EVOBC material
+was accessed. The download log separately records five downloaded snapshots:
+the arXiv abstract page, repository README, two JSON files, and one workbook.
+Three dataset-file snapshots are also linked through the package-file
+manifest. Those individual files do not prove acquisition of a unified raw
+image package.
+
+简体中文：
+`large-src-000003` 登记的是尚未识别、尚未下载的 EVOBC 统一原始图像包
+范围，并不表示从未访问任何 EVOBC 资料。下载日志另行记录了 5 个已下载
+快照：arXiv 摘要页、仓库 README、两个 JSON 文件和一个工作簿。其中 3 个
+数据文件快照也通过来源包文件清单关联。单独取得这些文件，不能证明已经
+取得统一原始图像包。
+
 ## Research Boundary / 研究边界
 
 English:

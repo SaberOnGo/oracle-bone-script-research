@@ -3583,6 +3583,152 @@ class RepositorySkeletonTests(unittest.TestCase):
                 continue
             self.assertLessEqual(len(line), 80, line)
 
+    def test_evobc_large_source_register_separates_unobtained_raw_scope_from_downloaded_snapshots(
+        self,
+    ) -> None:
+        root = repo_root()
+        with (
+            root
+            / "project_registry/006_large-source-register/001_large-source-register.csv"
+        ).open("r", encoding="utf-8-sig", newline="") as file:
+            large_rows = list(csv.DictReader(file))
+        with (
+            root
+            / "project_registry/006_large-source-register/002_source-download-log.csv"
+        ).open("r", encoding="utf-8-sig", newline="") as file:
+            download_rows = list(csv.DictReader(file))
+
+        evobc_large = [
+            row
+            for row in large_rows
+            if row["source_package_id"] == "large-src-000003"
+        ]
+        self.assertEqual(len(evobc_large), 1)
+        large_row = evobc_large[0]
+        self.assertEqual(
+            large_row["title"],
+            "EVOBC unified raw image package scope (not acquired)",
+        )
+        self.assertEqual(large_row["storage_status"], "not_downloaded_registered")
+        self.assertEqual(large_row["downloaded_at"], "")
+        self.assertEqual(large_row["file_size_bytes"], "")
+        self.assertEqual(large_row["checksum_sha256"], "")
+        self.assertIn(
+            "five individually addressed snapshots were downloaded",
+            large_row["access_method"].lower(),
+        )
+        self.assertIn(
+            "unified raw image package was not identified or downloaded",
+            large_row["access_method"],
+        )
+
+        evobc_downloads = [
+            row for row in download_rows if row["source_id"] == "src-evobc"
+        ]
+        self.assertEqual(
+            {row["download_id"] for row in evobc_downloads},
+            {
+                "dl-evobc-arxiv-abs",
+                "dl-evobc-readme",
+                "dl-evobc-key-value-json",
+                "dl-evobc-list-json",
+                "dl-evobc-statistics-xlsx",
+            },
+        )
+        self.assertTrue(all(row["status"] == "downloaded" for row in evobc_downloads))
+        self.assertTrue(all(row["file_size_bytes"] for row in evobc_downloads))
+        self.assertTrue(all(len(row["checksum_sha256"]) == 64 for row in evobc_downloads))
+
+    def test_current_completion_audit_preserves_incomplete_boundary(self) -> None:
+        root = repo_root()
+        relative = (
+            "corpus/009_statistics-and-derived-features/"
+            "231_preprocessing-completion-audit-2026-08-12.md"
+        )
+        text = (root / relative).read_text(encoding="utf-8")
+
+        for marker in (
+            "Preprocessing Completion Audit",
+            "资料预处理完成度审计",
+            "Audit result / 审计结论: `not_complete`",
+            "Verified local image files / 复核后本地图像总数: `10,996`",
+            "Windows `\\\\?\\` prefix",
+            "Final source review status / 最终来源复核状态",
+            "Nineteen-Requirement Verdict / 十九项要求判定",
+            "not a decipherment result",
+            "不是释读结果",
+        ):
+            self.assertIn(marker, text)
+        for line in text.splitlines():
+            self.assertLessEqual(len(line), 80, line)
+
+        closure = (
+            root
+            / "corpus/009_statistics-and-derived-features/"
+            "230_preformal-research-preprocessing-closure.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("[completion-audit]", closure)
+        self.assertIn(
+            "231_preprocessing-completion-audit-2026-08-12.md",
+            closure,
+        )
+
+    def test_evobc_large_source_scope_validator_rejects_merged_scope(self) -> None:
+        from tools.validation import check_repository_skeleton as validator
+
+        checker = getattr(
+            validator,
+            "check_evobc_large_source_scope_separation",
+            None,
+        )
+        self.assertIsNotNone(
+            checker,
+            "EVOBC aggregate-versus-snapshot scope needs a repository gate",
+        )
+        if checker is None:
+            return
+
+        root = repo_root()
+        self.assertEqual(checker(root), [])
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture_root = Path(temp_dir)
+            fixture_registry = (
+                fixture_root / "project_registry/006_large-source-register"
+            )
+            fixture_manifest = (
+                fixture_root
+                / "corpus/006_research-sources-and-bibliography/000_source-registers"
+            )
+            fixture_registry.mkdir(parents=True)
+            fixture_manifest.mkdir(parents=True)
+
+            large_text = (root / validator.LARGE_SOURCE_REGISTER).read_text(
+                encoding="utf-8-sig"
+            )
+            large_text = large_text.replace(
+                "Five individually addressed snapshots were downloaded and logged; "
+                "a unified raw image package was not identified or downloaded.",
+                "Follow linked repositories before downloading the dataset.",
+            )
+            (fixture_root / validator.LARGE_SOURCE_REGISTER).write_text(
+                large_text,
+                encoding="utf-8",
+            )
+            for relative in (
+                validator.SOURCE_DOWNLOAD_LOG,
+                validator.SOURCE_PACKAGE_FILE_MANIFEST,
+            ):
+                (fixture_root / relative).write_text(
+                    (root / relative).read_text(encoding="utf-8-sig"),
+                    encoding="utf-8",
+                )
+
+            issues = checker(fixture_root)
+            self.assertTrue(
+                any("does not distinguish" in issue for issue in issues),
+                issues,
+            )
+
     def test_research_sources_bibliography_readme_is_human_entry(self) -> None:
         self.assertEqual(
             check_research_sources_bibliography_readme_human_entry(repo_root()),

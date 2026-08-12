@@ -1,0 +1,23 @@
+{
+  "record_id": "lit-hust-obc-2024",
+  "purpose": "human_dossier_support_only",
+  "human_entry": "README.md",
+  "title": "An open dataset for oracle bone character recognition and decipherment",
+  "doi": "10.1038/s41597-024-03807-x",
+  "source_object_id": "src-hust-obc",
+  "evidence_state": {
+    "bibliographic_identity": "independently_checked",
+    "dataset_claims": "source_reported",
+    "object_identity_and_reading": "unresolved"
+  },
+  "human_files": [
+    "README.md",
+    "01_scope-and-method.md",
+    "02_claim-evidence-locator.md",
+    "03_citation-network.md",
+    "04_limits-disputes-and-rights.md",
+    "05_object-transfer-routes.md",
+    "06_review-log.md"
+  ],
+  "boundary": "not_a_scholarly_conclusion"
+}

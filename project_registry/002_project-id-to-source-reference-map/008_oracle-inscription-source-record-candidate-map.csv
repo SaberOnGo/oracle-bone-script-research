@@ -1,0 +1,2 @@
+project_id,record_type,canonical_path,primary_external_ref_id,all_external_ref_ids,source_ids,rights_status,review_status,updated_at
+obs-insc-src-cand-000001,inscription_source_record_candidate,corpus/002_oracle-bone-inscriptions/008_source-record-candidates/001_obs-insc-src-cand-000001_obimd-h2_source-record-candidate,obimd-h2,H2;data.json#array-index-0,src-obimd,metadata_only_until_verified,needs_catalog_and_text_review,2026-08-12

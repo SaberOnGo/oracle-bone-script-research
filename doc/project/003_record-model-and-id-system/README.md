@@ -25,6 +25,7 @@ or object records.
 - `obs-unk-*`: undeciphered or unpromoted oracle-character candidates.
 - `obs-comp-cand-*`: graphemic component candidates.
 - `obs-insc-cw-cand-*`: inscription catalog-crosswalk candidates.
+- `obs-insc-src-cand-*`: opened inscription source-record candidates.
 - `obs-evo-cand-*`: evolution/correspondence candidates.
 - `asset-*`: committed visual or source assets.
 
@@ -34,6 +35,7 @@ or object records.
 - `obs-unk-*`：未释或尚未提升的甲骨字候选。
 - `obs-comp-cand-*`：构件候选。
 - `obs-insc-cw-cand-*`：卜辞目录互证候选。
+- `obs-insc-src-cand-*`：已打开的卜辞来源记录候选。
 - `obs-evo-cand-*`：字形演化/对应候选。
 - `asset-*`：已提交的视觉或来源资产。
 

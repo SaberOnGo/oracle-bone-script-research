@@ -1,0 +1,50 @@
+{
+  "candidate_id": "obs-insc-src-cand-000001",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-obimd",
+  "source_identifier": "H2",
+  "source_record_locator": "data.json#array-index-0",
+  "source_record_size_bytes": 991,
+  "source_record_sha256": "d6b0e48a6f2e465d9a8046b9db985aba51fae58195bbde372cbbd26d2d53bc50",
+  "source_package": {
+    "path": "external_local_archive/source_packages/obimd/data.json",
+    "size_bytes": 41732948,
+    "sha256": "b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19"
+  },
+  "group_category": "InscriptionSentence1",
+  "text_availability": "source_uid_sequence_only_no_readable_transcription_or_ocr",
+  "formal_inscription_identity": "not_assigned",
+  "rights_status": "metadata_only_until_verified",
+  "rights_review_path": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-conflict-review.md",
+  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "local_private_assets": [
+    {
+      "modality": "rubbing",
+      "package_path": "external_local_archive/source_packages/obimd/rubbing.zip",
+      "package_size_bytes": 558367972,
+      "package_sha256": "4d07dca94e94c2d17edd7fa25be72b5673161c0c2d03dac4d2c094e5341b7747",
+      "member_path": "rubbing/h00002.jpg",
+      "member_size_bytes": 77614,
+      "member_sha256": "1ae9e411f0356cb9dc232d629d4620b0e5f66f42c83300ce95775950a75b01e5",
+      "pixel_dimensions": [1022, 1180],
+      "public_visibility": "local_private_route_only"
+    },
+    {
+      "modality": "facsimile",
+      "package_path": "external_local_archive/source_packages/obimd/facsimile.zip",
+      "package_size_bytes": 210800641,
+      "package_sha256": "b1544e34ee1a6a34fc0a83475a227fd2141a67293f795eaa3c52760fedb50b0e",
+      "member_path": "facsimile/h00002.jpg",
+      "member_size_bytes": 49395,
+      "member_sha256": "ebc8aa5046dbb74e08e7dd0b74ff1ce9e24693dbe8dad91194bc438024340995",
+      "pixel_dimensions": [1022, 1180],
+      "public_visibility": "local_private_route_only"
+    }
+  ],
+  "boundaries": [
+    "H2 is a dataset identifier and not a confirmed Heji 2",
+    "source UIDs are not confirmed characters or readings",
+    "no readable full transcription or OCR is present",
+    "not a formal inscription identity or decipherment conclusion"
+  ]
+}

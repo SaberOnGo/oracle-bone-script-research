@@ -1,0 +1,8 @@
+order_number,source_uid,bounding_box_xywh,candidate_project_id,seat_font,mark,identity_status,review_status
+0,9xhq4zclpe,"824,483,94,88",obs-comp-cand-001085,0,-1,candidate_route_only,needs_image_text_comparison
+1,ve0ebxq620,"797,583,143,161",obs-comp-cand-002229,0,-1,candidate_route_only,needs_image_text_comparison
+2,pzvzykmf5e,"829,769,46,67",obs-comp-cand-001781,0,-1,candidate_route_only,needs_image_text_comparison
+3,qmvfvw99v9,"526,137,150,151",obs-comp-cand-001998,0,-1,candidate_route_only,needs_image_text_comparison
+4,52a130pcmy,"508,332,135,214",obs-comp-cand-001929,0,-1,candidate_route_only,needs_image_text_comparison
+5,xkubtjk815,"558,581,80,218",obs-comp-cand-000275,0,-1,candidate_route_only,needs_image_text_comparison
+6,lstx3iocs6,"572,846,125,97",obs-comp-cand-002627,0,-1,candidate_route_only,needs_image_text_comparison

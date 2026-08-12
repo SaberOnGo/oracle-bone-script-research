@@ -197,6 +197,14 @@ def score_markdown(path: Path, root: Path) -> DocumentScore:
 
 def human_markdown_path(relative: str) -> bool:
     path = Path(relative)
+    # An opened inscription source-record candidate is a dossier assembled
+    # from several focused human pages. Score its primary inscription dossier
+    # for research completeness. The README and focused visual, provenance,
+    # text-quality, linkage, and missing-evidence pages are supporting human
+    # surfaces; requiring every one of them to repeat all character-dossier
+    # slots would reward boilerplate rather than object-specific evidence.
+    if "008_source-record-candidates" in path.parts:
+        return path.name == "02_human-inscription-dossier.md"
     # Source briefs are verified by the source-object skeleton checks.  They
     # summarize provenance and research-use limits, so applying character
     # dossier slots (glyph, inscription, excavation, and relations) to them

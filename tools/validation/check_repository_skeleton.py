@@ -2855,6 +2855,8 @@ REQUIRED_PATHS = [
     SOURCE_DOWNLOAD_LOG,
     "research/README.md",
     "research/001_published-scholarship-index/README.md",
+    "research/001_published-scholarship-index/"
+    "003_hust-obc-2024_data-paper/README.md",
     "research/002_decipherment-history/README.md",
     "research/003_scholarly-arguments-and-disputes/README.md",
     "research/004_bibliographic-notes/README.md",
@@ -2872,9 +2874,17 @@ REQUIRED_PATHS = [
     "tools/006_ai-benchmark-pilot/README.md",
     "tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py",
     "tests/test_ai_benchmark_pilot.py",
+    "tests/test_character_source_filename_evidence_batch.py",
+    "tests/test_hust_obc_2024_literature_dossier.py",
+    "tests/test_obimd_h2_inscription_source_candidate.py",
+    "tests/test_material_depth_integration.py",
     "corpus/README.md",
     "corpus/009_statistics-and-derived-features/"
     "231_preprocessing-completion-audit-2026-08-12.md",
+    "corpus/002_oracle-bone-inscriptions/008_source-record-candidates/"
+    "001_obs-insc-src-cand-000001_obimd-h2_source-record-candidate/README.md",
+    "project_registry/002_project-id-to-source-reference-map/"
+    "008_oracle-inscription-source-record-candidate-map.csv",
     "corpus/006_research-sources-and-bibliography/000_source-registers/README.md",
     SOURCE_INDEX,
     SOURCE_INVENTORY,
@@ -17641,7 +17651,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "cleaned: `mixed_or_partial`",
         "linked: `mixed_or_partial`",
         "verified: `missing`",
-        "research note files: 7",
+        "research note files: 15",
         "user or AI draft review files: 122",
         "source register files: 539",
         "bibliographic identity",

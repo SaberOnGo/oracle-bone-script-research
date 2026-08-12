@@ -20,18 +20,21 @@ list, source IDs, rights status, review status, and update date.
 - `005_evolution-candidate-id-source-map.csv`: EVOBC candidate IDs.
 - `006_collection-object-id-source-map.csv`: collection object IDs.
 - `007_codepoint-crosswalk-id-source-map.csv`: codepoint crosswalk candidates.
+- `008_oracle-inscription-source-record-candidate-map.csv`: opened
+  inscription source-record candidates.
 
 ## How To Use / 使用方式
 
 English:
 Open the relevant map when you need to move from a project-local ID such as
 `obs-char-*`, `obs-comp-cand-*`, `obs-insc-cw-cand-*`, `obs-evo-cand-*`,
-or `obs-xwalk-cand-*`
+`obs-insc-src-cand-*`, or `obs-xwalk-cand-*`
 to the corresponding object directory and external source trail.
 
 简体中文：
 需要从 `obs-char-*`、`obs-comp-cand-*`、`obs-insc-cw-cand-*` 或
-`obs-evo-cand-*` 等本项目 ID 找到对象目录和外部来源链时，先打开
+`obs-evo-cand-*` 或 `obs-insc-src-cand-*` 等本项目 ID 找到对象目录和
+外部来源链时，先打开
 相应映射表。
 
 ## Boundary / 边界

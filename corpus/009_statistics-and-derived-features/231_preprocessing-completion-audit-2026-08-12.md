@@ -83,6 +83,43 @@ dispute dossiers. Source engineering does not substitute for literature work.
 `research/` 区仍以指南和索引为主，尚未形成逐篇论文、专著、著录、
 释读史和争议档案。来源工程不能替代文献整理。
 
+### Progress opened after this audit / 审计后已打开的进展
+
+The following material-depth gains were completed later on `2026-08-12`.
+They reduce three zero-instance gaps but do not change the overall
+`not_complete` result:
+
+- six selected character objects now have object-specific filename evidence
+  reviews covering 93 HUST `G_` source members, parsed catalog and group
+  candidates, cross-source routes, visible observations, and concrete checks;
+- one OBIMD H2 inscription source-record candidate now binds an opened rubbing
+  and facsimile pair, two package checksums, two member checksums, seven boxes,
+  and source order without publishing the rights-restricted images;
+- one HUST-OBC 2024 item-level paper dossier now records bibliographic
+  identity, claim locators, citation relations, limits, rights, and an object
+  transfer boundary.
+
+`2026-08-12` 稍后完成了下列资料深度改进。它们减少了三类零实例
+缺口，但不改变总体 `not_complete` 结论：
+
+- 六个已选单字对象新增对象特异的文件名证据复核，覆盖 93 个
+  HUST `G_` 来源成员、著录和组类候选、跨源路线、可见观察和
+  具体待查项；
+- 一个 OBIMD H2 卜辞来源记录候选已绑定实际打开的拓片与摹本、
+  两个包校验和、两个成员校验和、七个字框及来源次序，且未公开
+  权利受限图像；
+- 一项 HUST-OBC 2024 逐篇论文档案已记录书目身份、说法定位、
+  引用关系、限制、权利和对象转移边界。
+
+The H2 record still lacks a confirmed catalog identity and readable
+transcription. The six characters still lack opened authoritative plates and
+full inscription contexts. One paper dossier is not a complete literature
+corpus. Requirements 8, 9, and 10 therefore remain incomplete.
+
+H2 记录仍缺已确认著录身份和可读释文。六个单字仍缺已打开的权威
+图版和卜辞全文。一项论文档案也不等于完整文献库。因此第 8、9、10 项
+仍未完成。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

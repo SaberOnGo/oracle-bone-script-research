@@ -18,6 +18,21 @@ for deciding whether a source can become a reviewed research note.
 5. Check reading process status, proposer, disagreement, and dispute.
 6. Record unresolved items as concrete next checks, not empty placeholders.
 
+## Item-Level Dossiers / 逐项文献档案
+
+- [HUST-OBC 2024 data paper dossier][hust-paper]: bibliographic identity,
+  method and scope, claim-evidence locators, citation relations, limitations,
+  rights, object-transfer boundaries, and review log.
+- [HUST-OBC 2024 数据论文档案][hust-paper]：记录书目身份、方法与范围、
+  说法—证据定位、引用关系、限制、权利、对象转移边界和复核日志。
+
+The paper dossier keeps dataset counts and expert review as
+`source-reported`. Its 94.6% closed-set image-classification accuracy is not
+a decipherment probability and cannot support an “A means B” claim.
+
+论文档案将数据规模和专家复核保持为 `source-reported`。其 94.6%
+闭集图像分类准确率不是释读概率，不能支持“甲就是乙”的主张。
+
 人工复核时，先读 `002_published-scholarship-review-guide.md`，再打开来源
 对象目录和来源登记行。随后核对书目身份、来源链、权利说明、适用范围、
 证据等级、引用关系、释读过程状态、提出者、不同意见和争议。
@@ -55,3 +70,5 @@ for deciding whether a source can become a reviewed research note.
 An index row is a review route, not confirmed scholarship.
 It is not a decipherment conclusion.
 It is not a rights decision, source promotion, or corpus import approval.
+
+[hust-paper]: 003_hust-obc-2024_data-paper/README.md

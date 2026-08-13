@@ -27,6 +27,24 @@ later formal research.
 | local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
 | route_review_status | `metadata_route_needs_human_review` |
 
+## Live Source Evidence / 现场来源证据
+
+The detailed 2026-08-14 page and image audit is in
+`18_live-source-evidence-review.md`. It records the English and Chinese
+pages, the displayed dog/pig description, one object photograph, two inline
+illustration routes, local hashes, and private visual observations.
+
+2026-08-14 页面和图像审计见 `18_live-source-evidence-review.md`。该页记录中英文页面、犬
+豕说明、对象照片、两条行内说明图路线、本地校验和及私有视觉观察。
+
+The page route has no line-by-line transcription. The object photograph and
+inline illustrations remain `local_private_visual_inspection_only`; effective
+rights remain `metadata_only_until_verified`.
+
+当前页面路线没有逐行释文。对象照片和行内说明图均为
+`local_private_visual_inspection_only`；有效权利仍是
+`metadata_only_until_verified`。
+
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 
 - rights_status is copied from the registered source row.
@@ -52,12 +70,12 @@ later formal research.
 | `source_collection_item_id` | `777` |
 | `object_title_en` | `Inscribed Animal Bone Fragment Chia 2928` |
 | `catalog_reference_text` | `Chia 2928` |
-| `accession_number` | `` |
-| `historical_period` | `` |
-| `object_date` | `` |
-| `provenience` | `` |
-| `geography` | `` |
-| `repository` | `` |
+| `accession_number` | `R035203` |
+| `historical_period` | `Late Shang Period` |
+| `object_date` | `not stated on this page` |
+| `provenience` | `Anyang County, Honan Province` |
+| `geography` | `Anyang County, Honan Province` |
+| `repository` | `Museum of the Institute of History and Philology` |
 
 ## Inscription And Character Context To Verify / 卜辞与单字语境待复核
 

@@ -23,7 +23,9 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official object image and two source-page illustration routes were fetched
+to ignored `.working/ihp-777/` for private visual inspection. No image is
+committed or redistributed. See `18_live-source-evidence-review.md`.
 
 See `thumbnail_url` in Object Metadata.
 
@@ -40,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: official pages, source description,
+  image hashes, and local visual observations.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -65,6 +69,11 @@ See `thumbnail_url` in Object Metadata.
 - source_collection_item_id: `777`
 - object_title_en: `Inscribed Animal Bone Fragment Chia 2928`
 - catalog_reference_text: `Chia 2928`
+- item_no: `R035203`
+- period: `Late Shang Period`
+- material: `Animal Bone`
+- dimensions: `5.9(L)×3.1(W) cm`
+- findspot: `Anyang County, Honan Province`
 - object_page_url: `https://museum.sinica.edu.tw/en/collection/32/item/777/`
 - thumbnail_url: `https://museum.sinica.edu.tw/_upload/image/collection_item/thu
   mbnail/7885f688cb8afa74.jpg`

@@ -14,6 +14,8 @@ opened before any comparison, citation, or later research use.
 - Then open `08_collection-provenance-evidence-dossier.md`.
 - Use `02_collection-source-index.csv` for source and rights routes.
 - Use `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.
+- Use `18_live-source-evidence-review.md` for the page description, hashes,
+  private visual observations, and explicit no-transcription boundary.
 - Use `11_collection-provenance-fact-matrix-index.json` only as support.
 
 ## Collection Object Provenance Fact Matrix / 馆藏对象来源事实矩阵
@@ -22,9 +24,9 @@ opened before any comparison, citation, or later research use.
 | --- | --- | --- |
 | Collection object / 馆藏对象 | candidate object route; identity still needs review | 01_collection-object-packet.json; 06_human-collection-dossier.md |
 | Catalog or accession route / 著录或登记路线 | 777; source-page route only | 02_collection-source-index.csv; 06_human-collection-dossier.md |
-| Image or visual route / 图像或视觉路线 | external_thumbnail_url_metadata_only; open gallery before visual use | 03_visual-asset-index.csv; 04_visual-gallery.md |
-| Findspot or provenience / 出土地或来源地 | pending findspot or provenience review | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
-| Period or date / 时期或年代 | pending period or date source review | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
+| Image or visual route / 图像或视觉路线 | private image and illustration routes; rights review remains required | 03_visual-asset-index.csv; 04_visual-gallery.md; 18_live-source-evidence-review.md |
+| Findspot or provenience / 出土地或来源地 | source-reported Anyang County; independent provenance review pending | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
+| Period or date / 时期或年代 | source-reported Late Shang Period; independent dating review pending | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
 | Batch or excavation context / 批次或发掘语境 | pending batch, pit, excavation, or plate context review | 08_collection-provenance-evidence-dossier.md |
 | Inscription and character links / 卜辞与单字关联 | candidate route only; no inscription identity claim | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
 | Source and rights trail / 来源与权利链 | src-ihp-museum-oracle-bones; rights metadata_only_until_verified | 02_collection-source-index.csv; 09_collection-provenance-evidence-index.json |

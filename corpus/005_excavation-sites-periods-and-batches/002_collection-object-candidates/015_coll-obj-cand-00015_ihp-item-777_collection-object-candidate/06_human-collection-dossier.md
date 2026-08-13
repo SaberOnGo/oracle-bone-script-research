@@ -25,6 +25,23 @@ period, batch, plate, inscription, and character context.
 | `catalog_reference_text` | `Chia 2928` |
 | `object_page_url` | `https://museum.sinica.edu.tw/en/collection/32/item/777/` |
 | `thumbnail_url` | `https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/7885f688cb8afa74.jpg` |
+| `item_no` | `R035203` |
+| `period` | `Late Shang Period` |
+| `material` | `Animal Bone` |
+| `dimensions` | `5.9(L)×3.1(W) cm` |
+| `findspot` | `Anyang County, Honan Province` |
+
+## Live Source Evidence / 现场来源证据
+
+See `18_live-source-evidence-review.md` for the 2026-08-14 official-page
+snapshots, object-image checksum, two source-page illustration routes, and
+local visual observations. The museum describes a standing dog profile and a
+pig-like form with mane; this remains source-reported and has no line-by-line
+transcription in the current route.
+
+见 `18_live-source-evidence-review.md`，其中有 2026-08-14 官方页面快照、对象图像校验
+和、两条来源说明图路线及本地视觉观察。博物馆描述站立犬形和带鬃毛的豕形；这些仍是
+来源报告，当前路线没有逐行释文。
 
 ## Visual And Image Route / 图像路线
 

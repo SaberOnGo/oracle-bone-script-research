@@ -356,6 +356,22 @@ IHP 对象候选 `ihp-mus-obj-00005` / item `1216` 已于 2026-08-14 对照官�
 H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
 卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 
+The IHP object candidate `ihp-mus-obj-00015` / item `777` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R035203`, `Inscribed Animal Bone Fragment Chia 2928`, Late Shang
+Period, Anyang County, and Animal Bone. They describe a standing dog profile
+and a pig-like form with mane, but provide no line-by-line transcription.
+One object photograph and two inline illustration routes were fetched to
+ignored local storage and hashed. The record remains a source-record
+candidate because the catalog edition, plate, reading history, and image
+rights are unresolved.
+
+史语所对象候选 `ihp-mus-obj-00015` / item `777` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R035203`、`Inscribed Animal Bone Fragment Chia 2928`、晚商、安阳和
+动物骨；页面描述站立犬形和带鬃毛的豕形，但没有逐行释文。一条对象照片和两条行内说明
+图路线已保存到忽略区并计算校验和。版本、图版、释读史和图像权利仍未解决，因此仍是
+来源记录候选。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

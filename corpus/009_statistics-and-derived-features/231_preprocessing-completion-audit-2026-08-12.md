@@ -182,6 +182,23 @@ opened source packages.
 交叉表。若干史语所、小学堂和博物馆路线仍只是入口页、受限页面快照或
 下载失败记录，不是已经打开的来源资料包。
 
+The `2026-08-13` rights update now gives OBIMD graph readers one effective
+status route. Historical `licensed_for_repository` values remain source-
+declared provenance fields in older staging and graph rows. The active
+override is `metadata_only_until_verified`; it blocks public redistribution
+and derivative promotion until the conflicting licence evidence is resolved.
+Read the [OBIMD graph rights resolution][obimd-rights-resolution] together
+with the source-object decision before using an OBIMD edge as an asset route.
+
+`2026-08-13` 权利更新为 OBIMD 图谱读者补充了唯一的有效状态路线。较早
+staging 和图边中的 `licensed_for_repository` 仍是来源自报的追溯字段，
+不是当前再发布许可。当前覆盖状态是 `metadata_only_until_verified`；在
+冲突的许可证据解决前，不得公开再分发或提升派生物。使用 OBIMD 图边作
+为资产路线前，必须同时阅读 [OBIMD 图谱权利解析][obimd-rights-resolution]
+和来源对象决定页。
+
+[obimd-rights-resolution]: ../008_relationship-graph/obimd-rights-resolution.md
+
 ### Graph and AI laboratory / 图谱与 AI 实验室
 
 The relationship graph contains `141,589` routing edges. It still has no

@@ -203,6 +203,30 @@ class HumanResearchMaterialGateTests(unittest.TestCase):
         )
         self.assertEqual(stderr, "")
 
+    def test_summary_full_allows_coverage_above_floor(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_baseline(root, minimum_count=1)
+            fake_paths = [
+                root / "corpus" / "clean-a.md",
+                root / "corpus" / "clean-b.md",
+            ]
+            with (
+                mock.patch.object(
+                    self.module, "iter_human_markdown", return_value=fake_paths
+                ),
+                mock.patch.object(
+                    self.module, "score_markdown", return_value=self.clean_score()
+                ),
+            ):
+                result, stdout, stderr = self.run_main(
+                    ["--root", str(root), "--summary", "--strict", "--full"]
+                )
+
+        self.assertEqual(result, 0)
+        self.assertEqual(json.loads(stdout)["scanned_markdown_count"], 2)
+        self.assertEqual(stderr, "")
+
     def test_committed_baseline_separates_floor_from_debt_ceilings(self) -> None:
         payload = json.loads(BASELINE_PATH.read_text(encoding="utf-8"))
 

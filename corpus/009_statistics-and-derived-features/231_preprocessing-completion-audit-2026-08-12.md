@@ -251,6 +251,20 @@ line's edition remain unresolved; this is not a confirmed reading.
 并计算校验和。图像权利、著录与图版身份、出土链及来源文字版本仍未解决；这不是
 已确认释读。
 
+The IHP object candidate `ihp-mus-obj-00011` / item `775` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R044293`, `Inscribed Plastron Ping 0086`, Late Shang Period, YH127,
+and source-displayed lines for `《丙》0086` and `《丙》0087（背面）`. Four
+large routes were downloaded to ignored local storage and hashed; two are
+processed annotation views. Image rights, the independent catalog and plate
+identity, face-to-line mapping, and source glyph routes remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00011` / item `775` 已于 2026-08-14 对照官方中英文
+现场页打开。页面报告 `R044293`、`Inscribed Plastron Ping 0086`、晚商、YH127，
+并显示 `《丙》0086` 与 `《丙》0087（背面）` 多行文字。四条大图路线已保存到
+忽略区并计算校验和，其中两条为处理标注图。图像权利、独立著录与图版身份、
+图面与文字行的对应、来源字形路线仍未解决。
+
 The IHP object candidate `ihp-mus-obj-00008` / item `1222` was opened
 against its live official page on 2026-08-14. The page reports `ZR038421`,
 `Tortoise Carapace Fragments Yi Bian 4817+5061+5520+5804+6087+R60751`, Late

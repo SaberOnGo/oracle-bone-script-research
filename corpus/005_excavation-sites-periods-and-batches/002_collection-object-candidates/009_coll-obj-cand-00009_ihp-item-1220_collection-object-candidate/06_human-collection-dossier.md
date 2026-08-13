@@ -18,19 +18,21 @@ period, batch, plate, inscription, and character context.
 
 | Metadata field | Source value |
 | --- | --- |
-| `provider` | `Museum of the Institute of History and Philology, Academia Sinica` |
+| `provider` | `IHP Museum, Academia Sinica` |
 | `collection_name` | `Oracle Bones` |
 | `source_collection_item_id` | `1220` |
 | `object_title_en` | `Reshaped Tortoise Carapace Yi Bian 5271` |
 | `catalog_reference_text` | `Yi Bian 5271` |
-| `object_page_url` | `https://museum.sinica.edu.tw/en/collection/32/item/1220/` |
-| `thumbnail_url` | `https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/4692_61267571a221a42b.jpg` |
+| `object_page_url` | see `README.md` and `18_live-source-evidence-review.md` |
+| `thumbnail_url` | see `03_visual-asset-index.csv` |
 
 ## Visual And Image Route / 图像路线
 
 - visual_entry_type: `external_thumbnail_url_metadata_only`
 - visual_index: `03_visual-asset-index.csv`
 - visual_gallery: `04_visual-gallery.md`
+- live_source_evidence: `18_live-source-evidence-review.md`
+- private_large_image_status: `local_private_visual_inspection_only`
 
 ## Findspot Period Batch And Plate Checks / 出土地、时期、批次与图版复核
 
@@ -66,6 +68,7 @@ period, batch, plate, inscription, and character context.
 - evidence_download_id: `dl-ihp-museum-oracle-bones`
 - rights_status: `metadata_only_until_verified`
 - review_status: `needs_human_collection_object_review`
+- live_page_and_image_review: `18_live-source-evidence-review.md`
 
 ## Concrete Questions To Check / 具体待查问题
 

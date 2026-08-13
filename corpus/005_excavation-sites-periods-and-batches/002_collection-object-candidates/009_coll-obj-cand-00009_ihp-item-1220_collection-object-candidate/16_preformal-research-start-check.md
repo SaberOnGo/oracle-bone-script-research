@@ -9,15 +9,22 @@ rights, and unresolved disputes.
 简体中文：
 本核查固定正式研究开始前的开包顺序。研究者先看实物和馆藏记录、图像路线、著录线索和来源行，再核对考古语境、卜辞关联、单字路线、权利状态和仍待复核的争议。
 
+The live source and image record must be opened before the generic route sheets:
+`18_live-source-evidence-review.md`.
+
+正式打开通用路线表前，必须先看现场来源和图像记录：
+`18_live-source-evidence-review.md`。
+
 ## Object Opening Order / 对象开包顺序
 
 | Order | Open first | What to verify |
 | --- | --- | --- |
 | 1 | `02_collection-source-index.csv` | `1220` |
-| 2 | `04_visual-gallery.md` | `external_thumbnail_url_metadata_only` |
-| 3 | `06_human-collection-dossier.md` | catalog clues |
-| 4 | `12_archaeological-context-review.md` | context gaps |
-| 5 | `14_human-research-readiness-review.md` | blockers |
+| 2 | `18_live-source-evidence-review.md` | page and image evidence |
+| 3 | `04_visual-gallery.md` | thumbnail route |
+| 4 | `06_human-collection-dossier.md` | catalog clues |
+| 5 | `12_archaeological-context-review.md` | context gaps |
+| 6 | `14_human-research-readiness-review.md` | blockers |
 
 ## Concrete Start Questions / 具体开包问题
 

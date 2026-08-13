@@ -8,22 +8,28 @@ later formal research.
 简体中文：
 本档案记录馆藏或出土相关对象候选进入比较、引用或后续正式研究前必须打开复核的来源证据路线。这里不确认对象身份、不确认卜辞身份，也不作释读结论。
 
+The live page, source display, image checksums, and human observations are
+recorded in `18_live-source-evidence-review.md`.
+
+官方页面、来源文字、图像 checksum 和人类观察记录在
+`18_live-source-evidence-review.md` 中，供本档案继续复核。
+
 ## Catalog Page And Source Row / 著录页与来源行
 
 | Evidence field / 证据字段 | Route or value / 路线或取值 |
 | --- | --- |
 | source_id | `src-ihp-museum-oracle-bones` |
 | evidence_download_id | `dl-ihp-museum-oracle-bones` |
-| source_file_path | `corpus/005_excavation-sites-periods-and-batches/000_collection-registers/002_ihp-museum-oracle-bone-object-staging.csv` |
+| source_file_path | see `02_collection-source-index.csv` |
 | source_row_id | `9` |
-| object_page_url | `https://museum.sinica.edu.tw/en/collection/32/item/1220/` |
+| object_page_url | see `18_live-source-evidence-review.md` |
 | rights_status | `metadata_only_until_verified` |
 | review_status | `needs_human_collection_object_review` |
-| access_route_index | `corpus/006_research-sources-and-bibliography/001_source-objects/004_src-ihp-museum-oracle-bones_source-object/02_download-route-index.csv` |
+| access_route_index | see registered IHP source-object route index |
 | download_status | `downloaded` |
 | http_status | `200` |
 | accessed_file_size_bytes | `54136` |
-| checksum_sha256 | `3756b0a5bbf7dc4b595e0f363bd9f5a0ab818d667ca0303903ef74eb7dcdfe57` |
+| checksum_sha256 | see registered route checksum below |
 | local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
 | route_review_status | `metadata_route_needs_human_review` |
 
@@ -41,8 +47,19 @@ later formal research.
 | visual_entry_type | `external_thumbnail_url_metadata_only` |
 | asset_id | `` |
 | asset_path | `` |
-| thumbnail_url | `https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/4692_61267571a221a42b.jpg` |
+| thumbnail_url | see `03_visual-asset-index.csv` |
 | source_image_url | `` |
+
+Registered route checksum:
+
+`3756b0a5bbf7dc4b595e0f363bd9f5a0ab818d667ca0303903ef74eb7dcdfe57`
+
+The live large-image routes and private checksums are recorded in
+`18_live-source-evidence-review.md`; they do not change the effective rights
+status or create a public asset.
+
+现场大图路线和私有 checksum 记录在 `18_live-source-evidence-review.md`；这不改变
+生效权利状态，也不产生公开资产。
 
 ## Findspot Period Batch Plate Evidence / 出土地、时期、批次与图版证据
 

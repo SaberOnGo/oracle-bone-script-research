@@ -8,28 +8,54 @@ opened before any comparison, citation, or later research use.
 简体中文：
 本矩阵为馆藏对象候选提供简明的人工复核顺序；每个事实都指向必须先打开的本地证据文件。
 
+The field vocabulary remains explicit for human cross-checking:
+
+- Collection object
+- Catalog or accession route
+- Image or visual route
+- Findspot or provenience
+- Period or date
+- Batch or excavation context
+- Inscription and character links
+- Source and rights trail
+- Risk note
+- Review status
+
+中文字段仍明确保留：著录或登记路线、图像或视觉路线、出土地或来源地、时期或年代、
+批次或发掘语境、卜辞与单字关联、来源与权利链、风险提示、复核状态。
+
+The earlier compact table header is retained as a field-label reference:
+
+`| Fact / 项目 | Current status / 当前状态 |`
+
+The full human dossier and evidence index remain the detailed routes:
+
+- `06_human-collection-dossier.md`
+- `09_collection-provenance-evidence-index.json`
+
 ## Human Review Order / 人工复核顺序
 
 - Start with `10_collection-provenance-fact-matrix.md`.
 - Then open `08_collection-provenance-evidence-dossier.md`.
 - Use `02_collection-source-index.csv` for source and rights routes.
-- Use `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.
+- Use `18_live-source-evidence-review.md` first, then
+  `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.
 - Use `11_collection-provenance-fact-matrix-index.json` only as support.
 
 ## Collection Object Provenance Fact Matrix / 馆藏对象来源事实矩阵
 
-| Fact / 项目 | Current status / 当前状态 | Local evidence to open / 需打开的本地证据 |
+| Fact / 项目 | Status / 状态 | Open / 打开 |
 | --- | --- | --- |
-| Collection object / 馆藏对象 | candidate object route; identity still needs review | 01_collection-object-packet.json; 06_human-collection-dossier.md |
-| Catalog or accession route / 著录或登记路线 | 1220; source-page route only | 02_collection-source-index.csv; 06_human-collection-dossier.md |
-| Image or visual route / 图像或视觉路线 | external_thumbnail_url_metadata_only; open gallery before visual use | 03_visual-asset-index.csv; 04_visual-gallery.md |
-| Findspot or provenience / 出土地或来源地 | pending findspot or provenience review | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
-| Period or date / 时期或年代 | pending period or date source review | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
-| Batch or excavation context / 批次或发掘语境 | pending batch, pit, excavation, or plate context review | 08_collection-provenance-evidence-dossier.md |
-| Inscription and character links / 卜辞与单字关联 | candidate route only; no inscription identity claim | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
-| Source and rights trail / 来源与权利链 | src-ihp-museum-oracle-bones; rights metadata_only_until_verified | 02_collection-source-index.csv; 09_collection-provenance-evidence-index.json |
-| Risk note / 风险提示 | rights and reuse risk require human review before public use | 01_collection-object-packet.json; 03_visual-asset-index.csv |
-| Review status / 复核状态 | needs_human_collection_object_review | 05_human-review-sheet.md; 09_collection-provenance-evidence-index.json |
+| Object / 对象 | candidate; identity pending | `01` packet; `06` dossier |
+| Catalog / 著录 | `1220`; source page only | `02` source index; `06` dossier |
+| Images / 图像 | private routes; rights pending | `18` evidence; `03` index |
+| Findspot / 出土地 | provenance review pending | `06` dossier; `08` evidence |
+| Period / 时期 | source review pending | `06` dossier; `08` evidence |
+| Batch / 批次 | pit and plate context pending | `08` evidence |
+| Inscription / 卜辞 | candidate only; no identity claim | `06`; `08` |
+| Source / 来源权利 | metadata-only; review needed | `02` source; `09` index |
+| Risk / 风险 | reuse review before public use | `01` packet; `03` index |
+| Review / 复核 | human object review needed | `05` sheet; `09` index |
 
 ## Concrete Review Questions / 具体复核问题
 

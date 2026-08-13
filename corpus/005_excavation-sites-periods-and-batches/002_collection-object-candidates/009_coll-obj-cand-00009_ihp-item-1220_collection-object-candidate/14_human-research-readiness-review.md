@@ -9,20 +9,32 @@ without promoting any claim.
 简体中文：
 本复核文件记录正式甲骨研究前，人类研究者还必须打开哪些来源、图像、考古语境、卜辞、单字、权利和争议路线。它不提升任何身份或释读结论。
 
+The live source evidence entry is `18_live-source-evidence-review.md`.
+
+现场来源证据入口为 `18_live-source-evidence-review.md`。
+
+The standard human route files remain available:
+
+- `02_collection-source-index.csv`
+- `04_visual-gallery.md`
+- `08_collection-provenance-evidence-dossier.md`
+- `10_collection-provenance-fact-matrix.md`
+- `12_archaeological-context-review.md`
+
 ## Readiness Routes To Open / 需打开的准备路线
 
-| Readiness area | Current route or status | Human file to open |
+| Area / 项目 | Status / 状态 | Open / 打开 |
 | --- | --- | --- |
-| Catalog source | `1220` | `02_collection-source-index.csv` |
-| Visual evidence | `external_thumbnail_url_metadata_only` | `04_visual-gallery.md` |
-| Findspot route | `pending findspot or provenience source review` | `08_collection-provenance-evidence-dossier.md` |
-| Period route | `pending period or date source review` | `12_archaeological-context-review.md` |
-| Batch or pit route | `pending source-page review` | `12_archaeological-context-review.md` |
-| Plate or publication route | `pending catalog-page review` | `06_human-collection-dossier.md` |
-| Inscription relation | `candidate route only` | `10_collection-provenance-fact-matrix.md` |
-| Character relation | `candidate route only` | `10_collection-provenance-fact-matrix.md` |
-| Rights and risk | `metadata_only_until_verified` | `02_collection-source-index.csv` |
-| Scholarship and dispute route | `pending bibliography review` | `08_collection-provenance-evidence-dossier.md` |
+| Catalog | `1220` | `02` source |
+| Images | private routes; rights pending | `18` evidence |
+| Findspot | provenance review pending | `08` evidence |
+| Period | source review pending | `12` context |
+| Batch or pit | source review pending | `12` context |
+| Plate | catalog review pending | `06` dossier |
+| Inscription | candidate only | `10` matrix |
+| Character | candidate only | `10` matrix |
+| Rights | metadata-only; review needed | `02` source |
+| Scholarship | bibliography review pending | `08` evidence |
 
 ## Concrete Missing Evidence Questions / 具体缺证问题
 

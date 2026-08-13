@@ -23,9 +23,11 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official page exposes two large-image routes for private inspection.
 
-See `thumbnail_url` in Object Metadata.
+See `18_live-source-evidence-review.md` for the human evidence record,
+checksums, observations, and rights boundary. The image bytes remain only in
+ignored `.working/ihp-1220/`.
 
 ## Local Files / 本目录文件
 
@@ -33,6 +35,7 @@ See `thumbnail_url` in Object Metadata.
 - `05_human-review-sheet.md`: human review checklist.
 - `06_human-collection-dossier.md`: human collection object dossier.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
+- `18_live-source-evidence-review.md`: live page and image evidence review.
 - `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
 - `12_archaeological-context-review.md`: human archaeological context review
   sheet.

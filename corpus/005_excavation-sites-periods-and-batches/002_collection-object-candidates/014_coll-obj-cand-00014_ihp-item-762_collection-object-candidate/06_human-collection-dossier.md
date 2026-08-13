@@ -25,6 +25,21 @@ period, batch, plate, inscription, and character context.
 | `catalog_reference_text` | `Chia 2367` |
 | `object_page_url` | `https://museum.sinica.edu.tw/en/collection/32/item/762/` |
 | `thumbnail_url` | `https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/2945f688b9cb6f9e.jpg` |
+| `item_no` | `R034514` |
+| `period` | `Late Shang Period` |
+| `material` | `Animal Bone` |
+| `dimensions` | `3.9(L)×2.2(W) cm` |
+| `findspot` | `Pit 3:H05, Hsiao-t'un, Anyang County, Honan Province` |
+
+## Live Source Evidence / 现场来源证据
+
+See `18_live-source-evidence-review.md` for the 2026-08-14 official-page
+snapshots, displayed dog description, image checksum, and local visual
+observation. The page has no line-by-line transcription; all animal wording is
+source-reported and not a project reading.
+
+见 `18_live-source-evidence-review.md`，其中有 2026-08-14 官方页面快照、犬形说明、图像
+校验和及本地视觉观察。页面没有逐行释文；动物描述均为来源报告，不是本项目释读。
 
 ## Visual And Image Route / 图像路线
 

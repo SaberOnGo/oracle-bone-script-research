@@ -14,10 +14,11 @@ rights, and unresolved disputes.
 | Order | Open first | What to verify |
 | --- | --- | --- |
 | 1 | `02_collection-source-index.csv` | `762` |
-| 2 | `04_visual-gallery.md` | `external_thumbnail_url_metadata_only` |
+| 2 | `04_visual-gallery.md` | `local_private_visual_inspection_only` |
 | 3 | `06_human-collection-dossier.md` | catalog clues |
 | 4 | `12_archaeological-context-review.md` | context gaps |
 | 5 | `14_human-research-readiness-review.md` | blockers |
+| 6 | `18_live-source-evidence-review.md` | page text, hash, and visual boundary |
 
 ## Concrete Start Questions / 具体开包问题
 

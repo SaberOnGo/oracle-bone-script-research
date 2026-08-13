@@ -12,6 +12,8 @@ Candidate collection object ID: `ihp-mus-obj-00014`
   external-only, or missing.
 - Compare object-page labels against catalog references, collection provenance,
   and inscription context.
+- Open `18_live-source-evidence-review.md` and verify the page description,
+  image hash, private route, and no-transcription boundary.
 - Do not record inscription identity, transcription, formal reading, component
   analysis, or decipherment conclusions here.
 

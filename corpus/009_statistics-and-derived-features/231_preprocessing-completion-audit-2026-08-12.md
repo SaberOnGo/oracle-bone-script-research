@@ -372,6 +372,21 @@ rights are unresolved.
 图路线已保存到忽略区并计算校验和。版本、图版、释读史和图像权利仍未解决，因此仍是
 来源记录候选。
 
+The IHP object candidate `ihp-mus-obj-00014` / item `762` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R034514`, `Inscribed Animal Bone Fragment Chia 2367`, Late Shang
+Period, Pit 3:H05 in Hsiao-t'un, and Animal Bone. They describe a large-eyed,
+open-mouthed, prick-eared dog that appears to be running, but provide no
+line-by-line transcription. One object image was fetched to ignored local
+storage and hashed. The record remains a source-record candidate because the
+catalog edition, plate, reading history, and image rights are unresolved.
+
+史语所对象候选 `ihp-mus-obj-00014` / item `762` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R034514`、`Inscribed Animal Bone Fragment Chia 2367`、晚商、
+小屯 H05 坑和动物骨。页面描述大眼、张口、竖耳、似在奔跑的犬形，但没有逐行释文。一条
+对象图像已保存到忽略区并计算校验和。版本、图版、释读史和图像权利仍未解决，因此仍是
+来源记录候选。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

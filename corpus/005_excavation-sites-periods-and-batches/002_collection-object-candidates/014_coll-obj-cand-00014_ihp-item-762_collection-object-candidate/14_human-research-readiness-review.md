@@ -14,9 +14,9 @@ without promoting any claim.
 | Readiness area | Current route or status | Human file to open |
 | --- | --- | --- |
 | Catalog source | `762` | `02_collection-source-index.csv` |
-| Visual evidence | `external_thumbnail_url_metadata_only` | `04_visual-gallery.md` |
-| Findspot route | `pending findspot or provenience source review` | `08_collection-provenance-evidence-dossier.md` |
-| Period route | `pending period or date source review` | `12_archaeological-context-review.md` |
+| Visual evidence | `local_private_visual_inspection_only`; rights review required | `04_visual-gallery.md`; `18_live-source-evidence-review.md` |
+| Findspot route | source-reported Pit 3:H05 and Anyang; independent check pending | `08_collection-provenance-evidence-dossier.md` |
+| Period route | source-reported Late Shang Period; independent check pending | `12_archaeological-context-review.md` |
 | Batch or pit route | `pending source-page review` | `12_archaeological-context-review.md` |
 | Plate or publication route | `pending catalog-page review` | `06_human-collection-dossier.md` |
 | Inscription relation | `candidate route only` | `10_collection-provenance-fact-matrix.md` |

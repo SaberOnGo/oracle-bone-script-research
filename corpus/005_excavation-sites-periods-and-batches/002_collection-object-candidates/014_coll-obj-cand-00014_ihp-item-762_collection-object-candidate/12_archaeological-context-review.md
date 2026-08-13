@@ -18,12 +18,12 @@ can support later research.
 | Context field | Current route or status | Local evidence to open |
 | --- | --- | --- |
 | Institution | `Oracle Bones` | `02_collection-source-index.csv` |
-| Catalog or accession | `pending source review` | `02_collection-source-index.csv` |
+| Catalog or accession | `R034514`; source-page label still needs independent catalog check | `02_collection-source-index.csv`; `18_live-source-evidence-review.md` |
 | Source item | `762` | `01_collection-object-packet.json` |
 | Catalog description | `Chia 2367` | `01_collection-object-packet.json` |
-| Image route | `external_thumbnail_url_metadata_only` | `03_visual-asset-index.csv` |
-| Findspot or provenience | `pending findspot review` | `08_collection-provenance-evidence-dossier.md` |
-| Period or date | `pending period review` | `08_collection-provenance-evidence-dossier.md` |
+| Image route | `local_private_visual_inspection_only`; rights review required | `03_visual-asset-index.csv`; `18_live-source-evidence-review.md` |
+| Findspot or provenience | source-reported Pit 3:H05 and Anyang; independent check pending | `08_collection-provenance-evidence-dossier.md` |
+| Period or date | source-reported Late Shang Period; independent check pending | `08_collection-provenance-evidence-dossier.md` |
 | Batch or pit context | `pending excavation batch review` | `10_collection-provenance-fact-matrix.md` |
 | Plate or publication route | `pending plate or catalog-page review` | `06_human-collection-dossier.md` |
 | Inscription route | `candidate route only; no identity claim` | `06_human-collection-dossier.md` |

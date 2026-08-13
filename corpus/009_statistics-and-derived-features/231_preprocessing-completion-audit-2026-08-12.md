@@ -265,6 +265,19 @@ identity, face-to-line mapping, and source glyph routes remain unresolved.
 忽略区并计算校验和，其中两条为处理标注图。图像权利、独立著录与图版身份、
 图面与文字行的对应、来源字形路线仍未解决。
 
+The IHP object candidate `ihp-mus-obj-00012` / item `761` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R034847`, `Inscribed Animal Bone Fragment Chia 2659+2716+2763`,
+Late Shang Period, and a source description of practice inscriptions. Three
+large routes were downloaded to ignored local storage and hashed; one is a
+processed annotation view. The plus-joined object identity, independent plate,
+line-level transcription, and image rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00012` / item `761` 已于 2026-08-14 对照官方中英文
+现场页打开。页面报告 `R034847`、`Inscribed Animal Bone Fragment Chia 2659+2716+2763`、
+晚商和习刻对象说明。三条大图路线已保存到忽略区并计算校验和，其中一条为
+处理标注图。加号著录对象身份、独立图版、逐行释文和图像权利仍未解决。
+
 The IHP object candidate `ihp-mus-obj-00008` / item `1222` was opened
 against its live official page on 2026-08-14. The page reports `ZR038421`,
 `Tortoise Carapace Fragments Yi Bian 4817+5061+5520+5804+6087+R60751`, Late

@@ -6,6 +6,9 @@ should inspect before trusting a museum or collection object candidate: catalog
 clues, image route, source trail, rights status, and the missing findspot,
 period, batch, plate, inscription, and character context.
 
+The current official page, source description, and three private image routes
+are recorded in `18_live-source-evidence-review.md`.
+
 简体中文：
 本档案汇总复核馆藏或出土相关对象前需打开的对象层证据：著录线索、图像路线、来源链、权利状态，以及尚缺的出土地、时期、批次、图版、卜辞和甲骨单字语境。
 
@@ -31,6 +34,8 @@ period, batch, plate, inscription, and character context.
 - visual_entry_type: `external_thumbnail_url_metadata_only`
 - visual_index: `03_visual-asset-index.csv`
 - visual_gallery: `04_visual-gallery.md`
+- live_source_evidence: `18_live-source-evidence-review.md`
+- private_large_image_status: `local_private_visual_inspection_only`
 
 ## Findspot Period Batch And Plate Checks / 出土地、时期、批次与图版复核
 
@@ -44,6 +49,7 @@ period, batch, plate, inscription, and character context.
 - inscription_identity_claim: `not_confirmed`
 - transcription_status: pending source-page transcription check
 - character_link_status: candidate route only
+- source_display_status: source-reported description; no line transcription
 
 ## Component Clues / 构件线索
 

@@ -13,7 +13,8 @@ opened before any comparison, citation, or later research use.
 - Start with `10_collection-provenance-fact-matrix.md`.
 - Then open `08_collection-provenance-evidence-dossier.md`.
 - Use `02_collection-source-index.csv` for source and rights routes.
-- Use `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.
+- Use `18_live-source-evidence-review.md` first, then
+  `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.
 - Use `11_collection-provenance-fact-matrix-index.json` only as support.
 
 ## Collection Object Provenance Fact Matrix / 馆藏对象来源事实矩阵
@@ -22,7 +23,7 @@ opened before any comparison, citation, or later research use.
 | --- | --- | --- |
 | Collection object / 馆藏对象 | candidate object route; identity still needs review | 01_collection-object-packet.json; 06_human-collection-dossier.md |
 | Catalog or accession route / 著录或登记路线 | 761; source-page route only | 02_collection-source-index.csv; 06_human-collection-dossier.md |
-| Image or visual route / 图像或视觉路线 | external_thumbnail_url_metadata_only; open gallery before visual use | 03_visual-asset-index.csv; 04_visual-gallery.md |
+| Image or visual route / 图像或视觉路线 | private routes; rights pending | 18_live-source-evidence-review.md; 03_visual-asset-index.csv |
 | Findspot or provenience / 出土地或来源地 | pending findspot or provenience review | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
 | Period or date / 时期或年代 | pending period or date source review | 06_human-collection-dossier.md; 08_collection-provenance-evidence-dossier.md |
 | Batch or excavation context / 批次或发掘语境 | pending batch, pit, excavation, or plate context review | 08_collection-provenance-evidence-dossier.md |

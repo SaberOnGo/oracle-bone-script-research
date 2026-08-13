@@ -6,6 +6,9 @@ collection object candidate in formal oracle-bone research. It gathers source,
 visual, archaeological, inscription, character, rights, and dispute checks
 without promoting any claim.
 
+The live source evidence entry is `18_live-source-evidence-review.md`.
+The generic gallery route remains `04_visual-gallery.md`.
+
 简体中文：
 本复核文件记录正式甲骨研究前，人类研究者还必须打开哪些来源、图像、考古语境、卜辞、单字、权利和争议路线。它不提升任何身份或释读结论。
 
@@ -14,7 +17,7 @@ without promoting any claim.
 | Readiness area | Current route or status | Human file to open |
 | --- | --- | --- |
 | Catalog source | `761` | `02_collection-source-index.csv` |
-| Visual evidence | `external_thumbnail_url_metadata_only` | `04_visual-gallery.md` |
+| Visual evidence | private routes; rights pending | `18_live-source-evidence-review.md` |
 | Findspot route | `pending findspot or provenience source review` | `08_collection-provenance-evidence-dossier.md` |
 | Period route | `pending period or date source review` | `12_archaeological-context-review.md` |
 | Batch or pit route | `pending source-page review` | `12_archaeological-context-review.md` |

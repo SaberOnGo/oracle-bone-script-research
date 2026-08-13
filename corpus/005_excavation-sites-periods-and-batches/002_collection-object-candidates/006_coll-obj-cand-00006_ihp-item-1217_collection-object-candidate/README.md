@@ -40,6 +40,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: live official-page and image-route
+  evidence review.
 
 ## Structured Support Files / 结构化辅助文件
 

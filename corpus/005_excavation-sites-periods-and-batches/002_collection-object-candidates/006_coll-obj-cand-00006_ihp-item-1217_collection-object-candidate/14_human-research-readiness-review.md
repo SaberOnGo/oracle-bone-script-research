@@ -15,6 +15,7 @@ without promoting any claim.
 | --- | --- | --- |
 | Catalog source | `1217` | `02_collection-source-index.csv` |
 | Visual evidence | `external_thumbnail_url_metadata_only` | `04_visual-gallery.md` |
+| Live image evidence | `two private JPEG routes` | `18_live-source-evidence-review.md` |
 | Findspot route | `pending findspot or provenience source review` | `08_collection-provenance-evidence-dossier.md` |
 | Period route | `pending period or date source review` | `12_archaeological-context-review.md` |
 | Batch or pit route | `pending source-page review` | `12_archaeological-context-review.md` |
@@ -28,6 +29,7 @@ without promoting any claim.
 
 - Which catalog page or accession record proves the object label?
 - Which committed image, thumbnail URL, or missing visual route is usable?
+- Which of the two private JPEG routes can be reused after rights review?
 - Which source row records checksum, size, rights status, and risk note?
 - Which findspot, period, batch, pit, or plate route remains absent?
 - Which inscription relation is only a candidate route for later review?
@@ -36,6 +38,7 @@ without promoting any claim.
 - Which raw image or uncertain-rights item must stay outside regular Git?
 - 哪个著录页或登记号记录能支持对象标签？
 - 哪条图像路线可用：已提交图像、缩略图 URL 还是缺图？
+- 两条本地私有 JPEG 路线中，哪一条在权利复核后可以再利用？
 - 哪条来源行记录 checksum、大小、权利状态和风险？
 - 哪项出土地、时期、批次、坑位或图版仍缺？
 - 哪些卜辞或单字关联仅是候选路线？

@@ -222,6 +222,21 @@ IHP 对象候选 `ihp-mus-obj-00004` / item `1215` 已于 2026-08-14 对照官�
 校验和。英文解释仍是来源报告；当前没有独立版本定位、完整 OCR 或权利清理，
 因此仍是来源记录候选，不是已确认图版或释读。
 
+The IHP object candidate `ihp-mus-obj-00006` / item `1217` was opened
+against its live official page on 2026-08-14. The page reports `R041291`,
+`Fanned Tortoise Carapace for Divination Bing Bian 0065`, Late Shang Period,
+SYFYH127, dimensions, and Turtle Plastron. Its source display retains three
+inline image placeholders and an English description about weather, military
+affairs, and rituals. Two large JPEG routes were fetched to ignored local
+storage and hashed. The record remains a source-record candidate because the
+placeholders, independent edition locator, and rights are unresolved.
+
+IHP 对象候选 `ihp-mus-obj-00006` / item `1217` 已于 2026-08-14 对照官方现场页打开。
+页面报告 `R041291`、`Fanned Tortoise Carapace for Divination Bing Bian 0065`、
+晚商、SYFYH127、尺寸和龟腹甲。来源文字仍有三个内嵌图像占位符，并附天气、
+军事和祭祀相关英文说明。两条大图路线已下载到忽略区并计算校验和。占位符、
+独立版本定位和权利仍未解决，因此仍是来源记录候选。
+
 The IHP object candidate `ihp-mus-obj-00005` / item `1216` was opened
 against its live official page on 2026-08-14. The page reports `ZR044855`,
 `Tortoise Carapace for DivinationYi Bian 8806+8865+8997`, Late Shang Period,

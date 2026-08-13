@@ -43,14 +43,14 @@ English:
 | --- | --- |
 | `004_graph-edges.jsonl` | Early route edges kept for audit comparison. |
 | `005_hust-obc-candidate-graph-edges.jsonl` | HUST-OBC metadata routes. |
-| `006_obimd-component-graph-edges.jsonl` | OBIMD component and codepoint routes. |
+| `006_obimd-component...` | OBIMD component/codepoint routes. |
 | `007_evobc-evolution-graph-edges.jsonl` | EVOBC category and era routes. |
-| `008_cambridge-hopkins-inscription-crosswalk-graph-edges.jsonl` | Inscription crosswalk routes. |
-| `009_character-asset-graph-edges.jsonl` | Character to local asset review routes. |
+| `008_cambridge-hopkins...` | Inscription crosswalk routes. |
+| `009_character-asset-graph...` | Character to local asset routes. |
 | `010_cross-source-id-graph-edges.jsonl` | Cross-source id lookup routes. |
-| `011_component-asset-graph-edges.jsonl` | Component to local asset review routes. |
-| `012_cambridge-hopkins-topic-candidate-graph-edges.jsonl` | Topic and crosswalk review routes. |
-| `013_character-source-graph-edges.jsonl` | Character candidate to registered source routes. |
+| `011_component-asset-graph...` | Component to local asset routes. |
+| `012_cambridge-hopkins-topic...` | Topic/crosswalk review routes. |
+| `013_character-source-graph...` | Character-to-source routes. |
 | `014_character-variant-graph-edges.jsonl` | Candidate variant review routes. |
 
 ## Edge Dossier Content / 图边档案内容
@@ -64,6 +64,35 @@ missing evidence, and next source to check.
 每条图边都应让复核者找到图边类型、主体编号、客体编号、来源行或
 来源文件、本地档案路径、证据路径、复核状态、缺失证据和下一步
 待查来源。
+
+## OBIMD Rights Resolution / OBIMD 权利状态解析
+
+The OBIMD staging tables and older graph edges may preserve the historical
+source-declared value `licensed_for_repository`. That value is retained for
+provenance comparison only. It is not a redistribution grant and must not be
+used as the current publication decision.
+
+OBIMD graph consumers must resolve the effective status through the active
+[OBIMD rights resolution note](obimd-rights-resolution.md), which points to
+the override ledger and the source-object decision.
+
+The effective status is `metadata_only_until_verified`; the current public
+decision is no public redistribution or derivative promotion until the
+conflicting terms are reconciled. This applies to component, variant, asset,
+and package routes. A graph edge remains a candidate review route and cannot
+authorize copying an image, raw package, or derived asset.
+
+OBIMD staging 表和较早的图边可能保留来源历史字段
+`licensed_for_repository`。该字段只用于来源对照，不是再分发许可，
+也不能当作当前公开发布决定。
+
+所有 OBIMD 图谱使用者都必须通过
+[OBIMD 权利解析说明](obimd-rights-resolution.md)解析当前状态；该说明
+再指向覆盖表和来源对象决定页。
+
+当前有效状态是 `metadata_only_until_verified`；在冲突条款完成对账前，
+不得公开再分发或提升派生件。该规则适用于构件、异体、资产和来源包路线。
+图边仍只是候选复核路线，不能授权复制图像、原始包或派生资产。
 
 ## Concrete Questions To Check / 具体待查问题
 

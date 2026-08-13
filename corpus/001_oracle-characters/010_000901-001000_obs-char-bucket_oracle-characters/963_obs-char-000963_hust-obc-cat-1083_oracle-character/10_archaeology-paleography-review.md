@@ -37,6 +37,9 @@ accepted here.
 - `05_human-research-dossier.md`
 - `06_human-review-sheet.md`
 - `08_character-context-evidence-dossier.md`
+- `14_material-visual-observation.md`
+- `15_source-filename-evidence-review.md`
+- `17_multi-instance-visual-comparison.md`
 - `02_visual-source-index.csv`
 - `07_research-dossier-index.json`
 - `09_character-context-evidence-index.json`
@@ -50,6 +53,13 @@ accepted here.
 - first source image: `G_1083_京都620合20217.png`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+
+Direct observations are recorded in files 14 and 17. They remain
+preparation-stage observations until an independent review checks the source
+plate, neighboring signs, and damage or tracing alternatives.
+
+文件 14 和 17 已记录直接可见观察。它们仍是预处理观察，必须再核对原始图版、
+邻字、损伤和摹写替代解释，不能直接进入正式释读。
 
 Questions:
 - Which strokes, outlines, damage, or uncertain marks are visible?
@@ -97,11 +107,12 @@ Questions:
 
 ## 6. Provenance Collection Period / 出土馆藏时期
 
-- source package: ``
-- download or access ids: dl-hust-obc-validation-label; plus 1 more
+- source package: `large-src-000001`
+- download or access ids: dl-hust-obc-figshare-raw; plus 2 more
 - source metadata files: Validation_label.json; ID_to_Chinese.json
 - rights status: `source_marked_risk_noted`
-- risk note: pending
+- risk note: Figshare and article rights signals conflict; use the
+  registered derivative and keep the raw package outside regular Git.
 
 Questions:
 - Which findspot, collection, museum item, period, or group applies?
@@ -148,7 +159,8 @@ Questions:
 
 ## 9. Next Source Checks / 下一步来源核查
 
-- Open visual rows before writing glyph observations.
+- Open visual rows before refining or independently reviewing glyph
+  observations.
 - Open inscription and plate routes before citing context.
 - Open source registry, manifest, checksum, and rights notes.
 - Open bibliography before recording reading history or disputes.

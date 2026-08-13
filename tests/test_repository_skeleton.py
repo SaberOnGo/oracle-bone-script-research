@@ -29713,11 +29713,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(data["core_area_count"], 10)
         self.assertEqual(data["readiness_stage_counts"], {"ready_for_human_review": 10})
         self.assertEqual(data["review_priority_counts"], {"high_batch_review": 2, "targeted_review": 8})
-        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12725)
+        self.assertEqual(data["totals"]["manual_review_backlog_count"], 12726)
         self.assertEqual(data["totals"]["candidate_record_count"], 13196)
-        self.assertEqual(data["totals"]["formal_record_count"], 101682)
-        self.assertEqual(data["totals"]["staging_record_count"], 75317)
-        self.assertEqual(data["totals"]["graph_edge_count"], 220887)
+        self.assertEqual(data["totals"]["formal_record_count"], 101711)
+        self.assertEqual(data["totals"]["staging_record_count"], 75348)
+        self.assertEqual(data["totals"]["graph_edge_count"], 251079)
         self.assertIn("does not start formal decipherment research", data["completion_boundary"])
         self.assertIn("row-sums across readiness areas", data["totals_note"])
 
@@ -29737,8 +29737,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             by_area["inscriptions_and_plate_crosswalks"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-inscription-crosswalk-review-queue.csv",
         )
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "217")
-        self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "116810")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "219")
+        self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "147002")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "837")
         self.assertEqual(by_area["research_sources_and_bibliography"]["staging_record_count"], "283")
         self.assertEqual(
@@ -31273,7 +31273,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             )
         )
         self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"123"})
-        self.assertEqual({row["source_register_file_count"] for row in rows}, {"539"})
+        self.assertEqual({row["source_register_file_count"] for row in rows}, {"541"})
         self.assertTrue(
             all(
                 "research/001_published-scholarship-index/"
@@ -31371,7 +31371,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "verified: `missing`",
             "research note files: 40",
             "user or AI draft review files: 123",
-            "source register files: 539",
+            "source register files: 541",
             "bibliographic identity",
             "source trail",
             "scope",
@@ -31398,7 +31398,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("checklist rows: 4", text)
         self.assertIn("research note files: 40", text)
         self.assertIn("user or AI draft review files: 123", text)
-        self.assertIn("source register files: 539", text)
+        self.assertIn("source register files: 541", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(
             "Which page, plate, URL, catalog number, or object record",

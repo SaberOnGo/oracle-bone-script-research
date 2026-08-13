@@ -60,6 +60,8 @@ accepted reading, or rights clearance.
 
 ### Glyph Observation Checklist / 字形观察记录
 
+- direct observation note: `14_material-visual-observation.md`
+- five-instance comparison: `17_multi-instance-visual-comparison.md`
 - Which visible strokes, outlines, breaks, or uncertain marks
   need review?
 - 哪些可见笔画、轮廓、残缺或不确定痕迹需要记录？
@@ -115,6 +117,26 @@ This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
 本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
+
+### Opened Evidence Snapshot / 已打开证据快照
+
+- The local derivative is one 1,445-byte image with the checksum recorded
+  in `02_visual-source-index.csv`.
+- The ignored HUST package contains 14 `G_` members under category `1083`;
+  `15_source-filename-evidence-review.md` inventories all of them.
+- Five members were decoded directly and compared in
+  `17_multi-instance-visual-comparison.md`.
+- All five show a central upright joined to a roughly four-cell lower
+  enclosure, but their upper structures and one lower projection differ.
+- These are visible-form observations and counterevidence, not proof that
+  the members are one sign, several signs, or one inscriptional identity.
+- HUST, OBIMD, and EvoBC links are codepoint or dataset lookup routes only.
+- HUST remains `source_marked_risk_noted`; OBIMD remains
+  `metadata_only_until_verified`; no restricted image was added to Git.
+
+上述证据已经打开，但只支持资料记录和可见痕迹比较。五个成员都可见中央竖笔与
+大致四格下框，上部结构和一处下框右伸痕迹存在差异。差异可能来自字形、损伤、
+拓摹、裁切或近形混入，必须先核对原图版和卜辞，不能直接合并或拆分。
 
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
@@ -196,40 +218,46 @@ a component assignment.
 
 ## 6. Inscription Occurrences And Text Context / 卜辞出现
 
-- inscription occurrence count: `待查：需要核对卜辞编号和字位出现记录`
+- inscription occurrence count: `待查：五条成员路线尚未绑定已核对卜辞编号`
 - full inscription text: `待查：需要核对卜辞全文或 OCR 路线`
-- plate or catalog number: `待查：需要核对图版号、著录号或合集号`
-- filename catalog route clues: `Heji-like filename clue: 合20217
-  (G_1083_京都620合20217.png)`
+- plate or catalog number: `待查：需要打开五条图版和著录页`
+- opened filename candidates: `合20217`、`合7896`、`合7897`、`合13543`、
+  `合30173`
+- filename catalog route clues: `京都620`、`前4.55.7`、`後1.31.1`、`甲1048`、
+  `鄴3下.38.4`
 - catalog clue boundary: `候选路线：文件名线索只能定位待查著录，不确认卜辞身份或合集号`
 - occurrence review route: `195_inscription-plate...checklist.csv`
 
 ## 7. Provenance, Findspot, Collection, And Period / 出处
 
 - source package: `large-src-000001`
-- download ids: `dl-hust-obc-validation-label;dl-hust-obc-ocr-id-to-chinese`
+- download ids: `dl-hust-obc-figshare-raw;dl-hust-obc-validation-label;
+  dl-hust-obc-ocr-id-to-chinese`
 - excavation site: `待查：需要核对出土地、发掘单位或地点来源`
 - collection or museum: `待查：需要核对馆藏号、藏品页或库藏记录`
-- period or batch: `待查：需要核对时期、组类、坑位或批次记录`
+- period or batch: `待查：文件名有𠂤組、賓組、歷無名間候选`
+  `仍需核对原始著录`
 - rights status: `source_marked_risk_noted`
 
 ## 8. Decipherment History And Disputes / 释读史争议
 
-- published interpretation notes: `待查：需要核对书目、论文或数据库说明`
+- published interpretation notes: `待查：尚未打开逐项著录和学术书目`
 - decipherment history: `待查：需要核对提出者、释读过程和复核记录`
 - known disagreement: `待查：需要核对不同意见、争议和证据等级`
-- human review status: `compare_xiaoxuetang_obm_obimd_evobc_and_prima...`
+- human review status: `preparation_notes_opened`
+  `formal_scholarship_not_reviewed`
 
 ## 9. Archaeological Folder Coverage / 考古档案覆盖
 
 - glyph image: `local_file_present`
+- direct observation status: `recorded_pending_independent_review`
 - variant forms: `待查：需要打开异体和近形路线`
 - later-script links: `候选路线：需要人工复核金文、小篆或今字路线`
 - inscription occurrences: `待查：需要核对卜辞编号、全文或 OCR、图版号和字位`
 - catalog and plate routes: `待查：需要核对著录号、图版号、页码和合集号`
 - findspot and collection: `待查：需要核对出土地、馆藏号和对象记录`
 - period and batch: `待查：需要核对时期、组类、坑位或批次`
-- source evidence: `available_or_route_indexed`
+- source evidence: `available_with_route_checksum_and_risk_note`
 - decipherment history: `待查：需要核对释读史、提出者和争议记录`
 
 ## 10. Missing Data / 缺失项
@@ -256,6 +284,15 @@ a component assignment.
   before any image or source derivative is reused?
 - 下一步应打开哪些来源记录、权利记录、checksum 和 manifest，
   才能复用图像或来源派生资料？
+- Which five catalog candidates can be matched to a plate image and a
+  full inscription without relying on the filename alone?
+- 哪五条著录候选可以分别对应图版和卜辞全文，而不只依赖文件名？
+- Do the upper-form differences persist in primary images for `合7896`
+  and `合7897`, or do damage and tracing explain them?
+- `合7896` 与 `合7897` 的上部差异在原始图版中是否仍存在，还是由损伤和摹写造成？
+- Which source or scholar introduced the filename group strings
+  `𠂤組` and `歷無名間`?
+- 文件名中的 `𠂤組` 和 `歷無名間` 分别由哪个来源或学者提出？
 
 ## 11. Local Files To Open / 本目录入口
 
@@ -266,6 +303,9 @@ a component assignment.
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`
 - `09_character-context-evidence-index.json`
+- `14_material-visual-observation.md`
+- `15_source-filename-evidence-review.md`
+- `17_multi-instance-visual-comparison.md`
 
 ## Boundary / 边界
 

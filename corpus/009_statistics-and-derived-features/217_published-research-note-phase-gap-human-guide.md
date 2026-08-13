@@ -31,7 +31,7 @@ excavation context、collection context、relations、引用史、
 - checklist rows: 4
 - research note files: 40
 - user or AI draft review files: 123
-- source register files: 539
+- source register files: 541
 - source index rows: 21
 - phase gap statuses:
   - extracted: `mixed_or_partial`

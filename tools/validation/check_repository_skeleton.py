@@ -13290,11 +13290,11 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} review priority counts changed")
     expected_totals = {
         "candidate_record_count": 13196,
-        "formal_record_count": 101682,
-        "graph_edge_count": 220887,
-        "manual_review_backlog_count": 12725,
-        "review_queue_count": 12708,
-        "staging_record_count": 75317,
+        "formal_record_count": 101711,
+        "graph_edge_count": 251079,
+        "manual_review_backlog_count": 12726,
+        "review_queue_count": 12709,
+        "staging_record_count": 75348,
     }
     if summary.get("totals") != expected_totals:
         issues.append(f"{MANUAL_REVIEW_BACKLOG_SUMMARY} totals changed")
@@ -13335,8 +13335,8 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_count": "612",
         },
         "relationship_graph_and_statistics": {
-            "staging_record_count": "217",
-            "graph_edge_count": "116810",
+            "staging_record_count": "219",
+            "graph_edge_count": "147002",
             "review_queue_count": "3",
         },
         "research_sources_and_bibliography": {
@@ -13346,9 +13346,9 @@ def check_core_corpus_readiness_matrix(root: Path) -> list[str]:
             "review_queue_path": SOURCE_PIPELINE_MISSING_EVIDENCE_OUTCOME_ROUTES_ASSIGNMENT_CHECKLIST,
         },
         "published_research_notes": {
-            "formal_record_count": "6",
-            "staging_record_count": "6",
-            "review_queue_count": "120",
+            "formal_record_count": "35",
+            "staging_record_count": "35",
+            "review_queue_count": "121",
         },
     }
     by_area = {row.get("corpus_area", ""): row for row in matrix_rows}
@@ -18279,7 +18279,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "verified: `missing`",
         "research note files: 40",
         "user or AI draft review files: 123",
-        "source register files: 539",
+        "source register files: 541",
         "bibliographic identity",
         "source trail",
         "scope",

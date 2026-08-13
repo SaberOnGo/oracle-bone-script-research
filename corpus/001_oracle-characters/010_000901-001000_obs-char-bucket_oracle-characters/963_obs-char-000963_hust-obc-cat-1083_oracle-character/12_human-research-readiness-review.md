@@ -25,7 +25,7 @@ inscription context, or later-script relations.
 
 Current decision:
 - accepted reading: `not_reviewed`
-- glyph observation: `needs_human_visual_review`
+- glyph observation: `recorded_pending_independent_review`
 - component assignment: `not_reviewed`
 - inscription occurrence: `candidate_route_only`
 - later-script correspondence: `candidate_route_only`
@@ -50,6 +50,8 @@ Current decision:
 - Dossier support index: `07_research-dossier-index.json`
 - Context support index: `09_character-context-evidence-index.json`
 - Archaeology support index: `11_archaeology-paleography-index.json`
+- Direct visual note: `14_material-visual-observation.md`
+- Multi-instance comparison: `17_multi-instance-visual-comparison.md`
 
 Structured support files only route the reviewer back to images,
 source rows, graph routes, and object-local dossiers.
@@ -65,6 +67,7 @@ They do not replace the human record.
 - source image routes: `1`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+- opened visual members: `5` in the multi-instance comparison
 - graph edge count: `4`
 - graph edge types: CHARACTER_HAS_EVOBC_CODEPOINT_LOOKUP_ROUTE; plus 3 more
 - route files: 009_hust-obc-obs-char-promotion-review-queue.csv; plus 7 more
@@ -80,7 +83,8 @@ It is not the oracle-character identity or accepted reading.
 
 ## 4. Formal-Research Blockers / 正式研究阻断项
 
-- Glyph image observation has not been written from opened images.
+- Direct visual observations are recorded in files 14 and 17, but an
+  independent reviewer has not yet checked them against plate-level sources.
 - Variant and near-form comparison remains a route, not a review.
 - Component clues are not assigned to a formal component structure.
 - Inscription occurrence and context are not tied to an opened text.
@@ -94,7 +98,7 @@ It is not the oracle-character identity or accepted reading.
 
 ## 5. Concrete Missing Evidence Questions / 具体缺证问题
 
-- Which opened image row supports the first glyph observation?
+- Which opened image row and archive member support each direct observation?
 - Which stroke, outline, damage, or uncertain mark remains pending?
 - Which variant or near-form image must be compared side by side?
 - Which component clue is only a candidate route?
@@ -120,14 +124,14 @@ It is not the oracle-character identity or accepted reading.
 
 - not a formal oracle-character record promotion
 - not an accepted reading
-- not a glyph observation already reviewed from images
+- not an independently reviewed glyph observation
 - not a component assignment
 - not an inscription identity claim
 - not a later-script correspondence
 - not a decipherment conclusion
 - 不是正式单字记录提升
 - 不是已接受释读
-- 不是已从图像复核的字形观察
+- 不是已由独立复核完成的字形观察
 - 不是构件归属
 - 不是卜辞身份结论
 - 不是后世字形对应

@@ -503,6 +503,27 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
     cross_source_id_graph_edges = count_jsonl(
         root, "corpus/008_relationship-graph/010_cross-source-id-graph-edges.jsonl"
     )
+    component_asset_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/011_component-asset-graph-edges.jsonl"
+    )
+    cambridge_topic_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/012_cambridge-hopkins-topic-candidate-graph-edges.jsonl"
+    )
+    character_source_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/013_character-source-graph-edges.jsonl"
+    )
+    character_variant_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/014_character-variant-graph-edges.jsonl"
+    )
+    character_inscription_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/015_character-inscription-candidate-graph-edges.jsonl"
+    )
+    character_component_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/016_character-component-candidate-graph-edges.jsonl"
+    )
+    evobc_correspondence_graph_edges = count_jsonl(
+        root, "corpus/008_relationship-graph/017_evobc-evolution-correspondence-candidate-graph-edges.jsonl"
+    )
     graph_edge_total = (
         hust_candidate_graph_edges
         + obimd_graph_edges
@@ -510,6 +531,13 @@ def build_readiness_rows(root: Path) -> list[dict[str, str]]:
         + cambridge_hopkins_graph_edges
         + character_asset_graph_edges
         + cross_source_id_graph_edges
+        + component_asset_graph_edges
+        + cambridge_topic_graph_edges
+        + character_source_graph_edges
+        + character_variant_graph_edges
+        + character_inscription_graph_edges
+        + character_component_graph_edges
+        + evobc_correspondence_graph_edges
     )
 
     collection_staging_count = sum(

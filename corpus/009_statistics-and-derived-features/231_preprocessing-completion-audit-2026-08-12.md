@@ -97,8 +97,8 @@ engineering does not substitute for literature work.
 
 ### Progress opened after this audit / 审计后已打开的进展
 
-The following material-depth gains were completed on `2026-08-12` and
-`2026-08-13`.
+The following material-depth gains were completed between `2026-08-12` and
+`2026-08-14`.
 They reduce three zero-instance gaps but do not change the overall
 `not_complete` result:
 
@@ -135,7 +135,7 @@ They reduce three zero-instance gaps but do not change the overall
   preserves `c/h/j/y` key meanings, item-transfer gates, unresolved object
   identity, and `metadata_only_until_verified` rights status.
 
-`2026-08-12` 至 `2026-08-13` 完成了下列资料深度改进。它们减少了
+`2026-08-12` 至 `2026-08-14` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
 
 - 六个已选单字对象新增对象特异的文件名证据复核，覆盖 93 个

@@ -43,6 +43,17 @@ METADATA_ONLY_DERIVATIVE_SOURCE_IDS = {
     "src-sinica-da-xiaoxuetang-site",
     "src-sinica-yinshang-oracle-vocabulary",
 }
+OBIMD_SOURCE_ID = "src-obimd"
+OBIMD_EFFECTIVE_RIGHTS_STATUS = "metadata_only_until_verified"
+OBIMD_PUBLIC_COMMIT_DECISION = (
+    "metadata_only_no_public_redistribution_until_reconciled"
+)
+OBIMD_RIGHTS_OVERRIDE_PATH = (
+    "project_registry/004_asset-source-and-rights-index/"
+    "006_obimd-rights-status-override.csv"
+)
+OBIMD_RIGHTS_DECISION_FILE = "25_effective-rights-decision.md"
+OBIMD_RIGHTS_DECISION_INDEX = "25_effective-rights-decision-index.json"
 
 
 DOWNLOAD_ROUTE_FIELDS = [
@@ -946,7 +957,9 @@ def source_packet(
                 "26_safe-derivative-decision-index.json",
             ]
         )
-    return {
+    if source["source_id"] == OBIMD_SOURCE_ID:
+        local_files.extend([OBIMD_RIGHTS_DECISION_FILE, OBIMD_RIGHTS_DECISION_INDEX])
+    packet = {
         "record_type": "source_object_packet",
         "source_id": source["source_id"],
         "source_type": source["source_type"],
@@ -986,6 +999,110 @@ def source_packet(
         ),
         "decipherment_claim_status": "no_claim",
         "updated_at": UPDATED_AT,
+    }
+    if source["source_id"] == OBIMD_SOURCE_ID:
+        packet.update(
+            {
+                "legacy_rights_status": source["rights_status"],
+                "effective_rights_status": OBIMD_EFFECTIVE_RIGHTS_STATUS,
+                "public_commit_decision": OBIMD_PUBLIC_COMMIT_DECISION,
+                "rights_override_ref": OBIMD_RIGHTS_OVERRIDE_PATH,
+            }
+        )
+    return packet
+
+
+def effective_rights_decision_text(source: dict[str, str]) -> str:
+    """Render the OBIMD rights overlay without deleting legacy claims."""
+    lines = [
+        "# Effective Rights Decision / 当前有效权利决定",
+        "",
+        *wrapped(
+            "This page records the repository-use decision for the older OBIMD "
+            "rights field. It is not legal advice, ownership proof, or "
+            "scholarship."
+        ),
+        "",
+        *wrapped(
+            "本页记录 OBIMD 旧权利字段对应的仓库使用决定。它不是法律意见、"
+            "所有权证明，也不是学术结论。"
+        ),
+        "",
+        "## Historical And Effective Values / 历史值与有效值",
+        *bullet("Legacy rights status / 历史权利状态", source["rights_status"]),
+        *bullet("Effective rights status / 当前有效权利状态", OBIMD_EFFECTIVE_RIGHTS_STATUS),
+        *bullet("Public commit decision / 公开提交决定", OBIMD_PUBLIC_COMMIT_DECISION),
+        *bullet("Override record / 覆盖记录", OBIMD_RIGHTS_OVERRIDE_PATH),
+        "",
+        *wrapped(
+            "The legacy value remains a traceable source declaration. It does "
+            "not authorize copying, redistribution, image extraction, or "
+            "public derivative promotion while the active override remains."
+        ),
+        "",
+        *wrapped(
+            "旧值仍是可追溯的来源声明。有效覆盖存在时，它不授权复制、再发布、"
+            "图像抽取或公开派生物提升。"
+        ),
+        "",
+        "## Evidence And Scope / 证据与范围",
+        *bullet("Dataset-card route / 数据集卡路线", "dl-obimd-hf-readme"),
+        *bullet("Code README route / 代码 README 路线", "dl-obimd-github-readme"),
+        *wrapped(
+            "The effective status covers the source row, both large-source rows, "
+            "seven package rows, 10,364 asset rows, and 2,747 component "
+            "candidate rows. Fifty orphan rights rows remain local-private."
+        ),
+        "",
+        "## Concrete Reconciliation Questions / 具体待查问题",
+        "- Which rights holder statement governs each package and credit line?",
+        "- Does CC BY 4.0 cover raw files or only the dataset-card release?",
+        "- Does CC BY-NC-ND cover article text, images, or third-party material?",
+        "- Does the academic-only README restrict code, data, images, or all?",
+        "- Which written statement can close the override for each scope?",
+        "",
+        *wrapped(
+            "Until these questions have source-backed answers and independent "
+            "review, downstream records must display the effective status. This "
+            "is not a decipherment claim."
+        ),
+        "",
+        *wrapped(
+            "在取得有来源的答案并完成独立复核前，下游记录必须显示有效状态。"
+            "本页不是释读结论。"
+        ),
+    ]
+    return "\n".join(lines)
+
+
+def effective_rights_decision_index_payload() -> dict[str, object]:
+    return {
+        "record_type": "effective_rights_decision_index",
+        "source_id": OBIMD_SOURCE_ID,
+        "legacy_rights_status": "licensed_for_repository",
+        "effective_rights_status": OBIMD_EFFECTIVE_RIGHTS_STATUS,
+        "orphan_effective_status": "local_private_only",
+        "public_commit_decision": OBIMD_PUBLIC_COMMIT_DECISION,
+        "override_path": OBIMD_RIGHTS_OVERRIDE_PATH,
+        "conflict_review_path": (
+            "project_registry/004_asset-source-and-rights-index/"
+            "006_obimd-rights-conflict-review.md"
+        ),
+        "evidence_download_ids": [
+            "dl-obimd-hf-readme",
+            "dl-obimd-github-readme",
+        ],
+        "covered_scopes": [
+            "source_row",
+            "large_source_rows",
+            "package_manifest_rows",
+            "asset_source_rows",
+            "component_candidate_rows",
+            "orphan_rights_rows",
+        ],
+        "research_boundary": "rights_audit_only_not_scholarship",
+        "review_status": "active_conflict_review",
+        "updated_at": "2026-08-13",
     }
 
 
@@ -1130,7 +1247,12 @@ def source_evidence_dossier_index_payload(
             "16_source-literature-scope-review.md",
             "18_source-access-integrity-review.md",
             "20_source-presearch-readiness-review.md",
-        ],
+        ]
+        + (
+            [OBIMD_RIGHTS_DECISION_FILE]
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         "ai_support_files": [
             "01_source-packet.json",
             "02_download-route-index.csv",
@@ -1144,7 +1266,12 @@ def source_evidence_dossier_index_payload(
             "17_source-literature-scope-index.json",
             "19_source-access-integrity-index.json",
             "21_source-presearch-readiness-index.json",
-        ],
+        ]
+        + (
+            [OBIMD_RIGHTS_DECISION_INDEX]
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         "source_route_files": [
             SOURCE_INDEX.as_posix(),
             DOWNLOAD_MANIFEST.as_posix(),
@@ -2956,6 +3083,14 @@ def source_access_integrity_review_text(
         *bullet("Title / 题名", source["title"]),
         *bullet("Provider / 提供方", source["provider"]),
         *bullet("Rights status / 权利状态", source["rights_status"]),
+        *(
+            bullet(
+                "Effective rights status / 当前有效权利状态",
+                OBIMD_EFFECTIVE_RIGHTS_STATUS,
+            )
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         *bullet("Risk note / 风险提示", source["risk_note"]),
         *bullet("Review status / 复核状态", source["review_status"]),
         "",
@@ -3697,6 +3832,14 @@ def source_evidence_dossier_text(
         *human_research_review_lines(),
         "## Scope Evidence Level And Review Status / 适用范围、证据等级与复核状态",
         *bullet("Rights status / 权利状态", source["rights_status"]),
+        *(
+            bullet(
+                "Effective rights status / 当前有效权利状态",
+                OBIMD_EFFECTIVE_RIGHTS_STATUS,
+            )
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         *bullet("Review status / 复核状态", source["review_status"]),
         *bullet("Risk note / 风险提示", source["risk_note"]),
         *bullet("Processing status card / 处理状态卡", "08_source-processing-status.md"),
@@ -3866,6 +4009,14 @@ def source_research_brief_text(
             "",
             "## Research-Use Limits / 研究使用限制",
             *bullet("Rights status / 权利状态", source["rights_status"]),
+            *(
+                bullet(
+                    "Effective rights status / 当前有效权利状态",
+                    OBIMD_EFFECTIVE_RIGHTS_STATUS,
+                )
+                if source["source_id"] == OBIMD_SOURCE_ID
+                else []
+            ),
             *bullet("Risk note / 风险提示", source["risk_note"]),
             *bullet("Adoption status / 采用状态", source["adoption_status"]),
             *wrapped(
@@ -4163,6 +4314,14 @@ def readme_text(
         *bullet("Literature scope / 文献范围", "16_source-literature-scope-review.md"),
         *bullet("Access integrity / 访问完整性", "18_source-access-integrity-review.md"),
         *bullet("Pre-research readiness / 预研究就绪", "20_source-presearch-readiness-review.md"),
+        *(
+            bullet(
+                "Effective rights decision / 当前有效权利决定",
+                OBIMD_RIGHTS_DECISION_FILE,
+            )
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         *(bullet("Field-map review / Source field-map review",
                   "25_source-field-map-review.md")
           if field_map_review else []),
@@ -4183,6 +4342,14 @@ def readme_text(
         *bullet("Status index / 处理状态索引", "09_source-processing-status-index.json"),
         *bullet("Access integrity index / 访问完整性索引", "19_source-access-integrity-index.json"),
         *bullet("Readiness index / 就绪索引", "21_source-presearch-readiness-index.json"),
+        *(
+            bullet(
+                "Effective rights decision index / 当前有效权利决定索引",
+                OBIMD_RIGHTS_DECISION_INDEX,
+            )
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         *(bullet("Safe derivative index / 安全派生索引", "26_safe-derivative-decision-index.json")
           if source["source_id"] in METADATA_ONLY_DERIVATIVE_SOURCE_IDS else []),
         *(bullet("Finding-list reconciliation index / 清单对账索引", "22_finding-list-reconciliation-index.json")
@@ -4482,6 +4649,14 @@ def processing_status_text(
         *bullet("Title / 标题", source["title"]),
         *bullet("Provider / 提供方", source["provider"]),
         *bullet("Rights status / 权利状态", source["rights_status"]),
+        *(
+            bullet(
+                "Effective rights status / 当前有效权利状态",
+                OBIMD_EFFECTIVE_RIGHTS_STATUS,
+            )
+            if source["source_id"] == OBIMD_SOURCE_ID
+            else []
+        ),
         *bullet("Risk note / 风险提示", source["risk_note"]),
         "",
         "## Phase Status / 阶段状态",
@@ -4615,6 +4790,15 @@ def build_materials(root: Path) -> dict[str, int]:
             field_routes,
             metadata_routes,
         )
+        if source_id == OBIMD_SOURCE_ID:
+            status_index.update(
+                {
+                    "legacy_rights_status": source["rights_status"],
+                    "effective_rights_status": OBIMD_EFFECTIVE_RIGHTS_STATUS,
+                    "public_commit_decision": OBIMD_PUBLIC_COMMIT_DECISION,
+                    "rights_override_ref": OBIMD_RIGHTS_OVERRIDE_PATH,
+                }
+            )
         fact_rows = source_provenance_fact_rows(
             source,
             download_routes,
@@ -4688,6 +4872,16 @@ def build_materials(root: Path) -> dict[str, int]:
             )
             safe_derivative_rows.append(decision_row)
         write_json(object_dir / "01_source-packet.json", packet)
+        if source_id == OBIMD_SOURCE_ID:
+            write_human_markdown(
+                object_dir / OBIMD_RIGHTS_DECISION_FILE,
+                f"{source_id}/{OBIMD_RIGHTS_DECISION_FILE}",
+                effective_rights_decision_text(source),
+            )
+            write_json(
+                object_dir / OBIMD_RIGHTS_DECISION_INDEX,
+                effective_rights_decision_index_payload(),
+            )
         write_csv(object_dir / "02_download-route-index.csv", download_routes, DOWNLOAD_ROUTE_FIELDS)
         write_csv(object_dir / "03_package-route-index.csv", package_routes, PACKAGE_ROUTE_FIELDS)
         write_csv(object_dir / "04_field-map-route-index.csv", field_routes, FIELD_ROUTE_FIELDS)

@@ -10,7 +10,11 @@
   "adoption_status": "candidate_large_source",
   "download_strategy": "Download metadata and selected raw packages only after recording source, rights, size, checksum, and external storage evidence; keep bulk image packages outside regular Git.",
   "rights_status": "licensed_for_repository",
-  "risk_note": "Dataset card reports CC-BY 4.0 while the GitHub README includes narrower academic-use wording; raw files remain large and need rights review before import.",
+  "legacy_rights_status": "licensed_for_repository",
+  "effective_rights_status": "metadata_only_until_verified",
+  "public_commit_decision": "metadata_only_no_public_redistribution_until_reconciled",
+  "rights_override_ref": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv",
+  "risk_note": "Dataset card reports CC-BY 4.0 while the GitHub README includes narrower academic-use wording; the article records CC BY-NC-ND and possible third-party terms.",
   "review_status": "reviewed",
   "object_dir": "corpus/006_research-sources-and-bibliography/001_source-objects/016_src-obimd_source-object",
   "download_route_count": 10,
@@ -42,7 +46,9 @@
     "21_source-presearch-readiness-index.json",
     "22_source-research-brief.md",
     "23_external-package-integrity-review.md",
-    "24_external-package-integrity-index.json"
+    "24_external-package-integrity-index.json",
+    "25_effective-rights-decision.md",
+    "25_effective-rights-decision-index.json"
   ],
   "browser_metadata_capture_count": 0,
   "field_map_review": false,

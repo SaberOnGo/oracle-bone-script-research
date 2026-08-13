@@ -1,0 +1,25 @@
+{
+  "record_type": "effective_rights_decision_index",
+  "source_id": "src-obimd",
+  "legacy_rights_status": "licensed_for_repository",
+  "effective_rights_status": "metadata_only_until_verified",
+  "orphan_effective_status": "local_private_only",
+  "public_commit_decision": "metadata_only_no_public_redistribution_until_reconciled",
+  "override_path": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv",
+  "conflict_review_path": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-conflict-review.md",
+  "evidence_download_ids": [
+    "dl-obimd-hf-readme",
+    "dl-obimd-github-readme"
+  ],
+  "covered_scopes": [
+    "source_row",
+    "large_source_rows",
+    "package_manifest_rows",
+    "asset_source_rows",
+    "component_candidate_rows",
+    "orphan_rights_rows"
+  ],
+  "research_boundary": "rights_audit_only_not_scholarship",
+  "review_status": "active_conflict_review",
+  "updated_at": "2026-08-13"
+}

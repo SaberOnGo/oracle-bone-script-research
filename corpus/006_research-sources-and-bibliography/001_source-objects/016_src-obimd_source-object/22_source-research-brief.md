@@ -83,10 +83,16 @@ limits on research use.
   oracle_character_occurrence -> missing_or_special_marker
 
 ## Research-Use Limits / 研究使用限制
-- Rights status / 权利状态: licensed_for_repository
-- Risk note / 风险提示: Dataset card reports CC-BY 4.0 while the GitHub README
-  includes narrower academic-use wording; raw files remain large and need rights
-  review before import.
+- Legacy rights status / 历史权利状态: licensed_for_repository
+- Effective rights status / 当前有效权利状态:
+  metadata_only_until_verified
+- Public decision / 公开决定:
+  metadata_only_no_public_redistribution_until_reconciled
+- Read the full decision / 完整决定:
+  `25_effective-rights-decision.md`
+- Risk note / 风险提示: The dataset card says CC-BY 4.0, the GitHub README
+  narrows use to academic research, and the article records CC BY-NC-ND with
+  possible third-party terms.
 - Adoption status / 采用状态: candidate_large_source
 Open 10_source-evidence-dossier.md for full checksums, package rows, field-map
 details, and source-specific pending questions.

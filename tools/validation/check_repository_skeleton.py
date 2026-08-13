@@ -8051,6 +8051,75 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                         )
             if any(len(line) > 80 for line in text.splitlines()):
                 issues.append(f"{path.relative_to(root)} has a line over 80 chars")
+        if object_dir.name == "016_src-obimd_source-object":
+            rights_page = object_dir / "25_effective-rights-decision.md"
+            rights_index = object_dir / "25_effective-rights-decision-index.json"
+            for required_path in [rights_page, rights_index]:
+                if not required_path.is_file():
+                    issues.append(
+                        f"{required_path.relative_to(root)} missing effective rights decision"
+                    )
+            if rights_page.is_file():
+                rights_text = rights_page.read_text(encoding="utf-8")
+                for snippet in [
+                    "Effective Rights Decision",
+                    "当前有效权利决定",
+                    "licensed_for_repository",
+                    "metadata_only_until_verified",
+                    "metadata_only_no_public_redistribution_until_reconciled",
+                    "006_obimd-rights-status-override.csv",
+                    "not legal advice",
+                    "not a decipherment claim",
+                ]:
+                    if snippet not in rights_text:
+                        issues.append(
+                            f"{rights_page.relative_to(root)} missing snippet: {snippet}"
+                        )
+                if any(len(line) > 80 for line in rights_text.splitlines()):
+                    issues.append(f"{rights_page.relative_to(root)} has a line over 80 chars")
+            if rights_index.is_file():
+                try:
+                    rights_data = json.loads(rights_index.read_text(encoding="utf-8"))
+                except json.JSONDecodeError as exc:
+                    issues.append(f"{rights_index.relative_to(root)} invalid JSON: {exc}")
+                    rights_data = {}
+                for key, expected_value in {
+                    "record_type": "effective_rights_decision_index",
+                    "source_id": "src-obimd",
+                    "legacy_rights_status": "licensed_for_repository",
+                    "effective_rights_status": "metadata_only_until_verified",
+                    "orphan_effective_status": "local_private_only",
+                    "public_commit_decision": (
+                        "metadata_only_no_public_redistribution_until_reconciled"
+                    ),
+                    "review_status": "active_conflict_review",
+                }.items():
+                    if rights_data.get(key) != expected_value:
+                        issues.append(
+                            f"{rights_index.relative_to(root)} {key} changed"
+                        )
+                if rights_data.get("covered_scopes") != [
+                    "source_row",
+                    "large_source_rows",
+                    "package_manifest_rows",
+                    "asset_source_rows",
+                    "component_candidate_rows",
+                    "orphan_rights_rows",
+                ]:
+                    issues.append(f"{rights_index.relative_to(root)} covered scopes changed")
+            packet_path = object_dir / "01_source-packet.json"
+            if packet_path.is_file():
+                try:
+                    packet_data = json.loads(packet_path.read_text(encoding="utf-8"))
+                except json.JSONDecodeError as exc:
+                    issues.append(f"{packet_path.relative_to(root)} invalid JSON: {exc}")
+                    packet_data = {}
+                if packet_data.get("effective_rights_status") != "metadata_only_until_verified":
+                    issues.append(f"{packet_path.relative_to(root)} effective rights status changed")
+                if "25_effective-rights-decision.md" not in packet_data.get("local_files", []):
+                    issues.append(f"{packet_path.relative_to(root)} missing rights page link")
+                if "25_effective-rights-decision-index.json" not in packet_data.get("local_files", []):
+                    issues.append(f"{packet_path.relative_to(root)} missing rights index link")
         if object_dir.name == "009_src-british-museum-oracle-bone_source-object":
             browser_metadata_path = object_dir / "23_browser-verified-metadata.md"
             browser_metadata_index_path = object_dir / "24_browser-verified-metadata-index.json"

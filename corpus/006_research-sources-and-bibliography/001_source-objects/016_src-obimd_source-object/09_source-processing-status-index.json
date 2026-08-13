@@ -3,7 +3,11 @@
   "source_id": "src-obimd",
   "source_title": "OBIMD: Oracle Bone Inscriptions Multi-modal Dataset",
   "rights_status": "licensed_for_repository",
-  "risk_note": "Dataset card reports CC-BY 4.0 while the GitHub README includes narrower academic-use wording; raw files remain large and need rights review before import.",
+  "legacy_rights_status": "licensed_for_repository",
+  "effective_rights_status": "metadata_only_until_verified",
+  "public_commit_decision": "metadata_only_no_public_redistribution_until_reconciled",
+  "rights_override_ref": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv",
+  "risk_note": "Dataset card reports CC-BY 4.0 while the GitHub README includes narrower academic-use wording; the article records CC BY-NC-ND and possible third-party terms.",
   "phases": [
     {
       "phase": "discovered",

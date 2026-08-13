@@ -19,7 +19,10 @@ before using structured support files.
 - Authority tier / 权威等级: peer_reviewed_dataset
 - URL / 链接: https://www.nature.com/articles/s41597-026-06967-0
 - Adoption status / 采用状态: candidate_large_source
-- Rights status / 权利状态: licensed_for_repository
+- Legacy rights status / 历史权利状态: licensed_for_repository
+- Effective rights status / 当前有效权利状态:
+  metadata_only_until_verified
+- Rights decision / 权利决定: 25_effective-rights-decision.md
 - Review status / 复核状态: reviewed
 
 ## Source Research Review Slots / 来源研究复核槽位
@@ -69,6 +72,8 @@ local-private.
 - Access integrity / 访问完整性: 18_source-access-integrity-review.md
 - Pre-research readiness / 预研究就绪: 20_source-presearch-readiness-review.md
 - External package integrity / 外部来源包完整性: 23_external-package-integrity-review.md
+- Effective rights decision / 当前有效权利决定:
+  25_effective-rights-decision.md
 
 ## Structured Support Entrances / 结构化辅助入口
 - Structured source packet / 结构化来源包: 01_source-packet.json
@@ -81,6 +86,8 @@ local-private.
 - Readiness index / 就绪索引: 21_source-presearch-readiness-index.json
 - External package integrity index / 外部来源包完整性索引:
   24_external-package-integrity-index.json
+- Effective rights decision index / 当前有效权利决定索引:
+  25_effective-rights-decision-index.json
 
 Structured support files only serve the human source dossier. They must not
 replace the source summary, review sheet, evidence dossier, fact matrix, rights
@@ -97,9 +104,11 @@ note, or concrete next-check questions.
 - Browser metadata capture count / 浏览器核验 metadata 数: 0
 
 ## Risk And Boundary / 风险与边界
-Dataset card reports CC-BY 4.0 while the GitHub README includes narrower
-academic-use wording; raw files remain large and need rights review before
-import.
+The legacy source field says `licensed_for_repository`, but the active
+conflict review sets the effective repository status to
+`metadata_only_until_verified`. The dataset card reports CC-BY 4.0 while the
+GitHub README includes narrower academic-use wording; the article also records
+CC BY-NC-ND and possible third-party terms.
 
 These rows are preparation-stage source routes. They are not rights clearance,
 not an import decision, not a confirmed reading, not a component assignment, not

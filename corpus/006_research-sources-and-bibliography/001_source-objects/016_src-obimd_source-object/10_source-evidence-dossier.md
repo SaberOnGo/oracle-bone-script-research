@@ -490,6 +490,16 @@ or historical correspondence.
 - Auxiliary JSON / 辅助 JSON: 11_source-evidence-dossier-index.json
 
 ## Citation Disagreement And Risk Notes / 引用、分歧与风险记录
+
+The legacy `licensed_for_repository` field is retained for source-history
+traceability only. The effective repository decision is
+`metadata_only_until_verified`; see
+`25_effective-rights-decision.md` and the linked override CSV before using any
+package, asset, or component derivative.
+
+旧的 `licensed_for_repository` 字段只保留为来源历史记录。仓库当前有效
+决定是 `metadata_only_until_verified`。使用任何来源包、资产或构件候选
+派生物前，必须先阅读 `25_effective-rights-decision.md` 及其覆盖表。
 - Citation relationship / 引用关系: 待查：先开
   `07_material-access-index.md`、`11_source-evidence-dossier-index.json`，再核对引用关系。
 - Proposer or editor / 提出者或整理者: 待查：先开 `07_material-access-index.md`

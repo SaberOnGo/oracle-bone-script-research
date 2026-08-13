@@ -23,9 +23,16 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official page exposes eight large-image routes for private inspection.
+See `18_live-source-evidence-review.md` for checksums, dimensions,
+observations, and the rights boundary. Image bytes remain only in ignored
+`.working/ihp-774/`.
 
-See `thumbnail_url` in Object Metadata.
+官方页面提供八条大图路线，仅供本地检查。请先看
+`18_live-source-evidence-review.md` 中的校验和、尺寸、观察与权利边界。
+图像字节只保留在被忽略的 `.working/ihp-774/`。
+
+The public object index remains `external_thumbnail_url_metadata_only`.
 
 ## Local Files / 本目录文件
 
@@ -33,6 +40,8 @@ See `thumbnail_url` in Object Metadata.
 - `05_human-review-sheet.md`: human review checklist.
 - `06_human-collection-dossier.md`: human collection object dossier.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
+- `18_live-source-evidence-review.md`: official page, image, and PDF route
+  evidence.
 - `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
 - `12_archaeological-context-review.md`: human archaeological context review
   sheet.

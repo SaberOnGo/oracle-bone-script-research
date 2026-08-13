@@ -6,6 +6,10 @@ object candidate. A human reviewer must verify institution, catalog record,
 findspot, period, batch, plate, image, and inscription routes before the object
 can support later research.
 
+Open `18_live-source-evidence-review.md` for the current official page,
+source display, private image observations, and linked PDF route before
+resolving these fields.
+
 简体中文：
 本表把考古语境待核问题
 放在馆藏对象候选目录内。
@@ -21,7 +25,7 @@ can support later research.
 | Catalog or accession | `pending source review` | `02_collection-source-index.csv` |
 | Source item | `774` | `01_collection-object-packet.json` |
 | Catalog description | `Chia 3939` | `01_collection-object-packet.json` |
-| Image route | `external_thumbnail_url_metadata_only` | `03_visual-asset-index.csv` |
+| Image route | private routes; rights pending | `18_live-source-evidence-review.md` |
 | Findspot or provenience | `pending findspot review` | `08_collection-provenance-evidence-dossier.md` |
 | Period or date | `pending period review` | `08_collection-provenance-evidence-dossier.md` |
 | Batch or pit context | `pending excavation batch review` | `10_collection-provenance-fact-matrix.md` |

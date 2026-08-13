@@ -8,8 +8,10 @@ Candidate collection object ID: `ihp-mus-obj-00010`
 
 - Open `02_collection-source-index.csv` and verify the source, download, and
   rights trail.
-- Open `03_visual-asset-index.csv` and confirm whether the image is committed,
-  external-only, or missing.
+- Open `18_live-source-evidence-review.md` and `03_visual-asset-index.csv`.
+  Confirm whether each route is committed, private ignored, external-only, or
+  missing.
+- Open 03_visual-asset-index.csv and name the image route status.
 - Compare object-page labels against catalog references, collection provenance,
   and inscription context.
 - Do not record inscription identity, transcription, formal reading, component
@@ -18,12 +20,15 @@ Candidate collection object ID: `ihp-mus-obj-00010`
 ## Concrete Questions To Check / 具体待查问题
 
 - Open 02_collection-source-index.csv and name the missing source row.
-- Open 03_visual-asset-index.csv and name the image route status.
+- Open 18_live-source-evidence-review.md and 03_visual-asset-index.csv; name
+  each image route status.
 - Which accession, catalog, or object ID is only a source clue?
 - Which findspot, period, batch, or plate provenance still needs checking?
 - Which rights status or reuse risk must be rechecked before public use?
 - Which inscription, glyph, or character link is only a candidate route?
 - Record missing source, visual, rights, or context route type.
+- Open the source text in 18_live-source-evidence-review.md and state whether
+  it is source-reported or independently edited.
 - 打开 02_collection-source-index.csv，写明待补来源行。
 - 打开 03_visual-asset-index.csv，写明图像路线状态。
 - 哪些 accession、catalog 或 object ID 只是来源线索？

@@ -237,6 +237,20 @@ IHP 对象候选 `ihp-mus-obj-00009` / item `1220` 已于 2026-08-14 对照官�
 路线已保存到忽略区并计算校验和。博物馆解释、版本身份、权利和独立图版定位仍
 未解决，因此仍是来源记录候选，不是已确认卜辞或释读。
 
+The IHP object candidate `ihp-mus-obj-00010` / item `774` was opened against
+the live English and Chinese official pages on 2026-08-14. The pages report
+`R041037`, `Inscribed Bovid Skull Chia 3939`, Late Shang Period, Hsiao-t'un,
+and the displayed line `隻（獲）白兕。`. Eight large image routes and the
+linked Nara PDF were downloaded to ignored local storage and hashed. Image
+rights, the catalog and plate identity, the excavation chain, and the source
+line's edition remain unresolved; this is not a confirmed reading.
+
+史语所对象候选 `ihp-mus-obj-00010` / item `774` 已于 2026-08-14 对照官方中英文
+现场页打开。页面报告 `R041037`、`Inscribed Bovid Skull Chia 3939`、晚商、
+小屯和显示文字 `隻（獲）白兕。`。八条大图路线和链接的奈良 PDF 已保存到忽略区
+并计算校验和。图像权利、著录与图版身份、出土链及来源文字版本仍未解决；这不是
+已确认释读。
+
 The IHP object candidate `ihp-mus-obj-00008` / item `1222` was opened
 against its live official page on 2026-08-14. The page reports `ZR038421`,
 `Tortoise Carapace Fragments Yi Bian 4817+5061+5520+5804+6087+R60751`, Late

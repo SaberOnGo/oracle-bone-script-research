@@ -1,0 +1,27 @@
+{
+  "candidate_edge_count": 19,
+  "candidate_edge_type": "CHARACTER_HAS_COMPONENT_CANDIDATE",
+  "character_candidate_count": 9,
+  "claim_boundary": [
+    "not a formal component assignment",
+    "not a confirmed character identity",
+    "not a decipherment conclusion"
+  ],
+  "component_candidate_count": 19,
+  "graph_file": "corpus/008_relationship-graph/016_character-component-candidate-graph-edges.jsonl",
+  "human_readable_file": "corpus/009_statistics-and-derived-features/232_character-component-linkage-audit.md",
+  "promoted_formal_relation_count": 0,
+  "record_type": "character_component_linkage_audit_index",
+  "required_next_checks": [
+    "side-by-side glyph and component image review",
+    "independent paleographic component argument",
+    "inscription context and catalog evidence"
+  ],
+  "review_status": "needs_cross_source_review",
+  "rights_status": "metadata_only_until_verified",
+  "source_ids": [
+    "src-hust-obc",
+    "src-obimd"
+  ],
+  "updated_at": "2026-08-13"
+}

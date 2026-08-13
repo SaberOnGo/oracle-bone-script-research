@@ -29,6 +29,7 @@ LINK_FIELDS = (
     "character_routes",
     "linked_glyph_candidates",
 )
+CANDIDATE_EDGE_MARKER = "candidate_not_promoted"
 MAX_HUMAN_LINE_LENGTH = 80
 
 
@@ -46,10 +47,13 @@ def wrap_bullet(text: str) -> str:
     )
 
 
-def graph_edge_rows(root: Path) -> tuple[int, int, Counter[str]]:
+def graph_edge_rows(
+    root: Path,
+) -> tuple[int, int, Counter[str], Counter[str]]:
     total = 0
     cambridge_hopkins_total = 0
-    types: Counter[str] = Counter()
+    promoted_types: Counter[str] = Counter()
+    candidate_types: Counter[str] = Counter()
     for path in sorted((root / GRAPH_ROOT).glob("*.jsonl")):
         with path.open("r", encoding="utf-8") as file:
             for line in file:
@@ -61,8 +65,11 @@ def graph_edge_rows(root: Path) -> tuple[int, int, Counter[str]]:
                     cambridge_hopkins_total += 1
                 edge_type = str(row.get("edge_type", ""))
                 if "character" in edge_type.lower() and "inscription" in edge_type.lower():
-                    types[edge_type] += 1
-    return total, cambridge_hopkins_total, types
+                    if CANDIDATE_EDGE_MARKER in str(row.get("candidate_route_status", "")):
+                        candidate_types[edge_type] += 1
+                    else:
+                        promoted_types[edge_type] += 1
+    return total, cambridge_hopkins_total, promoted_types, candidate_types
 
 
 def build_audit(root: Path) -> tuple[str, dict[str, object]]:
@@ -78,8 +85,14 @@ def build_audit(root: Path) -> tuple[str, dict[str, object]]:
             packets_with_explicit_link_fields += 1
             field_counts.update(present)
 
-    graph_total, cambridge_hopkins_total, character_inscription_edge_types = graph_edge_rows(root)
+    (
+        graph_total,
+        cambridge_hopkins_total,
+        character_inscription_edge_types,
+        character_inscription_candidate_edge_types,
+    ) = graph_edge_rows(root)
     promoted_edge_count = sum(character_inscription_edge_types.values())
+    candidate_edge_count = sum(character_inscription_candidate_edge_types.values())
     status = (
         "candidate_only_no_character_inscription_edge_promoted"
         if promoted_edge_count == 0
@@ -97,6 +110,10 @@ def build_audit(root: Path) -> tuple[str, dict[str, object]]:
         "cambridge_hopkins_graph_edge_count": cambridge_hopkins_total,
         "character_inscription_edge_count": promoted_edge_count,
         "character_inscription_edge_types": dict(sorted(character_inscription_edge_types.items())),
+        "character_inscription_candidate_edge_count": candidate_edge_count,
+        "character_inscription_candidate_edge_types": dict(
+            sorted(character_inscription_candidate_edge_types.items())
+        ),
         "review_status": status,
         "claim_boundary": [
             "no character-inscription identity claim",
@@ -104,7 +121,7 @@ def build_audit(root: Path) -> tuple[str, dict[str, object]]:
             "no transcription or inscription reading",
             "no decipherment conclusion",
         ],
-        "updated_at": "2026-07-19",
+        "updated_at": "2026-08-13",
     }
 
     field_text = ", ".join(LINK_FIELDS)
@@ -127,10 +144,18 @@ def build_audit(root: Path) -> tuple[str, dict[str, object]]:
             f"{promoted_edge_count} character-inscription graph edge(s) exist; "
             "each must remain in human review until its evidence route is opened."
         )
+    elif candidate_edge_count:
+        edge_result = (
+            "Zero character-inscription graph edges are promoted. "
+            f"{candidate_edge_count} candidate route edge(s) are present, but "
+            "they remain dataset-only routes until plate, text, position, and "
+            "identity evidence is reviewed."
+        )
     else:
         edge_result = (
-            "Zero character-inscription graph edges are promoted. This is an "
-            "audited evidence gap, not evidence that the inscriptions contain no "
+            "Zero character-inscription graph edges are promoted. Candidate "
+            "routes, if present, remain separate from formal relations. This is "
+            "an audited evidence gap, not evidence that inscriptions contain no "
             "characters."
         )
 
@@ -154,9 +179,23 @@ def build_audit(root: Path) -> tuple[str, dict[str, object]]:
                 "Character-inscription edges promoted: "
                 f"{promoted_edge_count}"
             ),
+            wrap_bullet(
+                "Character-inscription candidate routes: "
+                f"{candidate_edge_count}"
+            ),
             wrap_bullet(f"Review state: `{status}`"),
             "",
             "## What The Current Evidence Says / 当前证据说明",
+            "",
+            textwrap.fill(
+                "The raw JSONL row count is used here. The legacy graph summary "
+                "may count one edge once per source membership, so its total is "
+                "not the same denominator.",
+                width=78,
+                break_long_words=True,
+            ),
+            "本审计使用 JSONL 原始行数。旧版图谱统计可能按每个 source membership",
+            "重复计数，因此两者的总数分母并不相同。",
             "",
             textwrap.fill(evidence_result, width=78, break_long_words=True),
             "",
@@ -202,6 +241,11 @@ def build_audit(root: Path) -> tuple[str, dict[str, object]]:
             wrap_bullet(
                 "Start with each object-local `07_human-inscription-dossier.md` "
                 "and `21_character-inscription-linkage-review.md`."
+            ),
+            wrap_bullet(
+                "For the H2 source-record candidate, open its `02_human-"
+                "inscription-dossier.md` and `09_character-inscription-"
+                "candidate-graph-route.md`."
             ),
             wrap_bullet(
                 "Then open `06_plate-text-gallery.md`, `03_catalog-reference-index.csv`, "

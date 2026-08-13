@@ -4,20 +4,27 @@
 
 - Candidate packet count: 612
 - Packets with explicit character-link fields: 0
-- Graph edges scanned across JSONL files: 141589
+- Graph edges scanned across JSONL files: 141615
 - Cambridge/Hopkins catalog-route graph edges: 4403
 - Character-inscription edges promoted: 0
+- Character-inscription candidate routes: 7
 - Review state: `candidate_only_no_character_inscription_edge_promoted`
 
 ## What The Current Evidence Says / 当前证据说明
+
+The raw JSONL row count is used here. The legacy graph summary may count one
+edge once per source membership, so its total is not the same denominator.
+本审计使用 JSONL 原始行数。旧版图谱统计可能按每个 source membership
+重复计数，因此两者的总数分母并不相同。
 
 No packet exposes an explicit linked-character field. The current candidate
 rows contain catalog and period/group routing clues, but do not identify a
 character project ID or a character position in a plate, image, or inscription
 text.
 
-Zero character-inscription graph edges are promoted. This is an audited
-evidence gap, not evidence that the inscriptions contain no characters.
+Zero character-inscription graph edges are promoted. 7 candidate route edge(s)
+are present, but they remain dataset-only routes until plate, text, position,
+and identity evidence is reviewed.
 
 The 4,403 Cambridge/Hopkins graph routes currently describe source, download,
 period, group, and catalog references. They do not supply a plate position or
@@ -43,6 +50,9 @@ a linked character identity.
 
 - Start with each object-local `07_human-inscription-dossier.md` and
   `21_character-inscription-linkage-review.md`.
+- For the H2 source-record candidate, open its
+  `02_human-inscription-dossier.md` and
+  `09_character-inscription-candidate-graph-route.md`.
 - Then open `06_plate-text-gallery.md`, `03_catalog-reference-index.csv`, and
   `13_text-ocr-quality-review.md`.
 - Follow the source object dossier and download/manifest records before

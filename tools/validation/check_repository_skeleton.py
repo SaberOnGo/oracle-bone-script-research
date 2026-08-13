@@ -1682,6 +1682,14 @@ CHARACTER_VARIANT_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "014_character-variant-graph-edges.jsonl"
 )
+CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "015_character-inscription-candidate-graph-edges.jsonl"
+)
+CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "016_character-component-candidate-graph-edges.jsonl"
+)
 CROSS_SOURCE_ID_GRAPH_EDGES = (
     "corpus/008_relationship-graph/"
     "010_cross-source-id-graph-edges.jsonl"
@@ -3018,6 +3026,8 @@ REQUIRED_PATHS = [
     CHARACTER_ASSET_GRAPH_EDGES,
     CHARACTER_SOURCE_GRAPH_EDGES,
     CHARACTER_VARIANT_GRAPH_EDGES,
+    CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES,
+    CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES,
     CROSS_SOURCE_ID_GRAPH_EDGES,
     COMPONENT_ASSET_GRAPH_EDGES,
     CAMBRIDGE_HOPKINS_TOPIC_GRAPH_EDGES,
@@ -3028,6 +3038,10 @@ REQUIRED_PATHS = [
     "225_character-variant-linkage-audit.md",
     "corpus/009_statistics-and-derived-features/"
     "226_character-variant-linkage-audit-index.json",
+    "corpus/009_statistics-and-derived-features/"
+    "232_character-component-linkage-audit.md",
+    "corpus/009_statistics-and-derived-features/"
+    "233_character-component-linkage-audit-index.json",
     AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
     AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
     AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
@@ -5514,6 +5528,54 @@ def check_character_variant_linkage_audit(root: Path) -> list[str]:
             issues.append(f"{index_relative} graph edge count changed")
         if index.get("review_status") != "candidate_variant_routes_require_human_review":
             issues.append(f"{index_relative} review status changed")
+    return issues
+
+
+def check_character_component_linkage_audit(root: Path) -> list[str]:
+    issues: list[str] = []
+    human_relative = (
+        "corpus/009_statistics-and-derived-features/"
+        "232_character-component-linkage-audit.md"
+    )
+    index_relative = (
+        "corpus/009_statistics-and-derived-features/"
+        "233_character-component-linkage-audit-index.json"
+    )
+    human_path = root / human_relative
+    index_path = root / index_relative
+    if not path_exists(human_path):
+        issues.append(f"{human_relative} missing")
+    else:
+        text = human_path.read_text(encoding="utf-8")
+        for snippet in [
+            "Character-Component Linkage Audit",
+            "19 explicit cross-source candidate",
+            "Promoted formal character-component relations: 0",
+            "not a formal component assignment",
+            "not a decipherment conclusion",
+            "Evidence Still Required",
+        ]:
+            if snippet not in text:
+                issues.append(f"{human_relative} missing marker: {snippet}")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(f"{human_relative}:{line_number} line exceeds 80 characters")
+    if not path_exists(index_path):
+        issues.append(f"{index_relative} missing")
+    else:
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        if index.get("record_type") != "character_component_linkage_audit_index":
+            issues.append(f"{index_relative} record_type changed")
+        if index.get("candidate_edge_count") != 19:
+            issues.append(f"{index_relative} candidate edge count changed")
+        if index.get("character_candidate_count") != 9:
+            issues.append(f"{index_relative} character count changed")
+        if index.get("component_candidate_count") != 19:
+            issues.append(f"{index_relative} component count changed")
+        if index.get("promoted_formal_relation_count") != 0:
+            issues.append(f"{index_relative} promoted relation count changed")
+        if index.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{index_relative} rights status changed")
     return issues
 
 
@@ -11238,6 +11300,266 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
     if first_topic_edge.get("target_node_id") != "src-cambridge-hopkins":
         issues.append(f"{CAMBRIDGE_HOPKINS_TOPIC_GRAPH_EDGES} first edge target changed")
 
+    return issues
+
+
+def check_character_inscription_candidate_graph(root: Path) -> list[str]:
+    """Validate the explicit, non-promoted H2 character-inscription routes."""
+
+    issues: list[str] = []
+    graph_path = root / CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES
+    occurrence_path = root / (
+        "corpus/002_oracle-bone-inscriptions/008_source-record-candidates/"
+        "001_obs-insc-src-cand-000001_obimd-h2_source-record-candidate/"
+        "91_character-occurrence-index.csv"
+    )
+    rows, row_issues = _read_jsonl_rows(graph_path)
+    occurrence_rows, occurrence_issues = _read_csv_rows(occurrence_path)
+    issues.extend(row_issues)
+    issues.extend(occurrence_issues)
+    if len(rows) != 7:
+        issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} should contain 7 edges")
+    if len(occurrence_rows) != 7:
+        issues.append(f"{occurrence_path.relative_to(root).as_posix()} should contain 7 rows")
+
+    required_fields = {
+        "edge_id",
+        "source_node_id",
+        "edge_type",
+        "target_node_id",
+        "confidence_level",
+        "source_ids",
+        "evidence_note",
+        "review_status",
+        "candidate_route_status",
+        "identity_claim_status",
+        "rights_status",
+        "source_record_path",
+        "occurrence_index_path",
+        "source_record_locator",
+        "source_uid",
+        "order_number",
+        "bounding_box_xywh",
+    }
+    seen_ids: set[str] = set()
+    compact_rows: list[dict[str, object]] = []
+    for index, row in enumerate(rows, start=1):
+        edge_id = str(row.get("edge_id", ""))
+        if not required_fields.issubset(row):
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} missing fields: {edge_id}")
+        if edge_id in seen_ids:
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} duplicate edge: {edge_id}")
+        seen_ids.add(edge_id)
+        if edge_id != f"edge-character-inscription-obimd-h2-{index:03d}":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} edge sequence changed: {edge_id}")
+        if row.get("edge_type") != "CHARACTER_HAS_INSCRIPTION_SOURCE_RECORD_CANDIDATE":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} edge type changed: {edge_id}")
+        if row.get("confidence_level") != "unknown":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} confidence changed: {edge_id}")
+        if row.get("source_ids") != ["src-obimd"]:
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} source ids changed: {edge_id}")
+        if row.get("review_status") != "needs_human_inscription_review":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} review status changed: {edge_id}")
+        if row.get("candidate_route_status") != "dataset_candidate_not_promoted":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} promotion status changed: {edge_id}")
+        if row.get("identity_claim_status") != "no_identity_claim":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} identity status changed: {edge_id}")
+        if row.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} rights status changed: {edge_id}")
+        note = str(row.get("evidence_note", ""))
+        for marker in [
+            "not a confirmed character identity",
+            "not a decipherment conclusion",
+        ]:
+            if marker not in note:
+                issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} caution changed: {edge_id}")
+        if row.get("source_record_path") != (
+            "corpus/002_oracle-bone-inscriptions/008_source-record-candidates/"
+            "001_obs-insc-src-cand-000001_obimd-h2_source-record-candidate/"
+            "90_source-record.json"
+        ):
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} record route changed: {edge_id}")
+        if row.get("occurrence_index_path") != occurrence_path.relative_to(root).as_posix():
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} occurrence route changed: {edge_id}")
+        if not str(row.get("source_node_id", "")).startswith("obs-comp-cand-"):
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} source node changed: {edge_id}")
+        if row.get("target_node_id") != "obs-insc-src-cand-000001":
+            issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} target node changed: {edge_id}")
+        compact_rows.append(
+            {
+                "edge_id": row.get("edge_id"),
+                "source_node_id": row.get("source_node_id"),
+                "target_node_id": row.get("target_node_id"),
+                "source_uid": row.get("source_uid"),
+                "order_number": row.get("order_number"),
+                "bounding_box_xywh": row.get("bounding_box_xywh"),
+            }
+        )
+
+    expected_rows = []
+    for index, occurrence in enumerate(occurrence_rows, start=1):
+        expected_rows.append(
+            {
+                "edge_id": f"edge-character-inscription-obimd-h2-{index:03d}",
+                "source_node_id": occurrence.get("candidate_project_id"),
+                "target_node_id": "obs-insc-src-cand-000001",
+                "source_uid": occurrence.get("source_uid"),
+                "order_number": int(occurrence.get("order_number", "-1")),
+                "bounding_box_xywh": [
+                    int(value) for value in occurrence.get("bounding_box_xywh", "").split(",")
+                ],
+            }
+        )
+    if compact_rows != expected_rows:
+        issues.append(f"{CHARACTER_INSCRIPTION_CANDIDATE_GRAPH_EDGES} occurrence sequence changed")
+    return issues
+
+
+def check_character_component_candidate_graph(root: Path) -> list[str]:
+    """Validate cross-source character-to-component candidate routes."""
+
+    issues: list[str] = []
+    graph_path = root / CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES
+    crosswalk_path = root / (
+        "corpus/001_oracle-characters/000_character-registers/"
+        "011_hust-obimd-evobc-codepoint-crosswalk-staging.csv"
+    )
+    main_path = root / (
+        "corpus/001_oracle-characters/000_character-registers/"
+        "006_obimd-main-character-staging.csv"
+    )
+    component_path = root / (
+        "corpus/003_graphemic-components/000_component-registers/"
+        "002_obimd-subcharacter-main-staging.csv"
+    )
+    component_map_path = root / (
+        "project_registry/002_project-id-to-source-reference-map/"
+        "004_component-id-source-map.csv"
+    )
+    rows, row_issues = _read_jsonl_rows(graph_path)
+    crosswalk_rows, crosswalk_issues = _read_csv_rows(crosswalk_path)
+    main_rows, main_issues = _read_csv_rows(main_path)
+    component_rows, component_issues = _read_csv_rows(component_path)
+    component_map_rows, component_map_issues = _read_csv_rows(component_map_path)
+    issues.extend(row_issues)
+    issues.extend(crosswalk_issues)
+    issues.extend(main_issues)
+    issues.extend(component_issues)
+    issues.extend(component_map_issues)
+
+    if len(rows) != 19:
+        issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} should contain 19 edges")
+
+    required_fields = {
+        "edge_id",
+        "source_node_id",
+        "edge_type",
+        "target_node_id",
+        "confidence_level",
+        "source_ids",
+        "evidence_note",
+        "review_status",
+        "candidate_route_status",
+        "identity_claim_status",
+        "rights_status",
+        "cross_source_status",
+        "crosswalk_candidate_id",
+        "hust_character_id",
+        "obimd_main_candidate_id",
+        "obimd_main_source_uid",
+        "obimd_subcharacter_uid",
+        "component_candidate_id",
+        "route_files",
+        "source_rights_statuses",
+        "missing_evidence",
+    }
+    seen_ids: set[str] = set()
+    for index, row in enumerate(rows, start=1):
+        edge_id = str(row.get("edge_id", ""))
+        if not required_fields.issubset(row):
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} missing fields: {edge_id}")
+        if edge_id in seen_ids:
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} duplicate edge: {edge_id}")
+        seen_ids.add(edge_id)
+        if edge_id != f"edge-character-component-obimd-{index:03d}":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} edge sequence changed: {edge_id}")
+        if row.get("edge_type") != "CHARACTER_HAS_COMPONENT_CANDIDATE":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} edge type changed: {edge_id}")
+        if row.get("confidence_level") != "unknown":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} confidence changed: {edge_id}")
+        if row.get("source_ids") != ["src-hust-obc", "src-obimd"]:
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} source ids changed: {edge_id}")
+        if row.get("review_status") != "needs_cross_source_review":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} review status changed: {edge_id}")
+        if row.get("candidate_route_status") != "dataset_candidate_not_promoted":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} promotion status changed: {edge_id}")
+        if row.get("identity_claim_status") != "no_identity_claim":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} identity status changed: {edge_id}")
+        if row.get("rights_status") != "metadata_only_until_verified":
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} rights status changed: {edge_id}")
+        note = str(row.get("evidence_note", ""))
+        for marker in [
+            "not a formal component assignment",
+            "not a decipherment conclusion",
+        ]:
+            if marker not in note:
+                issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} caution changed: {edge_id}")
+        if not str(row.get("source_node_id", "")).startswith("obs-char-"):
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} source node changed: {edge_id}")
+        if not str(row.get("target_node_id", "")).startswith("obs-comp-cand-"):
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} target node changed: {edge_id}")
+        if row.get("source_rights_statuses") != {
+            "src-hust-obc": "source_marked_risk_noted",
+            "src-obimd": "metadata_only_until_verified",
+        }:
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} source rights changed: {edge_id}")
+        if len(row.get("missing_evidence", [])) != 3:
+            issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} missing evidence changed: {edge_id}")
+
+    main_by_candidate = {
+        row.get("candidate_main_character_id", ""): row for row in main_rows
+    }
+    components_by_main: dict[str, list[dict[str, str]]] = {}
+    for row in component_rows:
+        components_by_main.setdefault(row.get("source_main_character_uid", ""), []).append(row)
+    local_id_by_external: dict[str, str] = {}
+    for row in component_map_rows:
+        project_id = row.get("project_id", "")
+        for external_ref in row.get("all_external_ref_ids", "").split(";"):
+            external_ref = external_ref.strip()
+            if external_ref.startswith("obimd-sub-"):
+                local_id_by_external[external_ref] = project_id
+
+    expected_pairs: list[tuple[str, str]] = []
+    for crosswalk in crosswalk_rows:
+        character_id = crosswalk.get("suggested_oracle_character_id", "")
+        for main_candidate_id in crosswalk.get(
+            "obimd_candidate_main_character_ids", ""
+        ).split(";"):
+            main_candidate_id = main_candidate_id.strip()
+            if not character_id or not main_candidate_id:
+                continue
+            main_row = main_by_candidate.get(main_candidate_id)
+            if main_row is None:
+                issues.append(f"missing OBIMD main candidate: {main_candidate_id}")
+                continue
+            for component in components_by_main.get(main_row.get("source_uid", ""), []):
+                component_id = local_id_by_external.get(
+                    component.get("subcharacter_external_ref_id", "")
+                )
+                if component_id:
+                    expected_pairs.append((character_id, component_id))
+                else:
+                    issues.append(
+                        "missing component project id: "
+                        f"{component.get('subcharacter_external_ref_id', '')}"
+                    )
+    actual_pairs = [
+        (str(row.get("source_node_id", "")), str(row.get("target_node_id", "")))
+        for row in rows
+    ]
+    if actual_pairs != expected_pairs:
+        issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} source mapping changed")
     return issues
 
 
@@ -36138,11 +36460,14 @@ def main() -> int:
     issues.extend(check_source_registers(root))
     issues.extend(check_hust_obc_undeciphered_candidates(root))
     issues.extend(check_relationship_graph_edges(root))
+    issues.extend(check_character_inscription_candidate_graph(root))
+    issues.extend(check_character_component_candidate_graph(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))
     issues.extend(check_character_visual_observation_coverage(root))
     issues.extend(check_character_dossier_local_image_truth(root))
     issues.extend(check_component_visual_observation_coverage(root))
+    issues.extend(check_character_component_linkage_audit(root))
     issues.extend(check_preprocessing_status_audit(root))
     issues.extend(check_data_quality_audit(root))
     issues.extend(check_source_processing_pipeline_audit(root))

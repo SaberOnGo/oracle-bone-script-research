@@ -77,6 +77,10 @@ using any edge as evidence.
   writes character-candidate to registered-source provenance routes.
 - `build_character_variant_graph_edges.py`
   writes OBIMD sub-character/main-character variant review routes.
+- `build_character_inscription_candidate_graph_edges.py`
+  writes H2 source-UID to component-candidate occurrence routes.
+- `build_character_component_candidate_graph_edges.py`
+  writes HUST-to-OBIMD component candidate routes.
 
 ## Concrete Questions To Check / 具体待查问题
 

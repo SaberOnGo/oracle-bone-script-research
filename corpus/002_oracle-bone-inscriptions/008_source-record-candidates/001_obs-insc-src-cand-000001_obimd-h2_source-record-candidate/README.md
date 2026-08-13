@@ -45,8 +45,10 @@ UID 不是已确认的字形、字符或释读。
 8. `08_sequence-context-evidence.md`: inspect the seven ordered source
    occurrences and the distinction between source serialization and
    annotation order.
-9. Open `92_visual-crosswalk-replay-manifest.json` only after the human
-   investigation page; it is the machine-verifiable replay receipt.
-10. Open `90_source-record.json` and the CSV only as supporting indexes.
+9. `09_character-inscription-candidate-graph-route.md`: inspect the seven
+   candidate graph routes and their promotion boundary.
+10. Open `92_visual-crosswalk-replay-manifest.json` only after the human
+    investigation page; it is the machine-verifiable replay receipt.
+11. Open `90_source-record.json` and the CSV only as supporting indexes.
 
 本目录是预研究来源记录，不是释读、著录同一性或破译结论。

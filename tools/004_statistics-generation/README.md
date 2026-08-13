@@ -68,8 +68,12 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `219_shape-component-evolution-phase-gap-human-guide.md`.
 - Character-inscription linkage audit:
   `223_character-inscription-linkage-audit.md` and its supporting index.
+  The audit distinguishes seven H2 candidate routes from promoted relations.
 - Character-variant linkage audit:
   `225_character-variant-linkage-audit.md` and its supporting index.
+- Character-component linkage audit:
+  run `build_character_component_linkage_audit.py`, then open
+  `232_character-component-linkage-audit.md` and its supporting index.
 - Character image observation audit:
   `226_character-visual-observation-coverage-audit.md` and
   `227_character-visual-observation-coverage.csv`.
@@ -116,7 +120,7 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
   `213_core-corpus-phase-gap-human-review-guide.md`.
 - Character-inscription linkage:
   run `build_character_inscription_linkage_audit.py`, then open the human
-  audit before changing any relation edge.
+  audit and the H2 object route before changing any relation edge.
 - Source access boundaries:
   run `build_source_access_boundary_review.py`, then open the human guide
   before scheduling another access retry.

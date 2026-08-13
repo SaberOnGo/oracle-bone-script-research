@@ -1,5 +1,9 @@
 {
   "cambridge_hopkins_graph_edge_count": 4403,
+  "character_inscription_candidate_edge_count": 7,
+  "character_inscription_candidate_edge_types": {
+    "CHARACTER_HAS_INSCRIPTION_SOURCE_RECORD_CANDIDATE": 7
+  },
   "character_inscription_edge_count": 0,
   "character_inscription_edge_types": {},
   "claim_boundary": [
@@ -9,7 +13,7 @@
     "no decipherment conclusion"
   ],
   "explicit_link_field_counts": {},
-  "graph_edge_count_all_jsonl": 141589,
+  "graph_edge_count_all_jsonl": 141615,
   "graph_root": "corpus/008_relationship-graph",
   "human_readable_file": "corpus/009_statistics-and-derived-features/223_character-inscription-linkage-audit.md",
   "packet_count": 612,
@@ -17,5 +21,5 @@
   "packets_with_explicit_character_link_fields": 0,
   "record_type": "character_inscription_linkage_audit_index",
   "review_status": "candidate_only_no_character_inscription_edge_promoted",
-  "updated_at": "2026-07-19"
+  "updated_at": "2026-08-13"
 }

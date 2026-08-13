@@ -52,6 +52,8 @@ English:
 | `012_cambridge-hopkins-topic...` | Topic/crosswalk review routes. |
 | `013_character-source-graph...` | Character-to-source routes. |
 | `014_character-variant-graph-edges.jsonl` | Candidate variant review routes. |
+| `015_character-inscription-candidate...` | H2 candidate occurrence routes. |
+| `016_character-component-candidate...` | Cross-source component candidates. |
 
 ## Edge Dossier Content / 图边档案内容
 

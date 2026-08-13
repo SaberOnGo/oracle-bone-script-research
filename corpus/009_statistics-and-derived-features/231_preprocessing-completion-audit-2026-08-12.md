@@ -201,13 +201,21 @@ staging 和图边中的 `licensed_for_repository` 仍是来源自报的追溯字
 
 ### Graph and AI laboratory / 图谱与 AI 实验室
 
-The relationship graph contains `141,589` routing edges. It still has no
-reviewed formal `character-component` or `character-inscription` relation.
-EvoBC evolution edges remain dataset routes, not verified evolution claims.
+The legacy relationship graph contains `141,589` routing edges. A new H2
+source-record layer adds seven explicit `character-inscription` candidate
+routes, and the cross-source component layer adds 19 explicit
+`character-component` candidate routes. The scanned route total is therefore
+`141,615`. All 26 new routes remain
+`dataset_candidate_not_promoted`; there is still no reviewed formal
+`character-component` or `character-inscription` relation. EVOBC evolution
+edges remain dataset routes, not verified evolution claims.
 
-关系图已有 `141,589` 条路线边，但仍没有经复核的正式
-`character-component` 或 `character-inscription` 关系。EvoBC 演化边仍
-是数据集路线，不是已验证的字形演化结论。
+旧版关系图已有 `141,589` 条路线边。新的 H2 来源记录层增加七条明确的
+`character-inscription` 候选路线；另有 19 条 `character-component` 候选路线，
+因此当前扫描路线总数为 `141,615`。
+七条路线都仍是 `dataset_candidate_not_promoted`；仍没有经复核的正式
+`character-component` 或 `character-inscription` 关系。EvoBC 演化边仍是
+数据集路线，不是已验证的字形演化结论。
 
 The benchmark contract, validator, and pilot tooling exist. A local v4
 diagnostic later produced two structurally valid locked Agent runs. Both

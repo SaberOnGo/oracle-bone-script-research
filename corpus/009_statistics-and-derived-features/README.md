@@ -60,13 +60,17 @@ substitutes for object-local dossiers, source records, or review sheets.
 - `222_object-local-human-research-depth-human-guide.md`
   is the human-readable companion for opening each area dossier first.
 - `223_character-inscription-linkage-audit.md`
-  records the current evidence gap before any character-inscription edge.
+  records seven H2 candidate routes and the gap before any promoted relation.
 - `224_character-inscription-linkage-audit-index.json`
   is the machine-readable count supporting the human linkage audit.
 - `225_character-variant-linkage-audit.md`
   records the human-readable evidence boundary for candidate variant routes.
 - `226_character-variant-linkage-audit-index.json`
   is the machine-readable count supporting the variant linkage audit.
+- `232_character-component-linkage-audit.md`
+  records 19 cross-source component candidate routes and their boundaries.
+- `233_character-component-linkage-audit-index.json`
+  is the machine-readable count supporting that component audit.
 - `225_source-access-boundary-human-review.md`
   groups repeated access attempts into source and failure-condition tasks.
 - `226_source-access-boundary-review-index.csv`
@@ -102,10 +106,13 @@ substitutes for object-local dossiers, source records, or review sheets.
   character-inscription graph route.
 - Open `225_character-variant-linkage-audit.md` before using any
   character-variant graph route.
+- Open `232_character-component-linkage-audit.md` before using any
+  character-component candidate route.
 - Follow its cited object-local `21_character-inscription-linkage-review.md`
   files to collect plate, text, position, and character-ID evidence.
 - A zero promoted-edge count is an audited evidence gap, not a claim that
-  inscriptions contain no characters.
+  inscriptions contain no characters. Candidate routes remain separate from
+  promoted relations until plate, text, position, and identity evidence exist.
 
 ### Character Image Observation Review / 单字图像观察复核
 

@@ -1,5 +1,12 @@
 # Archaeological Context Review / 考古语境复核: coll-obj-cand-00003
 
+The live museum-page evidence and image-route results are in
+`18_live-source-evidence-review.md`. The museum's period and findspot remain
+source-reported values awaiting independent catalog verification.
+
+现场博物馆页证据和图像路由结果见 `18_live-source-evidence-review.md`。馆方给出的
+时期和出土地仍是来源报告值，等待独立著录核对。
+
 English:
 This review sheet keeps archaeological context questions beside the collection
 object candidate. A human reviewer must verify institution, catalog record,

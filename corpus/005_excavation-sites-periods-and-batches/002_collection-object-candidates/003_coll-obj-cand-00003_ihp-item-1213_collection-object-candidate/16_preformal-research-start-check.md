@@ -18,6 +18,7 @@ rights, and unresolved disputes.
 | 3 | `06_human-collection-dossier.md` | catalog clues |
 | 4 | `12_archaeological-context-review.md` | context gaps |
 | 5 | `14_human-research-readiness-review.md` | blockers |
+| 6 | `18_live-source-evidence-review.md` | live plate and inscription evidence |
 
 ## Concrete Start Questions / 具体开包问题
 

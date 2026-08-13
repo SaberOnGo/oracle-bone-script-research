@@ -194,6 +194,19 @@ IHP 对象候选 `ihp-mus-obj-00002` / `1214` 也已对照官方现场页打开�
 小屯和龟腹甲，但短文字仍含图像占位。该对象仍是仅元数据权利的来源记录候选，未
 提升为释文。
 
+The IHP object candidate `ihp-mus-obj-00003` / item `1213` now supplies the
+strongest museum-side plate example in this batch. Its page reports `R044295`,
+`Bing Bian 0008`, Late Shang, SYFYH127 at Hsiao-t'un, dimensions, and Turtle
+Plastron, together with front and reverse source text. Two JPEG routes were
+opened privately and hashed. Several signs remain image placeholders, so the
+record is still a source-reported partial transcription rather than a verified
+full inscription dossier.
+
+IHP 对象候选 `ihp-mus-obj-00003` / `1213` 现在是本批最完整的博物馆图版样例。页面报告
+`R044295`、`Bing Bian 0008`、晚商、小屯 SYFYH127、尺寸和龟腹甲，并给出正反面来源
+文字。两条 JPEG 路由已在本地打开并计算校验和。若干字仍为图像占位，因此仍是来源
+报告的部分释文，不是已核实的完整卜辞档案。
+
 H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
 卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 

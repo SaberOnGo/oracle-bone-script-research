@@ -169,6 +169,19 @@ and full inscription contexts. The current item-level dossiers are not a
 complete literature corpus.
 Requirements 8, 9, and 10 therefore remain incomplete.
 
+The IHP museum object candidate `ihp-mus-obj-00001` / item `1212` was opened
+against its live official page on 2026-08-14. The source page reports an item
+number, catalog text, period, findspot, dimensions, material, and a short
+source text. Two large-image routes returned JPEGs for private inspection; a
+third returned the museum homepage as HTML. These results are now recorded in
+the object-local human dossier and do not clear metadata-only rights or prove
+a plate identity, full transcription, or reading.
+
+2026-08-14 IHP 博物馆的 `ihp-mus-obj-00001` / `1212` 对象已对照官方现场页打开。
+来源页报告了对象编号、著录文字、时期、出土地、尺寸、材质和短来源文字。两条大
+图路由返回 JPEG，仅供本地观察；第三条返回博物馆首页 HTML。结果已写入对象目录的
+人类档案，但没有解除仅元数据权利，也没有证明图版身份、完整释文或释读。
+
 H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
 卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 

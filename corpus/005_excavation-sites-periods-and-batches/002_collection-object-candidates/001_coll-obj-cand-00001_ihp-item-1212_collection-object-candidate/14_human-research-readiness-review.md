@@ -1,5 +1,12 @@
 # Human Research Readiness Review / 人类研究准备度复核: coll-obj-cand-00001
 
+The live evidence page `18_live-source-evidence-review.md` now records two
+private JPEG fetches and one redirected image route. This improves access
+traceability but does not clear the rights, plate, or transcription blockers.
+
+现场证据页 `18_live-source-evidence-review.md` 已记录两次本地 JPEG 获取和一次重定向
+图像路由。这提高了访问可追溯性，但没有解除权利、图版或释文阻断项。
+
 English:
 This review records what a human researcher must still open before using this
 collection object candidate in formal oracle-bone research. It gathers source,

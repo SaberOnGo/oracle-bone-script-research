@@ -42,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   research starts.
 - `17_catalog-to-plate-identity-audit.md`: human catalog-to-plate identity
   audit; it remains a candidate route.
+- `18_live-source-evidence-review.md`: live official-page and image-route
+  evidence review; JPEGs remain ignored local inspection files.
 
 ## Structured Support Files / 结构化辅助文件
 

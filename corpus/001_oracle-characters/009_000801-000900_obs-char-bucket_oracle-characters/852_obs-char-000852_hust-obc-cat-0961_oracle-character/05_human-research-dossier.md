@@ -28,10 +28,12 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 - visual source index: `02_visual-source-index.csv`
 - visual index rows: `1`
 - local review images: `1`
+- opened raw-package members: `6` recorded with exact hashes and dimensions
 - local image routes: `1`
 - source image refs: `1`
 - rights status: `source_marked_risk_noted`
 - visual review: `needs_human_visual_review`
+- multi-instance comparison: `17_multi-instance-visual-comparison.md`
 
 ### Primary Visual Material / 主要图像材料
 
@@ -56,6 +58,11 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 These rows identify source-marked review images and source-image routes. They
 are visual evidence entrances, not glyph analysis, component assignment,
 accepted reading, or rights clearance.
+
+Six raw-package members are opened and compared in
+`17_multi-instance-visual-comparison.md`. The comparison is a preparation-stage
+visual record. It does not establish one glyph identity, a duplicate relation,
+an inscription identity, or a reading.
 
 这些行只标出带来源的复核图像和来源图片路线。它们是视觉证据入口，不是字形分析、构件归属、已接受释读或权利清理结论。
 
@@ -251,6 +258,9 @@ a component assignment.
 ## 10. Missing Data / 缺失项
 
 ### Concrete Questions To Check / 具体待查问题
+
+The six opened members and their counterevidence are listed in
+`17_multi-instance-visual-comparison.md`; the following checks remain open.
 
 - Which source records identify obs-char-000852 beyond the current packet?
 - 除当前 packet 外，哪些来源记录可以继续定位 obs-char-000852？

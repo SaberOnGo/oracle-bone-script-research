@@ -45,11 +45,13 @@ accepted here.
 
 - visual index rows: `1`
 - local review images: `1`
+- opened raw-package members: `6`, with exact member hashes and pixel sizes
 - source image routes: `1`
 - first local image: `001_asset-000857_hust-obc-cat-0961_glyph.png`
 - first source image: `G_0961_京津4410合31923無名組.png`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+- multi-instance comparison: `17_multi-instance-visual-comparison.md`
 
 Questions:
 - Which strokes, outlines, damage, or uncertain marks are visible?

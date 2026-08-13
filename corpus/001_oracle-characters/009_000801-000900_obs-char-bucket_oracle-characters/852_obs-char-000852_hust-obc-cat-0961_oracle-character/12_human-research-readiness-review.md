@@ -62,9 +62,11 @@ They do not replace the human record.
 
 - visual index rows: `1`
 - local review images: `1`
+- opened visual members: `6` in the multi-instance comparison
 - source image routes: `1`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+- multi-instance comparison: `17_multi-instance-visual-comparison.md`
 - graph edge count: `4`
 - graph edge types: CHARACTER_HAS_EVOBC_CODEPOINT_LOOKUP_ROUTE; plus 3 more
 - route files: 009_hust-obc-obs-char-promotion-review-queue.csv; plus 7 more

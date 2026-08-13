@@ -124,6 +124,9 @@ They reduce three zero-instance gaps but do not change the overall
 - `obs-char-000791` now has five opened HUST raw-package instances. Its
   object-local comparison binds exact member names, hashes, sizes, pixels,
   visible differences, rights limits, and two-way falsifiers;
+- `obs-char-000852` now has six opened HUST raw-package instances, including a
+  duplicate-like route and a GuoXueDaShi route, with exact hashes, dimensions,
+  visual differences, rights limits, and concrete duplicate checks;
 - the H2 `08_sequence-context-evidence.md` recomputes one group and seven
   occurrences. It preserves source serialization order `5, 0, 1, 2, 3, 6, 4`
   separately from annotation order and does not call the UID sequence a text;
@@ -152,6 +155,8 @@ They reduce three zero-instance gaps but do not change the overall
 - `obs-char-000621` 新增五个已打开的 HUST 原包实例；
   `17_multi-instance-visual-comparison.md` 记录校验和、尺寸、可见差异、
   替代解释和双向可证伪条件；
+- `obs-char-000852` 新增六个已打开的 HUST 原包实例，包含副本疑点和
+  GuoXueDaShi 路线，并记录校验和、尺寸、视觉差异、权利边界和具体查重问题；
 - H2 的 `08_sequence-context-evidence.md` 复算一个句组和七个 occurrence，
   区分源数组物理顺序与标注顺序，不把 UID 序列写成释文；
 - Cambridge Hopkins 馆藏目录档案并列保存官方总数 `609` 与本地保留

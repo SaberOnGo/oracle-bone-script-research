@@ -31,6 +31,9 @@ period, batch, plate, inscription, and character context.
 - visual_entry_type: `external_thumbnail_url_metadata_only`
 - visual_index: `03_visual-asset-index.csv`
 - visual_gallery: `04_visual-gallery.md`
+- live route review: `18_live-source-evidence-review.md`
+- two large JPEGs were fetched to ignored local storage on 2026-08-14;
+  rights remain `metadata_only_until_verified`.
 
 ## Findspot Period Batch And Plate Checks / 出土地、时期、批次与图版复核
 

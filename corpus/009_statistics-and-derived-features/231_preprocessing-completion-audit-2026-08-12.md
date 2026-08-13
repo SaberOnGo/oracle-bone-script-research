@@ -222,6 +222,23 @@ IHP 对象候选 `ihp-mus-obj-00004` / item `1215` 已于 2026-08-14 对照官�
 校验和。英文解释仍是来源报告；当前没有独立版本定位、完整 OCR 或权利清理，
 因此仍是来源记录候选，不是已确认图版或释读。
 
+The IHP object candidate `ihp-mus-obj-00008` / item `1222` was opened
+against its live official page on 2026-08-14. The page reports `ZR038421`,
+`Tortoise Carapace Fragments Yi Bian 4817+5061+5520+5804+6087+R60751`, Late
+Shang Period, SYFYH127, dimensions, and Turtle Plastron. Its source display
+contains brackets, ellipses, and three inline image placeholders. The English
+description suggests shallow-carving and genealogy questions, but that remains
+source-reported and uncertain. Two large JPEG routes were fetched to ignored
+local storage and hashed; rights and independent edition locators remain
+unresolved.
+
+IHP 对象候选 `ihp-mus-obj-00008` / item `1222` 已于 2026-08-14 对照官方现场页打开。
+页面报告 `ZR038421`、`Tortoise Carapace Fragments Yi Bian
+4817+5061+5520+5804+6087+R60751`、
+晚商、SYFYH127、尺寸和龟腹甲。来源文字含方括号、省略号和三个内嵌图像占位符。
+英文说明提出浅刻和谱系问题，但仍是来源报告且带不确定性。两条大图路线已下载
+到忽略区并计算校验和；权利和独立版本定位仍未解决。
+
 The IHP object candidate `ihp-mus-obj-00007` / item `1218` was opened
 against its live official page on 2026-08-14. The page reports `R044753`,
 `Reshaped Tortoise Carapace Yi Bian 4681`, Late Shang Period, SYFYH127,

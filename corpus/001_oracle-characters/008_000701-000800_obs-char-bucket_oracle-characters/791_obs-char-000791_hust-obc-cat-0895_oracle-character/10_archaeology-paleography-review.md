@@ -40,6 +40,9 @@ accepted here.
 - `02_visual-source-index.csv`
 - `07_research-dossier-index.json`
 - `09_character-context-evidence-index.json`
+- `14_material-visual-observation.md`
+- `15_source-filename-evidence-review.md`
+- `17_multi-instance-visual-comparison.md`
 
 ## 3. Glyph Image And Observation / 字形图像与观察
 
@@ -50,6 +53,13 @@ accepted here.
 - first source image: `G_0895_乙1206合974賓組.png`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+
+Direct observations are recorded in files 14 and 17. They remain
+preparation-stage observations until an independent review checks the source
+plate, neighboring signs, damage, and tracing alternatives.
+
+文件 14 和 17 已记录直接可见观察。它们仍是预处理阶段观察，必须再核对原始
+图版、邻字、损伤和摹写替代解释，不能直接进入正式释读。
 
 Questions:
 - Which strokes, outlines, damage, or uncertain marks are visible?
@@ -97,7 +107,7 @@ Questions:
 
 ## 6. Provenance Collection Period / 出土馆藏时期
 
-- source package: ``
+- source package: `large-src-000001`
 - download or access ids: dl-hust-obc-validation-label; plus 1 more
 - source metadata files: Validation_label.json; ID_to_Chinese.json
 - rights status: `source_marked_risk_noted`

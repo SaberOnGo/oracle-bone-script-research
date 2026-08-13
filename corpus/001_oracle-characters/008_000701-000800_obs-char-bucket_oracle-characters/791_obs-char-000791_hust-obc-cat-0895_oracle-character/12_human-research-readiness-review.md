@@ -25,7 +25,7 @@ inscription context, or later-script relations.
 
 Current decision:
 - accepted reading: `not_reviewed`
-- glyph observation: `needs_human_visual_review`
+- glyph observation: `recorded_pending_independent_review`
 - component assignment: `not_reviewed`
 - inscription occurrence: `candidate_route_only`
 - later-script correspondence: `candidate_route_only`
@@ -33,7 +33,7 @@ Current decision:
 
 当前判断：
 - 已接受释读：`not_reviewed`
-- 字形观察：`needs_human_visual_review`
+- 字形观察：`recorded_pending_independent_review`
 - 构件归属：`not_reviewed`
 - 卜辞出现：`candidate_route_only`
 - 后世字形对应：`candidate_route_only`
@@ -46,6 +46,9 @@ Current decision:
 - Human review sheet: `06_human-review-sheet.md`
 - Context evidence: `08_character-context-evidence-dossier.md`
 - Archaeology review: `10_archaeology-paleography-review.md`
+- Direct visual note: `14_material-visual-observation.md`
+- Filename evidence: `15_source-filename-evidence-review.md`
+- Multi-instance comparison: `17_multi-instance-visual-comparison.md`
 - Visual source index: `02_visual-source-index.csv`
 - Dossier support index: `07_research-dossier-index.json`
 - Context support index: `09_character-context-evidence-index.json`
@@ -65,6 +68,7 @@ They do not replace the human record.
 - source image routes: `1`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+- opened visual members: `5` in the multi-instance comparison
 - graph edge count: `4`
 - graph edge types: CHARACTER_HAS_EVOBC_CODEPOINT_LOOKUP_ROUTE; plus 3 more
 - route files: 009_hust-obc-obs-char-promotion-review-queue.csv; plus 7 more
@@ -80,7 +84,8 @@ It is not the oracle-character identity or accepted reading.
 
 ## 4. Formal-Research Blockers / 正式研究阻断项
 
-- Glyph image observation has not been written from opened images.
+- Direct visual observations are recorded in files 14 and 17, but an
+  independent reviewer has not yet checked them against plate-level sources.
 - Variant and near-form comparison remains a route, not a review.
 - Component clues are not assigned to a formal component structure.
 - Inscription occurrence and context are not tied to an opened text.

@@ -117,6 +117,22 @@ not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
 本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
 
+### Opened Multi-instance Comparison / 已打开多实例比较
+
+- Five raw members were opened and compared in
+  `17_multi-instance-visual-comparison.md`.
+- Instances 1 to 4 share a narrow upright-and-lower-wedge route, while
+  instance 5 has a much broader outline and inner hanging marks.
+- The comparison records counterevidence and two-way falsifiers. It does not
+  decide whether the category is one form, several forms, or a mixed label.
+- Only the existing source-marked derivative is visible in regular Git; the
+  other four members remain in the ignored archive.
+
+五个原包成员已在 `17_multi-instance-visual-comparison.md` 中打开并比较。实例一
+至四共有直笔和下部楔形路线，实例五的轮廓更宽并带内垂痕迹。比较页保留反证和
+双向可证伪条件，不决定该类别是一种字形、多种字形或混合标签。普通 Git 中只
+显示已有的来源标记派生图，其余四个成员仍在忽略区原包中。
+
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
 - accepted reading: `待查：需要核对来源释读、释读史或争议记录`
@@ -342,6 +358,9 @@ a component assignment.
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`
 - `09_character-context-evidence-index.json`
+- `14_material-visual-observation.md`
+- `15_source-filename-evidence-review.md`
+- `17_multi-instance-visual-comparison.md`
 
 ## Boundary / 边界
 

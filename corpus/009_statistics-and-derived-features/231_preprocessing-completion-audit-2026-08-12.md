@@ -3,7 +3,7 @@
 ## Status / 状态
 
 - Audit date / 审计日期: `2026-08-12`
-- Material update / 资料更新: `2026-08-13`
+- Material update / 资料更新: `2026-08-14`
 - Audit result / 审计结论: `not_complete`
 - Research status / 正式研究状态: `not_started`
 - Candidate delivery / 候选交付: `none`
@@ -121,6 +121,9 @@ They reduce three zero-instance gaps but do not change the overall
 - `obs-char-000621` now has five opened HUST raw-package instances. Its
   `17_multi-instance-visual-comparison.md` records hashes, dimensions,
   visible differences, alternative explanations, and two-way falsifiers;
+- `obs-char-000791` now has five opened HUST raw-package instances. Its
+  object-local comparison binds exact member names, hashes, sizes, pixels,
+  visible differences, rights limits, and two-way falsifiers;
 - the H2 `08_sequence-context-evidence.md` recomputes one group and seven
   occurrences. It preserves source serialization order `5, 0, 1, 2, 3, 6, 4`
   separately from annotation order and does not call the UID sequence a text;

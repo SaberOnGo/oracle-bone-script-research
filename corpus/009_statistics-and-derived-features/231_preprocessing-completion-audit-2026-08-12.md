@@ -85,7 +85,8 @@ dispute dossiers. Source engineering does not substitute for literature work.
 
 ### Progress opened after this audit / 审计后已打开的进展
 
-The following material-depth gains were completed later on `2026-08-12`.
+The following material-depth gains were completed on `2026-08-12` and
+`2026-08-13`.
 They reduce three zero-instance gaps but do not change the overall
 `not_complete` result:
 
@@ -98,9 +99,16 @@ They reduce three zero-instance gaps but do not change the overall
 - one HUST-OBC 2024 item-level paper dossier now records bibliographic
   identity, claim locators, citation relations, limits, rights, and an object
   transfer boundary.
+- one selected character now has five opened raw-package instances with
+  checksums, visual counterevidence, and two-way falsification conditions;
+- OBIMD 2024/2026 and EVOBC 2024 now have item-level literature dossiers that
+  distinguish version, field, experiment, probability, and rights boundaries.
+- the H2 record now has a strong visual crosswalk candidate to institutional
+  record `合2`: it ranks first among 10,077 rubbings, while official detail
+  access remains blocked and the catalog identity remains unconfirmed.
 
-`2026-08-12` 稍后完成了下列资料深度改进。它们减少了三类零实例
-缺口，但不改变总体 `not_complete` 结论：
+`2026-08-12` 至 `2026-08-13` 完成了下列资料深度改进。它们减少了
+三类零实例缺口，但不改变总体 `not_complete` 结论：
 
 - 六个已选单字对象新增对象特异的文件名证据复核，覆盖 93 个
   HUST `G_` 来源成员、著录和组类候选、跨源路线、可见观察和
@@ -110,14 +118,20 @@ They reduce three zero-instance gaps but do not change the overall
   权利受限图像；
 - 一项 HUST-OBC 2024 逐篇论文档案已记录书目身份、说法定位、
   引用关系、限制、权利和对象转移边界。
+- 一个已选单字新增五个实际打开的原包实例、校验和、视觉反证和双向
+  可证伪条件；
+- OBIMD 2024/2026 与 EVOBC 2024 新增逐篇文献档案，区分版本、字段、
+  实验、概率和权利边界。
+- H2 记录新增与机构记录 `合2` 的强视觉互证候选：它在 10,077 张拓片中
+  排名第一；官方详情仍受登录限制，著录同一性仍未确认。
 
 The H2 record still lacks a confirmed catalog identity and readable
 transcription. The six characters still lack opened authoritative plates and
-full inscription contexts. One paper dossier is not a complete literature
+full inscription contexts. Three paper dossiers are not a complete literature
 corpus. Requirements 8, 9, and 10 therefore remain incomplete.
 
 H2 记录仍缺已确认著录身份和可读释文。六个单字仍缺已打开的权威
-图版和卜辞全文。一项论文档案也不等于完整文献库。因此第 8、9、10 项
+图版和卜辞全文。三项论文档案也不等于完整文献库。因此第 8、9、10 项
 仍未完成。
 
 ### Source processing / 来源处理

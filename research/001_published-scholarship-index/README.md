@@ -25,6 +25,15 @@ for deciding whether a source can become a reviewed research note.
   rights, object-transfer boundaries, and review log.
 - [HUST-OBC 2024 数据论文档案][hust-paper]：记录书目身份、方法与范围、
   说法—证据定位、引用关系、限制、权利、对象转移边界和复核日志。
+- [EVOBC 2024 data paper dossier][evobc-paper]: dataset scope, source split,
+  technical validation, simulated-deciphering limits, rights, and transfer
+  rules.
+- [EVOBC 2024 数据论文档案][evobc-paper]：记录数据范围、来源分布、
+  技术验证、模拟破译边界、权利和转移规则。
+- [OBIMD 2024/2026 paper dossier][obimd-paper]: version relationship,
+  fields, evidence locators, proposers, rights conflicts, and transfer rules.
+- [OBIMD 2024/2026 论文档案][obimd-paper]：记录版本关系、字段、
+  证据定位、责任角色、权利冲突和转移规则。
 
 The paper dossier keeps dataset counts and expert review as
 `source-reported`. Its 94.6% closed-set image-classification accuracy is not
@@ -72,3 +81,5 @@ It is not a decipherment conclusion.
 It is not a rights decision, source promotion, or corpus import approval.
 
 [hust-paper]: 003_hust-obc-2024_data-paper/README.md
+[obimd-paper]: 004_obimd-2024-2026_data-paper/README.md
+[evobc-paper]: 005_evobc-2024_data-paper/README.md

@@ -41,6 +41,9 @@ UID 不是已确认的字形、字符或释读。
 4. `04_text-quality-review.md`: distinguish source labels from text or OCR.
 5. `05_character-linkage-review.md`: inspect the seven candidate routes.
 6. `06_missing-evidence-plan.md`: continue the concrete source checks.
-7. Open `90_source-record.json` and the CSV only as supporting indexes.
+7. `07_identifier-crosswalk-investigation.md`: inspect the H2 identity trail.
+8. Open `92_visual-crosswalk-replay-manifest.json` only after the human
+   investigation page; it is the machine-verifiable replay receipt.
+9. Open `90_source-record.json` and the CSV only as supporting indexes.
 
 本目录是预研究来源记录，不是释读、著录同一性或破译结论。

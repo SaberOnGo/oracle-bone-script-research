@@ -11059,7 +11059,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             gallery_path = object_dir / "04_visual-gallery.md"
             self.assertTrue(path_exists(gallery_path), gallery_path.relative_to(repo_root()).as_posix())
             gallery_text = gallery_path.read_text(encoding="utf-8")
-            self.assertIn(f"![{project_id} glyph candidate](03_visual-assets/", gallery_text)
+            self.assertIn(
+                f"](03_visual-assets/{image_path.name})",
+                gallery_text,
+            )
             self.assertIn(image_path.name, gallery_text)
             self.assertIn(image_path.with_suffix(".yaml").name, gallery_text)
             self.assertIn("02_visual-source-index.csv", gallery_text)
@@ -31261,7 +31264,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["corpus_area"] for row in rows}, {"published_research_notes"})
         self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
-        self.assertEqual({row["research_note_file_count"] for row in rows}, {"15"})
+        self.assertEqual({row["research_note_file_count"] for row in rows}, {"31"})
         self.assertTrue(
             all(
                 "003_hust-obc-2024_data-paper/README.md"
@@ -31366,7 +31369,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "cleaned: `mixed_or_partial`",
             "linked: `mixed_or_partial`",
             "verified: `missing`",
-            "research note files: 15",
+            "research note files: 31",
             "user or AI draft review files: 122",
             "source register files: 539",
             "bibliographic identity",
@@ -31393,7 +31396,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_published_research_note_phase_gap_human_guide_module()
         text = module.build_markdown(repo_root())
         self.assertIn("checklist rows: 4", text)
-        self.assertIn("research note files: 15", text)
+        self.assertIn("research note files: 31", text)
         self.assertIn("user or AI draft review files: 122", text)
         self.assertIn("source register files: 539", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)

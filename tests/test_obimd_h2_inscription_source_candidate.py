@@ -44,7 +44,7 @@ class ObimdH2InscriptionSourceCandidateTests(unittest.TestCase):
             self.assertGreater(len(text), 500, name)
         self.assertEqual(
             sorted(path.name for path in OBJECT.glob("*.json")),
-            ["90_source-record.json"],
+            ["90_source-record.json", "92_visual-crosswalk-replay-manifest.json"],
         )
         self.assertEqual(
             sorted(path.name for path in OBJECT.glob("*.csv")),

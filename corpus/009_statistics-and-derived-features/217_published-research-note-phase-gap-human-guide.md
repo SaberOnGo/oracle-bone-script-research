@@ -29,7 +29,7 @@ excavation context、collection context、relations、引用史、
 
 - updated at: 2026-06-30
 - checklist rows: 4
-- research note files: 15
+- research note files: 31
 - user or AI draft review files: 122
 - source register files: 539
 - source index rows: 21

@@ -1,0 +1,23 @@
+{
+  "record_id": "lit-obimd-2024-2026",
+  "purpose": "human_dossier_support_only",
+  "human_entry": "README.md",
+  "source_object_id": "src-obimd",
+  "publications": [
+    {
+      "kind": "preprint",
+      "identifier": "arXiv:2407.03900"
+    },
+    {
+      "kind": "version_of_record",
+      "doi": "10.1038/s41597-026-06967-0"
+    }
+  ],
+  "evidence_state": {
+    "bibliographic_identity": "independently_checked",
+    "paper_claims": "author_reported",
+    "rights": "metadata_only_until_verified",
+    "object_identity_and_reading": "unresolved"
+  },
+  "boundary": "not_a_scholarly_conclusion"
+}

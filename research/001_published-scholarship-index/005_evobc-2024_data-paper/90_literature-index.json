@@ -1,0 +1,14 @@
+{
+  "record_id": "lit-evobc-2024",
+  "purpose": "human_dossier_support_only",
+  "human_entry": "README.md",
+  "title": "An open dataset for the evolution of oracle bone characters: EVOBC",
+  "doi": "10.48550/arXiv.2401.12467",
+  "source_object_id": "src-evobc",
+  "evidence_state": {
+    "bibliographic_identity": "independently_checked",
+    "dataset_claims": "source_reported",
+    "correspondence_and_reading": "unresolved"
+  },
+  "boundary": "not_a_decipherment_probability_or_scholarly_conclusion"
+}

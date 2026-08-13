@@ -1,0 +1,86 @@
+{
+  "schema": "obimd_h2_visual_crosswalk_replay_v1",
+  "run_status": "replayed_from_official_url",
+  "run_date": "2026-08-13",
+  "runtime": {"python": "3.14.4", "pillow": "12.2.0"},
+  "thumbnail": {
+    "source_url": "https://jgw.aynu.edu.cn/File/GetFirstSmallPic?dbId=34&recordId=108548&key=4EgKVaG1cYado6vj7L8iYg%3d%3d",
+    "acquisition": "network_memory_only",
+    "byte_count": 4571,
+    "sha256": "5321d3b9adf0a1bde32e4092715741a04461908c9c6e911c57e1f7544ab32437",
+    "dimensions": [129, 150],
+    "mode_after_decode": "RGB",
+    "persisted": false
+  },
+  "package": {
+    "local_ignored_path": "external_local_archive/source_packages/obimd/rubbing.zip",
+    "byte_count": 558367972,
+    "sha256": "4d07dca94e94c2d17edd7fa25be72b5673161c0c2d03dac4d2c094e5341b7747",
+    "candidate_count": 10077,
+    "alternative_candidate_count": 10076
+  },
+  "target": {
+    "member": "rubbing/h00002.jpg",
+    "byte_count": 77614,
+    "sha256": "1ae9e411f0356cb9dc232d629d4620b0e5f66f42c83300ce95775950a75b01e5",
+    "dimensions": [1022, 1180]
+  },
+  "algorithm": {
+    "dhash": {
+      "hash_size": 8,
+      "grayscale": "Pillow convert L",
+      "resize": [9, 8],
+      "resample": "LANCZOS",
+      "bit_order": "row-major, most-significant bit first",
+      "comparison": "left_pixel > right_pixel",
+      "distance": "Hamming popcount(xor)"
+    },
+    "ranking": "ascending (dhash_distance, case-sensitive member path)",
+    "ties": "all ties retained; member path is deterministic tie-breaker",
+    "mad": {
+      "reference": "thumbnail converted to L",
+      "candidate": "target converted to L and ImageOps.fit to reference size",
+      "fit": "LANCZOS, centered (0.5, 0.5)",
+      "direct": "mean(abs(reference - candidate))",
+      "inverted": "mean(abs(reference - (255 - candidate)))"
+    }
+  },
+  "comparison": {
+    "candidate_count": 10077,
+    "alternative_candidate_count": 10076,
+    "target_rank": 1,
+    "target_dhash_distance": 0,
+    "nearest_alternative_distance": 12,
+    "target_direct_mad": 8.785064599483205,
+    "target_inverted_mad": 196.36356589147286,
+    "top_k": [
+      {"member": "rubbing/h00002.jpg", "dhash_distance": 0},
+      {"member": "rubbing/h35875.jpg", "dhash_distance": 12},
+      {"member": "rubbing/h30063.jpg", "dhash_distance": 13},
+      {"member": "rubbing/h30373.jpg", "dhash_distance": 13},
+      {"member": "rubbing/h07137.jpg", "dhash_distance": 14},
+      {"member": "rubbing/h18501.jpg", "dhash_distance": 14},
+      {"member": "rubbing/h22904.jpg", "dhash_distance": 14},
+      {"member": "rubbing/h30432.jpg", "dhash_distance": 14},
+      {"member": "rubbing/h30768.jpg", "dhash_distance": 14},
+      {"member": "rubbing/h32801.jpg", "dhash_distance": 14},
+      {"member": "rubbing/h14967.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h15568.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h16968.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h25573.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h29739.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h29932.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h29955.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h30109.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h30380.jpg", "dhash_distance": 15},
+      {"member": "rubbing/h30861.jpg", "dhash_distance": 15}
+    ]
+  },
+  "scope_boundary": {
+    "catalog_identity_confirmed": false,
+    "reading_proposed": false,
+    "transcription_or_ocr_acquired": false,
+    "rights": "metadata_only_until_verified"
+  },
+  "replay_tool": "tools/007_obimd-h2-crosswalk/replay_h2_crosswalk.py"
+}

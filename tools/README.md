@@ -45,6 +45,8 @@ Use repository tools in this order:
 - `005_ai-context-pack-builder/` builds AI context-pack support files.
 - [`006_ai-benchmark-pilot/`][benchmark-pilot] freezes real object files and
   seals ignored diagnostic gold without generating a probability or claim.
+- [`007_obimd-h2-crosswalk/`][h2-crosswalk] replays one rights-limited H2
+  visual crosswalk in memory and verifies its object-local result manifest.
 - [`validation/`][benchmark-validator] runs repository-wide skeleton, policy,
   evidence-pack, and blinded benchmark-experiment checks.
 - `git/` checks commit-message rules before GitHub push.
@@ -140,6 +142,7 @@ This is not a decipherment conclusion.
 
 [benchmark-validator]: validation/validate_ai_agent_benchmark_experiments.py
 [benchmark-pilot]: 006_ai-benchmark-pilot/
+[h2-crosswalk]: 007_obimd-h2-crosswalk/
 [strategy]: ../doc/project/005_ai-agent-research-assistant-design/
 [schema-006]: ../schemas/006_ai-agent-evidence-pack-schema/
 [schema-007]: ../schemas/007_ai-agent-benchmark-experiment-schema/

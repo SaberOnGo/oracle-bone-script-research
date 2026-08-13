@@ -2857,6 +2857,10 @@ REQUIRED_PATHS = [
     "research/001_published-scholarship-index/README.md",
     "research/001_published-scholarship-index/"
     "003_hust-obc-2024_data-paper/README.md",
+    "research/001_published-scholarship-index/"
+    "004_obimd-2024-2026_data-paper/README.md",
+    "research/001_published-scholarship-index/"
+    "005_evobc-2024_data-paper/README.md",
     "research/002_decipherment-history/README.md",
     "research/003_scholarly-arguments-and-disputes/README.md",
     "research/004_bibliographic-notes/README.md",
@@ -2876,6 +2880,13 @@ REQUIRED_PATHS = [
     "tests/test_ai_benchmark_pilot.py",
     "tests/test_character_source_filename_evidence_batch.py",
     "tests/test_hust_obc_2024_literature_dossier.py",
+    "tests/test_obimd_2024_2026_literature_dossier.py",
+    "tests/test_evobc_2024_literature_dossier.py",
+    "tests/test_obs_char_000963_multi_instance_review.py",
+    "tests/test_obimd_h2_identifier_investigation.py",
+    "tools/007_obimd-h2-crosswalk/README.md",
+    "tools/007_obimd-h2-crosswalk/replay_h2_crosswalk.py",
+    "tests/test_obimd_h2_crosswalk_replay.py",
     "tests/test_obimd_h2_inscription_source_candidate.py",
     "tests/test_material_depth_integration.py",
     "corpus/README.md",
@@ -17651,7 +17662,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "cleaned: `mixed_or_partial`",
         "linked: `mixed_or_partial`",
         "verified: `missing`",
-        "research note files: 15",
+        "research note files: 31",
         "user or AI draft review files: 122",
         "source register files: 539",
         "bibliographic identity",

@@ -182,6 +182,18 @@ a plate identity, full transcription, or reading.
 图路由返回 JPEG，仅供本地观察；第三条返回博物馆首页 HTML。结果已写入对象目录的
 人类档案，但没有解除仅元数据权利，也没有证明图版身份、完整释文或释读。
 
+The IHP object candidate `ihp-mus-obj-00002` / item `1214` was also opened
+against its live official page. Two large JPEG routes were fetched and
+visually inspected in the ignored workspace. The page reports `R038861`,
+`Jia Bian 0959`, Late Shang, Hsiao-t'un, and Turtle Plastron, but its short
+text still contains image placeholders. The object remains a source-record
+candidate with metadata-only rights and no promoted transcription.
+
+IHP 对象候选 `ihp-mus-obj-00002` / `1214` 也已对照官方现场页打开。两条大图 JPEG
+路由已在忽略区下载并作本地观察。页面报告 `R038861`、`Jia Bian 0959`、晚商、
+小屯和龟腹甲，但短文字仍含图像占位。该对象仍是仅元数据权利的来源记录候选，未
+提升为释文。
+
 H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
 卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 

@@ -1,5 +1,12 @@
 # Collection Provenance Evidence Dossier / 馆藏来源证据档案: coll-obj-cand-00002
 
+The live official-page and image-route check is recorded in
+`18_live-source-evidence-review.md`. It remains source-reported evidence with
+metadata-only rights, not a promoted object or plate identity.
+
+现场官方页和图像路由检查记录在 `18_live-source-evidence-review.md`。它仍是来源
+报告证据，权利状态为仅元数据，不是已提升的对象或图版身份。
+
 English:
 This dossier records the provenance evidence routes that must be opened before a
 museum or collection object candidate can be used for comparison, citation, or

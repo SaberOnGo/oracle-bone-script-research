@@ -23,7 +23,9 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official object image and eleven source-page illustration routes were
+fetched to ignored `.working/ihp-778/` for private visual inspection. No image
+is committed or redistributed. See `18_live-source-evidence-review.md`.
 
 See `thumbnail_url` in Object Metadata.
 
@@ -40,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: official pages, source-reported text,
+  image hashes, and local visual observations.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -65,6 +69,11 @@ See `thumbnail_url` in Object Metadata.
 - source_collection_item_id: `778`
 - object_title_en: `Inscribed Plastron I 4603`
 - catalog_reference_text: `I 4603`
+- item_no: `R044636`
+- period: `Late Shang Period`
+- material: `Turtle Plastron`
+- dimensions: `24.2(L)×17.8(W) cm`
+- findspot: `Pit YH127, Hsiao-t'un, Anyang County, Honan Province`
 - object_page_url: `https://museum.sinica.edu.tw/en/collection/32/item/778/`
 - thumbnail_url: `https://museum.sinica.edu.tw/_upload/image/collection_item/thu
   mbnail/6885f688e9d124ba.jpg`

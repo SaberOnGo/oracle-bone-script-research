@@ -387,6 +387,21 @@ catalog edition, plate, reading history, and image rights are unresolved.
 对象图像已保存到忽略区并计算校验和。版本、图版、释读史和图像权利仍未解决，因此仍是
 来源记录候选。
 
+The IHP object candidate `ihp-mus-obj-00016` / item `778` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R044636`, `Inscribed Plastron I 4603`, Late Shang Period, Pit YH127,
+and Turtle Plastron. They provide five source-reported examples, related
+script notes, and at least one image-substituted sign. One object photograph
+and eleven inline source illustrations were fetched to ignored local storage
+and hashed. The record remains a source-record candidate because the joined
+catalog identity, plate, image-substituted sign, and rights are unresolved.
+
+史语所对象候选 `ihp-mus-obj-00016` / item `778` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R044636`、`Inscribed Plastron I 4603`、晚商、YH127 坑和龟甲；页面有五
+条例示、相关字形说明及至少一个图片替代字。一条对象照片和十一条行内来源说明图路线已
+保存到忽略区并计算校验和。拼接著录身份、图版、图片替代字和图像权利仍未解决，因此仍
+是来源记录候选。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

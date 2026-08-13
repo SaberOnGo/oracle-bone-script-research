@@ -25,6 +25,21 @@ period, batch, plate, inscription, and character context.
 | `catalog_reference_text` | `I 4603` |
 | `object_page_url` | `https://museum.sinica.edu.tw/en/collection/32/item/778/` |
 | `thumbnail_url` | `https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/6885f688e9d124ba.jpg` |
+| `item_no` | `R044636` |
+| `period` | `Late Shang Period` |
+| `material` | `Turtle Plastron` |
+| `dimensions` | `24.2(L)×17.8(W) cm` |
+| `findspot` | `Pit YH127, Hsiao-t'un, Anyang County, Honan Province` |
+
+## Live Source Evidence / 现场来源证据
+
+See `18_live-source-evidence-review.md` for the 2026-08-14 page snapshots,
+five source-reported examples, related-script notes, object-image checksum,
+eleven inline illustration routes, and the explicit image-substituted sign
+boundary.
+
+见 `18_live-source-evidence-review.md`，其中有 2026-08-14 页面快照、五条例示、相关字形
+说明、对象图像校验和、十一条行内说明图路线及图片替代字边界。
 
 ## Visual And Image Route / 图像路线
 

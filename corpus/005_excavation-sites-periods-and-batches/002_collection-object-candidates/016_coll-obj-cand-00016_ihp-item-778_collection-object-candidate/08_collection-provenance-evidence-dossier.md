@@ -27,6 +27,22 @@ later formal research.
 | local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
 | route_review_status | `metadata_route_needs_human_review` |
 
+## Live Source Evidence / 现场来源证据
+
+The detailed 2026-08-14 page and image audit is in
+`18_live-source-evidence-review.md`. It records the source examples, related
+scripts, object photograph, eleven inline source routes, hashes, and the
+missing or image-substituted sign boundary.
+
+2026-08-14 页面和图像审计见 `18_live-source-evidence-review.md`。该页记录来源例示、相关
+字形、对象照片、十一条行内来源路线、校验和以及缺字或图片替代字边界。
+
+The page route includes source-reported transcription but not a normalized
+project transcription. Rights remain `metadata_only_until_verified`.
+
+当前页面有来源报告释文，但没有项目规范化释文。有效权利仍是
+`metadata_only_until_verified`。
+
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 
 - rights_status is copied from the registered source row.
@@ -52,12 +68,12 @@ later formal research.
 | `source_collection_item_id` | `778` |
 | `object_title_en` | `Inscribed Plastron I 4603` |
 | `catalog_reference_text` | `I 4603` |
-| `accession_number` | `` |
-| `historical_period` | `` |
-| `object_date` | `` |
-| `provenience` | `` |
-| `geography` | `` |
-| `repository` | `` |
+| `accession_number` | `R044636` |
+| `historical_period` | `Late Shang Period` |
+| `object_date` | `not stated on this page` |
+| `provenience` | `Pit YH127, Hsiao-t'un, Anyang County, Honan Province` |
+| `geography` | `Anyang County, Honan Province` |
+| `repository` | `Museum of the Institute of History and Philology` |
 
 ## Inscription And Character Context To Verify / 卜辞与单字语境待复核
 

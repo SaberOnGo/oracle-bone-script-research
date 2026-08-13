@@ -207,6 +207,21 @@ IHP 对象候选 `ihp-mus-obj-00003` / `1213` 现在是本批最完整的博物�
 文字。两条 JPEG 路由已在本地打开并计算校验和。若干字仍为图像占位，因此仍是来源
 报告的部分释文，不是已核实的完整卜辞档案。
 
+The IHP object candidate `ihp-mus-obj-00004` / item `1215` was opened
+against its live official page on 2026-08-14. The page reports `R044587`,
+`Yi Bian 3330+5281+Yi Bian buyi 4936`, Late Shang Period, Pit YH127, and
+Turtle Plastron, with the short source text `帚（婦）井示。韋。`. Three large
+JPEG routes were fetched to ignored local storage and hashed. The page's
+English interpretation remains source-reported; there is no independent
+edition locator, complete OCR, or rights clearance, so this remains a
+source-record candidate and not a confirmed plate or reading.
+
+IHP 对象候选 `ihp-mus-obj-00004` / item `1215` 已于 2026-08-14 对照官方现场页打开。
+页面报告 `R044587`、`Yi Bian 3330+5281+Yi Bian buyi 4936`、晚商、Pit YH127、
+龟腹甲和短来源文字 `帚（婦）井示。韋。`。三条大图路线已下载到忽略区并计算
+校验和。英文解释仍是来源报告；当前没有独立版本定位、完整 OCR 或权利清理，
+因此仍是来源记录候选，不是已确认图版或释读。
+
 H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
 卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 

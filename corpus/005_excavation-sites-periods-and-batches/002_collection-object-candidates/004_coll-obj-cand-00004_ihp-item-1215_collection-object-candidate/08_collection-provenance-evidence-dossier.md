@@ -10,6 +10,15 @@ later formal research.
 
 ## Catalog Page And Source Row / 著录页与来源行
 
+The live official-page check is recorded in
+`18_live-source-evidence-review.md`. It reports `R044587`, Late Shang Period,
+Pit YH127, and three private JPEG routes. These are source-reported facts and
+route evidence, not a promoted plate identity or reading.
+
+现场官方页面复核见 `18_live-source-evidence-review.md`。该页记录 `R044587`、
+晚商、Pit YH127 和三条本地私有 JPEG 路线。这些是来源报告事实和路线证据，
+不是已经提升的图版身份或释读。
+
 | Evidence field / 证据字段 | Route or value / 路线或取值 |
 | --- | --- |
 | source_id | `src-ihp-museum-oracle-bones` |
@@ -35,6 +44,13 @@ later formal research.
 - 权利状态来自登记来源行；checksum 与大小仍需打开记录复核。
 
 ## Visual Asset Or Thumbnail Evidence / 图像资产或缩略图证据
+
+The live review records three large-image responses, each `image/jpeg`, with
+size, pixel dimensions, and SHA-256. They remain ignored local inspection
+files because rights are not cleared.
+
+现场复核记录三条 `image/jpeg` 大图响应、大小、像素尺寸和 SHA-256。由于权利
+尚未清理，它们仍是忽略区本地观察文件。
 
 | Visual field / 图像字段 | Route or value / 路线或取值 |
 | --- | --- |

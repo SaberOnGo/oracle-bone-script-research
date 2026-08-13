@@ -15,6 +15,15 @@ can support later research.
 
 ## Context Fields To Verify / 待核语境项
 
+The live museum page reports `Late Shang Period`, `Pit YH127, Hsiao-t'un,
+Anyang County, Honan Province`, and `Turtle Plastron`. See
+`18_live-source-evidence-review.md` for the access record. These remain
+source-reported metadata pending independent catalog or excavation checks.
+
+现场博物馆页面报告“晚商”、`Pit YH127, Hsiao-t'un, Anyang County, Honan
+Province` 和 `Turtle Plastron`。访问记录见 `18_live-source-evidence-review.md`。
+这些仍是来源报告 metadata，待独立著录或发掘记录核对。
+
 | Context field | Current route or status | Local evidence to open |
 | --- | --- | --- |
 | Institution | `Oracle Bones` | `02_collection-source-index.csv` |

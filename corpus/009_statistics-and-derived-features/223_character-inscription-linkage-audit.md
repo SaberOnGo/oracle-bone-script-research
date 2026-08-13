@@ -4,7 +4,7 @@
 
 - Candidate packet count: 612
 - Packets with explicit character-link fields: 0
-- Graph edges scanned across JSONL files: 141615
+- Graph edges scanned across JSONL files: 147002
 - Cambridge/Hopkins catalog-route graph edges: 4403
 - Character-inscription edges promoted: 0
 - Character-inscription candidate routes: 7

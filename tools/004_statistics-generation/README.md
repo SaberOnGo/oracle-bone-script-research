@@ -74,6 +74,9 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 - Character-component linkage audit:
   run `build_character_component_linkage_audit.py`, then open
   `232_character-component-linkage-audit.md` and its supporting index.
+- EVOBC evolution-correspondence audit:
+  run `build_evobc_evolution_correspondence_audit.py`, then open
+  `234_evobc-evolution-correspondence-audit.md` first.
 - Character image observation audit:
   `226_character-visual-observation-coverage-audit.md` and
   `227_character-visual-observation-coverage.csv`.

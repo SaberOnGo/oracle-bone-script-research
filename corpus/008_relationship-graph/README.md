@@ -44,7 +44,7 @@ English:
 | `004_graph-edges.jsonl` | Early route edges kept for audit comparison. |
 | `005_hust-obc-candidate-graph-edges.jsonl` | HUST-OBC metadata routes. |
 | `006_obimd-component...` | OBIMD component/codepoint routes. |
-| `007_evobc-evolution-graph-edges.jsonl` | EVOBC category and era routes. |
+| `007_evobc-evolution-graph-edges.jsonl` | EVOBC routes; candidate status is explicit. |
 | `008_cambridge-hopkins...` | Inscription crosswalk routes. |
 | `009_character-asset-graph...` | Character to local asset routes. |
 | `010_cross-source-id-graph-edges.jsonl` | Cross-source id lookup routes. |
@@ -54,6 +54,7 @@ English:
 | `014_character-variant-graph-edges.jsonl` | Candidate variant review routes. |
 | `015_character-inscription-candidate...` | H2 candidate occurrence routes. |
 | `016_character-component-candidate...` | Cross-source component candidates. |
+| `017_evobc-evolution-correspondence-candidate...` | EVOBC later-era candidate routes. |
 
 ## Edge Dossier Content / 图边档案内容
 

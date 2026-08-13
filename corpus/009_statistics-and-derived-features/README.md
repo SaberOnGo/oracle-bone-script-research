@@ -71,6 +71,10 @@ substitutes for object-local dossiers, source records, or review sheets.
   records 19 cross-source component candidate routes and their boundaries.
 - `233_character-component-linkage-audit-index.json`
   is the machine-readable count supporting that component audit.
+- `234_evobc-evolution-correspondence-audit.md`
+  is the human gate for later-era candidate routes.
+- `235_evobc-evolution-correspondence-audit-index.json`
+  records route counts without asserting a correspondence.
 - `225_source-access-boundary-human-review.md`
   groups repeated access attempts into source and failure-condition tasks.
 - `226_source-access-boundary-review-index.csv`

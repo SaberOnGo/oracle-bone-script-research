@@ -2694,6 +2694,18 @@ EVOLUTION_ID_SOURCE_MAP = (
     "005_evolution-candidate-id-source-map.csv"
 )
 EVOLUTION_GRAPH_EDGES = "corpus/008_relationship-graph/007_evobc-evolution-graph-edges.jsonl"
+EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES = (
+    "corpus/008_relationship-graph/"
+    "017_evobc-evolution-correspondence-candidate-graph-edges.jsonl"
+)
+EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT = (
+    "corpus/009_statistics-and-derived-features/"
+    "234_evobc-evolution-correspondence-audit.md"
+)
+EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT_INDEX = (
+    "corpus/009_statistics-and-derived-features/"
+    "235_evobc-evolution-correspondence-audit-index.json"
+)
 COLLECTION_PROVENANCE_STAGING = (
     "corpus/005_excavation-sites-periods-and-batches/000_collection-registers/"
     "001_institutional-collection-provenance-staging.csv"
@@ -3022,6 +3034,7 @@ REQUIRED_PATHS = [
     HUST_OBC_CANDIDATE_GRAPH_EDGES,
     OBIMD_COMPONENT_GRAPH_EDGES,
     EVOBC_EVOLUTION_GRAPH_EDGES,
+    EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES,
     CAMBRIDGE_HOPKINS_INSCRIPTION_GRAPH_EDGES,
     CHARACTER_ASSET_GRAPH_EDGES,
     CHARACTER_SOURCE_GRAPH_EDGES,
@@ -3042,6 +3055,8 @@ REQUIRED_PATHS = [
     "232_character-component-linkage-audit.md",
     "corpus/009_statistics-and-derived-features/"
     "233_character-component-linkage-audit-index.json",
+    EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT,
+    EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT_INDEX,
     AI_AGENT_HUST_OBC_BUCKET_REVIEW_ROUTE_PACK,
     AI_AGENT_HUST_OBC_CANDIDATE_EVIDENCE_REQUEST_QUEUE,
     AI_AGENT_PUBLIC_DOMAIN_ASSET_CONTEXT_PACK,
@@ -3301,6 +3316,8 @@ REQUIRED_PATHS = [
     "tools/003_graph-generation/build_hust_obc_candidate_graph_edges.py",
     "tools/003_graph-generation/build_obimd_component_graph_edges.py",
     "tools/003_graph-generation/build_evobc_evolution_graph_edges.py",
+    "tools/003_graph-generation/"
+    "build_evobc_evolution_correspondence_candidate_graph_edges.py",
     "tools/003_graph-generation/build_cambridge_hopkins_inscription_graph_edges.py",
     "tools/003_graph-generation/build_character_variant_graph_edges.py",
     "tools/004_statistics-generation/build_relationship_graph_statistics.py",
@@ -3310,6 +3327,8 @@ REQUIRED_PATHS = [
     "tools/004_statistics-generation/build_data_quality_audit.py",
     "tools/004_statistics-generation/build_source_processing_pipeline_audit.py",
     "tools/004_statistics-generation/build_character_variant_linkage_audit.py",
+    "tools/004_statistics-generation/"
+    "build_evobc_evolution_correspondence_audit.py",
     "tools/004_statistics-generation/build_project_id_source_map_audit.py",
     "tools/004_statistics-generation/"
     "build_character_visual_observation_coverage_audit.py",
@@ -10998,7 +11017,6 @@ def check_relationship_graph_edges(root: Path) -> list[str]:
         note = str(row.get("evidence_note", ""))
         if "not" not in note.lower():
             issues.append(f"{EVOBC_EVOLUTION_GRAPH_EDGES} edge evidence note must preserve caution: {edge_id}")
-
     expected_evobc_type_counts = {
         "EVOBC_CATEGORY_HAS_ERA_CODE": 26378,
         "EVOBC_CATEGORY_HAS_SOURCE_CODE": 25301,
@@ -11560,6 +11578,212 @@ def check_character_component_candidate_graph(root: Path) -> list[str]:
     ]
     if actual_pairs != expected_pairs:
         issues.append(f"{CHARACTER_COMPONENT_CANDIDATE_GRAPH_EDGES} source mapping changed")
+    return issues
+
+
+def check_evobc_evolution_correspondence_graph(root: Path) -> list[str]:
+    """Validate explicit, non-promoted EVOBC later-era candidate routes."""
+
+    issues: list[str] = []
+    graph_path = root / EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES
+    category_path = root / EVOBC_EVOLUTION_CATEGORY_STAGING
+    codebook_path = root / EVOBC_ERA_SOURCE_CODEBOOK_STAGING
+    rows, row_issues = _read_jsonl_rows(graph_path)
+    category_rows, category_issues = _read_csv_rows(category_path)
+    codebook_rows, codebook_issues = _read_csv_rows(codebook_path)
+    issues.extend(row_issues)
+    issues.extend(category_issues)
+    issues.extend(codebook_issues)
+    if len(rows) != 5387:
+        issues.append(
+            f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} should contain 5387 edges"
+        )
+    required_fields = {
+        "edge_id",
+        "source_node_id",
+        "edge_type",
+        "target_node_id",
+        "confidence_level",
+        "confidence_semantics",
+        "route_integrity_confidence",
+        "source_ids",
+        "review_status",
+        "candidate_route_status",
+        "candidate_correspondence_status",
+        "identity_claim_status",
+        "rights_status",
+        "source_category_id",
+        "oracle_bone_era_code",
+        "later_era_code",
+        "route_files",
+        "missing_evidence",
+        "evidence_note",
+    }
+    seen_ids: set[str] = set()
+    compact_rows: list[dict[str, object]] = []
+    for row in rows:
+        edge_id = str(row.get("edge_id", ""))
+        if not required_fields.issubset(row):
+            issues.append(
+                f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} missing fields: {edge_id}"
+            )
+        if edge_id in seen_ids:
+            issues.append(
+                f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} duplicate edge: {edge_id}"
+            )
+        seen_ids.add(edge_id)
+        if row.get("edge_type") != (
+            "EVOBC_CATEGORY_HAS_LATER_ERA_CORRESPONDENCE_CANDIDATE"
+        ):
+            issues.append(
+                f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} edge type changed: {edge_id}"
+            )
+        for key, expected in {
+            "confidence_level": "unknown",
+            "confidence_semantics": "hypothesis_probability_not_estimated",
+            "route_integrity_confidence": "high",
+            "source_ids": ["src-evobc"],
+            "review_status": "needs_cross_source_review",
+            "candidate_route_status": "dataset_candidate_not_promoted",
+            "candidate_correspondence_status": (
+                "candidate_evolution_correspondence_route"
+            ),
+            "identity_claim_status": "no_identity_claim",
+            "rights_status": "source_marked_risk_noted",
+        }.items():
+            if row.get(key) != expected:
+                issues.append(
+                    f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} "
+                    f"{key} changed: {edge_id}"
+                )
+        note = str(row.get("evidence_note", ""))
+        for marker in [
+            "candidate co-membership route",
+            "not a confirmed later-form correspondence",
+            "not a decipherment conclusion",
+        ]:
+            if marker not in note:
+                issues.append(
+                    f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} "
+                    f"caution changed: {edge_id}"
+                )
+        compact_rows.append(
+            {
+                "edge_id": row.get("edge_id"),
+                "source_node_id": row.get("source_node_id"),
+                "target_node_id": row.get("target_node_id"),
+                "source_category_id": row.get("source_category_id"),
+                "later_era_code": row.get("later_era_code"),
+            }
+        )
+
+    codebook_by_value = {
+        int(row.get("code_value", "-1")): row
+        for row in codebook_rows
+        if row.get("code_type") == "era" and row.get("code_value", "").isdigit()
+    }
+    expected_rows: list[dict[str, object]] = []
+    for category in category_rows:
+        era_counts = _parse_compact_counts(category.get("era_code_counts", ""))
+        if "0" not in era_counts:
+            continue
+        category_id = category.get("source_category_id", "")
+        if not category_id.isdigit():
+            issues.append(
+                f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} category id changed: "
+                f"{category_id}"
+            )
+            continue
+        for later_code_text in era_counts:
+            later_code = int(later_code_text)
+            if later_code <= 0:
+                continue
+            codebook = codebook_by_value.get(later_code)
+            target_id = codebook.get("codebook_row_id", "") if codebook else ""
+            if not target_id:
+                issues.append(
+                    f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} "
+                    f"missing later codebook row: {later_code}"
+                )
+            expected_rows.append(
+                {
+                    "edge_id": (
+                        "edge-evobc-correspondence-candidate-"
+                        f"{int(category_id):05d}-{later_code:02d}"
+                    ),
+                    "source_node_id": category.get(
+                        "candidate_evolution_category_id", ""
+                    ),
+                    "target_node_id": target_id,
+                    "source_category_id": category_id,
+                    "later_era_code": later_code,
+                }
+            )
+    if compact_rows != expected_rows:
+        issues.append(
+            f"{EVOBC_EVOLUTION_CORRESPONDENCE_GRAPH_EDGES} route sequence changed"
+        )
+    return issues
+
+
+def check_evobc_evolution_correspondence_audit(root: Path) -> list[str]:
+    """Validate the human audit separating route metadata from correspondence."""
+
+    issues: list[str] = []
+    human_path = root / EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT
+    index_path = root / EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT_INDEX
+    if not path_exists(human_path):
+        issues.append(f"{EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT} missing")
+    else:
+        text = human_path.read_text(encoding="utf-8")
+        for marker in [
+            "EVOBC Evolution-Correspondence Audit",
+            "5,387 candidate",
+            "Formal paleographic correspondences recorded: 0",
+            "候选路线",
+            "已记录的正式文字学对应关系：0",
+            "It is not an accepted",
+            "not a decipherment conclusion",
+        ]:
+            if marker not in text:
+                issues.append(
+                    f"{EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT} missing marker: {marker}"
+                )
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if len(line) > 80:
+                issues.append(
+                    f"{EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT}:{line_number} "
+                    "line exceeds 80 characters"
+                )
+    if not path_exists(index_path):
+        issues.append(f"{EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT_INDEX} missing")
+    else:
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        expected = {
+            "record_type": "evobc_evolution_correspondence_audit_index",
+            "mixed_era_category_count": 1583,
+            "candidate_evolution_correspondence_edge_count": 5387,
+            "graph_candidate_field_count": 5387,
+            "formal_correspondence_count": 0,
+            "route_integrity_confidence": "high",
+            "hypothesis_probability": None,
+            "candidate_route_status": "dataset_candidate_not_promoted",
+        }
+        for key, value in expected.items():
+            if index.get(key) != value:
+                issues.append(
+                    f"{EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT_INDEX} {key} changed"
+                )
+        if index.get("later_era_code_counts") != {
+            "1": 1134,
+            "2": 1415,
+            "3": 747,
+            "4": 1247,
+            "5": 844,
+        }:
+            issues.append(
+                f"{EVOBC_EVOLUTION_CORRESPONDENCE_AUDIT_INDEX} era counts changed"
+            )
     return issues
 
 
@@ -36462,12 +36686,14 @@ def main() -> int:
     issues.extend(check_relationship_graph_edges(root))
     issues.extend(check_character_inscription_candidate_graph(root))
     issues.extend(check_character_component_candidate_graph(root))
+    issues.extend(check_evobc_evolution_correspondence_graph(root))
     issues.extend(check_relationship_graph_statistics(root))
     issues.extend(check_source_coverage_statistics(root))
     issues.extend(check_character_visual_observation_coverage(root))
     issues.extend(check_character_dossier_local_image_truth(root))
     issues.extend(check_component_visual_observation_coverage(root))
     issues.extend(check_character_component_linkage_audit(root))
+    issues.extend(check_evobc_evolution_correspondence_audit(root))
     issues.extend(check_preprocessing_status_audit(root))
     issues.extend(check_data_quality_audit(root))
     issues.extend(check_source_processing_pipeline_audit(root))

@@ -62,7 +62,9 @@ using any edge as evidence.
 - `build_obimd_component_graph_edges.py`
   writes OBIMD component candidate metadata edges.
 - `build_evobc_evolution_graph_edges.py`
-  writes EVOBC era and source-code route edges.
+  writes the legacy EVOBC era and source-code route edges.
+- `build_evobc_evolution_correspondence_candidate_graph_edges.py`
+  writes the smaller, explicit later-era candidate routes.
 - `build_cambridge_hopkins_inscription_graph_edges.py`
   writes inscription crosswalk edges to sources and catalogs.
 - `build_character_asset_graph_edges.py`

@@ -1,0 +1,34 @@
+{
+  "candidate_evolution_correspondence_edge_count": 5387,
+  "candidate_route_status": "dataset_candidate_not_promoted",
+  "category_staging_file": "corpus/004_bronze-seal-modern-correspondences/000_evolution-registers/001_evobc-evolution-category-staging.csv",
+  "claim_boundary": [
+    "dataset category co-membership only",
+    "not a confirmed later-form correspondence",
+    "not a decipherment conclusion"
+  ],
+  "formal_correspondence_count": 0,
+  "graph_candidate_field_count": 5387,
+  "graph_file": "corpus/008_relationship-graph/017_evobc-evolution-correspondence-candidate-graph-edges.jsonl",
+  "human_readable_file": "corpus/009_statistics-and-derived-features/234_evobc-evolution-correspondence-audit.md",
+  "hypothesis_probability": null,
+  "later_era_code_counts": {
+    "1": 1134,
+    "2": 1415,
+    "3": 747,
+    "4": 1247,
+    "5": 844
+  },
+  "mixed_era_category_count": 1583,
+  "record_type": "evobc_evolution_correspondence_audit_index",
+  "required_next_checks": [
+    "open original image references for each category",
+    "verify catalog, period, and source provenance",
+    "write an independent paleographic comparison",
+    "compare inscription context and opposing evidence"
+  ],
+  "review_status": "reviewed_metadata_only",
+  "rights_status": "source_marked_risk_noted",
+  "route_integrity_confidence": "high",
+  "updated_at": "2026-08-13"
+}

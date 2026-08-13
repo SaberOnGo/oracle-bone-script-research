@@ -6,6 +6,9 @@ reviewer first opens the object page, image route, catalog reference, and source
 row, then checks archaeological context, inscription links, character routes,
 rights, and unresolved disputes.
 
+The live source and image record must be opened before the generic route
+sheets: `18_live-source-evidence-review.md`.
+
 简体中文：
 本核查固定正式研究开始前的开包顺序。研究者先看实物和馆藏记录、图像路线、著录线索和来源行，再核对考古语境、卜辞关联、单字路线、权利状态和仍待复核的争议。
 
@@ -14,10 +17,11 @@ rights, and unresolved disputes.
 | Order | Open first | What to verify |
 | --- | --- | --- |
 | 1 | `02_collection-source-index.csv` | `776` |
-| 2 | `04_visual-gallery.md` | `external_thumbnail_url_metadata_only` |
-| 3 | `06_human-collection-dossier.md` | catalog clues |
-| 4 | `12_archaeological-context-review.md` | context gaps |
-| 5 | `14_human-research-readiness-review.md` | blockers |
+| 2 | `18_live-source-evidence-review.md` | page and description/image evidence |
+| 3 | `04_visual-gallery.md` | thumbnail route |
+| 4 | `06_human-collection-dossier.md` | catalog clues |
+| 5 | `12_archaeological-context-review.md` | context gaps |
+| 6 | `14_human-research-readiness-review.md` | blockers |
 
 ## Concrete Start Questions / 具体开包问题
 

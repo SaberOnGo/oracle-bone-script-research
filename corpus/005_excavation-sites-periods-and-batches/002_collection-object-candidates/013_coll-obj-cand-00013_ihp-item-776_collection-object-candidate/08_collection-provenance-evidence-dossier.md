@@ -5,6 +5,9 @@ This dossier records the provenance evidence routes that must be opened before a
 museum or collection object candidate can be used for comparison, citation, or
 later formal research.
 
+The live page, source description, image checksum, and human observations are
+recorded in `18_live-source-evidence-review.md`.
+
 简体中文：
 本档案记录馆藏或出土相关对象候选进入比较、引用或后续正式研究前必须打开复核的来源证据路线。这里不确认对象身份、不确认卜辞身份，也不作释读结论。
 
@@ -16,7 +19,7 @@ later formal research.
 | evidence_download_id | `dl-ihp-museum-oracle-bones` |
 | source_file_path | `corpus/005_excavation-sites-periods-and-batches/000_collection-registers/002_ihp-museum-oracle-bone-object-staging.csv` |
 | source_row_id | `13` |
-| object_page_url | `https://museum.sinica.edu.tw/en/collection/32/item/776/` |
+| object_page_url | see `18_live-source-evidence-review.md` |
 | rights_status | `metadata_only_until_verified` |
 | review_status | `needs_human_collection_object_review` |
 | access_route_index | `corpus/006_research-sources-and-bibliography/001_source-objects/004_src-ihp-museum-oracle-bones_source-object/02_download-route-index.csv` |
@@ -26,6 +29,9 @@ later formal research.
 | checksum_sha256 | `3756b0a5bbf7dc4b595e0f363bd9f5a0ab818d667ca0303903ef74eb7dcdfe57` |
 | local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
 | route_review_status | `metadata_route_needs_human_review` |
+
+The page gives an object description but no line-level transcription. It
+remains source-reported description, not an independent project reading.
 
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 

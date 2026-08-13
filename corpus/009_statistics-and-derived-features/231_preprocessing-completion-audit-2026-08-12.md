@@ -278,6 +278,19 @@ line-level transcription, and image rights remain unresolved.
 晚商和习刻对象说明。三条大图路线已保存到忽略区并计算校验和，其中一条为
 处理标注图。加号著录对象身份、独立图版、逐行释文和图像权利仍未解决。
 
+The IHP object candidate `ihp-mus-obj-00013` / item `776` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R041288`, `Inscribed Plastron I 507+Ping 284`, Late Shang Period,
+YH127, and a source description of a large hunt. One large route was
+downloaded to ignored local storage and hashed. The joined object identity,
+independent plate, line-level transcription, source glyph routes, and image
+rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00013` / item `776` 已于 2026-08-14 对照官方中英文
+现场页打开。页面报告 `R041288`、`Inscribed Plastron I 507+Ping 284`、晚商、
+YH127 和大规模狩猎对象说明。一条大图路线已保存到忽略区并计算校验和。
+拼接对象身份、独立图版、逐行释文、来源字形路线和图像权利仍未解决。
+
 The IHP object candidate `ihp-mus-obj-00008` / item `1222` was opened
 against its live official page on 2026-08-14. The page reports `ZR038421`,
 `Tortoise Carapace Fragments Yi Bian 4817+5061+5520+5804+6087+R60751`, Late

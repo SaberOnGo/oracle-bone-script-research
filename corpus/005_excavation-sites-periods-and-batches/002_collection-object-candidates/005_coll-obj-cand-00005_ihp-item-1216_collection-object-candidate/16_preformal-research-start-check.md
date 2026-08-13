@@ -15,6 +15,7 @@ rights, and unresolved disputes.
 | --- | --- | --- |
 | 1 | `02_collection-source-index.csv` | `1216` |
 | 2 | `04_visual-gallery.md` | `external_thumbnail_url_metadata_only` |
+| 2a | `18_live-source-evidence-review.md` | two private JPEG routes and hashes |
 | 3 | `06_human-collection-dossier.md` | catalog clues |
 | 4 | `12_archaeological-context-review.md` | context gaps |
 | 5 | `14_human-research-readiness-review.md` | blockers |
@@ -23,11 +24,13 @@ rights, and unresolved disputes.
 
 - Which object page, image route, catalog reference, and source row must be
   opened first?
+- Which image route has a rights-safe form for a human visual comparison?
 - Which findspot, period, batch, pit, or plate route remains pending?
 - Which inscription or oracle-character relation is candidate only?
 - Which rights, checksum, size, manifest, or field map is unresolved?
 - Which bibliography, proposer, disagreement, or citation is missing?
 - 哪一个对象页、图像路线、著录线索和来源行要先打开？
+- 哪条图像路线具备可供人类比较的权利安全形式？
 - 哪一项出土地、时期、批次、坑位或图版路线仍待查？
 - 哪一条卜辞或甲骨单字关联仍只是候选路线？
 - 哪一项权利、checksum、大小、manifest 或字段映射未解决？

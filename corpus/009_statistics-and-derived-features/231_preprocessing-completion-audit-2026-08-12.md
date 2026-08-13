@@ -222,6 +222,21 @@ IHP 对象候选 `ihp-mus-obj-00004` / item `1215` 已于 2026-08-14 对照官�
 校验和。英文解释仍是来源报告；当前没有独立版本定位、完整 OCR 或权利清理，
 因此仍是来源记录候选，不是已确认图版或释读。
 
+The IHP object candidate `ihp-mus-obj-00005` / item `1216` was opened
+against its live official page on 2026-08-14. The page reports `ZR044855`,
+`Tortoise Carapace for DivinationYi Bian 8806+8865+8997`, Late Shang Period,
+SYFYH251, and Turtle Plastron. Its source display contains three inline image
+placeholders and a disease-related English description. Two large JPEG routes
+were fetched to ignored local storage and hashed. Missing dimensions,
+independent edition locators, complete OCR, and rights clearance keep this as
+a source-record candidate rather than a confirmed plate or reading.
+
+IHP 对象候选 `ihp-mus-obj-00005` / item `1216` 已于 2026-08-14 对照官方现场页打开。
+页面报告 `ZR044855`、`Tortoise Carapace for DivinationYi Bian 8806+8865+8997`、
+晚商、SYFYH251 和龟腹甲。来源文字含三个内嵌图像占位符，并附疾病相关英文
+说明。两条大图路线已下载到忽略区并计算校验和。尺寸、独立版本定位、完整 OCR
+和权利清理仍缺，因此仍是来源记录候选，不是已确认图版或释读。
+
 H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
 卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 

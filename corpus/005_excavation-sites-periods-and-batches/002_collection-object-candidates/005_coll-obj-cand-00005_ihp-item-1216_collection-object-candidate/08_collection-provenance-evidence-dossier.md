@@ -10,6 +10,15 @@ later formal research.
 
 ## Catalog Page And Source Row / 著录页与来源行
 
+The live official-page check is recorded in
+`18_live-source-evidence-review.md`. It reports `ZR044855`, Late Shang Period,
+SYFYH251, and two private JPEG routes. The source text contains three inline
+image placeholders, so it is not a complete transcription.
+
+现场官方页面复核见 `18_live-source-evidence-review.md`。该页记录 `ZR044855`、
+晚商、SYFYH251 和两条本地私有 JPEG 路线。来源文字含三个内嵌图像占位符，
+因此不是完整释文。
+
 | Evidence field / 证据字段 | Route or value / 路线或取值 |
 | --- | --- |
 | source_id | `src-ihp-museum-oracle-bones` |
@@ -35,6 +44,13 @@ later formal research.
 - 权利状态来自登记来源行；checksum 与大小仍需打开记录复核。
 
 ## Visual Asset Or Thumbnail Evidence / 图像资产或缩略图证据
+
+The live review records two large-image responses, each `image/jpeg`, with
+size, pixel dimensions, and SHA-256. They remain ignored local inspection
+files because rights are not cleared.
+
+现场复核记录两条 `image/jpeg` 大图响应、大小、像素尺寸和 SHA-256。由于权利
+尚未清理，它们仍是忽略区本地观察文件。
 
 | Visual field / 图像字段 | Route or value / 路线或取值 |
 | --- | --- |

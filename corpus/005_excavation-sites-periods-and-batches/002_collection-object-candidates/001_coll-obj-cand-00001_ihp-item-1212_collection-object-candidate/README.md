@@ -40,6 +40,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `17_catalog-to-plate-identity-audit.md`: human catalog-to-plate identity
+  audit; it remains a candidate route.
 
 ## Structured Support Files / 结构化辅助文件
 

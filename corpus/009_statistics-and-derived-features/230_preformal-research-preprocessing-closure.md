@@ -34,6 +34,14 @@ truth defects found after this snapshot. Read it before using the word
 当前[完成度审计][completion-audit]记录了本快照之后发现的资料深度与真值
 缺陷。把 `closure` 理解为全部研究要求已经完成前，必须先阅读该审计。
 
+The counts below are inventory evidence, not completion evidence. After this
+snapshot, progress is judged by a few opened, falsifiable evidence units with
+counterevidence and reproducible checks, not by creating more directories or
+lists.
+
+下列计数只是库存证据，不是完成证据。快照后的战略重心是少量可证伪、
+带反证、可复跑的已开包证据单元，而不是继续增加目录或清单数量。
+
 The current execution baseline is the [AI candidate strategy][ai-strategy].
 It replaces only the assumption that the next evidence-opening step must be
 performed or approved by a human specialist.
@@ -49,6 +57,15 @@ Neither this closure report nor an AI candidate is confirmed scholarship.
 AI Agent 现在可以打开证据路线、独立复核、裁决并向用户提交达到门槛的
 高置信候选。真人专家复核是可选升级和审计路线，不是交付前置条件。本
 闭合报告和 AI 候选都不因此成为已确认学术结论。
+
+That strategy is a normative contract, not evidence that a qualifying run has
+already occurred. A later local diagnostic locked two v4 Agent outputs, but
+it is not a full benchmark, a model-independent rerun, Gate 3, or candidate
+delivery. This report delivers no AI-adjudicated candidate.
+
+该战略是规范性契约，不证明合格运行已经发生。后续本地诊断虽锁定两份
+v4 Agent 输出，但它不是完整基准、模型独立复跑、Gate 3 或候选交付。
+本报告不交付 AI 自主裁决候选。
 
 ## Snapshot / 快照
 

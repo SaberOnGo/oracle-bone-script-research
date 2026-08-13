@@ -29,8 +29,8 @@ excavation context、collection context、relations、引用史、
 
 - updated at: 2026-06-30
 - checklist rows: 4
-- research note files: 31
-- user or AI draft review files: 122
+- research note files: 40
+- user or AI draft review files: 123
 - source register files: 539
 - source index rows: 21
 - phase gap statuses:

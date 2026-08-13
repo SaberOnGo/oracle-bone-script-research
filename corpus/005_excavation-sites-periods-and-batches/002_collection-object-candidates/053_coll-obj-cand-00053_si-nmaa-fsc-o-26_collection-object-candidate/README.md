@@ -25,7 +25,7 @@ review.
 
 Committed image asset: `asset_id=asset-000003`.
 
-![object image](../../001_public-domain-object-image-assets/003_asset-000003_si-nmaa-fsc-o-26_object-image.jpg)
+Open `03_visual-asset-index.csv` for the local image path and checksum.
 
 ## Local Files / 本目录文件
 
@@ -43,6 +43,8 @@ Committed image asset: `asset_id=asset-000003`.
 
 - `18_material-image-inspection-note.md`: bounded observations from the local
   source-linked image.
+- `19_visible-surface-catalog-description-audit.md`: human visual versus
+  catalog audit; no inscription identity is assigned.
 
 ## Structured Support Files / 结构化辅助文件
 

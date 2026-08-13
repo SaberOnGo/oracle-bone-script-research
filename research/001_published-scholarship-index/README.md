@@ -34,12 +34,17 @@ for deciding whether a source can become a reviewed research note.
   fields, evidence locators, proposers, rights conflicts, and transfer rules.
 - [OBIMD 2024/2026 论文档案][obimd-paper]：记录版本关系、字段、
   证据定位、责任角色、权利冲突和转移规则。
+- [Cambridge Hopkins Finding List dossier][cambridge-hopkins-list]: page
+  structure, catalog keys, count reconciliation, rights, and transfer gates.
+- [Cambridge Hopkins 馆藏目录档案][cambridge-hopkins-list]：记录页面结构、
+  著录代码、数量对账、权利和对象转移门槛。
 
-The paper dossier keeps dataset counts and expert review as
+The HUST-OBC paper dossier keeps dataset counts and expert review as
 `source-reported`. Its 94.6% closed-set image-classification accuracy is not
 a decipherment probability and cannot support an “A means B” claim.
 
-论文档案将数据规模和专家复核保持为 `source-reported`。其 94.6%
+HUST-OBC 论文档案将数据规模和专家复核保持为 `source-reported`。其
+94.6%
 闭集图像分类准确率不是释读概率，不能支持“甲就是乙”的主张。
 
 人工复核时，先读 `002_published-scholarship-review-guide.md`，再打开来源
@@ -83,3 +88,4 @@ It is not a rights decision, source promotion, or corpus import approval.
 [hust-paper]: 003_hust-obc-2024_data-paper/README.md
 [obimd-paper]: 004_obimd-2024-2026_data-paper/README.md
 [evobc-paper]: 005_evobc-2024_data-paper/README.md
+[cambridge-hopkins-list]: 006_cambridge-hopkins_finding-list/README.md

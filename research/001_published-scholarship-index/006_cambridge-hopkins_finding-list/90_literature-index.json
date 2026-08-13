@@ -1,0 +1,15 @@
+{
+  "dossier_id": "lit-cambridge-hopkins-finding-list-001",
+  "purpose": "human_dossier_support_only",
+  "source_id": "src-cambridge-hopkins",
+  "download_id": "dl-cambridge-hopkins-finding-list",
+  "provider": "Cambridge University Library",
+  "title": "Finding List for the Hopkins Collection of Chinese Oracle Bones",
+  "access_date": "2026-08-13",
+  "page_stated_grand_total": 609,
+  "retained_row_count": 612,
+  "formal_record_count": 0,
+  "rights_status": "metadata_only_until_verified",
+  "review_status": "needs_source_reconciliation_and_object_review",
+  "human_entry": "README.md"
+}

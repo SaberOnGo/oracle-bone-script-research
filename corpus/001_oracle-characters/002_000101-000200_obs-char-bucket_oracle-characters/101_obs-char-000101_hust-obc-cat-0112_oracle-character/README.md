@@ -21,6 +21,8 @@ verify the human-readable evidence.
   `10_archaeology-paleography-review.md`
 - Human-readable material observation / 人类可读实物图像观察:
   `14_material-visual-observation.md`
+- Human-readable source-image gap dossier / 人类可读来源图像缺口档案:
+  `15_source-image-catalog-gap-abstention-dossier.md`
 - Human-readable readiness review / 人类可读研究准备度复核:
   `12_human-research-readiness-review.md`
 - Structured support candidate packet / 结构化辅助候选包:

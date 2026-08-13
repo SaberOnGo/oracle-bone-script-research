@@ -31264,7 +31264,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["corpus_area"] for row in rows}, {"published_research_notes"})
         self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
-        self.assertEqual({row["research_note_file_count"] for row in rows}, {"31"})
+        self.assertEqual({row["research_note_file_count"] for row in rows}, {"40"})
         self.assertTrue(
             all(
                 "003_hust-obc-2024_data-paper/README.md"
@@ -31272,7 +31272,7 @@ class RepositorySkeletonTests(unittest.TestCase):
                 for row in rows
             )
         )
-        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"122"})
+        self.assertEqual({row["user_research_review_file_count"] for row in rows}, {"123"})
         self.assertEqual({row["source_register_file_count"] for row in rows}, {"539"})
         self.assertTrue(
             all(
@@ -31369,8 +31369,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "cleaned: `mixed_or_partial`",
             "linked: `mixed_or_partial`",
             "verified: `missing`",
-            "research note files: 31",
-            "user or AI draft review files: 122",
+            "research note files: 40",
+            "user or AI draft review files: 123",
             "source register files: 539",
             "bibliographic identity",
             "source trail",
@@ -31396,8 +31396,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_published_research_note_phase_gap_human_guide_module()
         text = module.build_markdown(repo_root())
         self.assertIn("checklist rows: 4", text)
-        self.assertIn("research note files: 31", text)
-        self.assertIn("user or AI draft review files: 122", text)
+        self.assertIn("research note files: 40", text)
+        self.assertIn("user or AI draft review files: 123", text)
         self.assertIn("source register files: 539", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)
         self.assertIn(

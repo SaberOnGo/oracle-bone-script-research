@@ -3,6 +3,7 @@
 ## Status / 状态
 
 - Audit date / 审计日期: `2026-08-12`
+- Material update / 资料更新: `2026-08-13`
 - Audit result / 审计结论: `not_complete`
 - Research status / 正式研究状态: `not_started`
 - Candidate delivery / 候选交付: `none`
@@ -20,6 +21,16 @@ catalog, bibliography, or dispute record has been opened and reviewed.
 
 历史闭合快照仍可用于了解基础设施覆盖，但其中 `2026-08-07` 的数量不能
 证明每张图像、每篇卜辞、每条著录、每份文献或每项争议已经打开复核。
+
+## Strategic Unit Of Progress / 战略进展单位
+
+The next success unit is not another directory batch. It is a small number of
+opened evidence units that state a falsifiable candidate or material claim,
+preserve counterevidence, and can be rerun from recorded source routes.
+
+下一进展单位不是另一批目录，而是少量可证伪、带反证、可复跑的已开包
+证据单元。目录数只说明库存范围，不能替代图像、上下文、著录、文献和
+反证共同组成的证据链。
 
 ## Decisive Findings / 决定性发现
 
@@ -75,13 +86,14 @@ and plate archives of the depth required for direct philological research.
 ### Literature evidence / 文献证据
 
 The source-object area records twenty-one databases, repositories, museums,
-and collection routes. The formal `research/` area still contains guides and
-indexes rather than item-level paper, monograph, catalog, reading-history, and
-dispute dossiers. Source engineering does not substitute for literature work.
+and collection routes. The formal `research/` area now has a small set of
+item-level paper and institutional-page dossiers, but not a complete corpus of
+papers, monographs, catalogs, reading histories, and disputes. Source
+engineering does not substitute for literature work.
 
 来源对象区已经记录二十一个数据库、仓库、博物馆和馆藏路线。正式
-`research/` 区仍以指南和索引为主，尚未形成逐篇论文、专著、著录、
-释读史和争议档案。来源工程不能替代文献整理。
+`research/` 区已有少量逐篇论文和机构网页档案，但尚未形成完整的论文、
+专著、著录、释读史和争议语料。来源工程不能替代文献整理。
 
 ### Progress opened after this audit / 审计后已打开的进展
 
@@ -106,6 +118,16 @@ They reduce three zero-instance gaps but do not change the overall
 - the H2 record now has a strong visual crosswalk candidate to institutional
   record `合2`: it ranks first among 10,077 rubbings, while official detail
   access remains blocked and the catalog identity remains unconfirmed.
+- `obs-char-000621` now has five opened HUST raw-package instances. Its
+  `17_multi-instance-visual-comparison.md` records hashes, dimensions,
+  visible differences, alternative explanations, and two-way falsifiers;
+- the H2 `08_sequence-context-evidence.md` recomputes one group and seven
+  occurrences. It preserves source serialization order `5, 0, 1, 2, 3, 6, 4`
+  separately from annotation order and does not call the UID sequence a text;
+- the Cambridge Hopkins Finding List dossier records the official page total
+  `609` and `612` retained local rows without repairing the difference. It
+  preserves `c/h/j/y` key meanings, item-transfer gates, unresolved object
+  identity, and `metadata_only_until_verified` rights status.
 
 `2026-08-12` 至 `2026-08-13` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
@@ -124,15 +146,23 @@ They reduce three zero-instance gaps but do not change the overall
   实验、概率和权利边界。
 - H2 记录新增与机构记录 `合2` 的强视觉互证候选：它在 10,077 张拓片中
   排名第一；官方详情仍受登录限制，著录同一性仍未确认。
+- `obs-char-000621` 新增五个已打开的 HUST 原包实例；
+  `17_multi-instance-visual-comparison.md` 记录校验和、尺寸、可见差异、
+  替代解释和双向可证伪条件；
+- H2 的 `08_sequence-context-evidence.md` 复算一个句组和七个 occurrence，
+  区分源数组物理顺序与标注顺序，不把 UID 序列写成释文；
+- Cambridge Hopkins 馆藏目录档案并列保存官方总数 `609` 与本地保留
+  `612` 行，不擅自修补差异；同时保留 `c/h/j/y` 代码语义、对象转移
+  门槛、未决实物身份和 `metadata_only_until_verified` 权利状态。
 
 The H2 record still lacks a confirmed catalog identity and readable
-transcription. The six characters still lack opened authoritative plates and
-full inscription contexts. Three paper dossiers are not a complete literature
-corpus. Requirements 8, 9, and 10 therefore remain incomplete.
+transcription. The selected characters still lack opened authoritative plates
+and full inscription contexts. The current item-level dossiers are not a
+complete literature corpus.
+Requirements 8, 9, and 10 therefore remain incomplete.
 
-H2 记录仍缺已确认著录身份和可读释文。六个单字仍缺已打开的权威
-图版和卜辞全文。三项论文档案也不等于完整文献库。因此第 8、9、10 项
-仍未完成。
+H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
+卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
 
 ### Source processing / 来源处理
 
@@ -162,14 +192,28 @@ EvoBC evolution edges remain dataset routes, not verified evolution claims.
 `character-component` 或 `character-inscription` 关系。EvoBC 演化边仍
 是数据集路线，不是已验证的字形演化结论。
 
-The v2 benchmark schema and validator exist, but the repository has no real v2
-experiment record, frozen pilot case, sealed diagnostic gold, Agent court run,
-model-independent rerun, or isolated scorer receipt. The only live candidate
-decision is a justified `abstain_withhold_candidate` record.
+The benchmark contract, validator, and pilot tooling exist. A local v4
+diagnostic later produced two structurally valid locked Agent runs. Both
+abstained; only the execution rerun ranked the pre-registered
+`unknown_or_other` control first. The primary run placed it third by a tiny
+decimal remainder, so the run pair is `diagnostic_fail_withheld`, not a
+pipeline pass. Earlier v1 to v3 attempts remain protocol-failing records.
 
-v2 基准 schema 和校验器已经存在，但仓库中没有真实 v2 实验记录、冻结
-试点案、密封诊断 gold、Agent 法庭运行、模型独立复跑或隔离评分 receipt。
-目前唯一真实候选裁决是有依据的 `abstain_withhold_candidate`。
+The two v4 runs used the same model family. They are execution repeatability,
+not a model-independent rerun. The local HMAC has no external signature or
+trusted timestamp. A local one-shot score receipt now exists, but it is not an
+isolated-scorer receipt or a validated benchmark experiment. There is no
+AI-adjudicated candidate delivery.
+
+基准契约、校验器和试点工具已经存在。后续本地 v4 诊断产生两份结构合规
+的锁定 Agent 运行，两者都弃权；只有执行复跑把预注册的
+`unknown_or_other` 负对照排第一，主运行因极小的小数余差将其排第三。
+因此该对运行是 `diagnostic_fail_withheld`，不是管道通过。v1 至 v3 仍是
+协议失败记录。
+
+两次 v4 使用同一模型家族，只说明执行复现，不是模型独立复跑。本地 HMAC
+没有外部签名或可信时间戳。现在已有本地一次性评分 receipt，但它不是
+隔离评分器 receipt 或已验证基准实验。当前没有 AI 自主裁决候选交付。
 
 ## Nineteen-Requirement Verdict / 十九项要求判定
 

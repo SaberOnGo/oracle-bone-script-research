@@ -44,7 +44,8 @@ Use repository tools in this order:
   review queues.
 - `005_ai-context-pack-builder/` builds AI context-pack support files.
 - [`006_ai-benchmark-pilot/`][benchmark-pilot] freezes real object files and
-  seals ignored diagnostic gold without generating a probability or claim.
+  seals ignored diagnostic gold, locks external Agent outputs, and scores a
+  local diagnostic without authorizing a probability or claim.
 - [`007_obimd-h2-crosswalk/`][h2-crosswalk] replays one rights-limited H2
   visual crosswalk in memory and verifies its object-local result manifest.
 - [`validation/`][benchmark-validator] runs repository-wide skeleton, policy,

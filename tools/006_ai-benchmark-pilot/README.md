@@ -4,36 +4,49 @@
 
 English:
 
-This tool freezes a small, explicit set of files from one real object dossier
-and creates a schema-007-compatible HMAC-SHA-256 gold commitment. It establishes
-diagnostic plumbing before any model run. It does not estimate probabilities,
-run an Agent, authorize Gate 3, or claim a decipherment.
+This tool freezes a small, explicit set of files from one real object dossier.
+It binds private gold to that freeze, creates a pre-dispatch run receipt, and
+locks an externally produced blind Agent report. It can score one retired
+ignored-local negative-control diagnostic. It does not run a model, calibrate
+probabilities, authorize Gate 3, or claim a decipherment.
 
 简体中文：
 
 本工具从一个真实对象档案中冻结少量、显式列出的文件，并按 schema 007
 规则建立 HMAC-SHA-256 gold commitment。它只建立模型运行前的诊断管道，
-不估计概率、不运行 Agent、不授权 Gate 3，也不声称完成释读。
+也可校验并锁定外部生成的盲判 Agent 报告，并对一次性本地负对照诊断
+评分。它不运行模型、不校准概率、不授权 Gate 3，也不声称完成释读。
 
 ## Boundaries / 边界
 
 - Every output is `diagnostic_only` and
   `pretraining_exposure_unknown`.
 - Every output is `benchmark_pilot_not_scholarship`.
-- No output contains a probability or model prediction.
+- `freeze` and `seal` contain no model prediction. `lock-run` may retain a
+  complete Agent distribution but marks it uncalibrated and withheld.
+- `score-local` opens ignored-local gold once, retires that diagnostic, and
+  always keeps candidate delivery withheld.
 - Private gold and all pilot outputs must remain in a Git-ignored path such as
   `.working/` or `doc/public/user_research/generated/`.
 - The public commitment contains neither labels nor the HMAC key.
 - Answer-bearing metadata fields and allowed-file paths are rejected.
+- `freeze` accepts only a human-facing object directory under `corpus/`.
+- Every command creates a new output and refuses to overwrite an old output.
+
+`freeze` 只接受 `corpus/` 下含人类档案的具体资料对象目录。
 
 - 所有输出均标为 `diagnostic_only` 和
   `pretraining_exposure_unknown`。
 - 所有输出均标为 `benchmark_pilot_not_scholarship`。
-- 输出不包含概率或模型预测。
+- `freeze` 与 `seal` 不含模型预测；`lock-run` 可保留完整 Agent 分布，
+  但必须标为未校准且不交付。
+- `score-local` 只打开一次本地忽略区 gold，随后退役该诊断，并始终扣留
+  候选交付。
 - 私有 gold 和全部试点输出只能放入 `.working/` 或
   `doc/public/user_research/generated/` 等 Git 忽略路径。
 - 公开 commitment 不包含标签或 HMAC 密钥。
 - 工具拒绝带答案的 metadata 字段和文件路径。
+- 每条命令只新建输出；已有输出不会被覆盖。
 
 ## Freeze Input / 冻结输入
 
@@ -82,22 +95,147 @@ commitment_key_hex
 ```
 
 The committed message is canonical UTF-8 JSON with sorted keys and compact
-separators. The key must contain at least 32 bytes. The public file records only
-the binding identifiers and HMAC-SHA-256 commitment.
+separators. The key must contain at least 32 bytes. The public file records
+only the binding identifiers and HMAC-SHA-256 commitment. The HMAC message
+also includes the tool-derived `frozen_input_sha256`.
+
+`seal` recomputes the frozen case, requires an exact case-label match, and
+requires each gold candidate to belong to that case's frozen universe. Gold
+cannot be sealed before the case evidence cutoff.
+
+`seal` 会复算冻结案，要求 gold 标签与冻结案件完全对应，并要求每个 gold
+候选都属于该案冻结的候选全集。密封时间不得早于证据截止时间。
 
 参与 commitment 的消息使用 UTF-8、键排序和紧凑分隔符。密钥至少包含
-32 字节。公开文件只记录绑定标识与 HMAC-SHA-256 commitment。
+32 字节。公开文件只记录绑定标识与 HMAC-SHA-256 commitment。HMAC 消息
+还包含工具从冻结案派生的 `frozen_input_sha256`。
 
 ```powershell
 python tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py seal `
+  --frozen-case .working/pilot/frozen-case.json `
   --private-gold .working/pilot/private-gold.json `
   --sealed-at 2026-08-12T00:00:00Z `
   --output .working/pilot/public-commitment.json
 ```
 
-Neither command is a complete benchmark experiment or a Gate 3 pass. A later
-experiment still requires the full schema 007 protocol, isolated scoring,
-reruns, falsification, leakage review, and delivery gates.
+## Open One Blind Run / 开启一次盲判运行
 
-两条命令都不等于完整 benchmark 实验或 Gate 3 通过。后续实验仍须满足
+Create the run-opening receipt after sealing gold and before dispatching the
+Agent. It binds the frozen input, candidate manifest, prompt bytes, public
+commitment, run identity, role, model identity, and fresh context claim.
+
+必须在 gold 密封之后、Agent 派发之前创建开跑回执。回执绑定冻结输入、
+候选 manifest、prompt 字节、公开 commitment、运行身份、角色、模型身份和
+全新上下文声明。
+
+```powershell
+python tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py open-run `
+  --frozen-case .working/pilot/frozen-case.json `
+  --public-commitment .working/pilot/public-commitment.json `
+  --prompt-manifest .working/pilot/prompt-manifest.md `
+  --run-id pilot-run-primary-000001 `
+  --role primary `
+  --execution-id pilot-execution-000001 `
+  --agent-id blind-hypothesis-agent-000001 `
+  --model-id diagnostic-model-000001 `
+  --model-family diagnostic-family-000001 `
+  --context-id fresh-context-000001 `
+  --opened-at 2026-08-12T00:01:00Z `
+  --output .working/pilot/run-opening.json
+```
+
+## Lock One Blind Run / 锁定一次盲判运行
+
+The coordinator writes an ignored prompt manifest before the run. The isolated
+Agent returns one JSON prediction containing the full candidate distribution,
+an explicit predict or abstain action, supporting and opposing evidence,
+falsification checks, and a leakage assessment. The run report records the
+exact SHA-256 of both the prompt and raw Agent JSON.
+
+协调器在运行前写入已忽略的 prompt manifest。隔离 Agent 返回一份 JSON
+预测，包含完整候选分布、明确预测或弃权动作、正反证、证伪检查和泄漏评估。
+运行报告记录 prompt 与原始 Agent JSON 的确切 SHA-256。
+
+```powershell
+python tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py lock-run `
+  --frozen-case .working/pilot/frozen-case.json `
+  --run-opening .working/pilot/run-opening.json `
+  --run-report .working/pilot/run-report.json `
+  --prompt-manifest .working/pilot/prompt-manifest.md `
+  --agent-output .working/pilot/agent-output.json `
+  --locked-at 2026-08-12T00:03:00Z `
+  --output .working/pilot/locked-run.json
+```
+
+`lock-run` recomputes frozen hashes and verifies every report identity field
+against the opening receipt. It checks the candidate universe, distribution,
+frozen evidence, counterevidence, falsification, and leakage consistency. A
+prediction needs support for its selected candidate; a triggered falsifier
+for that candidate requires abstention. The time chain must satisfy
+`sealed < opened < started < completed < locked`. Its output always uses
+`probability_status=uncalibrated_agent_distribution`,
+`calibration_status=not_calibrated`, and `delivery_status=withheld`.
+
+`lock-run` 会复算冻结 hash，并把报告的每个运行身份字段与开跑回执核对。
+它还核验候选全集、分布、冻结证据、反证、证伪和泄漏记录的一致性。
+做出预测时，所选候选必须有支持证据；该候选的反证一旦触发，必须弃权。
+时间链必须满足 `sealed < opened < started < completed < locked`。输出始终
+标为未校准 Agent 分布、未校准且不交付。
+
+## Score One Local Diagnostic / 评分一次本地诊断
+
+`score-local` only supports a frozen `null_or_negative_control`. It requires
+at least two unique locked runs. Before reading private gold once, it
+recomputes the frozen case, checks every locked report and prediction, and
+binds each run to the same candidate manifest, protocol, and public
+commitment.
+
+`score-local` 只支持已冻结的 `null_or_negative_control`，并要求至少两次
+互异的锁定运行。工具只读取一次私有 gold；读取前会复算冻结案，核验每份
+锁定报告与预测，并要求所有运行绑定同一候选 manifest、协议和公开
+commitment。
+
+```powershell
+python tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py score-local `
+  --frozen-case .working/pilot/frozen-case.json `
+  --public-commitment .working/pilot/public-commitment.json `
+  --private-gold .working/pilot/private-gold.json `
+  --locked-run .working/pilot/locked-run-primary.json `
+  --locked-run .working/pilot/locked-run-rerun.json `
+  --scored-at 2026-08-12T00:04:00Z `
+  --output .working/pilot/local-score-receipt.json
+```
+
+The receipt reports `pipeline_diagnostic_pass` only when every run abstains,
+selects no candidate, ranks the sealed null label first, and records
+`indeterminate` leakage with `pretraining_exposure_unknown`. Every other
+well-formed result is `diagnostic_fail_withheld`. Either result retires this
+local evaluation after its single query. Neither result generates a research
+probability, authorizes Gate 3, or permits candidate delivery.
+
+仅当每次运行都弃权、不选择候选、把密封的空标签排在首位，并以
+`pretraining_exposure_unknown` 记录 `indeterminate` 泄漏时，回执才写为
+`pipeline_diagnostic_pass`。其他格式有效的结果均写为
+`diagnostic_fail_withheld`。无论哪种结果，该本地评估都在一次查询后退役，
+且不生成研究概率、不授权 Gate 3、不允许候选交付。
+
+## Residual Limits / 剩余限制
+
+The local commitment is neither externally signed nor independently
+timestamped. An operator who controls the ignored files and HMAC key could
+forge a new local chain. Model IDs, fresh-context claims, and execution
+isolation are coordinator assertions; this tool cannot prove model
+independence or absence of pretraining exposure. It verifies file bindings
+and contract consistency, not scholarly truth or probability calibration.
+
+本地 commitment 没有外部签名或独立时间戳。能控制忽略文件和 HMAC 密钥的
+操作者仍可伪造新的本地链。模型 ID、全新上下文和执行隔离由协调器声明；
+本工具不能证明模型独立，也不能排除预训练暴露。它只核验文件绑定与合同
+一致性，不证明学术真实性或概率校准。
+
+None of these commands is a complete benchmark experiment or a Gate 3 pass.
+A later experiment still requires the full schema 007 protocol, isolated
+scoring, reruns, falsification, leakage review, and delivery gates.
+
+这些命令都不等于完整 benchmark 实验或 Gate 3 通过。后续实验仍须满足
 schema 007 的完整协议、隔离评分、复跑、反证、泄漏复核和交付门槛。

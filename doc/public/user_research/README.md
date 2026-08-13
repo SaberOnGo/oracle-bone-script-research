@@ -46,8 +46,17 @@ Active generated runs belong in the ignored
 `generated/ai-agent-benchmark-experiments/` directory. Private gold must stay
 outside Git.
 
+The reviewed v4 diagnostic summary is available at
+`011_ai-diagnostic-pilot-2026-08-13/README.md`. It records a withheld
+negative-control run and a local one-shot receipt; it is not a benchmark,
+isolated score, Gate 3 result, candidate, or decipherment.
+
 [v2 基准与裁决合同][schema-007]与 v1 分离。进行中的生成实验放在被忽略的
 `generated/ai-agent-benchmark-experiments/`。私有 gold 必须留在 Git 外。
+
+已复核的 v4 诊断摘要见
+`011_ai-diagnostic-pilot-2026-08-13/README.md`。它记录一次扣留的负对照
+运行和本地一次性回执；不是基准、隔离评分、Gate 3 结果、候选或释读。
 
 ## v2 Candidate Delivery / v2 候选交付
 

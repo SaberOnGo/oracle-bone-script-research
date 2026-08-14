@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `c0529651861`
+Snapshot commit: `3cb255be033`
 
 ## Purpose / 目的
 
@@ -33,6 +33,8 @@ the snapshot change, but exceeded their time limits without a result.
   `PASS`, 156837 Markdown files, all four debt counts zero.
 - Post-change object-level checks: BL Or. 7694/1595 `6 tests OK`; effective
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
+- Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
+  JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
 - AI case-selection triage regression: `4 tests OK`; the report is a
@@ -47,8 +49,8 @@ the snapshot change, but exceeded their time limits without a result.
 
 以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
 `939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
-Or. 7694/1595 为 `6 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
-OBIMD 生效权利为 `5 tests OK`。
+ Or. 7694/1595 为 `6 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
+ OBIMD 生效权利为 `5 tests OK`，宁夏 HYZ 421 来源记录为 `5 tests OK`。
 本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
 超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为
 `FAIL no v2 records`。
@@ -98,10 +100,14 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - The Or. 7694/1535v candidate now has the same bounded catalogue treatment;
   its Heji 39498v, Yingcang 1117v, item-level JSON, IIIF, and image links
   remain separate checks.
+- A Ningxia Museum HYZ 421 source-record candidate now preserves one
+  CC BY-SA 3.0 photograph, its local checksum and dimensions, the source
+  inscription string, the Huayuanzhuang East route, and the Schwartz 2019
+  citation. Museum rights, plate identity, and OCR remain unresolved.
 - A British Library Or. 7694/1535v source-record candidate now records one
   CC0 image route, local checksums, direct visual observations, and concrete
   catalog, text, and character-link gaps.
-- The central inscription source-record map now routes all six opened
+- The central inscription source-record map now routes all seven opened
   candidates to their object-local human dossiers.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
@@ -147,7 +153,10 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   IIIF 和馆藏图像仍未取得。
 - Or. 7694/1535v 候选现采用同样的限定馆藏处理；其 Heji 39498v、
   Yingcang 1117v、逐项 JSON、IIIF 和图像路线仍需分别核验。
-- 中央卜辞来源记录映射表现已把六个已打开候选分别指向对象内人类档案。
+- 宁夏博物馆 HYZ 421 来源记录候选现保存一张 CC BY-SA 3.0 照片、本地校验和与
+  尺寸、来源释文、花园庄东路线及 Schwartz 2019 引用。博物馆权利、图版身份和
+  OCR 仍未解决。
+- 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。
@@ -179,7 +188,7 @@ lock raw outputs, and perform one local diagnostic score. It does not itself
 select cases, invoke a model, create independent contexts, or provide an
 external isolated scorer.
 
-The new triage command now supplies the first work-order step for the six
+The new triage command now supplies the first work-order step for the seven
 opened inscription source-record candidates. It ranks visible evidence and
 blockers only; it is not model judgment, calibration, or candidate delivery.
 
@@ -191,7 +200,7 @@ pilot 工具可以冻结证据、密封私有标签、创建运行开封记录�
 本地诊断评分；但它不会自行选案、调用模型、创建真正独立上下文，也不提供外部隔离评
 分器。
 
-新增的选案分诊命令现为六个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
+新增的选案分诊命令现为七个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
 证据和阻断项，不是模型判断、校准或候选交付。
 
 已有一份已复核的 v4 诊断记录。两次运行使用同一模型族但不同上下文，

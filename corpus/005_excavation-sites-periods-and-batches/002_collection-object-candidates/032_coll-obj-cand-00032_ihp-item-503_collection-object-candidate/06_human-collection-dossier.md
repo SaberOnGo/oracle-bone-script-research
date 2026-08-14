@@ -28,6 +28,12 @@ period, batch, plate, inscription, and character context.
 
 ## Visual And Image Route / 图像路线
 
+Fresh official-page metadata, private image hashes, and pixel-only notes are
+recorded in `18_live-source-evidence-review.md`.
+
+最新官方页面元数据、私有图像校验和像素级笔记见
+`18_live-source-evidence-review.md`。
+
 - visual_entry_type: `external_thumbnail_url_metadata_only`
 - visual_index: `03_visual-asset-index.csv`
 - visual_gallery: `04_visual-gallery.md`

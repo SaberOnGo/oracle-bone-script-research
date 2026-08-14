@@ -3,6 +3,11 @@
 English:
 This human check fixes the opening order before formal research starts. A
 reviewer first opens the object page, image route, catalog reference, and source
+
+The current live-source evidence entry is
+`18_live-source-evidence-review.md`.
+
+当前现场来源证据入口为 `18_live-source-evidence-review.md`。
 row, then checks archaeological context, inscription links, character routes,
 rights, and unresolved disputes.
 

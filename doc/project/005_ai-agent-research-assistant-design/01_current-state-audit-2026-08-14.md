@@ -47,11 +47,13 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 
 ## Human archive progress / 人类档案进展
 
-- Twenty-nine IHP collection-object directories contain live-source evidence
+- Thirty IHP collection-object directories contain live-source evidence
   dossiers with page routes, catalog facts, image checksums, and concrete gaps.
 - The current wave includes items 770, 771, and 772. Their source-reported
   descriptions remain explicitly separate from independent readings.
 - Item 508 now has the same source-only treatment, with private image hashes
+  and no committed image derivative.
+- Item 503 now has the same source-only treatment, with private image hashes
   and no committed image derivative.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
@@ -63,10 +65,11 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - Rights remain source-specific. `metadata_only_until_verified` still blocks
   public image reuse where permission is unresolved.
 
-- 二十八个史语所馆藏对象目录已有现场来源证据档案，记录页面路线、著录事实、图像校验
+- 三十个史语所馆藏对象目录已有现场来源证据档案，记录页面路线、著录事实、图像校验
   和具体缺口。
 - 当前批次新增 770、771、772 号对象；其来源描述与独立释读明确分开。
 - 508 号对象也采用同一来源限定，仅保留私有图像校验，不提交图像派生件。
+- 503 号对象也采用同一来源限定，仅保留私有图像校验，不提交图像派生件。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。

@@ -3,6 +3,10 @@
 English:
 This review sheet keeps archaeological context questions beside the collection
 object candidate. A human reviewer must verify institution, catalog record,
+
+The live source supplement is `18_live-source-evidence-review.md`.
+
+现场来源补充见 `18_live-source-evidence-review.md`。
 findspot, period, batch, plate, image, and inscription routes before the object
 can support later research.
 

@@ -27,6 +27,12 @@ External thumbnail URL metadata only.
 
 See `thumbnail_url` in Object Metadata.
 
+The 2026-08-14 live-page, image-hash, and source review is in
+`18_live-source-evidence-review.md`.
+
+2026-08-14 现场页面、图像校验和来源复核见
+`18_live-source-evidence-review.md`。
+
 ## Local Files / 本目录文件
 
 - `04_visual-gallery.md`: human-facing image or thumbnail route sheet.

@@ -1,5 +1,11 @@
 # Human Review Sheet / 人工复核表
 
+Open `18_live-source-evidence-review.md` for the fresh official-page and
+private-image evidence before recording a review decision.
+
+作出复核决定前，先打开 `18_live-source-evidence-review.md`，查看最新官方
+页面和私有图像证据。
+
 Project ID: `coll-obj-cand-00032`
 
 Candidate collection object ID: `ihp-mus-obj-00032`

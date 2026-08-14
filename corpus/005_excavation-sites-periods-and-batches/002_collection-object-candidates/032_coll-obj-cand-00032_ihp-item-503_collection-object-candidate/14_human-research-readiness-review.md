@@ -4,6 +4,12 @@ English:
 This review records what a human researcher must still open before using this
 collection object candidate in formal oracle-bone research. It gathers source,
 visual, archaeological, inscription, character, rights, and dispute checks
+
+Use `18_live-source-evidence-review.md` before marking any visual or source
+route as reviewed.
+
+在把图像或来源路线标为已复核前，先使用
+`18_live-source-evidence-review.md`。
 without promoting any claim.
 
 简体中文：

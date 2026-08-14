@@ -10,6 +10,12 @@ opened before any comparison, citation, or later research use.
 
 ## Human Review Order / 人工复核顺序
 
+Start with `18_live-source-evidence-review.md` for the newest source-page,
+image-route, and checksum record.
+
+先打开 `18_live-source-evidence-review.md`，查看最新来源页面、图像路线和
+校验记录。
+
 - Start with `10_collection-provenance-fact-matrix.md`.
 - Then open `08_collection-provenance-evidence-dossier.md`.
 - Use `02_collection-source-index.csv` for source and rights routes.

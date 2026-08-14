@@ -10,6 +10,12 @@ https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/77859e83b1f
 
 Rights status: `metadata_only_until_verified`
 
+The 2026-08-14 private image checksums and pixel-only observations are in
+`18_live-source-evidence-review.md`.
+
+2026-08-14 私有图像校验和像素级观察见
+`18_live-source-evidence-review.md`。
+
 
 ## Boundary / 边界
 

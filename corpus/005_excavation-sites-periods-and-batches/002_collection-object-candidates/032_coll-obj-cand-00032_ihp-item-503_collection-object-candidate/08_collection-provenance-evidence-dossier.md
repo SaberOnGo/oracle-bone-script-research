@@ -5,6 +5,11 @@ This dossier records the provenance evidence routes that must be opened before a
 museum or collection object candidate can be used for comparison, citation, or
 later formal research.
 
+The live 2026-08-14 evidence supplement is
+`18_live-source-evidence-review.md`.
+
+2026-08-14 现场证据补充见 `18_live-source-evidence-review.md`。
+
 简体中文：
 本档案记录馆藏或出土相关对象候选进入比较、引用或后续正式研究前必须打开复核的来源证据路线。这里不确认对象身份、不确认卜辞身份，也不作释读结论。
 

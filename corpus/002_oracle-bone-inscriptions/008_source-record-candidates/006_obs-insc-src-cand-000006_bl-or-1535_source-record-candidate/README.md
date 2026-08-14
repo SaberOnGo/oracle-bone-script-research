@@ -46,7 +46,9 @@ evidence are clear. This is not a formal `obi-*` inscription record.
 8. `08_british-library-catalog-record.md`: official catalogue metadata and
    unresolved item-level route.
 9. `09_secondary-route-search.md`: exact identifier search and negative route.
-10. Open `90_source-record.json` and `91_source-record-index.csv` last.
+10. `10_visual-region-review.md`: image-first region observations.
+11. Open `92_visual-region-register.csv` after the human page.
+12. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -57,7 +59,9 @@ evidence are clear. This is not a formal `obi-*` inscription record.
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
 9. `09_secondary-route-search.md`：精确标识检索和负面路线。
-10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+10. `10_visual-region-review.md`：以图像为先的区域观察。
+11. 阅读人类页面后打开 `92_visual-region-register.csv`。
+12. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

@@ -45,6 +45,10 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             hashlib.sha256(data).hexdigest(),
             "b4f44b4a325d0a24c605ce84ae3c8180177407e59709e69892185fb66398adaa",
         )
+        self.assertEqual(
+            hashlib.sha1(data).hexdigest(),
+            "30a8c1000ea08df01199e4ae20d90053cc434802",
+        )
         with Image.open(IMAGE) as image:
             self.assertEqual(image.size, (3001, 3345))
             self.assertEqual(image.format, "JPEG")
@@ -53,6 +57,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
         )["image_route"]
         self.assertEqual(route["sha256"], hashlib.sha256(data).hexdigest())
+        self.assertEqual(route["sha1"], hashlib.sha1(data).hexdigest())
         self.assertEqual(route["size_bytes"], len(data))
         self.assertEqual(route["pixels"], "3001x3345")
 

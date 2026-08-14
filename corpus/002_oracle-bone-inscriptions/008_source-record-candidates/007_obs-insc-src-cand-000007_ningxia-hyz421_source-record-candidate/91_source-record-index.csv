@@ -4,6 +4,7 @@ object_reference,"HYZ 421, H3:1325",source_reported,verify museum and book
 source_text,"壬辰夕卜：其宜（俎）一于，若?用。",source_display_only,locate edition plate
 image_status,committed_source_image_with_rights_risk,reviewed,check crop rights
 image_sha256,b4f44b4a325d0a24c605ce84ae3c8180177407e59709e69892185fb66398adaa,independently_checked,local bytes
+image_sha1,30a8c1000ea08df01199e4ae20d90053cc434802,independently_checked,Commons page comparison
 image_size_bytes,2302630,independently_checked,download receipt
 image_dimensions,3001x3345,independently_checked,decode JPEG
 rights_status,source_marked_risk_noted,reviewed,museum rights unresolved

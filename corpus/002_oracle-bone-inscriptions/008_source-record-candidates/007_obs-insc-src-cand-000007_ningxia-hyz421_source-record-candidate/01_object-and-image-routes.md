@@ -23,6 +23,8 @@
 - format: JPEG, RGB
 - SHA-256:
   `b4f44b4a325d0a24c605ce84ae3c8180177407e59709e69892185fb66398adaa`
+- local SHA-1 (matches Commons page):
+  `30a8c1000ea08df01199e4ae20d90053cc434802`
 - Commons page SHA-1:
   `30a8c1000ea08df01199e4ae20d90053cc434802`
 

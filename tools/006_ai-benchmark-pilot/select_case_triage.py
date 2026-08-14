@@ -36,6 +36,7 @@ def _source_label(source_id: str) -> str:
         "src-british-library-oracle-bone": "BL",
         "src-ihp-museum-oracle-bones": "IHP",
         "src-obimd": "OBIMD",
+        "src-wikimedia-ningxia-museum-hyz421": "Ningxia",
     }
     return labels.get(source_id, source_id or "unknown")
 

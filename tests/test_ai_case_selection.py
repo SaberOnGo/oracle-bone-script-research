@@ -25,7 +25,7 @@ class AiCaseSelectionTests(unittest.TestCase):
 
     def test_real_work_order_starts_with_visible_permitted_images(self):
         rows = self.module.select_candidates(ROOT)
-        self.assertEqual(len(rows), 6)
+        self.assertEqual(len(rows), 7)
         self.assertEqual(
             [row["source_label"] for row in rows[:2]],
             ["BL", "BL"],
@@ -34,6 +34,7 @@ class AiCaseSelectionTests(unittest.TestCase):
         self.assertTrue(
             all(row["lane"] == "open_for_deep_review" for row in rows[:2])
         )
+        self.assertEqual(rows[2]["source_label"], "Ningxia")
         for row in rows:
             self.assertNotIn("hypothesis_probability", row)
             self.assertIn("not a probability", row["triage_basis"])

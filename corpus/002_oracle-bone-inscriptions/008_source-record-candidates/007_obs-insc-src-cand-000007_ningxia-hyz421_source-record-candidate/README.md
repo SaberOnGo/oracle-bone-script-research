@@ -38,7 +38,9 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 5. `05_character-linkage-review.md`: unassigned character relations.
 6. `06_literature-and-dispute-review.md`: cited scholarship route.
 7. `07_missing-evidence-plan.md`: concrete next checks.
-8. Open `90_source-record.json` and `91_source-record-index.csv` last.
+8. `08_visual-region-review.md`: image-first region observations.
+9. Open `92_visual-region-register.csv` after the human page.
+10. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像来源链。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -47,7 +49,9 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 5. `05_character-linkage-review.md`：未分配的单字关系。
 6. `06_literature-and-dispute-review.md`：引用文献路线。
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
-8. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+8. `08_visual-region-review.md`：以图像为先的区域观察。
+9. 阅读人类页面后打开 `92_visual-region-register.csv`。
+10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

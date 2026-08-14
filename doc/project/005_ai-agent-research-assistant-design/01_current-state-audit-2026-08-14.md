@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `859ae58b562`
+Snapshot commit: `7dcb0f9754d`
 
 Follow-up verification date: `2026-08-15`
 
@@ -28,7 +28,7 @@ This file records what is and is not executable at the snapshot commit.
 The following receipts describe the snapshot and its current verification
 boundary. Counts are recorded from the commands run at this snapshot.
 
-- `python -m unittest discover -s tests -v`: `978 tests OK` in 562 seconds.
+- `python -m unittest discover -s tests -v`: `981 tests OK` in 560 seconds.
 - `python tools/validation/check_repository_skeleton.py`: `PASS` in 196
   seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:
@@ -40,6 +40,8 @@ boundary. Counts are recorded from the commands run at this snapshot.
   retaining the legacy value now exposes the effective status and override.
 - BL Or. 7694/1595 visual-region review: `3 tests OK`; ten boxes match the
   committed image dimensions and SHA-256 values without text mapping.
+- BL Or. 7694/1535v visual-region review: `3 tests OK`; eight boxes match
+  the committed CC0 image dimensions and SHA-256 without text mapping.
 - Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
 - Ningxia HYZ 421 visual-region review: `3 tests OK`; eight boxes are bound
@@ -65,7 +67,7 @@ boundary. Counts are recorded from the commands run at this snapshot.
   failure propagation, the full-scan coverage floor, and debt ceilings.
 
 以上回执和当前快照边界均来自仓库根目录：全量测试为
-`978 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
+`981 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
 扫描 156838 个 Markdown，机器主导、核心研究缺失、现代标签风险和
 mojibake 四项债务均为零。宁夏 HYZ 421 来源记录为 `5 tests OK`，其
 构件、学术史和关系槽位已补齐。v1 证据包校验为 `PASS 1 file`，v2
@@ -151,6 +153,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - The same candidate now has a ten-region visual review page and CSV. The
   boxes are checksum-bound to the two CC0 images, but no region is mapped to
   a character, line, reading order, or source string.
+- The related Or. 7694/1535v candidate now has an eight-region visual review
+  page and CSV bound to its CC0 image, without mapping any region to text.
 - Its literature page now records a named astronomical-date dispute: the
   British Library/Scroll route reports 1192 BC, while Liu's *Early China*
   abstract records a 1166 BCE argument for Yingcang 885/886. Both remain
@@ -197,6 +201,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   字符串，不生成 OCR 或项目摹写。
 - 同一候选现有十个区域的视觉复核页和 CSV。区域框与两张 CC0 图像的校验和绑定，
   但没有把区域对应到单字、行序、阅读顺序或页面字符串。
+- 相关的 Or. 7694/1535v 候选现有八个区域的视觉复核页和 CSV，区域框与 CC0
+  图像绑定，但没有把任何区域对应到文字。
 - 该候选的文献页现记录了有名有据的年代争议：大英图书馆/Scroll 路线报告公元前
   1192 年，Liu 的 *Early China* 摘要为《英藏》885/886 记录公元前 1166 年的
   论证。两者仍是来源路线，本项目不采用任何一个年代。

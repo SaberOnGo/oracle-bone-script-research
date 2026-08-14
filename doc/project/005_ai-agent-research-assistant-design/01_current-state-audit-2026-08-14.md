@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `8d0fe91e6d3`
+Snapshot commit: `34e6aa10873`
 
 ## Purpose / 目的
 
@@ -35,6 +35,8 @@ the snapshot change, but exceeded their time limits without a result.
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
+- AI case-selection triage regression: `4 tests OK`; the report is a
+  work-order signal only and does not create a v2 record or probability.
 - AI diagnostic pilot targeted regression: `48 tests OK`, including corpus
   object scope, leakage, lock, falsification, HMAC, and one-shot scoring gates.
 - Post-change full unittest: timed out after 900 seconds; no PASS result.
@@ -170,6 +172,10 @@ lock raw outputs, and perform one local diagnostic score. It does not itself
 select cases, invoke a model, create independent contexts, or provide an
 external isolated scorer.
 
+The new triage command now supplies the first work-order step for the six
+opened inscription source-record candidates. It ranks visible evidence and
+blockers only; it is not model judgment, calibration, or candidate delivery.
+
 A reviewed [v4 diagnostic pilot record][pilot-report] exists. Its two runs
 used the same model family with fresh contexts, disagreed on the top-ranked
 opaque ID, and therefore remained `diagnostic_fail_withheld`.
@@ -177,6 +183,9 @@ opaque ID, and therefore remained `diagnostic_fail_withheld`.
 pilot 工具可以冻结证据、密封私有标签、创建运行开封记录、锁定原始输出，并进行一次
 本地诊断评分；但它不会自行选案、调用模型、创建真正独立上下文，也不提供外部隔离评
 分器。
+
+新增的选案分诊命令现为六个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
+证据和阻断项，不是模型判断、校准或候选交付。
 
 已有一份已复核的 v4 诊断记录。两次运行使用同一模型族但不同上下文，
 对不透明 ID 的首位排序不一致，因此结果保持 `diagnostic_fail_withheld`。

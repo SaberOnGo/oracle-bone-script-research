@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `a4f4c952fb6`
+Snapshot commit: `859ae58b562`
 
 Follow-up verification date: `2026-08-15`
 
@@ -28,7 +28,7 @@ This file records what is and is not executable at the snapshot commit.
 The following receipts describe the snapshot and its current verification
 boundary. Counts are recorded from the commands run at this snapshot.
 
-- `python -m unittest discover -s tests -v`: `975 tests OK` in 565 seconds.
+- `python -m unittest discover -s tests -v`: `978 tests OK` in 562 seconds.
 - `python tools/validation/check_repository_skeleton.py`: `PASS` in 196
   seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:
@@ -42,6 +42,8 @@ boundary. Counts are recorded from the commands run at this snapshot.
   committed image dimensions and SHA-256 values without text mapping.
 - Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
+- Ningxia HYZ 421 visual-region review: `3 tests OK`; eight boxes are bound
+  to the committed JPEG and remain unmapped to the displayed source string.
 - Schwartz Huayuanzhuang East literature dossier: `4 tests OK`; publisher
   metadata, DOI, chapter map, license signal, and HYZ 421 page citation are
   recorded without claiming that the cited pages were opened.
@@ -63,7 +65,7 @@ boundary. Counts are recorded from the commands run at this snapshot.
   failure propagation, the full-scan coverage floor, and debt ceilings.
 
 以上回执和当前快照边界均来自仓库根目录：全量测试为
-`975 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
+`978 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
 扫描 156838 个 Markdown，机器主导、核心研究缺失、现代标签风险和
 mojibake 四项债务均为零。宁夏 HYZ 421 来源记录为 `5 tests OK`，其
 构件、学术史和关系槽位已补齐。v1 证据包校验为 `PASS 1 file`，v2
@@ -121,6 +123,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   CC BY-SA 3.0 photograph, its local checksum and dimensions, the source
   inscription string, the Huayuanzhuang East route, and the Schwartz 2019
   citation. Museum rights, plate identity, and OCR remain unresolved.
+- The HYZ 421 candidate now has an eight-region visual review page and CSV.
+  The boxes are checksum-bound to the committed JPEG, but none is mapped to
+  a character, line, reading order, or displayed source string.
 - A British Library Or. 7694/1535v source-record candidate now records one
   CC0 image route, local checksums, direct visual observations, and concrete
   catalog, text, and character-link gaps.
@@ -177,6 +182,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 宁夏博物馆 HYZ 421 来源记录候选现保存一张 CC BY-SA 3.0 照片、本地校验和与
   尺寸、来源释文、花园庄东路线及 Schwartz 2019 引用。博物馆权利、图版身份和
   OCR 仍未解决。
+- HYZ 421 候选现有八个区域的视觉复核页和 CSV。区域框与已提交 JPEG 的校验和
+  绑定，但没有把区域对应到单字、行序、阅读顺序或页面字符串。
 - 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
 - 六个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
   Schwartz 的花园庄东专著和 Liu 的《英藏》月食论文。

@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `9f5a5c32366fa36c1cc35a9a5f9f87b1aa768ee1`
+Snapshot commit: `c6b1382a81e5`
 
 ## Purpose / 目的
 
@@ -25,12 +25,12 @@ This file records what is and is not executable at the snapshot commit.
 
 The following commands were run from the repository root:
 
-- `python -m unittest discover -s tests -v`: `887 tests OK`.
+- `python -m unittest discover -s tests -v`: `893 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `887 tests OK`，骨架校验为 `PASS`，v1
+以上命令均从仓库根目录执行：全量测试为 `893 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
@@ -47,10 +47,12 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 
 ## Human archive progress / 人类档案进展
 
-- Twenty-seven IHP collection-object directories contain live-source evidence
+- Twenty-eight IHP collection-object directories contain live-source evidence
   dossiers with page routes, catalog facts, image checksums, and concrete gaps.
 - The current wave includes items 770, 771, and 772. Their source-reported
   descriptions remain explicitly separate from independent readings.
+- Item 508 now has the same source-only treatment, with private image hashes
+  and no committed image derivative.
 - Four item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, and the
   Cambridge-Hopkins finding list.
 - Candidate graph edges now include character-to-component candidates,
@@ -59,9 +61,10 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - Rights remain source-specific. `metadata_only_until_verified` still blocks
   public image reuse where permission is unresolved.
 
-- 二十七个史语所馆藏对象目录已有现场来源证据档案，记录页面路线、著录事实、图像校验
+- 二十八个史语所馆藏对象目录已有现场来源证据档案，记录页面路线、著录事实、图像校验
   和具体缺口。
 - 当前批次新增 770、771、772 号对象；其来源描述与独立释读明确分开。
+- 508 号对象也采用同一来源限定，仅保留私有图像校验，不提交图像派生件。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。

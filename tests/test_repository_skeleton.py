@@ -25663,9 +25663,9 @@ class RepositorySkeletonTests(unittest.TestCase):
             "[2026-08-14 current-state audit][current-audit]",
             strategy,
         )
-        self.assertIn("887 tests OK", current_audit)
+        self.assertIn("893 tests OK", current_audit)
         self.assertIn(
-            "Twenty-seven IHP collection-object directories",
+            "Twenty-eight IHP collection-object directories",
             current_audit,
         )
         self.assertIn("FAIL no v2 records", current_audit)

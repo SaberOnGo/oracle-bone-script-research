@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `6e581b3155e`
+Snapshot commit: `a27a7ce3a01`
 
 ## Purpose / 目的
 
@@ -31,7 +31,8 @@ the snapshot change, but exceeded their time limits without a result.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156837 Markdown files, all four debt counts zero.
-- Post-change object-level checks: BL Or. 7694/1595 `6 tests OK`; effective
+- Post-change object-level checks: BL Or. 7694/1595 `7 tests OK`; the related
+  source-text reconciliation suite is `5 tests OK`; effective
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
 - Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
@@ -40,6 +41,8 @@ the snapshot change, but exceeded their time limits without a result.
   recorded without claiming that the cited pages were opened.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
+- The latest repository-skeleton attempt after this route update timed out
+  after 184 seconds; its Python process was stopped and no PASS is claimed.
 - AI case-selection triage regression: `4 tests OK`; the report now covers
   seven opened candidates and remains a work-order signal only, not a v2
   record or probability.
@@ -53,7 +56,8 @@ the snapshot change, but exceeded their time limits without a result.
 
 以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
 `939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
- Or. 7694/1595 为 `6 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
+ Or. 7694/1595 为 `7 tests OK`，其来源文字对照套件为 `5 tests OK`，
+ BL Or. 7694/1535 为 `6 tests OK`，
  OBIMD 生效权利为 `5 tests OK`，宁夏 HYZ 421 来源记录为 `5 tests OK`。
 本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
 超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为
@@ -101,6 +105,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   source-reported shelfmark, title, collection, date range, extent, and the
   catalogue's `Images currently unavailable` notice. Item-level JSON, IIIF,
   and catalogue-image retrieval remain unresolved.
+- A related-route review now records Google Arts & Culture as a same-family
+  aggregation and Sketchfab as a CC Attribution route with an explicit NoAI
+  restriction. Neither route adds image bytes or independent text evidence.
 - The Or. 7694/1535v candidate now has the same bounded catalogue treatment;
   its Heji 39498v, Yingcang 1117v, item-level JSON, IIIF, and image links
   remain separate checks.
@@ -161,7 +168,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   尺寸、来源释文、花园庄东路线及 Schwartz 2019 引用。博物馆权利、图版身份和
   OCR 仍未解决。
 - 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
-- 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
+- 五个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表和
+  Schwartz 的花园庄东专著。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。
 - 图谱 schema 现已把路线完整性置信度与未来的校准假说概率分开；现有
@@ -177,6 +185,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   `metadata_only_until_verified`；中央历史 manifest 值仍由有效权利覆盖记录追溯。
 - Or. 7694/1595 与 Or. 7694/1535v 对象现保存三张未改动的 CC0 来源图像；
   人类档案链接和校验和均已绑定，页面文字和著录仍分别待复核。
+- 相关路线复核现把 Google Arts & Culture 标为同源聚合路线，把 Sketchfab
+  标为带明确 NoAI 限制的 CC Attribution 路线；两者没有新增图像字节或独立文字证据。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
 

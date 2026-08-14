@@ -70,6 +70,28 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
         )
         self.assertIn("no decipherment conclusion", record["boundaries"])
 
+    def test_machine_record_keeps_literature_routes_as_unresolved(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            record["literature_status"],
+            "named_astronomical_date_dispute_route_only",
+        )
+        self.assertEqual(len(record["literature_routes"]), 2)
+        self.assertEqual(
+            {item["project_use"] for item in record["literature_routes"]},
+            {"source_report_only", "dispute_route_only"},
+        )
+        for item in record["literature_routes"]:
+            self.assertEqual(item["snapshot_status"], "not_downloaded")
+            self.assertEqual(
+                item["checksum_status"], "not_applicable_not_stored"
+            )
+            self.assertEqual(
+                item["rights_status"], "copyright_review_required"
+            )
+
     def test_index_and_rights_route_are_explicit(self):
         index = (OBJECT / "91_source-record-index.csv").read_text(
             encoding="utf-8"

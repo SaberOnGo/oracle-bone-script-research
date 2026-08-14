@@ -18,6 +18,37 @@
   "reading_order_status": "recto_verso_relation_pending",
   "formal_inscription_identity": "not_assigned",
   "character_links": [],
+  "literature_status": "named_astronomical_date_dispute_route_only",
+  "literature_routes": [
+    {
+      "source_id": "literature-scroll-bl-1595-2016",
+      "title": "Records of a lunar eclipse from more than 3,000 years ago",
+      "author": "Emma Goodliffe",
+      "url": "https://scroll.in/article/801747/records-of-a-lunar-eclipse-from-more-than-3000-years-ago",
+      "access_date": "2026-08-14",
+      "evidence_level": "secondary_curatorial_route",
+      "claim_scope": "reports Yingcang 886 and a 1192 BC date",
+      "project_use": "source_report_only",
+      "snapshot_status": "not_downloaded",
+      "checksum_status": "not_applicable_not_stored",
+      "rights_status": "copyright_review_required",
+      "risk_note": "page text and illustration were not copied"
+    },
+    {
+      "source_id": "literature-liu-early-china-2014",
+      "title": "The total lunar eclipse on June 16, 2011",
+      "author": "Xueshun Liu",
+      "url": "https://doi.org/10.1017/eac.2014.10",
+      "access_date": "2026-08-14",
+      "evidence_level": "scholarly_abstract_route",
+      "claim_scope": "abstract reports a 1166 BCE argument for Yingcang 885/886",
+      "project_use": "dispute_route_only",
+      "snapshot_status": "not_downloaded",
+      "checksum_status": "not_applicable_not_stored",
+      "rights_status": "copyright_review_required",
+      "risk_note": "only abstract and reference metadata were checked"
+    }
+  ],
   "image_status": "public_direct_route_and_committed_source_bytes",
   "image_routes": [
     {

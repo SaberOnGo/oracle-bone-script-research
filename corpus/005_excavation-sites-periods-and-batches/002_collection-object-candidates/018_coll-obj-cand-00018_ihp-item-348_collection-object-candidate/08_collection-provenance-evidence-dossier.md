@@ -27,6 +27,13 @@ later formal research.
 | local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
 | route_review_status | `metadata_route_needs_human_review` |
 
+The item page and large image were re-opened on 2026-08-14. Source description,
+image checksum, 3D route, and visual boundary are recorded in
+`18_live-source-evidence-review.md`; rights remain unresolved.
+
+2026-08-14 重新打开对象页和大图。来源说明、图像校验和、3D 路线与视觉边界已记录在
+`18_live-source-evidence-review.md`；权利仍未解决。
+
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 
 - rights_status is copied from the registered source row.

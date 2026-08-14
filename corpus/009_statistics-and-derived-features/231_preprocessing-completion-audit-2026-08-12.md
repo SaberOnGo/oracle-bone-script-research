@@ -447,6 +447,20 @@ image rights remain unresolved; this is still a source-record candidate.
 到忽略区并计算校验和。著录版本、独立图版、来源释读、YH127 说明和图像权利仍未解决，
 因此仍是来源记录候选。
 
+The IHP object candidate `ihp-mus-obj-00018` / item `348` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R024974`, `Inscribed Animal Bone Fragment Chia 2336`, Late Shang
+Period, Hsiao-t'un, and animal bone. The source description calls it a
+practice carving with tiger, monkey, horse, fire, and bird imagery, and links
+an IHP 3D route. The JPEG was saved to ignored storage and hashed after
+private inspection. The catalog edition, 3D identity, complete inscription,
+practice status, and image rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00018` / item `348` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R024974`、`Inscribed Animal Bone Fragment Chia 2336`、晚商、小屯和兽骨；
+来源说明称其为刻有虎、猴、马、火和鸟形象的习刻，并链接史语所 3D 路线。大图已私下检查
+后保存到忽略区并计算校验和。著录版本、3D 身份、完整卜辞、习刻性质和图像权利仍未解决。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

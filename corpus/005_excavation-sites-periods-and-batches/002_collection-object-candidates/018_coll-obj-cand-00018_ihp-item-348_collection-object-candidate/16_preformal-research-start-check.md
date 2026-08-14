@@ -18,6 +18,7 @@ rights, and unresolved disputes.
 | 3 | `06_human-collection-dossier.md` | catalog clues |
 | 4 | `12_archaeological-context-review.md` | context gaps |
 | 5 | `14_human-research-readiness-review.md` | blockers |
+| 6 | `18_live-source-evidence-review.md` | source text, image, 3D route |
 
 ## Concrete Start Questions / 具体开包问题
 
@@ -27,11 +28,14 @@ rights, and unresolved disputes.
 - Which inscription or oracle-character relation is candidate only?
 - Which rights, checksum, size, manifest, or field map is unresolved?
 - Which bibliography, proposer, disagreement, or citation is missing?
+- Which source description, image, or 3D route still needs an independent
+  check?
 - 哪一个对象页、图像路线、著录线索和来源行要先打开？
 - 哪一项出土地、时期、批次、坑位或图版路线仍待查？
 - 哪一条卜辞或甲骨单字关联仍只是候选路线？
 - 哪一项权利、checksum、大小、manifest 或字段映射未解决？
 - 哪一项书目、提出者、不同意见或引用链仍缺失？
+- 哪项来源说明、图像或 3D 路线仍需独立核对？
 
 ## Research Boundary / 研究边界
 

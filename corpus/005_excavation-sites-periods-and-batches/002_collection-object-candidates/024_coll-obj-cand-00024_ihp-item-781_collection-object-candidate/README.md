@@ -23,7 +23,9 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official object image and source description were checked against ignored
+`.working/ihp-781/` snapshots. A JPEG was fetched for private inspection only;
+no image is committed or redistributed. See `18_live-source-evidence-review.md`.
 
 See `thumbnail_url` in Object Metadata.
 
@@ -40,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: official pages, source text, image hash,
+  visual observation, and concrete next checks.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -65,6 +69,11 @@ See `thumbnail_url` in Object Metadata.
 - source_collection_item_id: `781`
 - object_title_en: `Inscribed Carapace I 4683`
 - catalog_reference_text: `I 4683`
+- item_no: `R044755`
+- period: `Late Shang Period`
+- material: `Turtle Carapace`
+- dimensions: `14.8(L)×5.6(W) cm`
+- findspot: `Pit YH127, Hsiao-t'un, Anyang County, Honan Province`
 - object_page_url: `https://museum.sinica.edu.tw/en/collection/32/item/781/`
 - thumbnail_url: `https://museum.sinica.edu.tw/_upload/image/collection_item/thu
   mbnail/8945f68987791716.jpg`

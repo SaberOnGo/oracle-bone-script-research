@@ -432,6 +432,21 @@ plate identity, complete transcription, and rights remain unresolved.
 来源说明涉及气象占问，并解释风、鱼、孔雀和龙。对象页快照已保存到忽略区并计算校验和。
 图像直链返回 HTML 而非图像字节，视觉访问、独立图版身份、完整释文和图像权利仍未解决。
 
+The IHP object candidate `ihp-mus-obj-00024` / item `781` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R044755`, `Inscribed Carapace I 4683`, Late Shang Period, Pit YH127,
+and Turtle Carapace. They display source text about a divine name, harm, and
+snake-shaped signs, plus a reshaped oval carapace with a central hole. The
+large JPEG was saved to ignored storage and hashed after private inspection.
+The catalog edition, independent plate, source reading, YH127 claim, and
+image rights remain unresolved; this is still a source-record candidate.
+
+史语所对象候选 `ihp-mus-obj-00024` / item `781` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R044755`、`Inscribed Carapace I 4683`、晚商、YH127 坑和龟甲；页面显示
+关于神祇名、降灾和蛇形字的来源文字，并说明改制椭圆背甲和中孔。大图已私下检查后保存
+到忽略区并计算校验和。著录版本、独立图版、来源释读、YH127 说明和图像权利仍未解决，
+因此仍是来源记录候选。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

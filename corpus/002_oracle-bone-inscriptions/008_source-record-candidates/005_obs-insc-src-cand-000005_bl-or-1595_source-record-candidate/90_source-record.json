@@ -1,0 +1,58 @@
+{
+  "candidate_id": "obs-insc-src-cand-000005",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-british-library-oracle-bone",
+  "source_platform": "Wikimedia Commons British Library files",
+  "accession_recto": "Or. 7694/1595r",
+  "accession_verso": "Or. 7694/1595v",
+  "heji_reference": "Heji 40610r/v",
+  "yingguo_reference": "Yingcang suocang jiagu ji 886r/v",
+  "collection": "British Library",
+  "source_reported_period": "Shang dynasty; 12th century BC",
+  "source_reported_event": "lunar eclipse description",
+  "source_reported_recto_string": "已未庚申月㞢[食]",
+  "source_reported_verso_string": "七日己未斲庚申月又食",
+  "text_status": "source_display_only_without_project_transcription",
+  "ocr_status": "not_collected",
+  "plate_status": "not_independently_verified",
+  "reading_order_status": "recto_verso_relation_pending",
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "image_status": "public_direct_route_local_private_snapshot_only",
+  "image_routes": [
+    {
+      "side": "recto",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Oracle_bone_-_BL_Or._1595_recto.png",
+      "local_private_path": ".working/bl-or-1595/recto.png",
+      "size_bytes": 942112,
+      "sha256": "ddecad64f5b958ec3c4425bad53dbe90c7f782b41622a672b7ec6d971ddf9c19",
+      "pixels": "681x898"
+    },
+    {
+      "side": "verso",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Oracle_bone_-_BL_Or._1595_verso.png",
+      "local_private_path": ".working/bl-or-1595/verso.png",
+      "size_bytes": 933246,
+      "sha256": "5833d7fc96d0d5a2878bd6981c0110c5919613cd4d382ad45f93f3451bf342f4",
+      "pixels": "610x905"
+    }
+  ],
+  "rights_status": "public_domain_verified",
+  "rights_scope": "Commons_image_CC0; page_text_and_catalog_metadata_need_attribution",
+  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "missing_evidence": [
+    "stable British Library item record",
+    "independent Heji plate and page locator",
+    "rights-cleared line-addressable transcription and OCR",
+    "independent excavation, period, and collection history",
+    "named proponents and contrary eclipse or reading records",
+    "human-reviewed character and component segmentation"
+  ],
+  "boundaries": [
+    "source-reported strings and eclipse context only",
+    "no project transcription or translation",
+    "no formal obi identity",
+    "no character or component assignment",
+    "no decipherment conclusion"
+  ]
+}

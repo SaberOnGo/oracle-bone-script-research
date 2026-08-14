@@ -35,3 +35,4 @@ obimd-main,src-obimd,OBIMD main-character UID,OBIMD main-character UID,Main-char
 obimd-sub,src-obimd,OBIMD sub-character UID,OBIMD sub-character UID,Sub-character UID from OBIMD hierarchy workbooks; not a formal component ID.,来自 OBIMD 层级工作簿的 sub-character UID；不是正式构件 ID。
 obimd-glyph-link,src-obimd,OBIMD glyph-code-point link,OBIMD glyph code point 关系,Project-local staging prefix for OBIMD sub-character to glyph-code-point links.,本项目用于 OBIMD sub-character 到 glyph code point 暂存关系的前缀。
 collection-prov,src-multiple,Institutional collection provenance staging,机构馆藏出处暂存,Project-local staging prefix for institutional collection-level provenance records sourced from official pages.,本项目用于官方页面机构馆藏级出处暂存记录的前缀。
+bl-oracle,src-british-library-oracle-bone,British Library oracle-bone image source,大英图书馆甲骨图像来源,Commons files supplied by the British Library; verify catalog and text separately.,大英图书馆提供的 Commons 图像；著录与文字仍需分别复核。

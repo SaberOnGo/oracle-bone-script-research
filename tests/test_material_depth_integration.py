@@ -27,18 +27,24 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         )
         with map_path.open(encoding="utf-8-sig", newline="") as handle:
             rows = list(csv.DictReader(handle))
-        self.assertEqual(len(rows), 4)
+        self.assertEqual(len(rows), 5)
         expected = {
             "obs-insc-src-cand-000001": "obimd-h2",
             "obs-insc-src-cand-000002": "IHP-item-503;R044498",
             "obs-insc-src-cand-000003": "IHP-item-1215;R044587",
             "obs-insc-src-cand-000004": "IHP-item-771;R039275+R043001",
+            "obs-insc-src-cand-000005": "BL-Or.7694/1595r;Heji-40610r/v",
         }
         for row in rows:
             project_id = row["project_id"]
             self.assertIn(project_id, expected)
             self.assertEqual(row["primary_external_ref_id"], expected[project_id])
-            self.assertEqual(row["rights_status"], "metadata_only_until_verified")
+            expected_rights = (
+                "public_domain_verified"
+                if project_id == "obs-insc-src-cand-000005"
+                else "metadata_only_until_verified"
+            )
+            self.assertEqual(row["rights_status"], expected_rights)
             self.assertTrue((ROOT / row["canonical_path"]).is_dir())
 
         text = (ROOT / "corpus/002_oracle-bone-inscriptions/README.md").read_text(
@@ -49,6 +55,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         self.assertIn("[ihp-503-candidate]", text)
         self.assertIn("[ihp-1215-candidate]", text)
         self.assertIn("[ihp-771-candidate]", text)
+        self.assertIn("[bl-1595-candidate]", text)
 
     def test_literature_index_links_item_level_human_dossier(self):
         text = (

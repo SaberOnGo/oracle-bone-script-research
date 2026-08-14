@@ -274,3 +274,62 @@ available and what is missing; it does not promote any candidate into formal
 scholarship.
 
 本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，不会把任何候选项提升为正式学术结论。
+
+## 12. Opened Evidence Synthesis / 已打开证据综合
+
+### Human-readable synthesis / 人类可读综合
+
+The opened image is described in
+[`14_material-visual-observation.md`](14_material-visual-observation.md):
+a thin left stem with short branches stands beside a looping right form
+with upper prongs and angular lower strokes.
+
+已打开图像见
+[`14_material-visual-observation.md`](14_material-visual-observation.md)：
+左侧是带短分支的纤细主干，右侧是有上部分叉和折角下笔的环曲形体。
+
+The complete filename evidence is in
+`15_source-filename-evidence-review.md`.
+It contains 10 `G_` records. Filename candidates include Heji
+`938`, `22049`, `10145`, `693`, `331`, `6057`, and `17382`,
+old catalog routes such as Yi `1916` and Hou `2.23.9`, and the group
+strings `賓組` and `午組`.
+
+完整文件名证据见
+`15_source-filename-evidence-review.md`。
+其中有 10 条 `G_` 记录；合集号、旧著录号以及 `賓組`、`午組`
+都只是来源文件名候选。
+
+The cross-source route is HUST `hust-obc-cat-0468`, OBIMD
+`obimd-main-ytmsqjgowx`, and EvoBC `evobc-cat-00035` with 28 aggregate
+OBC references. The shared codepoint is a search key only; it does not
+establish object identity or an evolution relation.
+
+跨来源路线包括 HUST `hust-obc-cat-0468`、OBIMD
+`obimd-main-ytmsqjgowx` 和 EvoBC `evobc-cat-00035` 的 28 条 OBC 聚合引用。
+同码只是检索键，不建立对象同一或演化关系。
+
+Counterevidence includes three unnumbered `甲骨文` filename members,
+different group strings, and the lack of opened primary images, full
+inscription text, or plate locators for the listed catalog candidates.
+The visible form may therefore represent source grouping or unresolved
+near-form variation rather than one confirmed graph.
+
+反证包括三条无著录号的 `甲骨文` 文件、不同组类字符串，以及尚未打开的
+原始图像、卜辞全文和图版定位。现阶段不能排除来源分组或近形混入。
+
+HUST remains `source_marked_risk_noted`; OBIMD is effectively
+`metadata_only_until_verified`; EvoBC is an aggregate route without the
+corresponding opened images. No restricted derivative is added here.
+
+HUST 仍为 `source_marked_risk_noted`，OBIMD 生效状态为
+`metadata_only_until_verified`，EvoBC 仍是未打开图像的聚合路线。本节不新增
+受限派生资料。
+
+Next checks are to resolve the three unnumbered members, compare the seven
+catalog candidates with authoritative plates and neighboring signs, and
+recover text, page, findspot, collection, period, proposer, and dispute
+records. This source-record synthesis is not a decipherment conclusion.
+
+下一步应先核验三条无著录号文件，再用权威图版和邻字核对七条合集候选，
+补回卜辞全文、页码、出土地、馆藏、时期、提出者和争议记录。本综合不是破译结论。

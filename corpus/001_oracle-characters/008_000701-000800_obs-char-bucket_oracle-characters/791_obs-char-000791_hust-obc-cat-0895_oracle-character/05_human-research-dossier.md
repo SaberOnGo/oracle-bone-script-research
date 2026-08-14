@@ -369,3 +369,63 @@ available and what is missing; it does not promote any candidate into formal
 scholarship.
 
 本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，不会把任何候选项提升为正式学术结论。
+
+## 12. Opened Evidence Synthesis / 已打开证据综合
+
+### Human-readable synthesis / 人类可读综合
+
+The direct image observation is recorded in
+[`14_material-visual-observation.md`](14_material-visual-observation.md):
+a thick slanting upper stroke enters a small angular frame with a short
+inner mark and a pointed lower end.
+
+直接图像观察见
+[`14_material-visual-observation.md`](14_material-visual-observation.md)：
+粗重斜上笔进入带短内枝的小型折角框，随后转为尖形下端。
+
+The filename dossier contains all 21 `G_` records and the parsed routes in
+`15_source-filename-evidence-review.md`.
+Heji candidates include `974`, `6583`, `26786`, `40373`, `13426`,
+`20197`, `13327`, `573`, `31080`, `27434`, `28087`, `27321`, `27627`,
+`34612`, `528`, `33193`, and `30515`. Group candidates include `賓組`,
+`出組`, `何組`, `歷無名間`, and `歷組`.
+
+文件名档案列出全部 21 条 `G_` 记录，见
+`15_source-filename-evidence-review.md`。
+合集号和 `賓組`、`出組`、`何組`、`歷無名間`、`歷組` 都只是来源候选。
+
+Five members were opened in
+`17_multi-instance-visual-comparison.md`.
+Instances 1–4 share a narrow upright-and-lower-wedge route, while the fifth
+has a much broader roof-like outline. Damage, crop, rubbing density, and
+tracing may explain the difference; the broad fifth instance is a concrete
+near-form or mixed-group warning.
+
+已有五个成员在
+`17_multi-instance-visual-comparison.md`
+中打开。前四例共享较窄的直笔和下部尖楔路线，第五例的屋脊状轮廓明显更宽。
+损伤、裁切、拓印浓淡和摹写都可能造成差异；第五例是具体近形或混组警示。
+
+The cross-source route is HUST `hust-obc-cat-0895`, OBIMD
+`obimd-main-e19hd5tm0i`, and EvoBC `evobc-cat-00078` with 52 aggregate
+OBC references. OBIMD records candidates `㝵`, `得`, and another form;
+this internal disagreement is evidence to preserve, not a reading choice.
+
+跨来源路线包括 HUST `hust-obc-cat-0895`、OBIMD
+`obimd-main-e19hd5tm0i` 和 EvoBC `evobc-cat-00078` 的 52 条 OBC 聚合引用。
+OBIMD 并列记录 `㝵`、`得` 和另一字形；这一内部分歧应保留，不能替选释读。
+
+HUST remains `source_marked_risk_noted`; OBIMD is effectively
+`metadata_only_until_verified`; EvoBC is an unopened aggregate route.
+Next checks are to resolve the two missing Heji mappings, compare the broad
+fifth member with authoritative plates, and recover text, period, collection,
+findspot, proposer, and dispute records.
+
+HUST 仍为 `source_marked_risk_noted`，OBIMD 生效状态为
+`metadata_only_until_verified`，EvoBC 仍是未打开图像的聚合路线。下一步应先
+核验两条缺合集号的著录，再比较第五例，并补回全文、时期、馆藏、出土地、
+提出者和争议记录。
+
+This source-record synthesis is not an accepted reading or a decipherment
+conclusion.
+本综合不是已接受释读，也不是破译结论。

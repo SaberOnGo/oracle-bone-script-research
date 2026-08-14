@@ -274,3 +274,65 @@ available and what is missing; it does not promote any candidate into formal
 scholarship.
 
 本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，不会把任何候选项提升为正式学术结论。
+
+## 12. Opened Evidence Synthesis / 已打开证据综合
+
+### Human-readable synthesis / 人类可读综合
+
+The opened review image is documented in
+[`14_material-visual-observation.md`](14_material-visual-observation.md).
+It shows a compact crossing-stroke grid on the left and a separate long
+curved stroke on the right. This is a direct visual record only.
+
+已打开的复核图像见
+[`14_material-visual-observation.md`](14_material-visual-observation.md)。
+图像可见左侧紧凑交叉笔网格，右侧另有分离的长弯曲笔。这只是直接观察。
+
+The complete source-file inventory is in
+`15_source-filename-evidence-review.md`.
+It contains 10 `G_` records. Filename parsing gives Heji candidates
+`4814`, `21988`, `21021`, `16545`, `22246`, `5994`, and `18448`,
+old catalog candidates such as Yi `2262` and Qian `4.32.8`, and the
+group strings `賓組`, `子組`, and `𠂤組`.
+
+完整来源文件清单见
+`15_source-filename-evidence-review.md`。
+其中有 10 条 `G_` 记录。文件名只提供合集号、旧著录号和
+`賓組`、`子組`、`𠂤組` 等组类候选，尚未证明卜辞身份。
+
+The cross-source route is HUST `hust-obc-cat-0232`, OBIMD
+`obimd-main-nzqdb3i249`, and EvoBC `evobc-cat-00021` with 28 aggregate
+references. The same codepoint and two OBIMD transcription candidates are
+locator routes, not proof that the records are the same graph.
+
+跨来源路线包括 HUST `hust-obc-cat-0232`、OBIMD
+`obimd-main-nzqdb3i249` 和 EvoBC `evobc-cat-00021` 的 28 条聚合引用。
+同码和两个转录候选只是定位路线，不证明字形同一。
+
+Counterevidence remains visible: three filename entries lack a precise
+catalog number, group strings span different routes, and the OBIMD and
+EvoBC materials have not supplied an opened primary inscription image or
+full text for this object. These differences may reflect source grouping,
+copying, or unresolved near-form risk.
+
+反证仍需保留：三条文件名缺少可定位著录号，组类字符串跨越不同路线，
+OBIMD 与 EvoBC 也没有为本对象提供已打开的原始图像或卜辞全文。
+这些差异可能来自来源分组、复制或尚未排除的近形风险。
+
+Rights remain `source_marked_risk_noted` for the HUST derivative,
+`metadata_only_until_verified` for OBIMD, and route-only for EvoBC. No
+additional restricted image is released here.
+
+HUST 派生图仍为 `source_marked_risk_noted`，OBIMD 生效状态为
+`metadata_only_until_verified`，EvoBC 仍是路线资料。本节没有新增受限图像。
+
+Next checks are to open the ten source members, verify every catalog and
+group candidate against authoritative plates, recover inscription text and
+page locators, and record findspot, collection, period, proposer, and
+dispute evidence before any reading claim is considered.
+
+下一步应打开十个来源成员，以权威图版核验著录和组类候选，补回卜辞全文、
+页码、出土地、馆藏、时期、提出者和争议证据；在此之前不得提出释读。
+
+This synthesis is a source-record review, not a decipherment conclusion.
+本综合是来源记录复核，不是破译结论。

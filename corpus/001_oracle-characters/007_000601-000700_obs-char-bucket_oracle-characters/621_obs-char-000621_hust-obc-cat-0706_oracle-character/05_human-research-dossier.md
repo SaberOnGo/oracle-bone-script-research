@@ -275,3 +275,60 @@ available and what is missing; it does not promote any candidate into formal
 scholarship.
 
 本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，不会把任何候选项提升为正式学术结论。
+
+## 12. Opened Evidence Synthesis / 已打开证据综合
+
+### Human-readable synthesis / 人类可读综合
+
+The direct visual record is in
+[`14_material-visual-observation.md`](14_material-visual-observation.md):
+a tall right vertical is crossed by two short horizontals, with a left
+upper branch and a detached small rectangular loop at lower left.
+
+直接图像观察见
+[`14_material-visual-observation.md`](14_material-visual-observation.md)：
+右侧高长竖笔被两条短横栏穿过，带左上斜枝，左下另有分离小矩形环。
+
+The filename review lists all 20 `G_` records and the opened members in
+`15_source-filename-evidence-review.md`.
+Its catalog candidates include Heji `1351`, `6583`, `6947`, `248`,
+`1248`, `4584`, `11439`, `11405`, `31591`, `1371`, `21492`, `231`,
+`19619`, `16610`, `1245`, and `8553`; group candidates are `賓組` and
+`𠂤賓間`.
+
+文件名复核列出了全部 20 条 `G_` 记录，见
+`15_source-filename-evidence-review.md`。
+其中的合集号和 `賓組`、`𠂤賓間` 仍只是文件名来源候选。
+
+Five members were opened in
+`17_multi-instance-visual-comparison.md`.
+They share a strong vertical or diagonal route, but their loops, diagonals,
+bottom feet, and enclosure sizes differ. The large connected enclosure in
+the fifth instance and the crossed diagonals in the second are useful
+near-form counterevidence, not a split or merge decision.
+
+已有五个成员在
+`17_multi-instance-visual-comparison.md`
+中打开。它们共享明显竖轴或斜轴，但环、斜笔、底部和框体大小不同。
+第五例的大封闭框和第二例的交斜笔是近形反证线索，不是拆分或合并结论。
+
+The cross-source route is HUST `hust-obc-cat-0706`, OBIMD
+`obimd-main-1mkqz99m8b`, and EvoBC `evobc-cat-00049` with 88 aggregate
+references. OBIMD has two transcription candidates. These are locator
+records only and do not confirm a single graph or reading.
+
+跨来源路线包括 HUST `hust-obc-cat-0706`、OBIMD
+`obimd-main-1mkqz99m8b` 和 EvoBC `evobc-cat-00049` 的 88 条聚合引用。
+OBIMD 有两个转录候选；这些只是定位记录，不确认单一字形或释读。
+
+HUST remains `source_marked_risk_noted`; OBIMD is
+`metadata_only_until_verified`; EvoBC members remain unopened. Next checks
+are to verify the five catalog plates, explain `𠂤賓間`, recover full text,
+and locate period, collection, findspot, proposer, and disputes.
+
+HUST 仍为 `source_marked_risk_noted`，OBIMD 生效状态为
+`metadata_only_until_verified`，EvoBC 成员仍未打开。下一步应核验五条图版、
+解释 `𠂤賓間` 的来源，补回全文、时期、馆藏、出土地、提出者和争议。
+
+This is a source-record synthesis, not a decipherment conclusion.
+本综合是来源记录整理，不是破译结论。

@@ -314,3 +314,65 @@ available and what is missing; it does not promote any candidate into formal
 scholarship.
 
 本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，不会把任何候选项提升为正式学术结论。
+
+## 12. Opened Evidence Synthesis / 已打开证据综合
+
+### Human-readable synthesis / 人类可读综合
+
+The direct visual record is in
+[`14_material-visual-observation.md`](14_material-visual-observation.md):
+a small rectangular lower enclosure has short upper projections and a
+central descending stem.
+
+直接图像观察见
+[`14_material-visual-observation.md`](14_material-visual-observation.md)：
+小型矩形下部闭合轮廓有短上伸笔和中央下行笔干。
+
+The complete filename evidence is in
+`15_source-filename-evidence-review.md`.
+It contains 14 `G_` records. Filename candidates include Heji `20217`,
+`7896`, `7897`, `20215`, `5857`, `13543`, `13762`, `30173`, `20716`,
+and `1865`, with group strings `𠂤組`, `賓組`, and `歷無名間`.
+
+完整文件名证据见
+`15_source-filename-evidence-review.md`。
+其中有 14 条 `G_` 记录；合集号和 `𠂤組`、`賓組`、`歷無名間` 都只是
+来源文件名候选。
+
+Five members were opened in
+`17_multi-instance-visual-comparison.md`.
+All show a central upright and a roughly four-cell lower enclosure, but the
+upper branches and one rightward lower projection differ. Damage, rubbing,
+tracing, crop, and normalization are alternative explanations. These
+differences are useful counterevidence against automatic category merging,
+not a conclusion to split the category.
+
+已有五个成员在
+`17_multi-instance-visual-comparison.md`
+中打开。五图都有中央竖笔和大致四格下框，但上部枝笔及一处右伸笔不同。
+损伤、拓摹、裁切和归一化都可能解释差异；这只是反对自动合并的反证线索，
+不是拆分类别结论。
+
+The cross-source route is HUST `hust-obc-cat-1083`, OBIMD
+`obimd-main-rny4p2gchp`, and EvoBC `evobc-cat-00090` with 99 aggregate
+references across OBC, bronze, Spring and Autumn, and Warring States routes.
+The shared codepoint is a locator only and does not prove glyph identity or
+an evolution chain.
+
+跨来源路线包括 HUST `hust-obc-cat-1083`、OBIMD
+`obimd-main-rny4p2gchp` 和 EvoBC `evobc-cat-00090` 的 99 条聚合引用，
+覆盖 OBC、金文、春秋和战国路线。同码只是定位键，不证明字形同一或演化链。
+
+HUST remains `source_marked_risk_noted`; OBIMD is effectively
+`metadata_only_until_verified`; EvoBC has no unified raw image package
+opened here. Next checks are to compare the five catalog plates, explain
+the group strings, recover full text and neighboring signs, and locate
+findspot, collection, period, proposer, and dispute records.
+
+HUST 仍为 `source_marked_risk_noted`，OBIMD 生效状态为
+`metadata_only_until_verified`，EvoBC 尚未打开统一原始图像包。下一步应核验
+五条图版、组类字符串、卜辞全文和邻字，并补回出土地、馆藏、时期、提出者和
+争议记录。
+
+This synthesis is a source-record review, not a decipherment conclusion.
+本综合是来源记录复核，不是破译结论。

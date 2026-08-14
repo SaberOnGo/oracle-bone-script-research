@@ -300,3 +300,62 @@ available and what is missing; it does not promote any candidate into formal
 scholarship.
 
 本档案只是正式研究前的资料入口。它记录已有资料和缺失资料，不会把任何候选项提升为正式学术结论。
+
+## 12. Opened Evidence Synthesis / 已打开证据综合
+
+### Human-readable synthesis / 人类可读综合
+
+The direct visual record is in
+[`14_material-visual-observation.md`](14_material-visual-observation.md):
+a small rounded rectangular loop is surrounded by detached short marks on
+both sides and above.
+
+直接图像观察见
+[`14_material-visual-observation.md`](14_material-visual-observation.md)：
+小型圆弧矩形环周围，上方及左右两侧散置分离短笔。
+
+The complete filename evidence is in
+`15_source-filename-evidence-review.md`.
+It contains 18 `G_` records, including Heji candidates `31923`, `8315`,
+`9648`, `8318`, `8317`, `40440`, `8320`, `7853`, `8319`, `7854`,
+and `28183`, with group strings `無名組`, `賓組`, and `何組`.
+
+完整文件名证据见
+`15_source-filename-evidence-review.md`。
+其中有 18 条 `G_` 记录，合集号和 `無名組`、`賓組`、`何組` 都是
+文件名来源候选。
+
+Six members were opened in
+`17_multi-instance-visual-comparison.md`.
+Instances 1, 2, and 5 share a rounded enclosure and an inner mark, while
+instances 4 and 6 are visibly broader or differently cropped. The duplicate
+filename route for Heji `8315` and the unnumbered members are explicit
+counterevidence requiring catalog and pixel-level checks.
+
+已有六个成员在
+`17_multi-instance-visual-comparison.md`
+中打开。前一、二、五例共享圆弧框和内痕，四、六例更宽或裁切不同。
+`8315` 的副本文件名路线及无合集号成员都是需要著录和像素核验的反证。
+
+The cross-source route is HUST `hust-obc-cat-0961`, OBIMD
+`obimd-main-hcsv6oxj1l`, and EvoBC `evobc-cat-00086` with 51 aggregate
+OBC references. Same-code and aggregate counts are locator metadata only;
+they do not establish a common inscription, component, or reading.
+
+跨来源路线包括 HUST `hust-obc-cat-0961`、OBIMD
+`obimd-main-hcsv6oxj1l` 和 EvoBC `evobc-cat-00086` 的 51 条 OBC 聚合引用。
+同码和计数只是定位 metadata，不建立共同卜辞、构件或释读。
+
+HUST remains `source_marked_risk_noted`; OBIMD is
+`metadata_only_until_verified`; EvoBC has no unified raw image package
+opened here. Next checks are to compare the two `8315` members, resolve the
+`7854` duplicate route, and recover plate, text, collection, findspot,
+period, proposer, and dispute evidence.
+
+HUST 仍为 `source_marked_risk_noted`，OBIMD 生效状态为
+`metadata_only_until_verified`，EvoBC 尚未打开统一原始图像包。下一步应比较
+两条 `8315` 文件、核验 `7854` 副本路线，并补回图版、全文、馆藏、出土地、
+时期、提出者和争议证据。
+
+This is a source-record synthesis, not a decipherment conclusion.
+本综合是来源记录整理，不是破译结论。

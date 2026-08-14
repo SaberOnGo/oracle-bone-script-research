@@ -14,8 +14,29 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
     def test_readme_exposes_the_human_reconciliation_page(self):
         text = (OBJECT / "README.md").read_text(encoding="utf-8-sig")
         self.assertIn("08_source-text-line-reconciliation.md", text)
+        self.assertIn("09_british-library-catalog-record.md", text)
         self.assertIn("90_source-record.json", text)
         self.assertIn("91_source-record-index.csv", text)
+
+    def test_catalog_record_is_source_reported_and_bounded(self):
+        path = OBJECT / "09_british-library-catalog-record.md"
+        self.assertTrue(path.is_file(), path)
+        text = path.read_text(encoding="utf-8-sig")
+        for marker in (
+            "Or 7694/1595",
+            "Shang dynasty oracle bone",
+            "Couling-Chalfant",
+            "Oriental Manuscripts",
+            "1300 BC-1050 BC",
+            "Images currently unavailable",
+            "source-reported",
+            "item-level JSON payload",
+            "no project OCR",
+            "or decipherment claim",
+        ):
+            self.assertIn(marker, text)
+        self.assertNotIn("twentieth century", text)
+        self.assertNotIn("project translation", text)
 
     def test_reconciliation_preserves_source_strings_and_boundaries(self):
         path = OBJECT / "08_source-text-line-reconciliation.md"
@@ -39,7 +60,11 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
         self.assertNotIn("project translation", text)
 
     def test_human_markdown_stays_within_eighty_characters(self):
-        for name in ("README.md", "08_source-text-line-reconciliation.md"):
+        for name in (
+            "README.md",
+            "08_source-text-line-reconciliation.md",
+            "09_british-library-catalog-record.md",
+        ):
             path = OBJECT / name
             for number, line in enumerate(
                 path.read_text(encoding="utf-8-sig").splitlines(), 1

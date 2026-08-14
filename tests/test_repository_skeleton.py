@@ -25739,6 +25739,8 @@ class RepositorySkeletonTests(unittest.TestCase):
         for path in root_docs:
             text = path.read_text(encoding="utf-8-sig")
             self.assertIn("ai_adjudicated_candidate", text)
+            self.assertIn("versioned adjudication", text)
+            self.assertIn("v2", text)
             self.assertIn(
                 "doc/project/005_ai-agent-research-assistant-design/",
                 text,

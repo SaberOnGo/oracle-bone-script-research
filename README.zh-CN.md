@@ -32,16 +32,20 @@ an automatic decipherment model.
 
 ## AI 候选战略 / AI Candidate Strategy
 
-独立 AI Agent 可以调查、反证、复跑、校准并裁决假说。通过全部预登记
-门槛的候选，可以在没有真人专家预先批准的情况下直接提交给用户。
+独立 AI Agent 可以调查、反证、复跑、校准并裁决假说。候选只有通过版本化
+裁决记录证明全部预登记门槛后，才能在没有真人专家预先批准的情况下提交给用户。
 
-交付状态是 `ai_adjudicated_candidate`，不是已确认学术结论。规范性设计见
-[AI Agent 自主候选裁决战略][ai-strategy]。
+`ai_adjudicated_candidate` 是面向用户的独立交付叠加层，不是旧版 v1
+evidence-pack 的 `status` 或 `assignment_status` 字段值。只有版本化裁决
+记录通过校准、泄漏、反证、复跑、权利和交付全部门槛后才能使用它。
+当前仓库没有公开 v2 实验记录，因此本入口页不授权交付任何候选。规范性
+设计见[AI Agent 自主候选裁决战略][ai-strategy]。
 
 Independent AI agents may investigate, falsify, rerun, calibrate, and
-adjudicate hypotheses. A candidate that passes every registered gate may be
-delivered to the user without prior human-specialist approval. It remains a
-high-confidence AI candidate, not confirmed scholarship.
+adjudicate hypotheses. A candidate may be delivered without prior
+human-specialist approval only through a versioned adjudication record that
+passes every registered gate. It remains a high-confidence AI candidate, not
+confirmed scholarship.
 
 ## 人工研究入口顺序 / Human Research Entry Order
 

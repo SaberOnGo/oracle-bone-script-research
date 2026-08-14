@@ -29,6 +29,7 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
             "05_character-linkage-review.md",
             "06_literature-and-dispute-review.md",
             "07_missing-evidence-plan.md",
+            "10_secondary-dissemination-and-rights.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -110,6 +111,34 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
         )
         self.assertIn("CC0 1.0 Universal Public Domain Dedication", evidence)
         self.assertIn("Page text and structured metadata", evidence)
+
+    def test_related_routes_keep_aggregation_and_noai_boundaries(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(len(record["related_routes"]), 2)
+        by_id = {item["route_id"]: item for item in record["related_routes"]}
+        self.assertEqual(
+            by_id["gac-bl-or-1595"]["independence"],
+            "same_source_family_not_independent",
+        )
+        self.assertEqual(
+            by_id["sketchfab-bl-or-1595"]["rights_status"],
+            "noai_restricted_do_not_ingest",
+        )
+        self.assertTrue(by_id["sketchfab-bl-or-1595"]["noai_restriction"])
+        route_text = (
+            OBJECT / "10_secondary-dissemination-and-rights.md"
+        ).read_text(encoding="utf-8")
+        for marker in (
+            "Google Arts & Culture",
+            "same source family",
+            "Sketchfab",
+            "NoAI",
+            "noai_restricted_do_not_ingest",
+            "used for model training",
+        ):
+            self.assertIn(marker, route_text)
 
     def test_markdown_files_are_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

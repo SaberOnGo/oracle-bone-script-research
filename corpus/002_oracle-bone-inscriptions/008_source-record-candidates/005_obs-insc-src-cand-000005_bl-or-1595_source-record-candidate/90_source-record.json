@@ -70,6 +70,32 @@
       "pixels": "610x905"
     }
   ],
+  "related_routes": [
+    {
+      "route_id": "gac-bl-or-1595",
+      "kind": "aggregated_object_route",
+      "url": "https://artsandculture.google.com/asset/chinese-oracle-bones/twHU3qhk0b_LUw?hl=en",
+      "access_date": "2026-08-14",
+      "evidence_scope": "object discovery and displayed rights label only",
+      "independence": "same_source_family_not_independent",
+      "snapshot_status": "not_downloaded",
+      "rights_status": "metadata_attribution_required",
+      "ai_use": "not_used_for_ocr_or_training"
+    },
+    {
+      "route_id": "sketchfab-bl-or-1595",
+      "kind": "derivative_3d_route",
+      "url": "https://sketchfab.com/3d-models/oracle-bone-or-76941595-96f9ae59a49b4a70a0c9b961602efcab",
+      "access_date": "2026-08-14",
+      "evidence_scope": "derivative visualization route only",
+      "independence": "same_source_family_derivative",
+      "snapshot_status": "not_downloaded",
+      "reported_license": "CC Attribution",
+      "noai_restriction": true,
+      "rights_status": "noai_restricted_do_not_ingest",
+      "ai_use": "prohibited"
+    }
+  ],
   "rights_status": "public_domain_verified",
   "rights_scope": "Commons_image_CC0; page_text_and_catalog_metadata_need_attribution",
   "review_status": "source_record_candidate_needs_catalog_and_text_review",

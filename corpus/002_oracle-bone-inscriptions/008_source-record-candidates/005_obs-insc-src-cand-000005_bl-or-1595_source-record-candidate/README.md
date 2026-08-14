@@ -46,7 +46,8 @@ Commons 页面明确将图像标为 CC0，
    two image sides.
 9. `09_british-library-catalog-record.md`: official catalogue metadata and
    unresolved item-level route.
-10. Open `90_source-record.json` and `91_source-record-index.csv` last.
+10. `10_secondary-dissemination-and-rights.md`: related routes and rights.
+11. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -57,7 +58,8 @@ Commons 页面明确将图像标为 CC0，
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_source-text-line-reconciliation.md`：对照页面文字和正反面图像。
 9. `09_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
-10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+10. `10_secondary-dissemination-and-rights.md`：相关路线与权利限制。
+11. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

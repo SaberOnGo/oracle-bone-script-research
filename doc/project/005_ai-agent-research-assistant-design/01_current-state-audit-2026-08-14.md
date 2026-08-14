@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `6bdb63b6660`
+Snapshot commit: `c0529651861`
 
 ## Purpose / 目的
 
@@ -31,7 +31,7 @@ the snapshot change, but exceeded their time limits without a result.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156837 Markdown files, all four debt counts zero.
-- Post-change object-level checks: BL Or. 7694/1595 `5 tests OK`; effective
+- Post-change object-level checks: BL Or. 7694/1595 `6 tests OK`; effective
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
@@ -47,7 +47,7 @@ the snapshot change, but exceeded their time limits without a result.
 
 以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
 `939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
-Or. 7694/1595 为 `5 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
+Or. 7694/1595 为 `6 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
 OBIMD 生效权利为 `5 tests OK`。
 本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
 超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为

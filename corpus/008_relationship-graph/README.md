@@ -68,6 +68,17 @@ missing evidence, and next source to check.
 来源文件、本地档案路径、证据路径、复核状态、缺失证据和下一步
 待查来源。
 
+## Confidence boundary / 置信度边界
+
+`confidence_level` in existing files is route metadata, not a probability.
+Use `route_integrity_confidence` for source binding and evidence-route quality.
+Use `hypothesis_probability` only for a task-calibrated candidate, together
+with `hypothesis_probability_status` and its calibration reference.
+
+现有图边中的 `confidence_level` 只是路线 metadata，不是概率。
+来源绑定和证据路线质量使用 `route_integrity_confidence`。只有任务级校准
+后的候选才可使用 `hypothesis_probability`，并同时记录状态和校准引用。
+
 ## OBIMD Rights Resolution / OBIMD 权利状态解析
 
 The OBIMD staging tables and older graph edges may preserve the historical

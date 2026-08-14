@@ -9,7 +9,33 @@
     "source_node_id": {"type": "string"},
     "edge_type": {"type": "string"},
     "target_node_id": {"type": "string"},
-    "confidence_level": {"enum": ["low", "medium", "high", "unknown"]},
+    "confidence_level": {
+      "enum": ["low", "medium", "high", "unknown"],
+      "description": "Legacy route metadata confidence only; never a calibrated decipherment probability."
+    },
+    "route_integrity_confidence": {
+      "enum": ["low", "medium", "high", "unknown"],
+      "description": "Confidence that the recorded route or mapping is correctly bound to its source and evidence."
+    },
+    "hypothesis_probability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "A calibrated task-specific probability only; a model self-score or route confidence must not populate it."
+    },
+    "hypothesis_probability_status": {
+      "enum": [
+        "not_applicable",
+        "uncalibrated_score",
+        "calibrated",
+        "withheld"
+      ],
+      "description": "State of any hypothesis probability. Use calibrated only with a locked calibration reference."
+    },
+    "hypothesis_calibration_ref": {
+      "type": ["string", "null"],
+      "description": "Stable reference to the registered calibration report; required when a calibrated probability is present."
+    },
     "source_ids": {"type": "array", "items": {"type": "string"}},
     "evidence_note": {"type": ["string", "null"]},
     "review_status": {"enum": [

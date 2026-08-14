@@ -76,6 +76,13 @@ records `R044587`, the `Yi Bian` catalog label, and the missing independent
 plate, OCR, and character-link evidence. It remains metadata-only and is not
 a formal `obi-*` record: [`obs-insc-src-cand-000003`][ihp-1215-candidate].
 
+A fourth source-record candidate captures the IHP Museum item 771 page and
+its source-reported proposed divination. It records `R039275+R043001`,
+`I 5867+8202`, three private image checksums, and the missing independent
+plate, original text, OCR, and character-link evidence. It remains
+metadata-only and is not a formal `obi-*` record:
+[`obs-insc-src-cand-000004`][ihp-771-candidate].
+
 第二个来源记录候选登记史语所 503 号页面说明，记录 `R044498`、`Ping 0529`、
 来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
 候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
@@ -83,6 +90,11 @@ a formal `obi-*` record: [`obs-insc-src-cand-000003`][ihp-1215-candidate].
 该候选尚无可读卜辞全文或 OCR。`H2` 不是已确认的《合集》2，
 七个来源 UID 也不是已确认字形或释读。它不是正式 `obi-*`
 记录。
+
+第四个来源记录候选保存史语所博物馆 771 号页面及其来源拟译。它记录
+`R039275+R043001`、`I 5867+8202`、三份私有图像校验和，以及尚缺的独立图版、
+原始文字、OCR 和单字关联证据。它仍是 metadata-only，不是正式 `obi-*` 记录：
+[`obs-insc-src-cand-000004`][ihp-771-candidate]。
 
 ## What A Human Should Inspect / 人工应检查什么
 
@@ -192,3 +204,5 @@ committing.
   002_obs-insc-src-cand-000002_ihp-item-503_source-record-candidate/README.md
 [ihp-1215-candidate]: 008_source-record-candidates/
   003_obs-insc-src-cand-000003_ihp-item-1215_source-record-candidate/README.md
+[ihp-771-candidate]: 008_source-record-candidates/
+  004_obs-insc-src-cand-000004_ihp-item-771_source-record-candidate/README.md

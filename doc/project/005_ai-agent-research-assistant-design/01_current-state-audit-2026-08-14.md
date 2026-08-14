@@ -25,12 +25,12 @@ This file records what is and is not executable at the snapshot commit.
 
 The following commands were run from the repository root:
 
-- `python -m unittest discover -s tests -v`: `916 tests OK`.
+- `python -m unittest discover -s tests -v`: `922 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `916 tests OK`，骨架校验为 `PASS`，v1
+以上命令均从仓库根目录执行：全量测试为 `922 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
@@ -59,6 +59,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   prose from transcription and records explicit OCR and plate gaps.
 - An IHP item 1215 inscription source-record candidate now records the museum
   short display, three private image checksums, and independent plate/OCR gaps.
+- An IHP item 771 inscription source-record candidate now records the
+  source-reported proposed divination, two private HTML hashes, three private
+  image hashes, and independent plate/text/OCR gaps.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
 - Four item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, and the
@@ -78,6 +81,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   图版缺口。
 - 1215 号对象另有卜辞来源记录候选，记录馆方短文字、三条私有图像校验和，
   并明确独立图版与 OCR 缺口。
+- 771 号对象另有卜辞来源记录候选，记录馆方拟译、两份私有 HTML 校验和、三条
+  私有图像校验和，并明确独立图版、原文和 OCR 缺口。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。

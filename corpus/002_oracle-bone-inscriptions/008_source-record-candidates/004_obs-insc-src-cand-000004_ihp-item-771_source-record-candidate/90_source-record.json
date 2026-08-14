@@ -1,0 +1,63 @@
+{
+  "candidate_id": "obs-insc-src-cand-000004",
+  "source": "src-sinica-ihp-museum",
+  "museum_item": "771",
+  "museum_accession": "R039275+R043001",
+  "catalog_label": "I 5867+8202",
+  "source_title": "Inscribed Plastron I 5867+8202",
+  "source_reported_proposed_english": "On the day ting-wei, diviner '永 Yung' questioned: will it rain from today until the day hsin-hai.",
+  "source_reported_reverse_preface": "The page says the day and diviner preface was engraved on the reverse.",
+  "text_availability": "source_reported_proposed_translation_without_independent_review",
+  "text_quality": "source_reported_proposed_translation_without_independent_review",
+  "plate_locator": "not_collected",
+  "heji_identity": "not_assigned",
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "image_routes": [
+    {
+      "route": "thumbnail",
+      "local_private_path": ".working/ihp-771/thumbnail-115f488d1fb39b0.jpg",
+      "size_bytes": 41585,
+      "sha256": "46d6239db5a26c9ce349332df8ee61b3eddb7937be7b9f9ad9880c9405777f66",
+      "pixels": "216x480"
+    },
+    {
+      "route": "large",
+      "local_private_path": ".working/ihp-771/large-115f488d1fb39b0.jpg",
+      "size_bytes": 213137,
+      "sha256": "b8d7bb2be97271ee3a6d7abdd2c082c246c58d2e954b4ceae451eb98a781ec93",
+      "pixels": "576x1280"
+    },
+    {
+      "route": "high_definition",
+      "local_private_path": ".working/ihp-771/hd-115f488d1fb39b0.jpg",
+      "size_bytes": 402428,
+      "sha256": "2d7d4147f4c977f8c7cd816d9f1fbcca0713e65252ceb41ebf6a6f53025a07",
+      "pixels": "864x1920"
+    }
+  ],
+  "page_snapshots": [
+    {
+      "path": ".working/ihp-771/page-en.html",
+      "size_bytes": 59000,
+      "sha256": "1ce9d5b26edf40075735be33a5b3380957aacf768deaa9397ef0214c483b4c80"
+    },
+    {
+      "path": ".working/ihp-771/page-zh.html",
+      "size_bytes": 54918,
+      "sha256": "47dcd16ccfe72f8a8aba9944daef98d68f8703e6ca04e140028717daa96fd2c3"
+    }
+  ],
+  "period": "Late Shang Period",
+  "findspot": "Pit YH127, Hsiao-t'un, Anyang County, Honan Province",
+  "material": "Turtle Plastron",
+  "rights_status": "metadata_only_until_verified",
+  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "boundaries": [
+    "source-reported proposal only",
+    "no project transcription or translation",
+    "no formal obi-* identity",
+    "no character assignment",
+    "no decipherment conclusion"
+  ]
+}

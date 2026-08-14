@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `c3f49bac236`
+Snapshot commit: `6e581b3155e`
 
 ## Purpose / 目的
 
@@ -35,6 +35,9 @@ the snapshot change, but exceeded their time limits without a result.
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
 - Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
+- Schwartz Huayuanzhuang East literature dossier: `4 tests OK`; publisher
+  metadata, DOI, chapter map, license signal, and HYZ 421 page citation are
+  recorded without claiming that the cited pages were opened.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
 - AI case-selection triage regression: `4 tests OK`; the report now covers
@@ -112,8 +115,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   candidates to their object-local human dossiers.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
-- Four item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, and the
-  Cambridge-Hopkins finding list.
+- Five item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
+  Cambridge-Hopkins finding list, and the Schwartz Huayuanzhuang East book.
 - Candidate graph edges now include character-to-component candidates,
   character-to-inscription source-record candidates, variants, local assets,
   and EvoBC correspondence candidates.

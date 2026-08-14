@@ -27,11 +27,16 @@ The following commands were run from the repository root:
 
 - `python -m unittest discover -s tests -v`: `927 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
+- `check_human_research_material_gate.py --full --strict --summary`:
+  `PASS`, 156836 Markdown files, all four debt counts zero.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
 以上命令均从仓库根目录执行：全量测试为 `927 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
+
+human-research gate 全量严格摘要也通过：扫描 156836 个 Markdown，机器主导、
+核心研究缺失、现代标签风险和 mojibake 四项债务均为零。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
 It does not show research evidence or autonomous adjudication capability.

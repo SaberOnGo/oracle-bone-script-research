@@ -48,6 +48,31 @@ probabilities, authorize Gate 3, or claim a decipherment.
 - 工具拒绝带答案的 metadata 字段和文件路径。
 - 每条命令只新建输出；已有输出不会被覆盖。
 
+## Case Selection Triage / 案件选案分诊
+
+The triage command implements only the first strategy step: it creates a
+human-readable work order from visible dossier evidence, permitted local
+images, checksums, and concrete blockers. Its rank is not a probability and
+it does not select a reading or create a benchmark record.
+
+选案命令只实现战略的第一步：根据可见档案证据、获准本地图像、校验和
+和具体阻断项生成面向人的工作顺序。排名不是概率，不选择释读，也不生成
+基准记录。
+
+```powershell
+python tools/006_ai-benchmark-pilot/select_case_triage.py `
+  --root . `
+  --output .working/case-triage.md `
+  --json-output .working/case-triage.json
+```
+
+The Markdown report is the primary result. The optional JSON is support only;
+both outputs must stay in an ignored path. Open each listed object README and
+human dossier before freezing any case for an Agent run.
+
+Markdown 报告是主要结果，JSON 只是辅助；两者都必须留在忽略目录。为 Agent
+冻结案件前，必须先打开报告列出的对象 README 和人类档案。
+
 ## Freeze Input / 冻结输入
 
 The case metadata JSON has exactly these top-level fields:

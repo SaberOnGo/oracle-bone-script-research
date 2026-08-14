@@ -2897,7 +2897,9 @@ REQUIRED_PATHS = [
     "tests/test_ai_agent_benchmark_experiments.py",
     "tools/006_ai-benchmark-pilot/README.md",
     "tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py",
+    "tools/006_ai-benchmark-pilot/select_case_triage.py",
     "tests/test_ai_benchmark_pilot.py",
+    "tests/test_ai_case_selection.py",
     "tests/test_character_source_filename_evidence_batch.py",
     "tests/test_hust_obc_2024_literature_dossier.py",
     "tests/test_obimd_2024_2026_literature_dossier.py",
@@ -9444,6 +9446,7 @@ def check_tools_readme_human_entry(root: Path) -> list[str]:
         "graph generation",
         "statistics",
         "AI context-pack",
+        "case-triage",
         "not a decipherment conclusion",
         "不是释读结论",
     ]:

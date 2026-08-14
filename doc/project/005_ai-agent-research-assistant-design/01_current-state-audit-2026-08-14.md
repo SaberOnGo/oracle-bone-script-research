@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `d9554727e9c`
+Snapshot commit: `2a5ce1721fc`
 
 ## Purpose / 目的
 
@@ -33,7 +33,7 @@ the snapshot change, but exceeded their time limits without a result.
   `PASS`, 156837 Markdown files, all four debt counts zero.
 - Post-change object-level checks: BL Or. 7694/1595 `7 tests OK`; the related
   source-text reconciliation suite is `5 tests OK`; effective
-  BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
+  BL Or. 7694/1535 `7 tests OK`; effective OBIMD rights `5 tests OK`.
 - Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
 - Schwartz Huayuanzhuang East literature dossier: `4 tests OK`; publisher
@@ -60,7 +60,7 @@ the snapshot change, but exceeded their time limits without a result.
 以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
 `939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
  Or. 7694/1595 为 `7 tests OK`，其来源文字对照套件为 `5 tests OK`，
- BL Or. 7694/1535 为 `6 tests OK`，
+ BL Or. 7694/1535 为 `7 tests OK`，
  OBIMD 生效权利为 `5 tests OK`，宁夏 HYZ 421 来源记录为 `5 tests OK`。
 本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
 超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为
@@ -111,6 +111,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - A related-route review now records Google Arts & Culture as a same-family
   aggregation and Sketchfab as a CC Attribution route with an explicit NoAI
   restriction. Neither route adds image bytes or independent text evidence.
+- The Or. 7694/1535v candidate now records a targeted negative search: the
+  generic Google Arts page lists other BL source IDs but not 1535. It remains
+  a route note, not evidence that no image exists.
 - The Or. 7694/1535v candidate now has the same bounded catalogue treatment;
   its Heji 39498v, Yingcang 1117v, item-level JSON, IIIF, and image links
   remain separate checks.
@@ -192,6 +195,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   人类档案链接和校验和均已绑定，页面文字和著录仍分别待复核。
 - 相关路线复核现把 Google Arts & Culture 标为同源聚合路线，把 Sketchfab
   标为带明确 NoAI 限制的 CC Attribution 路线；两者没有新增图像字节或独立文字证据。
+- Or. 7694/1535v 候选现记录精确标识的负面路线检索：通用 Google Arts 页面
+  列出其他大英图书馆来源号，但没有 1535；这只是路线记录，不证明其他地方没有图像。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
 

@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `02d8b3a2140`
+Snapshot commit: `8d0fe91e6d3`
 
 ## Purpose / 目的
 
@@ -33,6 +33,8 @@ the snapshot change, but exceeded their time limits without a result.
   `PASS`, 156837 Markdown files, all four debt counts zero.
 - Post-change object-level checks: BL Or. 7694/1595 `4 tests OK`; effective
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
+- Committed British Library image-asset regression: `3 tests OK`; all three
+  source bytes match their recorded size, SHA-256, and pixel dimensions.
 - AI diagnostic pilot targeted regression: `48 tests OK`, including corpus
   object scope, leakage, lock, falsification, HMAC, and one-shot scoring gates.
 - Post-change full unittest: timed out after 900 seconds; no PASS result.
@@ -84,6 +86,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - A British Library Or. 7694/1595 recto-verso source-record candidate now
   records the two CC0 image routes, local checksums, page-displayed eclipse
   strings, and independent catalog, text, and character-link gaps.
+- The Or. 7694/1595 and Or. 7694/1535v objects now also contain three
+  unchanged CC0 source images, linked from their human dossiers and bound to
+  the recorded checksums.
 - The same candidate now has a British Library catalogue page recording
   source-reported shelfmark, title, collection, date range, extent, and the
   catalogue's `Images currently unavailable` notice. Item-level JSON, IIIF,
@@ -103,6 +108,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - Candidate graph edges now include character-to-component candidates,
   character-to-inscription source-record candidates, variants, local assets,
   and EvoBC correspondence candidates.
+- The graph schema now separates route-integrity confidence from any future
+  calibrated hypothesis probability; existing `confidence_level` remains
+  route metadata only.
 - Six HUST character dossiers now include object-specific opened-evidence
   synthesis with direct observation, filename candidates, counterevidence,
   rights boundaries, and concrete next checks.
@@ -137,12 +145,16 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。
+- 图谱 schema 现已把路线完整性置信度与未来的校准假说概率分开；现有
+  `confidence_level` 仍只表示路线 metadata。
 - 六个 HUST 单字档案现已加入对象特异的已打开证据综合，包含直接观察、文件名候选、
   反证、权利边界和具体下一步。
 - 大英图书馆 Or. 7694/1595 候选现已加入来源文字与正反面图像对照页，保留两面显示
   字符串，不生成 OCR 或项目摹写。
 - OBIMD 来源对象的来源包路线现显示生效的
   `metadata_only_until_verified`；中央历史 manifest 值仍由有效权利覆盖记录追溯。
+- Or. 7694/1595 与 Or. 7694/1535v 对象现保存三张未改动的 CC0 来源图像；
+  人类档案链接和校验和均已绑定，页面文字和著录仍分别待复核。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
 

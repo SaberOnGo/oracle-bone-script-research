@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `8494839aeb4`
+Snapshot commit: `70c5e82d8cb`
 
 ## Purpose / 目的
 
@@ -25,14 +25,14 @@ This file records what is and is not executable at the snapshot commit.
 
 The following commands were run from the repository root:
 
-- `python -m unittest discover -s tests -v`: `937 tests OK`.
+- `python -m unittest discover -s tests -v`: `939 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156837 Markdown files, all four debt counts zero.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `937 tests OK`，骨架校验为 `PASS`，v1
+以上命令均从仓库根目录执行：全量测试为 `939 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
 
 human-research gate 全量严格摘要也通过：扫描 156837 个 Markdown，机器主导、
@@ -88,6 +88,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - The British Library Or. 7694/1595 candidate now has a human-readable
   source-text and image-side reconciliation page preserving both displayed
   strings without creating OCR or a project transcription.
+- The OBIMD object package-route index now displays the active
+  `metadata_only_until_verified` status; the central historical manifest value
+  remains traceable under the active rights override.
 - Rights remain source-specific. `metadata_only_until_verified` still blocks
   public image reuse where permission is unresolved.
 
@@ -112,6 +115,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   反证、权利边界和具体下一步。
 - 大英图书馆 Or. 7694/1595 候选现已加入来源文字与正反面图像对照页，保留两面显示
   字符串，不生成 OCR 或项目摹写。
+- OBIMD 来源对象的来源包路线现显示生效的
+  `metadata_only_until_verified`；中央历史 manifest 值仍由有效权利覆盖记录追溯。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
 

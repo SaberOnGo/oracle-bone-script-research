@@ -25663,7 +25663,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "[2026-08-14 current-state audit][current-audit]",
             strategy,
         )
-        self.assertIn("937 tests OK", current_audit)
+        self.assertIn("939 tests OK", current_audit)
         self.assertIn(
             "Thirty IHP collection-object directories",
             current_audit,

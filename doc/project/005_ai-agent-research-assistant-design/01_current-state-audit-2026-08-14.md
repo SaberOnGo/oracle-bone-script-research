@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `0bb8441bc94`
+Snapshot commit: `359f2dce341`
 
 ## Purpose / 目的
 

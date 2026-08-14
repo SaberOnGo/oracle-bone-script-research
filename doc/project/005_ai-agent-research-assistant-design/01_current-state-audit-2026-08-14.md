@@ -33,6 +33,8 @@ the snapshot change, but exceeded their time limits without a result.
   `PASS`, 156837 Markdown files, all four debt counts zero.
 - Post-change object-level checks: BL Or. 7694/1595 `4 tests OK`; effective
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
+- AI diagnostic pilot targeted regression: `48 tests OK`, including corpus
+  object scope, leakage, lock, falsification, HMAC, and one-shot scoring gates.
 - Post-change full unittest: timed out after 900 seconds; no PASS result.
 - Post-change skeleton and human-gate scans: each timed out after 600 seconds;
   no PASS result.

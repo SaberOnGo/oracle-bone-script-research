@@ -31,6 +31,15 @@ period, batch, plate, inscription, and character context.
 - visual_entry_type: `external_thumbnail_url_metadata_only`
 - visual_index: `03_visual-asset-index.csv`
 - visual_gallery: `04_visual-gallery.md`
+- live_source_evidence: `18_live-source-evidence-review.md`
+- visual_access: `local_private_visual_inspection_only`
+
+The official pages and three image routes were checked on 2026-08-14. The
+local images are ignored and rights remain metadata-only; no public visual
+derivative is claimed.
+
+2026-08-14 已核对官方页面和三条图像路线。图像保存在忽略区，权利仍为
+metadata-only；不主张任何公开视觉派生物。
 
 ## Findspot Period Batch And Plate Checks / 出土地、时期、批次与图版复核
 
@@ -66,6 +75,7 @@ period, batch, plate, inscription, and character context.
 - evidence_download_id: `dl-ihp-museum-oracle-bones`
 - rights_status: `metadata_only_until_verified`
 - review_status: `needs_human_collection_object_review`
+- live_source_review: `source_description_checked_2026-08-14`
 
 ## Concrete Questions To Check / 具体待查问题
 

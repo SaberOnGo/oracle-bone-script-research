@@ -29,6 +29,7 @@ can support later research.
 | Inscription route | `candidate route only; no identity claim` | `06_human-collection-dossier.md` |
 | Character route | `candidate route only; no reading claim` | `06_human-collection-dossier.md` |
 | Rights and risk | `metadata_only_until_verified` | `02_collection-source-index.csv` |
+| Live source evidence | source description and images checked; rights unresolved | `18_live-source-evidence-review.md` |
 
 ## Concrete Questions To Check / 具体待查问题
 
@@ -38,10 +39,13 @@ can support later research.
 - Which inscription or character link is only a candidate route?
 - Which image route is local, external-only, or unavailable?
 - Which rights or risk note blocks public reuse?
+- Which bird description, overlay, or image route still needs an independent
+  check?
 - 先打开哪个机构页和登记号？
 - 缺哪项出土地、时期或批次？
 - 哪条图版或著录路线待复核？
 - 哪些卜辞或单字关联仍为候选？
+- 哪项鸟形说明、图像标注或路线仍需独立核对？
 
 ## Review Boundary / 复核边界
 

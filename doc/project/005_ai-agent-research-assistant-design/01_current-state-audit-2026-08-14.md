@@ -141,5 +141,51 @@ calibration, leakage, falsification, rerun, rights, and delivery gates pass.
 弃权或扣留。只有在战略登记的校准、泄漏、反证、复跑、权利和交付门槛全部通过后，用户
 才可收到候选。
 
+## Requirement coverage audit / 19 项要求覆盖审计
+
+This section is an execution control, not a claim that the project is
+finished. `implemented` means the rule and a current check exist;
+`partial` means human evidence exists only for a bounded subset;
+`blocked` means the missing evidence prevents the next promotion gate.
+
+本节是执行控制，不是完成声明。`implemented` 表示规则和当前校验均
+存在；`partial` 表示只完成了有限对象的人类证据；`blocked` 表示缺失
+证据阻断下一道提升门槛。
+
+| Requirement | Status | Current evidence or blocker |
+| --- | --- | --- |
+| 1 human-first positioning | implemented | root README and strategy |
+| 2 workflow | partial | dossiers exist; many routes remain |
+| 3 no template substitution | implemented | human gate and v2 no-record stop |
+| 4 no unreviewed scholarship | implemented | candidate and no-claim fields |
+| 5 required reading | implemented | AGENTS and repository reading rules |
+| 6 co-located archives | implemented | object-local human + support |
+| 7 character depth | partial | six visual dossiers; bulk gaps |
+| 8 character fields | partial | filename and visual samples |
+| 9 inscription/plate | blocked | OCR and plate locators missing |
+| 10 literature | partial | four dossiers; broad corpus absent |
+| 11 source range | partial | routes; access gaps remain |
+| 12 priority-source handling | partial | HUST, OBIMD, EvoBC and IHP samples |
+| 13 processing | partial | manifests; review gaps remain |
+| 14 provenance/rights | partial | hashes; conflicts block reuse |
+| 15 graph/statistics | partial | candidates; review incomplete |
+| 16 large files | implemented | ignored archives + manifests |
+| 17 doc quality | partial | gates pass; legacy repair queue |
+| 18 validation/push | implemented | tests, gate, commit, push |
+| 19 completion standard | blocked | no valid v2/calibrated gate |
+
+The next work order follows the blocked rows, not the number of files:
+
+1. Add a few inscription records with permitted image or text evidence and
+   line-addressable provenance.
+2. Reconcile rights and derivative ancestry before any public image use.
+3. Build a family-isolated known-answer cohort and an external scoring route.
+4. Run v2 only after the cohort, leakage audit, independent rerun, and score
+   receipt are real; otherwise keep all unknown cases withheld.
+
+下一步按阻断项排序，而不是按文件数量排序：先补少量可定位的卜辞
+资料，再解决权利与派生祖先链，随后建立隔离校准集和外部评分路线。
+在这些条件真实存在前，未知字案例继续扣留，不能进入用户候选通道。
+
 [pilot-report]: ../../public/user_research/011_ai-diagnostic-pilot-2026-08-13
 [strategy]: README.md

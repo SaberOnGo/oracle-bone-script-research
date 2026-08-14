@@ -25673,6 +25673,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn("diagnostic_fail_withheld", current_audit)
         self.assertIn("FAIL no v2 records", current_audit)
         self.assertIn("not Gate 3", current_audit)
+        self.assertIn("Requirement coverage audit", current_audit)
+        for status in ("implemented", "partial", "blocked"):
+            self.assertIn(f"| {status} |", current_audit)
+        self.assertIn("line-addressable provenance", current_audit)
+        self.assertIn("family-isolated known-answer cohort", current_audit)
 
         strategy_files = list(
             (repo_root() / "doc/project").glob("*/README.md")

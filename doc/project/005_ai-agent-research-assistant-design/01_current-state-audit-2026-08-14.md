@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `89c9080d92d`
+Snapshot commit: `8494839aeb4`
 
 ## Purpose / 目的
 
@@ -25,14 +25,14 @@ This file records what is and is not executable at the snapshot commit.
 
 The following commands were run from the repository root:
 
-- `python -m unittest discover -s tests -v`: `932 tests OK`.
+- `python -m unittest discover -s tests -v`: `937 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156837 Markdown files, all four debt counts zero.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `932 tests OK`，骨架校验为 `PASS`，v1
+以上命令均从仓库根目录执行：全量测试为 `937 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
 
 human-research gate 全量严格摘要也通过：扫描 156837 个 Markdown，机器主导、
@@ -82,6 +82,12 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - Candidate graph edges now include character-to-component candidates,
   character-to-inscription source-record candidates, variants, local assets,
   and EvoBC correspondence candidates.
+- Six HUST character dossiers now include object-specific opened-evidence
+  synthesis with direct observation, filename candidates, counterevidence,
+  rights boundaries, and concrete next checks.
+- The British Library Or. 7694/1595 candidate now has a human-readable
+  source-text and image-side reconciliation page preserving both displayed
+  strings without creating OCR or a project transcription.
 - Rights remain source-specific. `metadata_only_until_verified` still blocks
   public image reuse where permission is unresolved.
 
@@ -102,6 +108,10 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。
+- 六个 HUST 单字档案现已加入对象特异的已打开证据综合，包含直接观察、文件名候选、
+  反证、权利边界和具体下一步。
+- 大英图书馆 Or. 7694/1595 候选现已加入来源文字与正反面图像对照页，保留两面显示
+  字符串，不生成 OCR 或项目摹写。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
 

@@ -42,7 +42,9 @@ Heji 40610r/v 及《英国所藏甲骨集》886r/v 的对象线索。
 5. `05_character-linkage-review.md`: unassigned character relations.
 6. `06_literature-and-dispute-review.md`: cited scholarship routes.
 7. `07_missing-evidence-plan.md`: concrete next checks.
-8. Open `90_source-record.json` and `91_source-record-index.csv` last.
+8. `08_source-text-line-reconciliation.md`: compare source strings with the
+   two image sides.
+9. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -51,7 +53,8 @@ Heji 40610r/v 及《英国所藏甲骨集》886r/v 的对象线索。
 5. `05_character-linkage-review.md`：未分配的单字关系。
 6. `06_literature-and-dispute-review.md`：引用文献路线。
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
-8. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+8. `08_source-text-line-reconciliation.md`：对照页面文字和正反面图像。
+9. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

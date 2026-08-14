@@ -1,0 +1,55 @@
+import unittest
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+OBJECT = (
+    ROOT
+    / "corpus/002_oracle-bone-inscriptions/008_source-record-candidates/"
+    "005_obs-insc-src-cand-000005_bl-or-1595_source-record-candidate"
+)
+
+
+class BritishLibrary1595SourceTextTests(unittest.TestCase):
+    def test_readme_exposes_the_human_reconciliation_page(self):
+        text = (OBJECT / "README.md").read_text(encoding="utf-8-sig")
+        self.assertIn("08_source-text-line-reconciliation.md", text)
+        self.assertIn("90_source-record.json", text)
+        self.assertIn("91_source-record-index.csv", text)
+
+    def test_reconciliation_preserves_source_strings_and_boundaries(self):
+        path = OBJECT / "08_source-text-line-reconciliation.md"
+        self.assertTrue(path.is_file(), path)
+        text = path.read_text(encoding="utf-8-sig")
+        for marker in (
+            "obs-insc-src-cand-000005",
+            "Or. 7694/1595r",
+            "Or. 7694/1595v",
+            "已未庚申月㞢[食]",
+            "七日己未斲庚申月又食",
+            "庚申",
+            "已未",
+            "己未",
+            "source_display_only",
+            "not a project transcription",
+            "not a formal inscription identity",
+            "proposer",
+        ):
+            self.assertIn(marker, text)
+        self.assertNotIn("project translation", text)
+
+    def test_human_markdown_stays_within_eighty_characters(self):
+        for name in ("README.md", "08_source-text-line-reconciliation.md"):
+            path = OBJECT / name
+            for number, line in enumerate(
+                path.read_text(encoding="utf-8-sig").splitlines(), 1
+            ):
+                self.assertLessEqual(
+                    len(line),
+                    80,
+                    f"{path}:{number}: {len(line)} characters",
+                )
+
+
+if __name__ == "__main__":
+    unittest.main()

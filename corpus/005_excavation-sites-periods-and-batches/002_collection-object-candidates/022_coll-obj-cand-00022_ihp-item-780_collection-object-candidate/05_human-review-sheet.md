@@ -10,6 +10,8 @@ Candidate collection object ID: `ihp-mus-obj-00022`
   rights trail.
 - Open `03_visual-asset-index.csv` and confirm whether the image is committed,
   external-only, or missing.
+- Open `18_live-source-evidence-review.md` and compare the page description,
+  snapshot hashes, and image-route access result.
 - Compare object-page labels against catalog references, collection provenance,
   and inscription context.
 - Do not record inscription identity, transcription, formal reading, component
@@ -39,6 +41,8 @@ Candidate collection object ID: `ihp-mus-obj-00022`
 - Transcription: pending source-page or catalog transcription check
 - Decipherment: `not_applicable_preprocessing_only`
 - Review status: `needs_human_collection_object_review`
+- Live source evidence: `source_description_checked_2026-08-14`
+- Visual access: `external_route_access_not_verified`
 
 ## Caution / 风险提示
 

@@ -23,7 +23,9 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official page description and image routes were checked against ignored
+`.working/ihp-780/` snapshots. Direct image access returned HTML, so no local
+image was accepted. See `18_live-source-evidence-review.md`.
 
 See `thumbnail_url` in Object Metadata.
 
@@ -40,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: official pages, source description,
+  image-route result, snapshots, and concrete next checks.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -65,6 +69,11 @@ See `thumbnail_url` in Object Metadata.
 - source_collection_item_id: `780`
 - object_title_en: `Inscribed Plastron Fragment Chia 2224`
 - catalog_reference_text: `Chia 2224`
+- item_no: `R034327`
+- period: `Late Shang Period`
+- material: `Turtle Plastron`
+- dimensions: `2.6(L)×1.9(W) cm`
+- findspot: `Hsiao-t'un, Anyang County, Honan Province`
 - object_page_url: `https://museum.sinica.edu.tw/en/collection/32/item/780/`
 - thumbnail_url: `https://museum.sinica.edu.tw/_upload/image/collection_item/thu
   mbnail/4055f6896d7d912d.jpg`

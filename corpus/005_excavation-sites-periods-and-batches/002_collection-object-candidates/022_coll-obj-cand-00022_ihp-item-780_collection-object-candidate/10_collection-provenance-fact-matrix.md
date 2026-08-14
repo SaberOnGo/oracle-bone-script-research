@@ -14,6 +14,8 @@ opened before any comparison, citation, or later research use.
 - Then open `08_collection-provenance-evidence-dossier.md`.
 - Use `02_collection-source-index.csv` for source and rights routes.
 - Use `03_visual-asset-index.csv` and `04_visual-gallery.md` for images.
+- Use `18_live-source-evidence-review.md` for live page text, snapshots, and
+  image-route access results.
 - Use `11_collection-provenance-fact-matrix-index.json` only as support.
 
 ## Collection Object Provenance Fact Matrix / 馆藏对象来源事实矩阵
@@ -30,6 +32,7 @@ opened before any comparison, citation, or later research use.
 | Source and rights trail / 来源与权利链 | src-ihp-museum-oracle-bones; rights metadata_only_until_verified | 02_collection-source-index.csv; 09_collection-provenance-evidence-index.json |
 | Risk note / 风险提示 | rights and reuse risk require human review before public use | 01_collection-object-packet.json; 03_visual-asset-index.csv |
 | Review status / 复核状态 | needs_human_collection_object_review | 05_human-review-sheet.md; 09_collection-provenance-evidence-index.json |
+| Live source description / 现场来源说明 | checked, not independently confirmed | 18_live-source-evidence-review.md |
 
 ## Concrete Review Questions / 具体复核问题
 

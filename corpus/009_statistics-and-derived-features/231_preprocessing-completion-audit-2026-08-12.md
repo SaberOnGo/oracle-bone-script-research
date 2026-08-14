@@ -418,6 +418,20 @@ and rights are unresolved.
 路线已保存到忽略区并计算校验和。拼接著录身份、图版、图片替代字和图像权利仍未解决，
 因此仍是来源记录候选。
 
+The IHP object candidate `ihp-mus-obj-00022` / item `780` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R034327`, `Inscribed Plastron Fragment Chia 2224`, Late Shang Period,
+Hsiao-t'un, and Turtle Plastron. The source description concerns weather
+divination and gives museum explanations for wind, fish, peafowl, and dragon.
+The item snapshots were saved to ignored storage and hashed. Direct image
+requests returned HTML rather than image bytes, so visual access, independent
+plate identity, complete transcription, and rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00022` / item `780` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R034327`、`Inscribed Plastron Fragment Chia 2224`、晚商、小屯和龟甲；
+来源说明涉及气象占问，并解释风、鱼、孔雀和龙。对象页快照已保存到忽略区并计算校验和。
+图像直链返回 HTML 而非图像字节，视觉访问、独立图版身份、完整释文和图像权利仍未解决。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

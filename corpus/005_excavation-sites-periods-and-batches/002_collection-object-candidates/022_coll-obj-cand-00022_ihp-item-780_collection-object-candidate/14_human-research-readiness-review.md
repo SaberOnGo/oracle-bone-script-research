@@ -23,6 +23,7 @@ without promoting any claim.
 | Character relation | `candidate route only` | `10_collection-provenance-fact-matrix.md` |
 | Rights and risk | `metadata_only_until_verified` | `02_collection-source-index.csv` |
 | Scholarship and dispute route | `pending bibliography review` | `08_collection-provenance-evidence-dossier.md` |
+| Live source page | source description checked; image route unverified | `18_live-source-evidence-review.md` |
 
 ## Concrete Missing Evidence Questions / 具体缺证问题
 
@@ -34,12 +35,14 @@ without promoting any claim.
 - Which oracle-character relation is only a candidate route for later review?
 - Which bibliography, proposer, disagreement, or citation trail is missing?
 - Which raw image or uncertain-rights item must stay outside regular Git?
+- Which image response or source explanation requires independent checking?
 - 哪个著录页或登记号记录能支持对象标签？
 - 哪条图像路线可用：已提交图像、缩略图 URL 还是缺图？
 - 哪条来源行记录 checksum、大小、权利状态和风险？
 - 哪项出土地、时期、批次、坑位或图版仍缺？
 - 哪些卜辞或单字关联仅是候选路线？
 - 哪些书目、提出者、不同意见或引用链待查？
+- 哪项图像响应或来源说明仍需独立核对？
 
 ## Research Boundary / 研究边界
 

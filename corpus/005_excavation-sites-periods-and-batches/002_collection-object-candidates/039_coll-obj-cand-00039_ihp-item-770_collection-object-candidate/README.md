@@ -25,6 +25,12 @@ review.
 
 External thumbnail URL metadata only.
 
+The live page, private image hashes, and visual observations are recorded in
+`18_live-source-evidence-review.md`.
+
+在线页面、私有图像校验和及视觉观察记录在
+`18_live-source-evidence-review.md` 中。
+
 See `thumbnail_url` in Object Metadata.
 
 ## Local Files / 本目录文件

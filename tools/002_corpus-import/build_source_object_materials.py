@@ -394,7 +394,15 @@ def build_package_routes(
                 "download_id": download_id,
                 "commit_policy": manifest.get("commit_policy", ""),
                 "handling_strategy": manifest.get("handling_strategy", ""),
-                "rights_status": manifest.get("rights_status", ""),
+                # The central manifest keeps the historical source declaration.
+                # Object-local package routes are downstream use records and
+                # must display the active repository-use decision.  This keeps
+                # the legacy value traceable without silently granting reuse.
+                "rights_status": (
+                    OBIMD_EFFECTIVE_RIGHTS_STATUS
+                    if source_id == OBIMD_SOURCE_ID
+                    else manifest.get("rights_status", "")
+                ),
                 "review_status": manifest.get("review_status", ""),
                 "updated_at": manifest.get("updated_at", ""),
                 "download_url": log_url,

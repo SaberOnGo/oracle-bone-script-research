@@ -164,7 +164,7 @@ target object directory.
 - Commit policy / 提交策略: do_not_commit_regular_git
 - Handling strategy / 处理策略: Raw annotation JSON exceeds SIZE_LIMIT; keep outside
   regular Git and extract reviewed subsets only
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ### Route 002
@@ -177,7 +177,7 @@ target object directory.
 - Commit policy / 提交策略: do_not_commit_regular_git
 - Handling strategy / 处理策略: Raw image package stays outside Git; ZIP integrity
   is verified with 10078 members; commit only metadata and reviewed derivatives
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ### Route 003
@@ -190,7 +190,7 @@ target object directory.
 - Commit policy / 提交策略: do_not_commit_regular_git
 - Handling strategy / 处理策略: Raw image package stays outside Git; ZIP integrity
   is verified with 10078 members; commit only metadata and reviewed derivatives
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ### Route 004
@@ -204,7 +204,7 @@ target object directory.
 - Handling strategy / 处理策略: Above SIZE_LIMIT; raw zip is kept in ignored
   external archive and only object-local PNG derivatives with provenance are
   committed
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ### Route 005
@@ -217,7 +217,7 @@ target object directory.
 - Commit policy / 提交策略: download_to_tmp_log_checksum_only
 - Handling strategy / 处理策略: Use to build candidate main-character reference
   mappings
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ### Route 006
@@ -230,7 +230,7 @@ target object directory.
 - Commit policy / 提交策略: download_to_tmp_log_checksum_only
 - Handling strategy / 处理策略: Use to map sub-character UID to platform glyph code
   point
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ### Route 007
@@ -243,7 +243,7 @@ target object directory.
 - Commit policy / 提交策略: download_to_tmp_log_checksum_only
 - Handling strategy / 处理策略: Use to build candidate variant-to-main-character
   hierarchy
-- Rights status / 权利状态: licensed_for_repository
+- Rights status / 权利状态: metadata_only_until_verified
 - Review status / 复核状态: reviewed_metadata_only
 
 ## Field Map Evidence / 字段映射证据

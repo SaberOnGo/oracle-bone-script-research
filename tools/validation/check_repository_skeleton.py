@@ -8201,6 +8201,17 @@ def check_source_object_human_material_quality(root: Path) -> list[str]:
                     issues.append(f"{packet_path.relative_to(root)} missing rights page link")
                 if "25_effective-rights-decision-index.json" not in packet_data.get("local_files", []):
                     issues.append(f"{packet_path.relative_to(root)} missing rights index link")
+            package_route_path = object_dir / "03_package-route-index.csv"
+            if package_route_path.is_file():
+                package_route_rows, package_route_issues = _read_csv_rows(package_route_path)
+                issues.extend(package_route_issues)
+                for route in package_route_rows:
+                    if route.get("rights_status") != "metadata_only_until_verified":
+                        issues.append(
+                            f"{package_route_path.relative_to(root)} package route "
+                            f"{route.get('package_file_id', '')} must display the "
+                            "effective OBIMD rights status"
+                        )
         if object_dir.name == "009_src-british-museum-oracle-bone_source-object":
             browser_metadata_path = object_dir / "23_browser-verified-metadata.md"
             browser_metadata_index_path = object_dir / "24_browser-verified-metadata-index.json"

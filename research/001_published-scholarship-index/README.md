@@ -38,6 +38,10 @@ for deciding whether a source can become a reviewed research note.
   structure, catalog keys, count reconciliation, rights, and transfer gates.
 - [Cambridge Hopkins 馆藏目录档案][cambridge-hopkins-list]：记录页面结构、
   著录代码、数量对账、权利和对象转移门槛。
+- [Schwartz Huayuanzhuang East monograph dossier][schwartz-hyz]: publisher
+  metadata, HYZ 421 citation route, rights, and page-verification gates.
+- [Schwartz 花园庄东甲骨专著档案][schwartz-hyz]：记录出版社 metadata、
+  HYZ 421 引用路线、权利和页码核验门槛。
 
 The HUST-OBC paper dossier keeps dataset counts and expert review as
 `source-reported`. Its 94.6% closed-set image-classification accuracy is not
@@ -89,3 +93,4 @@ It is not a rights decision, source promotion, or corpus import approval.
 [obimd-paper]: 004_obimd-2024-2026_data-paper/README.md
 [evobc-paper]: 005_evobc-2024_data-paper/README.md
 [cambridge-hopkins-list]: 006_cambridge-hopkins_finding-list/README.md
+[schwartz-hyz]: 007_schwartz-2019_hyz-monograph/README.md

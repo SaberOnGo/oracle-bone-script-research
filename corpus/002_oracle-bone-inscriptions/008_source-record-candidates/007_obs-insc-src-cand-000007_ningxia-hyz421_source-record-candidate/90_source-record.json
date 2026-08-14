@@ -36,7 +36,20 @@
     {
       "citation": "Schwartz 2019, pp. 347, 561",
       "scope": "object and inscription route",
-      "status": "not_opened_needs_permitted_copy"
+      "status": "not_opened_needs_permitted_copy",
+      "access_date": "2026-08-14",
+      "checksum": "not_recorded_not_downloaded"
+    },
+    {
+      "citation": "Schwartz, The Oracle Bone Inscriptions from Huayuanzhuang East",
+      "url": "https://www.degruyterbrill.com/document/doi/10.1515/9781501505294/html",
+      "doi": "10.1515/9781501505294",
+      "scope": "publisher metadata and chapter map only",
+      "status": "publisher_metadata_checked_not_downloaded",
+      "access_date": "2026-08-14",
+      "reported_license": "CC BY-NC-ND 3.0",
+      "effective_project_rights": "metadata_only_until_verified",
+      "checksum": "not_recorded_not_downloaded"
     }
   ],
   "missing_evidence": [

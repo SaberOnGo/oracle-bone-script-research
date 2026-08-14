@@ -96,12 +96,32 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "Schwartz",
             "347",
             "561",
+            "10.1515/9781501505294",
+            "publisher-metadata route",
+            "CC BY-NC-ND 3.0",
             "source_citation_route_only",
             "dispute_status_unresolved",
         ):
             self.assertIn(marker, literature)
         self.assertIn("CC BY-SA 3.0", evidence)
         self.assertIn("museum object", evidence)
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        publisher_routes = [
+            item
+            for item in record["literature_routes"]
+            if item.get("doi") == "10.1515/9781501505294"
+        ]
+        self.assertEqual(len(publisher_routes), 1)
+        self.assertEqual(
+            publisher_routes[0]["status"],
+            "publisher_metadata_checked_not_downloaded",
+        )
+        self.assertEqual(
+            publisher_routes[0]["effective_project_rights"],
+            "metadata_only_until_verified",
+        )
 
     def test_human_markdown_is_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

@@ -1,0 +1,13 @@
+{
+  "record_type": "published_literature_support_index",
+  "literature_id": "lit-schwartz-hyz-2019",
+  "human_dossier": "README.md",
+  "author": "Adam C. Schwartz",
+  "doi": "10.1515/9781501505294",
+  "related_candidate_id": "obs-insc-src-cand-000007",
+  "publisher_route_status": "publisher_metadata_checked_not_downloaded",
+  "reported_license": "CC BY-NC-ND 3.0",
+  "effective_project_rights": "metadata_only_until_verified",
+  "page_citation_status": "source_reported_not_opened",
+  "research_boundary": "not a decipherment result"
+}

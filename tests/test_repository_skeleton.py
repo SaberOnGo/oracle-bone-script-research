@@ -31389,7 +31389,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual({row["corpus_area"] for row in rows}, {"published_research_notes"})
         self.assertEqual([row["phase_name"] for row in rows], ["extracted", "cleaned", "linked", "verified"])
         self.assertEqual([row["phase_status"] for row in rows], ["mixed_or_partial", "mixed_or_partial", "mixed_or_partial", "missing"])
-        self.assertEqual({row["research_note_file_count"] for row in rows}, {"40"})
+        self.assertEqual({row["research_note_file_count"] for row in rows}, {"56"})
         self.assertTrue(
             all(
                 "003_hust-obc-2024_data-paper/README.md"
@@ -31494,7 +31494,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "cleaned: `mixed_or_partial`",
             "linked: `mixed_or_partial`",
             "verified: `missing`",
-            "research note files: 40",
+            "research note files: 56",
             "user or AI draft review files: 123",
             "source register files: 541",
             "bibliographic identity",
@@ -31521,7 +31521,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         module = load_published_research_note_phase_gap_human_guide_module()
         text = module.build_markdown(repo_root())
         self.assertIn("checklist rows: 4", text)
-        self.assertIn("research note files: 40", text)
+        self.assertIn("research note files: 56", text)
         self.assertIn("user or AI draft review files: 123", text)
         self.assertIn("source register files: 541", text)
         self.assertIn("Open `002_published-scholarship-review-guide.md`.", text)

@@ -18274,6 +18274,15 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
     except FileNotFoundError:
         return [f"missing required path: {PUBLISHED_RESEARCH_NOTE_PHASE_GAP_HUMAN_GUIDE}"]
 
+    checklist_rows, _ = _read_csv_rows(
+        root / PUBLISHED_RESEARCH_NOTE_PHASE_GAP_REVIEW_CHECKLIST
+    )
+    research_note_count = (
+        checklist_rows[0].get("research_note_file_count", "")
+        if checklist_rows
+        else ""
+    )
+
     required_markers = [
         "Published Research Note Phase Gap Human Guide",
         "Human Review Entry Order",
@@ -18291,7 +18300,7 @@ def check_published_research_note_phase_gap_human_guide(root: Path) -> list[str]
         "cleaned: `mixed_or_partial`",
         "linked: `mixed_or_partial`",
         "verified: `missing`",
-        "research note files: 40",
+        f"research note files: {research_note_count}",
         "user or AI draft review files: 123",
         "source register files: 541",
         "bibliographic identity",

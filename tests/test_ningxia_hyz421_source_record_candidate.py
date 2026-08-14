@@ -74,6 +74,9 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "壬辰夕卜：其宜（俎）一于，若?用。",
             "not an independent transcription",
             "not assigned",
+            "Components and relations",
+            "Scholarship and dispute trail",
+            "Next relation checks",
         ):
             self.assertIn(marker, dossier)
         self.assertEqual(

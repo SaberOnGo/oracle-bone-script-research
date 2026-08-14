@@ -42,6 +42,27 @@ locations and orientation of individual graphs are not assigned here.
 裂纹和多处刻痕。照片不是带比例标定的保护记录，因此本项目不分配单字位置
 或方向。
 
+## Components and relations / Components 与 relations
+
+No component segmentation is assigned. The repeated pits, crack lines, and
+incised marks are direct visual observations, not a component analysis.
+Character, variant, near-form, and inscription relations remain unassigned
+until a permitted plate, line locator, and independent comparison are opened.
+
+## Scholarship and dispute trail / Scholarship 与 dispute
+
+The cited Schwartz book is a scholarship route recorded in
+`06_literature-and-dispute-review.md`. Its HYZ 421 pages, proposer,
+alternative readings, and dispute history have not been opened or verified.
+This dossier therefore records scholarship as source-reported and keeps the
+dispute status unresolved.
+
+## Next relation checks / 后续 relations 核查
+
+- Open a permitted HYZ 421 plate or edition page and record a locator.
+- Compare the displayed string with the cited book without normalizing marks.
+- Add candidate relations only with image-region, text, and source IDs.
+
 ## Text and identity status / 文字与身份状态
 
 - inscription number: source object `HYZ 421, H3:1325`

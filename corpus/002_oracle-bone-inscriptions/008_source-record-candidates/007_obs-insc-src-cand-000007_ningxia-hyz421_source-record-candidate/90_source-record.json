@@ -1,0 +1,56 @@
+{
+  "candidate_id": "obs-insc-src-cand-000007",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-wikimedia-ningxia-museum-hyz421",
+  "source_platform": "Wikimedia Commons",
+  "source_file_title": "Ningxia Museum Shang dynasty turtle plastron oracle bone.jpg",
+  "object_reference": "HYZ 421, H3:1325",
+  "collection": "Ningxia Museum",
+  "source_reported_period": "c. 1200 BC",
+  "source_reported_findspot": "Huayuanzhuang East, Anyang, Henan, China",
+  "source_reported_dimensions": "28.3 x 20 cm",
+  "source_reported_inscription": "壬辰夕卜：其宜（俎）一于，若?用。",
+  "text_status": "source_display_only_without_project_transcription",
+  "ocr_status": "not_collected",
+  "plate_status": "not_independently_verified",
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "literature_status": "source_citation_route_only",
+  "dispute_status": "dispute_status_unresolved",
+  "image_status": "committed_source_image_with_rights_risk",
+  "image_route": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ningxia_Museum_Shang_dynasty_turtle_plastron_oracle_bone.jpg",
+    "committed_path": "03_visual-assets/001_asset-000001_ningxia-hyz421_h3-1325.jpg",
+    "size_bytes": 2302630,
+    "sha256": "b4f44b4a325d0a24c605ce84ae3c8180177407e59709e69892185fb66398adaa",
+    "pixels": "3001x3345",
+    "format": "JPEG"
+  },
+  "rights_status": "source_marked_risk_noted",
+  "rights_scope": "uploaded_photo_CC_BY_SA_3_0_museum_rights_unverified",
+  "source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File:Ningxia_Museum_Shang_dynasty_turtle_plastron_oracle_bone.jpg&oldid=1183862766",
+  "source_access_date": "2026-08-14",
+  "source_photographer": "BabelStone",
+  "literature_routes": [
+    {
+      "citation": "Schwartz 2019, pp. 347, 561",
+      "scope": "object and inscription route",
+      "status": "not_opened_needs_permitted_copy"
+    }
+  ],
+  "missing_evidence": [
+    "museum accession and object record",
+    "independent HYZ 421 and H3:1325 reconciliation",
+    "plate and page locator",
+    "rights-cleared edition transcription or OCR",
+    "orientation, scale, damage, and conservation record",
+    "human-reviewed character and component segmentation"
+  ],
+  "boundaries": [
+    "source-reported inscription string only",
+    "no project transcription or translation",
+    "no formal obi identity",
+    "no character or component assignment",
+    "no decipherment conclusion"
+  ]
+}

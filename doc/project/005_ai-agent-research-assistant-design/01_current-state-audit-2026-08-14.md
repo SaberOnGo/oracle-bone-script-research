@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `f432c439f03`
+Snapshot commit: `bfcaa1681f7`
 
 ## Purpose / 目的
 
@@ -51,6 +51,8 @@ the snapshot change, but exceeded their time limits without a result.
   record or probability.
 - AI diagnostic pilot targeted regression: `48 tests OK`, including corpus
   object scope, leakage, lock, falsification, HMAC, and one-shot scoring gates.
+- After the object-scope hardening, the full pilot regression is `49 tests OK`;
+  the new case rejects a non-object directory nested under `corpus/`.
 - Post-change full unittest: timed out after 900 seconds; no PASS result.
 - Post-change skeleton and human-gate scans: each timed out after 600 seconds;
   no PASS result.

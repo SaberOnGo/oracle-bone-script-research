@@ -62,6 +62,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - An IHP item 771 inscription source-record candidate now records the
   source-reported proposed divination, two private HTML hashes, three private
   image hashes, and independent plate/text/OCR gaps.
+- The central inscription source-record map now routes all four opened
+  candidates to their object-local human dossiers.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
 - Four item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, and the
@@ -83,6 +85,7 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   并明确独立图版与 OCR 缺口。
 - 771 号对象另有卜辞来源记录候选，记录馆方拟译、两份私有 HTML 校验和、三条
   私有图像校验和，并明确独立图版、原文和 OCR 缺口。
+- 中央卜辞来源记录映射表现已把四个已打开候选分别指向对象内人类档案。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。

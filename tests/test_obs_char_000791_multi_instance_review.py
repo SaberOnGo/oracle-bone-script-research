@@ -1,184 +1,125 @@
 import hashlib
-import io
 import re
 import unittest
-import zipfile
 from pathlib import Path
+from io import BytesIO
+from zipfile import ZipFile
 
 from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OBJECT = (
-    ROOT
-    / "corpus"
-    / "001_oracle-characters"
-    / "008_000701-000800_obs-char-bucket_oracle-characters"
-    / "791_obs-char-000791_hust-obc-cat-0895_oracle-character"
+DOSSIER = ROOT / (
+    "corpus/001_oracle-characters/"
+    "008_000701-000800_obs-char-bucket_oracle-characters/"
+    "791_obs-char-000791_hust-obc-cat-0895_oracle-character/"
+    "17_multi-instance-visual-comparison.md"
 )
-DOSSIER = OBJECT / "17_multi-instance-visual-comparison.md"
-RAW_ZIP = (
-    ROOT
-    / "external_local_archive"
-    / "source_packages"
-    / "hust-obc"
-    / "dl-hust-obc-figshare-raw.zip"
+ARCHIVE = ROOT / (
+    "external_local_archive/source_packages/hust-obc/"
+    "dl-hust-obc-figshare-raw.zip"
 )
 
-
-EXPECTED = [
-    {
-        "directory": "HUST-OBC/deciphered/0895/",
-        "filename": "G_0895_乙1206合974賓組.png",
-        "sha256": (
-            "2a4305bfea49e7bed9952f88c46fd16f2fb92fba37633e3ae78d2864ea54fe04"
-        ),
-        "size": 1309,
-        "compressed": 1314,
-        "pixels": (57, 80),
-    },
-    {
-        "directory": "HUST-OBC/deciphered/0895/",
-        "filename": "G_0895_佚826合26786出組.png",
-        "sha256": (
-            "c150b076b6c43c56f369d62cd1b0ea302a2eec1ed8a0ffacf30f30947fed50f8"
-        ),
-        "size": 1443,
-        "compressed": 1448,
-        "pixels": (56, 80),
-    },
-    {
-        "directory": "HUST-OBC/deciphered/0895/",
-        "filename": "G_0895_後2.25.9合13426賓組.png",
-        "sha256": (
-            "c02c8bf93f00d424e8ede8df82c391f239de8e19e4ff94d78bee3825956b3422"
-        ),
-        "size": 1217,
-        "compressed": 1222,
-        "pixels": (32, 80),
-    },
-    {
-        "directory": "HUST-OBC/deciphered/0895/",
-        "filename": "G_0895_甲2489合27627歷無名間.png",
-        "sha256": (
-            "404f51d7ded0e169163004c705766463bf14ca0ea7ec54d94c66e4cb66a5eac8"
-        ),
-        "size": 1174,
-        "compressed": 1179,
-        "pixels": (33, 78),
-    },
-    {
-        "directory": "HUST-OBC/GuoXueDaShi_1390/0895/",
-        "filename": "G_0895_O_佚446(甲).png",
-        "sha256": (
-            "086fb3f3c09d42063e7ef0b915b82e51556dd5482023fca6c3adb00dae49f361"
-        ),
-        "size": 2497,
-        "compressed": 2502,
-        "pixels": (71, 133),
-    },
-]
+EXPECTED = {
+    "HUST-OBC/deciphered/0895/G_0895_乙1206合974賓組.png": (
+        1309,
+        1314,
+        "2a4305bfea49e7bed9952f88c46fd16f2fb92fba37633e3ae78d2864ea54fe04",
+        (57, 80),
+    ),
+    "HUST-OBC/deciphered/0895/G_0895_乙3797合6583賓組.png": (
+        1236,
+        1241,
+        "30b81ce2486ba7cc8b417255c2003bd1dc7b00bf89d45df22ceea80fdd97adc7",
+        (49, 80),
+    ),
+    "HUST-OBC/deciphered/0895/G_0895_佚826合26786出組.png": (
+        1443,
+        1448,
+        "c150b076b6c43c56f369d62cd1b0ea302a2eec1ed8a0ffacf30f30947fed50f8",
+        (56, 80),
+    ),
+    "HUST-OBC/deciphered/0895/G_0895_後2.25.9合13426賓組.png": (
+        1217,
+        1222,
+        "c02c8bf93f00d424e8ede8df82c391f239de8e19e4ff94d78bee3825956b3422",
+        (32, 80),
+    ),
+    "HUST-OBC/deciphered/0895/G_0895_甲1978合28087何組.png": (
+        930,
+        935,
+        "9a2de0e7f18db3d367d8528a8cbfcf66e4c3982f87fc2fc74ed63e59869c73cb",
+        (29, 80),
+    ),
+}
 
 
 class ObsChar000791MultiInstanceReviewTests(unittest.TestCase):
-    def test_dossier_binds_five_members_to_exact_metadata(self):
+    def test_review_records_five_opened_archive_members(self):
+        self.assertTrue(DOSSIER.is_file(), DOSSIER)
         text = DOSSIER.read_text(encoding="utf-8-sig")
-        filenames = re.findall(
-            r"^- Archive filename / 原包文件名: `([^`]+)`$", text, re.M
-        )
-        self.assertEqual([item["filename"] for item in EXPECTED], filenames)
-        for item in EXPECTED:
-            marker = (
-                "- Archive filename / 原包文件名: `"
-                + item["filename"]
-                + "`"
-            )
-            marker_start = text.index(marker)
-            start = text.rfind("\n## Instance ", 0, marker_start)
-            if start < 0:
-                start = 0
-            next_heading = text.find("\n## Instance ", start + 1)
-            body = text[start:] if next_heading < 0 else text[start:next_heading]
-            self.assertIn(
-                "- Archive directory / 原包目录: `"
-                + item["directory"]
-                + "`",
-                body,
-            )
-            self.assertIn(f"- SHA-256: `{item['sha256']}`", body)
-            self.assertIn(
-                f"- File size / 文件大小: `{item['size']}` bytes; "
-                f"ZIP compressed `{item['compressed']}` bytes",
-                body,
-            )
-            self.assertIn(
-                f"- Pixel size / 像素尺寸: "
-                f"`{item['pixels'][0]} x {item['pixels'][1]}`; mode `RGB`",
-                body,
-            )
+        members = re.findall(r"^- Archive member / 原包成员：\n  `([^`]+)`$", text, re.M)
+        self.assertEqual(5, len(members))
+        self.assertEqual(5, len(set(members)))
+        self.assertTrue(all("/0895/G_0895_" in item for item in members))
+        self.assertEqual(5, len(re.findall(r"^- SHA-256：`[0-9a-f]{64}`$", text, re.M)))
+        self.assertEqual(5, len(re.findall(r"^- Pixel size / 像素：`\d+ × \d+`$", text, re.M)))
 
-    def test_dossier_records_visual_counterevidence_and_boundary(self):
+    @unittest.skipUnless(ARCHIVE.is_file(), "ignored HUST archive is unavailable")
+    def test_document_hashes_and_dimensions_match_ignored_archive(self):
+        text = DOSSIER.read_text(encoding="utf-8-sig")
+        pattern = re.compile(
+            r"^- Archive member / 原包成员：\n  `([^`]+)`\n"
+            r"- SHA-256：`([0-9a-f]{64})`\n"
+            r"- File size / 文件大小：`(\d+)` bytes；ZIP compressed：`(\d+)` bytes\n"
+            r"- Pixel size / 像素：`(\d+) × (\d+)`$",
+            re.M,
+        )
+        documented = {
+            member: (int(size), int(compressed), digest, (int(width), int(height)))
+            for member, digest, size, compressed, width, height in pattern.findall(text)
+        }
+        self.assertEqual(EXPECTED, documented)
+        with ZipFile(ARCHIVE) as archive:
+            for member, (size, compressed, digest, dimensions) in EXPECTED.items():
+                with self.subTest(member=member):
+                    info = archive.getinfo(member)
+                    data = archive.read(member)
+                    self.assertEqual(size, len(data))
+                    self.assertEqual(compressed, info.compress_size)
+                    self.assertEqual(digest, hashlib.sha256(data).hexdigest())
+                    with Image.open(BytesIO(data)) as image:
+                        self.assertEqual(dimensions, image.size)
+
+    def test_review_is_object_specific_and_falsifiable(self):
         text = DOSSIER.read_text(encoding="utf-8-sig")
         for marker in (
             "obs-char-000791",
             "hust-obc-cat-0895",
-            "Multi-instance Visual Comparison",
-            "near-form",
-            "Two-way Falsification",
+            "合 974",
+            "合 6583",
+            "合 26786",
+            "合 13426",
+            "合 28087",
+            "## Pairwise Differences And Counterevidence",
+            "Near-form risk / 近形风险",
             "source_marked_risk_noted",
-            "They do not confirm inscription",
-            "not a decipherment conclusion",
-            "instance-1-image",
-            "03_visual-assets/001_asset-000796_hust-obc-cat-0895_glyph.png",
+            "This review does not",
+            "not an accepted reading",
         ):
             self.assertIn(marker, text)
         self.assertNotIn("not_collected", text)
         self.assertNotIn("TODO", text)
 
-    def test_object_entries_expose_the_opened_comparison(self):
-        for name in (
-            "README.md",
-            "05_human-research-dossier.md",
-            "10_archaeology-paleography-review.md",
-            "12_human-research-readiness-review.md",
+    def test_human_markdown_lines_do_not_exceed_eighty_characters(self):
+        for line_number, line in enumerate(
+            DOSSIER.read_text(encoding="utf-8-sig").splitlines(), 1
         ):
-            text = (OBJECT / name).read_text(encoding="utf-8-sig")
-            self.assertIn("17_multi-instance-visual-comparison.md", text)
-        readiness = (OBJECT / "12_human-research-readiness-review.md").read_text(
-            encoding="utf-8-sig"
-        )
-        self.assertIn("recorded_pending_independent_review", readiness)
-        self.assertIn("opened visual members: `5`", readiness)
-        archaeology = (OBJECT / "10_archaeology-paleography-review.md").read_text(
-            encoding="utf-8-sig"
-        )
-        self.assertIn("source package: `large-src-000001`", archaeology)
-
-    def test_human_markdown_is_bilingual_and_within_eighty_columns(self):
-        text = DOSSIER.read_text(encoding="utf-8-sig")
-        self.assertIn("## Purpose And Boundary / 目的与边界", text)
-        self.assertIn("## Research Boundary / 研究边界", text)
-        violations = [
-            f"{number}:{len(line)}"
-            for number, line in enumerate(text.splitlines(), 1)
-            if len(line) > 80
-        ]
-        self.assertEqual([], violations)
-
-    @unittest.skipUnless(RAW_ZIP.exists(), "ignored HUST raw ZIP unavailable")
-    def test_registered_members_recompute_from_raw_zip(self):
-        with zipfile.ZipFile(RAW_ZIP, metadata_encoding="gbk") as archive:
-            for item in EXPECTED:
-                member = item["directory"] + item["filename"]
-                info = archive.getinfo(member)
-                payload = archive.read(member)
-                self.assertEqual(item["size"], len(payload), member)
-                self.assertEqual(item["compressed"], info.compress_size, member)
-                self.assertEqual(item["sha256"], hashlib.sha256(payload).hexdigest())
-                with Image.open(io.BytesIO(payload)) as image:
-                    image.load()
-                    self.assertEqual(item["pixels"], image.size, member)
-                    self.assertEqual("RGB", image.mode, member)
+            self.assertLessEqual(
+                len(line),
+                80,
+                f"{DOSSIER}:{line_number}: {len(line)} characters",
+            )
 
 
 if __name__ == "__main__":

@@ -25668,6 +25668,8 @@ class RepositorySkeletonTests(unittest.TestCase):
             "Twenty-eight IHP collection-object directories",
             current_audit,
         )
+        self.assertIn("011_ai-diagnostic-pilot-2026-08-13", current_audit)
+        self.assertIn("diagnostic_fail_withheld", current_audit)
         self.assertIn("FAIL no v2 records", current_audit)
         self.assertIn("not Gate 3", current_audit)
 

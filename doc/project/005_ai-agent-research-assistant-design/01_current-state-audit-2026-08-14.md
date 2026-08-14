@@ -83,9 +83,16 @@ lock raw outputs, and perform one local diagnostic score. It does not itself
 select cases, invoke a model, create independent contexts, or provide an
 external isolated scorer.
 
+A reviewed [v4 diagnostic pilot record][pilot-report] exists. Its two runs
+used the same model family with fresh contexts, disagreed on the top-ranked
+opaque ID, and therefore remained `diagnostic_fail_withheld`.
+
 pilot 工具可以冻结证据、密封私有标签、创建运行开封记录、锁定原始输出，并进行一次
 本地诊断评分；但它不会自行选案、调用模型、创建真正独立上下文，也不提供外部隔离评
 分器。
+
+已有一份已复核的 v4 诊断记录。两次运行使用同一模型族但不同上下文，
+对不透明 ID 的首位排序不一致，因此结果保持 `diagnostic_fail_withheld`。
 
 The existing diagnostic pilot is withheld and uncalibrated. It is a pipeline
 exercise, not a clean holdout, not Gate 3, and not an AI-adjudicated candidate.
@@ -132,4 +139,5 @@ calibration, leakage, falsification, rerun, rights, and delivery gates pass.
 弃权或扣留。只有在战略登记的校准、泄漏、反证、复跑、权利和交付门槛全部通过后，用户
 才可收到候选。
 
+[pilot-report]: ../../public/user_research/011_ai-diagnostic-pilot-2026-08-13
 [strategy]: README.md

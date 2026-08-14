@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `2a5ce1721fc`
+Snapshot commit: `f432c439f03`
 
 ## Purpose / 目的
 
@@ -56,6 +56,8 @@ the snapshot change, but exceeded their time limits without a result.
   no PASS result.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
+- Human-material gate regression tests: `3 tests OK`; they cover summary
+  failure propagation, the full-scan coverage floor, and debt ceilings.
 
 以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
 `939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
@@ -128,7 +130,6 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   candidates to their object-local human dossiers.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
-- Five item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
 - Six item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
   Cambridge-Hopkins finding list, the Schwartz Huayuanzhuang East book, and
   Liu's Yingcang eclipse article.
@@ -297,7 +298,7 @@ finished. `implemented` means the rule and a current check exist;
 | 7 character depth | partial | six visual dossiers; bulk gaps |
 | 8 character fields | partial | filename and visual samples |
 | 9 inscription/plate | blocked | OCR and plate locators missing |
-| 10 literature | partial | four dossiers; broad corpus absent |
+| 10 literature | partial | six dossiers; broad corpus absent |
 | 11 source range | partial | routes; access gaps remain |
 | 12 priority-source handling | partial | HUST, OBIMD, EvoBC and IHP samples |
 | 13 processing | partial | manifests; review gaps remain |

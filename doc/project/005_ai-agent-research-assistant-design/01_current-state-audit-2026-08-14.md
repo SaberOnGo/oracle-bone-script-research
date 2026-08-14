@@ -31,7 +31,7 @@ the snapshot change, but exceeded their time limits without a result.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156837 Markdown files, all four debt counts zero.
-- Post-change object-level checks: BL Or. 7694/1595 `4 tests OK`; effective
+- Post-change object-level checks: BL Or. 7694/1595 `5 tests OK`; effective
   BL Or. 7694/1535 `6 tests OK`; effective OBIMD rights `5 tests OK`.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
@@ -47,7 +47,7 @@ the snapshot change, but exceeded their time limits without a result.
 
 以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
 `939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
-Or. 7694/1595 为 `4 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
+Or. 7694/1595 为 `5 tests OK`，BL Or. 7694/1535 为 `6 tests OK`，
 OBIMD 生效权利为 `5 tests OK`。
 本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
 超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为
@@ -119,6 +119,10 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - The British Library Or. 7694/1595 candidate now has a human-readable
   source-text and image-side reconciliation page preserving both displayed
   strings without creating OCR or a project transcription.
+- Its literature page now records a named astronomical-date dispute: the
+  British Library/Scroll route reports 1192 BC, while Liu's *Early China*
+  abstract records a 1166 BCE argument for Yingcang 885/886. Both remain
+  source routes; neither date is adopted by this project.
 - The OBIMD object package-route index now displays the active
   `metadata_only_until_verified` status; the central historical manifest value
   remains traceable under the active rights override.
@@ -153,6 +157,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   反证、权利边界和具体下一步。
 - 大英图书馆 Or. 7694/1595 候选现已加入来源文字与正反面图像对照页，保留两面显示
   字符串，不生成 OCR 或项目摹写。
+- 该候选的文献页现记录了有名有据的年代争议：大英图书馆/Scroll 路线报告公元前
+  1192 年，Liu 的 *Early China* 摘要为《英藏》885/886 记录公元前 1166 年的
+  论证。两者仍是来源路线，本项目不采用任何一个年代。
 - OBIMD 来源对象的来源包路线现显示生效的
   `metadata_only_until_verified`；中央历史 manifest 值仍由有效权利覆盖记录追溯。
 - Or. 7694/1595 与 Or. 7694/1535v 对象现保存三张未改动的 CC0 来源图像；

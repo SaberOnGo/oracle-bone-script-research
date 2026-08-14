@@ -59,9 +59,27 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             self.assertIn(marker, text)
         self.assertNotIn("project translation", text)
 
+    def test_literature_review_records_named_date_dispute(self):
+        path = OBJECT / "06_literature-and-dispute-review.md"
+        text = path.read_text(encoding="utf-8-sig")
+        for marker in (
+            "Emma Goodliffe",
+            "Roberto Soria",
+            "Xueshun Liu",
+            "Chang Yuzhi",
+            "1192 BC",
+            "1166 BCE",
+            "astronomical_date_dispute",
+            "source_citation_route_only",
+            "10.1017/eac.2014.10",
+        ):
+            self.assertIn(marker, text)
+        self.assertIn("do not settle the reading", text)
+
     def test_human_markdown_stays_within_eighty_characters(self):
         for name in (
             "README.md",
+            "06_literature-and-dispute-review.md",
             "08_source-text-line-reconciliation.md",
             "09_british-library-catalog-record.md",
         ):

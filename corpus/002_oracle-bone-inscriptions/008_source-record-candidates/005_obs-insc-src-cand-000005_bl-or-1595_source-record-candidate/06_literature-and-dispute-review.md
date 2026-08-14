@@ -11,20 +11,52 @@
 - British Library collection and blog routes are recorded as institutional
   context; the current blog URL redirects to a general archive page.
 
+## Newly checked citation routes / 新核查的引文路线
+
+The British Library item was mentioned in Emma Goodliffe's 2016 article,
+published by *Scroll* from the British Library Asia and African Studies blog
+route. The article names Or. 7694/1595 and Yingcang 886, repeats the source
+display string for the eclipse, and reports a 1192 BC date. This is a
+curatorial or journalistic route, not an edition or an independent project
+transcription:
+
+- https://scroll.in/article/801747/records-of-a-lunar-eclipse-from-more-
+  than-3000-years-ago
+- access checked: 2026-08-14; full page text was not copied into this
+  repository.
+
+Xueshun Liu's *Early China* article gives a separate scholarly argument about
+Yingcang 885/886. Its abstract says that Liu and Chang Yuzhi associate the
+record with a 1166 BCE eclipse, rather than silently accepting the 1192 BC
+route. The article is copyright-protected and the full text was not stored:
+
+- https://doi.org/10.1017/eac.2014.10
+- https://www.cambridge.org/core/journals/early-china/article/abs/
+  total-lunar-eclipse-on-june-16-2011-a-key-to-dating-the-yin-lunar-
+  eclipse-in-yingcang-885886/7CAFD5BB065AB3A3768FCCCC71E61C69
+- access checked: 2026-08-14; abstract and reference metadata only.
+
+These routes establish a named disagreement about astronomical dating. They
+do not prove that either date is correct, do not identify the exact *Heji*
+plate for both sides, and do not settle the reading of any damaged graph.
+
 ## Sources, proponents, and disagreements / 来源、提出者与不同意见
 
 The Commons page attributes the image supply to the British Library and
-reports a modern-scholars eclipse identification, but does not name every
-proposer or provide a full argument. No independent reading history,
-alternative reading, excavation report, or dispute record is assigned here.
+reports a modern-scholars eclipse identification. The two routes above now
+name Emma Goodliffe, Roberto Soria, Xueshun Liu, and Chang Yuzhi in different
+source roles, but they still do not provide a complete reading history for
+this object. No independent excavation report or graph-by-graph dispute
+record is assigned here.
 
 Commons 页面把图像来源归给大英图书馆，并报告“现代学者”的月食认定，
 但没有列出全部提出者或完整论证。本候选尚未分配独立释读史、不同释读、
 发掘报告或争议记录。
 
-The literature route is therefore `source_citation_route_only`. Before any
-formal research use, a researcher should open the cited works, identify the
-exact object and plate, and record the claims and counterclaims separately.
+The literature route is therefore `source_citation_route_only` with a named
+`astronomical_date_dispute`. Before formal research use, a researcher should
+open the cited works, identify the exact object and plate, and record the
+claims, calculations, and counterclaims separately.
 
 当前文献路线只能标为 `source_citation_route_only`。正式研究前，研究者
 应打开所引文献，确认对象和图版，并分别记录主张与反证。

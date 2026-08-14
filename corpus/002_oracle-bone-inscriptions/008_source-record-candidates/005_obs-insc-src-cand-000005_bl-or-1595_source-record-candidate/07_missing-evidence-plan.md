@@ -20,6 +20,13 @@ The following are concrete checks, not filler status text:
 8. After segmentation, which character and component links survive visual,
    catalog, and text checks?
 
+The first literature pass has now found a concrete date dispute: the
+*Scroll*/British Library route reports 1192 BC, while Liu's *Early China*
+abstract reports a 1166 BCE argument for Yingcang 885/886. The next check is
+to open both works, verify whether they refer to the same recto/verso object,
+and capture their calculations and source plate references without choosing a
+date in this dossier.
+
 1. 目录检索现在提供了 Or. 7694/1595 的集合级字段。当前网站变化后，
    能否解析到 1595r 与 1595v 的稳定逐项记录、JSON、IIIF 和图像内容？
 2. 《合集》40610 是否为正反面各自一幅图版？准确卷、图版、页码和
@@ -30,6 +37,11 @@ The following are concrete checks, not filler status text:
 6. 哪些发掘、出土地点、时期和馆藏流转证据独立于 Commons 描述？
 7. 哪些学者提出月食认定？有哪些不同日期或释读？
 8. 完成人类分段后，哪些单字和构件关系能同时通过图像、著录和文字核验？
+
+首轮文献核查已经发现具体的年代争议：*Scroll*/大英图书馆路线报告
+公元前 1192 年，而 Liu 的 *Early China* 摘要为《英藏》885/886 报告
+公元前 1166 年论证。下一步要打开两部文献，核对它们是否指同一正反面
+对象，并记录计算过程和图版出处；本档案不选择其中一个年代。
 
 Until these questions are answered, the candidate remains a source-record
 route with image evidence, not a formal inscription, reading, or decipherment.

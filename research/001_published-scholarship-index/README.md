@@ -42,6 +42,10 @@ for deciding whether a source can become a reviewed research note.
   metadata, HYZ 421 citation route, rights, and page-verification gates.
 - [Schwartz 花园庄东甲骨专著档案][schwartz-hyz]：记录出版社 metadata、
   HYZ 421 引用路线、权利和页码核验门槛。
+- [Liu 2014 Yingcang eclipse article dossier][liu-eclipse]: records the
+  abstract, dating argument, citation dispute, rights, and transfer gates.
+- [Liu 2014《英藏》月食论文档案][liu-eclipse]：记录摘要、断代论证、引用争议、
+  权利和对象转移门槛。
 
 The HUST-OBC paper dossier keeps dataset counts and expert review as
 `source-reported`. Its 94.6% closed-set image-classification accuracy is not
@@ -94,3 +98,4 @@ It is not a rights decision, source promotion, or corpus import approval.
 [evobc-paper]: 005_evobc-2024_data-paper/README.md
 [cambridge-hopkins-list]: 006_cambridge-hopkins_finding-list/README.md
 [schwartz-hyz]: 007_schwartz-2019_hyz-monograph/README.md
+[liu-eclipse]: 008_liu-2014_yingcang-eclipse/README.md

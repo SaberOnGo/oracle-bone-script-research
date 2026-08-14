@@ -30,6 +30,10 @@ Yingcang 885/886. Its abstract says that Liu and Chang Yuzhi associate the
 record with a 1166 BCE eclipse, rather than silently accepting the 1192 BC
 route. The article is copyright-protected and the full text was not stored:
 
+The project now has a human-first [Liu 2014 literature dossier][liu-dossier].
+It records the article's abstract and citation relation without treating the
+Yingcang 886 hint as proof of this BL object's identity.
+
 - https://doi.org/10.1017/eac.2014.10
 - https://www.cambridge.org/core/journals/early-china/article/abs/
   total-lunar-eclipse-on-june-16-2011-a-key-to-dating-the-yin-lunar-
@@ -60,3 +64,8 @@ claims, calculations, and counterclaims separately.
 
 当前文献路线只能标为 `source_citation_route_only`。正式研究前，研究者
 应打开所引文献，确认对象和图版，并分别记录主张与反证。
+
+本项目现有[Liu 2014 文献档案][liu-dossier]。它记录论文摘要和引用关系，
+但不把《英藏》886 线索当作该大英图书馆对象已经确认的证据。
+
+[liu-dossier]: ../../../../research/001_published-scholarship-index/README.md

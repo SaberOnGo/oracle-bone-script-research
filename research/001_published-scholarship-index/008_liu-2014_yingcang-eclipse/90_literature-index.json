@@ -1,0 +1,17 @@
+{
+  "record_type": "published_literature_dossier",
+  "dossier_id": "literature-liu-early-china-2014",
+  "title": "The Total Lunar Eclipse on June 16, 2011",
+  "author": "Xueshun Liu",
+  "venue": "Early China",
+  "volume": "37",
+  "year": 2014,
+  "pages": "15-38",
+  "doi": "10.1017/eac.2014.10",
+  "access_date": "2026-08-14",
+  "snapshot_status": "metadata_only_not_downloaded",
+  "rights_status": "metadata_only_until_verified",
+  "reading_status": "source_reported_needs_full_text_and_object_crosswalk",
+  "related_candidate_id": "obs-insc-src-cand-000005",
+  "claim_boundary": "not a project date or decipherment result"
+}

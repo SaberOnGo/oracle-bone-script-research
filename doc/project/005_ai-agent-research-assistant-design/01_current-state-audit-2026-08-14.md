@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `70c5e82d8cb`
+Snapshot commit: `db3c38563c1`
 
 ## Purpose / 目的
 
@@ -23,17 +23,28 @@ This file records what is and is not executable at the snapshot commit.
 
 ## Reproducibility receipts / 可复跑凭据
 
-The following commands were run from the repository root:
+The following receipts describe the snapshot and its preceding verification
+boundary. The full-suite and full-scan commands were attempted again after
+the snapshot change, but exceeded their time limits without a result.
 
 - `python -m unittest discover -s tests -v`: `939 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156837 Markdown files, all four debt counts zero.
+- Post-change object-level checks: BL Or. 7694/1595 `4 tests OK`; effective
+  OBIMD rights `5 tests OK`.
+- Post-change full unittest: timed out after 900 seconds; no PASS result.
+- Post-change skeleton and human-gate scans: each timed out after 600 seconds;
+  no PASS result.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `939 tests OK`，骨架校验为 `PASS`，v1
-证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
+以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
+`939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
+Or. 7694/1595 为 `4 tests OK`，OBIMD 生效权利为 `5 tests OK`。
+本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
+超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为
+`FAIL no v2 records`。
 
 human-research gate 全量严格摘要也通过：扫描 156837 个 Markdown，机器主导、
 核心研究缺失、现代标签风险和 mojibake 四项债务均为零。
@@ -70,6 +81,10 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - A British Library Or. 7694/1595 recto-verso source-record candidate now
   records the two CC0 image routes, local checksums, page-displayed eclipse
   strings, and independent catalog, text, and character-link gaps.
+- The same candidate now has a British Library catalogue page recording
+  source-reported shelfmark, title, collection, date range, extent, and the
+  catalogue's `Images currently unavailable` notice. Item-level JSON, IIIF,
+  and catalogue-image retrieval remain unresolved.
 - A British Library Or. 7694/1535v source-record candidate now records one
   CC0 image route, local checksums, direct visual observations, and concrete
   catalog, text, and character-link gaps.
@@ -107,6 +122,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   私有图像校验和，并明确独立图版、原文和 OCR 缺口。
 - 大英图书馆 Or. 7694/1595 正反面来源记录候选保存两条 CC0 图像路线、
   本地校验和、页面月食文字，以及独立著录、文字和单字关联缺口。
+- 同一候选现增加大英图书馆馆藏页，记录来源报告的馆藏号、题名、馆藏区域、
+  年代范围、范围字段和 `Images currently unavailable` 提示。逐项 JSON、
+  IIIF 和馆藏图像仍未取得。
 - 中央卜辞来源记录映射表现已把六个已打开候选分别指向对象内人类档案。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候

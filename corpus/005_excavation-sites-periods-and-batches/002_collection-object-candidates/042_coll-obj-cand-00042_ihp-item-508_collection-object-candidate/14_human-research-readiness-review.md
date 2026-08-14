@@ -6,6 +6,9 @@ collection object candidate in formal oracle-bone research. It gathers source,
 visual, archaeological, inscription, character, rights, and dispute checks
 without promoting any claim.
 
+Open `18_live-source-evidence-review.md` for the current live-source capture
+before deciding whether any readiness blocker has changed.
+
 简体中文：
 本复核文件记录正式甲骨研究前，人类研究者还必须打开哪些来源、图像、考古语境、卜辞、单字、权利和争议路线。它不提升任何身份或释读结论。
 

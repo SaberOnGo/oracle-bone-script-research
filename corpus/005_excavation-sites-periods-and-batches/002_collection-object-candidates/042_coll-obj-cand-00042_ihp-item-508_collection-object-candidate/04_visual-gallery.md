@@ -10,6 +10,11 @@ https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/8835a16885a
 
 Rights status: `metadata_only_until_verified`
 
+## Live Source Evidence / 现场来源证据
+
+Open `18_live-source-evidence-review.md` for the 2026-08-14 page snapshot,
+private image checksums, and pixel-only observations.
+
 
 ## Boundary / 边界
 

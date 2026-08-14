@@ -6,6 +6,9 @@ reviewer first opens the object page, image route, catalog reference, and source
 row, then checks archaeological context, inscription links, character routes,
 rights, and unresolved disputes.
 
+The latest page and image evidence is in
+`18_live-source-evidence-review.md`; it does not open formal research.
+
 简体中文：
 本核查固定正式研究开始前的开包顺序。研究者先看实物和馆藏记录、图像路线、著录线索和来源行，再核对考古语境、卜辞关联、单字路线、权利状态和仍待复核的争议。
 

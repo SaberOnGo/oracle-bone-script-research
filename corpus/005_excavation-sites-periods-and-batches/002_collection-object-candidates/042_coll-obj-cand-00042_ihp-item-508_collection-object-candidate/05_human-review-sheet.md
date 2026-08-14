@@ -4,6 +4,11 @@ Project ID: `coll-obj-cand-00042`
 
 Candidate collection object ID: `ihp-mus-obj-00042`
 
+## Live Source Evidence / 现场来源证据
+
+Open `18_live-source-evidence-review.md` before reviewing the live page,
+private image routes, or source-reported description.
+
 ## Required Checks / 必须复核
 
 - Open `02_collection-source-index.csv` and verify the source, download, and

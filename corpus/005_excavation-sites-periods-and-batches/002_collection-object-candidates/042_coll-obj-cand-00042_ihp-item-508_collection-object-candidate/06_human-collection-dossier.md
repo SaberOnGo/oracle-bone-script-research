@@ -6,6 +6,9 @@ should inspect before trusting a museum or collection object candidate: catalog
 clues, image route, source trail, rights status, and the missing findspot,
 period, batch, plate, inscription, and character context.
 
+Live page and private image evidence are recorded in
+`18_live-source-evidence-review.md`.
+
 简体中文：
 本档案汇总复核馆藏或出土相关对象前需打开的对象层证据：著录线索、图像路线、来源链、权利状态，以及尚缺的出土地、时期、批次、图版、卜辞和甲骨单字语境。
 

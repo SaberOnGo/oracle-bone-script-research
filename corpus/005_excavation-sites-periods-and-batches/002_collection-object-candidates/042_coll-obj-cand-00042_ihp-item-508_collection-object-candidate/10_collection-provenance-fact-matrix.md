@@ -5,6 +5,9 @@ This matrix gives a compact human review order for the collection object
 candidate. It points from each fact to the local evidence file that must be
 opened before any comparison, citation, or later research use.
 
+Open `18_live-source-evidence-review.md` for the current page and image
+evidence before treating any source value as independently checked.
+
 简体中文：
 本矩阵为馆藏对象候选提供简明的人工复核顺序；每个事实都指向必须先打开的本地证据文件。
 

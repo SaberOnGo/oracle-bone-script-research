@@ -2,8 +2,7 @@
 
 ## Evidence files / 证据文件
 
-The ignored local API snapshot is
-`.working/bl-or-1535/api.json`.
+The ignored local API snapshot is `.working/bl-or-1535/api.json`.
 
 - API snapshot size: `6113` bytes
 - API snapshot SHA-256:
@@ -14,9 +13,9 @@ The ignored local API snapshot is
 - API image SHA-1:
   `079128df460b0488f88a7a1665acb70889fbedee`
 
-The API metadata and the local image were checked on 2026-08-14. The
-checksum check is independent of the page title and does not confirm the
-catalog references.
+The API metadata and the committed source image were checked on
+2026-08-14. The checksum check is independent of the page title and does
+not confirm the catalog references.
 
 ## What the source says / 来源原话范围
 
@@ -33,5 +32,5 @@ reading order, or text.
 
 `public_domain_verified` applies to the Commons image-page declaration
 recorded here. Page text and structured metadata still require attribution,
-provenance, and a separate rights review. No image derivative is committed
-in this candidate folder.
+provenance, and a separate rights review. The committed file is unchanged
+source bytes, not an image derivative.

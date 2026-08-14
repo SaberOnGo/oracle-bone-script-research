@@ -30,8 +30,8 @@ Commons 页面说明图像由大英图书馆数字馆藏提供，并给出
   editions.
 - Risk: the Commons file page is a dissemination route, not proof that every
   underlying museum object, edition, or future derivative has identical terms.
-- Repository use: two ignored snapshots plus public direct routes; no new
-  derivative crop or OCR is committed.
+- Repository use: two unchanged source images are committed under the object
+  folder; no crop or OCR derivative is committed.
 
 - 图像页面：`CC0 1.0 Universal Public Domain Dedication`。
 - 图像有效状态：两张 Commons 图像页面显示为
@@ -40,7 +40,8 @@ Commons 页面说明图像由大英图书馆数字馆藏提供，并给出
   许可理解为所有著录版本的统一授权。
 - 风险：Commons 文件页面是传播路线，不证明底层馆藏对象、版本或未来
   派生物都具有相同条件。
-- 仓库使用：保存两个被忽略的快照和公开直链，不提交新的裁图或 OCR。
+- 仓库使用：对象目录保存两张未改动的来源图像，不提交裁图或 OCR
+  派生物。
 
 ## Provenance boundary / 出处边界
 

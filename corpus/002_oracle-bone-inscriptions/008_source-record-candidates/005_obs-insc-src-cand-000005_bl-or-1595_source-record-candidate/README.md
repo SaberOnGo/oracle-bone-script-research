@@ -8,11 +8,11 @@ Or. 7694/1595. The project ID is `obs-insc-src-cand-000005`. The Commons
 pages identify the two sides as Or. 7694/1595r and Or. 7694/1595v, and give
 the object references Heji 40610r/v and Yingcang suocang jiagu ji 886r/v.
 
-The two image files were fetched to the ignored `.working/bl-or-1595/`
-directory and checked by SHA-256. They are not copied into this candidate
-folder. The Commons pages provide public image routes and mark the images
-CC0. Commons page text and catalog metadata have separate reuse terms and
-are kept as source-reported evidence with attribution and risk notes.
+The two exact source image bytes are also kept under `03_visual-assets/` and
+checked by SHA-256. The Commons pages provide public image routes and mark
+the images CC0. Commons page text and catalog metadata have separate reuse
+terms and are kept as source-reported evidence with attribution and risk
+notes.
 
 Read the human Markdown pages in numeric order. Open the JSON and CSV only
 after the source wording, image routes, text quality, and missing checks are
@@ -25,10 +25,10 @@ clear. This is not a formal `obi-*` inscription record.
 Or. 7694/1595r 与 Or. 7694/1595v，并给出《甲骨文合集》
 Heji 40610r/v 及《英国所藏甲骨集》886r/v 的对象线索。
 
-两张图下载到被忽略的 `.working/bl-or-1595/`，并已计算 SHA-256；
-本候选目录不复制二进制图像。Commons 页面明确将图像标为 CC0，
+两张图的原始字节也保存在 `03_visual-assets/`，并已计算 SHA-256。
+Commons 页面明确将图像标为 CC0，
 但页面文字和著录 metadata 另有使用条件，因此只把它们作为带出处、
-带署名和风险提示的来源证据保存。
+ 带署名和风险提示的来源证据保存。
 
 请先按编号阅读人类 Markdown，再打开 JSON 与 CSV。本目录不是正式
 `obi-*` 卜辞记录。

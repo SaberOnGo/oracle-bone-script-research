@@ -19,23 +19,21 @@ Commons file pages:
 
 ## Image routes / 图像路线
 
-- Recto: [original PNG][recto-file], local snapshot
-  `.working/bl-or-1595/recto.png`, 942112 bytes.
+- Recto: [original PNG][recto-file], committed source bytes
+  `03_visual-assets/001_asset-000001_bl-1595r.png`, 942112 bytes.
   SHA-256:
   `ddecad64f5b958ec3c4425bad53dbe90c7f782b41622a672b7ec6d971ddf9c19`.
-- Verso: [original PNG][verso-file], local snapshot
-  `.working/bl-or-1595/verso.png`, 933246 bytes.
+- Verso: [original PNG][verso-file], committed source bytes
+  `03_visual-assets/002_asset-000002_bl-1595v.png`, 933246 bytes.
   SHA-256:
   `5833d7fc96d0d5a2878bd6981c0110c5919613cd4d382ad45f93f3451bf342f4`.
 
-The recto snapshot is 681 by 898 pixels. The verso snapshot is 610 by
-905 pixels. The local copies are ignored research snapshots, not committed
-assets. A reader can open the direct CC0 route without relying on the local
-working directory.
+The recto source bytes are 681 by 898 pixels. The verso source bytes are
+610 by 905 pixels. The committed files are byte-identical to the checked
+local fetches. A reader can also open the direct CC0 route.
 
-正面快照为 681×898 像素，背面快照为 610×905 像素。本地文件是被忽略的
-研究快照，不是提交资产。读者可以直接打开 CC0 图像路线，不依赖本地
-工作目录。
+正面原始字节为 681×898 像素，背面原始字节为 610×905 像素。提交文件
+与已核对的本地下载字节一致。读者也可以直接打开 CC0 图像路线。
 
 ## Access record / 访问记录
 
@@ -49,8 +47,8 @@ working directory.
 - `verso-page.html`: 113642 bytes,
   SHA-256 `fff4dca302b6062865ae06e1c0df56dcaab496642acf17210383609b4bf10b5b`.
 
-The API and page snapshots are ignored. They document the exact retrieval
-event; the direct pages remain the preferred human route.
+The API and page snapshots remain ignored. They document the exact retrieval
+event; the committed source bytes and direct pages are both human routes.
 
 [recto-page]:
   https://commons.wikimedia.org/w/index.php?curid=134124270

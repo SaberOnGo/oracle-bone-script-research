@@ -24,12 +24,13 @@
     "plainer area toward the right",
     "broken and porous-looking fragment edges"
   ],
-  "image_status": "public_direct_route_local_private_snapshot_only",
+  "image_status": "public_direct_route_and_committed_source_bytes",
   "image_routes": [
     {
       "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_oracle_bone_(16th-10th_C_BC)_-_BL_Or._7694.jpg",
       "description_url": "https://commons.wikimedia.org/wiki/File%3AChinese_oracle_bone_%2816th-10th_C_BC%29_-_BL_Or._7694.jpg",
       "local_private_path": ".working/bl-or-1535/object.jpg",
+      "committed_path": "03_visual-assets/001_asset-000001_bl-1535v.jpg",
       "size_bytes": 975908,
       "pixels": "1670x1714",
       "sha256": "88e5337e29035d70c89a2ba6339f1973d0e808865b312dd0131fd9f4ddb96ca6",

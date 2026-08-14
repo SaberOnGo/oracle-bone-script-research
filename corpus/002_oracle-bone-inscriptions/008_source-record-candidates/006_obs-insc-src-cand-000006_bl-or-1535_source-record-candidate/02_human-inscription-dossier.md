@@ -28,6 +28,17 @@ component, or inscription line.
 
 This is not a project transcription.
 
+## Committed source image / 已提交来源图像
+
+The unchanged CC0 source bytes are available in this object folder:
+
+![Source image][source-image]
+
+未改动的 CC0 来源字节保存在本对象目录中，可直接打开查看。图像页面、
+页面文字和馆藏 metadata 的权利范围仍分别记录。
+
+[source-image]: 03_visual-assets/001_asset-000001_bl-1535v.jpg
+
 ## Text and identity boundary / 文字与身份边界
 
 No full text, OCR, line order, plate number, or project transcription is

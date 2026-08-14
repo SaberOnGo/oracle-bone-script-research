@@ -9,12 +9,11 @@ through Wikimedia Commons. The project ID is
 British Library Or. 7694/1535v, with Heji 39498v and Yingcang 1117v as
 catalog-reference hints.
 
-The image was fetched to the ignored `.working/bl-or-1535/` directory and
-checked by size, dimensions, SHA-256, and the Commons SHA-1. It is not
-copied into this candidate folder. The file page states CC0 1.0 Universal
-Public Domain Dedication. Page text, catalog metadata, and the source
-description remain source-reported and require their own attribution and
-review.
+The exact source image bytes are also kept under `03_visual-assets/` and
+checked by size, dimensions, SHA-256, and the Commons SHA-1. The file page
+states CC0 1.0 Universal Public Domain Dedication. Page text, catalog
+metadata, and the source description remain source-reported and require
+their own attribution and review.
 
 Read the human Markdown pages in numeric order. Open the JSON and CSV only
 after the object route, visual observations, text quality, and missing
@@ -27,9 +26,9 @@ evidence are clear. This is not a formal `obi-*` inscription record.
 大英图书馆 Or. 7694/1535v，并给出 Heji 39498v 与 Yingcang 1117v
 两个著录线索。
 
-图像下载到被忽略的 `.working/bl-or-1535/`，并按大小、像素、
-SHA-256 和 Commons SHA-1 核对。本候选目录不复制二进制图像。
-图像页面标为 CC0 1.0 Universal Public Domain Dedication；页面文字、
+图像原始字节保存在 `03_visual-assets/`，并按大小、像素、SHA-256
+和 Commons SHA-1 核对。
+ 图像页面标为 CC0 1.0 Universal Public Domain Dedication；页面文字、
 著录 metadata 和来源描述仍需分别署名和复核。
 
 请先按编号阅读人类 Markdown，再打开 JSON 和 CSV。本目录不是正式

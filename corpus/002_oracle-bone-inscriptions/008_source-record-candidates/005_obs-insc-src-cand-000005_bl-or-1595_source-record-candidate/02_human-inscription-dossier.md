@@ -43,6 +43,20 @@ visual observations only. They do not segment characters or infer a reading.
 弧形骨面、钻凿痕、孔隙纹理和其他刻痕。这些只是视觉观察，不进行单字
 分段，也不推定释读。
 
+## Committed source images / 已提交来源图像
+
+The unchanged CC0 source bytes are available in this object folder:
+
+![Recto source image][recto-image]
+
+![Verso source image][verso-image]
+
+未改动的 CC0 来源字节保存在本对象目录中，可直接打开查看。图像页面、
+页面文字和馆藏 metadata 的权利范围仍分别记录。
+
+[recto-image]: 03_visual-assets/001_asset-000001_bl-1595r.png
+[verso-image]: 03_visual-assets/002_asset-000002_bl-1595v.png
+
 ## Object and text status / 对象和文字状态
 
 - accession: `Or. 7694/1595r` and `Or. 7694/1595v`.

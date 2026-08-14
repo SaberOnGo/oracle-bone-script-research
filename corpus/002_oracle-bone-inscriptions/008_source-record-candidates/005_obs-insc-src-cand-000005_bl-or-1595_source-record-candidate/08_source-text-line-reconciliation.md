@@ -66,13 +66,15 @@ reading order, or that the overlapping strings have a confirmed reading.
 
 ## Image-side relation / 图像一侧关系
 
-The recto and verso PNG snapshots are separate private research files:
+The recto and verso PNG source files are available in the object folder:
 
-- recto: `recto.png`, 681 by 898 pixels, 942112 bytes
-- verso: `verso.png`, 610 by 905 pixels, 933246 bytes
+- recto: `03_visual-assets/001_asset-000001_bl-1595r.png`, 681 by 898
+  pixels, 942112 bytes
+- verso: `03_visual-assets/002_asset-000002_bl-1595v.png`, 610 by 905
+  pixels, 933246 bytes
 
-正反面 PNG 快照是两个独立的本地私有研究文件。图像只通过 Commons
-CC0 直链公开；本目录没有提交裁图、拼接图或 OCR 派生物。
+正反面 PNG 来源文件保存在对象目录。图像仍可通过 Commons CC0 直链
+访问；本目录没有提交裁图、拼接图或 OCR 派生物。
 
 The current visual dossier describes an irregular fragment, incised marks,
 drill holes, and porous bone texture. It does not assign line boundaries or

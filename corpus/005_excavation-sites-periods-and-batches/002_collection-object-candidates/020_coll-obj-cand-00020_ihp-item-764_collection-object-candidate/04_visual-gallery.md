@@ -2,13 +2,16 @@
 
 Project ID: `coll-obj-cand-00020`
 
-## External Thumbnail Route / 外部缩略图入口
+## External Image Route / 外部图像路线
 
-Thumbnail URL metadata is preserved, but the image is not downloaded or committed in this stage:
+The official large-image route returned JPEG bytes and was saved only in
+ignored `.working/ihp-764/` for private inspection. No image is committed:
 
 https://museum.sinica.edu.tw/_upload/image/collection_item/thumbnail/6015f6894ed3eeaa.jpg
 
 Rights status: `metadata_only_until_verified`
+
+See `18_live-source-evidence-review.md` for the image hash and visual boundary.
 
 
 ## Boundary / 边界

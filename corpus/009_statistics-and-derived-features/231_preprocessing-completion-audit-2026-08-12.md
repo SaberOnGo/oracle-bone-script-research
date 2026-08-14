@@ -475,6 +475,20 @@ signs, independent plate, name attribution, and image rights remain unresolved.
 涉及高阶将领姓名、“小”加“鸟”的解释及大眼雀鸟刻画，中文页显示括号字空缺。大图已私下
 检查后保存到忽略区并计算校验和。著录版本、缺失字、独立图版、人名归属和图像权利仍未解决。
 
+The IHP object candidate `ihp-mus-obj-00020` / item `764` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R024975`, `Inscribed Animal Bone Fragment Chia 2624`, Late Shang
+Period, Hsiao-t'un, and animal bone. The source description concerns a bird
+inscription carved in fine strokes and filled with black ink; no complete
+line-by-line transcription is supplied. The JPEG was saved to ignored storage
+and hashed after private inspection. The catalog edition, complete text, ink
+history, independent plate, and image rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00020` / item `764` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R024975`、`Inscribed Animal Bone Fragment Chia 2624`、晚商、小屯和兽骨；
+来源说明涉及细致刻画并填墨的鸟形刻辞，但没有逐行完整释文。大图已私下检查后保存到忽略
+区并计算校验和。著录版本、完整文字、填墨历史、独立图版和图像权利仍未解决。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

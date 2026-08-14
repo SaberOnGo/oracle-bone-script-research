@@ -15,6 +15,7 @@ without promoting any claim.
 | --- | --- | --- |
 | Catalog source | `506` | `02_collection-source-index.csv` |
 | Visual evidence | `external_thumbnail_url_metadata_only` | `04_visual-gallery.md` |
+| Live page | private hashes | `18_live-source-evidence-review.md` |
 | Findspot route | `pending findspot or provenience source review` | `08_collection-provenance-evidence-dossier.md` |
 | Period route | `pending period or date source review` | `12_archaeological-context-review.md` |
 | Batch or pit route | `pending source-page review` | `12_archaeological-context-review.md` |

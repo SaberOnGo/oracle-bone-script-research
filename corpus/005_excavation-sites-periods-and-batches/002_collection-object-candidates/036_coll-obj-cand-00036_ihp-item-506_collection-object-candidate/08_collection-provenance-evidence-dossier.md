@@ -27,6 +27,10 @@ later formal research.
 | local_temp_path | `tmp/source_downloads/dl-ihp-museum-oracle-bones.html` |
 | route_review_status | `metadata_route_needs_human_review` |
 
+The fresh live-page capture and private image checks are recorded in
+`18_live-source-evidence-review.md`. They supplement this registered route;
+they do not replace the earlier download-log snapshot.
+
 ## Rights Checksum And Risk Route / 权利、checksum 与风险路线
 
 - rights_status is copied from the registered source row.

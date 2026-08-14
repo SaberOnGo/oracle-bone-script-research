@@ -6,6 +6,9 @@ object candidate. A human reviewer must verify institution, catalog record,
 findspot, period, batch, plate, image, and inscription routes before the object
 can support later research.
 
+The live page values and their source limitations are recorded in
+`18_live-source-evidence-review.md`.
+
 简体中文：
 本表把考古语境待核问题
 放在馆藏对象候选目录内。

@@ -27,6 +27,9 @@ External thumbnail URL metadata only.
 
 See `thumbnail_url` in Object Metadata.
 
+The 2026-08-14 live-page capture, private image hashes, and source
+discrepancy review are in `18_live-source-evidence-review.md`.
+
 ## Local Files / 本目录文件
 
 - `04_visual-gallery.md`: human-facing image or thumbnail route sheet.
@@ -40,6 +43,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: human live-source page and image-hash
+  review.
 
 ## Structured Support Files / 结构化辅助文件
 

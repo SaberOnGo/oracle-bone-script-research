@@ -12,6 +12,8 @@ Candidate collection object ID: `ihp-mus-obj-00036`
   external-only, or missing.
 - Compare object-page labels against catalog references, collection provenance,
   and inscription context.
+- Open `18_live-source-evidence-review.md` to compare the live page, private
+  image hashes, and the unresolved English/Chinese catalog route.
 - Do not record inscription identity, transcription, formal reading, component
   analysis, or decipherment conclusions here.
 

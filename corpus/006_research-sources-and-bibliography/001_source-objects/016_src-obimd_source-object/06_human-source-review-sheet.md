@@ -56,6 +56,11 @@ derived records are reused.
 
 ## Status / 状态
 - Source ID / 来源 ID: src-obimd
-- Rights status / 权利状态: licensed_for_repository
+- Legacy rights status / 历史权利状态: licensed_for_repository
+- Effective rights status / 当前有效权利状态:
+  `metadata_only_until_verified`
+- Active override / 生效覆盖:
+  `project_registry/004_asset-source-and-rights-index/`
+  `006_obimd-rights-status-override.csv`
 - Review status / 复核状态: needs_human_source_review
 - Decipherment claim status / 释读结论状态: no_claim

@@ -22,6 +22,9 @@ before using structured support files.
 - Legacy rights status / 历史权利状态: licensed_for_repository
 - Effective rights status / 当前有效权利状态:
   metadata_only_until_verified
+- Active override / 生效覆盖:
+  `project_registry/004_asset-source-and-rights-index/`
+  `006_obimd-rights-status-override.csv`
 - Rights decision / 权利决定: 25_effective-rights-decision.md
 - Review status / 复核状态: reviewed
 

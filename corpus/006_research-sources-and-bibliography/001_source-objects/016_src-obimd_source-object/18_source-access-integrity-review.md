@@ -15,7 +15,12 @@ visible before the source supports any object dossier.
 - Provider / 提供方: Key Laboratory of Oracle Bone Inscriptions Information
   Processing Anyang Normal University; Xiamen University; Tencent Youtu Lab;
   University of Cambridge; Scientific Data
-- Rights status / 权利状态: licensed_for_repository
+- Legacy rights status / 历史权利状态: licensed_for_repository
+- Effective rights status / 当前有效权利状态:
+  `metadata_only_until_verified`
+- Active override / 生效覆盖:
+  `project_registry/004_asset-source-and-rights-index/`
+  `006_obimd-rights-status-override.csv`
 - Risk note / 风险提示: Dataset card reports CC-BY 4.0 while the GitHub README
   includes narrower academic-use wording; raw files remain large and need rights
   review before import.

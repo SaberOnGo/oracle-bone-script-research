@@ -56,17 +56,12 @@ boundary. Counts are recorded from the commands run at this snapshot.
 - Human-material gate regression tests: `3 tests OK`; they cover summary
   failure propagation, the full-scan coverage floor, and debt ceilings.
 
-以上历史回执和当前快照边界均来自仓库根目录：此前全量测试为
-`939 tests OK`，骨架校验为 `PASS`；本次变更后的对象级检查中，BL
- Or. 7694/1595 为 `7 tests OK`，其来源文字对照套件为 `5 tests OK`，
- BL Or. 7694/1535 为 `7 tests OK`，
- OBIMD 生效权利为 `5 tests OK`，宁夏 HYZ 421 来源记录为 `5 tests OK`。
-本次全量测试在 900 秒后超时，骨架和 human-gate 扫描各在 600 秒后
-超时，均没有写成 PASS。v1 证据包校验为 `PASS 1 file`，v2 实验校验为
-`FAIL no v2 records`。
-
-human-research gate 全量严格摘要也通过：扫描 156837 个 Markdown，机器主导、
-核心研究缺失、现代标签风险和 mojibake 四项债务均为零。
+以上回执和当前快照边界均来自仓库根目录：全量测试为
+`971 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
+扫描 156838 个 Markdown，机器主导、核心研究缺失、现代标签风险和
+mojibake 四项债务均为零。宁夏 HYZ 421 来源记录为 `5 tests OK`，其
+构件、学术史和关系槽位已补齐。v1 证据包校验为 `PASS 1 file`，v2
+实验校验仍为 `FAIL no v2 records`。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
 It does not show research evidence or autonomous adjudication capability.

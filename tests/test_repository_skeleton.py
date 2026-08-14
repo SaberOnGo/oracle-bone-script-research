@@ -147,6 +147,7 @@ from tools.validation.check_repository_skeleton import (
     check_source_registers,
     check_source_object_route_joins,
     check_obimd_rights_override,
+    check_obimd_effective_rights_propagation,
     check_tracked_temp_artifacts,
     path_exists,
     repo_root,
@@ -15408,6 +15409,31 @@ class RepositorySkeletonTests(unittest.TestCase):
     def test_obimd_rights_override(self) -> None:
         self.assertEqual(check_obimd_rights_override(repo_root()), [])
 
+    def test_obimd_effective_rights_propagation(self) -> None:
+        self.assertEqual(check_obimd_effective_rights_propagation(repo_root()), [])
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            source_object = (
+                root
+                / "corpus/006_research-sources-and-bibliography/001_source-objects/"
+                / "016_src-obimd_source-object"
+            )
+            source_object.mkdir(parents=True)
+            (root / "project_registry/004_asset-source-and-rights-index").mkdir(
+                parents=True
+            )
+            (root / "project_registry/004_asset-source-and-rights-index/"
+             "006_obimd-rights-status-override.csv").write_text(
+                "override_id\nobimd-rights-override-001\n",
+                encoding="utf-8",
+            )
+            (source_object / "06_human-source-review-sheet.md").write_text(
+                "Rights status / 权利状态: licensed_for_repository\n",
+                encoding="utf-8",
+            )
+            issues = check_obimd_effective_rights_propagation(root)
+            self.assertTrue(any("missing effective-rights marker" in issue for issue in issues))
+
     def test_hust_obc_undeciphered_candidates(self) -> None:
         self.assertEqual(check_hust_obc_undeciphered_candidates(repo_root()), [])
 
@@ -25744,7 +25770,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "[2026-08-14 current-state audit][current-audit]",
             strategy,
         )
-        self.assertIn("939 tests OK", current_audit)
+        self.assertIn("971 tests OK", current_audit)
         self.assertIn(
             "Thirty IHP collection-object directories",
             current_audit,

@@ -50,7 +50,12 @@ note, or concrete next-check questions.
   row_count; transcription_empty_count
 
 ## Next Review Step / 下一步复核入口
-- Rights status / 权利状态: licensed_for_repository
+- Legacy rights status / 历史权利状态: licensed_for_repository
+- Effective rights status / 当前有效权利状态:
+  `metadata_only_until_verified`
+- Active override / 生效覆盖:
+  `project_registry/004_asset-source-and-rights-index/`
+  `006_obimd-rights-status-override.csv`
 - Review status / 复核状态: reviewed
 - Risk note / 风险提示: Dataset card reports CC-BY 4.0 while the GitHub README
   includes narrower academic-use wording; raw files remain large and need rights

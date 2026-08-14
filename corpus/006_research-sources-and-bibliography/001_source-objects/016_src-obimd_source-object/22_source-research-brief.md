@@ -86,6 +86,9 @@ limits on research use.
 - Legacy rights status / 历史权利状态: licensed_for_repository
 - Effective rights status / 当前有效权利状态:
   metadata_only_until_verified
+- Active override / 生效覆盖:
+  `project_registry/004_asset-source-and-rights-index/`
+  `006_obimd-rights-status-override.csv`
 - Public decision / 公开决定:
   metadata_only_no_public_redistribution_until_reconciled
 - Read the full decision / 完整决定:

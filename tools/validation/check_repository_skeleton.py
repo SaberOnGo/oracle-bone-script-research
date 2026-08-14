@@ -45,6 +45,24 @@ OBIMD_RIGHTS_CONFLICT_REVIEW = (
 OBIMD_RIGHTS_STATUS_OVERRIDE = (
     "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv"
 )
+OBIMD_SOURCE_OBJECT = (
+    "corpus/006_research-sources-and-bibliography/001_source-objects/"
+    "016_src-obimd_source-object"
+)
+OBIMD_HUMAN_RIGHTS_FILES = (
+    "06_human-source-review-sheet.md",
+    "07_material-access-index.md",
+    "08_source-processing-status.md",
+    "10_source-evidence-dossier.md",
+    "12_source-provenance-fact-matrix.md",
+    "14_source-to-dossier-transfer-review.md",
+    "16_source-literature-scope-review.md",
+    "18_source-access-integrity-review.md",
+    "20_source-presearch-readiness-review.md",
+    "22_source-research-brief.md",
+    "README.md",
+    "25_effective-rights-decision.md",
+)
 EXTERNAL_SOURCE_PREFIXES = "project_registry/003_external-source-prefixes/003_external-source-prefixes.csv"
 ASSET_ID_SOURCE_MAP = "project_registry/002_project-id-to-source-reference-map/003_asset-id-source-map.csv"
 COLLECTION_OBJECT_ID_SOURCE_MAP = (
@@ -10744,6 +10762,50 @@ def check_obimd_rights_override(root: Path) -> list[str]:
         for line_number, line in enumerate(conflict_text.splitlines(), start=1):
             if len(line) > 80:
                 issues.append(f"{OBIMD_RIGHTS_CONFLICT_REVIEW}:{line_number} line exceeds 80 characters")
+    return issues
+
+
+def check_obimd_effective_rights_propagation(root: Path) -> list[str]:
+    """Keep OBIMD human pages aligned with the active rights override."""
+    issues: list[str] = []
+    override_path = root / OBIMD_RIGHTS_STATUS_OVERRIDE
+    source_object = root / OBIMD_SOURCE_OBJECT
+    required_markers = (
+        ("legacy rights context", lambda text: "legacy" in text.lower()),
+        (
+            "effective rights context",
+            lambda text: "effective" in text.lower() and "rights" in text.lower(),
+        ),
+        ("metadata_only_until_verified", lambda text: "metadata_only_until_verified" in text),
+        (
+            "006_obimd-rights-status-override.csv",
+            lambda text: (
+                "006_obimd-rights-status-override.csv" in text
+                or (
+                    "25_effective-rights-decision.md" in text
+                    and "override csv" in text.lower()
+                )
+            ),
+        ),
+    )
+    if not override_path.is_file():
+        return [f"{OBIMD_RIGHTS_STATUS_OVERRIDE} missing"]
+    if not source_object.is_dir():
+        return [f"{OBIMD_SOURCE_OBJECT} missing"]
+    for filename in OBIMD_HUMAN_RIGHTS_FILES:
+        path = source_object / filename
+        if not path.is_file():
+            issues.append(f"{OBIMD_SOURCE_OBJECT}/{filename} missing")
+            continue
+        text = path.read_text(encoding="utf-8")
+        if "licensed_for_repository" not in text:
+            continue
+        for marker, predicate in required_markers:
+            if not predicate(text):
+                issues.append(
+                    f"{OBIMD_SOURCE_OBJECT}/{filename} missing effective-rights marker: "
+                    f"{marker}"
+                )
     return issues
 
 
@@ -36703,6 +36765,7 @@ def main() -> int:
     issues.extend(check_tracked_temp_artifacts(root))
     issues.extend(check_asset_records(root))
     issues.extend(check_obimd_rights_override(root))
+    issues.extend(check_obimd_effective_rights_propagation(root))
     issues.extend(check_evobc_large_source_scope_separation(root))
     issues.extend(check_source_registers(root))
     issues.extend(check_hust_obc_undeciphered_candidates(root))

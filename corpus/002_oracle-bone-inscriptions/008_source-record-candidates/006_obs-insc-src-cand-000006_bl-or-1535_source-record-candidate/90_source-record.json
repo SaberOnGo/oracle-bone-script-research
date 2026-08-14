@@ -42,6 +42,26 @@
     "size_bytes": 6113,
     "sha256": "e5ba41a61c1ea3f3b58bbdbfad7238b04133cd10a79884797cd57a240e1cbc6e"
   },
+  "related_routes": [
+    {
+      "route_id": "gac-bl-1535-collection",
+      "kind": "aggregated_collection_route",
+      "url": "https://artsandculture.google.com/asset/chinese-oracle-bones/twHU3qhk0b_LUw?hl=en",
+      "access_date": "2026-08-14",
+      "exact_object_match": false,
+      "observed_original_sources": [
+        "Or 7694/1559",
+        "Or 7694/1560",
+        "Or 7694/1585",
+        "Or 7694/1595"
+      ],
+      "evidence_scope": "generic collection route only",
+      "independence": "same_source_family_not_independent",
+      "snapshot_status": "not_downloaded",
+      "rights_status": "metadata_attribution_required",
+      "ai_use": "not_used_for_object_evidence"
+    }
+  ],
   "rights_status": "public_domain_verified",
   "rights_scope": "Commons image page reports CC0 1.0; page metadata needs review",
   "review_status": "source_record_candidate_needs_catalog_and_text_review",

@@ -30,6 +30,7 @@ class BritishLibraryOr1535SourceRecordTests(unittest.TestCase):
             "06_literature-and-dispute-review.md",
             "07_missing-evidence-plan.md",
             "08_british-library-catalog-record.md",
+            "09_secondary-route-search.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -105,6 +106,29 @@ class BritishLibraryOr1535SourceRecordTests(unittest.TestCase):
         )
         self.assertIn("CC0 1.0 Universal Public Domain Dedication", evidence)
         self.assertIn("31453308", evidence)
+
+    def test_secondary_route_is_negative_and_not_an_object_match(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(len(record["related_routes"]), 1)
+        route = record["related_routes"][0]
+        self.assertFalse(route["exact_object_match"])
+        self.assertEqual(
+            route["evidence_scope"], "generic collection route only"
+        )
+        self.assertNotIn("Or 7694/1535", route["observed_original_sources"])
+        text = (OBJECT / "09_secondary-route-search.md").read_text(
+            encoding="utf-8"
+        )
+        for marker in (
+            "Or. 7694/1535",
+            "generic_route_not_object_evidence",
+            "twHU3qhk0b_LUw",
+            "does not prove that no image exists",
+            "NoAI",
+        ):
+            self.assertIn(marker, text)
 
     def test_markdown_files_are_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

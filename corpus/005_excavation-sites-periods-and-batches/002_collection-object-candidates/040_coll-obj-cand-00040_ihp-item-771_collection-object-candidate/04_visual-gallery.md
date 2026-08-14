@@ -2,6 +2,9 @@
 
 Project ID: `coll-obj-cand-00040`
 
+See `18_live-source-evidence-review.md` for the live page, image hashes, and
+private visual observations.
+
 ## External Thumbnail Route / 外部缩略图入口
 
 Thumbnail URL metadata is preserved, but the image is not downloaded or committed in this stage:

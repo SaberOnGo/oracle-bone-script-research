@@ -1,0 +1,64 @@
+{
+  "candidate_id": "obs-insc-src-cand-000006",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-british-library-oracle-bone",
+  "source_platform": "Wikimedia Commons British Library file",
+  "source_page_id": "31453308",
+  "source_file_title": "Chinese oracle bone (16th-10th C BC) - BL Or. 7694",
+  "accession_ref": "Or. 7694/1535v",
+  "heji_reference": "Heji 39498v",
+  "yingguo_reference": "Yingcang suocang jiagu ji 1117v",
+  "collection": "British Library",
+  "source_reported_period": "16th-10th century BC",
+  "text_status": "not_available_in_checked_snapshot",
+  "ocr_status": "not_available_in_checked_snapshot",
+  "plate_status": "not_independently_verified",
+  "reading_order_status": "single_side_route_only",
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "visual_observation_status": "direct_observation_recorded",
+  "visual_observations": [
+    "irregular broad fragment on a light background",
+    "central strip with dark pit marks",
+    "incised marks visible along the central strip",
+    "plainer area toward the right",
+    "broken and porous-looking fragment edges"
+  ],
+  "image_status": "public_direct_route_local_private_snapshot_only",
+  "image_routes": [
+    {
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_oracle_bone_(16th-10th_C_BC)_-_BL_Or._7694.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File%3AChinese_oracle_bone_%2816th-10th_C_BC%29_-_BL_Or._7694.jpg",
+      "local_private_path": ".working/bl-or-1535/object.jpg",
+      "size_bytes": 975908,
+      "pixels": "1670x1714",
+      "sha256": "88e5337e29035d70c89a2ba6339f1973d0e808865b312dd0131fd9f4ddb96ca6",
+      "commons_sha1": "079128df460b0488f88a7a1665acb70889fbedee"
+    }
+  ],
+  "source_api_snapshot": {
+    "local_private_path": ".working/bl-or-1535/api.json",
+    "size_bytes": 6113,
+    "sha256": "e5ba41a61c1ea3f3b58bbdbfad7238b04133cd10a79884797cd57a240e1cbc6e"
+  },
+  "rights_status": "public_domain_verified",
+  "rights_scope": "Commons image page reports CC0 1.0; page metadata needs review",
+  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "missing_evidence": [
+    "stable British Library object record",
+    "independent Heji page or plate locator",
+    "independent Yingcang page or plate locator",
+    "rights-cleared line-addressable transcription and OCR",
+    "findspot, collection history, period, batch, and group evidence",
+    "named readings, proposers, contrary readings, and dispute records",
+    "human-reviewed character and component segmentation"
+  ],
+  "boundaries": [
+    "source-reported accession and catalog hints only",
+    "visual observations are not readings",
+    "no project transcription, OCR, or translation",
+    "no formal inscription identity",
+    "no character or component assignment",
+    "no decipherment conclusion"
+  ]
+}

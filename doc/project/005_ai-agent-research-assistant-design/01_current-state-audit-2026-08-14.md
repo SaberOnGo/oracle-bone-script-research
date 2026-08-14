@@ -25,14 +25,14 @@ This file records what is and is not executable at the snapshot commit.
 
 The following commands were run from the repository root:
 
-- `python -m unittest discover -s tests -v`: `927 tests OK`.
+- `python -m unittest discover -s tests -v`: `932 tests OK`.
 - `python tools/validation/check_repository_skeleton.py`: `PASS`.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156836 Markdown files, all four debt counts zero.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `927 tests OK`，骨架校验为 `PASS`，v1
+以上命令均从仓库根目录执行：全量测试为 `932 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
 
 human-research gate 全量严格摘要也通过：扫描 156836 个 Markdown，机器主导、
@@ -70,7 +70,10 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - A British Library Or. 7694/1595 recto-verso source-record candidate now
   records the two CC0 image routes, local checksums, page-displayed eclipse
   strings, and independent catalog, text, and character-link gaps.
-- The central inscription source-record map now routes all five opened
+- A British Library Or. 7694/1535v source-record candidate now records one
+  CC0 image route, local checksums, direct visual observations, and concrete
+  catalog, text, and character-link gaps.
+- The central inscription source-record map now routes all six opened
   candidates to their object-local human dossiers.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
@@ -95,7 +98,7 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   私有图像校验和，并明确独立图版、原文和 OCR 缺口。
 - 大英图书馆 Or. 7694/1595 正反面来源记录候选保存两条 CC0 图像路线、
   本地校验和、页面月食文字，以及独立著录、文字和单字关联缺口。
-- 中央卜辞来源记录映射表现已把五个已打开候选分别指向对象内人类档案。
+- 中央卜辞来源记录映射表现已把六个已打开候选分别指向对象内人类档案。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。

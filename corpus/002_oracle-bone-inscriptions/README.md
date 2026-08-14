@@ -90,6 +90,13 @@ the page-displayed eclipse strings. The images are marked CC0 on their file
 pages, but catalog and text claims remain source-reported and unverified:
 [`obs-insc-src-cand-000005`][bl-1595-candidate].
 
+A sixth source-record candidate captures the British Library Or. 7694/1535v
+image route. It records the source-displayed Heji 39498v and Yingcang 1117v
+hints, one image checksum, direct visual observations, and concrete catalog
+and text gaps. The Commons image page reports CC0, but the object identity,
+catalog placement, and text remain source-reported and unverified:
+[`obs-insc-src-cand-000006`][bl-1535-candidate].
+
 第二个来源记录候选登记史语所 503 号页面说明，记录 `R044498`、`Ping 0529`、
 来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
 候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
@@ -108,6 +115,12 @@ Wikimedia Commons 提供。它记录正反面藏品号、合集和英国所藏�
 图像校验和以及页面显示的月食文字。图像页面标为 CC0，但著录与文字
 主张仍是来源报告、尚未独立核验：
 [`obs-insc-src-cand-000005`][bl-1595-candidate]。
+
+第六个来源记录候选保存大英图书馆 Or. 7694/1535v 的图像路线，记录
+页面显示的 Heji 39498v、Yingcang 1117v 线索、一张图像校验和、直接
+视觉观察以及具体著录和文字缺口。Commons 图像页标为 CC0，但对象身份、
+著录定位和文字仍是来源报告、尚未独立核验：
+[`obs-insc-src-cand-000006`][bl-1535-candidate]。
 
 ## What A Human Should Inspect / 人工应检查什么
 
@@ -221,3 +234,5 @@ committing.
   004_obs-insc-src-cand-000004_ihp-item-771_source-record-candidate/README.md
 [bl-1595-candidate]: 008_source-record-candidates/
   005_obs-insc-src-cand-000005_bl-or-1595_source-record-candidate/README.md
+[bl-1535-candidate]: 008_source-record-candidates/
+  006_obs-insc-src-cand-000006_bl-or-1535_source-record-candidate/README.md

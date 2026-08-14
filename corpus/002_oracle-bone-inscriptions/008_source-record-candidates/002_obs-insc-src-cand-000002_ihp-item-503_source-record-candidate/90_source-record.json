@@ -1,0 +1,32 @@
+{
+  "candidate_id": "obs-insc-src-cand-000002",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-ihp-museum-oracle-bones",
+  "source_identifier": "IHP-item-503",
+  "source_record_locator": "museum-page:item/503",
+  "museum_item": "503",
+  "museum_accession": "R044498",
+  "catalog_reference": "Ping 0529; 丙0529",
+  "source_title_en": "Inscribed Plastron Ping 0529",
+  "source_title_zh": "帶卜辭龜腹甲《丙》0529",
+  "source_description": "帝令雨; source-reported topic only",
+  "text_availability": "description_only_no_full_text_or_ocr",
+  "plate_page_locator": null,
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "rights_status": "metadata_only_until_verified",
+  "rights_review_path": "project_registry/004_asset-source-and-rights-index/",
+  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "source_pages": [
+    "https://museum.sinica.edu.tw/en/collection/32/item/503/",
+    "https://museum.sinica.edu.tw/collection/32/item/503/"
+  ],
+  "object_local_evidence": "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/032_coll-obj-cand-00032_ihp-item-503_collection-object-candidate/18_live-source-evidence-review.md",
+  "boundaries": [
+    "source prose is not a project transcription",
+    "no readable full text or OCR is present",
+    "no plate or page locator is assigned",
+    "no character or formal obi identity is assigned",
+    "not a decipherment conclusion"
+  ]
+}

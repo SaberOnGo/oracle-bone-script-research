@@ -64,6 +64,16 @@ H2 is not a confirmed Heji 2, and its seven source UIDs are not confirmed
 characters or
 readings. It is not a formal `obi-*` record.
 
+A second source-record candidate now captures the IHP Museum item 503 page
+description. It records `R044498`, `Ping 0529`, the source phrase `帝令雨`,
+and the missing plate, OCR, full-text, and character-link evidence. It remains
+metadata-only and is not a formal `obi-*` record:
+[`obs-insc-src-cand-000002`][ihp-503-candidate].
+
+第二个来源记录候选登记史语所 503 号页面说明，记录 `R044498`、`Ping 0529`、
+来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
+候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
+
 该候选尚无可读卜辞全文或 OCR。`H2` 不是已确认的《合集》2，
 七个来源 UID 也不是已确认字形或释读。它不是正式 `obi-*`
 记录。
@@ -172,3 +182,5 @@ committing.
 
 [h2-candidate]: 008_source-record-candidates/
   001_obs-insc-src-cand-000001_obimd-h2_source-record-candidate/README.md
+[ihp-503-candidate]: 008_source-record-candidates/
+  002_obs-insc-src-cand-000002_ihp-item-503_source-record-candidate/README.md

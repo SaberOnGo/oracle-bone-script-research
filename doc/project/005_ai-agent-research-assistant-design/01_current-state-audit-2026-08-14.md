@@ -30,7 +30,7 @@ The following commands were run from the repository root:
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 
-以上命令均从仓库根目录执行：全量测试为 `922 tests OK`，骨架校验为 `PASS`，v1
+以上命令均从仓库根目录执行：全量测试为 `927 tests OK`，骨架校验为 `PASS`，v1
 证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.

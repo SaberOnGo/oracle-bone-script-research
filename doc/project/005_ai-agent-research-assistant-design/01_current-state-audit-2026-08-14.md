@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `3cb255be033`
+Snapshot commit: `38f44de11dc`
 
 ## Purpose / 目的
 
@@ -37,8 +37,9 @@ the snapshot change, but exceeded their time limits without a result.
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
-- AI case-selection triage regression: `4 tests OK`; the report is a
-  work-order signal only and does not create a v2 record or probability.
+- AI case-selection triage regression: `4 tests OK`; the report now covers
+  seven opened candidates and remains a work-order signal only, not a v2
+  record or probability.
 - AI diagnostic pilot targeted regression: `48 tests OK`, including corpus
   object scope, leakage, lock, falsification, HMAC, and one-shot scoring gates.
 - Post-change full unittest: timed out after 900 seconds; no PASS result.

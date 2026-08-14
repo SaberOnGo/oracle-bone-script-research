@@ -23,7 +23,9 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official object image and source description were checked against ignored
+`.working/ihp-763/` snapshots. A JPEG was fetched for private inspection only;
+no image is committed or redistributed. See `18_live-source-evidence-review.md`.
 
 See `thumbnail_url` in Object Metadata.
 
@@ -40,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: official pages, source description,
+  image hash, visual observation, and concrete next checks.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -65,6 +69,11 @@ See `thumbnail_url` in Object Metadata.
 - source_collection_item_id: `763`
 - object_title_en: `Antler Object Chia 3942`
 - catalog_reference_text: `Chia 3942`
+- item_no: `R003617`
+- period: `Late Shang Period`
+- material: `Antler`
+- dimensions: `7.2(H)×3(Dia.) cm; 46 g`
+- findspot: `Pit HPK1091, Hsi-pei-kang, Hou-chia-chuang`
 - object_page_url: `https://museum.sinica.edu.tw/en/collection/32/item/763/`
 - thumbnail_url: `https://museum.sinica.edu.tw/_upload/image/collection_item/thu
   mbnail/3305f6893b38768f.jpg`

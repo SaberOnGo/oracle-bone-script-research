@@ -461,6 +461,20 @@ practice status, and image rights remain unresolved.
 来源说明称其为刻有虎、猴、马、火和鸟形象的习刻，并链接史语所 3D 路线。大图已私下检查
 后保存到忽略区并计算校验和。著录版本、3D 身份、完整卜辞、习刻性质和图像权利仍未解决。
 
+The IHP object candidate `ihp-mus-obj-00019` / item `763` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R003617`, `Antler Object Chia 3942`, Late Shang Period, HPK1091,
+and antler. The source description discusses a high-ranking military name,
+the “small” plus “bird” explanation, and a carved bird with a large eye; the
+Chinese page shows parenthetic sign gaps. The JPEG was saved to ignored
+storage and hashed after private inspection. The catalog edition, missing
+signs, independent plate, name attribution, and image rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00019` / item `763` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R003617`、`Antler Object Chia 3942`、晚商、HPK1091 和鹿角；来源说明
+涉及高阶将领姓名、“小”加“鸟”的解释及大眼雀鸟刻画，中文页显示括号字空缺。大图已私下
+检查后保存到忽略区并计算校验和。著录版本、缺失字、独立图版、人名归属和图像权利仍未解决。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

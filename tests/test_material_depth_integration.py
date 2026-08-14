@@ -27,7 +27,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         )
         with map_path.open(encoding="utf-8-sig", newline="") as handle:
             rows = list(csv.DictReader(handle))
-        self.assertEqual(len(rows), 6)
+        self.assertEqual(len(rows), 7)
         expected = {
             "obs-insc-src-cand-000001": "obimd-h2",
             "obs-insc-src-cand-000002": "IHP-item-503;R044498",
@@ -35,19 +35,17 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             "obs-insc-src-cand-000004": "IHP-item-771;R039275+R043001",
             "obs-insc-src-cand-000005": "BL-Or.7694/1595r;Heji-40610r/v",
             "obs-insc-src-cand-000006": "BL-Or.7694/1535v;Heji-39498v",
+            "obs-insc-src-cand-000007": "HYZ-421;H3:1325",
         }
         for row in rows:
             project_id = row["project_id"]
             self.assertIn(project_id, expected)
             self.assertEqual(row["primary_external_ref_id"], expected[project_id])
-            expected_rights = (
-                "public_domain_verified"
-                if project_id in {
-                    "obs-insc-src-cand-000005",
-                    "obs-insc-src-cand-000006",
-                }
-                else "metadata_only_until_verified"
-            )
+            expected_rights = {
+                "obs-insc-src-cand-000005": "public_domain_verified",
+                "obs-insc-src-cand-000006": "public_domain_verified",
+                "obs-insc-src-cand-000007": "source_marked_risk_noted",
+            }.get(project_id, "metadata_only_until_verified")
             self.assertEqual(row["rights_status"], expected_rights)
             self.assertTrue((ROOT / row["canonical_path"]).is_dir())
 

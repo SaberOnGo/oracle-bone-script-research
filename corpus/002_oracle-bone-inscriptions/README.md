@@ -70,6 +70,12 @@ and the missing plate, OCR, full-text, and character-link evidence. It remains
 metadata-only and is not a formal `obi-*` record:
 [`obs-insc-src-cand-000002`][ihp-503-candidate].
 
+A third source-record candidate captures the IHP Museum item 1215 page,
+including its short displayed text and three private image checksums. It
+records `R044587`, the `Yi Bian` catalog label, and the missing independent
+plate, OCR, and character-link evidence. It remains metadata-only and is not
+a formal `obi-*` record: [`obs-insc-src-cand-000003`][ihp-1215-candidate].
+
 第二个来源记录候选登记史语所 503 号页面说明，记录 `R044498`、`Ping 0529`、
 来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
 候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
@@ -184,3 +190,5 @@ committing.
   001_obs-insc-src-cand-000001_obimd-h2_source-record-candidate/README.md
 [ihp-503-candidate]: 008_source-record-candidates/
   002_obs-insc-src-cand-000002_ihp-item-503_source-record-candidate/README.md
+[ihp-1215-candidate]: 008_source-record-candidates/
+  003_obs-insc-src-cand-000003_ihp-item-1215_source-record-candidate/README.md

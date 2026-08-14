@@ -110,6 +110,7 @@ CORPUS_OBJECT_HUMAN_MARKERS = {
     "14_material-visual-observation.md",
     "16_source-literature-scope-review.md",
 }
+CORPUS_OBJECT_ID_MARKERS = ("_obs-", "_src-", "_coll-")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 OPAQUE_CANDIDATE_RE = re.compile(
     r"^(?:candidate-opaque-[a-z0-9][a-z0-9-]*|unknown_or_other)$"
@@ -345,6 +346,12 @@ def _corpus_object_relative(path: Path, label: str) -> tuple[Path, str]:
     if len(corpus_relative.parts) < 3:
         raise PilotError(
             f"{label} must be a human-facing object directory under corpus"
+        )
+    if not any(
+        marker in corpus_relative.name for marker in CORPUS_OBJECT_ID_MARKERS
+    ):
+        raise PilotError(
+            f"{label} must be a registered object directory under corpus"
         )
     if not resolved.is_dir():
         raise PilotError(f"{label} directory does not exist")

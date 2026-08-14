@@ -1063,6 +1063,46 @@ class AIBenchmarkPilotCLITests(unittest.TestCase):
         self.assertIn("human-facing object directory under corpus", result.stderr)
         self.assertFalse(output_path.exists())
 
+    def test_freeze_rejects_non_object_directory_inside_corpus(self):
+        corpus_work = ROOT / "corpus" / ".working"
+        corpus_work.mkdir(exist_ok=True)
+        route_parent = corpus_work / "pilot-routes"
+        route_parent.mkdir(exist_ok=True)
+        object_dir = Path(tempfile.mkdtemp(prefix="pilot-route-", dir=route_parent))
+        try:
+            evidence_path = object_dir / "evidence.md"
+            evidence_path.write_text(
+                "route-only test evidence\n", encoding="utf-8"
+            )
+            metadata = self._case_metadata()
+            metadata["files"] = {
+                "evidence.md": self._case_metadata()["files"][ALLOWED_FILES[0]]
+            }
+            metadata_path = self._write_metadata(metadata)
+            output_path = self.work_dir / "must-not-exist.json"
+            result = self._run(
+                "freeze",
+                "--object-dir",
+                str(object_dir),
+                "--case-metadata",
+                str(metadata_path),
+                "--allowed-file",
+                "evidence.md",
+                "--candidate-id",
+                "candidate-opaque-a",
+                "--candidate-id",
+                "candidate-opaque-b",
+                "--candidate-id",
+                "unknown_or_other",
+                "--output",
+                str(output_path),
+            )
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("registered object directory under corpus", result.stderr)
+            self.assertFalse(output_path.exists())
+        finally:
+            shutil.rmtree(object_dir, ignore_errors=True)
+
     def test_seal_rejects_a_frozen_object_outside_corpus_scope(self):
         frozen_path, frozen = self._prepare_frozen_case()
         self._write_run_report(frozen)

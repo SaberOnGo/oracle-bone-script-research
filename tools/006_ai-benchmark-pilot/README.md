@@ -30,10 +30,12 @@ probabilities, authorize Gate 3, or claim a decipherment.
   `.working/` or `doc/public/user_research/generated/`.
 - The public commitment contains neither labels nor the HMAC key.
 - Answer-bearing metadata fields and allowed-file paths are rejected.
-- `freeze` accepts only a human-facing object directory under `corpus/`.
+- `freeze` accepts only a registered object directory under `corpus/` whose
+  leaf name carries an `obs-`, `src-`, or `coll-` project-object marker.
 - Every command creates a new output and refuses to overwrite an old output.
 
-`freeze` 只接受 `corpus/` 下含人类档案的具体资料对象目录。
+`freeze` 只接受 `corpus/` 下已登记的具体资料对象目录；目录名必须含有
+`obs-`、`src-` 或 `coll-` 项目标识。
 
 - 所有输出均标为 `diagnostic_only` 和
   `pretraining_exposure_unknown`。

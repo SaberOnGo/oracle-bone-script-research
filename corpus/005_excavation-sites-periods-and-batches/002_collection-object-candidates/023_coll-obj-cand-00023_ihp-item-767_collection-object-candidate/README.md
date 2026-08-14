@@ -23,7 +23,9 @@ review.
 
 ## Visual Entrance / 图像入口
 
-External thumbnail URL metadata only.
+The official object pages and three image routes were checked against ignored
+`.working/ihp-767/` snapshots. Images were fetched for private inspection only;
+no image is committed or redistributed. See `18_live-source-evidence-review.md`.
 
 See `thumbnail_url` in Object Metadata.
 
@@ -40,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   missing-evidence review.
 - `16_preformal-research-start-check.md`: human opening check before formal
   research starts.
+- `18_live-source-evidence-review.md`: official pages, source description,
+  image hashes, visual observations, and concrete next checks.
 
 ## Structured Support Files / 结构化辅助文件
 
@@ -65,6 +69,11 @@ See `thumbnail_url` in Object Metadata.
 - source_collection_item_id: `767`
 - object_title_en: `​​​​Inscribed Plastron Fragment Chia 0984`
 - catalog_reference_text: `Chia 0984`
+- item_no: `R030491`
+- period: `Late Shang Period`
+- material: `Turtle Plastron`
+- dimensions: `3.2(L)×1.8(W) cm`
+- findspot: `Hsiao-t'un, Anyan County, Honan Province`
 - object_page_url: `https://museum.sinica.edu.tw/en/collection/32/item/767/`
 - thumbnail_url: `https://museum.sinica.edu.tw/_upload/image/collection_item/thu
   mbnail/4655f6897a47acc5.jpg`

@@ -8,6 +8,13 @@ later formal research.
 简体中文：
 本档案记录馆藏或出土相关对象候选进入比较、引用或后续正式研究前必须打开复核的来源证据路线。这里不确认对象身份、不确认卜辞身份，也不作释读结论。
 
+The item pages and three image routes were re-opened on 2026-08-14. Source
+description, image checksums, and visual boundaries are recorded in
+`18_live-source-evidence-review.md`; rights remain unresolved.
+
+2026-08-14 重新打开对象页和三条图像路线。来源说明、图像校验和与视觉边界已记录在
+`18_live-source-evidence-review.md`；权利仍未解决。
+
 ## Catalog Page And Source Row / 著录页与来源行
 
 | Evidence field / 证据字段 | Route or value / 路线或取值 |

@@ -503,6 +503,20 @@ and image rights remain unresolved.
 来源说明涉及鸟形和相关字形，但没有逐行完整释文。三条图像路线已私下检查后保存到忽略
 区并计算校验和。著录版本、完整文字、图像标注、三图关系和图像权利仍未解决。
 
+The IHP object candidate `ihp-mus-obj-00023` / item `767` was opened
+against the live English and Chinese official pages on 2026-08-14. The pages
+report `R030491`, `Inscribed Plastron Fragment Chia 0984`, Late Shang Period,
+Hsiao-t'un, and turtle plastron. The source description concerns a turtle form,
+related script examples, and no complete line-by-line transcription. Three
+image routes were saved to ignored storage and hashed after private inspection.
+The catalog edition, complete text, image annotations, object-view relation,
+and image rights remain unresolved.
+
+史语所对象候选 `ihp-mus-obj-00023` / item `767` 已于 2026-08-14 对照官方中英文现场页
+打开。页面报告 `R030491`、`Inscribed Plastron Fragment Chia 0984`、晚商、小屯和龟甲；
+来源说明涉及龟形和相关字形，但没有逐行完整释文。三条图像路线已私下检查后保存到忽略
+区并计算校验和。著录版本、完整文字、图像标注、三图关系和图像权利仍未解决。
+
 ### Source processing / 来源处理
 
 - Registered source objects / 已登记来源对象: `21`

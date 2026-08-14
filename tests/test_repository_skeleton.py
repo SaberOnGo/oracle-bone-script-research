@@ -25672,6 +25672,11 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertIn(
             "Item 503 now has the same source-only treatment", current_audit
         )
+        self.assertIn(
+            "inscription source-record candidate now separates museum",
+            current_audit,
+        )
+        self.assertIn("prose from transcription", current_audit)
         self.assertIn("011_ai-diagnostic-pilot-2026-08-13", current_audit)
         self.assertIn("diagnostic_fail_withheld", current_audit)
         self.assertIn("FAIL no v2 records", current_audit)

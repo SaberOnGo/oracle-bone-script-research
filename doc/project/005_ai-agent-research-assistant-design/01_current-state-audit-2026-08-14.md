@@ -55,6 +55,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   and no committed image derivative.
 - Item 503 now has the same source-only treatment, with private image hashes
   and no committed image derivative.
+- An IHP item 503 inscription source-record candidate now separates museum
+  prose from transcription and records explicit OCR and plate gaps.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
 - Four item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, and the
@@ -70,6 +72,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 当前批次新增 770、771、772 号对象；其来源描述与独立释读明确分开。
 - 508 号对象也采用同一来源限定，仅保留私有图像校验，不提交图像派生件。
 - 503 号对象也采用同一来源限定，仅保留私有图像校验，不提交图像派生件。
+- 503 号对象另有卜辞来源记录候选，明确区分馆方说明与摹写，并记录 OCR 和
+  图版缺口。
 - 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。

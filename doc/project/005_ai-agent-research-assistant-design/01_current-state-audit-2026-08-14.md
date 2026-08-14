@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `a27a7ce3a01`
+Snapshot commit: `d9554727e9c`
 
 ## Purpose / 目的
 
@@ -39,6 +39,9 @@ the snapshot change, but exceeded their time limits without a result.
 - Schwartz Huayuanzhuang East literature dossier: `4 tests OK`; publisher
   metadata, DOI, chapter map, license signal, and HYZ 421 page citation are
   recorded without claiming that the cited pages were opened.
+- Liu 2014 *Early China* literature dossier: `4 tests OK`; the abstract's
+  Yingcang 885/886 dating argument, citation relationship, copyright status,
+  and unresolved BL object crosswalk are recorded.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
 - The latest repository-skeleton attempt after this route update timed out
@@ -123,7 +126,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
 - Five item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
-  Cambridge-Hopkins finding list, and the Schwartz Huayuanzhuang East book.
+- Six item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
+  Cambridge-Hopkins finding list, the Schwartz Huayuanzhuang East book, and
+  Liu's Yingcang eclipse article.
 - Candidate graph edges now include character-to-component candidates,
   character-to-inscription source-record candidates, variants, local assets,
   and EvoBC correspondence candidates.
@@ -168,8 +173,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   尺寸、来源释文、花园庄东路线及 Schwartz 2019 引用。博物馆权利、图版身份和
   OCR 仍未解决。
 - 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
-- 五个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表和
-  Schwartz 的花园庄东专著。
+- 六个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
+  Schwartz 的花园庄东专著和 Liu 的《英藏》月食论文。
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。
 - 图谱 schema 现已把路线完整性置信度与未来的校准假说概率分开；现有

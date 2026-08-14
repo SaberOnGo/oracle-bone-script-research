@@ -29,6 +29,7 @@ class BritishLibraryOr1535SourceRecordTests(unittest.TestCase):
             "05_character-linkage-review.md",
             "06_literature-and-dispute-review.md",
             "07_missing-evidence-plan.md",
+            "08_british-library-catalog-record.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -48,6 +49,25 @@ class BritishLibraryOr1535SourceRecordTests(unittest.TestCase):
             self.assertIn(value, dossier)
         self.assertIn("not independently", dossier)
         self.assertIn("matched in this snapshot", dossier)
+
+    def test_catalog_record_is_source_reported_and_bounded(self):
+        path = OBJECT / "08_british-library-catalog-record.md"
+        text = path.read_text(encoding="utf-8")
+        for marker in (
+            "Or 7694/1535",
+            "Shang dynasty oracle bone",
+            "Couling-Chalfant",
+            "Oriental Manuscripts",
+            "1300 BC-1050 BC",
+            "Images currently unavailable",
+            "source-reported",
+            "item-level JSON",
+            "no project OCR",
+            "or decipherment result",
+        ):
+            self.assertIn(marker, text)
+        self.assertNotIn("twentieth century", text)
+        self.assertNotIn("project translation", text)
 
     def test_machine_record_keeps_image_and_identity_boundaries(self):
         record = json.loads(

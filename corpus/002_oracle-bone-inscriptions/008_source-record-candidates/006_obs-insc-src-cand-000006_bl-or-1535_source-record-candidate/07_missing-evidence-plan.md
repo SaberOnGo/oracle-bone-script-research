@@ -2,8 +2,9 @@
 
 ## Blocking gaps / 阻断缺口
 
-1. **Object identity**: obtain a stable British Library record and confirm
-   that `Or. 7694/1535v` is the same object as the image page.
+1. **Object identity**: the catalogue search now supplies collection-level
+   fields for `Or. 7694/1535`. Obtain a stable item record and confirm that
+   `Or. 7694/1535v` is the same object as the image page.
 2. **Catalog identity**: verify Heji 39498v and Yingcang 1117v in scans or
    page-addressable catalog records.
 3. **Text**: locate a rights-cleared transcription or OCR with edition,
@@ -17,8 +18,9 @@
 
 ## Next route / 下一步路线
 
-Start with the British Library catalog or a stable institutional mirror,
-then compare the exact image against Heji and Yingcang page or plate scans.
+Start with the British Library catalog item route or a stable institutional
+mirror, then compare the exact image against Heji and Yingcang page or plate
+scans.
 Record access date, URL, checksum where permitted, rights, and the precise
 locator for every new fact. If a route is unavailable, retain the concrete
 question and its failed-access evidence rather than filling the field with

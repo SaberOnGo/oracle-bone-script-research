@@ -44,10 +44,12 @@ Commons 页面明确将图像标为 CC0，
 7. `07_missing-evidence-plan.md`: concrete next checks.
 8. `08_source-text-line-reconciliation.md`: compare source strings with the
    two image sides.
-9. `09_british-library-catalog-record.md`: official catalogue metadata and
+9. `11_visual-region-review.md`: human-readable image region observations.
+10. `09_british-library-catalog-record.md`: official catalogue metadata and
    unresolved item-level route.
-10. `10_secondary-dissemination-and-rights.md`: related routes and rights.
-11. Open `90_source-record.json` and `91_source-record-index.csv` last.
+11. `10_secondary-dissemination-and-rights.md`: related routes and rights.
+12. Open `90_source-record.json`, `91_source-record-index.csv`, and
+    `92_visual-region-register.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -57,9 +59,11 @@ Commons 页面明确将图像标为 CC0，
 6. `06_literature-and-dispute-review.md`：引用文献路线。
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_source-text-line-reconciliation.md`：对照页面文字和正反面图像。
-9. `09_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
-10. `10_secondary-dissemination-and-rights.md`：相关路线与权利限制。
-11. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+9. `11_visual-region-review.md`：人类可读的图像区域观察。
+10. `09_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
+11. `10_secondary-dissemination-and-rights.md`：相关路线与权利限制。
+12. 最后打开 `90_source-record.json`、`91_source-record-index.csv` 和
+    `92_visual-region-register.csv`。
 
 ## Boundary / 边界
 

@@ -1,0 +1,11 @@
+region_id,side,asset_path,bbox_xyxy_px,observation_code,source_string_relation,review_status,rights_status
+R-01,recto,03_visual-assets/001_asset-000001_bl-1595r.png,x112..575;y60..405,upper_incised_field,not_mapped_to_source_string,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+R-02,recto,03_visual-assets/001_asset-000001_bl-1595r.png,x105..322;y260..520,middle_surface_and_damage,not_mapped_to_source_string,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+R-03,recto,03_visual-assets/001_asset-000001_bl-1595r.png,x285..465;y388..545,paper_label_and_obscured_area,not_inscription_evidence,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+R-04,recto,03_visual-assets/001_asset-000001_bl-1595r.png,x111..325;y500..842,lower_left_incised_field,not_mapped_to_source_string,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+R-05,recto,03_visual-assets/001_asset-000001_bl-1595r.png,x400..586;y480..782,lower_right_incised_field,not_mapped_to_source_string,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+V-01,verso,03_visual-assets/002_asset-000002_bl-1595v.png,x145..525;y50..240,upper_cut_edge,not_inscription_evidence,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+V-02,verso,03_visual-assets/002_asset-000002_bl-1595v.png,x105..440;y235..630,central_drill_hole_field,not_inscription_evidence,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+V-03,verso,03_visual-assets/002_asset-000002_bl-1595v.png,x460..578;y170..835,right_margin_incised_field,not_mapped_to_source_string,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+V-04,verso,03_visual-assets/002_asset-000002_bl-1595v.png,x40..315;y315..790,left_surface,not_mapped_to_source_string,visual_region_candidate_pending_human_check,public_domain_verified_image_only
+V-05,verso,03_visual-assets/002_asset-000002_bl-1595v.png,x60..530;y690..885,lower_edge_and_damage,not_inscription_evidence,visual_region_candidate_pending_human_check,public_domain_verified_image_only

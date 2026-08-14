@@ -25663,11 +25663,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             "[2026-08-14 current-state audit][current-audit]",
             strategy,
         )
-        self.assertIn("893 tests OK", current_audit)
+        self.assertIn("899 tests OK", current_audit)
         self.assertIn(
-            "Twenty-eight IHP collection-object directories",
+            "Twenty-nine IHP collection-object directories",
             current_audit,
         )
+        self.assertIn("Item 506 now has a source-only treatment", current_audit)
         self.assertIn("011_ai-diagnostic-pilot-2026-08-13", current_audit)
         self.assertIn("diagnostic_fail_withheld", current_audit)
         self.assertIn("FAIL no v2 records", current_audit)

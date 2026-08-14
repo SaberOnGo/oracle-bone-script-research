@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `bfcaa1681f7`
+Snapshot commit: `9f0fa7194d6`
 
 ## Purpose / 目的
 
@@ -23,14 +23,14 @@ This file records what is and is not executable at the snapshot commit.
 
 ## Reproducibility receipts / 可复跑凭据
 
-The following receipts describe the snapshot and its preceding verification
-boundary. The full-suite and full-scan commands were attempted again after
-the snapshot change, but exceeded their time limits without a result.
+The following receipts describe the snapshot and its current verification
+boundary. Counts are recorded from the commands run at this snapshot.
 
-- `python -m unittest discover -s tests -v`: `939 tests OK`.
-- `python tools/validation/check_repository_skeleton.py`: `PASS`.
+- `python -m unittest discover -s tests -v`: `971 tests OK` in 736 seconds.
+- `python tools/validation/check_repository_skeleton.py`: `PASS` in 192
+  seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:
-  `PASS`, 156837 Markdown files, all four debt counts zero.
+  `PASS`, 156838 Markdown files, all four debt counts zero.
 - Post-change object-level checks: BL Or. 7694/1595 `7 tests OK`; the related
   source-text reconciliation suite is `5 tests OK`; effective
   BL Or. 7694/1535 `7 tests OK`; effective OBIMD rights `5 tests OK`.
@@ -44,8 +44,6 @@ the snapshot change, but exceeded their time limits without a result.
   and unresolved BL object crosswalk are recorded.
 - Committed British Library image-asset regression: `3 tests OK`; all three
   source bytes match their recorded size, SHA-256, and pixel dimensions.
-- The latest repository-skeleton attempt after this route update timed out
-  after 184 seconds; its Python process was stopped and no PASS is claimed.
 - AI case-selection triage regression: `4 tests OK`; the report now covers
   seven opened candidates and remains a work-order signal only, not a v2
   record or probability.
@@ -53,9 +51,6 @@ the snapshot change, but exceeded their time limits without a result.
   object scope, leakage, lock, falsification, HMAC, and one-shot scoring gates.
 - After the object-scope hardening, the full pilot regression is `49 tests OK`;
   the new case rejects a non-object directory nested under `corpus/`.
-- Post-change full unittest: timed out after 900 seconds; no PASS result.
-- Post-change skeleton and human-gate scans: each timed out after 600 seconds;
-  no PASS result.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
 - Human-material gate regression tests: `3 tests OK`; they cover summary

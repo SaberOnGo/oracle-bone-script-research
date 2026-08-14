@@ -4,7 +4,9 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `9f0fa7194d6`
+Snapshot commit: `3d60b49fc83`
+
+Follow-up verification date: `2026-08-15`
 
 ## Purpose / 目的
 
@@ -26,14 +28,16 @@ This file records what is and is not executable at the snapshot commit.
 The following receipts describe the snapshot and its current verification
 boundary. Counts are recorded from the commands run at this snapshot.
 
-- `python -m unittest discover -s tests -v`: `971 tests OK` in 736 seconds.
-- `python tools/validation/check_repository_skeleton.py`: `PASS` in 192
+- `python -m unittest discover -s tests -v`: `972 tests OK` in 675 seconds.
+- `python tools/validation/check_repository_skeleton.py`: `PASS` in 196
   seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156838 Markdown files, all four debt counts zero.
 - Post-change object-level checks: BL Or. 7694/1595 `7 tests OK`; the related
   source-text reconciliation suite is `5 tests OK`; effective
   BL Or. 7694/1535 `7 tests OK`; effective OBIMD rights `5 tests OK`.
+- OBIMD effective-rights propagation: `1 targeted test OK`; every human page
+  retaining the legacy value now exposes the effective status and override.
 - Ningxia HYZ 421 source-record regression: `5 tests OK`; the committed
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
 - Schwartz Huayuanzhuang East literature dossier: `4 tests OK`; publisher
@@ -57,7 +61,7 @@ boundary. Counts are recorded from the commands run at this snapshot.
   failure propagation, the full-scan coverage floor, and debt ceilings.
 
 以上回执和当前快照边界均来自仓库根目录：全量测试为
-`971 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
+`972 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
 扫描 156838 个 Markdown，机器主导、核心研究缺失、现代标签风险和
 mojibake 四项债务均为零。宁夏 HYZ 421 来源记录为 `5 tests OK`，其
 构件、学术史和关系槽位已补齐。v1 证据包校验为 `PASS 1 file`，v2

@@ -25663,7 +25663,7 @@ class RepositorySkeletonTests(unittest.TestCase):
             "[2026-08-14 current-state audit][current-audit]",
             strategy,
         )
-        self.assertIn("899 tests OK", current_audit)
+        self.assertIn("916 tests OK", current_audit)
         self.assertIn(
             "Thirty IHP collection-object directories",
             current_audit,
@@ -25677,6 +25677,10 @@ class RepositorySkeletonTests(unittest.TestCase):
             current_audit,
         )
         self.assertIn("prose from transcription", current_audit)
+        self.assertIn(
+            "IHP item 1215 inscription source-record candidate now records",
+            current_audit,
+        )
         self.assertIn("011_ai-diagnostic-pilot-2026-08-13", current_audit)
         self.assertIn("diagnostic_fail_withheld", current_audit)
         self.assertIn("FAIL no v2 records", current_audit)

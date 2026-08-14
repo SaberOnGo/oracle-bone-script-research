@@ -25631,6 +25631,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "doc/project/005_ai-agent-research-assistant-design/README.md"
         )
         strategy = strategy_path.read_text(encoding="utf-8")
+        current_audit_path = (
+            repo_root()
+            / "doc/project/005_ai-agent-research-assistant-design/"
+            / "01_current-state-audit-2026-08-14.md"
+        )
+        current_audit = current_audit_path.read_text(encoding="utf-8")
         required_terms = {
             "normative_strategy",
             "working_hypothesis",
@@ -25652,6 +25658,14 @@ class RepositorySkeletonTests(unittest.TestCase):
         }
         for term in required_terms:
             self.assertIn(term, strategy)
+        self.assertTrue(current_audit_path.exists())
+        self.assertIn(
+            "[2026-08-14 current-state audit][current-audit]",
+            strategy,
+        )
+        self.assertIn("869 tests OK", current_audit)
+        self.assertIn("FAIL no v2 records", current_audit)
+        self.assertIn("not Gate 3", current_audit)
 
         strategy_files = list(
             (repo_root() / "doc/project").glob("*/README.md")

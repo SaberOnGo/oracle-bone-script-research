@@ -1,0 +1,129 @@
+# Current State Audit / 当前状态审计
+
+Status: `current_state_audit`
+
+Snapshot date: `2026-08-14`
+
+Snapshot commit: `a5fb7468596c44ec1732bec11dcf49049de75a09`
+
+## Purpose / 目的
+
+This audit binds the autonomous-candidate strategy to the current disk state.
+It is an operational audit, not a paleographic conclusion, a decipherment
+result, or published scholarship.
+
+本审计把自主候选战略绑定到当前磁盘状态。它是运行审计，不是文字学结论、破译结果
+或已发表学术成果。
+
+The normative rules remain in the [autonomous-candidate strategy][strategy].
+This file records what is and is not executable at the snapshot commit.
+
+规范规则仍在[自主候选战略][strategy]中。本文件只记录该提交上什么已经可运行、什么
+仍不可运行。
+
+## Reproducibility receipts / 可复跑凭据
+
+The following commands were run from the repository root:
+
+- `python -m unittest discover -s tests -v`: `869 tests OK`.
+- `python tools/validation/check_repository_skeleton.py`: `PASS`.
+- `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
+- `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
+
+以上命令均从仓库根目录执行：全量测试为 `869 tests OK`，骨架校验为 `PASS`，v1
+证据包校验为 `PASS 1 file`，v2 实验校验为 `FAIL no v2 records`。
+
+The v1 pass covers one draft scaffold whose evidence sections remain empty.
+It does not show research evidence or autonomous adjudication capability.
+
+v1 通过只覆盖一个仍为空的草稿脚手架，不表示已有研究证据或自主裁决能力。
+
+The v2 failure is intentional evidence of an unopened numerical channel. No
+public v2 experiment record currently exists under
+`doc/public/user_research/generated/ai-agent-benchmark-experiments/`.
+
+v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录，不能把测试 fixture 或
+本地 pilot 记录当作真实基准实验。
+
+## Human archive progress / 人类档案进展
+
+- Twenty-four IHP collection-object directories contain live-source evidence
+  dossiers with page routes, catalog facts, image checksums, and concrete gaps.
+- Four item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, and the
+  Cambridge-Hopkins finding list.
+- Candidate graph edges now include character-to-component candidates,
+  character-to-inscription source-record candidates, variants, local assets,
+  and EvoBC correspondence candidates.
+- Rights remain source-specific. `metadata_only_until_verified` still blocks
+  public image reuse where permission is unresolved.
+
+- 二十四个史语所馆藏对象目录已有现场来源证据档案，记录页面路线、著录事实、图像校验
+  和具体缺口。
+- 四个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC 和 Cambridge-Hopkins 著录表。
+- 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
+  选关系。
+- 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
+  公开图像再利用。
+
+These are archive and route improvements. They do not promote an object,
+character, inscription, component, or evolution edge into a confirmed claim.
+
+这些是档案和路线改进，不把对象、单字、卜辞、构件或演化边提升为已确认结论。
+
+## Autonomous laboratory status / 自主实验室状态
+
+The pilot tool can freeze evidence, seal a private label, create run openings,
+lock raw outputs, and perform one local diagnostic score. It does not itself
+select cases, invoke a model, create independent contexts, or provide an
+external isolated scorer.
+
+pilot 工具可以冻结证据、密封私有标签、创建运行开封记录、锁定原始输出，并进行一次
+本地诊断评分；但它不会自行选案、调用模型、创建真正独立上下文，也不提供外部隔离评
+分器。
+
+The existing diagnostic pilot is withheld and uncalibrated. It is a pipeline
+exercise, not a clean holdout, not Gate 3, and not an AI-adjudicated candidate.
+Unknown pretraining exposure remains a permanent blocker for probability
+calibration on that case.
+
+现有诊断试点是扣留且未校准的。它只是流程演练，不是干净留出集、不是 Gate 3，也不是
+AI 裁决候选。该案的预训练暴露未知，因此不能进入概率校准。
+
+## Blocking conditions / 当前阻断条件
+
+1. There is no real v2 benchmark record with sealed gold, family splits,
+   locked runs, and recomputed metrics.
+2. There is no verified calibration cohort or declared OOD support domain for
+   unknown-character discovery.
+3. There is no cryptographically independent model run or external scorer
+   receipt for a user-facing candidate.
+4. Many inscription and plate routes still lack permitted images, OCR, or a
+   line-addressable transcription.
+5. Source rights and derivative ancestry remain unresolved for several major
+   datasets.
+
+1. 尚无包含密封答案、家族分割、锁定运行和重算指标的真实 v2 基准记录。
+2. 尚无可核验校准群，也没有针对未释字发现声明适用域的 OOD 支持范围。
+3. 尚无密码学独立的模型复跑或外部评分回执，不能交付用户候选。
+4. 多数卜辞与图版路线仍缺获准图像、OCR 或可定位的逐行释文。
+5. 多个主要数据集的来源权利和派生祖先链仍未解决。
+
+## Next strategic order / 下一战略顺序
+
+The next work must deepen a few object and inscription dossiers, then create a
+real sealed benchmark record from permitted evidence. It must not expand file
+counts merely to make the v2 validator pass.
+
+下一步应先深化少量对象和卜辞档案，再用获准证据创建真实密封基准记录；不能为了让
+v2 校验器通过而单纯增加文件数量。
+
+Until the blocking conditions are cleared, every numerical output remains an
+`uncalibrated_score`, and every live unknown-character case must abstain or be
+withheld. The user may receive a candidate only after the strategy's registered
+calibration, leakage, falsification, rerun, rights, and delivery gates pass.
+
+在阻断条件清除前，所有数值输出都只能叫 `uncalibrated_score`，真实未释字案件必须
+弃权或扣留。只有在战略登记的校准、泄漏、反证、复跑、权利和交付门槛全部通过后，用户
+才可收到候选。
+
+[strategy]: README.md

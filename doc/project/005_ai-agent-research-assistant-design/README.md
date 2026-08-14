@@ -163,6 +163,13 @@ Every earlier verdict remains in version history.
 
 ## 5. Current-State Diagnosis / 当前状态诊断
 
+The current filesystem is authoritative. The frozen operational snapshot is
+the [2026-08-14 current-state audit][current-audit], which supersedes older
+planning counts and dirty-worktree observations below when they conflict.
+
+当前磁盘状态具有最高权威。冻结的运行快照是[2026-08-14 当前状态审计][current-audit]；
+若与下方旧规划计数或脏工作树观察冲突，以该审计为准。
+
 The preprocessing closure dated `2026-08-07` records a broad traceable
 archive. Its counts are bound to commit `c58eea95a97`. A later read-only
 strategy audit used HEAD `4872a2e8cd9` plus an already dirty working tree on
@@ -217,6 +224,14 @@ probability claims until fixed:
   rather than the raw archive record;
 - several large-package routes are not represented consistently in the common
   download manifest.
+
+Those historical defects are not a current pass claim. Their present status,
+remaining blockers, and executable boundary are recorded in the current-state
+audit. The v2 validator still reports no real experiment record, so the
+probability channel remains withheld.
+
+这些历史缺陷不能被当作当前已经通过的证明。当前状态、剩余阻断和可运行边界记录在当前
+状态审计中。v2 校验器仍报告没有真实实验记录，因此概率通道继续扣留。
 
 审计还发现会破坏概率可信度的基础设施缺陷。在修复前，它们必须阻止概率
 发布：
@@ -927,6 +942,11 @@ the user's active task authorization.
 
 ## 19. Repository Boundaries And Links / 仓库边界与链接
 
+The current-state audit is an operational companion, not a second normative
+strategy.
+
+当前状态审计是运行配套文件，不是第二份规范性战略。
+
 Normative companion policies:
 
 - [project positioning](../001_project-positioning-and-research-boundaries/)
@@ -955,6 +975,7 @@ AI 与用户假说继续放在 `doc/public/user_research/`，已发表研究笔�
 `research/`。`ai_adjudicated_candidate` 不会自动跨越这两个研究区。
 
 [benchmark-v2]: ../../../schemas/007_ai-agent-benchmark-experiment-schema/
+[current-audit]: 01_current-state-audit-2026-08-14.md
 
 ## 20. Source Notes / 来源说明
 

@@ -8,6 +8,7 @@ import sys
 import tempfile
 from collections import Counter
 from pathlib import Path
+from unittest.mock import patch
 
 from tools.validation.check_repository_skeleton import (
     check_bilingual_markers,
@@ -2949,6 +2950,86 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "000_source-registers/004_first-stage-source-adoption-notes.md"
             )
         )
+
+    def test_human_gate_summary_does_not_bypass_failure(self) -> None:
+        module = load_human_research_material_gate_module()
+        bad_score = module.DocumentScore(
+            path="corpus/example/README.md",
+            machine_hits=4,
+            research_hits=0,
+            missing_slots=["glyph_image", "inscription", "relations"],
+            mojibake_hits=[],
+            modern_label_risk=False,
+        )
+        with patch.object(module, "collect_scores", return_value=[bad_score]), \
+                patch.object(module, "print_summary") as print_summary:
+            result = module.main(["--strict", "--summary"])
+        self.assertEqual(result, 1)
+        print_summary.assert_called_once()
+
+    def test_human_gate_full_strict_checks_coverage_floor(self) -> None:
+        module = load_human_research_material_gate_module()
+        score = module.DocumentScore(
+            path="corpus/example/README.md",
+            machine_hits=0,
+            research_hits=8,
+            missing_slots=[],
+            mojibake_hits=[],
+            modern_label_risk=False,
+        )
+        baseline = {
+            "minimums": {"scanned_markdown_count": 2},
+            "maximums": {
+                "machine_dominant_docs": 0,
+                "missing_core_research_docs": 0,
+                "modern_label_risk_docs": 0,
+                "mojibake_docs": 0,
+            },
+        }
+        with patch.object(module, "load_baseline", return_value=baseline):
+            issues = module.build_issues(
+                Path.cwd(), strict=True, full=True, scores=[score]
+            )
+        self.assertTrue(any("below baseline minimum" in issue for issue in issues))
+
+    def test_human_gate_full_baseline_separates_floor_and_debt_ceiling(self) -> None:
+        module = load_human_research_material_gate_module()
+        good_score = module.DocumentScore(
+            path="corpus/example/README.md",
+            machine_hits=0,
+            research_hits=8,
+            missing_slots=[],
+            mojibake_hits=[],
+            modern_label_risk=False,
+        )
+        bad_score = module.DocumentScore(
+            path="corpus/example/bad.md",
+            machine_hits=4,
+            research_hits=0,
+            missing_slots=[],
+            mojibake_hits=[],
+            modern_label_risk=False,
+        )
+        baseline = {
+            "minimums": {"scanned_markdown_count": 2},
+            "maximums": {
+                "machine_dominant_docs": 0,
+                "missing_core_research_docs": 0,
+                "modern_label_risk_docs": 0,
+                "mojibake_docs": 0,
+            },
+        }
+        with patch.object(module, "load_baseline", return_value=baseline):
+            self.assertEqual(
+                module.build_issues(
+                    Path.cwd(), full=True, scores=[good_score, good_score]
+                ),
+                [],
+            )
+            issues = module.build_issues(
+                Path.cwd(), full=True, scores=[good_score, good_score, bad_score]
+            )
+        self.assertTrue(any("exceeds baseline maximum" in issue for issue in issues))
 
     def test_bilingual_markers_exist(self) -> None:
         self.assertEqual(check_bilingual_markers(repo_root()), [])

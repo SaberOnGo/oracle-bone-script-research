@@ -10,9 +10,9 @@ Follow-up verification date: `2026-08-21`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
-Current skeleton receipt commit: `697519baefb`
+Current skeleton receipt commit: `cd8b6d63a83`
 
-Current human-material gate receipt commit: `87726cb9b7b`
+Current human-material gate receipt commit: `cd8b6d63a83`
 
 ## Purpose / 目的
 
@@ -92,10 +92,10 @@ They remain useful provenance, but are not a replacement for current scans.
 ## Current follow-up receipts / 当前跟进回执
 
 The current 2026-08-21 follow-up ran targeted suites after the object and
-rights updates. A full skeleton run at commit `697519baefb` returned
+rights updates. A full skeleton run at commit `cd8b6d63a83` returned
 `PASS repository skeleton`.
 
-The full strict human-material gate at commit `87726cb9b7b` returned exit 0
+The full strict human-material gate at commit `cd8b6d63a83` returned exit 0
 with 156838 scanned Markdown files and all four debt counts at zero.
 
 An earlier full attempt was interrupted after about eight minutes while
@@ -104,9 +104,9 @@ result. The later successful run supersedes that incomplete attempt. The
 audit-note edit after the receipt is documentation-only.
 
 2026-08-21 的跟进在对象、权利和自主试点更新后运行了定向测试。完成扫描剪枝后，
-`697519baefb` 上的全量骨架校验返回 `PASS repository skeleton`。
+`cd8b6d63a83` 上的全量骨架校验返回 `PASS repository skeleton`。
 
-`87726cb9b7b` 上的 full/strict 人类资料门返回退出码 0，扫描 156838 个
+`cd8b6d63a83` 上的 full/strict 人类资料门返回退出码 0，扫描 156838 个
 Markdown 文件，四项债务计数均为 0。
 
 更早的一次全量尝试约八分钟后停在读取
@@ -120,8 +120,8 @@ Current targeted receipts include the following:
 - Fresh AI pilot rerun at commit `faf3ab9cf03`: `49 tests OK` in 88.484
   seconds. This remains a diagnostic pipeline receipt, not a calibration or
   candidate-delivery result.
-- Full skeleton at `697519baefb`: `PASS repository skeleton`.
-- Full strict human-material gate at `87726cb9b7b`: `156838` Markdown files;
+- Full skeleton at `cd8b6d63a83`: `PASS repository skeleton`.
+- Full strict human-material gate at `cd8b6d63a83`: `156838` Markdown files;
   all four debt counts were `0`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
 - British Library 1595: `7 tests OK`, including the two ignored Wikimedia API
@@ -141,7 +141,7 @@ Current targeted receipts include the following:
 史语所 771 号来源记录候选为 `7 tests OK`，新增了绑定图像的视觉观察页；
 503 和 1215 号来源记录候选分别为 `12` 和 `13 tests OK`，均新增绑定图像的
 视觉观察页；
-full/strict 人类资料门在 `87726cb9b7b` 上扫描 156838 个 Markdown 文件，四项
+full/strict 人类资料门在 `cd8b6d63a83` 上扫描 156838 个 Markdown 文件，四项
 债务计数均为 0；
 OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页和原文
 检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得

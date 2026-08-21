@@ -13,7 +13,7 @@
 - direct download:
   https://commons.wikimedia.org/wiki/Special:FilePath/
   Ningxia_Museum_Shang_dynasty_turtle_plastron_oracle_bone.jpg
-- access and download checked: 2026-08-14
+- access and download checked: 2026-08-21
 
 ## Local source bytes / 本地来源字节
 

@@ -17,6 +17,15 @@ format, and RGB mode. The local bytes match the requested JPEG payload.
 项目于 2026-08-14 下载直接文件路线，将图像保存在对象目录，并重新计算字节数、
 SHA-256、像素、格式和 RGB 模式。本地字节与请求到的 JPEG 内容一致。
 
+The live Commons page was rechecked on 2026-08-21. Its structured fields
+still report HYZ 421, H3:1325, the Ningxia Museum, Huayuanzhuang East, and
+the displayed inscription string. These remain page-level source reports;
+the refresh does not replace a museum catalogue or excavation register.
+
+2026-08-21 重新核对了 Commons 实时页面。其结构化字段仍报告 HYZ 421、
+H3:1325、宁夏博物馆、花园庄东和页面显示释文。这些仍是页面层面的来源
+报告，刷新不替代博物馆目录或发掘登记。
+
 ## Not independently checked / 尚未独立核查
 
 - Ningxia Museum catalogue record and accession number.

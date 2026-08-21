@@ -108,6 +108,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             self.assertIn(marker, literature)
         self.assertIn("CC BY-SA 3.0", evidence)
         self.assertIn("museum object", evidence)
+        self.assertIn("2026-08-21", evidence)
         record = json.loads(
             (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
         )

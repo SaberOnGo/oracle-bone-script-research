@@ -136,9 +136,15 @@ Working-tree verification after the claim matrix was added:
   only `dc:language=Chinese`; neither route supplies an image or transcription.
 - The focused BL catalog refresh suite is `10 tests OK`; the related source-text
   reconciliation suite remains `7 tests OK`.
+- IHP item 1215 now has a checksum-bound 2026-08-22 HTML snapshot. The
+  `.fr-view > strong` and `.fr-view > div` anchors make its source display and
+  source prose reproducible, but no line-addressable edition or project
+  transcription is created.
+- The focused IHP item 1215 source-record suite is `10 tests OK`, including
+  a local hash replay when the ignored HTML snapshot is present.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1084 tests OK` in `582.786` seconds. The triage command
+- The full suite: `1085 tests OK` in `607.021` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156853` Markdown files, and all
@@ -191,9 +197,14 @@ Working-tree verification after the claim matrix was added:
   OAI-DC XML 只返回 `dc:language=Chinese`，两条路线都没有图像或释文。
 - 大英图书馆馆藏刷新专项套件为 `10 tests OK`；相关来源文字对照套件仍为
   `7 tests OK`。
+- 史语所 1215 号对象现有带校验和的 2026-08-22 HTML 快照。
+  `.fr-view > strong` 和 `.fr-view > div` 让来源文字和来源散文可复核，
+  但仍没有可逐行版本或项目摹写。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1084 tests OK`，耗时 `582.786` 秒。选案命令返回
+- 1215 号对象专项来源记录套件为 `10 tests OK`；忽略区 HTML 快照存在时，
+  还会进行本地校验和复跑。
+- 全量测试：`1085 tests OK`，耗时 `607.021` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
 - 严格人类资料门：退出码 `0`，扫描 `156853` 篇 Markdown，四项债务均为 `0`。

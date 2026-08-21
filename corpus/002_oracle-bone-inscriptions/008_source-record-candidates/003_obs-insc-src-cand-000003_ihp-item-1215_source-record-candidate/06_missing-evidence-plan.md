@@ -2,7 +2,8 @@
 
 ## Blocking checks / 阻断检查
 
-1. Capture a new page snapshot with access date, byte count, and SHA-256.
+1. Refresh the checksum-bound page snapshot and compare its `.fr-view`
+   anchors, access date, byte count, and SHA-256.
 2. Confirm the three image routes and their rights terms with the museum.
 3. Locate the `Yi Bian` references in an independent catalog and record
    volume, page, plate, and exact locator.
@@ -15,7 +16,7 @@
 
 ## 具体待查问题
 
-1. 重新抓取页面并记录访问日期、字节数和 SHA-256。
+1. 更新带校验和的页面快照，并比较 `.fr-view` 定位、访问日期、字节数和 SHA-256。
 2. 向馆方核对三条图像路线及其权利条件。
 3. 在独立著录中定位 `Yi Bian` 引文，记录卷、页、图版和精确位置。
 4. 查明页面短文字是完整文字、残缺文字还是著录注释。

@@ -10,6 +10,13 @@ OCR 或规范化著录正文。
 
 `text_quality`: `source_reported_short_display_without_independent_edition`.
 
+The 2026-08-22 page snapshot and its `.fr-view > strong` anchor are now
+checksum-bound in `90_source-record.json`. This makes the current display
+reproducible, but does not turn it into a line-addressable edition.
+
+2026-08-22 页面快照及 `.fr-view > strong` 定位已在 `90_source-record.json` 中绑定
+校验和。当前显示文字因此可以复核，但仍未成为可逐行定位的著录版本。
+
 ## Not collected / 尚未取得
 
 - full inscription text with line order and visible fragment assignments;

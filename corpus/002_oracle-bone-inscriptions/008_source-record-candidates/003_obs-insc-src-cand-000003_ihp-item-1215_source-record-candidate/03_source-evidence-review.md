@@ -34,6 +34,16 @@ edition or independent plate locator was obtained in this recheck.
 `帚（婦）井示。韋。`；英文页把两面龟甲文字说明为来源散文。本次复核没有取得
 可逐行版本或独立图版定位。
 
+On 2026-08-22, an ignored HTML snapshot was retrieved and bound in
+`90_source-record.json`. Its `.fr-view > strong` anchor records the displayed
+string and `.fr-view > div` records the museum's source prose. This improves
+repeatability of the page display, but it is still not an independent plate,
+line-addressable edition, or project transcription.
+
+2026-08-22 又取得忽略区 HTML 快照，并在 `90_source-record.json` 中绑定校验和。
+`.fr-view > strong` 记录页面显示文字，`.fr-view > div` 记录馆方来源散文。这只
+提高页面复核性，仍不是独立图版、可逐行著录版本或项目摹写。
+
 ## Evidence levels / 证据等级
 
 - A: official museum page identity and displayed wording.

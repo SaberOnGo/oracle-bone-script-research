@@ -1,3 +1,4 @@
+import hashlib
 import json
 import unittest
 from pathlib import Path
@@ -29,6 +30,7 @@ class IhpItem1215InscriptionSourceRecordTests(unittest.TestCase):
             "06_missing-evidence-plan.md",
             "07_visual-observation-and-parent-evidence.md",
             "08_external-catalog-search.md",
+            "09_official-page-text-evidence.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -64,6 +66,28 @@ class IhpItem1215InscriptionSourceRecordTests(unittest.TestCase):
         self.assertEqual(record["rights_status"], "metadata_only_until_verified")
         self.assertIn("no decipherment conclusion", record["boundaries"])
         self.assertEqual(len(record["image_routes"]), 3)
+        snapshot = record["page_snapshot"]
+        self.assertEqual(snapshot["size_bytes"], 56558)
+        self.assertEqual(
+            snapshot["sha256"],
+            "7100895f3b873c9a829055ca05bff761a0ca7b077b7a61272a8943711f394c93",
+        )
+        self.assertEqual(snapshot["source_text_locator"], "HTML .fr-view > strong")
+        self.assertEqual(snapshot["status"], "retrieved_ignored_snapshot")
+        self.assertEqual(snapshot["rights_status"], "metadata_only_until_verified")
+
+    def test_page_snapshot_matches_recorded_hash_when_present(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8-sig")
+        )
+        snapshot = record["page_snapshot"]
+        path = ROOT / snapshot["local_ignored_path"]
+        if not path.is_file():
+            self.skipTest("ignored official page snapshot is not present")
+        data = path.read_bytes()
+        self.assertEqual(len(data), snapshot["size_bytes"])
+        self.assertEqual(hashlib.sha256(data).hexdigest(), snapshot["sha256"])
+        self.assertIn("帚（婦）井示。".encode("utf-8"), data)
 
     def test_index_keeps_missing_fields_explicit(self):
         index = (OBJECT / "91_source-record-index.csv").read_text(
@@ -134,6 +158,9 @@ class IhpItem1215InscriptionSourceRecordTests(unittest.TestCase):
             "帚（婦）井示。韋。",
             "No line-addressable",
             "可逐行版本",
+            "2026-08-22",
+            ".fr-view > strong",
+            ".fr-view > div",
         ):
             self.assertIn(value, text)
 

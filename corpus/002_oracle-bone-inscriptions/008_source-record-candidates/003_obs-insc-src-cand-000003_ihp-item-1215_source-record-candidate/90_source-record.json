@@ -34,6 +34,20 @@
       "pixels": "1280x1128"
     }
   ],
+  "page_snapshot": {
+    "url": "https://museum.sinica.edu.tw/en/collection/32/item/1215/",
+    "accessed_at": "2026-08-22",
+    "local_ignored_path": ".working/ihp-1215/item-page-20260822.html",
+    "size_bytes": 56558,
+    "sha256": "7100895f3b873c9a829055ca05bff761a0ca7b077b7a61272a8943711f394c93",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "source_text_locator": "HTML .fr-view > strong",
+    "source_prose_locator": "HTML .fr-view > div",
+    "snapshot_scope": "official_page_metadata_and_source_display_only",
+    "status": "retrieved_ignored_snapshot",
+    "rights_status": "metadata_only_until_verified"
+  },
   "period": "Late Shang Period",
   "findspot": "Pit YH127, Hsiao-t'un, Anyang County, Honan Province",
   "material": "Turtle Plastron",

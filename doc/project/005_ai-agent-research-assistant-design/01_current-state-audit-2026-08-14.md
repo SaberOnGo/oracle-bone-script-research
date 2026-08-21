@@ -100,11 +100,14 @@ Current targeted receipts include the following:
   `4 tests OK`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
 - British Library 1595: `6 tests OK`; 1535: `7 + 3 tests OK`.
+- IHP item 771 source-record candidate: `7 tests OK`, including a new
+  image-bound visual observation page.
 - Ningxia HYZ 421: `5 tests OK`; effective OBIMD rights: `5 + 3 tests OK`.
 
 当前定向回执包括：AI 试点 `49 tests OK`、选案分诊 `4 tests OK`、试点摘要
 `4 tests OK`；v2 合同 `68 tests OK`，但没有真实 v2 记录；英国图书馆 1595
 为 `6 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
+史语所 771 号来源记录候选为 `7 tests OK`，新增了绑定图像的视觉观察页；
 OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页和原文
 检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得
 `Heji 40610` 或 `Yingcang 886` 的精确结果。
@@ -137,7 +140,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   short display, three private image checksums, and independent plate/OCR gaps.
 - An IHP item 771 inscription source-record candidate now records the
   source-reported proposed divination, two private HTML hashes, three private
-  image hashes, and independent plate/text/OCR gaps.
+  image hashes, independent plate/text/OCR gaps, and a bounded visual
+  observation page linked to the parent collection-object evidence.
 - A British Library Or. 7694/1595 recto-verso source-record candidate now
   records the two CC0 image routes, local checksums, page-displayed eclipse
   strings, and independent catalog, text, and character-link gaps.
@@ -214,7 +218,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 1215 号对象另有卜辞来源记录候选，记录馆方短文字、三条私有图像校验和，
   并明确独立图版与 OCR 缺口。
 - 771 号对象另有卜辞来源记录候选，记录馆方拟译、两份私有 HTML 校验和、三条
-  私有图像校验和，并明确独立图版、原文和 OCR 缺口。
+  私有图像校验和，并明确独立图版、原文和 OCR 缺口；新增绑定高清图像的
+  视觉观察页，但不建立拼合、字形或释读结论。
 - 大英图书馆 Or. 7694/1595 正反面来源记录候选保存两条 CC0 图像路线、
   本地校验和、页面月食文字，以及独立著录、文字和单字关联缺口。
 - 同一候选现增加大英图书馆馆藏页，记录来源报告的馆藏号、题名、馆藏区域、

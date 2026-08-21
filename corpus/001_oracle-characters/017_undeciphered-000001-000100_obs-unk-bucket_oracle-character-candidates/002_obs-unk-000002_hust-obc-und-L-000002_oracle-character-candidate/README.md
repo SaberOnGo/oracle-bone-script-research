@@ -21,6 +21,10 @@ verify the human-readable evidence.
   `10_archaeology-paleography-review.md`
 - Human-readable material observation / 人类可读实物图像观察:
   `14_material-visual-observation.md`
+- Human-readable source member audit / 人类可读来源成员审计:
+  `15_source-member-evidence-review.md`
+- Human-readable claim gate / 人类可读命题门槛复核:
+  `18_claim-evidence-gate-review.md`
 - Human-readable readiness review / 人类可读研究准备度复核:
   `12_human-research-readiness-review.md`
 - Structured support candidate packet / 结构化辅助候选包:

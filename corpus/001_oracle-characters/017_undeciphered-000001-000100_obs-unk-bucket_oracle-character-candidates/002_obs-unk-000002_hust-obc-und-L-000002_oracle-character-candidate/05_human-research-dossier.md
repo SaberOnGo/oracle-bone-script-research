@@ -96,6 +96,8 @@ not an identity or decipherment conclusion.
 - source image route: `HUST-OBC/undeciphered/L/2/L_？_10004.jpg`
 - asset id: `asset-001595`
 - source image count: `1`
+- source member audit: `15_source-member-evidence-review.md`
+- claim evidence gate: `18_claim-evidence-gate-review.md`
 - metadata files: `待查：需要核对来源记录`
 - download records: `dl-hust-obc-figshare-raw`
 - identity boundary: `no_identity_claim`
@@ -107,9 +109,11 @@ not an identity or decipherment conclusion.
 
 ### Source-Linked Visual Note / 有来源图像观察
 
-- visual note route: `需要先完成人工图像观察记录`
-- English observation: `需要打开本地复核图像并记录可见痕迹`
-- 中文观察: `需要打开本地复核图像并记录可见痕迹`
+- visual note route: `14_material-visual-observation.md`
+- English observation: The image has a pointed upper junction, two descending
+  side strokes, and a narrow lower fork with a small detached mark.
+- 中文观察: 图像上方有尖状交接处，两侧笔画向下延伸，下部为窄分叉形，旁有
+  小型分离痕迹。本记录不确认字形身份。
 This observation is limited to visible marks in a source-linked image. It must
 not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
@@ -192,6 +196,11 @@ a component assignment.
 
 - source package: `large-src-000001`
 - download ids: `dl-hust-obc-figshare-raw`
+- source member: `HUST-OBC/undeciphered/L/2/L_？_10004.jpg`
+- source member size: `1286` bytes
+- source member SHA-256:
+  `3a08c4eea640ab3cbd31fd32c3426f63a3b352fa9f6ff6f8e43affa2e81afcda`
+- source member audit: `15_source-member-evidence-review.md`
 - excavation site: `待查：需要核对出土地、发掘单位或地点来源`
 - collection or museum: `待查：需要核对馆藏号、藏品页或库藏记录`
 - period or batch: `待查：需要核对时期、组类、坑位或批次记录`

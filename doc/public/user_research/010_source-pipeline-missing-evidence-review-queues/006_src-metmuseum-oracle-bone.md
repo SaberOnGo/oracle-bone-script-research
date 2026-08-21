@@ -34,12 +34,17 @@
 - `corpus/005_excavation-sites-periods-and-batches/002_collection-object-`
   `candidates/056_coll-obj-cand-00056_met-obj-42022_collection-object-`
   `candidate/20_human-material-evidence-dossier.md`
+- `corpus/005_excavation-sites-periods-and-batches/002_collection-object-`
+  `candidates/055_coll-obj-cand-00055_met-obj-42045_collection-object-`
+  `candidate/20_human-material-evidence-dossier.md`
 
 The object-local dossier records visible surface traces without assigning
 characters or text. It does not close the source-level package review gap.
 
 对象内档案记录可见表面痕迹，但不分配字形或文字。
 它没有关闭来源层包路线复核缺口。
+
+42045 档案进一步记录狭长骨面上的可见线性痕迹，但不建立字序或释文。
 
 ### Required review actions / 必需复核动作
 

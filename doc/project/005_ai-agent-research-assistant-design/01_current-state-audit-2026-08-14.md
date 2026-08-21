@@ -144,6 +144,10 @@ Working-tree verification after the claim matrix was added:
   `.fr-view > strong` and `.fr-view > div` anchors make its source display and
   source prose reproducible, but no line-addressable edition or project
   transcription is created.
+- IHP items `1212` and `1215` now have paired 2026-08-22 English and Chinese
+  HTML snapshots, object-local checksum records, and human source-display
+  notes. The displayed text remains source-reported, not project OCR or
+  translation; their focused snapshot suite is `4 tests OK`.
 - The focused IHP item 1215 source-record suite is `10 tests OK`, including
   a local hash replay when the ignored HTML snapshot is present.
 - IHP item 503 now has paired checksum-bound 2026-08-22 English and Chinese
@@ -219,6 +223,9 @@ Working-tree verification after the claim matrix was added:
 - 史语所 1215 号对象现有带校验和的 2026-08-22 HTML 快照。
   `.fr-view > strong` 和 `.fr-view > div` 让来源文字和来源散文可复核，
   但仍没有可逐行版本或项目摹写。
+- 史语所 1212、1215 号对象现有 2026-08-22 中英文成对 HTML 快照、对象内校验和
+  记录和人类来源显示页。页面文字仍是来源报告，不是项目 OCR 或翻译；快照专项
+  套件为 `4 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
 - 1215 号对象专项来源记录套件为 `10 tests OK`；忽略区 HTML 快照存在时，

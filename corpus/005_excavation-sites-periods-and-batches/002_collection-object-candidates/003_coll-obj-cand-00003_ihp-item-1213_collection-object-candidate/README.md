@@ -42,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   research starts.
 - `18_live-source-evidence-review.md`: live official-page, plate, and
   inscription evidence review; JPEGs remain ignored local files.
+- `19_claim-evidence-gate-review.md`: human claim gate for object, image,
+  text, plate, and delivery boundaries.
 
 ## Structured Support Files / 结构化辅助文件
 

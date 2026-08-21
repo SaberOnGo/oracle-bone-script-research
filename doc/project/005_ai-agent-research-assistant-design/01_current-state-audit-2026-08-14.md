@@ -108,12 +108,16 @@ Working-tree verification after the claim matrix was added:
 - HUST `obs-unk-000002` now has a byte-bound source-member audit and claim
   gate. Its focused source-member suite is `3 tests OK`; its visual note
   remains a direct, neutral observation with no reading or identity claim.
+- IHP item `1213` now has an object-local claim gate linked to its official
+  page, two private JPEG checks, and source-reported front/reverse text. The
+  partial transcription, plate locator, rights, and character linkage remain
+  explicitly withheld.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1063 tests OK` in `690.794` seconds. The triage command
+- The full suite: `1066 tests OK` in `671.482` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156849` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156851` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -144,12 +148,14 @@ Working-tree verification after the claim matrix was added:
 - HUST `obs-unk-000002` 现有字节绑定的来源成员审计和命题门槛页。其专项
   来源成员套件为 `3 tests OK`；图像页仍是直接、中性的观察，不作释读或身份
   主张。
+- 史语所 1213 号对象现有对象内命题门槛页，连接官方对象页、两条私有 JPEG
+  校验和及正反面来源文字。部分释文、图版定位、权利和单字关联仍明确扣留。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1063 tests OK`，耗时 `690.794` 秒。选案命令返回
+- 全量测试：`1066 tests OK`，耗时 `671.482` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156849` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156851` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

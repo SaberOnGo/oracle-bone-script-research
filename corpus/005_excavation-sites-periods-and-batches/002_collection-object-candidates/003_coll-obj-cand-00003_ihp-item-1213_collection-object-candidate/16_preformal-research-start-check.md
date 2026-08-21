@@ -19,6 +19,7 @@ rights, and unresolved disputes.
 | 4 | `12_archaeological-context-review.md` | context gaps |
 | 5 | `14_human-research-readiness-review.md` | blockers |
 | 6 | `18_live-source-evidence-review.md` | live plate and inscription evidence |
+| 7 | `19_claim-evidence-gate-review.md` | claim and delivery boundaries |
 
 ## Concrete Start Questions / 具体开包问题
 

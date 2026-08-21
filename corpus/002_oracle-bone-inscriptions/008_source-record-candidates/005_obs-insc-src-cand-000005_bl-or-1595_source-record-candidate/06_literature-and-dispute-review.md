@@ -22,8 +22,19 @@ transcription:
 
 - https://scroll.in/article/801747/records-of-a-lunar-eclipse-from-more-
   than-3000-years-ago
-- access checked: 2026-08-14; full page text was not copied into this
+- access checked: 2026-08-21; full page text was not copied into this
   repository.
+
+The article's `Going back in time` section identifies the item as Yingcang
+886 and prints the short source-display string
+`已未庚申月㞢[食]`. It also supplies a modern translation. This is a
+`source_reported_secondary_route`, not a plate locator or project OCR; only
+the short string and section locator are retained here.
+
+文章的 `Going back in time` 部分把对象标为《英藏》886，并打印短的来源页面
+字符串 `已未庚申月㞢[食]`，另附现代翻译。这是
+`source_reported_secondary_route`，不是图版定位或项目 OCR；本页只保留短
+字符串和章节定位。
 
 Xueshun Liu's *Early China* article gives a separate scholarly argument about
 Yingcang 885/886. Its abstract says that Liu and Chang Yuzhi associate the
@@ -38,7 +49,7 @@ Yingcang 886 hint as proof of this BL object's identity.
 - https://www.cambridge.org/core/journals/early-china/article/abs/
   total-lunar-eclipse-on-june-16-2011-a-key-to-dating-the-yin-lunar-
   eclipse-in-yingcang-885886/7CAFD5BB065AB3A3768FCCCC71E61C69
-- access checked: 2026-08-14; abstract and reference metadata only.
+- access checked: 2026-08-21; abstract and reference metadata only.
 
 These routes establish a named disagreement about astronomical dating. They
 do not prove that either date is correct, do not identify the exact *Heji*

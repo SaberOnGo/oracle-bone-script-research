@@ -75,6 +75,10 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             "astronomical_date_dispute",
             "source_citation_route_only",
             "10.1017/eac.2014.10",
+            "2026-08-21",
+            "Going back in time",
+            "source_reported_secondary_route",
+            "not a plate locator",
         ):
             self.assertIn(marker, text)
         self.assertIn("do not settle the reading", text)

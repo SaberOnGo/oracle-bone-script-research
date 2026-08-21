@@ -4,7 +4,7 @@ Status: `current_state_audit`
 
 Snapshot date: `2026-08-14`
 
-Snapshot commit: `7dcb0f9754d`
+Snapshot commit: `7c8b8a29a35`
 
 Follow-up verification date: `2026-08-15`
 
@@ -28,7 +28,7 @@ This file records what is and is not executable at the snapshot commit.
 The following receipts describe the snapshot and its current verification
 boundary. Counts are recorded from the commands run at this snapshot.
 
-- `python -m unittest discover -s tests -v`: `981 tests OK` in 560 seconds.
+- `python -m unittest discover -s tests -v`: `981 tests OK` in 564 seconds.
 - `python tools/validation/check_repository_skeleton.py`: `PASS` in 196
   seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:

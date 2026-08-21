@@ -42,18 +42,40 @@ reader find the object, but they do not create a second inscription witness.
   OCR、嵌入或用于模型训练。
 - 项目有效状态：`noai_restricted_do_not_ingest`。
 
+## OBID database route / 殷墟甲骨文数据库路线
+
+- URL: https://obid.ancientbooks.cn/
+- The landing page identifies the database as a Zhejiang Normal University
+  project and lists `H` for *Heji* and `Y` for the British collection.
+- It exposes bone-ID and text-search entry points, plus browse and character
+  dictionary routes. On 2026-08-21 this visit did not retrieve an exact
+  result for `Heji 40610` or `Yingcang 886`.
+- The route is a searchable research lead, not a verified second witness.
+  Any future result needs its query, page or image locator, checksum, rights,
+  and relation to the Commons sides recorded separately.
+
+- 入口页显示该数据库由浙江师范大学项目维护，并列出 `H`《合集》和
+  `Y` 英国所藏两个类属。
+- 页面提供甲骨编号、释文检索、卜辞浏览和甲骨字典入口。2026-08-21
+  本次没有取得 `Heji 40610` 或 `Yingcang 886` 的精确结果。
+- 这是一条可检索的研究线索，不是已核验的第二见证。今后若取得结果，
+  必须分别登记查询式、页码或图像定位、checksum、权利和两面关联。
+
 ## Evidence and next checks / 证据与下一步
 
 The Google Arts route may support object discovery and a rights lead only.
-The Sketchfab route is a rights warning, not an AI evidence source. Neither
-route upgrades the Commons strings, Heji references, period, or eclipse date.
+The Sketchfab route is a rights warning, not an AI evidence source. The OBID
+landing page is a search lead only. None of these routes upgrades the Commons
+strings, Heji references, period, or eclipse date.
 
 Google Arts 路线最多支持对象发现和权利线索。Sketchfab 路线属于权利
-警示，不能作为 AI 证据来源。两条路线都不能提升 Commons 字符串、
-《合集》引用、时期或月食日期的证据等级。
+警示，不能作为 AI 证据来源。OBID 入口页只是检索线索。上述路线都不能
+提升 Commons 字符串、《合集》引用、时期或月食日期的证据等级。
 
-Next checks are to obtain a stable British Library item record, verify the
-two *Heji* plate locations, and record any restored image or IIIF terms.
+Next checks are to obtain a stable British Library item record, query the OBID
+H/Y routes if access is permitted, verify the two *Heji* plate locations, and
+record any restored image or IIIF terms.
 
-下一步应取得稳定的大英图书馆逐项记录，核对两面的《合集》图版位置，
-并记录恢复后的图像或 IIIF 路线及其权利条件。
+下一步应取得稳定的大英图书馆逐项记录；若访问许可允许，再查询 OBID 的
+H/Y 路线；核对两面的《合集》图版位置，并记录恢复后的图像或 IIIF 路线
+及其权利条件。

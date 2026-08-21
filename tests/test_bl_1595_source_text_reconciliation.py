@@ -79,6 +79,20 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             self.assertIn(marker, text)
         self.assertIn("do not settle the reading", text)
 
+    def test_obid_route_remains_a_search_lead(self):
+        path = OBJECT / "10_secondary-dissemination-and-rights.md"
+        text = path.read_text(encoding="utf-8-sig")
+        for marker in (
+            "obid.ancientbooks.cn",
+            "Zhejiang Normal University",
+            "Heji 40610",
+            "Yingcang 886",
+            "2026-08-21",
+            "not a verified second witness",
+            "不是已核验的第二见证",
+        ):
+            self.assertIn(marker, text)
+
     def test_human_markdown_stays_within_eighty_characters(self):
         for name in (
             "README.md",

@@ -41,6 +41,20 @@
     "c7_diachronic_correspondence": "blocked",
     "c8_user_delivery": "withheld"
   },
+  "external_catalog_route_review": {
+    "path": "19_external-catalog-route-review.md",
+    "review_status": "secondary_routes_only_no_identity_assignment",
+    "access_date": "2026-08-21",
+    "local_snapshots": "none",
+    "catalog_candidates": [
+      "合20217",
+      "合7896",
+      "合7897",
+      "合13543",
+      "合30173"
+    ],
+    "rights_status": "source_marked_risk_noted"
+  },
   "external_references": [
     {
       "external_ref_id": "hust-obc-cat-1083",

@@ -27,6 +27,8 @@ verify the human-readable evidence.
   `17_multi-instance-visual-comparison.md`
 - Human-readable claim gate review / 人类可读命题门槛复核:
   `18_claim-evidence-gate-review.md`
+- Human-readable external catalog route review / 人类可读外部著录路线复核:
+  `19_external-catalog-route-review.md`
 - Human-readable readiness review / 人类可读研究准备度复核:
   `12_human-research-readiness-review.md`
 - Structured support candidate packet / 结构化辅助候选包:

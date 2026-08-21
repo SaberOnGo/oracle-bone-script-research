@@ -108,6 +108,39 @@ class ObsChar000963MultiInstanceReviewTests(unittest.TestCase):
         )
         self.assertIn("18_claim-evidence-gate-review.md", index["human_files"])
 
+    def test_external_catalog_routes_remain_secondary_and_unresolved(self):
+        page = (
+            DOSSIER.parent / "19_external-catalog-route-review.md"
+        ).read_text(encoding="utf-8-sig")
+        for marker in (
+            "humanum.arts.cuhk.edu.hk",
+            "ART002664762",
+            "zdic.net/hant",
+            "合20217",
+            "合7896",
+            "合7897",
+            "合13543",
+            "合30173",
+            "secondary database route",
+            "explicit counterexample",
+            "does not create a decipherment hypothesis",
+            "不生成",
+            "破译假说",
+        ):
+            self.assertIn(marker, page)
+        self.assertNotIn("target reading is", page)
+        packet = json.loads(
+            (DOSSIER.parent / "01_candidate-character-packet.json").read_text(
+                encoding="utf-8-sig"
+            )
+        )
+        route = packet["external_catalog_route_review"]
+        self.assertEqual(route["local_snapshots"], "none")
+        self.assertEqual(
+            route["review_status"],
+            "secondary_routes_only_no_identity_assignment",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

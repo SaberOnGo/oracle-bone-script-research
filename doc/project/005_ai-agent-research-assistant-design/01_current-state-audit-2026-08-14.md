@@ -88,13 +88,17 @@ Working-tree verification after the claim matrix was added:
 - HUST character `obs-char-000963` now has an object-local claim-gate page.
   It binds one checked derivative and five private archive members to C2,
   keeps the near-form comparison as a candidate route, and withholds C1 and
-  C4--C8. Its focused suite is `5 tests OK`.
+  C4--C8. Its focused suite is `6 tests OK`.
+- A live catalog-route review for `obs-char-000963` now records CUHK
+  Humanum, a published PDF, and a lexicographic route. Their shared
+  `合30173` locator appears with other headwords or contexts, so the HUST
+  filename remains route-only; no external snapshot was added.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1052 tests OK` in `637.088` seconds. The triage command
+- The full suite: `1053 tests OK` in `656.393` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156843` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156844` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -109,13 +113,16 @@ Working-tree verification after the claim matrix was added:
   其专项套件为 `8 tests OK`。
 - HUST 单字 `obs-char-000963` 现有对象内命题门槛页。它把一张已核验派生图和
   五个私有原包成员绑定到 C2，将近形比较保留为候选路线，并扣留 C1、C4--C8。
-  其专项套件为 `5 tests OK`。
+  其专项套件为 `6 tests OK`。
+- `obs-char-000963` 现有实时著录路线复核，记录香港中文大学 Humanum、已发表
+  PDF 和字源字形路线。同一 `合30173` 定位号与其他字头或语境一起出现，故 HUST
+  文件名仍是路线候选；没有加入外部快照。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1052 tests OK`，耗时 `637.088` 秒。选案命令返回
+- 全量测试：`1053 tests OK`，耗时 `656.393` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156843` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156844` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

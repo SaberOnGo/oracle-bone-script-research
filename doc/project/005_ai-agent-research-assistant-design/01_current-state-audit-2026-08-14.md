@@ -228,7 +228,7 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - A British Library Or. 7694/1535v source-record candidate now records one
   CC0 image route, local checksums, direct visual observations, and concrete
   catalog, text, and character-link gaps.
-- The central inscription source-record map now routes all seven opened
+- The central inscription source-record map now routes all eight opened
   candidates to their object-local human dossiers.
 - A later follow-up adds a Met 42045 source-record candidate with two
   public-domain image files and a bounded human dossier; it remains outside
@@ -328,7 +328,7 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   and displayed text as page-level source reports, not museum evidence.
 - HYZ 421 候选现有八个区域的视觉复核页和 CSV。区域框与已提交 JPEG 的校验和
   绑定，但没有把区域对应到单字、行序、阅读顺序或页面字符串。
-- 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
+- 中央卜辞来源记录映射表现已把八个已打开候选分别指向对象内人类档案。
 - 后续又加入大都会 42045 号来源记录候选，含两张公开领域图像和受限的人类
   档案；它不属于七行分诊快照，仍没有 OCR 或单字分配。
 - 六个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
@@ -385,7 +385,7 @@ lock raw outputs, and perform one local diagnostic score. It does not itself
 select cases, invoke a model, create independent contexts, or provide an
 external isolated scorer.
 
-The new triage command now supplies the first work-order step for the seven
+The new triage command now supplies the first work-order step for the eight
 opened inscription source-record candidates. It ranks visible evidence and
 blockers only; it is not model judgment, calibration, or candidate delivery.
 
@@ -401,7 +401,7 @@ pilot 工具可以冻结证据、密封私有标签、创建运行开封记录�
 本地诊断评分；但它不会自行选案、调用模型、创建真正独立上下文，也不提供外部隔离评
 分器。
 
-新增的选案分诊命令现为七个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
+新增的选案分诊命令现为八个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
 证据和阻断项，不是模型判断、校准或候选交付。
 
 当前试点、选案分诊和已复核摘要的定向测试分别通过 49、4、4 项。v2 校验器仍找不

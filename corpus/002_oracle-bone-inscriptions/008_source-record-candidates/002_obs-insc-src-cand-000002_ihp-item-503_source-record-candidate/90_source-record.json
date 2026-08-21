@@ -33,6 +33,38 @@
     "https://museum.sinica.edu.tw/en/collection/32/item/503/",
     "https://museum.sinica.edu.tw/collection/32/item/503/"
   ],
+  "page_snapshots": [
+    {
+      "language": "en",
+      "url": "https://museum.sinica.edu.tw/en/collection/32/item/503/",
+      "accessed_at": "2026-08-22",
+      "local_ignored_path": ".working/ihp-503/item-page-20260822-en.html",
+      "size_bytes": 58660,
+      "sha256": "af3c65b258e44cc1a5a11d0dc40e54ef585a1ea753038249a1436fb02c26c5d8",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "source_text_locator": "HTML .fr-view",
+      "source_prose_locator": "HTML .fr-view",
+      "snapshot_scope": "official_page_metadata_and_source_prose_only",
+      "status": "retrieved_ignored_snapshot",
+      "rights_status": "metadata_only_until_verified"
+    },
+    {
+      "language": "zh",
+      "url": "https://museum.sinica.edu.tw/collection/32/item/503/",
+      "accessed_at": "2026-08-22",
+      "local_ignored_path": ".working/ihp-503/item-page-20260822-zh.html",
+      "size_bytes": 54794,
+      "sha256": "4a40b3765cf1b9f4361182bf58f30c019aab0f830a8695957a2a68f3c79b2824",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "source_text_locator": "HTML .fr-view",
+      "source_prose_locator": "HTML .fr-view",
+      "snapshot_scope": "official_page_metadata_and_source_display_only",
+      "status": "retrieved_ignored_snapshot",
+      "rights_status": "metadata_only_until_verified"
+    }
+  ],
   "object_local_evidence": "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/032_coll-obj-cand-00032_ihp-item-503_collection-object-candidate/18_live-source-evidence-review.md",
   "boundaries": [
     "source prose is not a project transcription",

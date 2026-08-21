@@ -1,3 +1,4 @@
+import hashlib
 import json
 import unittest
 from pathlib import Path
@@ -29,6 +30,7 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
             "06_missing-evidence-plan.md",
             "07_visual-observation-and-parent-evidence.md",
             "08_claim-evidence-gate-review.md",
+            "09_official-page-text-evidence.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -60,6 +62,9 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
             "帝令雨",
             "not a new byte snapshot",
             "可复现记录",
+            "2026-08-22",
+            "忽略区快照",
+            ".fr-view",
         ):
             self.assertIn(value, text)
 
@@ -83,6 +88,40 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
         self.assertEqual(record["claim_gate_review"]["c8_user_delivery"],
                          "withheld")
         self.assertIn("not a decipherment conclusion", record["boundaries"])
+        self.assertEqual(len(record["page_snapshots"]), 2)
+        self.assertEqual(record["page_snapshots"][0]["size_bytes"], 58660)
+        self.assertEqual(record["page_snapshots"][1]["size_bytes"], 54794)
+        self.assertEqual(record["page_snapshots"][0]["language"], "en")
+        self.assertEqual(record["page_snapshots"][1]["language"], "zh")
+        for snapshot in record["page_snapshots"]:
+            self.assertEqual(snapshot["http_status"], 200)
+            self.assertEqual(snapshot["source_text_locator"], "HTML .fr-view")
+            self.assertEqual(snapshot["status"], "retrieved_ignored_snapshot")
+            self.assertEqual(
+                snapshot["rights_status"], "metadata_only_until_verified"
+            )
+
+    def test_page_snapshots_match_recorded_hashes_when_present(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(
+                encoding="utf-8-sig"
+            )
+        )
+        for snapshot in record["page_snapshots"]:
+            path = ROOT / snapshot["local_ignored_path"]
+            if not path.is_file():
+                self.skipTest("ignored official page snapshot is not present")
+            data = path.read_bytes()
+            self.assertEqual(len(data), snapshot["size_bytes"])
+            self.assertEqual(hashlib.sha256(data).hexdigest(), snapshot["sha256"])
+        en = (
+            ROOT / record["page_snapshots"][0]["local_ignored_path"]
+        ).read_bytes()
+        zh = (
+            ROOT / record["page_snapshots"][1]["local_ignored_path"]
+        ).read_bytes()
+        self.assertIn(b"rain god", en)
+        self.assertIn("帝令雨".encode("utf-8"), zh)
 
     def test_claim_gate_page_preserves_candidate_boundary(self):
         page = (OBJECT / "08_claim-evidence-gate-review.md").read_text(

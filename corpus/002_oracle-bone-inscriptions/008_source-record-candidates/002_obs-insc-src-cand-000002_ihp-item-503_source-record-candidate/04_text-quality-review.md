@@ -10,6 +10,15 @@
 | transcription | not assigned | no independent comparison |
 | translation | not assigned | no formal reading process |
 
+The 2026-08-22 English and Chinese page snapshots are checksum-bound in
+`90_source-record.json`. The Chinese `.fr-view` block is still a source
+display, and the English block is source prose; neither is a line-addressable
+edition or a project translation.
+
+2026-08-22 的中英文页面快照已在 `90_source-record.json` 中绑定校验和。中文
+`.fr-view` 区块仍是来源显示，英文区块仍是来源散文；两者都不是可逐行著录版本
+或项目译文。
+
 The phrase `帝令雨` must not be expanded into an assumed full sentence. The
 English wording must not be treated as a project translation. Damage, breaks,
 surface color, and later marks also require image-level review before text

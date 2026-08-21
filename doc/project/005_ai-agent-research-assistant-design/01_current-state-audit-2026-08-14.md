@@ -142,6 +142,10 @@ Working-tree verification after the claim matrix was added:
   transcription is created.
 - The focused IHP item 1215 source-record suite is `10 tests OK`, including
   a local hash replay when the ignored HTML snapshot is present.
+- IHP item 503 now has paired checksum-bound 2026-08-22 English and Chinese
+  page snapshots. The Chinese `.fr-view` block preserves `帝令雨` as source
+  display, while the English block remains source prose; no OCR or reading is
+  created. Its focused suite is `9 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
 - The full suite: `1085 tests OK` in `607.021` seconds. The triage command
@@ -204,6 +208,9 @@ Working-tree verification after the claim matrix was added:
   evidence-pack skill 共同链接。
 - 1215 号对象专项来源记录套件为 `10 tests OK`；忽略区 HTML 快照存在时，
   还会进行本地校验和复跑。
+- 史语所 503 号对象现有带校验和的 2026-08-22 中英文页面快照。中文
+  `.fr-view` 区块保留 `帝令雨` 来源显示，英文区块仍是来源散文；没有建立
+  OCR 或项目释读。其专项套件为 `9 tests OK`。
 - 全量测试：`1085 tests OK`，耗时 `607.021` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。

@@ -42,6 +42,16 @@ registered HTML hashes above remain the reproducibility record.
 `帝令雨`，并把来源主题说明为帝命令雨神。这是页面现场复核，不是新的字节快照；
 上面的登记 HTML hash 仍是可复现记录。
 
+On 2026-08-22, new ignored snapshots were retrieved for both official routes
+and bound in `90_source-record.json`. The Chinese `.fr-view` block contains
+the displayed phrase and the English `.fr-view` block contains source prose.
+The two snapshots make the current page display reproducible, but they do not
+provide an independent plate, line-addressable edition, or project OCR.
+
+2026-08-22 又取得官方中英文页面的忽略区快照，并在 `90_source-record.json`
+中绑定校验和。中文 `.fr-view` 区块包含页面短语，英文 `.fr-view` 区块包含来源
+散文。两份快照让当前页面可复核，但仍不提供独立图版、可逐行著录版本或项目 OCR。
+
 ## Source and derived evidence / 来源与派生证据
 
 The object-local dossier records image sizes and checksums for private review.

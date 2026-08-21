@@ -94,6 +94,11 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             "2026-08-21",
             "not a verified second witness",
             "不是已核验的第二见证",
+            "Access boundary",
+            "access boundary",
+            "没有权限",
+            "login-required",
+            "not obtained",
         ):
             self.assertIn(marker, text)
 

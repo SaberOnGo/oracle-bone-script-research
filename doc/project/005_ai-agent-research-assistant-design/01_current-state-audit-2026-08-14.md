@@ -104,9 +104,10 @@ Current targeted receipts include the following:
 
 当前定向回执包括：AI 试点 `49 tests OK`、选案分诊 `4 tests OK`、试点摘要
 `4 tests OK`；v2 合同 `68 tests OK`，但没有真实 v2 记录；英国图书馆 1595
-为 `5 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
-OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口仍只有检索线索，
-没有取得 `Heji 40610` 或 `Yingcang 886` 的精确结果。
+为 `6 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
+OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页和原文
+检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得
+`Heji 40610` 或 `Yingcang 886` 的精确结果。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
 It does not show research evidence or autonomous adjudication capability.

@@ -61,16 +61,38 @@ reader find the object, but they do not create a second inscription witness.
 - 这是一条可检索的研究线索，不是已核验的第二见证。今后若取得结果，
   必须分别登记查询式、页码或图像定位、checksum、权利和两面关联。
 
+## Access boundary / 访问边界
+
+- The public text-search route was opened on 2026-08-21:
+  https://obid.ancientbooks.cn/shiwenSearch.jspx?tabType=zhuwen
+- The public original-text route was also opened:
+  https://obid.ancientbooks.cn/puciSearch.jspx?tabType=zhengwen
+- Both routes returned a no-permission, login-required message. The exact
+  `Heji 40610` and `Yingcang 886` queries were therefore not obtained in
+  this public session.
+- This is an access boundary, not a negative search result. No login
+  circumvention was attempted, and the landing page is not a second witness.
+
+- 2026-08-21 打开了公开释文检索路线和原文检索路线。两页都返回
+  “没有权限，不能使用该服务！请登录后使用”。因此本次公开会话没有
+  取得 `Heji 40610` 或 `Yingcang 886` 的精确查询结果。
+- 这是访问边界，不是“检索无结果”。本项目没有绕过登录；入口页也不构成
+  第二见证。
+- 下一次若有机构授权，应记录账号权限范围、查询式、页面或图像定位、
+  访问时间、结果快照 checksum、权利状态和与正反面的关系。
+
 ## Evidence and next checks / 证据与下一步
 
 The Google Arts route may support object discovery and a rights lead only.
 The Sketchfab route is a rights warning, not an AI evidence source. The OBID
-landing page is a search lead only. None of these routes upgrades the Commons
-strings, Heji references, period, or eclipse date.
+landing page and login-gated search routes are search leads only. None of
+these routes upgrades the Commons strings, Heji references, period, or
+eclipse date.
 
 Google Arts 路线最多支持对象发现和权利线索。Sketchfab 路线属于权利
-警示，不能作为 AI 证据来源。OBID 入口页只是检索线索。上述路线都不能
-提升 Commons 字符串、《合集》引用、时期或月食日期的证据等级。
+警示，不能作为 AI 证据来源。OBID 入口页和需登录的检索页都只是检索
+线索。上述路线都不能提升 Commons 字符串、《合集》引用、时期或月食
+日期的证据等级。
 
 Next checks are to obtain a stable British Library item record, query the OBID
 H/Y routes if access is permitted, verify the two *Heji* plate locations, and

@@ -1,170 +1,210 @@
 # Multi-instance Visual Comparison / 多实例视觉比较
 
-Object / 对象: `obs-char-000791`
+Object / 对象：`obs-char-000791`
 
-Primary route / 首选路线: `hust-obc-cat-0895`
+Primary route / 首选路线：`hust-obc-cat-0895`
 
-Review date / 复核日期: `2026-08-14`
+Review date / 复核日期：2026-08-21
 
-## Purpose And Boundary / 目的与边界
+## English
 
-Five `G_` members were opened directly from the ignored HUST-OBC archive.
-They were selected across different filename-level catalog routes. This page
-records bytes, hashes, dimensions, and visible marks for human comparison.
+### Purpose, source, and boundary
 
-本页直接打开已忽略的 HUST-OBC 原包中的五个 `G_` 成员，覆盖不同的
-文件名著录线索。这里只记录字节、校验和、尺寸和可见痕迹，供人类比较。
+Five `G_` members were decoded from the ignored HUST-OBC raw ZIP. They were
+chosen to show different filename-level catalog and group routes. No raw
+image is copied into regular Git by this review.
 
-Filename values are source-record candidates only. They do not confirm a
-catalog identity, group attribution, glyph identity, component, reading, or
-inscription identity. This is not a decipherment conclusion.
+- Source: `src-hust-obc`.
+- Package: `large-src-000001`.
+- Download route: `dl-hust-obc-figshare-raw`.
+- Rights status: `source_marked_risk_noted`.
+- Review status: `needs_cross_source_review`.
 
-文件名中的数值和分组文字只是来源记录候选，不确认著录身份、组类归属、
-字形身份、构件、释读或卜辞身份。本页不是释读或破译结论。
+The catalog and group strings below are filename-derived source records. This
+page does not confirm inscription identity, catalog equivalence, group
+attribution, component structure, or an accepted reading. It is not a
+decipherment conclusion.
 
-## Source Package And Public Boundary / 来源包与公开边界
+### Public visual availability
 
-- Source / 来源: `src-hust-obc`
-- Package / 来源包: `large-src-000001`
-- Download / 下载: `dl-hust-obc-figshare-raw`
-- Local archive / 忽略区原包:
-  `external_local_archive/source_packages/hust-obc/`
-  `dl-hust-obc-figshare-raw.zip`
-- Rights / 权利: `source_marked_risk_noted`
-- Review status / 复核状态: `needs_cross_source_review`
+Instance 1 has a small source-marked review derivative in this object. It is
+shown here so a reader can check one observation without opening an index.
 
-The first member has an existing source-marked review derivative in this
-object and is shown below. The other four remain in the ignored archive. No
-new restricted image is added to regular Git.
+![Instance 1 review derivative](
+03_visual-assets/001_asset-000796_hust-obc-cat-0895_glyph.png)
 
-第一个成员已有带来源和风险标记的对象内复核派生图，下面直接链接。其余四个
-成员仍留在忽略区原包中。没有把新的受限图像加入普通 Git。
+The other four images remain inside the ignored raw package because the HUST
+rights signals conflict. Their member paths, hashes, sizes, and pixels make
+the comparison locally reproducible, but they are not public visual
+evidence. This is a blocking visibility limitation, not a closed plate.
 
-![Instance 1 review derivative][instance-1-image]
+### Instance 1: Yi 1206 and Heji 974 candidates
 
-[instance-1-image]:
-03_visual-assets/001_asset-000796_hust-obc-cat-0895_glyph.png
-
-## Instance 1 / 实例 1
-
-- Archive directory / 原包目录: `HUST-OBC/deciphered/0895/`
-- Archive filename / 原包文件名: `G_0895_乙1206合974賓組.png`
-- Filename candidates / 文件名候选: old `1206`; Heji-like `974`
+- Member: `HUST-OBC/deciphered/0895/G_0895_乙1206合974賓組.png`
 - SHA-256: `2a4305bfea49e7bed9952f88c46fd16f2fb92fba37633e3ae78d2864ea54fe04`
-- File size / 文件大小: `1309` bytes; ZIP compressed `1314` bytes
-- Pixel size / 像素尺寸: `57 x 80`; mode `RGB`
-- Observation / 观察: a broad diagonal enters a central fork. The lower
-  outline narrows into a small, pointed opening.
-- 中文观察：上部宽斜笔进入中央分叉，底部轮廓收窄为尖部的小型开口。
-- Counterevidence / 反证: the upper branch is broader and more left-leaning
-  than the compact branches in instances 3 and 4.
+- Archive directory: `HUST-OBC/deciphered/0895/`.
+- File size: `1309` bytes; ZIP compressed `1314` bytes; pixels: `57 × 80`;
+  mode: `RGB`.
+- Filename candidates: Yi `1206`; Heji `974`; `賓組`.
+- Observation: a thick central stroke rises into a forked upper branch. A
+  short diagonal enters an angular lower opening.
+- Counterevidence: the upper branch and lower opening are partly cropped;
+  their apparent connection is not established.
 
-## Instance 2 / 实例 2
+### Instance 2: Yi 826 and Heji 26786 candidates
 
-- Archive directory / 原包目录: `HUST-OBC/deciphered/0895/`
-- Archive filename / 原包文件名: `G_0895_佚826合26786出組.png`
-- Filename candidates / 文件名候选: old `826`; Heji-like `26786`
+- Member: `HUST-OBC/deciphered/0895/G_0895_佚826合26786出組.png`
 - SHA-256: `c150b076b6c43c56f369d62cd1b0ea302a2eec1ed8a0ffacf30f30947fed50f8`
-- File size / 文件大小: `1443` bytes; ZIP compressed `1448` bytes
-- Pixel size / 像素尺寸: `56 x 80`; mode `RGB`
-- Observation / 观察: a nearly vertical stem rises above a right-leaning
-  branch. A dark lower enclosure ends in a deep point.
-- 中文观察：近直立的主干高出右斜分枝，深色下部轮廓向下形成尖部。
-- Counterevidence / 反证: its lower point and right branch do not match the
-  wider, more open outline in instance 1.
+- Archive directory: `HUST-OBC/deciphered/0895/`.
+- File size: `1443` bytes; ZIP compressed `1448` bytes; pixels: `56 × 80`;
+  mode: `RGB`.
+- Filename candidates: Yi `826`; Heji `26786`; `出組`.
+- Observation: two upper strokes separate from a tall right-side stroke. A
+  broad angular lower stroke returns toward the central area.
+- Counterevidence: the lower return may be a neighboring trace or a crop
+  boundary; the small image cannot establish a closed component.
 
-## Instance 3 / 实例 3
+### Instance 3: Jia 1978 and Heji 28087 candidates
 
-- Archive directory / 原包目录: `HUST-OBC/deciphered/0895/`
-- Archive filename / 原包文件名: `G_0895_後2.25.9合13426賓組.png`
-- Filename candidates / 文件名候选: old `2.25.9`; Heji-like `13426`
-- SHA-256: `c02c8bf93f00d424e8ede8df82c391f239de8e19e4ff94d78bee3825956b3422`
-- File size / 文件大小: `1217` bytes; ZIP compressed `1222` bytes
-- Pixel size / 像素尺寸: `32 x 80`; mode `RGB`
-- Observation / 观察: the image is narrow. Two short upper strokes flank a
-  central upright, and the lower outline closes into a small pointed wedge.
-- 中文观察：图像较窄；两条短上笔分列中央直笔两侧，下部轮廓收成尖窄楔形。
-- Counterevidence / 反证: the compact upper strokes could be a crop or damage
-  effect rather than a stable form feature.
+- Member: `HUST-OBC/deciphered/0895/G_0895_甲1978合28087何組.png`
+- SHA-256: `9a2de0e7f18db3d367d8528a8cbfcf66e4c3982f87fc2fc74ed63e59869c73cb`
+- Archive directory: `HUST-OBC/deciphered/0895/`.
+- File size: `930` bytes; ZIP compressed `935` bytes; pixels: `29 × 80`;
+  mode: `RGB`.
+- Filename candidates: Jia `1978`; Heji `28087`; `何組`.
+- Observation: a narrow dark vertical cluster has a pointed upper lobe and
+  a tapered lower end. No lower opening is visibly separable at this scale.
+- Counterevidence: the unusually narrow crop and dense black region may hide
+  faint strokes or merge adjacent traces.
 
-## Instance 4 / 实例 4
+### Instance 4: Jia 2489 and Heji 27627 candidates
 
-- Archive directory / 原包目录: `HUST-OBC/deciphered/0895/`
-- Archive filename / 原包文件名: `G_0895_甲2489合27627歷無名間.png`
-- Filename candidates / 文件名候选: old `2489`; Heji-like `27627`
+- Member: `HUST-OBC/deciphered/0895/G_0895_甲2489合27627歷無名間.png`
 - SHA-256: `404f51d7ded0e169163004c705766463bf14ca0ea7ec54d94c66e4cb66a5eac8`
-- File size / 文件大小: `1174` bytes; ZIP compressed `1179` bytes
-- Pixel size / 像素尺寸: `33 x 78`; mode `RGB`
-- Observation / 观察: a tall upright meets an open right branch. The lower
-  enclosure is broader than instance 3 and has a visible left corner.
-- 中文观察：高直笔连接向右开放的分枝；下部轮廓比实例三宽，左侧转角可见。
-- Counterevidence / 反证: the open branch may reflect a broken or lightly
-  inked stroke; the small image cannot distinguish these causes.
+- Archive directory: `HUST-OBC/deciphered/0895/`.
+- File size: `1174` bytes; ZIP compressed `1179` bytes; pixels: `33 × 78`;
+  mode: `RGB`.
+- Filename candidates: Jia `2489`; Heji `27627`; `歷無名間`.
+- Observation: a tall upright has two short upper branches and a lower open
+  angular loop. A thin rightward stroke leaves the middle area.
+- Counterevidence: the loop is incomplete at the lower edge, so closure and
+  attachment cannot be decided from this crop.
 
-## Instance 5 / 实例 5
+### Instance 5: Jia 2744 and Heji 34612 candidates
 
-- Archive directory / 原包目录: `HUST-OBC/GuoXueDaShi_1390/0895/`
-- Archive filename / 原包文件名: `G_0895_O_佚446(甲).png`
-- Filename candidates / 文件名候选: old `446`; source folder
-  `GuoXueDaShi_1390`
-- SHA-256: `086fb3f3c09d42063e7ef0b915b82e51556dd5482023fca6c3adb00dae49f361`
-- File size / 文件大小: `2497` bytes; ZIP compressed `2502` bytes
-- Pixel size / 像素尺寸: `71 x 133`; mode `RGB`
-- Observation / 观察: a broad roof-like upper outline encloses several
-  hanging inner marks. A thin central stem ends in a small split foot.
-- 中文观察：宽大的屋脊状上部轮廓包住数条内垂痕迹，细中央笔干在底部
-  形成小分叉。
-- Counterevidence / 反证: this silhouette is much broader and lacks the
-  pointed lower enclosure visible in instances 1 to 4.
+- Member: `HUST-OBC/deciphered/0895/G_0895_甲2744合34612歷組.png`
+- SHA-256: `7c03e53146320ff906f831edc48ed63827317525a2d6fb36160323bd7b19d907`
+- Archive directory: `HUST-OBC/deciphered/0895/`.
+- File size: `1098` bytes; ZIP compressed `1103` bytes; pixels: `54 × 80`;
+  mode: `RGB`.
+- Filename candidates: Jia `2744`; Heji `34612`; `歷組`.
+- Observation: a broad dark lower mass rises to two pointed upper strokes.
+  A leftward branch extends from the lower side.
+- Counterevidence: the dense mass may be ink spread, damage, or binarization;
+  it cannot be treated as a stable enclosure or component.
 
-## Cross-instance Comparison / 跨实例比较
+### Cross-instance comparison
 
-- Instances 1 to 4 share a narrow upright-and-lower-wedge route, but branch
-  angle, enclosure width, and the degree of closure vary.
-- 实例一至四都有直笔和下部楔形轮廓，但分枝角度、下部宽度和闭合程度不同。
-- Instance 5 is a strong near-form or grouping-risk marker. Its broad outline,
-  inner marks, and split foot are not interchangeable with instances 1 to 4.
-- 实例五是较强的近形或分组风险标记；其宽轮廓、内痕和分叉底部不能直接
-  与实例一至四互换。
+- Instances 1, 2, and 4 retain a visible upright or forked upper structure;
+  instance 3 is much narrower and instance 5 is much denser.
+- Instances 1, 2, and 4 show some lower angular opening or return stroke;
+  instances 3 and 5 do not show the same separation at this scale.
+- The five images therefore provide a testable near-form mixture risk, not a
+  confirmed variant set or a confirmed single sign.
 
-Damage, rubbing density, tracing conventions, crop boundaries, orientation,
-and image normalization could exaggerate the differences. The comparison does
-not decide whether the category contains one form, several forms, or a mixed
-dataset label.
+### Near-form mixture risk and alternatives
 
-损伤、拓印浓淡、摹写习惯、裁切边界、方向和图像归一化都可能放大差异。
-本比较不决定该类别是一种字形、多种字形，还是宽泛的数据集标签。
+The dataset category may combine forms through broad visual resemblance while
+the crops differ in orientation, damage, tracing, or neighboring traces.
+Instances 3 and 5 are the strongest exclusion candidates, but neither should
+be moved to another class without authoritative plates.
 
-## Two-way Falsification / 双向可证伪条件
+### Two-way falsification
 
-- Split or dispute the current category if authoritative plates repeatedly
-  place the broad instance 5 form in separate catalog or inscription contexts.
-- 若权威图版反复显示实例五的宽轮廓属于不同著录或卜辞语境，应拆分或标记
-  当前类别争议。
-- Withdraw a near-form split if multiple views of the same bone reproduce the
-  differences as damage, tracing, orientation, or cropping effects.
-- 若同一版骨的多视图证明差异来自损伤、摹写、方向或裁切，应撤回近形拆分。
+- Split or dispute the category if authoritative plates repeatedly associate
+  the narrow cluster, open loop, and dense lower mass with separate signs or
+  stable catalog classes.
+- Withdraw the split if multiple rubbings, photographs, or hand copies show
+  that these differences come from damage, crop, orientation, or ink spread.
 
-## Concrete Next Checks / 具体待查问题
+### Concrete catalog checks
 
-- Open authoritative plates for Heji-like `974`, `26786`, `13426`, and
-  `27627`; record volume, plate, page, neighboring signs, and orientation.
-- 核对上述四个合集号候选的卷册、图版、页码、邻字和方向，并保留原始出处。
-- Verify old-number routes `1206`, `826`, `2.25.9`, `2489`, and `446` against
-  the cited catalog or collection records.
-- 核对 `1206`、`826`、`2.25.9`、`2489`、`446` 与对应著录或馆藏记录的关系。
-- Obtain rights-permitted inscription context before comparing syntax or
-  assigning a reading; do not inherit HUST labels as readings.
-- 获取权利允许的卜辞上下文后再比较句法；不得把 HUST 标签当成释读。
-- Check findspot, collection, period, batch, proposer, reading history, and
-  disagreements for each candidate route.
-- 逐条核对出土地、馆藏、时期、批次、提出者、释读史和不同意见。
+- Open authoritative plates for Heji `974`, `26786`, `28087`, `27627`, and
+  `34612`; record volume, plate, page, whole-bone view, and orientation.
+- Verify whether Yi `1206`, Yi `826`, Jia `1978`, Jia `2489`, and Jia `2744`
+  independently map to the stated Heji candidates.
+- Locate the proposer and scope of `賓組`, `出組`, `何組`, `歷無名間`, and
+  `歷組`; do not treat filename strings as classifications.
+- Obtain rights-permitted full texts and compare sign position and context
+  without inheriting the HUST label as a reading.
+- Check collection, findspot, period, batch, damage, reading history, and
+  alternative classifications for each candidate.
 
-## Research Boundary / 研究边界
+## 简体中文
 
-These are preparation-stage visual records. They do not confirm inscription
-identity, variant merger, component assignment, evolution correspondence,
-accepted reading, or decipherment.
+### 目的、来源与边界
 
-以上是预处理阶段的视觉记录，不确认卜辞身份、异体合并、构件归属、演化
-对应、已接受释读或破译结论。
+本页从已忽略的 HUST-OBC 原始 ZIP 中解码五个 `G_` 成员，选择了不同的
+文件名著录和组类路线。没有把原图复制进普通 Git。
+
+- 来源：`src-hust-obc`。
+- 来源包：`large-src-000001`。
+- 下载路线：`dl-hust-obc-figshare-raw`。
+- 权利状态：`source_marked_risk_noted`。
+- 复核状态：`needs_cross_source_review`。
+
+以下著录号和组类字符串都只是文件名来源记录，不确认卜辞身份、著录
+同一性、组类归属、构件结构或已接受释读。本页不是破译结论。
+
+### 公开图像可见性
+
+实例 1 已有带来源和风险标记的小型复核派生图，本页直接显示，读者无需
+先打开索引即可核对一项观察。其余四图因 HUST 权利信号冲突，继续留在
+已忽略原包中。成员路径、校验和、大小和像素可供本地复跑，但不是公开
+视觉证据。这是公开图版尚未闭合的阻断项。
+
+### 五个实例的客观观察
+
+1. 乙1206、合974 候选：中部粗笔向上分叉，短斜笔进入下部折角开口；
+   上部分叉与下部开口的连接关系仍受裁切影响。
+2. 佚826、合26786 候选：上部两道笔与右侧高竖分开，下部宽折笔回向
+   中部；回笔也可能是邻近痕迹或裁切边界。
+3. 甲1978、合28087 候选：窄而浓黑的竖向笔组，上端有尖状突出，下端
+   逐渐收窄；当前尺寸看不出可分离的下部开口。
+4. 甲2489、合27627 候选：高竖带两个短上枝，下部有未闭合折角环，
+   中部向右伸出细笔；下缘不足以判断是否闭合。
+5. 甲2744、合34612 候选：下部形成宽厚黑块，上方伸出两个尖笔，左侧
+   有外伸笔；黑块也可能是墨迹扩散、残损或二值化结果。
+
+五例都显示某种竖向或分叉主结构，但第三例明显更窄，第五例更浓密；
+下部开口或回笔也不稳定。这只形成可检验的近形混类风险，不是异体
+集合，也不是同一字形的确认。
+
+### 近形混类风险与替代解释
+
+数据集类别可能因宽泛轮廓相似而混入不同字形；方向、残损、摹写、邻痕、
+裁切和墨迹扩散也会制造表面差异。第三、第五例是优先排除候选，但不能
+在没有权威图版前改入其他类别。
+
+### 双向可证伪条件
+
+- 若权威图版反复把窄笔组、未闭合环和浓密下块分别关联到不同字形或
+  稳定著录类别，应拆分或标记当前类别争议。
+- 若多份拓片、照片或摹本证明差异来自残损、裁切、方向或墨迹扩散，
+  应撤回拆分候选。
+
+### 具体著录待查
+
+- 打开合集 `974`、`26786`、`28087`、`27627`、`34612` 的权威图版，
+  记录卷、图版、页码、整片、方向和邻字。
+- 独立核对乙 `1206`、佚 `826`、甲 `1978`、甲 `2489`、甲 `2744` 是否
+  对应所列合集号。
+- 查找 `賓組`、`出組`、`何組`、`歷無名間`、`歷組` 的提出者、定义和
+  适用范围，不把文件名字符串直接当成组类结论。
+- 取得权利允许的卜辞全文，比较字位和上下文，不继承 HUST 标签作为释读。
+- 逐条补查馆藏、出土地、时期、批次、残损、释读史和不同分类意见。
+
+### 边界
+
+以上只是准备阶段视觉记录，不确认卜辞身份、构件归属、异体合并、组类
+归属、演化链或释读，不构成破译结论。

@@ -15,10 +15,10 @@ item-level record, plate, or photograph.
 - Catalogue home: https://searcharchives.bl.uk/
 - Query: `Or 7694/1535`
 - Collection record: https://searcharchives.bl.uk/catalog/032-002915678
-- Access date: 2026-08-14
+- Access date: 2026-08-21
 - Access mode: official catalogue search result and collection record
 
-2026-08-14 的官方检索结果把逐项内容标为 legacy digitised content
+2026-08-21 的官方检索结果把逐项内容标为 legacy digitised content
 unavailable。本页没有保存新的 HTML 或图像快照，不能把这次访问写成
 已取得馆藏图像。
 

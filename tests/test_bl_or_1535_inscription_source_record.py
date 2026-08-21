@@ -61,6 +61,7 @@ class BritishLibraryOr1535SourceRecordTests(unittest.TestCase):
             "Oriental Manuscripts",
             "1300 BC-1050 BC",
             "Images currently unavailable",
+            "2026-08-21",
             "source-reported",
             "item-level JSON",
             "no project OCR",

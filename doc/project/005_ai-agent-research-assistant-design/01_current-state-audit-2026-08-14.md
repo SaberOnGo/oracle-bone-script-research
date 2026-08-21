@@ -508,6 +508,48 @@ character, inscription, component, or evolution edge into a confirmed claim.
 
 这些是档案和路线改进，不把对象、单字、卜辞、构件或演化边提升为已确认结论。
 
+## Latest HEAD receipt / 最新主分支回执
+
+The current pushed HEAD is `274d7a46b6f`. The preceding commit
+`bf243ee38b9` added a two-view human evidence page for Met 42045. The latest
+commit added the Or. 7694/1595 astronomical-date dispute matrix. Both pages
+remain source-record or dispute aids; neither creates OCR, a transcription,
+or a decipherment claim.
+
+当前已推送的 HEAD 为 `274d7a46b6f`。前一提交
+`bf243ee38b9` 为 Met 42045 增加双图人类证据页；最新提交为
+Or. 7694/1595 增加月食年代争议矩阵。两页都只是来源记录或争议辅助，
+没有生成 OCR、摹写或破译主张。
+
+Fresh receipts bound to this follow-up are:
+
+- Met 42045 two-view suite: `4 tests OK`.
+- Or. 7694/1595 date-dispute suite: `4 tests OK`.
+- Full suite at the latest working tree: `1040 tests OK` in `631.149`
+  seconds.
+- Repository skeleton: `PASS repository skeleton`.
+- Full strict human-material gate: exit `0`, `156842` Markdown files,
+  and all four debt counts `0`.
+- Commit-message check: `PASS 274d7a46b6f9`.
+- Remote `origin/main` resolves to `274d7a46b6f`.
+
+本次跟进绑定的最新回执如下：
+
+- Met 42045 双图套件：`4 tests OK`。
+- Or. 7694/1595 年代争议套件：`4 tests OK`。
+- 最新工作树全量测试：`1040 tests OK`，耗时 `631.149` 秒。
+- 仓库骨架：`PASS repository skeleton`。
+- 严格人类资料门：退出码 `0`，`156842` 篇 Markdown，四项债务均为 `0`。
+- 提交信息检查：`PASS 274d7a46b6f9`。
+- 远端 `origin/main` 已指向 `274d7a46b6f`。
+
+The user-owned untracked file `doc/public/user_prompt/1.txt` remains outside
+the commits and was not read or modified. No AI v2 experiment record was
+created by this follow-up, and no candidate-delivery channel was opened.
+
+用户拥有的未跟踪文件 `doc/public/user_prompt/1.txt` 仍未进入提交，且未被读取
+或修改。本次没有创建 AI v2 实验记录，也没有开启候选交付通道。
+
 ## Autonomous laboratory status / 自主实验室状态
 
 The pilot tool can freeze evidence, seal a private label, create run openings,

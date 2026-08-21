@@ -10,9 +10,9 @@ Follow-up verification date: `2026-08-21`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
-Current skeleton receipt commit: `4130c2c034f`
+Current skeleton receipt commit: `96e1e24d746`
 
-Current human-material gate receipt commit: `4130c2c034f`
+Current human-material gate receipt commit: `96e1e24d746`
 
 ## Purpose / 目的
 
@@ -185,6 +185,38 @@ public v2 experiment record currently exists under
 
 v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录，不能把测试 fixture 或
 本地 pilot 记录当作真实基准实验。
+
+## Latest Xiaoxuetang dossier receipt / 最新小學堂档案回执
+
+Commit `96e1e24d746` adds a human-first Xiaoxuetang database dossier. It
+records official portal, oracle-bone, guide, statistics, license, and
+technical-report routes; eight ignored snapshot checksums; current count
+observations; citation relations; rights wording; and concrete transfer
+blockers. It keeps row identity, complete export, proposer, dispute, and
+reading history unresolved.
+
+The dossier's focused suite passed `7 tests`. The full skeleton returned
+`PASS repository skeleton`. The full strict human-material gate returned exit
+0 with `156839` scanned Markdown files and all four debt counts at zero. The
+full suite returned `1016 tests in 640.043 seconds, OK`, followed by the
+eight-row triage `PASS` line.
+
+The research-note coverage counter was updated from 56 to 65 because the new
+dossier adds eight human Markdown files and one subordinate JSON record. This
+is a coverage count change, not a claim that the literature corpus is complete.
+
+提交 `96e1e24d746` 新增小學堂数据库人类优先档案，记录官方门户、甲骨文、
+入门、统计、版权和技术报告路线、八个已忽略快照的 checksum、当前数量观察、
+引用关系、权利文字和具体转移阻断项。行身份、完整导出、提出者、争议和释读史
+仍保持待查。
+
+该档案的定向测试为 `7 tests`。全量骨架校验返回 `PASS repository skeleton`。
+full/strict 人类资料门退出码为 0，扫描 `156839` 个 Markdown 文件，四项债务
+均为 0。全量测试为 `1016 tests in 640.043 seconds, OK`，最后八行选案分诊
+仍返回 `PASS`。
+
+由于新增八个 Markdown 和一个辅助 JSON，研究资料计数从 56 更新为 65。这是
+覆盖数变化，不是文献资料库已经完整的结论。
 
 ## Human archive progress / 人类档案进展
 

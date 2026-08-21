@@ -97,6 +97,15 @@ class ObsChar000621MultiInstanceReviewTests(unittest.TestCase):
             "03_visual-assets/001_asset-000626_hust-obc-cat-0706_glyph.png",
             text,
         )
+        self.assertIn(
+            '<img alt="Instance 1 review derivative / 实例 1 复核派生图"',
+            text,
+        )
+        self.assertIn(
+            'src="03_visual-assets/001_asset-000626_hust-obc-cat-0706_glyph.png">',
+            text,
+        )
+        self.assertNotIn("![Instance 1 review derivative](\n", text)
 
     def test_human_markdown_is_bilingual_and_within_eighty_columns(self):
         text = DOSSIER.read_text(encoding="utf-8")

@@ -34,8 +34,8 @@ The first instance already has a small, source-marked review derivative in
 this object. It is displayed below so a reader can check the corresponding
 observation without opening a machine index.
 
-![Instance 1 review derivative](
-03_visual-assets/001_asset-000626_hust-obc-cat-0706_glyph.png)
+<img alt="Instance 1 review derivative / 实例 1 复核派生图"
+src="03_visual-assets/001_asset-000626_hust-obc-cat-0706_glyph.png">
 
 The other four images remain inside the ignored raw package because the HUST
 rights signals conflict. Their exact members, hashes, sizes, and pixel

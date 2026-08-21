@@ -27,11 +27,14 @@ confirmed character sequence.
   `https://images.metmuseum.org/CRDImages/as/original/LC-67_43_14_002.jpg`
 - Rights / 权利: `public_domain_verified` / Met Open Access API flag
 
-The view shows a long, narrow bone surface against a plain background.
-It is one front-facing photograph; no reverse view or scale is included.
+The collection folder keeps one compact front-facing photograph. A separate
+source-record candidate for the same accession preserves the API's second
+image route; see `21_source-record-crosswalk.md`. The API does not identify
+either image as recto, verso, or a reading-order view, and no scale is included.
 
-本视角显示一件狭长骨面，背景为单色。
-这是一个正面拍摄视角，没有反面图或比例尺。
+本馆藏目录保存一张紧凑的正面照片。同一馆藏号的来源记录候选还保存
+API 的第二条图像路线，见 `21_source-record-crosswalk.md`。API 没有把
+任何图像标成正面、背面或阅读顺序，也没有比例尺。
 
 ## Direct Visual Observations / 直接视觉观察
 

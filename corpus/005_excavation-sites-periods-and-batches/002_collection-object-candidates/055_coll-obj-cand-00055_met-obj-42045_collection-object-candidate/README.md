@@ -45,6 +45,8 @@ Committed image asset: `asset_id=asset-000001`.
   source-linked image.
 - `20_human-material-evidence-dossier.md`: object-local surface observations,
   provenance, counterevidence, and concrete next checks.
+- `21_source-record-crosswalk.md`: links this object to the two-view source
+  record candidate for the same Met accession.
 
 ## Structured Support Files / 结构化辅助文件
 

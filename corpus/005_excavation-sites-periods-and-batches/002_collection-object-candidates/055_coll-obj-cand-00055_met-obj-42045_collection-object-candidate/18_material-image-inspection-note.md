@@ -22,8 +22,10 @@ character, component, or reading claim.
 - The local photograph shows one long, narrow bone object against a plain
   background.
 - Incised marks are visible in several areas along the photographed surface.
-- The local file supplies one view only: it does not supply the reverse, a plate
-  reference, or a transcription.
+- The collection folder supplies one compact view only. A separate source
+  record candidate preserves a second API image; its route is linked in
+  `21_source-record-crosswalk.md`. Neither route supplies a plate reference
+  or a transcription.
 
 简体中文：
 本记录只书明本地复核图像中直接可见的情况，
@@ -31,7 +33,8 @@ character, component, or reading claim.
 
 - 本地照片呈现一件狭长骨器，背景为单色。
 - 照片所示表面沿长度方向可见多处刻划痕迹。
-- 本地文件只提供单一视角；未提供背面、图版号或释文。
+- 本馆藏目录只提供一张紧凑图。另一个来源记录候选保存第二张 API 图像，
+  路线见 `21_source-record-crosswalk.md`。两条路线都没有图版号或释文。
 
 ## Next Evidence To Open / 下一步待查证据
 

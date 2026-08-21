@@ -1,4 +1,5 @@
 import hashlib
+import json
 import re
 import unittest
 from pathlib import Path
@@ -14,6 +15,12 @@ OBJECT = (
     "candidate"
 )
 DOSSIER = OBJECT / "20_human-material-evidence-dossier.md"
+CROSSWALK = OBJECT / "21_source-record-crosswalk.md"
+SOURCE_RECORD = (
+    ROOT
+    / "corpus/002_oracle-bone-inscriptions/008_source-record-candidates/"
+    "008_obs-insc-src-cand-000008_met-42045_source-record-candidate"
+)
 IMAGE = (
     ROOT
     / "corpus/005_excavation-sites-periods-and-batches/001_public-domain-"
@@ -77,6 +84,42 @@ class Met42045MaterialDossierTests(unittest.TestCase):
             ),
         )
         self.assertIn("不建立字序或释文", text)
+
+    def test_collection_object_hands_off_to_the_two_view_record(self):
+        text = CROSSWALK.read_text(encoding="utf-8")
+        self.assertIn("Source-record crosswalk", text)
+        self.assertIn("来源记录交接", text)
+        self.assertIn("obs-insc-src-cand-000008", text)
+        self.assertIn("09_two-view-human-evidence.md", text)
+        self.assertIn("c605ae36...e0333df", text)
+        self.assertIn("c2c09d61...30a480", text)
+        self.assertIn("No Heji number", text)
+        self.assertIn("没有提供合集号", text)
+        self.assertIn("source_record_candidate_needs_text_and_catalog_review", text)
+        self.assertNotIn("confirmed reading", text.lower())
+        self.assertNotIn("释读结论", text)
+        self.assertTrue(all(len(line) <= 80 for line in text.splitlines()))
+
+    def test_collection_index_and_source_record_bind_same_two_images(self):
+        index = json.loads(
+            (OBJECT / "07_collection-dossier-index.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        crosswalk = str(CROSSWALK.relative_to(ROOT)).replace("\\", "/")
+        self.assertIn(crosswalk, index["human_readable_files"])
+
+        record = json.loads(
+            (SOURCE_RECORD / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(record["object_id"], 42045)
+        self.assertEqual(len(record["image_routes"]), 2)
+        for route in record["image_routes"]:
+            image = SOURCE_RECORD / route["committed_path"]
+            self.assertEqual(image.stat().st_size, route["size_bytes"])
+            self.assertEqual(
+                hashlib.sha256(image.read_bytes()).hexdigest(), route["sha256"]
+            )
 
 
 if __name__ == "__main__":

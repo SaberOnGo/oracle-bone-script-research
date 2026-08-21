@@ -97,12 +97,16 @@ Working-tree verification after the claim matrix was added:
   gate. Its one ZIP member and committed derivative share a checked checksum;
   C2 is direct observation, while identity, context, reading, and delivery
   remain blocked or withheld.
+- Met object `42045` now has an object-local crosswalk to its same-object
+  source-record candidate. The collection folder keeps one compact image while
+  the source record binds both API image bytes; no recto-verso, plate, or text
+  claim is added. Its focused Met suite is `14 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1056 tests OK` in `684.472` seconds. The triage command
+- The full suite: `1058 tests OK` in `680.387` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156845` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156847` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -124,12 +128,15 @@ Working-tree verification after the claim matrix was added:
 - HUST `obs-unk-000001` 现有对象内来源成员审计和命题门槛页。其唯一 ZIP
   成员与已提交派生图共享已核验 checksum；C2 为直接观察，身份、上下文、
   释读和交付仍被阻断或扣留。
+- Met 对象 `42045` 现有对象内交接页，连接同一对象的来源记录候选。
+  馆藏目录保留一张紧凑图，来源记录绑定两张 API 图像字节；不新增正反面、
+  图版或文字主张。Met 专项套件为 `14 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1056 tests OK`，耗时 `684.472` 秒。选案命令返回
+- 全量测试：`1058 tests OK`，耗时 `680.387` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156845` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156847` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

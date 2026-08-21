@@ -99,13 +99,14 @@ Current targeted receipts include the following:
 - AI pilot: `49 tests OK`; case triage: `4 tests OK`; pilot summary:
   `4 tests OK`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
-- British Library 1595: `5 tests OK`; 1535: `7 + 3 tests OK`.
+- British Library 1595: `6 tests OK`; 1535: `7 + 3 tests OK`.
 - Ningxia HYZ 421: `5 tests OK`; effective OBIMD rights: `5 + 3 tests OK`.
 
 当前定向回执包括：AI 试点 `49 tests OK`、选案分诊 `4 tests OK`、试点摘要
 `4 tests OK`；v2 合同 `68 tests OK`，但没有真实 v2 记录；英国图书馆 1595
 为 `5 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
-OBIMD 有效权利为 `5 + 3 tests OK`。
+OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口仍只有检索线索，
+没有取得 `Heji 40610` 或 `Yingcang 886` 的精确结果。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
 It does not show research evidence or autonomous adjudication capability.
@@ -267,6 +268,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   标为带明确 NoAI 限制的 CC Attribution 路线；两者没有新增图像字节或独立文字证据。
 - Or. 7694/1535v 候选现记录精确标识的负面路线检索：通用 Google Arts 页面
   列出其他大英图书馆来源号，但没有 1535；这只是路线记录，不证明其他地方没有图像。
+- Or. 7694/1595 候选现记录 OBID 数据库入口、H/Y 类属和 2026-08-21
+  检索边界；没有把数据库首页或未取得的查询结果当成第二见证。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
 - 大型来源登记入口现明确：OBIMD 的历史 `licensed_for_repository` 值不是

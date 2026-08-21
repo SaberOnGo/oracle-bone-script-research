@@ -38,7 +38,7 @@ inscription record is created.
 - `000_inscription-registers/004_human-inscription-plate-presearch-map.md`
   records the current human-readable inscription and plate review gaps.
 - `000_inscription-registers/005_opened-source-record-candidate-guide.md`
-  is the human-first queue for the eight opened source-record candidates.
+  is the human-first queue for the nine opened source-record candidates.
 - `../009_statistics-and-derived-features/098_ai-agent-cambridge-hopkins-`
   `inscription-crosswalk-review-queue.csv`
   routes all 612 candidates into metadata-only human review.
@@ -114,6 +114,13 @@ Heji reference, or character assignment, and remains a source-record
 candidate rather than a formal `obi-*` record:
 [`obs-insc-src-cand-000008`][met-42045-candidate].
 
+A ninth source-record candidate captures The Met Open Access object 42022,
+accession `18.56.71`. It preserves two public image files, API metadata,
+checksums, and direct visual observations. It has no OCR, plate locator,
+Heji reference, or character assignment, and remains a source-record
+candidate rather than a formal `obi-*` record:
+[`obs-insc-src-cand-000009`][met-42022-candidate].
+
 第二个来源记录候选登记史语所 503 号页面说明，记录 `R044498`、`Ping 0529`、
 来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
 候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
@@ -149,6 +156,11 @@ Wikimedia Commons 提供。它记录正反面藏品号、合集和英国所藏�
 为 `67.43.14`。它保存两张公开图像、API metadata、校验和与直接视觉观察，
 但没有 OCR、图版定位、合集号或单字分配，仍是来源记录候选而非正式
 `obi-*` 记录：[`obs-insc-src-cand-000008`][met-42045-candidate]。
+
+第九个来源记录候选保存大都会艺术博物馆 Open Access 对象 42022，馆藏号
+为 `18.56.71`。它保存两张公开图像、API metadata、校验和与直接视觉观察，
+但没有 OCR、图版定位、合集号或单字分配，仍是来源记录候选而非正式
+`obi-*` 记录：[`obs-insc-src-cand-000009`][met-42022-candidate]。
 
 ## What A Human Should Inspect / 人工应检查什么
 
@@ -268,3 +280,5 @@ committing.
   007_obs-insc-src-cand-000007_ningxia-hyz421_source-record-candidate/README.md
 [met-42045-candidate]: 008_source-record-candidates/
   008_obs-insc-src-cand-000008_met-42045_source-record-candidate/README.md
+[met-42022-candidate]: 008_source-record-candidates/
+  009_obs-insc-src-cand-000009_met-42022_source-record-candidate/README.md

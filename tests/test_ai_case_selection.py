@@ -25,7 +25,7 @@ class AiCaseSelectionTests(unittest.TestCase):
 
     def test_real_work_order_starts_with_visible_permitted_images(self):
         rows = self.module.select_candidates(ROOT)
-        self.assertEqual(len(rows), 8)
+        self.assertEqual(len(rows), 9)
         self.assertEqual(
             [row["source_label"] for row in rows[:2]],
             ["BL", "BL"],

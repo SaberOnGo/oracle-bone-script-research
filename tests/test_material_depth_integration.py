@@ -27,7 +27,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         )
         with map_path.open(encoding="utf-8-sig", newline="") as handle:
             rows = list(csv.DictReader(handle))
-        self.assertEqual(len(rows), 8)
+        self.assertEqual(len(rows), 9)
         expected = {
             "obs-insc-src-cand-000001": "obimd-h2",
             "obs-insc-src-cand-000002": "IHP-item-503;R044498",
@@ -37,6 +37,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             "obs-insc-src-cand-000006": "BL-Or.7694/1535v;Heji-39498v",
             "obs-insc-src-cand-000007": "HYZ-421;H3:1325",
             "obs-insc-src-cand-000008": "Met-42045;67.43.14",
+            "obs-insc-src-cand-000009": "Met-42022;18.56.71",
         }
         for row in rows:
             project_id = row["project_id"]
@@ -47,6 +48,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
                 "obs-insc-src-cand-000006": "public_domain_verified",
                 "obs-insc-src-cand-000007": "source_marked_risk_noted",
                 "obs-insc-src-cand-000008": "public_domain_verified",
+                "obs-insc-src-cand-000009": "public_domain_verified",
             }.get(project_id, "metadata_only_until_verified")
             self.assertEqual(row["rights_status"], expected_rights)
             self.assertTrue((ROOT / row["canonical_path"]).is_dir())
@@ -62,6 +64,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         self.assertIn("[bl-1595-candidate]", text)
         self.assertIn("[bl-1535-candidate]", text)
         self.assertIn("[met-42045-candidate]", text)
+        self.assertIn("[met-42022-candidate]", text)
 
     def test_literature_index_links_item_level_human_dossier(self):
         text = (

@@ -2,12 +2,12 @@
 
 ## Purpose / 用途
 
-This guide is the human reading entry for the eight opened inscription
+This guide is the human reading entry for the nine opened inscription
 source-record candidates. It is a research queue, not an accepted
 inscription register and not a list of deciphered texts.
 It is not a decipherment result.
 
-本导览是八个已打开卜辞来源记录候选的人类阅读入口。它是研究队列，
+本导览是九个已打开卜辞来源记录候选的人类阅读入口。它是研究队列，
 不是已接受的卜辞登记表，也不是已破译文本清单。
 
 Open the linked object README first. Then read its human dossier, source
@@ -204,13 +204,32 @@ inscription context, and explicit character links.
 
 Read: [The Met 42045 source-record candidate][cand-000008].
 
+### 000009 The Met object 42022
+
+Object: `obs-insc-src-cand-000009`; museum object `42022`, accession
+`18.56.71`.
+
+Evidence opened: official Open Access API metadata, two public-domain image
+files, exact image checksums and dimensions, and direct visual notes.
+
+已打开证据：官方 Open Access API metadata、两张公开领域图像、精确图像
+校验和与尺寸，以及直接视觉观察。
+
+Blocking checks: OCR, plate or Heji identity, collection and findspot,
+inscription context, view orientation, and explicit character links.
+
+阻断检查：OCR、图版或《合集》身份、馆藏与出土地、卜辞语境、两图方向，
+以及明确的单字关联。
+
+Read: [The Met 42022 source-record candidate][cand-000009].
+
 ## Queue boundary / 队列边界
 
-All eight folders remain source-record candidates. None is a formal `obi-*`
+All nine folders remain source-record candidates. None is a formal `obi-*`
 record, a confirmed character-inscription relation, a calibrated AI
 hypothesis, or a decipherment result.
 
-八个目录都仍是来源记录候选。没有任何一个是正式 `obi-*` 记录、已确认的
+九个目录都仍是来源记录候选。没有任何一个是正式 `obi-*` 记录、已确认的
 字形—卜辞关系、校准后的 AI 假说或破译结果。
 
 The next action is to open the object named in the relevant row and resolve
@@ -236,3 +255,5 @@ write the exact route, access result, or source question instead.
   007_obs-insc-src-cand-000007_ningxia-hyz421_source-record-candidate/README.md
 [cand-000008]: ../008_source-record-candidates/
   008_obs-insc-src-cand-000008_met-42045_source-record-candidate/README.md
+[cand-000009]: ../008_source-record-candidates/
+  009_obs-insc-src-cand-000009_met-42022_source-record-candidate/README.md

@@ -4,15 +4,15 @@ Status: `current_state_audit`
 
 Audit update date: `2026-08-21`
 
-Audited base commit: `404e23b4284`
+Audited base commit: `b38d90ec6ed`
 
 Follow-up verification date: `2026-08-21`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
-Current skeleton receipt commit: `96e1e24d746`
+Last verified skeleton receipt before this follow-up: `b38d90ec6ed`
 
-Current human-material gate receipt commit: `96e1e24d746`
+Last verified human-material gate before this follow-up: `b38d90ec6ed`
 
 ## Purpose / 目的
 
@@ -43,6 +43,61 @@ claims that the current commit was rescanned.
   seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156838 Markdown files, all four debt counts zero.
+
+## Last verified base and working-tree follow-up /
+## 最后核验基线与工作树跟进
+
+The last committed audited base is `main` at `b38d90ec6ed`. The receipts in
+this section describe that base. The current follow-up is deliberately
+recorded as a working-tree change and does not self-embed its future commit
+hash. Older sections retain their original commit labels.
+
+最后一个已审计提交是 `main` 的 `b38d90ec6ed`。本节回执描述该基线；当前
+跟进明确记录为工作树变更，不把未来提交哈希写入自身。后文保留原始提交标签。
+
+- Full suite: `1040 tests OK` in `645.768` seconds.
+- Repository skeleton: `PASS repository skeleton`.
+- Full strict human-material gate: exit `0`, `156842` Markdown files,
+  and all four debt counts `0`.
+- Commit-message check and push: `PASS`; `origin/main` matches HEAD.
+- No public v2 experiment record exists; no candidate-delivery channel is
+  open. The user-owned `doc/public/user_prompt/1.txt` is untracked,
+  unread, and unmodified.
+- The working tree adds a ninth Met source-record candidate for object
+  `42022` / accession `18.56.71`. It has two checked image bytes and a
+  human-first dossier, but no OCR, plate identity, or character linkage.
+
+- 全量测试：`1040 tests OK`，耗时 `645.768` 秒。
+- 仓库骨架：`PASS repository skeleton`。
+- 严格人类资料门：退出码 `0`，扫描 `156842` 篇 Markdown，四项债务均为 `0`。
+- 提交信息检查和推送：`PASS`；`origin/main` 与 HEAD 一致。
+- 当前没有公开 v2 实验记录，也没有开启候选交付通道。用户拥有的
+  `doc/public/user_prompt/1.txt` 仍未跟踪、未读取、未修改。
+- 工作树新增大都会 42022 号、馆藏号 `18.56.71` 的第九个来源记录候选。
+  两张图像字节已核验并有优先人类档案，但仍无 OCR、图版身份或单字关联。
+
+Working-tree verification after the ninth candidate was added:
+
+- The Met 42022 object suite: `5 tests OK`; both image files match their
+  recorded sizes, SHA-256 values, and 4000 x 2667 dimensions.
+- The full suite: `1045 tests OK` in `705.906` seconds. The triage command
+  returned `PASS triage-only case selection (9 rows)`.
+- Repository skeleton: `PASS repository skeleton`.
+- Full strict human-material gate: exit `0`, `156842` Markdown files, and all
+  four debt counts `0`.
+- No v2 experiment record or candidate-delivery channel was opened. This
+  object remains a source-record candidate with text and catalog blockers.
+
+新增第九个候选后的工作树验证：
+
+- Met 42022 对象套件：`5 tests OK`；两张图像的大小、SHA-256 和
+  `4000 x 2667` 尺寸均与记录一致。
+- 全量测试：`1045 tests OK`，耗时 `705.906` 秒。选案命令返回
+  `PASS triage-only case selection (9 rows)`。
+- 仓库骨架：`PASS repository skeleton`。
+- 严格人类资料门：退出码 `0`，扫描 `156842` 篇 Markdown，四项债务均为 `0`。
+- 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
+  缺口仍然阻断正式提升。
 
 ## Earlier targeted receipts / 较早定向回执
 
@@ -89,7 +144,7 @@ They remain useful provenance, but are not a replacement for current scans.
 重新扫描。它们保留了 981 项测试、骨架校验、human-research gate
 以及四项债务计数的当时证据。
 
-## Current follow-up receipts / 当前跟进回执
+## Earlier follow-up receipts / 前期跟进回执
 
 The current 2026-08-21 follow-up ran targeted suites after the object and
 rights updates. A full skeleton run at commit `4130c2c034f` returned
@@ -508,7 +563,7 @@ character, inscription, component, or evolution edge into a confirmed claim.
 
 这些是档案和路线改进，不把对象、单字、卜辞、构件或演化边提升为已确认结论。
 
-## Latest HEAD receipt / 最新主分支回执
+## Earlier HEAD receipt / 较早主分支回执
 
 The object-repair baseline is `6078f7ae9c4`. Its preceding commits
 `bf243ee38b9` and `274d7a46b6f` added the Met 42045 two-view page and the
@@ -525,7 +580,7 @@ obs-char-000621 多实例档案中的直接图像链接。这些都只是来源�
 辅助，没有生成 OCR、摹写或破译主张。本回执由后续审计提交刷新，
 审计页不把自身提交哈希写入正文，以避免自指过时。
 
-Fresh receipts bound to this follow-up are:
+Earlier receipts bound to that follow-up were:
 
 - Met 42045 two-view suite: `4 tests OK`.
 - Or. 7694/1595 date-dispute suite: `4 tests OK`.
@@ -538,7 +593,7 @@ Fresh receipts bound to this follow-up are:
 - Commit-message format: `PASS` before the audit refresh was pushed.
 - Remote branch verification: `PASS` after the audit refresh was pushed.
 
-本次跟进绑定的最新回执如下：
+该次较早跟进绑定的回执如下：
 
 - Met 42045 双图套件：`4 tests OK`。
 - Or. 7694/1595 年代争议套件：`4 tests OK`。
@@ -563,13 +618,13 @@ lock raw outputs, and perform one local diagnostic score. It does not itself
 select cases, invoke a model, create independent contexts, or provide an
 external isolated scorer.
 
-The new triage command now supplies the first work-order step for the eight
+The new triage command now supplies the first work-order step for the nine
 opened inscription source-record candidates. It ranks visible evidence and
 blockers only; it is not model judgment, calibration, or candidate delivery.
 
-The current targeted pilot, triage, and reviewed-summary suites pass 49, 4,
-and 4 tests respectively. The v2 validator still finds no real experiment
-record, so no calibration or candidate-delivery claim is open.
+The earlier targeted pilot, triage, and reviewed-summary suites passed 49, 4,
+and 4 tests respectively. The current object suite adds five bounded tests;
+the v2 validator still finds no real experiment record.
 
 A reviewed [v4 diagnostic pilot record][pilot-report] exists. Its two runs
 used the same model family with fresh contexts, disagreed on the top-ranked
@@ -579,11 +634,11 @@ pilot 工具可以冻结证据、密封私有标签、创建运行开封记录�
 本地诊断评分；但它不会自行选案、调用模型、创建真正独立上下文，也不提供外部隔离评
 分器。
 
-新增的选案分诊命令现为八个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
+新增的选案分诊命令现为九个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
 证据和阻断项，不是模型判断、校准或候选交付。
 
-当前试点、选案分诊和已复核摘要的定向测试分别通过 49、4、4 项。v2 校验器仍找不
-到真实实验记录，因此尚未开启任何校准或候选交付主张。
+此前试点、选案分诊和已复核摘要的定向测试分别通过 49、4、4 项。当前对象套件
+新增五项边界测试；v2 校验器仍找不到真实实验记录。
 
 已有一份已复核的 v4 诊断记录。两次运行使用同一模型族但不同上下文，
 对不透明 ID 的首位排序不一致，因此结果保持 `diagnostic_fail_withheld`。

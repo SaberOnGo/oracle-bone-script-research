@@ -23,9 +23,9 @@ class OpenedSourceRecordCandidateGuideTests(unittest.TestCase):
         self.assertIn("破译结果", text)
         self.assertIn("Do not replace a missing item", text)
 
-    def test_guide_covers_all_eight_object_local_candidates(self):
+    def test_guide_covers_all_nine_object_local_candidates(self):
         text = GUIDE.read_text(encoding="utf-8")
-        for number in range(1, 9):
+        for number in range(1, 10):
             candidate_id = f"obs-insc-src-cand-{number:06d}"
             self.assertIn(candidate_id, text)
             self.assertIn(f"[cand-{number:06d}]", text)
@@ -38,6 +38,7 @@ class OpenedSourceRecordCandidateGuideTests(unittest.TestCase):
             "006_obs-insc-src-cand-000006_bl-or-1535_source-record-candidate",
             "007_obs-insc-src-cand-000007_ningxia-hyz421_source-record-candidate",
             "008_obs-insc-src-cand-000008_met-42045_source-record-candidate",
+            "009_obs-insc-src-cand-000009_met-42022_source-record-candidate",
         ]
         for candidate_dir in candidate_dirs:
             self.assertTrue(

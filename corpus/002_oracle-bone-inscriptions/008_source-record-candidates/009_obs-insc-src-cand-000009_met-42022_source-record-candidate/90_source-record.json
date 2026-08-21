@@ -1,0 +1,62 @@
+{
+  "candidate_id": "obs-insc-src-cand-000009",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-metmuseum-oracle-bone",
+  "source_platform": "The Metropolitan Museum of Art Open Access API",
+  "object_id": 42022,
+  "accession_number": "18.56.71",
+  "title": "Oracle Bone Fragment",
+  "object_name": "Oracle bone fragment",
+  "culture": "China",
+  "source_reported_period": "Shang dynasty (ca. 1600–1046 BCE)",
+  "medium": "Bone",
+  "credit_line": "Rogers Fund, 1918",
+  "api_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/42022",
+  "object_url": "https://www.metmuseum.org/art/collection/search/42022",
+  "api_access_date": "2026-06-05 registry snapshot; image refetch 2026-08-21",
+  "api_size_bytes": 1504,
+  "api_sha256": "6476cda2ef3e03fefb80be4c9b725e78b460131f7246d0faff101066297545c",
+  "text_status": "museum_metadata_only_without_project_transcription",
+  "ocr_status": "not_collected",
+  "plate_status": "not_independently_verified",
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "literature_status": "bibliography_and_dispute_review_pending",
+  "image_status": "public_direct_route_and_committed_source_bytes",
+  "image_routes": [
+    {
+      "api_field": "primaryImage",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/LC-18_56_71_002.jpg",
+      "committed_path": "03_visual-assets/001_asset-021414_met-42022-image-002.jpg",
+      "size_bytes": 2508142,
+      "sha256": "61510f04c8d599e4e5f9bf50ebcb1cb2163ebd7243e4a125ce08e73fdadad8cd",
+      "pixels": "4000x2667"
+    },
+    {
+      "api_field": "additionalImages[0]",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/LC-18_56_71_001.jpg",
+      "committed_path": "03_visual-assets/002_asset-021415_met-42022-image-001.jpg",
+      "size_bytes": 2643473,
+      "sha256": "c58ede9b6aa3fe82128ecf0522abb4969d25afd1c8fba17217b3208cd690122e",
+      "pixels": "4000x2667"
+    }
+  ],
+  "rights_status": "public_domain_verified",
+  "rights_scope": "Met API isPublicDomain=true for fetched image files; metadata and catalog attribution remain required",
+  "review_status": "source_record_candidate_needs_text_and_catalog_review",
+  "missing_evidence": [
+    "stable catalog or plate identity",
+    "findspot, excavation, collection history, and conservation record",
+    "rights-cleared full transcription and OCR",
+    "orientation and coordinate-bound sign segmentation",
+    "Heji, bronze, seal, modern, variant, and near-form comparison routes",
+    "named proposers, citation links, reading history, and contrary views"
+  ],
+  "boundaries": [
+    "museum metadata and direct visual observations only",
+    "no project transcription or translation",
+    "no formal obi identity",
+    "no character or component assignment",
+    "no decipherment conclusion"
+  ]
+}

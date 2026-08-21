@@ -105,6 +105,13 @@ uploaded photograph is CC BY-SA 3.0, but museum-object rights, plate identity,
 and the source text remain unresolved:
 [`obs-insc-src-cand-000007`][ningxia-hyz421-candidate].
 
+An eighth source-record candidate captures The Met Open Access object 42045,
+accession `67.43.14`. It preserves two public image files, API metadata,
+checksums, and direct visual observations. It has no OCR, plate locator,
+Heji reference, or character assignment, and remains a source-record
+candidate rather than a formal `obi-*` record:
+[`obs-insc-src-cand-000008`][met-42045-candidate].
+
 第二个来源记录候选登记史语所 503 号页面说明，记录 `R044498`、`Ping 0529`、
 来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
 候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
@@ -135,6 +142,11 @@ Wikimedia Commons 提供。它记录正反面藏品号、合集和英国所藏�
 花园庄东出土地报告以及 Schwartz 2019 引用路线。上传照片标为 CC BY-SA 3.0，
 但博物馆实物权利、图版身份和来源文字仍未解决：
 [`obs-insc-src-cand-000007`][ningxia-hyz421-candidate]。
+
+第八个来源记录候选保存大都会艺术博物馆 Open Access 对象 42045，馆藏号
+为 `67.43.14`。它保存两张公开图像、API metadata、校验和与直接视觉观察，
+但没有 OCR、图版定位、合集号或单字分配，仍是来源记录候选而非正式
+`obi-*` 记录：[`obs-insc-src-cand-000008`][met-42045-candidate]。
 
 ## What A Human Should Inspect / 人工应检查什么
 
@@ -252,3 +264,5 @@ committing.
   006_obs-insc-src-cand-000006_bl-or-1535_source-record-candidate/README.md
 [ningxia-hyz421-candidate]: 008_source-record-candidates/
   007_obs-insc-src-cand-000007_ningxia-hyz421_source-record-candidate/README.md
+[met-42045-candidate]: 008_source-record-candidates/
+  008_obs-insc-src-cand-000008_met-42045_source-record-candidate/README.md

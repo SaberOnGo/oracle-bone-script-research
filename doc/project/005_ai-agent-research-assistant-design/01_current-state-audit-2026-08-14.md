@@ -102,6 +102,12 @@ The full test suite at commit `59405ed201c` ran 1001 tests in 612.065
 seconds and returned `OK`. Its final triage-only case-selection line was
 `PASS` for seven rows; it did not open a candidate-delivery channel.
 
+After these receipts, an eighth inscription source-record candidate was added
+for The Met object 42045 / accession 67.43.14. Its two committed image files,
+API snapshot, sizes, and SHA-256 values are bound in the object-local dossier.
+The candidate still lacks OCR, a plate or Heji identity, and character links;
+it is not included in the earlier seven-row triage output.
+
 An earlier full attempt was interrupted after about eight minutes while
 reading `check_oracle_character_human_markdown_wrapping`; it produced no PASS
 result. The later successful run supersedes that incomplete attempt. The
@@ -119,6 +125,10 @@ Markdown 文件，四项债务计数均为 0。
 更早的一次全量尝试约八分钟后停在读取
 `check_oracle_character_human_markdown_wrapping` 的阶段，没有产生 PASS；
 后一次成功回执已取代这次未完成尝试。本审计说明的后续修改仅是文档修改。
+
+这些回执之后又加入大都会艺术博物馆 42045 号、馆藏号 67.43.14 的第八个
+卜辞来源记录候选。对象目录绑定两张已提交图像、API 快照、大小和 SHA-256；
+OCR、图版或合集身份以及单字关联仍缺失。它不在此前七行的选案分诊输出中。
 
 Current targeted receipts include the following:
 
@@ -220,6 +230,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   catalog, text, and character-link gaps.
 - The central inscription source-record map now routes all seven opened
   candidates to their object-local human dossiers.
+- A later follow-up adds a Met 42045 source-record candidate with two
+  public-domain image files and a bounded human dossier; it remains outside
+  the seven-row triage snapshot and has no OCR or character assignment.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
 - Six item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
@@ -316,6 +329,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - HYZ 421 候选现有八个区域的视觉复核页和 CSV。区域框与已提交 JPEG 的校验和
   绑定，但没有把区域对应到单字、行序、阅读顺序或页面字符串。
 - 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
+- 后续又加入大都会 42045 号来源记录候选，含两张公开领域图像和受限的人类
+  档案；它不属于七行分诊快照，仍没有 OCR 或单字分配。
 - 六个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
   Schwartz 的花园庄东专著和 Liu 的《英藏》月食论文。
 - Or. 7694/1595 的争议档案另补记史语所官方书目中的董作宾 1950 年〈殷代月食考〉；

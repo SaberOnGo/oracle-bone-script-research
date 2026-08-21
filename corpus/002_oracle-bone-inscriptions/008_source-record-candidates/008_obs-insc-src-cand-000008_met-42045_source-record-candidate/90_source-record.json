@@ -1,0 +1,65 @@
+{
+  "candidate_id": "obs-insc-src-cand-000008",
+  "record_type": "inscription_source_record_candidate",
+  "source_id": "src-metmuseum-oracle-bone",
+  "source_platform": "The Metropolitan Museum of Art Open Access API",
+  "object_id": 42045,
+  "accession_number": "67.43.14",
+  "title": "Oracle bone",
+  "object_name": "Oracle bone",
+  "department": "Asian Art",
+  "culture": "China",
+  "source_reported_period": "Shang dynasty (ca. 1600–1046 BCE)",
+  "medium": "Inscribed bone",
+  "dimensions": "W. 1 3/16 in. (3 cm); L. 8 7/8 in. (22.5 cm)",
+  "credit_line": "Gift of Paul E. Manheim, 1967",
+  "collection": "Metropolitan Museum of Art, New York, NY",
+  "api_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/42045",
+  "object_url": "https://www.metmuseum.org/art/collection/search/42045",
+  "api_access_date": "2026-08-21",
+  "api_size_bytes": 1590,
+  "api_sha256": "74efc7255beeed6cf1400d86c336c5b97a5638a683956e83fa7216ad42f152b9",
+  "text_status": "museum_metadata_only_without_project_transcription",
+  "ocr_status": "not_collected",
+  "plate_status": "not_independently_verified",
+  "formal_inscription_identity": "not_assigned",
+  "character_links": [],
+  "literature_status": "bibliography_and_dispute_review_pending",
+  "image_status": "public_direct_route_and_committed_source_bytes",
+  "image_routes": [
+    {
+      "api_field": "primaryImage",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/LC-67_43_14_002.jpg",
+      "committed_path": "03_visual-assets/001_asset-000001_met-42045-image-002.jpg",
+      "size_bytes": 1780568,
+      "sha256": "c605ae36f53ffdc5c1200e3bf23683aaaa6106a03e1c002ca5ab8f859e0333df",
+      "pixels": "2667x4000"
+    },
+    {
+      "api_field": "additionalImages[0]",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/LC-67_43_14_001.jpg",
+      "committed_path": "03_visual-assets/002_asset-000002_met-42045-image-001.jpg",
+      "size_bytes": 1616877,
+      "sha256": "c2c09d618ed7da7e38b845164186590f7fa416ec3487a319c7de75b84330a480",
+      "pixels": "2667x4000"
+    }
+  ],
+  "rights_status": "public_domain_verified",
+  "rights_scope": "Met API isPublicDomain=true for fetched image files; metadata and catalog attribution remain required",
+  "review_status": "source_record_candidate_needs_text_and_catalog_review",
+  "missing_evidence": [
+    "stable catalog or plate identity",
+    "findspot, excavation, collection history, and conservation record",
+    "rights-cleared full transcription and OCR",
+    "orientation and coordinate-bound sign segmentation",
+    "Heji, bronze, seal, modern, variant, and near-form comparison routes",
+    "named proposers, citation links, reading history, and contrary views"
+  ],
+  "boundaries": [
+    "museum metadata and direct visual observations only",
+    "no project transcription or translation",
+    "no formal obi identity",
+    "no character or component assignment",
+    "no decipherment conclusion"
+  ]
+}

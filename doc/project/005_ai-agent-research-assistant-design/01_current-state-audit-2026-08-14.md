@@ -291,6 +291,11 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - The 2026-08-21 recheck of the Or. 7694/1535v catalogue still reports
   `Images currently unavailable`; this access result is not evidence that no
   image exists.
+- The same recheck records a visible hierarchy gap: `Or 7694/1534` is
+  followed by `Or 7694/1537`, while `1535` and `1536` are not shown in that
+  rendering. This is a route discrepancy only; item identity remains open.
+- 同次复核还记录可见层级间隔：`Or 7694/1534` 后接 `Or 7694/1537`，
+  页面呈现中未见 `1535` 与 `1536`。这只是路线差异，逐项身份仍待查。
 - 宁夏博物馆 HYZ 421 来源记录候选现保存一张 CC BY-SA 3.0 照片、本地校验和与
   尺寸、来源释文、花园庄东路线及 Schwartz 2019 引用。博物馆权利、图版身份和
   OCR 仍未解决。

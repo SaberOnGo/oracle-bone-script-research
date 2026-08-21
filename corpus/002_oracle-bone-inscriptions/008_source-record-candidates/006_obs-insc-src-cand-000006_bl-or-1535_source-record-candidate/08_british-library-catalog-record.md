@@ -36,6 +36,35 @@ The search result for `Or 7694/1535` reports:
 - Extent: inscribed bone from China, dating between 1300 and 1050 BC
 - Image notice: `Images currently unavailable`
 
+## Collection hierarchy recheck / 集合层级复核
+
+The official collection record is `Or 7694/1506-2125`:
+
+- https://searcharchives.bl.uk/catalog/032-002915678
+- Access checked: 2026-08-21
+- Source of acquisition: Couling-Chalfant collection
+- Collection date range: 1300-1050 BC
+- Access notice: restrictions apply; digitised content is unavailable
+
+The visible hierarchy lists `Or 7694/1534` and then `Or 7694/1537`,
+but does not visibly list `Or 7694/1535` or `Or 7694/1536` in this
+rendering. This is a route discrepancy, not proof that either item is
+absent. The project therefore keeps the item-level identity unresolved
+and does not infer a missing image, plate, or inscription from the gap.
+
+官方集合记录为 `Or 7694/1506-2125`：
+
+- https://searcharchives.bl.uk/catalog/032-002915678
+- 2026-08-21 检查
+- 来源取得：Couling-Chalfant 收藏
+- 集合年代范围：1300-1050 BC
+- 访问提示：受限制；数字化内容当前不可用
+
+当前可见层级列出 `Or 7694/1534` 后接 `Or 7694/1537`，没有在这次
+页面呈现中看到 `Or 7694/1535` 或 `Or 7694/1536`。这只是路线差异，
+不是证明条目不存在。项目因此保留逐项身份未解决，不从这个间隔推断
+缺图、图版或卜辞身份。
+
 检索结果报告的字段包括：馆藏号 Or 7694/1535；题名为商代甲骨；内容说明
 为 Couling-Chalfant 收藏中的有刻辞骨；馆藏区域为 Oriental Manuscripts；
 语言为 Chinese；年代范围为 1300 BC-1050 BC；资料范围为来自中国、
@@ -68,11 +97,17 @@ Commons 图像路线仍是另一证据族。馆藏检索结果不能证明 CC0 �
 4. Record findspot, collection history, period, batch, and group evidence
    independently of the catalogue label.
 
+5. Ask the British Library to resolve the visible hierarchy gap for
+   `Or 7694/1535` and `Or 7694/1536`, including any restricted item IDs.
+
 1. 解析 `Or 7694/1535v` 的稳定逐项记录，包括记录号、JSON、IIIF 和恢复
    后的图像路线。
 2. 用可定位页码的扫描件核对 Heji 39498v 与 Yingcang 1117v。
 3. 取得权利清楚的摹写或 OCR，并记录版本、页码、图版、行号和复核人。
 4. 独立于目录题名，记录出土地、馆藏流转、时期、批次和组类证据。
+
+5. 向大英图书馆核对可见层级中 `Or 7694/1535` 与 `Or 7694/1536` 的
+   间隔，取得受限条目的记录号（如有）。
 
 This page is catalog evidence only. It contains no project OCR,
 transcription, translation, character assignment, formal inscription identity,

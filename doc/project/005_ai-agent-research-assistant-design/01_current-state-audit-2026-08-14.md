@@ -117,6 +117,9 @@ Current targeted receipts include the following:
 
 - AI pilot: `49 tests OK`; case triage: `4 tests OK`; pilot summary:
   `4 tests OK`.
+- Fresh AI pilot rerun at commit `4b58d321332`: `49 tests OK` in 88.484
+  seconds. This remains a diagnostic pipeline receipt, not a calibration or
+  candidate-delivery result.
 - Full skeleton at `866f78ab5bc`: `PASS repository skeleton`.
 - Full strict human-material gate at `30414601e7e`: `156838` Markdown files;
   all four debt counts were `0`.
@@ -142,6 +145,9 @@ full/strict 人类资料门在 `30414601e7e` 上扫描 156838 个 Markdown 文�
 OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页和原文
 检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得
 `Heji 40610` 或 `Yingcang 886` 的精确结果。
+
+`4b58d321332` 上重新运行 AI 试点 `49 tests OK`，用时 88.484 秒。这仍是
+诊断流程回执，不是校准结果或候选交付结果。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
 It does not show research evidence or autonomous adjudication capability.

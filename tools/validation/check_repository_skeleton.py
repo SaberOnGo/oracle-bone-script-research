@@ -36247,21 +36247,21 @@ def check_source_registers(root: Path) -> list[str]:
 
 def check_oracle_character_human_markdown_wrapping(root: Path) -> list[str]:
     issues: list[str] = []
-    markdown_root = root / "corpus/001_oracle-characters"
-    for dirpath, dirnames, filenames in os.walk(markdown_root):
-        dirnames.sort()
-        for filename in sorted(filenames):
-            if not filename.endswith(".md"):
-                continue
-            path = Path(dirpath) / filename
-            relative = path.relative_to(root).as_posix()
-            with path.open("r", encoding="utf-8") as file:
-                for line_number, line in enumerate(file, start=1):
-                    line = line.rstrip("\r\n")
-                    if line.startswith("|") or line.startswith("![") or line.startswith("<"):
-                        continue
-                    if len(line) > 80:
-                        issues.append(f"{relative}:{line_number} line exceeds 80 characters")
+    prefix = "corpus/001_oracle-characters/"
+    candidate_paths = _repository_candidate_relative_paths(str(root.resolve()))
+    for relative in sorted(candidate_paths):
+        if not relative.startswith(prefix) or not relative.endswith(".md"):
+            continue
+        path = root / Path(relative)
+        if not path.is_file():
+            continue
+        with path.open("r", encoding="utf-8") as file:
+            for line_number, line in enumerate(file, start=1):
+                line = line.rstrip("\r\n")
+                if line.startswith("|") or line.startswith("![") or line.startswith("<"):
+                    continue
+                if len(line) > 80:
+                    issues.append(f"{relative}:{line_number} line exceeds 80 characters")
     return issues
 
 

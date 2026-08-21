@@ -4292,6 +4292,29 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(committed_rows[0]["visual_material_status"], "committed_review_image_derivative")
         self.assertTrue(all(row["review_status"] == "needs_human_visual_review" for row in rows))
 
+    def test_character_markdown_wrapping_prunes_ignored_archives(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            base = root / "corpus/001_oracle-characters/001_bucket"
+            base.mkdir(parents=True)
+            (base / "good.md").write_text("short\n", encoding="utf-8")
+            (base / "ordinary.md").write_text("x" * 81 + "\n", encoding="utf-8")
+            ignored = base / ".working/nested"
+            ignored.mkdir(parents=True)
+            (ignored / "ignored.md").write_text(
+                "y" * 81 + "\n", encoding="utf-8"
+            )
+
+            issues = check_oracle_character_human_markdown_wrapping(root)
+
+            self.assertEqual(
+                issues,
+                [
+                    "corpus/001_oracle-characters/001_bucket/ordinary.md:1 "
+                    "line exceeds 80 characters"
+                ],
+            )
+
     def test_character_human_research_dossiers_are_colocated_and_wrapped(self) -> None:
         target_dir = (
             repo_root()

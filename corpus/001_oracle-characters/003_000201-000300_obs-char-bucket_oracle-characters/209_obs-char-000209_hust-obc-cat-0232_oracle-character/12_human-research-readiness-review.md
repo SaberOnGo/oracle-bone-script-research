@@ -46,6 +46,7 @@ Current decision:
 - Human review sheet: `06_human-review-sheet.md`
 - Context evidence: `08_character-context-evidence-dossier.md`
 - Archaeology review: `10_archaeology-paleography-review.md`
+- Multi-instance comparison: `17_multi-instance-visual-comparison.md`
 - Visual source index: `02_visual-source-index.csv`
 - Dossier support index: `07_research-dossier-index.json`
 - Context support index: `09_character-context-evidence-index.json`
@@ -62,6 +63,7 @@ They do not replace the human record.
 
 - visual index rows: `1`
 - local review images: `1`
+- opened source-package members: `5`
 - source image routes: `1`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
@@ -80,8 +82,10 @@ It is not the oracle-character identity or accepted reading.
 
 ## 4. Formal-Research Blockers / 正式研究阻断项
 
-- Glyph image observation has not been written from opened images.
-- Variant and near-form comparison remains a route, not a review.
+- Five source-package members now have direct visual observations, but only
+  one review derivative is committed.
+- The five-member comparison is a preparation-stage review, not a confirmed
+  variant or near-form conclusion.
 - Component clues are not assigned to a formal component structure.
 - Inscription occurrence and context are not tied to an opened text.
 - Plate, catalog, Heji, collection, findspot, period, and group
@@ -95,6 +99,8 @@ It is not the oracle-character identity or accepted reading.
 ## 5. Concrete Missing Evidence Questions / 具体缺证问题
 
 - Which opened image row supports the first glyph observation?
+- Which of the five opened source-package members can be released under a
+  verified rights route?
 - Which stroke, outline, damage, or uncertain mark remains pending?
 - Which variant or near-form image must be compared side by side?
 - Which component clue is only a candidate route?

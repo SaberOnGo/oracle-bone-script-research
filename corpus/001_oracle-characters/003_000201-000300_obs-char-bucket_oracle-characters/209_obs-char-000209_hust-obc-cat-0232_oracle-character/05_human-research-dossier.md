@@ -300,6 +300,17 @@ group strings `賓組`, `子組`, and `𠂤組`.
 其中有 10 条 `G_` 记录。文件名只提供合集号、旧著录号和
 `賓組`、`子組`、`𠂤組` 等组类候选，尚未证明卜辞身份。
 
+A human-readable comparison of five opened members is in
+[`17_multi-instance-visual-comparison.md`](
+17_multi-instance-visual-comparison.md). It records the repeated lattice
+and side-curve forms, left/right placement, exact package bytes, and
+counterevidence. Four images remain private to the ignored package.
+
+五个已打开来源成员的人类可读比较见
+[`17_multi-instance-visual-comparison.md`](
+17_multi-instance-visual-comparison.md)。本页记录网格与侧弯笔的重复形态、
+左右位置、原包字节信息和反证；其中四图仍只在忽略区原包内。
+
 The cross-source route is HUST `hust-obc-cat-0232`, OBIMD
 `obimd-main-nzqdb3i249`, and EvoBC `evobc-cat-00021` with 28 aggregate
 references. The same codepoint and two OBIMD transcription candidates are

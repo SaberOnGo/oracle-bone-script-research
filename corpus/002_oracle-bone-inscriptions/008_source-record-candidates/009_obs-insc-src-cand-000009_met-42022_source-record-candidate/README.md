@@ -40,7 +40,8 @@ API 把两张图像标为 `primaryImage` 和 `additionalImages[0]`。本目录�
 7. `07_missing-evidence-plan.md`: concrete next checks.
 8. `08_visual-region-review.md`: image-first observations.
 9. `09_two-view-human-evidence.md`: two-view comparison and limits.
-10. Open `90_source-record.json` and `91_source-record-index.csv` last.
+10. `10_claim-evidence-gate-review.md`: claim-level blockers and disposition.
+11. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象、API 和图像路线。
 2. `02_human-inscription-dossier.md`：来源身份和视觉观察。
@@ -51,7 +52,8 @@ API 把两张图像标为 `primaryImage` 和 `additionalImages[0]`。本目录�
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_visual-region-review.md`：图像优先观察。
 9. `09_two-view-human-evidence.md`：双图比较和限制。
-10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+10. `10_claim-evidence-gate-review.md`：逐命题阻断和处置。
+11. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

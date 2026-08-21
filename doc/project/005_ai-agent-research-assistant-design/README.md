@@ -582,6 +582,13 @@ Release also requires:
 Two evidence families are necessary, not sufficient. Claim-specific blockers
 also apply:
 
+The complete claim-by-claim mandatory-evidence and blocking matrix is the
+[claim evidence gate matrix][claim-evidence-matrix]. It is normative for
+human dossiers and AI adjudication; the lists below are its short summary.
+
+完整的逐命题必需证据与阻断矩阵见[命题证据门槛矩阵][claim-evidence-matrix]。
+它同时约束人类档案和 AI 裁决；下列内容只是该矩阵的简要摘要。
+
 - object identity requires visible material or an authorized surrogate,
   stable catalog identity, and a checksum-bound source trail;
 - glyph or variant relation requires damage-aware comparable forms,
@@ -997,3 +1004,4 @@ bone reading.
 [2026 survey]: https://www.nature.com/articles/s40494-026-02511-w
 [LLM calibration]: https://arxiv.org/abs/2403.05973
 [conformal shift]: https://arxiv.org/abs/1904.06019
+[claim-evidence-matrix]: 02_claim-evidence-gate-matrix.md

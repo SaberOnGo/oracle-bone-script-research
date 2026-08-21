@@ -1,7 +1,10 @@
 # Oracle Bone Script Research Methods / 甲骨文研究方法
 
 English:
-The project treats decipherment support as evidence synthesis across glyph shape, components, inscription context, same-bone or same-batch materials, excavation context, period, grammar position, co-occurrence statistics, bronze/seal script correspondences, and scholarly argument history.
+The project treats decipherment support as evidence synthesis across glyph
+shape, components, inscription context, same-bone or same-batch materials,
+excavation context, period, grammar position, co-occurrence statistics,
+bronze/seal script correspondences, and scholarly argument history.
 
 简体中文：
 本项目把释读辅助视为证据综合：字形、构件、卜辞上下文、同版或同坑材料、出土信息、时代、语法位置、共现统计、金文/小篆对应和学术论证史都应共同参与判断。
@@ -16,3 +19,16 @@ The project treats decipherment support as evidence synthesis across glyph shape
 - Component breakdown / 构件拆分
 - Comparable forms / 可比较字形
 - Supporting and opposing evidence / 支持与反对证据
+
+For proposition-specific blockers, use the [claim evidence gate matrix]
+[claim-matrix] before any AI hypothesis or candidate delivery. A complete
+evidence pack is still not a confirmed decipherment.
+
+对于逐命题阻断项，在任何 AI 假说或候选交付前使用[命题证据门槛矩阵]
+[claim-matrix]。证据包完整仍不等于已确认释读。
+
+The matrix file is `02_claim-evidence-gate-matrix.md`.
+
+矩阵文件名为 `02_claim-evidence-gate-matrix.md`。
+
+[claim-matrix]: ../005_ai-agent-research-assistant-design/

@@ -76,26 +76,32 @@ hash. Older sections retain their original commit labels.
 - 工作树新增大都会 42022 号、馆藏号 `18.56.71` 的第九个来源记录候选。
   两张图像字节已核验并有优先人类档案，但仍无 OCR、图版身份或单字关联。
 
-Working-tree verification after the ninth candidate was added:
+Working-tree verification after the claim matrix was added:
 
 - The Met 42022 object suite: `5 tests OK`; both image files match their
-  recorded sizes, SHA-256 values, and 4000 x 2667 dimensions.
-- The full suite: `1045 tests OK` in `705.906` seconds. The triage command
+  recorded sizes, SHA-256 values, and 4000 x 2667 dimensions. Its claim-gate
+  page marks C2 direct observation and C1/C3--C8 blocked or withheld.
+- The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
+  strategy, methods, and AI evidence-pack review skill.
+- The full suite: `1049 tests OK` in `647.352` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156842` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156843` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
 
-新增第九个候选后的工作树验证：
+新增命题矩阵后的工作树验证：
 
 - Met 42022 对象套件：`5 tests OK`；两张图像的大小、SHA-256 和
-  `4000 x 2667` 尺寸均与记录一致。
-- 全量测试：`1045 tests OK`，耗时 `705.906` 秒。选案命令返回
+  `4000 x 2667` 尺寸均与记录一致；命题页把 C2 标为直接观察，C1、
+  C3--C8 标为阻断或扣留。
+- 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
+  evidence-pack skill 共同链接。
+- 全量测试：`1049 tests OK`，耗时 `647.352` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156842` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156843` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

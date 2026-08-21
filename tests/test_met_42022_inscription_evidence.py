@@ -57,6 +57,12 @@ class Met42022InscriptionEvidenceTests(unittest.TestCase):
         self.assertEqual(record["formal_inscription_identity"], "not_assigned")
         self.assertEqual(record["character_links"], [])
         self.assertIn("no decipherment conclusion", record["boundaries"])
+        self.assertEqual(record["claim_gate_review"]["c1_object_identity"], "blocked")
+        self.assertEqual(
+            record["claim_gate_review"]["c2_direct_glyph_observation"],
+            "direct_checked",
+        )
+        self.assertEqual(record["claim_gate_review"]["c8_user_delivery"], "withheld")
         self.assertEqual(len(record["image_routes"]), 2)
         dossier = (OBJECT / "02_human-inscription-dossier.md").read_text(
             encoding="utf-8"
@@ -68,6 +74,22 @@ class Met42022InscriptionEvidenceTests(unittest.TestCase):
             "not assigned",
         ):
             self.assertIn(marker, dossier)
+        gate = (OBJECT / "10_claim-evidence-gate-review.md").read_text(
+            encoding="utf-8"
+        )
+        for marker in (
+            "C1 object identity",
+            "C2 direct glyph observation",
+            "C4 inscription occurrence and context",
+            "C8 complete proposition and user delivery",
+            "C1 对象身份",
+            "C8 完整命题与用户交付",
+            "no user-facing",
+            "candidate delivery",
+            "没有面向用户的候选",
+            "交付",
+        ):
+            self.assertIn(marker, gate)
 
     def test_images_match_recorded_hashes_and_dimensions(self):
         record = json.loads(

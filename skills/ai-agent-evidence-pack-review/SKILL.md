@@ -22,6 +22,10 @@ decipherment-support hypothesis.
 - `doc/project/005_ai-agent-research-assistant-design/README.md`
 - `doc/project/004_oracle-bone-script-research-methods/README.md`
 - `doc/public/user_research/README.md`
+- [strategy](../../doc/project/005_ai-agent-research-assistant-design/)
+
+The linked directory contains the claim matrix at
+`02_claim-evidence-gate-matrix.md`.
 
 ## Evidence Pack Must Include / 证据包必须包含
 
@@ -35,6 +39,35 @@ decipherment-support hypothesis.
 - Supporting evidence / 支持证据
 - Opposing evidence / 反对证据
 - Open questions and next checks / 未决问题和下一步检查
+
+## Claim Gate Before Hypothesis / 假说前命题门槛
+
+Apply the [claim evidence gate matrix][claim-matrix] before proposing a
+reading, meaning, grammar function, component, variant, or diachronic link.
+For every applicable claim, record its `claim_id`, evidence state, independent
+family IDs, mandatory blockers, counterevidence, and one concrete next-source
+question in the human dossier.
+
+在提出读音、意义、语法功能、构件、异体或历时关系前，必须应用[命题证据
+门槛矩阵][claim-matrix]。对每个适用命题，在人类档案中记录 `claim_id`、
+证据状态、独立家族 ID、必需阻断项、反证和一个具体下一来源问题。
+
+`route_only`, `source_reported`, or missing mandatory evidence is a blocker.
+A v1 schema pass, a modern-label match, or an Agent self-score cannot clear
+the blocker. If C4--C7 is incomplete, the Agent must abstain from reading,
+meaning, grammar, or correspondence claims and may only return a source route,
+candidate relation, or withheld decision.
+
+`route_only`、`source_reported` 或缺失必需证据都是阻断项。v1 schema 通过、
+现代标签匹配或 Agent 自评分都不能解除阻断。若 C4--C7 不完整，Agent 必须
+对读音、意义、语法或对应关系弃权，只能返回来源路线、关系候选或扣留决定。
+
+The matrix controls delivery semantics, not the v1 lifecycle enum. Keep v1
+`status` in its existing values and keep `assignment_status` separate from
+the strategy's `delivery_status`.
+
+矩阵控制交付语义，不改 v1 生命周期枚举。v1 `status` 继续使用现有值，
+`assignment_status` 与战略的 `delivery_status` 保持分离。
 
 ## Output Rule / 输出规则
 
@@ -67,3 +100,5 @@ source-marked evidence into Git.
 临时下载、OCR 中间产物、向量索引、草稿对比和生成缓存必须放在
 `tmp/`、`_tmp/`、`scratch/`、`.working/` 或 `.cache/` 等已忽略临时目录。
 只有经过复核、标注来源的证据才可以提升进入 Git。
+
+[claim-matrix]: ../../doc/project/005_ai-agent-research-assistant-design/

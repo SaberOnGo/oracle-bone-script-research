@@ -22,6 +22,18 @@
   "formal_inscription_identity": "not_assigned",
   "character_links": [],
   "literature_status": "bibliography_and_dispute_review_pending",
+  "claim_gate_review": {
+    "path": "10_claim-evidence-gate-review.md",
+    "matrix": "doc/project/005_ai-agent-research-assistant-design/02_claim-evidence-gate-matrix.md",
+    "c1_object_identity": "blocked",
+    "c2_direct_glyph_observation": "direct_checked",
+    "c3_sign_variant_near_form_component": "blocked",
+    "c4_inscription_occurrence_context": "blocked",
+    "c5_reading_phonology": "blocked",
+    "c6_semantic_grammar": "blocked",
+    "c7_diachronic_correspondence": "blocked",
+    "c8_user_delivery": "withheld"
+  },
   "image_status": "public_direct_route_and_committed_source_bytes",
   "image_routes": [
     {

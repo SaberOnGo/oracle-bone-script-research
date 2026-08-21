@@ -40,7 +40,8 @@ API 报告对象为甲骨、材质为刻辞骨，并给出商代时期和公开�
 6. `06_literature-and-dispute-review.md`: literature and disagreement gaps.
 7. `07_missing-evidence-plan.md`: concrete next checks.
 8. `08_visual-region-review.md`: image-first observations without OCR.
-9. Open `90_source-record.json` and `91_source-record-index.csv` last.
+9. `09_two-view-human-evidence.md`: two-view image evidence and limits.
+10. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象、API 和图像路线。
 2. `02_human-inscription-dossier.md`：身份与直接视觉观察。
@@ -50,7 +51,8 @@ API 报告对象为甲骨、材质为刻辞骨，并给出商代时期和公开�
 6. `06_literature-and-dispute-review.md`：文献和分歧缺口。
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_visual-region-review.md`：不做 OCR 的图像优先观察。
-9. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+9. `09_two-view-human-evidence.md`：双图证据和限制。
+10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

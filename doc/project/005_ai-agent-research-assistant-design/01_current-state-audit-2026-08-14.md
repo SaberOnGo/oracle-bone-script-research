@@ -6,7 +6,7 @@ Snapshot date: `2026-08-14`
 
 Snapshot commit: `7c8b8a29a35`
 
-Follow-up verification date: `2026-08-15`
+Follow-up verification date: `2026-08-21`
 
 ## Purpose / 目的
 
@@ -46,6 +46,10 @@ boundary. Counts are recorded from the commands run at this snapshot.
   JPEG matches its recorded size, SHA-256, format, and pixel dimensions.
 - Ningxia HYZ 421 visual-region review: `3 tests OK`; eight boxes are bound
   to the committed JPEG and remain unmapped to the displayed source string.
+- HUST character visual-comparison follow-up: `15 tests OK` across
+  `obs-char-000209`, `obs-char-000412`, and `obs-char-000791`. Fifteen raw
+  members are bound to exact ZIP paths, sizes, compressed sizes, SHA-256
+  values, and pixel dimensions; no restricted image was newly committed.
 - Schwartz Huayuanzhuang East literature dossier: `4 tests OK`; publisher
   metadata, DOI, chapter map, license signal, and HYZ 421 page citation are
   recorded without claiming that the cited pages were opened.
@@ -147,6 +151,9 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - Six HUST character dossiers now include object-specific opened-evidence
   synthesis with direct observation, filename candidates, counterevidence,
   rights boundaries, and concrete next checks.
+- The six-object HUST visual batch now has human-readable multi-instance
+  comparisons for `000209`, `000412`, `000621`, `000791`, `000852`, and
+  `000963`. These are bounded visual records, not accepted glyph identities.
 - The British Library Or. 7694/1595 candidate now has a human-readable
   source-text and image-side reconciliation page preserving both displayed
   strings without creating OCR or a project transcription.

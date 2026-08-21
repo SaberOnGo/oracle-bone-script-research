@@ -10,7 +10,7 @@ Follow-up verification date: `2026-08-21`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
-Current skeleton receipt commit: `866f78ab5bc`
+Current skeleton receipt commit: `697519baefb`
 
 Current human-material gate receipt commit: `30414601e7e`
 
@@ -92,8 +92,8 @@ They remain useful provenance, but are not a replacement for current scans.
 ## Current follow-up receipts / 当前跟进回执
 
 The current 2026-08-21 follow-up ran targeted suites after the object and
-rights updates. After the scan-pruning change, a full skeleton run at commit
-`866f78ab5bc` returned `PASS repository skeleton`.
+rights updates. A full skeleton run at commit `697519baefb` returned
+`PASS repository skeleton`.
 
 The full strict human-material gate at commit `30414601e7e` returned exit 0
 with 156838 scanned Markdown files and all four debt counts at zero.
@@ -104,7 +104,7 @@ result. The later successful run supersedes that incomplete attempt. The
 audit-note edit after the receipt is documentation-only.
 
 2026-08-21 的跟进在对象、权利和自主试点更新后运行了定向测试。完成扫描剪枝后，
-`866f78ab5bc` 上的全量骨架校验返回 `PASS repository skeleton`。
+`697519baefb` 上的全量骨架校验返回 `PASS repository skeleton`。
 
 `30414601e7e` 上的 full/strict 人类资料门返回退出码 0，扫描 156838 个
 Markdown 文件，四项债务计数均为 0。
@@ -117,10 +117,10 @@ Current targeted receipts include the following:
 
 - AI pilot: `49 tests OK`; case triage: `4 tests OK`; pilot summary:
   `4 tests OK`.
-- Fresh AI pilot rerun at commit `4b58d321332`: `49 tests OK` in 88.484
+- Fresh AI pilot rerun at commit `faf3ab9cf03`: `49 tests OK` in 88.484
   seconds. This remains a diagnostic pipeline receipt, not a calibration or
   candidate-delivery result.
-- Full skeleton at `866f78ab5bc`: `PASS repository skeleton`.
+- Full skeleton at `697519baefb`: `PASS repository skeleton`.
 - Full strict human-material gate at `30414601e7e`: `156838` Markdown files;
   all four debt counts were `0`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
@@ -146,7 +146,7 @@ OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页�
 检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得
 `Heji 40610` 或 `Yingcang 886` 的精确结果。
 
-`4b58d321332` 上重新运行 AI 试点 `49 tests OK`，用时 88.484 秒。这仍是
+`faf3ab9cf03` 上重新运行 AI 试点 `49 tests OK`，用时 88.484 秒。这仍是
 诊断流程回执，不是校准结果或候选交付结果。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.

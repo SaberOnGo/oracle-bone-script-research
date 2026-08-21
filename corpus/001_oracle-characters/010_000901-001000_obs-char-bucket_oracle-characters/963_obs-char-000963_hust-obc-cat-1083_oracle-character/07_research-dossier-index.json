@@ -1,6 +1,6 @@
 {
   "project_id": "obs-char-000963",
-  "updated_at": "2026-06-21",
+  "updated_at": "2026-08-21",
   "object_dir": "corpus/001_oracle-characters/010_000901-001000_obs-char-bucket_oracle-characters/963_obs-char-000963_hust-obc-cat-1083_oracle-character",
   "human_files": [
     "README.md",
@@ -8,7 +8,10 @@
     "05_human-research-dossier.md",
     "06_human-review-sheet.md",
     "08_character-context-evidence-dossier.md",
-    "14_material-visual-observation.md"
+    "14_material-visual-observation.md",
+    "15_source-filename-evidence-review.md",
+    "17_multi-instance-visual-comparison.md",
+    "18_claim-evidence-gate-review.md"
   ],
   "ai_files": [
     "01_candidate-character-packet.json",

@@ -25,6 +25,8 @@ verify the human-readable evidence.
   `15_source-filename-evidence-review.md`
 - Human-readable multi-instance comparison / 人类可读多实例比较:
   `17_multi-instance-visual-comparison.md`
+- Human-readable claim gate review / 人类可读命题门槛复核:
+  `18_claim-evidence-gate-review.md`
 - Human-readable readiness review / 人类可读研究准备度复核:
   `12_human-research-readiness-review.md`
 - Structured support candidate packet / 结构化辅助候选包:

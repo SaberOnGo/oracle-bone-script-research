@@ -1,3 +1,4 @@
+import json
 import re
 import unittest
 from pathlib import Path
@@ -46,14 +47,66 @@ class ObsChar000963MultiInstanceReviewTests(unittest.TestCase):
         self.assertNotIn("TODO", text)
 
     def test_human_markdown_lines_do_not_exceed_eighty_characters(self):
-        for line_number, line in enumerate(
-            DOSSIER.read_text(encoding="utf-8-sig").splitlines(), 1
+        object_dir = DOSSIER.parent
+        for path in object_dir.glob("*.md"):
+            for line_number, line in enumerate(
+                path.read_text(encoding="utf-8-sig").splitlines(), 1
+            ):
+                self.assertLessEqual(
+                    len(line),
+                    80,
+                    f"{path}:{line_number}: {len(line)} characters",
+                )
+
+    def test_claim_gate_is_human_readable_and_withholds_unverified_claims(self):
+        page = (DOSSIER.parent / "18_claim-evidence-gate-review.md").read_text(
+            encoding="utf-8-sig"
+        )
+        for marker in (
+            "C1 object identity",
+            "C2 direct glyph observation",
+            "C3 same-sign, variant, near-form, or component",
+            "C4 inscription occurrence and context",
+            "C8 complete proposition and user delivery",
+            "C1 对象身份",
+            "C3 同字、异体、近形或构件",
+            "C8 完整命题与用户交付",
+            "candidate_route",
+            "withheld",
+            "U+3831",
+            "No reading, meaning, probability",
+            "没有估计释读、意义、概率",
         ):
-            self.assertLessEqual(
-                len(line),
-                80,
-                f"{DOSSIER}:{line_number}: {len(line)} characters",
+            self.assertIn(marker, page)
+        self.assertNotIn("confirmed reading", page)
+        self.assertNotIn("确认释读", page)
+
+    def test_claim_gate_is_bound_to_packet_and_human_index(self):
+        packet = json.loads(
+            (DOSSIER.parent / "01_candidate-character-packet.json").read_text(
+                encoding="utf-8-sig"
             )
+        )
+        self.assertEqual(
+            packet["claim_gate_review"]["c1_object_identity"], "blocked"
+        )
+        self.assertEqual(
+            packet["claim_gate_review"]["c2_direct_glyph_observation"],
+            "direct_checked",
+        )
+        self.assertEqual(
+            packet["claim_gate_review"]["c3_sign_variant_near_form_component"],
+            "candidate_route",
+        )
+        self.assertEqual(
+            packet["claim_gate_review"]["c8_user_delivery"], "withheld"
+        )
+        index = json.loads(
+            (DOSSIER.parent / "07_research-dossier-index.json").read_text(
+                encoding="utf-8-sig"
+            )
+        )
+        self.assertIn("18_claim-evidence-gate-review.md", index["human_files"])
 
 
 if __name__ == "__main__":

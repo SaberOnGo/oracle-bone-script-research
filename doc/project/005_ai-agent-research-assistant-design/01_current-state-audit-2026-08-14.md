@@ -218,6 +218,55 @@ full/strict 人类资料门退出码为 0，扫描 `156839` 个 Markdown 文件�
 由于新增八个 Markdown 和一个辅助 JSON，研究资料计数从 56 更新为 65。这是
 覆盖数变化，不是文献资料库已经完整的结论。
 
+## Effective-rights routing receipt / 生效权利路由回执
+
+The current working-tree follow-up propagates the active rights override
+into both source-coverage outputs used for AI routing. The historical
+`rights_status` value remains visible for provenance, but every affected row
+now also carries `effective_rights_status`, the public decision, the override
+path, and effective asset counts.
+
+当前工作树跟进已把生效权利覆盖传播到 AI 路由使用的两份来源覆盖输出。历史
+`rights_status` 仍保留用于追溯，但受影响的每一行现在同时记录
+`effective_rights_status`、公开决定、覆盖表路径和生效资产计数。
+
+For `src-obimd`, the legacy value is still
+`licensed_for_repository`, while the effective status is
+`metadata_only_until_verified`. The effective public decision is
+`metadata_only_no_public_redistribution_until_reconciled`, and the effective
+asset count is `metadata_only_until_verified:10364`. The AI context pack
+contains the same source-level fields and an effective status summary of
+12 metadata-only, 2 public-domain-verified, and 7 source-risk-noted sources.
+
+对 `src-obimd`，历史值仍是 `licensed_for_repository`，但生效状态是
+`metadata_only_until_verified`。生效公开决定是
+`metadata_only_no_public_redistribution_until_reconciled`，生效资产计数是
+`metadata_only_until_verified:10364`。AI 上下文包含有相同的来源级字段，生效
+状态汇总为 12 个 metadata-only、2 个 public-domain-verified、7 个
+source-risk-noted 来源。
+
+The focused rights-routing suite passed `2 tests`; existing source-coverage
+checks passed `5 tests`, and the OBIMD rights check passed `1 test`. The full
+skeleton returned `PASS repository skeleton`. The full test suite returned
+`1018 tests in 724.594 seconds, OK`. The strict human-material gate returned
+exit 0 with `156839` scanned Markdown files and all four debt counts at zero.
+Python compilation and `git diff --check` also passed.
+
+生效权利路由定向套件通过 `2 tests`；既有来源覆盖检查通过 `5 tests`，
+OBIMD 权利检查通过 `1 test`。全量骨架返回 `PASS repository skeleton`。全量
+测试为 `1018 tests in 724.594 seconds, OK`。严格人类资料门退出码为 0，
+扫描 `156839` 个 Markdown 文件，四项债务均为 0。Python 编译和
+`git diff --check` 也通过。
+
+This receipt does not clear any rights conflict, authorize redistribution, or
+promote an asset, graph edge, character, inscription, or reading. Historical
+values remain only as traceable source records; agents must use the effective
+fields for routing and publication decisions.
+
+本回执不清除任何权利冲突，不授权再分发，也不提升资产、图边、单字、卜辞或
+释读状态。历史值只作为可追溯来源记录保留；Agent 必须使用生效字段决定路由和
+公开范围。
+
 ## Human archive progress / 人类档案进展
 
 - Thirty IHP collection-object directories contain live-source evidence

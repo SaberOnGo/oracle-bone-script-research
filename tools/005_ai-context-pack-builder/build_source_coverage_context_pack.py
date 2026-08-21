@@ -19,6 +19,9 @@ DOWNLOADED_METADATA_PROFILE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"
 )
 ASSET_SOURCE_INDEX = Path("project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv")
+OBIMD_RIGHTS_OVERRIDE = Path(
+    "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv"
+)
 OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
     "corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv"
 )
@@ -85,6 +88,13 @@ def source_entry(row: dict[str, str]) -> dict[str, object]:
         "authority_tier": row["authority_tier"],
         "adoption_status": row["adoption_status"],
         "rights_status": row["rights_status"],
+        "effective_rights_status": row.get(
+            "effective_rights_status", row["rights_status"]
+        ),
+        "effective_public_commit_decision": row.get(
+            "effective_public_commit_decision", ""
+        ),
+        "rights_resolution_ref": row.get("rights_resolution_ref", ""),
         "coverage_status": row["coverage_status"],
         "route": source_route(row),
         "route_zh": source_route_zh(row),
@@ -95,6 +105,10 @@ def source_entry(row: dict[str, str]) -> dict[str, object]:
         "committed_asset_count": int_value(row, "committed_asset_count"),
         "committed_asset_bytes": int_value(row, "committed_asset_bytes"),
         "asset_rights_status_counts": row["asset_rights_status_counts"],
+        "effective_asset_rights_status_counts": row.get(
+            "effective_asset_rights_status_counts",
+            row["asset_rights_status_counts"],
+        ),
         "graph_edge_count": int_value(row, "graph_edge_count"),
         "graph_edge_type_count": int_value(row, "graph_edge_type_count"),
         "promotion_queue_candidate_count": int_value(row, "promotion_queue_candidate_count"),
@@ -110,10 +124,15 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
     status_counts: dict[str, int] = {}
     authority_counts: dict[str, int] = {}
     rights_counts: dict[str, int] = {}
+    effective_rights_counts: dict[str, int] = {}
     for row in coverage_rows:
         status_counts[row["coverage_status"]] = status_counts.get(row["coverage_status"], 0) + 1
         authority_counts[row["authority_tier"]] = authority_counts.get(row["authority_tier"], 0) + 1
         rights_counts[row["rights_status"]] = rights_counts.get(row["rights_status"], 0) + 1
+        effective_status = row.get("effective_rights_status", row["rights_status"])
+        effective_rights_counts[effective_status] = (
+            effective_rights_counts.get(effective_status, 0) + 1
+        )
 
     graph_sources = [
         entry
@@ -148,6 +167,7 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
             SOURCE_INDEX.as_posix(),
             SOURCE_DOWNLOAD_MANIFEST.as_posix(),
             SOURCE_DOWNLOAD_LOG.as_posix(),
+            OBIMD_RIGHTS_OVERRIDE.as_posix(),
             DOWNLOADED_METADATA_PROFILE.as_posix(),
             ASSET_SOURCE_INDEX.as_posix(),
             OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT.as_posix(),
@@ -187,6 +207,9 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
             "coverage_status_counts": dict(sorted(status_counts.items())),
             "authority_tier_counts": dict(sorted(authority_counts.items())),
             "rights_status_counts": dict(sorted(rights_counts.items())),
+            "effective_rights_status_counts": dict(
+                sorted(effective_rights_counts.items())
+            ),
         },
         "priority_routes": {
             "graph_derivative_sources": graph_sources,
@@ -200,6 +223,7 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
             "Open the cited source register and source-specific rows before making any research claim.",
             "Treat dataset-derived rows as candidates or metadata until cross-source review.",
             "Do not infer decipherment, component analysis, provenance facts, or rights status from coverage counts alone.",
+            "When legacy and effective rights differ, use the effective rights status and public-commit decision; the legacy value is historical only.",
             "Keep new downloads in ignored temporary directories until source, size, checksum, rights, and risk are recorded.",
         ],
         "agent_use_rules_zh": [
@@ -207,6 +231,7 @@ def build_context_pack(coverage_rows: list[dict[str, str]]) -> dict[str, object]
             "提出任何研究判断前，必须打开被引用的来源登记和对应来源派生记录行。",
             "数据集派生记录在跨来源复核前都只能视为候选或 metadata。",
             "不得仅凭覆盖数量推断释读、构件分析、provenance 事实或权利状态。",
+            "历史权利值与生效权利值不一致时，必须使用生效权利状态和公开决定；历史值只用于追溯。",
             "新增下载在记录来源、大小、checksum、权利和风险前必须留在已忽略临时目录。",
         ],
     }

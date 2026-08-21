@@ -41,6 +41,26 @@ manifest、checksum 和权利说明。然后打开本目录中的审计行或复
 
 - Source coverage:
   `007_source-coverage-summary.csv`.
+
+## Effective Rights In Coverage / 覆盖统计中的生效权利
+
+English:
+`007_source-coverage-summary.csv` keeps `rights_status` as the historical
+source-register value for traceability. It also records
+`effective_rights_status`, `effective_public_commit_decision`,
+`effective_asset_rights_status_counts`, and `rights_resolution_ref`.
+When the two status fields differ, use the effective value and open the
+linked human decision before reusing an asset or graph route. For OBIMD,
+the active decision is `metadata_only_until_verified`; the legacy
+`licensed_for_repository` value is not a redistribution grant.
+
+简体中文：
+`007_source-coverage-summary.csv` 保留 `rights_status` 作为来源登记历史值，
+以便追溯；同时记录 `effective_rights_status`、
+`effective_public_commit_decision`、`effective_asset_rights_status_counts`
+和 `rights_resolution_ref`。两个状态不一致时，必须使用生效值，并打开
+链接的人类决定页后，才能复用资产或图边路线。OBIMD 当前生效决定是
+`metadata_only_until_verified`；历史 `licensed_for_repository` 不是再分发许可。
 - Preprocessing status:
   `090_preprocessing-status-audit.csv`.
 - Source-processing pipeline:

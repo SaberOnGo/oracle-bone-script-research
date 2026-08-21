@@ -18,6 +18,9 @@ DOWNLOADED_METADATA_PROFILE = Path(
     "corpus/006_research-sources-and-bibliography/000_source-registers/010_downloaded-metadata-profile.csv"
 )
 ASSET_SOURCE_INDEX = Path("project_registry/004_asset-source-and-rights-index/001_asset-source-index.csv")
+OBIMD_RIGHTS_OVERRIDE = Path(
+    "project_registry/004_asset-source-and-rights-index/006_obimd-rights-status-override.csv"
+)
 OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT = Path(
     "corpus/009_statistics-and-derived-features/188_object-local-material-coverage-audit.csv"
 )
@@ -32,7 +35,8 @@ UPDATED_AT = "2026-06-20"
 GENERATED_FROM = (
     "source_registers;download_manifest;download_log;metadata_profiles;"
     "asset_source_index;object_local_material_coverage;"
-    "relationship_graph_statistics;hust_obc_promotion_queue"
+    "relationship_graph_statistics;hust_obc_promotion_queue;"
+    "obimd_rights_override"
 )
 CAUTION = (
     "Coverage statistics only; inspect source register rows and source-specific "
@@ -55,6 +59,25 @@ def compact_counter(counter: Counter[str]) -> str:
 
 def split_source_ids(value: str) -> list[str]:
     return [source_id for source_id in value.split(";") if source_id]
+
+
+def read_rights_overrides(root: Path) -> list[dict[str, str]]:
+    return read_csv_rows(root / OBIMD_RIGHTS_OVERRIDE)
+
+
+def source_rights_resolution(
+    source_id: str,
+    legacy_status: str,
+    override_rows: list[dict[str, str]],
+) -> tuple[str, str, str]:
+    for row in override_rows:
+        if row.get("scope_type") == "source" and row.get("scope_id") == source_id:
+            return (
+                row.get("effective_status", legacy_status),
+                row.get("public_commit_decision", ""),
+                OBIMD_RIGHTS_OVERRIDE.as_posix(),
+            )
+    return legacy_status, "not_applicable_no_active_override", ""
 
 
 def object_local_material_counts_by_source(rows: list[dict[str, str]]) -> dict[str, Counter[str]]:
@@ -98,6 +121,7 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
     download_log_rows = read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
     metadata_profile_rows = read_csv_rows(root / DOWNLOADED_METADATA_PROFILE)
     asset_rows = read_csv_rows(root / ASSET_SOURCE_INDEX)
+    override_rows = read_rights_overrides(root)
     object_local_rows = read_csv_rows(root / OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT)
     graph_edge_rows = read_csv_rows(root / RELATIONSHIP_GRAPH_EDGE_TYPE_SUMMARY)
     promotion_queue_rows = read_csv_rows(root / HUST_OBC_OBS_CHAR_PROMOTION_QUEUE)
@@ -121,6 +145,7 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
     asset_count: Counter[str] = Counter()
     asset_bytes: Counter[str] = Counter()
     asset_rights_counts: dict[str, Counter[str]] = defaultdict(Counter)
+    effective_asset_rights_counts: dict[str, Counter[str]] = defaultdict(Counter)
     for row in asset_rows:
         for source_id in split_source_ids(row["source_ids"]):
             asset_count[source_id] += 1
@@ -128,6 +153,12 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
             if file_size.isdigit():
                 asset_bytes[source_id] += int(file_size)
             asset_rights_counts[source_id][row["rights_status"]] += 1
+            effective_status, _, _ = source_rights_resolution(
+                source_id,
+                row["rights_status"],
+                override_rows,
+            )
+            effective_asset_rights_counts[source_id][effective_status] += 1
 
     object_local_counts = object_local_material_counts_by_source(object_local_rows)
 
@@ -145,6 +176,11 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
     output_rows: list[dict[str, str]] = []
     for index, source in enumerate(sorted(source_rows, key=lambda row: row["source_id"]), start=1):
         source_id = source["source_id"]
+        effective_status, public_decision, rights_ref = source_rights_resolution(
+            source_id,
+            source["rights_status"],
+            override_rows,
+        )
         row = {
             "coverage_row_id": f"source-coverage-{index:03d}",
             "source_id": source_id,
@@ -152,6 +188,9 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
             "authority_tier": source["authority_tier"],
             "adoption_status": source["adoption_status"],
             "rights_status": source["rights_status"],
+            "effective_rights_status": effective_status,
+            "effective_public_commit_decision": public_decision,
+            "rights_resolution_ref": rights_ref,
             "source_review_status": source["review_status"],
             "download_manifest_count": str(manifest_count[source_id]),
             "download_log_count": str(download_log_count[source_id]),
@@ -162,6 +201,9 @@ def build_source_coverage_summary(root: Path) -> list[dict[str, str]]:
             "committed_asset_count": str(asset_count[source_id]),
             "committed_asset_bytes": str(asset_bytes[source_id]),
             "asset_rights_status_counts": compact_counter(asset_rights_counts[source_id]),
+            "effective_asset_rights_status_counts": compact_counter(
+                effective_asset_rights_counts[source_id]
+            ),
             "graph_edge_count": str(graph_edge_count[source_id]),
             "graph_edge_type_count": str(len(graph_edge_type_count[source_id])),
             "promotion_queue_candidate_count": str(promotion_candidate_count[source_id]),

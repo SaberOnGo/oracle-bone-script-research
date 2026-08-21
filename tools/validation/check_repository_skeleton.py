@@ -12155,13 +12155,25 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
         if row.get("generated_from") != (
             "source_registers;download_manifest;download_log;metadata_profiles;"
             "asset_source_index;object_local_material_coverage;"
-            "relationship_graph_statistics;hust_obc_promotion_queue"
+            "relationship_graph_statistics;hust_obc_promotion_queue;"
+            "obimd_rights_override"
         ):
             issues.append(f"{SOURCE_COVERAGE_SUMMARY} generated_from changed: {source_id}")
         if row.get("updated_at") != "2026-06-20":
             issues.append(f"{SOURCE_COVERAGE_SUMMARY} updated_at changed: {source_id}")
         if "Coverage statistics only" not in row.get("caution", ""):
             issues.append(f"{SOURCE_COVERAGE_SUMMARY} caution changed: {source_id}")
+        if not row.get("effective_rights_status"):
+            issues.append(f"{SOURCE_COVERAGE_SUMMARY} effective rights missing: {source_id}")
+        if not row.get("effective_public_commit_decision"):
+            issues.append(
+                f"{SOURCE_COVERAGE_SUMMARY} effective public decision missing: {source_id}"
+            )
+        if row.get("effective_rights_status") != row.get("rights_status"):
+            if row.get("rights_resolution_ref") != OBIMD_RIGHTS_STATUS_OVERRIDE:
+                issues.append(
+                    f"{SOURCE_COVERAGE_SUMMARY} unresolved rights override: {source_id}"
+                )
         for field in [
             "download_manifest_count",
             "download_log_count",
@@ -12229,6 +12241,14 @@ def check_source_coverage_statistics(root: Path) -> list[str]:
             "committed_asset_count": "10364",
             "committed_asset_bytes": "38387085",
             "asset_rights_status_counts": "licensed_for_repository:10364",
+            "effective_rights_status": "metadata_only_until_verified",
+            "effective_public_commit_decision": (
+                "metadata_only_no_public_redistribution_until_reconciled"
+            ),
+            "rights_resolution_ref": OBIMD_RIGHTS_STATUS_OVERRIDE,
+            "effective_asset_rights_status_counts": (
+                "metadata_only_until_verified:10364"
+            ),
             "graph_edge_count": "57603",
             "graph_edge_type_count": "7",
             "object_local_material_bundle_count": "2770",
@@ -26059,6 +26079,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         SOURCE_INDEX,
         SOURCE_DOWNLOAD_MANIFEST,
         SOURCE_DOWNLOAD_LOG,
+        OBIMD_RIGHTS_STATUS_OVERRIDE,
         DOWNLOADED_METADATA_PROFILE,
         ASSET_SOURCE_INDEX,
         OBJECT_LOCAL_MATERIAL_COVERAGE_AUDIT,
@@ -26098,6 +26119,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "source_marked_risk_noted": 7,
     }:
         issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} rights status counts changed")
+    if source_coverage.get("effective_rights_status_counts") != {
+        "metadata_only_until_verified": 12,
+        "public_domain_verified": 2,
+        "source_marked_risk_noted": 7,
+    }:
+        issues.append(
+            f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} effective rights counts changed"
+        )
     if source_coverage.get("authority_tier_counts") != {
         "core_institutional": 4,
         "institutional_database": 1,
@@ -26160,6 +26189,14 @@ def check_ai_context_packs(root: Path) -> list[str]:
                 "graph_edge_count": 57603,
                 "graph_edge_type_count": 7,
                 "committed_asset_count": 10364,
+                "effective_rights_status": "metadata_only_until_verified",
+                "effective_public_commit_decision": (
+                    "metadata_only_no_public_redistribution_until_reconciled"
+                ),
+                "effective_asset_rights_status_counts": (
+                    "metadata_only_until_verified:10364"
+                ),
+                "rights_resolution_ref": OBIMD_RIGHTS_STATUS_OVERRIDE,
             },
             "src-evobc": {
                 "route": "open_graph_and_metadata_derivatives",
@@ -26224,6 +26261,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "dataset-derived rows",
         "Do not infer decipherment",
         "ignored temporary directories",
+        "effective rights status",
     ]:
         if required_snippet not in source_rules:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing agent rule: {required_snippet}")
@@ -26233,6 +26271,7 @@ def check_ai_context_packs(root: Path) -> list[str]:
         "数据集派生记录",
         "不得仅凭覆盖数量",
         "已忽略临时目录",
+        "生效权利状态",
     ]:
         if required_snippet not in source_rules_zh:
             issues.append(f"{AI_AGENT_SOURCE_COVERAGE_CONTEXT_PACK} missing Chinese agent rule: {required_snippet}")

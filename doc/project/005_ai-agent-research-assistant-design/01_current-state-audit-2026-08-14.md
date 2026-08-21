@@ -113,14 +113,18 @@ Current targeted receipts include the following:
 - IHP item 771 source-record candidate: `7 tests OK`, including a new
   image-bound visual observation page.
 - IHP item 503 and 1215 source-record candidates now each have a new
-  image-bound visual observation page; each focused suite has `12 tests OK`.
+  image-bound visual observation page; focused suites have `12` and `13 tests
+  OK`, respectively.
+- IHP item 1215 also records a dated external-catalog search boundary; no
+  independent plate or edition was obtained.
 - Ningxia HYZ 421: `5 tests OK`; effective OBIMD rights: `5 + 3 tests OK`.
 
 当前定向回执包括：AI 试点 `49 tests OK`、选案分诊 `4 tests OK`、试点摘要
 `4 tests OK`；v2 合同 `68 tests OK`，但没有真实 v2 记录；英国图书馆 1595
 为 `6 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
 史语所 771 号来源记录候选为 `7 tests OK`，新增了绑定图像的视觉观察页；
-503 和 1215 号来源记录候选各为 `12 tests OK`，均新增绑定图像的视觉观察页；
+503 和 1215 号来源记录候选分别为 `12` 和 `13 tests OK`，均新增绑定图像的
+视觉观察页；
 OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页和原文
 检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得
 `Heji 40610` 或 `Yingcang 886` 的精确结果。
@@ -233,6 +237,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 1215 号对象另有卜辞来源记录候选，记录馆方短文字、三条私有图像校验和，
   并明确独立图版与 OCR 缺口；新增绑定三张图像的视觉观察页，但不建立拼合、
   字形或释读结论。
+- 1215 号对象另记录 2026-08-21 的外部著录检索边界；没有取得独立图版或版本，
+  也不把无关的 `R044587` 检索结果加入来源图谱。
 - 771 号对象另有卜辞来源记录候选，记录馆方拟译、两份私有 HTML 校验和、三条
   私有图像校验和，并明确独立图版、原文和 OCR 缺口；新增绑定高清图像的
   视觉观察页，但不建立拼合、字形或释读结论。

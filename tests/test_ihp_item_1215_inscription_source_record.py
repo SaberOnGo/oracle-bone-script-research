@@ -28,6 +28,7 @@ class IhpItem1215InscriptionSourceRecordTests(unittest.TestCase):
             "05_character-linkage-review.md",
             "06_missing-evidence-plan.md",
             "07_visual-observation-and-parent-evidence.md",
+            "08_external-catalog-search.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -105,6 +106,22 @@ class IhpItem1215InscriptionSourceRecordTests(unittest.TestCase):
         ):
             self.assertIn(value, text)
         self.assertNotIn("project reading", text)
+
+    def test_external_search_page_keeps_negative_boundary(self):
+        path = OBJECT / "08_external-catalog-search.md"
+        text = path.read_text(encoding="utf-8-sig")
+        for value in (
+            "2026-08-21",
+            "R044587",
+            "Yi Bian 3330",
+            "Yi Bian buyi 4936",
+            "No independent book",
+            "非证据",
+            "not proof that no external publication",
+            "没有建立新摹写",
+            "metadata_only_until_verified",
+        ):
+            self.assertIn(value, text)
 
     def test_markdown_files_are_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

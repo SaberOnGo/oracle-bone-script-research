@@ -46,9 +46,10 @@ Commons 页面明确将图像标为 CC0，
    two image sides.
 9. `11_visual-region-review.md`: human-readable image region observations.
 10. `09_british-library-catalog-record.md`: official catalogue metadata and
-   unresolved item-level route.
+    unresolved item-level route.
 11. `10_secondary-dissemination-and-rights.md`: related routes and rights.
-12. Open `90_source-record.json`, `91_source-record-index.csv`, and
+12. `12_astronomical-date-dispute.md`: named date claims and their limits.
+13. Open `90_source-record.json`, `91_source-record-index.csv`, and
     `92_visual-region-register.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
@@ -62,7 +63,8 @@ Commons 页面明确将图像标为 CC0，
 9. `11_visual-region-review.md`：人类可读的图像区域观察。
 10. `09_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
 11. `10_secondary-dissemination-and-rights.md`：相关路线与权利限制。
-12. 最后打开 `90_source-record.json`、`91_source-record-index.csv` 和
+12. `12_astronomical-date-dispute.md`：有名年代主张及其限制。
+13. 最后打开 `90_source-record.json`、`91_source-record-index.csv` 和
     `92_visual-region-register.csv`。
 
 ## Boundary / 边界

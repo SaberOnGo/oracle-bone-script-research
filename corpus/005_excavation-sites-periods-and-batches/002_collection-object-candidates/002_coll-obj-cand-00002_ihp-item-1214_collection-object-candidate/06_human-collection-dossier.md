@@ -32,6 +32,7 @@ period, batch, plate, inscription, and character context.
 - visual_index: `03_visual-asset-index.csv`
 - visual_gallery: `04_visual-gallery.md`
 - live_route_review: `18_live-source-evidence-review.md`
+- claim_evidence_gate: `19_claim-evidence-gate-review.md`
 - live result: two JPEG routes opened privately; no image was committed.
 - 现场结果：两条 JPEG 路由仅在本地私下打开；没有提交图像。
 
@@ -70,6 +71,7 @@ period, batch, plate, inscription, and character context.
 - rights_status: `metadata_only_until_verified`
 - review_status: `needs_human_collection_object_review`
 - live_source_review: `18_live-source-evidence-review.md`
+- claim_gate_status: `abstain_withhold_candidate`
 
 ## Concrete Questions To Check / 具体待查问题
 

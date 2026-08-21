@@ -112,12 +112,16 @@ Working-tree verification after the claim matrix was added:
   page, two private JPEG checks, and source-reported front/reverse text. The
   partial transcription, plate locator, rights, and character linkage remain
   explicitly withheld.
+- IHP item `1214` now has an object-local claim gate for six source-reported
+  short entries with image placeholders. Its two private JPEGs support direct
+  surface observation, while plate mapping, text alignment, rights, and glyph
+  linkage remain withheld.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1066 tests OK` in `671.482` seconds. The triage command
+- The full suite: `1069 tests OK` in `686.249` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156851` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156852` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -150,12 +154,14 @@ Working-tree verification after the claim matrix was added:
   主张。
 - 史语所 1213 号对象现有对象内命题门槛页，连接官方对象页、两条私有 JPEG
   校验和及正反面来源文字。部分释文、图版定位、权利和单字关联仍明确扣留。
+- 史语所 1214 号对象现有对象内命题门槛页，记录六条带图像占位的来源短条目。
+  两条私有 JPEG 支持直接表面观察，但图版对应、文字对齐、权利和单字关联仍扣留。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1066 tests OK`，耗时 `671.482` 秒。选案命令返回
+- 全量测试：`1069 tests OK`，耗时 `686.249` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156851` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156852` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

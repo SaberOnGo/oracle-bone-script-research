@@ -81,9 +81,13 @@ Working-tree verification after the claim matrix was added:
 - The Met 42022 object suite: `5 tests OK`; both image files match their
   recorded sizes, SHA-256 values, and 4000 x 2667 dimensions. Its claim-gate
   page marks C2 direct observation and C1/C3--C8 blocked or withheld.
+- IHP item 503 now has an object-local claim-gate page. It keeps the museum
+  phrase `帝令雨` source-reported, marks the private visual route as direct
+  observation only, and withholds C4--C8 pending plate, text, and rights work.
+  Its focused suite is `8 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1049 tests OK` in `647.352` seconds. The triage command
+- The full suite: `1050 tests OK` in `645.228` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156843` Markdown files, and all
@@ -96,9 +100,12 @@ Working-tree verification after the claim matrix was added:
 - Met 42022 对象套件：`5 tests OK`；两张图像的大小、SHA-256 和
   `4000 x 2667` 尺寸均与记录一致；命题页把 C2 标为直接观察，C1、
   C3--C8 标为阻断或扣留。
+- 史语所 503 号对象现有对象内命题门槛页。它把 `帝令雨` 保持为来源说明，
+  把私有图像路线限制为直接观察，并在图版、文字和权利完成前扣留 C4--C8。
+  其专项套件为 `8 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1049 tests OK`，耗时 `647.352` 秒。选案命令返回
+- 全量测试：`1050 tests OK`，耗时 `645.228` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
 - 严格人类资料门：退出码 `0`，扫描 `156843` 篇 Markdown，四项债务均为 `0`。

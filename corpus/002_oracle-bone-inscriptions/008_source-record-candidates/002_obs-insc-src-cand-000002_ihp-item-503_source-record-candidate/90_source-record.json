@@ -17,6 +17,18 @@
   "rights_status": "metadata_only_until_verified",
   "rights_review_path": "project_registry/004_asset-source-and-rights-index/",
   "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "claim_gate_review": {
+    "path": "08_claim-evidence-gate-review.md",
+    "matrix": "doc/project/005_ai-agent-research-assistant-design/02_claim-evidence-gate-matrix.md",
+    "c1_object_identity": "blocked",
+    "c2_direct_glyph_observation": "direct_checked_private_snapshot",
+    "c3_sign_variant_near_form_component": "blocked",
+    "c4_inscription_occurrence_context": "blocked",
+    "c5_reading_phonology": "blocked",
+    "c6_semantic_grammar": "blocked",
+    "c7_diachronic_correspondence": "blocked",
+    "c8_user_delivery": "withheld"
+  },
   "source_pages": [
     "https://museum.sinica.edu.tw/en/collection/32/item/503/",
     "https://museum.sinica.edu.tw/collection/32/item/503/"

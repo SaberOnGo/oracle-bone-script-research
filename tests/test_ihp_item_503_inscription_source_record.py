@@ -28,6 +28,7 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
             "05_character-linkage-review.md",
             "06_missing-evidence-plan.md",
             "07_visual-observation-and-parent-evidence.md",
+            "08_claim-evidence-gate-review.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -77,7 +78,28 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
         self.assertEqual(record["character_links"], [])
         self.assertEqual(record["rights_status"],
                          "metadata_only_until_verified")
+        self.assertEqual(record["claim_gate_review"]["c1_object_identity"],
+                         "blocked")
+        self.assertEqual(record["claim_gate_review"]["c8_user_delivery"],
+                         "withheld")
         self.assertIn("not a decipherment conclusion", record["boundaries"])
+
+    def test_claim_gate_page_preserves_candidate_boundary(self):
+        page = (OBJECT / "08_claim-evidence-gate-review.md").read_text(
+            encoding="utf-8-sig"
+        )
+        for value in (
+            "C1 object identity",
+            "C2 direct glyph observation",
+            "C4 inscription occurrence and context",
+            "C8 complete proposition and user delivery",
+            "C1 对象身份",
+            "C8 完整命题与用户交付",
+            "帝令雨",
+            "no user-facing",
+            "候选",
+        ):
+            self.assertIn(value, page)
 
     def test_index_keeps_missing_fields_explicit(self):
         index = (OBJECT / "91_source-record-index.csv").read_text(

@@ -44,6 +44,42 @@
       "pixels": "2667x4000"
     }
   ],
+  "external_verification_routes": [
+    {
+      "provider": "Wikimedia Commons MediaWiki API",
+      "file_title": "File:MET LC 67 43 14 001.jpg",
+      "api_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&titles=File%3AMET_LC-67_43_14_001.jpg&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Csha1%7Cextmetadata",
+      "page_url": "https://commons.wikimedia.org/wiki/File:MET_LC-67_43_14_001.jpg",
+      "local_snapshot_path": "tmp/source_downloads/dl-met-42045-wikimedia-file-001.json",
+      "snapshot_size_bytes": 5548,
+      "snapshot_sha256": "81d9b7ac88eca2ce1aedc2933600cef2682bdbefd3d69dc4e20904a02fdeaf6a",
+      "source_reported_label": "Oracle bone, China, back (MET, 67.43.14)",
+      "source_reported_keyword": "Back",
+      "media_size_bytes": 1616877,
+      "media_sha1": "97c0544f30f5027f0ce7b88f6a6a6f05a0486c7a",
+      "byte_identity_to_committed_asset": "exact_size_and_sha1_match_to_additionalImages_0",
+      "rights_status": "cc0_reported_by_secondary_route",
+      "evidence_role": "secondary_view_label_only",
+      "status": "retrieved_ignored_snapshot"
+    },
+    {
+      "provider": "Wikimedia Commons MediaWiki API",
+      "file_title": "File:MET LC 67 43 14 002.jpg",
+      "api_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&titles=File%3AMET_LC-67_43_14_002.jpg&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Csha1%7Cextmetadata",
+      "page_url": "https://commons.wikimedia.org/wiki/File:MET_LC-67_43_14_002.jpg",
+      "local_snapshot_path": "tmp/source_downloads/dl-met-42045-wikimedia-file-002.json",
+      "snapshot_size_bytes": 5548,
+      "snapshot_sha256": "f10e97bb91b32b0bd89b8cc6bbfd41af0f388d38a828b6d907d0000f07cd997b",
+      "source_reported_label": "no front or back label in observed API metadata",
+      "source_reported_keyword": null,
+      "media_size_bytes": 1802233,
+      "media_sha1": "773a83411822e00ce02abd0bd076c6b70c746551",
+      "byte_identity_to_committed_asset": "not_established",
+      "rights_status": "cc0_reported_by_secondary_route",
+      "evidence_role": "secondary_route_cross_check_only",
+      "status": "retrieved_ignored_snapshot"
+    }
+  ],
   "rights_status": "public_domain_verified",
   "rights_scope": "Met API isPublicDomain=true for fetched image files; metadata and catalog attribution remain required",
   "review_status": "source_record_candidate_needs_text_and_catalog_review",

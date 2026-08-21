@@ -53,11 +53,19 @@ bone writing or a transcription target.
 - A complete inscription line, sign boundary, character identity, and text
   order remain unestablished.
 
+An external Wikimedia Commons route labels the additional-image byte match
+as `back`; the project records that as a secondary label only. See
+`10_external-image-label-review.md`.
+
 - 两个文件都显示浅色背景上的相似狭长骨状对象。
 - API 只将它们命名为 `primaryImage` 和 `additionalImages[0]`，没有定义
   正反面关系或阅读方向。
 - 因此本项目不对齐两图、不统计字数，也不声称两图中的痕迹相互对应。
 - 完整卜辞行、字形边界、单字身份和文字顺序仍未建立。
+
+Wikimedia Commons 的外部路线把与 additional image 字节相同的文件标为
+`back`；本项目只把它记录为次级标签。详见
+`10_external-image-label-review.md`。
 
 ## Evidence and rights binding / 证据与权利绑定
 

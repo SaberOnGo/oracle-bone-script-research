@@ -23,6 +23,7 @@ class Met42045SourceRecordCandidateTests(unittest.TestCase):
         self.assertIn("obs-insc-src-cand-000008", readme)
         self.assertIn("not a formal `obi-*` record", readme)
         self.assertIn("没有制作 OCR", readme)
+        self.assertIn("10_external-image-label-review.md", readme)
         for path in OBJECT.glob("*.md"):
             for number, line in enumerate(
                 path.read_text(encoding="utf-8").splitlines(), 1
@@ -46,6 +47,49 @@ class Met42045SourceRecordCandidateTests(unittest.TestCase):
         self.assertEqual(record["character_links"], [])
         self.assertIn("no decipherment conclusion", record["boundaries"])
         self.assertEqual(len(record["image_routes"]), 2)
+        self.assertEqual(len(record["external_verification_routes"]), 2)
+        self.assertEqual(
+            record["external_verification_routes"][0]["evidence_role"],
+            "secondary_view_label_only",
+        )
+        self.assertEqual(
+            record["external_verification_routes"][0][
+                "byte_identity_to_committed_asset"
+            ],
+            "exact_size_and_sha1_match_to_additionalImages_0",
+        )
+        self.assertEqual(
+            record["external_verification_routes"][1][
+                "byte_identity_to_committed_asset"
+            ],
+            "not_established",
+        )
+
+    def test_external_label_page_is_human_readable_and_bounded(self):
+        path = OBJECT / "10_external-image-label-review.md"
+        text = path.read_text(encoding="utf-8")
+        self.assertIn("Oracle bone, China, back", text)
+        self.assertIn("formal orientation status: `not_established`", text)
+        self.assertIn("正式方向仍为", text)
+        self.assertIn("no OCR, transcription", text)
+        for number, line in enumerate(text.splitlines(), 1):
+            self.assertLessEqual(
+                len(line), 80, f"{path}:{number}: {len(line)} characters"
+            )
+
+    def test_external_snapshot_routes_match_recorded_hashes_when_present(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        for route in record["external_verification_routes"]:
+            path = ROOT / route["local_snapshot_path"]
+            if not path.is_file():
+                continue
+            data = path.read_bytes()
+            self.assertEqual(len(data), route["snapshot_size_bytes"])
+            self.assertEqual(
+                hashlib.sha256(data).hexdigest(), route["snapshot_sha256"]
+            )
 
     def test_committed_images_match_recorded_bytes_and_dimensions(self):
         expected = {

@@ -4,15 +4,15 @@ Status: `current_state_audit`
 
 Audit update date: `2026-08-22`
 
-Audited base commit: `b38d90ec6ed`
+Audited base commit: `04a3ea7d3ae`
 
 Follow-up verification date: `2026-08-22`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
-Last verified skeleton receipt before this follow-up: `b38d90ec6ed`
+Last verified skeleton receipt before this follow-up: `04a3ea7d3ae`
 
-Last verified human-material gate before this follow-up: `b38d90ec6ed`
+Last verified human-material gate before this follow-up: `04a3ea7d3ae`
 
 ## Purpose / 目的
 
@@ -47,15 +47,15 @@ claims that the current commit was rescanned.
 ## Last verified base and working-tree follow-up /
 ## 最后核验基线与工作树跟进
 
-The last committed audited base is `main` at `b38d90ec6ed`. The receipts in
+The last committed audited base is `main` at `04a3ea7d3ae`. The receipts in
 this section describe that base. The current follow-up is deliberately
 recorded as a working-tree change and does not self-embed its future commit
 hash. Older sections retain their original commit labels.
 
-最后一个已审计提交是 `main` 的 `b38d90ec6ed`。本节回执描述该基线；当前
+最后一个已审计提交是 `main` 的 `04a3ea7d3ae`。本节回执描述该基线；当前
 跟进明确记录为工作树变更，不把未来提交哈希写入自身。后文保留原始提交标签。
 
-- Full suite: `1040 tests OK` in `645.768` seconds.
+- Full suite: `1082 tests OK` in `603.927` seconds.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156842` Markdown files,
   and all four debt counts `0`.
@@ -100,7 +100,10 @@ Working-tree verification after the claim matrix was added:
 - Met object `42045` now has an object-local crosswalk to its same-object
   source-record candidate. The collection folder keeps one compact image while
   the source record binds both API image bytes; no recto-verso, plate, or text
-  claim is added. Its focused Met suite is `14 tests OK`.
+  claim is added. Its focused Met suite is `16 tests OK`.
+- A Wikimedia Commons MediaWiki snapshot now supplies a secondary `back`
+  label for the byte-identical additional image. The label remains separate
+  from the Met API, and formal orientation is still `not_established`.
 - Met object `42022` now has the same object-local handoff pattern. Its source
   record binds both API image bytes, while the collection dossier keeps its
   compact asset and preserves the missing plate, text, and identity checks.
@@ -135,7 +138,7 @@ Working-tree verification after the claim matrix was added:
   reconciliation suite remains `7 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1081 tests OK` in `767.506` seconds. The triage command
+- The full suite: `1084 tests OK` in `582.786` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156853` Markdown files, and all
@@ -162,7 +165,10 @@ Working-tree verification after the claim matrix was added:
   释读和交付仍被阻断或扣留。
 - Met 对象 `42045` 现有对象内交接页，连接同一对象的来源记录候选。
   馆藏目录保留一张紧凑图，来源记录绑定两张 API 图像字节；不新增正反面、
-  图版或文字主张。Met 专项套件为 `14 tests OK`。
+  图版或文字主张。Met 专项套件为 `16 tests OK`。
+- Wikimedia Commons MediaWiki 快照为字节相同的 additional image 提供次级
+  `back` 标签；该标签与 Met API 分开保存，正式方向仍为
+  `not_established`。
 - Met 对象 `42022` 现有同样的对象内交接页。来源记录绑定两张 API 图像字节，
   馆藏档案保留紧凑资产，并继续明确图版、文字和身份缺口。Met 专项套件为
   `11 tests OK`。
@@ -187,7 +193,7 @@ Working-tree verification after the claim matrix was added:
   `7 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1081 tests OK`，耗时 `767.506` 秒。选案命令返回
+- 全量测试：`1084 tests OK`，耗时 `582.786` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
 - 严格人类资料门：退出码 `0`，扫描 `156853` 篇 Markdown，四项债务均为 `0`。

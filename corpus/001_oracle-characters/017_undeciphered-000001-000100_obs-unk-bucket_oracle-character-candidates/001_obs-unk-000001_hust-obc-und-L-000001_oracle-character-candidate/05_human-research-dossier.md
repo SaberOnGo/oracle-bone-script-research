@@ -115,6 +115,24 @@ not be converted into a component, reading, meaning, or inscription identity
 without separate evidence.
 本观察只限于有来源链接图像中的可见痕迹。没有独立证据时，不得把它改写成构件、释读、意义或卜辞身份。
 
+### Source Member Audit / 来源成员审计
+
+- Human-readable audit: `15_source-member-evidence-review.md`.
+- The ignored HUST package contains one image member under
+  `HUST-OBC/undeciphered/L/1/`; no second view or second instance was found.
+- The member and committed derivative are both `1257` bytes with SHA-256
+  `ba7c55baa2f575ae176f397a706ef0a74f9d4d231c218d35b4e705d70e690949`.
+- This closes the source-to-derivative byte route only. It does not establish
+  a bone, plate, catalog, inscription, reading, or character identity.
+
+- 人类可读审计：`15_source-member-evidence-review.md`。
+- 已忽略 HUST 来源包在 `HUST-OBC/undeciphered/L/1/` 下只有一个图像成员，
+  没有找到第二视角或第二实例。
+- 成员和已提交派生图均为 `1257` 字节，SHA-256 为
+  `ba7c55baa2f575ae176f397a706ef0a74f9d4d231c218d35b4e705d70e690949`。
+- 这只闭合来源到派生图的字节路线，不建立甲骨、图版、著录、卜辞、释读
+  或单字身份。
+
 ## 3. Reading, Meaning, And Dataset Label / 释读与来源标签
 
 - accepted reading: `待查：需要核对来源释读、释读史或争议记录`

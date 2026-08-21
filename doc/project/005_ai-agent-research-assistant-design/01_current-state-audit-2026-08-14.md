@@ -93,12 +93,16 @@ Working-tree verification after the claim matrix was added:
   Humanum, a published PDF, and a lexicographic route. Their shared
   `合30173` locator appears with other headwords or contexts, so the HUST
   filename remains route-only; no external snapshot was added.
+- HUST `obs-unk-000001` now has an object-local source-member audit and claim
+  gate. Its one ZIP member and committed derivative share a checked checksum;
+  C2 is direct observation, while identity, context, reading, and delivery
+  remain blocked or withheld.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1053 tests OK` in `656.393` seconds. The triage command
+- The full suite: `1056 tests OK` in `684.472` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156844` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156845` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -117,12 +121,15 @@ Working-tree verification after the claim matrix was added:
 - `obs-char-000963` 现有实时著录路线复核，记录香港中文大学 Humanum、已发表
   PDF 和字源字形路线。同一 `合30173` 定位号与其他字头或语境一起出现，故 HUST
   文件名仍是路线候选；没有加入外部快照。
+- HUST `obs-unk-000001` 现有对象内来源成员审计和命题门槛页。其唯一 ZIP
+  成员与已提交派生图共享已核验 checksum；C2 为直接观察，身份、上下文、
+  释读和交付仍被阻断或扣留。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1053 tests OK`，耗时 `656.393` 秒。选案命令返回
+- 全量测试：`1056 tests OK`，耗时 `684.472` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156844` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156845` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

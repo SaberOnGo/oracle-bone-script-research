@@ -2,11 +2,13 @@
 
 Status: `current_state_audit`
 
-Snapshot date: `2026-08-14`
+Audit update date: `2026-08-21`
 
-Snapshot commit: `7c8b8a29a35`
+Audited base commit: `404e23b4284`
 
 Follow-up verification date: `2026-08-21`
+
+Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
 ## Purpose / 目的
 
@@ -18,21 +20,30 @@ result, or published scholarship.
 或已发表学术成果。
 
 The normative rules remain in the [autonomous-candidate strategy][strategy].
-This file records what is and is not executable at the snapshot commit.
+This file records what is and is not executable at the audited base commit and
+the explicitly listed follow-up checks.
 
 规范规则仍在[自主候选战略][strategy]中。本文件只记录该提交上什么已经可运行、什么
 仍不可运行。
 
 ## Reproducibility receipts / 可复跑凭据
 
-The following receipts describe the snapshot and its current verification
-boundary. Counts are recorded from the commands run at this snapshot.
+The historical baseline receipts below were run at commit
+`7c8b8a29a35` on 2026-08-14. They are retained for comparison and are not
+claims that the current commit was rescanned.
+
+## Historical baseline receipts / 历史基线回执
 
 - `python -m unittest discover -s tests -v`: `981 tests OK` in 564 seconds.
 - `python tools/validation/check_repository_skeleton.py`: `PASS` in 196
   seconds.
 - `check_human_research_material_gate.py --full --strict --summary`:
   `PASS`, 156838 Markdown files, all four debt counts zero.
+
+## Earlier targeted receipts / 较早定向回执
+
+The following targeted receipts were recorded before the current snapshot.
+They remain useful provenance, but are not a replacement for current scans.
 - Post-change object-level checks: BL Or. 7694/1595 `7 tests OK`; the related
   source-text reconciliation suite is `5 tests OK`; effective
   BL Or. 7694/1535 `7 tests OK`; effective OBIMD rights `5 tests OK`.
@@ -70,12 +81,31 @@ boundary. Counts are recorded from the commands run at this snapshot.
 - Human-material gate regression tests: `3 tests OK`; they cover summary
   failure propagation, the full-scan coverage floor, and debt ceilings.
 
-以上回执和当前快照边界均来自仓库根目录：全量测试为
-`981 tests OK`，骨架校验为 `PASS`；human-research gate 全量严格摘要
-扫描 156838 个 Markdown，机器主导、核心研究缺失、现代标签风险和
-mojibake 四项债务均为零。宁夏 HYZ 421 来源记录为 `5 tests OK`，其
-构件、学术史和关系槽位已补齐。v1 证据包校验为 `PASS 1 file`，v2
-实验校验仍为 `FAIL no v2 records`。
+以上三项全仓库回执属于 2026-08-14 历史基线，不能替代当前主分支的
+重新扫描。它们保留了 981 项测试、骨架校验、human-research gate
+以及四项债务计数的当时证据。
+
+## Current follow-up receipts / 当前跟进回执
+
+The current 2026-08-21 follow-up ran targeted suites after the object and
+rights updates. It did not rerun the repository-wide scans because those
+scans are I/O-heavy; their status remains unverified for this commit.
+
+2026-08-21 的跟进只在对象、权利和自主试点更新后运行定向测试，没有重新运行
+全仓库 I/O 密集型扫描；这些扫描在当前提交上的状态仍未复核。
+
+Current targeted receipts include the following:
+
+- AI pilot: `49 tests OK`; case triage: `4 tests OK`; pilot summary:
+  `4 tests OK`.
+- v2 benchmark contract: `68 tests OK`; no real v2 record was found.
+- British Library 1595: `5 tests OK`; 1535: `7 + 3 tests OK`.
+- Ningxia HYZ 421: `5 tests OK`; effective OBIMD rights: `5 + 3 tests OK`.
+
+当前定向回执包括：AI 试点 `49 tests OK`、选案分诊 `4 tests OK`、试点摘要
+`4 tests OK`；v2 合同 `68 tests OK`，但没有真实 v2 记录；英国图书馆 1595
+为 `5 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
+OBIMD 有效权利为 `5 + 3 tests OK`。
 
 The v1 pass covers one draft scaffold whose evidence sections remain empty.
 It does not show research evidence or autonomous adjudication capability.

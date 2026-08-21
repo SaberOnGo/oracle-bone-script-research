@@ -98,6 +98,10 @@ rights updates. A full skeleton run at commit `cd8b6d63a83` returned
 The full strict human-material gate at commit `cd8b6d63a83` returned exit 0
 with 156838 scanned Markdown files and all four debt counts at zero.
 
+The full test suite at commit `59405ed201c` ran 1001 tests in 612.065
+seconds and returned `OK`. Its final triage-only case-selection line was
+`PASS` for seven rows; it did not open a candidate-delivery channel.
+
 An earlier full attempt was interrupted after about eight minutes while
 reading `check_oracle_character_human_markdown_wrapping`; it produced no PASS
 result. The later successful run supersedes that incomplete attempt. The
@@ -108,6 +112,9 @@ audit-note edit after the receipt is documentation-only.
 
 `cd8b6d63a83` 上的 full/strict 人类资料门返回退出码 0，扫描 156838 个
 Markdown 文件，四项债务计数均为 0。
+
+`59405ed201c` 上的全量测试运行 1001 项，耗时 612.065 秒，最终为 `OK`。
+最后的选案分诊只输出七行 `PASS`，没有开启候选交付通道。
 
 更早的一次全量尝试约八分钟后停在读取
 `check_oracle_character_human_markdown_wrapping` 的阶段，没有产生 PASS；

@@ -43,6 +43,8 @@ Committed image asset: `asset_id=asset-000002`.
 
 - `18_material-image-inspection-note.md`: bounded observations from the local
   source-linked image.
+- `20_human-material-evidence-dossier.md`: object-local visible-mark evidence,
+  provenance, counterevidence, and concrete next checks.
 
 ## Structured Support Files / 结构化辅助文件
 

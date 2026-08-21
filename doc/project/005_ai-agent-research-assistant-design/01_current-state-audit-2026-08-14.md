@@ -82,7 +82,7 @@ They remain useful provenance, but are not a replacement for current scans.
   the new case rejects a non-object directory nested under `corpus/`.
 - `validate_ai_agent_evidence_packs.py`: `PASS 1 file`.
 - `validate_ai_agent_benchmark_experiments.py`: `FAIL no v2 records`.
-- Human-material gate regression tests: `3 tests OK`; they cover summary
+- Human-material gate regression tests: `7 tests OK`; they cover summary
   failure propagation, the full-scan coverage floor, and debt ceilings.
 
 以上三项全仓库回执属于 2026-08-14 历史基线，不能替代当前主分支的

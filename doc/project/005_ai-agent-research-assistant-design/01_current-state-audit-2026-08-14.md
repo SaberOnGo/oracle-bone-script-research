@@ -197,9 +197,18 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   plate use until the object history and physical routes are reconciled.
 - Or. 7694/1535v 候选现采用同样的限定馆藏处理；其 Heji 39498v、
   Yingcang 1117v、逐项 JSON、IIIF 和图像路线仍需分别核验。
+- 2026-08-21 再次核对 Or. 7694/1535v 官方检索结果；仍为
+  `Images currently unavailable`，不能把该负面访问结果写成“没有图像”。
+- The 2026-08-21 recheck of the Or. 7694/1535v catalogue still reports
+  `Images currently unavailable`; this access result is not evidence that no
+  image exists.
 - 宁夏博物馆 HYZ 421 来源记录候选现保存一张 CC BY-SA 3.0 照片、本地校验和与
   尺寸、来源释文、花园庄东路线及 Schwartz 2019 引用。博物馆权利、图版身份和
   OCR 仍未解决。
+- 2026-08-21 重新核对 HYZ 421 的 Commons 结构化字段；对象号、出土地和页面
+  显示释文仍是来源报告，未替代博物馆目录或发掘登记。
+- The 2026-08-21 HYZ 421 Commons recheck preserves the object, findspot,
+  and displayed text as page-level source reports, not museum evidence.
 - HYZ 421 候选现有八个区域的视觉复核页和 CSV。区域框与已提交 JPEG 的校验和
   绑定，但没有把区域对应到单字、行序、阅读顺序或页面字符串。
 - 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
@@ -230,6 +239,11 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
   列出其他大英图书馆来源号，但没有 1535；这只是路线记录，不证明其他地方没有图像。
 - 权利仍按来源分别处理；权利未解决时，`metadata_only_until_verified` 继续阻止
   公开图像再利用。
+- 大型来源登记入口现明确：OBIMD 的历史 `licensed_for_repository` 值不是
+  生效授权；复核者必须先读取有效权利覆盖表。
+- The large-source entry now states that OBIMD's historical
+  `licensed_for_repository` value is not an effective grant; reviewers must
+  read the active rights override first.
 
 These are archive and route improvements. They do not promote an object,
 character, inscription, component, or evolution edge into a confirmed claim.
@@ -247,6 +261,10 @@ The new triage command now supplies the first work-order step for the seven
 opened inscription source-record candidates. It ranks visible evidence and
 blockers only; it is not model judgment, calibration, or candidate delivery.
 
+The current targeted pilot, triage, and reviewed-summary suites pass 49, 4,
+and 4 tests respectively. The v2 validator still finds no real experiment
+record, so no calibration or candidate-delivery claim is open.
+
 A reviewed [v4 diagnostic pilot record][pilot-report] exists. Its two runs
 used the same model family with fresh contexts, disagreed on the top-ranked
 opaque ID, and therefore remained `diagnostic_fail_withheld`.
@@ -257,6 +275,9 @@ pilot 工具可以冻结证据、密封私有标签、创建运行开封记录�
 
 新增的选案分诊命令现为七个已打开卜辞来源记录候选提供第一步工作顺序。它只排序可见
 证据和阻断项，不是模型判断、校准或候选交付。
+
+当前试点、选案分诊和已复核摘要的定向测试分别通过 49、4、4 项。v2 校验器仍找不
+到真实实验记录，因此尚未开启任何校准或候选交付主张。
 
 已有一份已复核的 v4 诊断记录。两次运行使用同一模型族但不同上下文，
 对不透明 ID 的首位排序不一致，因此结果保持 `diagnostic_fail_withheld`。

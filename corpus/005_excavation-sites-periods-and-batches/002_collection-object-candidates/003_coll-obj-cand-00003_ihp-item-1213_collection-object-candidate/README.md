@@ -44,6 +44,8 @@ See `thumbnail_url` in Object Metadata.
   inscription evidence review; JPEGs remain ignored local files.
 - `19_claim-evidence-gate-review.md`: human claim gate for object, image,
   text, plate, and delivery boundaries.
+- `21_official-page-text-evidence.md`: checksum-bound official HTML snapshots
+  and source-display boundaries.
 
 ## Structured Support Files / 结构化辅助文件
 

@@ -122,8 +122,12 @@ Working-tree verification after the claim matrix was added:
 - IHP item `1214` now has a companion catalog-record dossier. It links the
   official item page, collection page, source object, accession `R038861`,
   and `Jia Bian 0959` without treating one institutional source family as
-  independent evidence. The item-page snapshot and exact plate/text route
-  remain unregistered and unresolved.
+  independent evidence. The exact plate/text route remains unresolved; the
+  new page snapshot is registered separately below.
+- IHP items `1213` and `1214` now have paired 2026-08-22 English and Chinese
+  HTML snapshots, object-local checksum records, and human source-display
+  notes. The displayed text remains source-reported, not project OCR or
+  translation; their focused snapshot suite is `5 tests OK`.
 - The focused IHP catalog-record suite is `4 tests OK`; the dossier contains
   seven human Markdown records and one subordinate JSON index.
 - British Library Or. 7694/1595 now resolves to item record `040-003126498`
@@ -199,7 +203,10 @@ Working-tree verification after the claim matrix was added:
   两条私有 JPEG 支持直接表面观察，但图版对应、文字对齐、权利和单字关联仍扣留。
 - 史语所 1214 号对象另有配套著录档案，连接官方对象页、馆藏总览页、来源对象、
   登录号 `R038861` 和 `Jia Bian 0959`。它把同一机构来源族当作一条证据，未把两页
-  重复计为独立证据；对象页快照、具体图版和完整文字仍未登记、仍待查。
+  重复计为独立证据；具体图版和完整文字仍待查，对象页快照另行登记。
+- 史语所 1213、1214 号对象现有 2026-08-22 中英文成对 HTML 快照、对象内校验和
+  记录和人类来源显示页。页面文字仍是来源报告，不是项目 OCR 或翻译；快照专项
+  套件为 `5 tests OK`。
 - 史语所著录档案专项套件为 `4 tests OK`；包含七份人类 Markdown 和一个从属 JSON。
 - 大英图书馆 Or. 7694/1595 现已解析到集合 `032-002915678` 下的逐项记录
   `040-003126498`。对象档案绑定两个记录号、MDARK/LARK、层级关系以及两份

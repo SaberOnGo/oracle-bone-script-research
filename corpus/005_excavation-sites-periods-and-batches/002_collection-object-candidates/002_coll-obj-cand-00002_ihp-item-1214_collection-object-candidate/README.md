@@ -46,6 +46,8 @@ See `thumbnail_url` in Object Metadata.
   partial text, plate, and delivery boundaries.
 - `20_catalog-record-route.md`: human bibliography and citation companion for
   the official museum catalog route.
+- `21_official-page-text-evidence.md`: checksum-bound official HTML snapshots
+  and source-display boundaries.
 
 ## Structured Support Files / 结构化辅助文件
 

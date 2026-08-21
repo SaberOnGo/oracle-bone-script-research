@@ -2,11 +2,11 @@
 
 Status: `current_state_audit`
 
-Audit update date: `2026-08-21`
+Audit update date: `2026-08-22`
 
 Audited base commit: `b38d90ec6ed`
 
-Follow-up verification date: `2026-08-21`
+Follow-up verification date: `2026-08-22`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
@@ -116,12 +116,19 @@ Working-tree verification after the claim matrix was added:
   short entries with image placeholders. Its two private JPEGs support direct
   surface observation, while plate mapping, text alignment, rights, and glyph
   linkage remain withheld.
+- IHP item `1214` now has a companion catalog-record dossier. It links the
+  official item page, collection page, source object, accession `R038861`,
+  and `Jia Bian 0959` without treating one institutional source family as
+  independent evidence. The item-page snapshot and exact plate/text route
+  remain unregistered and unresolved.
+- The focused IHP catalog-record suite is `4 tests OK`; the dossier contains
+  seven human Markdown records and one subordinate JSON index.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1069 tests OK` in `686.249` seconds. The triage command
+- The full suite: `1073 tests OK` in `642.043` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156852` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156853` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -156,12 +163,16 @@ Working-tree verification after the claim matrix was added:
   校验和及正反面来源文字。部分释文、图版定位、权利和单字关联仍明确扣留。
 - 史语所 1214 号对象现有对象内命题门槛页，记录六条带图像占位的来源短条目。
   两条私有 JPEG 支持直接表面观察，但图版对应、文字对齐、权利和单字关联仍扣留。
+- 史语所 1214 号对象另有配套著录档案，连接官方对象页、馆藏总览页、来源对象、
+  登录号 `R038861` 和 `Jia Bian 0959`。它把同一机构来源族当作一条证据，未把两页
+  重复计为独立证据；对象页快照、具体图版和完整文字仍未登记、仍待查。
+- 史语所著录档案专项套件为 `4 tests OK`；包含七份人类 Markdown 和一个从属 JSON。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1069 tests OK`，耗时 `686.249` 秒。选案命令返回
+- 全量测试：`1073 tests OK`，耗时 `642.043` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156852` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156853` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 
@@ -486,9 +497,9 @@ Markdown 文件，四项债务均为 0。这些回执对应下一次提交前的
   the seven-row triage snapshot and has no OCR or character assignment.
 - Item 506 now has a source-only treatment with English/Chinese catalog
   differences, private image hashes, and no committed image derivative.
-- Six item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
-  Cambridge-Hopkins finding list, the Schwartz Huayuanzhuang East book, and
-  Liu's Yingcang eclipse article.
+- Seven item-level literature dossiers cover HUST-OBC, OBIMD, EvoBC, the
+  Cambridge-Hopkins finding list, the IHP item 1214 catalog record, the
+  Schwartz Huayuanzhuang East book, and Liu's Yingcang eclipse article.
 - Candidate graph edges now include character-to-component candidates,
   character-to-inscription source-record candidates, variants, local assets,
   and EvoBC correspondence candidates.
@@ -582,8 +593,8 @@ Markdown 文件，四项债务均为 0。这些回执对应下一次提交前的
 - 中央卜辞来源记录映射表现已把八个已打开候选分别指向对象内人类档案。
 - 后续又加入大都会 42045 号来源记录候选，含两张公开领域图像和受限的人类
   档案；它不属于七行分诊快照，仍没有 OCR 或单字分配。
-- 六个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
-  Schwartz 的花园庄东专著和 Liu 的《英藏》月食论文。
+- 七个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
+  史语所 1214 著录记录、Schwartz 的花园庄东专著和 Liu 的《英藏》月食论文。
 - Or. 7694/1595 的争议档案另补记史语所官方书目中的董作宾 1950 年〈殷代月食考〉；
   本次只取得书目页和全文路线，未取得全文，因此没有把论文观点用于本对象年代或
   释读。
@@ -776,7 +787,7 @@ finished. `implemented` means the rule and a current check exist;
 | 7 character depth | partial | six visual dossiers; bulk gaps |
 | 8 character fields | partial | filename and visual samples |
 | 9 inscription/plate | blocked | OCR and plate locators missing |
-| 10 literature | partial | six dossiers; broad corpus absent |
+| 10 literature | partial | seven dossiers; broad corpus absent |
 | 11 source range | partial | routes; access gaps remain |
 | 12 priority-source handling | partial | HUST, OBIMD, EvoBC and IHP samples |
 | 13 processing | partial | manifests; review gaps remain |

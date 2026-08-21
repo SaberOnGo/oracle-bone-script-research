@@ -20,6 +20,7 @@ rights, and unresolved disputes.
 | 5 | `14_human-research-readiness-review.md` | blockers |
 | 6 | `18_live-source-evidence-review.md` | live source and image routes |
 | 7 | `19_claim-evidence-gate-review.md` | claim and delivery boundaries |
+| 8 | `20_catalog-record-route.md` | catalog and citation route |
 
 ## Concrete Start Questions / 具体开包问题
 

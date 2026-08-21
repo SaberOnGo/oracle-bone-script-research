@@ -44,6 +44,8 @@ See `thumbnail_url` in Object Metadata.
   evidence review; JPEGs remain ignored local inspection files.
 - `19_claim-evidence-gate-review.md`: human claim gate for object, image,
   partial text, plate, and delivery boundaries.
+- `20_catalog-record-route.md`: human bibliography and citation companion for
+  the official museum catalog route.
 
 ## Structured Support Files / 结构化辅助文件
 

@@ -213,34 +213,34 @@ Material findings include:
 - 当前 character-inscription 图边提升数量仍为 `0`；
 - 现有图边的 high confidence 通常只表示路线完整度，不表示释读正确概率。
 
-The audit also identified truth-infrastructure defects that must block
-probability claims until fixed:
+The historical audit defects now have an explicit disposition:
 
-- the human-material gate returns success before issue construction when
-  `--summary` is used;
-- its Markdown-count baseline can penalize healthy growth and permit deletion;
-- OBIMD rights statements conflict across official distribution surfaces;
-- the HUST large-package manifest points to the API metadata download record
-  rather than the raw archive record;
-- several large-package routes are not represented consistently in the common
-  download manifest.
+- The human-material `--summary` control flow and coverage-baseline direction
+  are fixed and covered by seven regression tests. The latest full/strict
+  receipt scanned 156838 Markdown files with four debt counts at zero.
+- The HUST raw package now joins `dl-hust-obc-figshare-raw`, not the API
+  metadata record. OBIMD `pkg-file-000008` joins `large-src-000004`; package
+  routes and checksums are cross-checked in source-object tests.
+- `large-src-000003` remains only the unacquired EVOBC unified raw-image scope;
+  its five separate downloaded snapshots are not silently merged into it.
+- OBIMD licence statements still conflict. The active override is
+  `metadata_only_until_verified`, so public image or derivative reuse remains
+  blocked until rights evidence is reconciled.
+- No real v2 experiment or external scorer receipt exists. The probability
+  channel therefore remains withheld even though structural validators pass.
 
-Those historical defects are not a current pass claim. Their present status,
-remaining blockers, and executable boundary are recorded in the current-state
-audit. The v2 validator still reports no real experiment record, so the
-probability channel remains withheld.
+历史审计缺陷已有明确处置：
 
-这些历史缺陷不能被当作当前已经通过的证明。当前状态、剩余阻断和可运行边界记录在当前
-状态审计中。v2 校验器仍报告没有真实实验记录，因此概率通道继续扣留。
-
-审计还发现会破坏概率可信度的基础设施缺陷。在修复前，它们必须阻止概率
-发布：
-
-- 人类资料门禁使用 `--summary` 时会在构造问题前提前成功返回；
-- Markdown 数量基线会惩罚健康增长，却可能放过删除；
-- OBIMD 在不同官方发布面上的权利声明存在冲突；
-- HUST 大包 manifest 错连 API 元数据下载记录，而不是原始压缩包记录；
-- 若干大包路线没有一致进入通用下载 manifest。
+- 人类资料门 `--summary` 控制流和覆盖基线方向已修复，并由 7 项回归测试
+  覆盖。最新 full/strict 回执扫描 156838 篇 Markdown，四项债务均为 0。
+- HUST 原始包现绑定 `dl-hust-obc-figshare-raw`，不再绑定 API 元数据记录。
+  OBIMD `pkg-file-000008` 现绑定 `large-src-000004`；来源对象测试会交叉核对
+  包路线与 checksum。
+- `large-src-000003` 仍只表示尚未取得的 EVOBC 统一原始图像包范围；其 5 个
+  独立下载快照不能被静默合并进去。
+- OBIMD 许可表述仍有冲突。当前覆盖状态为
+  `metadata_only_until_verified`，权利证据解决前仍禁止公开图像或派生件复用。
+- 尚无真实 v2 实验或外部评分回执。因此即使结构校验通过，概率通道仍必须扣留。
 
 These findings are repository audits, not paleographic conclusions. They set
 the order of implementation work.

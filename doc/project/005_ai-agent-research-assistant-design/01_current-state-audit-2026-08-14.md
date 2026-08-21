@@ -124,7 +124,8 @@ Current targeted receipts include the following:
 - Full strict human-material gate at `87726cb9b7b`: `156838` Markdown files;
   all four debt counts were `0`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
-- British Library 1595: `6 tests OK`; 1535: `7 + 3 tests OK`.
+- British Library 1595: `7 tests OK`, including the two ignored Wikimedia API
+  snapshots bound to the human evidence page; 1535: `7 + 3 tests OK`.
 - IHP item 771 source-record candidate: `7 tests OK`, including a new
   image-bound visual observation page.
 - IHP item 503 and 1215 source-record candidates now each have a new
@@ -235,6 +236,8 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - The same candidate now has a ten-region visual review page and CSV. The
   boxes are checksum-bound to the two CC0 images, but no region is mapped to
   a character, line, reading order, or source string.
+- Its human evidence page now records the ignored recto and verso Wikimedia
+  API snapshots, their byte sizes, SHA-256 values, and local-only status.
 - The related Or. 7694/1535v candidate now has an eight-region visual review
   page and CSV bound to its CC0 image, without mapping any region to text.
 - Its literature page now records a named astronomical-date dispute: the

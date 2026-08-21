@@ -62,6 +62,21 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             self.assertIn(marker, text)
         self.assertNotIn("project translation", text)
 
+    def test_evidence_page_binds_api_snapshots_to_local_route(self):
+        path = OBJECT / "03_source-evidence-review.md"
+        text = path.read_text(encoding="utf-8-sig")
+        for marker in (
+            "opened, hashed, and kept local",
+            "01_object-and-image-routes.md",
+            "9181 bytes",
+            "9327 bytes",
+            "2ccddd07df6e814efefcfcd51e166fa34cda340c728387cff6fe9ec1e1f39633",
+            "71778aa79e0a99cf9d477d27cc91e269e2170f28c6aa50b626dd69b4e24cf0b7",
+            "not committed page content",
+            "不提交页面正文",
+        ):
+            self.assertIn(marker, text)
+
     def test_literature_review_records_named_date_dispute(self):
         path = OBJECT / "06_literature-and-dispute-review.md"
         text = path.read_text(encoding="utf-8-sig")
@@ -114,6 +129,7 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             "06_literature-and-dispute-review.md",
             "08_source-text-line-reconciliation.md",
             "09_british-library-catalog-record.md",
+            "03_source-evidence-review.md",
         ):
             path = OBJECT / name
             for number, line in enumerate(

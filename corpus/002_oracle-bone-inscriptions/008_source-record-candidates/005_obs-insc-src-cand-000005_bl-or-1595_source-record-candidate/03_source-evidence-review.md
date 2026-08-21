@@ -5,7 +5,7 @@
 | layer | evidence | status |
 | --- | --- | --- |
 | A | Commons recto and verso file pages | opened and hashed |
-| A | Wikimedia image API metadata | opened and snapshotted |
+| A | Wikimedia image API metadata | opened, hashed, and kept local |
 | B | British Library collection provenance | supplied in page metadata |
 | B | Heji and Yingguo references | source-reported, not cross-checked |
 | C | Commons inscription strings and eclipse note | source-reported only |
@@ -19,6 +19,20 @@ pass.
 Commons 页面说明图像由大英图书馆数字馆藏提供，并给出
 `Or. 7694/1595` 著录路线。本次记录了该路线，但尚未取得稳定的逐项
 馆藏记录和权威图版扫描。
+
+The ignored retrieval record in `01_object-and-image-routes.md` names the
+two API snapshots. The recto snapshot is 9181 bytes with SHA-256
+`2ccddd07df6e814efefcfcd51e166fa34cda340c728387cff6fe9ec1e1f39633`;
+the verso snapshot is 9327 bytes with SHA-256
+`71778aa79e0a99cf9d477d27cc91e269e2170f28c6aa50b626dd69b4e24cf0b7`.
+They remain local-only retrieval evidence, not committed page content.
+
+`01_object-and-image-routes.md` 中的访问记录列出了两份 API 快照。正面快照
+为 9181 字节，SHA-256 为
+`2ccddd07df6e814efefcfcd51e166fa34cda340c728387cff6fe9ec1e1f39633`；
+背面快照为 9327 字节，SHA-256 为
+`71778aa79e0a99cf9d477d27cc91e269e2170f28c6aa50b626dd69b4e24cf0b7`。
+它们只作为本地访问证据，不提交页面正文。
 
 ## Rights and risk / 权利与风险
 

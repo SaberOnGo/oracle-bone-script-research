@@ -256,6 +256,16 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 771 号对象另有卜辞来源记录候选，记录馆方拟译、两份私有 HTML 校验和、三条
   私有图像校验和，并明确独立图版、原文和 OCR 缺口；新增绑定高清图像的
   视觉观察页，但不建立拼合、字形或释读结论。
+- 2026-08-21 重新打开 503、771 和 1215 的史语所官方页面。503 页面仍显示
+  `帝令雨`；771 的官方展览页仍显示 `I 5867+8202` 的先写后刻说明；1215
+  页面仍显示 `帚（婦）井示。韋。`。三者都只是来源页面复核，没有新字节快照、
+  可逐行版本或项目释读。
+- The 2026-08-21 recheck reopened the official IHP pages for items 503, 771,
+  and 1215. Item 503 still displays `帝令雨`; the item 771 exhibition page
+  still reports the pre-writing and engraving description for `I 5867+8202`;
+  item 1215 still displays `帚（婦）井示。韋。`. These are source-page
+  checks only: no new byte snapshot, line-addressable edition, or project
+  reading was created.
 - 大英图书馆 Or. 7694/1595 正反面来源记录候选保存两条 CC0 图像路线、
   本地校验和、页面月食文字，以及独立著录、文字和单字关联缺口。
 - 同一候选现增加大英图书馆馆藏页，记录来源报告的馆藏号、题名、馆藏区域、

@@ -123,6 +123,20 @@ class IhpItem1215InscriptionSourceRecordTests(unittest.TestCase):
         ):
             self.assertIn(value, text)
 
+    def test_live_official_recheck_keeps_source_boundary(self):
+        text = (OBJECT / "03_source-evidence-review.md").read_text(
+            encoding="utf-8-sig"
+        )
+        for value in (
+            "2026-08-21",
+            "https://museum.sinica.edu.tw/en/collection/32/item/1215/",
+            "R044587",
+            "帚（婦）井示。韋。",
+            "No line-addressable",
+            "可逐行版本",
+        ):
+            self.assertIn(value, text)
+
     def test_markdown_files_are_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):
             text = path.read_text(encoding="utf-8")

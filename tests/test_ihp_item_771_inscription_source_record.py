@@ -48,6 +48,21 @@ class IhpItem771InscriptionSourceRecordTests(unittest.TestCase):
             self.assertIn(value, dossier)
         self.assertIn("not collected", dossier)
 
+    def test_second_official_route_keeps_source_boundary(self):
+        text = (OBJECT / "03_source-evidence-review.md").read_text(
+            encoding="utf-8-sig"
+        )
+        for value in (
+            "2026-08-21",
+            "https://museum.sinica.edu.tw/en/exhibition/13/item/771/",
+            "I 5867+8202",
+            "source-reported sequence",
+            "not an",
+            "independent edition",
+            "独立版本",
+        ):
+            self.assertIn(value, text)
+
     def test_machine_record_preserves_candidate_boundary(self):
         record = json.loads(
             (OBJECT / "90_source-record.json").read_text(encoding="utf-8-sig")

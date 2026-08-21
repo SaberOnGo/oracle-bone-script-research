@@ -15,6 +15,26 @@ snapshots. This candidate does not claim image reuse permission.
 父级对象档案记录三份私有图像和两份 HTML 快照的响应、类型、字节数、像素尺寸
 及 SHA-256。本候选不声称图像已经取得再利用许可。
 
+## Second official exhibition route / 第二条官方展览路线
+
+On 2026-08-21, the official exhibition page was re-opened:
+
+`https://museum.sinica.edu.tw/en/exhibition/13/item/771/`
+
+It reports the same catalog join `I 5867+8202` and describes the item as an
+example of writing before engraving. It gives the source-reported sequence
+`On the day ting-wei ... will it rain ... hsin-hai` and says that the preface
+was engraved on the reverse. This is an official source description, not an
+independent edition or a project transcription.
+
+2026-08-21 重新打开官方展览页：
+
+`https://museum.sinica.edu.tw/en/exhibition/13/item/771/`
+
+页面仍报告 `I 5867+8202`，并把该对象说明为先写后刻的例子，给出
+`丁未`至`辛亥`之间是否下雨的来源拟译，同时说前辞刻在背面。这是官方来源
+说明，不是独立版本或项目摹写。
+
 ## Evidence levels / 证据等级
 
 - A: official museum page identity and source-reported description.

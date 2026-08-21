@@ -48,6 +48,20 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
             self.assertIn(value, dossier)
         self.assertIn("not collected", dossier)
 
+    def test_live_official_recheck_keeps_source_boundary(self):
+        text = (OBJECT / "03_source-evidence-review.md").read_text(
+            encoding="utf-8-sig"
+        )
+        for value in (
+            "2026-08-21",
+            "https://museum.sinica.edu.tw/en/collection/32/item/503/",
+            "https://museum.sinica.edu.tw/collection/32/item/503/",
+            "帝令雨",
+            "not a new byte snapshot",
+            "可复现记录",
+        ):
+            self.assertIn(value, text)
+
     def test_machine_record_preserves_candidate_boundary(self):
         record = json.loads(
             (OBJECT / "90_source-record.json").read_text(

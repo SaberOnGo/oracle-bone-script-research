@@ -20,6 +20,28 @@ evidence events. Neither one is silently replaced by the other.
 旧的 2026-06-04 HTML 登记和新的现场快照是两条独立证据事件，不能互相静默
 替换。
 
+## Live official-page recheck / 官方页面现场复核
+
+On 2026-08-21, the official English and Chinese item pages were re-opened:
+
+- English: `https://museum.sinica.edu.tw/en/collection/32/item/503/`.
+- Chinese: `https://museum.sinica.edu.tw/collection/32/item/503/`.
+
+The live page still reports item `R044498`, Late Shang, Pit YH127,
+Hsiao-t'un, Anyang, and a turtle plastron. The Chinese page displays
+`帝令雨` and describes the source topic as the supreme deity directing the
+rain god. This is a source-page recheck, not a new byte snapshot; the
+registered HTML hashes above remain the reproducibility record.
+
+2026-08-21 重新打开官方中英文对象页：
+
+- 英文：`https://museum.sinica.edu.tw/en/collection/32/item/503/`。
+- 中文：`https://museum.sinica.edu.tw/collection/32/item/503/`。
+
+现场页面仍报告 `R044498`、晚商、YH127 坑、安阳小屯和龟腹甲。中文页显示
+`帝令雨`，并把来源主题说明为帝命令雨神。这是页面现场复核，不是新的字节快照；
+上面的登记 HTML hash 仍是可复现记录。
+
 ## Source and derived evidence / 来源与派生证据
 
 The object-local dossier records image sizes and checksums for private review.

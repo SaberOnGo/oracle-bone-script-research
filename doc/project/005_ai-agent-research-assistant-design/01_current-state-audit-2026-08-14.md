@@ -10,6 +10,8 @@ Follow-up verification date: `2026-08-21`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
+Current skeleton receipt commit: `866f78ab5bc`
+
 ## Purpose / 目的
 
 This audit binds the autonomous-candidate strategy to the current disk state.
@@ -88,26 +90,26 @@ They remain useful provenance, but are not a replacement for current scans.
 ## Current follow-up receipts / 当前跟进回执
 
 The current 2026-08-21 follow-up ran targeted suites after the object and
-rights updates. It did not rerun the repository-wide scans because those
-scans are I/O-heavy; their status remains unverified for this commit.
+rights updates. After the scan-pruning change, a full skeleton run at commit
+`866f78ab5bc` returned `PASS repository skeleton`.
 
-A later full skeleton attempt was started after the IHP object-page updates.
-It was interrupted after about eight minutes while reading
-`check_oracle_character_human_markdown_wrapping`; it produced no PASS result.
-The interruption is recorded as incomplete validation, not as a failure or
-an approval.
+An earlier full attempt was interrupted after about eight minutes while
+reading `check_oracle_character_human_markdown_wrapping`; it produced no PASS
+result. The later successful run supersedes that incomplete attempt. The
+audit-note edit after the receipt is documentation-only.
 
-2026-08-21 的跟进只在对象、权利和自主试点更新后运行定向测试，没有重新运行
-全仓库 I/O 密集型扫描；这些扫描在当前提交上的状态仍未复核。
+2026-08-21 的跟进在对象、权利和自主试点更新后运行了定向测试。完成扫描剪枝后，
+`866f78ab5bc` 上的全量骨架校验返回 `PASS repository skeleton`。
 
-随后在史语所对象页更新后启动了一次全量骨架校验，约八分钟后停在读取
-`check_oracle_character_human_markdown_wrapping` 的阶段。它没有产生 PASS；
-本次中止只记为校验未完成，不能解释为失败或批准。
+更早的一次全量尝试约八分钟后停在读取
+`check_oracle_character_human_markdown_wrapping` 的阶段，没有产生 PASS；
+后一次成功回执已取代这次未完成尝试。本审计说明的后续修改仅是文档修改。
 
 Current targeted receipts include the following:
 
 - AI pilot: `49 tests OK`; case triage: `4 tests OK`; pilot summary:
   `4 tests OK`.
+- Full skeleton at `866f78ab5bc`: `PASS repository skeleton`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
 - British Library 1595: `6 tests OK`; 1535: `7 + 3 tests OK`.
 - IHP item 771 source-record candidate: `7 tests OK`, including a new

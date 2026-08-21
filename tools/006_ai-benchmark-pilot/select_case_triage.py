@@ -259,15 +259,21 @@ def render_markdown(rows: list[dict[str, Any]]) -> str:
         "",
         "## Work order / 工作顺序",
         "",
-        "| rank | candidate | source | lane | visible signals |",
-        "| ---: | --- | --- | --- | --- |",
+        "Each rank is a compact review card; long fields continue on new lines.",
+        "每个排名是紧凑复核卡；较长字段会换到下一行。",
+        "",
     ]
     for row in rows:
         lines.append(
-            f"| {row['work_order_rank']} | `{row['candidate_id']}` | "
-            f"`{row['source_label']}` | "
-            f"`{lane_labels.get(row['lane'], row['lane'])}` | "
-            f"{row['visible_summary']} |"
+            f"- Rank / 排名 {row['work_order_rank']}: "
+            f"`{row['candidate_id']}`"
+        )
+        lines.append(
+            f"  Source / 来源: `{row['source_label']}`; "
+            f"lane / 通道: `{lane_labels.get(row['lane'], row['lane'])}`"
+        )
+        lines.append(
+            f"  Visible / 可见: `{row['visible_summary']}`"
         )
     lines.extend(["", "## Human review cards / 人类复核卡", ""])
     for row in rows:

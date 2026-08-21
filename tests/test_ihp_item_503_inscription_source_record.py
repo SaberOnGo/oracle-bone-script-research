@@ -27,6 +27,7 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
             "04_text-quality-review.md",
             "05_character-linkage-review.md",
             "06_missing-evidence-plan.md",
+            "07_visual-observation-and-parent-evidence.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -76,6 +77,22 @@ class IhpItem503InscriptionSourceRecordTests(unittest.TestCase):
             "source_record_candidate_needs_catalog_and_text_review",
         ):
             self.assertIn(value, index)
+
+    def test_visual_page_keeps_parent_and_pixel_boundaries(self):
+        path = OBJECT / "07_visual-observation-and-parent-evidence.md"
+        text = path.read_text(encoding="utf-8-sig")
+        for value in (
+            "18_live-source-evidence-review.md",
+            "hd-77859e83b1f6f4f0.jpg",
+            "753,936",
+            "1431 x 1920",
+            "febc5c14cd855f9cca4ae314233ffff718a51ae7808aadf4e4d9ba020dbf21c9",
+            "pixel-level observations",
+            "不能证明实物或编辑拼合",
+            "metadata_only_until_verified",
+        ):
+            self.assertIn(value, text)
+        self.assertNotIn("project reading", text)
 
     def test_markdown_files_are_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

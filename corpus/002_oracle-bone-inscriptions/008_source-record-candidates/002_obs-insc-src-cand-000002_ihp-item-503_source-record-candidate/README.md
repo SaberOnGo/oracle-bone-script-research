@@ -37,7 +37,8 @@ the effective rights status is `metadata_only_until_verified`.
 4. `04_text-quality-review.md`: separate description from OCR or text.
 5. `05_character-linkage-review.md`: keep character links unassigned.
 6. `06_missing-evidence-plan.md`: continue concrete catalog and text checks.
-7. Open `90_source-record.json` and `91_source-record-index.csv` last.
+7. `07_visual-observation-and-parent-evidence.md`: image-bound visual notes.
+8. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：查看对象和私有图像路线。
 2. `02_human-inscription-dossier.md`：阅读来源表述和状态。
@@ -45,7 +46,8 @@ the effective rights status is `metadata_only_until_verified`.
 4. `04_text-quality-review.md`：区分来源说明、OCR 和正文。
 5. `05_character-linkage-review.md`：保持单字关联未分配。
 6. `06_missing-evidence-plan.md`：继续具体著录和文字复核。
-7. 最后才打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+7. `07_visual-observation-and-parent-evidence.md`：绑定图像的视觉记录。
+8. 最后才打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 This is a candidate source record, not a formal inscription record,
 transcription, reading, or decipherment conclusion.

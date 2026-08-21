@@ -24,6 +24,13 @@
 7. 核查毛笔痕迹与先书后刻说法是否相符。
 8. 查找提出者、释读史、相反释读和争议。
 
+The independent-catalog lead in `10_independent-catalog-leads.md` is only a
+search observation. It must not be counted as a closed catalog match until the
+source file and cited pages are retrieved and checked.
+
+`10_independent-catalog-leads.md` 中的独立著录线索只是搜索观察。只有取得
+来源文件并核对所引页码后，才能把它计为已闭合的著录对应。
+
 ## Release boundary / 发布边界
 
 Until these checks close, status remains

@@ -82,6 +82,32 @@
       "sha256": "47dcd16ccfe72f8a8aba9944daef98d68f8703e6ca04e140028717daa96fd2c3"
     }
   ],
+  "independent_catalog_leads": [
+    {
+      "lead_id": "ihp-771-catalog-lead-001",
+      "url": "https://kinran.repo.nii.ac.jp/record/424/files/133-146%E6%9C%AB%E6%AC%A12019.pdf",
+      "observed_at": "2026-08-22",
+      "source_kind": "journal_pdf_search_index",
+      "search_observation": "乙5867＝合集補3539反面; YH127; period 1",
+      "direct_http_status": 410,
+      "retrieval_status": "search_lead_not_retrieved",
+      "sha256": null,
+      "rights_status": "not_assessed",
+      "claim_scope": "catalog_lead_only"
+    },
+    {
+      "lead_id": "ihp-771-catalog-lead-002",
+      "url": "https://cdp.sinica.edu.tw/zip/temp/yyuyen.pdf",
+      "observed_at": "2026-08-22",
+      "source_kind": "group_class_table_search_index",
+      "search_observation": "8202; period 4; 典賓",
+      "direct_http_status": 400,
+      "retrieval_status": "search_lead_not_retrieved",
+      "sha256": null,
+      "rights_status": "not_assessed",
+      "claim_scope": "group_route_lead_only"
+    }
+  ],
   "period": "Late Shang Period",
   "findspot": "Pit YH127, Hsiao-t'un, Anyang County, Honan Province",
   "material": "Turtle Plastron",

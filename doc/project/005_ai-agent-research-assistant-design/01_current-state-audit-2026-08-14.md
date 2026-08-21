@@ -151,6 +151,9 @@ Working-tree verification after the claim matrix was added:
   source text, while the English block remains a proposed translation; no
   project transcription or reading is created. Its focused suite is
   `10 tests OK`.
+- IHP item 771 also records two independent catalog search leads. Both remain
+  unverified because the source files could not be retrieved; no Heji, period,
+  group, or plate claim is promoted. Its focused suite is now `11 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
 - The full suite: `1085 tests OK` in `607.021` seconds. The triage command
@@ -219,6 +222,9 @@ Working-tree verification after the claim matrix was added:
 - 史语所 771 号对象现有带校验和的 2026-08-22 中英文页面快照。中文
   `.fr-view` 保留馆方显示的来源文字，英文区块仍是拟译；没有建立项目
   摹写或释读。其专项套件为 `10 tests OK`。
+- 史语所 771 号对象另记录两条独立著录搜索线索。因来源文件未能取得，
+  两条线索仍未核验，没有提升合集、时期、组类或图版主张。其专项套件现为
+  `11 tests OK`。
 - 全量测试：`1085 tests OK`，耗时 `607.021` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。

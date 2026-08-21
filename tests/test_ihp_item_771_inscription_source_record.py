@@ -30,6 +30,7 @@ class IhpItem771InscriptionSourceRecordTests(unittest.TestCase):
             "06_missing-evidence-plan.md",
             "07_visual-observation-and-parent-evidence.md",
             "09_official-page-text-evidence.md",
+            "10_independent-catalog-leads.md",
         ):
             self.assertTrue((OBJECT / name).exists(), name)
             self.assertIn(name, readme)
@@ -97,6 +98,20 @@ class IhpItem771InscriptionSourceRecordTests(unittest.TestCase):
             )
             self.assertEqual(
                 snapshot["rights_status"], "metadata_only_until_verified"
+            )
+        self.assertEqual(len(record["independent_catalog_leads"]), 2)
+        self.assertEqual(
+            record["independent_catalog_leads"][0]["direct_http_status"],
+            410,
+        )
+        self.assertEqual(
+            record["independent_catalog_leads"][1]["direct_http_status"],
+            400,
+        )
+        for lead in record["independent_catalog_leads"]:
+            self.assertIsNone(lead["sha256"])
+            self.assertEqual(
+                lead["retrieval_status"], "search_lead_not_retrieved"
             )
 
     def test_index_keeps_missing_fields_explicit(self):
@@ -175,6 +190,19 @@ class IhpItem771InscriptionSourceRecordTests(unittest.TestCase):
             "proposed translation",
             "not a confirmed",
             "metadata_only_until_verified",
+        ):
+            self.assertIn(value, text)
+
+    def test_catalog_leads_are_explicitly_unverified(self):
+        text = (OBJECT / "10_independent-catalog-leads.md").read_text(
+            encoding="utf-8-sig"
+        )
+        for value in (
+            "乙5867＝合集補3539反面",
+            "HTTP 410",
+            "典賓",
+            "unverified_catalog_lead",
+            "不能证明",
         ):
             self.assertIn(value, text)
 

@@ -43,7 +43,8 @@ not a formal `obi-*` inscription record.
 6. `06_missing-evidence-plan.md`: concrete catalog and text checks.
 7. `07_visual-observation-and-parent-evidence.md`: image-bound visual notes.
 8. `09_official-page-text-evidence.md`: checksum-bound page text snapshots.
-9. Open `90_source-record.json` and `91_source-record-index.csv` last.
+9. `10_independent-catalog-leads.md`: unverified catalog and plate leads.
+10. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和私有图像路线。
 2. `02_human-inscription-dossier.md`：来源文字和记录状态。
@@ -53,7 +54,8 @@ not a formal `obi-*` inscription record.
 6. `06_missing-evidence-plan.md`：具体著录与文字待查项。
 7. `07_visual-observation-and-parent-evidence.md`：绑定图像的视觉记录。
 8. `09_official-page-text-evidence.md`：带校验和的页面文字快照。
-9. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+9. `10_independent-catalog-leads.md`：尚未核验的著录和图版线索。
+10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 This candidate is not a confirmed inscription identity, transcription,
 reading, or decipherment conclusion.

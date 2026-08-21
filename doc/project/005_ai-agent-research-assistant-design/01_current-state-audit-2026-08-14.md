@@ -510,42 +510,44 @@ character, inscription, component, or evolution edge into a confirmed claim.
 
 ## Latest HEAD receipt / 最新主分支回执
 
-The current pushed HEAD is `6078f7ae9c4`. The preceding commits
+The object-repair baseline is `6078f7ae9c4`. Its preceding commits
 `bf243ee38b9` and `274d7a46b6f` added the Met 42045 two-view page and the
-Or. 7694/1595 astronomical-date dispute matrix. The latest commit repaired
-the direct image link in the obs-char-000621 multi-instance dossier. These
+Or. 7694/1595 astronomical-date dispute matrix. The baseline repaired the
+direct image link in the obs-char-000621 multi-instance dossier. These
 remain source-record or dispute aids; none creates OCR, a transcription, or
-a decipherment claim.
+a decipherment claim. This receipt is refreshed by a later audit commit;
+the audit page intentionally does not self-embed its own commit hash.
 
-当前已推送的 HEAD 为 `6078f7ae9c4`。前两次提交
+对象修复基线为 `6078f7ae9c4`。此前的
 `bf243ee38b9`、`274d7a46b6f` 分别为 Met 42045 增加双图人类证据页，
-为 Or. 7694/1595 增加月食年代争议矩阵。最新提交修复
+为 Or. 7694/1595 增加月食年代争议矩阵。该基线修复了
 obs-char-000621 多实例档案中的直接图像链接。这些都只是来源记录或争议
-辅助，没有生成 OCR、摹写或破译主张。
+辅助，没有生成 OCR、摹写或破译主张。本回执由后续审计提交刷新，
+审计页不把自身提交哈希写入正文，以避免自指过时。
 
 Fresh receipts bound to this follow-up are:
 
 - Met 42045 two-view suite: `4 tests OK`.
 - Or. 7694/1595 date-dispute suite: `4 tests OK`.
 - obs-char-000621 multi-instance suite: `4 tests OK`.
-- Full suite at the latest working tree: `1040 tests OK` in `620.844`
+- Full suite in the refreshed working tree: `1040 tests OK` in `645.768`
   seconds.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156842` Markdown files,
   and all four debt counts `0`.
-- Commit-message check: `PASS 6078f7ae9c4`.
-- Remote `origin/main` resolves to `6078f7ae9c4`.
+- Commit-message format: `PASS` before the audit refresh was pushed.
+- Remote branch verification: `PASS` after the audit refresh was pushed.
 
 本次跟进绑定的最新回执如下：
 
 - Met 42045 双图套件：`4 tests OK`。
 - Or. 7694/1595 年代争议套件：`4 tests OK`。
 - obs-char-000621 多实例套件：`4 tests OK`。
-- 最新工作树全量测试：`1040 tests OK`，耗时 `620.844` 秒。
+- 刷新后工作树全量测试：`1040 tests OK`，耗时 `645.768` 秒。
 - 仓库骨架：`PASS repository skeleton`。
 - 严格人类资料门：退出码 `0`，`156842` 篇 Markdown，四项债务均为 `0`。
-- 提交信息检查：`PASS 6078f7ae9c4`。
-- 远端 `origin/main` 已指向 `6078f7ae9c4`。
+- 提交信息格式：审计刷新推送前为 `PASS`。
+- 远端分支核验：审计刷新推送后为 `PASS`。
 
 The user-owned untracked file `doc/public/user_prompt/1.txt` remains outside
 the commits and was not read or modified. No AI v2 experiment record was

@@ -46,6 +46,11 @@ for deciding whether a source can become a reviewed research note.
   abstract, dating argument, citation dispute, rights, and transfer gates.
 - [Liu 2014《英藏》月食论文档案][liu-eclipse]：记录摘要、断代论证、引用争议、
   权利和对象转移门槛。
+- [Xiaoxuetang database dossier][xiaoxuetang]: official database scope,
+  current count snapshot, access receipts, field routes, rights, and transfer
+  blockers.
+- [小學堂数据库档案][xiaoxuetang]：记录官方数据库范围、当前数量快照、
+  访问凭证、字段路线、权利和转移阻断项。
 
 The HUST-OBC paper dossier keeps dataset counts and expert review as
 `source-reported`. Its 94.6% closed-set image-classification accuracy is not
@@ -99,3 +104,4 @@ It is not a rights decision, source promotion, or corpus import approval.
 [cambridge-hopkins-list]: 006_cambridge-hopkins_finding-list/README.md
 [schwartz-hyz]: 007_schwartz-2019_hyz-monograph/README.md
 [liu-eclipse]: 008_liu-2014_yingcang-eclipse/README.md
+[xiaoxuetang]: 009_xiaoxuetang_database/README.md

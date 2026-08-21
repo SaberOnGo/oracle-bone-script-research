@@ -1,0 +1,16 @@
+{
+  "record_type": "human_dossier_support_only",
+  "source_id": "src-xiaoxuetang-jiaguwen",
+  "title": "小學堂文字學資料庫 / Xiaoxuetang Wenzixue Database",
+  "provider": "Academia Sinica Digital Culture Center",
+  "main_url": "https://xiaoxue.iis.sinica.edu.tw/",
+  "oracle_bone_url": "https://xiaoxue.iis.sinica.edu.tw/jiaguwen",
+  "review_status": "reviewed_metadata_only",
+  "formal_research_status": "not_started",
+  "candidate_delivery": "none",
+  "access_date": "2026-08-21",
+  "human_dossier": "README.md",
+  "ignored_snapshot_dir": ".working/xiaoxuetang-live-20260821",
+  "rights_status": "metadata_only_until_verified",
+  "caution": "Not a row-level import, decipherment result, or confirmed scholarship."
+}

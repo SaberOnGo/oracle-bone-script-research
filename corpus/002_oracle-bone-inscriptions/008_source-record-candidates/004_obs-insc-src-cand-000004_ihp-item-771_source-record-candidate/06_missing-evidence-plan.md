@@ -2,7 +2,8 @@
 
 ## Blocking checks / 阻断检查
 
-1. Capture a page snapshot with access date, byte count, and SHA-256.
+1. Refresh the paired official page snapshots and compare their `.fr-view`
+   blocks, hashes, and source wording.
 2. Confirm the three image routes and their rights terms with the museum.
 3. Match `R039275+R043001` to an independent catalog and plate.
 4. Verify whether the two fragments are an authorized physical or editorial
@@ -14,7 +15,7 @@
 
 ## 具体待查问题
 
-1. 重新抓取页面并记录访问日期、字节数和 SHA-256。
+1. 重新抓取中英文官方页面，比较 `.fr-view`、校验和和来源文字。
 2. 向馆方核对三条图像路线及其权利条件。
 3. 用独立著录和图版核对 `R039275+R043001`。
 4. 核实两个残片是否有获准的实物或编辑拼合依据。

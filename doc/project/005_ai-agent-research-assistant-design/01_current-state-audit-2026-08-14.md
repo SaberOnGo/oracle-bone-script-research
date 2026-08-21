@@ -146,6 +146,11 @@ Working-tree verification after the claim matrix was added:
   page snapshots. The Chinese `.fr-view` block preserves `帝令雨` as source
   display, while the English block remains source prose; no OCR or reading is
   created. Its focused suite is `9 tests OK`.
+- IHP item 771 now has paired checksum-bound 2026-08-22 English and Chinese
+  page snapshots. The Chinese `.fr-view` preserves the museum's displayed
+  source text, while the English block remains a proposed translation; no
+  project transcription or reading is created. Its focused suite is
+  `10 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
 - The full suite: `1085 tests OK` in `607.021` seconds. The triage command
@@ -211,6 +216,9 @@ Working-tree verification after the claim matrix was added:
 - 史语所 503 号对象现有带校验和的 2026-08-22 中英文页面快照。中文
   `.fr-view` 区块保留 `帝令雨` 来源显示，英文区块仍是来源散文；没有建立
   OCR 或项目释读。其专项套件为 `9 tests OK`。
+- 史语所 771 号对象现有带校验和的 2026-08-22 中英文页面快照。中文
+  `.fr-view` 保留馆方显示的来源文字，英文区块仍是拟译；没有建立项目
+  摹写或释读。其专项套件为 `10 tests OK`。
 - 全量测试：`1085 tests OK`，耗时 `607.021` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。

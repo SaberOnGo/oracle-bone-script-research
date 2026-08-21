@@ -12,8 +12,17 @@ The parent dossier records HTTP responses, JPEG types, byte counts, pixel
 dimensions, and SHA-256 values for three private image copies and two HTML
 snapshots. This candidate does not claim image reuse permission.
 
+The paired 2026-08-22 page snapshots are recorded in
+`09_official-page-text-evidence.md` and `90_source-record.json`. The Chinese
+`.fr-view` preserves the source display of the complete divination; the
+English `.fr-view` preserves the museum's proposed English wording.
+
 父级对象档案记录三份私有图像和两份 HTML 快照的响应、类型、字节数、像素尺寸
 及 SHA-256。本候选不声称图像已经取得再利用许可。
+
+2026-08-22 中英文页面快照已写入 `09_official-page-text-evidence.md` 和
+`90_source-record.json`。中文 `.fr-view` 保留完整占问的来源显示，英文
+`.fr-view` 保留馆方英文拟译。
 
 ## Second official exhibition route / 第二条官方展览路线
 

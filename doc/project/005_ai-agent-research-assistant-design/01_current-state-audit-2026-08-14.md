@@ -123,9 +123,16 @@ Working-tree verification after the claim matrix was added:
   remain unregistered and unresolved.
 - The focused IHP catalog-record suite is `4 tests OK`; the dossier contains
   seven human Markdown records and one subordinate JSON index.
+- British Library Or. 7694/1595 now resolves to item record `040-003126498`
+  under collection `032-002915678`. The object dossier binds both record IDs,
+  MDARK/LARK identifiers, hierarchy, and two ignored HTML snapshot hashes.
+  Images, IIIF, and transcription remain unavailable; the item is still a
+  source-record candidate rather than a formal inscription.
+- The focused BL catalog refresh suite is `5 tests OK`; the related source-text
+  reconciliation suite remains `7 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1073 tests OK` in `642.043` seconds. The triage command
+- The full suite: `1078 tests OK` in `637.976` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156853` Markdown files, and all
@@ -167,9 +174,15 @@ Working-tree verification after the claim matrix was added:
   登录号 `R038861` 和 `Jia Bian 0959`。它把同一机构来源族当作一条证据，未把两页
   重复计为独立证据；对象页快照、具体图版和完整文字仍未登记、仍待查。
 - 史语所著录档案专项套件为 `4 tests OK`；包含七份人类 Markdown 和一个从属 JSON。
+- 大英图书馆 Or. 7694/1595 现已解析到集合 `032-002915678` 下的逐项记录
+  `040-003126498`。对象档案绑定两个记录号、MDARK/LARK、层级关系以及两份
+  忽略区 HTML 快照的校验和。图像、IIIF 和释文仍不可用，本对象仍是来源记录
+  候选，不是正式卜辞记录。
+- 大英图书馆馆藏刷新专项套件为 `5 tests OK`；相关来源文字对照套件仍为
+  `7 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1073 tests OK`，耗时 `642.043` 秒。选案命令返回
+- 全量测试：`1078 tests OK`，耗时 `637.976` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
 - 严格人类资料门：退出码 `0`，扫描 `156853` 篇 Markdown，四项债务均为 `0`。

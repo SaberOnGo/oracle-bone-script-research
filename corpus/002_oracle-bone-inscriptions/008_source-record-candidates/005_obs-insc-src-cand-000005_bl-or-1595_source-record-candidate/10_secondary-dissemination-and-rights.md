@@ -94,10 +94,10 @@ Google Arts 路线最多支持对象发现和权利线索。Sketchfab 路线属�
 线索。上述路线都不能提升 Commons 字符串、《合集》引用、时期或月食
 日期的证据等级。
 
-Next checks are to obtain a stable British Library item record, query the OBID
-H/Y routes if access is permitted, verify the two *Heji* plate locations, and
-record any restored image or IIIF terms.
+Next checks are to use item record `040-003126498`, query the OBID H/Y routes
+if access is permitted, verify the two *Heji* plate locations, and record any
+stable JSON, restored image, or IIIF terms.
 
-下一步应取得稳定的大英图书馆逐项记录；若访问许可允许，再查询 OBID 的
-H/Y 路线；核对两面的《合集》图版位置，并记录恢复后的图像或 IIIF 路线
-及其权利条件。
+下一步应使用 `040-003126498` 逐项记录；若访问许可允许，再查询 OBID 的
+H/Y 路线；核对两面的《合集》图版位置，并记录稳定 JSON、恢复后的图像
+或 IIIF 路线及其权利条件。

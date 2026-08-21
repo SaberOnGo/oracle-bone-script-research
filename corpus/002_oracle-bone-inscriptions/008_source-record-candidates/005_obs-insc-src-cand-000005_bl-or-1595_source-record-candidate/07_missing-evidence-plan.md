@@ -4,9 +4,9 @@ The following are concrete checks, not filler status text:
 
 以下是具体待查问题，不是空泛状态语句：
 
-1. The catalogue search now supplies collection-level metadata for
-   Or. 7694/1595. Can it resolve to a stable item record for 1595r and 1595v,
-   with JSON, IIIF, and image payloads after the current site changes?
+1. The catalogue now resolves item record `040-003126498` under collection
+   `032-002915678`. Can a stable JSON or XML payload, IIIF manifest, or image
+   payload be obtained from this item after the current site changes?
 2. Does *Heji* 40610 have one plate for each side, and what are the exact
    volume, plate, page, and publication references?
 3. Is `Yingcang` 886r/v an independent catalog source or a reprint route?
@@ -27,8 +27,9 @@ to open both works, verify whether they refer to the same recto/verso object,
 and capture their calculations and source plate references without choosing a
 date in this dossier.
 
-1. 目录检索现在提供了 Or. 7694/1595 的集合级字段。当前网站变化后，
-   能否解析到 1595r 与 1595v 的稳定逐项记录、JSON、IIIF 和图像内容？
+1. 目录现在把对象解析到集合 `032-002915678` 下的逐项记录
+   `040-003126498`。当前网站变化后，能否从该记录取得稳定 JSON 或
+   XML、IIIF manifest 或图像内容？
 2. 《合集》40610 是否为正反面各自一幅图版？准确卷、图版、页码和
    出版信息是什么？
 3. `Yingcang` 886r/v 是独立著录还是重印路线？

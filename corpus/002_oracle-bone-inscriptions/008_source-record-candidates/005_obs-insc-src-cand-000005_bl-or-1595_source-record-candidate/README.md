@@ -46,7 +46,7 @@ Commons 页面明确将图像标为 CC0，
    two image sides.
 9. `11_visual-region-review.md`: human-readable image region observations.
 10. `09_british-library-catalog-record.md`: official catalogue metadata and
-    unresolved item-level route.
+    resolved item identity with missing image and text payloads.
 11. `10_secondary-dissemination-and-rights.md`: related routes and rights.
 12. `12_astronomical-date-dispute.md`: named date claims and their limits.
 13. Open `90_source-record.json`, `91_source-record-index.csv`, and
@@ -61,7 +61,8 @@ Commons 页面明确将图像标为 CC0，
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_source-text-line-reconciliation.md`：对照页面文字和正反面图像。
 9. `11_visual-region-review.md`：人类可读的图像区域观察。
-10. `09_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
+10. `09_british-library-catalog-record.md`：官方馆藏字段、已解析的逐项身份
+    以及仍缺失的图像和文字内容。
 11. `10_secondary-dissemination-and-rights.md`：相关路线与权利限制。
 12. `12_astronomical-date-dispute.md`：有名年代主张及其限制。
 13. 最后打开 `90_source-record.json`、`91_source-record-index.csv` 和

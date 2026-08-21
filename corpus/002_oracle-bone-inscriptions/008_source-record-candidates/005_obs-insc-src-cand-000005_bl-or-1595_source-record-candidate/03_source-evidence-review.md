@@ -11,10 +11,9 @@
 | C | Commons inscription strings and eclipse note | source-reported only |
 
 The Commons pages state that the files were provided by the British Library
-from its digital collections. They also expose a catalog route for
-`Or. 7694/1595`. The catalog route was recorded, but a stable item-level
-catalog record and an authoritative plate scan were not obtained in this
-pass.
+from its digital collections. The official catalogue now resolves the item
+to record `040-003126498` under collection record `032-002915678`. This is a
+catalogue identity route, not an image, plate, or transcription route.
 
 Commons 页面说明图像由大英图书馆数字馆藏提供，并给出
 `Or. 7694/1595` 著录路线。本次记录了该路线，但尚未取得稳定的逐项
@@ -33,6 +32,23 @@ They remain local-only retrieval evidence, not committed page content.
 背面快照为 9327 字节，SHA-256 为
 `71778aa79e0a99cf9d477d27cc91e269e2170f28c6aa50b626dd69b4e24cf0b7`。
 它们只作为本地访问证据，不提交页面正文。
+
+The British Library item HTML was also captured in the ignored download
+area. The 41120-byte snapshot has SHA-256
+`1a4672c0524d02ca1048e76787c2e5015825671f72023d988d03bb3549e3422c`.
+The parent collection snapshot is 166069 bytes with SHA-256
+`1f3336ecd238857fb7d5cfa4ff02b7d66ffc8f95f6cfcdc4edb6fbcb057a1b65`.
+These hashes bind the catalogue fields in
+`09_british-library-catalog-record.md`; the HTML remains local-only under
+`tmp/source_downloads/`.
+
+大英图书馆逐项记录 HTML 也已保存到忽略下载区。41120 字节快照的
+SHA-256 为
+`1a4672c0524d02ca1048e76787c2e5015825671f72023d988d03bb3549e3422c`。
+集合快照为 166069 字节，SHA-256 为
+`1f3336ecd238857fb7d5cfa4ff02b7d66ffc8f95f6cfcdc4edb6fbcb057a1b65`。
+这些校验和绑定 `09_british-library-catalog-record.md` 的馆藏字段；
+HTML 仍只保存在 `tmp/source_downloads/` 忽略目录。
 
 ## Rights and risk / 权利与风险
 
@@ -63,5 +79,12 @@ The image checksum proves the fetched bytes. It does not prove the Heji
 number, the astronomical date, or the page transcription. Those claims need
 separate catalog or scholarly evidence.
 
+The catalogue record proves a stable shelfmark and hierarchy only. It does
+not independently verify the Commons Heji or Yingcang references, the source
+strings, the eclipse date, or the twentieth-century-addition warning.
+
 图像校验和只能证明已下载字节，不证明合集号、天文日期或页面摹写。
 这些主张需要分别寻找著录或学术证据。
+
+馆藏记录只证明稳定馆藏号和层级关系，不能独立核验 Commons 的合集号、
+英藏号、来源文字、月食年代或“二十世纪添加”警示。

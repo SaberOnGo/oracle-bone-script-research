@@ -119,7 +119,8 @@ neither proof of fabrication nor evidence for either astronomical date.
 
 ## Required next checks / 必须完成的下一步
 
-1. Resolve the British Library item-level record for both sides.
+1. Keep item record `040-003126498` as the identity route and seek its stable
+   JSON or XML, image, or IIIF payload.
 2. Open *Heji* 40610r/v and *Yingcang* 886r/v with exact volume and plate
    locators.
 3. Confirm whether Liu's 885/886 pair includes this 886 object and how its

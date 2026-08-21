@@ -112,7 +112,8 @@ Keightley 1978 和 Zhang 2002 的引文。它们只是来源主张和文献路�
 
 Concrete next checks are:
 
-1. Locate a stable British Library item record for both sides.
+1. Use item record `040-003126498` as the catalogue identity route; obtain
+   its stable JSON or XML payload if the site exposes one.
 2. Open the exact Heji 40610 plate and page references.
 3. Compare an authoritative plate with each image side and preserve the
    edition's line order and damaged-sign marks.

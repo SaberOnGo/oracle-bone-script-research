@@ -134,13 +134,14 @@ metadata、《合集》引文和未来图版仍是独立的证据与权利问题
 
 ## Concrete next checks / 具体下一步待查
 
-1. Open a stable British Library item record for both sides.
+1. Use item record `040-003126498` and obtain any stable image or IIIF
+   payload for both sides.
 2. Locate the exact *Heji* 40610 pages and plate references.
 3. Ask an independent reviewer to confirm orientation and region boxes.
 4. Match each source-displayed string to an edition or catalog locator.
 5. Only then create a reviewed line segmentation or OCR with a checksum.
 
-1. 打开两面的稳定大英图书馆逐项馆藏记录。
+1. 使用 `040-003126498` 逐项记录，并取得两面的稳定图像或 IIIF 内容。
 2. 定位《合集》40610 的确切页码和图版引文。
 3. 由独立复核者确认方向和区域框选。
 4. 把页面显示字符串逐条对应到版本或著录定位。

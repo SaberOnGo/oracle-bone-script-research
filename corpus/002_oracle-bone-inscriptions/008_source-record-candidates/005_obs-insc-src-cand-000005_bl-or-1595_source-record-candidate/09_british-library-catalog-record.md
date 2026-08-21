@@ -14,10 +14,10 @@ routes; it does not replace an item-level record, a plate, or a photograph.
 - Catalogue home: https://searcharchives.bl.uk/
 - Query: `Or 7694/1595`
 - Collection record: https://searcharchives.bl.uk/catalog/032-002915678
-- Access date: 2026-08-14
+- Access date: 2026-08-21
 - Access mode: official catalogue search result and collection record
 
-检索入口和集合记录均来自大英图书馆官方域名。2026-08-14 访问时，
+检索入口和集合记录均来自大英图书馆官方域名。2026-08-21 访问时，
 逐项结果显示为 legacy digitised content unavailable；本页没有保存
 新的 HTML 或图像快照，不能把这次访问写成已取得图像。
 
@@ -40,6 +40,25 @@ The search result for `Or 7694/1595` reports:
 语言为 Chinese；年代范围为 1300 BC-1050 BC；资料范围为来自中国、
 年代约 1300 至 1050 BC 的有刻辞骨；图像提示为 Images currently
 unavailable。
+
+## Live catalogue warning / 最新馆藏警示
+
+The live catalogue search result also states that it is believed the
+inscription, or part(s) of the inscription, may have been added during the
+twentieth century. This is source-reported catalogue wording, not a project
+authenticity judgment. The warning must remain attached to this object before
+any reading, dating, or plate identity is used.
+
+最新馆藏检索结果还写明：该对象的全部或部分刻辞“可能在二十世纪添加”。
+这是馆藏页面的来源报告措辞，不是本项目对真伪的判断。在使用任何释读、年代
+或图版身份之前，都必须保留这项警示。
+
+The same result still shows `Images currently unavailable`. The Commons CC0
+images are a separate dissemination route; they do not prove that the
+catalogue image route has been restored.
+
+同一结果仍显示 `Images currently unavailable`。Commons CC0 图像是独立的
+传播路线，不等于馆藏目录图像路线已经恢复。
 
 ## Evidence status / 证据状态
 
@@ -71,6 +90,9 @@ Heji 40610r/v 或 Yingcang 886r/v 著录引用。
    source wording, and line order with `08_source-text-line-reconciliation`.
 4. Identify the edition that supplied the displayed strings and record its
    proposer, alternative readings, and rights.
+5. Compare the twentieth-century-addition warning with object history,
+   physical surface, Commons provenance, Heji/Yingcang routes, and named
+   scholarship; do not silently promote or dismiss it.
 
 1. 解析 `Or 7694/1595` 的逐项记录，包括记录号、稳定 JSON 以及恢复后的
    图像或 IIIF 路线。
@@ -78,6 +100,8 @@ Heji 40610r/v 或 Yingcang 886r/v 著录引用。
 3. 核对两面的 Heji 图版和页码，再与
    `08_source-text-line-reconciliation` 的图像、来源文字和行序比较。
 4. 查明页面文字所依据的版本，并记录提出者、不同释读和权利状态。
+5. 将“二十世纪添加”警示与对象历史、实物表面、Commons 来源、Heji、
+   Yingcang 路线及相关研究逐项对照，不能静默采纳或排除。
 
 This page is catalog evidence only. It contains no project OCR,
 transcription, translation, character assignment, astronomical conclusion,

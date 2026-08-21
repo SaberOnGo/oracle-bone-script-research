@@ -188,6 +188,13 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 同一候选现增加大英图书馆馆藏页，记录来源报告的馆藏号、题名、馆藏区域、
   年代范围、范围字段和 `Images currently unavailable` 提示。逐项 JSON、
   IIIF 和馆藏图像仍未取得。
+- 2026-08-21 的官方检索结果另报告：该对象的全部或部分刻辞可能在二十世纪
+  添加。该句保留为馆藏来源警示，不是本项目真伪判断；后续释读、年代和图版
+  使用均被此警示阻断，直到对象历史和实物路线完成对照。
+- The 2026-08-21 live catalogue result also reports a possible twentieth-century
+  addition to all or part of the inscription. It remains a source warning,
+  not a project authenticity judgment, and blocks later reading, dating, or
+  plate use until the object history and physical routes are reconciled.
 - Or. 7694/1535v 候选现采用同样的限定馆藏处理；其 Heji 39498v、
   Yingcang 1117v、逐项 JSON、IIIF 和图像路线仍需分别核验。
 - 宁夏博物馆 HYZ 421 来源记录候选现保存一张 CC BY-SA 3.0 照片、本地校验和与

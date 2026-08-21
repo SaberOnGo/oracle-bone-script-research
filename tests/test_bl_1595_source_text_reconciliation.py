@@ -33,9 +33,12 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             "item-level JSON payload",
             "no project OCR",
             "or decipherment claim",
+            "twentieth century",
+            "Live catalogue warning",
+            "2026-08-21",
+            "Commons CC0",
         ):
             self.assertIn(marker, text)
-        self.assertNotIn("twentieth century", text)
         self.assertNotIn("project translation", text)
 
     def test_reconciliation_preserves_source_strings_and_boundaries(self):

@@ -10,9 +10,9 @@ Follow-up verification date: `2026-08-21`
 
 Historical baseline commit: `7c8b8a29a35` (2026-08-14)
 
-Current skeleton receipt commit: `3962a434944`
+Current skeleton receipt commit: `4130c2c034f`
 
-Current human-material gate receipt commit: `3962a434944`
+Current human-material gate receipt commit: `4130c2c034f`
 
 ## Purpose / 目的
 
@@ -92,15 +92,15 @@ They remain useful provenance, but are not a replacement for current scans.
 ## Current follow-up receipts / 当前跟进回执
 
 The current 2026-08-21 follow-up ran targeted suites after the object and
-rights updates. A full skeleton run at commit `3962a434944` returned
+rights updates. A full skeleton run at commit `4130c2c034f` returned
 `PASS repository skeleton`.
 
-The full strict human-material gate at commit `3962a434944` returned exit 0
-with 156838 scanned Markdown files and all four debt counts at zero.
+The full strict human-material gate at commit `4130c2c034f` returned exit 0
+with 156839 scanned Markdown files and all four debt counts at zero.
 
-The full test suite at commit `59405ed201c` ran 1001 tests in 612.065
+The full test suite at commit `4130c2c034f` ran 1005 tests in 639.681
 seconds and returned `OK`. Its final triage-only case-selection line was
-`PASS` for seven rows; it did not open a candidate-delivery channel.
+`PASS` for eight rows; it did not open a candidate-delivery channel.
 
 After these receipts, an eighth inscription source-record candidate was added
 for The Met object 42045 / accession 67.43.14. Its two committed image files,
@@ -114,13 +114,13 @@ result. The later successful run supersedes that incomplete attempt. The
 audit-note edit after the receipt is documentation-only.
 
 2026-08-21 的跟进在对象、权利和自主试点更新后运行了定向测试。完成扫描剪枝后，
-`3962a434944` 上的全量骨架校验返回 `PASS repository skeleton`。
+`4130c2c034f` 上的全量骨架校验返回 `PASS repository skeleton`。
 
-`3962a434944` 上的 full/strict 人类资料门返回退出码 0，扫描 156838 个
+`4130c2c034f` 上的 full/strict 人类资料门返回退出码 0，扫描 156839 个
 Markdown 文件，四项债务计数均为 0。
 
-`59405ed201c` 上的全量测试运行 1001 项，耗时 612.065 秒，最终为 `OK`。
-最后的选案分诊只输出七行 `PASS`，没有开启候选交付通道。
+`4130c2c034f` 上的全量测试运行 1005 项，耗时 639.681 秒，最终为 `OK`。
+最后的选案分诊只输出八行 `PASS`，没有开启候选交付通道。
 
 更早的一次全量尝试约八分钟后停在读取
 `check_oracle_character_human_markdown_wrapping` 的阶段，没有产生 PASS；
@@ -137,8 +137,8 @@ Current targeted receipts include the following:
 - Fresh AI pilot rerun at commit `faf3ab9cf03`: `49 tests OK` in 88.484
   seconds. This remains a diagnostic pipeline receipt, not a calibration or
   candidate-delivery result.
-- Full skeleton at `3962a434944`: `PASS repository skeleton`.
-- Full strict human-material gate at `3962a434944`: `156838` Markdown files;
+- Full skeleton at `4130c2c034f`: `PASS repository skeleton`.
+- Full strict human-material gate at `4130c2c034f`: `156839` Markdown files;
   all four debt counts were `0`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
 - British Library 1595: `7 tests OK`, including the two ignored Wikimedia API
@@ -158,7 +158,7 @@ Current targeted receipts include the following:
 史语所 771 号来源记录候选为 `7 tests OK`，新增了绑定图像的视觉观察页；
 503 和 1215 号来源记录候选分别为 `12` 和 `13 tests OK`，均新增绑定图像的
 视觉观察页；
-full/strict 人类资料门在 `3962a434944` 上扫描 156838 个 Markdown 文件，四项
+full/strict 人类资料门在 `4130c2c034f` 上扫描 156839 个 Markdown 文件，四项
 债务计数均为 0；
 OBIMD 有效权利为 `5 + 3 tests OK`。1595 的 OBID 入口、释文检索页和原文
 检索页仍只是检索线索；公开页返回需登录的访问边界，没有取得

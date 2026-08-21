@@ -31,6 +31,15 @@
 ### Files to open / 待打开文件
 
 - `project_registry/006_large-source-register/001_large-source-register.csv`
+- `corpus/005_excavation-sites-periods-and-batches/002_collection-object-`
+  `candidates/053_coll-obj-cand-00053_si-nmaa-fsc-o-26_collection-`
+  `object-candidate/20_human-material-evidence-dossier.md`
+
+The object-local dossier is a bounded visual evidence route. It does not close
+the source-level large-register gap or promote the object to an inscription.
+
+对象内档案是限定性的图像证据路线。它没有关闭来源层大型登记缺口，
+也没有把对象提升为卜辞记录。
 
 ### Required review actions / 必需复核动作
 

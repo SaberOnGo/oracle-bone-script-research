@@ -45,6 +45,8 @@ Open `03_visual-asset-index.csv` for the local image path and checksum.
   source-linked image.
 - `19_visible-surface-catalog-description-audit.md`: human visual versus
   catalog audit; no inscription identity is assigned.
+- `20_human-material-evidence-dossier.md`: object-local visual evidence,
+  provenance, contradictions, and concrete next checks.
 
 ## Structured Support Files / 结构化辅助文件
 

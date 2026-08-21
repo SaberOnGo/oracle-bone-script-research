@@ -39,7 +39,7 @@
     "updated_at": "2026-06-20"
   },
   "transcription_status": "needs_source_page_transcription_review_route",
-  "updated_at": "2026-06-20",
+  "updated_at": "2026-08-22",
   "visual_index": {
     "asset_id": "",
     "asset_path": "",
@@ -56,5 +56,70 @@
     "visual_entry_type": "external_thumbnail_url_metadata_only",
     "visual_index_id": "coll-obj-cand-00006-visual-01",
     "visual_profile_status": "not_available_metadata_only"
-  }
+  },
+  "page_snapshots": [
+    {
+      "language": "en",
+      "url": "https://museum.sinica.edu.tw/en/collection/32/item/1217/",
+      "accessed_at": "2026-08-22",
+      "local_ignored_path": ".working/ihp-1217/page-en-20260822.html",
+      "size_bytes": 57590,
+      "sha256": "4af8a37e65387587b05e458b035b3642fec1bd75310c12cf68f2427b474ccb22",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "source_text_locator": "HTML .fr-view",
+      "snapshot_scope": "official_page_metadata_and_source_display_only",
+      "status": "retrieved_ignored_snapshot",
+      "rights_status": "metadata_only_until_verified"
+    },
+    {
+      "language": "zh",
+      "url": "https://museum.sinica.edu.tw/collection/32/item/1217/",
+      "accessed_at": "2026-08-22",
+      "local_ignored_path": ".working/ihp-1217/page-zh-20260822.html",
+      "size_bytes": 54369,
+      "sha256": "8b880db08252edfcc5d1b525dbbfa216540505b4a1a79ee510fa22e2c9d10ca0",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "source_text_locator": "HTML .fr-view",
+      "snapshot_scope": "official_page_metadata_and_source_display_only",
+      "status": "retrieved_ignored_snapshot",
+      "rights_status": "metadata_only_until_verified"
+    }
+  ],
+  "inline_image_snapshots": [
+    {
+      "filename": "5986760d3e0ef6dc.png",
+      "url": "https://museum.sinica.edu.tw/_upload/image/collection_item/large/5986760d3e0ef6dc.png",
+      "local_ignored_path": ".working/ihp-1217/placeholders/5986760d3e0ef6dc.png",
+      "size_bytes": 21946,
+      "sha256": "5a9800cd78692f6f9f0e3e110466e53f07fd9c23f3d1230cfc747b3a1241e66e",
+      "http_status": 200,
+      "content_type": "image/png",
+      "status": "retrieved_ignored_source_asset",
+      "rights_status": "metadata_only_until_verified"
+    },
+    {
+      "filename": "2166760d45a19633.png",
+      "url": "https://museum.sinica.edu.tw/_upload/image/collection_item/large/2166760d45a19633.png",
+      "local_ignored_path": ".working/ihp-1217/placeholders/2166760d45a19633.png",
+      "size_bytes": 14125,
+      "sha256": "2138e6fab64d3a8022605ed9c812cfc11a2dfe575b57bc383879ce5386863fa5",
+      "http_status": 200,
+      "content_type": "image/png",
+      "status": "retrieved_ignored_source_asset",
+      "rights_status": "metadata_only_until_verified"
+    },
+    {
+      "filename": "7686760d4199d20f.png",
+      "url": "https://museum.sinica.edu.tw/_upload/image/collection_item/large/7686760d4199d20f.png",
+      "local_ignored_path": ".working/ihp-1217/placeholders/7686760d4199d20f.png",
+      "size_bytes": 19662,
+      "sha256": "68e69258be79c30c864ab056f69c6247dd7b8437d17bd0b6064f47f3c54518f6",
+      "http_status": 200,
+      "content_type": "image/png",
+      "status": "retrieved_ignored_source_asset",
+      "rights_status": "metadata_only_until_verified"
+    }
+  ]
 }

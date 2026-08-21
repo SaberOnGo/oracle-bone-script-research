@@ -148,6 +148,10 @@ Working-tree verification after the claim matrix was added:
   HTML snapshots, object-local checksum records, and human source-display
   notes. The displayed text remains source-reported, not project OCR or
   translation; their focused snapshot suite is `4 tests OK`.
+- IHP items `1216` and `1217` now have paired page snapshots and six ignored
+  inline PNG response records. The source placeholders remain visible and
+  unresolved; no image is promoted to a character or transcription. Their
+  focused snapshot suite is `4 tests OK`.
 - The focused IHP item 1215 source-record suite is `10 tests OK`, including
   a local hash replay when the ignored HTML snapshot is present.
 - IHP item 503 now has paired checksum-bound 2026-08-22 English and Chinese
@@ -226,6 +230,9 @@ Working-tree verification after the claim matrix was added:
 - 史语所 1212、1215 号对象现有 2026-08-22 中英文成对 HTML 快照、对象内校验和
   记录和人类来源显示页。页面文字仍是来源报告，不是项目 OCR 或翻译；快照专项
   套件为 `4 tests OK`。
+- 史语所 1216、1217 号对象现有成对页面快照和六条忽略区内嵌 PNG 响应记录。
+  页面占位符仍保留并待查，没有把任何图像提升为单字或释文；快照专项套件为
+  `4 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
 - 1215 号对象专项来源记录套件为 `10 tests OK`；忽略区 HTML 快照存在时，

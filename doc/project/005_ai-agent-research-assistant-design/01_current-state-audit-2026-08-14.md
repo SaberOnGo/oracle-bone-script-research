@@ -101,12 +101,16 @@ Working-tree verification after the claim matrix was added:
   source-record candidate. The collection folder keeps one compact image while
   the source record binds both API image bytes; no recto-verso, plate, or text
   claim is added. Its focused Met suite is `14 tests OK`.
+- Met object `42022` now has the same object-local handoff pattern. Its source
+  record binds both API image bytes, while the collection dossier keeps its
+  compact asset and preserves the missing plate, text, and identity checks.
+  Its focused Met suite is `11 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1058 tests OK` in `680.387` seconds. The triage command
+- The full suite: `1060 tests OK` in `626.010` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
-- Full strict human-material gate: exit `0`, `156847` Markdown files, and all
+- Full strict human-material gate: exit `0`, `156848` Markdown files, and all
   four debt counts `0`.
 - No v2 experiment record or candidate-delivery channel was opened. This
   object remains a source-record candidate with text and catalog blockers.
@@ -131,12 +135,15 @@ Working-tree verification after the claim matrix was added:
 - Met 对象 `42045` 现有对象内交接页，连接同一对象的来源记录候选。
   馆藏目录保留一张紧凑图，来源记录绑定两张 API 图像字节；不新增正反面、
   图版或文字主张。Met 专项套件为 `14 tests OK`。
+- Met 对象 `42022` 现有同样的对象内交接页。来源记录绑定两张 API 图像字节，
+  馆藏档案保留紧凑资产，并继续明确图版、文字和身份缺口。Met 专项套件为
+  `11 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1058 tests OK`，耗时 `680.387` 秒。选案命令返回
+- 全量测试：`1060 tests OK`，耗时 `626.010` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
-- 严格人类资料门：退出码 `0`，扫描 `156847` 篇 Markdown，四项债务均为 `0`。
+- 严格人类资料门：退出码 `0`，扫描 `156848` 篇 Markdown，四项债务均为 `0`。
 - 没有开启 v2 实验记录或候选交付通道。本对象仍是来源记录候选，文字和著录
   缺口仍然阻断正式提升。
 

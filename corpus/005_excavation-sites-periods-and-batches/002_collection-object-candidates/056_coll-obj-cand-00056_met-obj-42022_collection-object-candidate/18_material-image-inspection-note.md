@@ -21,8 +21,10 @@ character, component, or reading claim.
 
 - The local photograph shows an irregular bone fragment with broken edges.
 - Dark incised marks are visible near several edges of the photographed surface.
-- The image records one surface only; it does not establish mark order, a plate
-  reference, or a transcription.
+- The collection folder records one compact surface view. A separate source
+  record candidate preserves a second API image; its route is linked in
+  `21_source-record-crosswalk.md`. Neither route establishes mark order, a
+  plate reference, or a transcription.
 
 简体中文：
 本记录只书明本地复核图像中直接可见的情况，
@@ -30,7 +32,9 @@ character, component, or reading claim.
 
 - 本地照片呈现一块边缘残缺、不规则的骨片。
 - 照片所示表面的若干边缘附近可见深色刻划痕迹。
-- 图像只记录一个表面，不能据此确定刻划顺序、图版号或释文。
+- 本馆藏目录记录一张紧凑表面图。另一个来源记录候选保存第二张 API 图像，
+  路线见 `21_source-record-crosswalk.md`。两条路线都不能确定刻划顺序、
+  图版号或释文。
 
 ## Next Evidence To Open / 下一步待查证据
 

@@ -26,10 +26,15 @@ Visible marks are recorded as surface evidence only, not as characters or text.
   `https://images.metmuseum.org/CRDImages/as/original/LC-18_56_71_002.jpg`
 - Rights / 权利: `public_domain_verified` / Met Open Access API flag
 
-The image shows one photographed surface. No reverse view, rubbing, or
-independent lighting setup is included in this object-local record.
+The collection folder keeps one compact photographed surface. A separate
+source-record candidate for the same accession preserves the API's second
+image route; see `21_source-record-crosswalk.md`. The API does not identify
+either image as recto, verso, or a reading-order view, and no rubbing or
+independent lighting setup is included.
 
-本记录只有一个拍摄表面，没有反面、拓片或独立光源记录。
+本馆藏目录保存一张紧凑的拍摄表面图。同一馆藏号的来源记录候选还保存
+API 的第二条图像路线，见 `21_source-record-crosswalk.md`。API 没有把
+任何图像标成正面、背面或阅读顺序，也没有拓片或独立光源记录。
 
 ## Direct Visual Observations / 直接视觉观察
 

@@ -101,6 +101,35 @@ image package.
 数据文件快照也通过来源包文件清单关联。单独取得这些文件，不能证明已经
 取得统一原始图像包。
 
+## Central Route Join Gate / 中央路线闭合门
+
+English:
+Every row in `009_source-package-file-manifest.csv` must join to a download
+log row through `download_id`. The package source ID, source URL, and file
+size must equal the download evidence. When a populated large-source row has
+the same source URL, its package size and download checksum must also match.
+If a package row's size and URL identify a different populated large-source
+ID, the row is rejected rather than silently treated as an aggregate scope.
+Light-source package IDs may remain outside the large-source register, while
+an itemized aggregate scope with no size or checksum remains explicitly
+unacquired.
+
+简体中文：
+`009_source-package-file-manifest.csv` 的每一行都必须通过
+`download_id` 连接到下载日志。来源包文件的 source ID、来源 URL 和文件
+大小必须与下载证据一致。若某个已填充大型来源行具有相同来源 URL，来源
+包大小和下载 checksum 也必须一致。若文件大小和 URL 实际指向另一个已
+填充的大来源 ID，必须拒绝该行，不能静默当作聚合范围。`light-src-*`
+包可以不在大型来源登记中；没有大小或 checksum 的分项聚合范围必须明确
+保持为尚未取得。
+
+The repository validator checks this join before accepting the skeleton. It
+does not infer scholarly identity, rights clearance, or a decipherment result
+from a successful route join.
+
+仓库校验器在接受骨架前检查这条闭合关系。路线闭合通过不推断学术身份、
+权利清理或任何释读结果。
+
 ## Research Boundary / 研究边界
 
 English:

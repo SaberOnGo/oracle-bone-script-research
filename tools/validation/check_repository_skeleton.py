@@ -8652,6 +8652,110 @@ def check_source_object_route_joins(root: Path) -> list[str]:
     return issues
 
 
+def check_central_source_package_download_joins(root: Path) -> list[str]:
+    """Cross-check package files, downloads, and populated large-source rows."""
+    issues: list[str] = []
+    package_rows, package_issues = _read_csv_rows(root / SOURCE_PACKAGE_FILE_MANIFEST)
+    download_rows, download_issues = _read_csv_rows(root / SOURCE_DOWNLOAD_LOG)
+    large_rows, large_issues = _read_csv_rows(root / LARGE_SOURCE_REGISTER)
+    issues.extend(package_issues + download_issues + large_issues)
+
+    downloads_by_id = {
+        row.get("download_id", ""): row
+        for row in download_rows
+        if row.get("download_id", "")
+    }
+    large_by_id = {
+        row.get("source_package_id", ""): row
+        for row in large_rows
+        if row.get("source_package_id", "")
+    }
+
+    for row in package_rows:
+        package_id = row.get("package_file_id", "")
+        download_id = row.get("download_id", "")
+        relative = SOURCE_PACKAGE_FILE_MANIFEST
+        if not package_id:
+            issues.append(f"{relative} contains a package row without package_file_id")
+        if not download_id:
+            issues.append(f"{relative} {package_id} has no download_id")
+            continue
+        download = downloads_by_id.get(download_id)
+        if download is None:
+            issues.append(f"{relative} {package_id} references unknown download_id: {download_id}")
+            continue
+        for package_field, download_field in (
+            ("source_id", "source_id"),
+            ("source_url", "url"),
+            ("file_size_bytes", "file_size_bytes"),
+        ):
+            if row.get(package_field, "") != download.get(download_field, ""):
+                issues.append(
+                    f"{relative} {package_id} {package_field} differs from download log"
+                )
+
+        source_package_id = row.get("source_package_id", "")
+        large = large_by_id.get(source_package_id)
+        if large is None:
+            if source_package_id.startswith("large-src-"):
+                issues.append(
+                    f"{relative} {package_id} references unknown source_package_id: "
+                    f"{source_package_id}"
+                )
+            continue
+
+        large_size = large.get("file_size_bytes", "")
+        large_checksum = large.get("checksum_sha256", "")
+        matching_specific_large = [
+            candidate
+            for candidate in large_rows
+            if candidate.get("file_size_bytes", "")
+            and candidate.get("checksum_sha256", "")
+            and candidate.get("source_url", "") == row.get("source_url", "")
+        ]
+        if len(matching_specific_large) == 1:
+            candidate = matching_specific_large[0]
+            candidate_id = candidate.get("source_package_id", "")
+            if source_package_id != candidate_id:
+                issues.append(
+                    f"{relative} {package_id} points to {source_package_id}, but "
+                    f"size/source URL identify {candidate_id}"
+                )
+            if row.get("file_size_bytes", "") != candidate.get("file_size_bytes", ""):
+                issues.append(
+                    f"{relative} {package_id} file_size_bytes differs from "
+                    "large-source register"
+                )
+            if download.get("checksum_sha256", "") != candidate.get("checksum_sha256", ""):
+                issues.append(
+                    f"{relative} {package_id} checksum differs from large-source register"
+                )
+        elif large_size or large_checksum:
+            if large_size and row.get("file_size_bytes", "") == large_size:
+                if large_checksum and download.get("checksum_sha256", "") != large_checksum:
+                    issues.append(
+                        f"{relative} {package_id} checksum differs from large-source register"
+                    )
+
+    for large in large_rows:
+        large_id = large.get("source_package_id", "")
+        large_size = large.get("file_size_bytes", "")
+        large_checksum = large.get("checksum_sha256", "")
+        if not large_id or not (large_size or large_checksum):
+            continue
+        matching_download = any(
+            row.get("file_size_bytes", "") == large_size
+            and row.get("checksum_sha256", "") == large_checksum
+            for row in download_rows
+        )
+        if not matching_download:
+            issues.append(
+                f"{LARGE_SOURCE_REGISTER} {large_id} has no matching download "
+                "size/checksum"
+            )
+    return issues
+
+
 def check_project_id_source_map_audit(root: Path) -> list[str]:
     issues: list[str] = []
     audit_rows, audit_issues = _read_csv_rows(root / PROJECT_ID_SOURCE_MAP_AUDIT)
@@ -36766,6 +36870,7 @@ def main() -> int:
     issues.extend(check_object_local_human_research_depth_audit(root))
     issues.extend(check_source_object_human_material_quality(root))
     issues.extend(check_source_object_route_joins(root))
+    issues.extend(check_central_source_package_download_joins(root))
     issues.extend(check_project_id_source_map_audit(root))
     issues.extend(check_project_registry_readme_human_entry(root))
     issues.extend(check_asset_source_rights_readme_human_entry(root))

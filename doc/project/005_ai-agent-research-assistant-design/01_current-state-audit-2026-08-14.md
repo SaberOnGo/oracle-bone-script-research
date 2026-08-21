@@ -267,6 +267,48 @@ fields for routing and publication decisions.
 释读状态。历史值只作为可追溯来源记录保留；Agent 必须使用生效字段决定路由和
 公开范围。
 
+## Central provenance join receipt / 中央出处闭合回执
+
+The current follow-up found that the two previously reported package-route
+errors are already corrected on disk: HUST raw package file
+`pkg-file-000001` uses `dl-hust-obc-figshare-raw` and
+`large-src-000001`; OBIMD sub-character file `pkg-file-000008` uses
+`dl-obimd-subcharacter-images` and `large-src-000004`.
+
+当前跟进确认，先前报告的两处来源包路线错误在磁盘上已经修正：HUST 原始包
+`pkg-file-000001` 使用 `dl-hust-obc-figshare-raw` 和
+`large-src-000001`；OBIMD 子字符文件 `pkg-file-000008` 使用
+`dl-obimd-subcharacter-images` 和 `large-src-000004`。
+
+The existing object-level join only compared object routes with central
+tables. A new central gate now checks every package-manifest `download_id`,
+source ID, URL, and file size against the download log. If a populated
+large-source row has the same URL, the gate also checks its package size and
+download checksum. Light-source rows and explicitly unacquired aggregate
+scopes remain allowed without inventing a large-source checksum.
+
+原有对象级闭合门只比较对象路线与中央表。新增中央门现在检查每一个来源包清单
+行的 `download_id`、来源 ID、URL 和文件大小是否与下载日志一致。若已填充的
+大型来源行具有相同 URL，还会检查来源包大小和下载 checksum。light-source 行
+以及明确尚未取得的聚合范围仍可不填写大型来源 checksum，不会被误造为已下载。
+
+The real-register join test and a synthetic mismatch regression both pass.
+The object-route join test passes as well. This is provenance validation only;
+it does not establish object identity, rights clearance, or any decipherment.
+
+真实登记表闭合测试和合成错误回归测试均通过，对象路线闭合测试也通过。这只是
+来源追溯校验，不建立对象身份、权利清理或任何释读结论。
+
+After this gate was added, the full skeleton returned `PASS repository
+skeleton`, the full test suite returned `1020 tests in 609.027 seconds, OK`,
+and the strict human-material gate returned `156839` scanned Markdown files
+with all four debt counts at zero. These receipts cover the current working
+tree before the next commit.
+
+加入此门禁后，全量骨架返回 `PASS repository skeleton`，全量测试返回
+`1020 tests in 609.027 seconds, OK`，严格人类资料门扫描 `156839` 个
+Markdown 文件，四项债务均为 0。这些回执对应下一次提交前的当前工作树。
+
 ## Human archive progress / 人类档案进展
 
 - Thirty IHP collection-object directories contain live-source evidence

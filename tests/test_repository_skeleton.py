@@ -145,7 +145,11 @@ from tools.validation.check_repository_skeleton import (
     check_source_pipeline_missing_evidence_outcome_routes_assignment_checklist,
     check_source_coverage_statistics,
     check_source_registers,
+    check_central_source_package_download_joins,
     check_source_object_route_joins,
+    LARGE_SOURCE_REGISTER,
+    SOURCE_DOWNLOAD_LOG,
+    SOURCE_PACKAGE_FILE_MANIFEST,
     check_obimd_rights_override,
     check_obimd_effective_rights_propagation,
     check_tracked_temp_artifacts,
@@ -15372,6 +15376,96 @@ class RepositorySkeletonTests(unittest.TestCase):
 
     def test_source_object_route_joins(self) -> None:
         self.assertEqual(check_source_object_route_joins(repo_root()), [])
+
+    def test_central_source_package_download_joins(self) -> None:
+        self.assertEqual(check_central_source_package_download_joins(repo_root()), [])
+
+    def test_central_source_package_download_joins_rejects_mismatch(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            register_dir = root / "project_registry/006_large-source-register"
+            source_register_dir = (
+                root
+                / "corpus/006_research-sources-and-bibliography/000_source-registers"
+            )
+            register_dir.mkdir(parents=True)
+            source_register_dir.mkdir(parents=True)
+
+            def write_csv(path: Path, fieldnames: list[str], row: dict[str, str]) -> None:
+                with path.open("w", encoding="utf-8", newline="") as file:
+                    writer = csv.DictWriter(file, fieldnames=fieldnames)
+                    writer.writeheader()
+                    writer.writerow(row)
+
+            write_csv(
+                root / SOURCE_DOWNLOAD_LOG,
+                [
+                    "download_id",
+                    "source_id",
+                    "url",
+                    "file_size_bytes",
+                    "checksum_sha256",
+                    "local_temp_path",
+                ],
+                {
+                    "download_id": "dl-test",
+                    "source_id": "src-test",
+                    "url": "https://example.test/package.zip",
+                    "file_size_bytes": "11",
+                    "checksum_sha256": "a" * 64,
+                    "local_temp_path": "archive/package.zip",
+                },
+            )
+            write_csv(
+                root / SOURCE_PACKAGE_FILE_MANIFEST,
+                [
+                    "package_file_id",
+                    "source_package_id",
+                    "source_id",
+                    "file_name",
+                    "source_url",
+                    "file_size_bytes",
+                    "download_id",
+                ],
+                {
+                    "package_file_id": "pkg-test",
+                    "source_package_id": "large-test",
+                    "source_id": "src-test",
+                    "file_name": "package.zip",
+                    "source_url": "https://example.test/package.zip",
+                    "file_size_bytes": "10",
+                    "download_id": "dl-test",
+                },
+            )
+            write_csv(
+                root / LARGE_SOURCE_REGISTER,
+                [
+                    "source_package_id",
+                    "source_url",
+                    "file_size_bytes",
+                    "checksum_sha256",
+                    "storage_status",
+                    "storage_hint",
+                ],
+                {
+                    "source_package_id": "large-test",
+                    "source_url": "https://example.test/package.zip",
+                    "file_size_bytes": "10",
+                    "checksum_sha256": "b" * 64,
+                    "storage_status": "downloaded_to_external_archive",
+                    "storage_hint": "archive/package.zip",
+                },
+            )
+
+            issues = check_central_source_package_download_joins(root)
+            self.assertTrue(
+                any("file_size_bytes differs from download log" in issue for issue in issues),
+                issues,
+            )
+            self.assertTrue(
+                any("checksum differs from large-source register" in issue for issue in issues),
+                issues,
+            )
 
     def test_hust_raw_metadata_profile_uses_raw_download_route(self) -> None:
         profile_path = (

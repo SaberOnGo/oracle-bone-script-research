@@ -21,11 +21,26 @@ Review a large source package in this order:
 5. Open reviewed derivatives before trusting any corpus or graph route.
 6. Record missing evidence as concrete next checks.
 
+Important rights rule:
+`001_large-source-register.csv` preserves historical source values for
+traceability. For OBIMD, its `licensed_for_repository` value is not an
+effective reuse grant. Read the active override table before opening,
+deriving, or publishing any asset, package, or component record. It is in:
+`project_registry/004_asset-source-and-rights-index/`
+`006_obimd-rights-status-override.csv`.
+
 简体中文：
 复核大型来源包时，先打开 `001_large-source-register.csv` 找到来源包行，
 再打开 `002_source-download-log.csv` 核查访问或下载证据。随后核对大小、
 checksum、rights status、risk note 和存放线索，并追踪 manifest、字段
 映射、抽取说明和例外登记路径。
+
+重要权利规则：
+`001_large-source-register.csv` 为了追溯保留历史来源值。对 OBIMD 而言，
+其中的 `licensed_for_repository` 不是当前生效的再利用授权。打开、派生或
+发布任何资产、来源包或构件记录前，必须读取有效覆盖表。目录为：
+`project_registry/004_asset-source-and-rights-index/`
+`006_obimd-rights-status-override.csv`。
 
 ## Files / 文件
 

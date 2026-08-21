@@ -102,6 +102,10 @@ The full test suite at commit `4130c2c034f` ran 1005 tests in 639.681
 seconds and returned `OK`. Its final triage-only case-selection line was
 `PASS` for eight rows; it did not open a candidate-delivery channel.
 
+After the human candidate-guide update, the current commit `ea94c2e904c`
+ran 1009 tests in 629.329 seconds and returned `OK`. The triage-only check
+again returned `PASS` for eight rows.
+
 After these receipts, an eighth inscription source-record candidate was added
 for The Met object 42045 / accession 67.43.14. Its two committed image files,
 API snapshot, sizes, and SHA-256 values are bound in the object-local dossier.
@@ -121,6 +125,9 @@ Markdown 文件，四项债务计数均为 0。
 
 `4130c2c034f` 上的全量测试运行 1005 项，耗时 639.681 秒，最终为 `OK`。
 最后的选案分诊只输出八行 `PASS`，没有开启候选交付通道。
+
+补充人类候选导览后，当前提交 `ea94c2e904c` 上的全量测试运行 1009 项，
+耗时 629.329 秒，最终为 `OK`。选案分诊复核再次对八行返回 `PASS`。
 
 更早的一次全量尝试约八分钟后停在读取
 `check_oracle_character_human_markdown_wrapping` 的阶段，没有产生 PASS；

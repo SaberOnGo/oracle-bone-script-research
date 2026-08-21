@@ -55,6 +55,45 @@ These routes establish a named disagreement about astronomical dating. They
 do not prove that either date is correct, do not identify the exact *Heji*
 plate for both sides, and do not settle the reading of any damaged graph.
 
+## Independent published crosswalk / 独立出版物交叉表
+
+David N. Keightley's *The Ancestral Landscape: Time, Space, and Community
+in Late Shang China* (China Research Monograph 53, Institute of East Asian
+Studies, University of California, Berkeley) supplies an independent
+published locator. In the excerpt's “Key to the Inscriptions Translated by
+Reference Number”, printed page 147 (PDF page 25), reference [19] is listed
+as:
+
+`Yingcang 886b (Y1079.2) = Kufang 1595 (5402.4) = Heji 40610b`
+
+This is a source-reported published cross-reference, not a project
+transcription. It strengthens the route from the British Library accession
+and Yingcang 886 to a specific *Heji* side, but the project has not yet
+opened the *Heji* plate, checked its page image, or aligned its lines with
+the committed recto and verso images. It is not a decipherment conclusion.
+
+该书提供了一条独立的出版物定位路线。在“按编号翻译的卜辞索引”中，印刷页
+147（PDF 第 25 页）的第 [19] 条写作：
+
+`Yingcang 886b (Y1079.2) = Kufang 1595 (5402.4) = Heji 40610b`
+
+这是来源报告的出版物交叉表，不是本项目摹写。它把英藏 886 与一条具体
+《合集》侧面连接起来，但本项目尚未打开《合集》图版、核对页图，或把图版
+行次与已提交的正反面图像逐行对齐。因此不能把它写成破译结论。
+
+- source: Keightley, *The Ancestral Landscape*, China Research Monograph 53
+- locator: printed p. 147; excerpt PDF p. 25, reference [19]
+- preview URL:
+  https://ieas.directfrompublisher.com/sites/ieas.directfrompublisher.com
+  /files/previews/CRM53%20Ancestral%20Landscape_excerpt.pdf
+- local snapshot: `tmp/pdfs/dl-schwartz-ancestral-landscape-excerpt.pdf`
+- snapshot: 1,806,072 bytes; SHA-256
+  `a2c1a756aa66ed1f92f8c4bde8b4b2fb5005838669633e804cd4594a974078bf`
+- evidence status: `source_reported_published_crosswalk`
+
+本地预览快照只用于校验页码和书目来源，未复制全文或长段落。权利和可公开的
+派生范围仍按本对象的 `public_domain_verified` 图像与页面归属边界处理。
+
 ## Official bibliography route / 官方书目路线
 
 The Institute of History and Philology lists Tung Tso-pin's 1950 article

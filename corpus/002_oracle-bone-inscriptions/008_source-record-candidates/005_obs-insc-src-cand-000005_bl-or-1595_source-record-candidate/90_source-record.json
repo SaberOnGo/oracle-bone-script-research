@@ -66,6 +66,23 @@
       "checksum_status": "not_applicable_not_stored",
       "rights_status": "copyright_review_required",
       "risk_note": "only abstract and reference metadata were checked"
+    },
+    {
+      "source_id": "literature-keightley-ancestral-landscape-2000",
+      "title": "The Ancestral Landscape: Time, Space, and Community in Late Shang China",
+      "author": "David N. Keightley",
+      "url": "https://ieas.directfrompublisher.com/sites/ieas.directfrompublisher.com/files/previews/CRM53%20Ancestral%20Landscape_excerpt.pdf",
+      "access_date": "2026-08-22",
+      "evidence_level": "published_monograph_reference_crosswalk",
+      "locator": "printed page 147; excerpt PDF page 25; reference [19]",
+      "claim_scope": "published key maps Yingcang 886b (Y1079.2) to Kufang 1595 (5402.4) and Heji 40610b",
+      "project_use": "cross_source_locator_only",
+      "snapshot_status": "ignored_local_pdf_preview",
+      "snapshot_path": "tmp/pdfs/dl-schwartz-ancestral-landscape-excerpt.pdf",
+      "snapshot_size_bytes": 1806072,
+      "snapshot_sha256": "a2c1a756aa66ed1f92f8c4bde8b4b2fb5005838669633e804cd4594a974078bf",
+      "rights_status": "metadata_only_until_verified",
+      "risk_note": "preview PDF retained locally; no full-text or long excerpt copied"
     }
   ],
   "image_status": "public_direct_route_and_committed_source_bytes",
@@ -120,7 +137,7 @@
   "review_status": "source_record_candidate_needs_plate_and_text_review",
   "missing_evidence": [
     "stable British Library JSON or XML payload, IIIF manifest, and image",
-    "independent Heji plate and page locator",
+    "independent Heji image, page, and line alignment",
     "rights-cleared line-addressable transcription and OCR",
     "independent excavation, period, and collection history",
     "named proponents and contrary eclipse or reading records",

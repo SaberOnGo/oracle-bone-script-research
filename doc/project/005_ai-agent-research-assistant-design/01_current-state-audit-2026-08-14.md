@@ -128,11 +128,11 @@ Working-tree verification after the claim matrix was added:
   MDARK/LARK identifiers, hierarchy, and two ignored HTML snapshot hashes.
   Images, IIIF, and transcription remain unavailable; the item is still a
   source-record candidate rather than a formal inscription.
-- The focused BL catalog refresh suite is `5 tests OK`; the related source-text
+- The focused BL catalog refresh suite is `8 tests OK`; the related source-text
   reconciliation suite remains `7 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
-- The full suite: `1078 tests OK` in `637.976` seconds. The triage command
+- The full suite: `1081 tests OK` in `767.506` seconds. The triage command
   returned `PASS triage-only case selection (9 rows)`.
 - Repository skeleton: `PASS repository skeleton`.
 - Full strict human-material gate: exit `0`, `156853` Markdown files, and all
@@ -178,11 +178,11 @@ Working-tree verification after the claim matrix was added:
   `040-003126498`。对象档案绑定两个记录号、MDARK/LARK、层级关系以及两份
   忽略区 HTML 快照的校验和。图像、IIIF 和释文仍不可用，本对象仍是来源记录
   候选，不是正式卜辞记录。
-- 大英图书馆馆藏刷新专项套件为 `5 tests OK`；相关来源文字对照套件仍为
+- 大英图书馆馆藏刷新专项套件为 `8 tests OK`；相关来源文字对照套件仍为
   `7 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
-- 全量测试：`1078 tests OK`，耗时 `637.976` 秒。选案命令返回
+- 全量测试：`1081 tests OK`，耗时 `767.506` 秒。选案命令返回
   `PASS triage-only case selection (9 rows)`。
 - 仓库骨架：`PASS repository skeleton`。
 - 严格人类资料门：退出码 `0`，扫描 `156853` 篇 Markdown，四项债务均为 `0`。
@@ -293,7 +293,7 @@ Current targeted receipts include the following:
 - Full strict human-material gate at `4130c2c034f`: `156839` Markdown files;
   all four debt counts were `0`.
 - v2 benchmark contract: `68 tests OK`; no real v2 record was found.
-- British Library 1595: `7 tests OK`, including the two ignored Wikimedia API
+- British Library 1595: `8 tests OK`, including the two ignored Wikimedia API
   snapshots bound to the human evidence page; 1535: `7 + 3 tests OK`.
 - IHP item 771 source-record candidate: `7 tests OK`, including a new
   image-bound visual observation page.
@@ -306,7 +306,7 @@ Current targeted receipts include the following:
 
 当前定向回执包括：AI 试点 `49 tests OK`、选案分诊 `4 tests OK`、试点摘要
 `4 tests OK`；v2 合同 `68 tests OK`，但没有真实 v2 记录；英国图书馆 1595
-为 `6 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
+为 `8 tests OK`、1535 为 `7 + 3 tests OK`；宁夏 HYZ 421 为 `5 tests OK`；
 史语所 771 号来源记录候选为 `7 tests OK`，新增了绑定图像的视觉观察页；
 503 和 1215 号来源记录候选分别为 `12` 和 `13 tests OK`，均新增绑定图像的
 视觉观察页；
@@ -539,6 +539,10 @@ Markdown 文件，四项债务均为 0。这些回执对应下一次提交前的
   British Library/Scroll route reports 1192 BC, while Liu's *Early China*
   abstract records a 1166 BCE argument for Yingcang 885/886. Both remain
   source routes; neither date is adopted by this project.
+- The same literature page now records Keightley's published reference [19],
+  which maps Yingcang 886b to Kufang 1595 and Heji 40610b at printed page
+  147. This is a source-reported cross-source locator; the Heji image, page,
+  line alignment, and project transcription remain unresolved.
 - The OBIMD object package-route index now displays the active
   `metadata_only_until_verified` status; the central historical manifest value
   remains traceable under the active rights override.
@@ -630,6 +634,9 @@ Markdown 文件，四项债务均为 0。这些回执对应下一次提交前的
 - 该候选的文献页现记录了有名有据的年代争议：大英图书馆/Scroll 路线报告公元前
   1192 年，Liu 的 *Early China* 摘要为《英藏》885/886 记录公元前 1166 年的
   论证。两者仍是来源路线，本项目不采用任何一个年代。
+- 同一文献页现记录 Keightley 出版物第 [19] 条：印刷页 147 把英藏 886b
+  连接到 Kufang 1595 和《合集》40610b。这只是来源报告的跨源定位；《合集》
+  图像、页码、行次对齐和本项目摹写仍未完成。
 - OBIMD 来源对象的来源包路线现显示生效的
   `metadata_only_until_verified`；中央历史 manifest 值仍由有效权利覆盖记录追溯。
 - Or. 7694/1595 与 Or. 7694/1535v 对象现保存三张未改动的 CC0 来源图像；

@@ -79,12 +79,19 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
             record["literature_status"],
             "named_astronomical_date_dispute_route_only",
         )
-        self.assertEqual(len(record["literature_routes"]), 2)
+        self.assertEqual(len(record["literature_routes"]), 3)
+        routes = {
+            item["source_id"]: item for item in record["literature_routes"]
+        }
         self.assertEqual(
-            {item["project_use"] for item in record["literature_routes"]},
+            {routes["literature-scroll-bl-1595-2016"]["project_use"],
+             routes["literature-liu-early-china-2014"]["project_use"]},
             {"source_report_only", "dispute_route_only"},
         )
-        for item in record["literature_routes"]:
+        for item in (
+            routes["literature-scroll-bl-1595-2016"],
+            routes["literature-liu-early-china-2014"],
+        ):
             self.assertEqual(item["snapshot_status"], "not_downloaded")
             self.assertEqual(
                 item["checksum_status"], "not_applicable_not_stored"
@@ -92,6 +99,18 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
             self.assertEqual(
                 item["rights_status"], "copyright_review_required"
             )
+        self.assertEqual(
+            routes["literature-keightley-ancestral-landscape-2000"][
+                "project_use"
+            ],
+            "cross_source_locator_only",
+        )
+        self.assertEqual(
+            routes["literature-keightley-ancestral-landscape-2000"][
+                "snapshot_status"
+            ],
+            "ignored_local_pdf_preview",
+        )
 
     def test_index_and_rights_route_are_explicit(self):
         index = (OBJECT / "91_source-record-index.csv").read_text(

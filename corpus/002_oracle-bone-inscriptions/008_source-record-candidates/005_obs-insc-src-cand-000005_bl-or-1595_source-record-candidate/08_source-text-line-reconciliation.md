@@ -16,6 +16,8 @@ decipherment.
 - recto accession: `Or. 7694/1595r`
 - verso accession: `Or. 7694/1595v`
 - catalog hints: `Heji 40610r/v`; `Yingcang 886r/v`
+- published crosswalk: Keightley [19] maps `Yingcang 886b` to
+  `Kufang 1595` and `Heji 40610b`; exact plate and line alignment remain open
 - image pages and checksums: see `01_object-and-image-routes.md`
 - page and rights evidence: see `03_source-evidence-review.md`
 
@@ -101,7 +103,8 @@ Keightley 1978 和 Zhang 2002 的引文。它们只是来源主张和文献路�
 - current layer: `source_display_only`
 - OCR: no OCR has been generated or checksum-checked
 - edition transcription: not opened
-- page and plate: not independently verified
+- published Heji locator: located, but page image and line alignment not
+  independently verified
 - recto-verso reading order: pending
 
 - 当前层级：`source_display_only`
@@ -114,7 +117,7 @@ Concrete next checks are:
 
 1. Use item record `040-003126498` as the catalogue identity route; obtain
    its stable JSON or XML payload if the site exposes one.
-2. Open the exact Heji 40610 plate and page references.
+2. Open the exact Heji 40610b plate and page references named by Keightley.
 3. Compare an authoritative plate with each image side and preserve the
    edition's line order and damaged-sign marks.
 4. Identify whether the displayed strings come from a catalog, blog, or

@@ -79,6 +79,12 @@ class BritishLibrary1595SourceTextTests(unittest.TestCase):
             "Going back in time",
             "source_reported_secondary_route",
             "not a plate locator",
+            "Tung Tso-pin",
+            "On the Lunar Eclipses of the Yin Dynasty",
+            "https://www1.ihp.sinica.edu.tw/Publications/Bulletin/871/Article/1772",
+            "pages 139–159",
+            "full text not obtained",
+            "不把论文与本对象",
         ):
             self.assertIn(marker, text)
         self.assertIn("do not settle the reading", text)

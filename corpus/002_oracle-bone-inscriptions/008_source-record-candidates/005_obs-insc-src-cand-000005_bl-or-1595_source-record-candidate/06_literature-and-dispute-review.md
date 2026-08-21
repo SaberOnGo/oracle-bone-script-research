@@ -55,6 +55,32 @@ These routes establish a named disagreement about astronomical dating. They
 do not prove that either date is correct, do not identify the exact *Heji*
 plate for both sides, and do not settle the reading of any damaged graph.
 
+## Official bibliography route / 官方书目路线
+
+The Institute of History and Philology lists Tung Tso-pin's 1950 article
+“On the Lunar Eclipses of the Yin Dynasty” in *Bulletin of the Institute of
+History and Philology* 22, pages 139–159:
+
+- https://www1.ihp.sinica.edu.tw/Publications/Bulletin/871/Article/1772
+- full-text route:
+  `https://www11.ihp.sinica.edu.tw/storage/w2_file/4319YZGqMaF.pdf`
+- access checked: 2026-08-21; bibliographic page opened, full text not obtained.
+
+This is an authoritative bibliography and a useful route for tracing the
+earlier lunar-eclipse chronology. The project has not opened the article's
+pages, figures, or argument in this pass, so it does not assign the article
+to the BL object, an exact *Heji* plate, or a project date.
+
+史语所官方书目列出董作宾 1950 年〈殷代月食考〉，载《中央研究院历史语言研究所
+集刊》第 22 本，139–159 页：
+
+- https://www1.ihp.sinica.edu.tw/Publications/Bulletin/871/Article/1772
+- 全文路线：`https://www11.ihp.sinica.edu.tw/storage/w2_file/4319YZGqMaF.pdf`
+- 2026-08-21 检查：书目页已打开，全文本次未取得。
+
+这是一条权威书目和早期月食年代研究追踪路线。本次没有打开论文页码、图表或
+论证，因此不把论文与本对象、具体《合集》图版或项目年代相连。
+
 ## Sources, proponents, and disagreements / 来源、提出者与不同意见
 
 The Commons page attributes the image supply to the British Library and

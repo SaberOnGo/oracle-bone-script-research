@@ -303,6 +303,13 @@ v2 失败说明数值通道尚未打开。当前没有公开的 v2 实验记录�
 - 中央卜辞来源记录映射表现已把七个已打开候选分别指向对象内人类档案。
 - 六个逐项文献档案覆盖 HUST-OBC、OBIMD、EvoBC、Cambridge-Hopkins 著录表、
   Schwartz 的花园庄东专著和 Liu 的《英藏》月食论文。
+- Or. 7694/1595 的争议档案另补记史语所官方书目中的董作宾 1950 年〈殷代月食考〉；
+  本次只取得书目页和全文路线，未取得全文，因此没有把论文观点用于本对象年代或
+  释读。
+- The Or. 7694/1595 dispute file also records the official IHP bibliography
+  route for Tung Tso-pin's 1950 lunar-eclipse article. Only the bibliography
+  page and full-text route were obtained; the article was not opened, so no
+  date or reading from it is applied to this object.
 - 候选图谱已包括单字—构件、单字—卜辞来源记录、异体、本地图像资产和 EvoBC 演化候
   选关系。
 - 图谱 schema 现已把路线完整性置信度与未来的校准假说概率分开；现有

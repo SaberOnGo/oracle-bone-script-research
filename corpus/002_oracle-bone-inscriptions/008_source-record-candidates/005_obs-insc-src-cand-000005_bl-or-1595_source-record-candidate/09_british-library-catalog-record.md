@@ -66,8 +66,37 @@ The item record adds the following catalogue facts:
 - Publication route: Allan, Li Xueqin and Qi Wenxin, 1985/1992
 - Legal status: `Not Public Record(s)`
 
-The item record is now independently located, but it provides no stable
-item-level JSON payload, IIIF manifest, catalogue image, or transcription.
+The item record is now independently located. The official Blacklight JSON
+route was also retrieved and has a local ignored snapshot. It repeats the
+record identifiers, title, collection, date range, access warning,
+publication, and legal-status fields, but provides no catalogue image,
+IIIF manifest, or line-addressable transcription.
+
+This item-level JSON payload is an object-local catalogue record, not a
+source-package download or a transcription.
+
+The three advertised XML variants were probed as well. The observed OAI-DC
+payload is 326 bytes and contains only `dc:language=Chinese`; it is not a
+substitute for the richer JSON record. The JSON and XML payloads are kept in
+the ignored download area, not copied into the human dossier.
+
+逐项记录已经定位。项目也取得了大英图书馆官方 Blacklight JSON 路线的
+忽略区快照。它重复记录号、题名、馆藏、年代、访问警示、出版物和法律
+状态字段，但没有馆藏图像、IIIF manifest 或可逐行定位的摹写。
+
+同时试探了页面声明的三个 XML 变体。本次观察到的 OAI-DC 内容只有
+326 字节，且只含 `dc:language=Chinese`，不能替代较丰富的 JSON 记录。
+JSON 和 XML 快照保存在忽略下载区，没有复制进人类档案正文。
+
+The JSON snapshot is 8,746 bytes with SHA-256
+`7abe463a8557c51c78ff163488aba77118689d1dd0e1c62330972e7b2b8cadb2`.
+The OAI-DC XML snapshot is 326 bytes with SHA-256
+`1fdd15975076e8b790887efdf7c8a9b1a7c4e59096b6833e49877a50b725dc42`.
+
+JSON 快照为 8,746 字节，SHA-256 为
+`7abe463a8557c51c78ff163488aba77118689d1dd0e1c62330972e7b2b8cadb2`。
+OAI-DC XML 快照为 326 字节，SHA-256 为
+`1fdd15975076e8b790887efdf7c8a9b1a7c4e59096b6833e49877a50b725dc42`。
 
 检索结果报告的字段包括：馆藏号 Or 7694/1595；题名为商代甲骨；内容说明
 为 Couling-Chalfant 收藏中的有刻辞骨；馆藏区域为 Oriental Manuscripts；
@@ -80,8 +109,8 @@ unavailable。
 查阅须联系大英图书馆工作人员；出版物路线为 Allan、李学勤、齐文心
 1985/1992 年的英国藏甲骨目录；法律状态为 `Not Public Record(s)`。
 
-逐项记录已经定位，但没有提供稳定的逐项 JSON payload、IIIF manifest、
-馆藏图像或释文。
+逐项记录已经定位；JSON 已取得，但没有提供 IIIF manifest、馆藏图像或
+释文。XML 观察结果只有语言字段。
 
 ## Live catalogue warning / 最新馆藏警示
 
@@ -106,13 +135,13 @@ catalogue image route has been restored.
 
 The catalogue fields above are `source-reported` observations from the
 official item and collection records. The project independently checked the
-record identifiers, hierarchy, HTML snapshots, and reachability. The item
-record is therefore resolved, but no stable item-level JSON payload, IIIF
-manifest, catalogue image, or transcription was obtained.
+record identifiers, hierarchy, HTML snapshots, JSON payload, and reachability.
+The item record is therefore resolved. A stable JSON payload was obtained,
+but no IIIF manifest, catalogue image, or transcription was obtained.
 
 上述馆藏字段属于官方检索结果的 `source-reported` 观察。项目独立核对了
-入口和集合记录可访问，但本次没有取得稳定的逐项 JSON、IIIF manifest
-或馆藏图像。
+入口、集合记录、JSON payload 和可访问性；但没有取得 IIIF manifest、
+馆藏图像或释文。
 
 The Commons image routes in `01_object-and-image-routes.md` remain a
 separate evidence family. The catalogue result does not prove that those
@@ -125,7 +154,7 @@ Heji 40610r/v 或 Yingcang 886r/v 著录引用。
 
 ## Concrete follow-up / 具体待查
 
-1. Resolve a stable JSON or XML payload, and any restored image or IIIF route,
+1. Resolve any richer catalogue payload fields, restored image, or IIIF route
    for item record `040-003126498`.
 2. Reconcile the catalogue title, date range, and extent with the recto and
    verso image pages without silently changing either source.
@@ -137,8 +166,8 @@ Heji 40610r/v 或 Yingcang 886r/v 著录引用。
    physical surface, Commons provenance, Heji/Yingcang routes, and named
    scholarship; do not silently promote or dismiss it.
 
-1. 为逐项记录 `040-003126498` 解析稳定 JSON 或 XML，以及恢复后的图像
-   或 IIIF 路线。
+1. 为逐项记录 `040-003126498` 继续解析更丰富的馆藏字段、恢复后的
+   图像或 IIIF 路线。
 2. 将目录题名、年代和范围与正反面图像页面对照，不能静默改写任何来源。
 3. 核对两面的 Heji 图版和页码，再与
    `08_source-text-line-reconciliation` 的图像、来源文字和行序比较。

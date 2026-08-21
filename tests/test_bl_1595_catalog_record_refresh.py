@@ -66,7 +66,7 @@ class BritishLibrary1595CatalogRefreshTests(unittest.TestCase):
         self.assertEqual(record["text_status"], "no_transcription")
         self.assertEqual(
             data["missing_evidence"][0],
-            "stable British Library JSON or XML payload, IIIF manifest, and image",
+            "rich catalogue payload fields, IIIF manifest, and catalogue image",
         )
         self.assertEqual(
             data["review_status"],
@@ -83,7 +83,12 @@ class BritishLibrary1595CatalogRefreshTests(unittest.TestCase):
             "032-002915678[0051]/040-003126498",
             "1a4672c0524d02ca1048e76787c2e5015825671f72023d988d03bb3549e3422c",
             "Images currently unavailable",
-            "no stable item-level JSON payload",
+            "Blacklight JSON",
+            "8,746 bytes",
+            "326 bytes",
+            "dc:language=Chinese",
+            "no catalogue image",
+            "line-addressable transcription",
             "IIIF manifest",
             "no project OCR",
             "or decipherment claim",
@@ -91,6 +96,41 @@ class BritishLibrary1595CatalogRefreshTests(unittest.TestCase):
         ):
             self.assertIn(marker, text)
         self.assertNotIn("project translation", text)
+
+    def test_catalog_json_and_xml_routes_are_checksum_bound(self):
+        data = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        payloads = {
+            item["format"]: item
+            for item in data["catalog_record"]["alternate_payloads"]
+        }
+        self.assertEqual(
+            payloads["json"]["url"],
+            "https://searcharchives.bl.uk/catalog/040-003126498.json",
+        )
+        self.assertEqual(payloads["json"]["snapshot_size_bytes"], 8746)
+        self.assertEqual(
+            payloads["json"]["snapshot_sha256"],
+            "7abe463a8557c51c78ff163488aba77118689d1dd0e1c62330972e7b2b8cadb2",
+        )
+        self.assertEqual(
+            payloads["json"]["payload_scope"],
+            "rich_catalog_fields_without_image_or_transcription",
+        )
+        self.assertEqual(payloads["oai_dc_xml"]["snapshot_size_bytes"], 326)
+        self.assertEqual(
+            payloads["oai_dc_xml"]["snapshot_sha256"],
+            "1fdd15975076e8b790887efdf7c8a9b1a7c4e59096b6833e49877a50b725dc42",
+        )
+        for item in payloads.values():
+            snapshot = ROOT / item["local_snapshot_path"]
+            if snapshot.is_file():
+                self.assertEqual(snapshot.stat().st_size, item["snapshot_size_bytes"])
+                self.assertEqual(
+                    hashlib.sha256(snapshot.read_bytes()).hexdigest(),
+                    item["snapshot_sha256"],
+                )
 
     def test_human_catalog_page_stays_within_eighty_columns(self):
         path = OBJECT / "09_british-library-catalog-record.md"

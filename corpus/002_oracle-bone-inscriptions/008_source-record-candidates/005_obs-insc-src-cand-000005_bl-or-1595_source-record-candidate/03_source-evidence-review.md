@@ -50,6 +50,20 @@ SHA-256 为
 这些校验和绑定 `09_british-library-catalog-record.md` 的馆藏字段；
 HTML 仍只保存在 `tmp/source_downloads/` 忽略目录。
 
+The official JSON content-negotiation route was then retrieved and recorded
+in the object-local `90_source-record.json`. Its 8746-byte snapshot has
+SHA-256
+`7abe463a8557c51c78ff163488aba77118689d1dd0e1c62330972e7b2b8cadb2`.
+It supplies richer catalogue fields, but no image or transcription. The
+advertised OAI-DC XML route returned only a language field.
+
+随后取得官方 JSON 内容协商路线，并登记在对象内
+`90_source-record.json`。快照为 8746 字节，
+SHA-256 为
+`7abe463a8557c51c78ff163488aba77118689d1dd0e1c62330972e7b2b8cadb2`。
+它提供较丰富的馆藏字段，但没有图像或释文。页面声明的 OAI-DC XML
+路线只返回一个语言字段。
+
 ## Rights and risk / 权利与风险
 
 - Image pages: `CC0 1.0 Universal Public Domain Dedication`.

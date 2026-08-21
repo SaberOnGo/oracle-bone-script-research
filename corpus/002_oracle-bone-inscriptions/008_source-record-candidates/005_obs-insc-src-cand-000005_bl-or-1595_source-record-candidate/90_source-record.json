@@ -23,6 +23,34 @@
     "parent_snapshot_sha256": "1f3336ecd238857fb7d5cfa4ff02b7d66ffc8f95f6cfcdc4edb6fbcb057a1b65",
     "snapshot_status": "ignored_local_html_snapshot",
     "accessed_at": "2026-08-22",
+    "alternate_payloads": [
+      {
+        "format": "json",
+        "url": "https://searcharchives.bl.uk/catalog/040-003126498.json",
+        "local_snapshot_path": "tmp/source_downloads/dl-bl-oracle-bone-1595-040-003126498.json",
+        "snapshot_size_bytes": 8746,
+        "snapshot_sha256": "7abe463a8557c51c78ff163488aba77118689d1dd0e1c62330972e7b2b8cadb2",
+        "http_status": 200,
+        "content_type": "application/json; charset=utf-8",
+        "payload_scope": "rich_catalog_fields_without_image_or_transcription",
+        "status": "retrieved_ignored_local_snapshot",
+        "rights_status": "metadata_only_until_verified",
+        "risk_note": "The JSON repeats catalogue metadata; it does not supply the catalogue image or a line-addressable transcription."
+      },
+      {
+        "format": "oai_dc_xml",
+        "url": "https://searcharchives.bl.uk/catalog/040-003126498.oai_dc_xml",
+        "local_snapshot_path": "tmp/source_downloads/dl-bl-oracle-bone-1595-040-003126498.oai_dc_xml",
+        "snapshot_size_bytes": 326,
+        "snapshot_sha256": "1fdd15975076e8b790887efdf7c8a9b1a7c4e59096b6833e49877a50b725dc42",
+        "http_status": 200,
+        "content_type": "application/xml; charset=utf-8",
+        "payload_scope": "language_only",
+        "status": "retrieved_ignored_local_snapshot",
+        "rights_status": "metadata_only_until_verified",
+        "risk_note": "The endpoint returned only dc:language=Chinese in the observed payload."
+      }
+    ],
     "image_status": "unavailable",
     "iiif_status": "not_identified",
     "text_status": "no_transcription"
@@ -136,7 +164,7 @@
   "rights_scope": "Commons_image_CC0; page_text_and_catalog_metadata_need_attribution",
   "review_status": "source_record_candidate_needs_plate_and_text_review",
   "missing_evidence": [
-    "stable British Library JSON or XML payload, IIIF manifest, and image",
+    "rich catalogue payload fields, IIIF manifest, and catalogue image",
     "independent Heji image, page, and line alignment",
     "rights-cleared line-addressable transcription and OCR",
     "independent excavation, period, and collection history",

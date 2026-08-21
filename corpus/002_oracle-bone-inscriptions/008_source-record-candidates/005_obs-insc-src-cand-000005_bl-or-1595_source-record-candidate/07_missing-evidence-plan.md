@@ -5,8 +5,8 @@ The following are concrete checks, not filler status text:
 以下是具体待查问题，不是空泛状态语句：
 
 1. The catalogue now resolves item record `040-003126498` under collection
-   `032-002915678`. Can a stable JSON or XML payload, IIIF manifest, or image
-   payload be obtained from this item after the current site changes?
+   `032-002915678`. A JSON metadata payload is obtained and checksum-bound;
+   can richer fields, a IIIF manifest, or a catalogue image be obtained?
 2. Does *Heji* 40610 have one plate for each side, and what are the exact
    volume, plate, page, and publication references?
 3. Is `Yingcang` 886r/v an independent catalog source or a reprint route?
@@ -28,8 +28,8 @@ and capture their calculations and source plate references without choosing a
 date in this dossier.
 
 1. 目录现在把对象解析到集合 `032-002915678` 下的逐项记录
-   `040-003126498`。当前网站变化后，能否从该记录取得稳定 JSON 或
-   XML、IIIF manifest 或图像内容？
+   `040-003126498`。JSON 元数据已取得并绑定校验和；还需查更丰富字段、
+   IIIF manifest 或馆藏图像。
 2. 《合集》40610 是否为正反面各自一幅图版？准确卷、图版、页码和
    出版信息是什么？
 3. `Yingcang` 886r/v 是独立著录还是重印路线？

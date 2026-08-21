@@ -115,8 +115,8 @@ Keightley 1978 和 Zhang 2002 的引文。它们只是来源主张和文献路�
 
 Concrete next checks are:
 
-1. Use item record `040-003126498` as the catalogue identity route; obtain
-   its stable JSON or XML payload if the site exposes one.
+1. Use item record `040-003126498` as the catalogue identity route; retain
+   the checksum-bound JSON metadata and seek richer fields if exposed.
 2. Open the exact Heji 40610b plate and page references named by Keightley.
 3. Compare an authoritative plate with each image side and preserve the
    edition's line order and damaged-sign marks.
@@ -127,7 +127,7 @@ Concrete next checks are:
 6. Only after those checks, create a separate human-reviewed transcription or
    character-linkage record.
 
-具体下一步是：定位两面的稳定馆藏记录，打开《合集》40610 的准确图版和页码，
+具体下一步是：保留已定位的稳定馆藏记录和 JSON 元数据，打开《合集》40610 的准确图版和页码，
 把权威图版与两张图逐面比较，确认页面文字的版本出处，记录提出者、不同日期、
 不同释读及其证据，最后才建立人类复核的摹写或单字关联记录。
 

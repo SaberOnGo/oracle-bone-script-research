@@ -128,7 +128,10 @@ Working-tree verification after the claim matrix was added:
   MDARK/LARK identifiers, hierarchy, and two ignored HTML snapshot hashes.
   Images, IIIF, and transcription remain unavailable; the item is still a
   source-record candidate rather than a formal inscription.
-- The focused BL catalog refresh suite is `8 tests OK`; the related source-text
+- The 2026-08-22 follow-up retrieved the official Blacklight JSON payload.
+  Its 8746-byte snapshot is checksum-bound, and the OAI-DC XML probe returned
+  only `dc:language=Chinese`; neither route supplies an image or transcription.
+- The focused BL catalog refresh suite is `10 tests OK`; the related source-text
   reconciliation suite remains `7 tests OK`.
 - The claim evidence gate suite: `4 tests OK`; the matrix is linked from the
   strategy, methods, and AI evidence-pack review skill.
@@ -178,7 +181,9 @@ Working-tree verification after the claim matrix was added:
   `040-003126498`。对象档案绑定两个记录号、MDARK/LARK、层级关系以及两份
   忽略区 HTML 快照的校验和。图像、IIIF 和释文仍不可用，本对象仍是来源记录
   候选，不是正式卜辞记录。
-- 大英图书馆馆藏刷新专项套件为 `8 tests OK`；相关来源文字对照套件仍为
+- 2026-08-22 跟进取得官方 Blacklight JSON。8746 字节快照已绑定校验和；
+  OAI-DC XML 只返回 `dc:language=Chinese`，两条路线都没有图像或释文。
+- 大英图书馆馆藏刷新专项套件为 `10 tests OK`；相关来源文字对照套件仍为
   `7 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
@@ -577,8 +582,8 @@ Markdown 文件，四项债务均为 0。这些回执对应下一次提交前的
 - 大英图书馆 Or. 7694/1595 正反面来源记录候选保存两条 CC0 图像路线、
   本地校验和、页面月食文字，以及独立著录、文字和单字关联缺口。
 - 同一候选现增加大英图书馆馆藏页，记录来源报告的馆藏号、题名、馆藏区域、
-  年代范围、范围字段和 `Images currently unavailable` 提示。逐项 JSON、
-  IIIF 和馆藏图像仍未取得。
+  年代范围、范围字段和 `Images currently unavailable` 提示。2026-08-22
+  已取得逐项 JSON 元数据；IIIF、逐行释文和馆藏图像仍未取得。
 - 2026-08-21 的官方检索结果另报告：该对象的全部或部分刻辞可能在二十世纪
   添加。该句保留为馆藏来源警示，不是本项目真伪判断；后续释读、年代和图版
   使用均被此警示阻断，直到对象历史和实物路线完成对照。

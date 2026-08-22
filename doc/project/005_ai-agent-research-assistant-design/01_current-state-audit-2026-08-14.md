@@ -156,6 +156,10 @@ Working-tree verification after the claim matrix was added:
   records. Its displayed text keeps the source ellipsis, and no image is
   promoted to a character, transcription, or reconstructed fragment. Its
   focused snapshot suite is `5 tests OK`.
+- IHP item `1220` now has refreshed paired page snapshots and two ignored JPEG
+  response records. Its two displayed lines remain source-display evidence;
+  no image, orientation, or wording is promoted to a formal record. Its
+  focused snapshot suite is `5 tests OK`.
 - The focused IHP item 1215 source-record suite is `10 tests OK`, including
   a local hash replay when the ignored HTML snapshot is present.
 - IHP item 503 now has paired checksum-bound 2026-08-22 English and Chinese
@@ -240,6 +244,9 @@ Working-tree verification after the claim matrix was added:
 - 史语所 1218 号对象现有成对页面快照和两条忽略区 JPEG 响应记录。页面省略号
   仍按来源保留，没有把图像提升为单字、释文或残片复原；快照专项套件为
   `5 tests OK`。
+- 史语所 1220 号对象现有刷新后的成对页面快照和两条忽略区 JPEG 响应记录。
+  页面两行文字仍是来源页面证据，没有把图像、方向或文字提升为正式记录；
+  快照专项套件为 `5 tests OK`。
 - 命题证据门槛套件：`4 tests OK`；矩阵已由战略、研究方法和 AI
   evidence-pack skill 共同链接。
 - 1215 号对象专项来源记录套件为 `10 tests OK`；忽略区 HTML 快照存在时，

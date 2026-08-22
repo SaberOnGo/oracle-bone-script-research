@@ -36,6 +36,8 @@ ignored `.working/ihp-1220/`.
 - `06_human-collection-dossier.md`: human collection object dossier.
 - `08_collection-provenance-evidence-dossier.md`: human source evidence dossier.
 - `18_live-source-evidence-review.md`: live page and image evidence review.
+- `19_official-page-text-evidence.md`: paired official page snapshots and
+  image-response evidence.
 - `10_collection-provenance-fact-matrix.md`: human provenance fact matrix.
 - `12_archaeological-context-review.md`: human archaeological context review
   sheet.

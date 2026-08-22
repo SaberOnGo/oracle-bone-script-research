@@ -42,6 +42,8 @@ See `thumbnail_url` in Object Metadata.
   research starts.
 - `18_live-source-evidence-review.md`: live official-page and image-route
   evidence review.
+- `19_official-page-text-evidence.md`: paired official page snapshots and
+  image-response evidence.
 
 ## Structured Support Files / 结构化辅助文件
 

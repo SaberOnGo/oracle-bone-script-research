@@ -15,7 +15,8 @@
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/008_coll-obj-cand-00008_ihp-item-1222_collection-object-candidate/05_human-review-sheet.md",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/008_coll-obj-cand-00008_ihp-item-1222_collection-object-candidate/06_human-collection-dossier.md",
     "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/008_coll-obj-cand-00008_ihp-item-1222_collection-object-candidate/10_collection-provenance-fact-matrix.md",
-    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/008_coll-obj-cand-00008_ihp-item-1222_collection-object-candidate/12_archaeological-context-review.md"
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/008_coll-obj-cand-00008_ihp-item-1222_collection-object-candidate/12_archaeological-context-review.md",
+    "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/008_coll-obj-cand-00008_ihp-item-1222_collection-object-candidate/19_official-page-text-evidence.md"
   ],
   "project_id": "coll-obj-cand-00008",
   "record_type": "collection_object_candidate_dossier_index",
@@ -36,6 +37,6 @@
     "catalog_publication_history",
     "object_identity_review_history"
   ],
-  "updated_at": "2026-06-20",
+  "updated_at": "2026-08-22",
   "visual_entry_type": "external_thumbnail_url_metadata_only"
 }

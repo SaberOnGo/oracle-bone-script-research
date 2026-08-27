@@ -629,6 +629,27 @@ join, genealogy, or formal identity.
 记录提案、争议、不同意见、来源校验和与反证，不提升任何释文、缀合、
 谱系或正式身份。
 
+On `2026-08-28`, the official NTU PDF of Song Yaping's 2012 article was
+opened and visually checked. Pages 14-17 provide the sixth example's A-B-C
+ledger, earlier join history, source transcription, seam criteria, and a
+labeled rubbing and drawing. A separate 2018 workshop image supplies a
+low-resolution delivery-route corroboration.
+
+`2026-08-28`，宋雅萍 2012 年论文的台大官方 PDF 已打开并完成视觉核查。
+第 14-17 页提供第六例 A-B-C 清单、较早缀合史、来源释文、接缝依据，
+以及带标注拓片和摹本；另有一幅 2018 年研习会低分辨率图片提供独立
+传播路线互证。
+
+This opens one real item-level plate route, but it does not close the physical
+join gate. The plate lacks metric seam close-ups and angled-light views, while
+the source itself says the shallow traces require physical inspection. The
+formal identity, transcription, reverse-face crosswalk, and genealogy claim
+remain withheld.
+
+这已打开一条真实逐项图版路线，但未关闭实物缀合门槛。图版缺少带尺度
+接缝特写和多角度强光图，而来源本身说浅刻痕依赖实物目验。正式身份、
+释文、反面著录对应和谱系主张继续暂缓。
+
 ## Nineteen-Requirement Verdict / 十九项要求判定
 
 1. Human-first positioning: `established`, but material depth is incomplete.

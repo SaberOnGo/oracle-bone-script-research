@@ -40,3 +40,19 @@ checks listed in file `09`.
 
 余项不再是泛泛的“查文献”，而是 `09` 所列原版、图版、R 号、库房记录
 和多角度实物图像核查。
+
+## Plate progress on 2026-08-28 / 2026-08-28 图版进展
+
+The official 2012 article PDF and its sixth example are now open. Files `11`
+and `12` record pages 14-17, the A-B-C plate, earlier join stages, seam
+criteria, source transcription limits, and an independent workshop image.
+
+2012 年官方论文 PDF 及第六例现已打开。`11`、`12` 号文件记录第 14-17
+页、A-B-C 图版、较早缀合阶段、接缝依据、来源释文限制及一幅独立
+研习会图片。
+
+The unresolved plate routes are now group 295, group 165, `Huibian 1028`,
+metric seam close-ups, and angled-light images of the faint traces.
+
+尚未打开的具体图版路线现为第 295 组、第 165 组、《汇编》1028、
+带尺度接缝特写及浅刻痕多角度强光图。

@@ -17,13 +17,17 @@ Rights: `metadata_only_until_verified`.
    and the claim gate.
 4. Read files `09` and `10` for the named literature, join history,
    dispute trail, capture checksums, and unresolved source risks.
-5. Open files `90` through `92` only as supporting indexes.
+5. Read files `11` and `12` for the opened original plate, detailed join
+   history, source transcription boundary, and PDF capture evidence.
+6. Open files `90` through `93` only as supporting indexes.
 
 1. 先读 `01_object-and-image-routes.md`，核对来源与图像路线。
 2. 再读 `02_human-inscription-dossier.md`，了解卜辞语境。
 3. 继续读 `03` 至 `08`，核对证据、反证、缺口与主张门槛。
 4. 再读 `09` 和 `10`，核对文献、缀合史、争议、校验和及来源风险。
-5. 最后才把 `90` 至 `92` 号文件当作辅助索引使用。
+5. 再读 `11` 和 `12`，核对已打开原图版、详细缀合史、来源释文边界
+   和 PDF 捕获证据。
+6. 最后才把 `90` 至 `93` 号文件当作辅助索引使用。
 
 ## Evidence anchor / 证据锚点
 

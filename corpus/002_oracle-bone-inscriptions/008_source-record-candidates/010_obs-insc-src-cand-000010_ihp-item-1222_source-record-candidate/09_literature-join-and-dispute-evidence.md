@@ -169,16 +169,16 @@ remain source reports. This is both `counterevidence` and a hard claim gate.
 ## Concrete next checks / 具体下一步
 
 - Open `Huibian 1028` and compare its plate with the museum views.
-- Open the original 2012 article's sixth example and pages 14-17.
-- Keep its eighth example on pages 21-23 separate until plate comparison.
+- The original 2012 sixth example and pages 14-17 are now open in file `11`.
+- Keep its eighth example on pages 21-23 separate from item `1222`.
 - Open the printed 2018 volume to settle pages and inspect its plate.
 - Obtain the publisher or journal copy of the 2024 article.
 - Inspect the official R-records for B-D and the reported storeroom note.
 - Require line-addressable, angled physical images before testing faint cuts.
 
 - 打开《汇编》1028 图版，与馆方两幅实物图逐缝比较。
-- 打开 2012 年原文第六例与第 14-17 页。
-- 图版比较前，第八例与第 21-23 页保持为另一条独立引文。
+- 2012 年原文第六例与第 14-17 页现已在 `11` 号文件打开。
+- 第八例与第 21-23 页继续和对象 `1222` 分开。
 - 打开 2018 年原书，核定页码并查看图版。
 - 取得 2024 年论文的出版社或期刊正式版本。
 - 核对 B-D 各 R 号正式记录及文中所称库房纸本记录。

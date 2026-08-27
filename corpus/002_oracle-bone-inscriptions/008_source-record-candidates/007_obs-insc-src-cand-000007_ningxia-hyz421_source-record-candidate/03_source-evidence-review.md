@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | A | Commons file page and revision | source metadata and license |
 | B | committed JPEG bytes | reproducible image observation |
-| C | Commons caption and cited book | source-reported context only |
+| C | Schwartz 2019 printed pp. 347 and 426 | text and raw-data check |
 
 ## Independently checked / 已独立核查
 
@@ -26,11 +26,20 @@ the refresh does not replace a museum catalogue or excavation register.
 H3:1325、宁夏博物馆、花园庄东和页面显示释文。这些仍是页面层面的来源
 报告，刷新不替代博物馆目录或发掘登记。
 
+The edition check confirms `HYZ 421` ↔ `H3:1325`, two repeated divination
+entries, and the raw-data dimensions 21.6 by 15.1 cm. Those dimensions
+conflict with the Commons page's 28.3 by 20 cm. This conflict prevents the
+photograph from being promoted to a confirmed HYZ 421 image.
+
+版本核查确认 `HYZ 421` ↔ `H3:1325`、两条重复卜问，以及原始数据尺寸
+21.6 × 15.1 厘米。该尺寸与 Commons 的 28.3 × 20 厘米冲突，因此不能把
+照片提升为已确认的 HYZ 421 图像。
+
 ## Not independently checked / 尚未独立核查
 
 - Ningxia Museum catalogue record and accession number.
 - Excavation register for Huayuanzhuang East and HYZ 421.
-- The page's object reference `H3:1325` against Schwartz's book.
+- The photograph's identity against a source-edition plate.
 - Image orientation, scale, conservation state, and full object surface.
 - Whether the displayed string is a complete edition transcription.
 

@@ -6,8 +6,11 @@
 | --- | --- | --- |
 | Book identity and DOI | independently-checked | Publisher metadata page |
 | 2019 date and extent | independently-checked | Publisher metadata |
-| HYZ 421 pages 347 and 561 | source-reported | Commons citation field |
-| Full HYZ 421 transcription | unresolved | Permitted book copy needed |
+| HYZ 421 entry | independently-checked | Printed p. 347, PDF p. 357 |
+| HYZ 421 / H3:1325 mapping | independently-checked | Printed p. 426 |
+| HYZ 421 edition dimensions | independently-checked | 21.6 x 15.1 cm |
+| Commons photograph identity | disputed | 28.3 x 20 cm conflicts |
+| Commons page `561` | invalid locator | Beyond the book extent |
 | Plate and page image | unresolved | Publisher or source edition |
 | Project character links | not assigned | Object-local review gate |
 
@@ -20,17 +23,18 @@ translation or every cited page has been independently verified.
 这里的“independently-checked”只表示项目打开了出版社 metadata 路线并记录其
 显示内容，不表示已经独立核验本书翻译或每个被引用页码。
 
-The Commons page is a useful cross-source locator for `HYZ 421, H3:1325`,
-but its citation is not a substitute for the edition, plate, or museum record.
+The edition confirms the catalog-to-excavation-number mapping. It does not
+confirm that the Commons photograph shows that object. A plate or museum
+record must resolve the dimension conflict.
 
-Commons 页面是 `HYZ 421, H3:1325` 的跨来源定位线索，但不能替代版本、图版
-或博物馆记录。
+版本确认目录号与发掘号的对应，但不能确认 Commons 照片就是该对象。尺寸冲突
+必须由图版或博物馆记录解决。
 
 ## Reading process status / 释读过程状态
 
-The source book contains scholarly translation and commentary. For this
-project's object candidate, the status is `source_reported_needs_checking`:
-no book passage is promoted into a project reading or translation.
+The source book contains scholarly translation and commentary. Its HYZ 421
+entry is now recorded as `edition_entry_checked`, but no passage is promoted
+into a project reading or translation.
 
-该书包含学术翻译和注释。对本项目对象候选而言，状态是
-`source_reported_needs_checking`：没有任何书中段落被提升为项目释读或翻译。
+该书包含学术翻译和注释。HYZ 421 条目现记为 `edition_entry_checked`，但没有
+任何书中段落被提升为项目释读或翻译。

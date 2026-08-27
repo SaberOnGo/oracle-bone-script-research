@@ -37,13 +37,16 @@ these publication displays are preserved rather than silently normalized.
 章节结构。大学出版记录也将本书列为 2019 年。出版社页面同时显示 2020
 版权行；这些出版信息差异保留记录，不静默统一。
 
-The Commons object page cites pages 347 and 561 for `HYZ 421, H3:1325`.
-This dossier records that citation route; it does not claim that those pages
-have been opened or that the displayed string is the book's full edition text.
+The monograph has now been inspected at printed pages 347 and 426. Page 347
+contains two entries for `HYZ 421, H3:1325`; page 426 confirms that mapping and
+records
+21.6 by 15.1 cm. The Commons page reports 28.3 by 20 cm, so the photograph
+identity is withheld. Its citation to page `561` is not a valid printed page
+in this work.
 
-Commons 对象页面为 `HYZ 421, H3:1325` 引用第 347、561 页。本档案记录该
-引用路线，但不声称已经打开这些页，也不声称来源页面字符串就是该书的完整
-释文。
+专著书面第 347、426 页现已检查。第 347 页有两条 HYZ 421 记录；第 426 页
+把 `HYZ 421` 对应到 `H3:1325`，尺寸为 21.6 × 15.1 厘米。Commons 页面报告
+28.3 × 20 厘米，因此照片身份暂缓确认；其“第 561 页”不是本书有效页码。
 
 ## Boundary / 边界
 

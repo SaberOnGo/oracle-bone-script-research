@@ -99,12 +99,11 @@ and text gaps. The Commons image page reports CC0, but the object identity,
 catalog placement, and text remain source-reported and unverified:
 [`obs-insc-src-cand-000006`][bl-1535-candidate].
 
-A seventh source-record candidate captures a Wikimedia Commons photograph of
-Ningxia Museum object `HYZ 421, H3:1325`. It preserves the source-displayed
-inscription string, the local image hash and dimensions, the reported
-Huayuanzhuang East provenance, and the Schwartz 2019 citation route. The
-uploaded photograph is CC BY-SA 3.0, but museum-object rights, plate identity,
-and the source text remain unresolved:
+A seventh source-record candidate compares a Wikimedia Commons photograph
+with Schwartz 2019. The edition confirms `HYZ 421` ↔ `H3:1325`, two numbered
+entries, and 21.6 by 15.1 cm; Commons reports 28.3 by 20 cm and shows only one
+string. The photograph identity is therefore withheld until a source plate or
+museum record resolves the conflict:
 [`obs-insc-src-cand-000007`][ningxia-hyz421-candidate].
 
 An eighth source-record candidate captures The Met Open Access object 42045,
@@ -153,10 +152,10 @@ Wikimedia Commons 提供。它记录正反面藏品号、合集和英国所藏�
 著录定位和文字仍是来源报告、尚未独立核验：
 [`obs-insc-src-cand-000006`][bl-1535-candidate]。
 
-第七个来源记录候选保存 Wikimedia Commons 上宁夏博物馆
-`HYZ 421, H3:1325` 的甲骨照片，记录来源页面释文、本地图像校验和与尺寸、
-花园庄东出土地报告以及 Schwartz 2019 引用路线。上传照片标为 CC BY-SA 3.0，
-但博物馆实物权利、图版身份和来源文字仍未解决：
+第七个来源记录候选把 Wikimedia Commons 照片与 Schwartz 2019 对照。版本确认
+`HYZ 421` ↔ `H3:1325`、两条编号记录和 21.6 × 15.1 厘米；Commons 报告
+28.3 × 20 厘米且只显示一条字符串。因此，在底本图版或馆藏记录解决冲突前，
+照片身份暂缓确认：
 [`obs-insc-src-cand-000007`][ningxia-hyz421-candidate]。
 
 第八个来源记录候选保存大都会艺术博物馆 Open Access 对象 42045，馆藏号

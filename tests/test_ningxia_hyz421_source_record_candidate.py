@@ -33,6 +33,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "05_character-linkage-review.md",
             "06_literature-and-dispute-review.md",
             "07_missing-evidence-plan.md",
+            "09_schwartz-2019-entry-and-identity-conflict.md",
         ):
             self.assertTrue((OBJECT / name).is_file(), name)
             self.assertIn(name, readme)
@@ -81,7 +82,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             self.assertIn(marker, dossier)
         self.assertEqual(
             record["text_status"],
-            "source_display_only_without_project_transcription",
+            "edition_has_two_entries_commons_display_is_incomplete",
         )
         self.assertEqual(record["formal_inscription_identity"], "not_assigned")
         self.assertEqual(record["character_links"], [])
@@ -100,10 +101,10 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "347",
             "561",
             "10.1515/9781501505294",
-            "publisher-metadata route",
+            "Page-level verification",
             "CC BY-NC-ND 3.0",
-            "source_citation_route_only",
-            "dispute_status_unresolved",
+            "edition_entry_and_raw_data_checked",
+            "21.6",
         ):
             self.assertIn(marker, literature)
         self.assertIn("CC BY-SA 3.0", evidence)
@@ -120,12 +121,26 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
         self.assertEqual(len(publisher_routes), 1)
         self.assertEqual(
             publisher_routes[0]["status"],
-            "publisher_metadata_checked_not_downloaded",
+            "publisher_metadata_and_open_access_routes_checked",
         )
         self.assertEqual(
             publisher_routes[0]["effective_project_rights"],
-            "metadata_only_until_verified",
+            "no_derivative_pages_or_extracts_committed",
         )
+
+    def test_edition_identity_and_photo_conflict_are_explicit(self):
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        identity = record["edition_identity"]
+        self.assertEqual(identity["catalog_number"], "HYZ 421")
+        self.assertEqual(identity["excavation_number"], "H3:1325")
+        self.assertEqual(identity["entry_count"], 2)
+        self.assertEqual(identity["printed_entry_page"], 347)
+        self.assertEqual(identity["printed_raw_data_page"], 426)
+        self.assertEqual(identity["edition_dimensions_cm"], "21.6 x 15.1")
+        self.assertEqual(identity["commons_dimensions_cm"], "28.3 x 20.0")
+        self.assertIn("withheld", identity["photograph_identity"])
 
     def test_human_markdown_is_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

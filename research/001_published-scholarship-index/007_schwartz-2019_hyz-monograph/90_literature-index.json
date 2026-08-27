@@ -5,9 +5,12 @@
   "author": "Adam C. Schwartz",
   "doi": "10.1515/9781501505294",
   "related_candidate_id": "obs-insc-src-cand-000007",
-  "publisher_route_status": "publisher_metadata_checked_not_downloaded",
-  "reported_license": "CC BY-NC-ND 3.0",
-  "effective_project_rights": "metadata_only_until_verified",
-  "page_citation_status": "source_reported_not_opened",
+  "publisher_route_status": "publisher_and_open_access_routes_checked",
+  "reported_license": "publisher_3.0_pdf_internal_4.0_both_BY_NC_ND",
+  "effective_project_rights": "no_derivative_pages_or_extracts_committed",
+  "page_citation_status": "printed_347_and_426_checked_561_invalid_as_page",
+  "edition_object_mapping": "HYZ 421 to H3:1325 confirmed",
+  "identity_dispute": "edition_21.6x15.1_cm_vs_commons_28.3x20_cm",
+  "access_copy_sha256": "616823898d4324999e9be7b67460eaf49e53e314082a992231ed0c48bbad35ac",
   "research_boundary": "not a decipherment result"
 }

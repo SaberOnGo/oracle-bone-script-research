@@ -31,3 +31,27 @@
 This dossier remains a literature route, not a decipherment result.
 
 本档案仍是文献路线，不是破译结果。
+
+## 2026-08-28 page review / 2026-08-28 逐页复核
+
+- Opened the 487-page access copy and recorded its checksum.
+- Visually inspected printed pages 347 and 426 after rendering them.
+- Confirmed `HYZ 421` ↔ `H3:1325` at the edition-record level.
+- Confirmed two numbered HYZ 421 entries rather than one display string.
+- Found the 21.6 x 15.1 versus 28.3 x 20 cm identity conflict.
+- Rejected `561` as a printed-page locator; its intended type is unknown.
+- Kept the PDF, extracted text, and rendered pages in ignored storage.
+
+- 打开 487 页访问副本并记录 checksum。
+- 渲染后目视检查书面第 347、426 页。
+- 在版本记录层确认 `HYZ 421` ↔ `H3:1325`。
+- 确认 HYZ 421 有两条编号记录，而不是一条显示字符串。
+- 发现 21.6 × 15.1 与 28.3 × 20 厘米的身份冲突。
+- 否定 `561` 作为书面页码；其原本类型未知。
+- PDF、抽取文字和渲染页均保留在 Git 忽略区。
+
+The next decisive task is no longer opening this monograph. It is opening the
+2003 source-edition plate or a Ningxia Museum accession record.
+
+下一项决定性任务不再是打开本专著，而是打开 2003 年底本图版或宁夏博物馆
+馆藏记录。

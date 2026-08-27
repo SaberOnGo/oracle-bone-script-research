@@ -39,8 +39,10 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 6. `06_literature-and-dispute-review.md`: cited scholarship route.
 7. `07_missing-evidence-plan.md`: concrete next checks.
 8. `08_visual-region-review.md`: image-first region observations.
-9. Open `92_visual-region-register.csv` after the human page.
-10. Open `90_source-record.json` and `91_source-record-index.csv` last.
+9. `09_schwartz-2019-entry-and-identity-conflict.md`: page evidence and
+   identity conflict.
+10. Open `92_visual-region-register.csv` after the human pages.
+11. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像来源链。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -50,8 +52,9 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 6. `06_literature-and-dispute-review.md`：引用文献路线。
 7. `07_missing-evidence-plan.md`：具体下一步待查项。
 8. `08_visual-region-review.md`：以图像为先的区域观察。
-9. 阅读人类页面后打开 `92_visual-region-register.csv`。
-10. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+9. `09_schwartz-2019-entry-and-identity-conflict.md`：逐页证据和身份冲突。
+10. 阅读人类页面后打开 `92_visual-region-register.csv`。
+11. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 
@@ -60,6 +63,6 @@ reference are source-reported. The visual notes are limited to directly
 observable features. This project has not made an OCR, transcription,
 translation, character assignment, period conclusion, or decipherment claim.
 
-页面显示的释文、年代、出土地、对象号和文献引用均为来源报告。视觉观察
-只记录可直接看到的特征。本项目没有制作 OCR、摹写、翻译或单字分配，也
-没有提出时期结论或破译主张。
+版本记录现已确认 `HYZ 421` 对应 `H3:1325`，但版本尺寸与照片页尺寸冲突，
+所以照片身份仍未确认。视觉观察只记录可直接看到的特征。本项目没有制作
+项目摹写、翻译或单字分配，也没有提出时期结论或破译主张。

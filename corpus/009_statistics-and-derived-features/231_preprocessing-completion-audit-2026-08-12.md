@@ -707,6 +707,26 @@ attribution, noncommercial, and no-derivatives conditions for its images.
 它们确认馆藏成员关系并使实物表面可检查，但没有关闭接缝几何、浅痕、
 释文或谱系门槛。资料库对图像声明 CC 3.0 署名、非商用、禁止改作条件。
 
+### HYZ 421 edition conflict / HYZ 421 版本冲突
+
+On `2026-08-28`, Schwartz 2019 printed pages 347 and 426 were opened and
+visually checked. They confirm `HYZ 421` ↔ `H3:1325`, two separately numbered
+divination entries, and raw-data dimensions of 21.6 by 15.1 cm. The Commons
+page instead gives 28.3 by 20 cm and displays only one inscription string.
+
+`2026-08-28`，Schwartz 2019 书面第 347、426 页已打开并目视核查。两页确认
+`HYZ 421` ↔ `H3:1325`、两条分别编号的卜问记录，以及 21.6 × 15.1 厘米
+原始数据尺寸。Commons 页面则报告 28.3 × 20 厘米，并只显示一条释文。
+
+The edition-level identifier mapping is promoted to checked, but the
+photograph identity is withheld. The Commons citation's `561` cannot be a
+printed page in this 477-page work and remains an invalid, unlabeled locator.
+This is a falsifiable source conflict, not a decipherment claim.
+
+版本层的编号对应提升为已核验，但照片身份继续暂缓。Commons 引文中的 `561`
+不可能是这部 477 页著作的书面页码，现作为无效且缺标签的定位保留。这是一项
+可证伪来源冲突，不是破译主张。
+
 ## Nineteen-Requirement Verdict / 十九项要求判定
 
 1. Human-first positioning: `established`, but material depth is incomplete.

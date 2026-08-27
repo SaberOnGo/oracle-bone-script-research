@@ -10,13 +10,24 @@
   "source_reported_findspot": "Huayuanzhuang East, Anyang, Henan, China",
   "source_reported_dimensions": "28.3 x 20 cm",
   "source_reported_inscription": "壬辰夕卜：其宜（俎）一于，若?用。",
-  "text_status": "source_display_only_without_project_transcription",
+  "text_status": "edition_has_two_entries_commons_display_is_incomplete",
   "ocr_status": "not_collected",
-  "plate_status": "not_independently_verified",
+  "plate_status": "edition_pages_checked_source_plate_not_opened",
   "formal_inscription_identity": "not_assigned",
   "character_links": [],
-  "literature_status": "source_citation_route_only",
-  "dispute_status": "dispute_status_unresolved",
+  "literature_status": "edition_entry_and_raw_data_checked",
+  "dispute_status": "photograph_identity_withheld_dimension_conflict",
+  "edition_identity": {
+    "catalog_number": "HYZ 421",
+    "excavation_number": "H3:1325",
+    "status": "confirmed_at_edition_record_level",
+    "entry_count": 2,
+    "printed_entry_page": 347,
+    "printed_raw_data_page": 426,
+    "edition_dimensions_cm": "21.6 x 15.1",
+    "commons_dimensions_cm": "28.3 x 20.0",
+    "photograph_identity": "withheld_pending_plate_or_museum_record"
+  },
   "image_status": "committed_source_image_with_rights_risk",
   "image_route": {
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ningxia_Museum_Shang_dynasty_turtle_plastron_oracle_bone.jpg",
@@ -34,34 +45,35 @@
   "source_photographer": "BabelStone",
   "literature_routes": [
     {
-      "citation": "Schwartz 2019, pp. 347, 561",
+      "citation": "Schwartz 2019, printed p. 347; Commons also labels 561 as a page",
       "scope": "object and inscription route",
-      "status": "not_opened_needs_permitted_copy",
-      "access_date": "2026-08-14",
-      "checksum": "not_recorded_not_downloaded"
+      "status": "entry_checked_561_is_not_a_valid_printed_page",
+      "access_date": "2026-08-28",
+      "access_copy_sha256": "616823898d4324999e9be7b67460eaf49e53e314082a992231ed0c48bbad35ac"
     },
     {
       "citation": "Schwartz, The Oracle Bone Inscriptions from Huayuanzhuang East",
       "url": "https://www.degruyterbrill.com/document/doi/10.1515/9781501505294/html",
       "doi": "10.1515/9781501505294",
       "scope": "publisher metadata and chapter map only",
-      "status": "publisher_metadata_checked_not_downloaded",
-      "access_date": "2026-08-14",
+      "status": "publisher_metadata_and_open_access_routes_checked",
+      "access_date": "2026-08-28",
       "reported_license": "CC BY-NC-ND 3.0",
-      "effective_project_rights": "metadata_only_until_verified",
-      "checksum": "not_recorded_not_downloaded"
+      "pdf_internal_license": "CC BY-NC-ND 4.0",
+      "effective_project_rights": "no_derivative_pages_or_extracts_committed",
+      "checksum": "access_copy_checksum_recorded_raw_copy_ignored"
     }
   ],
   "missing_evidence": [
     "museum accession and object record",
-    "independent HYZ 421 and H3:1325 reconciliation",
-    "plate and page locator",
+    "photograph identity against HYZ 421 source plate",
+    "dimension conflict explanation",
     "rights-cleared edition transcription or OCR",
     "orientation, scale, damage, and conservation record",
     "human-reviewed character and component segmentation"
   ],
   "boundaries": [
-    "source-reported inscription string only",
+    "edition entry recorded without project transcription",
     "no project transcription or translation",
     "no formal obi identity",
     "no character or component assignment",

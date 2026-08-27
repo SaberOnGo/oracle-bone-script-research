@@ -9,11 +9,15 @@ image_size_bytes,2302630,independently_checked,download receipt
 image_dimensions,3001x3345,independently_checked,decode JPEG
 rights_status,source_marked_risk_noted,reviewed,museum rights unresolved
 ocr_status,not_collected,missing,obtain permitted OCR
-plate_status,not_independently_verified,missing,locate Schwartz pages
+plate_status,edition_pages_checked_source_plate_not_opened,reviewed,open 2003 source plate
 formal_identity,not_assigned,boundary,no formal obi record
 character_links,none_assigned,boundary,segment only after review
-literature_route,Schwartz 2019 pp. 347 and 561,source_citation_route_only,open permitted copy and verify HYZ 421 pages
-publisher_route,De Gruyter Brill DOI 10.1515/9781501505294,publisher_metadata_checked_not_downloaded,metadata only; no local checksum
-review_status,source_record_candidate_needs_catalog_and_text_review,reviewed,answer concrete checks
+literature_route,Schwartz 2019 printed pp. 347 and 426,edition_entry_and_raw_data_checked,Commons 561 is not a valid printed page
+edition_identity,"HYZ 421; H3:1325",confirmed_at_edition_record_level,raw-data row 421
+edition_dimensions_cm,21.6 x 15.1,independently_checked,printed p. 426
+photograph_dimensions_cm,28.3 x 20.0,source_reported,Commons page
+photograph_identity,withheld_dimension_conflict,disputed,open museum record or 2003 plate
+publisher_route,De Gruyter Brill DOI 10.1515/9781501505294,publisher_and_open_access_checked,access copy checksum recorded; raw file ignored
+review_status,edition_checked_photograph_identity_withheld,reviewed,resolve dimension conflict
 visual_region_status,provisional_boxes_not_text_mapping,reviewed,independent orientation and box check
 visual_region_register,92_visual-region-register.csv,reviewed,box-to-image and rights check

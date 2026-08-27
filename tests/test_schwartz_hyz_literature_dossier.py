@@ -51,23 +51,25 @@ class SchwartzHyzLiteratureDossierTests(unittest.TestCase):
         ):
             self.assertIn(marker, readme)
 
-    def test_support_json_keeps_unopened_page_boundary(self):
+    def test_support_json_records_page_review_and_identity_boundary(self):
         record = json.loads(
             (DOSSIER / "90_literature-index.json").read_text(encoding="utf-8")
         )
         self.assertEqual(record["doi"], "10.1515/9781501505294")
         self.assertEqual(
             record["publisher_route_status"],
-            "publisher_metadata_checked_not_downloaded",
+            "publisher_and_open_access_routes_checked",
         )
         self.assertEqual(
             record["page_citation_status"],
-            "source_reported_not_opened",
+            "printed_347_and_426_checked_561_invalid_as_page",
         )
         self.assertEqual(
             record["effective_project_rights"],
-            "metadata_only_until_verified",
+            "no_derivative_pages_or_extracts_committed",
         )
+        self.assertIn("21.6x15.1", record["identity_dispute"])
+        self.assertEqual(len(record["access_copy_sha256"]), 64)
 
     def test_human_markdown_is_utf8_and_within_80_columns(self):
         for path in DOSSIER.glob("*.md"):

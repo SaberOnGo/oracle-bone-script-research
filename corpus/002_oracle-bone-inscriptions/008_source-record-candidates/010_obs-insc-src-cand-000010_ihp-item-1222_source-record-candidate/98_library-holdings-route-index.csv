@@ -1,0 +1,7 @@
+route_id,target,institution,ncid,isbn,holding_label,call_number,item_number,target_locator,access_state,rights_status
+ihp1222-hold-001,zhuihui-1028-plate,Rikkyo University,BB08262963,9789862544471,Tuban pian hardcover,NDC9 222.03 SA17,52223484,group 1028 and adjacent caption,holding_verified_pages_unopened,metadata_only_until_verified
+ihp1222-hold-002,zhuihui-1028-errata,Hokkaido University,BB08262963,9789862544471,Tuban pian kanwu,495.11/SAI,0181705280,all entries naming group 1028 or its members,holding_verified_pages_unopened,metadata_only_until_verified
+ihp1222-hold-003,zhuihui-1028-commentary,Hokkaido University,BB08262963,9789863222859,Shiwen yu kaoshi,495.11/SAI,0181642400,group 1028 commentary and transcription,holding_verified_pages_unopened,metadata_only_until_verified
+ihp1222-hold-004,zhang-song-2018-article,Hokkaido University,BA80938304,9787532587759,volume 7,495.111/SHU,0581213204,printed pages 20-29,holding_verified_pages_unopened,metadata_only_until_verified
+ihp1222-hold-005,yinxu-wenzi-zhuihe-295,Hokkaido University,BN12160520,,Yinxu wenzi zhuihe,史15-9/CHU,0013170562,group 295 printed page 180,holding_verified_pages_unopened,metadata_only_until_verified
+ihp1222-hold-006,yan-1989-group-165,Hokkaido University,BA74133183,,Yinxu di shisan ci fajue suode bujia zhuiheji,雑3-6/GEN,0570655684,group 165 printed page 151,holding_verified_pages_unopened,metadata_only_until_verified

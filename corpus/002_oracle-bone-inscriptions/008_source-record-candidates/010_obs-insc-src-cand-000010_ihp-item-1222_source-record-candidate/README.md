@@ -27,7 +27,9 @@ Rights: `metadata_only_until_verified`.
    route, including the evidence rejection gate.
 9. Read file `16` for rigid same-face image correspondence, opposite-face
    controls, algorithmic limits, and the unchanged seam gate.
-10. Open files `90` through `97` only as supporting indexes.
+10. Read file `17` for early plates, verified holdings, the separate errata
+    part, and the minimal copy request.
+11. Open files `90` through `98` only as supporting indexes.
 
 1. 先读 `01_object-and-image-routes.md`，核对来源与图像路线。
 2. 再读 `02_human-inscription-dossier.md`，了解卜辞语境。
@@ -42,7 +44,8 @@ Rights: `metadata_only_until_verified`.
 8. 再读 `15`，核对原书、勘误、合法取得路线和证据否决门槛。
 9. 再读 `16`，核对刚性同面图像对应、异面对照、算法限制和未变的接缝
    门槛。
-10. 最后才把 `90` 至 `97` 号文件当作辅助索引使用。
+10. 再读 `17`，核对早期图版、已核馆藏、独立勘误卷和最小复制请求。
+11. 最后才把 `90` 至 `98` 号文件当作辅助索引使用。
 
 ## Evidence anchor / 证据锚点
 

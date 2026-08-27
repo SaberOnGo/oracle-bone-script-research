@@ -20,12 +20,14 @@ join, transcription, genealogy, or authenticity claim.
 The 2013 companion sample says that the 2011 plate volume contains 1,028
 regular join plates and 14 supplements. It also says that later work found
 misplaced plates, erroneous tracings, wrong numbers, omissions, mistaken
-joins, and added joins. The sample therefore makes the companion and its
-errata part of the source gate for any single 2011 plate.
+joins, and added joins. A later CiNii and holding review identifies
+`Tuban pian kanwu` as a distinct physical part. The plate, separate errata,
+and companion are therefore separate source gates.
 
 2013 年配套卷样页称，2011 年图版卷收 1,028 组常规缀合图版和 14 组
 补遗。样页同时说明后续发现图版错位、误摹、错号、漏收、误收和新加缀。
-因此，任何 2011 年单组图版都必须连同配套卷和勘误通过来源门槛。
+后续 CiNii 与馆藏复核确认《图版篇勘误》是独立实物分卷，因此图版、
+独立勘误和配套考释必须分别通过来源门槛。
 
 The public four-page sample does not contain plate 1028. Searches inside the
 sample find no `Yi 6087` or `Heji 13517`. Its only Arabic `1028` occurrence
@@ -140,13 +142,14 @@ Use the smallest reproducible request, in this order:
 
 ## Promotion and rejection gate / 晋级与否决门槛
 
-Promotion requires all three originals: the 2011 target plate, the 2013
-correction/commentary entry, and the 2018 article at pages 20-29. The plate
-must also be mapped to the opened IHP object images without geometric warping.
+Promotion requires four opened sources: the 2011 target plate, the separate
+`Tuban pian kanwu` entry, the matching 2013 commentary, and the 2018 article
+at pages 20-29. The plate must also be mapped to the opened IHP object images
+without geometric warping.
 
-晋级必须同时取得三项原文：2011 年目标图版、2013 年对应勘误／考释、
-2018 年论文第 20-29 页；还必须在不作几何形变的条件下，把图版映射到
-已打开的史语所实物图。
+晋级必须打开四项来源：2011 年目标图版、独立《图版篇勘误》条目、
+2013 年对应考释和 2018 年论文第 20-29 页；还必须在不作几何形变的
+条件下，把图版映射到已打开的史语所实物图。
 
 Reject or withhold the route if the group number is absent, renumbered,
 corrected to different fragments, based only on a remote join, or lacks a

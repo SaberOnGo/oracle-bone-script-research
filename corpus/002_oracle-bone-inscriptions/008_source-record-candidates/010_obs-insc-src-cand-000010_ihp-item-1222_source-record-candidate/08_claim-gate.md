@@ -29,11 +29,13 @@ authenticity, and decipherment are withheld. Delivery state is
 
 ## Promotion gate / 晋级门槛
 
-Promotion requires the 2011 plate, the matching 2013 errata and commentary,
-the 2018 paper, image-to-object and image-to-sign mappings, a sourced reading
-history, competing views, rights review, and independent Agent adjudication.
-A high model score without these evidence bindings is not enough.
+Promotion requires the 2011 plate, the separate `Tuban pian kanwu` entry,
+the matching 2013 commentary, the 2018 paper, image-to-object and
+image-to-sign mappings, a sourced reading history, competing views, rights
+review, and independent Agent adjudication. A high model score without these
+evidence bindings is not enough.
 
-晋级需要 2011 年图版、2013 年对应勘误与考释、2018 年论文、图像到
-实物及字形的映射、有来源的释读史、不同意见、权利复核和独立 Agent
-裁决。缺少这些证据绑定时，高模型分数也不足以晋级。
+晋级需要 2011 年图版、独立《图版篇勘误》条目、2013 年对应考释、
+2018 年论文、图像到实物及字形的映射、有来源的释读史、不同意见、
+权利复核和独立 Agent 裁决。缺少这些证据绑定时，高模型分数也不足以
+晋级。

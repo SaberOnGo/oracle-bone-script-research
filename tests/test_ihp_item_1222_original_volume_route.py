@@ -60,10 +60,12 @@ class IhpItem1222OriginalVolumeRouteTests(unittest.TestCase):
         flat = " ".join(text.split())
         for marker in (
             "the 2011 plate",
-            "matching 2013 errata",
+            "separate `Tuban pian kanwu` entry",
+            "matching 2013 commentary",
             "the 2018 paper",
             "2011 年图版",
-            "2013 年对应勘误",
+            "独立《图版篇勘误》条目",
+            "2013 年对应考释",
             "2018 年论文",
         ):
             self.assertIn(marker, flat)

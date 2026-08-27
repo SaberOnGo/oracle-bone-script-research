@@ -25,7 +25,7 @@ class AiCaseSelectionTests(unittest.TestCase):
 
     def test_real_work_order_starts_with_visible_permitted_images(self):
         rows = self.module.select_candidates(ROOT)
-        self.assertEqual(len(rows), 9)
+        self.assertEqual(len(rows), 10)
         self.assertEqual(
             [row["source_label"] for row in rows[:2]],
             ["BL", "BL"],
@@ -38,6 +38,18 @@ class AiCaseSelectionTests(unittest.TestCase):
         for row in rows:
             self.assertNotIn("hypothesis_probability", row)
             self.assertIn("not a probability", row["triage_basis"])
+
+    def test_nested_ihp_image_routes_contribute_checksum_signal(self):
+        rows = self.module.select_candidates(ROOT)
+        item_1222 = next(
+            row
+            for row in rows
+            if row["candidate_id"] == "obs-insc-src-cand-000010"
+        )
+        self.assertEqual(item_1222["source_label"], "IHP")
+        self.assertIn("source_checksum", item_1222["signals"])
+        self.assertIn("hash", item_1222["visible_summary"])
+        self.assertEqual(item_1222["lane"], "rights_blocked_route_review")
 
     def test_rights_blocked_route_keeps_concrete_next_checks(self):
         rows = self.module.select_candidates(ROOT)

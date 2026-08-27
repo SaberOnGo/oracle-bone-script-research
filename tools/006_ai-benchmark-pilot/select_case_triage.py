@@ -64,9 +64,14 @@ def _has_source_checksum(record: dict[str, Any]) -> bool:
     package = record.get("source_package")
     if isinstance(package, dict) and package.get("sha256"):
         return True
-    for route in record.get("image_routes", []):
-        if isinstance(route, dict) and route.get("sha256"):
-            return True
+    for route_key in (
+        "image_routes",
+        "large_image_routes",
+        "inline_glyph_response_routes",
+    ):
+        for route in record.get(route_key, []):
+            if isinstance(route, dict) and route.get("sha256"):
+                return True
     return False
 
 

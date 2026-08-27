@@ -2,12 +2,12 @@
 
 ## Purpose / 用途
 
-This guide is the human reading entry for the nine opened inscription
+This guide is the human reading entry for the ten opened inscription
 source-record candidates. It is a research queue, not an accepted
 inscription register and not a list of deciphered texts.
 It is not a decipherment result.
 
-本导览是九个已打开卜辞来源记录候选的人类阅读入口。它是研究队列，
+本导览是十个已打开卜辞来源记录候选的人类阅读入口。它是研究队列，
 不是已接受的卜辞登记表，也不是已破译文本清单。
 
 Open the linked object README first. Then read its human dossier, source
@@ -223,13 +223,35 @@ inscription context, view orientation, and explicit character links.
 
 Read: [The Met 42022 source-record candidate][cand-000009].
 
+### 000010 IHP item 1222
+
+Object: `obs-insc-src-cand-000010`; source labels include `ZR038421` and
+`Yi Bian 4817+5061+5520+5804+6087+R60751`.
+
+对象：`obs-insc-src-cand-000010`；来源标识包括 `ZR038421` 和六条合并
+著录路线。
+
+Evidence opened: two official page snapshots, two large-image responses,
+three rendered glyph responses, checksums, and the fragmentary page display.
+
+已打开证据：两份官方页面快照、两份大图响应、三份页面渲染字形响应、
+校验和与页面残缺文字。
+
+Blocking checks: catalog page and plate locators, image-to-line and
+image-to-sign mappings, transcription history, disputes, and reuse terms.
+
+阻断检查：著录页与图版位置、图像到行和字形的映射、释读史、争议和
+再利用条款。
+
+Read: [IHP 1222 source-record candidate][cand-000010].
+
 ## Queue boundary / 队列边界
 
-All nine folders remain source-record candidates. None is a formal `obi-*`
+All ten folders remain source-record candidates. None is a formal `obi-*`
 record, a confirmed character-inscription relation, a calibrated AI
 hypothesis, or a decipherment result.
 
-九个目录都仍是来源记录候选。没有任何一个是正式 `obi-*` 记录、已确认的
+十个目录都仍是来源记录候选。没有任何一个是正式 `obi-*` 记录、已确认的
 字形—卜辞关系、校准后的 AI 假说或破译结果。
 
 The next action is to open the object named in the relevant row and resolve
@@ -257,3 +279,5 @@ write the exact route, access result, or source question instead.
   008_obs-insc-src-cand-000008_met-42045_source-record-candidate/README.md
 [cand-000009]: ../008_source-record-candidates/
   009_obs-insc-src-cand-000009_met-42022_source-record-candidate/README.md
+[cand-000010]: ../008_source-record-candidates/
+  010_obs-insc-src-cand-000010_ihp-item-1222_source-record-candidate/README.md

@@ -1,0 +1,79 @@
+{
+  "candidate_id": "obs-insc-src-cand-000010",
+  "source": "src-ihp-museum-oracle-bones",
+  "museum_item": "1222",
+  "museum_accession": "ZR038421",
+  "catalog_label": "Yi Bian 4817+5061+5520+5804+6087+R60751",
+  "source_display_lines": [
+    "[子]曰□子曰名曰［[image placeholder A]］…",
+    "□曰□子曰[image placeholder B]…",
+    "子曰[image placeholder C]…"
+  ],
+  "text_availability": "source_fragmentary_display_only",
+  "text_quality": "source_reported_fragmentary_display_with_placeholders",
+  "plate_locator_status": "awaiting_catalog_page_and_plate_crosscheck",
+  "formal_inscription_identity": "withheld",
+  "character_links": [],
+  "large_image_routes": [
+    {
+      "response_name": "43367571cc964c58.jpg",
+      "local_ignored_path": ".working/ihp-1222-20260822/43367571cc964c58.jpg",
+      "size_bytes": 335264,
+      "pixels": "1150x1280",
+      "sha256": "d59a6cbd401daf184880e58a7aa826e310bc2ee481f71a91a4aa2f3d18ac45bf",
+      "view_orientation": "source_not_confirmed"
+    },
+    {
+      "response_name": "99967571cca1e09f.jpg",
+      "local_ignored_path": ".working/ihp-1222-20260822/99967571cca1e09f.jpg",
+      "size_bytes": 370055,
+      "pixels": "1150x1280",
+      "sha256": "cf9f1e84be0a26d7f21eac7c06014dc1370eb08f346c6f01ac37e8004578631d",
+      "view_orientation": "source_not_confirmed"
+    }
+  ],
+  "inline_glyph_response_routes": [
+    {
+      "response_name": "615675a84fd057c0.png",
+      "evidence_type": "rendered_glyph_response",
+      "bone_surface_location": "unmapped",
+      "size_bytes": 9755,
+      "pixels": "864x1280",
+      "sha256": "790b5bdfab55f32e5c70754bd8d31919e7e7b4d411191840347f051639f80d68"
+    },
+    {
+      "response_name": "45675a850458b46.png",
+      "evidence_type": "rendered_glyph_response",
+      "bone_surface_location": "unmapped",
+      "size_bytes": 11960,
+      "pixels": "951x1280",
+      "sha256": "c7faa73136d26f31577dd07f0281cdc83c74a56c8560108504f3f562c057147e"
+    },
+    {
+      "response_name": "501675a8509b92c9.png",
+      "evidence_type": "rendered_glyph_response",
+      "bone_surface_location": "unmapped",
+      "size_bytes": 13174,
+      "pixels": "1280x756",
+      "sha256": "7843660cb4d19a105f2bea0aafbdae51fe0dc953baa3dd667062a12660df4805"
+    }
+  ],
+  "page_snapshots": {
+    "english_sha256": "af682fc6e6ff786cf79c5f91033ba5c59ea3025246208d791e9167cccced15f4",
+    "chinese_sha256": "9abb7e7bff9b05789e06810f7b8c3c2b5b9ab37ebf756e16a25c67a3d8c150f4",
+    "accessed_at": "2026-08-22",
+    "status": "retrieved_ignored_snapshots"
+  },
+  "period": "source_reports_Late_Shang",
+  "findspot": "source_reports_SYFYH127_Hsiao-tun_Anyang_Honan",
+  "material": "source_reports_Turtle_Plastron",
+  "rights_status": "metadata_only_until_verified",
+  "review_status": "needs_catalog_text_placeholder_and_dispute_review",
+  "delivery_state": "abstain_withhold_candidate",
+  "boundaries": [
+    "no project transcription or translation",
+    "no formal obi identity",
+    "no character-inscription edge",
+    "no genealogy or decipherment conclusion"
+  ]
+}

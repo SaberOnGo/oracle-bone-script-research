@@ -27,7 +27,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         )
         with map_path.open(encoding="utf-8-sig", newline="") as handle:
             rows = list(csv.DictReader(handle))
-        self.assertEqual(len(rows), 9)
+        self.assertEqual(len(rows), 10)
         expected = {
             "obs-insc-src-cand-000001": "obimd-h2",
             "obs-insc-src-cand-000002": "IHP-item-503;R044498",
@@ -38,6 +38,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             "obs-insc-src-cand-000007": "HYZ-421;H3:1325",
             "obs-insc-src-cand-000008": "Met-42045;67.43.14",
             "obs-insc-src-cand-000009": "Met-42022;18.56.71",
+            "obs-insc-src-cand-000010": "IHP-item-1222;ZR038421",
         }
         for row in rows:
             project_id = row["project_id"]
@@ -65,6 +66,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
         self.assertIn("[bl-1535-candidate]", text)
         self.assertIn("[met-42045-candidate]", text)
         self.assertIn("[met-42022-candidate]", text)
+        self.assertIn("[ihp-1222-candidate]", text)
 
     def test_literature_index_links_item_level_human_dossier(self):
         text = (

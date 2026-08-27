@@ -98,7 +98,7 @@ engineering does not substitute for literature work.
 ### Progress opened after this audit / 审计后已打开的进展
 
 The following material-depth gains were completed between `2026-08-12` and
-`2026-08-14`.
+`2026-08-27`.
 They reduce three zero-instance gaps but do not change the overall
 `not_complete` result:
 
@@ -134,8 +134,13 @@ They reduce three zero-instance gaps but do not change the overall
   `609` and `612` retained local rows without repairing the difference. It
   preserves `c/h/j/y` key meanings, item-transfer gates, unresolved object
   identity, and `metadata_only_until_verified` rights status.
+- IHP item `1222` now has an object-local inscription source-record candidate
+  binding two official page snapshots, two large-image responses, three
+  rendered glyph responses, and a fragmentary display. Its plate locators,
+  sign locations, transcription history, disputes, and rights remain open;
+  no formal inscription identity or character edge was emitted.
 
-`2026-08-12` 至 `2026-08-14` 完成了下列资料深度改进。它们减少了
+`2026-08-12` 至 `2026-08-27` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
 
 - 六个已选单字对象新增对象特异的文件名证据复核，覆盖 93 个
@@ -162,6 +167,9 @@ They reduce three zero-instance gaps but do not change the overall
 - Cambridge Hopkins 馆藏目录档案并列保存官方总数 `609` 与本地保留
   `612` 行，不擅自修补差异；同时保留 `c/h/j/y` 代码语义、对象转移
   门槛、未决实物身份和 `metadata_only_until_verified` 权利状态。
+- 史语所 `1222` 号对象新增对象内卜辞来源记录候选，绑定两份官方页面快照、
+  两份大图响应、三份页面渲染字形响应和残缺页面文字。图版定位、字形位置、
+  释读史、争议和权利仍未解决；没有生成正式卜辞身份或单字图边。
 
 The H2 record still lacks a confirmed catalog identity and readable
 transcription. The selected characters still lack opened authoritative plates

@@ -13,6 +13,7 @@
   "text_status": "not_available_in_checked_snapshot",
   "ocr_status": "not_available_in_checked_snapshot",
   "plate_status": "not_independently_verified",
+  "publication_plate_status": "published_plate_source_reported_object_match_side_unresolved",
   "reading_order_status": "single_side_route_only",
   "formal_inscription_identity": "not_assigned",
   "character_links": [],
@@ -42,6 +43,23 @@
     "size_bytes": 6113,
     "sha256": "e5ba41a61c1ea3f3b58bbdbfad7238b04133cd10a79884797cd57a240e1cbc6e"
   },
+  "publication_plate_routes": [
+    {
+      "route_id": "bl-writing-2019-robinson-origin-plate",
+      "chapter_author": "Andrew Robinson",
+      "chapter_title": "The Origins of Writing",
+      "parent_title_candidate": "Writing: Making Your Mark",
+      "printed_pages": "20-22",
+      "object_caption": "British Library Or.7694/1535",
+      "face_label_status": "unresolved",
+      "local_private_path": ".working/bl-1535-publication-route-20260828/writing-catalogue-public-sample.pdf",
+      "size_bytes": 1093393,
+      "page_count": 13,
+      "sha256": "ebc0d151823ff672d86fc86e7800cb7f40eb718fbab02a8810f62a153a0a7446",
+      "review_status": "sample_opened_and_visually_reviewed",
+      "rights_status": "metadata_and_visual_observation_only_until_reuse_terms_verified"
+    }
+  ],
   "related_routes": [
     {
       "route_id": "gac-bl-1535-collection",
@@ -64,11 +82,13 @@
   ],
   "rights_status": "public_domain_verified",
   "rights_scope": "Commons image page reports CC0 1.0; page metadata needs review",
-  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "review_status": "source_record_candidate_has_published_plate_needs_catalog_and_text_review",
   "missing_evidence": [
     "stable British Library object record",
-    "independent Heji page or plate locator",
-    "independent Yingcang page or plate locator",
+    "source-labelled face pair assigning recto and verso",
+    "page-addressable Heji 39498 plate locator",
+    "page-addressable Yingcang 1117 plate locator",
+    "title and copyright pages for the captured sample edition",
     "rights-cleared line-addressable transcription and OCR",
     "findspot, collection history, period, batch, and group evidence",
     "named readings, proposers, contrary readings, and dispute records",
@@ -76,6 +96,7 @@
   ],
   "boundaries": [
     "source-reported accession and catalog hints only",
+    "published plate caption is source-reported and side-unresolved",
     "visual observations are not readings",
     "no project transcription, OCR, or translation",
     "no formal inscription identity",

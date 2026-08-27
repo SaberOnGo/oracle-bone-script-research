@@ -47,8 +47,10 @@ evidence are clear. This is not a formal `obi-*` inscription record.
    unresolved item-level route.
 9. `09_secondary-route-search.md`: exact identifier search and negative route.
 10. `10_visual-region-review.md`: image-first region observations.
-11. Open `92_visual-region-register.csv` after the human page.
-12. Open `90_source-record.json` and `91_source-record-index.csv` last.
+11. `11_published-opposite-face-plate.md`: the 2019 published plate,
+    opposite-face observation, bibliography, rights, and claim boundary.
+12. Open `92_visual-region-register.csv` after the human pages.
+13. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -60,19 +62,22 @@ evidence are clear. This is not a formal `obi-*` inscription record.
 8. `08_british-library-catalog-record.md`：官方馆藏字段和未解决的逐项路线。
 9. `09_secondary-route-search.md`：精确标识检索和负面路线。
 10. `10_visual-region-review.md`：以图像为先的区域观察。
-11. 阅读人类页面后打开 `92_visual-region-register.csv`。
-12. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+11. `11_published-opposite-face-plate.md`：2019 年出版图版、异面观察、
+    书目、权利和主张边界。
+12. 阅读人类页面后打开 `92_visual-region-register.csv`。
+13. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 
-The accession, catalog references, period wording, and image description
-are source-reported material. The visual notes are limited to observable
-image features. There is no project transcription, OCR, translation,
-character assignment, formal inscription identity, or decipherment result.
+The accession, catalog references, period wording, image description, and
+2019 publication caption are source-reported material. The visual notes are
+limited to observable image features. There is no project transcription,
+OCR, translation, character assignment, formal inscription identity, or
+decipherment result.
 
-藏品号、著录引用、时期措辞和图像描述都是来源报告材料。视觉观察只
-记录图像中可直接看到的特征。本项目没有摹写、OCR、翻译、单字分配、
-正式卜辞身份或释读结果。
+藏品号、著录引用、时期措辞、图像描述和 2019 年出版图注都是来源报告
+材料。视觉观察只记录图像中可直接看到的特征。本项目没有摹写、OCR、
+翻译、单字分配、正式卜辞身份或释读结果。
 
 [bl-1535-page]: https://commons.wikimedia.org/wiki/
   File%3AChinese_oracle_bone_%2816th-10th_C_BC%29_-_BL_Or._7694.jpg

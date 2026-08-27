@@ -148,16 +148,17 @@ and Yingcang `1117v` hints.
 《英藏》`1117v` 提示。
 
 Evidence opened: one CC0 image route, local checksum, direct visual notes,
-and a negative catalogue-availability result.
+a 2019 published opposite-face plate and caption, and a negative
+catalogue-availability result.
 
-已打开证据：一条 CC0 图像路线、本地校验和、直接视觉观察，以及一次目录
-不可用的负面访问结果。
+已打开证据：一条 CC0 图像路线、本地校验和、直接视觉观察、2019 年出版
+异面图版与图注，以及一次目录不可用的负面访问结果。
 
-Blocking checks: independent catalog object, plate and text route, and any
-image or OCR that can bind a sign to a line and character record.
+Blocking checks: stable item record, explicit face label, Heji and Yingcang
+plates, and a text route that can bind a sign to a line and character record.
 
-阻断检查：独立馆藏对象、图版和文本路线，以及能把字形绑定到行和单字档案的
-图像或 OCR。
+阻断检查：稳定逐项记录、明确面标、《合集》与《英藏》图版，以及能把字形
+绑定到行和单字档案的文本路线。
 
 Read: [BL Or. 7694/1535v source-record candidate][cand-000006].
 

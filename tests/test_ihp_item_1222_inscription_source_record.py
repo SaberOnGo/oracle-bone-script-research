@@ -27,7 +27,7 @@ class IhpItem1222InscriptionSourceRecordTests(unittest.TestCase):
             CANDIDATE.glob("*.csv")
         )
         self.assertGreaterEqual(len(human), 9)
-        self.assertEqual(len(support), 4)
+        self.assertEqual(len(support), 6)
         self.assertTrue((CANDIDATE / "02_human-inscription-dossier.md").is_file())
         self.assertTrue((CANDIDATE / "90_source-record.json").is_file())
 

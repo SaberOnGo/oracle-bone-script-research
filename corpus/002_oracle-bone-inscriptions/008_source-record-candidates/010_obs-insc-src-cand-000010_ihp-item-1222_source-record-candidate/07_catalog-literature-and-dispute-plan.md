@@ -34,12 +34,12 @@ expansion, opposing views, capture hashes, and the physical-inspection limit.
 与《汇编》1028 对应候选、A-D 扩大复原、不同意见、捕获校验和及实物
 目验限制。
 
-The remaining tasks are no longer generic literature search. They are the
-specific original-edition, plate, R-record, storeroom-note, and angled-image
-checks listed in file `09`.
+The remaining tasks are no longer generic literature search. The official
+R-records are open in file `14`; the remaining original-edition, plate,
+storeroom-note, and angled-image checks are listed in file `09`.
 
-余项不再是泛泛的“查文献”，而是 `09` 所列原版、图版、R 号、库房记录
-和多角度实物图像核查。
+余项不再是泛泛的“查文献”。R 号正式记录已在文件 `14` 打开；后续是
+`09` 所列原版、图版、库房纸本和多角度实物图像核查。
 
 ## Plate progress on 2026-08-28 / 2026-08-28 图版进展
 

@@ -650,6 +650,46 @@ remain withheld.
 接缝特写和多角度强光图，而来源本身说浅刻痕依赖实物目验。正式身份、
 释文、反面著录对应和谱系主张继续暂缓。
 
+The Fudan `Zhuiyu Lianzhu` database was then queried by `Heji 13517`,
+`Yi 6087`, `R060751`, and `Zhuihui 1028`. It returns a shorter stage without
+the R-number and a later stage with it. The shorter row also reports that
+`Heji Supplement 00417` is part of `Heji 13517`. These are historical-stage
+crosswalk candidates; the `Zhuihui 1028` original plate remains unopened.
+
+随后以《合》13517、《乙》6087、`R060751` 和《缀彙》1028 查询复旦
+“缀玉联珠”数据库。结果区分不含 R 号的较短阶段与后加 R 号阶段；较短
+记录还报告《合补》00417 是《合》13517 的一部分。这些均为历史阶段
+对应候选，《缀彙》1028 原始图版仍未打开。
+
+The official volume 7 contents fix the 2018 article at pages 20-29. A later
+repost's claim that the 2012 paper was included in a 2011 book is retained as
+a bibliographic anomaly, not silently normalized.
+
+第七辑官方目录把 2018 年论文页码校正为第 20-29 页。后出转载关于
+2012 年论文“收入”2011 年书的说法存在年代矛盾，现作为书目异常保留，
+不静默改写。
+
+The IHP Archaeological Data Digital Archive was then opened by registered
+number. Its `ZR038421` record lists all seven R-number members, five field-to-
+publication crosswalks, object measurements, `SYFYH127`, a source inscription
+table, and full front and reverse images. `ZR053740` formally groups
+`R053740` and `R053840` as a nested composite.
+
+随后按登记号打开史语所考古资料数位典藏系统。`ZR038421` 正式记录列出
+七个 R 号成员、五条田野号至著录号对应、全器度量、`SYFYH127`、来源
+铭文表和完整正反面图。`ZR053740` 又把 `R053740`、`R053840` 登记为
+嵌套合编。
+
+Twelve official scale-bearing JPEGs were captured, checksum-bound, and
+visually checked in ignored storage. They establish catalog membership and
+make object surfaces inspectable, but they do not close the seam-geometry,
+faint-trace, transcription, or genealogy gates. The archive states CC 3.0
+attribution, noncommercial, and no-derivatives conditions for its images.
+
+十二幅官方带尺度 JPEG 已捕获、绑定校验和，并在忽略区完成目视核查。
+它们确认馆藏成员关系并使实物表面可检查，但没有关闭接缝几何、浅痕、
+释文或谱系门槛。资料库对图像声明 CC 3.0 署名、非商用、禁止改作条件。
+
 ## Nineteen-Requirement Verdict / 十九项要求判定
 
 1. Human-first positioning: `established`, but material depth is incomplete.

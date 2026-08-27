@@ -19,7 +19,11 @@ Rights: `metadata_only_until_verified`.
    dispute trail, capture checksums, and unresolved source risks.
 5. Read files `11` and `12` for the opened original plate, detailed join
    history, source transcription boundary, and PDF capture evidence.
-6. Open files `90` through `93` only as supporting indexes.
+6. Read file `13` for the two database join stages, R-number normalization,
+   bibliographic anomaly, and still-unopened originals.
+7. Read file `14` for the official artifact register, field-number crosswalks,
+   scale-bearing images, visual observations, and rights boundary.
+8. Open files `90` through `95` only as supporting indexes.
 
 1. 先读 `01_object-and-image-routes.md`，核对来源与图像路线。
 2. 再读 `02_human-inscription-dossier.md`，了解卜辞语境。
@@ -27,7 +31,11 @@ Rights: `metadata_only_until_verified`.
 4. 再读 `09` 和 `10`，核对文献、缀合史、争议、校验和及来源风险。
 5. 再读 `11` 和 `12`，核对已打开原图版、详细缀合史、来源释文边界
    和 PDF 捕获证据。
-6. 最后才把 `90` 至 `93` 号文件当作辅助索引使用。
+6. 再读 `13`，核对数据库两条缀合阶段、R 号规范化、书目异常和仍未
+   打开的原始资料。
+7. 再读 `14`，核对正式实物登记、田野号对应、带尺度图像、目视观察和
+   权利边界。
+8. 最后才把 `90` 至 `95` 号文件当作辅助索引使用。
 
 ## Evidence anchor / 证据锚点
 
@@ -43,12 +51,14 @@ No image is redistributed in this directory.
 
 ## Boundary / 边界
 
-The catalog string, fragmentary display, period, findspot, and material are
-source-reported. The formal inscription identity, character links, reading,
-genealogy, join order, and plate positions are withheld.
+The artifact-register identities, catalog string, period, findspot, material,
+field-number crosswalks, and composite membership are now source-verified.
+The formal inscription identity, character links, reading, genealogy, seam
+geometry, and exact publication-label mapping remain withheld.
 
-著录串、残缺页面文字、时期、出土地和材质均为来源报告。正式卜辞身份、
-单字关联、释读、谱系、拼合次序和图版位置全部暂缓裁定。
+实物登记身份、著录串、时期、出土地、材质、田野号对应和合编成员关系
+现已由来源核实。正式卜辞身份、单字关联、释读、谱系、接缝几何及出版
+标签逐片映射仍暂缓裁定。
 
 [parent-evidence]: ../../../005_excavation-sites-periods-and-batches/
   002_collection-object-candidates/

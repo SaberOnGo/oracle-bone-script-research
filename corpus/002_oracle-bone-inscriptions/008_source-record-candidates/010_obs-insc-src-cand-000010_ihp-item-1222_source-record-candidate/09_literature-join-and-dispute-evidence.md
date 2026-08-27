@@ -157,29 +157,30 @@ insufficient for a reliable reading.
 最强反证来自方法本身。2024 年来源明确说，刮除后的浅刻痕必须在强光下
 反复调整角度实物目验；拓片和数据库照片不足以可靠释读。
 
-This project has two museum JPEG views and three rendered glyph responses.
-They cannot reproduce that physical inspection. Therefore the article's
-trace readings, A-D seams, writing rotations, and genealogy-like analysis
-remain source reports. This is both `counterevidence` and a hard claim gate.
+File `14` now opens official scale-bearing composite and member images.
+They improve surface and layout inspection but still lack the changing
+strong-light angles required by the source. Therefore the trace readings,
+A-D seam geometry, writing rotations, and genealogy-like analysis remain
+source reports. This is both `counterevidence` and a hard claim gate.
 
-本项目只有两幅馆方 JPEG 和三个页面渲染字形响应，不能替代实物目验。
-因此，论文的字痕释读、A-D 接缝、转向书写和类谱系分析仍是来源报告。
-这既是 `反证`，也是硬性主张门槛。
+文件 `14` 现已打开官方带尺度合编图和成员图，实物表面与布局检查已有
+明显改善，但仍缺少来源所要求的变换强光角度。因此字痕释读、A-D 接缝
+几何、转向书写和类谱系分析仍是来源报告。这既是`反证`，也是硬门槛。
 
 ## Concrete next checks / 具体下一步
 
 - Open `Huibian 1028` and compare its plate with the museum views.
 - The original 2012 sixth example and pages 14-17 are now open in file `11`.
 - Keep its eighth example on pages 21-23 separate from item `1222`.
-- Open the printed 2018 volume to settle pages and inspect its plate.
+- Open the printed 2018 article at confirmed pages 20-29 and inspect its plate.
 - Obtain the publisher or journal copy of the 2024 article.
-- Inspect the official R-records for B-D and the reported storeroom note.
+- The official B-D R-records are now open; inspect the reported storeroom note.
 - Require line-addressable, angled physical images before testing faint cuts.
 
 - 打开《汇编》1028 图版，与馆方两幅实物图逐缝比较。
 - 2012 年原文第六例与第 14-17 页现已在 `11` 号文件打开。
 - 第八例与第 21-23 页继续和对象 `1222` 分开。
-- 打开 2018 年原书，核定页码并查看图版。
+- 打开已核定第 20-29 页的 2018 年原文并查看图版。
 - 取得 2024 年论文的出版社或期刊正式版本。
-- 核对 B-D 各 R 号正式记录及文中所称库房纸本记录。
+- 已打开 B-D 各 R 号正式记录；继续核对文中所称库房纸本缀合记录。
 - 测试浅刻痕前，必须取得可逐行定位的多角度实物影像。

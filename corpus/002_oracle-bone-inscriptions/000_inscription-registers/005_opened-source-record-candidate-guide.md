@@ -191,11 +191,12 @@ Object: `obs-insc-src-cand-000008`; museum object `42045`, accession
 
 对象：`obs-insc-src-cand-000008`；博物馆对象 `42045`，馆藏号 `67.43.14`。
 
-Evidence opened: official Open Access API metadata, two public-domain image
-files, exact image checksums and dimensions, and direct visual notes.
+Evidence opened: official Open Access API metadata, two current public-domain
+image files, one earlier high-contrast CC0 image, exact checksums and
+dimensions, and direct cross-image visual notes.
 
-已打开证据：官方 Open Access API metadata、两张公开领域图像、精确图像
-校验和与尺寸，以及直接视觉观察。
+已打开证据：官方 Open Access API metadata、两张当前公开领域图像、一张
+早期高反差 CC0 图像、精确校验和与尺寸，以及跨图直接视觉观察。
 
 Blocking checks: OCR, plate or Heji identity, collection and findspot,
 inscription context, and explicit character links.

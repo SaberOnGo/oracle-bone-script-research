@@ -3,7 +3,7 @@
 ## Status / 状态
 
 - Audit date / 审计日期: `2026-08-12`
-- Material update / 资料更新: `2026-08-14`
+- Material update / 资料更新: `2026-08-28`
 - Audit result / 审计结论: `not_complete`
 - Research status / 正式研究状态: `not_started`
 - Candidate delivery / 候选交付: `none`
@@ -98,7 +98,7 @@ engineering does not substitute for literature work.
 ### Progress opened after this audit / 审计后已打开的进展
 
 The following material-depth gains were completed between `2026-08-12` and
-`2026-08-27`.
+`2026-08-28`.
 They reduce three zero-instance gaps but do not change the overall
 `not_complete` result:
 
@@ -139,6 +139,16 @@ They reduce three zero-instance gaps but do not change the overall
   rendered glyph responses, and a fragmentary display. Its plate locators,
   sign locations, transcription history, disputes, and rights remain open;
   no formal inscription identity or character edge was emitted.
+- British Library `Or.7694/1535` now binds a checked 2019 published plate and
+  source caption to the existing CC0 image dossier. The published photograph
+  is visually compatible with an opposite surface, but its face label,
+  `Heji 39498v`, `Yingcang 1117v`, text, and sign positions remain unresolved.
+- The Met `42045` / `67.43.14` dossier now adds an earlier high-contrast CC0
+  image to its two current public-domain photographs. Its media bytes,
+  Commons receipt, current unchanged Met API response, visible comparison,
+  counterevidence, and falsifiers are recorded. The surface relation remains
+  a candidate; no line order, transcription, plate identity, or character
+  link was promoted.
 
 `2026-08-12` 至 `2026-08-27` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
@@ -170,6 +180,13 @@ They reduce three zero-instance gaps but do not change the overall
 - 史语所 `1222` 号对象新增对象内卜辞来源记录候选，绑定两份官方页面快照、
   两份大图响应、三份页面渲染字形响应和残缺页面文字。图版定位、字形位置、
   释读史、争议和权利仍未解决；没有生成正式卜辞身份或单字图边。
+- 大英图书馆 `Or.7694/1535` 现在把经核对的 2019 年出版图版与来源图注连接
+  到已有 CC0 图像档案。出版照片在视觉上与异面相容，但面标、
+  `合集 39498v`、`英藏 1117v`、文本和字形位置仍未解决。
+- Met `42045` / `67.43.14` 档案在两张当前公开领域照片之外，新增一张早期
+  高反差 CC0 图像，并记录媒体字节、Commons 回执、未变化的当前 Met API
+  响应、可见比较、反证和证伪条件。图面关系仍是候选，没有提升行序、释文、
+  图版身份或单字关联。
 
 The H2 record still lacks a confirmed catalog identity and readable
 transcription. The selected characters still lack opened authoritative plates

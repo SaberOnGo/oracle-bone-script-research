@@ -30,3 +30,11 @@ SHA-256、像素坐标系、方向说明和明确的不确定状态。
 This page is a visual observation record, not a transcription or reading.
 
 本页是视觉观察记录，不是摹写或释读。
+
+The earlier high-contrast photograph now provides a third observation route.
+It is reviewed in `11_historical-inscribed-face-evidence.md`. It does not by
+itself authorize sign boxes or a text order.
+
+早期高反差照片现在提供第三条观察路线，详见
+`11_historical-inscribed-face-evidence.md`。它本身仍不足以授权逐字框或
+文字次序。

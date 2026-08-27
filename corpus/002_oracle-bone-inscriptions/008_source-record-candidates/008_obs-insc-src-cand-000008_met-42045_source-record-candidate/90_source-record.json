@@ -19,6 +19,8 @@
   "api_access_date": "2026-08-21",
   "api_size_bytes": 1590,
   "api_sha256": "74efc7255beeed6cf1400d86c336c5b97a5638a683956e83fa7216ad42f152b9",
+  "api_refresh_date": "2026-08-28",
+  "api_refresh_byte_identity": "same_size_and_sha256_as_2026-08-21_snapshot",
   "text_status": "museum_metadata_only_without_project_transcription",
   "ocr_status": "not_collected",
   "plate_status": "not_independently_verified",
@@ -80,9 +82,28 @@
       "status": "retrieved_ignored_snapshot"
     }
   ],
+  "historical_image_routes": [
+    {
+      "provider": "Wikimedia Commons MediaWiki API",
+      "file_title": "File:MET 67 43 14.jpeg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:MET_67_43_14.jpeg",
+      "committed_path": "03_visual-assets/003_asset-000003_met-42045-historical-view.jpeg",
+      "size_bytes": 35178,
+      "pixels": "900x207",
+      "sha1": "bc3f5ec46c6ac1268a61ab05cab50703fc01c0ff",
+      "sha256": "5a066d9205f4ef492e0d0d530acd5229315e1a99411982c3133adfe1e154163d",
+      "snapshot_local_path": ".working/met-42045-refresh-20260828/commons-met-67-43-14.json",
+      "snapshot_size_bytes": 5507,
+      "snapshot_sha256": "3e428163a4e8f59517560dfde11c0bc13d4914e5ce1a74102e472e12eb8da115",
+      "source_reported_object_link": "Met accession 67.43.14",
+      "surface_relation_status": "inscribed_surface_candidate_not_pixel_identical",
+      "rights_status": "cc0_reported_by_secondary_met_donation_route",
+      "review_status": "downloaded_hashed_and_visually_compared"
+    }
+  ],
   "rights_status": "public_domain_verified",
   "rights_scope": "Met API isPublicDomain=true for fetched image files; metadata and catalog attribution remain required",
-  "review_status": "source_record_candidate_needs_text_and_catalog_review",
+  "review_status": "source_record_candidate_has_three_images_needs_text_and_catalog_review",
   "missing_evidence": [
     "stable catalog or plate identity",
     "findspot, excavation, collection history, and conservation record",

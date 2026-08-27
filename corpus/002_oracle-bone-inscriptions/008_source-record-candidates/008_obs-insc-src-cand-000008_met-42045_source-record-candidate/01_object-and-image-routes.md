@@ -39,6 +39,27 @@ The public object page is:
   `c2c09d618ed7da7e38b845164186590f7fa416ec3487a319c7de75b84330a480`.
   Pixels: 2667 x 4000.
 
+An earlier Met-distributed image is also preserved through Wikimedia
+Commons:
+
+- Commons file `MET 67 43 14.jpeg`:
+  `https://commons.wikimedia.org/wiki/File:MET_67_43_14.jpeg`
+  Local file:
+  `03_visual-assets/003_asset-000003_met-42045-historical-view.jpeg`.
+  Size 35178 bytes; SHA-256
+  `5a066d9205f4ef492e0d0d530acd5229315e1a99411982c3133adfe1e154163d`.
+  Pixels: 900 x 207.
+
+This third file is a separate historical photograph, not an unchanged byte
+copy of either current API image. Commons reports that it came through the
+Met donation route and applies CC0. Its object association is source-reported
+by accession; its surface relation is reviewed separately in
+`11_historical-inscribed-face-evidence.md`.
+
+第三张图是独立的早期照片，不是当前两张 API 图像的相同字节副本。
+Commons 报告其来自 Met 捐赠路线并使用 CC0。对象关系由馆藏号来源报告，
+图面关系另在 `11_historical-inscribed-face-evidence.md` 复核。
+
 The API names the views but does not establish a recto-verso relationship.
 The project therefore preserves the API labels and does not infer reading
 order or object orientation.

@@ -40,14 +40,16 @@ not show that group 1028 escaped correction.
 
 ## Visual review of the sample / 样页目视复核
 
-All four pages were rendered at 150 dpi and inspected. Page 1 is a cover and
-publisher description. Pages 2 and 3 continue the omission, mistaken-join,
-duplicate, and later-addition notes. Page 4 is printed page 158 and shows
-groups 642 through 645. No page displays group 1028 or the target join.
+All four pages were rendered at 150 dpi and inspected, then independently
+re-rendered at 160 dpi on 28 August 2026. Page 1 is a cover and publisher
+description. Pages 2 and 3 continue the omission, mistaken-join, duplicate,
+and later-addition notes. Page 4 is printed page 158 and shows groups 641
+through 646. No page displays group 1028 or the target join.
 
-四页均以 150 dpi 渲染并目视检查。第 1 页为封面与出版说明；第 2、3 页
-续列漏收、误收、重片与后加缀；第 4 页为书内第 158 页，显示第 642 至
-645 组。没有一页显示第 1028 组或本对象目标缀合。
+四页先以 150 dpi 渲染并目视检查，2026 年 8 月 28 日又以 160 dpi 独立
+重渲染。第 1 页为封面与出版说明；第 2、3 页续列漏收、误收、重片与
+后加缀；第 4 页为书内第 158 页，实际显示第 641 至 646 组。没有一页
+显示第 1028 组或本对象目标缀合。
 
 This visual check follows the PDF review requirement. Text extraction alone
 would blur the difference between a count, a group number, and a sample page.

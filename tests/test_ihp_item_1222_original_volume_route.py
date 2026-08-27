@@ -33,6 +33,8 @@ class IhpItem1222OriginalVolumeRouteTests(unittest.TestCase):
             "受勘误控制的证据缺口",
             "does not contain plate 1028",
             "不含第 1028 组图版",
+            "groups 641 through 646",
+            "第 641 至 646 组",
             "pages 20-29",
             "第 20-29 页",
             "Lawful acquisition route",

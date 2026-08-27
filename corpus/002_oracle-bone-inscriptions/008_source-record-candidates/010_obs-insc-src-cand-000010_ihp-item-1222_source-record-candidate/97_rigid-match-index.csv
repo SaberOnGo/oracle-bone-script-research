@@ -1,0 +1,13 @@
+member_id,face,ratio_matches,ransac_inliers,inlier_ratio,uniform_scale,rotation_degrees,median_residual_px,opposite_ratio_matches,opposite_inliers,opposite_scale,diagnostic_status,join_verdict,rights_status
+R038421,front,263,96,0.3650,1.424750,-5.8689,2.0669,32,9,0.000000,rigid_match,withheld,site_stated_cc3_by_nc_nd
+R038421,reverse,180,110,0.6111,1.410471,-3.4623,1.2948,30,10,0.000000,rigid_match,withheld,site_stated_cc3_by_nc_nd
+R039467,front,149,105,0.7047,0.447492,13.3711,0.5086,20,4,0.000000,rigid_match,withheld,site_stated_cc3_by_nc_nd
+R039467,reverse,159,128,0.8050,0.463871,-13.7425,1.0771,23,6,0.000000,rigid_match,withheld,site_stated_cc3_by_nc_nd
+R053740,front,17,7,0.4118,0.000000,35.9466,0.0000,11,3,0.912295,algorithmic_inconclusive,withheld,site_stated_cc3_by_nc_nd
+R053740,reverse,5,2,0.4000,0.803209,-16.1658,0.0000,11,2,1.718159,algorithmic_inconclusive,withheld,site_stated_cc3_by_nc_nd
+R054970,front,42,9,0.2143,0.000000,-139.4704,0.0000,27,6,0.000000,algorithmic_inconclusive,withheld,site_stated_cc3_by_nc_nd
+R054970,reverse,31,9,0.2903,0.000000,-162.7741,0.0000,27,6,0.000000,algorithmic_inconclusive,withheld,site_stated_cc3_by_nc_nd
+R060751,front,103,93,0.9029,0.594188,9.7723,1.5178,21,8,0.000000,rigid_match,withheld,site_stated_cc3_by_nc_nd
+R060751,reverse,181,159,0.8785,0.609274,-12.5575,1.1526,16,4,0.356686,rigid_match,withheld,site_stated_cc3_by_nc_nd
+R062431,front,14,4,0.2857,0.000000,19.4817,0.0000,20,4,0.000000,algorithmic_inconclusive,withheld,site_stated_cc3_by_nc_nd
+R062431,reverse,22,3,0.1364,0.069507,12.5646,0.6856,22,7,0.000000,algorithmic_inconclusive,withheld,site_stated_cc3_by_nc_nd

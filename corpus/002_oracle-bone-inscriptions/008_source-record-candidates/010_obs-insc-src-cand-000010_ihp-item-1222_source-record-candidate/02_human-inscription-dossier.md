@@ -45,14 +45,14 @@ before any relation can be emitted.
 
 ## Scholarship and disputes / 学术史与争议
 
-No item-level publication or proposer has yet been verified. The museum's
-genealogy suggestion is a source claim, not an established scholarly result.
-Concrete literature and disagreement questions are listed in
-`07_catalog-literature-and-dispute-plan.md`.
+Named item-level literature routes are now recorded. Song Yaping's 2014
+article supplies a catalog crosswalk and layout route. Zhang Weijie's 2024
+article supplies a proposed expanded reconstruction and a disputed
+genealogy-like interpretation. See files `07`, `09`, and `10`.
 
-尚未核实逐项出版物或提出者。馆方谱系建议是来源主张，不是已成立的学术
-结论。具体文献和不同意见问题见
-`07_catalog-literature-and-dispute-plan.md`。
+现已记录具名的逐项文献路线。宋雅萍 2014 年论文提供著录对应和版面路线；
+张惟捷 2024 年论文提供扩大复原及有争议的类谱系解释。详见 `07`、`09`
+和 `10` 号文件。所有解释仍是来源主张，不是项目确认的学术结论。
 
 ## Relations / 关联
 

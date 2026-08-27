@@ -15,14 +15,15 @@ Rights: `metadata_only_until_verified`.
 2. Read `02_human-inscription-dossier.md` for the inscription context.
 3. Read files `03` through `08` for evidence, counterevidence, gaps,
    and the claim gate.
-4. Open `90_source-record.json` and `91_source-record-index.csv` only as
-   supporting indexes.
+4. Read files `09` and `10` for the named literature, join history,
+   dispute trail, capture checksums, and unresolved source risks.
+5. Open files `90` through `92` only as supporting indexes.
 
 1. 先读 `01_object-and-image-routes.md`，核对来源与图像路线。
 2. 再读 `02_human-inscription-dossier.md`，了解卜辞语境。
 3. 继续读 `03` 至 `08`，核对证据、反证、缺口与主张门槛。
-4. 最后才把 `90_source-record.json` 和 `91_source-record-index.csv`
-   当作辅助索引使用。
+4. 再读 `09` 和 `10`，核对文献、缀合史、争议、校验和及来源风险。
+5. 最后才把 `90` 至 `92` 号文件当作辅助索引使用。
 
 ## Evidence anchor / 证据锚点
 

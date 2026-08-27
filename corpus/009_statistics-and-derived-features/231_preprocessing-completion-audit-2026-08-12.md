@@ -604,6 +604,31 @@ AI-adjudicated candidate delivery.
 没有外部签名或可信时间戳。现在已有本地一次性评分 receipt，但它不是
 隔离评分器 receipt 或已验证基准实验。当前没有 AI 自主裁决候选交付。
 
+### IHP item 1222 literature opening / 史语所 1222 文献打开
+
+On `2026-08-27`, the item-level dossier for IHP item `1222` gained two
+human-readable literature records and one supporting source index. The 2014
+NCCU article records a published crosswalk from the museum's six-part label
+to `Heji 13517` plus `Yi Bian 6087` plus `R60751`, with `Huibian 1028` as a
+plate route. The relation remains a source-reported crosswalk candidate.
+
+`2026-08-27`，史语所对象 `1222` 的逐项档案新增两份人类可读文献记录
+和一份辅助来源索引。政大 2014 年论文把馆方六号著录串对应到《合》13517
+加《乙》6087、`R60751`，并给出《汇编》1028 图版路线。该关系仍只是
+文献报告的著录对应候选。
+
+The inspected 2024 article route proposes a larger A-D reconstruction and a
+genealogy-like interpretation. Its decisive faint traces require physical
+inspection under changing strong light, which the current museum JPEGs cannot
+reproduce. The dossier therefore records the proposal, dispute, opposing
+views, source checksums, and counterevidence without promoting any reading,
+join, genealogy, or formal identity.
+
+本次查看的 2024 年论文路线提出更大的 A-D 复原和类谱系解释。但决定性的
+浅刻痕依赖变换强光角度的实物目验，现有馆方 JPEG 无法复现。因此档案只
+记录提案、争议、不同意见、来源校验和与反证，不提升任何释文、缀合、
+谱系或正式身份。
+
 ## Nineteen-Requirement Verdict / 十九项要求判定
 
 1. Human-first positioning: `established`, but material depth is incomplete.

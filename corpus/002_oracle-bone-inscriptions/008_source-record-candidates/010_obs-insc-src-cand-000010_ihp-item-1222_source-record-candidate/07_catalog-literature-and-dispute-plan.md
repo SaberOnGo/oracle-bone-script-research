@@ -24,7 +24,19 @@ history. `ZR038421` and `SYFYH127` also need independent cross-checks.
 - 哪些研究者反对、修改或保留该解释？
 - 方框与残损区域是否有不同释文？
 
-Until these routes are cited and compared, the dossier records a dispute
-search plan, not a reading history.
+## Progress on 2026-08-27 / 2026-08-27 进展
 
-以上路线获得引文并完成比较前，本页只是争议检索计划，不冒充释读史。
+Files `09` and `10` now record named 2014 and 2024 literature routes,
+the `Heji 13517` and `Huibian 1028` crosswalk candidate, the proposed A-D
+expansion, opposing views, capture hashes, and the physical-inspection limit.
+
+`09` 与 `10` 号文件现已记录 2014、2024 年具名文献路线、《合》13517
+与《汇编》1028 对应候选、A-D 扩大复原、不同意见、捕获校验和及实物
+目验限制。
+
+The remaining tasks are no longer generic literature search. They are the
+specific original-edition, plate, R-record, storeroom-note, and angled-image
+checks listed in file `09`.
+
+余项不再是泛泛的“查文献”，而是 `09` 所列原版、图版、R 号、库房记录
+和多角度实物图像核查。

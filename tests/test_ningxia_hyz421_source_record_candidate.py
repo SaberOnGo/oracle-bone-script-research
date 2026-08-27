@@ -34,6 +34,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "06_literature-and-dispute-review.md",
             "07_missing-evidence-plan.md",
             "09_schwartz-2019-entry-and-identity-conflict.md",
+            "10_dpm-2024-morphology-crosscheck.md",
         ):
             self.assertTrue((OBJECT / name).is_file(), name)
             self.assertIn(name, readme)
@@ -141,6 +142,32 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
         self.assertEqual(identity["edition_dimensions_cm"], "21.6 x 15.1")
         self.assertEqual(identity["commons_dimensions_cm"], "28.3 x 20.0")
         self.assertIn("withheld", identity["photograph_identity"])
+
+    def test_morphology_route_is_compatible_but_not_diagnostic(self):
+        page = (OBJECT / "10_dpm-2024-morphology-crosscheck.md").read_text(
+            encoding="utf-8"
+        )
+        for marker in (
+            "printed page 36",
+            "blunt-rounded",
+            "low_specificity",
+            "cannot choose",
+            "f67a269954a649ce69ac4f75156e35481a5b42f4f39f1ca69f73015a257f48f7",
+        ):
+            self.assertIn(marker, page)
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        routes = [
+            route
+            for route in record["literature_routes"]
+            if "李延彦" in route["citation"]
+        ]
+        self.assertEqual(len(routes), 1)
+        self.assertEqual(
+            routes[0]["identity_effect"],
+            "low_specificity_compatible_not_diagnostic",
+        )
 
     def test_human_markdown_is_utf8_and_within_80_columns(self):
         for path in OBJECT.glob("*.md"):

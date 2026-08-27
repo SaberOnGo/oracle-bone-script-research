@@ -1,0 +1,17 @@
+{
+  "record_type": "published_literature_support_index",
+  "literature_id": "lit-li-plastron-morphology-2024",
+  "human_dossier": "README.md",
+  "author": "李延彦",
+  "title": "殷墟卜甲首甲形态初探——以左首甲为例图示",
+  "venue": "故宫博物院院刊",
+  "issue": "2024-07; total 267",
+  "pages": "34-44",
+  "official_pdf_sha256": "f67a269954a649ce69ac4f75156e35481a5b42f4f39f1ca69f73015a257f48f7",
+  "related_candidate_id": "obs-insc-src-cand-000007",
+  "hyz421_locator": "printed p. 36 footnote 2",
+  "claim_status": "source_reports_blunt_rounded_throat_shield_edge",
+  "identity_effect": "low_specificity_compatible_not_diagnostic",
+  "rights_status": "publicly_accessible_no_open_reuse_license_observed",
+  "research_boundary": "not an object identity or decipherment result"
+}

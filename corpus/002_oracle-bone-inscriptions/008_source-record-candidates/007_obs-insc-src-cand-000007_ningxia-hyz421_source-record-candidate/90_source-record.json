@@ -62,6 +62,15 @@
       "pdf_internal_license": "CC BY-NC-ND 4.0",
       "effective_project_rights": "no_derivative_pages_or_extracts_committed",
       "checksum": "access_copy_checksum_recorded_raw_copy_ignored"
+    },
+    {
+      "citation": "李延彦 2024 殷墟卜甲首甲形态初探",
+      "url": "https://www.dpm.org.cn/Uploads/File/2024/07/18/u6698e2c1d41ad.pdf",
+      "scope": "HYZ 421 throat-shield morphology comparator",
+      "status": "official_pdf_printed_p36_checked",
+      "access_date": "2026-08-28",
+      "sha256": "f67a269954a649ce69ac4f75156e35481a5b42f4f39f1ca69f73015a257f48f7",
+      "identity_effect": "low_specificity_compatible_not_diagnostic"
     }
   ],
   "missing_evidence": [

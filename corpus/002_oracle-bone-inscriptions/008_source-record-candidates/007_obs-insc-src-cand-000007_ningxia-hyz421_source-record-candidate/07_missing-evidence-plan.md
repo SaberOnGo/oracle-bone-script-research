@@ -12,6 +12,8 @@ These are concrete checks, not filler status text:
 6. Which graphs are damaged, supplied, or uncertain in the edition?
 7. Is the photograph license sufficient for any crop or annotation?
 8. What did the Commons citation intend by the impossible page `561`?
+9. Does the source-edition plate show the blunt-rounded throat-shield edge
+   reported by Li 2024?
 
 1. 宁夏博物馆记录能否确认 HYZ 421 及其馆藏流转？
 2. 哪一馆藏记录或底本图版可以确认照片身份？
@@ -21,6 +23,7 @@ These are concrete checks, not filler status text:
 6. 版本中哪些字形残损、补入或存疑？
 7. 照片许可是否足以支持裁图或标注？
 8. Commons 引文中不可能成立的“第 561 页”原本指什么？
+9. 底本图版是否显示李延彦 2024 所报告的钝圆喉盾原边？
 
 Until these checks are answered, this remains an image-backed source-record
 candidate and not a formal inscription, reading, or decipherment result.

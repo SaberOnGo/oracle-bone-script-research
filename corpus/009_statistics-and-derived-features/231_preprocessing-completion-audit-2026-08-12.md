@@ -727,6 +727,16 @@ This is a falsifiable source conflict, not a decipherment claim.
 不可能是这部 477 页著作的书面页码，现作为无效且缺标签的定位保留。这是一项
 可证伪来源冲突，不是破译主张。
 
+Li Yanyan's 2024 Palace Museum Journal article was then opened through the
+official PDF route. Printed page 36 names `Huadong 421` as a blunt-rounded
+throat-shield-edge example. The Ningxia photograph is visually compatible,
+but five other Huadong objects share that class, so this signal is not
+diagnostic and does not change the withheld identity decision.
+
+随后通过官方 PDF 打开李延彦 2024 年《故宫博物院院刊》论文。书面第 36 页
+把《花东》421 列为钝圆喉盾原边实例。宁夏照片在视觉上相容，但另有五件花东
+对象属于同类，所以该信号不具排他性，不改变暂缓身份认定的裁决。
+
 ## Nineteen-Requirement Verdict / 十九项要求判定
 
 1. Human-first positioning: `established`, but material depth is incomplete.

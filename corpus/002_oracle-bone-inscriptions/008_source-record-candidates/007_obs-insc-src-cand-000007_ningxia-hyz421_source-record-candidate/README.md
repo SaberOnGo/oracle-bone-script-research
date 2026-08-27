@@ -42,7 +42,8 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 9. `09_schwartz-2019-entry-and-identity-conflict.md`: page evidence and
    identity conflict.
 10. Open `92_visual-region-register.csv` after the human pages.
-11. Open `90_source-record.json` and `91_source-record-index.csv` last.
+11. `10_dpm-2024-morphology-crosscheck.md`: independent morphology check.
+12. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像来源链。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -54,7 +55,8 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 8. `08_visual-region-review.md`：以图像为先的区域观察。
 9. `09_schwartz-2019-entry-and-identity-conflict.md`：逐页证据和身份冲突。
 10. 阅读人类页面后打开 `92_visual-region-register.csv`。
-11. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+11. `10_dpm-2024-morphology-crosscheck.md`：独立形态互证。
+12. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 

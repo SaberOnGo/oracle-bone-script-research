@@ -55,6 +55,10 @@ for deciding whether a source can become a reviewed research note.
   source trail, citation network, and unresolved plate/text questions.
 - [史语所 1214 著录记录][ihp-1214]：记录官方博物馆著录路线、来源链、引用网络、
   未解决的图版和文字问题。
+- [Li 2024 plastron morphology dossier][li-morphology]: official PDF receipt,
+  HYZ 421 morphology locator, applicability, and falsification boundary.
+- [李延彦 2024 卜甲形态论文档案][li-morphology]：记录官方 PDF 回执、
+  HYZ 421 形态定位、适用范围和反证边界。
 
 The HUST-OBC paper dossier keeps dataset counts and expert review as
 `source-reported`. Its 94.6% closed-set image-classification accuracy is not
@@ -110,3 +114,4 @@ It is not a rights decision, source promotion, or corpus import approval.
 [liu-eclipse]: 008_liu-2014_yingcang-eclipse/README.md
 [xiaoxuetang]: 009_xiaoxuetang_database/README.md
 [ihp-1214]: 010_ihp-item-1214_catalog-record/README.md
+[li-morphology]: 011_li-2024_plastron-morphology/README.md

@@ -23,7 +23,9 @@ Rights: `metadata_only_until_verified`.
    bibliographic anomaly, and still-unopened originals.
 7. Read file `14` for the official artifact register, field-number crosswalks,
    scale-bearing images, visual observations, and rights boundary.
-8. Open files `90` through `95` only as supporting indexes.
+8. Read file `15` for the original-volume, errata, and lawful acquisition
+   route, including the evidence rejection gate.
+9. Open files `90` through `96` only as supporting indexes.
 
 1. 先读 `01_object-and-image-routes.md`，核对来源与图像路线。
 2. 再读 `02_human-inscription-dossier.md`，了解卜辞语境。
@@ -35,7 +37,8 @@ Rights: `metadata_only_until_verified`.
    打开的原始资料。
 7. 再读 `14`，核对正式实物登记、田野号对应、带尺度图像、目视观察和
    权利边界。
-8. 最后才把 `90` 至 `95` 号文件当作辅助索引使用。
+8. 再读 `15`，核对原书、勘误、合法取得路线和证据否决门槛。
+9. 最后才把 `90` 至 `96` 号文件当作辅助索引使用。
 
 ## Evidence anchor / 证据锚点
 

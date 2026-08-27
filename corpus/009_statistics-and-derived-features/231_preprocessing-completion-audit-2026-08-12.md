@@ -737,6 +737,27 @@ diagnostic and does not change the withheld identity decision.
 把《花东》421 列为钝圆喉盾原边实例。宁夏照片在视觉上相容，但另有五件花东
 对象属于同类，所以该信号不具排他性，不改变暂缓身份认定的裁决。
 
+The checksum-bound OBIMD archive was then queried directly. Its only exact
+`HD421` row points to rubbing and facsimile images. Rubbing plate 383 prints
+`421` and `H3:1325`; the object's distinctive contour, holes, restoration
+fractures, seams, and two inscription clusters match the Ningxia photograph.
+This supports a high-confidence object-identity candidate. No numerical
+probability is released because no task-specific calibration set exists.
+
+随后直接查询带校验和的 OBIMD 归档。唯一精确的 `HD421` 行指向拓片与摹本。
+拓片图版 383 印有 `421`、`H3:1325`；对象的外轮廓、孔位、修复裂缝、长接缝
+和两组刻辞与宁夏照片匹配，支持高置信对象身份候选。由于尚无针对该任务的
+校准集，不发布数值概率。
+
+The raw images remain in ignored storage under the active OBIMD
+`metadata_only_until_verified` rights decision. The dimension conflict,
+physical edition provenance, and museum accession remain open. No formal
+inscription identity or decipherment claim is created.
+
+在 OBIMD 当前 `metadata_only_until_verified` 权利决定下，原始图像继续留在
+Git 忽略区。尺寸冲突、物理版本来源和馆藏号仍未解决；不建立正式卜辞身份，
+也不提出破译主张。
+
 ## Nineteen-Requirement Verdict / 十九项要求判定
 
 1. Human-first positioning: `established`, but material depth is incomplete.

@@ -47,11 +47,18 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             expected_rights = {
                 "obs-insc-src-cand-000005": "public_domain_verified",
                 "obs-insc-src-cand-000006": "public_domain_verified",
-                "obs-insc-src-cand-000007": "source_marked_risk_noted",
+                "obs-insc-src-cand-000007": (
+                    "source_marked_risk_noted;metadata_only_until_verified"
+                ),
                 "obs-insc-src-cand-000008": "public_domain_verified",
                 "obs-insc-src-cand-000009": "public_domain_verified",
             }.get(project_id, "metadata_only_until_verified")
             self.assertEqual(row["rights_status"], expected_rights)
+            if project_id == "obs-insc-src-cand-000007":
+                self.assertEqual(
+                    row["source_ids"],
+                    "src-wikimedia-ningxia-museum-hyz421;src-obimd",
+                )
             self.assertTrue((ROOT / row["canonical_path"]).is_dir())
 
         text = (ROOT / "corpus/002_oracle-bone-inscriptions/README.md").read_text(

@@ -12,11 +12,11 @@
   "source_reported_inscription": "壬辰夕卜：其宜（俎）一于，若?用。",
   "text_status": "edition_has_two_entries_commons_display_is_incomplete",
   "ocr_status": "not_collected",
-  "plate_status": "edition_pages_checked_source_plate_not_opened",
+  "plate_status": "obimd_hd421_rubbing_plate_383_visually_checked",
   "formal_inscription_identity": "not_assigned",
   "character_links": [],
   "literature_status": "edition_entry_and_raw_data_checked",
-  "dispute_status": "photograph_identity_withheld_dimension_conflict",
+  "dispute_status": "high_confidence_identity_candidate_dimension_conflict_open",
   "edition_identity": {
     "catalog_number": "HYZ 421",
     "excavation_number": "H3:1325",
@@ -26,7 +26,25 @@
     "printed_raw_data_page": 426,
     "edition_dimensions_cm": "21.6 x 15.1",
     "commons_dimensions_cm": "28.3 x 20.0",
-    "photograph_identity": "withheld_pending_plate_or_museum_record"
+    "photograph_identity": "high_confidence_candidate_plate_visual_match"
+  },
+  "obimd_plate_evidence": {
+    "source_id": "src-obimd",
+    "rubbing_name": "HD421",
+    "rubbing_path": "rubbing/hd421.jpg",
+    "facsimile_path": "facsimile/hd421.jpg",
+    "rubbing_plate_label": "383",
+    "printed_identifiers": "421; H3:1325",
+    "image_pixels": "2528x3479",
+    "rubbing_size_bytes": 414522,
+    "rubbing_sha256": "ca546645ddac768b3e96a1b112f1054c6f8bd6edd5299c386a55b50401253a74",
+    "facsimile_size_bytes": 234573,
+    "facsimile_sha256": "7d594c69affdec1e56f1b4384788d6c7b9b48d410bd50da9aa6db798ef612f98",
+    "annotation_group_count": 4,
+    "identity_effect": "high_confidence_candidate_plate_visual_match",
+    "probability_status": "not_displayed_no_task_specific_calibration",
+    "rights_status": "metadata_only_until_verified_images_not_committed",
+    "access_date": "2026-08-28"
   },
   "image_status": "committed_source_image_with_rights_risk",
   "image_route": {
@@ -75,10 +93,11 @@
   ],
   "missing_evidence": [
     "museum accession and object record",
-    "photograph identity against HYZ 421 source plate",
+    "physical edition and scan provenance for OBIMD rubbing plate 383",
     "dimension conflict explanation",
     "rights-cleared edition transcription or OCR",
     "orientation, scale, damage, and conservation record",
+    "independent checksum-bound plate-to-photograph alignment replay",
     "human-reviewed character and component segmentation"
   ],
   "boundaries": [

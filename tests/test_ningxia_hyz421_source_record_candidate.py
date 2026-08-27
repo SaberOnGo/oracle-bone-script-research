@@ -35,6 +35,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "07_missing-evidence-plan.md",
             "09_schwartz-2019-entry-and-identity-conflict.md",
             "10_dpm-2024-morphology-crosscheck.md",
+            "11_obimd-hd421-plate-match.md",
         ):
             self.assertTrue((OBJECT / name).is_file(), name)
             self.assertIn(name, readme)
@@ -129,7 +130,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
             "no_derivative_pages_or_extracts_committed",
         )
 
-    def test_edition_identity_and_photo_conflict_are_explicit(self):
+    def test_edition_identity_candidate_and_dimension_conflict_are_explicit(self):
         record = json.loads(
             (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
         )
@@ -141,7 +142,44 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
         self.assertEqual(identity["printed_raw_data_page"], 426)
         self.assertEqual(identity["edition_dimensions_cm"], "21.6 x 15.1")
         self.assertEqual(identity["commons_dimensions_cm"], "28.3 x 20.0")
-        self.assertIn("withheld", identity["photograph_identity"])
+        self.assertEqual(
+            identity["photograph_identity"],
+            "high_confidence_candidate_plate_visual_match",
+        )
+        self.assertIn("dimension_conflict_open", record["dispute_status"])
+
+    def test_obimd_plate_match_is_checksum_bound_and_non_numeric(self):
+        page = (OBJECT / "11_obimd-hd421-plate-match.md").read_text(
+            encoding="utf-8"
+        )
+        record = json.loads(
+            (OBJECT / "90_source-record.json").read_text(encoding="utf-8")
+        )
+        plate = record["obimd_plate_evidence"]
+        for marker in (
+            "Rubbing plate 383",
+            "H3:1325",
+            "high_confidence_candidate_plate_visual_match",
+            "No percentage is displayed",
+            "metadata_only_until_verified",
+            "HTTP 500",
+        ):
+            self.assertIn(marker, page)
+        self.assertEqual(plate["rubbing_name"], "HD421")
+        self.assertEqual(plate["annotation_group_count"], 4)
+        self.assertEqual(
+            plate["rubbing_sha256"],
+            "ca546645ddac768b3e96a1b112f1054c6f8bd6edd5299c386a55b50401253a74",
+        )
+        self.assertEqual(
+            plate["facsimile_sha256"],
+            "7d594c69affdec1e56f1b4384788d6c7b9b48d410bd50da9aa6db798ef612f98",
+        )
+        self.assertEqual(
+            plate["probability_status"],
+            "not_displayed_no_task_specific_calibration",
+        )
+        self.assertEqual(list(OBJECT.rglob("hd421.jpg")), [])
 
     def test_morphology_route_is_compatible_but_not_diagnostic(self):
         page = (OBJECT / "10_dpm-2024-morphology-crosscheck.md").read_text(

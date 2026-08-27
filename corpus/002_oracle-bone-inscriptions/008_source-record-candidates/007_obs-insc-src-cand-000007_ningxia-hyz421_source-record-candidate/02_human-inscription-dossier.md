@@ -60,25 +60,28 @@ Schwartz 2019 书面第 347 页列出 `421.1`、`421.2` 两条，文字和翻译
 兆序标记不同。Commons 页面只显示一条字符串，不能作为完整版本释文。
 
 The edition raw-data table confirms `HYZ 421` ↔ `H3:1325`, but gives
-21.6 by 15.1 cm instead of the Commons page's 28.3 by 20 cm. The photograph
-identity is withheld. See `09_schwartz-2019-entry-and-identity-conflict.md`.
+21.6 by 15.1 cm instead of the Commons page's 28.3 by 20 cm. An OBIMD plate
+scan now supplies a high-confidence visual identity candidate. The dimension
+conflict remains open. See `11_obimd-hd421-plate-match.md`.
 
 版本原始数据表确认 `HYZ 421` ↔ `H3:1325`，但尺寸为 21.6 × 15.1 厘米，
-与 Commons 的 28.3 × 20 厘米冲突。照片身份暂不确认。详见
-`09_schwartz-2019-entry-and-identity-conflict.md`。
+与 Commons 的 28.3 × 20 厘米冲突。OBIMD 图版扫描现已支持高置信视觉身份
+候选，但尺寸冲突仍未解决。详见 `11_obimd-hd421-plate-match.md`。
 
 ## Scholarship and dispute trail / Scholarship 与 dispute
 
 The cited Schwartz book has now been opened and its HYZ 421 entry and raw-data
-row checked. The project's dispute is no longer a missing-page problem; it is
-an unresolved photograph-identity and source-completeness conflict.
+row checked. The OBIMD plate match now strongly supports the photograph
+identity. The remaining dispute concerns measurement metadata, physical
+edition provenance, museum accession, and source completeness.
 
-被引 Schwartz 专著现已打开，并核对 HYZ 421 条目和原始数据行。当前争议不再
-是缺页问题，而是尚未解决的照片身份和来源完整性冲突。
+被引 Schwartz 专著现已打开，并核对 HYZ 421 条目和原始数据行。OBIMD 图版
+匹配现已强力支持照片身份；剩余争议是测量元数据、物理版本来源、馆藏号和
+来源完整性。
 
 ## Next relation checks / 后续 relations 核查
 
-- Open a permitted HYZ 421 plate or edition page and record a locator.
+- Reproduce the plate-to-photograph landmark comparison independently.
 - Compare the displayed string with the cited book without normalizing marks.
 - Add candidate relations only with image-region, text, and source IDs.
 
@@ -87,26 +90,26 @@ an unresolved photograph-identity and source-completeness conflict.
 - inscription number: source object `HYZ 421, H3:1325`
 - full text: source display only; not an independent transcription
 - OCR: not created and not checksum-checked
-- edition pages: independently checked; source plate not opened
+- edition pages: independently checked; OBIMD plate 383 visually checked
 - character links: none assigned
 - period and batch: source-reported only
 - formal `obi-*` identity: not assigned
-- review status: edition identity checked; photograph identity withheld
+- review status: high-confidence photograph identity candidate
 
 - 卜辞编号：来源对象 `HYZ 421, H3:1325`
 - 全文：只有来源页面显示，不是独立摹写
 - OCR：未制作，也没有 OCR 校验和
-- 版本页码：已独立核验；底本图版尚未打开
+- 版本页码：已独立核验；OBIMD 图版 383 已目视核查
 - 单字关联：未分配
 - 时期和批次：仅为来源报告
 - 正式 `obi-*` 身份：未分配
-- 复核状态：版本身份已核；照片身份暂缓确认
+- 复核状态：照片身份形成高置信候选
 
 ## Boundary / 边界
 
 This dossier is an image and source-text route for human review. It is not a
-confirmed object identity, transcription, translation, reading, or
-decipherment result.
+formal object identity, transcription, translation, reading, or decipherment
+result.
 
-本档案是供人类复核的图像和来源文字路线，不是已确认的对象身份、摹写、
-翻译、释读或破译结果。
+本档案是供人类复核的图像和来源文字路线，不是正式对象身份、摹写、翻译、
+释读或破译结果。

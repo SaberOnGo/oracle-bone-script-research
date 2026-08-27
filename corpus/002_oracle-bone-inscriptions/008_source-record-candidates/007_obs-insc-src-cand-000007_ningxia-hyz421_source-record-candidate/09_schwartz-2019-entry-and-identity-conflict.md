@@ -1,6 +1,13 @@
 # Schwartz 2019 entry and identity conflict
 # Schwartz 2019 条目与身份冲突
 
+Status update: this page preserves the conflict state before the OBIMD plate
+was opened. The later evidence and current decision are recorded in
+`11_obimd-hd421-plate-match.md`.
+
+状态更新：本页保留打开 OBIMD 图版之前的冲突状态。后续证据与当前裁决见
+`11_obimd-hd421-plate-match.md`。
+
 ## Result / 结果
 
 The permitted open-access monograph confirms that catalog number `HYZ 421`

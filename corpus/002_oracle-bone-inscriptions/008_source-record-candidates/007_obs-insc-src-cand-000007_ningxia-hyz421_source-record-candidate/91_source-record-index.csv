@@ -9,16 +9,21 @@ image_size_bytes,2302630,independently_checked,download receipt
 image_dimensions,3001x3345,independently_checked,decode JPEG
 rights_status,source_marked_risk_noted,reviewed,museum rights unresolved
 ocr_status,not_collected,missing,obtain permitted OCR
-plate_status,edition_pages_checked_source_plate_not_opened,reviewed,open 2003 source plate
+plate_status,OBIMD HD421 rubbing plate 383 visually checked,reviewed,resolve physical edition and scan provenance
 formal_identity,not_assigned,boundary,no formal obi record
 character_links,none_assigned,boundary,segment only after review
 literature_route,Schwartz 2019 printed pp. 347 and 426,edition_entry_and_raw_data_checked,Commons 561 is not a valid printed page
 edition_identity,"HYZ 421; H3:1325",confirmed_at_edition_record_level,raw-data row 421
 edition_dimensions_cm,21.6 x 15.1,independently_checked,printed p. 426
 photograph_dimensions_cm,28.3 x 20.0,source_reported,Commons page
-photograph_identity,withheld_dimension_conflict,disputed,open museum record or 2003 plate
+photograph_identity,high_confidence_candidate_plate_visual_match,candidate,independent replay and museum record still required
 publisher_route,De Gruyter Brill DOI 10.1515/9781501505294,publisher_and_open_access_checked,access copy checksum recorded; raw file ignored
-review_status,edition_checked_photograph_identity_withheld,reviewed,resolve dimension conflict
+review_status,high_confidence_candidate_plate_visual_match,reviewed,independent replay and provenance remain open
 visual_region_status,provisional_boxes_not_text_mapping,reviewed,independent orientation and box check
 visual_region_register,92_visual-region-register.csv,reviewed,box-to-image and rights check
 morphology_route,Li 2024 printed p. 36,independently_checked,blunt-rounded class is compatible but not diagnostic
+obimd_annotation_row,HD421,independently_checked,one exact row in checksum-bound data.json
+obimd_rubbing,"rubbing/hd421.jpg; plate 383; 421; H3:1325",visually_checked,raw image remains ignored
+obimd_rubbing_sha256,ca546645ddac768b3e96a1b112f1054c6f8bd6edd5299c386a55b50401253a74,independently_checked,targeted extraction
+obimd_facsimile_sha256,7d594c69affdec1e56f1b4384788d6c7b9b48d410bd50da9aa6db798ef612f98,independently_checked,targeted extraction
+identity_probability,not_displayed,uncalibrated,no clean task-specific calibration set

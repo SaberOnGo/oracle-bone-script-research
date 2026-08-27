@@ -61,10 +61,12 @@ in ignored local-private archives because the effective rights status is
 因有效权利状态为 `metadata_only_until_verified`，图像内容仍保留
 在已忽略的本地私有归档中。
 
-This candidate has no readable full transcription or OCR.
-H2 is not a confirmed Heji 2, and its seven source UIDs are not confirmed
-characters or
-readings. It is not a formal `obi-*` record.
+The OBIMD row has no readable transcription or OCR. National Library figure
+3 now supports a high-confidence candidate mapping from `H2` to Heji 2 and
+NLC oracle bone 14427. A checked public Heji search page instead pairs Heji 2
+text with a Heji 1 image; the defect is retained as counterevidence. The
+seven UIDs remain unconfirmed characters, and no formal `obi-*` identity is
+assigned.
 
 A second source-record candidate now captures the IHP Museum item 503 page
 description. It records `R044498`, `Ping 0529`, the source phrase `帝令雨`,
@@ -132,9 +134,10 @@ terms remain unresolved:
 来源短语 `帝令雨` 以及缺失的图版、OCR、全文和单字关联证据。它仍是仅元数据的
 候选，不是正式 `obi-*` 记录：[`obs-insc-src-cand-000002`][ihp-503-candidate]。
 
-该候选尚无可读卜辞全文或 OCR。`H2` 不是已确认的《合集》2，
-七个来源 UID 也不是已确认字形或释读。它不是正式 `obi-*`
-记录。
+OBIMD 来源行尚无可读释文或 OCR。国家图书馆图 3 现支持 `H2` 对应
+《合集》2、国图甲骨 14427 的高置信候选；一个公开《合集》检索页却把
+《合集》2 文字配到《合集》1 图像，该缺陷已作为反证保留。七个来源 UID
+仍不是已确认字形，本项目也未分配正式 `obi-*` 身份。
 
 第四个来源记录候选保存史语所博物馆 771 号页面及其来源拟译。它记录
 `R039275+R043001`、`I 5867+8202`、三份私有图像校验和，以及尚缺的独立图版、

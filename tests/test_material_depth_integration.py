@@ -59,13 +59,18 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
                     row["source_ids"],
                     "src-wikimedia-ningxia-museum-hyz421;src-obimd",
                 )
+            if project_id == "obs-insc-src-cand-000001":
+                self.assertEqual(
+                    row["source_ids"],
+                    "src-obimd;src-nlc-oracle-world;src-yinqi-wenyuan",
+                )
             self.assertTrue((ROOT / row["canonical_path"]).is_dir())
 
         text = (ROOT / "corpus/002_oracle-bone-inscriptions/README.md").read_text(
             encoding="utf-8"
         )
         self.assertIn("[h2-candidate]", text)
-        self.assertIn("H2 is not a confirmed Heji 2", text)
+        self.assertIn("high-confidence candidate mapping from `H2` to Heji 2", text)
         self.assertIn("[ihp-503-candidate]", text)
         self.assertIn("[ihp-1215-candidate]", text)
         self.assertIn("[ihp-771-candidate]", text)

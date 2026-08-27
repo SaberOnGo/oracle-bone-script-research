@@ -14,10 +14,12 @@ Read the human pages in numeric order before opening the JSON or CSV. The
 source images remain inside ignored local-private ZIP packages. No image
 payload is copied into this public object directory.
 
-`H2` is an OBIMD dataset identifier. H2 is not a confirmed Heji 2, and this
-folder does not assign a formal `obi-*` identity. There is no readable full
-transcription or OCR in the acquired row. Source UIDs are not confirmed
-characters or readings.
+`H2` is an OBIMD dataset identifier. Independent National Library evidence
+now supports a high-confidence candidate mapping to Heji 2 and NLC oracle
+bone 14427. The folder still does not assign a formal `obi-*` identity.
+The OBIMD row has no readable transcription or OCR; the institutional page
+text is retained only as a source-reported transcription. Source UIDs are
+not confirmed characters or readings.
 
 ## 简体中文
 
@@ -29,9 +31,10 @@ characters or readings.
 请先依编号阅读人类档案，再打开 JSON 或 CSV。来源图片继续留在已忽略的
 本地私有 ZIP 包中；本公开对象目录没有复制图片内容。
 
-`H2` 是 OBIMD 数据集标识。H2 不是已确认的《合集》2，本目录也没有分配
-正式 `obi-*` 身份。已取得来源行没有可读的卜辞全文或 OCR。七个来源
-UID 不是已确认的字形、字符或释读。
+`H2` 是 OBIMD 数据集标识。新增国家图书馆独立证据支持其对应《合集》2、
+国图甲骨 14427 的高置信候选，但本目录仍不分配正式 `obi-*` 身份。
+OBIMD 来源行没有可读释文或 OCR；机构页面文字只按来源报告释文保存。
+七个来源 UID 不是已确认的字形、字符或释读。
 
 ## Reading Order / 阅读顺序
 
@@ -47,8 +50,10 @@ UID 不是已确认的字形、字符或释读。
    annotation order.
 9. `09_character-inscription-candidate-graph-route.md`: inspect the seven
    candidate graph routes and their promotion boundary.
-10. Open `92_visual-crosswalk-replay-manifest.json` only after the human
+10. `10_nlc-heji2-identity-and-aggregator-mismatch.md`: inspect the
+    institutional identity evidence and public page defect.
+11. Open `92_visual-crosswalk-replay-manifest.json` only after the human
     investigation page; it is the machine-verifiable replay receipt.
-11. Open `90_source-record.json` and the CSV only as supporting indexes.
+12. Open `90_source-record.json` and the CSV only as supporting indexes.
 
 本目录是预研究来源记录，不是释读、著录同一性或破译结论。

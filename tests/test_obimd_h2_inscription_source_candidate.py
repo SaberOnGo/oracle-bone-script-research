@@ -111,16 +111,16 @@ class ObimdH2InscriptionSourceCandidateTests(unittest.TestCase):
     def test_human_pages_state_text_identity_and_rights_boundaries(self):
         text = "\n".join((OBJECT / name).read_text(encoding="utf-8") for name in HUMAN_FILES)
         required = (
-            "no readable full transcription or OCR",
+            "no readable transcription or OCR",
             "没有可读的卜辞全文或 OCR",
-            "H2 is not a confirmed Heji 2",
-            "H2 不是已确认的《合集》2",
+            "high-confidence candidate mapping to Heji 2",
+            "对应《合集》2、",
             "UIDs are not confirmed characters or readings",
             "UID 不是已确认的字形、字符或释读",
             "metadata_only_until_verified",
             "006_obimd-rights-conflict-review.md",
-            "find the exact Heji catalog number",
-            "查明准确的《合集》著录号",
+            "open the provenance-bearing Heji plate",
+            "带\n来源链的《合集》图版",
             "collection institution and object number",
             "馆藏机构和对象号",
             "findspot or excavation context",

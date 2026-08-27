@@ -2,13 +2,16 @@
 
 ## English
 
-Text availability is `source_uid_sequence_only`. The H2 row supplies seven
-UIDs, bounding boxes, one group label, and order numbers. It does not supply
-a human-readable transcription string, OCR characters, punctuation, a page
-image of a transcription volume, or a scholarly edition citation for the
-individual row.
+The OBIMD row remains `source_uid_sequence_only`. It supplies seven UIDs,
+bounding boxes, one group label, and order numbers, but no human-readable
+transcription, OCR, punctuation, or edition locator.
 
-Therefore there is no readable full transcription or OCR. The ordered UIDs
+The National Library page now supplies a source-reported partial
+transcription for NLC 14427 / Heji 2. This is a separate text layer. It is
+not the OBIMD row text, not a project transcription, and not yet aligned to
+the seven boxes.
+
+Therefore the OBIMD row has no readable full transcription or OCR. The UIDs
 must never be rendered as if they were an ancient sentence or modern Chinese
 translation. `InscriptionSentence1` is a dataset group-category value, not a
 claim that this dossier has established the full linguistic boundaries of an
@@ -21,11 +24,14 @@ catalog record are compared together.
 
 ## 简体中文
 
-当前文本可得状态为 `source_uid_sequence_only`。H2 来源行提供七个 UID、
-字框、一个组标签和次序号，但没有提供人类可读释文字符串、OCR 字符、
-标点、释文著录扫描页，或针对该条记录的学术版本页码。
+OBIMD 来源行仍是 `source_uid_sequence_only`。它提供七个 UID、字框、
+一个组标签和次序号，但没有人类可读释文、OCR、标点或版本定位。
 
-因此，当前没有可读的卜辞全文或 OCR。不得把有序 UID 渲染成古代句子或
+国家图书馆页面现为国图 14427 /《合集》2 提供来源报告残辞。这是独立
+文本层，不是 OBIMD 行内文字，不是项目释文，也尚未与七个字框逐一对齐。
+
+因此，OBIMD 行内仍没有可读的卜辞全文或 OCR。不得把有序 UID 渲染成古代
+句子或
 现代汉语译文。`InscriptionSentence1` 是数据集的组类字段，不表示本档案
 已经确定一条古代卜问的完整语言边界。
 

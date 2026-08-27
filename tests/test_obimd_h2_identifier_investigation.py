@@ -22,8 +22,8 @@ class ObimdH2IdentifierInvestigationTests(unittest.TestCase):
             "具体待查问题",
             "Catalog abbreviation of the",
             "rubbing image",
-            "H2` 就是《甲骨文合集》2",
-            "not a confirmed catalog identity",
+            "high-confidence Heji 2 cross-source candidate",
+            "高置信跨来源候选",
         ):
             self.assertIn(phrase, text)
 
@@ -63,11 +63,11 @@ class ObimdH2IdentifierInvestigationTests(unittest.TestCase):
     def test_text_and_rights_boundaries_are_explicit(self):
         text = INVESTIGATION.read_text(encoding="utf-8")
         for phrase in (
-            "No readable transcription or OCR was acquired",
-            "no reading is proposed",
+            "source-reported partial transcription",
+            "no project reading is proposed",
             "metadata_only_until_verified",
             "No thumbnail bytes were saved or committed",
-            "不能独立确认著录身份",
+            "不确认《合集》",
         ):
             self.assertIn(phrase, text)
 

@@ -12,11 +12,41 @@
     "sha256": "b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19"
   },
   "group_category": "InscriptionSentence1",
-  "text_availability": "source_uid_sequence_only_no_readable_transcription_or_ocr",
+  "text_availability": "obimd_uid_sequence_plus_nlc_source_reported_partial_transcription",
   "formal_inscription_identity": "not_assigned",
+  "identity_candidate": {
+    "proposition": "OBIMD H2 maps to Heji 2 and NLC oracle bone 14427",
+    "result": "high_confidence_candidate_heji2_cross_source_match",
+    "probability_status": "not_displayed_no_task_specific_calibration",
+    "formal_promotion": "withheld",
+    "strongest_alternative": "NLC and Yinqi Wenyuan independently point to the same wrong object",
+    "counterevidence_status": "no_opened_source_supports_alternative",
+    "access_date": "2026-08-28"
+  },
+  "national_library_evidence": {
+    "institution": "National Library of China",
+    "object_number": "14427",
+    "heji_reference": "Heji 2",
+    "locator": "PDF page 3; printed page 30; figure 3",
+    "pdf_size_bytes": 1427112,
+    "pdf_sha256": "a675739ec1bd43ed83a7b902baad71667d28c378e122d0ee96baab8199c0d0d8",
+    "source_reported_partial_transcription": "……[王大令众人]曰：“畬田。”其受年。[十]一[月]。",
+    "rights_status": "metadata_only_until_verified_raw_pdf_not_committed"
+  },
+  "public_aggregator_mismatch": {
+    "page_url": "https://www.guoxuedashi.com/jgwhj/?bh=2&bhfl=1",
+    "page_claim": "Heji 2 text and row number",
+    "served_image_effect": "matches NLC figure 4 labeled Heji 1",
+    "html_size_bytes": 25984,
+    "html_sha256": "f30fe2e94c631b2bd2accd37b7efdc879131cd50379361b64eaf65f0665b6b10",
+    "image_size_bytes": 31325,
+    "image_pixels": "1712x2064",
+    "image_sha256": "df8be7e602be409479f38cab78a5217e2e3e60be90d47bb7f0c803179aedfc8f",
+    "review_status": "text_image_mismatch_do_not_use_as_unqualified_plate_evidence"
+  },
   "rights_status": "metadata_only_until_verified",
   "rights_review_path": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-conflict-review.md",
-  "review_status": "source_record_candidate_needs_catalog_and_text_review",
+  "review_status": "high_confidence_candidate_heji2_cross_source_match",
   "local_private_assets": [
     {
       "modality": "rubbing",
@@ -42,9 +72,9 @@
     }
   ],
   "boundaries": [
-    "H2 is a dataset identifier and not a confirmed Heji 2",
+    "H2 to Heji 2 is a high-confidence candidate, not a formal identity",
     "source UIDs are not confirmed characters or readings",
-    "no readable full transcription or OCR is present",
+    "NLC text is source-reported and not aligned to the seven boxes",
     "not a formal inscription identity or decipherment conclusion"
   ]
 }

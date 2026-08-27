@@ -5,11 +5,11 @@
 This dossier is reproducible at the OBIMD package level but not complete at
 the archaeological or catalog level. The next checks are concrete:
 
-The first task is to find the exact Heji catalog number, if one exists.
+The Heji-number question now has a high-confidence candidate answer: Heji 2.
+The next task is to open the provenance-bearing Heji plate and page.
 
-1. Use the OBIMD acquisition description and its source platform to find the
-   exact Heji catalog number, if any, for dataset identifier H2. Record a
-   positive or negative crosswalk with a cited object or catalog page.
+1. Open the exact Heji 2 edition volume, plate, and page, and compare its
+   printed object against the National Library and OBIMD images.
 2. Identify the edition, volume, plate, and page from which the rubbing and
    reference transcription were drawn. Preserve page-level evidence.
 3. Establish the collection institution and object number from an independent
@@ -27,10 +27,11 @@ The first task is to find the exact Heji catalog number, if one exists.
 本档案在 OBIMD 来源包层面可以复跑，但在考古和著录层面尚不完整。后续应
 完成以下具体核查：
 
-首项任务是查明准确的《合集》著录号；若不存在，也要保存反查证据。
+《合集》号问题现已有高置信候选答案：《合集》2。首项任务转为打开带
+来源链的《合集》图版和页码。
 
-1. 根据 OBIMD 的采集说明和来源平台，查明 H2 是否有对应条目，并查明准确
-   的《合集》著录号；无论得到正面还是负面结果，都要引用对象页或著录页。
+1. 打开《合集》2 的确切版本、卷、图版和页码，并将印刷对象与国图和
+   OBIMD 图像复核。
 2. 查明拓片和参考释文所据版本、卷次、图版号和页码，保存页级证据。
 3. 从独立著录或博物馆记录核对馆藏机构和对象号，不从文件名推断。
 4. 核对出土地或发掘语境；如考古记录提供坑位或批次，也须一并保存。

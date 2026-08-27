@@ -115,9 +115,12 @@ They reduce three zero-instance gaps but do not change the overall
   checksums, visual counterevidence, and two-way falsification conditions;
 - OBIMD 2024/2026 and EVOBC 2024 now have item-level literature dossiers that
   distinguish version, field, experiment, probability, and rights boundaries.
-- the H2 record now has a strong visual crosswalk candidate to institutional
-  record `合2`: it ranks first among 10,077 rubbings, while official detail
-  access remains blocked and the catalog identity remains unconfirmed.
+- the H2 record now has a high-confidence cross-source candidate to Heji 2
+  and NLC oracle bone 14427. National Library figure 3 independently matches
+  the OBIMD object and supplies a source-reported partial transcription;
+- a public Heji 2 search page was found to pair Heji 2 text with an image
+  matching the National Library's Heji 1 figure. The route is now marked as
+  a text-image mismatch rather than treated as plate evidence.
 - `obs-char-000621` now has five opened HUST raw-package instances. Its
   `17_multi-instance-visual-comparison.md` records hashes, dimensions,
   visible differences, alternative explanations, and two-way falsifiers;
@@ -165,8 +168,10 @@ They reduce three zero-instance gaps but do not change the overall
   可证伪条件；
 - OBIMD 2024/2026 与 EVOBC 2024 新增逐篇文献档案，区分版本、字段、
   实验、概率和权利边界。
-- H2 记录新增与机构记录 `合2` 的强视觉互证候选：它在 10,077 张拓片中
-  排名第一；官方详情仍受登录限制，著录同一性仍未确认。
+- H2 记录现形成对应《合集》2、国图甲骨 14427 的高置信跨来源候选；
+  国家图书馆图 3 独立匹配 OBIMD 对象，并提供来源报告残辞；
+- 一个公开《合集》2 检索页被发现把《合集》2 文字配到与国图《合集》1
+  图相符的图像。该路线现标记为图文错配，不再作为图版证据。
 - `obs-char-000621` 新增五个已打开的 HUST 原包实例；
   `17_multi-instance-visual-comparison.md` 记录校验和、尺寸、可见差异、
   替代解释和双向可证伪条件；
@@ -188,10 +193,10 @@ They reduce three zero-instance gaps but do not change the overall
   响应、可见比较、反证和证伪条件。图面关系仍是候选，没有提升行序、释文、
   图版身份或单字关联。
 
-The H2 record still lacks a confirmed catalog identity and readable
-transcription. The selected characters still lack opened authoritative plates
-and full inscription contexts. The current item-level dossiers are not a
-complete literature corpus.
+The H2 record still lacks the exact Heji edition plate and a reviewed
+character-to-transcription alignment. The selected characters still lack
+opened authoritative plates and full inscription contexts. The current
+item-level dossiers are not a complete literature corpus.
 Requirements 8, 9, and 10 therefore remain incomplete.
 
 The IHP museum object candidate `ihp-mus-obj-00001` / item `1212` was opened
@@ -378,8 +383,9 @@ IHP 对象候选 `ihp-mus-obj-00005` / item `1216` 已于 2026-08-14 对照官�
 说明。两条大图路线已下载到忽略区并计算校验和。尺寸、独立版本定位、完整 OCR
 和权利清理仍缺，因此仍是来源记录候选，不是已确认图版或释读。
 
-H2 记录仍缺已确认著录身份和可读释文。已选单字仍缺已打开的权威图版和
-卜辞全文。当前逐项档案也不等于完整文献库。因此第 8、9、10 项仍未完成。
+H2 记录仍缺《合集》确切版本图版及经复核的字框—释文对齐。已选单字仍缺
+已打开的权威图版和卜辞全文。当前逐项档案也不等于完整文献库。因此第
+8、9、10 项仍未完成。
 
 The IHP object candidate `ihp-mus-obj-00015` / item `777` was opened
 against the live English and Chinese official pages on 2026-08-14. The pages

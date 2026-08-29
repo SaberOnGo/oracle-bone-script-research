@@ -144,7 +144,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
         self.assertEqual(identity["commons_dimensions_cm"], "28.3 x 20.0")
         self.assertEqual(
             identity["photograph_identity"],
-            "high_confidence_candidate_plate_visual_match",
+            "uncalibrated_candidate_plate_visual_match",
         )
         self.assertIn("dimension_conflict_open", record["dispute_status"])
 
@@ -159,7 +159,7 @@ class NingxiaHyz421SourceRecordTests(unittest.TestCase):
         for marker in (
             "Rubbing plate 383",
             "H3:1325",
-            "high_confidence_candidate_plate_visual_match",
+            "uncalibrated AI candidate",
             "No percentage is displayed",
             "metadata_only_until_verified",
             "HTTP 500",

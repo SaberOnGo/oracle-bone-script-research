@@ -12,12 +12,12 @@ OBIMD 原始标注中只有一条精确的 `HD421` 记录，指向同名拓片�
 
 The plate and the committed Ningxia photograph show the same distinctive
 object-level structure. This changes the photograph identification from a
-withheld label-only claim to a high-confidence candidate supported by a
+withheld label-only claim to an uncalibrated candidate supported by a
 plate-level visual match. It does not create a formal `obi-*` identity.
 
 图版与已提交宁夏照片显示同一组具有辨识力的对象结构。因此，照片身份从
-“仅有标签、暂缓判断”提升为“有图版级视觉匹配支持的高置信候选”，但仍不
-建立正式 `obi-*` 身份。
+“仅有标签、暂缓判断”提升为“有图版级视觉匹配支持的未经校准候选”，但仍
+不建立正式 `obi-*` 身份。
 
 ## Source and extraction receipt / 来源与抽取回执
 
@@ -116,30 +116,30 @@ be silently corrected.
 ## Candidate decision / 候选裁决
 
 - proposition: the Ningxia photograph depicts HYZ 421, H3:1325;
-- result: `high_confidence_candidate_plate_visual_match`;
+- result: `candidate_route_plate_visual_match`;
 - strongest alternative: a mislabeled OBIMD page and a different but nearly
   identical restored plastron;
 - alternative assessment: not supported by any opened source;
-- release: deliver as a high-confidence AI candidate;
+- release: retain as an uncalibrated AI candidate;
 - formal promotion: withheld pending independent replay and museum or
   edition provenance;
 - decipherment effect: none.
 
 - 命题：宁夏照片所示对象是 HYZ 421、H3:1325；
-- 结果：`high_confidence_candidate_plate_visual_match`；
+- 结果：`candidate_route_plate_visual_match`；
 - 最强替代解释：OBIMD 页被错标，且照片是另一件几乎完全相同的修复卜甲；
 - 替代解释评估：已打开来源均不支持；
-- 交付：作为高置信 AI 候选提交；
+- 交付：保留为未经校准的 AI 候选；
 - 正式提升：等待独立复跑及馆藏或版本来源链，暂不执行；
 - 对释读的影响：无。
 
 No percentage is displayed. The repository has no clean, task-specific
 calibration set that could turn this case score into a defensible probability.
-The confidence wording describes an evidence-ranked candidate, not a measured
-posterior probability.
+The status describes an evidence-ranked candidate, not a measured posterior
+probability.
 
 不显示百分比。仓库尚无针对对象身份任务的干净校准集，不能把本案评分转换成
-可辩护概率。“高置信”只表示按证据排序的候选，不表示已测量的后验概率。
+可辩护概率。当前状态只表示按证据排序的候选，不表示已测量的后验概率。
 
 ## Falsifiers / 可推翻条件
 

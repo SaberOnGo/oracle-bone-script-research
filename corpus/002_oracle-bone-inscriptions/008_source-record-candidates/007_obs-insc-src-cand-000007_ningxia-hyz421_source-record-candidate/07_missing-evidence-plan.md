@@ -24,9 +24,9 @@ These are concrete checks, not filler status text:
 8. Commons 引文中不可能成立的“第 561 页”原本指什么？
 9. 独立复跑能否配准图版与照片的联合视觉地标？
 
-The plate match supports a high-confidence object-identity candidate. Until
-the remaining checks are answered, this is not a formal inscription, reading,
-or decipherment result.
+The plate match supports an uncalibrated object-identity candidate. Until the
+remaining checks are answered, this is not a formal inscription, reading, or
+decipherment result.
 
-图版匹配已支持高置信对象身份候选。在其余问题解决前，本目录仍不是正式卜辞、
-释读或破译结果。
+图版匹配已支持未经校准的对象身份候选。在其余问题解决前，本目录仍不是正式
+卜辞、释读或破译结果。

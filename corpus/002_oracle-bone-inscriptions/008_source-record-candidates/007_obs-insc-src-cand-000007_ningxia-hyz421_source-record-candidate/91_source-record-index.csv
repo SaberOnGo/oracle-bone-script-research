@@ -16,9 +16,9 @@ literature_route,Schwartz 2019 printed pp. 347 and 426,edition_entry_and_raw_dat
 edition_identity,"HYZ 421; H3:1325",confirmed_at_edition_record_level,raw-data row 421
 edition_dimensions_cm,21.6 x 15.1,independently_checked,printed p. 426
 photograph_dimensions_cm,28.3 x 20.0,source_reported,Commons page
-photograph_identity,high_confidence_candidate_plate_visual_match,candidate,independent replay and museum record still required
+photograph_identity,uncalibrated_candidate_plate_visual_match,candidate,independent replay and museum record still required
 publisher_route,De Gruyter Brill DOI 10.1515/9781501505294,publisher_and_open_access_checked,access copy checksum recorded; raw file ignored
-review_status,high_confidence_candidate_plate_visual_match,reviewed,independent replay and provenance remain open
+review_status,uncalibrated_candidate_plate_visual_match,reviewed,independent replay and provenance remain open
 visual_region_status,provisional_boxes_not_text_mapping,reviewed,independent orientation and box check
 visual_region_register,92_visual-region-register.csv,reviewed,box-to-image and rights check
 morphology_route,Li 2024 printed p. 36,independently_checked,blunt-rounded class is compatible but not diagnostic
@@ -27,3 +27,14 @@ obimd_rubbing,"rubbing/hd421.jpg; plate 383; 421; H3:1325",visually_checked,raw 
 obimd_rubbing_sha256,ca546645ddac768b3e96a1b112f1054c6f8bd6edd5299c386a55b50401253a74,independently_checked,targeted extraction
 obimd_facsimile_sha256,7d594c69affdec1e56f1b4384788d6c7b9b48d410bd50da9aa6db798ef612f98,independently_checked,targeted extraction
 identity_probability,not_displayed,uncalibrated,no clean task-specific calibration set
+repeated_sentence_groups,2,direct_checked,InscriptionSentence1 and InscriptionSentence2
+sentence_box_count,24,direct_checked,93_obimd-hd421-occurrence-index.csv
+oracle_sequence_box_count,3,direct_checked,93_obimd-hd421-occurrence-index.csv
+repeated_sentence_pair_count,12,candidate_route,94_repeated-sentence-pair-index.csv
+unknown_main_uids,nms96pmn1w;60kr6bp9hf,lookup_metadata_only,no character assignment
+shared_ancestry,one OBIMD row and derivative image/staging family,reviewed,not independent corroboration
+c2_glyph_observation,direct_checked,reviewed,checksum-bound rubbing and routed regions opened
+c4_inscription_context,candidate_route,withheld,no project transcription or line-to-entry locator
+c5_reading_candidate,blocked,abstain,reading history and independent counterexamples missing
+c6_semantic_function,blocked,abstain,C5 and comparative grammar evidence missing
+c8_delivery,abstain_withhold,withheld,no calibration or independent rerun

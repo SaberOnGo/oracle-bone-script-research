@@ -1,0 +1,13 @@
+pair_id,order_number,sentence1_position,sentence2_position,label,sub_label,project_route,pair_state,reading_status
+hd421-pair-00,0,"1224,2306,33,51","946,1958,38,64",oesivb520y,oesivb520y,,exact_source_metadata_match,withheld
+hd421-pair-01,1,"1180,2307,42,53","895,1953,42,51",4lgdy5a4ta,4lgdy5a4ta,,exact_source_metadata_match,withheld
+hd421-pair-02,2,"1144,2310,29,43","866,1957,23,49",0wfbo7ml5k,0wfbo7ml5k,,exact_source_metadata_match,withheld
+hd421-pair-03,3,"1115,2314,31,40","833,1969,28,35",h0gzv3styy,h0gzv3styy,,exact_source_metadata_match,withheld
+hd421-pair-04,4,"1069,2310,40,41","799,1970,31,37",qmvfvw99v9,qmvfvw99v9,,exact_source_metadata_match,withheld
+hd421-pair-05,5,"1012,2311,52,78","761,1967,33,66",f0j9ho8ua2,f0j9ho8ua2,,exact_source_metadata_match,withheld
+hd421-pair-06,6,"949,2344,52,58","768,2055,39,55",nms96pmn1w,66js7x9h0l,obs-comp-cand-000329,exact_source_metadata_match,withheld
+hd421-pair-07,7,"963,2405,41,26","769,2108,41,14",jrzjjh3g1r,jrzjjh3g1r,,exact_source_metadata_match,withheld
+hd421-pair-08,8,"906,2338,37,48","777,2118,29,48",jjm889wxay,jjm889wxay,,exact_source_metadata_match,withheld
+hd421-pair-09,9,"842,2337,53,83","691,1938,68,91",60kr6bp9hf,60kr6bp9hf,obs-comp-cand-000671,exact_source_metadata_match,withheld
+hd421-pair-10,10,"847,2431,60,88","724,2038,45,84",1k9ogi7w79,1k9ogi7w79,,exact_source_metadata_match,withheld
+hd421-pair-11,11,"862,2533,47,60","741,2128,26,43",353gxm6hd4,353gxm6hd4,,exact_source_metadata_match,withheld

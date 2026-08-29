@@ -44,7 +44,12 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 10. Open `92_visual-region-register.csv` after the human pages.
 11. `10_dpm-2024-morphology-crosscheck.md`: independent morphology check.
 12. `11_obimd-hd421-plate-match.md`: plate-level object identity candidate.
-13. Open `90_source-record.json` and `91_source-record-index.csv` last.
+13. `12_repeated-inscription-alignment-and-unknown-uid-review.md`: the
+    repeated sentence alignment and claim-gate decision.
+14. Open `93_obimd-hd421-occurrence-index.csv` for the 24 sentence boxes and
+    three oracle-sequence boxes.
+15. Open `94_repeated-sentence-pair-index.csv` for the 12 within-row pairs.
+16. Open `90_source-record.json` and `91_source-record-index.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像来源链。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -58,7 +63,11 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 10. 阅读人类页面后打开 `92_visual-region-register.csv`。
 11. `10_dpm-2024-morphology-crosscheck.md`：独立形态互证。
 12. `11_obimd-hd421-plate-match.md`：图版级对象身份候选。
-13. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+13. `12_repeated-inscription-alignment-and-unknown-uid-review.md`：重复辞例
+    对齐与命题门槛裁决。
+14. 打开 `93_obimd-hd421-occurrence-index.csv` 查看 24 个句框和三个兆序框。
+15. 打开 `94_repeated-sentence-pair-index.csv` 查看 12 个同来源行内配对。
+16. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
 
 ## Boundary / 边界
 
@@ -67,7 +76,13 @@ reference are source-reported. The visual notes are limited to directly
 observable features. This project has not made an OCR, transcription,
 translation, character assignment, period conclusion, or decipherment claim.
 
+The two 12-box sentence groups are one repeated route inside the shared OBIMD
+evidence family, not two independent readings. The two unknown UIDs remain
+lookup metadata. Context is C4 `candidate_route`; C5 and C6 are blocked, and
+C8 delivery is withheld with an abstain action.
+
 版本记录现已确认 `HYZ 421` 对应 `H3:1325`。OBIMD 图版与照片的联合视觉
-地标支持高置信身份候选，但尺寸冲突、版本来源链和馆藏号仍待解决。视觉观察
-只记录可直接看到的特征。本项目没有制作项目摹写、翻译或单字分配，也没有
-提出时期结论或破译主张。
+地标支持未经校准的对象身份候选，但尺寸冲突、版本来源链和馆藏号仍待解决。
+两个 12 框句组只形成共享 OBIMD 祖先的重复辞例路线。两个未知 UID 仅作
+检索 metadata。本项目没有制作项目摹写、翻译或单字分配，也没有提出时期
+结论或破译主张。

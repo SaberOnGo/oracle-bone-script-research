@@ -16,7 +16,7 @@
   "formal_inscription_identity": "not_assigned",
   "character_links": [],
   "literature_status": "edition_entry_and_raw_data_checked",
-  "dispute_status": "high_confidence_identity_candidate_dimension_conflict_open",
+  "dispute_status": "uncalibrated_identity_candidate_dimension_conflict_open",
   "edition_identity": {
     "catalog_number": "HYZ 421",
     "excavation_number": "H3:1325",
@@ -26,7 +26,7 @@
     "printed_raw_data_page": 426,
     "edition_dimensions_cm": "21.6 x 15.1",
     "commons_dimensions_cm": "28.3 x 20.0",
-    "photograph_identity": "high_confidence_candidate_plate_visual_match"
+    "photograph_identity": "uncalibrated_candidate_plate_visual_match"
   },
   "obimd_plate_evidence": {
     "source_id": "src-obimd",
@@ -41,10 +41,47 @@
     "facsimile_size_bytes": 234573,
     "facsimile_sha256": "7d594c69affdec1e56f1b4384788d6c7b9b48d410bd50da9aa6db798ef612f98",
     "annotation_group_count": 4,
-    "identity_effect": "high_confidence_candidate_plate_visual_match",
+    "identity_effect": "uncalibrated_candidate_plate_visual_match",
     "probability_status": "not_displayed_no_task_specific_calibration",
     "rights_status": "metadata_only_until_verified_images_not_committed",
     "access_date": "2026-08-28"
+  },
+  "repeated_inscription_alignment": {
+    "source_row": "HD421",
+    "source_data_sha256": "b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19",
+    "sentence_groups": [
+      "InscriptionSentence1",
+      "InscriptionSentence2"
+    ],
+    "sentence_box_count": 24,
+    "oracle_sequence_box_count": 3,
+    "repeated_pair_count": 12,
+    "pair_method": "equal_OrderNumber_literal_Label_and_literal_SubLabel",
+    "pair_result": "twelve_exact_within_row_label_and_sublabel_repetitions",
+    "printed_entry_route": "421.1_and_421.2_unordered_candidate_route",
+    "printed_entry_assignment": "withheld_no_line_to_entry_locator",
+    "occurrence_index": "93_obimd-hd421-occurrence-index.csv",
+    "pair_index": "94_repeated-sentence-pair-index.csv",
+    "unknown_main_uids": [
+      "nms96pmn1w",
+      "60kr6bp9hf"
+    ],
+    "unknown_uid_status": "lookup_metadata_only_no_character_assignment",
+    "source_ancestry": "single_obimd_row_shared_with_obimd_images_and_staging",
+    "independence_status": "not_independent_within_row_repetition",
+    "rights_status": "metadata_only_until_verified",
+    "evidence_states": {
+      "C1": "candidate_route",
+      "C2": "direct_checked",
+      "C3": "not_asserted_not_applicable",
+      "C4": "candidate_route",
+      "C5": "blocked",
+      "C6": "blocked",
+      "C7": "not_applicable_no_diachronic_proposition",
+      "C8": "abstain_withhold"
+    },
+    "probability_status": "not_displayed_no_task_specific_calibration",
+    "decipherment_effect": "none"
   },
   "image_status": "committed_source_image_with_rights_risk",
   "image_route": {

@@ -3,14 +3,14 @@
 
 ## Result / 结果
 
-OBIMD `H2` is a high-confidence candidate for *Jiaguwen Heji* 2 and
-National Library of China oracle bone 14427. The decisive new evidence is
-an institutional page that prints the catalog crosswalk beside a photograph
-and rubbing that visually match the OBIMD object.
+OBIMD `H2` has a candidate route to *Jiaguwen Heji* 2 and National Library
+of China oracle bone 14427. An institutional page prints that catalog
+crosswalk beside a photograph and rubbing that visually match the OBIMD
+object. The route remains uncalibrated and is not a formal identity.
 
-OBIMD `H2` 是《甲骨文合集》2、国家图书馆甲骨 14427 的高置信候选。
-决定性新增证据来自国家图书馆页面：该页在著录对应关系旁刊出照片和拓片，
-其对象与 OBIMD 图像目视相符。
+OBIMD `H2` 现有一条通向《甲骨文合集》2、国家图书馆甲骨 14427 的候选
+路线。国家图书馆页面在著录对应关系旁刊出照片和拓片，其对象与 OBIMD
+图像目视相符。该路线未经校准，也不是正式身份。
 
 A public *Jiaguwen Heji* search page for number 2 displays the text for
 Heji 2 but serves an image matching Heji 1. That route has a page-level
@@ -74,13 +74,22 @@ joint configuration:
 - 下缘曲线及右侧表面残失位置。
 
 The exact official Yinqi Wenyuan `合2` thumbnail had already ranked the
-OBIMD image first among 10,077 package members at dHash distance 0. The new
-National Library evidence is institutionally and visually independent of
-that algorithmic replay. Together they support the high-confidence candidate.
+OBIMD image first among 10,077 package members at dHash distance 0. This is
+not an independent image witness: the OBIMD image is directly derived from
+Yinqi Wenyuan. The National Library is a separate access route, but it may
+share the same Heji publication and image ancestry.
 
 此前，殷契文渊 `合2` 官方缩略图已在 10,077 个 OBIMD 包成员中把本图排
-第 1，dHash 距离为 0。新增国家图书馆证据独立于该算法复跑，并提供机构
-著录和可读上下文；两条证据共同支持高置信候选。
+第 1，dHash 距离为 0。但 OBIMD 图像直接来自殷契文渊，二者不是独立图像
+见证。国家图书馆是不同访问路线，却可能共享《合集》出版物和图像祖先。
+
+Xiaoxuetang and Liu 2011 also use the Heji catalog or text tradition. Their
+metadata and same-text reports are useful for tracing the route, but must not
+be added as independent paleographic readings. Evidence-family dependence
+is therefore preserved in the decision below.
+
+小學堂和刘影 2011 也使用《合集》著录或文本传统。其元数据和同文报告可
+用于追踪路线，却不能累加为独立古文字释读。下列裁决保留证据族依赖关系。
 
 ## Aggregator mismatch / 聚合页错配
 
@@ -115,29 +124,32 @@ inscription field, the transverse lower break, and the lower-right extension.
 ## Candidate decision / 候选裁决
 
 - proposition: OBIMD `H2` maps to Heji 2 and NLC oracle bone 14427;
-- result: `high_confidence_candidate_heji2_cross_source_match`;
-- strongest alternative: both the NLC caption and Yinqi Wenyuan `合2`
-  record independently point to the wrong object;
-- alternative assessment: no opened source supports that alternative;
+- result: `candidate_route_heji2_shared_ancestry_audited`;
+- strongest alternative: shared Heji catalog or image ancestry, or an unseen
+  mapping or version error, makes several routes point to the same wrong
+  identity;
+- alternative assessment: no opened route shows a correction, but shared
+  ancestry prevents independent counting;
 - formal `obi-*` promotion: withheld;
 - source transcription: collected as institutional display, not accepted as
   a project transcription;
 - decipherment effect: none.
 
 - 命题：OBIMD `H2` 对应《合集》2、国图甲骨 14427；
-- 结果：`high_confidence_candidate_heji2_cross_source_match`；
-- 最强替代解释：国图图注与殷契文渊 `合2` 记录各自独立指错同一对象；
-- 替代解释评估：已打开来源均不支持；
+- 结果：`candidate_route_heji2_shared_ancestry_audited`；
+- 最强替代解释：共享《合集》著录或图像祖先，或未见的映射、版本错误，
+  使多个路线一致指向同一错误身份；
+- 替代解释评估：当前公开路线没有显示更正，但共享祖先阻止独立计数；
 - 正式 `obi-*` 提升：暂缓；
 - 来源释文：作为机构页面显示内容收集，不作为项目释文接受；
 - 对破译的影响：无。
 
 No percentage is displayed. This object-identity task has no registered,
-clean calibration cohort. “High confidence” is an evidence rank, not a
-measured posterior probability.
+clean calibration cohort. The result is an uncalibrated candidate route,
+not a measured posterior probability.
 
-不显示百分比。本仓库尚无为对象身份任务预登记的干净校准群。“高置信”
-表示证据等级，不表示已测量的后验概率。
+不显示百分比。本仓库尚无为对象身份任务预登记的干净校准群。结果只是
+未经校准的候选路线，不是已测量的后验概率。
 
 ## Falsifiers / 可推翻条件
 

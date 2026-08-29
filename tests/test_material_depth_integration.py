@@ -62,7 +62,8 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             if project_id == "obs-insc-src-cand-000001":
                 self.assertEqual(
                     row["source_ids"],
-                    "src-obimd;src-nlc-oracle-world;src-yinqi-wenyuan",
+                    "src-obimd;src-nlc-oracle-world;src-yinqi-wenyuan;"
+                    "src-xiaoxuetang-obm",
                 )
             self.assertTrue((ROOT / row["canonical_path"]).is_dir())
 
@@ -70,7 +71,7 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             encoding="utf-8"
         )
         self.assertIn("[h2-candidate]", text)
-        self.assertIn("high-confidence candidate mapping from `H2` to Heji 2", text)
+        self.assertIn("uncalibrated candidate route from `H2` to Heji 2", text)
         self.assertIn("[ihp-503-candidate]", text)
         self.assertIn("[ihp-1215-candidate]", text)
         self.assertIn("[ihp-771-candidate]", text)

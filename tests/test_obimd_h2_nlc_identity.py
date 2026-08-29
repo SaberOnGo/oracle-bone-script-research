@@ -18,7 +18,7 @@ class ObimdH2NlcIdentityTests(unittest.TestCase):
     def test_human_page_records_candidate_counterevidence_and_falsifiers(self):
         text = PAGE.read_text(encoding="utf-8")
         for marker in (
-            "high-confidence candidate for *Jiaguwen Heji* 2",
+            "candidate route to *Jiaguwen Heji* 2",
             "国家图书馆甲骨 14427",
             "text-image mismatch",
             "页面级图文错配",
@@ -40,7 +40,7 @@ class ObimdH2NlcIdentityTests(unittest.TestCase):
         mismatch = record["public_aggregator_mismatch"]
         self.assertEqual(
             identity["result"],
-            "high_confidence_candidate_heji2_cross_source_match",
+            "candidate_route_heji2_shared_ancestry_audited",
         )
         self.assertEqual(nlc["object_number"], "14427")
         self.assertEqual(nlc["heji_reference"], "Heji 2")

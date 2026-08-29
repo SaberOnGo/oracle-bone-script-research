@@ -81,6 +81,12 @@ class ObimdH2SequenceContextEvidenceTests(unittest.TestCase):
             for row in rows
         ]
         self.assertEqual(actual, EXPECTED)
+        self.assertEqual(
+            [row["source_reported_label_route"] for row in rows],
+            ["曰", "協", "田", "其", "受", "年", "U+FFB45"],
+        )
+        self.assertEqual(rows[-1]["raw_source_field_name"], "transcription_values")
+        self.assertEqual(rows[-1]["source_reference_modern_values"], "十一月")
         for _, uid, _, candidate in EXPECTED:
             matches = list((ROOT / "corpus" / "003_graphemic-components").glob(
                 f"**/*_{candidate}_obimd-sub-{uid}_component-candidate"
@@ -125,6 +131,10 @@ class ObimdH2SequenceContextEvidenceTests(unittest.TestCase):
         )
         self.assertLess(
             readme.index("`08_sequence-context-evidence.md`"),
+            readme.index("`11_text-scope-and-box-alignment-adjudication.md`"),
+        )
+        self.assertLess(
+            readme.index("`11_text-scope-and-box-alignment-adjudication.md`"),
             readme.index("`92_visual-crosswalk-replay-manifest.json`"),
         )
 

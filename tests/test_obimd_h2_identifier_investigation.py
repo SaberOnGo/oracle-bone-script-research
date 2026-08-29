@@ -22,8 +22,8 @@ class ObimdH2IdentifierInvestigationTests(unittest.TestCase):
             "具体待查问题",
             "Catalog abbreviation of the",
             "rubbing image",
-            "high-confidence Heji 2 cross-source candidate",
-            "高置信跨来源候选",
+            "uncalibrated candidate route to Heji 2",
+            "未经校准候选路线",
         ):
             self.assertIn(phrase, text)
 
@@ -67,7 +67,7 @@ class ObimdH2IdentifierInvestigationTests(unittest.TestCase):
             "no project reading is proposed",
             "metadata_only_until_verified",
             "No thumbnail bytes were saved or committed",
-            "不确认《合集》",
+            "不确认确切页码",
         ):
             self.assertIn(phrase, text)
 

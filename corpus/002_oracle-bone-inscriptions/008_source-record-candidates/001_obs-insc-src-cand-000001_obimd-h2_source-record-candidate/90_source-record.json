@@ -12,26 +12,260 @@
     "sha256": "b504b0d4e7a0126d494c161f5445c5ee4225659ff5e94182685fce35d261aa19"
   },
   "group_category": "InscriptionSentence1",
-  "text_availability": "obimd_uid_sequence_plus_nlc_source_reported_partial_transcription",
+  "text_availability": "uid_sequence_plus_source_label_routes_and_bounded_context",
   "formal_inscription_identity": "not_assigned",
   "identity_candidate": {
     "proposition": "OBIMD H2 maps to Heji 2 and NLC oracle bone 14427",
-    "result": "high_confidence_candidate_heji2_cross_source_match",
+    "result": "candidate_route_heji2_shared_ancestry_audited",
     "probability_status": "not_displayed_no_task_specific_calibration",
     "formal_promotion": "withheld",
-    "strongest_alternative": "NLC and Yinqi Wenyuan independently point to the same wrong object",
-    "counterevidence_status": "no_opened_source_supports_alternative",
+    "strongest_alternative": "shared Heji catalog or image ancestry, or an unseen mapping or version error, causes several routes to repeat the same wrong object identity",
+    "counterevidence_status": "no_opened_route_shows_a_correction_but_shared_ancestry_prevents_independence_counting",
     "access_date": "2026-08-28"
   },
   "national_library_evidence": {
     "institution": "National Library of China",
+    "url": "https://www.nlc.cn/migrated/www.nlc.cn/newhxjy/wjsy/wjls/wjqcsy/wjd78q/zhcj/202201/P020220128516783103054.pdf",
+    "access_date": "2026-08-28",
+    "download_id": "dl-nlc-wenjin-heji2-20260828",
+    "local_ignored_path": "tmp/source_downloads/dl-nlc-wenjin-heji2-20260828.pdf",
     "object_number": "14427",
     "heji_reference": "Heji 2",
     "locator": "PDF page 3; printed page 30; figure 3",
     "pdf_size_bytes": 1427112,
     "pdf_sha256": "a675739ec1bd43ed83a7b902baad71667d28c378e122d0ee96baab8199c0d0d8",
     "source_reported_partial_transcription": "……[王大令众人]曰：“畬田。”其受年。[十]一[月]。",
-    "rights_status": "metadata_only_until_verified_raw_pdf_not_committed"
+    "rights_status": "metadata_only_until_verified_raw_pdf_not_committed",
+    "public_commit_decision": "metadata_checksum_and_original_review_only"
+  },
+  "heji_material_source_evidence": {
+    "source_id": "src-xiaoxuetang-obm",
+    "url": "https://xiaoxue.iis.sinica.edu.tw/obm/Home/PageContent",
+    "access_date": "2026-08-28",
+    "snapshot_id": "dl-xxt-obm-heji2-query-20260828",
+    "local_ignored_path": "tmp/source_downloads/dl-xxt-obm-heji2-query-20260828.html",
+    "query": "POST hejinum=2",
+    "heji_plate": "2",
+    "earliest_catalog_route": "粹866",
+    "selected_route": "善9025",
+    "holding_route": "北圖",
+    "response_size_bytes": 2337,
+    "response_sha256": "3181ca77e710c733f7c9b1c81e83f1d69935b2076560f92c62c21b8c825cacba",
+    "rights_status": "metadata_only_html_snapshot_not_committed",
+    "public_commit_decision": "metadata_checksum_and_original_review_only",
+    "review_status": "direct_checked_catalog_route_not_plate_image"
+  },
+  "bibliographic_locator_evidence": {
+    "source_name": "CiNii Books",
+    "ncid": "BN05177578",
+    "url": "https://ci.nii.ac.jp/ncid/BN05177578",
+    "access_date": "2026-08-30",
+    "volume_locator": "volume 1, first period, plates 1-1139",
+    "first_printing": "1982-10",
+    "evidence_state": "source_reported_bibliographic_metadata",
+    "scope_boundary": "no exact printed leaf, page, or plate image obtained"
+  },
+  "published_same_text_evidence": {
+    "provider": "The Palace Museum",
+    "source_registration_status": "object_local_pending_global_source_registration",
+    "literature_evidence_id": "DPM-Liu-2011-p22-p23",
+    "access_date": "2026-08-28",
+    "citation": "Liu Ying, Binzu niujiagu xinzhui sizu, Palace Museum Journal, 2011(1):22-27",
+    "locator": "printed page 23",
+    "claim": "Heji 2 and Heji 5 are same-text inscriptions; Bin group",
+    "scope_boundary": "page 23 illustrates Heji 1 plus Heji Supplement 657, not Heji 2",
+    "page_22_url": "https://img.dpm.org.cn/Uploads/File/pdf/1e/ac/69/1eac69340e9cd03dfdac31fc9d6cbb02.pdf",
+    "page_22_download_id": "dl-dpm-liu-2011-bin-group-joins-p022-20260828",
+    "page_22_local_ignored_path": "tmp/source_downloads/dl-dpm-liu-2011-bin-group-joins-p022-20260828.pdf",
+    "page_22_size_bytes": 644706,
+    "page_22_sha256": "b1efa2adb056734d8db24aa93c4a5998253057831970b6dca3b1488033461f48",
+    "page_23_url": "https://img.dpm.org.cn/Uploads/File/pdf/3d/a1/bb/3da1bb84eed6264bf8b8b2f50328c7fa.pdf",
+    "page_23_download_id": "dl-dpm-liu-2011-bin-group-joins-p023-20260828",
+    "page_23_local_ignored_path": "tmp/source_downloads/dl-dpm-liu-2011-bin-group-joins-p023-20260828.pdf",
+    "page_23_size_bytes": 616833,
+    "page_23_sha256": "8a3033f66bb3f6c252c54d5dbf9e3bbc694b104818f9b892741cbcf89dfbe8d5",
+    "rights_status": "metadata_only_until_verified_raw_pages_not_committed",
+    "risk_note": "redistribution rights not cleared; page images remain ignored",
+    "public_commit_decision": "citation_locator_checksum_and_original_review_only",
+    "next_registration_step": "register a global Palace Museum Journal source ID before adding these downloads to global log and manifest"
+  },
+  "box_label_route_evidence": {
+    "derivation": "H2 Characters UID to subcharacter-main mapping to Main-character.json",
+    "source_family": "src-obimd",
+    "review_status": "direct_checked_same_dataset_metadata_chain",
+    "downloads": [
+      {
+        "download_id": "dl-obimd-subchar-main-mapping",
+        "source_metadata_file": "Sub-character to Main-character Mapping.xlsx",
+        "size_bytes": 71318,
+        "sha256": "967c1ee8dea2bee444b07657eab05e0fc35f1d9585ebd532ffca7c7c13f65b77"
+      },
+      {
+        "download_id": "dl-obimd-main-character-json",
+        "source_metadata_file": "Main-character.json",
+        "size_bytes": 451652,
+        "sha256": "17db8ffebf246571dd004c5ef7c42316e6c6dde74210fbdab466a4067c45de6e"
+      }
+    ]
+  },
+  "box_label_alignment": [
+    {"order": 0, "source_uid": "9xhq4zclpe", "route": "曰", "source_codepoint": "U+66F0", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "曰", "status": "source_label_candidate"},
+    {"order": 1, "source_uid": "ve0ebxq620", "route": "協", "source_codepoint": "U+5354", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "𫩻|򧅇|協", "status": "source_label_candidate_with_alternatives"},
+    {"order": 2, "source_uid": "pzvzykmf5e", "route": "田", "source_codepoint": "U+7530", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "田", "status": "source_label_candidate"},
+    {"order": 3, "source_uid": "qmvfvw99v9", "route": "其", "source_codepoint": "U+5176", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "其", "status": "source_label_candidate"},
+    {"order": 4, "source_uid": "52a130pcmy", "route": "受", "source_codepoint": "U+53D7", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "受", "status": "source_label_candidate"},
+    {"order": 5, "source_uid": "xkubtjk815", "route": "年", "source_codepoint": "U+5E74", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "年", "status": "source_label_candidate"},
+    {"order": 6, "source_uid": "lstx3iocs6", "route": "U+FFB45", "source_codepoint": "U+FFB45", "raw_source_field_name": "transcription_values", "source_reference_modern_values": "十一月", "status": "pua_glyph_codepoint_multi_character_reference_warning_withheld"}
+  ],
+  "claim_gate_decision": {
+    "C1": "candidate_route",
+    "C2": "direct_checked",
+    "C3": "not_asserted_not_applicable",
+    "C4": "candidate_route",
+    "C5": "blocked",
+    "C6": "blocked",
+    "C6_blocked_by": "C5",
+    "C7": "not_applicable_no_diachronic_proposition",
+    "C8": "withhold",
+    "delivery_action": "abstain",
+    "probability_status": "not_displayed_no_task_specific_calibration"
+  },
+  "claim_recording_contract": {
+    "version": "2026-08-30-h2-text-scope-v1",
+    "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract",
+    "delivery_state": "withhold",
+    "delivery_action": "abstain",
+    "evidence_items": [
+      "ev-h2-obimd-row",
+      "ev-h2-obimd-rubbing",
+      "ev-h2-obimd-facsimile",
+      "ev-h2-obimd-main-route",
+      "ev-h2-nlc-fig3",
+      "ev-h2-xxt-heji2-row",
+      "ev-h2-liu-2011-p23",
+      "ev-h2-cinii-bn05177578",
+      "ev-h2-guoxue-mismatch"
+    ],
+    "evidence_families": {
+      "family-obimd-derived": "OBIMD data, metadata, and images derived from Yinqi Wenyuan",
+      "family-nlc-heji-publication": "institutional route within the Heji catalog and image tradition",
+      "family-liu-2011-same-text": "published same-text argument within the Heji text tradition",
+      "family-xxt-1999-heji-table": "database route based on the 1999 printed material-source table",
+      "family-public-aggregator-quality-control": "public page retained only as negative quality-control evidence"
+    },
+    "shared_ancestor_warning": "NLC, Xiaoxuetang, Liu 2011, Yinqi Wenyuan, and OBIMD share Heji catalog, image, or text ancestry and are not independent paleographic readings",
+    "blocker": "rights-permitted Heji volume 1 plate 2 not obtained",
+    "next_source": "Heji volume 1 plate 2 with neighboring printed locator",
+    "falsifier_summary": "a provenance-bearing plate 2 showing a different object, line order, or segmentation reopens the claim"
+  },
+  "per_claim_contract": {
+    "C1": {
+      "state": "candidate_route",
+      "evidence_items": [
+        {"id": "ev-h2-obimd-row", "state": "direct_checked", "family_id": "family-obimd-derived", "evidence_role": "source_row_identity_route"},
+        {"id": "ev-h2-nlc-fig3", "state": "direct_checked", "family_id": "family-nlc-heji-publication", "evidence_role": "source_reported_catalog_identity"},
+        {"id": "ev-h2-xxt-heji2-row", "state": "direct_checked", "family_id": "family-xxt-1999-heji-table", "evidence_role": "source_reported_catalog_metadata"}
+      ],
+      "family_ids": ["family-obimd-derived", "family-nlc-heji-publication", "family-xxt-1999-heji-table"],
+      "shared_ancestor": "Heji catalog and image tradition",
+      "blocker": "rights-permitted Heji volume 1 plate 2 not obtained",
+      "impact": "formal object identity withheld",
+      "next_source_question": "Does a rights-permitted Heji volume 1 plate 2 match the H2 object?",
+      "alternative": "shared catalog or image ancestry, or an unseen mapping or version error, repeats one wrong identity",
+      "falsifier": "a provenance-bearing plate 2 shows a different object",
+      "abstention_reason": "shared ancestry and missing primary plate prevent promotion",
+      "delivery_state": "withhold",
+      "version": "2026-08-30-h2-text-scope-v1",
+      "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
+    },
+    "C2": {
+      "state": "direct_checked",
+      "evidence_items": [
+        {"id": "ev-h2-obimd-rubbing", "state": "direct_checked", "family_id": "family-obimd-derived", "evidence_role": "visual_occurrence_check"},
+        {"id": "ev-h2-obimd-facsimile", "state": "direct_checked", "family_id": "family-obimd-derived", "evidence_role": "visual_occurrence_check"}
+      ],
+      "family_ids": ["family-obimd-derived"],
+      "shared_ancestor": "both registered images belong to the OBIMD-derived visual family",
+      "blocker": "plate-level segmentation unavailable",
+      "impact": "direct check applies only to seven visible occurrences",
+      "next_source_question": "Does plate 2 preserve the same seven bounded groups?",
+      "alternative": "one or more boxes include damage or multiple traces",
+      "falsifier": "a reviewed plate changes a box boundary or checksum replay fails",
+      "abstention_reason": "visible occurrence does not establish sign identity",
+      "delivery_state": "withhold",
+      "version": "2026-08-30-h2-text-scope-v1",
+      "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
+    },
+    "C4": {
+      "state": "candidate_route",
+      "evidence_items": [
+        {"id": "ev-h2-obimd-main-route", "state": "direct_checked", "family_id": "family-obimd-derived", "evidence_role": "source_reported_lookup_metadata"},
+        {"id": "ev-h2-nlc-fig3", "state": "direct_checked", "family_id": "family-nlc-heji-publication", "evidence_role": "source_reported_partial_text"},
+        {"id": "ev-h2-liu-2011-p23", "state": "direct_checked", "family_id": "family-liu-2011-same-text", "evidence_role": "source_reported_same_text"}
+      ],
+      "family_ids": ["family-obimd-derived", "family-nlc-heji-publication", "family-liu-2011-same-text"],
+      "shared_ancestor": "Heji catalog and text tradition",
+      "blocker": "full text and exact edition page missing",
+      "impact": "context and segmentation remain a candidate route",
+      "next_source_question": "What page-located transcription aligns to Heji plate 2?",
+      "alternative": "another edition has a different line order or span",
+      "falsifier": "a page-located edition disagrees with the recorded order",
+      "abstention_reason": "bounded source text does not establish full H2 text",
+      "delivery_state": "withhold",
+      "version": "2026-08-30-h2-text-scope-v1",
+      "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
+    },
+    "C5": {
+      "state": "blocked",
+      "evidence_items": [
+        {"id": "ev-h2-obimd-main-route", "state": "direct_checked", "family_id": "family-obimd-derived", "evidence_role": "source_reported_lookup_metadata"},
+        {"id": "ev-h2-liu-2011-p23", "state": "direct_checked", "family_id": "family-liu-2011-same-text", "evidence_role": "source_reported_same_text"}
+      ],
+      "family_ids": ["family-obimd-derived", "family-liu-2011-same-text"],
+      "shared_ancestor": "Heji text tradition does not supply an independent reading history",
+      "blocker": "reading history and negative evidence incomplete",
+      "impact": "character-form claims blocked",
+      "next_source_question": "Which named editions discuss orders 1 and 6?",
+      "alternative": "lookup normalization differs from an accepted reading or segmentation",
+      "falsifier": "a reviewed reading history resolves orders 1 and 6 with negative evidence",
+      "abstention_reason": "order 1 and order 6 remain unresolved",
+      "delivery_state": "withhold",
+      "version": "2026-08-30-h2-text-scope-v1",
+      "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
+    },
+    "C6": {
+      "state": "blocked",
+      "evidence_items": [],
+      "family_ids": [],
+      "shared_ancestor": "not applicable while C5 is blocked",
+      "blocker": "C5 is blocked",
+      "impact": "translation and semantic probability blocked",
+      "next_source_question": "No semantic source question applies before C5 passes.",
+      "alternative": "a semantic interpretation depends on a different C5 reading",
+      "falsifier": "C5 passes and opposing semantic readings are adjudicated",
+      "abstention_reason": "semantic adjudication cannot precede form adjudication",
+      "delivery_state": "withhold",
+      "version": "2026-08-30-h2-text-scope-v1",
+      "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
+    },
+    "C8": {
+      "state": "withhold",
+      "evidence_items": [
+        {"id": "ev-h2-guoxue-mismatch", "state": "direct_checked", "family_id": "family-public-aggregator-quality-control", "evidence_role": "negative_quality_control"}
+      ],
+      "family_ids": ["family-obimd-derived", "family-nlc-heji-publication", "family-liu-2011-same-text", "family-xxt-1999-heji-table", "family-public-aggregator-quality-control"],
+      "shared_ancestor": "the evidence families share Heji catalog, image, or text ancestry",
+      "blocker": "no preregistered clean calibration with independent source ancestors",
+      "impact": "no numeric probability or candidate reading may be delivered",
+      "next_source_question": "Can a clean benchmark with distinct source ancestors be built?",
+      "alternative": "apparent agreement reflects shared ancestry rather than independent correctness",
+      "falsifier": "a leakage-audited calibration with distinct ancestors supports delivery",
+      "abstention_reason": "task-specific calibration and independent delivery evidence are absent",
+      "delivery_state": "withhold",
+      "delivery_action": "abstain",
+      "version": "2026-08-30-h2-text-scope-v1",
+      "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
+    }
   },
   "public_aggregator_mismatch": {
     "page_url": "https://www.guoxuedashi.com/jgwhj/?bh=2&bhfl=1",
@@ -46,7 +280,7 @@
   },
   "rights_status": "metadata_only_until_verified",
   "rights_review_path": "project_registry/004_asset-source-and-rights-index/006_obimd-rights-conflict-review.md",
-  "review_status": "high_confidence_candidate_heji2_cross_source_match",
+  "review_status": "source_label_alignment_candidate_reading_withheld",
   "local_private_assets": [
     {
       "modality": "rubbing",
@@ -72,9 +306,10 @@
     }
   ],
   "boundaries": [
-    "H2 to Heji 2 is a high-confidence candidate, not a formal identity",
+    "H2 to Heji 2 is an uncalibrated candidate route, not a formal identity",
     "source UIDs are not confirmed characters or readings",
-    "NLC text is source-reported and not aligned to the seven boxes",
+    "six modern forms are source-reported OBIMD label routes, not readings",
+    "order 6 has PUA U+FFB45 plus source value 十一月 and remains withheld",
     "not a formal inscription identity or decipherment conclusion"
   ]
 }

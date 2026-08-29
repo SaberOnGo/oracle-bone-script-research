@@ -17,11 +17,19 @@ group is a complete divination text, or that the labels are correct.
 
 There is no readable full transcription or OCR in the acquired H2 row. The
 UID sequence is a source classification and ordering record, not readable
-oracle-bone text. National Library evidence now supports a high-confidence
-candidate mapping to Heji 2 and NLC oracle bone 14427. Its displayed partial
-transcription remains source-reported and is not aligned to the seven boxes.
-Archaeological provenance, period, group, and exact Heji plate page remain
-unresolved.
+oracle-bone text. The National Library route supports an uncalibrated
+candidate route to Heji 2 and NLC oracle bone 14427. Its displayed partial
+transcription remains source-reported. Six boxes now have modern lookup
+routes, while the seventh has a PUA glyph codepoint and the platform reference
+`十一月`. The multi-character reference blocks a one-box-one-character
+assumption. Liu 2011 supplies Bin-group and same-text evidence.
+The exact Heji locator is volume 1, first period, plate 2; its printed leaf or
+page and archaeological findspot remain unresolved.
+
+The OBIMD image is directly derived from Yinqi Wenyuan. National Library,
+Xiaoxuetang, and Liu 2011 also depend on the Heji catalog, image, or text
+tradition. These routes support traceability but are not counted as
+independent paleographic readings.
 
 ## 简体中文
 
@@ -34,9 +42,15 @@ OBIMD `data.json` 数组索引 0 记录 `RubbingName=H2`、一个拓片路线、
 该组是一条完整卜辞，或来源标签已经正确。
 
 已取得的 H2 来源行没有可读的卜辞全文或 OCR。UID 顺序只是来源分类和
-排序记录，不是可读甲骨文文本。国家图书馆证据现支持其对应《合集》2、
-国图甲骨 14427 的高置信候选；页面残辞仍是来源报告内容，尚未与七个字框
-逐一对齐。考古出处、时期、组类及《合集》确切图版页仍未解决。
+排序记录，不是可读甲骨文文本。国家图书馆路线支持其通向《合集》2、
+国图甲骨 14427 的未经校准候选路线；页面残辞仍是来源报告内容。六框已有今字
+检索路线，第七框为 PUA 字形码位，平台参考值为 `十一月`；这个多字参考值
+阻断“一框一字”假定。刘影 2011 提供宾组和同文证据。《合集》确切定位为
+第 1 册、第一期、图版 2；印刷叶码及考古出土地仍未解决。
+
+OBIMD 图像直接来自殷契文渊。国家图书馆、小學堂和刘影 2011 也依赖
+《合集》著录、图像或文本传统。这些路线可支持追溯，但不计作独立古文字
+释读。
 
 ## Research Boundary / 研究边界
 

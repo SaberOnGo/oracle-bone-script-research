@@ -1,7 +1,7 @@
 # H2 Sequence And Group Context Evidence
 # H2 逐项与句组上下文证据
 
-Review date / 复核日期: 2026-08-13
+Review dates / 复核日期: 2026-08-13, 2026-08-28, 2026-08-30
 
 ## English
 
@@ -101,6 +101,14 @@ The paper reports a tri-modal annotation workflow, but the public H2 row does
 not contain readable transcription text. Therefore its ordered UID sequence
 cannot be rewritten as a sentence or cited as an edition of the inscription.
 
+The OBIMD hierarchy maps the seven subcharacter UIDs to main-character UIDs.
+`Main-character.json` then reports lookup routes for orders 0-5 as `曰`,
+`協`, `田`, `其`, `受`, and `年`. Order 6 has glyph codepoint PUA
+`U+FFB45` and platform reference `十一月`. These are same-family lookup
+metadata, not an independent transcription or accepted reading. The full
+adjudication is in
+`11_text-scope-and-box-alignment-adjudication.md`.
+
 ### Spatial context, without image republication
 
 The boxes fit within the registered 1022 by 1180 source image. Orders 0–2 lie
@@ -136,8 +144,9 @@ obtained from that route. H2 remains an inscription source-record candidate.
 5. For each UID, compare the boxed sign with its candidate dossier assets.
    A shape mismatch falsifies that UID-to-occurrence route; a match still does
    not confirm a reading.
-6. Locate the exact *Jiaguwen Heji* volume, plate, and page. Failure of the
-   registered image to match that plate falsifies the proposed catalog link.
+6. Open Heji volume 1, first period, plate 2 and identify its printed leaf or
+   page. Failure of the registered image to match that plate falsifies the
+   proposed catalog link.
 
 ## 简体中文
 
@@ -175,6 +184,12 @@ OBIMD main staging 也把每个 UID 路由到同名 main-character UID，但状�
 公开 H2 行没有可读释文文本。因此不能把有序 UID 串改写成一句卜辞，也不能把它
 当作任何释文版本引用。
 
+OBIMD 层级文件先把七个子字 UID 路由到主字 UID；`Main-character.json`
+再为次序 0-5 报告 `曰`、`協`、`田`、`其`、`受`、`年` 检索路线。
+次序 6 的字形码位为 PUA `U+FFB45`，平台参考今字值为 `十一月`。它们
+属于同一数据集家族的检索元数据，不是独立释文或已接受释读。完整裁决见
+`11_text-scope-and-box-alignment-adjudication.md`。
+
 ### 空间上下文与边界
 
 所有框都在已登记的 1022×1180 图像范围内。顺序 0–2 位于右侧 x 797–829 带，
@@ -197,8 +212,8 @@ OBIMD main staging 也把每个 UID 路由到同名 main-character UID，但状�
    的临时模型。
 5. 逐 UID 对照候选档案资产；形态不符即可否定该 UID 路由，形态相符仍不确认
    释读。
-6. 查明《甲骨文合集》的确切卷、图版和页码；若登记图像与该图版不符，即否定
-   当前著录联系。
+6. 打开《合集》第 1 册、第一期、图版 2，并查明印刷叶码或页码；若登记
+   图像与该图版不符，即否定当前著录联系。
 
 Rights / 权利: `metadata_only_until_verified`.
 Review / 复核: `source_context_recomputed_candidate_identity_unconfirmed`.

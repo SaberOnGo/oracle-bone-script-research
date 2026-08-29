@@ -30008,7 +30008,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertEqual(by_area["relationship_graph_and_statistics"]["staging_record_count"], "219")
         self.assertEqual(by_area["relationship_graph_and_statistics"]["graph_edge_count"], "147002")
         self.assertEqual(by_area["research_sources_and_bibliography"]["review_queue_count"], "837")
-        self.assertEqual(by_area["research_sources_and_bibliography"]["staging_record_count"], "283")
+        self.assertEqual(by_area["research_sources_and_bibliography"]["staging_record_count"], "285")
         self.assertEqual(
             by_area["research_sources_and_bibliography"]["review_queue_path"],
             "corpus/009_statistics-and-derived-features/185_source-pipeline-missing-evidence-outcome-routes-assignment-checklist.csv",

@@ -113,20 +113,20 @@ class ObimdH2InscriptionSourceCandidateTests(unittest.TestCase):
         required = (
             "no readable transcription or OCR",
             "没有可读的卜辞全文或 OCR",
-            "high-confidence candidate mapping to Heji 2",
-            "对应《合集》2、",
+            "uncalibrated candidate route to Heji 2",
+            "通向《合集》2、",
             "UIDs are not confirmed characters or readings",
             "UID 不是已确认的字形、字符或释读",
             "metadata_only_until_verified",
             "006_obimd-rights-conflict-review.md",
-            "open the provenance-bearing Heji plate",
-            "带\n来源链的《合集》图版",
+            "Open Heji volume 1, first period, plate 2",
+            "《合集》第 1 册、第一期、图版 2",
             "collection institution and object number",
             "馆藏机构和对象号",
             "findspot or excavation context",
             "出土地或发掘语境",
-            "period and group classification",
-            "时期和组类归属",
+            "Bin-group assignment",
+            "宾组归属",
         )
         for phrase in required:
             self.assertIn(phrase, text)

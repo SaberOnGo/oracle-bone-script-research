@@ -1,21 +1,26 @@
 # H2 Identifier Crosswalk Investigation
 # H2 编号互证调查
 
-Access dates / 访问日期: 2026-08-12, 2026-08-13
+Access dates / 访问日期: 2026-08-12, 2026-08-13, 2026-08-28
 
 ## English
 
 ### Result and boundary
 
 OBIMD `H2`, Yinqi Wenyuan record `合2`, and National Library oracle bone
-14427 now form a high-confidence Heji 2 cross-source candidate. This is not
-a formal `obi-*` identity. The National Library page supplies a readable
+14427 now form an uncalibrated candidate route to Heji 2. This is not a
+formal `obi-*` identity. The National Library page supplies a readable
 source-reported partial transcription; no project reading is proposed.
 
 No opened source states the literal expansion of the OBIMD code `H2`.
 Instead, the candidate rests on two object-level visual routes and an
 institutional catalog statement. The effective rights status remains
 `metadata_only_until_verified`.
+
+The OBIMD image is directly derived from Yinqi Wenyuan, so those visual
+routes form one evidence family. National Library, Xiaoxuetang, and Liu 2011
+also rely on the Heji catalog, image, or text tradition. They are useful
+crosswalk routes, but cannot be added as independent paleographic readings.
 
 ### Direct source evidence
 
@@ -64,16 +69,17 @@ tie rule, and MAD definition are in `92_visual-crosswalk-replay-manifest.json`.
 The runnable method is documented in
 `tools/007_obimd-h2-crosswalk/README.md`.
 
-The earlier replay and the National Library page now support a
-high-confidence catalog-identity candidate. They do not confirm the exact
-Heji page, archaeological fields, or character-to-box alignment.
+The earlier replay and the National Library page support an uncalibrated
+catalog-identity candidate route. Shared Heji ancestry prevents independent
+counting. These routes do not confirm the exact Heji page, archaeological
+fields, or character-to-box alignment.
 
 ### Unresolved questions
 
-- Which exact *Jiaguwen Heji* volume, plate, and page contain `合2`?
+- Which printed leaf or page carries Heji volume 1, first period, plate 2?
 - Which transcription edition and page did OBIMD annotators use?
-- What are the independently sourced institution, object number, findspot,
-  period, and group?
+- Which sources document the institution, object number, findspot, period,
+  and group with object-level provenance independent of the Heji route?
 - Does a rights-permitted transcription align with all seven OBIMD boxes?
 
 ## 简体中文
@@ -81,12 +87,16 @@ Heji page, archaeological fields, or character-to-box alignment.
 ### 结果与边界
 
 OBIMD `H2`、殷契文渊 `合2` 与国图甲骨 14427 现共同构成《合集》2 的
-高置信跨来源候选，但不是正式 `obi-*` 身份。国家图书馆页面提供可读的
+未经校准候选路线，但不是正式 `obi-*` 身份。国家图书馆页面提供可读的
 来源报告残辞，本项目不据此提出释读。
 
 已打开来源没有逐字展开 OBIMD 代码 `H2`，候选依据是两条对象级视觉路线
 和一条机构著录陈述。有效权利状态仍为
 `metadata_only_until_verified`。
+
+OBIMD 图像直接来自殷契文渊，二者属于同一证据族。国家图书馆、小學堂和
+刘影 2011 也依赖《合集》著录、图像或文本传统。它们可用于编号互证，
+但不能累加为独立古文字释读。
 
 ### 直接来源证据
 
@@ -117,14 +127,16 @@ OBIMD `H2`、殷契文渊 `合2` 与国图甲骨 14427 现共同构成《合集�
 定义见 `92_visual-crosswalk-replay-manifest.json`；复跑命令见
 `tools/007_obimd-h2-crosswalk/README.md`。
 
-早期复跑与国家图书馆页面共同支持高置信著录身份候选，但不确认《合集》
-确切页码、考古字段或字框与释文逐字对应。
+早期复跑与国家图书馆页面共同支持未经校准的著录身份候选路线。共享
+《合集》祖先阻止独立计数；这些路线不确认确切页码、考古字段或字框与
+释文逐字对应。
 
 ### 具体待查问题
 
-- `合2` 在《甲骨文合集》中的确切卷、图版和页码是什么？
+- 《合集》第 1 册、第一期、图版 2 位于哪个印刷叶码或页码？
 - OBIMD 标注者采用了哪一释文版本及页码？
-- 馆藏机构、对象号、出土地、时期和组类有哪些独立来源？
+- 哪些来源以独立于《合集》路线的对象级来源链记录馆藏机构、对象号、
+  出土地、时期和组类？
 - 权利允许的释文能否与 OBIMD 的七个框逐一对应？
 
 ## Evidence grades / 证据等级

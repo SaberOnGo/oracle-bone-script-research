@@ -14,12 +14,16 @@ Read the human pages in numeric order before opening the JSON or CSV. The
 source images remain inside ignored local-private ZIP packages. No image
 payload is copied into this public object directory.
 
-`H2` is an OBIMD dataset identifier. Independent National Library evidence
-now supports a high-confidence candidate mapping to Heji 2 and NLC oracle
-bone 14427. The folder still does not assign a formal `obi-*` identity.
+`H2` is an OBIMD dataset identifier. The National Library route supports an
+uncalibrated candidate route to Heji 2 and NLC oracle bone 14427. The OBIMD
+image is directly derived from Yinqi Wenyuan, so those two image routes are
+one evidence family. The folder still does not assign a formal `obi-*`
+identity.
 The OBIMD row has no readable transcription or OCR; the institutional page
 text is retained only as a source-reported transcription. Source UIDs are
-not confirmed characters or readings.
+not confirmed characters or readings. National Library, Xiaoxuetang, and
+Liu 2011 all depend on the Heji catalog, image, or text tradition and are not
+counted as independent paleographic readings.
 
 ## 简体中文
 
@@ -31,10 +35,12 @@ not confirmed characters or readings.
 请先依编号阅读人类档案，再打开 JSON 或 CSV。来源图片继续留在已忽略的
 本地私有 ZIP 包中；本公开对象目录没有复制图片内容。
 
-`H2` 是 OBIMD 数据集标识。新增国家图书馆独立证据支持其对应《合集》2、
-国图甲骨 14427 的高置信候选，但本目录仍不分配正式 `obi-*` 身份。
+`H2` 是 OBIMD 数据集标识。国家图书馆路线支持其通向《合集》2、国图甲骨
+14427 的未经校准候选路线。OBIMD 图像直接来自殷契文渊，二者属于同一
+证据族。本目录仍不分配正式 `obi-*` 身份。
 OBIMD 来源行没有可读释文或 OCR；机构页面文字只按来源报告释文保存。
-七个来源 UID 不是已确认的字形、字符或释读。
+七个来源 UID 不是已确认的字形、字符或释读。国家图书馆、小學堂和刘影
+2011 均依赖《合集》著录、图像或文本传统，不计作独立古文字释读。
 
 ## Reading Order / 阅读顺序
 
@@ -52,8 +58,11 @@ OBIMD 来源行没有可读释文或 OCR；机构页面文字只按来源报告�
    candidate graph routes and their promotion boundary.
 10. `10_nlc-heji2-identity-and-aggregator-mismatch.md`: inspect the
     institutional identity evidence and public page defect.
-11. Open `92_visual-crosswalk-replay-manifest.json` only after the human
+11. `11_text-scope-and-box-alignment-adjudication.md`: inspect the exact
+    Heji catalog route, same-text evidence, the OBIMD metadata chain and its
+    order-6 granularity warning, plus mandatory reading abstention.
+12. Open `92_visual-crosswalk-replay-manifest.json` only after the human
     investigation page; it is the machine-verifiable replay receipt.
-12. Open `90_source-record.json` and the CSV only as supporting indexes.
+13. Open `90_source-record.json` and the CSV only as supporting indexes.
 
 本目录是预研究来源记录，不是释读、著录同一性或破译结论。

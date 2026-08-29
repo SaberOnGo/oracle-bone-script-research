@@ -61,8 +61,18 @@ OBIMD 来源行没有可读释文或 OCR；机构页面文字只按来源报告�
 11. `11_text-scope-and-box-alignment-adjudication.md`: inspect the exact
     Heji catalog route, same-text evidence, the OBIMD metadata chain and its
     order-6 granularity warning, plus mandatory reading abstention.
-12. Open `92_visual-crosswalk-replay-manifest.json` only after the human
+12. `12_heji-volume1-plate2-local-visual-receipt.md`: inspect the locally
+    visible printed number `2`, scan receipt, rights risk, and remaining
+    provenance blocker.
+13. Open `92_visual-crosswalk-replay-manifest.json` only after the human
     investigation page; it is the machine-verifiable replay receipt.
-13. Open `90_source-record.json` and the CSV only as supporting indexes.
+14. Open `90_source-record.json` and the CSV only as supporting indexes.
+
+The local-only first-volume scan visibly labels the matching object `2`.
+This closes the missing printed-number check, but the scan has no verified
+license or institutional provenance. C1 therefore remains a candidate route.
+
+本地专用的第一册扫描把相符对象清楚标作 `2`，因此“印刷编号尚未目视核对”
+这一缺口已经关闭。但扫描没有已核许可或机构来源链，C1 仍为候选路线。
 
 本目录是预研究来源记录，不是释读、著录同一性或破译结论。

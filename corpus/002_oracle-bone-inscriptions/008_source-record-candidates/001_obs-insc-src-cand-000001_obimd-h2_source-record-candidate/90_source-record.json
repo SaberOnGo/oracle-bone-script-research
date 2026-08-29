@@ -142,20 +142,22 @@
       "ev-h2-obimd-main-route",
       "ev-h2-nlc-fig3",
       "ev-h2-xxt-heji2-row",
-      "ev-h2-liu-2011-p23",
-      "ev-h2-cinii-bn05177578",
-      "ev-h2-guoxue-mismatch"
+    "ev-h2-liu-2011-p23",
+    "ev-h2-cinii-bn05177578",
+    "ev-h2-guoxue-mismatch",
+    "ev-h2-ia-heji-vol1-plate2"
     ],
     "evidence_families": {
       "family-obimd-derived": "OBIMD data, metadata, and images derived from Yinqi Wenyuan",
       "family-nlc-heji-publication": "institutional route within the Heji catalog and image tradition",
       "family-liu-2011-same-text": "published same-text argument within the Heji text tradition",
       "family-xxt-1999-heji-table": "database route based on the 1999 printed material-source table",
-      "family-public-aggregator-quality-control": "public page retained only as negative quality-control evidence"
-    },
-    "shared_ancestor_warning": "NLC, Xiaoxuetang, Liu 2011, Yinqi Wenyuan, and OBIMD share Heji catalog, image, or text ancestry and are not independent paleographic readings",
-    "blocker": "rights-permitted Heji volume 1 plate 2 not obtained",
-    "next_source": "Heji volume 1 plate 2 with neighboring printed locator",
+    "family-public-aggregator-quality-control": "public page retained only as negative quality-control evidence",
+    "family-ia-unlicensed-heji-scan": "local unlicensed derivative within the Heji image tradition; not independent"
+  },
+  "shared_ancestor_warning": "NLC, Xiaoxuetang, Liu 2011, Yinqi Wenyuan, OBIMD, and the local Internet Archive scan share Heji catalog, image, or text ancestry and are not independent paleographic readings",
+  "blocker": "scan provenance and reuse rights unverified; no institution-bearing plate 2 copy opened",
+  "next_source": "institution-bearing Heji volume 1 plate 2 with neighboring printed locator",
     "falsifier_summary": "a provenance-bearing plate 2 showing a different object, line order, or segmentation reopens the claim"
   },
   "per_claim_contract": {
@@ -164,16 +166,17 @@
       "evidence_items": [
         {"id": "ev-h2-obimd-row", "state": "direct_checked", "family_id": "family-obimd-derived", "evidence_role": "source_row_identity_route"},
         {"id": "ev-h2-nlc-fig3", "state": "direct_checked", "family_id": "family-nlc-heji-publication", "evidence_role": "source_reported_catalog_identity"},
-        {"id": "ev-h2-xxt-heji2-row", "state": "direct_checked", "family_id": "family-xxt-1999-heji-table", "evidence_role": "source_reported_catalog_metadata"}
+        {"id": "ev-h2-xxt-heji2-row", "state": "direct_checked", "family_id": "family-xxt-1999-heji-table", "evidence_role": "source_reported_catalog_metadata"},
+        {"id": "ev-h2-ia-heji-vol1-plate2", "state": "direct_checked", "family_id": "family-ia-unlicensed-heji-scan", "evidence_role": "local_private_plate_number_and_visual_route"}
       ],
-      "family_ids": ["family-obimd-derived", "family-nlc-heji-publication", "family-xxt-1999-heji-table"],
+      "family_ids": ["family-obimd-derived", "family-nlc-heji-publication", "family-xxt-1999-heji-table", "family-ia-unlicensed-heji-scan"],
       "shared_ancestor": "Heji catalog and image tradition",
-      "blocker": "rights-permitted Heji volume 1 plate 2 not obtained",
+      "blocker": "scan provenance and reuse rights unverified; no institution-bearing plate 2 copy opened",
       "impact": "formal object identity withheld",
-      "next_source_question": "Does a rights-permitted Heji volume 1 plate 2 match the H2 object?",
+      "next_source_question": "Does an institution-bearing first-volume plate 2 reproduce this object and number?",
       "alternative": "shared catalog or image ancestry, or an unseen mapping or version error, repeats one wrong identity",
       "falsifier": "a provenance-bearing plate 2 shows a different object",
-      "abstention_reason": "shared ancestry and missing primary plate prevent promotion",
+      "abstention_reason": "shared ancestry and unverified scan provenance prevent promotion",
       "delivery_state": "withhold",
       "version": "2026-08-30-h2-text-scope-v1",
       "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
@@ -266,6 +269,27 @@
       "version": "2026-08-30-h2-text-scope-v1",
       "adjudication_path": "11_text-scope-and-box-alignment-adjudication.md#claim-recording-contract"
     }
+  },
+  "heji_plate2_local_visual_receipt": {
+    "evidence_id": "ev-h2-ia-heji-vol1-plate2",
+    "item_url": "https://archive.org/details/06-14822-19753",
+    "iiif_url": "https://iiif.archive.org/image/iiif/3/06-14822-19753%2F%E7%AC%AC01%E5%86%8A%EF%BC%9A00001%E2%80%94%E2%80%9401139_jp2.zip%2F%E7%AC%AC01%E5%86%8A%EF%BC%9A00001%E2%80%94%E2%80%9401139_jp2%2F%E7%AC%AC01%E5%86%8A%EF%BC%9A00001%E2%80%94%E2%80%9401139_0000.jp2/full/2889,/0/default.jpg",
+    "scan_member_suffix": "_0000.jp2",
+    "local_ignored_path": "tmp/source_downloads/dl-ia-heji-vol1-leaf0000-review-20260830.jpg",
+    "size_bytes": 1167146,
+    "sha256": "fa64aa17b2d018b974529f710c9f4d53d3b75c5633a56a46a6e436fb5854d6c2",
+    "pixel_dimensions": [2889, 4338],
+    "printed_object_number": "2",
+    "printed_page_number": "1",
+    "visual_result": "printed_2_visible_and_object_matches_h2_candidate_route",
+    "template_route_correlation": 0.92378,
+    "template_route_original_region_xywh": [1774, 514, 1000, 1154],
+    "probability_status": "not_a_probability_routing_aid_only",
+    "rights_status": "metadata_only_until_verified",
+    "public_visibility": "local_private_only_no_image_committed",
+    "source_ancestry": "Heji image tradition_not_independent",
+    "access_date": "2026-08-30",
+    "claim_effect": "C1_remains_candidate_route"
   },
   "public_aggregator_mismatch": {
     "page_url": "https://www.guoxuedashi.com/jgwhj/?bh=2&bhfl=1",

@@ -25870,7 +25870,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         current_baseline_path = (
             repo_root()
             / "doc/project/005_ai-agent-research-assistant-design/"
-            / "03_current-operating-baseline-2026-08-30.md"
+            / "04_current-operating-baseline-2026-08-30-ihp-anchor.md"
         )
         current_baseline = current_baseline_path.read_text(encoding="utf-8")
         required_terms = {
@@ -25897,7 +25897,7 @@ class RepositorySkeletonTests(unittest.TestCase):
         self.assertTrue(current_audit_path.exists())
         self.assertTrue(current_baseline_path.exists())
         self.assertIn(
-            "[2026-08-30 current operating baseline][current-baseline]",
+            "[2026-08-30 IHP-anchored operating baseline][current-baseline]",
             strategy,
         )
         self.assertIn("current_operating_baseline", current_baseline)

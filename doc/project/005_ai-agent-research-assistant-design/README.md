@@ -166,12 +166,13 @@ Every earlier verdict remains in version history.
 ## 5. Current-State Diagnosis / 当前状态诊断
 
 The current filesystem is authoritative. The replaceable operational snapshot
-is the [2026-08-30 current operating baseline][current-baseline]. The
-[2026-08-14 audit][historical-audit] is a historical frozen receipt.
+is the [2026-08-30 IHP-anchored operating baseline][current-baseline]. The
+earlier 2026-08-30 baseline and the [2026-08-14 audit][historical-audit] are
+historical frozen receipts.
 
 当前磁盘状态具有最高权威。可替换的运行快照是
-[2026-08-30 当前运行基线][current-baseline]。[2026-08-14 审计]
-[historical-audit]是 historical frozen receipt，仅保留历史回执。
+[2026-08-30 史语所锚定运行基线][current-baseline]。较早的
+2026-08-30 基线和[2026-08-14 审计][historical-audit]都是历史冻结回执。
 
 The preprocessing closure dated `2026-08-07` records a broad traceable
 archive. Its counts are bound to commit `c58eea95a97`. A later read-only
@@ -1262,7 +1263,7 @@ AI 与用户假说继续放在 `doc/public/user_research/`，已发表研究笔�
 `research/`。`ai_adjudicated_candidate` 不会自动跨越这两个研究区。
 
 [benchmark-v2]: ../../../schemas/007_ai-agent-benchmark-experiment-schema/
-[current-baseline]: 03_current-operating-baseline-2026-08-30.md
+[current-baseline]: 04_current-operating-baseline-2026-08-30-ihp-anchor.md
 [historical-audit]: 01_current-state-audit-2026-08-14.md
 
 ## 20. Source Notes / 来源说明

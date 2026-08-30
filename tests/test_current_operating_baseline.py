@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASELINE = (
     ROOT
     / "doc/project/005_ai-agent-research-assistant-design/"
-    / "03_current-operating-baseline-2026-08-30.md"
+    / "04_current-operating-baseline-2026-08-30-ihp-anchor.md"
 )
 
 
@@ -16,7 +16,7 @@ class CurrentOperatingBaselineTests(unittest.TestCase):
         for marker in (
             "current_operating_baseline",
             "2026-08-30",
-            "b7db600ef3806b9c5984025a88e40ceef9a3c595",
+            "d1d1653ce90fb9949807dedf50ee577d13747a22",
             "not a second normative strategy",
             "不是第二份规范战略",
             "Gate 0",
@@ -31,7 +31,7 @@ class CurrentOperatingBaselineTests(unittest.TestCase):
             "文件数量",
             "SYS_FLD_SYSID=124308",
             "SYS_FLD_SYSID=263185",
-            "same platform",
+            "one platform family",
             "HTTP 406",
         ):
             self.assertIn(marker, text)
@@ -68,7 +68,7 @@ class CurrentOperatingBaselineTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn(
-            "[2026-08-30 current operating baseline][current-baseline]",
+            "[2026-08-30 IHP-anchored operating baseline][current-baseline]",
             strategy,
         )
         self.assertIn("historical frozen receipt", strategy)

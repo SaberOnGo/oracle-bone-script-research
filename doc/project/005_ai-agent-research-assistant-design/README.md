@@ -372,6 +372,175 @@ only after task-specific calibration.
 `route_integrity_confidence` 与 `hypothesis_probability` 必须分开。前者
 表示路线或映射可信程度，后者只有在任务级校准后才允许出现。
 
+## 8.1 Network Search And Evidence Routing / 网络搜索与证据路由
+
+The network is an evidence-routing instrument, not a popularity ranking. Its
+purpose is to find the next source that can most sharply support or falsify a
+registered proposition.
+
+网络是证据路由工具，不是网页热度排名。它的目的，是找到最可能明确支持
+或推翻已登记命题的下一项来源。
+
+Every search starts from an object-local dossier and a claim card. Before an
+agent queries the web, it records the stable project ID, external aliases,
+traditional and simplified forms, catalog abbreviations, and known false
+aliases. Search-engine wording is never silently promoted to evidence.
+
+每次搜索都从对象目录内档案和命题卡开始。Agent 查询网络前，先记录稳定的
+项目 ID、外部别名、繁简字形、著录缩写和已知错误别名。搜索引擎生成的词语
+不得被静默提升为证据。
+
+### Layered search order / 分层搜索顺序
+
+Search proceeds in layers, with each layer answering a different question:
+
+搜索按层进行，每层只回答一种不同问题：
+
+1. institutional catalogues and museum records for object identity,
+   collection, accession, findspot, and rights;
+2. source-edition plates, rubbings, photographs, and facsimiles for visible
+   material and plate-level identity;
+3. inscription and context databases for sentence scope, neighbours, order,
+   and occurrence routes;
+4. published scholarship for proposers, dates, arguments, corrections,
+   competing readings, and dispute history;
+5. bronze, seal, and later-form sources for diachronic comparison only after
+   the earlier layers are open;
+6. package, checksum, rights, and dependency records before any derivative is
+   counted or delivered.
+
+1. 机构著录和博物馆记录：核对对象身份、馆藏、登录号、出土地和权利；
+2. 底本图版、拓片、照片和摹本：查看实物及图版级身份；
+3. 卜辞和上下文数据库：恢复句子范围、邻字、顺序和字例路线；
+4. 已发表研究：记录提出者、日期、论证、订正、不同释读和争议史；
+5. 金文、小篆和后世字形：只有前几层打开后才用于历时比较；
+6. 包、校验和、权利和依赖记录：在计算或交付任何派生物前完成核对。
+
+### Search receipts / 搜索回执
+
+Each query is a reproducible source event. Its receipt records the exact
+query, site or endpoint, timestamp, response URL, status code, content type,
+access or download path, size, checksum, rights signal, extraction method,
+and the concrete unresolved question left by the result.
+
+每次查询都是可复跑的来源事件。回执记录准确查询词、网站或接口、时间、响应
+URL、状态码、内容类型、访问或下载路径、大小、校验和、权利信号、抽取方法，
+以及该结果留下的具体未决问题。
+
+A result that returns only a label, a search hit, or a platform identifier is
+a route record. It is not a plate, a transcription, an identity decision, or
+a reading. HTTP errors and authentication walls are access boundaries, not
+negative evidence.
+
+只返回标签、搜索命中或平台 ID 的结果只是路线记录，不是图版、释文、身份
+裁决或释读。HTTP 错误和登录墙是访问边界，不是反面证据。
+
+### Graph rules / 图谱规则
+
+The graph stores objects, occurrences, pages, editions, claims, agents, and
+runs as distinct nodes. Edges are typed at minimum as `supports`,
+`contradicts`, `derives_from`, `duplicates`, `cites`, `co_occurs`,
+`same_object_candidate`, or `source_missing`.
+
+图谱把对象、字例、页面、版本、命题、Agent 和运行作为不同节点。边至少要
+区分 `supports`、`contradicts`、`derives_from`、`duplicates`、`cites`、
+`co_occurs`、`same_object_candidate` 和 `source_missing`。
+
+Every edge carries a source locator, checksum or snapshot identity when
+available, rights state, review status, time, and provenance family. A graph
+edge without a source locator remains a routing hint and cannot support a
+candidate.
+
+每条边都要带来源定位；若有条件，还要带校验和或快照身份、权利状态、复核
+状态、时间和来源家族。没有来源定位的图边只能作路由提示，不能支持候选。
+
+Support is counted by independent source family, not by edge, row, prompt,
+or agent count. The provenance graph collapses mirrors, copied images,
+derived OCR, shared transcriptions, and same-platform aliases before support
+is aggregated. Unknown ancestry is treated as dependent or unresolved, never
+as independent confirmation.
+
+支持按独立来源家族计数，不按图边、数据行、提示词或 Agent 数量计数。合并
+支持前，来源图必须折叠镜像、复制图像、派生 OCR、共享释文和同平台别名。
+祖先关系未知时记为依赖或未决，不能当作独立确认。
+
+Node degree, PageRank, or community size is useful for routing and duplicate
+discovery only. A high-degree source hub does not receive extra evidential
+weight, and a disconnected node is not evidence against a proposition.
+
+节点度数、PageRank 或社区大小只能用于路由和发现重复。高连接来源枢纽不因
+此增加证据权重；孤立节点也不能被解释为反对命题的证据。
+
+### Network analyses / 网络分析
+
+The network analyst runs five bounded diagnostics before a court sees a
+candidate:
+
+网络分析 Agent 在法庭查看候选前执行五项有边界的诊断：
+
+1. provenance components and communities to separate source families and
+   identify shared ancestors;
+2. duplicate and near-duplicate checks using checksums, image fingerprints,
+   OCR overlap, citation inheritance, and platform identifiers;
+3. temporal slices to expose future-literature, benchmark, and training
+   leakage;
+4. coverage-aware negative checks so an unindexed or inaccessible item is not
+   mistaken for a true absence;
+5. bridge and bottleneck checks to find the single next source that could
+   split competing identity or reading explanations.
+
+1. 用来源连通分量和社区拆分来源家族并识别共同祖先；
+2. 用校验和、图像指纹、OCR 重叠、引文继承和平台 ID 查重及近重复；
+3. 用时间切片发现未来文献、基准泄漏和训练泄漏；
+4. 做覆盖率感知的反面检查，不能把未编目或不可访问误当成真实缺失；
+5. 检查桥接点和瓶颈，寻找能区分身份或释读竞争解释的下一来源。
+
+The next-source priority is an information-gain heuristic, not a research
+probability:
+
+下一来源优先级是信息增益启发式，不是研究概率：
+
+```text
+priority = impact * falsification_power * independence_gain
+           * access_likelihood / cost
+```
+
+The factors are qualitative until a task-specific study validates them. The
+highest priority usually belongs to a source that can attack the strongest
+remaining assumption, not to the source with the most rows or images.
+
+在任务级研究验证前，上述因子只能作定性判断。最高优先级通常属于能攻击
+最强剩余假设的来源，而不是行数或图片最多的来源。
+
+### Handoff and stopping / 交接与停止
+
+The network agent delivers a human-readable route note containing the query
+history, family map, support and contradiction edges, access boundaries, and
+one concrete next-source question. JSON, CSV, and graph files sit beside that
+note as audit support.
+
+网络 Agent 交付人类可读的路由说明，包含查询历史、来源家族图、支持与反证
+边、访问边界和一个具体下一来源问题。JSON、CSV 和图文件只作为该说明旁边
+的审计辅助资料。
+
+Two blinded research courts receive family-labelled evidence slices, not a
+network popularity score. The final AI adjudicator may deliver a candidate
+without prior human-specialist approval, but only after the same calibration,
+rights, leakage, and falsification gates in this strategy pass.
+
+两个盲隔离研究法庭接收标明来源家族的证据切片，不接收网络热度分数。最终
+AI 裁判可以在没有真人专家预先批准时交付候选，但仍必须通过本战略规定的
+校准、权利、泄漏和反证门槛。
+
+If one high-value route produces only metadata, the case remains open but the
+claim remains withheld. If a second search adds no independent edge, the
+system stops crawling and changes the research question or records abstention.
+Endless inventory growth is not network progress.
+
+如果一条高价值路线仍只产生 metadata，案件可以保留，但命题必须扣留。如果
+第二次搜索没有增加独立图边，系统停止爬取，转向新的研究问题或记录弃权。
+无止境增加清单不算网络进展。
+
 ## 9. Independent Agent Courts / 独立 Agent 法庭
 
 Each candidate is examined by two blinded research courts and one calibration

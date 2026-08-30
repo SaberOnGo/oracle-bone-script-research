@@ -86,6 +86,15 @@ class NingxiaHyz421PublishedReadingConflictTests(unittest.TestCase):
             "C5",
             "C6",
             "abstain",
+            "Access network update",
+            "访问网络更新",
+            "BA87991247",
+            "0wfLzQEACAAJ",
+            "O_KozQEACAAJ",
+            "222.14||Ka/43",
+            "author-context routes",
+            "not independent page-level",
+            "不改变冲突裁决",
         ):
             self.assertIn(marker, page)
         self.assertNotIn("high_confidence", page)

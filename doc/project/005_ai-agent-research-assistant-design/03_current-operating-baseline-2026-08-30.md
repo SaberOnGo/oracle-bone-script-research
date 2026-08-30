@@ -5,7 +5,7 @@
 - Status / 状态: `current_operating_baseline`
 - Effective date / 生效日期: `2026-08-30`
 - Bound commit / 绑定提交:
-  `02e6fd7f27920b1a22970f77e8993e3c3c52c8cc`
+  `b7db600ef3806b9c5984025a88e40ceef9a3c595`
 - Research state / 研究状态: `preformal_evidence_opening`
 - Probability channel / 概率通道: `withheld`
 
@@ -115,6 +115,18 @@ to same-sign, variant, reading, or meaning.
 HUST 的 50 个来源成员已全部打开，覆盖 13 个来源号组。现有证据只支持
 C2 视觉观察和“数据集分组有争议”。强混组反证阻止把它提升为同字、
 异体、释读或意义候选。
+
+The official Yinqi Wenyuan search added one `合14496` record
+(`SYS_FLD_SYSID=124308`) and one cross-edition `甲3472` record
+(`SYS_FLD_SYSID=263185`). Their 150-pixel thumbnails are visually compatible
+but not pixel-identity evidence. Both routes belong to the same platform, so
+they are one source family. The detail endpoint returned HTTP 406 with a login
+boundary; no full authorized plate has been opened.
+
+殷契文渊官方检索新增一条 `合14496`（`SYS_FLD_SYSID=124308`）和一条
+跨著录 `甲3472`（`SYS_FLD_SYSID=263185`）。两张 150 像素缩略图在视觉上
+相容，但不是像素同一证据。两条路线属于同一平台，只算一个来源家族。
+详情接口返回 HTTP 406 并要求登录；尚未打开获准的完整图版。
 
 Next decisive action: choose the strongest split pair and open an independent
 catalog or inscription source. Do not generate another image inventory.

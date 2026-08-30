@@ -134,6 +134,57 @@ mistakes the plate number on `leaf 150` for page 421. That leaf is actually
 镜像自动页码文件把 `leaf 150` 的图版号误识为页码 421；该页实际是
 `p. 1427`、对象 398。已核对象照片位于 `leaf 175`、第 1452 页。
 
+## Access network update / 访问网络更新
+
+On 2026-08-30, four bibliographic routes were checked for the unopened Han
+book. CiNii Books record `BA87991247` gives the 2007.4 edition, ISBN
+`9787801066688`, a 679-page extent, and nine holding libraries, including
+Kyoto University with call number `222.14||Ka/43`.
+
+2026-08-30 对尚未打开的韩书核查了四条书目路线。CiNii Books 条目
+`BA87991247` 记录 2007 年 4 月版、ISBN `9787801066688`、679 页，列出
+九所藏书馆，其中京都大学索书号为 `222.14||Ka/43`。
+
+Google Books record `0wfLzQEACAAJ` reports 692 pages, while the alternate
+record `O_KozQEACAAJ` reports 679 pages. Both routes expose bibliographic
+metadata or snippet-view navigation only; the checked pages expose no scanned
+text or downloadable PDF for pp. 350--354.
+
+Google Books 条目 `0wfLzQEACAAJ` 报告 692 页，另一条
+`O_KozQEACAAJ` 报告 679 页。两条路线只提供书目 metadata 或片段预览
+导航；本次检查没有发现第 350--354 页的扫描文字或可下载 PDF。
+
+The Toho Shotten listing records the same ISBN and a 2008.07 commercial
+printing with 692 pages. The Anyang Normal University author page confirms
+Han Jiangsu's research field and lists related Huadong H3 work. These are
+bibliographic and author-context routes, not independent page-level reading
+witnesses.
+
+东方书店条目记录同一 ISBN、2008 年 7 月商业印刷和 692 页。安阳师范学院
+作者页确认韩江苏的研究方向，并列出相关花东 H3 研究。这些只是书目和作者
+背景路线，不是独立的逐页释读见证。
+
+The checked routes narrow the shortest lawful acquisition path but do not
+open Han pp. 350--354. They therefore do not change the conflict decision,
+the source ancestry, or the `abstain_withhold` state.
+
+已核路线缩小了最短合法取得路径，但没有打开韩书第 350--354 页。因此它们
+不改变冲突裁决、来源祖先链或 `abstain_withhold` 状态。
+
+Bibliographic routes:
+
+书目路线：
+
+- CiNii Books: <https://ci.nii.ac.jp/ncid/BA87991247>
+- Google Books (692-page record):
+  <https://books.google.com/books?id=0wfLzQEACAAJ>
+- Google Books (679-page record):
+  <https://books.google.com/books?id=O_KozQEACAAJ>
+- Toho Shotten: <https://www.toho-shoten.co.jp/toho-web/search/detail?
+  bookType=ch&id=194926>
+- Anyang Normal University author page:
+  <https://lsx.aynu.edu.cn/info/1076/3964.htm>
+
 The current main gate for semantic adjudication is
 `Han_2007_pp350_354_pending_direct_check`. CiNii records a first edition in
 April 2007 and first printing in July 2008. Google Books reports no scanned

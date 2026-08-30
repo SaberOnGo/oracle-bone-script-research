@@ -16,7 +16,7 @@ class CurrentOperatingBaselineTests(unittest.TestCase):
         for marker in (
             "current_operating_baseline",
             "2026-08-30",
-            "02e6fd7f27920b1a22970f77e8993e3c3c52c8cc",
+            "b7db600ef3806b9c5984025a88e40ceef9a3c595",
             "not a second normative strategy",
             "不是第二份规范战略",
             "Gate 0",
@@ -29,6 +29,10 @@ class CurrentOperatingBaselineTests(unittest.TestCase):
             "calibrated probability",
             "file count",
             "文件数量",
+            "SYS_FLD_SYSID=124308",
+            "SYS_FLD_SYSID=263185",
+            "same platform",
+            "HTTP 406",
         ):
             self.assertIn(marker, text)
 

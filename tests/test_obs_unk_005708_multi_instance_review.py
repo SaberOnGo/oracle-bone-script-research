@@ -19,6 +19,7 @@ OBJECT = (
 )
 DOSSIER = OBJECT / "17_multi-instance-visual-comparison.md"
 RECEIPT = OBJECT / "18_multi-instance-visual-receipt.json"
+CATALOG_ROUTE = OBJECT / "19_external-triage-and-catalog-route.md"
 RAW_ZIP = (
     ROOT
     / "external_local_archive"
@@ -103,6 +104,42 @@ class ObsUnk005708MultiInstanceReviewTests(unittest.TestCase):
         self.assertIn("## Research Boundary / 研究边界", text)
         violations = [
             f"{number}:{len(line)}"
+            for number, line in enumerate(text.splitlines(), 1)
+            if len(line) > 80
+        ]
+        self.assertEqual([], violations)
+
+    def test_external_catalog_route_is_bounded_and_falsifiable(self) -> None:
+        text = CATALOG_ROUTE.read_text(encoding="utf-8-sig")
+        for marker in (
+            "candidate_route_only",
+            "X/1264",
+            "U61812",
+            "0.6742",
+            "only `19.7%` agreement",
+            "The score is not a probability",
+            "full_rebuild_blocked",
+            "does not include two inputs",
+            "合14496（甲3472）",
+            "Jitilin route `3068`",
+            "Evidence Ancestry / 证据谱系",
+            "Counterevidence And Failure Risks / 反证与失败风险",
+            "Falsification And Strengthening / 证伪与增强条件",
+            "C8 new decipherment / 新破译: `withhold`",
+            "source_marked_upstream_rights_unresolved",
+        ):
+            self.assertIn(marker, text)
+        self.assertNotIn("identity_confirmed", text)
+        self.assertNotIn("reading_confirmed", text)
+        self.assertNotIn("not_collected", text)
+        self.assertNotIn("TODO", text)
+
+    def test_external_catalog_route_is_exposed_and_within_line_limit(self):
+        entrance = (OBJECT / "README.md").read_text(encoding="utf-8-sig")
+        self.assertIn("19_external-triage-and-catalog-route.md", entrance)
+        text = CATALOG_ROUTE.read_text(encoding="utf-8-sig")
+        violations = [
+            (number, len(line))
             for number, line in enumerate(text.splitlines(), 1)
             if len(line) > 80
         ]

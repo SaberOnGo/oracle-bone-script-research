@@ -18,6 +18,8 @@ verify the human-readable evidence.
   `14_material-visual-observation.md`
 - Human-readable multi-instance comparison / 人类可读多实例比较:
   `17_multi-instance-visual-comparison.md`
+- Human-readable external catalog route / 人类可读外部著录路线:
+  `19_external-triage-and-catalog-route.md`
 - Human-readable research dossier / 人类可读研究档案: `05_human-research-dossier.md`
 - Human-readable context dossier / 人类可读语境档案:
   `08_character-context-evidence-dossier.md`
@@ -73,6 +75,9 @@ Structured support files only serve the human oracle-character dossier.
 - Dataset grouping review / 数据集分组复核: `disputed_candidate`
 - Exact visual receipt / 精确图像回执:
   `18_multi-instance-visual-receipt.json`
+- External catalog route / 外部著录路线:
+  `X/1264 -> U61812 -> 合14496（甲3472） -> Jitilin 3068`
+- Route adjudication / 路线裁决: `candidate_route_only`
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are

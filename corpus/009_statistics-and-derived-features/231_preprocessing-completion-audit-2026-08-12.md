@@ -104,7 +104,7 @@ engineering does not substitute for literature work.
 ### Progress opened after this audit / 审计后已打开的进展
 
 The following material-depth gains were completed between `2026-08-12` and
-`2026-08-28`.
+`2026-08-30`.
 They reduce three zero-instance gaps but do not change the overall
 `not_complete` result:
 
@@ -168,8 +168,14 @@ They reduce three zero-instance gaps but do not change the overall
   pages do not cross-list `R044498` and `188493-0529`, so the result remains
   an institution-internal crosswalk candidate. A failed root rerun records
   an expired TLS certificate and an access-block response.
+- `obs-unk-005708` now binds all 50 HUST `X/1264` members to an external
+  triage row and a fresh official API receipt. The reported route is
+  `X/1264 -> U61812 -> 合14496（甲3472） -> Jitilin 3068`. The similarity
+  score is not a probability, the class remains disputed, and the deposit
+  lacks two inputs needed for a full model rebuild. The route is therefore
+  an auditable catalog candidate, not an identity or decipherment.
 
-`2026-08-12` 至 `2026-08-27` 完成了下列资料深度改进。它们减少了
+`2026-08-12` 至 `2026-08-30` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
 
 - 六个已选单字对象新增对象特异的文件名证据复核，覆盖 93 个
@@ -214,6 +220,11 @@ They reduce three zero-instance gaps but do not change the overall
 - 史语所 503 号对象新增 `188493-0529` / `《丙》0529` 的公开数字典藏拓片
   路线及字节、图像回执。两页没有互列 `R044498` 与 `188493-0529`，所以
   仍是机构内交叉候选。根 Agent 失败复跑记录了 TLS 证书过期和访问阻断。
+- `obs-unk-005708` 现把 HUST `X/1264` 的 50 个成员与一项外部筛查数据行、
+  一份官方接口新回执连在一起。来源报告路线为
+  `X/1264 -> U61812 -> 合14496（甲3472） -> 字统 3068`。相似度不是概率，
+  类别仍有混组争议，且归档包缺少完整重建模型所需的两个输入。因此它只是
+  可审计的著录候选，不是身份或破译结论。
 
 The H2 record still lacks the exact Heji edition plate and a reviewed
 character-to-transcription alignment. The selected characters still lack

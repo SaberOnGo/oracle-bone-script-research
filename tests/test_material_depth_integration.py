@@ -102,6 +102,8 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             "one HUST-OBC 2024 item-level paper dossier",
             "different object scopes and timing premises",
             "institution-internal crosswalk candidate",
+            "`obs-unk-005708` now binds all 50 HUST `X/1264` members",
+            "auditable catalog candidate, not an identity or decipherment",
             "Requirements 8, 9, and 10 therefore remain incomplete",
             "Audit result / 审计结论: `not_complete`",
         ):

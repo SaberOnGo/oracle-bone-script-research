@@ -36751,6 +36751,21 @@ def check_ai_agent_benchmark_contract(root: Path) -> list[str]:
     )
     if adjudicator_enum != ["ai_agent", "agent_panel"]:
         issues.append(f"{relative} adjudicator enum permits non-AI review")
+    pilot_path = root / "tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py"
+    try:
+        pilot_text = pilot_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        issues.append(f"{pilot_path.relative_to(root)} cannot be read: {exc}")
+    else:
+        for marker in (
+            "lock-adjudication",
+            "ADJUDICATOR_RUNTIME_FIELDS",
+            "human_packet_sha256",
+        ):
+            if marker not in pilot_text:
+                issues.append(
+                    f"{pilot_path.relative_to(root)} missing {marker}"
+                )
     return issues
 
 

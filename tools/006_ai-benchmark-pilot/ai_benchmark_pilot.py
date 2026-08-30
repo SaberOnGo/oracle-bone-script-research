@@ -12,6 +12,7 @@ import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+from textwrap import wrap
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -262,6 +263,60 @@ LOCKED_RUN_FIELDS = {
     "run",
     "caution",
 }
+ADJUDICATOR_OUTPUT_FIELDS = {
+    "case_id",
+    "decision",
+    "selected_candidate_id",
+    "abstention_reason_code",
+    "best_alternative_candidate_id",
+    "disagreement_resolution",
+    "evidence_blockers",
+    "hard_opposition",
+    "ood_status",
+    "falsification_summary",
+    "probability_status",
+    "delivery_status",
+    "rationale",
+    "next_source_question",
+}
+ADJUDICATOR_RUNTIME_FIELDS = {
+    "adjudicator_id",
+    "execution_id",
+    "model_id",
+    "model_family",
+    "context_id",
+    "fresh_context",
+    "prior_run_output_access",
+    "gold_access",
+    "training_knowledge",
+    "input_run_ids",
+    "evidence_snapshot_sha256",
+    "retrieval_snapshot_sha256",
+    "tool_manifest_sha256",
+    "output_lock_sha256",
+}
+LOCKED_ADJUDICATION_FIELDS = {
+    "schema_version",
+    "record_type",
+    *DIAGNOSTIC_FIELDS,
+    "calibration_status",
+    "delivery_status",
+    "frozen_input_sha256",
+    "case_candidate_manifest_sha256",
+    "public_commitment_sha256",
+    "protocol_sha256",
+    "locked_run_sha256s",
+    "input_run_ids",
+    "source_rights_summary",
+    "leakage_summary",
+    "adjudicator_runtime",
+    "adjudicator_output_sha256",
+    "adjudication_output_lock_sha256",
+    "adjudicator_output",
+    "locked_at",
+    "human_packet_sha256",
+    "caution",
+}
 
 
 class PilotError(ValueError):
@@ -403,6 +458,20 @@ def _contains_answer_token(value: str) -> bool:
     return bool(tokens & ANSWER_PATH_TOKENS)
 
 
+def _reject_answer_bearing_text_file(path: Path, label: str) -> None:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return
+    except OSError as exc:
+        raise PilotError(f"{label} could not be read: {exc}") from exc
+    patterns = PROMPT_ANSWER_PATTERNS + (
+        re.compile(r"\b(?:peer_output|prior_run_output)\b", re.I),
+    )
+    if any(pattern.search(text) for pattern in patterns):
+        raise PilotError(f"answer-bearing {label} content is forbidden")
+
+
 def _validate_timestamp(value: object, label: str) -> str:
     if not isinstance(value, str) or not re.fullmatch(
         r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z",
@@ -420,6 +489,23 @@ def _require_string(value: object, label: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise PilotError(f"{label} must be a non-empty string")
     return value
+
+
+def _require_digest(value: object, label: str) -> str:
+    if not isinstance(value, str) or not SHA256_RE.fullmatch(value):
+        raise PilotError(f"{label} must be a lowercase SHA-256 digest")
+    return value
+
+
+def _write_text_exclusive(path: Path, value: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with path.open("x", encoding="utf-8", newline="\n") as stream:
+            stream.write(value)
+    except FileExistsError as exc:
+        raise PilotError("output already exists; refusing to overwrite") from exc
+    except OSError as exc:
+        raise PilotError(f"output could not be created: {exc}") from exc
 
 
 def _require_exact_fields(
@@ -1357,6 +1443,469 @@ def lock_run(args: argparse.Namespace) -> Path:
     return output_path
 
 
+def _validate_adjudicator_output(
+    adjudicator_output: dict[str, object],
+    case: dict[str, object],
+) -> None:
+    _require_exact_fields(
+        adjudicator_output,
+        ADJUDICATOR_OUTPUT_FIELDS,
+        "adjudicator output",
+    )
+    if adjudicator_output.get("case_id") != case.get("case_id"):
+        raise PilotError("adjudicator output case_id does not match the frozen case")
+    candidate_ids = case.get("candidate_ids")
+    if not isinstance(candidate_ids, list) or not all(
+        isinstance(item, str) for item in candidate_ids
+    ):
+        raise PilotError("frozen candidate universe is invalid")
+    candidate_set = set(candidate_ids)
+    decision = adjudicator_output.get("decision")
+    if decision not in {"predict", "abstain"}:
+        raise PilotError("adjudicator decision must be predict or abstain")
+    selected = adjudicator_output.get("selected_candidate_id")
+    reason = adjudicator_output.get("abstention_reason_code")
+    if decision == "predict":
+        if selected not in candidate_set or reason is not None:
+            raise PilotError(
+                "predict adjudication must select a candidate without an "
+                "abstention reason"
+            )
+    else:
+        if selected is not None or not isinstance(reason, str) or not reason.strip():
+            raise PilotError(
+                "abstain adjudication must clear the candidate and provide a "
+                "reason"
+            )
+    best_alternative = adjudicator_output.get("best_alternative_candidate_id")
+    if best_alternative not in candidate_set:
+        raise PilotError(
+            "best alternative must belong to the frozen candidate universe"
+        )
+    if decision == "predict" and best_alternative == selected:
+        raise PilotError("best alternative must differ from the selected candidate")
+    blockers = adjudicator_output.get("evidence_blockers")
+    if not isinstance(blockers, list) or any(
+        not isinstance(item, str) or not item.strip() for item in blockers
+    ):
+        raise PilotError("adjudicator evidence_blockers must be non-empty strings")
+    if type(adjudicator_output.get("hard_opposition")) is not bool:
+        raise PilotError("adjudicator hard_opposition must be a boolean")
+    if adjudicator_output.get("ood_status") not in {
+        "in_domain",
+        "out_of_calibration_domain",
+    }:
+        raise PilotError("adjudicator ood_status is invalid")
+    if adjudicator_output.get("probability_status") != "not_generated":
+        raise PilotError(
+            "diagnostic adjudication must mark probability_status=not_generated"
+        )
+    if adjudicator_output.get("delivery_status") != "withheld":
+        raise PilotError("diagnostic adjudication delivery must remain withheld")
+    for field in (
+        "disagreement_resolution",
+        "falsification_summary",
+        "rationale",
+        "next_source_question",
+    ):
+        _require_string(adjudicator_output.get(field), f"adjudicator {field}")
+
+
+def _validate_locked_run_for_adjudication(
+    locked: dict[str, object],
+    locked_path: Path,
+    frozen: dict[str, object],
+    case: dict[str, object],
+    evidence_hashes: set[str],
+    public_sha256: str,
+    protocol_sha256: str,
+) -> tuple[str, dict[str, object]]:
+    _require_exact_fields(locked, LOCKED_RUN_FIELDS, "locked run")
+    expected_values = {
+        "record_type": "ai_benchmark_diagnostic_locked_run",
+        "diagnostic_status": "diagnostic_only",
+        "research_boundary": "benchmark_pilot_not_scholarship",
+        "pretraining_exposure": "unknown",
+        "benchmark_eligibility": "pretraining_exposure_unknown",
+        "probability_status": "uncalibrated_agent_distribution",
+        "calibration_status": "not_calibrated",
+        "delivery_status": "withheld",
+        "gate3_status": "not_attempted",
+    }
+    for field, expected in expected_values.items():
+        if locked.get(field) != expected:
+            raise PilotError(f"locked run {field} must be {expected}")
+    if locked.get("frozen_input_sha256") != frozen.get("frozen_input_sha256"):
+        raise PilotError("locked run does not bind the frozen input")
+    if locked.get("case_candidate_manifest_sha256") != frozen.get(
+        "case_candidate_manifest_sha256"
+    ):
+        raise PilotError("locked run does not bind the frozen candidates")
+    if locked.get("public_commitment_sha256") != public_sha256:
+        raise PilotError("locked run does not bind the public commitment")
+    if locked.get("prompt_manifest_sha256") != protocol_sha256:
+        raise PilotError("locked run does not bind the committed protocol")
+    for field in (
+        "run_opening_sha256",
+        "public_commitment_sha256",
+        "prompt_manifest_sha256",
+        "agent_output_sha256",
+        "prediction_lock_sha256",
+    ):
+        _require_digest(locked.get(field), f"locked run {field}")
+    run = locked.get("run")
+    if not isinstance(run, dict):
+        raise PilotError("locked run is missing its run report")
+    _require_exact_fields(run, RUN_REPORT_FIELDS, "locked run report")
+    forbidden_routes = _answer_field_routes(run)
+    if forbidden_routes:
+        raise PilotError(
+            "answer-bearing locked run field is forbidden: "
+            + forbidden_routes[0]
+        )
+    if hashlib.sha256(_canonical_bytes(run)).hexdigest() != locked.get(
+        "prediction_lock_sha256"
+    ):
+        raise PilotError("locked run prediction lock does not match its report")
+    if run.get("frozen_input_sha256") != frozen.get("frozen_input_sha256"):
+        raise PilotError("locked run report does not bind the frozen input")
+    if run.get("prompt_manifest_sha256") != protocol_sha256:
+        raise PilotError("locked run report does not bind the committed protocol")
+    if run.get("agent_output_sha256") != locked.get("agent_output_sha256"):
+        raise PilotError("locked run Agent output binding is inconsistent")
+    for field in (
+        "run_id",
+        "execution_id",
+        "agent_id",
+        "model_id",
+        "model_family",
+        "context_id",
+    ):
+        _require_string(run.get(field), f"locked run {field}")
+    if run.get("role") not in {
+        "primary",
+        "execution_rerun",
+        "model_independent_rerun",
+    }:
+        raise PilotError("locked run role is invalid")
+    if run.get("fresh_context") is not True:
+        raise PilotError("locked run must use a fresh context")
+    if run.get("prior_run_output_access") != "none":
+        raise PilotError("locked run must deny prior run output access")
+    if run.get("gold_access") != "sealed_unavailable":
+        raise PilotError("locked run must keep gold sealed and unavailable")
+    locked_at = _validate_timestamp(locked.get("locked_at"), "locked_at")
+    completed_at = _validate_timestamp(run.get("completed_at"), "completed_at")
+    _validate_timestamp(run.get("started_at"), "started_at")
+    if not completed_at < locked_at:
+        raise PilotError("locked run timestamps must satisfy completed < locked")
+    prediction = run.get("prediction")
+    _validate_prediction(prediction, case, evidence_hashes)
+    assert isinstance(prediction, dict)
+    leakage = prediction.get("leakage_assessment")
+    assert isinstance(leakage, dict)
+    return str(run["run_id"]), {
+        "locked_run_sha256": _sha256_file(locked_path),
+        "locked_at": locked_at,
+        "agent_id": run["agent_id"],
+        "execution_id": run["execution_id"],
+        "model_id": run["model_id"],
+        "model_family": run["model_family"],
+        "context_id": run["context_id"],
+        "leakage_status": leakage["status"],
+        "leakage_types": leakage["types"],
+    }
+
+
+def _render_human_adjudication_packet(
+    output: dict[str, object],
+) -> str:
+    report = output["adjudicator_output"]
+    runtime = output["adjudicator_runtime"]
+    assert isinstance(report, dict)
+    assert isinstance(runtime, dict)
+    lines = [
+        "# Diagnostic Adjudication Receipt / 诊断裁决回执",
+        "",
+        "This is a diagnostic binding receipt, not a calibrated probability,",
+        "a decipherment result, or published scholarship.",
+        "本文件是诊断绑定回执，不是校准概率、释读结果或已发表学术成果。",
+        "",
+        "## Decision / 决定",
+        "",
+    ]
+
+    def add(label: str, value: object) -> None:
+        if value is None:
+            text_value = "none / 无"
+        elif isinstance(value, list):
+            text_value = ", ".join(str(item) for item in value) or "none"
+        else:
+            text_value = str(value)
+        lines.extend(
+            wrap(
+                f"- {label}: {text_value}",
+                width=78,
+                subsequent_indent="  ",
+                break_long_words=True,
+                break_on_hyphens=False,
+            )
+            or [f"- {label}:"]
+        )
+
+    add("Case / 案件", report["case_id"])
+    add("Decision / 决定", report["decision"])
+    add("Selected candidate / 选定候选", report["selected_candidate_id"])
+    add("Best alternative / 最佳替代", report["best_alternative_candidate_id"])
+    add("Abstention reason / 弃权原因", report["abstention_reason_code"])
+    add("Evidence blockers / 证据阻断", report["evidence_blockers"])
+    add("Hard opposition / 致命反证", report["hard_opposition"])
+    add("OOD status / 适用域", report["ood_status"])
+    add("Disagreement resolution / 分歧处理", report["disagreement_resolution"])
+    add("Falsification summary / 反证摘要", report["falsification_summary"])
+    add("Rationale / 裁决理由", report["rationale"])
+    add("Next source question / 下一来源问题", report["next_source_question"])
+    add("Probability / 概率", report["probability_status"])
+    add("Delivery / 交付", report["delivery_status"])
+    lines.extend(["", "## Bound Runtime / 已绑定运行", ""])
+    add("Frozen input / 冻结输入", output["frozen_input_sha256"])
+    add(
+        "Candidate manifest / 候选 manifest",
+        output["case_candidate_manifest_sha256"],
+    )
+    add("Public commitment / 公开 commitment", output["public_commitment_sha256"])
+    add("Protocol / 协议", output["protocol_sha256"])
+    add("Locked run hashes / 锁定运行 hash", output["locked_run_sha256s"])
+    add("Adjudicator output hash / 裁决输出 hash", output["adjudicator_output_sha256"])
+    add("Source rights / 来源权利", output["source_rights_summary"])
+    add("Leakage status / 泄漏状态", output["leakage_summary"])
+    add("Adjudicator / 裁决 Agent", runtime["adjudicator_id"])
+    add("Execution / 执行", runtime["execution_id"])
+    add("Model / 模型", runtime["model_id"])
+    add("Model family / 模型家族", runtime["model_family"])
+    add("Context / 上下文", runtime["context_id"])
+    add("Training knowledge / 训练知识", runtime["training_knowledge"])
+    add("Input runs / 输入运行", runtime["input_run_ids"])
+    add("Evidence snapshot / 证据快照", runtime["evidence_snapshot_sha256"])
+    add("Retrieval snapshot / 检索快照", runtime["retrieval_snapshot_sha256"])
+    add("Tool manifest / 工具清单", runtime["tool_manifest_sha256"])
+    add("Output lock / 输出锁定", runtime["output_lock_sha256"])
+    lines.extend(
+        [
+            "",
+            "## Boundary / 边界",
+            "",
+            "The pilot always withholds delivery. A later v2 experiment must",
+            "supply its own calibration, external scoring, and human package.",
+            "本试点始终扣留交付。后续 v2 实验仍须提供独立校准、外部评分和",
+            "完整人类交付包。",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def lock_adjudication(args: argparse.Namespace) -> Path:
+    frozen_path = _require_ignored(Path(args.frozen_case), "frozen case")
+    public_path = _require_ignored(
+        Path(args.public_commitment), "public commitment"
+    )
+    adjudicator_path = _require_ignored(
+        Path(args.adjudicator_output), "adjudicator output"
+    )
+    retrieval_path = _require_ignored(
+        Path(args.retrieval_snapshot), "retrieval snapshot"
+    )
+    tool_path = _require_ignored(Path(args.tool_manifest), "tool manifest")
+    locked_paths = [
+        _require_ignored(Path(path), "locked run")
+        for path in args.locked_run
+    ]
+    output_path = _require_ignored(Path(args.output), "output")
+    human_path = _require_ignored(Path(args.human_output), "human output")
+    input_paths = {
+        frozen_path,
+        public_path,
+        adjudicator_path,
+        retrieval_path,
+        tool_path,
+        *locked_paths,
+    }
+    if output_path in input_paths or human_path in input_paths:
+        raise PilotError("adjudication outputs must differ from their inputs")
+    if output_path == human_path:
+        raise PilotError("JSON and human adjudication outputs must differ")
+    if output_path.exists() or human_path.exists():
+        raise PilotError("output already exists; refusing to overwrite")
+    if len(locked_paths) < 2:
+        raise PilotError("lock-adjudication requires at least two locked runs")
+    if len(locked_paths) != len(set(locked_paths)):
+        raise PilotError("locked run paths must be unique")
+    for path, label in (
+        (adjudicator_path, "adjudicator output"),
+        (retrieval_path, "retrieval snapshot"),
+        (tool_path, "tool manifest"),
+    ):
+        if not path.is_file():
+            raise PilotError(f"{label} does not exist")
+    _reject_answer_bearing_text_file(retrieval_path, "retrieval snapshot")
+    _reject_answer_bearing_text_file(tool_path, "tool manifest")
+    _reject_answer_bearing_text_file(adjudicator_path, "adjudicator output")
+
+    frozen = _load_object(frozen_path, "frozen case")
+    case, evidence_hashes = _validate_frozen_case(frozen)
+    public = _load_object(public_path, "public commitment")
+    sealed_at = _validate_public_commitment_for_scoring(public, frozen)
+    protocol_sha256 = _require_digest(
+        public.get("protocol_sha256"),
+        "public commitment protocol_sha256",
+    )
+    adjudicator_output = _load_object(adjudicator_path, "adjudicator output")
+    _validate_adjudicator_output(adjudicator_output, case)
+    adjudicator_output_sha256 = _sha256_file(adjudicator_path)
+    output_lock_sha256 = hashlib.sha256(
+        _canonical_bytes(adjudicator_output)
+    ).hexdigest()
+    snapshots = frozen.get("file_snapshots")
+    assert isinstance(snapshots, list)
+    source_rights_summary = [
+        (
+            f"{snapshot['source_id']}: rights={snapshot['rights_status']}; "
+            f"delivery={snapshot['allowed_delivery_form']}; "
+            f"dependency={snapshot['dependency_review_status']}; "
+            f"risk={snapshot['risk_note']}"
+        )
+        for snapshot in snapshots
+        if isinstance(snapshot, dict)
+    ]
+
+    public_sha256 = _sha256_file(public_path)
+    run_ids: list[str] = []
+    run_receipts: list[dict[str, object]] = []
+    run_agent_ids: set[str] = set()
+    run_execution_ids: set[str] = set()
+    run_model_ids: set[str] = set()
+    run_model_families: set[str] = set()
+    run_context_ids: set[str] = set()
+    for locked_path in locked_paths:
+        locked = _load_object(locked_path, "locked run")
+        run_id, receipt = _validate_locked_run_for_adjudication(
+            locked,
+            locked_path,
+            frozen,
+            case,
+            evidence_hashes,
+            public_sha256,
+            protocol_sha256,
+        )
+        run_ids.append(run_id)
+        run_receipts.append(receipt)
+        run_agent_ids.add(str(receipt["agent_id"]))
+        run_execution_ids.add(str(receipt["execution_id"]))
+        run_model_ids.add(str(receipt["model_id"]))
+        run_model_families.add(str(receipt["model_family"]))
+        run_context_ids.add(str(receipt["context_id"]))
+    if len(run_ids) != len(set(run_ids)):
+        raise PilotError("locked run IDs must be unique")
+    leakage_summary = [
+        (
+            f"{run_id}: status={receipt['leakage_status']}; "
+            f"types={', '.join(str(item) for item in receipt['leakage_types'])}"
+        )
+        for run_id, receipt in zip(run_ids, run_receipts)
+    ]
+
+    locked_at = _validate_timestamp(args.locked_at, "locked_at")
+    if locked_at <= sealed_at or any(
+        locked_at <= str(receipt["locked_at"]) for receipt in run_receipts
+    ):
+        raise PilotError(
+            "adjudication timestamps must be after gold sealing and every "
+            "locked run"
+        )
+    identity = {
+        "adjudicator_id": _require_string(args.adjudicator_id, "adjudicator_id"),
+        "execution_id": _require_string(args.execution_id, "execution_id"),
+        "model_id": _require_string(args.model_id, "model_id"),
+        "model_family": _require_string(args.model_family, "model_family"),
+        "context_id": _require_string(args.context_id, "context_id"),
+    }
+    if identity["adjudicator_id"] in run_agent_ids:
+        raise PilotError("adjudicator_id must not reuse a research-court agent")
+    if identity["execution_id"] in run_execution_ids:
+        raise PilotError(
+            "adjudicator execution_id must not reuse a research-court execution"
+        )
+    if identity["context_id"] in run_context_ids:
+        raise PilotError("adjudicator context_id must be a fresh context")
+    if identity["model_id"] in run_model_ids:
+        raise PilotError("adjudicator model_id must be independent of research runs")
+    if identity["model_family"] in run_model_families:
+        raise PilotError(
+            "adjudicator model_family must be independent of research runs"
+        )
+    training_knowledge = args.training_knowledge
+    if training_knowledge not in {"unknown", "documented"}:
+        raise PilotError("adjudicator training knowledge is invalid")
+    runtime = {
+        **identity,
+        "fresh_context": True,
+        "prior_run_output_access": "none",
+        "gold_access": "sealed_unavailable",
+        "training_knowledge": training_knowledge,
+        "input_run_ids": run_ids,
+        "evidence_snapshot_sha256": frozen["frozen_input_sha256"],
+        "retrieval_snapshot_sha256": _sha256_file(retrieval_path),
+        "tool_manifest_sha256": _sha256_file(tool_path),
+        "output_lock_sha256": output_lock_sha256,
+    }
+    _require_exact_fields(runtime, ADJUDICATOR_RUNTIME_FIELDS, "adjudicator runtime")
+    output_without_human_hash = {
+        "schema_version": "0.1.0",
+        "record_type": "ai_benchmark_diagnostic_locked_adjudication",
+        **DIAGNOSTIC_FIELDS,
+        "calibration_status": "not_calibrated",
+        "delivery_status": "withheld",
+        "frozen_input_sha256": frozen["frozen_input_sha256"],
+        "case_candidate_manifest_sha256": frozen[
+            "case_candidate_manifest_sha256"
+        ],
+        "public_commitment_sha256": public_sha256,
+        "protocol_sha256": protocol_sha256,
+        "locked_run_sha256s": [
+            str(receipt["locked_run_sha256"]) for receipt in run_receipts
+        ],
+        "input_run_ids": run_ids,
+        "source_rights_summary": source_rights_summary,
+        "leakage_summary": leakage_summary,
+        "adjudicator_runtime": runtime,
+        "adjudicator_output_sha256": adjudicator_output_sha256,
+        "adjudication_output_lock_sha256": output_lock_sha256,
+        "adjudicator_output": adjudicator_output,
+        "locked_at": locked_at,
+        "caution": (
+            "Diagnostic adjudication binding only; no calibrated probability, "
+            "candidate delivery, Gate 3 authorization, decipherment result, "
+            "or published scholarship is created."
+        ),
+    }
+    human_text = _render_human_adjudication_packet(output_without_human_hash)
+    output = {
+        **output_without_human_hash,
+        "human_packet_sha256": hashlib.sha256(
+            human_text.encode("utf-8")
+        ).hexdigest(),
+    }
+    _require_exact_fields(
+        output,
+        LOCKED_ADJUDICATION_FIELDS,
+        "locked adjudication",
+    )
+    _write_json_exclusive(output_path, output)
+    _write_text_exclusive(human_path, human_text)
+    return output_path
+
+
 def _validate_public_commitment_for_scoring(
     public: dict[str, object],
     frozen: dict[str, object],
@@ -1707,6 +2256,29 @@ def _build_parser() -> argparse.ArgumentParser:
     locked.add_argument("--agent-output", required=True)
     locked.add_argument("--locked-at", required=True)
     locked.add_argument("--output", required=True)
+    adjudication = subparsers.add_parser(
+        "lock-adjudication",
+        help="bind one independent diagnostic adjudication",
+    )
+    adjudication.add_argument("--frozen-case", required=True)
+    adjudication.add_argument("--public-commitment", required=True)
+    adjudication.add_argument("--locked-run", action="append", required=True)
+    adjudication.add_argument("--adjudicator-output", required=True)
+    adjudication.add_argument("--retrieval-snapshot", required=True)
+    adjudication.add_argument("--tool-manifest", required=True)
+    adjudication.add_argument("--adjudicator-id", required=True)
+    adjudication.add_argument("--execution-id", required=True)
+    adjudication.add_argument("--model-id", required=True)
+    adjudication.add_argument("--model-family", required=True)
+    adjudication.add_argument("--context-id", required=True)
+    adjudication.add_argument(
+        "--training-knowledge",
+        choices=["unknown", "documented"],
+        required=True,
+    )
+    adjudication.add_argument("--locked-at", required=True)
+    adjudication.add_argument("--output", required=True)
+    adjudication.add_argument("--human-output", required=True)
     scoring = subparsers.add_parser(
         "score-local",
         help="score one retired ignored-local negative-control diagnostic",
@@ -1735,6 +2307,9 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "lock-run":
             output = lock_run(args)
             print(f"PASS diagnostic locked run: {output}")
+        elif args.command == "lock-adjudication":
+            output = lock_adjudication(args)
+            print(f"PASS diagnostic adjudication lock: {output}")
         else:
             output = score_local(args)
             print(f"PASS local diagnostic score: {output}")

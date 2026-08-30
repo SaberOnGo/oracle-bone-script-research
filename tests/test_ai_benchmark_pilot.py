@@ -555,6 +555,107 @@ class AIBenchmarkPilotCLITests(unittest.TestCase):
         )
         return self._run(*arguments)
 
+    def _write_adjudicator_output(self, frozen: dict[str, object]) -> Path:
+        path = self.work_dir / "adjudicator-output.json"
+        path.write_text(
+            json.dumps(
+                {
+                    "case_id": frozen["case"]["case_id"],
+                    "decision": "abstain",
+                    "selected_candidate_id": None,
+                    "abstention_reason_code": "diagnostic_not_calibrated",
+                    "best_alternative_candidate_id": "candidate-opaque-a",
+                    "disagreement_resolution": (
+                        "Both locked runs remain diagnostic and do not clear "
+                        "the source or calibration blockers."
+                    ),
+                    "evidence_blockers": [
+                        "No clean holdout or external scoring receipt exists."
+                    ],
+                    "hard_opposition": False,
+                    "ood_status": "out_of_calibration_domain",
+                    "falsification_summary": (
+                        "The locked run falsification checks remain inconclusive."
+                    ),
+                    "probability_status": "not_generated",
+                    "delivery_status": "withheld",
+                    "rationale": (
+                        "This diagnostic adjudication cannot authorize a user "
+                        "candidate."
+                    ),
+                    "next_source_question": (
+                        "Which independent source can open the missing context "
+                        "and establish a clean calibration route?"
+                    ),
+                },
+                ensure_ascii=False,
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        return path
+
+    def _lock_adjudication(
+        self,
+        frozen_path: Path,
+        public_path: Path,
+        locked_paths: list[Path],
+        adjudicator_path: Path,
+        output_path: Path,
+        human_path: Path,
+        **identity: str,
+    ) -> subprocess.CompletedProcess[str]:
+        retrieval_path = self.work_dir / "retrieval-snapshot.json"
+        if not retrieval_path.exists():
+            retrieval_path.write_text(
+                '{"snapshot":"diagnostic-retrieval-000001"}\n',
+                encoding="utf-8",
+            )
+        tool_path = self.work_dir / "tool-manifest.json"
+        if not tool_path.exists():
+            tool_path.write_text(
+                '{"tool":"ai-benchmark-pilot","version":"0.1.0"}\n',
+                encoding="utf-8",
+            )
+        arguments = [
+            "lock-adjudication",
+            "--frozen-case",
+            str(frozen_path),
+            "--public-commitment",
+            str(public_path),
+        ]
+        for locked_path in locked_paths:
+            arguments.extend(["--locked-run", str(locked_path)])
+        arguments.extend(
+            [
+                "--adjudicator-output",
+                str(adjudicator_path),
+                "--retrieval-snapshot",
+                str(retrieval_path),
+                "--tool-manifest",
+                str(tool_path),
+                "--adjudicator-id",
+                identity.get("adjudicator_id", "adjudicator-agent-000001"),
+                "--execution-id",
+                identity.get("execution_id", "adjudicator-execution-000001"),
+                "--model-id",
+                identity.get("model_id", "adjudicator-model-000001"),
+                "--model-family",
+                identity.get("model_family", "adjudicator-family-000001"),
+                "--context-id",
+                identity.get("context_id", "adjudicator-context-000001"),
+                "--training-knowledge",
+                identity.get("training_knowledge", "unknown"),
+                "--locked-at",
+                "2026-08-12T00:05:00Z",
+                "--output",
+                str(output_path),
+                "--human-output",
+                str(human_path),
+            ]
+        )
+        return self._run(*arguments)
+
     def test_freeze_hashes_real_allowed_files_and_marks_diagnostic_boundary(self):
         metadata_path = self._write_metadata(self._case_metadata())
         output_path = self.work_dir / "frozen-case.json"
@@ -1645,6 +1746,222 @@ class AIBenchmarkPilotCLITests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("answer-bearing prompt content", result.stderr)
         self.assertFalse(output_path.exists())
+
+    def test_lock_adjudication_binds_runtime_and_writes_human_packet(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        output_path = self.work_dir / "locked-adjudication.json"
+        human_path = self.work_dir / "adjudication-memo.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("PASS diagnostic adjudication lock", result.stdout)
+        receipt = json.loads(output_path.read_text(encoding="utf-8"))
+        runtime = receipt["adjudicator_runtime"]
+        self.assertEqual(
+            receipt["record_type"],
+            "ai_benchmark_diagnostic_locked_adjudication",
+        )
+        self.assertEqual(receipt["delivery_status"], "withheld")
+        self.assertEqual(receipt["probability_status"], "not_generated")
+        self.assertEqual(runtime["input_run_ids"], [
+            "pilot-run-primary-000001",
+            "pilot-run-execution-000002",
+        ])
+        self.assertEqual(runtime["gold_access"], "sealed_unavailable")
+        self.assertTrue(runtime["fresh_context"])
+        self.assertEqual(runtime["prior_run_output_access"], "none")
+        self.assertRegex(runtime["output_lock_sha256"], r"^[0-9a-f]{64}$")
+        self.assertEqual(len(receipt["source_rights_summary"]), 2)
+        self.assertEqual(len(receipt["leakage_summary"]), 2)
+        self.assertEqual(
+            receipt["human_packet_sha256"],
+            hashlib.sha256(human_path.read_bytes()).hexdigest(),
+        )
+        human = human_path.read_text(encoding="utf-8")
+        self.assertIn("Diagnostic Adjudication Receipt", human)
+        self.assertIn("始终扣留", human)
+        self.assertNotIn("commitment_key_hex", output_path.read_text(encoding="utf-8"))
+        self.assertNotIn("gold_candidate_id", output_path.read_text(encoding="utf-8"))
+        self.assertTrue(all(len(line) <= 80 for line in human.splitlines()))
+
+    def test_lock_adjudication_rejects_reused_model_family(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        output_path = self.work_dir / "must-not-exist.json"
+        human_path = self.work_dir / "must-not-exist.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+            model_family="diagnostic-family-000001",
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("model_family must be independent", result.stderr)
+        self.assertFalse(output_path.exists())
+        self.assertFalse(human_path.exists())
+
+    def test_lock_adjudication_rejects_reused_execution_identity(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        output_path = self.work_dir / "must-not-exist.json"
+        human_path = self.work_dir / "must-not-exist.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+            execution_id="pilot-execution-000001",
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("execution_id must not reuse", result.stderr)
+        self.assertFalse(output_path.exists())
+        self.assertFalse(human_path.exists())
+
+    def test_lock_adjudication_rejects_reused_context_identity(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        output_path = self.work_dir / "must-not-exist.json"
+        human_path = self.work_dir / "must-not-exist.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+            context_id="fresh-context-000001",
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("context_id must be a fresh context", result.stderr)
+        self.assertFalse(output_path.exists())
+        self.assertFalse(human_path.exists())
+
+    def test_lock_adjudication_rejects_candidate_delivery_in_diagnostic_report(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        report = json.loads(adjudicator_path.read_text(encoding="utf-8"))
+        report["delivery_status"] = "ai_adjudicated_candidate"
+        adjudicator_path.write_text(json.dumps(report), encoding="utf-8")
+        output_path = self.work_dir / "must-not-exist.json"
+        human_path = self.work_dir / "must-not-exist.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("delivery must remain withheld", result.stderr)
+        self.assertFalse(output_path.exists())
+        self.assertFalse(human_path.exists())
+
+    def test_lock_adjudication_rejects_answer_bearing_retrieval_snapshot(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        retrieval_path = self.work_dir / "retrieval-snapshot.json"
+        retrieval_path.write_text(
+            '{"gold_candidate_id":"candidate-opaque-a"}\n',
+            encoding="utf-8",
+        )
+        output_path = self.work_dir / "must-not-exist.json"
+        human_path = self.work_dir / "must-not-exist.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("answer-bearing retrieval snapshot", result.stderr)
+        self.assertFalse(output_path.exists())
+        self.assertFalse(human_path.exists())
+
+    def test_lock_adjudication_requires_two_unique_locked_runs(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        output_path = self.work_dir / "must-not-exist.json"
+        human_path = self.work_dir / "must-not-exist.md"
+
+        result = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths[:1],
+            adjudicator_path,
+            output_path,
+            human_path,
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("at least two locked runs", result.stderr)
+        self.assertFalse(output_path.exists())
+        self.assertFalse(human_path.exists())
+
+    def test_lock_adjudication_refuses_to_overwrite_json_or_human_output(self):
+        frozen_path, public_path, _, locked_paths = self._prepare_scoring_inputs()
+        frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+        adjudicator_path = self._write_adjudicator_output(frozen)
+        output_path = self.work_dir / "locked-adjudication.json"
+        human_path = self.work_dir / "adjudication-memo.md"
+        first = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+        )
+        self.assertEqual(first.returncode, 0, first.stderr)
+        original_json = output_path.read_bytes()
+        original_human = human_path.read_bytes()
+
+        second = self._lock_adjudication(
+            frozen_path,
+            public_path,
+            locked_paths,
+            adjudicator_path,
+            output_path,
+            human_path,
+        )
+
+        self.assertNotEqual(second.returncode, 0)
+        self.assertIn("output already exists", second.stderr)
+        self.assertEqual(output_path.read_bytes(), original_json)
+        self.assertEqual(human_path.read_bytes(), original_human)
 
     def test_score_local_passes_only_when_every_blind_run_matches_null_gold(self):
         frozen_path, public_path, private_path, locked_paths = (

@@ -1113,6 +1113,15 @@ inside a declared domain. Otherwise the numerical channel remains withheld.
 最终裁决必须绑定全新运行，其模型家族不得属于研究法庭，并保持 gold
 封存、完整绑定所有锁定运行输入。
 
+The diagnostic pilot's `lock-adjudication` command is a binding step for this
+runtime contract. It accepts an externally produced adjudicator report,
+verifies its locked inputs, and writes a bilingual human memo. It is not a
+model executor, a calibration result, or a Gate 3 pass.
+
+诊断试点的 `lock-adjudication` 命令用于落实这项运行合同。它接收外部生成
+的裁决报告，核验锁定输入并写出双语人类说明。它不是模型执行器、校准结果，
+也不代表 Gate 3 已通过。
+
 Exit: at least one eligible holdout and one negative control are reproduced
 end to end with no known route leakage and explicit pretraining status.
 

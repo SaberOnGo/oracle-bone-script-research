@@ -25849,6 +25849,11 @@ class RepositorySkeletonTests(unittest.TestCase):
             schema["$defs"]["sealed_gold"]["properties"]["storage_class"]["enum"],
         )
         self.assertIn("human_delivery_package", schema["required"])
+        pilot_path = repo_root() / "tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py"
+        pilot = pilot_path.read_text(encoding="utf-8")
+        self.assertIn("lock-adjudication", pilot)
+        self.assertIn("ADJUDICATOR_RUNTIME_FIELDS", pilot)
+        self.assertIn("human_packet_sha256", pilot)
 
     def test_ai_agent_strategy_keeps_autonomous_candidate_boundary(self) -> None:
         strategy_path = (

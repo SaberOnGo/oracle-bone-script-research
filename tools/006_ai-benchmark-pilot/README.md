@@ -209,6 +209,65 @@ for that candidate requires abstention. The time chain must satisfy
 时间链必须满足 `sealed < opened < started < completed < locked`。输出始终
 标为未校准 Agent 分布、未校准且不交付。
 
+## Lock One Adjudication / 锁定一次裁决
+
+`lock-adjudication` binds an externally produced final-adjudicator report to
+all locked runs. It requires a fresh context, sealed gold, new agent and
+execution identities, a model and model family not used by the research runs,
+the frozen evidence hash, and retrieval and tool-manifest hashes. It does not
+run a model or read private gold.
+
+`lock-adjudication` 把外部生成的最终裁决报告绑定到全部锁定运行。它要求
+全新上下文、封存 gold、新的 Agent 和执行身份、未用于研究运行的模型及
+模型家族、冻结证据 hash，以及检索快照和工具 manifest 的 hash。它不运行
+模型，也不读取私有 gold。
+
+The adjudicator JSON must contain exactly these fields:
+
+```text
+case_id, decision, selected_candidate_id, abstention_reason_code,
+best_alternative_candidate_id, disagreement_resolution, evidence_blockers,
+hard_opposition, ood_status, falsification_summary, probability_status,
+delivery_status, rationale, next_source_question
+```
+
+`probability_status` must be `not_generated` and `delivery_status` must be
+`withheld`. The command writes a JSON binding and a bilingual Markdown memo;
+the Markdown memo is the human-facing result. Both outputs must stay ignored.
+
+裁决 JSON 必须严格包含上述字段。`probability_status` 必须为
+`not_generated`，`delivery_status` 必须为 `withheld`。命令同时写入 JSON
+绑定和双语 Markdown 说明，Markdown 说明是面向人的结果；两个输出都必须
+位于 Git 忽略区。
+
+```powershell
+python tools/006_ai-benchmark-pilot/ai_benchmark_pilot.py `
+  lock-adjudication `
+  --frozen-case .working/pilot/frozen-case.json `
+  --public-commitment .working/pilot/public-commitment.json `
+  --locked-run .working/pilot/locked-run-primary.json `
+  --locked-run .working/pilot/locked-run-rerun.json `
+  --adjudicator-output .working/pilot/adjudicator-output.json `
+  --retrieval-snapshot .working/pilot/retrieval-snapshot.json `
+  --tool-manifest .working/pilot/tool-manifest.json `
+  --adjudicator-id adjudicator-agent-000001 `
+  --execution-id adjudicator-execution-000001 `
+  --model-id adjudicator-model-000001 `
+  --model-family adjudicator-family-000001 `
+  --context-id adjudicator-context-000001 `
+  --training-knowledge documented `
+  --locked-at 2026-08-12T00:05:00Z `
+  --output .working/pilot/locked-adjudication.json `
+  --human-output .working/pilot/adjudication-memo.md
+```
+
+This remains a diagnostic receipt. It always keeps probability and candidate
+delivery withheld; a complete v2 experiment still needs calibration, external
+one-shot scoring, and the full human delivery package.
+
+这仍然只是诊断回执。它始终扣留概率和候选交付；完整 v2 实验仍须具备
+校准、外部一次性评分和完整人类交付包。
+
 ## Score One Local Diagnostic / 评分一次本地诊断
 
 `score-local` only supports a frozen `null_or_negative_control`. It requires

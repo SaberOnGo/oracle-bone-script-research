@@ -1,7 +1,10 @@
 {
   "record_type": "character_human_research_readiness_index",
   "project_id": "obs-unk-005708",
-  "updated_at": "2026-07-04",
+  "source_member_visual_review": "direct_checked",
+  "dataset_grouping": "disputed_candidate",
+  "glyph_identity_review": "withheld",
+  "updated_at": "2026-08-30",
   "object_dir": "corpus/001_oracle-characters/074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate",
   "human_readable_files": [
     "README.md",
@@ -11,14 +14,16 @@
     "08_character-context-evidence-dossier.md",
     "14_material-visual-observation.md",
     "10_archaeology-paleography-review.md",
-    "12_human-research-readiness-review.md"
+    "12_human-research-readiness-review.md",
+    "17_multi-instance-visual-comparison.md"
   ],
   "ai_support_files": [
     "01_undeciphered-candidate-packet.json",
     "02_visual-source-index.csv",
     "07_research-dossier-index.json",
     "09_character-context-evidence-index.json",
-    "11_archaeology-paleography-index.json"
+    "11_archaeology-paleography-index.json",
+    "18_multi-instance-visual-receipt.json"
   ],
   "readiness_slots": [
     "opened_glyph_image_observation",
@@ -44,7 +49,8 @@
     "which manifest checksum field map rights note and risk note apply"
   ],
   "quality_blockers": [
-    "glyph_observation_not_reviewed_from_opened_image",
+    "glyph_identity_withheld_after_source_member_review",
+    "dataset_grouping_disputed_without_authoritative_plate_context",
     "variant_near_form_comparison_pending",
     "component_assignment_not_reviewed",
     "inscription_context_not_tied_to_opened_text",
@@ -70,7 +76,10 @@
     "first_committed_image": "001_asset-000004_hust-X-005708_glyph.png",
     "first_source_image_route": "X_？_1176_1.png",
     "rights_status": "source_marked_risk_noted",
-    "review_status": "needs_human_visual_review"
+    "review_status": "all_members_opened_grouping_disputed",
+    "opened_raw_member_count": 50,
+    "source_number_group_count": 13,
+    "dataset_grouping": "disputed_candidate"
   },
   "graph_route_summary": {
     "edge_count": 1,
@@ -87,7 +96,7 @@
   "claim_boundary": [
     "no formal oracle-character record promotion",
     "no accepted reading",
-    "no reviewed glyph observation claim",
+    "no confirmed glyph identity claim",
     "no component assignment",
     "no inscription identity claim",
     "no later-script correspondence",

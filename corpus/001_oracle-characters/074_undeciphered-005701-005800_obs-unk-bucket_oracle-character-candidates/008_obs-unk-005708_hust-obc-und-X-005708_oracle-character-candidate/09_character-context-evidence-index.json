@@ -1,7 +1,7 @@
 {
   "record_type": "character_context_evidence_dossier_index",
   "project_id": "obs-unk-005708",
-  "updated_at": "2026-06-23",
+  "updated_at": "2026-08-30",
   "object_dir": "corpus/001_oracle-characters/074_undeciphered-005701-005800_obs-unk-bucket_oracle-character-candidates/008_obs-unk-005708_hust-obc-und-X-005708_oracle-character-candidate",
   "human_readable_files": [
     "README.md",
@@ -9,13 +9,15 @@
     "05_human-research-dossier.md",
     "06_human-review-sheet.md",
     "08_character-context-evidence-dossier.md",
-    "14_material-visual-observation.md"
+    "14_material-visual-observation.md",
+    "17_multi-instance-visual-comparison.md"
   ],
   "ai_support_files": [
     "01_*packet.json",
     "02_visual-source-index.csv",
     "07_research-dossier-index.json",
-    "09_character-context-evidence-index.json"
+    "09_character-context-evidence-index.json",
+    "18_multi-instance-visual-receipt.json"
   ],
   "packet_file": "01_undeciphered-candidate-packet.json",
   "source_route_summary": {
@@ -42,7 +44,9 @@
     "first_source_ref": "X_？_1176_1.png",
     "first_committed_image": "001_asset-000004_hust-X-005708_glyph.png",
     "rights_status": "source_marked_risk_noted",
-    "review_status": "needs_human_visual_review"
+    "review_status": "all_members_opened_grouping_disputed",
+    "opened_raw_member_count": 50,
+    "source_number_group_count": 13
   },
   "graph_route_summary": {
     "edge_count": 1,

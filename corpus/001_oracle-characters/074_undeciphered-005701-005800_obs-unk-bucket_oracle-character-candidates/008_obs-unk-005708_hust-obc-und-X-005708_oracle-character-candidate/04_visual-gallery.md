@@ -31,7 +31,7 @@ not a component conclusion, and not a decipherment conclusion.
 
 ## obs-unk-005708-visual-source-001 / 图像条目
 
-![obs-unk-005708 glyph candidate](03_visual-assets/001_asset-000004_hust-X-005708_glyph.png)
+![glyph candidate](03_visual-assets/001_asset-000004_hust-X-005708_glyph.png)
 
 - Local image / 本地图像:
   `03_visual-assets/001_asset-000004_hust-X-005708_glyph.png`

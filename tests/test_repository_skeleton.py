@@ -4788,10 +4788,11 @@ class RepositorySkeletonTests(unittest.TestCase):
                 "source_manifest_checksum_field_map_risk",
             ]:
                 self.assertIn(field, readiness_index["readiness_slots"])
-            self.assertIn(
-                "glyph_observation_not_reviewed_from_opened_image",
-                readiness_index["quality_blockers"],
-            )
+            if readiness_index.get("source_member_visual_review") == "direct_checked":
+                visual_blocker = "glyph_identity_withheld_after_source_member_review"
+            else:
+                visual_blocker = "glyph_observation_not_reviewed_from_opened_image"
+            self.assertIn(visual_blocker, readiness_index["quality_blockers"])
             self.assertIn(
                 "source_manifest_checksum_field_map_risk_unreviewed",
                 readiness_index["quality_blockers"],

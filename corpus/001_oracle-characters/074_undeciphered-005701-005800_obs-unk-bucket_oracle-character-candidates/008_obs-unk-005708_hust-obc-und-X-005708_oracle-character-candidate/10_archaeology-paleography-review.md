@@ -34,6 +34,7 @@ accepted here.
 ## 2. Open First / 先打开的材料
 
 - `04_visual-gallery.md`
+- `17_multi-instance-visual-comparison.md`
 - `05_human-research-dossier.md`
 - `06_human-review-sheet.md`
 - `08_character-context-evidence-dossier.md`
@@ -50,6 +51,17 @@ accepted here.
 - first source image: `X_？_1176_1.png`
 - image rights status: `source_marked_risk_noted`
 - image review status: `needs_human_visual_review`
+- opened visual members: `50`
+- source-number groups: `13`
+- dataset grouping: `disputed_candidate`
+- exact receipt: `18_multi-instance-visual-receipt.json`
+
+The 50-member comparison records a common central-axis and lower-branch
+scaffold, but strong outliers remain in groups `1179`, `1186`, `1187`, and
+`1188`. The current source class is not accepted as one glyph identity.
+
+50 图比较记录了常见的中央轴和下部枝笔骨架，但 `1179`、`1186`、`1187`、
+`1188` 组仍有明显离群成员。当前来源类别不作为单一字形身份接受。
 
 Questions:
 - Which strokes, outlines, damage, or uncertain marks are visible?

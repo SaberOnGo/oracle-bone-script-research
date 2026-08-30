@@ -98,10 +98,11 @@
     "source_reported_scope": "being_at_an_untranscribed_place_and_avoiding_rain",
     "place_graph_status": "specialized_font_not_safely_transcribed",
     "immediate_claim_ancestor": "Han_Jiangsu_2007_printed_pages_351_353",
-    "deeper_ancestor": "source_edition_and_plate_not_yet_opened",
+    "deeper_ancestor": "2003_source_edition_pages_840_841_1452_1724_direct_checked",
     "conflict_with": "Schwartz_2019_HYZ421_two_repeated_ritual_food_entries",
     "independence_status": "published_reception_route_not_independent_plate_or_reading_witness",
     "adjudication_status": "high_value_conflict_candidate_pending_primary_source_check",
+    "remaining_hard_gate": "Han_2007_pp350_354_pending_direct_check",
     "local_ignored_path": "tmp/source_downloads/dl-kci-shin-2013-hyz421-reading-route-20260830.pdf",
     "pdf_size_bytes": 803095,
     "pdf_page_count": 26,
@@ -114,6 +115,78 @@
       "reported_positions": "Yao Xuan reads yi as offering viands; Cao Dingyun, Han Jiangsu, and Zheng Banghong treat yi as a sacrifice name with differing syntax",
       "target_scope": "comparative_not_direct_HYZ421",
       "claim_effect": "prevents_treating_the_Schwartz_semantic_gloss_as_undisputed"
+    },
+    "source_edition_2003_baseline": {
+      "review_status": "direct_checked",
+      "bibliographic_id": "CiNii_BA65606331",
+      "title": "殷墟花園莊東地甲骨",
+      "publisher": "云南人民出版社",
+      "publication_date": "2003-12",
+      "isbn": "7222038779",
+      "catalog_number": "HYZ 421",
+      "excavation_number": "H3:1325",
+      "physical_description": "龜腹甲 21.6×15.1cm",
+      "index_query": "key1=殷墟花園莊東地甲骨; key2=421%20; key3=; key4=name",
+      "index_result": "rubbing_840_facsimile_841_photo_1452_transcription_1724",
+      "mirror_identifier": "06_20221021_20221021_0343",
+      "mirror_source_role": "community_mirror_not_independent_evidence",
+      "mirror_rights": "not_authorized_for_redistribution_metadata_rights_fields_empty",
+      "pages": [
+        {
+          "printed_page": 840,
+          "volume": 3,
+          "leaf": 173,
+          "content": "拓片圖版383; 421 / H3:1325",
+          "local_ignored_path": "tmp/pdfs/hyz421-primary-mirror/p840-rubbing.jpg",
+          "size_bytes": 64071,
+          "sha256": "494489ce394b7e063b23f45b12955f70a7e2c0803be8a8fda53046d8918e32a7"
+        },
+        {
+          "printed_page": 841,
+          "volume": 3,
+          "leaf": 174,
+          "content": "摹本圖版383; 421 / H3:1325",
+          "local_ignored_path": "tmp/pdfs/hyz421-primary-mirror/p841-facsimile.jpg",
+          "size_bytes": 40107,
+          "sha256": "c138f2a4bb66986109c345e1c0a6c4b78456f77dfd5c68bbfc1323259c375302"
+        },
+        {
+          "printed_page": 1452,
+          "volume": 5,
+          "leaf": 175,
+          "content": "照片圖版446; 421 / H3:1325",
+          "local_ignored_path": "tmp/pdfs/hyz421-primary-mirror/p1452-photo421.jpg",
+          "size_bytes": 80913,
+          "sha256": "995490ca6340eab47fad59173bed87c697a9314af2cf8749c7eeb1b951288cb7"
+        },
+        {
+          "printed_page": 1724,
+          "volume": 6,
+          "leaf": 174,
+          "content": "421（H3:1325）龜腹甲; two repeated records",
+          "local_ignored_path": "tmp/pdfs/hyz421-primary-mirror/p1724-transcription-hi.jpg",
+          "size_bytes": 231333,
+          "sha256": "88758c47aac07676e0cff7efcacbc901aa28c41c313397341f2b9ed0fe8b2aa9"
+        }
+      ],
+      "counterevidence": "page_1724_has_no_explicit_modern_rain_avoidance_gloss",
+      "semantic_effect": "candidate_counterevidence_pending_Han_2007",
+      "semantic_scope": "not_final_adjudication_without_Han_pages",
+      "ocr_anomaly": "leaf_150_is_page_1427_object_398_not_page_421",
+      "access_date": "2026-08-30"
+    },
+    "han_2007_access_route": {
+      "cinii_ncid": "BA87991247",
+      "edition_statement": "2007-04 first edition; 2008-07 first printing",
+      "pages": "7, 2, 4, 679p",
+      "isbn": "9787801066688",
+      "kyoto_call_number": "222.14||Ka/43",
+      "kyoto_accession": "200009278278",
+      "requested_scope": "printed pages 350-354",
+      "google_books_scanned_text": false,
+      "google_books_download": false,
+      "internet_archive_exact_search_total": 0,
+      "review_status": "Han_2007_pp350_354_pending_direct_check"
     },
     "access_date": "2026-08-30",
     "falsifiers": [

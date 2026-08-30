@@ -36,7 +36,7 @@ class ObimdH2NlcCustodialPublicationTests(unittest.TestCase):
         )
         self.assertEqual(
             nlc["remaining_blocker"],
-            "stable_item_level_catalog_record_dimensions_and_collection_history_missing",
+            "physical_object_item_identifier_dimensions_material_and_collection_history_missing",
         )
         self.assertEqual(nlc["image_commit_status"], "not_committed_rights_restricted")
 

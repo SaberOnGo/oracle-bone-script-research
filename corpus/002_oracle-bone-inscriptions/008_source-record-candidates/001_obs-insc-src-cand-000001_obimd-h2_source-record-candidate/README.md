@@ -64,15 +64,24 @@ OBIMD 来源行没有可读释文或 OCR；机构页面文字只按来源报告�
 12. `12_heji-volume1-plate2-local-visual-receipt.md`: inspect the locally
     visible printed number `2`, scan receipt, rights risk, and remaining
     provenance blocker.
-13. Open `92_visual-crosswalk-replay-manifest.json` only after the human
+13. `13_nlc-rubbing-item-record-and-broken-object-link.md`: inspect the
+    NLC rubbing item, raw source text, image receipt, and failed object route.
+14. Open `92_visual-crosswalk-replay-manifest.json` only after the human
     investigation page; it is the machine-verifiable replay receipt.
-14. Open `90_source-record.json` and the CSV only as supporting indexes.
+15. Open `90_source-record.json` and the CSV only as supporting indexes.
 
 The local-only first-volume scan visibly labels the matching object `2`.
 This closes the missing printed-number check, but the scan has no verified
 license or institutional provenance. C1 therefore remains a candidate route.
 
+The NLC rubbing item directly checks `北圖14427`, `善9025`, and `合集2`, but
+its corresponding physical-object link is broken. The displayed dimensions
+belong to the rubbing record, not a verified physical bone record.
+
 本地专用的第一册扫描把相符对象清楚标作 `2`，因此“印刷编号尚未目视核对”
 这一缺口已经关闭。但扫描没有已核许可或机构来源链，C1 仍为候选路线。
+
+国图拓片条目直接核验 `北圖14427`、`善9025` 和 `合集2`，但其对应
+实物链接失效。页面尺寸属于拓片记录，不是已核实体骨片尺寸。
 
 本目录是预研究来源记录，不是释读、著录同一性或破译结论。

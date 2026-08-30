@@ -16,6 +16,8 @@ verify the human-readable evidence.
 - Human-readable visual gallery / 人类可读图像页: `04_visual-gallery.md`
 - Human-readable visual observation / 人类可读图像观察:
   `14_material-visual-observation.md`
+- Human-readable multi-instance comparison / 人类可读多实例比较:
+  `17_multi-instance-visual-comparison.md`
 - Human-readable research dossier / 人类可读研究档案: `05_human-research-dossier.md`
 - Human-readable context dossier / 人类可读语境档案:
   `08_character-context-evidence-dossier.md`
@@ -67,6 +69,10 @@ Structured support files only serve the human oracle-character dossier.
 - Committed glyph image / 已提交字形图像:
   03_visual-assets/001_asset-000004_hust-X-005708_glyph.png
 - Registered image routes / 已登记图像路线: `1`
+- Opened raw members / 已打开原包成员: `50`
+- Dataset grouping review / 数据集分组复核: `disputed_candidate`
+- Exact visual receipt / 精确图像回执:
+  `18_multi-instance-visual-receipt.json`
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are

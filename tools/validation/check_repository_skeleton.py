@@ -4027,8 +4027,12 @@ def check_character_directory_local_materials(root: Path) -> list[str]:
                     issues.append(
                         f"{readiness_index_path.relative_to(root).as_posix()} missing readiness slot: {field}"
                     )
+            if readiness_index.get("source_member_visual_review") == "direct_checked":
+                visual_blocker = "glyph_identity_withheld_after_source_member_review"
+            else:
+                visual_blocker = "glyph_observation_not_reviewed_from_opened_image"
             for blocker in [
-                "glyph_observation_not_reviewed_from_opened_image",
+                visual_blocker,
                 "source_manifest_checksum_field_map_risk_unreviewed",
             ]:
                 if blocker not in readiness_index.get("quality_blockers", []):

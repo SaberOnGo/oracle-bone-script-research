@@ -33,6 +33,27 @@ marked as candidate, source record, needs_review, or concrete pending checks.
 - rights status: `source_marked_risk_noted`
 - visual review: `needs_human_visual_review`
 
+### Opened Multi-instance Comparison / 已打开多实例比较
+
+All 50 registered raw members were opened and compared in
+`17_multi-instance-visual-comparison.md`. They cover 13 filename-number groups
+from `1176` through `1188`. The comparison finds a recurring central-axis and
+lower-branch scaffold, but also strong outliers that keep the HUST class at
+`dataset_grouping_disputed_candidate`.
+
+`17_multi-instance-visual-comparison.md` 已打开并比较全部 50 个登记原包成员，
+覆盖 `1176` 至 `1188` 的 13 个文件名编号组。比较发现反复出现的中央轴和
+下部枝笔骨架，也发现明显离群成员，因此 HUST 类别继续保持
+`dataset_grouping_disputed_candidate`。
+
+The exact hashes, byte sizes, compressed sizes, dimensions, and modes are in
+`18_multi-instance-visual-receipt.json`. This comparison audits source
+grouping; it does not assign variants, components, readings, or meanings.
+
+精确校验和、字节数、压缩字节数、尺寸和模式记录在
+`18_multi-instance-visual-receipt.json`。该比较只审计来源分组，不分配异体、
+构件、释读或意义。
+
 ### Primary Visual Material / 主要图像材料
 
 #### Visual Item 1 / 图像条目 1
@@ -327,6 +348,7 @@ a component assignment.
 - `01_*packet.json`
 - `02_visual-source-index.csv`
 - `04_visual-gallery.md`
+- `17_multi-instance-visual-comparison.md`
 - `06_human-review-sheet.md`
 - `07_research-dossier-index.json`
 - `08_character-context-evidence-dossier.md`

@@ -25,7 +25,9 @@ inscription context, or later-script relations.
 
 Current decision:
 - accepted reading: `not_reviewed`
-- glyph observation: `needs_human_visual_review`
+- source member visual review: `direct_checked`
+- dataset grouping: `disputed_candidate`
+- glyph identity review: `withheld`
 - component assignment: `not_reviewed`
 - inscription occurrence: `candidate_route_only`
 - later-script correspondence: `candidate_route_only`
@@ -33,7 +35,9 @@ Current decision:
 
 当前判断：
 - 已接受释读：`not_reviewed`
-- 字形观察：`needs_human_visual_review`
+- 来源成员视觉复核：`direct_checked`
+- 数据集分组：`disputed_candidate`
+- 字形身份复核：`withheld`
 - 构件归属：`not_reviewed`
 - 卜辞出现：`candidate_route_only`
 - 后世字形对应：`candidate_route_only`
@@ -42,6 +46,7 @@ Current decision:
 ## 2. Readiness Routes To Open / 需要打开的准备路线
 
 - Visual gallery: `04_visual-gallery.md`
+- Multi-instance comparison: `17_multi-instance-visual-comparison.md`
 - Human dossier: `05_human-research-dossier.md`
 - Human review sheet: `06_human-review-sheet.md`
 - Context evidence: `08_character-context-evidence-dossier.md`
@@ -64,7 +69,12 @@ They do not replace the human record.
 - local review images: `1`
 - source image routes: `50`
 - image rights status: `source_marked_risk_noted`
-- image review status: `needs_human_visual_review`
+- source member visual review: `direct_checked`
+- glyph identity review: `withheld`
+- opened visual members: `50`
+- source-number groups: `13`
+- dataset grouping: `disputed_candidate`
+- exact visual receipt: `18_multi-instance-visual-receipt.json`
 - graph edge count: `1`
 - graph edge types: CHARACTER_HAS_LOCAL_GLYPH_ASSET_CANDIDATE
 - route files: pending: check packet, source register, or graph route
@@ -80,7 +90,8 @@ It is not the oracle-character identity or accepted reading.
 
 ## 4. Formal-Research Blockers / 正式研究阻断项
 
-- Glyph image observation has not been written from opened images.
+- One local image and all 50 registered raw members have been opened, but the
+  source grouping remains disputed and lacks authoritative plate contexts.
 - Variant and near-form comparison remains a route, not a review.
 - Component clues are not assigned to a formal component structure.
 - Inscription occurrence and context are not tied to an opened text.
@@ -120,7 +131,7 @@ It is not the oracle-character identity or accepted reading.
 
 - not a formal oracle-character record promotion
 - not an accepted reading
-- not a glyph observation already reviewed from images
+- not a confirmed glyph identity from the reviewed source members
 - not a component assignment
 - not an inscription identity claim
 - not a later-script correspondence

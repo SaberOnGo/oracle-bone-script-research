@@ -173,7 +173,13 @@ They reduce three zero-instance gaps but do not change the overall
   `X/1264 -> U61812 -> 合14496（甲3472） -> Jitilin 3068`. The similarity
   score is not a probability, the class remains disputed, and the deposit
   lacks two inputs needed for a full model rebuild. The route is therefore
-  an auditable catalog candidate, not an identity or decipherment.
+  an auditable catalog candidate, not an identity or decipherment. The
+  official catalog search now returns one `合14496` rubbing record
+  (`SYS_FLD_SYSID=124308`) and a `150 x 94` thumbnail; full detail remains
+  login-gated with HTTP `406`. A second search returns one `甲3472`
+  `殷虚文字甲编` rubbing record (`SYS_FLD_SYSID=263185`) with a visually
+  compatible but non-identical `150 x 97` thumbnail; both remain one-platform
+  catalog candidates.
 
 `2026-08-12` 至 `2026-08-30` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
@@ -224,7 +230,12 @@ They reduce three zero-instance gaps but do not change the overall
   一份官方接口新回执连在一起。来源报告路线为
   `X/1264 -> U61812 -> 合14496（甲3472） -> 字统 3068`。相似度不是概率，
   类别仍有混组争议，且归档包缺少完整重建模型所需的两个输入。因此它只是
-  可审计的著录候选，不是身份或破译结论。
+  可审计的著录候选，不是身份或破译结论。官方著录检索现返回一条
+  `合14496` 拓片记录（`SYS_FLD_SYSID=124308`）和 `150 x 94` 缩略图；
+  完整详情仍受登录限制并返回 HTTP `406`。第二次检索又返回一条
+  `甲3472` 的 `殷虚文字甲编` 拓片记录（`SYS_FLD_SYSID=263185`），
+  其 `150 x 97` 缩略图视觉相容但并非相同字节；两者仍是同一平台的
+  著录候选。
 
 The H2 record still lacks the exact Heji edition plate and a reviewed
 character-to-transcription alignment. The selected characters still lack

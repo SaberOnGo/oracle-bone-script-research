@@ -135,6 +135,129 @@ that bridge comes from the external shape-retrieval dataset.
 该接口直接支持上述 `U61812` 著录信息，但不直接支持 `U61812` 与 HUST
 类别 `X/1264` 的关系；二者之间的桥接来自外部形体检索数据。
 
+## Official Catalog Search And Thumbnail / 官方著录检索与缩略图
+
+The Yinqi Wenyuan catalog search was then queried directly for the returned
+Heji number. The search page and JSON response were fetched on `2026-08-30`:
+
+- Search route / 检索路线:
+  [catalog search for PM 14496][yqwy-search]
+- Request / 请求: `POST /AynuBone/Search`, field `PM`, value `14496`
+- Result count / 结果数: `1`
+- Returned plate label / 返回片号: `合14496`
+- Record form / 记录形式: `拓片`
+- Collection field / 著录库字段: `甲骨文合集`
+- Official record ID / 官方记录 ID: `SYS_FLD_SYSID=124308`
+- Search receipt / 检索回执:
+  `tmp/source_downloads/dl-yqwy-search-PM-14496-20260830.json`
+- Receipt size and SHA-256 / 回执大小与 SHA-256: `822` bytes;
+  `a796ec60eb4d38169a84325a7aca39c46832df56abc33393055726777820a53d`
+
+殷契文渊随后直接按返回的《合》号检索。检索页和 JSON 回执均于
+`2026-08-30` 获取：结果只有一条，片号为 `合14496`，记录形式为拓片，
+著录库字段为 `甲骨文合集`，官方记录 ID 为 `124308`。检索 JSON 回执的
+大小为 `822` 字节，SHA-256 为
+`a796ec60eb4d38169a84325a7aca39c46832df56abc33393055726777820a53d`。
+
+The returned record also exposed a public thumbnail URL. The JPEG was fetched
+to ignored storage and opened only for visual quality assessment:
+
+- Thumbnail route / 缩略图路线:
+  `http://jgw.aynu.edu.cn/File/GetFirstSmallPic?dbId=34&recordId=124308`
+  `&key=BaJ7HxysvSdbCJfe3H6%2fXw%3d%3d`
+- Local ignored path / 本地忽略路径:
+  `tmp/source_downloads/dl-yqwy-smallpic-124308-20260830.jpg`
+- JPEG size and SHA-256 / JPEG 大小与 SHA-256: `4204` bytes;
+  `1fd22e3992b4b4479d571b0ac026f46cb78844d59f2ba166a5b2d9692fa20638`
+- Pixel dimensions / 像素尺寸: `150 x 94`
+- Visible label / 可见标记: `14496`
+- Image quality / 图像质量: thumbnail only; insufficient for stroke or
+  fracture adjudication
+
+返回记录还提供了公开缩略图路线。JPEG 已下载到忽略区，仅用于图像质量
+检查。文件大小为 `4204` 字节，SHA-256 为
+`1fd22e3992b4b4479d571b0ac026f46cb78844d59f2ba166a5b2d9692fa20638`，
+像素尺寸为 `150 x 94`，图中可见 `14496` 标记。它只是缩略图，不能用于
+笔画、裂隙或字位裁决。
+
+The catalog detail page documents `GET /AynuBone/DetailData?id=124308`, but
+the current unauthenticated request returned `406` with
+`登录失效，请先登录`. The saved receipt is:
+
+- Detail page / 详情页:
+  [record 124308 detail page][yqwy-detail]
+- Detail-data receipt / 详情接口回执:
+  `tmp/source_downloads/dl-yqwy-detaildata-124308-20260830.json`
+- Receipt size and SHA-256 / 回执大小与 SHA-256: `117` bytes;
+  `9c2958e14ec1069ccc49fb919bf3001f6ee0e1bcafc8c76f8112368d921bf83f`
+- Access boundary / 访问边界: unauthenticated full-image and detail fields
+  were not obtained
+
+著录详情页明确使用 `GET /AynuBone/DetailData?id=124308`，但当前未登录
+请求返回 `406` 和 `登录失效，请先登录`。因此目前没有取得未登录状态下的
+完整图像和详情字段。该访问边界不是图版缺失，也不是权限已经清理。
+
+This official search result strengthens the catalog leg of the route from
+`U61812` to one specific record, but it does not establish that the thumbnail
+is the HUST source member, that `甲3472` is the same edition, or that any
+visible form has a reading. Rights remain mixed and the thumbnail is not a
+committed corpus asset.
+
+这条官方检索结果把 `U61812` 到一个具体著录记录的路线补强了，但仍不能
+证明缩略图就是 HUST 来源成员，也不能证明 `甲3472` 与该记录属于同一版本，
+更不能由可见形体推出释读。权利仍然混合，缩略图也不作为语料资产提交。
+
+## Cross-Edition Alias Probe / 跨著录别名探查
+
+The same official catalog was queried for `甲3472` using the `PM` field. It
+returned exactly one rubbing record:
+
+- Search value / 检索值: `甲3472`
+- Collection field / 著录库字段: `殷虚文字甲编`
+- Record form / 记录形式: `拓片`
+- Official record ID / 官方记录 ID: `SYS_FLD_SYSID=263185`
+- Search receipt / 检索回执:
+  `tmp/source_downloads/dl-yqwy-search-PM-jia3472-20260830.json`
+- Receipt size and SHA-256 / 回执大小与 SHA-256: `820` bytes;
+  `b9fd639adc35abc3d704ba525ec2b88350b35dabf74f9d81df2af602072ec9bc`
+
+同一官方著录库随后按 `PM=甲3472` 检索，结果也恰好只有一条拓片记录。
+著录库字段为 `殷虚文字甲编`，官方记录 ID 为 `263185`。检索回执大小为
+`820` 字节，SHA-256 为
+`b9fd639adc35abc3d704ba525ec2b88350b35dabf74f9d81df2af602072ec9bc`。
+
+Its public thumbnail was fetched and compared visually with the `合14496`
+thumbnail above:
+
+- Thumbnail route / 缩略图路线:
+  `http://jgw.aynu.edu.cn/File/GetFirstSmallPic?dbId=34&recordId=263185`
+  `&key=dugE5aeuY9vguTslv36Uuw%3d%3d`
+- Local ignored path / 本地忽略路径:
+  `tmp/source_downloads/dl-yqwy-smallpic-263185-20260830.jpg`
+- JPEG size and SHA-256 / JPEG 大小与 SHA-256: `4314` bytes;
+  `66359d61078a926099cbdfa0409cd6e1bebca1849c6f5194f26714d24d9c3bf5`
+- Pixel dimensions / 像素尺寸: `150 x 97`
+- Visual observation / 视觉观察: the fragment contour and inscription cluster
+  are compatible with the `合14496` thumbnail, while bottom labels and image
+  dimensions differ
+- Comparison limit / 比较限制: thumbnail-level visual compatibility only;
+  no pixel-identity, edition, plate-position, or HUST-member identity claim
+
+该记录的公开缩略图也已获取，并与上面的 `合14496` 缩略图作视觉比较。JPEG
+大小为 `4314` 字节，SHA-256 为
+`66359d61078a926099cbdfa0409cd6e1bebca1849c6f5194f26714d24d9c3bf5`，
+像素尺寸为 `150 x 97`。骨片轮廓和刻辞簇视觉相容，但底部标注和尺寸不同。
+这只支持缩略图层面的相容性，不支持像素同一、版本同一、确切图位或 HUST
+成员同一。
+
+The two catalog records share the same Yinqi Wenyuan platform and therefore
+are not independent source families. Their agreement is useful for a
+cross-catalog alias candidate, but it must not be counted as two independent
+votes for the HUST route.
+
+两条著录记录来自同一殷契文渊平台，不是两个独立来源家族。它们的一致只能
+支持跨著录别名候选，不能计作支持 HUST 路线的两票独立证据。
+
 ## Evidence Ancestry / 证据谱系
 
 1. `src-hust-obc` supplies the 50 raw members under `X/1264`.
@@ -188,6 +311,8 @@ The only positive proposition is:
 - `U61812` currently has no `JTZ` reading in the official API response.
 - The bridge may inherit dataset errors, domain shift, and source-image reuse.
 - The full `合14496` or `甲3472` plate has not yet been opened here.
+- The two official records expose thumbnails only; their full detail route is
+  still login-gated and the two thumbnails are not pixel-identical receipts.
 - No HUST member has yet been aligned to one exact plate position.
 
 - `0.6742` 是未校准检索分数，不是后验概率。
@@ -208,6 +333,8 @@ Reject or reopen the route if any of the following occurs:
 
 - A rights-permitted full plate shows that the target graph is visibly
   incompatible with every `X/1264` member.
+- The two official catalog records resolve to different physical objects or
+  the full images show incompatible fragments.
 - The missing model inputs are later supplied but do not reproduce the
   `X/1264` row.
 - An authoritative catalog maps the relevant HUST source image elsewhere.
@@ -244,14 +371,16 @@ Risk status / 风险状态: `source_marked_upstream_rights_unresolved`
 
 ## Exact Next Action / 确切下一步
 
-Open a rights-permitted full plate for `合集14496` or `甲骨文合集释文` route
-`甲3472`. Locate the graph associated with `U61812`, preserve neighboring
-signs and fracture boundaries, and compare it separately against all 50
-members of `X/1264`. Record an exact plate, page, crop, and catalog receipt.
+Open a rights-permitted full plate for official record `124308` (`合14496`),
+or follow the `甲3472` route with an authenticated, rights-permitted session.
+Locate the graph associated with `U61812`, preserve neighboring signs and
+fracture boundaries, and compare it separately against all 50 members of
+`X/1264`. Record an exact plate, page, crop, and catalog receipt.
 
-打开权利允许的 `合集14496` 完整图版，或沿 `甲3472` 路线查阅相应著录。
-定位 `U61812` 关联字形，保留邻字与断裂边界，再分别同 `X/1264` 的
-50 个成员比较，并记录确切图版、页码、裁切和著录回执。
+打开官方记录 `124308`（`合14496`）对应的权利允许完整图版，或在已认证
+且权利允许的会话中沿 `甲3472` 路线查阅。定位 `U61812` 关联字形，保留
+邻字与断裂边界，再分别同 `X/1264` 的 50 个成员比较，并记录确切图版、
+页码、裁切和著录回执。
 
 Until that check is complete, the correct AI decision is `withhold`.
 
@@ -260,3 +389,5 @@ Until that check is complete, the correct AI decision is `withhold`.
 [zenodo-record]: https://zenodo.org/records/21290640
 [source-repository]: https://github.com/shenzxc/hustobc-triage-resource
 [yqwy-api]: http://jgw.aynu.edu.cn/home/zx/method/jgwzx.ashx
+[yqwy-search]: https://jgw.aynu.edu.cn/home/zl/search/index.html
+[yqwy-detail]: https://jgw.aynu.edu.cn/home/zl/detail/index.html?id=124308

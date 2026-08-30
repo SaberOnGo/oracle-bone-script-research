@@ -78,6 +78,15 @@ Structured support files only serve the human oracle-character dossier.
 - External catalog route / 外部著录路线:
   `X/1264 -> U61812 -> 合14496（甲3472） -> Jitilin 3068`
 - Route adjudication / 路线裁决: `candidate_route_only`
+- Official Yinqi record / 殷契文渊官方记录: `SYS_FLD_SYSID=124308`
+- Official search result / 官方检索结果: one `合14496` rubbing record;
+  thumbnail only (`150 x 94`), full detail currently returns login-required
+  `406`
+- Cross-catalog alias probe / 跨著录别名探查: `甲3472` returns one
+  `殷虚文字甲编` rubbing record, `SYS_FLD_SYSID=263185`; its `150 x 97`
+  thumbnail is visually compatible but not pixel-identity evidence
+- Official route evidence / 官方路线证据:
+  `19_external-triage-and-catalog-route.md`
 
 English:
 If `02_visual-source-index.csv` contains source image paths, those paths are

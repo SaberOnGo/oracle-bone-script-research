@@ -65,6 +65,40 @@
       "rights_status": "metadata_only_until_verified"
     }
   ],
+  "digital_archive_routes": {
+    "rubbing_record": {
+      "url": "https://sinica.digitalarchives.tw/collection_3041293.html",
+      "final_host": "ascdc.digitalarchives.tw",
+      "accessed_at": "2026-08-30",
+      "size_bytes": 27015,
+      "sha256": "00921964c0bbf0e391830f53bbc82c4b5bec50b36fc6243984462a6a9b0919e2",
+      "reported_identifier": "188493-0529",
+      "reported_plate": "Bingbian 0529",
+      "reported_rubbing_dimensions": "19.23x13.79cm",
+      "storage_status": "in_memory_receipt_not_retained"
+    },
+    "rubbing_image": {
+      "url": "https://image.digitalarchives.tw/ImageCache/00/72/70/d9.jpg",
+      "accessed_at": "2026-08-30",
+      "size_bytes": 69781,
+      "sha256": "1264db7947ec39474d3c76a19ff58dc5f9ab7bf55499834fbebfcc4ffadb6b48",
+      "media_type": "image/jpeg",
+      "pixels": "366x500",
+      "storage_status": "in_memory_receipt_not_retained",
+      "rights_status": "authorization_required_not_committed"
+    },
+    "crosswalk_status": "candidate_not_confirmed",
+    "shared_locator": "Bingbian 0529",
+    "dependency": "same_IHP_and_plate_ancestry_not_independent",
+    "root_rerun": {
+      "attempted_at": "2026-08-30",
+      "tls_status": "expired_certificate_reported",
+      "response_scope": "access_block_page",
+      "response_size_bytes": 36917,
+      "response_sha256": "6465bc25b5527f4605db42effef880065e97ee6553bcfc5a68674480f7215781",
+      "evidence_use": "excluded_not_record_or_image"
+    }
+  },
   "object_local_evidence": "corpus/005_excavation-sites-periods-and-batches/002_collection-object-candidates/032_coll-obj-cand-00032_ihp-item-503_collection-object-candidate/18_live-source-evidence-review.md",
   "boundaries": [
     "source prose is not a project transcription",

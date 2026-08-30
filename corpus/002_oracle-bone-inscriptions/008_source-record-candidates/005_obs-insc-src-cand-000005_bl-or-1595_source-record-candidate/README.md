@@ -49,7 +49,9 @@ Commons 页面明确将图像标为 CC0，
     resolved item identity with missing image and text payloads.
 11. `10_secondary-dissemination-and-rights.md`: related routes and rights.
 12. `12_astronomical-date-dispute.md`: named date claims and their limits.
-13. Open `90_source-record.json`, `91_source-record-index.csv`, and
+13. `13_eclipse-date-evidence-and-falsification.md`: timing inputs,
+    counterevidence, and the current `withhold` decision.
+14. Open `90_source-record.json`, `91_source-record-index.csv`, and
     `92_visual-region-register.csv` last.
 
 1. `01_object-and-image-routes.md`：对象和图像路线。
@@ -65,7 +67,9 @@ Commons 页面明确将图像标为 CC0，
     以及仍缺失的图像和文字内容。
 11. `10_secondary-dissemination-and-rights.md`：相关路线与权利限制。
 12. `12_astronomical-date-dispute.md`：有名年代主张及其限制。
-13. 最后打开 `90_source-record.json`、`91_source-record-index.csv` 和
+13. `13_eclipse-date-evidence-and-falsification.md`：时间输入、反证及
+    当前 `withhold` 裁决。
+14. 最后打开 `90_source-record.json`、`91_source-record-index.csv` 和
     `92_visual-region-register.csv`。
 
 ## Boundary / 边界

@@ -100,6 +100,8 @@ class MaterialDepthIntegrationTests(unittest.TestCase):
             "93 HUST `G_` source members",
             "one OBIMD H2 inscription source-record candidate",
             "one HUST-OBC 2024 item-level paper dossier",
+            "different object scopes and timing premises",
+            "institution-internal crosswalk candidate",
             "Requirements 8, 9, and 10 therefore remain incomplete",
             "Audit result / 审计结论: `not_complete`",
         ):

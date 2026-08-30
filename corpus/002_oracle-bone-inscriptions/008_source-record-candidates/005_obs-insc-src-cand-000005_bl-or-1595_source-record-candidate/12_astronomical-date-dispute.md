@@ -119,6 +119,12 @@ neither proof of fabrication nor evidence for either astronomical date.
 
 ## Required next checks / 必须完成的下一步
 
+The dated network receipts and timing-premise comparison are continued in
+`13_eclipse-date-evidence-and-falsification.md`.
+
+带日期的网络回执和时间前提比较续见
+`13_eclipse-date-evidence-and-falsification.md`。
+
 1. Keep item record `040-003126498` as the identity route and seek its stable
    JSON or XML, image, or IIIF payload.
 2. Open *Heji* 40610r/v and *Yingcang* 886r/v with exact volume and plate

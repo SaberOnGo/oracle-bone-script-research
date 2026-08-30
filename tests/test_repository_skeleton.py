@@ -25862,6 +25862,12 @@ class RepositorySkeletonTests(unittest.TestCase):
             / "01_current-state-audit-2026-08-14.md"
         )
         current_audit = current_audit_path.read_text(encoding="utf-8")
+        current_baseline_path = (
+            repo_root()
+            / "doc/project/005_ai-agent-research-assistant-design/"
+            / "03_current-operating-baseline-2026-08-30.md"
+        )
+        current_baseline = current_baseline_path.read_text(encoding="utf-8")
         required_terms = {
             "normative_strategy",
             "working_hypothesis",
@@ -25884,10 +25890,13 @@ class RepositorySkeletonTests(unittest.TestCase):
         for term in required_terms:
             self.assertIn(term, strategy)
         self.assertTrue(current_audit_path.exists())
+        self.assertTrue(current_baseline_path.exists())
         self.assertIn(
-            "[2026-08-14 current-state audit][current-audit]",
+            "[2026-08-30 current operating baseline][current-baseline]",
             strategy,
         )
+        self.assertIn("current_operating_baseline", current_baseline)
+        self.assertIn("superseded_historical_audit", current_audit)
         self.assertIn("981 tests OK", current_audit)
         self.assertIn(
             "Thirty IHP collection-object directories",

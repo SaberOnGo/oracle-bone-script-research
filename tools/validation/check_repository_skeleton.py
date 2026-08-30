@@ -2867,6 +2867,7 @@ REQUIRED_PATHS = [
     "doc/project/003_record-model-and-id-system/README.md",
     "doc/project/004_oracle-bone-script-research-methods/README.md",
     "doc/project/005_ai-agent-research-assistant-design/README.md",
+    "doc/project/005_ai-agent-research-assistant-design/03_current-operating-baseline-2026-08-30.md",
     "doc/project/006_large-source-material-handling/README.md",
     "doc/public/user_plan/README.md",
     "doc/public/user_plan/001_project-architecture-and-corpus-organization-plan.zh-CN.md",

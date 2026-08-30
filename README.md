@@ -41,6 +41,9 @@ No unreviewed AI hypothesis may be presented as confirmed scholarship.
 Unconfirmed material must be marked as candidate, source record, disputed,
 to be checked, or pending review.
 
+The [current operating baseline][current-baseline] selects the few active,
+falsifiable decisions and their next decisive source gaps.
+
 简体中文：
 
 当前阶段是正式研究开始前的资料整理和预处理。工作重点是收集、清洗
@@ -49,6 +52,9 @@ to be checked, or pending review.
 
 不得把未经复核的 AI 假说写成已确认的学术结论。未确认内容必须标为
 候选、来源记录、争议、待查或待复核。
+
+[当前运行基线][current-baseline]列出少量当前可证伪裁决及其下一项决定性
+来源缺口。
 
 ## AI Candidate Strategy / AI 候选战略
 
@@ -133,3 +139,4 @@ git diff --check
 ```
 
 [ai-strategy]: doc/project/005_ai-agent-research-assistant-design/
+[current-baseline]: doc/project/005_ai-agent-research-assistant-design/

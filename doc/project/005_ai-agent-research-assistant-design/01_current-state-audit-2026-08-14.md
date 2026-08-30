@@ -1,6 +1,13 @@
 # Current State Audit / 当前状态审计
 
-Status: `current_state_audit`
+Status: `superseded_historical_audit`
+
+This audit is a historical frozen receipt. It was superseded by the
+[2026-08-30 current operating baseline][current-baseline]. Its receipts are
+preserved and must not be read as the current execution state.
+
+本审计是历史冻结回执，已由[2026-08-30 当前运行基线][current-baseline]
+取代。下列回执继续保留，但不得解释为当前执行状态。
 
 Audit update date: `2026-08-22`
 
@@ -919,3 +926,4 @@ The next work order follows the blocked rows, not the number of files:
 
 [pilot-report]: ../../public/user_research/011_ai-diagnostic-pilot-2026-08-13
 [strategy]: README.md
+[current-baseline]: 03_current-operating-baseline-2026-08-30.md

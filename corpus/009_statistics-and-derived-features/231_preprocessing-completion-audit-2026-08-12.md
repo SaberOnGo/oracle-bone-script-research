@@ -3,7 +3,7 @@
 ## Status / 状态
 
 - Audit date / 审计日期: `2026-08-12`
-- Material update / 资料更新: `2026-08-28`
+- Material update / 资料更新: `2026-08-30`
 - Audit result / 审计结论: `not_complete`
 - Research status / 正式研究状态: `not_started`
 - Candidate delivery / 候选交付: `none`
@@ -12,8 +12,14 @@ This audit tests the current repository against the nineteen preprocessing
 requirements. It supersedes any interpretation that directory counts or
 passing structural checks alone prove that the materials are complete.
 
+The [2026-08-30 operating baseline][current-baseline] now controls active
+case selection. This audit remains the nineteen-requirement completion view.
+
 本审计按十九项预处理要求核对当前仓库。它纠正一种误读：目录数量或结构
 校验通过，本身不能证明研究资料已经完整。
+
+[2026-08-30 当前运行基线][current-baseline]现用于选择当前案件。本审计
+继续承担十九项要求的完成度视图。
 
 The historical closure snapshot remains useful as a record of infrastructure
 coverage. Its `2026-08-07` counts are not evidence that every image, text,
@@ -152,6 +158,16 @@ They reduce three zero-instance gaps but do not change the overall
   counterevidence, and falsifiers are recorded. The surface relation remains
   a candidate; no line order, transcription, plate identity, or character
   link was promoted.
+- BL `Or. 7694/1595` now binds two ignored network receipts and one failed
+  scholarly-page download. It shows that the public `1192 BCE` and
+  `1166 BCE` routes use different object scopes and timing premises. This
+  falsifies silent input equivalence, not either date; the result remains
+  `withhold`.
+- IHP item `503` now has a public digital-archive rubbing route for
+  `188493-0529` / `《丙》0529`, with byte and image receipts. The two IHP
+  pages do not cross-list `R044498` and `188493-0529`, so the result remains
+  an institution-internal crosswalk candidate. A failed root rerun records
+  an expired TLS certificate and an access-block response.
 
 `2026-08-12` 至 `2026-08-27` 完成了下列资料深度改进。它们减少了
 三类零实例缺口，但不改变总体 `not_complete` 结论：
@@ -192,6 +208,12 @@ They reduce three zero-instance gaps but do not change the overall
   高反差 CC0 图像，并记录媒体字节、Commons 回执、未变化的当前 Met API
   响应、可见比较、反证和证伪条件。图面关系仍是候选，没有提升行序、释文、
   图版身份或单字关联。
+- 大英图书馆 `Or. 7694/1595` 现绑定两份忽略区网络回执和一次论文页下载
+  失败。公开的公元前 `1192` 与 `1166` 年路线使用不同对象范围和时间前提。
+  这只推翻静默的输入等同，不推翻任一年代；结果维持 `withhold`。
+- 史语所 503 号对象新增 `188493-0529` / `《丙》0529` 的公开数字典藏拓片
+  路线及字节、图像回执。两页没有互列 `R044498` 与 `188493-0529`，所以
+  仍是机构内交叉候选。根 Agent 失败复跑记录了 TLS 证书过期和访问阻断。
 
 The H2 record still lacks the exact Heji edition plate and a reviewed
 character-to-transcription alignment. The selected characters still lack
@@ -811,7 +833,7 @@ Git 忽略区。尺寸冲突、物理版本来源和馆藏号仍未解决；不�
 1. Keep the new long-path-aware image truth validator in the release gate.
 2. Complete a small, rights-safe character batch with opened images,
    object-specific observations, catalog routes, and inscription context.
-3. Open at least one real plate and inscription dossier end to end.
+3. Use an opened plate to close one object's next decisive source gap.
 4. Create item-level literature dossiers with citation and disagreement trails.
 5. Resolve source evidence and rights gaps before source status promotion.
 6. Run one diagnostic known-answer case and one negative control through a
@@ -821,7 +843,7 @@ Git 忽略区。尺寸冲突、物理版本来源和馆藏号仍未解决；不�
 1. 把新的长路径感知图像真值门禁保留在发布校验中。
 2. 选择一个权利安全的小批单字，打开真实图像，补对象特异观察、著录路线
    和卜辞上下文。
-3. 至少把一个真实图版与卜辞档案端到端打开。
+3. 使用已打开图版，关闭一个对象的下一项决定性来源缺口。
 4. 建立逐项文献档案，记录引用关系和不同意见。
 5. 来源状态提升前，先解决来源证据和权利缺口。
 6. 用冻结、密封、独立复跑的 AI 法庭完成一个已知答案诊断案和一个负对照；
@@ -835,3 +857,5 @@ and opening evidence, not permission to invent missing material.
 
 本文件是完成度审计，不是释读结果、权利清理或已确认学术成果。
 `not_complete` 表示应继续收集和打开证据，不允许编造缺失资料。
+
+[current-baseline]: ../../doc/project/005_ai-agent-research-assistant-design/

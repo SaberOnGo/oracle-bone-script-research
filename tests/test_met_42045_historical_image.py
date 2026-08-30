@@ -79,7 +79,7 @@ class Met42045HistoricalImageTests(unittest.TestCase):
             / "corpus/009_statistics-and-derived-features/"
             "231_preprocessing-completion-audit-2026-08-12.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("Material update / 资料更新: `2026-08-28`", audit)
+        self.assertIn("Material update / 资料更新: `2026-08-30`", audit)
         self.assertIn("The Met `42045` / `67.43.14` dossier", audit)
         self.assertIn("Met `42045` / `67.43.14` 档案", audit)
         self.assertIn("Audit result / 审计结论: `not_complete`", audit)

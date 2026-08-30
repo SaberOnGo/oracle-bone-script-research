@@ -79,7 +79,7 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
             record["literature_status"],
             "named_astronomical_date_dispute_route_only",
         )
-        self.assertEqual(len(record["literature_routes"]), 3)
+        self.assertEqual(len(record["literature_routes"]), 4)
         routes = {
             item["source_id"]: item for item in record["literature_routes"]
         }
@@ -88,17 +88,33 @@ class BritishLibraryOr1595SourceRecordTests(unittest.TestCase):
              routes["literature-liu-early-china-2014"]["project_use"]},
             {"source_report_only", "dispute_route_only"},
         )
+        self.assertEqual(
+            routes["literature-scroll-bl-1595-2016"]["snapshot_status"],
+            "retrieved_ignored_local_snapshot",
+        )
+        self.assertEqual(
+            routes["literature-scroll-bl-1595-2016"]["checksum_status"],
+            "sha256_verified",
+        )
+        self.assertEqual(
+            routes["literature-liu-early-china-2014"]["snapshot_status"],
+            "http_429_no_local_snapshot",
+        )
+        self.assertEqual(
+            routes["literature-liu-early-china-2014"]["checksum_status"],
+            "not_applicable_not_stored",
+        )
         for item in (
             routes["literature-scroll-bl-1595-2016"],
             routes["literature-liu-early-china-2014"],
         ):
-            self.assertEqual(item["snapshot_status"], "not_downloaded")
-            self.assertEqual(
-                item["checksum_status"], "not_applicable_not_stored"
-            )
             self.assertEqual(
                 item["rights_status"], "copyright_review_required"
             )
+        self.assertEqual(
+            routes["literature-ma-et-al-de422-2021"]["project_use"],
+            "timing_countercheck_only",
+        )
         self.assertEqual(
             routes["literature-keightley-ancestral-landscape-2000"][
                 "project_use"

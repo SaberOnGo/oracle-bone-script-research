@@ -30,6 +30,9 @@ an automatic decipherment model.
 不得把未经复核的 AI 假说写成已确认的学术结论。未确认内容必须标为
 候选、来源记录、争议、待查或待复核。
 
+[当前运行基线][current-baseline]列出少量当前可证伪裁决及其下一项决定性
+来源缺口。
+
 ## AI 候选战略 / AI Candidate Strategy
 
 独立 AI Agent 可以调查、反证、复跑、校准并裁决假说。候选只有通过版本化
@@ -101,3 +104,4 @@ git diff --check
 ```
 
 [ai-strategy]: doc/project/005_ai-agent-research-assistant-design/
+[current-baseline]: doc/project/005_ai-agent-research-assistant-design/

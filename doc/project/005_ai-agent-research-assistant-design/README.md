@@ -163,12 +163,13 @@ Every earlier verdict remains in version history.
 
 ## 5. Current-State Diagnosis / 当前状态诊断
 
-The current filesystem is authoritative. The frozen operational snapshot is
-the [2026-08-14 current-state audit][current-audit], which supersedes older
-planning counts and dirty-worktree observations below when they conflict.
+The current filesystem is authoritative. The replaceable operational snapshot
+is the [2026-08-30 current operating baseline][current-baseline]. The
+[2026-08-14 audit][historical-audit] is a historical frozen receipt.
 
-当前磁盘状态具有最高权威。冻结的运行快照是[2026-08-14 当前状态审计][current-audit]；
-若与下方旧规划计数或脏工作树观察冲突，以该审计为准。
+当前磁盘状态具有最高权威。可替换的运行快照是
+[2026-08-30 当前运行基线][current-baseline]。[2026-08-14 审计]
+[historical-audit]是 historical frozen receipt，仅保留历史回执。
 
 The preprocessing closure dated `2026-08-07` records a broad traceable
 archive. Its counts are bound to commit `c58eea95a97`. A later read-only
@@ -914,24 +915,15 @@ better than an uncalibrated discovery claim.
 
 ## 18. Immediate Implementation Order / 立即实施顺序
 
-When the user authorizes implementation, the recommended order is:
+Use the [current operating baseline][current-baseline] to select a few
+decisive propositions. Open their next falsifying source while independently
+preparing a family-isolated known-answer cohort, negative control, leakage
+audit, and external scoring route. Do not wait for bulk coverage and do not
+open the live delivery channel before the calibration gates pass.
 
-1. fix the known false-pass validation defect and its regression tests;
-2. repair critical source, rights, download, and package-route inconsistencies;
-3. add a versioned experiment and benchmark contract without treating the
-   existing empty evidence-pack scaffold as research output;
-4. implement family-aware leakage checks and calibration reporting;
-5. run a small known-answer and negative-control pilot;
-6. only then open live unknown-character candidate cases.
-
-用户授权实施后，建议按以下顺序推进：
-
-1. 修复已知校验假通过缺陷和回归测试；
-2. 修复关键来源、权利、下载和包路线不一致；
-3. 新增版本化实验与基准契约，不把现有空 evidence-pack 脚手架当成果；
-4. 实现按家族识别的泄漏检查和校准报告；
-5. 运行少量已知答案案和负对照试点；
-6. 之后才打开真实未释字候选案。
+按[当前运行基线][current-baseline]选择少量决定性命题，打开其下一项可证伪
+来源；同时独立准备来源家族隔离的已知答案群、负对照、泄漏审计和外部
+评分路线。不得等待批量覆盖，也不得在校准门槛通过前开放真实交付通道。
 
 Model training, a web application, mass evidence-pack generation, and broad
 schema migration are explicitly deferred until the benchmark and laboratory
@@ -949,10 +941,11 @@ the user's active task authorization.
 
 ## 19. Repository Boundaries And Links / 仓库边界与链接
 
-The current-state audit is an operational companion, not a second normative
-strategy.
+The current operating baseline is an operational companion, not a second
+normative strategy. Older audits remain historical receipts.
 
-当前状态审计是运行配套文件，不是第二份规范性战略。
+当前运行基线是运行配套文件，不是第二份规范性战略。旧审计保留为历史
+回执。
 
 Normative companion policies:
 
@@ -982,7 +975,8 @@ AI 与用户假说继续放在 `doc/public/user_research/`，已发表研究笔�
 `research/`。`ai_adjudicated_candidate` 不会自动跨越这两个研究区。
 
 [benchmark-v2]: ../../../schemas/007_ai-agent-benchmark-experiment-schema/
-[current-audit]: 01_current-state-audit-2026-08-14.md
+[current-baseline]: 03_current-operating-baseline-2026-08-30.md
+[historical-audit]: 01_current-state-audit-2026-08-14.md
 
 ## 20. Source Notes / 来源说明
 

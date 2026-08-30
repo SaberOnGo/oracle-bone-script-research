@@ -20,6 +20,8 @@ verify the human-readable evidence.
   `17_multi-instance-visual-comparison.md`
 - Human-readable external catalog route / 人类可读外部著录路线:
   `19_external-triage-and-catalog-route.md`
+- Human-readable IHP catalog receipt / 人类可读史语所著录回执:
+  `20_ihp-independent-catalog-and-plate-receipt.md`
 - Human-readable research dossier / 人类可读研究档案: `05_human-research-dossier.md`
 - Human-readable context dossier / 人类可读语境档案:
   `08_character-context-evidence-dossier.md`
@@ -77,7 +79,11 @@ Structured support files only serve the human oracle-character dossier.
   `18_multi-instance-visual-receipt.json`
 - External catalog route / 外部著录路线:
   `X/1264 -> U61812 -> 合14496（甲3472） -> Jitilin 3068`
-- Route adjudication / 路线裁决: `candidate_route_only`
+- IHP institutional receipt / 史语所机构回执:
+  `fsnrb188477-3472`, 《小屯第二本殷虛文字甲編》图版 3472,
+  合集 `014496`
+- Route adjudication / 路线裁决:
+  `candidate_route_with_institutional_anchor`
 - Official Yinqi record / 殷契文渊官方记录: `SYS_FLD_SYSID=124308`
 - Official search result / 官方检索结果: one `合14496` rubbing record;
   thumbnail only (`150 x 94`), full detail currently returns login-required

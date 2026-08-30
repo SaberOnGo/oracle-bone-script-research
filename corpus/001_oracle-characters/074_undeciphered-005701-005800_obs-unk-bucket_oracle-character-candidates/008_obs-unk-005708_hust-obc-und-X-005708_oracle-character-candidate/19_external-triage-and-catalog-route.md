@@ -258,6 +258,53 @@ votes for the HUST route.
 两条著录记录来自同一殷契文渊平台，不是两个独立来源家族。它们的一致只能
 支持跨著录别名候选，不能计作支持 HUST 路线的两票独立证据。
 
+## Source Three: IHP Institutional Catalog Receipt / 来源三：史语所机构著录回执
+
+An independent live route through the Institute of History and Philology
+archive was opened on 2026-08-30. Its stable detail page identifies one
+catalog record as `fsnrb188477-3472`. The human-readable receipt is recorded
+in [`20_ihp-independent-catalog-and-plate-receipt.md`][ihp-receipt].
+
+2026-08-30 通过中央研究院历史语言研究所数字典藏的独立路线打开了稳定
+详情页。该页把一条著录记录标为 `fsnrb188477-3472`。人类可读回执见
+[`20_ihp-independent-catalog-and-plate-receipt.md`][ihp-receipt]。
+
+The page reports the following factual catalog fields:
+
+- title: `甲骨文拓片`;
+- period: `商後期，第一期`;
+- source edition: `《小屯第二本殷虛文字甲編》`, plate `3472`;
+- Heji number: `014496`;
+- topic: `17.鬼神崇拜`;
+- original rubbing size: `4.29 x 8.54 cm`;
+- source-media identifiers: `RE98Y600T0011`, `RE99Y300T0004`,
+  `RE98Y600TS0006`, `RE98Y300TS0023`, `RE98Y150JS0001`.
+
+该页给出的事实著录字段包括：题名 `甲骨文拓片`；分期
+`商後期，第一期`；出处 `《小屯第二本殷虛文字甲編》`、图版 `3472`；
+合集号 `014496`；主题 `17.鬼神崇拜`；原拓尺寸 `4.29 x 8.54 cm`；
+以及五个原始影像媒介编号：`RE98Y600T0011`、`RE99Y300T0004`、
+`RE98Y600TS0006`、`RE98Y300TS0023`、`RE98Y150JS0001`。
+
+This is an independent institutional catalog anchor for the bibliographic
+route. It is not an independent glyph-identity vote: the route was selected
+after the Zenodo shape-retrieval bridge and the Yinqi Wenyuan response. It
+does not align any one HUST member to an exact plate position, and it gives
+no reading or meaning for `U61812`.
+
+这是独立机构著录路线的锚点，但不是独立的字形同一票：本路线是在 Zenodo
+形体检索桥和殷契文渊回执之后选出的。它尚未把某一个 HUST 成员对齐到确切
+图版字位，也没有给 `U61812` 提供释读或词义。
+
+The archive search form intermittently returned an empty upper bound or a
+whole-corpus result during repeated requests. Those responses are a network
+and session reproducibility warning, not negative evidence. The stable detail
+page and its checksum-bound local snapshot are the receipt used here.
+
+重复请求检索表单时，接口曾间歇返回空的上界或全库结果。这是网络和会话
+可复现性警示，不是反证。本文采用稳定详情页及其带 checksum 的本地快照
+作为回执。
+
 ## Evidence Ancestry / 证据谱系
 
 1. `src-hust-obc` supplies the 50 raw members under `X/1264`.
@@ -265,24 +312,29 @@ votes for the HUST route.
    data. It is an algorithmic bridge, not an independent identity witness.
 3. The fresh Yinqi Wenyuan response independently confirms the metadata now
    returned for `U61812`, but was reached through that candidate bridge.
+4. The IHP detail page independently records a matching bibliographic route;
+   it is an institutional catalog anchor, not a new glyph identity witness.
 
 1. `src-hust-obc` 提供 `X/1264` 下的 50 个原包成员。
 2. Zenodo 资源利用 HUST-OBC 与官方编码数据产生首位路线；它是算法桥接，
    不是独立的同字证据。
 3. 殷契文渊新回执独立确认当前 `U61812` 元数据，但这个编码入口仍是经由
    上述候选桥接找到的。
+4. 史语所详情页独立记录了相符的书目路线；它是机构著录锚点，不是新的
+   字形同一证据。
 
-The three records therefore do not constitute three independent votes for
+The four records therefore do not constitute four independent votes for
 identity. Counting them that way would duplicate evidence ancestry.
 
-三项记录不能算作支持同字的三个独立投票。那样计算会重复统计证据谱系。
+四项记录不能算作支持同字的四个独立投票。那样计算会重复统计证据谱系。
 
 ## Bounded Claim Ledger / 有界主张账本
 
 - C1 object identity / 对象身份: `blocked_candidate_route`
 - C2 visible form / 可见字形: `direct_checked_for_50_hust_members`
 - C3 same-sign grouping / 同字归组: `withhold`
-- C4 inscription route / 卜辞路线: `candidate_catalog_route_only`
+- C4 inscription route / 卜辞路线:
+  `candidate_catalog_route_with_institutional_anchor`
 - C5 reading / 释读: `abstain`
 - C6 meaning / 词义: `abstain`
 - C7 evolution / 演变: `abstain`
@@ -313,6 +365,8 @@ The only positive proposition is:
 - The full `合14496` or `甲3472` plate has not yet been opened here.
 - The two official records expose thumbnails only; their full detail route is
   still login-gated and the two thumbnails are not pixel-identical receipts.
+- The IHP detail route supplies catalog metadata but only a 90 x 63 public
+  thumbnail was opened here; no exact sign position is available.
 - No HUST member has yet been aligned to one exact plate position.
 
 - `0.6742` 是未校准检索分数，不是后验概率。
@@ -325,6 +379,8 @@ The only positive proposition is:
 - 官方接口当前没有给 `U61812` 提供 `JTZ` 释读。
 - 桥接可能继承数据集错误、领域偏移和来源图像重复。
 - 本项目尚未打开 `合14496` 或 `甲3472` 完整图版。
+- 史语所详情路线只提供著录字段；本次打开的公开缩略图为 `90 x 63`，
+  尚无确切字位。
 - 尚未把任何 HUST 成员对齐到图版中的一个确切字位。
 
 ## Falsification And Strengthening / 证伪与增强条件
@@ -339,6 +395,8 @@ Reject or reopen the route if any of the following occurs:
   `X/1264` row.
 - An authoritative catalog maps the relevant HUST source image elsewhere.
 - The API receipt changes materially without a recorded version change.
+- The IHP record or source media resolve to a different physical object than
+  the proposed `合14496（甲3472）` route.
 
 出现以下任一情况，应拒绝或重新审查路线：
 
@@ -346,6 +404,8 @@ Reject or reopen the route if any of the following occurs:
 - 补齐缺失模型输入后仍不能重现 `X/1264` 行。
 - 权威著录把相关 HUST 来源图像指向别处。
 - 接口回执在没有版本记录的情况下发生实质变化。
+- 史语所记录或原始媒介最终显示为不同于拟议
+  `合14496（甲3472）` 路线的另一件实物。
 
 Strengthen only the catalog route if a full plate and its neighboring text
 align one exact HUST member with one exact `U61812` occurrence. That result
@@ -369,6 +429,13 @@ Zenodo 把所存数据包标为 `CC BY 4.0`。但数据包还含殷契文渊事�
 
 Risk status / 风险状态: `source_marked_upstream_rights_unresolved`
 
+The IHP page separately states institutional copyright and reserves rights.
+Its five source-media identifiers are recorded in the companion receipt, but
+no permission to redistribute those images has been obtained.
+
+史语所页面另行声明机构版权并保留权利。其五个原始媒介编号已记入配套回执，
+但本项目尚未取得再分发这些图像的许可。
+
 ## Exact Next Action / 确切下一步
 
 Open a rights-permitted full plate for official record `124308` (`合14496`),
@@ -382,6 +449,12 @@ fracture boundaries, and compare it separately against all 50 members of
 邻字与断裂边界，再分别同 `X/1264` 的 50 个成员比较，并记录确切图版、
 页码、裁切和著录回执。
 
+Use the IHP media identifiers in the companion receipt when requesting the
+authorized image or crop. Do not treat the public thumbnail as a substitute.
+
+申请授权图像或裁切时，使用配套回执中的史语所媒介编号。不得把公开缩略图
+当作替代品。
+
 Until that check is complete, the correct AI decision is `withhold`.
 
 在完成这项检查前，AI 的正确裁决是 `withhold`。
@@ -391,3 +464,4 @@ Until that check is complete, the correct AI decision is `withhold`.
 [yqwy-api]: http://jgw.aynu.edu.cn/home/zx/method/jgwzx.ashx
 [yqwy-search]: https://jgw.aynu.edu.cn/home/zl/search/index.html
 [yqwy-detail]: https://jgw.aynu.edu.cn/home/zl/detail/index.html?id=124308
+[ihp-receipt]: 20_ihp-independent-catalog-and-plate-receipt.md

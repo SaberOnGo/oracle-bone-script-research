@@ -64,9 +64,16 @@ external isolated scorer, one-shot scoring followed by retirement, a complete
 human delivery package, and at least two reviewed independent evidence
 families.
 
+The final adjudicator is bound separately through `adjudicator_runtimes`.
+Candidate delivery requires a fresh context, sealed gold, complete locked-run
+inputs, and an adjudicator model family outside the research runs.
+
 同模型重复只能算执行复跑。交付记录要求单独标记模型独立复跑、scorer
 派生的干净留出集、外部隔离评分器、一次评分后退役、完整人类交付包，
 以及至少两个经复核的独立证据家族。
+
+最终裁决 Agent 通过 `adjudicator_runtimes` 单独绑定。候选交付要求全新
+上下文、封存 gold、完整锁定运行输入，以及不属于研究运行的裁决模型家族。
 
 Ignored-local gold is diagnostic only. Every source snapshot and evidence item
 must expose rights, risk, allowed delivery, large-source registration,

@@ -327,6 +327,27 @@ def canonical_experiment() -> dict[str, object]:
             "input_run_ids": ["run-primary-000001", "run-rerun-000001"],
             "adjudicator_kind": "agent_panel",
             "adjudicator_ids": ["adjudicator-agent-1"],
+            "adjudicator_runtimes": [
+                {
+                    "adjudicator_id": "adjudicator-agent-1",
+                    "execution_id": "adjudicator-execution-000001",
+                    "model_id": "adjudicator-test-model-1",
+                    "model_family": "adjudicator-test-family",
+                    "context_id": "adjudicator-context-000001",
+                    "fresh_context": True,
+                    "prior_run_output_access": "none",
+                    "gold_access": "sealed_unavailable",
+                    "training_knowledge": "unknown",
+                    "input_run_ids": [
+                        "run-primary-000001",
+                        "run-rerun-000001",
+                    ],
+                    "evidence_snapshot_sha256": sha_c,
+                    "retrieval_snapshot_sha256": sha_a,
+                    "tool_manifest_sha256": sha_b,
+                    "output_lock_sha256": "d" * 64,
+                }
+            ],
             "gold_access": "sealed_unavailable",
             "case_decisions": [
                 {
@@ -444,6 +465,8 @@ def complete_candidate_delivery_experiment() -> dict[str, object]:
     for run in record["runs"]:
         run["training_knowledge"] = "documented"
         run["predictions"][0]["leakage_assessment"]["types"] = []
+    for runtime in record["adjudication"]["adjudicator_runtimes"]:
+        runtime["training_knowledge"] = "documented"
     rerun = record["runs"][1]
     rerun["role"] = "model_independent_rerun"
     rerun["independence_tier"] = "model_independent"
@@ -562,6 +585,10 @@ class BenchmarkExperimentValidationTests(unittest.TestCase):
             "adjudicator_kind"
         ]["enum"]
         self.assertEqual(adjudicator_kinds, ["ai_agent", "agent_panel"])
+        self.assertIn(
+            "adjudicator_runtimes",
+            schema["$defs"]["adjudication"]["required"],
+        )
         self.assertNotIn("commitment_key_hex", schema_path.read_text(encoding="utf-8"))
 
     def test_valid_adjudicated_experiment_passes(self) -> None:
@@ -744,6 +771,100 @@ class BenchmarkExperimentValidationTests(unittest.TestCase):
 
         self.assertTrue(
             any("requires exactly one primary run" in issue for issue in issues),
+            issues,
+        )
+
+    def test_adjudicator_runtime_must_not_reuse_research_agent(self) -> None:
+        record = canonical_experiment()
+        record["adjudication"]["adjudicator_runtimes"][0][
+            "adjudicator_id"
+        ] = "hypothesis-agent-1"
+        record["adjudication"]["adjudicator_ids"] = ["hypothesis-agent-1"]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any(
+                "must not reuse a research-court agent identity" in issue
+                for issue in issues
+            ),
+            issues,
+        )
+
+    def test_adjudicator_runtime_must_not_reuse_research_execution(self) -> None:
+        record = canonical_experiment()
+        record["adjudication"]["adjudicator_runtimes"][0][
+            "execution_id"
+        ] = "execution-000001"
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any(
+                "must not reuse a research-court execution identity" in issue
+                for issue in issues
+            ),
+            issues,
+        )
+
+    def test_adjudicator_runtime_must_bind_every_locked_run(self) -> None:
+        record = canonical_experiment()
+        record["adjudication"]["adjudicator_runtimes"][0][
+            "input_run_ids"
+        ] = ["run-primary-000001"]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any(
+                "adjudicator_runtimes" in issue and "every locked run" in issue
+                for issue in issues
+            ),
+            issues,
+        )
+
+    def test_adjudicator_runtime_ids_must_be_unique(self) -> None:
+        record = canonical_experiment()
+        runtime = record["adjudication"]["adjudicator_runtimes"][0]
+        duplicate = copy.deepcopy(runtime)
+        duplicate["execution_id"] = "adjudicator-execution-000002"
+        duplicate["context_id"] = "adjudicator-context-000002"
+        duplicate["output_lock_sha256"] = "e" * 64
+        record["adjudication"]["adjudicator_runtimes"].append(duplicate)
+        record["adjudication"]["adjudicator_ids"] = [
+            "adjudicator-agent-1"
+        ]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("must not duplicate adjudicator_id" in issue for issue in issues),
+            issues,
+        )
+
+    def test_adjudicator_runtime_must_bind_protocol_snapshot(self) -> None:
+        record = canonical_experiment()
+        record["adjudication"]["adjudicator_runtimes"][0][
+            "evidence_snapshot_sha256"
+        ] = "e" * 64
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("protocol evidence snapshot" in issue for issue in issues),
+            issues,
+        )
+
+    def test_candidate_delivery_requires_independent_adjudicator_runtime(self) -> None:
+        record = complete_candidate_delivery_experiment()
+        runtime = record["adjudication"]["adjudicator_runtimes"][0]
+        runtime["model_id"] = record["runs"][0]["model_id"]
+        runtime["model_family"] = record["runs"][0]["model_family"]
+
+        issues = validate_experiment(record)
+
+        self.assertTrue(
+            any("independent adjudicator runtime" in issue for issue in issues),
             issues,
         )
 

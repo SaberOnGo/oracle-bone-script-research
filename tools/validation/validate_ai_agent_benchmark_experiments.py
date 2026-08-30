@@ -678,6 +678,122 @@ def _validate_adjudication(data: dict[str, object]) -> list[str]:
         and isinstance(run, dict)
         and isinstance(run.get("run_id"), str)
     } if isinstance(runs, list) else set()
+    run_agent_ids = {
+        run.get("agent_id")
+        for run in runs
+        if isinstance(runs, list)
+        and isinstance(run, dict)
+        and isinstance(run.get("agent_id"), str)
+    } if isinstance(runs, list) else set()
+    run_execution_ids = {
+        run.get("execution_id")
+        for run in runs
+        if isinstance(runs, list)
+        and isinstance(run, dict)
+        and isinstance(run.get("execution_id"), str)
+    } if isinstance(runs, list) else set()
+    run_model_ids = {
+        run.get("model_id")
+        for run in runs
+        if isinstance(runs, list)
+        and isinstance(run, dict)
+        and isinstance(run.get("model_id"), str)
+    } if isinstance(runs, list) else set()
+    run_model_families = {
+        run.get("model_family")
+        for run in runs
+        if isinstance(runs, list)
+        and isinstance(run, dict)
+        and isinstance(run.get("model_family"), str)
+    } if isinstance(runs, list) else set()
+    adjudicator_ids = adjudication.get("adjudicator_ids")
+    adjudicator_runtimes = adjudication.get("adjudicator_runtimes")
+    runtime_ids = {
+        runtime.get("adjudicator_id")
+        for runtime in adjudicator_runtimes
+        if isinstance(adjudicator_runtimes, list)
+        and isinstance(runtime, dict)
+        and isinstance(runtime.get("adjudicator_id"), str)
+    } if isinstance(adjudicator_runtimes, list) else set()
+    if not isinstance(adjudicator_runtimes, list):
+        issues.append("adjudication.adjudicator_runtimes must be a list")
+    else:
+        runtime_id_values = [
+            runtime.get("adjudicator_id")
+            for runtime in adjudicator_runtimes
+            if isinstance(runtime, dict)
+            and isinstance(runtime.get("adjudicator_id"), str)
+        ]
+        if len(runtime_id_values) != len(set(runtime_id_values)):
+            issues.append(
+                "adjudicator runtimes must not duplicate adjudicator_id"
+            )
+        if isinstance(adjudicator_ids, list) and runtime_ids != set(
+            value for value in adjudicator_ids if isinstance(value, str)
+        ):
+            issues.append(
+                "adjudicator runtimes must cover every adjudicator_id exactly once"
+            )
+    protocol_snapshot = (
+        data.get("protocol", {}).get("evidence_snapshot_sha256")
+        if isinstance(data.get("protocol"), dict)
+        else None
+    )
+    independent_adjudicator_runtime = False
+    if isinstance(adjudicator_runtimes, list):
+        for runtime_index, runtime in enumerate(adjudicator_runtimes):
+            if not isinstance(runtime, dict):
+                continue
+            runtime_id = runtime.get("adjudicator_id")
+            if runtime_id in run_agent_ids:
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "must not reuse a research-court agent identity"
+                )
+            if runtime.get("execution_id") in run_execution_ids:
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "must not reuse a research-court execution identity"
+                )
+            runtime_input_ids = runtime.get("input_run_ids")
+            if not isinstance(runtime_input_ids, list) or set(
+                runtime_input_ids
+            ) != run_ids:
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "must bind every locked run"
+                )
+            if runtime.get("fresh_context") is not True:
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "requires fresh_context=true"
+                )
+            if runtime.get("prior_run_output_access") != "none":
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "cannot read prior run output"
+                )
+            if runtime.get("gold_access") != "sealed_unavailable":
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "gold_access must remain sealed"
+                )
+            if (
+                isinstance(protocol_snapshot, str)
+                and runtime.get("evidence_snapshot_sha256")
+                != protocol_snapshot
+            ):
+                issues.append(
+                    f"adjudication.adjudicator_runtimes[{runtime_index}] "
+                    "must bind the protocol evidence snapshot"
+                )
+            if (
+                isinstance(runtime.get("model_family"), str)
+                and runtime.get("model_family") not in run_model_families
+                and isinstance(runtime.get("model_id"), str)
+                and runtime.get("model_id") not in run_model_ids
+            ):
+                independent_adjudicator_runtime = True
     input_run_ids = adjudication.get("input_run_ids")
     if not isinstance(input_run_ids, list) or set(input_run_ids) != run_ids:
         issues.append("adjudication input_run_ids must bind every locked run")
@@ -854,6 +970,20 @@ def _validate_adjudication(data: dict[str, object]) -> list[str]:
                 issues.append(
                     f"adjudication.case_decisions[{index}] candidate delivery "
                     "requires a model-independent rerun"
+                )
+            if not independent_adjudicator_runtime:
+                issues.append(
+                    f"adjudication.case_decisions[{index}] candidate delivery "
+                    "requires an independent adjudicator runtime"
+                )
+            if isinstance(adjudicator_runtimes, list) and any(
+                isinstance(runtime, dict)
+                and runtime.get("training_knowledge") != "documented"
+                for runtime in adjudicator_runtimes
+            ):
+                issues.append(
+                    f"adjudication.case_decisions[{index}] candidate delivery "
+                    "requires documented adjudicator training knowledge"
                 )
             if isinstance(runs, list):
                 for run_index, run in enumerate(runs):

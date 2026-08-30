@@ -119,17 +119,19 @@ to the user without prior human-specialist approval.
 AI Agent 可以在没有真人专家预先批准的情况下把它提交给用户。
 
 This is a `delivery_status` overlay, not a value for the legacy evidence-pack
-`status` or `assignment_status` fields. Until a versioned contract is added,
-the legacy pack keeps the appropriate v1 lifecycle `status` from its existing
-enum and `research_boundary=draft_not_scholarship`. Its
+`status` or `assignment_status` fields. Legacy v1 packs keep the appropriate
+v1 lifecycle `status` and `research_boundary=draft_not_scholarship`. The [v2
+benchmark contract][benchmark-v2] records the delivery decision and
+independent adjudicator runtime before this overlay can be released. Its
 `assignment_status=reserved_candidate_not_assigned` remains until a human
 review separately promotes it into the formal character corpus.
 
 这是一个 `delivery_status` 叠加层，不是旧 evidence-pack 的 `status` 或
-`assignment_status` 字段值。在版本化新契约落地前，旧证据包按现有枚举
-使用适当的 v1 生命周期 `status`，并保持
-`research_boundary=draft_not_scholarship`。只有人工另行提升到正式单字
-语料时，`assignment_status=reserved_candidate_not_assigned` 才改变。
+`assignment_status` 字段值。旧版 v1 证据包继续使用适当的 v1 生命周期
+`status`，并保持 `research_boundary=draft_not_scholarship`。v2 基准合同
+必须先记录交付决定和独立裁决运行，才可以释放这个叠加状态。只有人工
+另行提升到正式单字语料时，
+`assignment_status=reserved_candidate_not_assigned` 才改变。
 
 This status always means "high-confidence AI candidate", not "deciphered",
 "proved", or "accepted". It is not confirmed scholarship.
@@ -602,6 +604,108 @@ unresolved disagreement, and may abstain.
 最终裁判不采用简单多数票。它合并依赖来源、模型、检索语料和工具，按
 任务校准证据加权，记录未解决分歧，并可以弃权。
 
+## 9.1 Independent Adjudicator Contract / 独立裁决 Agent 合同
+
+The final adjudicator is a separate decision run, not a summarizer of the
+research courts and not a counter of votes. It may reject every court's
+ranking. Its output is a decision about the registered case, not a new source
+of paleographic evidence.
+
+最终裁决 Agent 是独立的决策运行，不是研究法庭的摘要器，也不是计票器。
+它可以否定所有法庭的排序。它的输出只是对已登记案件的裁决，不是新的
+古文字证据来源。
+
+Before it receives court reports, the coordinator freezes the claim, the
+candidate universe, the evidence snapshot, the rights state, and the
+falsification plan. The adjudicator must use a fresh context, keep gold
+sealed, and have `prior_run_output_access=none`.
+
+在裁决 Agent 收到法庭报告前，协调器先冻结命题、候选全集、证据快照、
+权利状态和反证计划。裁决 Agent 必须使用全新上下文、保持 gold 封存，
+并把 `prior_run_output_access=none` 写入记录。
+
+The adjudicator declares its model family, model ID, retrieval snapshot, tool
+manifest, training-knowledge status, context ID, input run IDs, and output
+lock hash. Its evidence snapshot must equal the frozen protocol snapshot. A
+model family already used by a research court may issue a diagnostic review,
+but it cannot authorize candidate delivery as the only adjudicator family.
+
+裁决 Agent 必须声明模型家族、模型 ID、检索快照、工具 manifest、训练知识
+状态、上下文 ID、输入运行 ID 和输出锁定 hash。其证据快照必须等于冻结的
+协议快照。研究法庭已经使用过的模型家族可以做诊断复核，但不能作为唯一
+裁决家族授权候选交付。
+
+### Adjudicator packet / 裁决包
+
+The packet is human-readable first and contains the exact proposition, opaque
+candidate aliases including `unknown_or_other`, the source-family map, the
+support and opposition ledger, all falsification outcomes, calibration
+pointer, rights and leakage status, and every locked rerun receipt.
+
+裁决包以人类可读内容为先，包含精确命题、包括 `unknown_or_other` 在内的
+不泄漏答案的候选别名、来源家族图、支持与反对证据账、全部反证结果、
+校准指针、权利与泄漏状态以及每次锁定复跑回执。
+
+The initial comparison presents court reports under opaque court IDs. It
+does not expose a popularity score or model prestige. Dependency metadata is
+shown as an audit fact, while a court's agreement is never counted as a new
+evidence family.
+
+初次比较时，法庭报告只显示不透明的法庭 ID。不显示热度分数或模型声望。
+依赖 metadata 作为审计事实提供，但法庭之间的一致意见绝不计作新的证据
+家族。
+
+The adjudicator may re-read registered evidence, but may not add an
+unregistered file, repair a missing source silently, change a candidate alias,
+or waive a rights, leakage, provenance, or claim-evidence blocker.
+
+裁决 Agent 可以重读已登记证据，但不得添加未登记文件、静默修补缺失来源、
+改变候选别名，也不得豁免权利、泄漏、出处或命题证据阻断项。
+
+### Required decision memo / 必需裁决说明
+
+The memo records one decision for every test case: selected candidate or
+explicit abstention, calibrated interval or cleared probability, the best
+alternative, disagreement resolution, hard opposition, evidence blockers,
+one concrete next-source question, and the exact reason for delivery or
+withholding.
+
+裁决说明为每个测试案件记录一项决定：选定候选或明确弃权、校准区间或已
+清除的概率、最佳替代命题、分歧处理、致命反证、证据阻断项、一个具体的
+下一来源问题，以及交付或扣留的确切理由。
+
+The adjudicator cannot raise a probability above the registered calibration
+support, turn a route hint into evidence, or replace an unresolved hard
+counterexample with a confidence statement. If the independent model or
+source condition is missing, the valid output is diagnostic review or
+withholding, not a candidate.
+
+裁决 Agent 不能把概率提高到预登记校准支持之上，不能把路线提示变成证据，
+也不能用置信度表述替代未解决的致命反例。如果独立模型或来源条件缺失，
+有效输出只能是诊断复核或扣留，而不是候选。
+
+The v2 record must bind `adjudicator_id`, `execution_id`, `model_id`,
+`model_family`, `context_id`, `input_run_ids`,
+`evidence_snapshot_sha256`, `tool_manifest_sha256`, `gold_access`,
+`prior_run_output_access`, and `output_lock_sha256`. A missing binding is an
+execution defect and blocks `ai_adjudicated_candidate`.
+
+v2 记录必须绑定 `adjudicator_id`、`execution_id`、`model_id`、
+`model_family`、`context_id`、`input_run_ids`、
+`evidence_snapshot_sha256`、`tool_manifest_sha256`、`gold_access`、
+`prior_run_output_access` 和 `output_lock_sha256`。缺少绑定属于执行缺陷，
+必须阻止 `ai_adjudicated_candidate`。
+
+Human-specialist approval is not a prerequisite for this contract. The
+independent AI adjudicator, sealed evidence, calibrated lower bound, and
+reversible audit trail are the required safeguards. External scholarship
+may later disagree, and such disagreement must reopen rather than silently
+rewrite the AI verdict.
+
+本合同不把真人专家批准设为前置条件。必需的安全措施是独立 AI 裁决、封存
+证据、校准下界和可逆审计链。外部学术研究以后可以提出不同意见；这类
+分歧必须触发重开，不能静默改写 AI 裁决。
+
 ## 10. End-to-End Research Loop / 端到端研究循环
 
 1. Select a case for expected information gain and falsifiability, not a
@@ -1001,8 +1105,13 @@ inside a declared domain. Otherwise the numerical channel remains withheld.
 
 - run two blinded courts, adversarial review, provenance review, rerun, and
   final adjudication;
+- bind a fresh final adjudicator runtime outside the research-court model
+  families, with sealed gold and complete locked-run inputs;
 - save complete human and machine case records;
 - prove that abstention, withholding, reopening, and withdrawal work.
+
+最终裁决必须绑定全新运行，其模型家族不得属于研究法庭，并保持 gold
+封存、完整绑定所有锁定运行输入。
 
 Exit: at least one eligible holdout and one negative control are reproduced
 end to end with no known route leakage and explicit pretraining status.

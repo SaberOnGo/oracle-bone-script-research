@@ -78,8 +78,10 @@ review controls only its separate `assignment_status` promotion into the
 formal corpus. It is not a prerequisite for delivery through the strategy's
 separate `ai_adjudicated_candidate` channel.
 
-Until a versioned adjudication contract exists, do not write
-`ai_adjudicated_candidate` into the v1 `status` or `assignment_status` fields.
+For a legacy v1 evidence pack, do not write `ai_adjudicated_candidate` into
+the v1 `status` or `assignment_status` fields. A versioned v2 experiment may
+use that delivery state only after the [v2 benchmark contract][v2-contract]
+passes validation, including an independent `adjudicator_runtimes` record.
 Keep the pack under `doc/public/user_research/`, not under `research/`.
 
 Temporary downloads, OCR intermediates, vector indexes, scratch comparisons,
@@ -93,12 +95,16 @@ source-marked evidence into Git.
 独立的 `assignment_status` 是否提升到正式语料，不是 AI 候选交付的前置
 条件。规范性战略另行定义 `ai_adjudicated_candidate` 交付通道。
 
-在版本化裁决契约落地前，不要把 `ai_adjudicated_candidate` 写入 v1 的
-`status` 或 `assignment_status`。证据包继续放在
-`doc/public/user_research/`，不要放在 `research/`。
+对于旧版 v1 证据包，不要把 `ai_adjudicated_candidate` 写入 v1 的
+`status` 或 `assignment_status`。版本化 v2 实验只有在通过
+[v2 基准合同][v2-contract] 审计、并包含独立的
+`adjudicator_runtimes` 记录后，才可以使用该交付状态。
+
+证据包继续放在 `doc/public/user_research/`，不要放在 `research/`。
 
 临时下载、OCR 中间产物、向量索引、草稿对比和生成缓存必须放在
 `tmp/`、`_tmp/`、`scratch/`、`.working/` 或 `.cache/` 等已忽略临时目录。
 只有经过复核、标注来源的证据才可以提升进入 Git。
 
 [claim-matrix]: ../../doc/project/005_ai-agent-research-assistant-design/
+[v2-contract]: ../../schemas/007_ai-agent-benchmark-experiment-schema/

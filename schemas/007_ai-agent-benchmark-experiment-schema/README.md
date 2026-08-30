@@ -182,6 +182,20 @@ sealed, and records model, retrieval, evidence, and tool ancestry.
 每次复跑都要使用新上下文，不得读取先前运行输出，保持 gold 封存，并记录
 模型、检索、证据和工具谱系。
 
+The final adjudicator has a separate `adjudicator_runtimes` record. Each
+runtime binds its fresh context, model family, retrieval snapshot, tool
+manifest, sealed-gold state, complete input-run set, and output lock. A runtime
+must not reuse a research-court agent identity or read a prior run output.
+Candidate delivery additionally requires at least one adjudicator model family
+outside the research runs; otherwise the result remains diagnostic or
+withheld.
+
+最终裁决 Agent 使用独立的 `adjudicator_runtimes` 记录。每个运行记录绑定
+全新上下文、模型家族、检索快照、工具 manifest、封存 gold 状态、完整输入
+运行集合和输出锁定。它不得复用研究法庭 Agent 身份，也不得读取先前运行
+输出。候选交付还要求至少有一个裁决模型家族不属于研究运行；否则结果只能
+保持诊断或扣留。
+
 ## Probability And Delivery Gate / 概率与交付门
 
 The numeric probability is a calibrated task probability, not an LLM

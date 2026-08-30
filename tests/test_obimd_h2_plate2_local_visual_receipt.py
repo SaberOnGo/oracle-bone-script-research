@@ -76,7 +76,7 @@ class ObimdH2Plate2LocalVisualReceiptTests(unittest.TestCase):
         item = items["ev-h2-ia-heji-vol1-plate2"]
         self.assertEqual(item["state"], "direct_checked")
         self.assertEqual(item["family_id"], "family-ia-unlicensed-heji-scan")
-        self.assertIn("scan provenance", c1["blocker"])
+        self.assertIn("item-level", c1["blocker"])
         self.assertEqual(c1["delivery_state"], "withhold")
 
         contract = record["claim_recording_contract"]
@@ -85,8 +85,8 @@ class ObimdH2Plate2LocalVisualReceiptTests(unittest.TestCase):
         family_note = contract["evidence_families"][item["family_id"]]
         self.assertIn("not independent", family_note)
         self.assertIn("Internet Archive", contract["shared_ancestor_warning"])
-        self.assertIn("scan provenance", contract["blocker"])
-        self.assertIn("institution-bearing", contract["next_source"])
+        self.assertIn("item-level", contract["blocker"])
+        self.assertIn("14427", contract["next_source"])
 
     def test_per_claim_items_and_families_are_globally_registered(self):
         record = self.record()

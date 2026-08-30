@@ -50,6 +50,8 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
     three oracle-sequence boxes.
 15. Open `94_repeated-sentence-pair-index.csv` for the 12 within-row pairs.
 16. Open `90_source-record.json` and `91_source-record-index.csv` last.
+17. `13_published-reading-history-and-conflict.md`: the published
+    rain-shelter conflict, source ancestry, counterevidence, and falsifiers.
 
 1. `01_object-and-image-routes.md`：对象和图像来源链。
 2. `02_human-inscription-dossier.md`：来源文字和视觉观察。
@@ -68,6 +70,8 @@ CSV. This is a source-record candidate, not a formal `obi-*` record.
 14. 打开 `93_obimd-hd421-occurrence-index.csv` 查看 24 个句框和三个兆序框。
 15. 打开 `94_repeated-sentence-pair-index.csv` 查看 12 个同来源行内配对。
 16. 最后打开 `90_source-record.json` 和 `91_source-record-index.csv`。
+17. `13_published-reading-history-and-conflict.md`：公开“避雨”冲突、
+    来源祖先链、反证和证伪条件。
 
 ## Boundary / 边界
 

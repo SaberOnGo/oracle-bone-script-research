@@ -83,6 +83,58 @@
     "probability_status": "not_displayed_no_task_specific_calibration",
     "decipherment_effect": "none"
   },
+  "published_reading_conflict": {
+    "conflict_id": "hyz421-shin-2013-rain-route",
+    "target_locator": "H3:421",
+    "source_author": "Shin Young-ja",
+    "source_title": "A Study on the Divinatory Inscriptions concerning Lady Fu Hao in the Eastern Huayuanzhuang Oracle Bone Inscriptions",
+    "source_doi": "10.18212/cccs.2013..23.010",
+    "source_url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART001834863",
+    "pdf_url": "https://journal.kci.go.kr/cccs/archive/articlePdf?artiId=ART001834863",
+    "journal": "The Journal of Chinese Cultural Studies, issue 23",
+    "year": 2013,
+    "printed_page": 221,
+    "pdf_page": 7,
+    "source_reported_scope": "being_at_an_untranscribed_place_and_avoiding_rain",
+    "place_graph_status": "specialized_font_not_safely_transcribed",
+    "immediate_claim_ancestor": "Han_Jiangsu_2007_printed_pages_351_353",
+    "deeper_ancestor": "source_edition_and_plate_not_yet_opened",
+    "conflict_with": "Schwartz_2019_HYZ421_two_repeated_ritual_food_entries",
+    "independence_status": "published_reception_route_not_independent_plate_or_reading_witness",
+    "adjudication_status": "high_value_conflict_candidate_pending_primary_source_check",
+    "local_ignored_path": "tmp/source_downloads/dl-kci-shin-2013-hyz421-reading-route-20260830.pdf",
+    "pdf_size_bytes": 803095,
+    "pdf_page_count": 26,
+    "pdf_sha256": "ce7c7bf5fe5f989793c4072f06cce709280b2b27a6260035fa3f995d9254aa0e",
+    "rights_status": "metadata_and_short_paraphrase_only_pdf_not_committed",
+    "semantic_dispute_route": {
+      "author": "Zheng Banghong",
+      "title": "The Ding in yi Ding pin yi need not be deceased",
+      "url": "https://www.fdgwz.org.cn/Web/Show/1770",
+      "reported_positions": "Yao Xuan reads yi as offering viands; Cao Dingyun, Han Jiangsu, and Zheng Banghong treat yi as a sacrifice name with differing syntax",
+      "target_scope": "comparative_not_direct_HYZ421",
+      "claim_effect": "prevents_treating_the_Schwartz_semantic_gloss_as_undisputed"
+    },
+    "access_date": "2026-08-30",
+    "falsifiers": [
+      "Han 2007 uses another object number or corrects 421",
+      "the 2003 source edition contains an additional rain-related line",
+      "the cited numbering differs from Schwartz HYZ 421",
+      "a published correction identifies a typographical or citation error"
+    ],
+    "evidence_states": {
+      "C1": "candidate_route",
+      "C2": "direct_checked",
+      "C3": "not_asserted_not_applicable",
+      "C4": "candidate_route",
+      "C5": "blocked",
+      "C6": "blocked",
+      "C7": "not_applicable_no_diachronic_proposition",
+      "C8": "abstain_withhold"
+    },
+    "probability_status": "not_displayed_no_task_specific_calibration",
+    "decipherment_effect": "none"
+  },
   "image_status": "committed_source_image_with_rights_risk",
   "image_route": {
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ningxia_Museum_Shang_dynasty_turtle_plastron_oracle_bone.jpg",

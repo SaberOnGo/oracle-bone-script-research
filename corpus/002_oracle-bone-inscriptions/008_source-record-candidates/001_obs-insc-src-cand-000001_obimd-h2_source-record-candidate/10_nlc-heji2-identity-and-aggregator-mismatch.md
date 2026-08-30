@@ -52,6 +52,32 @@ source-reported partial transcription:
 图注标为“国图藏甲骨 14427”。正文同时给出上列来源报告残辞。本项目
 不把它改写成项目释文，也不据此直接分配七个字框。
 
+## Custodial publication classification / 保管机构出版物分类
+
+The article is an official custodial publication, not merely a bibliography
+or public aggregator. Its author is Zhao Aixue of the National Library of
+China Ancient Books Library. The institution both holds the object and
+publishes figure 3 with the mapping `NLC 14427` to `Heji 2`.
+
+该文属于保管机构出版物，不只是书目或公共聚合页。作者赵爱学任职于国家
+图书馆古籍馆；该机构既保管实物，又在图 3 中公开 `国图 14427` 与
+`《合集》2` 的对应关系。
+
+This strengthens C1 with an institution-bearing object-image and catalog
+anchor. It does not remove the shared Heji ancestry, and it does not supply a
+stable item-level catalog record, dimensions, or collection history. C1
+therefore remains `candidate_route`.
+
+这为 C1 增加了带机构身份的实物图和著录锚点，但没有消除共享《合集》祖先，
+也没有提供稳定条目页、尺寸或旧藏链。因此 C1 仍为 `candidate_route`。
+
+The National Library copyright statement does not authorize this repository
+to redistribute figure 3. The project records the fact, page locator, checksum,
+author, source, and risk note, but does not commit the image.
+
+国家图书馆版权声明没有授权本仓库再分发图 3。项目记录事实、页码、校验和、
+作者、来源与风险提示，但不提交该图像。
+
 ## Visual comparison / 视觉对照
 
 The National Library figure and OBIMD `rubbing/h00002.jpg` agree on this

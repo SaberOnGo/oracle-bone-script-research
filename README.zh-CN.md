@@ -89,6 +89,9 @@ manifest、解包清单、字段映射、异常、派生路径和复核状态。
 - `doc/project/`：项目边界、来源政策和记录模型。
 - `doc/project/005_ai-agent-research-assistant-design/`：规范性的 AI 候选
   裁决战略。
+- `doc/project/007_architecture-reset-and-human-first-knowledge-base/`：
+  2026-11-01 架构重置：现状诊断、目标架构、档案标准、迁移计划和
+  Agent 日常工作协议。当前阶段的日常工作以此为准。
 - `corpus/`：对象内人类研究档案和辅助文件。
 - `schemas/`：辅助数据的机器可读契约。
 - `tools/`：生成器、校验器、审计和导入工具。

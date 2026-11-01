@@ -39,6 +39,12 @@ This file is the mandatory entry point for AI agents working from a downloaded c
 - When adding a new workflow that creates temporary or generated outputs, update the relevant `.gitignore`, repository validation script, and tests in the same change.
 - 新增会产生临时或生成产物的流程时，必须在同一次修改中更新相关 `.gitignore`、仓库校验脚本和测试。
 
+- Progress is measured only in four units: a character dossier, an inscription record, a sourced claim, or a research case that became more complete. Directory, file, field, index-row, or graph-edge counts are not progress. Do not run batch template generators and do not create more than ten object directories in one change. See `doc/project/007_architecture-reset-and-human-first-knowledge-base/`.
+- 进展只以四种单位衡量：更完整的单字档案、卜辞记录、有来源的主张或研究案件。目录数、文件数、字段数、索引行数、图边数不是进展。不得运行批量模板生成器，一次修改不得新建超过 10 个对象目录。详见 `doc/project/007_architecture-reset-and-human-first-knowledge-base/`。
+
+- One object directory holds one human-readable dossier (`README.md`), one machine record, and assets. Write facts about the object with source marks; do not repeat boundary disclaimers, ID fields, or fixed "pending" sentences. The dossier standard is `doc/project/007_architecture-reset-and-human-first-knowledge-base/03_object-dossier-standard.md`.
+- 一个对象目录只放一份人读档案（`README.md`）、一份机读记录和资产。写关于该对象的带来源事实；不重复边界声明、ID 字段或固定"待查"句。档案标准见 `doc/project/007_architecture-reset-and-human-first-knowledge-base/03_object-dossier-standard.md`。
+
 ## Required Reading / 必读文件
 
 For repository-wide work, read these first:
@@ -53,6 +59,8 @@ For repository-wide work, read these first:
 - `doc/project/001_project-positioning-and-research-boundaries/README.md`
 - `doc/project/002_source-rights-and-provenance-policy/README.md`
 - `doc/project/006_large-source-material-handling/README.md`
+- `doc/project/007_architecture-reset-and-human-first-knowledge-base/README.md`
+- `doc/project/007_architecture-reset-and-human-first-knowledge-base/05_ai-agent-operating-protocol.md`
 - `doc/project/003_record-model-and-id-system/README.md`
 - `skills/README.md`
 - `project_registry/006_large-source-register/README.md`

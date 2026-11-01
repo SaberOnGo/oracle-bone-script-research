@@ -123,6 +123,10 @@ English:
 - `doc/project/`: project boundaries, provenance policy, and record model.
 - `doc/project/005_ai-agent-research-assistant-design/`: normative AI
   candidate adjudication strategy.
+- `doc/project/007_architecture-reset-and-human-first-knowledge-base/`:
+  the 2026-11-01 architecture reset: diagnosis, target architecture,
+  dossier standard, migration plan, and the day-to-day agent protocol
+  that governs current-stage work.
 - `corpus/`: object-local research dossiers and support files.
 - `schemas/`: machine-readable contracts for support data.
 - `tools/`: generators, validators, audits, and import helpers.

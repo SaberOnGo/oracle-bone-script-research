@@ -8,6 +8,12 @@
   adjudication, and delivery.
 - Authority / 权威性: this is the single normative strategy for AI candidate
   adjudication in this repository.
+- Stage note (2026-11-01) / 阶段说明: this document governs the future
+  candidate-delivery stage. Day-to-day knowledge-base work in the current
+  stage follows the [architecture reset][reset] and its agent operating
+  protocol (`05_ai-agent-operating-protocol.md`). 本文件约束未来的候选交付
+  阶段；当前阶段的日常知识库工作以架构重置目录及其 Agent 工作协议
+  为准。
 
 本文件是本仓库关于 AI 假说发现、反证、校准、裁决和交付的唯一规范性
 战略。旧规划可以保留历史背景，但不得静默覆盖本文件。
@@ -1263,6 +1269,7 @@ AI 与用户假说继续放在 `doc/public/user_research/`，已发表研究笔�
 `research/`。`ai_adjudicated_candidate` 不会自动跨越这两个研究区。
 
 [benchmark-v2]: ../../../schemas/007_ai-agent-benchmark-experiment-schema/
+[reset]: ../007_architecture-reset-and-human-first-knowledge-base/
 [current-baseline]: 04_current-operating-baseline-2026-08-30-ihp-anchor.md
 [historical-audit]: 01_current-state-audit-2026-08-14.md
 

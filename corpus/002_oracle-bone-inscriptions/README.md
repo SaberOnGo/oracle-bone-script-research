@@ -302,3 +302,14 @@ committing.
   009_obs-insc-src-cand-000009_met-42022_source-record-candidate/README.md
 [ihp-1222-candidate]: 008_source-record-candidates/
   010_obs-insc-src-cand-000010_ihp-item-1222_source-record-candidate/README.md
+
+## 2026-11-02 折叠 / Collapse
+
+按架构重置第 2 步，612 个 Cambridge Hopkins 著录对照候选目录已折叠回
+`000_inscription-registers/002_cambridge-hopkins-crosswalk-staging.csv`，
+每个 `obs-insc-cw-cand-*` ID 对应其中一行。`008_source-record-candidates/`
+中 10 个有实质内容的卜辞来源记录保留不动。旧目录可从提交
+`4a0fb8acf25` 恢复。
+
+The 612 generated crosswalk directories were collapsed into the crosswalk
+register. The ten substantive source-record candidates in `008_*` remain.

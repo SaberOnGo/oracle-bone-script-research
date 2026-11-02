@@ -70,6 +70,25 @@ because the former validator required every queue file to exist.
 
 Expected result: tracked files drop from 518k to about 45k.
 
+执行记录（2026-11-02，第 2a 步）：
+
+- 折叠 190 个分桶、共 329,575 个文件：EvoBC 13,714 目录、OBIMD 构件
+  2,747 目录、Cambridge 对照 612 目录、码位对照 16 个分桶、主题 20 目录。
+  各对象 ID 仍可经 `project_registry/002_*` 映射到登记表中的一行。
+- 构件目录中唯一的对象特有内容是视觉观察，2,743 条已写入
+  `004_obimd-component-visual-observations.csv`（描述性观察与像素画像）。
+- OBIMD 10,364 张子字形图片按用户决定移到本地忽略区
+  `external_local_archive/obimd-component-images/`，公开仓库不再分发；
+  资产索引、技术画像、视觉画像、资产 ID 映射中的路径已同步更新。
+- 跟踪文件由 517,880 降到约 187,800。
+- 单字合并（第 2b 步）尚未执行：实际单字目录为 10,407 个
+  （999 个已释候选、9,408 个未释候选），每个目录一张本地图片；其中
+  10 个有额外复核文件的目录留给第 5 步人工整理。
+
+Execution record (step 2a): 329,575 files in 190 buckets were collapsed into
+registers; OBIMD images moved to the ignored archive; tracked files dropped
+to about 187,800. Character merging (step 2b) has not run yet.
+
 ## 第 3 步：重构测试 / Restructure Tests
 
 - 按对象编写的测试（`test_obs_char_000963_*`、`test_ihp_*_1216_1217`

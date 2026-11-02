@@ -87,11 +87,21 @@ class ObimdH2SequenceContextEvidenceTests(unittest.TestCase):
         )
         self.assertEqual(rows[-1]["raw_source_field_name"], "transcription_values")
         self.assertEqual(rows[-1]["source_reference_modern_values"], "十一月")
+        # Component candidates were collapsed into registers on 2026-11-02;
+        # each candidate must still map to exactly one register-backed row.
+        id_map = ROOT / (
+            "project_registry/002_project-id-to-source-reference-map/"
+            "004_component-id-source-map.csv"
+        )
+        map_rows = list(csv.DictReader(id_map.read_text(encoding="utf-8-sig").splitlines()))
         for _, uid, _, candidate in EXPECTED:
-            matches = list((ROOT / "corpus" / "003_graphemic-components").glob(
-                f"**/*_{candidate}_obimd-sub-{uid}_component-candidate"
-            ))
-            self.assertEqual(len(matches), 1)
+            matches = [
+                row for row in map_rows
+                if row["project_id"] == candidate
+                and row["primary_external_ref_id"] == f"obimd-sub-{uid}"
+            ]
+            self.assertEqual(len(matches), 1, candidate)
+            self.assertTrue((ROOT / matches[0]["canonical_path"]).is_file())
 
     def test_human_dossier_explains_fields_routes_and_boundaries(self):
         text = DOSSIER.read_text(encoding="utf-8")

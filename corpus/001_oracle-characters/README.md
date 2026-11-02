@@ -123,3 +123,13 @@ unchecked route is not a decipherment conclusion.
 数据集标签、图边、codepoint 匹配、构件路线、后世字形路线和对象
 ID 都只是检索与复核线索。它们不是已接受释读、构件归属、卜辞
 身份、字形对应主张，也不是释读结论。
+
+## 2026-11-02 折叠 / Collapse
+
+按架构重置第 2 步，16 个码位对照分桶（`obs-xwalk-cand-*`）已折叠回
+`000_character-registers/011_hust-obimd-evobc-codepoint-crosswalk-staging.csv`，
+每个 ID 对应其中一行。单字与未释字目录将在下一步合并为一份档案。旧目录
+可从提交 `4a0fb8acf25` 恢复。
+
+The 16 codepoint-crosswalk buckets were collapsed into register `011`.
+Character directories will be merged into single dossiers in the next step.

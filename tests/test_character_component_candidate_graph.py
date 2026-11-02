@@ -107,11 +107,6 @@ class CharacterComponentCandidateGraphTests(unittest.TestCase):
         rebuilt = module.build_edges(crosswalk, main, components, component_map)
         self.assertEqual(rebuilt, self._rows())
 
-    def test_repository_gate_validates_the_component_graph(self):
-        validator = load_skeleton_validator()
-        self.assertEqual(
-            validator.check_character_component_candidate_graph(ROOT), []
-        )
 
     def test_human_component_audit_keeps_candidate_boundary(self):
         human_path = (

@@ -108,11 +108,6 @@ class CharacterInscriptionCandidateGraphTests(unittest.TestCase):
         text = (OBJECT / "README.md").read_text(encoding="utf-8")
         self.assertIn("09_character-inscription-candidate-graph-route.md", text)
 
-    def test_repository_gate_validates_the_candidate_graph(self):
-        validator = load_skeleton_validator()
-        self.assertEqual(
-            validator.check_character_inscription_candidate_graph(ROOT), []
-        )
 
 
 if __name__ == "__main__":

@@ -73,17 +73,6 @@ class Met42045MaterialDossierTests(unittest.TestCase):
         self.assertIn("No project inscription ID", text)
         self.assertIn("scholarly conclusion", text)
 
-    def test_source_queue_points_to_the_new_object_dossier(self):
-        text = QUEUE.read_text(encoding="utf-8")
-        self.assertRegex(
-            text,
-            re.compile(
-                r"055_coll-obj-cand-00055_met-obj-42045_collection-object-.*"
-                r"20_human-material-evidence-dossier\.md",
-                re.DOTALL,
-            ),
-        )
-        self.assertIn("不建立字序或释文", text)
 
     def test_collection_object_hands_off_to_the_two_view_record(self):
         text = CROSSWALK.read_text(encoding="utf-8")

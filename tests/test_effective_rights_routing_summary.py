@@ -42,43 +42,6 @@ class EffectiveRightsRoutingSummaryTests(unittest.TestCase):
             obimd["rights_resolution_ref"],
         )
 
-    def test_context_pack_carries_effective_rights_into_agent_routes(self):
-        stats_module = load_module(
-            "tools/004_statistics-generation/build_source_coverage_statistics.py",
-            "source_coverage_statistics_for_context_rights_test",
-        )
-        context_module = load_module(
-            "tools/005_ai-context-pack-builder/build_source_coverage_context_pack.py",
-            "source_coverage_context_pack_for_effective_rights_test",
-        )
-        context = context_module.build_context_pack(
-            stats_module.build_source_coverage_summary(ROOT)
-        )
-        obimd = next(
-            row
-            for row in context["source_routes"]
-            if row["source_id"] == "src-obimd"
-        )
-
-        self.assertEqual(
-            obimd["effective_rights_status"],
-            "metadata_only_until_verified",
-        )
-        self.assertEqual(
-            obimd["effective_asset_rights_status_counts"],
-            "metadata_only_until_verified:10364",
-        )
-        self.assertEqual(
-            context["coverage"]["effective_rights_status_counts"],
-            {
-                "metadata_only_until_verified": 12,
-                "public_domain_verified": 2,
-                "source_marked_risk_noted": 7,
-            },
-        )
-        rules = " ".join(context["agent_use_rules"])
-        self.assertIn("effective rights status", rules)
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -74,11 +74,6 @@ class Met42022MaterialDossierTests(unittest.TestCase):
         for value in required:
             self.assertIn(value, text)
 
-    def test_source_queue_points_to_the_new_object_dossier(self):
-        text = QUEUE_REVIEW.read_text(encoding="utf-8")
-        self.assertIn("056_coll-obj-cand-00056_met-obj-42022", text)
-        self.assertIn("20_human-material-evidence-dossier.md", text)
-        self.assertIn("does not close", text)
 
     def test_collection_object_hands_off_to_the_two_view_record(self):
         text = CROSSWALK.read_text(encoding="utf-8")

@@ -92,49 +92,6 @@ class CharacterDossierLocalImageTruthTests(unittest.TestCase):
         finally:
             shutil.rmtree("\\\\?\\" + temp_dir)
 
-    def test_repository_gate_rejects_false_local_image_claim(self) -> None:
-        with tempfile.TemporaryDirectory() as temp_dir:
-            root = Path(temp_dir)
-            object_dir = (
-                root
-                / "corpus/001_oracle-characters/001_bucket"
-                / "001_obs-unk-000001_example"
-            )
-            object_dir.mkdir(parents=True)
-            route = (
-                "corpus/001_oracle-characters/001_bucket/"
-                "001_obs-unk-000001_example/03_visual-assets/missing.png"
-            )
-            with (object_dir / "02_visual-source-index.csv").open(
-                "w", encoding="utf-8", newline=""
-            ) as file:
-                writer = csv.DictWriter(file, fieldnames=["committed_image_path"])
-                writer.writeheader()
-                writer.writerow({"committed_image_path": route})
-            dossier = object_dir / "05_human-research-dossier.md"
-            dossier.write_text(
-                "- local image status: `local_file_present`\n"
-                "- glyph image: `local_file_present`\n",
-                encoding="utf-8",
-            )
-
-            issues = (
-                check_repository_skeleton
-                .check_character_dossier_local_image_truth(root)
-            )
-            self.assertEqual(len(issues), 2)
-            self.assertTrue(all("obs-unk-000001" in issue for issue in issues))
-
-            dossier.write_text(
-                "- local image status: `source_route_only_local_file_missing`\n"
-                "- glyph image: `source_route_only_local_file_missing`\n",
-                encoding="utf-8",
-            )
-            self.assertEqual(
-                check_repository_skeleton
-                .check_character_dossier_local_image_truth(root),
-                [],
-            )
 
 
 if __name__ == "__main__":

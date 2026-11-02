@@ -28,6 +28,25 @@ step.
 预期效果：`corpus/009` 从 239 文件降到约 40；`user_research` 只剩
 `001`、`011` 和新建的 `cases/`。
 
+执行记录（2026-11-02，第 1 步与第 3 步合并完成）：
+
+- 删除 `corpus/009` 队列类文件 195 个。按编号区间删除时误伤的 7 个真实
+  统计（`007` 来源覆盖汇总、`186`--`191` 覆盖与 ID 映射审计）已恢复。
+- 删除 `doc/public/user_research/002`--`010` 共 119 个空骨架文件，新建
+  `cases/index.md` 登记 3 个活跃案件。
+- 删除 `tools/005_ai-context-pack-builder/` 全部队列与上下文包生成器，
+  删除 `tools/004` 中只生成队列的 36 个脚本；`tools/002`--`004` 其余脚本
+  标注冻结。
+- 第 3 步提前执行：37,004 行的结构校验脚本重写为约 1,170 行的政策与
+  内容门禁校验（G2、G3、G5、G6、G7、G8、G9、G11），运行约 2 分钟；
+  32,086 行的骨架测试改为 23 个门禁单元测试，运行不到 1 秒。原因是
+  旧校验把每个队列文件写成"必须存在"，不改校验就无法删除任何队列。
+- 其余 128 个测试文件中 7 个各有一个方法依赖已删除的函数或队列文件，
+  已移除这些方法；其余方法检查真实内容，全部保留并通过。
+
+Execution record (2026-11-02): steps 1 and 3 were completed together,
+because the former validator required every queue file to exist.
+
 ## 第 2 步：折叠无内容的生成目录 / Collapse Content-Free Directories
 
 按"按需建目录"规则（`02_target-architecture.md` 第 5 节）处理：

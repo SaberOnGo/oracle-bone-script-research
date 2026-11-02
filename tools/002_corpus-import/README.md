@@ -1,5 +1,11 @@
 # Corpus Import Tools / 语料导入工具
 
+> 冻结 / Frozen (2026-11-02)：按[架构重置][reset-freeze]，本目录的批量
+> 模板生成脚本不得再运行。它们保留只为追溯已有产物的来源。新工作按
+> Agent 工作协议逐个对象完成。
+> Batch template generators in this directory must not be run again. They are
+> kept only to trace how existing outputs were produced.
+
 English:
 These tools turn reviewed source material into preparation records for human
 research. Their purpose is not to make a database first, but to preserve source
@@ -185,3 +191,5 @@ Simplified Chinese:
 修改这些流程后，需要运行仓库 skeleton validator、单元测试和 diff 空白检查。
 如果新增流程会产生临时或生成文件，必须在同一次修改中更新 `.gitignore`、
 validation 和 tests。
+
+[reset-freeze]: ../../doc/project/007_architecture-reset-and-human-first-knowledge-base/

@@ -42,7 +42,8 @@ Use repository tools in this order:
   character-source and cross-source route edges.
 - `004_statistics-generation/` builds statistics for coverage, gaps, and
   review queues.
-- `005_ai-context-pack-builder/` builds AI context-pack support files.
+- `005_ai-context-pack-builder/` was removed on 2026-11-02; it only built AI
+  queues and context packs (recoverable from commit `f8638e9ea77`).
 - [`006_ai-benchmark-pilot/`][benchmark-pilot] freezes real object files and
   seals ignored diagnostic gold, locks external Agent outputs, and scores a
   local diagnostic without authorizing a probability or claim.

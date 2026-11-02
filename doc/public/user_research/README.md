@@ -117,31 +117,24 @@ does not move automatically into `research/`.
 
 ## Current Draft Areas / 当前草稿区
 
-- `001_ai-agent-evidence-packs/`: empty evidence-pack drafts and examples.
-  Sections marked `not_collected` are not evidence.
-- `001_ai-agent-evidence-packs/`：空白证据包草稿和示例。
+- `001_ai-agent-evidence-packs/`: one v1 evidence-pack draft kept as a
+  validator fixture. Sections marked `not_collected` are not evidence.
+- `001_ai-agent-evidence-packs/`：保留一份 v1 证据包草稿，作为校验器样例。
   标记为 `not_collected` 的章节不是证据。
-- `002_cross-source-review-queues/`: empty cross-source review drafts.
-  They route evidence collection but do not promote claims or graph edges.
-- `002_cross-source-review-queues/`：空白交叉来源复核草稿。
-  它们只提供证据路线，不提升主张或图边。
-- `003_evidence-collection-tasks/`: empty evidence-collection notes.
-  They name routes but contain no collected evidence or promotion decision.
-- `003_evidence-collection-tasks/`：空白证据收集记录。
-  它们只标出路线，不包含已收集证据或提升决定。
-- `004_codepoint-crosswalk-review-queues/`: empty HUST, OBIMD, and EvoBC
-  crosswalk reviews. They are not identity or decipherment conclusions.
-- `004_codepoint-crosswalk-review-queues/`：HUST、OBIMD 和 EvoBC 的空白
-  crosswalk 复核。它们不是身份或释读结论。
-- `005_undeciphered-candidate-review-queues/`: empty HUST `obs-unk-*`
-  reviews. They do not assign a reading, component, or formal `obs-char` ID.
-- `005_undeciphered-candidate-review-queues/`：HUST `obs-unk-*` 空白复核。
-  它们不分配释读、构件或正式 `obs-char` ID。
-- `006_undeciphered-candidate-evidence-collection-tasks/`: empty HUST
-  `obs-unk-*` evidence tasks. They remain `not_collected` until reviewed.
-- `006_undeciphered-candidate-evidence-collection-tasks/`：HUST
-  `obs-unk-*` 空白证据任务。复核前保持 `not_collected`。
+- `011_ai-diagnostic-pilot-2026-08-13/`: reviewed v4 diagnostic summary.
+- `011_ai-diagnostic-pilot-2026-08-13/`：已复核的 v4 诊断摘要。
+- `cases/`: research cases and masked-known calibration rounds, created by
+  the [agent operating protocol][protocol].
+- `cases/`：研究案件与已释字盲测记录，按 [Agent 工作协议][protocol] 建立。
 
+On 2026-11-02 the queue directories `002` to `010` were removed. They held
+empty review and evidence-collection scaffolds, not research. They remain
+recoverable from commit `f8638e9ea77`.
+
+2026-11-02 已删除 `002` 至 `010` 队列目录。其中只有空白复核与证据收集
+骨架，不是研究资料；需要时可从提交 `f8638e9ea77` 恢复。
+
+[protocol]: ../../project/007_architecture-reset-and-human-first-knowledge-base/05_ai-agent-operating-protocol.md
 [strategy]: ../../project/005_ai-agent-research-assistant-design/
 [schema-006]: ../../../schemas/006_ai-agent-evidence-pack-schema/
 [schema-007]: ../../../schemas/007_ai-agent-benchmark-experiment-schema/

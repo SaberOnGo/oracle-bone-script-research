@@ -61,11 +61,6 @@ class SmithsonianFscO26MaterialDossierTests(unittest.TestCase):
         for value in required:
             self.assertIn(value, text)
 
-    def test_source_queue_points_to_the_new_object_dossier(self):
-        text = QUEUE_REVIEW.read_text(encoding="utf-8")
-        self.assertIn("053_coll-obj-cand-00053_si-nmaa-fsc-o-26", text)
-        self.assertIn("20_human-material-evidence-dossier.md", text)
-        self.assertIn("does not close", text)
 
 
 if __name__ == "__main__":

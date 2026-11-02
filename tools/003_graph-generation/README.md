@@ -1,5 +1,11 @@
 # Graph Generation Tools / 图谱生成工具
 
+> 冻结 / Frozen (2026-11-02)：按[架构重置][reset-freeze]，本目录的批量
+> 模板生成脚本不得再运行。它们保留只为追溯已有产物的来源。新工作按
+> Agent 工作协议逐个对象完成。
+> Batch template generators in this directory must not be run again. They are
+> kept only to trace how existing outputs were produced.
+
 English:
 These tools generate relationship graph edges for preprocessing review.
 They connect candidate characters, assets, components, inscriptions,
@@ -127,3 +133,5 @@ python tools/validation/check_repository_skeleton.py
 python -m unittest discover -s tests -v
 git diff --check
 ```
+
+[reset-freeze]: ../../doc/project/007_architecture-reset-and-human-first-knowledge-base/

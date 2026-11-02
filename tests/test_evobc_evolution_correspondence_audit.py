@@ -104,17 +104,6 @@ class EvoBCEvolutionCorrespondenceAuditTests(unittest.TestCase):
         self.assertIsNone(data["hypothesis_probability"])
         self.assertTrue(all(len(line) <= 80 for line in text.splitlines()))
 
-    def test_repository_audits_pass(self):
-        validator = load_module(
-            "tools/validation/check_repository_skeleton.py",
-            "repository_skeleton_evobc_audit",
-        )
-        self.assertEqual(
-            validator.check_evobc_evolution_correspondence_graph(ROOT), []
-        )
-        self.assertEqual(
-            validator.check_evobc_evolution_correspondence_audit(ROOT), []
-        )
 
 
 if __name__ == "__main__":
